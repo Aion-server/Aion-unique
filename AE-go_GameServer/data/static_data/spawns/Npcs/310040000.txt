@@ -1,0 +1,6 @@
+# mapid npcid x z y heading
+# Npc spawns by KID
+# Fix by Lamo2k123
+
+# Kimeia
+310040000 204044 272.66403 175.63103 204.34718 0

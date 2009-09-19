@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="npcs.xsd">
+	<npc_template npc_id="200000" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="200001" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="203000" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="203001" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="203152" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>110100296</item>
+			<item>113100276</item>
+			<item>114100294</item>
+			<item>112100256</item>
+			<item>111100277</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="203177" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="1.375">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.8" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000002</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="203988" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>110600336</item>
+			<item>113600308</item>
+			<item>114600307</item>
+			<item>112600301</item>
+			<item>111600316</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="208001" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000299</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="208002" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000299</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="208003" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000299</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="208004" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000299</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="208005" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000299</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="208006" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000299</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="250129" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="5.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="10.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="250130" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="3.17">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="10.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298001" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="24.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298002" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="24.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298004" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="0.9">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298005" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="0.9">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298006" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="0.9">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298007" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="43.92">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298008" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="43.92">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298010" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="1.77">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000005</item>
+			<item>100000006</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="298011" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="0.5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298012" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="0.5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298013" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="24.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298014" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="24.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298015" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="24.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298016" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="24.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298017" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="24.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298018" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298019" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="0.78">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298020" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="1.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="298021" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="1.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+</npc_data>

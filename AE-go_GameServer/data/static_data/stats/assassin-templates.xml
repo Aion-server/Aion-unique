@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
+
+	<player_stats class="ASSASSIN" level="9">
+		<stats_template maxHp="612" maxMp="730"
+		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="204" block="204" parry="204"
+		                main_hand_attack="19" main_hand_accuracy="282" main_hand_crit_rate="3"
+		                magic_accuracy="111" />
+	</player_stats>
+
+	<player_stats class="ASSASSIN" level="10">
+		<stats_template maxHp="670" maxMp="800"
+		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="217" block="217" parry="217"
+		                main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3"
+		                magic_accuracy="124" />
+	</player_stats>
+
+	<player_stats class="ASSASSIN" level="11">
+		<stats_template maxHp="730" maxMp="870"
+		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="229" block="229" parry="229"
+		                main_hand_attack="19" main_hand_accuracy="298" main_hand_crit_rate="3"
+		                magic_accuracy="136" />
+	</player_stats>
+
+	<player_stats class="ASSASSIN" level="12">
+		<stats_template maxHp="793" maxMp="940"
+		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="241" block="241" parry="241"
+		                main_hand_attack="19" main_hand_accuracy="306" main_hand_crit_rate="3"
+		                magic_accuracy="148" />
+	</player_stats>
+
+	<player_stats class="ASSASSIN" level="19">
+		<stats_template maxHp="1288" maxMp="1431"
+		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="328" block="328" parry="328"
+		                main_hand_attack="19" main_hand_accuracy="362" main_hand_crit_rate="3"
+		                magic_accuracy="235" />
+	</player_stats>
+
+	<player_stats class="ASSASSIN" level="22">
+		<stats_template maxHp="1532" maxMp="1642"
+		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="365" block="365" parry="365"
+		                main_hand_attack="19" main_hand_accuracy="386" main_hand_crit_rate="3"
+		                magic_accuracy="272" />
+	</player_stats>
+
+	<player_stats class="ASSASSIN" level="23">
+		<stats_template maxHp="1617" maxMp="1712"
+		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="378" block="378" parry="378"
+		                main_hand_attack="19" main_hand_accuracy="394" main_hand_crit_rate="3"
+		                magic_accuracy="285" />
+	</player_stats>
+
+	<player_stats class="ASSASSIN" level="26">
+		<stats_template maxHp="1885" maxMp="1923"
+		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="415" block="415" parry="415"
+		                main_hand_attack="19" main_hand_accuracy="418" main_hand_crit_rate="3"
+		                magic_accuracy="322" />
+	</player_stats>
+</stats_templates>

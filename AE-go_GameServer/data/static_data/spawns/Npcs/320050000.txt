@@ -1,0 +1,6 @@
+# mapid npcid x z y heading
+# Npc spawns by KID
+# Fix by Lamo2k123
+
+# Hyuirinerk
+320050000 798107 206.21582 305.68588 555.0 0

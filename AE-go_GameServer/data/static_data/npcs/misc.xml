@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="npcs.xsd">
+	<npc_template npc_id="298003" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="20.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+</npc_data>

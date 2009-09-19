@@ -1,0 +1,2121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../npcs.xsd">
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207525" level="20" name_id="389571" npc_type="ATTACKABLE" name="testguard_explosiontrap_30_an" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207526" level="20" name_id="389572" npc_type="ATTACKABLE" name="testguard_holyservant_30_an" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207527" level="20" name_id="389573" npc_type="ATTACKABLE" name="testguard_holyservant2_30_an" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="207528" level="20" name_id="389574" npc_type="ATTACKABLE" name="testguard_icesheet_npc_30_ae" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207539" level="20" name_id="389585" npc_type="ATTACKABLE" name="warp gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207540" level="20" name_id="389586" npc_type="ATTACKABLE" name="warp gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207541" level="20" name_id="389587" npc_type="ATTACKABLE" name="warp gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207542" level="20" name_id="389588" npc_type="ATTACKABLE" name="warp gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207543" level="20" name_id="389589" npc_type="ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207544" level="20" name_id="389590" npc_type="ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207549" level="20" name_id="389595" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207550" level="20" name_id="389596" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207551" level="20" name_id="389597" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207612" level="20" name_id="389658" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207617" level="20" name_id="389663" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207622" level="20" name_id="389668" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207627" level="20" name_id="389673" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207632" level="20" name_id="389678" npc_type="ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207633" level="20" name_id="389679" npc_type="ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207634" level="20" name_id="389680" npc_type="ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207635" level="20" name_id="389681" npc_type="ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207636" level="20" name_id="389682" npc_type="ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207637" level="20" name_id="389683" npc_type="ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207638" level="20" name_id="389684" npc_type="ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207639" level="20" name_id="389685" npc_type="ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207640" level="20" name_id="389686" npc_type="ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207641" level="20" name_id="389687" npc_type="ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207642" level="20" name_id="389688" npc_type="ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207643" level="20" name_id="389689" npc_type="ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207644" level="20" name_id="389690" npc_type="ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207645" level="20" name_id="389691" npc_type="ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207646" level="20" name_id="389692" npc_type="ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207647" level="20" name_id="389693" npc_type="ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207648" level="20" name_id="389694" npc_type="ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207649" level="20" name_id="389695" npc_type="ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207677" level="20" name_id="389699" npc_type="ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207678" level="20" name_id="389700" npc_type="ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207682" level="20" name_id="389704" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207683" level="20" name_id="389705" npc_type="NON_ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207684" level="20" name_id="389706" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207688" level="20" name_id="389710" npc_type="ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207689" level="20" name_id="389711" npc_type="ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207690" level="20" name_id="389712" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207694" level="20" name_id="389716" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207695" level="20" name_id="389717" npc_type="NON_ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207696" level="20" name_id="389718" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207697" level="20" name_id="389719" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207699" level="20" name_id="389721" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207704" level="20" name_id="389726" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207709" level="20" name_id="389731" npc_type="ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207710" level="20" name_id="389732" npc_type="ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="207711" level="20" name_id="389733" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207712" level="20" name_id="389734" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="207717" level="20" name_id="389739" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207722" level="20" name_id="389744" npc_type="ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="207723" level="20" name_id="389745" npc_type="ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="213066" level="20" name_id="308007" npc_type="ATTACKABLE" name="shining malekanimum" height="1.02" ammo_speed="35">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.5" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="213067" level="20" name_id="308008" npc_type="ATTACKABLE" name="shining malekanimum" height="1.02" ammo_speed="35">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.5" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="213068" level="20" name_id="308009" npc_type="ATTACKABLE" name="glittering malekanimum" height="1.02" ammo_speed="35">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.5" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="213070" level="20" name_id="308011" npc_type="ATTACKABLE" name="holy servant amethyst" height="1.02" ammo_speed="35">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.5" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="213071" level="20" name_id="308012" npc_type="ATTACKABLE" name="large holy servant amethyst" height="1.02" ammo_speed="35">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.5" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="213434" level="20" name_id="315303" npc_type="ATTACKABLE" name="vicious energy" height="1.02" ammo_speed="35">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.5" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="213435" level="20" name_id="315304" npc_type="ATTACKABLE" name="vicious energy" height="1.02" ammo_speed="35">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.5" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="213436" level="20" name_id="315305" npc_type="ATTACKABLE" name="vicious energy" height="1.02" ammo_speed="35">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.5" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="213678" level="20" name_id="315674" npc_type="ATTACKABLE" name="naga pr summon: servant" height="1.02" ammo_speed="35">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.5" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="213713" level="20" name_id="315732" npc_type="ATTACKABLE" name="divine araxia" height="1.02" ammo_speed="35">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.5" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="280501" level="20" name_id="307694" npc_type="ATTACKABLE" name="suspicious object" height="0.46">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="280594" level="20" name_id="307944" npc_type="ATTACKABLE" name="bd2_holyservantpurple_30_an" height="1.02" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="5.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="280638" level="20" name_id="315115" npc_type="ATTACKABLE" name="dragon's sacred relic" height="1.02" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="5.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="280639" level="20" name_id="315116" npc_type="ATTACKABLE" name="dragon's sacred relic" height="1.02" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="5.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="280640" level="20" name_id="315117" npc_type="ATTACKABLE" name="dragon's sacred relic" height="1.02" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="5.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="280769" level="20" name_id="316156" npc_type="ATTACKABLE" name="power of yatri" height="1.02" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="5.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="280774" level="20" name_id="316161" npc_type="ATTACKABLE" name="power of exedil" height="1.02" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="5.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="280775" level="20" name_id="316162" npc_type="ATTACKABLE" name="power of exedil" height="1.02" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="5.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="280819" level="20" name_id="317276" npc_type="ATTACKABLE" name="true power of yatri" height="1.02" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="5.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="280820" level="20" name_id="317733" npc_type="NON_ATTACKABLE" name="solorius' soul" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="280821" level="20" name_id="317734" npc_type="NON_ATTACKABLE" name="solorius' soul" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="285174" level="20" name_id="300865" npc_type="NON_ATTACKABLE" name="test_artifactsummoningobject" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="285197" level="20" name_id="300901" npc_type="NON_ATTACKABLE" name="test_artifacteffect_elyos_heal" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="285198" level="20" name_id="300902" npc_type="NON_ATTACKABLE" name="test_artifacteffect_elyos_attack" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="285199" level="20" name_id="300903" npc_type="NON_ATTACKABLE" name="test_artifacteffect_asmodians_heal" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="285200" level="20" name_id="300904" npc_type="NON_ATTACKABLE" name="test_artifacteffect_asmodians_attack" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="286580" level="20" name_id="315483" npc_type="ATTACKABLE" name="vtest_holyservant_amethyst" height="1.02" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.5" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="4.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="290137" level="20" name_id="315822" npc_type="NON_ATTACKABLE" name="fear" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="294563" level="20" name_id="317830" npc_type="NON_ATTACKABLE" name="warrior's soul" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="294564" level="20" name_id="317831" npc_type="NON_ATTACKABLE" name="warrior's soul" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="294706" level="20" name_id="311178" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="294707" level="20" name_id="311179" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="294708" level="20" name_id="311180" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="294718" level="20" name_id="311190" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="294719" level="20" name_id="311191" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="294720" level="20" name_id="311192" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294733" level="20" name_id="311205" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294734" level="20" name_id="311206" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294735" level="20" name_id="311207" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294736" level="20" name_id="311208" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294737" level="20" name_id="311209" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294738" level="20" name_id="311210" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="294739" level="20" name_id="311211" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="294740" level="20" name_id="311212" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="294741" level="20" name_id="311213" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="294751" level="20" name_id="311223" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="294752" level="20" name_id="311224" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="294753" level="20" name_id="311225" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294766" level="20" name_id="311238" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294767" level="20" name_id="311239" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294768" level="20" name_id="311240" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294769" level="20" name_id="311241" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294770" level="20" name_id="311242" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294771" level="20" name_id="311243" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="294772" level="20" name_id="311244" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="294773" level="20" name_id="311245" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="294774" level="20" name_id="311246" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294775" level="20" name_id="311247" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294776" level="20" name_id="311248" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294777" level="20" name_id="311249" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294778" level="20" name_id="311250" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294779" level="20" name_id="311251" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294780" level="20" name_id="311252" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="294892" level="20" name_id="312018" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="294893" level="20" name_id="312019" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="294894" level="20" name_id="312020" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="294998" level="20" name_id="392044" npc_type="NON_ATTACKABLE" name="automatic siege cannon" height="1.02" ammo_speed="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/siege -->
+	<npc_template npc_id="294999" level="20" name_id="392045" npc_type="NON_ATTACKABLE" name="small multiple fire cannon" height="1.02" ammo_speed="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="295000" level="20" name_id="392044" npc_type="NON_ATTACKABLE" name="automatic siege cannon" height="1.02" ammo_speed="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/siege -->
+	<npc_template npc_id="295001" level="20" name_id="392045" npc_type="NON_ATTACKABLE" name="small multiple fire cannon" height="1.02" ammo_speed="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="295074" level="20" name_id="312150" npc_type="NON_ATTACKABLE" name="ice sheet" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="295075" level="20" name_id="312150" npc_type="NON_ATTACKABLE" name="ice sheet" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="295076" level="20" name_id="312150" npc_type="NON_ATTACKABLE" name="ice sheet" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295122" level="20" name_id="312212" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295123" level="20" name_id="312213" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295124" level="20" name_id="312214" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295125" level="20" name_id="312215" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295126" level="20" name_id="312216" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295127" level="20" name_id="312217" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="295130" level="20" name_id="315691" npc_type="NON_ATTACKABLE" name="flame meteorite" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="295131" level="20" name_id="311179" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295135" level="20" name_id="311191" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="295140" level="20" name_id="311206" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="295141" level="20" name_id="311209" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="295142" level="20" name_id="311212" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295146" level="20" name_id="311224" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="295151" level="20" name_id="311239" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="295152" level="20" name_id="311242" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="295153" level="20" name_id="311245" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="295154" level="20" name_id="311248" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="295155" level="20" name_id="311251" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="295159" level="20" name_id="392049" npc_type="NON_ATTACKABLE" name="howitzer" height="1.02" ammo_speed="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="295160" level="20" name_id="392049" npc_type="NON_ATTACKABLE" name="howitzer" height="1.02" ammo_speed="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/siege -->
+	<npc_template npc_id="295173" level="20" name_id="392050" npc_type="NON_ATTACKABLE" name="medium multiple fire cannon" height="1.02" ammo_speed="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/siege -->
+	<npc_template npc_id="295174" level="20" name_id="392050" npc_type="NON_ATTACKABLE" name="medium multiple fire cannon" height="1.02" ammo_speed="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/siege -->
+	<npc_template npc_id="295175" level="20" name_id="392051" npc_type="NON_ATTACKABLE" name="large multiple fire cannon" height="1.02" ammo_speed="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/siege -->
+	<npc_template npc_id="295176" level="20" name_id="392051" npc_type="NON_ATTACKABLE" name="large multiple fire cannon" height="1.02" ammo_speed="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="295184" level="20" name_id="312263" npc_type="NON_ATTACKABLE" name="despawn after spawning" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295212" level="20" name_id="312018" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295213" level="20" name_id="312019" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295214" level="20" name_id="312020" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295215" level="20" name_id="312212" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295216" level="20" name_id="312213" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295217" level="20" name_id="312214" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295218" level="20" name_id="312215" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295219" level="20" name_id="312216" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="295220" level="20" name_id="312217" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296052" level="20" name_id="312018" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296053" level="20" name_id="312019" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296054" level="20" name_id="312020" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296055" level="20" name_id="312212" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296056" level="20" name_id="312213" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296057" level="20" name_id="312214" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296058" level="20" name_id="312215" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296059" level="20" name_id="312216" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296060" level="20" name_id="312217" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="296061" level="20" name_id="311179" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296065" level="20" name_id="311191" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="296070" level="20" name_id="311206" npc_type="ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="296071" level="20" name_id="311209" npc_type="ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="296072" level="20" name_id="311212" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296076" level="20" name_id="311224" npc_type="ATTACKABLE" name="illusion gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="296081" level="20" name_id="311239" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="296082" level="20" name_id="311242" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="296083" level="20" name_id="311245" npc_type="NON_ATTACKABLE" name="explosion trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="296084" level="20" name_id="311248" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="296085" level="20" name_id="311251" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296238" level="20" name_id="312739" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gate" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296239" level="20" name_id="312740" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="296240" level="20" name_id="312741" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gate_lv50" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296241" level="20" name_id="312742" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_lv50" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296242" level="20" name_id="312770" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_30d" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296243" level="20" name_id="312771" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_60d" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296244" level="20" name_id="312772" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_90d" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296245" level="20" name_id="312773" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_120d" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296246" level="20" name_id="312774" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_150d" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296247" level="20" name_id="312775" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_180d" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296248" level="20" name_id="312776" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_210d" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296249" level="20" name_id="312777" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_240d" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296250" level="20" name_id="312778" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_270d" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296251" level="20" name_id="312779" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_300d" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296252" level="20" name_id="312780" npc_type="NON_ATTACKABLE" name="bab1_guard_bal_carrierdrop_gatesummon_330d" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="296346" level="20" name_id="311248" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="296436" level="20" name_id="317877" npc_type="NON_ATTACKABLE" name="energy of time immemorial" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296439" level="20" name_id="317880" npc_type="NON_ATTACKABLE" name="counter-aether crystal" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296440" level="20" name_id="317881" npc_type="NON_ATTACKABLE" name="counter-aether crystal" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_objects/noshownpc -->
+	<npc_template npc_id="700325" level="20" name_id="371009" npc_type="NON_ATTACKABLE" name="magic flame circle" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749000" level="20" name_id="350074" npc_type="NON_ATTACKABLE" name="summon ball lightning" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749001" level="20" name_id="350076" npc_type="NON_ATTACKABLE" name="summon: dancing daggers" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749002" level="20" name_id="350078" npc_type="NON_ATTACKABLE" name="chain skill 1:summon massive lightning" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749003" level="20" name_id="350080" npc_type="NON_ATTACKABLE" name="summon infinite blade" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/flameshower -->
+	<npc_template npc_id="749004" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/flameshower -->
+	<npc_template npc_id="749005" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749006" level="20" name_id="350064" npc_type="NON_ATTACKABLE" name="symbol of solidity" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749007" level="20" name_id="350065" npc_type="NON_ATTACKABLE" name="symbol of protection" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749008" level="20" name_id="350066" npc_type="NON_ATTACKABLE" name="symbol of spirit" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749009" level="20" name_id="350067" npc_type="NON_ATTACKABLE" name="symbol of recovery" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749010" level="20" name_id="350070" npc_type="NON_ATTACKABLE" name="protect symbol" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749011" level="20" name_id="350085" npc_type="NON_ATTACKABLE" name="symbol of castle wall" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749012" level="20" name_id="350059" npc_type="NON_ATTACKABLE" name="trap of explosion" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749013" level="20" name_id="350060" npc_type="NON_ATTACKABLE" name="spiderweb trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749014" level="20" name_id="350061" npc_type="NON_ATTACKABLE" name="swamp trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749015" level="20" name_id="350062" npc_type="NON_ATTACKABLE" name="flame trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749016" level="20" name_id="350063" npc_type="NON_ATTACKABLE" name="trap: paralyze" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="749017" level="20" name_id="350086" npc_type="NON_ATTACKABLE" name="illusion gate" height="1.8" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749018" level="20" name_id="350059" npc_type="NON_ATTACKABLE" name="trap of explosion" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749019" level="20" name_id="350059" npc_type="NON_ATTACKABLE" name="trap of explosion" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749020" level="20" name_id="350059" npc_type="NON_ATTACKABLE" name="trap of explosion" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749021" level="20" name_id="350059" npc_type="NON_ATTACKABLE" name="trap of explosion" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/flameshower -->
+	<npc_template npc_id="749022" level="20" name_id="392035" npc_type="NON_ATTACKABLE" name="fire storm" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/flameshower -->
+	<npc_template npc_id="749023" level="20" name_id="392035" npc_type="NON_ATTACKABLE" name="fire storm" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749024" level="20" name_id="350074" npc_type="NON_ATTACKABLE" name="summon ball lightning" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749025" level="20" name_id="350074" npc_type="NON_ATTACKABLE" name="summon ball lightning" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749026" level="20" name_id="350074" npc_type="NON_ATTACKABLE" name="summon ball lightning" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749027" level="20" name_id="350074" npc_type="NON_ATTACKABLE" name="summon ball lightning" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749028" level="20" name_id="350074" npc_type="NON_ATTACKABLE" name="summon ball lightning" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749029" level="20" name_id="350074" npc_type="NON_ATTACKABLE" name="summon ball lightning" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/flameshower -->
+	<npc_template npc_id="749030" level="20" name_id="392035" npc_type="NON_ATTACKABLE" name="fire storm" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/flameshower -->
+	<npc_template npc_id="749031" level="20" name_id="392035" npc_type="NON_ATTACKABLE" name="fire storm" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749032" level="20" name_id="350059" npc_type="NON_ATTACKABLE" name="trap of explosion" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749033" level="20" name_id="350059" npc_type="NON_ATTACKABLE" name="trap of explosion" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749034" level="20" name_id="392025" npc_type="NON_ATTACKABLE" name="trap: sandstorm" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749035" level="20" name_id="392025" npc_type="NON_ATTACKABLE" name="trap: sandstorm" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749036" level="20" name_id="392025" npc_type="NON_ATTACKABLE" name="trap: sandstorm" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749037" level="20" name_id="392025" npc_type="NON_ATTACKABLE" name="trap: sandstorm" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749038" level="20" name_id="392026" npc_type="NON_ATTACKABLE" name="trap: thornburst" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749039" level="20" name_id="392026" npc_type="NON_ATTACKABLE" name="trap: thornburst" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749040" level="20" name_id="392027" npc_type="NON_ATTACKABLE" name="trap of silence" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749041" level="20" name_id="392027" npc_type="NON_ATTACKABLE" name="trap of silence" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749042" level="20" name_id="392000" npc_type="NON_ATTACKABLE" name="spirit of earth" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749043" level="20" name_id="392001" npc_type="NON_ATTACKABLE" name="gust servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749044" level="20" name_id="392001" npc_type="NON_ATTACKABLE" name="gust servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749045" level="20" name_id="392001" npc_type="NON_ATTACKABLE" name="gust servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749046" level="20" name_id="392002" npc_type="NON_ATTACKABLE" name="energy of land" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749047" level="20" name_id="392002" npc_type="NON_ATTACKABLE" name="energy of land" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749048" level="20" name_id="392003" npc_type="NON_ATTACKABLE" name="wind servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749049" level="20" name_id="392003" npc_type="NON_ATTACKABLE" name="wind servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749050" level="20" name_id="392003" npc_type="NON_ATTACKABLE" name="wind servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749051" level="20" name_id="392000" npc_type="NON_ATTACKABLE" name="spirit of earth" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749052" level="20" name_id="392001" npc_type="NON_ATTACKABLE" name="gust servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749053" level="20" name_id="392001" npc_type="NON_ATTACKABLE" name="gust servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749054" level="20" name_id="392001" npc_type="NON_ATTACKABLE" name="gust servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749055" level="20" name_id="392002" npc_type="NON_ATTACKABLE" name="energy of land" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749056" level="20" name_id="392002" npc_type="NON_ATTACKABLE" name="energy of land" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749057" level="20" name_id="392003" npc_type="NON_ATTACKABLE" name="wind servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749058" level="20" name_id="392003" npc_type="NON_ATTACKABLE" name="wind servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749059" level="20" name_id="392003" npc_type="NON_ATTACKABLE" name="wind servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749060" level="20" name_id="392004" npc_type="NON_ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749061" level="20" name_id="392004" npc_type="NON_ATTACKABLE" name="divine crusader" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749062" level="20" name_id="392005" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749063" level="20" name_id="392005" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749064" level="20" name_id="392005" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749065" level="20" name_id="392005" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749066" level="20" name_id="392005" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749067" level="20" name_id="392005" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749068" level="20" name_id="392006" npc_type="NON_ATTACKABLE" name="gorgon" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749069" level="20" name_id="392006" npc_type="NON_ATTACKABLE" name="gorgon" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749070" level="20" name_id="392007" npc_type="NON_ATTACKABLE" name="trap: shock" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749071" level="20" name_id="392008" npc_type="NON_ATTACKABLE" name="spike bite trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749072" level="20" name_id="392009" npc_type="NON_ATTACKABLE" name="trap: spike" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749073" level="20" name_id="392009" npc_type="NON_ATTACKABLE" name="trap: spike" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749074" level="20" name_id="392009" npc_type="NON_ATTACKABLE" name="trap: spike" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749075" level="20" name_id="392026" npc_type="NON_ATTACKABLE" name="trap: thornburst" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749076" level="20" name_id="392007" npc_type="NON_ATTACKABLE" name="trap: shock" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749077" level="20" name_id="392008" npc_type="NON_ATTACKABLE" name="spike bite trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749078" level="20" name_id="392009" npc_type="NON_ATTACKABLE" name="trap: spike" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749079" level="20" name_id="392009" npc_type="NON_ATTACKABLE" name="trap: spike" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749080" level="20" name_id="392009" npc_type="NON_ATTACKABLE" name="trap: spike" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749081" level="20" name_id="392026" npc_type="NON_ATTACKABLE" name="trap: thornburst" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="749083" level="20" name_id="350086" npc_type="NON_ATTACKABLE" name="illusion gate" height="1.8" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="749084" level="20" name_id="392036" npc_type="NON_ATTACKABLE" name="ice sheet" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="749085" level="20" name_id="392036" npc_type="NON_ATTACKABLE" name="ice sheet" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749086" level="20" name_id="392011" npc_type="NON_ATTACKABLE" name="snare trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749087" level="20" name_id="392011" npc_type="NON_ATTACKABLE" name="snare trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749088" level="20" name_id="392011" npc_type="NON_ATTACKABLE" name="snare trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749089" level="20" name_id="392011" npc_type="NON_ATTACKABLE" name="snare trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749090" level="20" name_id="392007" npc_type="NON_ATTACKABLE" name="trap: shock" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749091" level="20" name_id="392007" npc_type="NON_ATTACKABLE" name="trap: shock" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749092" level="20" name_id="392009" npc_type="NON_ATTACKABLE" name="trap: spike" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749093" level="20" name_id="392009" npc_type="NON_ATTACKABLE" name="trap: spike" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749094" level="20" name_id="392026" npc_type="NON_ATTACKABLE" name="trap: thornburst" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749095" level="20" name_id="392026" npc_type="NON_ATTACKABLE" name="trap: thornburst" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749096" level="20" name_id="392008" npc_type="NON_ATTACKABLE" name="spike bite trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749097" level="20" name_id="392008" npc_type="NON_ATTACKABLE" name="spike bite trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749098" level="20" name_id="392005" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749099" level="20" name_id="392005" npc_type="NON_ATTACKABLE" name="divine energy" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="749100" level="20" name_id="392036" npc_type="NON_ATTACKABLE" name="ice sheet" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="749101" level="20" name_id="392036" npc_type="NON_ATTACKABLE" name="ice sheet" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749102" level="20" name_id="392000" npc_type="NON_ATTACKABLE" name="spirit of earth" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749103" level="20" name_id="392000" npc_type="NON_ATTACKABLE" name="spirit of earth" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749104" level="20" name_id="392003" npc_type="NON_ATTACKABLE" name="wind servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749105" level="20" name_id="392003" npc_type="NON_ATTACKABLE" name="wind servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749106" level="20" name_id="392006" npc_type="NON_ATTACKABLE" name="gorgon" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749107" level="20" name_id="392006" npc_type="NON_ATTACKABLE" name="gorgon" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749108" level="20" name_id="392001" npc_type="NON_ATTACKABLE" name="gust servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749109" level="20" name_id="392001" npc_type="NON_ATTACKABLE" name="gust servant" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="5.9" run_speed_fight="5.9" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749114" level="20" name_id="392020" npc_type="NON_ATTACKABLE" name="prayer of darkness" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749115" level="20" name_id="392021" npc_type="NON_ATTACKABLE" name="caltrop trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749116" level="20" name_id="392022" npc_type="NON_ATTACKABLE" name="trap of thorn storm" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749117" level="20" name_id="392023" npc_type="NON_ATTACKABLE" name="trap of heaven's judgement" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="749124" level="20" name_id="392037" npc_type="NON_ATTACKABLE" name="ice wave" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="749125" level="20" name_id="392038" npc_type="NON_ATTACKABLE" name="lava wave" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="749126" level="20" name_id="392039" npc_type="NON_ATTACKABLE" name="sulfur mist" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="749131" level="20" name_id="392033" npc_type="NON_ATTACKABLE" name="gap of light" height="1.8" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/groupgate -->
+	<npc_template npc_id="749132" level="20" name_id="392034" npc_type="NON_ATTACKABLE" name="rift of darkness" height="1.8" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749133" level="20" name_id="392040" npc_type="NON_ATTACKABLE" name="energy of fire" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749134" level="20" name_id="392040" npc_type="NON_ATTACKABLE" name="energy of fire" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749135" level="20" name_id="392040" npc_type="NON_ATTACKABLE" name="energy of fire" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749136" level="20" name_id="392040" npc_type="NON_ATTACKABLE" name="energy of fire" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749137" level="20" name_id="392040" npc_type="NON_ATTACKABLE" name="energy of fire" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749138" level="20" name_id="392040" npc_type="NON_ATTACKABLE" name="energy of fire" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749139" level="20" name_id="392041" npc_type="NON_ATTACKABLE" name="energy of water" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749140" level="20" name_id="392041" npc_type="NON_ATTACKABLE" name="energy of water" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749141" level="20" name_id="392011" npc_type="NON_ATTACKABLE" name="snare trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749142" level="20" name_id="392011" npc_type="NON_ATTACKABLE" name="snare trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749143" level="20" name_id="392042" npc_type="NON_ATTACKABLE" name="poisoning trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749144" level="20" name_id="392042" npc_type="NON_ATTACKABLE" name="poisoning trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749145" level="20" name_id="392042" npc_type="NON_ATTACKABLE" name="poisoning trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749146" level="20" name_id="392042" npc_type="NON_ATTACKABLE" name="poisoning trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749147" level="20" name_id="392042" npc_type="NON_ATTACKABLE" name="poisoning trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749148" level="20" name_id="392042" npc_type="NON_ATTACKABLE" name="poisoning trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749149" level="20" name_id="392043" npc_type="NON_ATTACKABLE" name="trap of clairvoyance" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749150" level="20" name_id="392043" npc_type="NON_ATTACKABLE" name="trap of clairvoyance" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749151" level="20" name_id="392040" npc_type="NON_ATTACKABLE" name="energy of fire" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749152" level="20" name_id="392002" npc_type="NON_ATTACKABLE" name="energy of land" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749153" level="20" name_id="392041" npc_type="NON_ATTACKABLE" name="energy of water" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749154" level="20" name_id="392040" npc_type="NON_ATTACKABLE" name="energy of fire" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749155" level="20" name_id="392002" npc_type="NON_ATTACKABLE" name="energy of land" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/balllightning -->
+	<npc_template npc_id="749156" level="20" name_id="392041" npc_type="NON_ATTACKABLE" name="energy of water" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="10.0" run_speed_fight="10.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749157" level="20" name_id="392011" npc_type="NON_ATTACKABLE" name="snare trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749158" level="20" name_id="392011" npc_type="NON_ATTACKABLE" name="snare trap" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="749159" level="20" name_id="392036" npc_type="NON_ATTACKABLE" name="ice sheet" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="749160" level="20" name_id="392036" npc_type="NON_ATTACKABLE" name="ice sheet" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749161" level="20" name_id="392046" npc_type="NON_ATTACKABLE" name="trap of destruction" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749162" level="20" name_id="392046" npc_type="NON_ATTACKABLE" name="trap of destruction" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749163" level="20" name_id="392046" npc_type="NON_ATTACKABLE" name="trap of destruction" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/trap -->
+	<npc_template npc_id="749164" level="20" name_id="392046" npc_type="NON_ATTACKABLE" name="trap of destruction" height="3.0" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+</npc_data>

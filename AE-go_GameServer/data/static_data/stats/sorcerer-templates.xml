@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
+
+	<player_stats class="SORCERER" level="10">
+		<stats_template maxHp="387" maxMp="1320"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="186" block="186" parry="186"
+		                main_hand_attack="16" main_hand_accuracy="270" main_hand_crit_rate="2"
+		                magic_accuracy="124" />
+	</player_stats>
+
+	<player_stats class="SORCERER" level="11">
+		<stats_template maxHp="424" maxMp="1425"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="198" block="198" parry="198"
+		                main_hand_attack="16" main_hand_accuracy="278" main_hand_crit_rate="2"
+		                magic_accuracy="136" />
+	</player_stats>
+
+	<player_stats class="SORCERER" level="12">
+		<stats_template maxHp="462" maxMp="1531"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="210" block="210" parry="210"
+		                main_hand_attack="16" main_hand_accuracy="286" main_hand_crit_rate="2"
+		                magic_accuracy="148" />
+	</player_stats>
+
+	<player_stats class="SORCERER" level="13">
+		<stats_template maxHp="502" maxMp="1636"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="223" block="223" parry="223"
+		                main_hand_attack="16" main_hand_accuracy="294" main_hand_crit_rate="2"
+		                magic_accuracy="161" />
+	</player_stats>
+
+	<player_stats class="SORCERER" level="17">
+		<stats_template maxHp="672" maxMp="2057"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="272" block="272" parry="272"
+		                main_hand_attack="16" main_hand_accuracy="326" main_hand_crit_rate="2"
+		                magic_accuracy="210" />
+	</player_stats>
+
+	<player_stats class="SORCERER" level="22">
+		<stats_template maxHp="914" maxMp="2583"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="334" block="334" parry="334"
+		                main_hand_attack="16" main_hand_accuracy="366" main_hand_crit_rate="2"
+		                magic_accuracy="272" />
+	</player_stats>
+
+	<player_stats class="SORCERER" level="29">
+		<stats_template maxHp="1305" maxMp="3321"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="421" block="421" parry="421"
+		                main_hand_attack="16" main_hand_accuracy="422" main_hand_crit_rate="2"
+		                magic_accuracy="359" />
+	</player_stats>
+</stats_templates>

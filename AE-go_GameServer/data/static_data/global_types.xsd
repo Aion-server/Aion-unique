@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- Base types -->
+	<xs:simpleType name="playerClass">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="WARRIOR" />
+			<xs:enumeration value="GLADIATOR" />
+			<xs:enumeration value="TEMPLAR" />
+			<xs:enumeration value="SCOUT" />
+			<xs:enumeration value="ASSASSIN" />
+			<xs:enumeration value="RANGER" />
+			<xs:enumeration value="MAGE" />
+			<xs:enumeration value="SORCERER" />
+			<xs:enumeration value="SPIRIT_MASTER" />
+			<xs:enumeration value="PRIEST" />
+			<xs:enumeration value="CLERIC" />
+			<xs:enumeration value="CHANTER" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="startingPlayerClass">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="WARRIOR" />
+			<xs:enumeration value="SCOUT" />
+			<xs:enumeration value="MAGE" />
+			<xs:enumeration value="PRIEST" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="playerRace">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ELYOS" />
+			<xs:enumeration value="ASMODIAN" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>

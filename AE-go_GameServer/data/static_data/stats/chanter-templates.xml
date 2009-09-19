@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
+
+	<player_stats class="CHANTER" level="10">
+		<stats_template maxHp="688" maxMp="1320"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="155" block="155" parry="155"
+		                main_hand_attack="19" main_hand_accuracy="250" main_hand_crit_rate="1"
+		                magic_accuracy="124" />
+	</player_stats>
+
+	<player_stats class="CHANTER" level="33">
+		<stats_template maxHp="2602" maxMp="3743"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="440" block="440" parry="440"
+		                main_hand_attack="19" main_hand_accuracy="434" main_hand_crit_rate="1"
+		                magic_accuracy="409" />
+	</player_stats>
+
+	<player_stats class="CHANTER" level="34">
+		<stats_template maxHp="2710" maxMp="3848"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="452" block="452" parry="452"
+		                main_hand_attack="19" main_hand_accuracy="442" main_hand_crit_rate="1"
+		                magic_accuracy="421" />
+	</player_stats>
+</stats_templates>

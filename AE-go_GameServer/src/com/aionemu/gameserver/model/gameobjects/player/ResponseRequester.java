@@ -1,0 +1,101 @@
+/*
+ * This file is part of aion-emu <aion-emu.com>.
+ *
+ *  aion-emu is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  aion-emu is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package com.aionemu.gameserver.model.gameobjects.player;
+
+import java.util.HashMap;
+import org.apache.log4j.Logger;
+
+import com.aionemu.commons.callbacks.EnhancedObject;
+import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
+
+/**
+ * Manages the asking of and responding to <tt>SM_QUESTION_WINDOW</tt>
+ * 
+ * @author Ben
+ *
+ */
+public class ResponseRequester
+{
+	private Player									player;
+	private HashMap<Integer,RequestResponseHandler>	map 	= new HashMap<Integer, RequestResponseHandler>();
+	private static Logger							log		= Logger.getLogger(ResponseRequester.class);
+	
+	public ResponseRequester(Player player)
+	{
+		this.player = player;
+		
+		((EnhancedObject)player).addCallback(new PlayerLoggedOutListener() {
+			
+			@Override
+			protected void onLoggedOut(Player player)
+			{
+				//Deny any pending requests to this player on logout
+				denyAll();
+				
+			}
+		});
+	}
+	
+	/**
+	 * Adds this handler to this messageID, returns false if there already exists one
+	 * @param messageId ID of the request message
+	 * @return 
+	 */
+	public synchronized boolean putRequest(int messageId, RequestResponseHandler handler)
+	{
+		if (map.containsKey(messageId))
+			return false;
+
+		map.put(messageId, handler);
+		return true;
+	}
+	
+	/**
+	 * Responds to the given message ID with the given response
+	 * Returns success
+	 * @param messageId
+	 * @param response
+	 * @return Success
+	 */
+	public synchronized boolean respond(int messageId, int response)
+	{
+		RequestResponseHandler handler = map.get(messageId);
+		if (handler != null)
+		{
+			map.remove(messageId);
+			log.debug("RequestResponseHandler triggered for response code " + messageId + " from " + player.getName());
+			handler.handle(player, response);
+			return true;
+		}
+		return false;
+	}
+	
+	
+	/**
+	 * Automatically responds 0 to all requests, passing the given player as the responder
+	 */
+	public synchronized void denyAll()
+	{
+		
+		for (RequestResponseHandler handler : map.values())
+		{
+			handler.handle(player, 0);
+		}
+		
+		map.clear();
+	}
+}

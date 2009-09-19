@@ -1,0 +1,1277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="npcs.xsd">
+	<npc_template npc_id="201047" level="20" name_id="392016" npc_type="ATTACKABLE" name="mosbear" height="3.01">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.3" walk_speed_fight="0.0" run_speed="7.5" run_speed_fight="5.4" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="201048" level="20" name_id="392017" npc_type="ATTACKABLE" name="ettin" height="1.1">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.8" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="202500" level="20" name_id="350204" npc_type="ATTACKABLE" name="mau" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="8.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="202501" level="20" name_id="350204" npc_type="ATTACKABLE" name="mau" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="8.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="202512" level="20" name_id="353348" npc_type="ATTACKABLE" name="alquimia lepharist" height="1.7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.4" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="202513" level="20" name_id="353349" npc_type="ATTACKABLE" name="mine lepharist" height="1.85">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="203176" level="20" name_id="351061" npc_type="ATTACKABLE" name="krall warrior" height="2.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="4.5" run_speed_fight="4.5" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000004</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="203537" level="20" name_id="352223" npc_type="ATTACKABLE" name="strange ribbit" height="0.7" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="203538" level="20" name_id="352224" npc_type="ATTACKABLE" name="cute ribbit" height="0.7" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="203638" level="20" name_id="352234" npc_type="ATTACKABLE" name="captured mosbear" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.7" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="204026" level="20" name_id="351829" npc_type="ATTACKABLE" name="jewel box" height="1.34" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="4.2" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="204027" level="20" name_id="351830" npc_type="ATTACKABLE" name="jewel box" height="0.64" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="204028" level="20" name_id="351831" npc_type="ATTACKABLE" name="griffonix of fire" height="1.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.6" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="204029" level="20" name_id="351832" npc_type="ATTACKABLE" name="dancing feather" height="0.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.5" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="204046" level="20" name_id="351845" npc_type="ATTACKABLE" name="kaidan watchtower guard" height="2.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="7.6" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000003</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="204260" level="20" name_id="352517" npc_type="ATTACKABLE" name="mau shaman" height="2.0" talking_distance="5" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="8.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101500011</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="204410" level="20" name_id="353133" npc_type="ATTACKABLE" name="sacred chalice protector" height="1.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000015</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="204417" level="20" name_id="353141" npc_type="ATTACKABLE" name="white brow taiga" height="1.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.2" walk_speed_fight="0.0" run_speed="9.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="207000" level="20" name_id="300413" npc_type="ATTACKABLE" name="outsider fungy" height="0.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.2" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.3" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="207001" level="20" name_id="355020" npc_type="ATTACKABLE" name="shapechangepretor" height="2.58">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="207006" level="20" name_id="355022" npc_type="ATTACKABLE" name="elyos phantom" height="1.88">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.2" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000015</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="210358" level="20" name_id="300488" npc_type="ATTACKABLE" name="spore-infected fungy" height="0.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.2" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="210360" level="20" name_id="300491" npc_type="ATTACKABLE" name="transforming plumis" height="0.9">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.6" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="210596" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="1.01">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="211043" level="20" name_id="355006" npc_type="ATTACKABLE" name="orissa of horror" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100900013</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="211643" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="211644" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="211802" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="211822" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="1.01">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="211855" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="211856" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="211857" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="211858" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="211859" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="211860" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="211861" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212135" level="20" name_id="304814" npc_type="ATTACKABLE" name="polymorphfungus" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="5.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212332" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212333" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212334" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212335" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212336" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212337" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212338" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212339" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212340" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212928" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212929" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212930" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212931" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212932" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212933" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212934" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212935" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212936" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212937" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212938" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212939" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212940" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212941" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212942" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212943" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212944" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212945" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212946" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212947" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212948" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212949" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212950" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212951" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212952" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212953" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212954" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="212955" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213904" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213905" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213906" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213918" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213919" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213920" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213921" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213922" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213923" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213924" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213925" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="213926" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214024" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214025" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214132" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214133" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214134" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214135" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214136" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214137" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214138" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214139" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214140" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214141" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214142" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214143" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214144" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214145" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214146" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214147" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214148" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214149" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214150" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214151" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214152" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214153" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="214154" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="254570" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="254571" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="254572" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="254573" level="20" name_id="392052" npc_type="ATTACKABLE" name="treasure box" height="0.64">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280056" level="20" name_id="300496" npc_type="ATTACKABLE" name="slime" height="1.1">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.6" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280100" level="20" name_id="300832" npc_type="ATTACKABLE" name="pandoragolem fragment" height="3.19">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280184" level="20" name_id="303262" npc_type="ATTACKABLE" name="strange obstacle" height="0.46">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280185" level="20" name_id="303263" npc_type="ATTACKABLE" name="strange obstacle" height="0.46">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280197" level="20" name_id="303840" npc_type="ATTACKABLE" name="parasitic clodworm" height="0.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.2" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280262" level="20" name_id="304088" npc_type="ATTACKABLE" name="summoned pretor" height="1.87">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280558" level="20" name_id="307903" npc_type="ATTACKABLE" name="xipetoa" height="2.34">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.4" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280625" level="20" name_id="315102" npc_type="ATTACKABLE" name="clone" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.8" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700015</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="280626" level="20" name_id="315103" npc_type="ATTACKABLE" name="clone" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.8" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700015</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="280627" level="20" name_id="315104" npc_type="ATTACKABLE" name="clone" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.8" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700015</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="280710" level="20" name_id="315865" npc_type="ATTACKABLE" name="inauspicious aetheric stone" height="1.7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280711" level="20" name_id="315866" npc_type="ATTACKABLE" name="sad aetheric stone" height="1.7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280718" level="20" name_id="316103" npc_type="ATTACKABLE" name="runt-in-training" height="1.4">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.6" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="4.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280734" level="20" name_id="316119" npc_type="ATTACKABLE" name="slave of soul" height="1.9">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.8" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280736" level="20" name_id="316121" npc_type="ATTACKABLE" name="parasitic clodworm-needing-extermination" height="0.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.2" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="280740" level="20" name_id="316126" npc_type="ATTACKABLE" name="eager-to-grow-plant" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.3" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="285140" level="20" name_id="300495" npc_type="ATTACKABLE" name="dispelling test" height="1.1">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.6" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="285141" level="20" name_id="300498" npc_type="ATTACKABLE" name="kobold soldier" height="1.375">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.8" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000021</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="285142" level="20" name_id="300499" npc_type="ATTACKABLE" name="krall warrior" height="2.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.0" walk_speed_fight="0.0" run_speed="7.6" run_speed_fight="5.5" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000003</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="285143" level="20" name_id="300500" npc_type="ATTACKABLE" name="krall captain" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="3.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000001</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="285975" level="20" name_id="304190" npc_type="ATTACKABLE" name="trap" height="1.1" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="285976" level="20" name_id="304191" npc_type="ATTACKABLE" name="powerful trap" height="1.1" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="285977" level="20" name_id="304192" npc_type="ATTACKABLE" name="shapemandurit" height="1.18" ammo_speed="25">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="2.7" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700016</item>
+			<item>163050006</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="285978" level="20" name_id="304193" npc_type="ATTACKABLE" name="shapepretor" height="2.58">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.0" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="286079" level="20" name_id="304955" npc_type="ATTACKABLE" name="shapechangezombie" height="1.1">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.8" walk_speed_fight="0.0" run_speed="7.6" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="286081" level="20" name_id="305157" npc_type="ATTACKABLE" name="drakan paladin" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="8.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="286082" level="20" name_id="305158" npc_type="ATTACKABLE" name="drakan sword sorcerer" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="8.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="286084" level="20" name_id="305569" npc_type="ATTACKABLE" name="drakan sword ranger" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="8.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="286088" level="20" name_id="305158" npc_type="ATTACKABLE" name="drakan sword sorcerer" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="8.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="286089" level="20" name_id="305666" npc_type="ATTACKABLE" name="drakan spiritmaster assassin" height="2.3" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="8.0" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="286162" level="20" name_id="306147" npc_type="ATTACKABLE" name="polymushroomshellizard" height="1.43">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.5" walk_speed_fight="0.0" run_speed="8.9" run_speed_fight="6.5" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="294781" level="20" name_id="311253" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="294782" level="20" name_id="311254" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="294783" level="20" name_id="311255" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="294784" level="20" name_id="311256" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="294785" level="20" name_id="311257" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="294786" level="20" name_id="311258" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="294787" level="20" name_id="311259" npc_type="ATTACKABLE" name="earth spirit" height="3.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="294788" level="20" name_id="311260" npc_type="ATTACKABLE" name="earth spirit" height="3.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="294789" level="20" name_id="311261" npc_type="ATTACKABLE" name="earth spirit" height="3.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="294888" level="20" name_id="311999" npc_type="ATTACKABLE" name="guardian deity general guard fighter" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="294889" level="20" name_id="312000" npc_type="ATTACKABLE" name="guardian deity general guard archer" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700300</item>
+			<item>163050009</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="294890" level="20" name_id="312001" npc_type="ATTACKABLE" name="guardian deity general guard mage" height="2.3" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100500284</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="294891" level="20" name_id="312002" npc_type="ATTACKABLE" name="guardian deity general guard priest" height="2.5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295117" level="20" name_id="312207" npc_type="ATTACKABLE" name="guardian deity general veteran guard fighter" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100900014</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295118" level="20" name_id="312208" npc_type="ATTACKABLE" name="guardian deity general veteran guard archer" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700300</item>
+			<item>163050009</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295119" level="20" name_id="312209" npc_type="ATTACKABLE" name="guardian deity general veteran guard bladesman" height="2.25">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>100000027</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295120" level="20" name_id="312210" npc_type="ATTACKABLE" name="guardian deity general veteran guard mage" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295121" level="20" name_id="312211" npc_type="ATTACKABLE" name="guardian deity general veteran guard priest" height="2.5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101500287</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295156" level="20" name_id="311254" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="295157" level="20" name_id="311257" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="295158" level="20" name_id="311260" npc_type="ATTACKABLE" name="earth spirit" height="3.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="295179" level="20" name_id="312256" npc_type="ATTACKABLE" name="spirit of kistenian" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="295180" level="20" name_id="312257" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="8.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="295195" level="20" name_id="312207" npc_type="ATTACKABLE" name="guardian deity general veteran guard fighter" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100900014</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295196" level="20" name_id="312208" npc_type="ATTACKABLE" name="guardian deity general veteran guard archer" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700300</item>
+			<item>163050009</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295197" level="20" name_id="312209" npc_type="ATTACKABLE" name="guardian deity general veteran guard bladesman" height="2.25">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>100000027</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295198" level="20" name_id="312210" npc_type="ATTACKABLE" name="guardian deity general veteran guard mage" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295199" level="20" name_id="312211" npc_type="ATTACKABLE" name="guardian deity general veteran guard priest" height="2.5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101500287</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295208" level="20" name_id="311999" npc_type="ATTACKABLE" name="guardian deity general guard fighter" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295209" level="20" name_id="312000" npc_type="ATTACKABLE" name="guardian deity general guard archer" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700300</item>
+			<item>163050009</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295210" level="20" name_id="312001" npc_type="ATTACKABLE" name="guardian deity general guard mage" height="2.3" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100500284</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="295211" level="20" name_id="312002" npc_type="ATTACKABLE" name="guardian deity general guard priest" height="2.5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296035" level="20" name_id="312207" npc_type="ATTACKABLE" name="guardian deity general veteran guard fighter" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100900014</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296036" level="20" name_id="312208" npc_type="ATTACKABLE" name="guardian deity general veteran guard archer" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700300</item>
+			<item>163050009</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296037" level="20" name_id="312209" npc_type="ATTACKABLE" name="guardian deity general veteran guard bladesman" height="2.25">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>100000027</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296038" level="20" name_id="312210" npc_type="ATTACKABLE" name="guardian deity general veteran guard mage" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296039" level="20" name_id="312211" npc_type="ATTACKABLE" name="guardian deity general veteran guard priest" height="2.5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101500287</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296048" level="20" name_id="311999" npc_type="ATTACKABLE" name="guardian deity general guard fighter" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296049" level="20" name_id="312000" npc_type="ATTACKABLE" name="guardian deity general guard archer" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700300</item>
+			<item>163050009</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296050" level="20" name_id="312001" npc_type="ATTACKABLE" name="guardian deity general guard mage" height="2.3" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100500284</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296051" level="20" name_id="312002" npc_type="ATTACKABLE" name="guardian deity general guard priest" height="2.5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296086" level="20" name_id="311254" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="296087" level="20" name_id="311257" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="296088" level="20" name_id="311260" npc_type="ATTACKABLE" name="earth spirit" height="3.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="296347" level="20" name_id="311254" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="296348" level="20" name_id="311257" npc_type="ATTACKABLE" name="fire spirit" height="3.05">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="296349" level="20" name_id="311260" npc_type="ATTACKABLE" name="earth spirit" height="3.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="296401" level="20" name_id="317842" npc_type="ATTACKABLE" name="guardian deity general veteran guard fighter" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100900014</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296402" level="20" name_id="317843" npc_type="ATTACKABLE" name="guardian deity general veteran guard archer" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700300</item>
+			<item>163050009</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296403" level="20" name_id="317844" npc_type="ATTACKABLE" name="guardian deity general veteran guard bladesman" height="2.25">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>100000027</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296404" level="20" name_id="317845" npc_type="ATTACKABLE" name="guardian deity general veteran guard mage" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296405" level="20" name_id="317846" npc_type="ATTACKABLE" name="guardian deity general veteran guard priest" height="2.5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101500287</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296416" level="20" name_id="317857" npc_type="ATTACKABLE" name="guardian deity general elite guard fighter" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100900014</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296417" level="20" name_id="317858" npc_type="ATTACKABLE" name="guardian deity general elite guard archer" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700300</item>
+			<item>163050009</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296418" level="20" name_id="317859" npc_type="ATTACKABLE" name="guardian deity general elite guard bladesman" height="2.25">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>100000027</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296419" level="20" name_id="317860" npc_type="ATTACKABLE" name="guardian deity general elite guard mage" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296420" level="20" name_id="317861" npc_type="ATTACKABLE" name="guardian deity general elite guard priest" height="2.5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101500287</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296431" level="20" name_id="317872" npc_type="ATTACKABLE" name="guardian deity general experienced guard fighter" height="2.3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100900014</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296432" level="20" name_id="317873" npc_type="ATTACKABLE" name="guardian deity general experienced guard archer" height="2.25" ammo_speed="50">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101700300</item>
+			<item>163050009</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296433" level="20" name_id="317874" npc_type="ATTACKABLE" name="guardian deity general experienced guard bladesman" height="2.25">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>100000027</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296434" level="20" name_id="317875" npc_type="ATTACKABLE" name="guardian deity general experienced guard mage" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000027</item>
+			<item>115000108</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296435" level="20" name_id="317876" npc_type="ATTACKABLE" name="guardian deity general experienced guard priest" height="2.5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="7.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>101500287</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296441" level="20" name_id="317882" npc_type="ATTACKABLE" name="ereshkigal first guardian deity general" height="22.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000039</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="296442" level="20" name_id="317883" npc_type="ATTACKABLE" name="balaur guardian deity general 5 force" height="22.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>100000039</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="749112" level="20" name_id="392016" npc_type="ATTACKABLE" name="mosbear" height="3.01">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.3" walk_speed_fight="0.0" run_speed="7.5" run_speed_fight="5.4" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+	<npc_template npc_id="749113" level="20" name_id="392017" npc_type="ATTACKABLE" name="ettin" height="1.1">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.8" walk_speed_fight="0.0" run_speed="7.0" run_speed_fight="6.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+</npc_data>

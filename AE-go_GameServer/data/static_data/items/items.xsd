@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="item_data" type="itemData" />
+
+	<xs:complexType name="itemData">
+		<xs:sequence>
+			<xs:element name="item" type="itemTemplate" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="itemTemplate">
+		<xs:attribute name="item_id" type="itemId" use="required" />
+		<xs:attribute name="target_slot" type="itemSlot" />
+	</xs:complexType>
+
+	<xs:simpleType name="itemSlot">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MAIN_HAND" />
+			<xs:enumeration value="OFF_HAND" />
+			<xs:enumeration value="HELMET" />
+			<xs:enumeration value="TORSO" />
+			<xs:enumeration value="GLOVES" />
+			<xs:enumeration value="BOOTS" />
+			<xs:enumeration value="EARRINGS_LEFT" />
+			<xs:enumeration value="EARRINGS_RIGHT" />
+			<xs:enumeration value="RING_LEFT" />
+			<xs:enumeration value="RING_RIGHT" />
+			<xs:enumeration value="NECKLACE" />
+			<xs:enumeration value="PAULDRON" />
+			<xs:enumeration value="PANTS" />
+			<xs:enumeration value="POWER_SHARD_RIGHT" />
+			<xs:enumeration value="POWER_SHARD_LEFT" />
+			<xs:enumeration value="WINGS" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="itemId">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="100000000"/>
+			<xs:maxInclusive value="200000000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>
+

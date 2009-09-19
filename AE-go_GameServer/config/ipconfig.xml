@@ -1,0 +1,35 @@
+<!--
+  ~ This file is part of aion-emu <aion-emu.com>.
+  ~
+  ~ aion-emu is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-emu is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<!--
+    File that is responsible for network address mapping.
+    We can have any number of ip ranges mapped to various network interfaces
+    Useful for those who run server in local areas with two (or more) networks
+-->
+
+<ipconfig default="127.0.0.1">
+
+    <!--
+        IANA-reserved private IPv4 network ranges
+        Access only from local networks, external client can't have any of
+        the following ip addresses
+     -->
+    <iprange min="10.0.0.0" max="10.255.255.255" address="10.0.0.0"/>
+    <iprange min="172.16.0.0" max="172.31.255.255" address="172.16.0.0"/>
+    <iprange min="192.168.0.0" max="192.168.255.255" address="192.168.0.0"/>
+
+</ipconfig>

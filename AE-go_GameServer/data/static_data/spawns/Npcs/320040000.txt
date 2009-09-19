@@ -1,0 +1,6 @@
+# mapid npcid x z y heading
+# Npc spawns by KID
+# Fix by Lamo2k123
+
+# Kargate
+320040000 204432 272.82886 176.81439 204.34718 0

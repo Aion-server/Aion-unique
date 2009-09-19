@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
+
+	<player_stats class="SPIRIT_MASTER" level="10">
+		<stats_template maxHp="423" maxMp="1350"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="186" block="186" parry="186"
+		                main_hand_attack="16" main_hand_accuracy="270" main_hand_crit_rate="2"
+		                magic_accuracy="124" />
+	</player_stats>
+
+	<player_stats class="SPIRIT_MASTER" level="11">
+		<stats_template maxHp="463" maxMp="1455"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="198" block="198" parry="198"
+		                main_hand_attack="16" main_hand_accuracy="278" main_hand_crit_rate="2"
+		                magic_accuracy="136" />
+	</player_stats>
+
+	<player_stats class="SPIRIT_MASTER" level="12">
+		<stats_template maxHp="504" maxMp="1561"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="210" block="210" parry="210"
+		                main_hand_attack="16" main_hand_accuracy="286" main_hand_crit_rate="2"
+		                magic_accuracy="148" />
+	</player_stats>
+
+	<player_stats class="SPIRIT_MASTER" level="13">
+		<stats_template maxHp="548" maxMp="1666"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="223" block="223" parry="223"
+		                main_hand_attack="16" main_hand_accuracy="294" main_hand_crit_rate="2"
+		                magic_accuracy="161" />
+	</player_stats>
+</stats_templates>

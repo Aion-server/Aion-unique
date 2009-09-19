@@ -1,0 +1,6 @@
+# mapid npcid x z y heading
+# Npc spawns by KID
+# Fix by Lamo2k123
+
+# Icaronix
+310060000 205110 1875.3131 634.126 1192.0 0

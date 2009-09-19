@@ -1,0 +1,1383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../npcs.xsd">
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="250092" level="20" name_id="314317" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="250093" level="20" name_id="314317" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="279000" level="20" name_id="314006" npc_type="NON_ATTACKABLE" name="triminos" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- monster/level_object/training_sandbag1 -->
+	<npc_template npc_id="285355" level="20" name_id="302606" npc_type="NON_ATTACKABLE" name="bdf1_npc_basfeltvillagetarget" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/direct_potal -->
+	<npc_template npc_id="294615" level="20" name_id="350802" npc_type="NON_ATTACKABLE" name="rift" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/scroll_lehpar -->
+	<npc_template npc_id="700007" level="20" name_id="350706" npc_type="NON_ATTACKABLE" name="lepharist's secret letter" height="0.7" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/scroll_lehpar -->
+	<npc_template npc_id="700009" level="20" name_id="350709" npc_type="NON_ATTACKABLE" name="suspicious document" height="0.7" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/scroll_lehpar -->
+	<npc_template npc_id="700010" level="20" name_id="350781" npc_type="NON_ATTACKABLE" name="lepharist operation order" height="0.7" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700012" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700013" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700014" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700015" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700016" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700017" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700018" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700019" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700020" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700021" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700022" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700023" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700024" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700025" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700026" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700027" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/scarecrow -->
+	<npc_template npc_id="700028" level="20" name_id="350711" npc_type="NON_ATTACKABLE" name="scarecrow" height="2.6" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/parrot_talking -->
+	<npc_template npc_id="700029" level="20" name_id="350712" npc_type="NON_ATTACKABLE" name="gossiper jin" height="0.05" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/bone_piles -->
+	<npc_template npc_id="700049" level="20" name_id="350809" npc_type="NON_ATTACKABLE" name="small bone pile" height="2.0" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/fuming_pot -->
+	<npc_template npc_id="700050" level="20" name_id="350810" npc_type="NON_ATTACKABLE" name="small incense burner" height="2.0" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/cart -->
+	<npc_template npc_id="700053" level="20" name_id="350731" npc_type="NON_ATTACKABLE" name="suspicious wagon" height="2.0" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/glass_bottle2 -->
+	<npc_template npc_id="700058" level="20" name_id="350812" npc_type="NON_ATTACKABLE" name="liquor bottle" height="2.0" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700062" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700063" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700064" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700065" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700066" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700067" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700068" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700080" level="20" name_id="350844" npc_type="NON_ATTACKABLE" name="poeta abyss gate" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700084" level="20" name_id="350850" npc_type="NON_ATTACKABLE" name="ishalgen abyss gate" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700088" level="20" name_id="350852" npc_type="NON_ATTACKABLE" name="verteron abyss gate" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700089" level="20" name_id="350853" npc_type="NON_ATTACKABLE" name="altgard abyss gate" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/abyss_debris -->
+	<npc_template npc_id="700091" level="20" name_id="350742" npc_type="NON_ATTACKABLE" name="abyss fragment" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/abyss_sticky -->
+	<npc_template npc_id="700092" level="20" name_id="350743" npc_type="NON_ATTACKABLE" name="abyss fungus" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/zenkaka_totem -->
+	<npc_template npc_id="700099" level="20" name_id="350750" npc_type="NON_ATTACKABLE" name="totem of zemurru" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/training_sandbag1 -->
+	<npc_template npc_id="700100" level="20" name_id="350751" npc_type="NON_ATTACKABLE" name="training dummy" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/training_sandbag2 -->
+	<npc_template npc_id="700101" level="20" name_id="350751" npc_type="NON_ATTACKABLE" name="training dummy" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/training_sandbag1 -->
+	<npc_template npc_id="700102" level="20" name_id="350751" npc_type="NON_ATTACKABLE" name="training dummy" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/training_sandbag2 -->
+	<npc_template npc_id="700103" level="20" name_id="350751" npc_type="NON_ATTACKABLE" name="training dummy" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/bee_hive -->
+	<npc_template npc_id="700104" level="20" name_id="350752" npc_type="NON_ATTACKABLE" name="df1 fake box" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone_user -->
+	<npc_template npc_id="700118" level="20" name_id="350916" npc_type="NON_ATTACKABLE" name="portable kisk" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone_user -->
+	<npc_template npc_id="700119" level="20" name_id="350916" npc_type="NON_ATTACKABLE" name="portable kisk" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone_user -->
+	<npc_template npc_id="700120" level="20" name_id="350916" npc_type="NON_ATTACKABLE" name="portable kisk" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone_user -->
+	<npc_template npc_id="700121" level="20" name_id="350916" npc_type="NON_ATTACKABLE" name="portable kisk" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/training_sandbag1 -->
+	<npc_template npc_id="700130" level="20" name_id="350751" npc_type="NON_ATTACKABLE" name="training dummy" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/training_sandbag2 -->
+	<npc_template npc_id="700131" level="20" name_id="350751" npc_type="NON_ATTACKABLE" name="training dummy" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/training_sandbag1 -->
+	<npc_template npc_id="700132" level="20" name_id="350751" npc_type="NON_ATTACKABLE" name="training dummy" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/training_sandbag2 -->
+	<npc_template npc_id="700133" level="20" name_id="350751" npc_type="NON_ATTACKABLE" name="training dummy" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/cart -->
+	<npc_template npc_id="700135" level="20" name_id="350780" npc_type="NON_ATTACKABLE" name="lepharist escort wagon" height="3.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/scroll_lehpar -->
+	<npc_template npc_id="700136" level="20" name_id="350709" npc_type="NON_ATTACKABLE" name="suspicious document" height="0.7" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/direct_potal -->
+	<npc_template npc_id="700137" level="20" name_id="350802" npc_type="NON_ATTACKABLE" name="rift" height="2.0" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/direct_potal -->
+	<npc_template npc_id="700138" level="20" name_id="350802" npc_type="NON_ATTACKABLE" name="rift" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700141" level="20" name_id="355001" npc_type="NON_ATTACKABLE" name="abyss gate" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700143" level="20" name_id="355003" npc_type="NON_ATTACKABLE" name="abyss gate" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/planting_site -->
+	<npc_template npc_id="700164" level="20" name_id="350791" npc_type="NON_ATTACKABLE" name="fertile soil" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/wooden_box -->
+	<npc_template npc_id="700165" level="20" name_id="350791" npc_type="NON_ATTACKABLE" name="fertile soil" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/wooden_box -->
+	<npc_template npc_id="700166" level="20" name_id="350791" npc_type="NON_ATTACKABLE" name="fertile soil" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/wooden_box -->
+	<npc_template npc_id="700167" level="20" name_id="350791" npc_type="NON_ATTACKABLE" name="fertile soil" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/wooden_box -->
+	<npc_template npc_id="700168" level="20" name_id="350792" npc_type="NON_ATTACKABLE" name="sheluk spawner" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/neut_spawner -->
+	<npc_template npc_id="700169" level="20" name_id="350793" npc_type="NON_ATTACKABLE" name="klaw spawner" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/corpse -->
+	<npc_template npc_id="700172" level="20" name_id="350797" npc_type="NON_ATTACKABLE" name="philipemos' corpse" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/breakable_jail -->
+	<npc_template npc_id="700176" level="20" name_id="350801" npc_type="NON_ATTACKABLE" name="wooden prison" height="5.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700177" level="20" name_id="350843" npc_type="NON_ATTACKABLE" name="eltnen abyss gate" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/door -->
+	<npc_template npc_id="700180" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700183" level="20" name_id="350851" npc_type="NON_ATTACKABLE" name="morheim abyss gate" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700184" level="20" name_id="350777" npc_type="NON_ATTACKABLE" name="dimension exit" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700185" level="20" name_id="350777" npc_type="NON_ATTACKABLE" name="dimension exit" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700186" level="20" name_id="350777" npc_type="NON_ATTACKABLE" name="dimension exit" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700187" level="20" name_id="350777" npc_type="NON_ATTACKABLE" name="dimension exit" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/neut_spawner -->
+	<npc_template npc_id="700190" level="20" name_id="371054" npc_type="NON_ATTACKABLE" name="queen klaw's egg" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/frillfaimam_egg -->
+	<npc_template npc_id="700192" level="20" name_id="350856" npc_type="NON_ATTACKABLE" name="kakuna egg" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/moogle_cart -->
+	<npc_template npc_id="700197" level="20" name_id="350821" npc_type="NON_ATTACKABLE" name="bio experiment device" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/obelisk -->
+	<npc_template npc_id="700208" level="20" name_id="350832" npc_type="NON_ATTACKABLE" name="balaur aetheric field stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/neut_spawner -->
+	<npc_template npc_id="700209" level="20" name_id="371055" npc_type="NON_ATTACKABLE" name="klaw spawner" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="700212" level="20" name_id="0" npc_type="NON_ATTACKABLE" name="null" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700213" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/rpdmexlivingbody -->
+	<npc_template npc_id="700216" level="20" name_id="350841" npc_type="NON_ATTACKABLE" name="research center experiment building" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/corpse -->
+	<npc_template npc_id="700218" level="20" name_id="350846" npc_type="NON_ATTACKABLE" name="fallen lapontos" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/rpdmexlivingbody -->
+	<npc_template npc_id="700219" level="20" name_id="350847" npc_type="NON_ATTACKABLE" name="lepharist research facility" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/obelisk -->
+	<npc_template npc_id="700220" level="20" name_id="350849" npc_type="NON_ATTACKABLE" name="balaur guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="700230" level="20" name_id="350999" npc_type="NON_ATTACKABLE" name="stolen book" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700231" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700232" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/corpse -->
+	<npc_template npc_id="700233" level="20" name_id="350878" npc_type="NON_ATTACKABLE" name="pagimkin's corpse" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/breakable_jail -->
+	<npc_template npc_id="700234" level="20" name_id="350879" npc_type="NON_ATTACKABLE" name="crude prison" height="7.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tube -->
+	<npc_template npc_id="700242" level="20" name_id="350888" npc_type="NON_ATTACKABLE" name="stigma crystal" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/neut_spawner -->
+	<npc_template npc_id="700244" level="20" name_id="371056" npc_type="NON_ATTACKABLE" name="wriggling klaw spawner" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/neut_spawner -->
+	<npc_template npc_id="700245" level="20" name_id="371057" npc_type="NON_ATTACKABLE" name="wriggling klaw spawner" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/neut_spawner -->
+	<npc_template npc_id="700248" level="20" name_id="371058" npc_type="NON_ATTACKABLE" name="wriggling klaw spawner" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/neut_spawner -->
+	<npc_template npc_id="700249" level="20" name_id="371059" npc_type="NON_ATTACKABLE" name="wriggling klaw spawner" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/lycan_flag -->
+	<npc_template npc_id="700250" level="20" name_id="350892" npc_type="NON_ATTACKABLE" name="ice claw flag" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700255" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700256" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700257" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700258" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700259" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700260" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700261" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/web -->
+	<npc_template npc_id="700262" level="20" name_id="350899" npc_type="NON_ATTACKABLE" name="spiderweb" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/breakable_jail -->
+	<npc_template npc_id="700263" level="20" name_id="350900" npc_type="NON_ATTACKABLE" name="shabby prison" height="5.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/box -->
+	<npc_template npc_id="700265" level="20" name_id="350902" npc_type="NON_ATTACKABLE" name="stigma storage" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/stone_coffin -->
+	<npc_template npc_id="700270" level="20" name_id="350913" npc_type="NON_ATTACKABLE" name="empty stone coffin" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700271" level="20" name_id="350914" npc_type="NON_ATTACKABLE" name="heiron dimension" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone_portable -->
+	<npc_template npc_id="700273" level="20" name_id="350991" npc_type="NON_ATTACKABLE" name="elyos small kisk" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone_portable -->
+	<npc_template npc_id="700274" level="20" name_id="350992" npc_type="NON_ATTACKABLE" name="elyos medium kisk" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone_portable -->
+	<npc_template npc_id="700275" level="20" name_id="350993" npc_type="NON_ATTACKABLE" name="elyos large kisk" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone_portable -->
+	<npc_template npc_id="700276" level="20" name_id="371076" npc_type="NON_ATTACKABLE" name="asmodian small kisk" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone_portable -->
+	<npc_template npc_id="700277" level="20" name_id="371077" npc_type="NON_ATTACKABLE" name="asmodian medium kisk" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone_portable -->
+	<npc_template npc_id="700278" level="20" name_id="371078" npc_type="NON_ATTACKABLE" name="asmodian large kisk" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700282" level="20" name_id="350930" npc_type="NON_ATTACKABLE" name="obelisk of curse" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tube -->
+	<npc_template npc_id="700289" level="20" name_id="350963" npc_type="NON_ATTACKABLE" name="research test tube" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/obelisk -->
+	<npc_template npc_id="700290" level="20" name_id="350964" npc_type="NON_ATTACKABLE" name="aetheric field observatory weakening device" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/obelisk -->
+	<npc_template npc_id="700291" level="20" name_id="350964" npc_type="NON_ATTACKABLE" name="aetheric field observatory weakening device" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/obelisk -->
+	<npc_template npc_id="700292" level="20" name_id="350964" npc_type="NON_ATTACKABLE" name="aetheric field observatory weakening device" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700297" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700298" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700299" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700300" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700301" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/hugo_rock -->
+	<npc_template npc_id="700329" level="20" name_id="371012" npc_type="NON_ATTACKABLE" name="huge rock" height="12.0" talking_distance="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/trolldewlling -->
+	<npc_template npc_id="700333" level="20" name_id="371016" npc_type="NON_ATTACKABLE" name="troll's house" height="15.0" talking_distance="40">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/corpse -->
+	<npc_template npc_id="700339" level="20" name_id="371022" npc_type="NON_ATTACKABLE" name="shugo's corpse" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/planting_site -->
+	<npc_template npc_id="700340" level="20" name_id="371025" npc_type="NON_ATTACKABLE" name="earth mound" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700343" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="700344" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/obelisk -->
+	<npc_template npc_id="700345" level="20" name_id="371030" npc_type="NON_ATTACKABLE" name="lepharist abyss supply passage" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/obelisk -->
+	<npc_template npc_id="700346" level="20" name_id="371031" npc_type="NON_ATTACKABLE" name="lepharist abyss deployment passage" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/powerplant -->
+	<npc_template npc_id="700349" level="20" name_id="371036" npc_type="NON_ATTACKABLE" name="research center power generator" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700360" level="20" name_id="371075" npc_type="NON_ATTACKABLE" name="heiron abyss gate" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/dragonportal -->
+	<npc_template npc_id="700361" level="20" name_id="371070" npc_type="NON_ATTACKABLE" name="indratu legion abyss gate" height="2.0" talking_distance="7">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="700363" level="20" name_id="371039" npc_type="NON_ATTACKABLE" name="research center journal" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/statue -->
+	<npc_template npc_id="730000" level="20" name_id="350715" npc_type="NON_ATTACKABLE" name="headless stone statue" height="2.5" talking_distance="3">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/scarecrow -->
+	<npc_template npc_id="730001" level="20" name_id="351091" npc_type="NON_ATTACKABLE" name="nola" height="2.6" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="730002" level="20" name_id="350772" npc_type="NON_ATTACKABLE" name="zone to zone teleport of sanctum" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="730003" level="20" name_id="350773" npc_type="NON_ATTACKABLE" name="zone to zone teleport of poeta" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="730004" level="20" name_id="350774" npc_type="NON_ATTACKABLE" name="zone to zone teleport of verteron" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="730005" level="20" name_id="350775" npc_type="NON_ATTACKABLE" name="zone to zone teleport of eltnen" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="730006" level="20" name_id="350776" npc_type="NON_ATTACKABLE" name="zone to zone teleport of heiron" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730007" level="20" name_id="351089" npc_type="NON_ATTACKABLE" name="forest protector noah" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_immobile -->
+	<npc_template npc_id="730008" level="20" name_id="351090" npc_type="NON_ATTACKABLE" name="daminu" height="8.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730009" level="20" name_id="351121" npc_type="NON_ATTACKABLE" name="protector of daminu" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730010" level="20" name_id="351122" npc_type="NON_ATTACKABLE" name="sleeping elder" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/statue -->
+	<npc_template npc_id="730011" level="20" name_id="351092" npc_type="NON_ATTACKABLE" name="niobus" height="2.6" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730012" level="20" name_id="351075" npc_type="NON_ATTACKABLE" name="elote" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730013" level="20" name_id="351132" npc_type="NON_ATTACKABLE" name="mileno" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730014" level="20" name_id="351133" npc_type="NON_ATTACKABLE" name="alrunta" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730019" level="20" name_id="351826" npc_type="NON_ATTACKABLE" name="lodas" height="8.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730020" level="20" name_id="351827" npc_type="NON_ATTACKABLE" name="demro" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730021" level="20" name_id="351828" npc_type="NON_ATTACKABLE" name="virdi" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730022" level="20" name_id="351833" npc_type="NON_ATTACKABLE" name="biadri" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730023" level="20" name_id="351834" npc_type="NON_ATTACKABLE" name="zelaka" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_immobile -->
+	<npc_template npc_id="730024" level="20" name_id="351959" npc_type="NON_ATTACKABLE" name="trajanus" height="8.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730025" level="20" name_id="351960" npc_type="NON_ATTACKABLE" name="terba" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730026" level="20" name_id="351961" npc_type="NON_ATTACKABLE" name="mersephon" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730027" level="20" name_id="351965" npc_type="NON_ATTACKABLE" name="prangos" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730028" level="20" name_id="351966" npc_type="NON_ATTACKABLE" name="sarumok" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730030" level="20" name_id="352017" npc_type="NON_ATTACKABLE" name="young elim" height="5.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730031" level="20" name_id="352017" npc_type="NON_ATTACKABLE" name="young elim" height="5.8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730036" level="20" name_id="353099" npc_type="NON_ATTACKABLE" name="anoramas" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730037" level="20" name_id="353100" npc_type="NON_ATTACKABLE" name="keindor" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="730038" level="20" name_id="353101" npc_type="NON_ATTACKABLE" name="nabaru" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/stand_mirror -->
+	<npc_template npc_id="730051" level="20" name_id="353139" npc_type="NON_ATTACKABLE" name="talking mirror" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_immobile -->
+	<npc_template npc_id="730054" level="20" name_id="353321" npc_type="NON_ATTACKABLE" name="kasadlasil" height="8.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="730071" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/binding_stone -->
+	<npc_template npc_id="730072" level="20" name_id="350971" npc_type="NON_ATTACKABLE" name="obelisk" height="2.0" talking_distance="8">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730079" level="20" name_id="350932" npc_type="NON_ATTACKABLE" name="history of ancient atreia 1" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730080" level="20" name_id="350933" npc_type="NON_ATTACKABLE" name="journal of an explorer" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730081" level="20" name_id="350934" npc_type="NON_ATTACKABLE" name="impetusium of glory" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730082" level="20" name_id="350935" npc_type="NON_ATTACKABLE" name="zemurru of the dawn" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730083" level="20" name_id="350936" npc_type="NON_ATTACKABLE" name="balaur, who are they!" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730084" level="20" name_id="350937" npc_type="NON_ATTACKABLE" name="handicrafting 101" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730085" level="20" name_id="350938" npc_type="NON_ATTACKABLE" name="interesting and fun history of asmodae 5" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730086" level="20" name_id="350939" npc_type="NON_ATTACKABLE" name="femme fatale of history 9" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730087" level="20" name_id="350940" npc_type="NON_ATTACKABLE" name="sects of astrology" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730088" level="20" name_id="350941" npc_type="NON_ATTACKABLE" name="metals of atreia" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730089" level="20" name_id="350942" npc_type="NON_ATTACKABLE" name="kurngalfberg, the city of legends" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730090" level="20" name_id="350943" npc_type="NON_ATTACKABLE" name="botanical museum 7" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730091" level="20" name_id="350944" npc_type="NON_ATTACKABLE" name="age of dawn" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730092" level="20" name_id="350945" npc_type="NON_ATTACKABLE" name="abyss, so close yet so far 1" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730093" level="20" name_id="350946" npc_type="NON_ATTACKABLE" name="book of prophecy" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730094" level="20" name_id="350947" npc_type="NON_ATTACKABLE" name="history of the shugo guild 2" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730095" level="20" name_id="350948" npc_type="NON_ATTACKABLE" name="the calamity of eltnen, sataloca" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730096" level="20" name_id="350949" npc_type="NON_ATTACKABLE" name="excavation of ancient ruins 2" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730097" level="20" name_id="350950" npc_type="NON_ATTACKABLE" name="fall of the zumion ruins" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730098" level="20" name_id="350951" npc_type="NON_ATTACKABLE" name="deltras and legion of storm" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730099" level="20" name_id="350952" npc_type="NON_ATTACKABLE" name="an introduction to alchemy" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730100" level="20" name_id="350953" npc_type="NON_ATTACKABLE" name="legion a-to-z" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730101" level="20" name_id="350954" npc_type="NON_ATTACKABLE" name="a plant encyclopedia written by a gatherer" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730102" level="20" name_id="350955" npc_type="NON_ATTACKABLE" name="mystery of aether" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/scarecrow -->
+	<npc_template npc_id="730103" level="20" name_id="353188" npc_type="NON_ATTACKABLE" name="lugo" height="2.6" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/scarecrow -->
+	<npc_template npc_id="730104" level="20" name_id="353189" npc_type="NON_ATTACKABLE" name="virhu" height="2.6" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/scarecrow -->
+	<npc_template npc_id="730105" level="20" name_id="371023" npc_type="NON_ATTACKABLE" name="wanted: fork ear rokes" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/scarecrow -->
+	<npc_template npc_id="730106" level="20" name_id="371024" npc_type="NON_ATTACKABLE" name="wanted: malicious sinis" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/corpse -->
+	<npc_template npc_id="730107" level="20" name_id="371029" npc_type="NON_ATTACKABLE" name="asmodian worker's corpse" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730112" level="20" name_id="371038" npc_type="NON_ATTACKABLE" name="a perfect human" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730113" level="20" name_id="371040" npc_type="NON_ATTACKABLE" name="the confession of a lepharist" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730114" level="20" name_id="371041" npc_type="NON_ATTACKABLE" name="the platform of lehparists" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730115" level="20" name_id="353190" npc_type="NON_ATTACKABLE" name="history of brusthonin settlement" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730116" level="20" name_id="353191" npc_type="NON_ATTACKABLE" name="kentari folktales of morheim" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730117" level="20" name_id="353192" npc_type="NON_ATTACKABLE" name="the seed of trap, tripeed" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730118" level="20" name_id="351881" npc_type="NON_ATTACKABLE" name="history of eltnen fortress" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730119" level="20" name_id="351882" npc_type="NON_ATTACKABLE" name="legend of eltnen 3" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730120" level="20" name_id="351883" npc_type="NON_ATTACKABLE" name="historical criminals of atreia" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730121" level="20" name_id="352532" npc_type="NON_ATTACKABLE" name="history of pandaemonium" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730122" level="20" name_id="352533" npc_type="NON_ATTACKABLE" name="brief history of the shadow court" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730123" level="20" name_id="352534" npc_type="NON_ATTACKABLE" name="dedication to asmodians" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730124" level="20" name_id="352535" npc_type="NON_ATTACKABLE" name="cruel reality of the brilliant glory" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730125" level="20" name_id="351416" npc_type="NON_ATTACKABLE" name="the history of sanctum" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730126" level="20" name_id="351417" npc_type="NON_ATTACKABLE" name="tempest, the heart of invention" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730127" level="20" name_id="351418" npc_type="NON_ATTACKABLE" name="the privileges of daevas" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730128" level="20" name_id="371042" npc_type="NON_ATTACKABLE" name="an account of the expedition to reshanta" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730129" level="20" name_id="371043" npc_type="NON_ATTACKABLE" name="the history of struggles, primum" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730130" level="20" name_id="371044" npc_type="NON_ATTACKABLE" name="a guidebook for the black cloud traders" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730131" level="20" name_id="371045" npc_type="NON_ATTACKABLE" name="report of the research on mutant creatures 2" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730132" level="20" name_id="371046" npc_type="NON_ATTACKABLE" name="rediscovery of superus civilization" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730133" level="20" name_id="371047" npc_type="NON_ATTACKABLE" name="arbolu, the ancestor of elim" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730134" level="20" name_id="371048" npc_type="NON_ATTACKABLE" name="the tragedy of heiron" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730135" level="20" name_id="371049" npc_type="NON_ATTACKABLE" name="seiren and the golden trumpet temple" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/book -->
+	<npc_template npc_id="730136" level="20" name_id="371050" npc_type="NON_ATTACKABLE" name="a child offered to the dragon" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/stone_bridge -->
+	<npc_template npc_id="750000" level="20" name_id="350814" npc_type="NON_ATTACKABLE" name="stone bridge" height="2.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/tree_moving -->
+	<npc_template npc_id="790016" level="20" name_id="353288" npc_type="NON_ATTACKABLE" name="etun" height="5.8" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.7" walk_speed_fight="0.0" run_speed="3.0" run_speed_fight="2.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+</npc_data>
