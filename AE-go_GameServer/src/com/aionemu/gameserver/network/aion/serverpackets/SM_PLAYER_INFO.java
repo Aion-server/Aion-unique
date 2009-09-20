@@ -185,7 +185,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 			(byte) 0x40};
 		writeB(buf, unk);
 			
-		writeF(buf, 20); // move speed
+		writeF(buf, 5); // move speed
 		
 		unk = new byte[] {(byte) 0xDC, (byte) 0x05, (byte) 0xDC,
 			(byte) 0x05, (byte) 0x02 };
