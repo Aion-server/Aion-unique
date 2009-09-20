@@ -99,6 +99,18 @@ public class Config
 	public static Pattern			CHAR_NAME_PATTERN;
 
 	/**
+	 * Server Country Code
+	 */
+	@Property(key = "gameserver.country.code",defaultValue = "1")
+	public static int				SERVER_COUNTRY_CODE;
+	
+	/*
+	 * Server Mode
+	 */
+	@Property(key = "gameserver.mode",defaultValue = "1")
+	public static int				SERVER_MODE;
+	
+	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
 	 */
 	public static void load()

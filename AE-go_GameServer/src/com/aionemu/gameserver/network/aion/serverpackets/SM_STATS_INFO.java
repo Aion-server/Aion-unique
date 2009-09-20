@@ -74,13 +74,13 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, 4);// fire res [confirmed]
 
 		writeD(buf, 0);// unk 0
-		writeH(buf, 5);// level [confirmed] ***
+		writeH(buf, player.getLevel());// level [confirmed] ***
 		writeH(buf, 0); //
 		writeD(buf, 0);//
 
-		writeQ(buf, 10L * Integer.MAX_VALUE);// max xp [confirmed]
-		writeQ(buf, 2L * Integer.MAX_VALUE); // recoverable xp [confirmed]
-		writeQ(buf, 3L * Integer.MAX_VALUE); // current xp [confirmed]
+		writeQ(buf, pcd.getExpNeed());//max xp [confirmed]
+		writeQ(buf, 0); // recoverable xp [confirmed]
+		writeQ(buf, pcd.getExpShown()); // current xp [confirmed]
 
 		writeD(buf, 0); //
 		writeD(buf, 40); // max hp [confirmed] {cur hp is as % in CI packet}

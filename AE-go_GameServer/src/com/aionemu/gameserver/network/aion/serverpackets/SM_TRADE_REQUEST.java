@@ -1,4 +1,4 @@
-/*
+/**
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -18,47 +18,28 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import org.apache.log4j.Logger;
-
-import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
- * This packet is used to update current exp / recoverable exp / max exp values.
- * 
- * @author Luno
+ * @author -Avol-
  * 
  */
-public class SM_STATUPDATE_EXP extends AionServerPacket
+public class SM_TRADE_REQUEST extends AionServerPacket
 {
-	static Logger	log	= Logger.getLogger(SM_STATUPDATE_EXP.class);
-	private long	currentExp;
-	private long	recoverableExp;
-	private long	maxExp;
 
-	/**
-	 * 
-	 * @param currentExp
-	 * @param recoverableExp
-	 * @param maxExp
-	 */
-	public SM_STATUPDATE_EXP(long currentExp, long recoverableExp, long maxExp)
+	private String	receiver;
+	
+	
+	public SM_TRADE_REQUEST(String receiver)
 	{
-		this.currentExp = currentExp;
-		this.recoverableExp = recoverableExp;
-		this.maxExp = maxExp;
+		this.receiver = receiver;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
+
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeQ(buf, currentExp);
-		writeQ(buf, recoverableExp);
-		writeQ(buf, maxExp);
+		writeS(buf, receiver);
 	}
-
 }

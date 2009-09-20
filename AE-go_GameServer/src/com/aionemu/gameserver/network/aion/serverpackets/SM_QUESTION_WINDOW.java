@@ -34,6 +34,9 @@ public class SM_QUESTION_WINDOW extends AionServerPacket
 	 * Asks for confirmation of a friend. Takes as one parameter, the name of the person who added you
 	 */
 	public static final int STR_BUDDYLIST_ADD_BUDDY_REQUETS = 0x0DBEE9;
+	public static final int STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE = 0x15f91;
+	public static final int STR_EXCHANGE_HE_REJECTED_EXCHANGE = 0x13D782;// TODO: make it a simple box, not a question.
+	
 	int code;
 	String[] params;
 	/**

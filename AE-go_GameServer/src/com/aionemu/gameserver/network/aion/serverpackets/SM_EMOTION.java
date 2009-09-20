@@ -19,9 +19,10 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.network.aion.Version;
 
 /**
  * Emotion packet
@@ -30,16 +31,19 @@ import com.aionemu.gameserver.network.aion.Version;
  */
 public class SM_EMOTION extends AionServerPacket
 {
+	private static final Logger	log	= Logger.getLogger(SM_EMOTION.class);
 
 	/**
 	 * Object id of emotion sender
 	 */
 	private int	senderObjectId;
+	
 
 	/**
 	 * Some unknown variable
 	 */
 	private int	unknown;
+	
 
 	/**
 	 * ID of emotion
@@ -69,18 +73,27 @@ public class SM_EMOTION extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, senderObjectId);
-		writeC(buf, unknown);
-		writeC(buf, 0x01); // unknown
-		writeC(buf, 0x00); // unknown
-		writeH(buf, 0x00); // unknown
-		writeC(buf, 0xC0); // unknown
-		writeC(buf, 0x40); // unknown
+		if (unknown !=0x24) {
+			writeD(buf, senderObjectId);
+			writeC(buf, unknown);
+			writeC(buf, 0x01); // unknown
+			writeC(buf, 0x00); // unknown
+			writeH(buf, 0x00); // unknown
+			writeC(buf, 0xC0); // unknown
+			writeC(buf, 0x40); // unknown
+		}
 		if(unknown == 0x10)
 		{
 			writeD(buf, 0x00); // unknown
 			writeH(buf, emotionId);
 			writeC(buf, 0x01); // unknown
+		}
+		
+		if (unknown == 0x24) {
+			log.info(String.format("now attacking: %d", senderObjectId));
+		
+			writeD(buf, senderObjectId); // unknown
+			writeD(buf, 12); // unknown
 		}
 	}
 }

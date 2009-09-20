@@ -87,23 +87,24 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	@Override
 	public void storePlayer(final Player player)
 	{
-		DB.insertUpdate("UPDATE players SET name=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, admin=?, note=? WHERE id=?", new IUStH(){
+		DB.insertUpdate("UPDATE players SET name=?, exp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, admin=?, note=? WHERE id=?", new IUStH(){
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
 				log.debug("[DAO: MySQL5PlayerDAO] storing player "+player.getObjectId()+" "+player.getName());
 				
 				stmt.setString(1, player.getName());
-				stmt.setFloat(2, player.getX());
-				stmt.setFloat(3, player.getY());
-				stmt.setFloat(4, player.getZ());
-				stmt.setInt(5, player.getHeading());
-				stmt.setInt(6, player.getWorldId());
-				stmt.setString(7, player.getCommonData().getPlayerClass().toString());
-				stmt.setTimestamp(8, player.getCommonData().getLastOnline());
-				stmt.setBoolean(9, player.getCommonData().isAdmin());
-				stmt.setString(10,player.getCommonData().getNote());
-				stmt.setInt(11, player.getObjectId());
+				stmt.setLong(2, player.getExp());
+				stmt.setFloat(3, player.getX());
+				stmt.setFloat(4, player.getY());
+				stmt.setFloat(5, player.getZ());
+				stmt.setInt(6, player.getHeading());
+				stmt.setInt(7, player.getWorldId());
+				stmt.setString(8, player.getCommonData().getPlayerClass().toString());
+				stmt.setTimestamp(9, player.getCommonData().getLastOnline());
+				stmt.setBoolean(10, player.getCommonData().isAdmin());
+				stmt.setString(11,player.getCommonData().getNote());
+				stmt.setInt(12, player.getObjectId());
 				stmt.execute();
 			}
 		});
@@ -178,6 +179,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				resultSet.next();
 				
 				cd.setName(resultSet.getString("name"));
+				cd.setExp(resultSet.getLong("exp"));
 				cd.setRace(Race.valueOf(resultSet.getString("race")));
 				cd.setGender(Gender.valueOf(resultSet.getString("gender")));
 				cd.setPlayerClass(PlayerClass.valueOf(resultSet.getString("player_class")));

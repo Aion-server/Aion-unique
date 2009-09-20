@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.network.aion.Version;
@@ -53,6 +54,18 @@ public class SM_VERSION_CHECK extends AionServerPacket
 			writeD(buf, 0x15FFA);// unk
 			writeD(buf, 0x4A4CEC02);// unk
 			writeD(buf, 0x01000100);// unk
+			// Server Version Check for 1.5.0.6 NA/EU
+			writeC(buf, 0x00);
+			writeC(buf, Config.GAMESERVER_ID); // Server id
+			writeD(buf, 0x0001631F);
+			writeD(buf, 0x000162C3);
+			writeD(buf, 0x00);
+			writeD(buf, 0x000162C3);
+			writeD(buf, 0x4AB3CB5C);
+			writeC(buf, 0x00);
+			writeC(buf, Config.SERVER_COUNTRY_CODE); // Server country code (cc)
+			writeC(buf, 0x00);
+			writeC(buf, Config.SERVER_MODE); // Server mode : 0x00 = one race / 0x01 = free race / 0x22 = Character Reservation
 		}
 
 		writeD(buf, (int) (System.currentTimeMillis() / 1000));// ServerTime in seconds
@@ -62,6 +75,11 @@ public class SM_VERSION_CHECK extends AionServerPacket
 			writeD(buf, 0x3A000001);// unk
 			writeD(buf, 0x18372D7);// unk
 			writeC(buf, 0x28);// unk
+		} else {
+			writeD(buf, 0x0001015E);
+			writeD(buf, 0x9C7FCE00);
+			writeC(buf, 0xB0);
+			writeH(buf, 0x2801);
 		}
 	}
 }

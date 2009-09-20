@@ -185,7 +185,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 			(byte) 0x40};
 		writeB(buf, unk);
 			
-		writeF(buf, 5); // move speed
+		writeF(buf, 6); // move speed
 		
 		unk = new byte[] {(byte) 0xDC, (byte) 0x05, (byte) 0xDC,
 			(byte) 0x05, (byte) 0x02 };
@@ -208,7 +208,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeC(buf, 0x00); // unk, Putting 0x01 here makes your chatacter run in red armor, dunno what it means
 		writeC(buf, 0x00); // unk
 
-		writeD(buf, 0x05); // unk - 0x01, 0x02, 0x03 etc [lvl?]
+		writeD(buf, player.getLevel()); // unk - 0x01, 0x02, 0x03 etc [lvl?]
 		writeC(buf, 0x00); // unk - 0x00
 		writeD(buf, 0x01); // unk - 0x00
 	}

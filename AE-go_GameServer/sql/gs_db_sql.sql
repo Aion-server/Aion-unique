@@ -77,6 +77,7 @@ CREATE TABLE `players` (
   `name` varchar(50) NOT NULL,
   `account_id` int(11) NOT NULL, 
   `account_name` varchar(50) NOT NULL,
+  `exp` bigint(20) NOT NULL default 0,
   `x` float NOT NULL,
   `y` float NOT NULL,
   `z` float NOT NULL,

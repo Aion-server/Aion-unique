@@ -41,6 +41,7 @@ public class Player extends Creature
 	private PlayerAppearance	playerAppearance;
 	private PlayerCommonData	playerCommonData;
 	private MacroList			macroList;
+	private SkillList			skillList;
 	private FriendList			friendList;
 	private BlockList			blockList;
 	private ResponseRequester	requester;
@@ -131,6 +132,16 @@ public class Player extends Creature
 	{
 		this.macroList = macroList;
 	}
+	
+	public SkillList getSkillList()
+	{
+		return skillList;
+	}
+	
+	public void setSkillList(SkillList skillList)
+	{
+		this.skillList = skillList;
+	}
 
 	/**
 	 * Gets this players Friend List
@@ -216,7 +227,12 @@ public class Player extends Creature
 	@Override
 	public byte getLevel()
 	{
-		return 1;
+		return (byte)playerCommonData.getLevel();
+	}
+	
+	public long getExp()
+	{
+		return playerCommonData.getExp();
 	}
 
 	/**

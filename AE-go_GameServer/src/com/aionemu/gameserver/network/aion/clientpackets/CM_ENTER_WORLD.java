@@ -98,7 +98,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 */
 			world.storeObject(player);
 
-			sendPacket(new SM_SKILL_LIST());
+			sendPacket(new SM_SKILL_LIST(player));
 
 			// sendPacket(new SM_UNK91());
 			// sendPacket(new SM_UNKC7());

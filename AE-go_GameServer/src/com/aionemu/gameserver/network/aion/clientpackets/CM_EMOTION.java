@@ -38,12 +38,17 @@ public class CM_EMOTION extends AionClientPacket
 	/**
 	 * Can 0x11 or 0x10
 	 */
-	int							unknown;
+	int unknown;
 
 	/**
 	 * Emotion number
 	 */
-	int							emotion;
+	int emotion;
+	
+	int ObjID;
+	
+	private int monsterToAttackId;
+
 
 	/**
 	 * Constructs new client packet instance.
@@ -72,7 +77,11 @@ public class CM_EMOTION extends AionClientPacket
 		else if(unknown == 0x10)
 		{
 			emotion = readH();
-		}
+		} 
+		else if(unknown == 0x13)
+		{
+			emotion = readH();
+		} 
 		else
 		{
 			log.info("Unknown emotion type? 0x" + Integer.toHexString(unknown).toUpperCase());
@@ -86,6 +95,8 @@ public class CM_EMOTION extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
+		log.info("TEST EMOTION? 0x" + Integer.toHexString(unknown).toUpperCase());
+		monsterToAttackId = 0;
 		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), unknown, emotion), true);
 	}
 }

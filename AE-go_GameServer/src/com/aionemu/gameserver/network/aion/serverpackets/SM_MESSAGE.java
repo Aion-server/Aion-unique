@@ -124,6 +124,10 @@ public class SM_MESSAGE extends AionServerPacket
 				writeH(buf, 0x00); // unknown
 				writeS(buf, message);
 				break;
+			case SYSTEM_NOTICE: // system announcements
+				writeH(buf, 0x00); // unknown
+				writeS(buf, message);
+				break;
 			case SHOUT: // shout
 				writeS(buf, senderName);
 				writeS(buf, message);

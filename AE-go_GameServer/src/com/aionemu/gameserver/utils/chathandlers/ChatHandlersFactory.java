@@ -17,15 +17,20 @@
 package com.aionemu.gameserver.utils.chathandlers;
 
 import com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand;
+import com.aionemu.gameserver.utils.chathandlers.admincommands.AdvSendFakeServerPacket;
+import com.aionemu.gameserver.utils.chathandlers.admincommands.Announce;
 import com.aionemu.gameserver.utils.chathandlers.admincommands.DeleteSpawn;
+import com.aionemu.gameserver.utils.chathandlers.admincommands.GoTo;
 import com.aionemu.gameserver.utils.chathandlers.admincommands.MoveTo;
+import com.aionemu.gameserver.utils.chathandlers.admincommands.Notice;
 import com.aionemu.gameserver.utils.chathandlers.admincommands.ReloadSpawns;
 import com.aionemu.gameserver.utils.chathandlers.admincommands.SaveSpawnData;
 import com.aionemu.gameserver.utils.chathandlers.admincommands.SendFakeServerPacket;
+import com.aionemu.gameserver.utils.chathandlers.admincommands.SendRawPacket;
+import com.aionemu.gameserver.utils.chathandlers.admincommands.SetExp;
+import com.aionemu.gameserver.utils.chathandlers.admincommands.SetLevel;
 import com.aionemu.gameserver.utils.chathandlers.admincommands.SpawnNpc;
 import com.aionemu.gameserver.utils.chathandlers.admincommands.UnloadSpawn;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.AdvSendFakeServerPacket;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.SendRawPacket;
 import com.google.inject.Injector;
 
 /**
@@ -68,6 +73,11 @@ public class ChatHandlersFactory
 		addAdminCommand(adminCCH, new MoveTo());
 		addAdminCommand(adminCCH, new UnloadSpawn());
 		addAdminCommand(adminCCH, new ReloadSpawns());
+		addAdminCommand(adminCCH, new GoTo());
+		addAdminCommand(adminCCH, new Announce()); // Add st0rms //announce
+		addAdminCommand(adminCCH, new Notice());
+		addAdminCommand(adminCCH, new SetLevel());
+		addAdminCommand(adminCCH, new SetExp());
 
 		return result;
 	}

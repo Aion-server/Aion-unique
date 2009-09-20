@@ -53,8 +53,10 @@ public enum ChatType
 
 	/**
 	 * Unknown
-	 */
 	UNKNOWN_0x1D(0x1D);
+	*/
+	
+	SYSTEM_NOTICE(0x1D);
 
 	/**
 	 * Chat type storage

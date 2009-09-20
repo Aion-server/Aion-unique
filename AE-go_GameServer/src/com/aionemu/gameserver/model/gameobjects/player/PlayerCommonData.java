@@ -17,9 +17,18 @@
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.sql.Timestamp;
+
+import org.apache.log4j.Logger;
+
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -30,11 +39,15 @@ import com.aionemu.gameserver.world.WorldPosition;
  */
 public class PlayerCommonData
 {
+	/** Logger used by this class and {@link StaticData} class */
+	static Logger			log	= Logger.getLogger(PlayerCommonData.class);
+	
 	private final int		playerObjId;
 	private Race			race;
 	private String			name;
 	private PlayerClass		playerClass;
-	private int				level;
+	private int				level=1;
+	private long			exp = 0;
 	private boolean			admin;
 	private Gender			gender;
 	private Timestamp		lastOnline;
@@ -51,6 +64,63 @@ public class PlayerCommonData
 	public int getPlayerObjId()
 	{
 		return playerObjId;
+	}
+	
+	public long getExp()
+	{
+		return this.exp;
+	}
+	
+	public long getExpShown()
+	{
+		return this.exp - DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level);
+	}
+	
+	public long getExpNeed()
+	{
+		if (this.level == DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel())
+		{
+			return 0;
+		}
+		return DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level+1)-DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level);
+	}
+	
+	public void setExp(long exp)
+	{
+		log.info("NEW EXPERIENCE: " + exp);
+		
+		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
+		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
+		if (exp > maxExp)
+		{
+			exp = maxExp;
+		}
+		int level = 1;
+		while (exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level+1) && level != maxLevel)
+		{
+			level++;
+		}
+		if (level != this.level)
+		{
+			this.setLevel(level);
+			this.exp = exp;
+		}
+		else
+		{
+			this.exp = exp;
+			
+			if(this.getPlayer()!=null){
+				PacketSendUtility.sendPacket(
+					this.getPlayer(),
+					new SM_STATUPDATE_EXP(
+						this.getExpShown(),
+						0,
+						this.getExpNeed()
+					)
+				);
+				PacketSendUtility.broadcastPacket(this.getPlayer(), new SM_PLAYER_INFO(this.getPlayer(), false), false);
+			}
+		}
 	}
 
 	public Race getRace()
@@ -128,13 +198,18 @@ public class PlayerCommonData
 	
 	public int getLevel()
 	{
-		//TODO: Real level
-		return 1;
+		return level;
 	}
 	
 	public void setLevel(int level)
 	{
-		this.level = level;
+		if (level <= DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel())
+		{
+			this.level = level;
+			this.setExp(DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level));
+			if(this.getPlayer()!=null)
+				PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATS_INFO(this.getPlayer()));
+		}
 	}
 	
 	public String getNote()

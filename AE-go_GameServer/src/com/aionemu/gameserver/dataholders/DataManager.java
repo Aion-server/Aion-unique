@@ -32,7 +32,7 @@ import com.aionemu.gameserver.dataholders.loadingutils.XmlDataLoader;
  * 
  */
 
-public class DataManager
+public final class DataManager
 {
 	/** Logger used by this class and {@link StaticData} class */
 	static Logger						log	= Logger.getLogger(DataManager.class);
@@ -63,7 +63,7 @@ public class DataManager
 	 * 
 	 * @see PlayerExperienceTable
 	 */
-	public final PlayerExperienceTable	PLAYER_EXPERIENCE_TABLE;
+	public static PlayerExperienceTable	PLAYER_EXPERIENCE_TABLE;
 
 	/**
 	 * 

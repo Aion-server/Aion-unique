@@ -93,7 +93,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 
 		// just for sure...
 		//log.info("76 == " + (getRemainingBytes()));
-
+		playerCommonData.setLevel(1);
 		playerCommonData.setGender(readD() == 0 ? Gender.MALE : Gender.FEMALE);
 		playerCommonData.setRace(readD() == 0 ? Race.ELYOS : Race.ASMODIANS);
 		playerCommonData.setPlayerClass(PlayerClass.getPlayerClassById((byte) readD()));
@@ -103,7 +103,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 		playerAppearance.setVoice(readD());
 		playerAppearance.setSkinRGB(readD());
 		playerAppearance.setHairRGB(readD());
-		playerAppearance.setLipRGB(readD());
+		log.info("EyesColor: " + readD()); //playerAppearance.setEyeRGB(readD()); 1.5.x add EyeColor
 		playerAppearance.setLipRGB(readD());
 		playerAppearance.setFace(readC());
 		playerAppearance.setHair(readC());
