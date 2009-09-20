@@ -16,6 +16,9 @@
  */
 package com.aionemu.gameserver.network.aion.serverpackets;
 
+import java.nio.ByteBuffer;
+
+import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
@@ -28,4 +31,11 @@ public class SM_PONG extends AionServerPacket
 {
 	//Don't be fooled with empty class :D
 	//This packet is just sending opcode, without any content
+	// 1.5.x sending 2 bytes
+	@Override
+	protected void writeImpl(AionConnection con, ByteBuffer buf)
+	{		
+		writeC(buf, 0x00);
+		writeC(buf, 0x00);
+	}	
 }

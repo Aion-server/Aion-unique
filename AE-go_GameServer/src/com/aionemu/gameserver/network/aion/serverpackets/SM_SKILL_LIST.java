@@ -38,7 +38,7 @@ public class SM_SKILL_LIST extends AionServerPacket
 		writeH(buf, 1);// skills list size
 		// for skills
 		// {
-		writeH(buf, 3001);// id
+		writeH(buf, 3);// id (3001)
 		writeD(buf, 1);// lvl
 		writeD(buf, 0);// use time? [s]
 		writeC(buf, 0);// unk

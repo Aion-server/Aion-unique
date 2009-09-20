@@ -93,9 +93,9 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeB(buf, unk);
 
 		writeC(buf, 75);// %hp
-		writeC(buf, 0x00);// unk
-		writeC(buf, 0x00);// unk
-		writeC(buf, 0x00);// unk
+		writeC(buf, 0x00);// unk (0x00)
+		writeC(buf, 0x00);// unk (0x00)
+		writeC(buf, 0x00);// unk (0x00)
 		writeH(buf, 0x1009);// items count!!
 		// for(items count)
 		// {
@@ -115,6 +115,8 @@ public class SM_PLAYER_INFO extends AionServerPacket
 
 		writeD(buf, playerAppearance.getSkinRGB());
 		writeD(buf, playerAppearance.getHairRGB());
+		// 1.5.x EyeColor before LipColor
+		writeD(buf, 1); //EyeColor fixed for testing
 		writeD(buf, playerAppearance.getLipRGB());
 		writeC(buf, playerAppearance.getFace());
 		writeC(buf, playerAppearance.getHair());
@@ -152,6 +154,11 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeC(buf, playerAppearance.getChinJut());
 		writeC(buf, playerAppearance.getEarShape());
 		writeC(buf, playerAppearance.getHeadSize());
+		// 1.5.x 0x00, shoulderSize, armLength, legLength (BYTE) after HeadSize
+		writeC(buf, 0x00); // 0x00
+		writeC(buf, 0x01); // shoulderSize
+		writeC(buf, 0x01); // armLength
+		writeC(buf, 0x01); // legLength
 
 		writeC(buf, playerAppearance.getNeck());
 		writeC(buf, playerAppearance.getNeckLength());

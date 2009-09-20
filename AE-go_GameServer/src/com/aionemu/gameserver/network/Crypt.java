@@ -32,11 +32,11 @@ public class Crypt
 	/**
 	 * Second byte of client packet must be equal to this
 	 */
-	public final static byte	staticClientPacketCode	= Version.Chiness ? 0x5A : 0x47;
+	public final static byte	staticClientPacketCode	= Version.Chiness ? 0x5A : 0x5D;
 	/**
 	 * Second byte of server packet must be equal to this
 	 */
-	public final static byte	staticServerPacketCode	= Version.Chiness ? 0x5D : 0x44;
+	public final static byte	staticServerPacketCode	= Version.Chiness ? 0x5D : 0x44;// 1.5.x (0x54 works too)
 	/**
 	 * Static xor key
 	 */

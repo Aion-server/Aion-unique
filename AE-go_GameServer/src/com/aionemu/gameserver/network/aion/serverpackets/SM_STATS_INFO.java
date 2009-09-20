@@ -90,7 +90,7 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeD(buf, 3000000);// cur mp [confirmed]
 
 		writeH(buf, 8000);// max dp [confirmed]
-		writeH(buf, 7000);// cur dp [confirmed]
+		writeH(buf, 0);// cur dp [confirmed]
 
 		writeD(buf, 0);// unk 60
 

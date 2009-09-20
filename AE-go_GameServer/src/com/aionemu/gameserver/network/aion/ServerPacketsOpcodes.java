@@ -40,11 +40,11 @@ public class ServerPacketsOpcodes
 
 		addPacketOpcode(SM_CUSTOM_PACKET.class, 99999, idSet); // fake packet
 		
-		addPacketOpcode(SM_UNKF5.class, Version.Chiness ? 0xF5 : 0x07, idSet);
+		addPacketOpcode(SM_UNKF5.class, Version.Chiness ? 0xF5 : 0x26, idSet);
 		addPacketOpcode(SM_UNKEF.class, Version.Chiness ? 0xef : -1, idSet);
 		addPacketOpcode(SM_UNKE7.class, Version.Chiness ? 0xe7 : -1, idSet);
 		addPacketOpcode(SM_UNKE1.class, Version.Chiness ? 0xe1 : -1, idSet);
-		addPacketOpcode(SM_UNKD9.class, Version.Chiness ? 0xD9 : 0xE3, idSet);
+		addPacketOpcode(SM_UNKD9.class, Version.Chiness ? 0xD9 : -1, idSet);// was 0xE3
 		addPacketOpcode(SM_UNKD3.class, Version.Chiness ? 0xd3 : -1, idSet);
 		addPacketOpcode(SM_UNKCB.class, Version.Chiness ? 0xcb : -1, idSet);
 		addPacketOpcode(SM_UNKC8.class, Version.Chiness ? 0xc8 : -1, idSet);

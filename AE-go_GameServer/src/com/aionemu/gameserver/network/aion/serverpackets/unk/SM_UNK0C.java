@@ -30,6 +30,10 @@ public class SM_UNK0C extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, 0x3C);
+		// 1.5.x 6 bytes instead of 4
+		// writeD(buf, 0x3C);
+		writeD(buf, 0x00);
+		writeC(buf, 0x00);
+		writeC(buf, 0x00);
 	}
 }
