@@ -62,6 +62,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_LOCK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_OK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_REQUEST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_TERRITORY;
 import com.google.inject.Injector;
 
 /**
@@ -130,6 +131,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_TRADE_LOCK(Version.Chiness ? 0x0D : 0x0D), State.IN_GAME);
 		addPacket(new CM_TRADE_CANCEL(Version.Chiness ? 0x0F : 0x0F), State.IN_GAME);
 		addPacket(new CM_TRADE_OK(Version.Chiness ? 0x0C : 0x0C), State.IN_GAME);
+		addPacket(new CM_TERRITORY(Version.Chiness ? -1 : 0x4A), State.IN_GAME);
 		
 	}
 
