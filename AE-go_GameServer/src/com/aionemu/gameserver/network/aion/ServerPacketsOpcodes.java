@@ -101,6 +101,10 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_BLOCK_RESPONSE.class, Version.Chiness ? -1 : 0xD6 ,idSet);
 		addPacketOpcode(SM_BLOCK_LIST.class, Version.Chiness ? 0xD6 : 0xD9, idSet);
 		addPacketOpcode(SM_ATTACK.class, Version.Chiness ? -1 : 0xFC, idSet);
+		
+		//Unrecognized Opcodes:
+		
+		//addPacketOpcode(SM_TELEPORT.class, Version.Chiness ? -1 : 0xBD, idSet);
 		//addPacketOpcode(SM_TIME_CHECK.class, Version.Chiness ? 0x1E : 0x26, idSet);
 		//addPacketOpcode(SM_VIRTUAL_AUTH.class, Version.Chiness ? 0xD4 : 0xE4, idSet);
 		//addPacketOpcode(SM_WAITING_LIST.class, Version.Chiness ? -1 : 0x18, idSet);	
