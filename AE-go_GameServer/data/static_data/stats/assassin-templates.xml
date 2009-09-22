@@ -46,11 +46,21 @@
 		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
-		                evasion="307" block="254" parry="254"
-		                main_hand_attack="19" main_hand_accuracy="334" main_hand_crit_rate="4"
+		                evasion="254" block="254" parry="254"
+		                main_hand_attack="19" main_hand_accuracy="334" main_hand_crit_rate="3"
 		                magic_accuracy="148" />
 	</player_stats>
 
+		<player_stats class="ASSASSIN" level="14">
+		<stats_template maxHp="924" maxMp="1080"
+		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="266" block="266" parry="266"
+		                main_hand_attack="19" main_hand_accuracy="334" main_hand_crit_rate="3"
+		                magic_accuracy="148" />
+	</player_stats>
+	
 	<player_stats class="ASSASSIN" level="19">
 		<stats_template maxHp="1288" maxMp="1431"
 		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
