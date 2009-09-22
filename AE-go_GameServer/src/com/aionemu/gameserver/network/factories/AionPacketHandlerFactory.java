@@ -56,6 +56,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_SET_NOTE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_BLOCKLIST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_FRIENDLIST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TARGET_SELECT;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_TERRITORY;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TIME_CHECK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_CANCEL;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_LOCK;
@@ -130,7 +131,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_TRADE_LOCK(Version.Chiness ? 0x0D : 0x0D), State.IN_GAME);
 		addPacket(new CM_TRADE_CANCEL(Version.Chiness ? 0x0F : 0x0F), State.IN_GAME);
 		addPacket(new CM_TRADE_OK(Version.Chiness ? 0x0C : 0x0C), State.IN_GAME);
-		//addPacket(new CM_TERRITORY(Version.Chiness ? -1 : 0x4A), State.IN_GAME);
+		addPacket(new CM_TERRITORY(Version.Chiness ? -1 : 0x4A), State.IN_GAME);
 		
 	}
 
