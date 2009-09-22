@@ -46,7 +46,7 @@
 		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
-		                evasion="327" block="254" parry="254"
+		                evasion="307" block="254" parry="254"
 		                main_hand_attack="19" main_hand_accuracy="334" main_hand_crit_rate="4"
 		                magic_accuracy="148" />
 	</player_stats>
