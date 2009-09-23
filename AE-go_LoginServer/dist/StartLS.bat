@@ -16,10 +16,10 @@ if ERRORLEVEL 1 goto error
 goto end
 :error
 echo.
-echo GameServer Terminated Abnormaly, Please Verify Your Files.
+echo Login Server Terminated Abnormaly, Please Verify Your Files.
 echo.
 :end
 echo.
-echo GameServer Terminated.
+echo Login Server Terminated.
 echo.
 pause
