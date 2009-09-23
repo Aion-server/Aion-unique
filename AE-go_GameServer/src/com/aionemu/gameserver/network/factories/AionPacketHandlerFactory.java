@@ -63,6 +63,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_LOCK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_OK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_REQUEST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_TELEPORT;
 import com.google.inject.Injector;
 
 /**
@@ -93,7 +94,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_VERSION_CHECK(Version.Chiness ? 0x4c : 0xEA), State.CONNECTED);
 		addPacket(new CM_TIME_CHECK(Version.Chiness ? 0x3e : 0xFC), State.CONNECTED, State.AUTHED, State.IN_GAME);
 		addPacket(new CM_ATTACK(Version.Chiness ? -1 : 0x8A), State.IN_GAME); // maybe 0x13
-		addPacket(new CM_SET_NOTE(Version.Chiness? -1 : 0x1A), State.IN_GAME);
+		addPacket(new CM_SET_NOTE(Version.Chiness? -1 : 0x30), State.IN_GAME); //0x1A on 1.2>
 		addPacket(new CM_TARGET_SELECT(Version.Chiness ? 0x33 : 0x89), State.IN_GAME);
 		addPacket(new CM_SHOW_FRIENDLIST(Version.Chiness ? 0xE2 : 0x58), State.IN_GAME);
 		addPacket(new CM_SHOW_BLOCKLIST(Version.Chiness ? 0xA4 : 0x12), State.IN_GAME);
@@ -132,6 +133,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_TRADE_CANCEL(Version.Chiness ? 0x0F : 0x0F), State.IN_GAME);
 		addPacket(new CM_TRADE_OK(Version.Chiness ? 0x0C : 0x0C), State.IN_GAME);
 		addPacket(new CM_TERRITORY(Version.Chiness ? -1 : 0x4A), State.IN_GAME);
+		addPacket(new CM_TELEPORT(Version.Chiness ? -1 : 0x9E), State.IN_GAME);
 		
 	}
 
