@@ -179,4 +179,18 @@ public class ScriptInfo
 	{
 		return root.hashCode();
 	}
+
+	/** {@inheritDoc} */
+	@Override
+	public String toString()
+	{
+		final StringBuilder sb = new StringBuilder();
+		sb.append("ScriptInfo");
+		sb.append("{root=").append(root);
+		sb.append(", libraries=").append(libraries);
+		sb.append(", compilerClass='").append(compilerClass).append('\'');
+		sb.append(", scriptInfos=").append(scriptInfos);
+		sb.append('}');
+		return sb.toString();
+	}
 }

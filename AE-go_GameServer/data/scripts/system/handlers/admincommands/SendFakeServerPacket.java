@@ -15,12 +15,13 @@
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aionemu.gameserver.utils.chathandlers.admincommands;
+package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CUSTOM_PACKET;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CUSTOM_PACKET.PacketElementType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
 /**
  * This server command is used for creating and sending custom packets from server to client. It's used in development
@@ -53,7 +54,7 @@ public class SendFakeServerPacket extends AdminCommand
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void executeCommand(Player admin, String... params)
+	public void executeCommand(Player admin, String[] params)
 	{
 		if(params.length < 3)
 		{

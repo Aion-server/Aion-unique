@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.utils.chathandlers.admincommands;
+package admincommands;
 
 import java.util.Iterator;
 
@@ -22,26 +22,30 @@ import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.google.inject.Inject;
 
 /**
  * @author Luno
  * 
  */
-public class UnloadSpawn extends AdminCommand
+public class ReloadSpawns extends AdminCommand
 {
 	@Inject
 	private SpawnData	spawnData;
 	@Inject
 	private World		world;
+	@Inject
+	private SpawnEngine	spawnEngine;
 
 	/**
 	 * @param commandName
 	 */
-	public UnloadSpawn()
+	public ReloadSpawns()
 	{
-		super("unload_spawn");
+		super("reload_spawn");
 	}
 
 	/*
@@ -51,10 +55,9 @@ public class UnloadSpawn extends AdminCommand
 	 * .gameobjects.Player, java.lang.String[])
 	 */
 	@Override
-	public void executeCommand(Player admin, String... params)
+	public void executeCommand(Player admin, String[] params)
 	{
-		spawnData.clearSpawns();
-		Iterator<AionObject> it = world.getObjectsIterator();
+		Iterator<AionObject> it = world.getObjectsIterator(); // despawn all
 		while(it.hasNext())
 		{
 			AionObject obj = it.next();
@@ -63,5 +66,7 @@ public class UnloadSpawn extends AdminCommand
 				((Npc) obj).getController().delete();
 			}
 		}
+		spawnData.reloadData(); // reload spawns from files
+		spawnEngine.spawnAll(spawnData); // spawn all;
 	}
 }

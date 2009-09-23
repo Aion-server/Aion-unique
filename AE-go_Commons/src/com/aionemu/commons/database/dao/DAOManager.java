@@ -25,6 +25,8 @@ import org.apache.log4j.Logger;
 import static com.aionemu.commons.database.DatabaseFactory.getDatabaseMajorVersion;
 import static com.aionemu.commons.database.DatabaseFactory.getDatabaseMinorVersion;
 import static com.aionemu.commons.database.DatabaseFactory.getDatabaseName;
+import com.aionemu.commons.database.DatabaseConfig;
+import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
 
 /**
  * This class manages {@link DAO} implementations, it resolves valid implementation for current database
@@ -33,7 +35,6 @@ import static com.aionemu.commons.database.DatabaseFactory.getDatabaseName;
  */
 public class DAOManager
 {
-
 	/**
 	 * Logger for DAOManager class
 	 */
@@ -43,6 +44,30 @@ public class DAOManager
 	 * Collection of registered DAOs
 	 */
 	private static final Map<String, DAO>	daoMap	= new HashMap<String, DAO>();
+
+	/**
+	 * This script manager is responsible for loading {@link com.aionemu.commons.database.dao.DAO} implementations
+	 */
+	private static ScriptManager 			scriptManager;
+
+	/**
+	 * Initializes DAOManager.
+	 */
+	public static void init()
+	{
+		try
+		{
+			scriptManager = new ScriptManager();
+			scriptManager.setGlobalClassListener(new DAOLoader());
+			scriptManager.load(DatabaseConfig.DATABASE_SCRIPTCONTEXT_DESCRIPTOR);
+		}
+		catch (Exception e)
+		{
+			throw new Error("Can't load database script context: " + DatabaseConfig.DATABASE_SCRIPTCONTEXT_DESCRIPTOR, e);
+		}
+
+		log.info("Loaded " + daoMap.size() + " DAO implementations.");
+	}
 
 	/**
 	 * Returns DAO implementation by DAO class. Typical usage:
@@ -119,6 +144,9 @@ public class DAOManager
 				daoMap.put(dao.getClassName(), dao);
 			}
 		}
+
+		if (log.isDebugEnabled())
+			log.debug("DAO " + dao.getClassName() + " was successfuly registered.");
 	}
 
 	/**
@@ -137,9 +165,18 @@ public class DAOManager
 				if (dao.getClass() == daoClass)
 				{
 					daoMap.remove(dao.getClassName());
+
+					if (log.isDebugEnabled())
+						log.debug("DAO " + dao.getClassName() + " was successfuly unregistered.");
+
 					break;
 				}
 			}
 		}
+	}
+
+	private DAOManager()
+	{
+		//empty
 	}
 }

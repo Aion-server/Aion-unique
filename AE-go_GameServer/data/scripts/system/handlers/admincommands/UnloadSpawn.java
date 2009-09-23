@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.utils.chathandlers.admincommands;
+package admincommands;
 
 import java.util.Iterator;
 
@@ -22,29 +22,30 @@ import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.google.inject.Inject;
 
 /**
  * @author Luno
  * 
  */
-public class ReloadSpawns extends AdminCommand
+public class UnloadSpawn extends AdminCommand
 {
-	@Inject
-	private SpawnData	spawnData;
-	@Inject
-	private World		world;
-	@Inject
-	private SpawnEngine	spawnEngine;
+	private final SpawnData	spawnData;
+
+	private final World		world;
 
 	/**
-	 * @param commandName
+	 * @param world
+	 * @param spawnData
 	 */
-	public ReloadSpawns()
+	@Inject
+	public UnloadSpawn(World world, SpawnData spawnData)
 	{
-		super("reload_spawn");
+		super("unload_spawn");
+		this.world = world;
+		this.spawnData = spawnData;
 	}
 
 	/*
@@ -54,9 +55,10 @@ public class ReloadSpawns extends AdminCommand
 	 * .gameobjects.Player, java.lang.String[])
 	 */
 	@Override
-	public void executeCommand(Player admin, String... params)
+	public void executeCommand(Player admin, String[] params)
 	{
-		Iterator<AionObject> it = world.getObjectsIterator(); // despawn all
+		spawnData.clearSpawns();
+		Iterator<AionObject> it = world.getObjectsIterator();
 		while(it.hasNext())
 		{
 			AionObject obj = it.next();
@@ -65,7 +67,5 @@ public class ReloadSpawns extends AdminCommand
 				((Npc) obj).getController().delete();
 			}
 		}
-		spawnData.reloadData(); // reload spawns from files
-		spawnEngine.spawnAll(spawnData); // spawn all;
 	}
 }

@@ -14,33 +14,30 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.utils.chathandlers.admincommands;
+package admincommands;
 
 import com.aionemu.gameserver.dataholders.SpawnData;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.SpawnTemplate;
-import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.google.inject.Inject;
 
 /**
  * @author Luno
  * 
  */
-public class SpawnNpc extends AdminCommand
+public class DeleteSpawn extends AdminCommand
 {
-	@Inject
-	private SpawnData	spawnData;
-	@Inject
-	private SpawnEngine	spawnService;
+	private final SpawnData		spawnData;
 
-	/**
-	 * @param commandName
-	 */
-	public SpawnNpc()
+	@Inject
+	public DeleteSpawn(SpawnData spawnData)
 	{
-		super("spawn");
+		super("delete");
+
+		this.spawnData = spawnData;
 	}
 
 	/*
@@ -49,30 +46,17 @@ public class SpawnNpc extends AdminCommand
 	 * gameobjects.Player, java.lang.String[])
 	 */
 	@Override
-	public void executeCommand(Player admin, String... params)
+	public void executeCommand(Player admin, String[] params)
 	{
-		if(params.length < 1)
+		Creature cre = admin.getTarget();
+		if(!(cre instanceof Npc))
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //spawn <npc_id>");
+			PacketSendUtility.sendMessage(admin, "Wrong target");
 			return;
 		}
-		int npcId = Integer.parseInt(params[0]);
-		float x = admin.getX();
-		float y = admin.getY();
-		float z = admin.getZ();
-		byte heading = admin.getHeading();
-		int worldId = admin.getWorldId();
-
-		SpawnTemplate spawn = spawnData.addNewSpawn(worldId, npcId, x, y, z, heading);
-
-		if(spawn == null)
-		{
-			PacketSendUtility.sendMessage(admin, "There is no npc with id " + npcId);
-			return;
-		}
-		Npc npc = spawnService.spawnNpc(spawn);
-
-		PacketSendUtility.sendMessage(admin, npc.getTemplate().getName()
-			+ " spawned. //save_spawn   command will save whole spawndata to file");
+		Npc npc = (Npc) cre;
+		spawnData.removeSpawn(npc.getSpawn());
+		npc.getController().delete();
+		PacketSendUtility.sendMessage(admin, "Spawn removed to save changes type //save_spawn");
 	}
 }

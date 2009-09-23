@@ -72,12 +72,12 @@ public class ScriptContextImpl implements ScriptContext
 	/**
 	 * Classlistener for this script context
 	 */
-	private ClassListener classListener;
+	private ClassListener		classListener;
 
 	/**
 	 * Class name of the compiler that will be used to compile sources
 	 */
-	private String compilerClassName;
+	private String				compilerClassName;
 
 	/**
 	 * Creates new scriptcontext with given root file
@@ -125,6 +125,7 @@ public class ScriptContextImpl implements ScriptContext
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	@SuppressWarnings( { "ThrowableInstanceNeverThrown" })
 	public synchronized void init()
 	{
@@ -162,6 +163,7 @@ public class ScriptContextImpl implements ScriptContext
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	@SuppressWarnings( { "ThrowableInstanceNeverThrown" })
 	public synchronized void shutdown()
 	{
@@ -187,6 +189,7 @@ public class ScriptContextImpl implements ScriptContext
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void reload()
 	{
 		shutdown();
@@ -196,6 +199,7 @@ public class ScriptContextImpl implements ScriptContext
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public File getRoot()
 	{
 		return root;
@@ -204,6 +208,7 @@ public class ScriptContextImpl implements ScriptContext
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public CompilationResult getCompilationResult()
 	{
 		return compilationResult;
@@ -212,6 +217,7 @@ public class ScriptContextImpl implements ScriptContext
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public synchronized boolean isInitialized()
 	{
 		return compilationResult != null;
@@ -298,9 +304,9 @@ public class ScriptContextImpl implements ScriptContext
 	@Override
 	public ClassListener getClassListener()
 	{
-		if(classListener == null)
+		if (classListener == null)
 		{
-			if(getParentScriptContext() == null)
+			if (getParentScriptContext() == null)
 			{
 				setClassListener(new DefaultClassListener());
 				return classListener;
@@ -336,14 +342,15 @@ public class ScriptContextImpl implements ScriptContext
 
 	/**
 	 * Creates new instance of ScriptCompiler that should be used with this ScriptContext
-	 *
+	 * 
 	 * @return instance of ScriptCompiler
-	 * @throws RuntimeException if failed to create instance
+	 * @throws RuntimeException
+	 *             if failed to create instance
 	 */
 	protected ScriptCompiler instantiateCompiler() throws RuntimeException
 	{
 		ClassLoader cl = getClass().getClassLoader();
-		if(getParentScriptContext() != null)
+		if (getParentScriptContext() != null)
 		{
 			cl = getParentScriptContext().getCompilationResult().getClassLoader();
 		}

@@ -15,11 +15,12 @@
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aionemu.gameserver.utils.chathandlers.admincommands;
+package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -30,21 +31,24 @@ import com.google.inject.Inject;
  */
 public class MoveTo extends AdminCommand
 {
-	@Inject
-	private World	world;
+	private final World		world;
 
 	/**
 	 * Constructor.
 	 */
-	public MoveTo()
+	@Inject
+	public MoveTo(World world)
 	{
 		super("moveto");
+
+		this.world = world; 
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public void executeCommand(Player admin, String... params)
+	@Override
+	public void executeCommand(Player admin, String[] params)
 	{
 		if(params == null || params.length < 4)
 		{

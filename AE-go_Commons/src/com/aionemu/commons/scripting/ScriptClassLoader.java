@@ -44,18 +44,18 @@ import com.aionemu.commons.scripting.url.VirtualClassURLStreamHandler;
 public abstract class ScriptClassLoader extends URLClassLoader
 {
 
-	private static final Logger log = Logger.getLogger(ScriptClassLoader.class);
+	private static final Logger					log					= Logger.getLogger(ScriptClassLoader.class);
 
 	/**
 	 * URL Stream handler to allow valid url generation by {@link #getResource(String)}
 	 */
-	private final VirtualClassURLStreamHandler urlStreamHandler = new VirtualClassURLStreamHandler(this);
+	private final VirtualClassURLStreamHandler	urlStreamHandler	= new VirtualClassURLStreamHandler(this);
 
 	/**
 	 * Classes that were loaded from libraries. They are no parsed for any annotations, but they are needed by
 	 * JavaCompiler to perform valid compilation
 	 */
-	protected Set<String> libraryClasses = new HashSet<String>();
+	protected Set<String>						libraryClasses		= new HashSet<String>();
 
 	/**
 	 * Just for compatibility with {@link URLClassLoader}
@@ -160,20 +160,25 @@ public abstract class ScriptClassLoader extends URLClassLoader
 
 	/**
 	 * Loads class from library, parent or compiled
-	 *
-	 * @param name class to load
+	 * 
+	 * @param name
+	 *            class to load
 	 * @return loaded class
-	 * @throws ClassNotFoundException if class not found
+	 * @throws ClassNotFoundException
+	 *             if class not found
 	 */
 	@Override
-	public Class<?> loadClass(String name) throws ClassNotFoundException {
+	public Class<?> loadClass(String name) throws ClassNotFoundException
+	{
 		boolean isCompiled = getCompiledClasses().contains(name);
-		if (!isCompiled) {
+		if (!isCompiled)
+		{
 			return super.loadClass(name, true);
 		}
 
 		Class<?> c = getDefinedClass(name);
-		if (c == null) {
+		if (c == null)
+		{
 			byte[] b = getByteCode(name);
 			c = super.defineClass(name, b, 0, b.length);
 			setDefinedClass(name, c);
@@ -200,23 +205,31 @@ public abstract class ScriptClassLoader extends URLClassLoader
 
 	/**
 	 * Returns bytecode for given className. Array is copy of actual bytecode, so modifications will not harm.
-	 * @param className class name
+	 * 
+	 * @param className
+	 *            class name
 	 * @return bytecode
 	 */
 	public abstract byte[] getByteCode(String className);
 
 	/**
 	 * Returns cached class instance for give name or null if is not cached yet
-	 * @param name class name
+	 * 
+	 * @param name
+	 *            class name
 	 * @return cached class instance or null
 	 */
 	public abstract Class<?> getDefinedClass(String name);
 
 	/**
 	 * Sets defined class into cache
-	 * @param name class name
-	 * @param clazz class object
-	 * @throws IllegalArgumentException if class was not loaded by this class loader
+	 * 
+	 * @param name
+	 *            class name
+	 * @param clazz
+	 *            class object
+	 * @throws IllegalArgumentException
+	 *             if class was not loaded by this class loader
 	 */
 	public abstract void setDefinedClass(String name, Class<?> clazz) throws IllegalArgumentException;
 }

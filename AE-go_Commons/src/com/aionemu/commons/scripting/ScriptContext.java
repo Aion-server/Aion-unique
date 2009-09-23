@@ -147,6 +147,7 @@ public interface ScriptContext
 	 *            object to compare with
 	 * @return result of comparation
 	 */
+	@Override
 	public boolean equals(Object obj);
 
 	/**
@@ -154,6 +155,7 @@ public interface ScriptContext
 	 * 
 	 * @return hashcode
 	 */
+	@Override
 	public int hashCode();
 
 	/**

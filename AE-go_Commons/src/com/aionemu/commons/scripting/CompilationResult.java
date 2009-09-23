@@ -17,6 +17,8 @@
 
 package com.aionemu.commons.scripting;
 
+import java.util.Arrays;
+
 /**
  * This class represents compilation result of script context
  * 
@@ -68,5 +70,17 @@ public class CompilationResult
 	public Class[] getCompiledClasses()
 	{
 		return compiledClasses;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public String toString()
+	{
+		final StringBuilder sb = new StringBuilder();
+		sb.append("CompilationResult");
+		sb.append("{classLoader=").append(classLoader);
+		sb.append(", compiledClasses=").append(compiledClasses == null ? "null" : Arrays.asList(compiledClasses).toString());
+		sb.append('}');
+		return sb.toString();
 	}
 }

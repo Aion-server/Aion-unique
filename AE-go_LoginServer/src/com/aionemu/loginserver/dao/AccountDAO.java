@@ -97,6 +97,7 @@ public abstract class AccountDAO implements DAO
 	 *
 	 * @return uniquire class name for all implementations
 	 */
+	@Override
 	public final String getClassName()
 	{
 		return AccountDAO.class.getName();

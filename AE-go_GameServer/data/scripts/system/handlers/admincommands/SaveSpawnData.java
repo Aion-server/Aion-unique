@@ -14,11 +14,12 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.utils.chathandlers.admincommands;
+package admincommands;
 
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.google.inject.Inject;
 
 /**
@@ -27,15 +28,17 @@ import com.google.inject.Inject;
  */
 public class SaveSpawnData extends AdminCommand
 {
-	@Inject
-	private SpawnData	spawnData;
+	private final SpawnData	spawnData;
 
 	/**
-	 * @param commandName
+	 * 
 	 */
-	public SaveSpawnData()
+	@Inject
+	public SaveSpawnData(SpawnData spawnData)
 	{
 		super("save_spawn");
+
+		this.spawnData = spawnData;
 	}
 
 	/*
@@ -44,7 +47,7 @@ public class SaveSpawnData extends AdminCommand
 	 * gameobjects.Player, java.lang.String[])
 	 */
 	@Override
-	public void executeCommand(Player admin, String... params)
+	public void executeCommand(Player admin, String[] params)
 	{
 		if(spawnData.saveData())
 		{

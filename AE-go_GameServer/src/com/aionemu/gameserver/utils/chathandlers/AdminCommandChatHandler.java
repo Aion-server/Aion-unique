@@ -25,7 +25,6 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand;
 
 /**
  * This chat handler is responsible for handling admin commands, starting with //
@@ -96,4 +95,20 @@ public class AdminCommandChatHandler implements ChatHandler
 		}
 	}
 
+	/**
+	 * Clear all registered handlers (before reload). 
+	 */
+	void clearHandlers()
+	{
+		this.commands.clear();
+	}
+
+	/**
+	 * Returns count of available admin command handlers.
+	 * @return count of available admin command handlers.
+	 */
+	public int getSize()
+	{
+		return this.commands.size();
+	}
 }

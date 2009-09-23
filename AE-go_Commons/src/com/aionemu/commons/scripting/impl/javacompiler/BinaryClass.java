@@ -79,8 +79,10 @@ public class BinaryClass extends BaseFileObject
 	 * Returns name of this class with ".class" suffix
 	 * 
 	 * @return name of this class with ".class" suffix
+	 *
+	 * @deprecated
 	 */
-	@SuppressWarnings( { "deprecation" })
+	@Deprecated
 	@Override
 	public String getName()
 	{

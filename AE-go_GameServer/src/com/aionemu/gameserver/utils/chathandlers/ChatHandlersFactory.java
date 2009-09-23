@@ -16,32 +16,23 @@
  */
 package com.aionemu.gameserver.utils.chathandlers;
 
-import com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.AdvSendFakeServerPacket;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.Announce;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.DeleteSpawn;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.GoTo;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.MoveTo;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.Notice;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.ReloadSpawns;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.SaveSpawnData;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.SendFakeServerPacket;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.SendRawPacket;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.SetExp;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.SetLevel;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.SpawnNpc;
-import com.aionemu.gameserver.utils.chathandlers.admincommands.UnloadSpawn;
+import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
+import com.aionemu.commons.services.ScriptService;
+import com.aionemu.gameserver.GameServerError;
 import com.google.inject.Injector;
+
+import java.io.File;
 
 /**
  * This factory is responsible for creating class tree starting with {@link ChatHandlers}
  * 
- * @author Luno
- * 
+ * @author Luno, Aquanox
  */
 public class ChatHandlersFactory
 {
-	private Injector	injector;
+	public static final File CHAT_DESCRIPTOR_FILE = new File("./data/scripts/system/handlers.xml");
+
+	private final Injector	injector;
 
 	/**
 	 * @param injector
@@ -58,33 +49,29 @@ public class ChatHandlersFactory
 	 */
 	public ChatHandlers createChatHandlers()
 	{
-		ChatHandlers result = new ChatHandlers();
+		ChatHandlers handlers = new ChatHandlers();
 
-		AdminCommandChatHandler adminCCH = new AdminCommandChatHandler();
-		result.addChatHandler(adminCCH);
+		final AdminCommandChatHandler adminCCH = new AdminCommandChatHandler();
 
-		// Inits admin command handlers (TODO: those admin command handlers may be loaded as scripts)
-		addAdminCommand(adminCCH, new SendFakeServerPacket());
-		addAdminCommand(adminCCH, new AdvSendFakeServerPacket());
-		addAdminCommand(adminCCH, new SendRawPacket());
-		addAdminCommand(adminCCH, new SpawnNpc());
-		addAdminCommand(adminCCH, new SaveSpawnData());
-		addAdminCommand(adminCCH, new DeleteSpawn());
-		addAdminCommand(adminCCH, new MoveTo());
-		addAdminCommand(adminCCH, new UnloadSpawn());
-		addAdminCommand(adminCCH, new ReloadSpawns());
-		addAdminCommand(adminCCH, new GoTo());
-		addAdminCommand(adminCCH, new Announce()); // Add st0rms //announce
-		addAdminCommand(adminCCH, new Notice());
-		addAdminCommand(adminCCH, new SetLevel());
-		addAdminCommand(adminCCH, new SetExp());
+		handlers.addChatHandler(adminCCH);
 
-		return result;
-	}
+		ScriptManager sm = new ScriptManager();
 
-	private void addAdminCommand(AdminCommandChatHandler adm, AdminCommand comm)
-	{
-		injector.injectMembers(comm);
-		adm.registerAdminCommand(comm);
+		// set global loader
+		sm.setGlobalClassListener(new ChatHandlersLoader(injector, adminCCH));
+
+		try
+		{
+			sm.load(CHAT_DESCRIPTOR_FILE);
+		}
+		catch (Exception e)
+		{
+			throw new GameServerError("Can't initialize chat handlers.", e);
+		}
+
+		// save reference to script manager instance.
+		injector.getInstance(ScriptService.class).addScriptManager(sm, CHAT_DESCRIPTOR_FILE);
+
+		return handlers;
 	}
 }

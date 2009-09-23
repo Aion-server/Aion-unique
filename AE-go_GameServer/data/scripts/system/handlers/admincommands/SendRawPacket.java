@@ -14,12 +14,13 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.utils.chathandlers.admincommands;
+package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CUSTOM_PACKET;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CUSTOM_PACKET.PacketElementType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
@@ -48,7 +49,7 @@ public class SendRawPacket extends AdminCommand
 	 * @see super#executeCommand(com.aionemu.gameserver.model.gameobjects.player.Player, java.lang.String[])
 	 */
 	@Override
-	public void executeCommand(Player admin, String... params)
+	public void executeCommand(Player admin, String[] params)
 	{
 		if (params.length != 1)
 		{

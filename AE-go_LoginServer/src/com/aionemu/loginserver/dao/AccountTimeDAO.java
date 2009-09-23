@@ -48,6 +48,7 @@ public abstract class AccountTimeDAO implements DAO {
      *
      * @return uniquire class name for all implementations
      */
+    @Override
     public final String getClassName()
     {
         return AccountTimeDAO.class.getName();

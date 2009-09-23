@@ -37,7 +37,8 @@ public final class ScriptContextFactory
 	 *            file that will be threated as root for compiler
 	 * @param parent
 	 *            parent of new ScriptContext
-	 * @return ScriptContext with presetted root file
+	 * @return ScriptContext
+	 * 			  with presetted root file
 	 * @throws InstantiationException
 	 *             if java compiler is not aviable
 	 */

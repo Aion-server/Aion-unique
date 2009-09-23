@@ -23,19 +23,20 @@ package com.aionemu.commons.scripting.classlistener;
  *
  * @author SoulKeeper
  */
-public interface ClassListener {
+public interface ClassListener
+{
 
 	/**
 	 * This method is invoked after classes were loaded. As areguments are passes all loaded classes
-	 *
-	 * @param classes classes that were loaded
+	 * 
+	 * @param classes
 	 */
-	public void postLoad(Class<?>... classes);
+	public void postLoad(Class<?>[] classes);
 
 	/**
 	 * This method is invoked before class unloading. As argument are passes all loaded classes
-	 *
-	 * @param classes classes that were loaded
+	 * 
+	 * @param classes
 	 */
-	public void preUnload(Class<?>... classes);
+	public void preUnload(Class<?>[] classes);
 }

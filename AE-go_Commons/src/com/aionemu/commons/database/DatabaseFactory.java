@@ -30,8 +30,6 @@ import org.apache.commons.dbcp.PoolingDataSource;
 import org.apache.commons.pool.impl.GenericObjectPool;
 import org.apache.log4j.Logger;
 
-import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
-
 /**
  * <b>Database Factory</b><br>
  * <br>
@@ -52,11 +50,6 @@ public class DatabaseFactory
 	 * Logger for this class
 	 */
 	private static final Logger			log				= Logger.getLogger(DatabaseFactory.class);
-
-	/**
-	 * This script manager is responsible for loading {@link com.aionemu.commons.database.dao.DAO} implementations
-	 */
-	private static final ScriptManager	scriptManager	= new ScriptManager();
 
 	/**
 	 * Data Source Generates all Connections This variable is also used as indicator for "initialized" state of
@@ -138,17 +131,6 @@ public class DatabaseFactory
 			throw new Error("DatabaseFactory not initialized!");
 		}
 
-		try
-		{
-			scriptManager.load(DatabaseConfig.DATABASE_SCRIPTCONTEXT_DESCRIPTOR);
-		}
-		catch (Exception e)
-		{
-			String err = "Can't load database script context: " + DatabaseConfig.DATABASE_SCRIPTCONTEXT_DESCRIPTOR;
-			log.fatal(err);
-			throw new Error(err, e);
-		}
-
 		log.info("Successfully connected to database");
 	}
 
@@ -227,9 +209,6 @@ public class DatabaseFactory
 
 		// set datasource to null so we can call init() once more...
 		dataSource = null;
-
-		// init shutdown on loaded scripts
-		scriptManager.shutdown();
 	}
 
 	/**

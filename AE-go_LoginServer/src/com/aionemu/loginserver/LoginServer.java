@@ -22,6 +22,7 @@ import java.lang.management.MemoryUsage;
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.DatabaseFactory;
+import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.services.LoggingService;
 import com.aionemu.commons.utils.ExitCode;
 import com.aionemu.loginserver.configs.Config;
@@ -47,8 +48,11 @@ public class LoginServer
     public static void main(String[] args)
     {
         LoggingService.init();
-        DatabaseFactory.init();
-        Config.load();
+
+		Config.load();
+
+		DatabaseFactory.init();
+		DAOManager.init();
 
         /** Start deadlock detector that will restart server if deadlock happened */
         new DeadLockDetector(60, DeadLockDetector.RESTART).start();

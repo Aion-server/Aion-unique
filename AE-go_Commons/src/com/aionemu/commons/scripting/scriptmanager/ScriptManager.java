@@ -30,11 +30,16 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.scripting.ScriptContext;
 import com.aionemu.commons.scripting.ScriptContextFactory;
+import com.aionemu.commons.scripting.classlistener.ClassListener;
+import com.aionemu.commons.scripting.scriptmanager.listener.ContextCreationListener;
+import com.aionemu.commons.scripting.scriptmanager.listener.ContextReloadListener;
+import com.aionemu.commons.scripting.scriptmanager.listener.ReloadListener;
+import com.aionemu.commons.callbacks.Enhancable;
 
 /**
  * Class that represents managers of script contexes. It loads, reloads and unload script contexes. In the future it may
  * be extended to support programatic manipulation of contexes, but for now it's not needed.
- * 
+ * <br />
  * Example:
  * 
  * <pre>
@@ -44,7 +49,11 @@ import com.aionemu.commons.scripting.ScriptContextFactory;
  *      sm.shutdown();
  * </pre>
  * 
- * @author SoulKeeper
+ * {@link ScriptContext} object creation listener can be added by using {@link com.aionemu.commons.scripting.scriptmanager.listener.ContextCreationListener}
+ * {@link ScriptContext} object reload listener can be added by using {@link com.aionemu.commons.scripting.scriptmanager.listener.ContextReloadListener}
+ * {@link ScriptManager} reload listener can be added by using {@link com.aionemu.commons.scripting.scriptmanager.listener.ReloadListener}
+ *
+ * @author SoulKeeper, Aquanox
  */
 public class ScriptManager
 {
@@ -60,6 +69,12 @@ public class ScriptManager
 	private Set<ScriptContext>	contexts	= new HashSet<ScriptContext>();
 
 	/**
+	 * Global ClassListener instance. Autocatically setted for each new context.
+	 * Fires after each successful compilation.
+	 */
+	private ClassListener globalClassListener;
+
+	/**
 	 * Loads script contexes from descriptor
 	 * 
 	 * @param scriptDescriptor
@@ -69,9 +84,9 @@ public class ScriptManager
 	 */
 	public synchronized void load(File scriptDescriptor) throws Exception
 	{
-
 		JAXBContext c = JAXBContext.newInstance(ScriptInfo.class, ScriptList.class);
 		Unmarshaller u = c.createUnmarshaller();
+
 		ScriptList list = (ScriptList) u.unmarshal(scriptDescriptor);
 
 		for (ScriptInfo si : list.getScriptInfos())
@@ -96,7 +111,8 @@ public class ScriptManager
 	 * @throws Exception
 	 *             if can't create context
 	 */
-	private ScriptContext createContext(ScriptInfo si, ScriptContext parent) throws Exception
+	@Enhancable(callback = ContextCreationListener.class)
+	public ScriptContext createContext(ScriptInfo si, ScriptContext parent) throws Exception
 	{
 		ScriptContext context = ScriptContextFactory.getScriptContext(si.getRoot(), parent);
 		context.setLibraries(si.getLibraries());
@@ -115,6 +131,9 @@ public class ScriptManager
 				createContext(child, context);
 			}
 		}
+
+		if (parent == null && globalClassListener != null)
+			context.setClassListener(globalClassListener);
 
 		return context;
 	}
@@ -135,12 +154,23 @@ public class ScriptManager
 	/**
 	 * Reloads all contexes
 	 */
+	@Enhancable(callback = ReloadListener.class)
 	public synchronized void reload()
 	{
 		for (ScriptContext context : contexts)
 		{
-			context.reload();
+			reloadContext(context);
 		}
+	}
+
+	/**
+	 * Reloads specified context.
+	 * @param ctx Script context instance.
+	 */
+	@Enhancable(callback = ContextReloadListener.class)
+	public void reloadContext(ScriptContext ctx)
+	{
+		ctx.reload();
 	}
 
 	/**
@@ -151,5 +181,15 @@ public class ScriptManager
 	public synchronized Collection<ScriptContext> getScriptContexts()
 	{
 		return Collections.unmodifiableSet(contexts);
+	}
+
+	/**
+	 * Set Global class listener instance.
+	 *
+	 * @param instance listener instance.
+	 */
+	public void setGlobalClassListener(ClassListener instance)
+	{
+		this.globalClassListener = instance;
 	}
 }
