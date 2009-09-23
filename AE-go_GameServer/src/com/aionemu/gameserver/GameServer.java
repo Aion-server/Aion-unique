@@ -19,6 +19,7 @@ package com.aionemu.gameserver;
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.DatabaseFactory;
+import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.log4j.exceptions.Log4jInitializationError;
 import com.aionemu.commons.network.NioServer;
 import com.aionemu.commons.services.LoggingService;
@@ -88,6 +89,8 @@ public class GameServer
 		GameTimeManager.startClock();
 		
 		Runtime.getRuntime().addShutdownHook(new Thread(new ShutdownHook()));
+
+		//gs.injector.getInstance(com.aionemu.gameserver.utils.chathandlers.ChatHandlers.class);
 	}
 
 	/**
@@ -136,6 +139,8 @@ public class GameServer
 		Config.load();
 		// Second should be database factory
 		DatabaseFactory.init();
+		// Initialize DAOs
+		DAOManager.init();
 		// Initialize thread pools
 		ThreadPoolManager.getInstance();
 		
