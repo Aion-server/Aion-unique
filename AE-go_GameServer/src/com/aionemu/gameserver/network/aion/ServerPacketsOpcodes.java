@@ -101,7 +101,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_BLOCK_RESPONSE.class, Version.Chiness ? -1 : 0xD6 ,idSet);
 		addPacketOpcode(SM_BLOCK_LIST.class, Version.Chiness ? 0xD6 : 0xD9, idSet);
 		addPacketOpcode(SM_ATTACK.class, Version.Chiness ? -1 : 0xFC, idSet);
-		addPacketOpcode(SM_WATHER.class, Version.Chiness ? -1 : 0x4A, idSet);
+		addPacketOpcode(SM_WEATHER.class, Version.Chiness ? -1 : 0x4A, idSet);
 		
 		//Unrecognized Opcodes:
 		
