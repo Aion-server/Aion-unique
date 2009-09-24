@@ -7,6 +7,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
  import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
  import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
  import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOP_STATUS;
+ import com.aionemu.gameserver.utils.PacketSendUtility;
  
  public class CM_ATTACK extends AionClientPacket
  {
@@ -43,5 +44,6 @@ package com.aionemu.gameserver.network.aion.clientpackets;
        return;
      sendPacket(new SM_EMOTION(this.targetObjectId, 13, playerobjid));
      sendPacket(new SM_LOOP_STATUS(this.targetObjectId, 0));
+     PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), unknown, emotion), true);
    }
  }
