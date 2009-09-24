@@ -76,6 +76,16 @@ public class SM_EMOTION extends AionServerPacket
 		if (unknown !=0x24) {
 			writeD(buf, senderObjectId);
 			writeC(buf, unknown);
+		}
+		if (unknown == 13 ){
+				//emote die
+			writeD(buf, 0x07); // unknown
+			writeC(buf, 0xE0); // unknown
+			writeC(buf, 0x40); // unknown
+			writeD(buf, emotionId);
+					}
+					else
+					{
 			writeC(buf, 0x01); // unknown
 			writeC(buf, 0x00); // unknown
 			writeH(buf, 0x00); // unknown
