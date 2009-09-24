@@ -47,14 +47,27 @@ public class SM_SKILL_LIST extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeH(buf, 1);// skills list size
+		writeH(buf, 4);// skills list size
 		// for skills
 		// {
-		writeH(buf, 3);// id (3001)
+		writeH(buf, 1351);// id (3001)
+		writeD(buf, 1);// lvl
+		writeD(buf, 0);// use time? [s]
+		writeC(buf, 0);// unk
+		writeH(buf, 1373);// id (3001)
+		writeD(buf, 1);// lvl
+		writeD(buf, 0);// use time? [s]
+		writeC(buf, 0);// unk
+		writeH(buf, 1801);// id (3001)
+		writeD(buf, 1);// lvl
+		writeD(buf, 0);// use time? [s]
+		writeC(buf, 0);// unk
+		writeH(buf, 1803);// id (3001)
 		writeD(buf, 1);// lvl
 		writeD(buf, 0);// use time? [s]
 		writeC(buf, 0);// unk
 		// }
+		writeD(buf, 0); //unk
 		
 		final int size = player.getSkillList().getSize();
 		writeH(buf, size);//skills list size
