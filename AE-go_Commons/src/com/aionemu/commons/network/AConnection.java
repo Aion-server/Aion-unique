@@ -97,11 +97,21 @@ public abstract class AConnection
 		readBuffer = ByteBuffer.allocate(8192 * 2);
 		readBuffer.order(ByteOrder.LITTLE_ENDIAN);
 
-		key = dispatcher.register(socketChannel, SelectionKey.OP_READ, this);
+		dispatcher.register(socketChannel, SelectionKey.OP_READ, this);
 
 		this.ip = socketChannel.socket().getInetAddress().getHostAddress();
 	}
 
+	/**
+	 * Set selection key - result of registration this AConnection socketChannel to
+	 * one of dispatchers.
+	 * 
+	 * @param key
+	 */
+	final void setKey(SelectionKey key)
+	{
+		this.key = key;
+	}
 	/**
 	 * Notify Dispatcher Selector that we want write some data here.
 	 */

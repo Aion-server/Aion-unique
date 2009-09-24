@@ -121,15 +121,34 @@ public abstract class Dispatcher extends Thread
 	}
 
 	/**
-	 * Register new client connected to server.
+	 * Register new client connected to this Dispatcher and set SelectionKey
+	 * (result of registration) as this key of given AConnection.
 	 * 
 	 * @param ch
 	 * @param ops
 	 * @param att
-	 * @return SelectionKey representing connection with server.
 	 * @throws IOException
 	 */
-	public final SelectionKey register(SelectableChannel ch, int ops, Object att) throws IOException
+	public final void register(SelectableChannel ch, int ops, AConnection att) throws IOException
+	{
+		synchronized (gate)
+		{
+			selector.wakeup();
+			att.setKey(ch.register(selector, ops, att));
+		}
+	}
+
+	/**
+	 * Register new Acceptor this Dispatcher and return SelectionKey
+	 * (result of registration).
+	 * 
+	 * @param ch
+	 * @param ops
+	 * @param att
+	 * @return SelectionKey representing this registration.
+	 * @throws IOException
+	 */
+	public final SelectionKey register(SelectableChannel ch, int ops, Acceptor att) throws IOException
 	{
 		synchronized (gate)
 		{
