@@ -20,6 +20,8 @@ package com.aionemu.commons.services;
 import java.io.File;
 import java.util.Collections;
 import java.util.Map;
+import java.util.Iterator;
+import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.io.FileUtils;
@@ -182,5 +184,25 @@ public class ScriptService
 	public Map<File, ScriptManager> getLoadedScriptManagers()
 	{
 		return Collections.unmodifiableMap(map);
+	}
+
+	/**
+	 * Broadcast shutdown to all attached Script Managers.
+	 */
+	public void shutdown()
+	{
+		for (Iterator<Entry<File, ScriptManager>> it = this.map.entrySet().iterator(); it.hasNext();)
+		{
+			try
+			{
+				it.next().getValue().shutdown();
+			}
+			catch (Exception e)
+			{
+				log.warn("An exception occured during shudown procedure.", e);
+			}
+			
+			it.remove();
+		}
 	}
 }

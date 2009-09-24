@@ -70,6 +70,16 @@ public class DAOManager
 	}
 
 	/**
+	 * Shutdown DAOManager
+	 */
+	public static void shutdown()
+	{
+		scriptManager.shutdown();
+		daoMap.clear();
+		scriptManager = null;
+	}
+
+	/**
 	 * Returns DAO implementation by DAO class. Typical usage:
 	 * 
 	 * <pre>
