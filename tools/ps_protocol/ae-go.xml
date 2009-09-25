@@ -482,94 +482,115 @@
        	<part name="statusIntValue" type="c"/>
     </packet>
 	<packet id="0xF4" name="SM_SHOP">
-		<part name="unk" type="1"/>
-		<part name="shopType" type="1"/>
+		<part name="unk" type="d"/>
+		<part name="shopType" type="d"/>
 	</packet>
 	<packet id="0xF6" name="SM_RECONNECT_KEY">
 		<part name="result" type="c"/>
 		<part name="key" type="d"/>
 	</packet>
-	<packet id="0xF8" name="SM_STATS_INFO [UI?]">
+	<packet id="0xF8" name="SM_STATS_INFO [UI]">
       	<part name="objectId" type="d"/>
-       	<part name="unk" type="d"/>
-       	<part name="power [?]" type="h"/>
-       	<part name="health [?]" type="h"/>
-       	<part name="agility [?]" type="h"/>
-       	<part name="accuracy [?]" type="h"/>
-       	<part name="knowledge [?]" type="h"/>
-       	<part name="will [?]" type="h"/>
-       	<part name="unk" type="d"/>
-       	<part name="unk" type="d"/>
-		<part name="unk" type="d"/>
-       	<part name="unk" type="d"/>
-       	<part name="lvl" type="d"/>
-       	<part name="maxXp [?]" type="d"/>
-       	<part name="unk" type="d"/>
-       	<part name="unk" type="d"/>
-       	<part name="unk" type="d"/>
-       	<part name="unk" type="d"/>
-       	<part name="unk" type="d"/>
-       	<part name="curXp [?]" type="d"/>
-       	<part name="maxHp [?]" type="d"/>
-       	<part name="curHp [?]" type="d"/>
-       	<part name="maxMp [?]" type="d"/>
-       	<part name="curMp [?]" type="d"/>
-       	<part name="maxDp [?]" type="d"/>
-       	<part name="curDp [?]" type="d"/>
+       	<part name="bonusTime" type="d"/>
+       	<part name="bonusPower" type="h"/>
+       	<part name="bonusHealth" type="h"/>
+       	<part name="bonusAccuracy" type="h"/>
+       	<part name="bonusAgility" type="h"/>
+       	<part name="bonusKnowledge" type="h"/>
+       	<part name="bonusWill" type="h"/>
+       	<part name="bonusWaterResist" type="h"/>
+       	<part name="bonusWindResist" type="h"/>
+		<part name="bonusEarthResist" type="h"/>
+       	<part name="bonusFireResist" type="h"/>
        	<part name="unk1" type="d"/>
+       	<part name="level" type="h"/>
+       	<part name="currentXP" type="Q"/>
        	<part name="unk2" type="d"/>
+       	<part name="maxHP" type="d"/>
+       	<part name="clientThinkDead" type="d"/>
+       	<part name="maxMP" type="d"/>
+       	<part name="curMP" type="d"/>
+       	<part name="maxDP" type="h"/>
+       	<part name="curDP" type="h"/>
        	<part name="unk3" type="d"/>
-       	<part name="unk4" type="d"/>
-       	<part name="unk5" type="d"/>
-       	<part name="unk6" type="d"/>
-       	<part name="unk7" type="d"/>
-       	<part name="unk8" type="d"/>
-       	<part name="unk9" type="d"/>
-       	<part name="unk10" type="d"/>
-       	<part name="unk11" type="d"/>
-       	<part name="unk12" type="d"/>
+       	<part name="unk4" type="h"/>
+       	<part name="bonusMainHandAttack" type="h"/>
+       	<part name="bounsOffHandAttack" type="h"/>
+       	<part name="bounsPhysDefence" type="h"/>
+       	<part name="unk5" type="h"/>
+       	<part name="magicalResist" type="h"/>
+       	<part name="unk6" type="h"/>
+       	<part name="unk7" type="h"/>
+       	<part name="unk8" type="h"/>
+       	<part name="bonusEvasion" type="h"/>
+       	<part name="bonusParry" type="h"/>
+       	<part name="bonusBlock" type="h"/>
+       	<part name="bonusMainHandCritRate" type="h"/>
+       	<part name="bonusOffHandCritRate" type="h"/>
+       	<part name="bonusMainHandAccuracy" type="h"/>
+       	<part name="bonusOffHandAccuracy" type="h"/>
+       	<part name="unk9" type="h"/>
+       	<part name="bonusMagicAccuracy" type="h"/>
+       	<part name="unk10" type="h"/>
+       	<part name="bonusMagicBoost" type="h"/>
+       	<part name="unk11" type="h"/>
+       	<part name="unk12" type="h"/>
+       	<part name="classId" type="d"/>
        	<part name="unk13" type="d"/>
+       	<part name="power" type="h"/>
+       	<part name="health" type="h"/>
+       	<part name="accuracy" type="h"/>
+       	<part name="agility" type="h"/>
+       	<part name="knowledge" type="h"/>
+       	<part name="will" type="h"/>
+       	<part name="waterResist" type="h"/>
+       	<part name="windResist" type="h"/>
+       	<part name="earthResist" type="h"/>
+       	<part name="fireResist" type="h"/>
        	<part name="unk14" type="d"/>
+       	<part name="maxHp" type="d"/>
+       	<part name="maxMp" type="d"/>
        	<part name="unk15" type="d"/>
        	<part name="unk16" type="d"/>
-       	<part name="unk17" type="d"/>
-       	<part name="unk18" type="d"/>
+       	<part name="mainHandAttack" type="h"/>
+       	<part name="offHandAttack" type="h"/>
+       	<part name="unk17" type="h"/>
+       	<part name="physDef" type="h"/>
+       	<part name="magicResist" type="h"/>
+       	<part name="unk18" type="h"/>
        	<part name="unk19" type="d"/>
-       	<part name="unk20" type="d"/>
-       	<part name="unk21" type="d"/>
-       	<part name="unk22" type="d"/>
-       	<part name="unk23" type="d"/>
-       	<part name="unk24" type="d"/>
-       	<part name="unk25" type="d"/>
-       	<part name="unk26" type="d"/>
-       	<part name="unk27" type="d"/>
-       	<part name="unk28" type="d"/>
-       	<part name="unk29" type="d"/>
-       	<part name="unk30" type="d"/>
-       	<part name="unk31" type="d"/>
-       	<part name="unk32" type="d"/>
-       	<part name="unk33" type="d"/>
-       	<part name="unk34" type="d"/>
-       	<part name="unk35" type="d"/>
-       	<part name="unk36" type="d"/>
-       	<part name="unk37" type="d"/>
+       	<part name="evasion" type="h"/>
+       	<part name="parry" type="h"/>
+       	<part name="block" type="h"/>
+       	<part name="maintHandCritRate" type="h"/>
+       	<part name="offHandCritRate" type="h"/>
+       	<part name="mainHandAccuracy" type="h"/>
+       	<part name="offHandAccuracy" type="h"/>
+       	<part name="unk20" type="h"/>
+       	<part name="magicAccuracy" type="h"/>
+       	<part name="unk21" type="h"/>
+       	<part name="magicBoost" type="h"/>
+       	<part name="unk22" type="h"/>
     </packet>
 	<packet id="0xF9" name="SM_VERSION_CHECK">
-		<part name="unk" type="h"/>
+		<part name="unk" type="c"/>
+		<part name="gameServerId" type="c"/>
 		<part name="unk" type="d"/>
 		<part name="unk" type="d"/>
 		<part name="unk" type="d"/>
-		<part name="unk" type="d"/>
-		<part name="unk" type="d"/>
-		<part name="unk" type="d"/>
-		<part name="serverTime [s]" type="d"/>
 		<part name="unk" type="d"/>
 		<part name="unk" type="d"/>
 		<part name="unk" type="c"/>
+		<part name="serverCountryCode" type="c"/>
+		<part name="unk" type="c"/>
+		<part name="serverMode" type="c"/>
+		<part name="serverTime" type="d"/>
+		<part name="unk" type="d"/>
+		<part name="unk" type="d"/>		
 	</packet>
-	<packet id="0xFC" name="SM_HEAL">
+	<packet id="0xFC" name="SM_ATTACK_STATUS">
 		<part name="receiver" type="d"/>
-		<part name="heal?" type="d"/>
+		<part name="currHpPercent" type="d"/>
 		<part name="unk" type="c"/>
 		<part name="unk" type="c"/>
 		<part name="unk" type="c"/>
