@@ -128,7 +128,7 @@ public class SM_STATS_INFO extends AionServerPacket
 
 
 		//gladiator
-		if (pcd.getPlayerClass().getClassId() == 0) {
+		if (pcd.getPlayerClass().getClassId() == 1) {
 			maxhpc = Math.round ( 1.3393 * (player.getLevel() - 1) * (player.getLevel() - 1) + 48.246 * (player.getLevel() -1) + 342 );
 			Long lObj = new Long(maxhpc);
 			maxhp = lObj.intValue();
@@ -155,7 +155,7 @@ public class SM_STATS_INFO extends AionServerPacket
 			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
 		}
 		//templar
-			if (pcd.getPlayerClass().getClassId() == 0) {
+			if (pcd.getPlayerClass().getClassId() == 2) {
 			maxhpc = Math.round ( 1.3288 * (player.getLevel() - 1) * (player.getLevel() - 1) + 51.878 * (player.getLevel() -1) + 281 );
 			Long lObj = new Long(maxhpc);
 			maxhp = lObj.intValue();
@@ -182,7 +182,7 @@ public class SM_STATS_INFO extends AionServerPacket
 			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
 		}
 		//scout
-		if (pcd.getPlayerClass().getClassId() == 0) {
+		if (pcd.getPlayerClass().getClassId() == 3) {
 			maxhpc = Math.round ( 1.0297 * (player.getLevel() - 1) * (player.getLevel() - 1) + 40.823 * (player.getLevel() -1) + 219 );
 			Long lObj = new Long(maxhpc);
 			maxhp = lObj.intValue();
@@ -209,7 +209,7 @@ public class SM_STATS_INFO extends AionServerPacket
 			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
 		}
 		//assasin
-		if (pcd.getPlayerClass().getClassId() == 0) {
+		if (pcd.getPlayerClass().getClassId() == 4) {
 			maxhpc = Math.round ( 1.0488 * (player.getLevel() - 1) * (player.getLevel() - 1) + 40.38 * (player.getLevel() -1) + 222 );
 			Long lObj = new Long(maxhpc);
 			maxhp = lObj.intValue();
@@ -236,7 +236,7 @@ public class SM_STATS_INFO extends AionServerPacket
 			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
 		}
 		//ranger
-		if (pcd.getPlayerClass().getClassId() == 0) {
+		if (pcd.getPlayerClass().getClassId() == 5) {
 			maxhpc = Math.round ( 0.5 * (player.getLevel() - 1) * (player.getLevel() - 1) + 38.5 * (player.getLevel() -1) + 133 );
 			Long lObj = new Long(maxhpc);
 			maxhp = lObj.intValue();
@@ -263,7 +263,7 @@ public class SM_STATS_INFO extends AionServerPacket
 			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
 		}
 		//mage
-		if (pcd.getPlayerClass().getClassId() == 0) {
+		if (pcd.getPlayerClass().getClassId() == 6) {
 			maxhpc = Math.round ( 0.7554 * (player.getLevel() - 1) * (player.getLevel() - 1) + 29.457 * (player.getLevel() -1) + 132 );
 			Long lObj = new Long(maxhpc);
 			maxhp = lObj.intValue();
@@ -290,7 +290,7 @@ public class SM_STATS_INFO extends AionServerPacket
 			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
 		}
 		//sorcerer
-		if (pcd.getPlayerClass().getClassId() == 0) {
+		if (pcd.getPlayerClass().getClassId() == 7) {
 			maxhpc = Math.round ( 0.6352 * (player.getLevel() - 1) * (player.getLevel() - 1) + 24.852 * (player.getLevel() -1) + 112 );
 			Long lObj = new Long(maxhpc);
 			maxhp = lObj.intValue();
@@ -317,7 +317,7 @@ public class SM_STATS_INFO extends AionServerPacket
 			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
 		}
 		//spirit master
-		if (pcd.getPlayerClass().getClassId() == 0) {
+		if (pcd.getPlayerClass().getClassId() == 8) {
 			maxhpc = Math.round ( 1 * (player.getLevel() - 1) * (player.getLevel() - 1) + 20.6 * (player.getLevel() -1) + 157 );
 			Long lObj = new Long(maxhpc);
 			maxhp = lObj.intValue();
@@ -344,7 +344,7 @@ public class SM_STATS_INFO extends AionServerPacket
 			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
 		}
 		//priest
-		if (pcd.getPlayerClass().getClassId() == 0) {
+		if (pcd.getPlayerClass().getClassId() == 9) {
 			maxhpc = Math.round ( 1.0303 * (player.getLevel() - 1) * (player.getLevel() - 1) + 40.824 * (player.getLevel() -1) + 201 );
 			Long lObj = new Long(maxhpc);
 			maxhp = lObj.intValue();
@@ -371,7 +371,7 @@ public class SM_STATS_INFO extends AionServerPacket
 			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
 		}
 		//cleric
-		if (pcd.getPlayerClass().getClassId() == 0) {
+		if (pcd.getPlayerClass().getClassId() == 10) {
 			maxhpc = Math.round ( 0.9277 * (player.getLevel() - 1) * (player.getLevel() - 1) + 35.988 * (player.getLevel() -1) +229 );
 			Long lObj = new Long(maxhpc);
 			maxhp = lObj.intValue();
@@ -398,7 +398,7 @@ public class SM_STATS_INFO extends AionServerPacket
 			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
 		}
 		//chanter
-		if (pcd.getPlayerClass().getClassId() == 0) {
+		if (pcd.getPlayerClass().getClassId() == 11) {
 			maxhpc = Math.round ( 0.9277 * (player.getLevel() - 1) * (player.getLevel() - 1) + 35.988 * (player.getLevel() -1) + 229 ) - 3*player.getLevel();// not retail like, needs some fixes.
 			Long lObj = new Long(maxhpc);
 			maxhp = lObj.intValue();
