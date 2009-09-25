@@ -95,8 +95,6 @@ public class CM_EMOTION extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
-		log.info("TEST EMOTION? 0x" + Integer.toHexString(unknown).toUpperCase());
-		monsterToAttackId = 0;
 		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), unknown, emotion), true);
 	}
 }
