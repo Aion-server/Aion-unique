@@ -5,6 +5,11 @@
 		<part name="objId" type="d"/>
 		<part name="ukn" type="c"/>
 	</packet>
+	<packet id="0x01" name="SM_STATUSUPDATE_EXP">
+		<part name="currentExp" type="Q"/>
+		<part name="recoverableExp" type="Q"/>
+		<part name="maxExp" type="Q"/>
+	</packet>
 	<packet id="0x12" name="SM_STATUPDATE_HP">
 		<part name="currentHp" type="d"/>
 		<part name="maxHp" type="d"/>
@@ -491,52 +496,68 @@
 	</packet>
 	<packet id="0xF8" name="SM_STATS_INFO [UI]">
       	<part name="objectId" type="d"/>
-       	<part name="bonusTime" type="d"/>
-       	<part name="bonusPower" type="h"/>
-       	<part name="bonusHealth" type="h"/>
-       	<part name="bonusAccuracy" type="h"/>
-       	<part name="bonusAgility" type="h"/>
-       	<part name="bonusKnowledge" type="h"/>
-       	<part name="bonusWill" type="h"/>
-       	<part name="bonusWaterResist" type="h"/>
-       	<part name="bonusWindResist" type="h"/>
-		<part name="bonusEarthResist" type="h"/>
-       	<part name="bonusFireResist" type="h"/>
-       	<part name="unk1" type="d"/>
+       	<part name="gameTime" type="d"/>
+       	<part name="currPower" type="h"/>
+       	<part name="currHealth" type="h"/>
+       	<part name="currAccuracy" type="h"/>
+       	<part name="currAgility" type="h"/>
+       	<part name="currKnowledge" type="h"/>
+       	<part name="currWill" type="h"/>
+       	<part name="currWaterResist" type="h"/>
+       	<part name="currWindResist" type="h"/>
+		<part name="currEarthResist" type="h"/>
+       	<part name="currFireResist" type="h"/>
+       	<part name="unk" type="d"/>
        	<part name="level" type="h"/>
-       	<part name="currentXP" type="Q"/>
-       	<part name="unk2" type="d"/>
+       	<part name="unk" type="h"/>
+       	<part name="currHp" type="d"/>
+       	<part name="expNeed" type="Q"/>
+       	<part name="unk" type="Q"/>
+       	<part name="expShown" type="Q"/>
+       	<part name="unk" type="d"/>
        	<part name="maxHP" type="d"/>
-       	<part name="clientThinkDead" type="d"/>
+       	<part name="curHP" type="d"/>
        	<part name="maxMP" type="d"/>
        	<part name="curMP" type="d"/>
        	<part name="maxDP" type="h"/>
        	<part name="curDP" type="h"/>
        	<part name="unk3" type="d"/>
-       	<part name="unk4" type="h"/>
-       	<part name="bonusMainHandAttack" type="h"/>
-       	<part name="bounsOffHandAttack" type="h"/>
-       	<part name="bounsPhysDefence" type="h"/>
+       	<part name="flyTime" type="d"/>
+       	<part name="unk" type="h"/>
+       	<part name="curMainHandAttack" type="h"/>
+       	<part name="curOffHandAttack" type="h"/>
+       	<part name="curPhysDefence" type="h"/>
        	<part name="unk5" type="h"/>
        	<part name="magicalResist" type="h"/>
        	<part name="unk6" type="h"/>
        	<part name="unk7" type="h"/>
        	<part name="unk8" type="h"/>
-       	<part name="bonusEvasion" type="h"/>
-       	<part name="bonusParry" type="h"/>
-       	<part name="bonusBlock" type="h"/>
-       	<part name="bonusMainHandCritRate" type="h"/>
-       	<part name="bonusOffHandCritRate" type="h"/>
-       	<part name="bonusMainHandAccuracy" type="h"/>
-       	<part name="bonusOffHandAccuracy" type="h"/>
+       	<part name="curEvasion" type="h"/>
+       	<part name="curParry" type="h"/>
+       	<part name="curBlock" type="h"/>
+       	<part name="curMainHandCritRate" type="h"/>
+       	<part name="curOffHandCritRate" type="h"/>
+       	<part name="curMainHandAccuracy" type="h"/>
+       	<part name="curOffHandAccuracy" type="h"/>
        	<part name="unk9" type="h"/>
-       	<part name="bonusMagicAccuracy" type="h"/>
-       	<part name="unk10" type="h"/>
-       	<part name="bonusMagicBoost" type="h"/>
-       	<part name="unk11" type="h"/>
-       	<part name="unk12" type="h"/>
+       	<part name="curMagicAccuracy" type="h"/>
+       	<part name="unk" type="h"/>
+       	<part name="curMagicBoost" type="h"/>
+       	<part name="unk" type="h"/>
+       	<part name="unk" type="h"/>
+       	<part name="unk" type="d"/>
+       	<part name="unk" type="d"/>
+       	<part name="unk" type="d"/>
        	<part name="classId" type="d"/>
-       	<part name="unk13" type="d"/>
+       	<part name="unk" type="d"/>
+       	<part name="unk" type="h"/>
+       	<part name="unk" type="h"/>
+       	<part name="unk" type="h"/>
+       	<part name="unk" type="h"/>
+       	<part name="unk" type="h"/>
+       	<part name="unk" type="h"/>
+       	<part name="unk" type="h"/>
+       	<part name="unk" type="h"/>
        	<part name="power" type="h"/>
        	<part name="health" type="h"/>
        	<part name="accuracy" type="h"/>
@@ -562,7 +583,7 @@
        	<part name="evasion" type="h"/>
        	<part name="parry" type="h"/>
        	<part name="block" type="h"/>
-       	<part name="maintHandCritRate" type="h"/>
+       	<part name="mainHandCritRate" type="h"/>
        	<part name="offHandCritRate" type="h"/>
        	<part name="mainHandAccuracy" type="h"/>
        	<part name="offHandAccuracy" type="h"/>
