@@ -55,6 +55,7 @@ public class SM_STATS_INFO extends AionServerPacket
 	public int wind = 0;
 	public int earth = 0;
 	public int fire = 0;
+	public int fly_time = 60;
 	// needs calculations.
 	public long maxhpc;
 	public int maxhp;
@@ -67,8 +68,8 @@ public class SM_STATS_INFO extends AionServerPacket
 	public int block;
 	public int parry;
 	//unknown yet
-	public int maxdp = 0;
-	public int maxmp = 0;
+	public int maxdp = 100;
+	public int maxmp = 100;
 	public int magic_boost = 0;
 	public int pdef = 0;
 	public int mres = 0;
@@ -92,7 +93,7 @@ public class SM_STATS_INFO extends AionServerPacket
 
 	////////////////////////////////////////////////////////
 //////Sexy calculations of player stats. 
-//////TODO: show player stats in white. Not red or green.
+//////TODO: Find out some missing packet structures.
 //////TODO: Move calculations to some other class
 //////TODO: Find out formulas for other stat calculations.
 ///////////////////////////////////////////////////
@@ -429,133 +430,151 @@ public class SM_STATS_INFO extends AionServerPacket
 		//////////////////////////////////////////////
 
 
-
-
 		writeD(buf, player.getObjectId());
 
 		writeD(buf, GameTimeManager.getGameTime().getTime()); // Minutes since 1/1/00 00:00:00
 
-		writeH(buf, power);// bonus power [confirmed]
-		writeH(buf, health);// bonus health [confirmed]
-		writeH(buf, accuracy);// bonus accuracy [confirmed]
-		writeH(buf, agility);// bonus agility [confirmed]
-		writeH(buf, knowledge);// bonus knowledge [confirmed]
-		writeH(buf, will);// bonus will [confirmed]
 
-		writeH(buf, water);// bonus water res [confirmed]
-		writeH(buf, wind);// bonus wind res [confirmed]
-		writeH(buf, earth);// bonus earth res [confirmed]
-		writeH(buf, fire);// bonus fire res [confirmed]
+		writeH(buf, power);// [current power]
+		writeH(buf, health);// [current health]
+		writeH(buf, accuracy);// [current accuracy]
+		writeH(buf, agility);// [current agility]
+		writeH(buf, knowledge);// [current knowledge]
+		writeH(buf, will);// [current will]
 
-		writeD(buf, 0);// unk 0
-		writeH(buf, player.getLevel());// level [confirmed] ***
-		writeH(buf, 0); //
-		writeD(buf, 0);//
+		writeH(buf, water);// [current water]
+		writeH(buf, wind);// [current wind]
+		writeH(buf, earth);// [current earth]
+		writeH(buf, fire);// [current fire]
 
-		writeQ(buf, pcd.getExpNeed());//max xp [confirmed]
-		writeQ(buf, 0); // recoverable xp [confirmed]
-		writeQ(buf, pcd.getExpShown()); // current xp [confirmed]
+		writeD(buf, 1);// [unk]
+		writeH(buf, player.getLevel());// [level]
+		writeH(buf, 2); // [unk]
+		writeD(buf, maxhp);// [current hp]
 
-		writeD(buf, 0); //
-		writeD(buf, maxhp); // max hp [confirmed] {cur hp is as % in CI packet}
-		writeD(buf, 1);// if set to 0, then client thinks you're dead! [confirmed] (why there is whole int ?)
+		writeQ(buf, pcd.getExpNeed());// [xp till next lv]
+		writeQ(buf, 0); // [recoverable exp]
+		writeQ(buf, pcd.getExpShown()); // [current xp]
 
-		writeD(buf, maxmp);// max mp [confirmed]
-		writeD(buf, 0);// cur mp [confirmed]
+		writeD(buf, 3); // [unk]
+		writeD(buf, maxhp); // [max hp]
+		writeD(buf, 0);// [unk]
 
-		writeH(buf, maxdp);// max dp [confirmed]
-		writeH(buf, 0);// cur dp [confirmed]
+		writeD(buf, maxmp);// [max mana]
+		writeD(buf, maxmp);// [current mana]
 
-		writeD(buf, 0);// unk 60
+		writeH(buf, maxdp);// [max dp]
+		writeH(buf, 0);// [current dp]
 
-		writeD(buf, 0);// unk1 0
+		writeD(buf, 4);// [unk]
 
-		writeH(buf, 0);// unk2
+		writeD(buf, fly_time);// [current fly time]
 
-		writeH(buf, main_hand_attack); // bonus Main-Hand attack [confirmed]
-		writeH(buf, main_hand_attack); // bonus Off-Hand attack [confirmed]
+		writeH(buf, 5);// [unk]
 
-		writeH(buf, pdef);// bonus Physical defence [confirmed]
+		writeH(buf, main_hand_attack); // [current main hand attack]
+		writeH(buf, main_hand_attack); // [off hand attack]
 
-		writeH(buf, 0);//
+		writeH(buf, pdef);// [current pdef]
 
-		writeH(buf, mres); // bonus Magical resistance [confirmed]
+		writeH(buf, 6);// [unk]
 
-		writeH(buf, 0);//
-		writeH(buf, 0);//
-		writeH(buf, 0);//
-		writeH(buf, evasion);// bonus evasion [confirmed]
-		writeH(buf, parry);// bonus parry [confirmed]
-		writeH(buf, block);// bonus block [confirmed]
+		writeH(buf, mres); // [current mres]
 
-		writeH(buf, main_hand_crit_rate);// bonus Main-Hand Crit Rate [confirmed]
-		writeH(buf, main_hand_crit_rate);// bonus 0ff-Hand Crit Rate [confirmed]
+		writeH(buf, 7);// [unk]
+		writeH(buf, 8);// [unk]
+		writeH(buf, 9);// [unk]
+		writeH(buf, evasion);// [current evasion]
+		writeH(buf, parry );// [current parry]
+		writeH(buf, block);// [current block]
 
-		writeH(buf, main_hand_accuracy);// bonus Main-Hand Accuracy [confirmed]
-		writeH(buf, main_hand_accuracy);// bonus Off-Hand Accuracy [confirmed]
+		writeH(buf, main_hand_crit_rate);// [current main hand crit rate]
+		writeH(buf, main_hand_crit_rate);// [current off hand crit rate]
 
-		writeH(buf, 0);// unk10
-		writeH(buf, magic_accuracy);// bonus Magic Accuracy [confirmed]
-		writeH(buf, 0); // unk
-		writeH(buf, magic_boost); // bonus Magic Boost [confirmed]
+		writeH(buf, main_hand_accuracy);// [current main_hand_accuracy]
+		writeH(buf, main_hand_accuracy);// [current off_hand_accuracy]
 
-		writeH(buf, 0);// unk12
-		writeH(buf, 0);// unk12
+		writeH(buf, 10);// [unk]
+		writeH(buf, magic_accuracy);// [current magic accuracy]
+		writeH(buf, 11); // [unk]
+		writeH(buf, magic_boost); // [current magic boost]
 
-		writeD(buf, 2);// unk13 2
-		writeD(buf, 0);// unk14 0
-		writeD(buf, 0);// unk15 0
-		writeD(buf, pcd.getPlayerClass().getClassId());// class id [ should be rather H or even C]
-		writeD(buf, 0);// unk17 0
+		writeH(buf, 12);// [unk]
+		writeH(buf, 13);// [unk]
 
-		writeH(buf, power);// base power [confirmed]
-		writeH(buf, health);// base health [confirmed]
-		writeH(buf, accuracy);// base accuracy [confirmed]
-		writeH(buf, agility);// base agility [confirmed]
-		writeH(buf, knowledge);// base knowledge [confirmed]
-		writeH(buf, will); // base will [confirmed]
+		writeD(buf, 14);// [unk]
+		writeD(buf, 15);// [unk]
+		writeD(buf, 16);// [unk]
+		writeD(buf, pcd.getPlayerClass().getClassId());// [Player Class id]
+		writeD(buf, 17);// [unk]
 
-		writeH(buf, water);// base water res [confirmed]
-		writeH(buf, wind);// base wind res [confirmed]
-		writeH(buf, earth);// base earth res [confirmed]
-		writeH(buf, fire);// base fire res [confirmed]
+		writeH(buf, 18);// [unk]
+		writeH(buf, 19);// [unk]
+		writeH(buf, 20);// [unk]
+		writeH(buf, 21);// [unk]
+		writeH(buf, 22);// [unk]
+		writeH(buf, 23); // [unk]
 
-		writeD(buf, 0);// unk23 0 ? ***
+		writeH(buf, 24);//  [unk]
+		writeH(buf, 25);// [unk]
 
-		writeD(buf, maxhp);// base hp [confirmed]
-		writeD(buf, maxmp);// base mp [confirmed]
+		writeH(buf, power);// [base power]
+		writeH(buf, health);// [base health]
 
-		writeD(buf, 0);// unk26
-		writeD(buf, 60);// unk27 60
+		writeH(buf, accuracy);// [base accuracy]
+		writeH(buf, agility);// [base agility]
 
-		writeH(buf, main_hand_attack);// base Main-Hand Attack [confirmed]
-		writeH(buf, main_hand_attack);// base Off-Hand Attack [confirmed]
+		writeD(buf, knowledge);// [base knowledge]
 
-		writeH(buf, 0); // ***
-		writeH(buf, pdef); // base Physical Def [confirmed]
+		writeD(buf, water);// [base water res]
+		
+		writeD(buf, earth);// [base earth resist]
 
-		writeH(buf, mres); // base Magical res [confirmed]
-		writeH(buf, 0); // *** ??
+		writeD(buf, 26);// [unk]
 
-		writeD(buf, 0);// unk31 1069547520 3FC00000 ** co to ?
+		writeD(buf, maxhp);// [base hp]
 
-		writeH(buf, evasion); // base evasion [confirmed]
-		writeH(buf, parry); // base parry [confirmed]
-		writeH(buf, block); // base block [confirmed]
+		writeD(buf, maxmp);// [base mana]
 
-		writeH(buf, main_hand_crit_rate); // base Main-Hand crit rate [confirmed]
-		writeH(buf, main_hand_crit_rate); // base Off-Hand crit rate [confirmed]
+		writeD(buf, 27);// [unk]
+		writeD(buf, 28);// [unk]
 
-		writeH(buf, main_hand_accuracy); // base Main-Hand Accuracy [confirmed]
-		writeH(buf, main_hand_accuracy); // base Off-Hand Accuracy [confirmed]
+		writeH(buf, main_hand_attack);// [base main hand attack]
+		writeH(buf, main_hand_attack);// [base off hand attack]
 
-		writeH(buf, 0);// unk35 co to ? ***
+		writeH(buf, 29); // [unk] 
+		writeH(buf, pdef); // [base pdef]
 
-		writeH(buf, magic_accuracy); // base Magic Acc [confirmed]
-		writeH(buf, 0);// unk36 ***
+		writeH(buf, mres); // [base magic res]
 
-		writeH(buf, magic_boost); // base Magic Boost [confirmed]
+		writeH(buf, 30); // [unk]
 
-		writeH(buf, 0); // ***
+		writeD(buf, 31);// [unk]
+
+		writeH(buf, evasion); // [base evasion]
+
+		writeH(buf, parry); // [base parry]
+ 
+		writeH(buf, block); // [base block]
+
+		writeH(buf, main_hand_crit_rate); // [base main hand crit rate]
+		writeH(buf, main_hand_crit_rate); // [base off hand crit rate]
+
+		writeH(buf, main_hand_accuracy); // [base main hand accuracy]
+		writeH(buf, main_hand_accuracy); // [base off hand accuracy]
+
+		writeH(buf, 32); // [unk]
+
+		writeH(buf, magic_accuracy);// [base magic accuracy]
+
+		writeH(buf, 33); // [unk]
+		writeH(buf, magic_boost);// [base magic boost]
+
+		writeH(buf, 34); // [unk]
+
+		writeH(buf, 35); // [unk]
+
+		// still missing packet structure for base will, base fire, base wind, base and current atk speed, max and current DP level.
+
 	}
 }
