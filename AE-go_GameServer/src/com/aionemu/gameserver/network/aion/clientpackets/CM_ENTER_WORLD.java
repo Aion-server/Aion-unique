@@ -157,7 +157,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNK8D());
 			
 			sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME
-				+ " server\npowered by aion-emu software\ndeveloped by aion-emu.com team.\nCopyright 2009", null,
+				+ " server\npowered by aion-unique software\ndeveloped by aionunique.smfnew.com team.\nCopyright 2009", null,
 				ChatType.ANNOUNCEMENTS));
 			
 			playerService.playerLoggedIn(player);
