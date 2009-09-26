@@ -86,7 +86,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_MACRO_LIST.class, Version.Chiness ? 0xD5 : 0xDE, idSet);
 		addPacketOpcode(SM_L2AUTH_LOGIN_CHECK.class, Version.Chiness ? 0xB5 : 0xBE, idSet);
 		addPacketOpcode(SM_KEY.class, Version.Chiness ? 0x3F : 0x41, idSet);
-		addPacketOpcode(SM_INVENTORY_INFO.class, Version.Chiness ? 0x2B : 0x1D, idSet);
+		addPacketOpcode(SM_INVENTORY_INFO.class, Version.Chiness ? -1 : 0x13, idSet); //1.5.x**
 		addPacketOpcode(SM_GAME_TIME.class, Version.Chiness ? 0x15 : 0x1F, idSet);
 		addPacketOpcode(SM_FRIEND_UPDATE.class, Version.Chiness ? -1 : 0xEE, idSet);
 		addPacketOpcode(SM_FRIEND_RESPONSE.class, Version.Chiness ? -1 : 0xD7, idSet);
@@ -107,6 +107,7 @@ public class ServerPacketsOpcodes
 		
 		addPacketOpcode(SM_CASTSPELL.class, Version.Chiness ? -1 : 0x18, idSet);	//1.5.x 
 		addPacketOpcode(SM_CASTSPELL_END.class, Version.Chiness ? -1 : 0x42, idSet);	//1.5.x 
+		addPacketOpcode(SM_INVENTORY_UPDATE.class, Version.Chiness ? -1 : 0x12, idSet);	//1.5.x 
 		//Unrecognized Opcodes:
 		
 		//addPacketOpcode(SM_TELEPORT.class, Version.Chiness ? -1 : 0xBD, idSet);
