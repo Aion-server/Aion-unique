@@ -57,7 +57,7 @@ public class CM_LOOT_ITEM extends AionClientPacket
 		//sendPacket(new SM_EMOTION(targetObjectId,36,0));
 		Player player = getConnection().getActivePlayer();
 		int itemid = player.getitemid();
-		sendPacket(new SM_INVENTORY_UPDATE(itemid,1));
+		//sendPacket(new SM_INVENTORY_UPDATE(itemid,1));
 		
 	}
 }

@@ -17,6 +17,23 @@
 
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.aionemu.commons.database.DB;
+import com.aionemu.commons.database.IUStH;
+import com.aionemu.commons.database.ParamReadStH;
+
+
+
+
+
+
+
+
+
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.account.AccountTime;
@@ -24,26 +41,23 @@ import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_ENTER_WORLD_CHECK;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
+import com.aionemu.gameserver.network.aion.serverpackets.*;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.*;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
+import org.apache.log4j.Logger;
 
 /**
  * In this packets aion client is asking if given char [by oid] may login into game [ie start playing].
  * 
- * @author -Nemesiss-
+ * @author -Nemesiss-, Avol
  * 
  */
 public class CM_ENTER_WORLD extends AionClientPacket
 {
+
+	private static final Logger	log	= Logger.getLogger(CM_ENTER_WORLD.class);
 	/**
 	 * Object Id of player that is entering world
 	 */
@@ -112,7 +126,38 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNK60());
 			// sendPacket(new SM_UNK17());
 			// sendPacket(new SM_UNK5E());
-			// sendPacket(new SM_INVENTORY_INFO());
+
+			sendPacket(new SM_INVENTORY_INFO());
+			
+//////////////////////////////LOAD INVENTORY FROM DB//////////////////////////////////////////////////////////////
+/////////////////////////////TODO: move to DAO classes////////////////////////////////////////////////////////////
+			Player player2 = getConnection().getActivePlayer();
+			int owner = player2.getObjectId();
+			PreparedStatement ps = DB.prepareStatement("SELECT `itemUniqueId`, `itemId`, `itemNameId`,`itemCount`FROM `inventory` WHERE `itemOwner`=" + owner);
+			try
+			{
+				ResultSet rs = ps.executeQuery();
+				rs.last();
+				int row = rs.getRow();
+				while (row >=0) {
+					rs.absolute(row);
+					int itemUniqueId = rs.getInt("itemUniqueId");
+					int itemId = rs.getInt("itemId");
+					int itemNameId = rs.getInt("itemNameId");
+					int itemCount = rs.getInt("itemCount");
+					sendPacket(new SM_INVENTORY_UPDATE(itemUniqueId, itemId, itemNameId, itemCount)); // give item
+					row = row-1;
+				}
+			}
+			catch(SQLException e)
+			{
+				Logger.getLogger(CM_ENTER_WORLD.class).error("Error loading items", e);
+			}
+			finally
+			{
+				DB.close(ps);
+			}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// sendPacket(new SM_UNKD3());
 
 			/*

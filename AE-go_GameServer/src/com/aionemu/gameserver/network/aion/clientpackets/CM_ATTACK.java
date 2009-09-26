@@ -103,7 +103,7 @@ public class CM_ATTACK extends AionClientPacket
 			int kinah = player.getkinah() + ran;
 			
 			player.setkinah(kinah);
-			sendPacket(new SM_INVENTORY_UPDATE(0,ran));
+			//sendPacket(new SM_INVENTORY_UPDATE(0,ran));
 			player.setatcount(1);
 		}
 	}
