@@ -107,7 +107,7 @@ public class ServerPacketsOpcodes
 		
 		addPacketOpcode(SM_CASTSPELL.class, Version.Chiness ? -1 : 0x18, idSet);	//1.5.x 
 		addPacketOpcode(SM_CASTSPELL_END.class, Version.Chiness ? -1 : 0x42, idSet);	//1.5.x 
-		addPacketOpcode(SM_INVENTORY_UPDATE.class, Version.Chiness ? -1 : 0x12, idSet);	//1.5.x 
+		addPacketOpcode(SM_INVENTORY_UPDATE.class, Version.Chiness ? -1 : -1, idSet);	//not done...
 		//Unrecognized Opcodes:
 		
 		//addPacketOpcode(SM_TELEPORT.class, Version.Chiness ? -1 : 0xBD, idSet);
