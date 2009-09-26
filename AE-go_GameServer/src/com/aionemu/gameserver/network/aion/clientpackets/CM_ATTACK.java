@@ -26,6 +26,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 /**
  * 
  * @author alexa026
@@ -67,22 +68,24 @@ public class CM_ATTACK extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		//Player player = getConnection().getActivePlayer();
-		//if(player == null)
-		//	return;
+
+//PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), unknown, emotion), true);
+	
+
+
 		Player player = getConnection().getActivePlayer();
 		int playerobjid = player.getObjectId();
-		sendPacket(new SM_ATTACK(playerobjid,targetObjectId,attackno,time,type));
+		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(playerobjid,targetObjectId,attackno,time,type), true);
 
-		if (attackno % 2 == 0) 
+		if (attackno % 50 == 0) 
 		{
 			at = player.getatcount();
-			sendPacket(new SM_EMOTION(targetObjectId,30,playerobjid));
-			sendPacket(new SM_EMOTION(targetObjectId,19,playerobjid));
-		sendPacket(new SM_ATTACK(targetObjectId,playerobjid,at,time,type));
-		sendPacket(new SM_ATTACK_STATUS(playerobjid,99));
-		    at = at + 1;
-		    player.setatcount(at);
+			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(targetObjectId,30,playerobjid), true);
+			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(targetObjectId,19,playerobjid), true);
+			sendPacket(new SM_ATTACK(targetObjectId,playerobjid,at,time,type));
+			sendPacket(new SM_ATTACK_STATUS(playerobjid,99));
+		  	at = at + 1;
+		        player.setatcount(at);
 		}
 		
 		sendPacket(new SM_ATTACK_STATUS(targetObjectId,attackno));
@@ -91,8 +94,8 @@ public class CM_ATTACK extends AionClientPacket
 			maxexp = player.getmaxExp();
 			exp = player.getExp() + 50;
 			player.setExp(exp);
-			sendPacket(new SM_EMOTION(targetObjectId,13,playerobjid));
-			sendPacket(new SM_LOOT_STATUS(targetObjectId,0));
+			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(targetObjectId,13,playerobjid), true);
+			PacketSendUtility.broadcastPacket(player, new SM_LOOT_STATUS(targetObjectId,0), true);
 			sendPacket(new SM_STATUPDATE_EXP(exp,0,maxexp));
 			
 			Random generator = new Random();
