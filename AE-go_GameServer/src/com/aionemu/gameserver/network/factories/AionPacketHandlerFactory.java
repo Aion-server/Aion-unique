@@ -91,7 +91,9 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_TRADE_CANCEL(Version.Chiness ? 0x0F : 0x0F), State.IN_GAME);
 		addPacket(new CM_TRADE_OK(Version.Chiness ? 0x0C : 0x0C), State.IN_GAME);
 		addPacket(new CM_TERRITORY(Version.Chiness ? -1 : 0x4A), State.IN_GAME);
-		
+		addPacket(new CM_START_LOOT(Version.Chiness ? -1 : 0x04), State.IN_GAME);
+		addPacket(new CM_LOOT_ITEM(Version.Chiness ? -1 : 0x05), State.IN_GAME);
+		addPacket(new CM_CLOSE_LOOT(Version.Chiness ? -1 : 0x06), State.IN_GAME);
 		addPacket(new CM_CASTSPELL(Version.Chiness ? -1 : 0x8B), State.IN_GAME);
 		//addPacket(new CM_TELEPORT(Version.Chiness ? -1 : 0x9E), State.IN_GAME);
 		

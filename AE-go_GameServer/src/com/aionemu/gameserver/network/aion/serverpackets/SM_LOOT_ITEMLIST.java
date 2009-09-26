@@ -20,24 +20,25 @@ import java.nio.ByteBuffer;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-
+import java.util.Random;
 
 /**
  * 
- * @author -Nemesiss-
+ * @author alexa026
  * 
  */
-public class SM_LOOT_STATUS extends AionServerPacket
+public class SM_LOOT_ITEMLIST extends AionServerPacket
 {
 	private int	targetObjectId;
-	private int	state;
- 
+	private int	count ;
+	private int	itemid ;
+	 
 	
-	public SM_LOOT_STATUS(int targetObjectId, int state)
+	public SM_LOOT_ITEMLIST(int targetObjectId, int itemid ,int count)
 	{
 		this.targetObjectId = targetObjectId;
-		this.state = state;
-
+		this.count = count;
+		this.itemid = itemid;
 		
 	}
 
@@ -47,11 +48,33 @@ public class SM_LOOT_STATUS extends AionServerPacket
 	
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
-	{		
-
+	{	
+		/*
 		writeD(buf, targetObjectId);
-		writeC(buf, state);
-	
-        
+		writeC(buf, 0x01); 
+		writeC(buf, 0x00);
+		writeC(buf, 0xc4);
+		writeC(buf, 0x68);
+		writeC(buf, 0xf7);
+		
+		writeC(buf, 0x05);
+		writeC(buf, 0x01);
+		writeD(buf, 0x00);
+		writeC(buf, 0x00);
+		*/
+		
+		writeD(buf, targetObjectId);
+		
+		writeH(buf, count);
+		for(int i = 0; i < count; i++)
+		{
+		//writeD(buf, 169400039+ ran); //itemid
+		writeD(buf, itemid);
+		writeH(buf, 1); //count
+		writeH(buf, 0);
+		writeC(buf, 0);
+		writeC(buf, 0);
+		}
+
 	}	
 }

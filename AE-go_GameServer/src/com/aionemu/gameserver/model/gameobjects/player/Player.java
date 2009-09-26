@@ -1,19 +1,3 @@
-/**
- * This file is part of aion-emu <aion-emu.com>.
- *
- *  aion-emu is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  aion-emu is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import com.aionemu.commons.callbacks.Enhancable;
@@ -34,6 +18,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  * 
  * @author -Nemesiss-
  * @author SoulKeeper
+ * @author alexa026
  * 
  */
 public class Player extends Creature
@@ -41,11 +26,16 @@ public class Player extends Creature
 	private PlayerAppearance	playerAppearance;
 	private PlayerCommonData	playerCommonData;
 	private MacroList			macroList;
-	private SkillList			skillList;
 	private FriendList			friendList;
 	private BlockList			blockList;
 	private ResponseRequester	requester;
 	private boolean lookingForGroup = false;
+	
+	public long currentExp = 0;
+	public long maxExp = 1000;
+	public int itemid = 0; 
+	public int kinah = 0;
+	public int atcount = 1;
 	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -132,16 +122,6 @@ public class Player extends Creature
 	{
 		this.macroList = macroList;
 	}
-	
-	public SkillList getSkillList()
-	{
-		return skillList;
-	}
-	
-	public void setSkillList(SkillList skillList)
-	{
-		this.skillList = skillList;
-	}
 
 	/**
 	 * Gets this players Friend List
@@ -189,6 +169,57 @@ public class Player extends Creature
 	{
 		this.blockList = list;
 	}
+	
+	public void setExp(Long e)
+	{
+		this.currentExp = e;
+	}
+	
+	public long getExp()
+	{
+		return currentExp;
+	}
+	
+	public void setitemid(int e)
+	{
+		this.itemid = e;
+	}
+	
+	public int getitemid()
+	{
+			return itemid;
+	}
+	
+	public void setatcount(int e)
+	{
+		this.atcount = e;
+	}
+	
+	public int getatcount()
+	{
+			return atcount;
+	}
+	
+	public void setkinah(int e)
+	{
+		this.kinah = e;
+	}
+	
+	public int getkinah()
+	{
+			return kinah;
+	}
+	
+	public void setmaxExp(Long e)
+	{
+		this.maxExp = e;
+	}
+	
+	public long getmaxExp()
+	{
+		return maxExp;
+	}
+	
 	/**
 	 * Gets the ResponseRequester for this player
 	 * @return
@@ -227,12 +258,7 @@ public class Player extends Creature
 	@Override
 	public byte getLevel()
 	{
-		return (byte)playerCommonData.getLevel();
-	}
-	
-	public long getExp()
-	{
-		return playerCommonData.getExp();
+		return 1;
 	}
 
 	/**
