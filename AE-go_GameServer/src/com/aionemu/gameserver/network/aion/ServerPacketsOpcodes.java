@@ -105,6 +105,8 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_LOOT_STATUS.class, Version.Chiness ? -1 : 0xE4, idSet);
 		addPacketOpcode(SM_WEATHER.class, Version.Chiness ? -1 : 0x4A, idSet);
 		
+		addPacketOpcode(SM_CASTSPELL.class, Version.Chiness ? -1 : 0x18, idSet);	//1.5.x 
+		addPacketOpcode(SM_CASTSPELL_END.class, Version.Chiness ? -1 : 0x42, idSet);	//1.5.x 
 		//Unrecognized Opcodes:
 		
 		//addPacketOpcode(SM_TELEPORT.class, Version.Chiness ? -1 : 0xBD, idSet);
