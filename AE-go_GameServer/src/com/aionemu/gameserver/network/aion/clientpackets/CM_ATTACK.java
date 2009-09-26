@@ -86,7 +86,7 @@ public class CM_ATTACK extends AionClientPacket
 		}
 		
 		sendPacket(new SM_ATTACK_STATUS(targetObjectId,attackno));
-		if (attackno % 5 == 0) 
+		if (attackno % 100 == 0) 
 		{
 			maxexp = player.getmaxExp();
 			exp = player.getExp() + 50;
