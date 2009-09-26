@@ -285,8 +285,9 @@ public class Player extends Creature
 	@Override
 	public byte getLevel()
 	{
-		return 1;
+		return (byte)playerCommonData.getLevel();
 	}
+
 
 	/**
 	 * This method is called when player logs into the game. It's main responsibility is to call all registered
