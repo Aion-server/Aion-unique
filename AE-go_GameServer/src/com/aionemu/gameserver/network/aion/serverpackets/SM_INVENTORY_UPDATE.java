@@ -14,15 +14,16 @@ import java.util.Random;
 public class SM_INVENTORY_UPDATE extends AionServerPacket
 {
 	private int	itemId;
-	private int	count = 0;
- 
+	private int	itemCount = 0;
+	private int	itemNameId;
+	private int	itemUniqueId;
 	
-	public SM_INVENTORY_UPDATE(int itemId, int count)
+	public SM_INVENTORY_UPDATE(int itemUniqueId,int itemId, int itemNameId, int itemCount)
 	{
 		this.itemId = itemId;
-		this.count = count;
-
-		
+		this.itemCount = itemCount;
+		this.itemNameId = itemNameId;
+		this.itemUniqueId = itemUniqueId;
 	}
 
 	/**
@@ -48,22 +49,21 @@ public class SM_INVENTORY_UPDATE extends AionServerPacket
 
 		if (itemId != 0)
 		{
-		Random generator = new Random();
-		int ran = generator.nextInt(100)+1;
 		
 		writeH(buf, 25); 
-		writeH(buf, 1); //count
+		writeH(buf, 1); // unk
 		
-		writeD(buf, 5380+ ran); //itemid
-		writeD(buf, itemId);
+		writeD(buf, itemUniqueId); // unique item id
+
+		writeD(buf, itemId); //item id
 		writeH(buf, 36); //always 0x24
-	
-		writeD(buf, 2211043+ ran); //Item Nameid <- it require a good database for itemid and nameid
+
+		writeD(buf, itemNameId); // itemNameId
 		writeH(buf, 0);
-		writeH(buf, 0x16); //length of item details
+		writeH(buf, 0x16); // length of item details
 		writeC(buf, 0);
 		writeH(buf, 0xa3e);
-		writeD(buf, 1); //count
+		writeD(buf, itemCount); //count
 		
 		//dummy
 		writeD(buf, 0);
@@ -78,39 +78,7 @@ public class SM_INVENTORY_UPDATE extends AionServerPacket
 		}
 		else
 		{
-			//CE316480 0134DF0A 2400 DB691500 0000 1600 00 1E03 ffffffff 000000000000000000000000000000 FF FF 00
-			//http://aion-emu.com/index.php/topic,1327.0.html
-			Random generator = new Random();
-			int ran = generator.nextInt(200)+1;
-			
-			
-			writeH(buf, 25); 
-			writeH(buf, 1); //count
-			
-			writeD(buf, 5290+ran); 
-			writeD(buf, 182400001);
-			writeH(buf, 36); //always 0x24
-			writeD(buf, 1403355); //Item Nameid
-			writeH(buf, 0);
-			writeH(buf, 0x16); //length of item details
-			writeC(buf, 0);
-			writeH(buf, 798);
-			writeD(buf, count); //count
-			//dummy
-			writeD(buf, 0);
-			writeD(buf, 0);
-			writeD(buf, 0);
-			writeH(buf, 0);
-			writeC(buf, 0);
-			
-			writeC(buf, 0xff);
-			writeC(buf, 0xff);
-			writeC(buf, 0);
-			
+			//if item's id is wrong Do nothing
 		}
-
-		
-
-
 	}	
 }
