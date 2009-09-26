@@ -26,6 +26,7 @@ public class Player extends Creature
 	private PlayerAppearance	playerAppearance;
 	private PlayerCommonData	playerCommonData;
 	private MacroList			macroList;
+	private SkillList			skillList;
 	private FriendList			friendList;
 	private BlockList			blockList;
 	private ResponseRequester	requester;
@@ -120,7 +121,15 @@ public class Player extends Creature
 
 	public void setMacroList(MacroList macroList)
 	{
-		this.macroList = macroList;
+		public SkillList getSkillList()		
+				{		
+					return skillList;		
+				}		
+						
+				public void setSkillList(SkillList skillList)		
+			{		
+					this.skillList = skillList;		
+				}
 	}
 
 	/**
@@ -258,8 +267,13 @@ public class Player extends Creature
 	@Override
 	public byte getLevel()
 	{
-		return 1;
+		return (byte)playerCommonData.getLevel();
 	}
+	
+	public long getExp()		
+			{		
+				return playerCommonData.getExp();		
+			}
 
 	/**
 	 * This method is called when player logs into the game. It's main responsibility is to call all registered
