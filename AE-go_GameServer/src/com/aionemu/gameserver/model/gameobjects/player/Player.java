@@ -1,3 +1,19 @@
+/**
+ * This file is part of aion-emu <aion-emu.com>.
+ *
+ *  aion-emu is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  aion-emu is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import com.aionemu.commons.callbacks.Enhancable;
@@ -7,6 +23,7 @@ import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
+import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.services.PlayerService;
@@ -121,15 +138,17 @@ public class Player extends Creature
 
 	public void setMacroList(MacroList macroList)
 	{
-		public SkillList getSkillList()		
-				{		
-					return skillList;		
-				}		
-						
-				public void setSkillList(SkillList skillList)		
-			{		
-					this.skillList = skillList;		
-				}
+		this.macroList = macroList;
+	}
+
+	public SkillList getSkillList()
+	{
+		return skillList;
+	}
+
+	public void setSkillList(SkillList skillList)
+	{
+		this.skillList = skillList;
 	}
 
 	/**
@@ -180,55 +199,54 @@ public class Player extends Creature
 	}
 	
 	public void setExp(Long e)
-	{
-		this.currentExp = e;
-	}
-	
-	public long getExp()
-	{
-		return currentExp;
-	}
-	
-	public void setitemid(int e)
-	{
-		this.itemid = e;
-	}
-	
-	public int getitemid()
-	{
-			return itemid;
-	}
-	
-	public void setatcount(int e)
-	{
-		this.atcount = e;
-	}
-	
-	public int getatcount()
-	{
-			return atcount;
-	}
-	
-	public void setkinah(int e)
-	{
-		this.kinah = e;
-	}
-	
-	public int getkinah()
-	{
-			return kinah;
-	}
-	
-	public void setmaxExp(Long e)
-	{
-		this.maxExp = e;
-	}
-	
-	public long getmaxExp()
-	{
-		return maxExp;
-	}
-	
+			{
+				this.currentExp = e;
+			}
+			
+			public long getExp()
+			{
+				return currentExp;
+			}
+			
+			public void setitemid(int e)
+			{
+				this.itemid = e;
+			}
+			
+			public int getitemid()
+			{
+					return itemid;
+			}
+			
+			public void setatcount(int e)
+			{
+				this.atcount = e;
+			}
+			
+			public int getatcount()
+			{
+					return atcount;
+			}
+			
+			public void setkinah(int e)
+			{
+				this.kinah = e;
+			}
+			
+			public int getkinah()
+			{
+					return kinah;
+			}
+			
+			public void setmaxExp(Long e)
+			{
+				this.maxExp = e;
+			}
+			
+			public long getmaxExp()
+			{
+				return maxExp;
+			}
 	/**
 	 * Gets the ResponseRequester for this player
 	 * @return
@@ -267,13 +285,8 @@ public class Player extends Creature
 	@Override
 	public byte getLevel()
 	{
-		return (byte)playerCommonData.getLevel();
+		return 1;
 	}
-	
-	public long getExp()		
-			{		
-				return playerCommonData.getExp();		
-			}
 
 	/**
 	 * This method is called when player logs into the game. It's main responsibility is to call all registered

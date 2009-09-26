@@ -18,9 +18,6 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import org.apache.log4j.Logger;
-
-import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -28,11 +25,11 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * This packet is used to update current exp / recoverable exp / max exp values.
  * 
  * @author Luno
+ * @updated by alexa026
  * 
  */
 public class SM_STATUPDATE_EXP extends AionServerPacket
 {
-	static Logger	log	= Logger.getLogger(SM_STATUPDATE_EXP.class);
 	private long	currentExp;
 	private long	recoverableExp;
 	private long	maxExp;

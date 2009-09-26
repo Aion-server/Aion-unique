@@ -24,7 +24,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
  * 
- * @author -Nemesiss-
+ * @author alexa026
  * 
  */
 public class SM_LOOT_STATUS extends AionServerPacket
