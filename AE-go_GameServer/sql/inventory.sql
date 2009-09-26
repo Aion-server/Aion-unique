@@ -5,4 +5,4 @@
 `itemCount` INT NOT NULL DEFAULT '0',
 `itemOwner` INT NOT NULL DEFAULT '0',
 PRIMARY KEY ( `itemUniqueId` )
-); ENGINE = MYISAM 
+) ENGINE = MYISAM 
