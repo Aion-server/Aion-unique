@@ -96,7 +96,10 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_CLOSE_LOOT(Version.Chiness ? -1 : 0x06), State.IN_GAME);
 		addPacket(new CM_CASTSPELL(Version.Chiness ? -1 : 0x8B), State.IN_GAME);
 		//addPacket(new CM_TELEPORT(Version.Chiness ? -1 : 0x9E), State.IN_GAME);
-		
+		addPacket(new CM_SHOW_DIALOG(Version.Chiness ? -1 : 0x9E), State.IN_GAME);
+		addPacket(new CM_DIALOG_SELECT(Version.Chiness ? -1 : 0xA0), State.IN_GAME);
+		addPacket(new CM_CLOSE_DIALOG(Version.Chiness ? -1 :0x9f ), State.IN_GAME);//0x9F
+
 	}
 
 	public AionPacketHandler getPacketHandler()
