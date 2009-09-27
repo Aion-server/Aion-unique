@@ -484,7 +484,7 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, mres); // [current mres]
 
 		writeH(buf, 0);// [unk]
-		writeH(buf, 16752);// [unk]
+		writeH(buf, 0);// [unk]attack range - do calculation
 		writeH(buf, 1500);// attack speed - do calculation may be
 		writeH(buf, evasion);// [current evasion]
 		writeH(buf, parry );// [current parry]
