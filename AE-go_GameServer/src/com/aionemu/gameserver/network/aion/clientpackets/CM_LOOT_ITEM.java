@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
@@ -56,8 +57,17 @@ public class CM_LOOT_ITEM extends AionClientPacket
 	{
 		//sendPacket(new SM_EMOTION(targetObjectId,36,0));
 		Player player = getConnection().getActivePlayer();
-		int itemid = player.getitemid();
-		//sendPacket(new SM_INVENTORY_UPDATE(itemid,1));
+		int activePlayer = player.getObjectId();
+		int itemId = player.getItemId();
+		int itemNameId = player.getItemNameId();
+		int itemCount = 1;
+		Inventory items = new Inventory();
+		items.putItemToDb(activePlayer, itemId, itemNameId, itemCount);
+		items.getDbItemsCountFromDb();
+		int totalDbItemsCount = items.getDbItemsCount();
+		int newItemUniqueId = totalDbItemsCount;
+		sendPacket(new SM_INVENTORY_UPDATE(newItemUniqueId, itemId, itemNameId, itemCount)); // give item
+
 		
 	}
 }

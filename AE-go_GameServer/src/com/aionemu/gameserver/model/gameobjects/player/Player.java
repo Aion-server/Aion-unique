@@ -51,7 +51,8 @@ public class Player extends Creature
 	
 	public long currentExp = 0;
 	public long maxExp = 1000;
-	public int itemid = 0; 
+	public int itemId = 0; 
+	public int itemNameId = 0; 
 	public int atcount = 1;
 	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
@@ -207,14 +208,24 @@ public class Player extends Creature
 				return currentExp;
 			}
 			
-			public void setitemid(int e)
+			public void setItemId(int e)
 			{
-				this.itemid = e;
+				this.itemId = e;
+			}
+
+			public void setItemNameId(int e)
+			{
+				this.itemNameId = e;
 			}
 			
-			public int getitemid()
+			public int getItemId()
 			{
-					return itemid;
+					return itemId;
+			}
+
+			public int getItemNameId()
+			{
+					return itemNameId;
 			}
 			
 			public void setatcount(int e)

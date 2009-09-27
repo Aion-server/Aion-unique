@@ -66,24 +66,25 @@ public class CM_START_LOOT extends AionClientPacket
 	{
 		Random generator = new Random();
 		int ran = generator.nextInt(100)+1;
-		int itemid = 169400039+ ran ;
-		
+		int itemId = 169400039 + ran;
+		int itemNameId = 2211143 + ran;
 		
 		Player player = getConnection().getActivePlayer();
 		
-		if (player.getitemid() == 0)
+		if (player.getItemId() == 0)
 		{
-		player.setitemid(itemid);
+		player.setItemId(itemId);
+		player.setItemNameId(itemNameId);
 		
-		sendPacket(new SM_LOOT_ITEMLIST(targetObjectId,itemid,1));	
+		sendPacket(new SM_LOOT_ITEMLIST(targetObjectId,itemId,1));	
 		sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
 		sendPacket(new SM_EMOTION(targetObjectId,35,0));
 		}else
 		{
-			//sendPacket(new SM_LOOT_ITEMLIST(targetObjectId,itemid,1));	
+			//sendPacket(new SM_LOOT_ITEMLIST(targetObjectId,itemId,1));	
 			sendPacket(new SM_LOOT_STATUS(targetObjectId,3));
 			sendPacket(new SM_DELETE((Creature) player.getTarget()));
-			player.setitemid(0);
+			player.setItemId(0);
 		}
 		
 	}

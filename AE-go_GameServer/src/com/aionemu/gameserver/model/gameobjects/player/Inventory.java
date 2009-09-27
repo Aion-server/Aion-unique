@@ -43,7 +43,7 @@ public class Inventory
 	public int itemIdArray[];
 	public int itemNameIdArray[];
 	public int itemCountArray[];
-	 
+	public int totalDbItemsCount;
 	
 	public void getInventoryFromDb(int activePlayer) {
 		PreparedStatement ps = DB.prepareStatement("SELECT `itemUniqueId`, `itemId`, `itemNameId`,`itemCount`FROM `inventory` WHERE `itemOwner`=" + activePlayer);
@@ -97,6 +97,25 @@ public class Inventory
 			DB.close(ps2);
 		}
 	}
+
+	public void getDbItemsCountFromDb() {
+		PreparedStatement ps5 = DB.prepareStatement("SELECT * FROM `inventory`");
+		try
+		{
+			ResultSet rs = ps5.executeQuery();
+			rs.last();
+			totalDbItemsCount = rs.getRow();
+		}
+		catch(SQLException e)
+		{
+			Logger.getLogger(Inventory.class).error("Error loading kinah", e);
+		}
+		finally
+		{
+			DB.close(ps5);
+		}
+	}
+
 	public void putKinahToDb(int activePlayer, int count) {
 		PreparedStatement ps3 = DB.prepareStatement("UPDATE `players` SET `kinah` = ? WHERE `id`= ? ");
 		try
@@ -114,11 +133,35 @@ public class Inventory
 			DB.close(ps3);
 		}
 	}
-	
+
+	public void putItemToDb(int activePlayer, int itemId, int itemNameId, int itemCount) {
+		PreparedStatement ps4 = DB.prepareStatement("INSERT INTO `inventory` (`itemId`,`itemNameId`,`itemCount`,`itemOwner`) VALUES(?,?,?,?)");
+		try
+		{
+			ps4.setInt(1, itemId);
+			ps4.setInt(2, itemNameId);
+			ps4.setInt(3, itemCount);
+			ps4.setInt(4, activePlayer);
+			ps4.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			Logger.getLogger(Inventory.class).error("Error storing item", e);
+		}
+		finally
+		{
+			DB.close(ps4);
+		}
+	}
 
 	public int getKinahCount() {
 		return kinah;
 	}
+
+	public int getDbItemsCount() {
+		return totalDbItemsCount;
+	}
+
 	public int getItemsCount() {
 		return totalItemsCount;
 	}

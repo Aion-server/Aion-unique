@@ -143,7 +143,6 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			Inventory kinah2 = new Inventory();
 			kinah2.getKinahFromDb(activePlayer);
 			int kinah = kinah2.getKinahCount();
-			log.info(String.format("kinah: %s", kinah));
 			int uniquedeId = 0;
 			sendPacket(new SM_INVENTORY_UPDATE(uniquedeId, 182400001, 2211143, kinah));
 			
