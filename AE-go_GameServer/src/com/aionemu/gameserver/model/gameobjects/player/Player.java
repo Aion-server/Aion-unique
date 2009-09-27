@@ -52,7 +52,6 @@ public class Player extends Creature
 	public long currentExp = 0;
 	public long maxExp = 1000;
 	public int itemid = 0; 
-	public int kinah = 0;
 	public int atcount = 1;
 	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
@@ -226,16 +225,6 @@ public class Player extends Creature
 			public int getatcount()
 			{
 					return atcount;
-			}
-			
-			public void setkinah(int e)
-			{
-				this.kinah = e;
-			}
-			
-			public int getkinah()
-			{
-					return kinah;
 			}
 			
 			public void setmaxExp(Long e)

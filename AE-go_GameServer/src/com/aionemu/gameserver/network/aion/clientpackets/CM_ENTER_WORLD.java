@@ -32,7 +32,7 @@ import com.aionemu.commons.database.ParamReadStH;
 
 
 
-
+import java.util.Random;
 
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.ChatType;
@@ -131,9 +131,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			
 //////////////////////////////LOAD INVENTORY FROM DB//////////////////////////////////////////////////////////////
 /////////////////////////////TODO: move to DAO classes////////////////////////////////////////////////////////////
+			//////////////Load Items//////////////////////////
 			Player player2 = getConnection().getActivePlayer();
-			int owner = player2.getObjectId();
-			PreparedStatement ps = DB.prepareStatement("SELECT `itemUniqueId`, `itemId`, `itemNameId`,`itemCount`FROM `inventory` WHERE `itemOwner`=" + owner);
+			PreparedStatement ps = DB.prepareStatement("SELECT `itemUniqueId`, `itemId`, `itemNameId`,`itemCount`FROM `inventory` WHERE `itemOwner`=" + player2.getObjectId());
 			try
 			{
 				ResultSet rs = ps.executeQuery();
@@ -157,6 +157,27 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			{
 				DB.close(ps);
 			}
+			//////////////Load Kinah////////////////////////
+			PreparedStatement ps2 = DB.prepareStatement("SELECT `kinah` FROM `players` WHERE `id`=" + player2.getObjectId());
+
+			try
+			{
+				ResultSet rs = ps2.executeQuery();
+				rs.absolute(1);
+				int itemCount = rs.getInt("kinah");
+				Random generator = new Random();
+				int uniquedeId = generator.nextInt(1111111111)+1;
+				sendPacket(new SM_INVENTORY_UPDATE(uniquedeId, 182400001, 2211143, itemCount));
+			}
+			catch(SQLException e)
+			{
+				Logger.getLogger(CM_ENTER_WORLD.class).error("Error loading kinah", e);
+			}
+			finally
+			{
+				DB.close(ps2);
+			}
+			
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// sendPacket(new SM_UNKD3());
 

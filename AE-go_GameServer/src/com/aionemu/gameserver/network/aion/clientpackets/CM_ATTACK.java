@@ -98,13 +98,10 @@ public class CM_ATTACK extends AionClientPacket
 			PacketSendUtility.broadcastPacket(player, new SM_LOOT_STATUS(targetObjectId,0), true);
 			sendPacket(new SM_STATUPDATE_EXP(exp,0,maxexp));
 			
-			Random generator = new Random();
-			int ran = generator.nextInt(50)+1;
-			int kinah = player.getkinah() + ran;
-			
-			player.setkinah(kinah);
-			//sendPacket(new SM_INVENTORY_UPDATE(0,ran));
-			player.setatcount(1);
+			//Random generator = new Random();
+			//int kinah = generator.nextInt(50)+1;
+			//sendPacket(new SM_INVENTORY_UPDATE(500, 182400001, 2211143, kinah));
+
 		}
 	}
 }
