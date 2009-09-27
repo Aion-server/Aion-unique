@@ -97,6 +97,24 @@ public class Inventory
 			DB.close(ps2);
 		}
 	}
+	public void putKinahToDb(int activePlayer, int count) {
+		PreparedStatement ps3 = DB.prepareStatement("UPDATE `players` SET `kinah` = ? WHERE `id`= ? ");
+		try
+		{
+			ps3.setInt(1, count);
+			ps3.setInt(2, activePlayer);
+			ps3.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			Logger.getLogger(Inventory.class).error("Error storing kinah", e);
+		}
+		finally
+		{
+			DB.close(ps3);
+		}
+	}
+	
 
 	public int getKinahCount() {
 		return kinah;

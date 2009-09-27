@@ -25,11 +25,12 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 /**
  * 
- * @author alexa026
+ * @author alexa026, Avol, ATracer
  * 
  */
 public class CM_ATTACK extends AionClientPacket
@@ -83,7 +84,7 @@ public class CM_ATTACK extends AionClientPacket
 		sendPacket(new SM_ATTACK(targetObjectId,playerobjid,at,time,type));
 		sendPacket(new SM_ATTACK_STATUS(playerobjid,99));
 	  	at = at + 1;
-	    player.setatcount(at);
+	    	player.setatcount(at);
 		
 		sendPacket(new SM_ATTACK_STATUS(targetObjectId,attackno));
 		if (attackno % 5 == 0 && attackno != 0) //this one is still funny, will be removed soon
@@ -95,9 +96,17 @@ public class CM_ATTACK extends AionClientPacket
 			PacketSendUtility.broadcastPacket(player, new SM_LOOT_STATUS(targetObjectId,0), true);
 			sendPacket(new SM_STATUPDATE_EXP(exp,0,maxexp));
 			
-			//Random generator = new Random();
-			//int kinah = generator.nextInt(50)+1;
-			//sendPacket(new SM_INVENTORY_UPDATE(500, 182400001, 2211143, kinah));
+			Random generator = new Random();
+			int randomKinah = generator.nextInt(50)+1;
+			int randomUniqueId = generator.nextInt(99999999)+generator.nextInt(99999999)+99999999+99999999; // To prevent replacement of other item.
+
+			Inventory kina = new Inventory();
+			kina.getKinahFromDb(playerobjid);
+			int kinah = kina.getKinahCount();
+			int totalKinah = kinah + randomKinah;
+			kina.putKinahToDb(playerobjid, totalKinah);
+			
+			sendPacket(new SM_INVENTORY_UPDATE(randomUniqueId, 182400001, 2211143, totalKinah));
 
 		}
 	}
