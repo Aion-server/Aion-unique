@@ -19,6 +19,7 @@ package com.aionemu.gameserver.model.gameobjects;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import com.aionemu.gameserver.services.DecayService;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -39,7 +40,7 @@ public class Npc extends Creature
 	 *  Spawn template of this npc. Currently every spawn template is responsible for spawning just one npc.
 	 */
 	private SpawnTemplate	spawn;
-
+	
 	/**
 	 * Constructor creating instance of Npc.
 	 * 
@@ -93,5 +94,10 @@ public class Npc extends Creature
 	public byte getLevel()
 	{
 		return getTemplate().getLevel();
+	}
+	
+	public void onDie()
+	{
+		DecayService.getInstance().scheduleDecayTask(this);
 	}
 }

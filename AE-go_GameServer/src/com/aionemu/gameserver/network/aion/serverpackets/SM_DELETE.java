@@ -34,7 +34,7 @@ public class SM_DELETE extends AionServerPacket
 	/**
 	 * Object that is no longer visible.
 	 */
-	private final AionObject	object;
+	private final int	objectId;
 
 	/**
 	 * Constructor.
@@ -43,7 +43,7 @@ public class SM_DELETE extends AionServerPacket
 	 */
 	public SM_DELETE(AionObject object)
 	{
-		this.object = object;
+		this.objectId = object.getObjectId();
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class SM_DELETE extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, object.getObjectId());
+		writeD(buf, objectId);
 		writeC(buf, 15); // removal animation speed
 	}
 }

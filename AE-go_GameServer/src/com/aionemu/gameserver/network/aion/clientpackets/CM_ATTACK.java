@@ -18,16 +18,18 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.util.Random;
 
+import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.World;
 /**
  * 
  * @author alexa026, Avol, ATracer
@@ -107,6 +109,12 @@ public class CM_ATTACK extends AionClientPacket
 			kina.putKinahToDb(playerobjid, totalKinah);
 			
 			sendPacket(new SM_INVENTORY_UPDATE(randomUniqueId, 182400001, 2211143, totalKinah));
+			
+			//schedule decay task
+			//TODO move to npc fully
+			World world = player.getActiveRegion().getWorld();
+			Npc npc = (Npc) world.findAionObject(targetObjectId);
+			npc.onDie();
 
 		}
 	}
