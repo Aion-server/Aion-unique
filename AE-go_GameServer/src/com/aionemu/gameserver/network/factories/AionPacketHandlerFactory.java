@@ -21,7 +21,7 @@ import com.aionemu.gameserver.network.aion.AionPacketHandler;
 import com.aionemu.gameserver.network.aion.Version;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
 import com.aionemu.gameserver.network.aion.clientpackets.*;
-//import com.aionemu.gameserver.network.aion.clientpackets.CM_TELEPORT;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_USE_ITEM;
 import com.google.inject.Injector;
 
 /**
@@ -51,7 +51,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_L2AUTH_LOGIN_CHECK(Version.Chiness ? 0xB9 : 0x7F), State.CONNECTED);
 		addPacket(new CM_VERSION_CHECK(Version.Chiness ? 0x4c : 0xEA), State.CONNECTED);
 		addPacket(new CM_TIME_CHECK(Version.Chiness ? 0x3e : 0xFC), State.CONNECTED, State.AUTHED, State.IN_GAME);
-		addPacket(new CM_ATTACK(Version.Chiness ? -1 : 0x8A), State.IN_GAME); // maybe 0x13
+		addPacket(new CM_ATTACK(Version.Chiness ? -1 : 0x8A), State.IN_GAME); //
 		addPacket(new CM_SET_NOTE(Version.Chiness? -1 : 0x30), State.IN_GAME); //0x1A on 1.2>
 		addPacket(new CM_TARGET_SELECT(Version.Chiness ? 0x33 : 0x89), State.IN_GAME);
 		addPacket(new CM_SHOW_FRIENDLIST(Version.Chiness ? 0xE2 : 0x58), State.IN_GAME);
@@ -98,7 +98,8 @@ public class AionPacketHandlerFactory
 		//addPacket(new CM_TELEPORT(Version.Chiness ? -1 : 0x9E), State.IN_GAME);
 		addPacket(new CM_SHOW_DIALOG(Version.Chiness ? -1 : 0x9E), State.IN_GAME);
 		addPacket(new CM_DIALOG_SELECT(Version.Chiness ? -1 : 0xA0), State.IN_GAME);
-		addPacket(new CM_CLOSE_DIALOG(Version.Chiness ? -1 :0x9f ), State.IN_GAME);//0x9F
+		addPacket(new CM_CLOSE_DIALOG(Version.Chiness ? -1 :0x9f ), State.IN_GAME);//
+		addPacket(new CM_USE_ITEM(Version.Chiness ? -1 :0x8F ), State.IN_GAME);//
 
 	}
 
