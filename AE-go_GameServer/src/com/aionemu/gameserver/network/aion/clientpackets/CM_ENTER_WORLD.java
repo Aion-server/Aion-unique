@@ -132,7 +132,6 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			Inventory items = new Inventory();
 			items.getInventoryFromDb(activePlayer);
 			int totalItemsCount = items.getItemsCount();
-			log.info(String.format("items count in inventory %s", totalItemsCount));
 			int row = 0;
 			while (totalItemsCount > 0) {
 				sendPacket(new SM_INVENTORY_UPDATE(items.getItemUniqueIdArray(row), items.getItemIdArray(row), items.getItemNameIdArray(row), items.getItemCountArray(row))); // give item
