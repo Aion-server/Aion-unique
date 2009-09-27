@@ -94,7 +94,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_FRIEND_LIST.class,Version.Chiness ? 0x72 : 0x7D, idSet);
 		addPacketOpcode(SM_ENTER_WORLD_CHECK.class, Version.Chiness ? 0xF4 : 0x24, idSet);
 		addPacketOpcode(SM_EMOTION.class, Version.Chiness ? 0x14 : 0x1C, idSet); // 25 1.5.x unknown
-		addPacketOpcode(SM_DELETE.class, Version.Chiness ? 0xFB : 0x0D, idSet);
+		addPacketOpcode(SM_DELETE.class, Version.Chiness ? 0xFB : 0x2F, idSet);
 		addPacketOpcode(SM_DELETE_CHARACTER.class, Version.Chiness ? 0xC0 : 0xE3, idSet);
 		addPacketOpcode(SM_CREATE_CHARACTER.class, Version.Chiness ? 0xBF : 0xC0, idSet);
 		addPacketOpcode(SM_CHARACTER_LIST.class, Version.Chiness ? 0xBE : 0xC1, idSet);

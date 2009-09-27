@@ -53,6 +53,6 @@ public class SM_DELETE extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeD(buf, object.getObjectId());
-		writeC(buf, 0x00);
+		writeC(buf, 15); // removal animation speed
 	}
 }
