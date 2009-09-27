@@ -77,19 +77,16 @@ public class CM_ATTACK extends AionClientPacket
 		int playerobjid = player.getObjectId();
 		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(playerobjid,targetObjectId,attackno,time,type), true);
 
-		if (attackno % 50 == 0) 
-		{
-			at = player.getatcount();
-			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(targetObjectId,30,playerobjid), true);
-			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(targetObjectId,19,playerobjid), true);
-			sendPacket(new SM_ATTACK(targetObjectId,playerobjid,at,time,type));
-			sendPacket(new SM_ATTACK_STATUS(playerobjid,99));
-		  	at = at + 1;
-		        player.setatcount(at);
-		}
+		at = player.getatcount();
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(targetObjectId,30,playerobjid), true);
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(targetObjectId,19,playerobjid), true);
+		sendPacket(new SM_ATTACK(targetObjectId,playerobjid,at,time,type));
+		sendPacket(new SM_ATTACK_STATUS(playerobjid,99));
+	  	at = at + 1;
+	    player.setatcount(at);
 		
 		sendPacket(new SM_ATTACK_STATUS(targetObjectId,attackno));
-		if (attackno % 100 == 0) 
+		if (attackno % 5 == 0) //this one is still funny, will be removed soon
 		{
 			maxexp = player.getmaxExp();
 			exp = player.getExp() + 50;

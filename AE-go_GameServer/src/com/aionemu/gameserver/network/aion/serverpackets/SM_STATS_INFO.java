@@ -23,10 +23,13 @@ import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.network.aion.Version;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_ATTACK;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
 import java.lang.Math;
+
+import sun.util.logging.resources.logging;
 
 /**
  * In this packet Server is sending User Info?
@@ -73,6 +76,7 @@ public class SM_STATS_INFO extends AionServerPacket
 	public int magic_boost = 0;
 	public int pdef = 0;
 	public int mres = 0;
+	
 	/**
 	 * Constructs new <tt>SM_UI</tt> packet
 	 * 
@@ -431,9 +435,7 @@ public class SM_STATS_INFO extends AionServerPacket
 
 
 		writeD(buf, player.getObjectId());
-
 		writeD(buf, GameTimeManager.getGameTime().getTime()); // Minutes since 1/1/00 00:00:00
-
 
 		writeH(buf, power);// [current power]
 		writeH(buf, health);// [current health]
@@ -447,18 +449,18 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, earth);// [current earth]
 		writeH(buf, fire);// [current fire]
 
-		writeD(buf, 1);// [unk]
+		writeD(buf, 0);// [unk]
 		writeH(buf, player.getLevel());// [level]
-		writeH(buf, 2); // [unk]
+		writeH(buf, 0); // [unk]
 		writeD(buf, maxhp);// [current hp]
 
 		writeQ(buf, pcd.getExpNeed());// [xp till next lv]
 		writeQ(buf, 0); // [recoverable exp]
 		writeQ(buf, pcd.getExpShown()); // [current xp]
 
-		writeD(buf, 3); // [unk]
+		writeD(buf, 0); // [unk]
 		writeD(buf, maxhp); // [max hp]
-		writeD(buf, 0);// [unk]
+		writeD(buf, maxhp);// [unk]
 
 		writeD(buf, maxmp);// [max mana]
 		writeD(buf, maxmp);// [current mana]
@@ -466,24 +468,24 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, maxdp);// [max dp]
 		writeH(buf, 0);// [current dp]
 
-		writeD(buf, 4);// [unk]
+		writeD(buf, 0);// [unk]
 
 		writeD(buf, fly_time);// [current fly time]
 
-		writeH(buf, 5);// [unk]
+		writeH(buf, 0);// [unk]
 
 		writeH(buf, main_hand_attack); // [current main hand attack]
 		writeH(buf, main_hand_attack); // [off hand attack]
 
 		writeH(buf, pdef);// [current pdef]
 
-		writeH(buf, 6);// [unk]
+		writeH(buf, 0);// [unk]
 
 		writeH(buf, mres); // [current mres]
 
-		writeH(buf, 7);// [unk]
-		writeH(buf, 8);// [unk]
-		writeH(buf, 9);// [unk]
+		writeH(buf, 0);// [unk]
+		writeH(buf, 16752);// [unk]
+		writeH(buf, 1500);// attack speed - do calculation may be
 		writeH(buf, evasion);// [current evasion]
 		writeH(buf, parry );// [current parry]
 		writeH(buf, block);// [current block]
@@ -494,29 +496,29 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, main_hand_accuracy);// [current main_hand_accuracy]
 		writeH(buf, main_hand_accuracy);// [current off_hand_accuracy]
 
-		writeH(buf, 10);// [unk]
+		writeH(buf, 0);// [unk]
 		writeH(buf, magic_accuracy);// [current magic accuracy]
-		writeH(buf, 11); // [unk]
+		writeH(buf, 0); // [unk]
 		writeH(buf, magic_boost); // [current magic boost]
 
-		writeH(buf, 12);// [unk]
-		writeH(buf, 13);// [unk]
+		writeH(buf, 0);// [unk]
+		writeH(buf, 0);// [unk]
 
-		writeD(buf, 14);// [unk]
-		writeD(buf, 15);// [unk]
-		writeD(buf, 16);// [unk]
+		writeD(buf, 2);// [unk]
+		writeD(buf, 0);// [unk]
+		writeD(buf, 0);// [unk]
 		writeD(buf, pcd.getPlayerClass().getClassId());// [Player Class id]
-		writeD(buf, 17);// [unk]
+		writeD(buf, 0);// [unk]
 
-		writeH(buf, 18);// [unk]
-		writeH(buf, 19);// [unk]
-		writeH(buf, 20);// [unk]
-		writeH(buf, 21);// [unk]
-		writeH(buf, 22);// [unk]
-		writeH(buf, 23); // [unk]
+		writeH(buf, 0);// [unk]
+		writeH(buf, 0);// [unk]
+		writeH(buf, 0);// [unk]
+		writeH(buf, 0);// [unk]
+		writeH(buf, 0);// [unk]
+		writeH(buf, 0);// [unk]
 
-		writeH(buf, 24);//  [unk]
-		writeH(buf, 25);// [unk]
+		writeH(buf, 0);// [unk]
+		writeH(buf, 0);// [unk]
 
 		writeH(buf, power);// [base power]
 		writeH(buf, health);// [base health]
@@ -524,32 +526,35 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, accuracy);// [base accuracy]
 		writeH(buf, agility);// [base agility]
 
-		writeD(buf, knowledge);// [base knowledge]
+		writeH(buf, knowledge);// [base knowledge]
+		writeH(buf, will);// [base water res]
 
-		writeD(buf, water);// [base water res]
+		writeH(buf, water);// [base water res]
+		writeH(buf, wind);// [base water res]
 		
-		writeD(buf, earth);// [base earth resist]
+		writeH(buf, earth);// [base earth resist]
+		writeH(buf, fire);// [base water res]
 
-		writeD(buf, 26);// [unk]
+		writeD(buf, 0);// [unk]
 
 		writeD(buf, maxhp);// [base hp]
 
 		writeD(buf, maxmp);// [base mana]
 
-		writeD(buf, 27);// [unk]
-		writeD(buf, 28);// [unk]
+		writeD(buf, 0);// [unk]
+		writeD(buf, 60);// [unk]
 
 		writeH(buf, main_hand_attack);// [base main hand attack]
 		writeH(buf, main_hand_attack);// [base off hand attack]
 
-		writeH(buf, 29); // [unk] 
+		writeH(buf, 0); // [unk] 
 		writeH(buf, pdef); // [base pdef]
 
 		writeH(buf, mres); // [base magic res]
 
-		writeH(buf, 30); // [unk]
+		writeH(buf, 0); // [unk]
 
-		writeD(buf, 31);// [unk]
+		writeD(buf, 1086324736);// [unk]
 
 		writeH(buf, evasion); // [base evasion]
 
@@ -563,18 +568,14 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, main_hand_accuracy); // [base main hand accuracy]
 		writeH(buf, main_hand_accuracy); // [base off hand accuracy]
 
-		writeH(buf, 32); // [unk]
+		writeH(buf, 0); // [unk]
 
 		writeH(buf, magic_accuracy);// [base magic accuracy]
 
-		writeH(buf, 33); // [unk]
+		writeH(buf, 0); // [unk]
 		writeH(buf, magic_boost);// [base magic boost]
 
-		writeH(buf, 34); // [unk]
-
-		writeH(buf, 35); // [unk]
-
-		// still missing packet structure for base will, base fire, base wind, base and current atk speed, max and current DP level.
+		writeH(buf, 0); // [unk]
 
 	}
 }
