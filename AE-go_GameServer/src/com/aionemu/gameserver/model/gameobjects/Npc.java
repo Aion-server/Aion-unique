@@ -20,6 +20,7 @@ import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.services.DecayService;
+import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -98,6 +99,7 @@ public class Npc extends Creature
 	
 	public void onDie()
 	{
+		RespawnService.getInstance().scheduleRespawnTask(this);
 		DecayService.getInstance().scheduleDecayTask(this);
 	}
 }
