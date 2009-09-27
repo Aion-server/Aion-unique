@@ -26,19 +26,13 @@ import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
 
-
-
-
-
-
-
 import java.util.Random;
-
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.*;
@@ -130,53 +124,29 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			sendPacket(new SM_INVENTORY_INFO());
 			
 //////////////////////////////LOAD INVENTORY FROM DB//////////////////////////////////////////////////////////////
-/////////////////////////////TODO: move to DAO classes////////////////////////////////////////////////////////////
-			//////////////Load Items//////////////////////////
 			Player player2 = getConnection().getActivePlayer();
-			PreparedStatement ps = DB.prepareStatement("SELECT `itemUniqueId`, `itemId`, `itemNameId`,`itemCount`FROM `inventory` WHERE `itemOwner`=" + player2.getObjectId());
-			try
-			{
-				ResultSet rs = ps.executeQuery();
-				rs.last();
-				int row = rs.getRow();
-				while (row >=0) {
-					rs.absolute(row);
-					int itemUniqueId = rs.getInt("itemUniqueId");
-					int itemId = rs.getInt("itemId");
-					int itemNameId = rs.getInt("itemNameId");
-					int itemCount = rs.getInt("itemCount");
-					sendPacket(new SM_INVENTORY_UPDATE(itemUniqueId, itemId, itemNameId, itemCount)); // give item
-					row = row-1;
-				}
-			}
-			catch(SQLException e)
-			{
-				Logger.getLogger(CM_ENTER_WORLD.class).error("Error loading items", e);
-			}
-			finally
-			{
-				DB.close(ps);
-			}
-			//////////////Load Kinah////////////////////////
-			PreparedStatement ps2 = DB.prepareStatement("SELECT `kinah` FROM `players` WHERE `id`=" + player2.getObjectId());
+			int activePlayer = player2.getObjectId();
 
-			try
-			{
-				ResultSet rs = ps2.executeQuery();
-				rs.absolute(1);
-				int itemCount = rs.getInt("kinah");
-				Random generator = new Random();
-				int uniquedeId = generator.nextInt(1111111111)+1;
-				sendPacket(new SM_INVENTORY_UPDATE(uniquedeId, 182400001, 2211143, itemCount));
+			//items
+
+			Inventory items = new Inventory();
+			items.getInventoryFromDb(activePlayer);
+			int totalItemsCount = items.getItemsCount();
+			log.info(String.format("items count in inventory %s", totalItemsCount));
+			int row = 0;
+			while (totalItemsCount > 0) {
+				sendPacket(new SM_INVENTORY_UPDATE(items.getItemUniqueIdArray(row), items.getItemIdArray(row), items.getItemNameIdArray(row), items.getItemCountArray(row))); // give item
+				totalItemsCount = totalItemsCount-1;
+				row+=1;
 			}
-			catch(SQLException e)
-			{
-				Logger.getLogger(CM_ENTER_WORLD.class).error("Error loading kinah", e);
-			}
-			finally
-			{
-				DB.close(ps2);
-			}
+			// kinah
+
+			Inventory kinah2 = new Inventory();
+			kinah2.getKinahFromDb(activePlayer);
+			int kinah = kinah2.getKinahCount();
+			log.info(String.format("kinah: %s", kinah));
+			int uniquedeId = 0;
+			sendPacket(new SM_INVENTORY_UPDATE(uniquedeId, 182400001, 2211143, kinah));
 			
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// sendPacket(new SM_UNKD3());
