@@ -100,8 +100,6 @@ public class SM_EMOTION extends AionServerPacket
 		}
 		
 		if (unknown == 0x24) {
-			log.info(String.format("now attacking: %d", senderObjectId));
-		
 			writeD(buf, senderObjectId); // unknown
 			writeD(buf, 12); // unknown
 		}
