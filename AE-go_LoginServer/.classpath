@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
     <classpathentry kind="lib" path="lib/jsr166.jar" />
-    <classpathentry kind="src" path="data/scripts/system/database" />
     <classpathentry kind="src" path="src" />
     <classpathentry kind="src" path="test" />
     <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" />
