@@ -46,6 +46,7 @@ goto DBRuteSet
 
 :DBSETING
 cls
+echo.
 set LSDBHOST=localhost
 set /p LSDBHOST=%LANG_LSHost% (%LANG_Default% %LSDBHOST%): 
 echo.
@@ -70,5 +71,6 @@ set /p GSPASS=%LANG_GSPASS1% %GSUSER%%LANG_LSPASS2%:
 echo.
 
 :mainmenu
-goto mainmenu
+cls
+pause
 
