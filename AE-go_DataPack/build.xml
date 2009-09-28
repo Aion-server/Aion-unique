@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AionUnique_Datapack" default="dist" basedir=".">
+    <description>
+    	  This file is part of aion-unique [aionunique.smfnew.com].
+    	 
+    	   aion-unique is free software: you can redistribute it and/or modify
+    	   it under the terms of the GNU General Public License as published by
+    	   the Free Software Foundation, either version 3 of the License, or
+    	   (at your option) any later version.
+    	 
+    	   aion-emu is distributed in the hope that it will be useful,
+    	   but WITHOUT ANY WARRANTY; without even the implied warranty of
+    	   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    	   GNU General Public License for more details.
+    	 
+    	   You should have received a copy of the GNU General Public License
+    	   along with aion-unique.  If not, see http://www.gnu.org/licenses.
+    </description>
+
+  <property name="build" location="build"/>
+  <property name="build.dist" location="${build}/dist"/>
+  <property name="build.dist.gs" location="${build.dist}/gameserver"/>
+  <property name="build.dist.ls" location="${build.dist}/loginserver"/>
+
+    <target name="init"
+      depends="clean"
+      description="Create the output directories.">
+      <mkdir dir="${build}"/>
+      <mkdir dir="${build.dist}"/>
+      <mkdir dir="${build.dist.gs}"/>
+      <mkdir dir="${build.dist.ls}"/>
+    </target>
+
+    <target name="dist"
+      depends="version">
+
+      </copy>
+      <copy todir="${build.dist.ls}">
+        <fileset dir="${build.dist.gs}/data">
+          <include name="servername.xml"/>
+        </fileset>
+      </copy>
+      <delete file="${build}/ae_datapack.zip"/>
+      <zip destfile="${build}/ae_datapack.zip" basedir="${build.dist}"/>
+    </target>
+
+    <target name="clean" 
+      description="Deletes the zip file">
+      <delete dir="${build}"/>
+    </target>
+
+</project>
