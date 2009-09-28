@@ -101,17 +101,23 @@ public class CM_ATTACK extends AionClientPacket
 			Random generator = new Random();
 			int randomKinah = generator.nextInt(50)+1;
 			int randomUniqueId = generator.nextInt(99999999)+generator.nextInt(99999999)+99999999+99999999; // To prevent replacement of other item.
+			
+			//calculate how much kinah to send
 
 			Inventory kina = new Inventory();
 			kina.getKinahFromDb(playerobjid);
 			int kinah = kina.getKinahCount();
 			int totalKinah = kinah + randomKinah;
 			kina.putKinahToDb(playerobjid, totalKinah);
-			
+
+			//Your inventory is full to pickup item.
+
+	
 			sendPacket(new SM_INVENTORY_UPDATE(randomUniqueId, 182400001, 2211143, totalKinah));
-			
+
 			//schedule decay task
 			//TODO move to npc fully
+
 			World world = player.getActiveRegion().getWorld();
 			Npc npc = (Npc) world.findAionObject(targetObjectId);
 			npc.onDie();

@@ -61,13 +61,23 @@ public class CM_LOOT_ITEM extends AionClientPacket
 		int itemId = player.getItemId();
 		int itemNameId = player.getItemNameId();
 		int itemCount = 1;
-		Inventory items = new Inventory();
-		items.putItemToDb(activePlayer, itemId, itemNameId, itemCount);
-		items.getDbItemsCountFromDb();
-		int totalDbItemsCount = items.getDbItemsCount();
-		int newItemUniqueId = totalDbItemsCount;
-		sendPacket(new SM_INVENTORY_UPDATE(newItemUniqueId, itemId, itemNameId, itemCount)); // give item
-
+		Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
+		//
+		itemsDbOfPlayerCount.getInventoryFromDb(activePlayer);
+		int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
+		int cubes = 1;
+		int cubesize = 27;
+		int allowItemsCount = cubesize*cubes-1;
+		if (totalItemsCount<=allowItemsCount){
+			Inventory items = new Inventory();
+			items.putItemToDb(activePlayer, itemId, itemNameId, itemCount);
+			items.getDbItemsCountFromDb();
+			int totalDbItemsCount = items.getDbItemsCount();
+			int newItemUniqueId = totalDbItemsCount;
+			sendPacket(new SM_INVENTORY_UPDATE(newItemUniqueId, itemId, itemNameId, itemCount)); // give item
+		} else {
+			//todo show SM_INVENTORY_FULL packet or smth.
+		}
 		
 	}
 }
