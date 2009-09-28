@@ -48,6 +48,7 @@ public class RespawnService
 			public void run()
 			{
 				world.spawn(npc);	
+				npc.getController().onRespawn();
 			}
 		}, RESPAWN_DEFAULT_DELAY);
 

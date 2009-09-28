@@ -58,8 +58,8 @@ public class CM_LOOT_ITEM extends AionClientPacket
 		//sendPacket(new SM_EMOTION(targetObjectId,36,0));
 		Player player = getConnection().getActivePlayer();
 		int activePlayer = player.getObjectId();
-		int itemId = player.getItemId();
-		int itemNameId = player.getItemNameId();
+		int itemId = player.getGameStats().getItemId();
+		int itemNameId = player.getGameStats().getItemNameId();
 		int itemCount = 1;
 		Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
 		//

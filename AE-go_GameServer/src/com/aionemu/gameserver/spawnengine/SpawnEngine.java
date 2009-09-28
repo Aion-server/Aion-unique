@@ -21,6 +21,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
@@ -68,7 +69,10 @@ public class SpawnEngine
 		Npc npc = new Npc(spawn, aionObjectsIDFactory.nextId(), new NpcController());
 
 		npc.setKnownlist(new KnownList(npc));
-
+		
+		//TODO retrieve dynamically
+		npc.setLifeStats(new NpcLifeStats(500, 500, 500, 500));
+		
 		world.storeObject(npc);
 		world.setPosition(npc, spawn.getWorldId(), spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getHeading());
 		world.spawn(npc);

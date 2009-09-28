@@ -18,11 +18,13 @@ package com.aionemu.gameserver.controllers;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.services.DecayService;
+import com.aionemu.gameserver.services.RespawnService;
 
 /**
  * This class is for controlling Creatures [npc's, players etc]
  * 
- * @author -Nemesiss-
+ * @author -Nemesiss-, ATracer(2009-09-29)
  * 
  */
 public abstract class CreatureController<T extends Creature> extends VisibleObjectController<T>
@@ -36,5 +38,47 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		super.notSee(object);
 		if(object == getOwner().getTarget())
 			getOwner().setTarget(null);
+	}
+	
+	/**
+	 *  Perform tasks on Creature death
+	 */
+	public void onDie()
+	{
+
+	}
+	
+	/**
+	 *  Perform tasks on Creature respawn
+	 */
+	public void onRespawn()
+	{
+		
+	}
+	
+	/**
+	 *  Perform tasks when Creature was attacked
+	 */
+	public boolean onAttack(Creature creature)
+	{
+		return true;
+	}
+	
+	/**
+	 *  Perform drop operation
+	 */
+	public void doDrop()
+	{
+		
+	}
+	
+	/**
+	 * Perform reward operation
+	 * 
+	 */
+	//TODO probably do reward on list of objects
+	public void doReward(Creature creature)
+	{
+		
 	}
 }

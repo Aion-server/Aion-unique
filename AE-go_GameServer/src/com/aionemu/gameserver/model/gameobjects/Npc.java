@@ -17,10 +17,9 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.controllers.NpcController;
+import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
-import com.aionemu.gameserver.services.DecayService;
-import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -41,6 +40,11 @@ public class Npc extends Creature
 	 *  Spawn template of this npc. Currently every spawn template is responsible for spawning just one npc.
 	 */
 	private SpawnTemplate	spawn;
+	
+	/**
+	 *  LifeStats of this npc.
+	 */
+	private NpcLifeStats lifeStats;
 	
 	/**
 	 * Constructor creating instance of Npc.
@@ -96,10 +100,23 @@ public class Npc extends Creature
 	{
 		return getTemplate().getLevel();
 	}
-	
-	public void onDie()
+
+	/**
+	 * @return the lifeStats
+	 */
+	public NpcLifeStats getLifeStats()
 	{
-		RespawnService.getInstance().scheduleRespawnTask(this);
-		DecayService.getInstance().scheduleDecayTask(this);
+		return lifeStats;
 	}
+
+	/**
+	 * @param lifeStats the lifeStats to set
+	 */
+	public void setLifeStats(NpcLifeStats lifeStats)
+	{
+		this.lifeStats = lifeStats;
+	}
+	
+	
+
 }

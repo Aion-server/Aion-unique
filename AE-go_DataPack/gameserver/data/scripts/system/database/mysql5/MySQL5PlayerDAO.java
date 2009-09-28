@@ -94,7 +94,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				log.debug("[DAO: MySQL5PlayerDAO] storing player "+player.getObjectId()+" "+player.getName());
 				
 				stmt.setString(1, player.getName());
-				stmt.setLong(2, player.getExp());
+				stmt.setLong(2, player.getCommonData().getExp());
 				stmt.setFloat(3, player.getX());
 				stmt.setFloat(4, player.getY());
 				stmt.setFloat(5, player.getZ());

@@ -16,22 +16,30 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import org.apache.log4j.Logger;
+
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.World;
 
 /**
  * This class is for controlling players.
  * 
- * @author -Nemesiss-
+ * @author -Nemesiss-, ATracer (2009-09-29)
  *
  */
 public class PlayerController extends CreatureController<Player>
 {
+	private static Logger log = Logger.getLogger(PlayerController.class);
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -57,5 +65,55 @@ public class PlayerController extends CreatureController<Player>
 	{
 		super.notSee(object);
 		PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object));
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onDie()
+	{
+		super.onDie();
+	}
+	
+	public void attackTarget(int targetObjectId)
+	{
+		Player player = getOwner();
+		PlayerGameStats gameStats = player.getGameStats();
+		long time = System.currentTimeMillis();
+		int attackType = 0; //TODO investigate attack types	
+		
+		World world = player.getActiveRegion().getWorld();
+		Npc npc = (Npc) world.findAionObject(targetObjectId);
+		
+		//TODO fix last attack - cause mob is already dead
+		PacketSendUtility.broadcastPacket(player,
+			new SM_ATTACK(player.getObjectId(), targetObjectId, gameStats.getAttackCounter(), (int) time, attackType), true);
+		
+		boolean attackSuccess = npc.getController().onAttack(player);
+		
+		if(attackSuccess)
+		{
+			gameStats.increateAttackCounter();
+		}		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.controllers.CreatureController#onAttack(com.aionemu.gameserver.model.gameobjects.Creature)
+	 */
+	@Override
+	public boolean onAttack(Creature creature)
+	{
+		return super.onAttack(creature);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.controllers.CreatureController#doDrop()
+	 */
+	@Override
+	public void doDrop()
+	{
+		// TODO Auto-generated method stub
+		super.doDrop();
 	}
 }

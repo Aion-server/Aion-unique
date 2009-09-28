@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
@@ -70,21 +71,21 @@ public class CM_START_LOOT extends AionClientPacket
 		int itemNameId = 2211143 + ran;
 		
 		Player player = getConnection().getActivePlayer();
-		
-		if (player.getItemId() == 0)
+		PlayerGameStats playerGameStats = player.getGameStats();
+		if (playerGameStats.getItemId() == 0)
 		{
-		player.setItemId(itemId);
-		player.setItemNameId(itemNameId);
+			playerGameStats.setItemId(itemId);
+			playerGameStats.setItemNameId(itemNameId);
 		
-		sendPacket(new SM_LOOT_ITEMLIST(targetObjectId,itemId,1));	
-		sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
-		sendPacket(new SM_EMOTION(targetObjectId,35,0));
+			sendPacket(new SM_LOOT_ITEMLIST(targetObjectId,itemId,1));	
+			sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
+			sendPacket(new SM_EMOTION(targetObjectId,35,0));
 		}else
 		{
 			//sendPacket(new SM_LOOT_ITEMLIST(targetObjectId,itemId,1));	
 			sendPacket(new SM_LOOT_STATUS(targetObjectId,3));
 			sendPacket(new SM_DELETE((Creature) player.getTarget()));
-			player.setItemId(0);
+			playerGameStats.setItemId(0);
 		}
 		
 	}

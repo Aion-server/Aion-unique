@@ -72,56 +72,26 @@ public class CM_ATTACK extends AionClientPacket
 	protected void runImpl()
 	{
 
-//PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), unknown, emotion), true);
-	
-
-
 		Player player = getConnection().getActivePlayer();
-		int playerobjid = player.getObjectId();
-		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(playerobjid,targetObjectId,attackno,time,type), true);
-
-		at = player.getatcount();
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(targetObjectId,30,playerobjid), true);
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(targetObjectId,19,playerobjid), true);
-		sendPacket(new SM_ATTACK(targetObjectId,playerobjid,at,time,type));
-		sendPacket(new SM_ATTACK_STATUS(playerobjid,99));
-	  	at = at + 1;
-	    	player.setatcount(at);
+		player.getController().attackTarget(targetObjectId);
 		
-		sendPacket(new SM_ATTACK_STATUS(targetObjectId,attackno));
-		if (attackno % 5 == 0 && attackno != 0) //this one is still funny, will be removed soon
-		{
-			maxexp = player.getmaxExp();
-			exp = player.getExp() + 50;
-			player.setExp(exp);
-			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(targetObjectId,13,playerobjid), true);
-			PacketSendUtility.broadcastPacket(player, new SM_LOOT_STATUS(targetObjectId,0), true);
-			sendPacket(new SM_STATUPDATE_EXP(exp,0,maxexp));
-			
-			Random generator = new Random();
-			int randomKinah = generator.nextInt(50)+1;
-			int randomUniqueId = generator.nextInt(99999999)+generator.nextInt(99999999)+99999999+99999999; // To prevent replacement of other item.
-			
-			//calculate how much kinah to send
+		//TODO avol we need to move this part out of this packet
+		
+//		Random generator = new Random();
+//		int randomKinah = generator.nextInt(50)+1;
+//		int randomUniqueId = generator.nextInt(99999999)+generator.nextInt(99999999)+99999999+99999999; // To prevent replacement of other item.
+//		
+//		//calculate how much kinah to send
+//
+//		Inventory kina = new Inventory();
+//		kina.getKinahFromDb(playerobjid);
+//		int kinah = kina.getKinahCount();
+//		int totalKinah = kinah + randomKinah;
+//		kina.putKinahToDb(playerobjid, totalKinah);
+//
+//		//Your inventory is full to pickup item.
 
-			Inventory kina = new Inventory();
-			kina.getKinahFromDb(playerobjid);
-			int kinah = kina.getKinahCount();
-			int totalKinah = kinah + randomKinah;
-			kina.putKinahToDb(playerobjid, totalKinah);
+//		sendPacket(new SM_INVENTORY_UPDATE(randomUniqueId, 182400001, 2211143, totalKinah));
 
-			//Your inventory is full to pickup item.
-
-	
-			sendPacket(new SM_INVENTORY_UPDATE(randomUniqueId, 182400001, 2211143, totalKinah));
-
-			//schedule decay task
-			//TODO move to npc fully
-
-			World world = player.getActiveRegion().getWorld();
-			Npc npc = (Npc) world.findAionObject(targetObjectId);
-			npc.onDie();
-
-		}
 	}
 }

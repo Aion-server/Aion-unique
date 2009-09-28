@@ -24,6 +24,8 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
+import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.services.PlayerService;
@@ -49,11 +51,8 @@ public class Player extends Creature
 	private ResponseRequester	requester;
 	private boolean lookingForGroup = false;
 	
-	public long currentExp = 0;
-	public long maxExp = 1000;
-	public int itemId = 0; 
-	public int itemNameId = 0; 
-	public int atcount = 1;
+	private PlayerLifeStats lifeStats;
+	private PlayerGameStats gameStats;
 	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -197,56 +196,39 @@ public class Player extends Creature
 	{
 		this.blockList = list;
 	}
-	
-	public void setExp(Long e)
-			{
-				this.currentExp = e;
-			}
-			
-			public long getExp()
-			{
-				return currentExp;
-			}
-			
-			public void setItemId(int e)
-			{
-				this.itemId = e;
-			}
 
-			public void setItemNameId(int e)
-			{
-				this.itemNameId = e;
-			}
-			
-			public int getItemId()
-			{
-					return itemId;
-			}
+	/**
+	 * @return the playerLifeStats
+	 */
+	public PlayerLifeStats getLifeStats()
+	{
+		return lifeStats;
+	}
 
-			public int getItemNameId()
-			{
-					return itemNameId;
-			}
-			
-			public void setatcount(int e)
-			{
-				this.atcount = e;
-			}
-			
-			public int getatcount()
-			{
-					return atcount;
-			}
-			
-			public void setmaxExp(Long e)
-			{
-				this.maxExp = e;
-			}
-			
-			public long getmaxExp()
-			{
-				return maxExp;
-			}
+	/**
+	 * @param lifeStats the lifeStats to set
+	 */
+	public void setLifeStats(PlayerLifeStats lifeStats)
+	{
+		this.lifeStats = lifeStats;
+	}
+
+	/**
+	 * @return the gameStats
+	 */
+	public PlayerGameStats getGameStats()
+	{
+		return gameStats;
+	}
+
+	/**
+	 * @param gameStats the gameStats to set
+	 */
+	public void setGameStats(PlayerGameStats gameStats)
+	{
+		this.gameStats = gameStats;
+	}
+
 	/**
 	 * Gets the ResponseRequester for this player
 	 * @return

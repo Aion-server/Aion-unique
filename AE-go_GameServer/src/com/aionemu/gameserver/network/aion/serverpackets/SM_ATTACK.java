@@ -39,7 +39,7 @@ public class SM_ATTACK extends AionServerPacket
 	{
 		this.attackerobjectid = attackerobjectid;
 		this.targetObjectId = targetObjectId;
-		this.attackno = attackno + 1;// empty
+		this.attackno = attackno;// empty
 		this.time = time ;// empty
 		this.type = type;// empty
 	}

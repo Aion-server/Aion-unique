@@ -58,9 +58,6 @@ public class CM_CASTSPELL extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		//Player player = getConnection().getActivePlayer();
-		//if(player == null)
-		//	return;
 		Player player = getConnection().getActivePlayer();
 		int playerobjid = player.getObjectId();
 		
@@ -71,16 +68,14 @@ public class CM_CASTSPELL extends AionClientPacket
 		{
 			if(targetObjectId != 0)
 			{
-				//VisibleObject obj = world.findAionObject(targetObjectId);
-				 x = player.getTarget().getX();
-				 y = player.getTarget().getY();
-				 z = player.getTarget().getZ();
-				 x2 = player.getX();
-				 y2 = player.getY();
-				 z2 = player.getZ();
+				x = player.getTarget().getX();
+				y = player.getTarget().getY();
+				z = player.getTarget().getZ();
+				x2 = player.getX();
+				y2 = player.getY();
+				z2 = player.getZ();
 				
-
-					 MovementType type = MovementType.getMovementTypeById((byte)0xE0);
+				MovementType type = MovementType.getMovementTypeById((byte)0xE0);
 
 				sendPacket(new SM_MOVE((Creature) player.getTarget(),x,y,z,x2,y2,z2,player.getTarget().getHeading(),type));
 				sendPacket(new SM_ATTACK_STATUS(targetObjectId,12));

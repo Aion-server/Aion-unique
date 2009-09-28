@@ -39,6 +39,8 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
+import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
@@ -179,8 +181,11 @@ public class PlayerService
 
 		// TODO: starting skills
 		// TODO: starting items;
-
-		return new Player(new PlayerController(), playerCommonData, playerAppearance);
+		Player newPlayer = new Player(new PlayerController(), playerCommonData, playerAppearance);
+		//TODO retrieve from storage and calculate
+		newPlayer.setLifeStats(new PlayerLifeStats(300, 650, 300, 650));
+		newPlayer.setGameStats(new PlayerGameStats());
+		return newPlayer;
 	}
 
 	/**
@@ -193,7 +198,9 @@ public class PlayerService
 	public void playerLoggedIn(Player player)
 	{
 		player.getCommonData().setOnline(true);
-
+		//TODO retrieve from storage and calculate
+		player.setLifeStats(new PlayerLifeStats(300, 650, 300, 650));
+		player.setGameStats(new PlayerGameStats());
 		player.onLoggedIn();
 	}
 
