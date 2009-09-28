@@ -86,7 +86,6 @@
     	<mkdir dir="${build.dist}" />
     	<mkdir dir="${build.dist.login}" />
     	<mkdir dir="${build.dist.login}/config" />
-    	<mkdir dir="${build.dist.login}/sql" />
     	<mkdir dir="${build.dist.login}/libs" />
     	
     	<copy todir="${build.dist.login}">
@@ -112,12 +111,6 @@
 				<include name="*.*"/>
 			</fileset>
 		</copy>
-    	
-		<copy todir="${build.dist.login}/sql">
-    		<fileset dir="sql">
-    			<include name="*.sql"/>
-    		</fileset>
-    	</copy>
 
         <zip destfile="${build}/ae_login.zip"
              basedir="${build.dist}" />

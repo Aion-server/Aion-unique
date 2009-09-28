@@ -87,7 +87,6 @@
     	<mkdir dir="${build.dist.gs}" />
     	<mkdir dir="${build.dist.gs}/config" />
     	<mkdir dir="${build.dist.gs}/libs" />
-    	<mkdir dir="${build.dist.gs}/sql" />
     	
     	<copy todir="${build.dist.gs}">
             <fileset dir="${build}">
@@ -112,12 +111,6 @@
 				<include name="*.*"/>
 			</fileset>
 		</copy>
-
-        <copy todir="${build.dist.gs}/sql">
-            <fileset dir="sql">
-                <include name="**/*"/>
-            </fileset>
-        </copy>
 
         <zip destfile="${build}/ae_gameserver.zip"
              basedir="${build.dist}" />
