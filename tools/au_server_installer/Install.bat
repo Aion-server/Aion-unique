@@ -31,15 +31,18 @@ goto upgrade_db
 set fastend=no
 
 set user=root
-set pass=1q2w3e4r
-set LSDBname=au_server_ls_tt
-set GSDBname=au_server_gs_tt
+set pass=
+set LSDBname=au_server_ls
+set GSDBname=au_server_gs
+set AEDBname=aion_emu
 set DBHost=localhost
+
 
 REM ========================================= :create databases
 
 mysql.exe -h %DBHost% -u %user% --password=%pass% --execute="CREATE DATABASE IF NOT EXISTS %LSDBname%"
 mysql.exe -h %DBHost% -u %user% --password=%pass% --execute="CREATE DATABASE IF NOT EXISTS %GSDBname%"
+mysql.exe -h %DBHost% -u %user% --password=%pass% --execute="CREATE DATABASE IF NOT EXISTS %AEDBname%"
 if not exist backup (mkdir backup)
 
 REM ========================================= :Main_menu
@@ -170,26 +173,26 @@ echo.
 mysqldump.exe  --add-drop-table -h %DBHost% -u %user% --password=%pass% %LSDBname% > backup/%LSDBname%-%DATE%-%ctime%_backup_full.sql
 echo.
 echo.[Drop Table]: account_data
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% --execute="DROP TABLE IF EXISTS account_data"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS account_data;"
 echo.[Drop Table]: account_time
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% --execute="DROP TABLE IF EXISTS account_time"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS account_time;"
 echo.[Drop Table]: banned_ip
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% --execute="DROP TABLE IF EXISTS banned_ip"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS banned_ip;"
 echo.[Drop Table]: gameservers
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% --execute="DROP TABLE IF EXISTS gameservers"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS gameservers;"
 echo.
 echo.Installing Login Server !!!
 echo.
-echo.[Installing Table]: account_data.sql;
+echo.[Installing Table]: account_data.sql
 mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < login/account_data.sql
 
-echo.[Installing Table]: account_time.sql;
+echo.[Installing Table]: account_time.sql
 mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < login/account_time.sql
 
-echo.[Installing Table]: banned_ip.sql;
+echo.[Installing Table]: banned_ip.sql
 mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < login/banned_ip.sql
 
-echo.[Installing Table]: gameservers.sql;
+echo.[Installing Table]: gameservers.sql
 mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < login/gameservers.sql
 echo.
 echo.Login Server Installed !!!  Now you are going to main menu.
@@ -208,27 +211,27 @@ echo.
 mysqldump.exe  --add-drop-table -h %DBHost% -u %user% --password=%pass% %GSDBname% > backup/%GSDBname%-%DATE%-%ctime%_backup_full.sql
 echo.
 echo.[Drop Table]: blocks
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="DROP TABLE IF EXISTS blocks"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS blocks;"
 echo.[Drop Table]: friends
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="DROP TABLE IF EXISTS friends"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS friends;"
 echo.[Drop Table]: inventory
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="DROP TABLE IF EXISTS inventory"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS inventory;"
 echo.[Drop Table]: player_appearance
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="DROP TABLE IF EXISTS player_appearance"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS player_appearance;"
 echo.[Drop Table]: player_macrosses
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="DROP TABLE IF EXISTS player_macrosses"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS player_macrosses;"
 echo.[Drop Table]: player_skills
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="DROP TABLE IF EXISTS player_skills"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS player_skills;"
 echo.[Drop Table]: players
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="DROP TABLE IF EXISTS players"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS players;"
 echo.[Drop Table]: server_variables
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="DROP TABLE IF EXISTS server_variables"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS server_variables;"
 echo.[Drop Table]: skill_trees
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="DROP TABLE IF EXISTS skill_trees"
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS skill_trees;"
 echo.
 echo.Installing general tables !!!
 echo.
-echo [Installing Table]:  blocks.sql
+echo [Installing Table]: blocks.sql
 mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < game/blocks.sql
 echo [Installing Table]: friends.sql
 mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < game/friends.sql
@@ -266,6 +269,10 @@ echo.
 echo Making a full backup into %GSDBname%-%DATE%-%ctime%_backup_full.sql
 echo.
 mysqldump.exe  --add-drop-table -h %DBHost% -u %user% --password=%pass% %GSDBname% > backup/%GSDBname%-%DATE%-%ctime%_backup_full.sql
+echo.
+echo Making a full backup into %AEDBname%-%DATE%-%ctime%_backup_full.sql
+echo
+mysqldump.exe  --add-drop-table -h %DBHost% -u %user% --password=%pass% %AEDBname% > backup/%AEDBname%-%DATE%-%ctime%_backup_full.sql
 pause
 goto Main_menu
 
@@ -309,7 +316,7 @@ call :colors 03
 title Aion Unique installer - Script execution finished
 cls
 echo.
-echo Aion Unique installer version 0.0.0.1 beta
+echo Aion Unique installer version 0.0.0.2 beta
 echo (C) 2009-2010 ErgoZ Development Team and Aion Unique Dev Team
 echo Aion Unique installer comes with ABSOLUTELY NO WARRANTY;
 echo This is free software, and you are welcome to redistribute it
