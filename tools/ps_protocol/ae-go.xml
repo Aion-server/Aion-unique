@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <protocol crypt="AionGame" name="AE-go" port="7777" sizebytes="2" checksumSize="2" strictlength="false">
 <packetfamilly switchtype="c" way="ServerPackets">
-	<packet id="0x0D" name="SM_DELETE">
-		<part name="objId" type="d"/>
-		<part name="ukn" type="c"/>
-	</packet>
 	<packet id="0x01" name="SM_STATUSUPDATE_EXP">
 		<part name="currentExp" type="Q"/>
 		<part name="recoverableExp" type="Q"/>
 		<part name="maxExp" type="Q"/>
 	</packet>
-	<packet id="0x12" name="SM_STATUPDATE_HP">
-		<part name="currentHp" type="d"/>
-		<part name="maxHp" type="d"/>
-	</packet>
+	<packet id="0x12" name="SM_INVENTORY_UPDATE"/>
 	<packet id="0x14" name="SM_STATUPDATE_MP">
 		<part name="currentMp" type="d"/>
 		<part name="maxMp" type="d"/>
+	</packet>	
+	<packet id="0x17" name="SM_STATUPDATE_DP">
+		<part name="currentDp" type="d"/>
 	</packet>
-	<packet id="0x17" name="SM_STARTUP_DATE"/>
+	<packet id="0x18" name="SM_CASTSPELL"/>
 	<packet id="0x19" name="SM_PLAYER_INFO">
         	<part name="x" type="f"/>
         	<part name="y" type="f"/>
@@ -115,8 +111,10 @@
 	<packet id="0x1F" name="SM_GAME_TIME">
 		<part name="gameTime" type="d"/>
 	</packet>
-	<packet id="0x21" name="SM_STATUPDATE_DP">
-		<part name="currentDp" type="d"/>
+	<packet id="0x21" name="SM_DIALOG">
+		<part name="targetObjectId" type="d"/>
+    	<part name="unk" type="d"/>
+    	<part name="unk" type="c"/>
 	</packet>
 	<packet id="0x23" name="SM_STATUPDATE_EXP">
 		<part name="currentExp" type="Q"/>
@@ -185,6 +183,10 @@
 		<part name="unk" type="h"/>
 		<part name="unk" type="c"/>
 	</packet>
+	<packet id="0x2F" name="SM_DELETE">
+		<part name="objId" type="d"/>
+		<part name="deleteTime" type="c"/>
+	</packet>
 	<packet id="0x30" name="SM_SYSTEM_MESSAGE">
        	<part name="unk" type="h"/>
        	<part name="unk" type="d"/>
@@ -200,6 +202,11 @@
 		<part name="unk" type="h"/>
 		<part name="txt" type="S"/>
 	</packet> 
+	<packet id="0x35" name="SM_DIALOG_WINDOW">
+		<part name="targetObjectId" type="d"/>
+    	<part name="windowMode" type="d"/>
+    	<part name="unk" type="d"/>
+	</packet>
 	<packet id="0x3D" name="SM_PLAYER_STATE">
 		<part name="playerObjId" type="d"/>
 		<part name="unk" type="c"/>
@@ -215,7 +222,9 @@
 	<packet id="0x41" name="SM_KEY">
 	    <part name="key" type="d"/>
     </packet>
+    <packet id="0x42" name="SM_CASTSPELL_END"/>
 	<packet id="0x45" name="SM_SKILL_LIST">
+		<part name="skillListSize" type="h"/>
 		<part id="0" name="skills" type="h"/>
 			<for id="0">
 				<part name="skillId" type="h"/>
@@ -476,6 +485,14 @@
        	<part name="objectId" type="d"/>
        	<part name="delete time[s]" type="d"/>
     </packet>
+    <packet id="0xE4" name="SM_LOOT_STATUS">
+    	<part name="targetObjectId" type="d"/>
+       	<part name="state" type="c"/>
+    </packet>
+    <packet id="0xE7" name="SM_LOOT_ITEMLIST">
+       	<part name="targetObjectId" type="d"/>
+       	<part name="count" type="h"/>
+    </packet>
 	<packet id="0xEE" name="SM_FRIEND_UPDATE">
        	<part name="name" type="s"/>
        	<part name="level" type="d"/>
@@ -486,9 +503,12 @@
 		<part name="note" type="s"/>
        	<part name="statusIntValue" type="c"/>
     </packet>
-	<packet id="0xF4" name="SM_SHOP">
-		<part name="unk" type="d"/>
-		<part name="shopType" type="d"/>
+	<packet id="0xF4" name="SM_BUYLIST">
+		<part name="targetObjectId" type="d"/>
+    	<part name="listid?" type="d"/>
+    	<part name="unk" type="c"/>
+    	<part name="unk" type="h"/>
+    	<part name="type" type="d"/>
 	</packet>
 	<packet id="0xF6" name="SM_RECONNECT_KEY">
 		<part name="result" type="c"/>
@@ -530,8 +550,8 @@
        	<part name="unk5" type="h"/>
        	<part name="magicalResist" type="h"/>
        	<part name="unk6" type="h"/>
-       	<part name="unk7" type="h"/>
-       	<part name="unk8" type="h"/>
+       	<part name="attackRange" type="h"/>
+       	<part name="attackSpeed" type="h"/>
        	<part name="curEvasion" type="h"/>
        	<part name="curParry" type="h"/>
        	<part name="curBlock" type="h"/>
@@ -688,6 +708,18 @@
 	    <part name="objectId" type="d"/>
 	</packet>
 	<packet id="0x03" name="CM_RESTORE_CHARACTER"/>
+	<packet id="0x04" name="CM_START_LOOT">
+		<part name="targetObjectId" type="d"/>
+		<part name="unk" type="c"/>
+	</packet>
+	<packet id="0x04" name="CM_LOOT_ITEM">
+		<part name="targetObjectId" type="d"/>
+		<part name="unk" type="c"/>
+	</packet>
+	<packet id="0x05" name="CM_CLOSE_LOOT">
+		<part name="targetObjectId" type="d"/>
+		<part name="unk" type="c"/>
+	</packet>
 	<packet id="0x0C" name="CM_TRADE_OK"/>
 	<packet id="0x0D" name="CM_TRADE_LOCK"/>
 	<packet id="0x0F" name="CM_TRADE_CANCEL"/>
@@ -695,6 +727,7 @@
 	<packet id="0x12" name="CM_SHOW_BLOCKLIST"/>
 	<packet id="0x14" name="CM_FRIEND_STATUS"/>
 	<packet id="0x18" name="CM_MAC_ADDRESS2"/>
+	<packet id="0x1A" name="CM_SET_NOTE"/>
 	<packet id="0x1B" name="CM_CHECK_NICKNAME">
 		<part name="nick" type="S"/>
 	</packet>
@@ -740,9 +773,16 @@
 		<part name="unk" type="h"/>
 	</packet>
 	<packet id="0x9D" name="CM_BLOCK_SET_REASON"/>
-	<packet id="0x1A" name="CM_SET_NOTE"/>
-	<packet id="0xA0" name="CM_MACRO_DELETE">
-		<part name="order" type="c"/>
+	<packet id="0x9E" name="CM_SHOW_DIALOG">
+		<part name="targetObjectId" type="d"/>
+	</packet>
+	<packet id="0x9F" name="CM_CLOSE_DIALOG">
+		<part name="targetObjectId" type="d"/>
+	</packet>
+	<packet id="0xA0" name="CM_DIALOG_SELECT">
+		<part name="targetObjectId" type="d"/>
+		<part name="numberOfChoices?" type="h"/>
+		<part name="unk" type="h"/>
 	</packet>
 	<packet id="0xA1" name="CM_MACRO_CREATE">
 		<part name="order" type="c"/>
