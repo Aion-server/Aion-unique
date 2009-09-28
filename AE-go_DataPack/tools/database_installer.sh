@@ -18,6 +18,10 @@ echo " 1)  Spanish"
 echo ""
 echo -ne "Please select the language in which you want to display this application: "
 read langoption
+	if [ -z "$langoption" ]; then
+		langoption="0"
+	fi
+
 	case "$langoption" in
 		"0") CMDLoadLang;;
 		"1") CMDLoadLang;;
@@ -109,10 +113,81 @@ DBSETING()
 mainmenu()
 {
 clear
-echo "Press key Enter to continue. . ."
-	stty -echo
-	read PAUSA
-	stty echo
+echo "#################################################"
+echo "#        Aiun-Unique Database Installer         #"
+echo "#################################################"
+echo ""
+echo "$LANG_MAINMENU_TITLE"
+echo "[b]  $LANG_Database_backup"
+echo "[r]  $LANG_Insert_backups"
+echo "[f]  $LANG_Full_install"
+echo "[q]  $LANG_QuitScript"
+echo -ne "$LANG_Choice: "
+read mmopt
+	case "$mmopt" in
+		"b") backup_db; finish;;
+		"r") insert_backup; finish;;
+		"f") full_install; finish;;
+		"q") finish;;
+		*)       mainmenu;;
+	esac
+}
+
+# Make a backup of the LS and GS database
+backup_db()
+{
+	echo "#################################################"
+	echo "#                Database Backup                #"
+	echo "#################################################"
+	echo ""
+	echo "LoginServer backup"
+	$MYSQLDUMPPATH --add-drop-table -h $LSDBHOST -u $LSUSER --password=$LSPASS $LSDB > loginserver_backup.sql
+	echo "GameServer backup"
+	$MYSQLDUMPPATH --add-drop-table -h $GSDBHOST -u $GSUSER --password=$GSPASS $GSDB > gameserver_backup.sql
+}
+
+# Insert backups
+insert_backup()
+{
+	echo "#################################################"
+	echo "#                Database Backup                #"
+	echo "#################################################"
+	echo ""
+	echo "$LANG_BACKUP_MSG1"
+	echo "$LANG_BACKUP_MSG2"
+	echo "LoginServer backup: "
+	read LS_BACKUP
+	echo "GameServer backup: "
+	read GS_BACKUP
+	echo "Inserting Backups"
+	$MYL < $LS_BACKUP &> /dev/null
+	$MYG < $GS_BACKUP &> /dev/null
+	echo "$LANG_BACKUP_MSG3"
+}
+
+
+# Full installation (erase and insert all tables)
+full_install()
+{
+	echo "#################################################"
+	echo "#          Full Database Installation           #"
+	echo "#################################################"
+	echo ""
+	echo "LoginServer database"
+	$MYL < ../sql/ls_account_data.sql &> /dev/null
+	$MYL < ../sql/ls_account_time.sql &> /dev/null
+	$MYL < ../sql/ls_banned_ip.sql &> /dev/null
+	$MYL < ../sql/ls_gameservers.sql &> /dev/null
+	echo "GameServer database"
+	$MYG < ../sql/gs_players.sql &> /dev/null
+	$MYG < ../sql/gs_player_appearance.sql &> /dev/null
+	$MYG < ../sql/gs_player_macrosses.sql &> /dev/null
+	$MYG < ../sql/gs_player_skills.sql &> /dev/null
+	$MYG < ../sql/gs_server_variables.sql &> /dev/null
+	$MYG < ../sql/gs_blocks.sql &> /dev/null
+	$MYG < ../sql/gs_friends.sql &> /dev/null
+	$MYG < ../sql/gs_inventory.sql &> /dev/null
+	$MYG < ../sql/gs_skill_trees.sql &> /dev/null
 }
 
 # End of the script
@@ -134,6 +209,10 @@ DBRuteSet
 
 # Call DBSETING function
 DBSETING
+
+# Open MySQL connections
+MYL="$MYSQLPATH -h $LSDBHOST -u $LSUSER --password=$LSPASS -D $LSDB"
+MYG="$MYSQLPATH -h $GSDBHOST -u $GSUSER --password=$GSPASS -D $GSDB"
 
 # Call mainmenu function
 mainmenu

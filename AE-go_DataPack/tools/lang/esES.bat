@@ -1,7 +1,5 @@
 set LANG_MySQLBinPath=Por favor, introduzca el directorio de archivos binarios del MySQL
 set LANG_InvalidData=Los datos no son correctos. Por favor, verifique y vuelva a intentarlo.
-set LANG_Rute=Ruta
-set LANG_Default=por defecto
 set LANG_LSHost=Introduzca el host MySQL del loginserver
 set LANG_LSDB=Introduzca el nombre de base de datos
 set LANG_LSUSER=Introduzca Nombre de usuario de la base de datos
@@ -10,4 +8,14 @@ set LANG_GSHost=Introduzca el host MySQL del gameserver
 set LANG_GSDB=Introduzca el nombre de base de datos
 set LANG_GSUSER=Introduzca Nombre de usuario de la base de datos
 set LANG_GSPASS1=Introduzca la contrase¤a del usuario
-
+set LANG_Rute=Ruta
+set LANG_Default=por defecto
+set LANG_Choice=Opcion
+set LANG_Database_backup=Copia de seguridad de base de datos
+set LANG_Insert_backups=Insertar las copias de seguridad
+set LANG_Full_install=Instalaci¢n completa
+set LANG_QuitScript=Salir del script
+set LANG_MAINMENU_TITLE=¨Qu‚ es lo que quieres hacer?
+set LANG_BACKUP_MSG1=¨Qu‚ copias de seguridad que desea insertar?
+set LANG_BACKUP_MSG2=Introduzca la ruta completa de sus copias de seguridad.
+set LANG_BACKUP_MSG3=Restaurar copia de seguridad completa.

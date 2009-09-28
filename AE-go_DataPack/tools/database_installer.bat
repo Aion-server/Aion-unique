@@ -37,7 +37,7 @@ set mysqlBinPath=C:\%ProgramFiles%\MySQL\MySQL Server 5.1\bin
 echo %LANG_MySQLBinPath%
 set /p mysqlBinPath=%LANG_Rute%: 
 
-IF EXIST %mysqlBinPath%\mysql.exe GOTO DBSETING
+IF EXIST "%mysqlBinPath%\mysql.exe" GOTO DBSETING
 echo.
 echo.
 echo %LANG_InvalidData%
@@ -70,7 +70,81 @@ echo.
 set /p GSPASS=%LANG_GSPASS1% %GSUSER%%LANG_LSPASS2%: 
 echo.
 
+set mysqldumpPath="%mysqlBinPath%\mysqldump"
+set mysqlPath="%mysqlBinPath%\mysql"
+
+set MYL=%mysqlPath% -h %LSDBHOST% -u %LSUSER% --password=%LSPASS% -D %LSDB%
+set MYG=%mysqlPath% -h %GSDBHOST% -u %GSUSER% --password=%GSPASS% -D %GSDB%
+
 :mainmenu
 cls
-pause
+echo #################################################
+echo #        Aiun-Unique Database Installer         #
+echo #################################################
+echo.
+echo %LANG_MAINMENU_TITLE%
+echo [b]  %LANG_Database_backup%
+echo [r]  %LANG_Insert_backups%
+echo [f]  %LANG_Full_install%
+echo [q]  %LANG_QuitScript%          
+set /p mmopt=%LANG_Choice%: 
+if /i %mmopt%==b goto backup_db
+if /i %mmopt%==r goto insert_backup
+if /i %mmopt%==f goto full_install
+if /i %mmopt%==q goto finish
+goto mainmen
 
+REM Make a backup of the LS and GS database
+:backup_db
+	echo #################################################
+	echo #                Database Backup                #
+	echo #################################################
+	echo.
+	echo LoginServer backup
+	%MYSQLDUMPPATH% --add-drop-table -h %LSDBHOST% -u %LSUSER% --password=%LSPASS% %LSDB% > loginserver_backup.sql
+	echo GameServer backup
+	%MYSQLDUMPPATH% --add-drop-table -h %GSDBHOST% -u %GSUSER% --password=%GSPASS% %GSDB% > gameserver_backup.sql
+goto finish
+
+REM Insert backups
+:insert_backup
+	echo #################################################
+	echo #                Database Backup                #
+	echo #################################################
+	echo.
+	echo %LANG_BACKUP_MSG1%
+	echo %LANG_BACKUP_MSG2%
+	set /p LS_BACKUP=LoginServer backup: 
+	set /p GS_BACKUP=GameServer backup: 
+	echo Inserting Backups
+	%MYL% < %LS_BACKUP%
+	%MYG% < %GS_BACKUP%
+	echo %LANG_BACKUP_MSG3%
+goto finish
+
+REM  Full installation (erase and insert all tables)
+:full_install
+echo #################################################
+echo #          Full Database Installation           #
+echo #################################################
+echo.
+echo LoginServer database
+%MYL% < ../sql/ls_account_data.sql
+%MYL% < ../sql/ls_account_time.sql
+%MYL% < ../sql/ls_banned_ip.sql
+%MYL% < ../sql/ls_gameservers.sql
+echo GameServer database
+%MYG% < ../sql/gs_players.sql
+%MYG% < ../sql/gs_player_appearance.sql
+%MYG% < ../sql/gs_player_macrosses.sql
+%MYG% < ../sql/gs_player_skills.sql
+%MYG% < ../sql/gs_server_variables.sql
+%MYG%< ../sql/gs_blocks.sql
+%MYG%< ../sql/gs_friends.sql
+%MYG% < ../sql/gs_inventory.sql
+%MYG% < ../sql/gs_skill_trees.sql
+
+REM End of the script
+:finish
+echo.
+echo Script execution finished.
