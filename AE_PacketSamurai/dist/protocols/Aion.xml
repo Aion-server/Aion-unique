@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocol crypt="AionGame" name="AionGameServer v0" port="7777" sizebytes="2" checksumSize="2" strictlength="false">
+    <packetfamilly switchtype="c" way="ServerPackets">
+        <packet id="0xFE" name="SM_VERSION_CHECK">
+            <part name="unk" type="h"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="serverTime [s]" type="d"/>
+        </packet>
+        <packet id="0x04" name="SM_ENTER_WORLD_CHECK"/>
+        <packet id="0x06" name="SM_CI">
+            <part name="x" type="f"/>
+            <part name="y" type="f"/>
+            <part name="z" type="f"/>
+            <part name="objId" type="d"/>
+            <part name="raceSex" type="d"/>
+            <part name="raceSex" type="d"/>
+            <part name="shit" type="b" size="15"/>
+            <part name="name" type="S"/>
+            <part name="shit" type="b" size="61"/>
+            <part name="skinRGB" type="d"/>
+            <part name="hairRGB" type="d"/>
+            <part name="lipRGB" type="d"/>
+            <part name="face" type="c"/>
+            <part name="hair" type="c"/>
+            <part name="deco" type="c"/>
+            <part name="tatto" type="c"/>
+            <part name="unk == 4" type="c"/>
+            <part name="faceShape" type="c"/>
+            <part name="forehead" type="c"/>
+            <part name="eyeHeigh" type="c"/>
+            <part name="eyeSpace" type="c"/>
+            <part name="eyeWidth" type="c"/>
+            <part name="eyeSize" type="c"/>
+            <part name="eyeShape" type="c"/>
+            <part name="eyeAngle" type="c"/>
+            <part name="browHeigh" type="c"/>
+            <part name="browAngle" type="c"/>
+            <part name="browShape" type="c"/>
+            <part name="nose" type="c"/>
+            <part name="noseBridg" type="c"/>
+            <part name="noseWidth" type="c"/>
+            <part name="noseTip" type="c"/>
+            <part name="cheek" type="c"/>
+            <part name="lipHeight" type="c"/>
+            <part name="mouthSize" type="c"/>
+            <part name="lipSize" type="c"/>
+            <part name="smile" type="c"/>
+            <part name="lipShape" type="c"/>
+            <part name="jawHeigh" type="c"/>
+            <part name="chinJut" type="c"/>
+            <part name="earShape" type="c"/>
+            <part name="headSize" type="c"/>
+            <part name="neck" type="c"/>
+            <part name="neckLength" type="c"/>
+            <part name="shoulders" type="c"/>
+            <part name="torso" type="c"/>
+            <part name="chest" type="c"/>
+            <part name="waist" type="c"/>
+            <part name="hips" type="c"/>
+            <part name="armThickne" type="c"/>
+            <part name="handSize" type="c"/>
+            <part name="legThicnkes" type="c"/>
+            <part name="footSize" type="c"/>
+            <part name="facialRate" type="c"/>
+            <part name="unk1 == 0" type="c"/>
+            <part name="unk2 == 0" type="c"/>
+            <part name="height" type="d"/>
+            <part name="unk3 == 63" type="c"/>
+            <part name="shit" type="b" size="17"/>
+            <part name="title?" type="S"/>
+            <part name="shit" type="b" size="12"/>
+	    <part name="moveX" type="f"/>
+	    <part name="movey" type="f"/>
+            <part name="movez" type="f"/>
+            <part name="moveType" type="c"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="h"/>
+            <part name="unk" type="d"/>
+        </packet>
+        <packet id="0x07" name="SM_UNK_F5">
+            <part name="mapId" type="d"/>
+            <part name="mapId" type="d"/>
+            <part name="unk == 0?" type="d"/>
+            <part name="unk == 0?" type="c"/>
+            <part name="x" type="f"/>
+            <part name="y" type="f"/>
+            <part name="z" type="f"/>
+            <part name="unk" type="c"/>
+        </packet>
+        <packet id="0x1A" name="SM_WAIT_LIST"/>
+        <packet id="0x26" name="SM_TIME_CHECK">
+            <part name="timestamp [?]" type="d"/>
+            <part name="cNanoTime/1000000 [?]" type="d"/>
+        </packet>
+        <packet id="0x13" name="SM_STATS_INFO [UI?]">
+            <part name="objectId" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="power [?]" type="h"/>
+            <part name="health [?]" type="h"/>
+            <part name="agility [?]" type="h"/>
+            <part name="accuracy [?]" type="h"/>
+            <part name="knowledge [?]" type="h"/>
+            <part name="will [?]" type="h"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="lvl" type="d"/>
+            <part name="maxXp [?]" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="curXp [?]" type="d"/>
+            <part name="maxHp [?]" type="d"/>
+            <part name="curHp [?]" type="d"/>
+            <part name="maxMp [?]" type="d"/>
+            <part name="curMp [?]" type="d"/>
+            <part name="maxDp [?]" type="d"/>
+            <part name="curDp [?]" type="d"/>
+            <part name="unk1" type="d"/>
+            <part name="unk2" type="d"/>
+            <part name="unk3" type="d"/>
+            <part name="unk4" type="d"/>
+            <part name="unk5" type="d"/>
+            <part name="unk6" type="d"/>
+            <part name="unk7" type="d"/>
+            <part name="unk8" type="d"/>
+            <part name="unk9" type="d"/>
+            <part name="unk10" type="d"/>
+            <part name="unk11" type="d"/>
+            <part name="unk12" type="d"/>
+            <part name="unk13" type="d"/>
+            <part name="unk14" type="d"/>
+            <part name="unk15" type="d"/>
+            <part name="unk16" type="d"/>
+            <part name="unk17" type="d"/>
+            <part name="unk18" type="d"/>
+            <part name="unk19" type="d"/>
+            <part name="unk20" type="d"/>
+            <part name="unk21" type="d"/>
+            <part name="unk22" type="d"/>
+            <part name="unk23" type="d"/>
+            <part name="unk24" type="d"/>
+            <part name="unk25" type="d"/>
+            <part name="unk26" type="d"/>
+            <part name="unk27" type="d"/>
+            <part name="unk28" type="d"/>
+            <part name="unk29" type="d"/>
+            <part name="unk30" type="d"/>
+            <part name="unk31" type="d"/>
+            <part name="unk32" type="d"/>
+            <part name="unk33" type="d"/>
+            <part name="unk34" type="d"/>
+            <part name="unk35" type="d"/>
+            <part name="unk36" type="d"/>
+            <part name="unk37" type="d"/>
+        </packet>
+		<packet id="0x24" name="SM_EMOTION">
+			<part name="Sender Object ID" type="d"/>
+			<part name="Unknown" type="c"/>
+		</packet>
+        <packet id="0x2F" name="SM_SKILL_LIST">
+            <part id="0" name="skills" type="h"/>
+            <for id="0">
+                <part name="skillId" type="h"/>
+                <part name="lvl" type="d"/>
+                <part name="can use time? [s]" type="d"/>
+                <part name="unk [?]" type="c"/>
+            </for>
+            <part name="unk" type="d"/>
+        </packet>
+	<packet id="0x1A" name="SM_SYSTEM_MESSAGE">
+            <part name="unk" type="h"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+            <part id="0" name="count" type="c"/>
+            <for id="0">
+                <part name="txt" type="S"/>
+            </for>
+        </packet>
+	<packet id="0x1B" name="SM_MESSAGE">
+            <part name="unk" type="h"/>
+            <part name="objId" type="d"/>
+            <part name="unk" type="h"/>
+            <part name="txt" type="S"/>
+	</packet>        
+        <packet id="0x1D" name="SM_INVENTORY_INFO">
+            <part name="hide?" type="d"/>
+            <part id="0" name="items" type="h"/>
+            <for id="0">
+                <part name="objId?" type="d"/>
+                <part name="itemId" type="d"/>
+                <part name="unk1" type="d"/>
+                <part name="unk2" type="d"/>
+                <part id="1" name="size" type="c"/>
+                <part name="unk" type="b" sizeid="1"/>
+                <part name="unk" type="d"/>
+            </for>
+        </packet>
+        <packet id="0x39" name="SM_MOVE">
+		<part name="objId" type="d"/>
+		<part name="x" type="f"/>
+		<part name="y" type="f"/>
+		<part name="z" type="f"/>
+		<part name="heading" type="c"/>
+	    	<part name="type" type="c"/>	     
+        </packet>        
+        <packet id="0x49" name="SM_KEY">
+            <part name="key" type="d"/>
+        </packet>
+        <packet id="0x63" name="SM_QUIT_RESPONSE">
+            <part name="result" type="d"/>
+            <part name="unk" type="c"/>
+        </packet>
+        <packet id="0x82" name="SM_FRIEND_LIST [?]"/>
+        <packet id="0x86" name="SM_DELETE">
+		<part name="objId" type="d"/>
+	    	<part name="unk" type="d"/>	     
+        </packet>        
+        <packet id="0x89" name="SM_MAY_LOGIN_INTO_GAME">
+            <part name="result" type="d"/>
+        </packet>
+        <packet id="0x8C" name="SM_PONG"/>
+        <packet id="0xC7" name="SM_L2AUTH_LOGIN_CHECK">
+            <part name="result" type="d"/>
+            <part name="unk" type="S"/>
+        </packet>
+        <packet id="0xC8" name="SM_DELETE_CHARACTER">
+            <part name="unk1" type="d"/>
+            <part name="objectId" type="d"/>
+            <part name="delete time[s]" type="d"/>
+        </packet>
+        <packet id="0xC6" name="SM_CHARACTER_LIST">
+            <part name="playOk2" type="d"/>
+            <part id="0" name="characters" type="c"/>
+            <for id="0">
+                <part name="objectId" type="d"/>
+                <part name="charName" type="b" size="20"/>
+                <part name="unk" type="b" size="24"/>
+                <part name="famale" type="d"/>
+                <part name="race" type="d"/>
+                <part name="classId" type="d"/>
+                <part name="voice" type="d"/>
+                <part name="skinRGB" type="d"/>
+                <part name="hairRGB" type="d"/>
+                <part name="lipRGB" type="d"/>
+                <part name="face" type="c"/>
+                <part name="hair" type="c"/>
+                <part name="deco" type="c"/>
+                <part name="tatto" type="c"/>
+                <part name="unk == 4" type="c"/>
+                <part name="faceShape" type="c"/>
+                <part name="forehead" type="c"/>
+                <part name="eyeHeigh" type="c"/>
+                <part name="eyeSpace" type="c"/>
+                <part name="eyeWidth" type="c"/>
+                <part name="eyeSize" type="c"/>
+                <part name="eyeShape" type="c"/>
+                <part name="eyeAngle" type="c"/>
+                <part name="browHeigh" type="c"/>
+                <part name="browAngle" type="c"/>
+                <part name="browShape" type="c"/>
+                <part name="nose" type="c"/>
+                <part name="noseBridg" type="c"/>
+                <part name="noseWidth" type="c"/>
+                <part name="noseTip" type="c"/>
+                <part name="cheek" type="c"/>
+                <part name="lipHeight" type="c"/>
+                <part name="mouthSize" type="c"/>
+                <part name="lipSize" type="c"/>
+                <part name="smile" type="c"/>
+                <part name="lipShape" type="c"/>
+                <part name="jawHeigh" type="c"/>
+                <part name="chinJut" type="c"/>
+                <part name="earShape" type="c"/>
+                <part name="headSize" type="c"/>
+                <part name="neck" type="c"/>
+                <part name="neckLength" type="c"/>
+                <part name="shoulders" type="c"/>
+                <part name="torso" type="c"/>
+                <part name="chest" type="c"/>
+                <part name="waist" type="c"/>
+                <part name="hips" type="c"/>
+                <part name="armThickne" type="c"/>
+                <part name="handSize" type="c"/>
+                <part name="legThicnkes" type="c"/>
+                <part name="footSize" type="c"/>
+                <part name="facialRate" type="c"/>
+                <part name="unk1 == 0" type="c"/>
+                <part name="unk2" type="c"/>
+                <part name="unk3" type="c"/>
+                <part name="unk4" type="c"/>
+                <part name="unk5" type="c"/>
+                <part name="unk6 == 63" type="c"/>
+                <part name="raceSex" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="x" type="f"/>
+                <part name="y" type="f"/>
+                <part name="z" type="f"/>
+                <part name="unk == 3f" type="d"/>
+                <part name="lvl" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="d"/>
+                <part name="unk" type="b" size="176"/>
+                <part name="delete time[s]" type="d"/>
+                <part name="unk" type="b" size="18"/>
+            </for>
+        </packet>
+        <packet id="0xC9" name="SM_CREATE_CHARACTER">
+            <part name="unk1" type="d"/>
+            <part name="objectId" type="d"/>
+            <part name="shit" type="b" size="44"/>
+            <part name="famale" type="d"/>
+            <part name="race" type="d"/>
+            <part name="classId" type="d"/>
+            <part name="voice" type="d"/>
+            <part name="skinRGB" type="d"/>
+            <part name="hairRGB" type="d"/>
+            <part name="lipRGB" type="d"/>
+            <part name="face" type="c"/>
+            <part name="hair" type="c"/>
+            <part name="deco" type="c"/>
+            <part name="tatto" type="c"/>
+            <part name="unk == 4" type="c"/>
+            <part name="faceShape" type="c"/>
+            <part name="forehead" type="c"/>
+            <part name="eyeHeigh" type="c"/>
+            <part name="eyeSpace" type="c"/>
+            <part name="eyeWidth" type="c"/>
+            <part name="eyeSize" type="c"/>
+            <part name="eyeShape" type="c"/>
+            <part name="eyeAngle" type="c"/>
+            <part name="browHeigh" type="c"/>
+            <part name="browAngle" type="c"/>
+            <part name="browShape" type="c"/>
+            <part name="nose" type="c"/>
+            <part name="noseBridg" type="c"/>
+            <part name="noseWidth" type="c"/>
+            <part name="noseTip" type="c"/>
+            <part name="cheek" type="c"/>
+            <part name="lipHeight" type="c"/>
+            <part name="mouthSize" type="c"/>
+            <part name="lipSize" type="c"/>
+            <part name="smile" type="c"/>
+            <part name="lipShape" type="c"/>
+            <part name="jawHeigh" type="c"/>
+            <part name="chinJut" type="c"/>
+            <part name="earShape" type="c"/>
+            <part name="headSize" type="c"/>
+            <part name="neck" type="c"/>
+            <part name="neckLength" type="c"/>
+            <part name="shoulders" type="c"/>
+            <part name="torso" type="c"/>
+            <part name="chest" type="c"/>
+            <part name="waist" type="c"/>
+            <part name="hips" type="c"/>
+            <part name="armThickne" type="c"/>
+            <part name="handSize" type="c"/>
+            <part name="legThicnkes" type="c"/>
+            <part name="footSize" type="c"/>
+            <part name="facialRate" type="c"/>
+            <part name="unk1 == 0" type="c"/>
+            <part name="height" type="d"/>
+            <part name="unk2 == 63" type="c"/>
+            <part name="raceSex" type="d"/>
+            <part name="unk" type="d"/>
+            <part name="x" type="f"/>
+            <part name="y" type="f"/>
+            <part name="z" type="f"/>
+            <part name="unk" type="d"/>
+            <part name="unk" type="d"/>
+        </packet>
+        <packet id="0xCB" name="SM_RESTORE_CHARACTER">
+            <part name="unk1" type="d"/>
+            <part name="objectId" type="d"/>
+        </packet>
+        <packet id="0xD6" name="SM_UNKEE"/>
+        <packet id="0xD9" name="SM_UNKEF"/>
+        <packet id="0xE4" name="SM_VIRTUAL_AUTH"/>
+	<packet id="0xE7" name="SM_MACRO_LIST">
+            <part name="objId - lol?" type="d"/>
+            <part name="unk==1" type="c"/>
+            <part id="0" name="size (inversed)" type="h"/>
+            <for id="0">
+                <part name="order" type="c"/>
+                <part name="xml" type="S"/>
+            </for>
+	</packet>
+        <packet id="0xE9" name="SM_NICK_RESPONSE">
+            <part name="result" type="c"/>
+        </packet>
+        <packet id="0xFF" name="SM_RECONNECT_KEY">
+            <part name="result" type="c"/>
+            <part name="key" type="d"/>
+        </packet>
+    </packetfamilly>
+    <packetfamilly switchtype="c" way="ClientPackets">
+        <packet id="0x20" name="CM_MOVE">
+            <part name="x" type="f"/>
+            <part name="y" type="f"/>
+            <part name="z" type="f"/>
+            <part name="unk" type="c"/>
+            <part name="unk" type="c"/>
+        </packet>
+        <packet id="0x24" name="CM_PING"/>
+		<packet id="0x25" name="CM_EMOTION">
+			<part id="0" name="type" type="c"/>
+		</packet>
+        <packet id="0x34" name="CM_CHAT_MESSAGE_WHISPER">
+            <part name="name" type="S"/>
+            <part name="msg" type="S"/>
+        </packet>
+        <packet id="0x31" name="CM_TARGET_SELECT">
+            <part name="Target Object ID" type="d"/>
+            <part name="unknown" type="c"/>
+        </packet>
+        <packet id="0x35" name="CM_CHAT_MESSAGE_PUBLIC">
+            <part name="type" type="c"/>
+            <part name="msg" type="S"/>
+        </packet>
+        <packet id="0x48" name="CM_ENTER_WORLD">
+            <part name="chaObjId" type="d"/>
+        </packet>
+        <packet id="0x4B" name="CM_LEVEL_READY"/>
+        <packet id="0x52" name="CM_LOGIN_OUT"/>
+        <packet id="0x4D" name="CM_QUIT">
+            <part name="unk" type="c"/>
+        </packet>
+        <packet id="0x50" name="CM_VERSION_CHECK">
+            <part name="unk2" type="d"/>
+            <part name="unk3" type="d"/>
+        </packet>
+        <packet id="0xA0" name="CM_MACRO_DELETE">
+            <part name="position" type="c"/>
+        </packet>
+        <packet id="0xA1" name="CM_MACRO_CREATE">
+            <part name="position" type="c"/>
+            <part name="xml" type="s"/>
+        </packet>
+        <packet id="0xA3" name="CM_CHECK_NICKNAME">
+            <part name="nick" type="S"/>
+        </packet>
+        <packet id="0xA7" name="CM_VIRTURL_AUTH"/>
+        <packet id="0xB8" name="CM_DELETE_CHARACTER">
+            <part name="playOk2" type="d"/>
+            <part name="objectId" type="d"/>
+        </packet>
+        <packet id="0xB9" name="CM_CREATE_CHARACTER">
+            <part name="playOk2" type="d"/>
+            <part name="account" type="S"/>
+            <part name="nick" type="b" size="44"/>
+            <part name="famale" type="d"/>
+            <part name="race" type="d"/>
+            <part name="classId" type="d"/>
+            <part name="voice" type="d"/>
+            <part name="skinRGB" type="d"/>
+            <part name="hairRGB" type="d"/>
+            <part name="lipRGB" type="d"/>
+            <part name="face" type="c"/>
+            <part name="hair" type="c"/>
+            <part name="deco" type="c"/>
+            <part name="tatto" type="c"/>
+            <part name="unk == 4" type="c"/>
+            <part name="faceShape" type="c"/>
+            <part name="forehead" type="c"/>
+            <part name="eyeHeigh" type="c"/>
+            <part name="eyeSpace" type="c"/>
+            <part name="eyeWidth" type="c"/>
+            <part name="eyeSize" type="c"/>
+            <part name="eyeShape" type="c"/>
+            <part name="eyeAngle" type="c"/>
+            <part name="browHeigh" type="c"/>
+            <part name="browAngle" type="c"/>
+            <part name="browShape" type="c"/>
+            <part name="nose" type="c"/>
+            <part name="noseBridg" type="c"/>
+            <part name="noseWidth" type="c"/>
+            <part name="noseTip" type="c"/>
+            <part name="cheek" type="c"/>
+            <part name="lipHeight" type="c"/>
+            <part name="mouthSize" type="c"/>
+            <part name="lipSize" type="c"/>
+            <part name="smile" type="c"/>
+            <part name="lipShape" type="c"/>
+            <part name="jawHeigh" type="c"/>
+            <part name="chinJut" type="c"/>
+            <part name="earShape" type="c"/>
+            <part name="headSize" type="c"/>
+            <part name="neck" type="c"/>
+            <part name="neckLength" type="c"/>
+            <part name="shoulders" type="c"/>
+            <part name="torso" type="c"/>
+            <part name="chest" type="c"/>
+            <part name="waist" type="c"/>
+            <part name="hips" type="c"/>
+            <part name="armThickne" type="c"/>
+            <part name="handSize" type="c"/>
+            <part name="legThicnkes" type="c"/>
+            <part name="footSize" type="c"/>
+            <part name="facialRate" type="c"/>
+            <part name="unk1 == 0" type="c"/>
+            <part name="unk2" type="c"/>
+            <part name="unk3" type="c"/>
+            <part name="unk4" type="c"/>
+            <part name="unk5" type="c"/>
+            <part name="unk6 == 63" type="c"/>
+        </packet>
+        <packet id="0xBE" name="CM_CHARACTER_LIST">
+            <part name="playOk2" type="d"/>
+        </packet>
+        <packet id="0xBB" name="CM_RESTORE_CHRACTER">
+            <part name="playOk2" type="d"/>
+            <part name="objectId" type="d"/>
+        </packet>
+        <packet id="0xBF" name="CM_L2AUTH_LOGIN_CHECK">
+            <part name="playOk2" type="d"/>
+            <part name="playOk1" type="d"/>
+            <part name="accountId" type="d"/>
+            <part name="LoginOk" type="d"/>
+        </packet>
+        <packet id="0xC6" name="CM_CLIENT_COMMAND_LOC"/>
+        <packet id="0x42" name="CM_TIME_CHECK">
+            <part name="nanoTime/1000000 [?]" type="d"/>
+        </packet>
+        <packet id="0x97" name="CM_MAC_ADDRESS">
+            <part name="unk" type="b" size="22"/>
+            <part name="macAddress" type="S"/>
+        </packet>
+        <packet id="0x99" name="CM_RECONNECT_AUTH"/>
+        <packet id="0x9A" name="CM_MAY_LOGIN_INTO_GAME"/>
+    </packetfamilly>
+</protocol>

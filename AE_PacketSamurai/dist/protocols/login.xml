@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocol port="2106" name="Login" crypt="AionLogin">
+	<packetfamilly switchtype="c" way="ServerPackets">
+		<packet id="0x00" name="SM_INIT">
+			<part name="session id" type="d" />
+			<part name="protocol revision" type="d" />
+			<part name="RSA key" type="b" size="0x80" />
+			<part name="?" type="d" />
+			<part name="?" type="d" />
+			<part name="?" type="d" />
+			<part name="?" type="d" />
+			<part name="Blowfish key" type="b" size="0x10"/>
+		</packet>
+		<packet id="0x01" name="SM_LOGIN_FAIL">
+			<part name="reason" type="d" />
+		</packet>
+		<packet id="0x02" name="SM_ACCOUNT_BLOCKED">
+			<part name="reason" type="d" />
+		</packet>
+		<packet id="0x03" name="SM_LOGIN_OK" >
+			<part name="session key LoginOk part 1" type="d" />
+			<part name="session key LoginOk part 2" type="d" />
+			<part name="?" type="d" />
+			<part name="?" type="d" />
+			<part name="?" type="d" />
+			<part name="?" type="d" />
+			<part name="?" type="d" />
+			<part name="?" type="d" />
+			<part name="?" type="b" size="0x10"/>
+		</packet>
+		<packet id="0x04" name="SM_SERVER_LIST" >
+			<part name="list size" type="c" id="1" />
+			<part name="last serv" type="c" />
+			<for id="1">
+				<part name="id" type="c" />
+				<part name="ip" type="d" />
+				<part name="port" type="d" />
+				<part name="age" type="c" />
+				<part name="pvp" type="c" />
+				<part name="current players" type="h" />
+				<part name="max players" type="h" />
+				<part name="up/down" type="c" />
+				<part name="bits (clock/testserver)" type="d" />
+				<part name="brackets" type="c" />
+			</for>
+		</packet>
+		<packet id="0x05" name="SM_SERVER_LIST_FAIL" >
+			<part name="reason" type="d" />
+		</packet>
+		<packet id="0x06" name="SM_PLAY_FAIL" >
+			<part name="reason" type="d" />
+		</packet>
+		<packet id="0x07" name="SM_PLAY_OK" >
+			<part name="session key PlayOk part 1" type="d" />
+			<part name="session key PlayOk part 2" type="d" />
+		</packet>
+		<packet id="0x08" name="SM_ACCOUNT_KICKED">
+			<part name="reason" type="d" />
+		</packet>
+		<packet id="0x09" name="SM_ACCOUNT_BLOCKED_WITH_MSG">
+			<part name="size" type="c" id="1" />
+			<for id="1">
+				<part name="?" type="h" />
+				<part name="msg ?" type="S" />
+			</for>
+		</packet>
+		<packet id="0x0a" name="??">
+			<part name="?" type="d" />
+			<part name="?" type="c" />
+		</packet>
+		<packet id="0x0b" name="SM_AUTH_GG" >
+			<part name="sessionId" type="d" />
+			<part name="?" type="d" />
+			<part name="?" type="d" />
+			<part name="?" type="d" />
+			<part name="?" type="d" />
+		</packet>
+		<packet id="0x0c" name="SM_UPDATE_SESSION">
+		</packet>
+	</packetfamilly>
+	<packetfamilly switchtype="c" way="ClientPackets">
+		<packet id="0x0B" name="CM_LOGIN">
+			<part name="Revision" type="d" />
+		</packet>
+		<packet id="0x02" name="CM_PLAY" >
+			<part name="LoginOk1" type="d" />
+			<part name="LoginOk2" type="d" />
+			<part name="ServId" type="d" />
+		</packet>
+		<packet id="0x03" name="CM_LOGOUT" >
+		</packet>
+		<packet id="0x05" name="CM_SERVER_LIST" >
+			<part name="LoginOk1" type="d" />
+			<part name="LoginOk2" type="d" />
+			<part name="unk" type="d" />
+		</packet>
+		<packet id="0x07" name="CM_AUTH_GG" >
+			<part name="sessionId" type="d" />
+			<part name="unk1" type="d" />
+			<part name="unk2" type="d" />
+			<part name="unk3" type="d" />
+			<part name="unk4" type="d" />
+		</packet>
+		<packet id="0x08" name="CM_UPDATE_SESSION" >
+			<part name="LoginOk1" type="d" />
+			<part name="LoginOk2" type="d" />
+			<part name="ReconnectKey" type="d" />
+		</packet>
+		
+	</packetfamilly>
+</protocol>
