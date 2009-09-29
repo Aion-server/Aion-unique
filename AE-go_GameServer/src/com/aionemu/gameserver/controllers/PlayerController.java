@@ -87,8 +87,10 @@ public class PlayerController extends CreatureController<Player>
 		Npc npc = (Npc) world.findAionObject(targetObjectId);
 		
 		//TODO fix last attack - cause mob is already dead
+		//TODO calculate damage instead of 100
 		PacketSendUtility.broadcastPacket(player,
-			new SM_ATTACK(player.getObjectId(), targetObjectId, gameStats.getAttackCounter(), (int) time, attackType), true);
+			new SM_ATTACK(player.getObjectId(), targetObjectId,
+				gameStats.getAttackCounter(), (int) time, attackType, 100), true);
 		
 		boolean attackSuccess = npc.getController().onAttack(player);
 		

@@ -22,6 +22,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
+import com.aionemu.gameserver.model.templates.stats.StatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
@@ -57,8 +58,9 @@ public class NpcController extends CreatureController<Npc>
 	public void onRespawn()
 	{
 		super.onRespawn();
-		//TODO load stats dynamically
-		this.getOwner().setLifeStats(new NpcLifeStats(500, 500, 500, 500));
+		StatsTemplate statsTemplate = getOwner().getTemplate().getStatsTemplate();
+		this.getOwner().setLifeStats(new NpcLifeStats(statsTemplate.getMaxHp(),
+			statsTemplate.getMaxMp(), statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
 	}
 
 	/* (non-Javadoc)

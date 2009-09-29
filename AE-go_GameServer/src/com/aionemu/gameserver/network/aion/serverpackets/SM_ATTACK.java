@@ -34,14 +34,16 @@ public class SM_ATTACK extends AionServerPacket
 	private int	attackno;
 	private int	time;
 	private int	type;
+	private int damage;
 	
-	public SM_ATTACK(int attackerobjectid ,int targetObjectId,int attackno,int time,int type)
+	public SM_ATTACK(int attackerobjectid ,int targetObjectId, int attackno, int time, int type, int damage)
 	{
 		this.attackerobjectid = attackerobjectid;
 		this.targetObjectId = targetObjectId;
 		this.attackno = attackno;// empty
 		this.time = time ;// empty
 		this.type = type;// empty
+		this.damage = damage;
 	}
 
 	/**
@@ -61,19 +63,9 @@ public class SM_ATTACK extends AionServerPacket
 		writeC(buf, attackno + 1);
 		writeH(buf, 84); // unknown
 		writeC(buf, 0); // unknown
-/*		//demage
-		writeC(buf, 2);
 		
-		writeD(buf, 19); // damage
-		writeH(buf, 10); // unknown
-		
-		writeD(buf, 17); // damage
-		writeH(buf, 10); // unknown
-	*/
-		Random generator = new Random();
-		int randomdamage = generator.nextInt(100)+ 1;
 		writeC(buf, 1);
-		writeD(buf, randomdamage); // damage
+		writeD(buf, damage); // damage
 		writeH(buf, 10); // unknown
 		
 		writeC(buf, 0);

@@ -23,6 +23,7 @@ import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import com.aionemu.gameserver.model.templates.stats.StatsTemplate;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.KnownList;
@@ -70,8 +71,7 @@ public class SpawnEngine
 
 		npc.setKnownlist(new KnownList(npc));
 		
-		//TODO retrieve dynamically
-		npc.setLifeStats(new NpcLifeStats(500, 500, 500, 500));
+		npc.getController().onRespawn();
 		
 		world.storeObject(npc);
 		world.setPosition(npc, spawn.getWorldId(), spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getHeading());

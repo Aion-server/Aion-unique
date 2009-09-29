@@ -101,6 +101,22 @@ public class NpcTemplate
 	}
 
 	/**
+	 * @return the statsTemplate
+	 */
+	public NpcStatsTemplate getStatsTemplate()
+	{
+		return statsTemplate;
+	}
+
+	/**
+	 * @param statsTemplate the statsTemplate to set
+	 */
+	public void setStatsTemplate(NpcStatsTemplate statsTemplate)
+	{
+		this.statsTemplate = statsTemplate;
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
