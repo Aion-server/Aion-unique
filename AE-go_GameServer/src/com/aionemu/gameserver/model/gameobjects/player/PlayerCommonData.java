@@ -25,7 +25,7 @@ import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -104,6 +104,12 @@ public class PlayerCommonData
 		{
 			this.setLevel(level);
 			this.exp = exp;
+			
+			if(this.getPlayer()!=null)
+			{
+				PacketSendUtility.sendPacket(this.getPlayer(),
+					new SM_LEVEL_UPDATE(this.getPlayerObjId(), level));
+			}
 		}
 		else
 		{

@@ -219,6 +219,12 @@
 		<part name="unk" type="h"/>
 		<part name="txt" type="S"/>
 	</packet> 
+	<packet id="0x3F" name="SM_LEVEL_UPDATE">
+		<part name="targeObjectId" type="d"/>
+		<part name="unk" type="h"/>
+		<part name="level" type="h"/>
+		<part name="unk" type="h"/>
+	</packet>
 	<packet id="0x41" name="SM_KEY">
 	    <part name="key" type="d"/>
     </packet>
