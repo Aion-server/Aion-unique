@@ -31,6 +31,7 @@
       <copy todir="${build.dist}">
          <fileset dir="${basedir}">
            <exclude name="build/**"/>
+           <exclude name=".classpath"/>
            <exclude name=".project"/>
            <exclude name="build.xml"/>
            <exclude name="**.svn**"/>
