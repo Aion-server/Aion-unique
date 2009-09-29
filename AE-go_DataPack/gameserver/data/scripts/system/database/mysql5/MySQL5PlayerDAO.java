@@ -45,7 +45,7 @@ import com.aionemu.gameserver.world.WorldPosition;
  * Class that that is responsible for loading/storing {@link com.aionemu.gameserver.model.gameobjects.player.Player}
  * object from MySQL 5.
  * 
- * @author SoulKeeper
+ * @author SoulKeeper, Saelya
  */
 public class MySQL5PlayerDAO extends PlayerDAO
 {
@@ -116,8 +116,8 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	public boolean saveNewPlayer(final PlayerCommonData pcd, final int accountId, final String accountName)
 	{
 		boolean success = DB.insertUpdate(
-				"INSERT INTO players(id, `name`, account_id, account_name, x, y, z, heading, world_id, gender, race, player_class , admin) " +
-				"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				"INSERT INTO players(id, `name`, account_id, account_name, x, y, z, heading, world_id, gender, race, player_class , admin, online) " +
+				"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)",
 				new IUStH(){
 					@Override
 					public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
@@ -367,6 +367,24 @@ public class MySQL5PlayerDAO extends PlayerDAO
 		return new int[0];
 	}
 
+	/**
+	 * {@inheritDoc} - Saelya
+	 */
+	@Override
+	public void onlinePlayer(final Player player, final boolean online)
+	{
+		DB.insertUpdate("UPDATE players SET online=? WHERE id=?", new IUStH(){
+			@Override
+			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+			{
+				log.debug("[DAO: MySQL5PlayerDAO] online status "+player.getObjectId()+" "+player.getName());
+				
+				stmt.setBoolean(1, online);
+				stmt.setInt(2, player.getObjectId());
+				stmt.execute();
+			}
+		});
+	}
 	/**
 	 * {@inheritDoc}
 	 */

@@ -28,7 +28,7 @@ import com.aionemu.gameserver.world.World;
 /**
  * Class that is responsible for storing/loading player data
  * 
- * @author SoulKeeper
+ * @author SoulKeeper, Saelya
  */
 public abstract class PlayerDAO implements IDFactoryAwareDAO
 {
@@ -93,6 +93,14 @@ public abstract class PlayerDAO implements IDFactoryAwareDAO
 	 * @param lastOnline Last online time of player to store
 	 */
 	public abstract void storeLastOnlineTime(final int objectId, final Timestamp lastOnline);
+	
+	/**
+	 * Store online or offline player status
+	 * 
+	 * @param player, online
+	 */
+	public abstract void onlinePlayer(final Player player, final boolean online);
+	
 	/**
 	 * Identifier name for all PlayerDAO classes
 	 * 

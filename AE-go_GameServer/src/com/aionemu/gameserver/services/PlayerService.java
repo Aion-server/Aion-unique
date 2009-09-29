@@ -59,7 +59,7 @@ import com.google.inject.Inject;
  * Same with storing, {@link #storePlayer(com.aionemu.gameserver.model.gameobjects.player.Player)} stores all player
  * data like appearance, items, etc...
  * 
- * @author SoulKeeper
+ * @author SoulKeeper, Saelya
  */
 public class PlayerService
 {
@@ -201,6 +201,7 @@ public class PlayerService
 		//TODO retrieve from storage and calculate
 		player.setLifeStats(new PlayerLifeStats(300, 650, 300, 650));
 		player.setGameStats(new PlayerGameStats());
+		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, true);
 		player.onLoggedIn();
 	}
 
@@ -220,7 +221,7 @@ public class PlayerService
 			
 		player.getController().delete();
 		player.setClientConnection(null);
-		
+		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);
 		storePlayer(player);
 	}
 

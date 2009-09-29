@@ -18,6 +18,7 @@ CREATE TABLE `players` (
   `deletion_date` timestamp NULL DEFAULT NULL,
   `last_online` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `admin` boolean NOT NULL DEFAULT FALSE,
+  `online` boolean NOT NULL DEFAULT FALSE,
   `note` text,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name_unique` (`name`),

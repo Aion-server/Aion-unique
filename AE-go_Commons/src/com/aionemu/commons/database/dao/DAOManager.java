@@ -31,7 +31,7 @@ import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
 /**
  * This class manages {@link DAO} implementations, it resolves valid implementation for current database
  * 
- * @author SoulKeeper
+ * @author SoulKeeper, Saelya
  */
 public class DAOManager
 {
