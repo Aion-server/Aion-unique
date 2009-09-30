@@ -47,6 +47,7 @@ CREATE TABLE `player_appearance` (
   `facial_rate` int(11) NOT NULL,
   `voice` int(11) NOT NULL,
   `height` float NOT NULL,
-  PRIMARY KEY  (`player_id`),
+  `eye_rgb` int(11) NOT NULL,
+  PRIMARY KEY (`player_id`),
   CONSTRAINT `player_id_fk` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
