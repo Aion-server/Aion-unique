@@ -68,7 +68,7 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 		writeC(buf, 0x00);
 		*/
 
-		//int row = 0;
+		int row = 0;
 
 		DropList dropData = new DropList();
 		dropData.getDropList(monsterId);
