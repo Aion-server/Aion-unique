@@ -18,28 +18,32 @@ package com.aionemu.gameserver.network.aion;
 
 import java.nio.ByteBuffer;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
+import com.aionemu.gameserver.model.gameobjects.player.PlayerItems;
 
 /**
- * Util class to write player info [used by some packets] Its better to have it done once than c&p twice or more
  * 
- * @author -Nemesiss-
- * @author -Niato-
+ * @author AEJTester
+ * @author Nemesiss
+ * @author Niato
  */
 public abstract class PlayerInfo extends AionServerPacket
 {
+	private static Logger log= Logger.getLogger(PlayerInfo.class);
+
 	protected PlayerInfo()
 	{
 		
 	}
 
 
-	protected void writePlayerInfo(ByteBuffer buf, PlayerAccountData accPlData)
+	protected void writePlayerInfo(ByteBuffer buf, PlayerAccountData accPlData, PlayerItems playerItems)
 	{
 		PlayerCommonData pbd = accPlData.getPlayerCommonData();
-		
 		final int raceId = pbd.getRace().getRaceId();
 		final int genderId = pbd.getGender().getGenderId();
 		final PlayerAppearance playerAppearance = accPlData.getAppereance();
@@ -57,8 +61,7 @@ public abstract class PlayerInfo extends AionServerPacket
 		writeD(buf, playerAppearance.getVoice());
 		writeD(buf, playerAppearance.getSkinRGB());
 		writeD(buf, playerAppearance.getHairRGB());
-		// 1.5.x EyeColor before LipColor
-		writeD(buf,1); // EyeColor fixed for testing
+		writeD(buf, playerAppearance.getEyeRGB());
 		writeD(buf, playerAppearance.getLipRGB());
 		writeC(buf, playerAppearance.getFace());
 		writeC(buf, playerAppearance.getHair());
@@ -138,22 +141,172 @@ public abstract class PlayerInfo extends AionServerPacket
 		writeD(buf, 0);// unk 0
 		writeD(buf, 0);// unk 50379392
 		writeD(buf, 0);// unk 1242638636
-		/*
-		 * writeC(buf,0x01);//infact 0x01 = slot number writeD(buf,player.getSlot("glove",1)); writeD(buf, 0);
-		 * writeD(buf, 0); writeC(buf,0x01); writeD(buf,player.getSlot("head",1)); writeD(buf, 0); writeD(buf, 0);
-		 * writeC(buf,0x01); writeD(buf,player.getSlot("ring",1)); writeD(buf, 0); writeD(buf, 0); writeC(buf,0x01);
-		 * writeD(buf,player.getSlot("leggings",1)); writeD(buf, 0); writeD(buf, 0); writeC(buf,0x01);
-		 * writeD(buf,player.getSlot("weapon",1)); writeD(buf, 0); writeD(buf, 0); writeC(buf,0x01);
-		 * writeD(buf,player.getSlot("epaullette",1)); writeD(buf, 0); writeD(buf, 0); writeC(buf,0x02);
-		 * writeD(buf,player.getSlot("ring",2)); writeD(buf, 0); writeD(buf, 0); writeC(buf,0x01);
-		 * writeD(buf,player.getSlot("shoes",1)); writeD(buf, 0); writeD(buf, 0); writeC(buf,0x01);
-		 * writeD(buf,player.getSlot("earnings",1)); writeD(buf, 0); writeD(buf, 0); writeC(buf,0x01);
-		 * writeD(buf,player.getSlot("POWERSHARD",1)); int num = 176 - player.getSlot("all",1) * 7; stupidNc = new
-		 * byte[num]; writeB(buf, stupidNc);
-		 */
-		stupidNc = new byte[208];
+
+		int itemsSize = 0;
+		int i=0;
+		
+		if (playerItems.getWarmer()!=0)
+		{
+			 writeC(buf, i);
+		     writeD(buf, playerItems.getWarmer());
+		     writeD(buf, 0);
+		     writeD(buf, 0);
+		     i++;
+		     itemsSize = itemsSize + 13;
+		}
+    
+		if (playerItems.getShield()!=0)
+		{
+			 writeC(buf, i);
+		     writeD(buf, playerItems.getShield());
+		     writeD(buf, 0);
+		     writeD(buf, 0);
+		     i++;
+		     itemsSize = itemsSize + 13;
+		}
+
+	    
+		if (playerItems.getHelmet()!=0)
+		{
+			  writeC(buf, i);
+			  writeD(buf, playerItems.getHelmet());
+			  writeD(buf, 0);
+			  writeD(buf, 0);
+			  i++;
+			  itemsSize = itemsSize + 13;
+		}
+
+		if (playerItems.getArmor()!=0)
+		{
+			writeC(buf, i);
+		    writeD(buf, playerItems.getArmor());
+		    writeD(buf, 0);
+		    writeD(buf, 0);
+		    i++;
+		    itemsSize = itemsSize + 13;
+		}
+
+		if (playerItems.getBoots()!=0)
+		{
+			  writeC(buf, i);
+			  writeD(buf, playerItems.getBoots());
+			  writeD(buf, 0);
+			  writeD(buf, 0);
+			  i++;
+			  itemsSize = itemsSize + 13;
+		}
+
+		if (playerItems.getLearrings()!=0)
+		{
+			 writeC(buf, i);
+		     writeD(buf, playerItems.getLearrings());
+		     writeD(buf, 0);
+		     writeD(buf, 0);
+		     i++;
+		     itemsSize = itemsSize + 13;
+		}
+
+		
+		if (playerItems.getRearrings()!=0)
+		{
+			 writeC(buf, i);
+		     writeD(buf, playerItems.getRearrings());
+		     writeD(buf, 0);
+		     writeD(buf, 0);
+		     i++;
+		     itemsSize = itemsSize + 13;
+		}
+
+		
+		if (playerItems.getLring()!=0)
+		{
+			 writeC(buf, i);
+		     writeD(buf, playerItems.getLring());
+		     writeD(buf, 0);
+		     writeD(buf, 0);
+		     i++;
+		     itemsSize = itemsSize + 13;
+		}
+
+		
+		
+		if (playerItems.getRring()!=0)
+		{
+			 writeC(buf, i);
+		     writeD(buf, playerItems.getRring());
+		     writeD(buf, 0);
+		     writeD(buf, 0);
+		     i++;
+		     itemsSize = itemsSize + 13;
+		}
+
+	    
+		if (playerItems.getNecklace()!=0)
+		{
+			 writeC(buf, i);
+			 writeD(buf, playerItems.getNecklace());
+		     writeD(buf, 0);
+		     writeD(buf, 0);
+		     i++;
+		     itemsSize = itemsSize + 13;
+		}
+
+		
+		if (playerItems.getPauldron()!=0)
+		{
+			  writeC(buf, i);
+			  writeD(buf, playerItems.getPauldron());
+			  writeD(buf, 0);
+			  writeD(buf, 0);
+			  i++;
+			  itemsSize = itemsSize + 13;
+		}
+
+		if (playerItems.getPants()!=0)
+		{
+			 writeC(buf, i);
+		     writeD(buf, playerItems.getPants());
+		     writeD(buf, 0);
+		     writeD(buf, 0);
+		     i++;
+		     itemsSize = itemsSize + 13;
+		}
+
+		if (playerItems.getRshard()!=0)
+		{
+			 writeC(buf, i);
+			 writeD(buf, playerItems.getRshard());
+			 writeD(buf, 0);
+			 writeD(buf, 0);
+			 i++;
+			 itemsSize = itemsSize + 13;
+		}
+
+		if (playerItems.getLshard()!=0)
+		{
+			 writeC(buf, i);
+		     writeD(buf, playerItems.getLshard());
+		     writeD(buf, 0);
+		     writeD(buf, 0);
+		     i++;
+			 itemsSize = itemsSize + 13;
+		}
+
+		if (playerItems.getWing()!=0)
+		{
+			 writeC(buf, i);
+		     writeD(buf, playerItems.getWing());
+		     writeD(buf, 0);
+		     writeD(buf, 0);
+		     i++;
+			 itemsSize = itemsSize + 13;
+		}
+
+		
+		stupidNc = new byte[208-itemsSize];
 		writeB(buf, stupidNc);
 		writeD(buf, accPlData.getDeletionTimeInSeconds());
 		writeD(buf, 0x00);// unk
+		
 	}
 }

@@ -28,7 +28,7 @@ import com.aionemu.gameserver.network.aion.Version;
 /**
  * This packet is displaying visible players.
  * 
- * @author -Nemesiss-
+ * @author -Nemesiss-, AEJTester
  * 
  */
 public class SM_PLAYER_INFO extends AionServerPacket
@@ -97,26 +97,67 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeC(buf, 0x00);// unk (0x00)
 		writeC(buf, 0x00);// unk (0x00)
 		writeH(buf, 0x1009);// items count!!
-		// for(items count)
-		// {
-		// 1
-		writeD(buf, 100100023);// item id - Mace for Practice
-		writeD(buf, 0x00);// unk
-		writeD(buf, 0x00);// unk
-		// 2
-		writeD(buf, 110300293);// item id - Leather Armor for Practice
-		writeD(buf, 0x00);// unk
-		writeD(buf, 0x00);// unk
-		// 3
-		writeD(buf, 113300279);// item id - Leather Leg Armor for Practice
-		writeD(buf, 0x00);// unk
-		writeD(buf, 0x00);// unk
-		// }
+
+		switch (pcd.getPlayerClass().getClassId())
+		{
+			case 0: //WARRIOR
+				writeD(buf, 100000094);// item id - Mace for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+				// 2
+				writeD(buf, 110500003);// item id - Leather Armor for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+				// 3
+				writeD(buf, 113500001);// item id - Leather Leg Armor for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+			break;
+			case 3: //SCOUT
+				writeD(buf, 100200112);// item id - Mace for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+				// 2
+				writeD(buf, 110300015);// item id - Leather Armor for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+				// 3
+				writeD(buf, 113300005);// item id - Leather Leg Armor for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+			break;
+			case 6: //MAGE
+				writeD(buf, 100600034);// item id - Mace for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+				// 2
+				writeD(buf, 110100009);// item id - Leather Armor for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+				// 3
+				writeD(buf, 113100005);// item id - Leather Leg Armor for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+			break;
+			case 9: //PRIEST
+				writeD(buf, 100100011);// item id - Mace for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+				// 2
+				writeD(buf, 110300292);// item id - Leather Armor for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+				// 3
+				writeD(buf, 113300278);// item id - Leather Leg Armor for Practice
+				writeD(buf, 0x00);// unk
+				writeD(buf, 0x00);// unk
+			break;
+		}	
 
 		writeD(buf, playerAppearance.getSkinRGB());
 		writeD(buf, playerAppearance.getHairRGB());
 		// 1.5.x EyeColor before LipColor
-		writeD(buf, 1); //EyeColor fixed for testing
+		writeD(buf, playerAppearance.getEyeRGB());
 		writeD(buf, playerAppearance.getLipRGB());
 		writeC(buf, playerAppearance.getFace());
 		writeC(buf, playerAppearance.getHair());

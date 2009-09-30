@@ -65,6 +65,11 @@ public class PlayerAppearance
 	/**
 	 * Oval face
 	 */
+	private int	eyeColor;
+	
+	/**
+	 * Eye color
+	 */
 	private int	faceShape;
 
 	/**
@@ -408,6 +413,24 @@ public class PlayerAppearance
 		this.lipRGB = lipRGB;
 	}
 
+
+	public void setEyeRGB(int eyeColor)
+	{
+		this.eyeColor = eyeColor;
+	}
+	
+	/**
+	 * Gets eye color, / | \.
+	 * 
+	 * @return eyeColor
+	 * 
+	 */
+	
+	public int getEyeRGB()
+	{
+		return eyeColor;
+	}
+	
 	/**
 	 * Returns face shape
 	 * 
