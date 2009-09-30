@@ -19,6 +19,7 @@ package com.aionemu.gameserver.utils.stats;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
@@ -47,6 +48,20 @@ public class StatFunctions
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
 
 		return (int) Math.floor(baseXP * xpPercentage / 100);
+	}
+	
+	/**
+	 * 
+	 * @param player
+	 * @param target
+	 * @return Damage made to target (-hp value)
+	 */
+	public static int calculateBaseDamageToTarget(Player player, Creature target)
+	{
+		int pAttack = ClassStats.getPowerFor(player.getPlayerClass(), player.getCommonData().getLevel());
+		int targetPDef = ((Npc) target).getTemplate().getStatsTemplate().getMaxHp();
+		
+		return pAttack - targetPDef / 10;
 	}
 	
 }

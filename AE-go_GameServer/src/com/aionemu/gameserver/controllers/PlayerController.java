@@ -28,6 +28,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
 
 /**
@@ -87,10 +88,10 @@ public class PlayerController extends CreatureController<Player>
 		Npc npc = (Npc) world.findAionObject(targetObjectId);
 		
 		//TODO fix last attack - cause mob is already dead
-		//TODO calculate damage instead of 100
+		int damage = StatFunctions.calculateBaseDamageToTarget(player, npc);
 		PacketSendUtility.broadcastPacket(player,
 			new SM_ATTACK(player.getObjectId(), targetObjectId,
-				gameStats.getAttackCounter(), (int) time, attackType, 100), true);
+				gameStats.getAttackCounter(), (int) time, attackType, damage), true);
 		
 		boolean attackSuccess = npc.getController().onAttack(player);
 		
