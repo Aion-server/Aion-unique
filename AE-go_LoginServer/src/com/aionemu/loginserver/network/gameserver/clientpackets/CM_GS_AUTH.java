@@ -48,7 +48,7 @@ public class CM_GS_AUTH extends GsClientPacket
 	/**
 	 * Maximum number of players that this Gameserver can accept.
 	 */
-	private int			maxPalyers;
+	private int			maxPlayers;
 
 	/**
 	 * Port of this Gameserver.
@@ -93,7 +93,7 @@ public class CM_GS_AUTH extends GsClientPacket
 		}
 
 		port = readH();
-		maxPalyers = readD();
+		maxPlayers = readD();
 		password = readS();
 	}
 
@@ -106,7 +106,7 @@ public class CM_GS_AUTH extends GsClientPacket
 		GsConnection client = getConnection();
 
 		GsAuthResponse resp = GameServerTable.registerGameServer(client, gameServerId, defaultAddress, ipRanges, port,
-			maxPalyers, password);
+			maxPlayers, password);
 
 		switch (resp)
 		{
