@@ -36,7 +36,7 @@ import com.aionemu.commons.database.ParamReadStH;
  */
 public class Inventory
 {
-	public int player = 4319;
+
 	public int kinah;
 	public int totalItemsCount;
 	public int itemUniqueIdArray[];

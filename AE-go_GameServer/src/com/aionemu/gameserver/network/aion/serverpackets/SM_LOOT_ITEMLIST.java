@@ -20,6 +20,7 @@ import java.nio.ByteBuffer;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import com.aionemu.gameserver.model.gameobjects.player.DropList;
 import java.util.Random;
 
 /**
@@ -30,16 +31,20 @@ import java.util.Random;
 public class SM_LOOT_ITEMLIST extends AionServerPacket
 {
 	private int	targetObjectId;
-	private int	count ;
-	private int	itemid ;
-	 
-	
-	public SM_LOOT_ITEMLIST(int targetObjectId, int itemid ,int count)
+	private int	count;
+	private int	itemid;
+	private int	itemChance;
+	private int	itemCount;
+	private int	monsterId;
+
+	public SM_LOOT_ITEMLIST(int targetObjectId, int itemid ,int quantyCount,int itemChance, int itemCount, int monster)
 	{
 		this.targetObjectId = targetObjectId;
-		this.count = count;
+		this.count = quantyCount;
 		this.itemid = itemid;
-		
+		this.itemChance = itemChance;
+		this.itemCount = itemCount;
+		this.monsterId = monster;
 	}
 
 	/**
@@ -62,18 +67,36 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 		writeD(buf, 0x00);
 		writeC(buf, 0x00);
 		*/
-		
-		writeD(buf, targetObjectId);
-		
-		writeH(buf, count);
-		for(int i = 0; i < count; i++)
-		{
-		//writeD(buf, 169400039+ ran); //itemid
-		writeD(buf, itemid);
-		writeH(buf, 1); //count
-		writeH(buf, 0);
-		writeC(buf, 0);
-		writeC(buf, 0);
+
+		//int row = 0;
+
+		DropList dropData = new DropList();
+		dropData.getDropList(monsterId);
+
+		Random generator = new Random();
+		int chance = 100 / itemChance;
+		if (itemChance == 100) {
+			chance = 1;
+		} else {
+			chance = generator.nextInt(chance)+1;
+		}
+		if (chance == 1){
+			writeD(buf, targetObjectId);
+			writeH(buf, itemCount);
+			for(int i = 0; i < itemCount; i++)
+			{
+				if (monsterId != 0) {
+
+					itemid = dropData.getDropDataItemId(row);
+				}
+				writeD(buf, itemid);
+				writeH(buf, count); //count
+				writeH(buf, 0);
+				writeC(buf, 0);
+				writeC(buf, 0);
+				row+=1;
+
+			}
 		}
 
 	}	

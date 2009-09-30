@@ -18,6 +18,8 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.DropList;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
@@ -25,7 +27,10 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 
+import org.apache.log4j.Logger;
 import java.util.Random;
 /**
  * 
@@ -34,12 +39,16 @@ import java.util.Random;
  */
 public class CM_START_LOOT extends AionClientPacket
 {
+	private static final Logger	log	= Logger.getLogger(CM_START_LOOT.class);
+
 	/**
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */
 	private int					targetObjectId;
 	private int					unk;
-
+	private int					activePlayer;
+	@Inject	
+	private World			world;
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
 	 * @param opcode
@@ -65,21 +74,80 @@ public class CM_START_LOOT extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		Random generator = new Random();
-		int ran = generator.nextInt(100)+1;
-		int itemId = 169400039 + ran;
-		int itemNameId = 2211143 + ran;
-		
 		Player player = getConnection().getActivePlayer();
 		PlayerGameStats playerGameStats = player.getGameStats();
+		activePlayer = player.getObjectId();
+
+		Random generator = new Random();
+
+		Npc npc = (Npc) world.findAionObject(targetObjectId);
+		int monsterId = npc.getTemplate().getNpcId();
+
+		// load items from database.
+		DropList dropData = new DropList();
+		dropData.getDropList(monsterId);
+
+		int totalItemsCount = dropData.getItemsCount();
+		int row = 0;
+
+
+
+		int ran = generator.nextInt(100)+1;
+
+		// need to get item name id's from somewhere
+		int itemNameId = 2211143 + ran;
+		
 		if (playerGameStats.getItemId() == 0)
 		{
-			playerGameStats.setItemId(itemId);
-			playerGameStats.setItemNameId(itemNameId);
-		
-			sendPacket(new SM_LOOT_ITEMLIST(targetObjectId,itemId,1));	
+			if (totalItemsCount == 0) {
+				//if no item is found for that mob, give kinah
+				int randomKinah = generator.nextInt(100)+1;
+
+				playerGameStats.setItemId(182400001);
+				playerGameStats.setItemNameId(2211144);
+
+				sendPacket(new SM_LOOT_ITEMLIST(targetObjectId, 182400001, randomKinah, 100, 1, 0));
+				sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
+			} else {
+				int itemId = 1;
+				int itemMin = 1;
+				int itemMax = 1;
+				int itemChance = 1;
+				int randomCountChance = 1;
+
+				while (totalItemsCount > 0) {
+					itemId = dropData.getDropDataItemId(row);
+					itemMin = dropData.getDropDataMin(row);
+ 					itemMax = dropData.getDropDataMax(row);
+ 					itemChance = dropData.getDropDataChance(row); 
+
+					randomCountChance = generator.nextInt(itemMax-itemMin)+itemMin;
+					
+					if (randomCountChance>itemMax) {
+						randomCountChance = itemMax;
+					}
+
+					log.info(String.format("item count: %s %s", randomCountChance, totalItemsCount));
+					
+					totalItemsCount = totalItemsCount-1;
+					playerGameStats.setItemId(itemId);
+					playerGameStats.setItemNameId(itemNameId);
+					playerGameStats.setItemCount(randomCountChance);
+					
+			
+
+					row+=1;
+				}
+				totalItemsCount = dropData.getItemsCount();
+				if (totalItemsCount > 0) {
+					sendPacket(new SM_LOOT_ITEMLIST(targetObjectId, itemId, randomCountChance, itemChance, totalItemsCount, monsterId));
+					sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
+				}
+			}
+
 			sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
 			sendPacket(new SM_EMOTION(targetObjectId,35,0));
+
 		}else
 		{
 			//sendPacket(new SM_LOOT_ITEMLIST(targetObjectId,itemId,1));	
@@ -87,6 +155,5 @@ public class CM_START_LOOT extends AionClientPacket
 			sendPacket(new SM_DELETE((Creature) player.getTarget()));
 			playerGameStats.setItemId(0);
 		}
-		
 	}
 }

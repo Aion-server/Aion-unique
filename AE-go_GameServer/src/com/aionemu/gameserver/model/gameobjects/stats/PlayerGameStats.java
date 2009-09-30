@@ -23,8 +23,8 @@ package com.aionemu.gameserver.model.gameobjects.stats;
 public class PlayerGameStats extends CreatureGameStats
 {
 	private int itemId; //TODO remove
-	
 	private int itemNameId; //TODO remove
+	private int itemCount; //todo remove
 
 	public PlayerGameStats()
 	{
@@ -61,5 +61,21 @@ public class PlayerGameStats extends CreatureGameStats
 	public void setItemNameId(int itemNameId)
 	{
 		this.itemNameId = itemNameId;
+	}
+
+	/**
+	 * @return the itemCount
+	 */
+	public int getItemCount()
+	{
+		return itemCount;
+	}
+
+	/**
+	 * @param itemCount
+	 */
+	public void setItemCount(int itemCount)
+	{
+		this.itemCount = itemCount;
 	}
 }

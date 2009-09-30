@@ -22,6 +22,9 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+
+import org.apache.log4j.Logger;
 
 import java.util.Random;
 /**
@@ -31,6 +34,8 @@ import java.util.Random;
  */
 public class CM_LOOT_ITEM extends AionClientPacket
 {
+	private static final Logger	log	= Logger.getLogger(CM_LOOT_ITEM.class);
+
 	private int					targetObjectId;
 	private int					unk;
 
@@ -55,29 +60,49 @@ public class CM_LOOT_ITEM extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		//sendPacket(new SM_EMOTION(targetObjectId,36,0));
+
+		
 		Player player = getConnection().getActivePlayer();
 		int activePlayer = player.getObjectId();
 		int itemId = player.getGameStats().getItemId();
 		int itemNameId = player.getGameStats().getItemNameId();
-		int itemCount = 1;
-		Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
-		//
-		itemsDbOfPlayerCount.getInventoryFromDb(activePlayer);
-		int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
-		int cubes = 1;
-		int cubesize = 27;
-		int allowItemsCount = cubesize*cubes-1;
-		if (totalItemsCount<=allowItemsCount){
-			Inventory items = new Inventory();
-			items.putItemToDb(activePlayer, itemId, itemNameId, itemCount);
-			items.getDbItemsCountFromDb();
-			int totalDbItemsCount = items.getDbItemsCount();
-			int newItemUniqueId = totalDbItemsCount;
-			sendPacket(new SM_INVENTORY_UPDATE(newItemUniqueId, itemId, itemNameId, itemCount)); // give item
-		} else {
-			//todo show SM_INVENTORY_FULL packet or smth.
-		}
+		int count = player.getGameStats().getItemCount();
+
+		log.info(String.format("CM_LOOT_ITEM itemId: %s", itemId));
+			
+		if (itemId==182400001){
+			Random generator = new Random();
+			int randomKinah = generator.nextInt(50)+1;
+			int randomUniqueId = generator.nextInt(99999999)+generator.nextInt(99999999)+99999999+99999999; // To prevent replacement of other item.
 		
+			//calculate how much kinah to send
+
+			Inventory kina = new Inventory();
+			kina.getKinahFromDb(activePlayer);
+			int kinah = kina.getKinahCount();
+			int totalKinah = kinah + randomKinah;
+			kina.putKinahToDb(activePlayer, totalKinah);
+			//Need item update packet
+			//sendPacket(new SM_UPDATE_ITEM()); - need more analysis.
+		
+		} else {
+			Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
+			itemsDbOfPlayerCount.getInventoryFromDb(activePlayer);
+			int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
+			int cubes = 1;
+			int cubesize = 27;
+			int allowItemsCount = cubesize*cubes-1;
+			if (totalItemsCount<=allowItemsCount){
+				Inventory items = new Inventory();
+				items.putItemToDb(activePlayer, itemId, itemNameId, count);
+				items.getDbItemsCountFromDb();
+
+				int totalDbItemsCount = items.getDbItemsCount();
+				int newItemUniqueId = totalDbItemsCount;
+				sendPacket(new SM_INVENTORY_UPDATE(newItemUniqueId, itemId, itemNameId, count)); // give item
+			} else {
+				//todo show SM_INVENTORY_IS_FULL packet or smth.
+			}
+		}
 	}
 }

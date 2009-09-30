@@ -99,8 +99,9 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_SHOW_DIALOG(Version.Chiness ? -1 : 0x9E), State.IN_GAME);
 		addPacket(new CM_DIALOG_SELECT(Version.Chiness ? -1 : 0xA0), State.IN_GAME);
 		addPacket(new CM_CLOSE_DIALOG(Version.Chiness ? -1 :0x9f ), State.IN_GAME);//
-		addPacket(new CM_USE_ITEM(Version.Chiness ? -1 :0x8F ), State.IN_GAME);//
-
+		//addPacket(new CM_USE_ITEM(Version.Chiness ? -1 :0x8F ), State.IN_GAME);//
+		//addPacket(new CM_EQUIP_ITEM(Version.Chiness ? -1 :0x90 ), State.IN_GAME);//
+		//addPacket(new CM_DELETE_ITEM(Version.Chiness ? -1 :0x5E ), State.IN_GAME);//
 	}
 
 	public AionPacketHandler getPacketHandler()
