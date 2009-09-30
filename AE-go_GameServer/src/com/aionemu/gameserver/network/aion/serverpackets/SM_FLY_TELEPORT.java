@@ -28,11 +28,11 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_FLY_TELEPORT extends AionServerPacket
 {
-	private int	targetObjectId;
+	private int teleportId;
 	
-	public SM_FLY_TELEPORT(int targetObjectId)
+	public SM_FLY_TELEPORT(int targetObjectId, int teleportId)
 	{
-		this.targetObjectId = targetObjectId;
+		this.teleportId = teleportId;
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class SM_FLY_TELEPORT extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{		
-		writeD(buf, targetObjectId);
 		writeD(buf, 1);
+		writeD(buf, teleportId);
 	}	
 }
