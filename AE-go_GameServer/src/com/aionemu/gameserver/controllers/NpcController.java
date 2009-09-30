@@ -29,6 +29,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.services.DecayService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.stats.StatFunctions;
 
 /**
  * This class is for controlling Npc's
@@ -119,8 +120,9 @@ public class NpcController extends CreatureController<Npc>
 			Player player = (Player) creature;
 			//TODO may be introduce increaseExpBy method in PlayerCommonData
 			long currentExp = player.getCommonData().getExp();
-			//TODO calculate exp reward
-			player.getCommonData().setExp(currentExp + 100);
+			
+			long xpReward = StatFunctions.calculateSoloExperienceReward(player, getOwner());
+			player.getCommonData().setExp(currentExp + xpReward);
 		}
 	}
 }
