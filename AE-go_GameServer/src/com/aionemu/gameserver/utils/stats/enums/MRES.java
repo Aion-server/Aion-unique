@@ -41,4 +41,9 @@ public enum MRES
 	{
 		this.value = value;
 	}
+	
+	public int getValue()
+	{
+		return value;
+	}
 }

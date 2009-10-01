@@ -41,4 +41,9 @@ public enum MAGIC_BOOST
 	{
 		this.value = value;
 	}
+	
+	public int getValue()
+	{
+		return value;
+	}
 }

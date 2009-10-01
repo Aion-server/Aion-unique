@@ -25,6 +25,8 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.network.aion.Version;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ATTACK;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
+import com.aionemu.gameserver.utils.stats.ClassStats;
+import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
 import java.lang.Math;
@@ -45,7 +47,7 @@ public class SM_STATS_INFO extends AionServerPacket
 	 */
 	private Player	player;
 
-		//static.
+	//static.
 	public int power;
 	public int health;
 	public int agility;
@@ -60,13 +62,9 @@ public class SM_STATS_INFO extends AionServerPacket
 	public int fire = 0;
 	public int fly_time = 60;
 	// needs calculations.
-	public long maxhpc;
 	public int maxhp;
 	public int main_hand_accuracy;
 	public int magic_accuracy;
-	public long evasionc;
-	public long blockc;
-	public long parryc;
 	public int evasion;
 	public int block;
 	public int parry;
@@ -76,6 +74,8 @@ public class SM_STATS_INFO extends AionServerPacket
 	public int magic_boost = 0;
 	public int pdef = 0;
 	public int mres = 0;
+	public int attack_range = 0;
+	public int attack_speed = 0;
 	
 	/**
 	 * Constructs new <tt>SM_UI</tt> packet
@@ -85,6 +85,32 @@ public class SM_STATS_INFO extends AionServerPacket
 	public SM_STATS_INFO(Player player)
 	{
 		this.player = player;
+		PlayerClass playerClass = player.getPlayerClass();
+		int level = player.getLevel();
+		
+		power = ClassStats.getPowerFor(playerClass);
+		health = ClassStats.getHealthFor(playerClass);
+		agility = ClassStats.getAgilityFor(playerClass);
+		accuracy = ClassStats.getAccuracyFor(playerClass);
+		knowledge = ClassStats.getKnowledgeFor(playerClass);
+		will = ClassStats.getWillFor(playerClass);
+		main_hand_attack = ClassStats.getMainHandAttackFor(playerClass);
+		main_hand_crit_rate = ClassStats.getMainHandCritRateFor(playerClass);
+		main_hand_accuracy = ClassStats.getMainHandAccuracyFor(playerClass);
+		water = ClassStats.getWaterResistFor(playerClass);
+		wind = ClassStats.getWindResistFor(playerClass);
+		earth = ClassStats.getEarthResistFor(playerClass);
+		fire = ClassStats.getFireResistFor(playerClass);
+		
+		maxhp = ClassStats.getMaxHpFor(playerClass, level);
+		magic_accuracy = ClassStats.getMagicAccuracyFor(playerClass);
+		evasion = ClassStats.getEvasionFor(playerClass);
+		block = ClassStats.getBlockFor(playerClass);
+		parry = ClassStats.getParryFor(playerClass);
+		
+		attack_range = ClassStats.getAttackRangeFor(playerClass);
+		attack_speed = ClassStats.getAttackSpeedFor(playerClass);
+		
 	}
 
 	/**
@@ -94,345 +120,6 @@ public class SM_STATS_INFO extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		PlayerCommonData pcd = player.getCommonData();
-
-	////////////////////////////////////////////////////////
-//////Sexy calculations of player stats. 
-//////TODO: Find out some missing packet structures.
-//////TODO: Move calculations to some other class
-//////TODO: Find out formulas for other stat calculations.
-///////////////////////////////////////////////////
-
-		//warrior
-		if (pcd.getPlayerClass().getClassId() == 0) {
-			maxhpc = Math.round ( 1.1688 * (player.getLevel() - 1) * (player.getLevel() - 1) + 45.149 * (player.getLevel() -1) + 284 );
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 110;// change
-			health = 110;// change
-			agility = 100;// change
-			accuracy = 100; // change
-			knowledge = 90; // change
-			will = 90; // change
-			main_hand_attack=19; // change
-			main_hand_crit_rate=2; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-
-
-
-		//gladiator
-		if (pcd.getPlayerClass().getClassId() == 1) {
-			maxhpc = Math.round ( 1.3393 * (player.getLevel() - 1) * (player.getLevel() - 1) + 48.246 * (player.getLevel() -1) + 342 );
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 115;// change
-			health = 115;// change
-			agility = 100;// change
-			accuracy = 100; // change
-			knowledge = 90; // change
-			will = 90; // change
-			main_hand_attack=19; // change
-			main_hand_crit_rate=2; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-		//templar
-			if (pcd.getPlayerClass().getClassId() == 2) {
-			maxhpc = Math.round ( 1.3288 * (player.getLevel() - 1) * (player.getLevel() - 1) + 51.878 * (player.getLevel() -1) + 281 );
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 115;// change
-			health = 100;// change
-			agility = 100;// change
-			accuracy = 100; // change
-			knowledge = 90; // change
-			will = 105; // change
-			main_hand_attack=19; // change
-			main_hand_crit_rate=2; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-		//scout
-		if (pcd.getPlayerClass().getClassId() == 3) {
-			maxhpc = Math.round ( 1.0297 * (player.getLevel() - 1) * (player.getLevel() - 1) + 40.823 * (player.getLevel() -1) + 219 );
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 100;// change
-			health = 100;// change
-			agility = 110;// change
-			accuracy = 110; // change
-			knowledge = 90; // change
-			will = 90; // change
-			main_hand_attack=18; // change
-			main_hand_crit_rate=3; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-		//assasin
-		if (pcd.getPlayerClass().getClassId() == 4) {
-			maxhpc = Math.round ( 1.0488 * (player.getLevel() - 1) * (player.getLevel() - 1) + 40.38 * (player.getLevel() -1) + 222 );
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 110;// change
-			health = 100;// change
-			agility = 110;// change
-			accuracy = 110; // change
-			knowledge = 90; // change
-			will = 90; // change
-			main_hand_attack=19; // change
-			main_hand_crit_rate=3; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-		//ranger
-		if (pcd.getPlayerClass().getClassId() == 5) {
-			maxhpc = Math.round ( 0.5 * (player.getLevel() - 1) * (player.getLevel() - 1) + 38.5 * (player.getLevel() -1) + 133 );
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 90;// change
-			health = 90;// change
-			agility = 100;// change
-			accuracy = 100; // change
-			knowledge = 120; // change
-			will = 110; // change
-			main_hand_attack=18; // change
-			main_hand_crit_rate=3; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-		//mage
-		if (pcd.getPlayerClass().getClassId() == 6) {
-			maxhpc = Math.round ( 0.7554 * (player.getLevel() - 1) * (player.getLevel() - 1) + 29.457 * (player.getLevel() -1) + 132 );
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 90;// change
-			health = 90;// change
-			agility = 95;// change
-			accuracy = 95; // change
-			knowledge = 115; // change
-			will = 115; // change
-			main_hand_attack=16; // change
-			main_hand_crit_rate=1; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-		//sorcerer
-		if (pcd.getPlayerClass().getClassId() == 7) {
-			maxhpc = Math.round ( 0.6352 * (player.getLevel() - 1) * (player.getLevel() - 1) + 24.852 * (player.getLevel() -1) + 112 );
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 90;// change
-			health = 90;// change
-			agility = 100;// change
-			accuracy = 100; // change
-			knowledge = 120; // change
-			will = 110; // change
-			main_hand_attack=16; // change
-			main_hand_crit_rate=2; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-		//spirit master
-		if (pcd.getPlayerClass().getClassId() == 8) {
-			maxhpc = Math.round ( 1 * (player.getLevel() - 1) * (player.getLevel() - 1) + 20.6 * (player.getLevel() -1) + 157 );
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 90;// change
-			health = 90;// change
-			agility = 100;// change
-			accuracy = 100; // change
-			knowledge = 115; // change
-			will = 115; // change
-			main_hand_attack=16; // change
-			main_hand_crit_rate=2; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-		//priest
-		if (pcd.getPlayerClass().getClassId() == 9) {
-			maxhpc = Math.round ( 1.0303 * (player.getLevel() - 1) * (player.getLevel() - 1) + 40.824 * (player.getLevel() -1) + 201 );
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 95;// change
-			health = 95;// change
-			agility = 100;// change
-			accuracy = 100; // change
-			knowledge = 100; // change
-			will = 110; // change
-			main_hand_attack=17; // change
-			main_hand_crit_rate=2; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-		//cleric
-		if (pcd.getPlayerClass().getClassId() == 10) {
-			maxhpc = Math.round ( 0.9277 * (player.getLevel() - 1) * (player.getLevel() - 1) + 35.988 * (player.getLevel() -1) +229 );
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 105;// change
-			health = 110;// change
-			agility = 90;// change
-			accuracy = 90; // change
-			knowledge = 105; // change
-			will = 110; // change
-			main_hand_attack=19; // change
-			main_hand_crit_rate=2; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-		//chanter
-		if (pcd.getPlayerClass().getClassId() == 11) {
-			maxhpc = Math.round ( 0.9277 * (player.getLevel() - 1) * (player.getLevel() - 1) + 35.988 * (player.getLevel() -1) + 229 ) - 3*player.getLevel();// not retail like, needs some fixes.
-			Long lObj = new Long(maxhpc);
-			maxhp = lObj.intValue();
-
-			power = 110;// change
-			health = 105;// change
-			agility = 90;// change
-			accuracy = 90; // change
-			knowledge = 105; // change
-			will = 110; // change
-			main_hand_attack=19; // change
-			main_hand_crit_rate=1; // change
-
-			evasionc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj2 = new Long(evasionc);
-			evasion = lObj2.intValue();
-			parryc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj3 = new Long(parryc);
-			parry = lObj3.intValue();
-			blockc = Math.round(agility*3.1 - 248.5 + 12.4 * player.getLevel());
-			Long lObj4 = new Long(blockc);
-			block = lObj4.intValue();
-			main_hand_accuracy = (accuracy * 2) - 10 + 8 * player.getLevel();
-			magic_accuracy = (will * 2) - 10 + 8 * player.getLevel();
-		}
-		//////////////////////////////////////////////
-		///// THE END of calcs////////////////////////
-		//////////////////////////////////////////////
-
 
 		writeD(buf, player.getObjectId());
 		writeD(buf, GameTimeManager.getGameTime().getTime()); // Minutes since 1/1/00 00:00:00
@@ -484,8 +171,8 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, mres); // [current mres]
 
 		writeH(buf, 0);// [unk]
-		writeH(buf, 0);// [unk]attack range - do calculation
-		writeH(buf, 1500);// attack speed - do calculation may be
+		writeH(buf, attack_range);// attack range
+		writeH(buf, attack_speed);// attack speed 
 		writeH(buf, evasion);// [current evasion]
 		writeH(buf, parry );// [current parry]
 		writeH(buf, block);// [current block]

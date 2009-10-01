@@ -41,4 +41,9 @@ public enum MAIN_HAND_CRITRATE
 	{
 		this.value = value;
 	}
+	
+	public int getValue()
+	{
+		return value;
+	}
 }

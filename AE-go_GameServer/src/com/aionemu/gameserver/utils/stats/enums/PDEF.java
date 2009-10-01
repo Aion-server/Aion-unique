@@ -41,4 +41,9 @@ public enum PDEF
 	{
 		this.value = value;
 	}
+	
+	public int getValue()
+	{
+		return value;
+	}
 }

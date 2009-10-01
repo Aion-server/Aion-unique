@@ -41,4 +41,9 @@ public enum MAXMP
 	{
 		this.value = value;
 	}
+	
+	public int getValue()
+	{
+		return value;
+	}
 }

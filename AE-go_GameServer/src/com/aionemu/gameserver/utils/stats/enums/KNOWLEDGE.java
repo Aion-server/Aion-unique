@@ -41,4 +41,9 @@ public enum KNOWLEDGE
 	{
 		this.value = value;
 	}
+	
+	public int getValue()
+	{
+		return value;
+	}
 }

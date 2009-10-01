@@ -41,4 +41,9 @@ public enum WIND_RESIST
 	{
 		this.value = value;
 	}
+	
+	public int getValue()
+	{
+		return value;
+	}
 }

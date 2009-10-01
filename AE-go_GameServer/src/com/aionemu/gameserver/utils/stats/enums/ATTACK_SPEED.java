@@ -41,4 +41,9 @@ public enum ATTACK_SPEED
 	{
 		this.value = value;
 	}
+	
+	public int getValue()
+	{
+		return value;
+	}
 }

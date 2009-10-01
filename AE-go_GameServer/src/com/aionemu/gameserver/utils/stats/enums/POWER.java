@@ -43,7 +43,7 @@ public enum POWER
 		this.value = value;
 	}
 	
-	public int getPowerFor(int level)
+	public int getValue()
 	{
 		return value;
 	}
