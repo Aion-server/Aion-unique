@@ -65,6 +65,7 @@
 	-->
 
 	<import file="world_maps.xml" />
+	<import file="npc_trade_list.xml" />
 	<import file="player_experience_table.xml" />
 	<import file="player_initial_data.xml" />
 	<import file="items/items.xml"/>

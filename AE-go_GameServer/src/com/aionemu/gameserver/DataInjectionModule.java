@@ -21,6 +21,7 @@ import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.dataholders.PlayerExperienceTable;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
+import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.services.AccountService;
@@ -82,6 +83,7 @@ public class DataInjectionModule extends AbstractModule
 	{
 		return datamanager.WORLD_MAPS_DATA;
 	}
+	
 
 	@Provides
 	NpcData provideNpcData(DataManager datamanager)
@@ -112,5 +114,11 @@ public class DataInjectionModule extends AbstractModule
 	PlayerInitialData providePlayerInitialData(DataManager datamanager)
 	{
 		return datamanager.PLAYER_INITIAL_DATA;
+	}
+	
+	@Provides
+	TradeListData provideTradeListData(DataManager datamanager)
+	{
+		return datamanager.TRADE_LIST_DATA;
 	}
 }

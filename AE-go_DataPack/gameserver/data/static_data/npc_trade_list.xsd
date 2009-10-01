@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="npc_trade_list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="tradelist_template" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence />
+						<xs:attribute name="npc_id" type="xs:int" use="required" />
+						<xs:attribute name="name" type="xs:string" />
+						<xs:attribute name="count" type="xs:int" />
+						<xs:attribute name="listId0" type="xs:int" />
+						<xs:attribute name="listId1" type="xs:int" />
+						<xs:attribute name="listId2" type="xs:int" />
+						<xs:attribute name="listId3" type="xs:int" />
+						<xs:attribute name="listId4" type="xs:int" />
+						<xs:attribute name="listId5" type="xs:int" />
+						<xs:attribute name="listId6" type="xs:int" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+

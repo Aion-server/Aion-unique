@@ -28,7 +28,7 @@ import com.aionemu.gameserver.dataholders.loadingutils.XmlDataLoader;
  * 
  * This class temporarily also contains data loaded from txt files by DataLoaders. It'll be changed later.
  * 
- * @author Luno
+ * @author Luno , orz
  * 
  */
 
@@ -63,6 +63,8 @@ public final class DataManager
 	 * 
 	 * @see PlayerExperienceTable
 	 */
+	public static TradeListData			TRADE_LIST_DATA;
+	
 	public static PlayerExperienceTable	PLAYER_EXPERIENCE_TABLE;
 
 	/**
@@ -104,6 +106,7 @@ public final class DataManager
 		// now this outstanding spawndata and (still) npcdata:
 		SPAWN_DATA = new SpawnData(NPC_DATA);
 		
+		TRADE_LIST_DATA = data.tradeListData;
 		
 		// some sexy time message
 		long seconds = time / 1000;

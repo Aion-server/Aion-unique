@@ -19,8 +19,9 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_BUYLIST;
-import java.util.Random;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+
 /**
  * 
  * @author alexa026
@@ -60,13 +61,11 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		//Player player = getConnection().getActivePlayer();
-		//if(player == null)
-		//	return;
-		Random generator = new Random();
-		int randomlist = generator.nextInt(5)+ 1;
+		Player player = getConnection().getActivePlayer();
+		if(player == null)
+			return;
 		
 		if (unk1 ==2)
-		sendPacket(new SM_BUYLIST(targetObjectId,51201,28+randomlist));
+		sendPacket(new SM_TRADELIST(player, targetObjectId));
 	}
 }

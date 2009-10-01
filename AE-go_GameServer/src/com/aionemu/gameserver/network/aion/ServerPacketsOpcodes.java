@@ -111,7 +111,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_INVENTORY_UPDATE.class, Version.Chiness ? -1 : 0x12, idSet);	//1.5.x 
 		addPacketOpcode(SM_LOOT_ITEMLIST.class, Version.Chiness ? -1 : 0xE7, idSet);	//1.5.x 
 		
-		addPacketOpcode(SM_BUYLIST.class, Version.Chiness ? -1 : 0xF4, idSet);   //1.5.x 
+		addPacketOpcode(SM_TRADELIST.class, Version.Chiness ? -1 : 0xF4, idSet);   //1.5.x 
 		addPacketOpcode(SM_DIALOG.class, Version.Chiness ? -1 : 0x21, idSet);//1.5.x
 		addPacketOpcode(SM_DIALOG_WINDOW.class, Version.Chiness ? -1 : 0x35, idSet);//1.5.x
 

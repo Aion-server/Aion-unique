@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * An instance of this class is the result of data loading.
  * 
- * @author Luno
+ * @author Luno, orz
  * 
  */
 @XmlRootElement(name = "ae_static_data")
@@ -35,6 +35,9 @@ public class StaticData
 	@XmlElement(name = "world_maps")
 	public WorldMapsData			worldMapsData;
 
+	@XmlElement(name = "npc_trade_list")
+	public TradeListData			tradeListData;
+	
 	@XmlElement(name = "player_experience_table")
 	public PlayerExperienceTable	playerExperienceTable;
 
@@ -60,5 +63,7 @@ public class StaticData
 		DataManager.log.info("Loaded " + itemData.size() + " item templates");
 		DataManager.log.info("Loaded " + npcData.size() + " npc templates");
 		DataManager.log.info("Loaded " + playerInitialData.size() + " initial player templates");
+		DataManager.log.info("Loaded " + tradeListData.size() + " trade lists");
+		
 	}
 }
