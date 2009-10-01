@@ -73,7 +73,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_LEVEL_READY(Version.Chiness ? 0x45 : 0xF3), State.IN_GAME);
 		addPacket(new CM_FRIEND_STATUS(Version.Chiness ? 0xA6 : 0x14), State.IN_GAME);// 1.5.x unknown
 		addPacket(new CM_FRIEND_DEL(Version.Chiness ? -1 : 0xE0), State.IN_GAME);// 1.5.x unknown
-		addPacket(new CM_FRIEND_ADD(Version.Chiness ? -1 : 0xE1), State.IN_GAME);// 1.5.x unknown
+		addPacket(new CM_FRIEND_ADD(Version.Chiness ? -1 : 0x59), State.IN_GAME);// 1.5.x
 		addPacket(new CM_ENTER_WORLD(Version.Chiness ? 0x44 : 0xF2), State.AUTHED);
 		addPacket(new CM_EMOTION(Version.Chiness ? 0x27 : 0x95), State.IN_GAME);
 		addPacket(new CM_DELETE_CHARACTER(Version.Chiness ? 0xB4 : 0x02), State.AUTHED);// 1.5.x unknown
