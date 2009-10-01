@@ -19,3 +19,4 @@ set LANG_MAINMENU_TITLE=¨Qu‚ es lo que quieres hacer?
 set LANG_BACKUP_MSG1=¨Qu‚ copias de seguridad que desea insertar?
 set LANG_BACKUP_MSG2=Introduzca la ruta completa de sus copias de seguridad.
 set LANG_BACKUP_MSG3=Restaurar copia de seguridad completa.
+

@@ -136,10 +136,12 @@ echo LoginServer database
 echo GameServer database
 %MYG% < ../sql/gs_players.sql
 %MYG% < ../sql/gs_player_appearance.sql
+%MYG% < ../sql/gs_player_equipment.sql
 %MYG% < ../sql/gs_player_macrosses.sql
 %MYG% < ../sql/gs_player_skills.sql
 %MYG% < ../sql/gs_server_variables.sql
 %MYG%< ../sql/gs_blocks.sql
+%MYG%< ../sql/gs_droplist.sql
 %MYG%< ../sql/gs_friends.sql
 %MYG% < ../sql/gs_inventory.sql
 %MYG% < ../sql/gs_skill_trees.sql

@@ -181,10 +181,12 @@ full_install()
 	echo "GameServer database"
 	$MYG < ../sql/gs_players.sql &> /dev/null
 	$MYG < ../sql/gs_player_appearance.sql &> /dev/null
+	$MYG < ../sql/gs_player_equipment.sql &> /dev/null
 	$MYG < ../sql/gs_player_macrosses.sql &> /dev/null
 	$MYG < ../sql/gs_player_skills.sql &> /dev/null
 	$MYG < ../sql/gs_server_variables.sql &> /dev/null
 	$MYG < ../sql/gs_blocks.sql &> /dev/null
+	$MYG < ../sql/gs_droplist.sql &> /dev/null
 	$MYG < ../sql/gs_friends.sql &> /dev/null
 	$MYG < ../sql/gs_inventory.sql &> /dev/null
 	$MYG < ../sql/gs_skill_trees.sql &> /dev/null
