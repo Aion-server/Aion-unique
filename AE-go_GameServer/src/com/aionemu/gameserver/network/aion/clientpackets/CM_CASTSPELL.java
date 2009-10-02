@@ -60,7 +60,10 @@ public class CM_CASTSPELL extends AionClientPacket
 	{
 		Player player = getConnection().getActivePlayer();
 		int playerobjid = player.getObjectId();
-		
+		if(spellid == 1801)
+		{
+			return;
+		}
 		sendPacket(new SM_CASTSPELL(playerobjid,spellid,level,unk,targetObjectId));
 		sendPacket(new SM_CASTSPELL_END(playerobjid,spellid,level,unk,targetObjectId));
 		
@@ -68,6 +71,12 @@ public class CM_CASTSPELL extends AionClientPacket
 		{
 			if(targetObjectId != 0)
 			{
+				if(spellid == 1801)
+				{
+					return;
+				}
+				else
+				{
 				x = player.getTarget().getX();
 				y = player.getTarget().getY();
 				z = player.getTarget().getZ();
@@ -81,7 +90,7 @@ public class CM_CASTSPELL extends AionClientPacket
 				sendPacket(new SM_ATTACK_STATUS(targetObjectId,12));
 				
 				//log.info(String.format("Attacking target with object id: %d", targetObjectId));
-				
+				}
 			}
 		}
 
