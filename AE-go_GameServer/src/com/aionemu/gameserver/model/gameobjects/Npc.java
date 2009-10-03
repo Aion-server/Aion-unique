@@ -47,16 +47,6 @@ public class Npc extends Creature
 	 */
 	private SpawnTemplate	spawn;
 
-	/**
-	 *  LifeStats of this npc.
-	 */
-	private NpcLifeStats lifeStats;
-
-	/**
-	 *  GameStats of this npc
-	 */
-	private NpcGameStats gameStats;
-
 
 	/**
 	 * Constructor creating instance of Npc.
@@ -75,7 +65,7 @@ public class Npc extends Creature
 		controller.setOwner(this);
 		this.npcAi = new NpcAi(this);
 
-		this.gameStats = new NpcGameStats();
+		super.setGameStats(new NpcGameStats());
 	}
 
 	/**
@@ -129,7 +119,7 @@ public class Npc extends Creature
 	 */
 	public NpcLifeStats getLifeStats()
 	{
-		return lifeStats;
+		return (NpcLifeStats) super.getLifeStats();
 	}
 
 	/**
@@ -137,7 +127,7 @@ public class Npc extends Creature
 	 */
 	public void setGameStats(NpcGameStats gameStats)
 	{
-		this.gameStats = gameStats;
+		super.setGameStats(gameStats);
 	}
 
 	/**
@@ -145,7 +135,7 @@ public class Npc extends Creature
 	 */
 	public NpcGameStats getGameStats()
 	{
-		return gameStats;
+		return (NpcGameStats) super.getGameStats();
 	}
 
 	/**
@@ -153,6 +143,6 @@ public class Npc extends Creature
 	 */
 	public void setLifeStats(NpcLifeStats lifeStats)
 	{
-		this.lifeStats = lifeStats;
+		super.setLifeStats(lifeStats);
 	}
 }

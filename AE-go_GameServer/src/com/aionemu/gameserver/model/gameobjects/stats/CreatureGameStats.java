@@ -16,11 +16,13 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
+
 /**
  * @author ATracer
  *
  */
-public class CreatureGameStats
+public class CreatureGameStats<T extends Creature>
 {
 	private static final int ATTACK_MAX_COUNTER = 255;
 	

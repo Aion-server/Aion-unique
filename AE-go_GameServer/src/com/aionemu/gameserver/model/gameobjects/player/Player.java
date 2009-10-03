@@ -52,9 +52,6 @@ public class Player extends Creature
 	private ResponseRequester	requester;
 	private boolean lookingForGroup = false;
 	
-	private PlayerLifeStats lifeStats;
-	private PlayerGameStats gameStats;
-	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
 
@@ -214,7 +211,7 @@ public class Player extends Creature
 	 */
 	public PlayerLifeStats getLifeStats()
 	{
-		return lifeStats;
+		return (PlayerLifeStats) super.getLifeStats();
 	}
 
 	/**
@@ -222,7 +219,7 @@ public class Player extends Creature
 	 */
 	public void setLifeStats(PlayerLifeStats lifeStats)
 	{
-		this.lifeStats = lifeStats;
+		super.setLifeStats(lifeStats);
 	}
 
 	/**
@@ -230,7 +227,7 @@ public class Player extends Creature
 	 */
 	public PlayerGameStats getGameStats()
 	{
-		return gameStats;
+		return (PlayerGameStats) super.getGameStats();
 	}
 
 	/**
@@ -238,7 +235,7 @@ public class Player extends Creature
 	 */
 	public void setGameStats(PlayerGameStats gameStats)
 	{
-		this.gameStats = gameStats;
+		super.setGameStats(gameStats);
 	}
 
 	/**

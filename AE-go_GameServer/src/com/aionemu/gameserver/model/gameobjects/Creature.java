@@ -17,6 +17,8 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.controllers.CreatureController;
+import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -28,6 +30,10 @@ import com.aionemu.gameserver.world.WorldPosition;
 public abstract class Creature extends VisibleObject
 {
 	private Creature	target;
+	
+	private CreatureLifeStats<? extends Creature> lifeStats;
+	
+	private CreatureGameStats<? extends Creature> gameStats;
 
 	public Creature(int objId, CreatureController<? extends Creature> controller, WorldPosition position)
 	{
@@ -54,6 +60,44 @@ public abstract class Creature extends VisibleObject
 	public CreatureController<? extends Creature> getController()
 	{
 		return (CreatureController<? extends Creature>) super.getController();
+	}
+	
+	/**
+	 * @return the lifeStats
+	 */
+	public CreatureLifeStats<? extends Creature> getLifeStats()
+	{
+		return  lifeStats;
+	}
+	
+	/**
+	 * @param lifeStats the lifeStats to set
+	 */
+	public void setLifeStats(CreatureLifeStats<? extends Creature> lifeStats)
+	{
+		lifeStats.setOwner(this);
+		if(this.lifeStats != null)
+		{
+			this.lifeStats.cancelRestoreTask();
+			this.lifeStats.setOwner(null);
+		}
+		this.lifeStats = lifeStats;
+	}
+
+	/**
+	 * @return the gameStats
+	 */
+	public CreatureGameStats<? extends Creature> getGameStats()
+	{
+		return gameStats;
+	}
+	
+	/**
+	 * @param gameStats the gameStats to set
+	 */
+	public void setGameStats(CreatureGameStats<? extends Creature> gameStats)
+	{
+		this.gameStats = gameStats;
 	}
 
 	public abstract byte getLevel();

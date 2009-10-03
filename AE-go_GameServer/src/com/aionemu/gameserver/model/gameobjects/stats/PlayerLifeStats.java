@@ -16,11 +16,13 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+
 /**
  * @author ATracer
  *
  */
-public class PlayerLifeStats extends CreatureLifeStats
+public class PlayerLifeStats extends CreatureLifeStats<Player>
 {
 
 	public PlayerLifeStats(int currentHp, int currentMp, int maxHp, int maxMp)

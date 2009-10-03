@@ -133,12 +133,9 @@ public class NpcController extends CreatureController<Npc>
 			return false;
 		}
 
-		int newHp = lifeStats.reduceHp(100);
-		int hpPercentage = Math.round(100 *  newHp / lifeStats.getMaxHp());
+		lifeStats.reduceHp(100);
 		
-		PacketSendUtility.broadcastPacket(npc, new SM_ATTACK_STATUS(npc.getObjectId(), hpPercentage));
-		
-		if(newHp == 0)
+		if(!lifeStats.isAlive())
 		{
 			//TODO put into one method - onDie
 			this.getOwner().getNpcAi().stopTask();

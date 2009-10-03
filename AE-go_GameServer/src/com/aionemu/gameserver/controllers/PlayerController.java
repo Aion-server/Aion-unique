@@ -129,12 +129,9 @@ public class PlayerController extends CreatureController<Player>
 		}
 
 		//TODO calculate damage
-		int newHp = lifeStats.reduceHp(50);
-		int hpPercentage = Math.round(100 *  newHp / lifeStats.getMaxHp());
+		lifeStats.reduceHp(50);
 
-		PacketSendUtility.broadcastPacket(player, new SM_ATTACK_STATUS(player.getObjectId(), hpPercentage), true);
-
-		if(newHp == 0)
+		if(!lifeStats.isAlive())
 		{
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(this.getOwner().getObjectId(), 13 , creature.getObjectId()), true);
 			this.onDie();

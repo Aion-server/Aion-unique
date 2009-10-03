@@ -16,11 +16,13 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import com.aionemu.gameserver.model.gameobjects.Npc;
+
 /**
  * @author ATracer
  *
  */
-public class NpcGameStats extends CreatureGameStats
+public class NpcGameStats extends CreatureGameStats<Npc>
 {
 
 }

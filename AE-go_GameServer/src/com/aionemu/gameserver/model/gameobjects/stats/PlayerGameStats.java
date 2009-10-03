@@ -16,11 +16,13 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+
 /**
  * @author ATracer
  *
  */
-public class PlayerGameStats extends CreatureGameStats
+public class PlayerGameStats extends CreatureGameStats<Player>
 {
 	private int itemId; //TODO remove
 	private int itemNameId; //TODO remove

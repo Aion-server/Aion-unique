@@ -16,12 +16,24 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import java.util.concurrent.Future;
+
+import org.apache.log4j.Logger;
+
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
+import com.aionemu.gameserver.services.LifeStatsRestoreService;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+
 /**
  * @author ATracer
  *
  */
-public class CreatureLifeStats
+public class CreatureLifeStats<T extends Creature>
 {
+	private static final Logger log = Logger.getLogger(CreatureLifeStats.class);
+	
 	private int currentHp;
 	
 	private int currentMp;
@@ -29,6 +41,10 @@ public class CreatureLifeStats
 	private int maxHp;
 	
 	private int maxMp;
+	
+	private Creature owner;
+	
+	private Future<?> lifeRestoreTask;
 
 	public CreatureLifeStats(int currentHp, int currentMp, int maxHp, int maxMp)
 	{
@@ -39,6 +55,22 @@ public class CreatureLifeStats
 		this.maxMp = maxMp;
 	}
 	
+	/**
+	 * @param owner
+	 */
+	public void setOwner(Creature owner)
+	{
+		this.owner = owner;
+	}
+
+	/**
+	 * @return the owner
+	 */
+	public Creature getOwner()
+	{
+		return owner;
+	}
+
 	public boolean isAlive()
 	{
 		return currentHp > 0;
@@ -108,16 +140,77 @@ public class CreatureLifeStats
 		this.maxMp = maxMp;
 	}
 	
+	/**
+	 *  This method is called whenever caller wants to absorb creatures's HP
+	 * @param value
+	 * @return
+	 */
 	public int reduceHp(int value)
 	{
 		synchronized(this)
 		{
-			this.currentHp -= value;
-			if(currentHp < 0)
+			int newHp = this.currentHp - value;
+			if(newHp < 0)
 			{
-				currentHp = 0;
+				newHp = 0;
 			}
-			return currentHp;
+			this.currentHp = newHp;
 		}	
+		
+		if(lifeRestoreTask == null)
+		{
+			this.lifeRestoreTask = LifeStatsRestoreService.getInstance().scheduleRestoreTask(this);
+		}
+		
+		sendHpPacketUpdate();
+		
+		return currentHp;
+	}
+	/**
+	 * Informs about HP change
+	 */
+	private void sendHpPacketUpdate()
+	{
+		if(owner == null)
+		{
+			return;
+		}
+		int hpPercentage = Math.round(100 *  currentHp / maxHp);
+		PacketSendUtility.broadcastPacket(owner, new SM_ATTACK_STATUS(getOwner().getObjectId(), hpPercentage));
+		if(owner instanceof Player)
+		{
+			PacketSendUtility.sendPacket((Player) owner, new SM_ATTACK_STATUS(getOwner().getObjectId(), hpPercentage));
+		}
+	}
+	
+	/**
+	 *  This method is called whenever caller wants to restore creatures's HP
+	 * @param value
+	 * @return
+	 */
+	public int increaseHp(int value)
+	{
+		synchronized(this)
+		{
+			int newHp = this.currentHp + value;
+			if(newHp > maxHp)
+			{
+				newHp = maxHp;
+			}
+			this.currentHp = newHp;		
+		}		
+		
+		sendHpPacketUpdate();
+		
+		return currentHp;
+	}
+	
+	public void cancelRestoreTask()
+	{
+		if(lifeRestoreTask != null && !lifeRestoreTask.isCancelled())
+		{
+			lifeRestoreTask.cancel(false);
+			this.lifeRestoreTask = null;
+		}
 	}
 }

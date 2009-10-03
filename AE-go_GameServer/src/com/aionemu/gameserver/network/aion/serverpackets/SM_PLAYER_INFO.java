@@ -91,7 +91,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
 		writeB(buf, unk);
 
-		writeC(buf, 75);// %hp
+		writeC(buf, 100);// %hp
 		writeC(buf, 0x00);// unk (0x00)
 		writeC(buf, 0x00);// unk (0x00)
 		writeC(buf, 0x00);// unk (0x00)
