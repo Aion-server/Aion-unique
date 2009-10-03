@@ -20,7 +20,6 @@ import java.nio.ByteBuffer;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.Version;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKBD;
 
 public class CM_UNKB2 extends AionClientPacket
@@ -33,7 +32,7 @@ public class CM_UNKB2 extends AionClientPacket
 	 */
 	public CM_UNKB2(ByteBuffer buf, AionConnection client)
 	{
-		super(buf, client, Version.Chiness ? 0xB2 : 0xB6);
+		super(buf, client, 0xB6);
 	}
 
 	/**

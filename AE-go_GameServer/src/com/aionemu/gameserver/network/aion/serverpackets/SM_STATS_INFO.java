@@ -18,20 +18,13 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.network.aion.Version;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_ATTACK;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.utils.stats.ClassStats;
-import com.aionemu.gameserver.utils.stats.StatFunctions;
-import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.PlayerClass;
-import java.lang.Math;
-
-import sun.util.logging.resources.logging;
 
 /**
  * In this packet Server is sending User Info?

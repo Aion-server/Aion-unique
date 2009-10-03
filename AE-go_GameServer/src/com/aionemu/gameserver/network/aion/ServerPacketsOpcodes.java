@@ -43,97 +43,97 @@ public class ServerPacketsOpcodes
 
 		addPacketOpcode(SM_CUSTOM_PACKET.class, 99999, idSet); // fake packet
 		
-		addPacketOpcode(SM_UNKF5.class, Version.Chiness ? 0xF5 : 0x26, idSet);
-		addPacketOpcode(SM_UNKEF.class, Version.Chiness ? 0xef : -1, idSet);
-		addPacketOpcode(SM_UNKE7.class, Version.Chiness ? 0xe7 : -1, idSet);
-		addPacketOpcode(SM_UNKE1.class, Version.Chiness ? 0xe1 : -1, idSet);
-		addPacketOpcode(SM_UNKD9.class, Version.Chiness ? 0xD9 : -1, idSet); // was 0xE3
-		addPacketOpcode(SM_UNKD3.class, Version.Chiness ? 0xd3 : -1, idSet);
-		addPacketOpcode(SM_UNKCB.class, Version.Chiness ? 0xcb : -1, idSet);
-		addPacketOpcode(SM_UNKC8.class, Version.Chiness ? 0xc8 : -1, idSet);
-		addPacketOpcode(SM_UNKC7.class, Version.Chiness ? 0xc7 : -1, idSet);
-		addPacketOpcode(SM_UNKC6.class, Version.Chiness ? 0xc6 : -1, idSet);
-		addPacketOpcode(SM_UNKBD.class, Version.Chiness ? 0xBD : 0xCF, idSet);
-		addPacketOpcode(SM_UNK97.class, Version.Chiness ? 0x97 : -1, idSet);
-		addPacketOpcode(SM_UNK91.class, Version.Chiness ? 0x91 : -1, idSet);
-		addPacketOpcode(SM_UNK8D.class, Version.Chiness ? 0x8d : -1, idSet);
-		addPacketOpcode(SM_UNK66.class, Version.Chiness ? 0x66 : -1, idSet);
-		addPacketOpcode(SM_UNK64.class, Version.Chiness ? 0x64 : -1, idSet);
-		addPacketOpcode(SM_UNK60.class, Version.Chiness ? 0x60 : -1, idSet);
-		addPacketOpcode(SM_UNK5E.class, Version.Chiness ? 0x5e : -1, idSet);
-		addPacketOpcode(SM_UNK72.class, Version.Chiness ? -1 : 0x72, idSet);//1.5.x
-		addPacketOpcode(SM_UNK32.class, Version.Chiness ? 0x32 : -1, idSet);
-		addPacketOpcode(SM_UNK17.class, Version.Chiness ? 0x17 : -1, idSet);
-		addPacketOpcode(SM_UNK0C.class, Version.Chiness ? 0x0C : 0x48, idSet);
-		addPacketOpcode(SM_UNK0A.class, Version.Chiness ? 0x0A : -1, idSet);
-		addPacketOpcode(SM_VERSION_CHECK.class, Version.Chiness ? 0xF6 : 0xF9, idSet);
-		addPacketOpcode(SM_SYSTEM_MESSAGE.class, Version.Chiness ? 0x2A : 0x30, idSet);
-		addPacketOpcode(SM_STATUPDATE_MP.class, Version.Chiness ? -1 : 0xFD, idSet); // maybe update of item
-		addPacketOpcode(SM_STATUPDATE_HP.class, Version.Chiness ? -1 : 0xFA, idSet); //0x12//need opcode for 1.5.x client
-		addPacketOpcode(SM_STATUPDATE_EXP.class, Version.Chiness ? -1 : 0x01, idSet); // 1.5.x
-		addPacketOpcode(SM_STATUPDATE_DP.class, Version.Chiness ? -1 : 0x17, idSet); // 0x17
-		addPacketOpcode(SM_STATS_INFO.class, Version.Chiness ? 0x29 : 0xF8, idSet);
-		addPacketOpcode(SM_SKILL_LIST.class, Version.Chiness ? 0x1D : 0x45, idSet); // 0x45
-		addPacketOpcode(SM_RESTORE_CHARACTER.class, Version.Chiness ? 0xC1 : 0xE2, idSet);
-		addPacketOpcode(SM_RECONNECT_KEY.class, Version.Chiness ? 0x0D : 0xF6, idSet);
-		addPacketOpcode(SM_QUIT_RESPONSE.class, Version.Chiness ? 0x59 : 0x5B, idSet); // 63
-		addPacketOpcode(SM_QUESTION_WINDOW.class, Version.Chiness ? -1 : 0x4D, idSet);
-		addPacketOpcode(SM_PONG.class, Version.Chiness ? 0x7C : 0xA7, idSet);
-		addPacketOpcode(SM_PLAYER_STATE.class, Version.Chiness ? 0x33 : 0x3D, idSet);
-		addPacketOpcode(SM_PLAYER_SEARCH.class, Version.Chiness ? -1 : 0xD3, idSet);
-		addPacketOpcode(SM_PLAYER_INFO.class, Version.Chiness ? 0xFE : 0x19, idSet);
-		addPacketOpcode(SM_NPC_INFO.class, Version.Chiness ? 0xFF : 0x27, idSet);
-		addPacketOpcode(SM_NICKNAME_CHECK_RESPONSE.class, Version.Chiness ? 0xDF : 0xE0, idSet);
-		addPacketOpcode(SM_MOVE.class, Version.Chiness ? 0x4F : 0x4E, idSet);
-		addPacketOpcode(SM_MESSAGE.class, Version.Chiness ? 0x31 : 0x31, idSet);
-		addPacketOpcode(SM_MAY_LOGIN_INTO_GAME.class, Version.Chiness ? 0x7F : 0x80, idSet);
-		addPacketOpcode(SM_MACRO_LIST.class, Version.Chiness ? 0xD5 : 0xDE, idSet);
-		addPacketOpcode(SM_L2AUTH_LOGIN_CHECK.class, Version.Chiness ? 0xB5 : 0xBE, idSet);
-		addPacketOpcode(SM_KEY.class, Version.Chiness ? 0x3F : 0x41, idSet);
-		addPacketOpcode(SM_INVENTORY_INFO.class, Version.Chiness ? -1 : 0x13, idSet); //1.5.x**
-		addPacketOpcode(SM_GAME_TIME.class, Version.Chiness ? 0x15 : 0x1F, idSet);
-		addPacketOpcode(SM_FRIEND_UPDATE.class, Version.Chiness ? -1 : 0x09, idSet);
-		addPacketOpcode(SM_FRIEND_RESPONSE.class, Version.Chiness ? -1 : 0xD7, idSet);
-		addPacketOpcode(SM_FRIEND_NOTIFY.class, Version.Chiness ? -1 : 0xD8, idSet);
-		addPacketOpcode(SM_FRIEND_LIST.class,Version.Chiness ? 0x72 : 0x7D, idSet);
-		addPacketOpcode(SM_ENTER_WORLD_CHECK.class, Version.Chiness ? 0xF4 : 0x24, idSet);
-		addPacketOpcode(SM_EMOTION.class, Version.Chiness ? -1 : 0x1C, idSet);
-		addPacketOpcode(SM_DELETE.class, Version.Chiness ? 0xFB : 0x2F, idSet);
-		addPacketOpcode(SM_DELETE_CHARACTER.class, Version.Chiness ? 0xC0 : 0xE3, idSet);
-		addPacketOpcode(SM_CREATE_CHARACTER.class, Version.Chiness ? 0xBF : 0xC0, idSet);
-		addPacketOpcode(SM_CHARACTER_LIST.class, Version.Chiness ? 0xBE : 0xC1, idSet);
-		addPacketOpcode(SM_BLOCK_RESPONSE.class, Version.Chiness ? -1 : 0xD6 ,idSet);
-		addPacketOpcode(SM_BLOCK_LIST.class, Version.Chiness ? 0xD6 : 0xD9, idSet);
-		addPacketOpcode(SM_ATTACK.class, Version.Chiness ? -1 : 0x4F, idSet);
-		addPacketOpcode(SM_ATTACK_STATUS.class, Version.Chiness ? -1 : 0xFC, idSet);
-		addPacketOpcode(SM_LOOT_STATUS.class, Version.Chiness ? -1 : 0xE4, idSet);
+		addPacketOpcode(SM_UNKF5.class, 0x26, idSet);
+		addPacketOpcode(SM_UNKEF.class, -1, idSet);
+		addPacketOpcode(SM_UNKE7.class, -1, idSet);
+		addPacketOpcode(SM_UNKE1.class, -1, idSet);
+		addPacketOpcode(SM_UNKD9.class, -1, idSet); // was 0xE3
+		addPacketOpcode(SM_UNKD3.class, -1, idSet);
+		addPacketOpcode(SM_UNKCB.class, -1, idSet);
+		addPacketOpcode(SM_UNKC8.class, -1, idSet);
+		addPacketOpcode(SM_UNKC7.class, -1, idSet);
+		addPacketOpcode(SM_UNKC6.class, -1, idSet);
+		addPacketOpcode(SM_UNKBD.class, 0xCF, idSet);
+		addPacketOpcode(SM_UNK97.class, -1, idSet);
+		addPacketOpcode(SM_UNK91.class, -1, idSet);
+		addPacketOpcode(SM_UNK8D.class, -1, idSet);
+		addPacketOpcode(SM_UNK66.class, -1, idSet);
+		addPacketOpcode(SM_UNK64.class, -1, idSet);
+		addPacketOpcode(SM_UNK60.class, -1, idSet);
+		addPacketOpcode(SM_UNK5E.class, -1, idSet);
+		addPacketOpcode(SM_UNK72.class, 0x72, idSet);//1.5.x
+		addPacketOpcode(SM_UNK32.class, -1, idSet);
+		addPacketOpcode(SM_UNK17.class, -1, idSet);
+		addPacketOpcode(SM_UNK0C.class, 0x48, idSet);
+		addPacketOpcode(SM_UNK0A.class, -1, idSet);
+		addPacketOpcode(SM_VERSION_CHECK.class, 0xF9, idSet);
+		addPacketOpcode(SM_SYSTEM_MESSAGE.class, 0x30, idSet);
+		addPacketOpcode(SM_STATUPDATE_MP.class, 0xFD, idSet); // maybe update of item
+		addPacketOpcode(SM_STATUPDATE_HP.class, 0xFA, idSet); //0x12//need opcode for 1.5.x client
+		addPacketOpcode(SM_STATUPDATE_EXP.class, 0x01, idSet); // 1.5.x
+		addPacketOpcode(SM_STATUPDATE_DP.class, 0x17, idSet); // 0x17
+		addPacketOpcode(SM_STATS_INFO.class, 0xF8, idSet);
+		addPacketOpcode(SM_SKILL_LIST.class, 0x45, idSet); // 0x45
+		addPacketOpcode(SM_RESTORE_CHARACTER.class, 0xE2, idSet);
+		addPacketOpcode(SM_RECONNECT_KEY.class, 0xF6, idSet);
+		addPacketOpcode(SM_QUIT_RESPONSE.class, 0x5B, idSet); // 63
+		addPacketOpcode(SM_QUESTION_WINDOW.class, 0x4D, idSet);
+		addPacketOpcode(SM_PONG.class, 0xA7, idSet);
+		addPacketOpcode(SM_PLAYER_STATE.class, 0x3D, idSet);
+		addPacketOpcode(SM_PLAYER_SEARCH.class, 0xD3, idSet);
+		addPacketOpcode(SM_PLAYER_INFO.class, 0x19, idSet);
+		addPacketOpcode(SM_NPC_INFO.class, 0x27, idSet);
+		addPacketOpcode(SM_NICKNAME_CHECK_RESPONSE.class, 0xE0, idSet);
+		addPacketOpcode(SM_MOVE.class, 0x4E, idSet);
+		addPacketOpcode(SM_MESSAGE.class, 0x31, idSet);
+		addPacketOpcode(SM_MAY_LOGIN_INTO_GAME.class, 0x80, idSet);
+		addPacketOpcode(SM_MACRO_LIST.class, 0xDE, idSet);
+		addPacketOpcode(SM_L2AUTH_LOGIN_CHECK.class, 0xBE, idSet);
+		addPacketOpcode(SM_KEY.class, 0x41, idSet);
+		addPacketOpcode(SM_INVENTORY_INFO.class, 0x13, idSet); //1.5.x**
+		addPacketOpcode(SM_GAME_TIME.class, 0x1F, idSet);
+		addPacketOpcode(SM_FRIEND_UPDATE.class, 0x09, idSet);
+		addPacketOpcode(SM_FRIEND_RESPONSE.class, 0xD7, idSet);
+		addPacketOpcode(SM_FRIEND_NOTIFY.class, 0xD8, idSet);
+		addPacketOpcode(SM_FRIEND_LIST.class, 0x7D, idSet);
+		addPacketOpcode(SM_ENTER_WORLD_CHECK.class, 0x24, idSet);
+		addPacketOpcode(SM_EMOTION.class, 0x1C, idSet);
+		addPacketOpcode(SM_DELETE.class, 0x2F, idSet);
+		addPacketOpcode(SM_DELETE_CHARACTER.class, 0xE3, idSet);
+		addPacketOpcode(SM_CREATE_CHARACTER.class, 0xC0, idSet);
+		addPacketOpcode(SM_CHARACTER_LIST.class, 0xC1, idSet);
+		addPacketOpcode(SM_BLOCK_RESPONSE.class, 0xD6 ,idSet);
+		addPacketOpcode(SM_BLOCK_LIST.class, 0xD9, idSet);
+		addPacketOpcode(SM_ATTACK.class, 0x4F, idSet);
+		addPacketOpcode(SM_ATTACK_STATUS.class, 0xFC, idSet);
+		addPacketOpcode(SM_LOOT_STATUS.class, 0xE4, idSet);
 		
-		addPacketOpcode(SM_WEATHER.class, Version.Chiness ? -1 : 0x4A, idSet);
+		addPacketOpcode(SM_WEATHER.class, 0x4A, idSet);
 		
-		addPacketOpcode(SM_CASTSPELL.class, Version.Chiness ? -1 : 0x18, idSet);	//1.5.x 
-		addPacketOpcode(SM_CASTSPELL_END.class, Version.Chiness ? -1 : 0x42, idSet);	//1.5.x 
-		addPacketOpcode(SM_INVENTORY_UPDATE.class, Version.Chiness ? -1 : 0x12, idSet);	//1.5.x 
-		addPacketOpcode(SM_LOOT_ITEMLIST.class, Version.Chiness ? -1 : 0xE7, idSet);	//1.5.x 
+		addPacketOpcode(SM_CASTSPELL.class, 0x18, idSet);	//1.5.x 
+		addPacketOpcode(SM_CASTSPELL_END.class, 0x42, idSet);	//1.5.x 
+		addPacketOpcode(SM_INVENTORY_UPDATE.class, 0x12, idSet);	//1.5.x 
+		addPacketOpcode(SM_LOOT_ITEMLIST.class, 0xE7, idSet);	//1.5.x 
 		
-		addPacketOpcode(SM_TRADELIST.class, Version.Chiness ? -1 : 0xF4, idSet);   //1.5.x 
-		addPacketOpcode(SM_DIALOG.class, Version.Chiness ? -1 : 0x21, idSet);//1.5.x
-		addPacketOpcode(SM_DIALOG_WINDOW.class, Version.Chiness ? -1 : 0x35, idSet);//1.5.x
+		addPacketOpcode(SM_TRADELIST.class, 0xF4, idSet);   //1.5.x 
+		addPacketOpcode(SM_DIALOG.class, 0x21, idSet);//1.5.x
+		addPacketOpcode(SM_DIALOG_WINDOW.class, 0x35, idSet);//1.5.x
 
-		//addPacketOpcode(SM_EQUIP_ITEM.class, Version.Chiness ? -1 : 0x24, idSet);//1.5.x
-		//addPacketOpcode(SM_DELETE_ITEM.class, Version.Chiness ? -1 : 0x2f, idSet);//1.5.x
-		addPacketOpcode(SM_UPDATE_ITEM.class, Version.Chiness ? -1 : 0x14, idSet);//1.5.x
+		//addPacketOpcode(SM_EQUIP_ITEM.class, 0x24, idSet);//1.5.x
+		//addPacketOpcode(SM_DELETE_ITEM.class, 0x2f, idSet);//1.5.x
+		addPacketOpcode(SM_UPDATE_ITEM.class, 0x14, idSet);//1.5.x
 
-		addPacketOpcode(SM_LEVEL_UPDATE.class, Version.Chiness ? -1 : 0x3f, idSet);//1.5.x
+		addPacketOpcode(SM_LEVEL_UPDATE.class, 0x3f, idSet);//1.5.x
 		
-		addPacketOpcode(SM_FLY_TELEPORT.class, Version.Chiness ? -1 : 0xC2, idSet);//1.5.x
-		addPacketOpcode(SM_DIE.class, Version.Chiness ? -1 : 0xb8, idSet);	//1.5.x
+		addPacketOpcode(SM_FLY_TELEPORT.class, 0xC2, idSet);//1.5.x
+		addPacketOpcode(SM_DIE.class, 0xb8, idSet);	//1.5.x
 		
 		//Unrecognized Opcodes:
 		
-		addPacketOpcode(SM_TELEPORT.class, Version.Chiness ? -1 : 0xBD, idSet);
-		//addPacketOpcode(SM_TIME_CHECK.class, Version.Chiness ? 0x1E : 0x26, idSet);
-		//addPacketOpcode(SM_VIRTUAL_AUTH.class, Version.Chiness ? 0xD4 : 0xE4, idSet);
-		//addPacketOpcode(SM_WAITING_LIST.class, Version.Chiness ? -1 : 0x18, idSet);		
+		addPacketOpcode(SM_TELEPORT.class, 0xBD, idSet);
+		//addPacketOpcode(SM_TIME_CHECK.class, 0x26, idSet);
+		//addPacketOpcode(SM_VIRTUAL_AUTH.class, 0xE4, idSet);
+		//addPacketOpcode(SM_WAITING_LIST.class, 0x18, idSet);		
 	}
 
 	static int getOpcode(Class<? extends AionServerPacket> packetClass)

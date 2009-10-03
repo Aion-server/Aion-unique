@@ -20,7 +20,6 @@ import java.nio.ByteBuffer;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.network.aion.Version;
 
 /**
  * Response for CM_RECONNECT_AUTH with key that will be use for authentication at LoginServer.

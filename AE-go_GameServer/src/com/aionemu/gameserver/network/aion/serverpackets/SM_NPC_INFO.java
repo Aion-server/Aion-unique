@@ -24,7 +24,6 @@ import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.network.aion.Version;
 
 /**
  * This packet is displaying visible npc/monsters.

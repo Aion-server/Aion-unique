@@ -22,11 +22,9 @@ import java.nio.ByteBuffer;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerItemsDAO;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerItems;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.PlayerInfo;
-import com.aionemu.gameserver.network.aion.Version;
 
 /**
  * This packet is response for CM_CREATE_CHARACTER

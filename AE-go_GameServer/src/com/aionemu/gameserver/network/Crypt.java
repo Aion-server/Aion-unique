@@ -19,7 +19,6 @@ package com.aionemu.gameserver.network;
 import java.nio.ByteBuffer;
 
 import com.aionemu.commons.utils.Rnd;
-import com.aionemu.gameserver.network.aion.Version;
 
 /**
  * Crypt will encrypt server packet and decrypt client packet.
@@ -32,11 +31,11 @@ public class Crypt
 	/**
 	 * Second byte of client packet must be equal to this
 	 */
-	public final static byte	staticClientPacketCode	= Version.Chiness ? 0x5A : 0x5D;
+	public final static byte	staticClientPacketCode	= 0x5D;
 	/**
 	 * Second byte of server packet must be equal to this
 	 */
-	public final static byte	staticServerPacketCode	= Version.Chiness ? 0x5D : 0x44;// 1.5.x (0x54 works too)
+	public final static byte	staticServerPacketCode	= 0x44;// 1.5.x (0x54 works too)
 	/**
 	 * Static xor key
 	 */

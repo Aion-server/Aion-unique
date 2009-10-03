@@ -21,7 +21,6 @@ import java.nio.ByteBuffer;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.network.aion.Version;
 
 /**
  * This packet is informing client that some AionObject is no longer visible.
