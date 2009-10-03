@@ -48,6 +48,7 @@ import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
+import com.aionemu.gameserver.utils.stats.ClassStats;
 import com.aionemu.gameserver.world.KnownList;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldPosition;
@@ -183,7 +184,8 @@ public class PlayerService
 		// TODO: starting items;
 		Player newPlayer = new Player(new PlayerController(), playerCommonData, playerAppearance);
 		//TODO retrieve from storage and calculate
-		newPlayer.setLifeStats(new PlayerLifeStats(300, 650, 300, 650));
+		newPlayer.setLifeStats(new PlayerLifeStats(
+			ClassStats.getMaxHpFor(newPlayer.getPlayerClass(), newPlayer.getLevel()), 650));
 		newPlayer.setGameStats(new PlayerGameStats());
 		return newPlayer;
 	}
@@ -199,7 +201,7 @@ public class PlayerService
 	{
 		player.getCommonData().setOnline(true);
 		//TODO retrieve from storage and calculate
-		player.setLifeStats(new PlayerLifeStats(300, 650, 300, 650));
+		player.setLifeStats(new PlayerLifeStats(ClassStats.getMaxHpFor(player.getPlayerClass(), player.getLevel()), 650));
 		player.setGameStats(new PlayerGameStats());
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, true);
 		player.onLoggedIn();

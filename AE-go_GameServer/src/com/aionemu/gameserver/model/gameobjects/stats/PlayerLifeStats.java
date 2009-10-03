@@ -28,4 +28,9 @@ public class PlayerLifeStats extends CreatureLifeStats
 		super(currentHp, currentMp, maxHp, maxMp);
 	}	
 	
+	public PlayerLifeStats(int maxHp, int maxMp)
+	{
+		super(maxHp, maxMp, maxHp, maxMp);
+	}
+	
 }

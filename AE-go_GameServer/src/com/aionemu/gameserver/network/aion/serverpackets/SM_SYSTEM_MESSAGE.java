@@ -74,7 +74,18 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300719, playTime);
 	}
+	
+	/**
+	 *  You are dead
+	 */
+	public static SM_SYSTEM_MESSAGE DIE = new SM_SYSTEM_MESSAGE(1340000);
+	
+	/**
+	 * 
+	 */
+	public static SM_SYSTEM_MESSAGE REVIVE = new SM_SYSTEM_MESSAGE(1300738);
 
+	
 	/**
 	 * Your Friends List is full
 	 */

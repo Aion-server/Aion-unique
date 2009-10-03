@@ -73,7 +73,9 @@ public class CM_ATTACK extends AionClientPacket
 	{
 
 		Player player = getConnection().getActivePlayer();
-		player.getController().attackTarget(targetObjectId);
-
+		if(player.getLifeStats().isAlive())
+		{
+			player.getController().attackTarget(targetObjectId);
+		}
 	}
 }

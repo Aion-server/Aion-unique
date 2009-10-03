@@ -25,10 +25,12 @@ import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
+import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.stats.ClassStats;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -107,8 +109,11 @@ public class PlayerCommonData
 			
 			if(this.getPlayer()!=null)
 			{
+				Player player = this.getPlayer();
 				PacketSendUtility.sendPacket(this.getPlayer(),
 					new SM_LEVEL_UPDATE(this.getPlayerObjId(), level));
+				player.setLifeStats(new PlayerLifeStats(
+					ClassStats.getMaxHpFor(player.getPlayerClass(), player.getLevel()), 650));
 			}
 		}
 		else

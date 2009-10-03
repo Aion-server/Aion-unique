@@ -81,7 +81,11 @@ public class NpcController extends CreatureController<Npc>
 		if(attackSuccess)
 		{
 			npcGameStats.increateAttackCounter();
-		}		
+		}
+		if(!player.getLifeStats().isAlive())
+		{
+			getOwner().getNpcAi().stopTask();
+		}
 	}
 
 	/* (non-Javadoc)
@@ -91,7 +95,6 @@ public class NpcController extends CreatureController<Npc>
 	public void onDie()
 	{
 		super.onDie();
-		this.getOwner().getNpcAi().setAiState(AIState.IDLE);
 		RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
 		DecayService.getInstance().scheduleDecayTask(this.getOwner());
 	}
@@ -137,7 +140,7 @@ public class NpcController extends CreatureController<Npc>
 		
 		if(newHp == 0)
 		{
-			//TODO make one method - onDie
+			//TODO put into one method - onDie
 			this.getOwner().getNpcAi().stopTask();
 			PacketSendUtility.broadcastPacket(npc, new SM_EMOTION(this.getOwner().getObjectId(), 13 , creature.getObjectId()));
 			this.doDrop();

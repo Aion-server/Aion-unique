@@ -61,6 +61,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNK64.class, Version.Chiness ? 0x64 : -1, idSet);
 		addPacketOpcode(SM_UNK60.class, Version.Chiness ? 0x60 : -1, idSet);
 		addPacketOpcode(SM_UNK5E.class, Version.Chiness ? 0x5e : -1, idSet);
+		addPacketOpcode(SM_UNK72.class, Version.Chiness ? -1 : 0x72, idSet);//1.5.x
 		addPacketOpcode(SM_UNK32.class, Version.Chiness ? 0x32 : -1, idSet);
 		addPacketOpcode(SM_UNK17.class, Version.Chiness ? 0x17 : -1, idSet);
 		addPacketOpcode(SM_UNK0C.class, Version.Chiness ? 0x0C : 0x48, idSet);
@@ -125,6 +126,8 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_LEVEL_UPDATE.class, Version.Chiness ? -1 : 0x3f, idSet);//1.5.x
 		
 		addPacketOpcode(SM_FLY_TELEPORT.class, Version.Chiness ? -1 : 0xC2, idSet);//1.5.x
+		
+		addPacketOpcode(SM_DIE.class, Version.Chiness ? -1 : 0xb8, idSet);	//1.5.x 
 		
 		//Unrecognized Opcodes:
 		

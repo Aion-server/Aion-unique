@@ -79,7 +79,7 @@ public class SM_EMOTION extends AionServerPacket
 		if (unknown == 13 ){
 			//emote die
 			writeD(buf, 0x07); // unknown
-			writeC(buf, 0xE0); // unknown
+			writeC(buf, 0xC0); // unknown
 			writeC(buf, 0x40); // unknown
 			writeD(buf, emotionId);
 		}
@@ -123,12 +123,12 @@ public class SM_EMOTION extends AionServerPacket
 		writeH(buf, 0x00); // unknown
 		writeC(buf, 0xC0); // unknown
 		writeC(buf, 0x40); // unknown
+		}
 		if(unknown == 0x10)
 		{
 			writeD(buf, 0x00); // unknown
 			writeH(buf, emotionId);
 			writeC(buf, 0x01); // unknown
-		}
 		}
 
 	}

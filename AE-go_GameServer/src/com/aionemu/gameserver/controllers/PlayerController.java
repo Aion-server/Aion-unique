@@ -22,16 +22,18 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.stats.ClassStats;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
 
@@ -79,6 +81,10 @@ public class PlayerController extends CreatureController<Player>
 	public void onDie()
 	{
 		super.onDie();
+
+		Player player = this.getOwner();
+		PacketSendUtility.sendPacket(player, new SM_DIE());
+		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
 	}
 
 	public void attackTarget(int targetObjectId)
@@ -114,7 +120,6 @@ public class PlayerController extends CreatureController<Player>
 		super.onAttack(creature);
 		
 		Player player = getOwner();
-		
 		PlayerLifeStats lifeStats = player.getLifeStats();
 
 		//TODO resolve synchronization issue
@@ -131,8 +136,7 @@ public class PlayerController extends CreatureController<Player>
 
 		if(newHp == 0)
 		{
-			//TODO do die
-//			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(this.getOwner().getObjectId(), 13 , creature.getObjectId()));
+			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(this.getOwner().getObjectId(), 13 , creature.getObjectId()), true);
 			this.onDie();
 		}
 		return true;
