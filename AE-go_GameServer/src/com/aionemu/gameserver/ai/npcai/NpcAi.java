@@ -1,0 +1,49 @@
+/*
+ * This file is part of aion-unique <aion-unique.smfnew.com>.
+ *
+ *  aion-unique is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  aion-unique is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package com.aionemu.gameserver.ai.npcai;
+
+import org.apache.log4j.Logger;
+
+import com.aionemu.gameserver.ai.AI;
+import com.aionemu.gameserver.ai.events.AIEvent;
+import com.aionemu.gameserver.model.gameobjects.Npc;
+
+/**
+ * @author ATracer
+ *
+ */
+public class NpcAi extends AI<Npc>
+{
+	private static Logger log = Logger.getLogger(NpcAi.class);
+	
+	/**
+	 * @param npc
+	 */
+	public NpcAi(Npc npc)
+	{
+		super(npc);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void handleEvent(AIEvent event)
+	{
+		// TODO Auto-generated method stub
+		super.handleEvent(event);
+	}
+
+}

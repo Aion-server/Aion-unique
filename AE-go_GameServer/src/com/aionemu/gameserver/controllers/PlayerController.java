@@ -22,9 +22,13 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -40,7 +44,7 @@ import com.aionemu.gameserver.world.World;
 public class PlayerController extends CreatureController<Player>
 {
 	private static Logger log = Logger.getLogger(PlayerController.class);
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -67,7 +71,7 @@ public class PlayerController extends CreatureController<Player>
 		super.notSee(object);
 		PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object));
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -76,25 +80,25 @@ public class PlayerController extends CreatureController<Player>
 	{
 		super.onDie();
 	}
-	
+
 	public void attackTarget(int targetObjectId)
 	{
 		Player player = getOwner();
 		PlayerGameStats gameStats = player.getGameStats();
 		long time = System.currentTimeMillis();
 		int attackType = 0; //TODO investigate attack types	
-		
+
 		World world = player.getActiveRegion().getWorld();
 		Npc npc = (Npc) world.findAionObject(targetObjectId);
-		
+
 		//TODO fix last attack - cause mob is already dead
 		int damage = StatFunctions.calculateBaseDamageToTarget(player, npc);
 		PacketSendUtility.broadcastPacket(player,
 			new SM_ATTACK(player.getObjectId(), targetObjectId,
 				gameStats.getAttackCounter(), (int) time, attackType, damage), true);
-		
+
 		boolean attackSuccess = npc.getController().onAttack(player);
-		
+
 		if(attackSuccess)
 		{
 			gameStats.increateAttackCounter();
@@ -107,7 +111,31 @@ public class PlayerController extends CreatureController<Player>
 	@Override
 	public boolean onAttack(Creature creature)
 	{
-		return super.onAttack(creature);
+		super.onAttack(creature);
+		
+		Player player = getOwner();
+		
+		PlayerLifeStats lifeStats = player.getLifeStats();
+
+		//TODO resolve synchronization issue
+		if(!lifeStats.isAlive())
+		{
+			return false;
+		}
+
+		//TODO calculate damage
+		int newHp = lifeStats.reduceHp(50);
+		int hpPercentage = Math.round(100 *  newHp / lifeStats.getMaxHp());
+
+		PacketSendUtility.broadcastPacket(player, new SM_ATTACK_STATUS(player.getObjectId(), hpPercentage), true);
+
+		if(newHp == 0)
+		{
+			//TODO do die
+//			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(this.getOwner().getObjectId(), 13 , creature.getObjectId()));
+			this.onDie();
+		}
+		return true;
 	}
 
 	/* (non-Javadoc)

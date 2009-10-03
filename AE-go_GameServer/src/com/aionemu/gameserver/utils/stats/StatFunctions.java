@@ -64,4 +64,10 @@ public class StatFunctions
 		return pAttack - targetPDef / 10;
 	}
 	
+	public static int calculateNpcBaseDamageToPlayer(Npc npc, Player player)
+	{
+		//TODO this is a dummy calcs
+		return npc.getLevel() * 10;
+	}
+	
 }

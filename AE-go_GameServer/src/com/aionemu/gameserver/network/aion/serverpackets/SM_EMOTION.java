@@ -73,35 +73,63 @@ public class SM_EMOTION extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		if (unknown !=0x24) {
-			writeD(buf, senderObjectId);
-			writeC(buf, unknown);
-		}
+		writeD(buf, senderObjectId);
+		writeC(buf, unknown);
+		
 		if (unknown == 13 ){
-				//emote die
+			//emote die
 			writeD(buf, 0x07); // unknown
 			writeC(buf, 0xE0); // unknown
 			writeC(buf, 0x40); // unknown
 			writeD(buf, emotionId);
 		}
-		else
+		else if (unknown == 35 )
 		{
-			writeC(buf, 0x01); // unknown
-			writeC(buf, 0x00); // unknown
-			writeH(buf, 0x00); // unknown
-			writeC(buf, 0xC0); // unknown
+			//emote startloop
+			writeD(buf, 44); // unknown
+			writeC(buf, 0xc0); // unknown
 			writeC(buf, 0x40); // unknown
 		}
+		else if (unknown == 30 )
+		{
+			//emote startloop
+			writeD(buf, 33); // unknown
+			writeC(buf, 0xe0); // unknown
+			writeC(buf, 0x40); // unknown
+			writeH(buf, 2142); // unknown
+			writeH(buf, 2142); // unknown
+			
+		}
+		else if (unknown == 19 )
+		{
+			//emote startloop
+			writeD(buf, 1); // unknown
+			writeC(buf, 0xe0); // unknown
+			writeC(buf, 0x40); // unknown
+			
+		}
+		else if (unknown == 36 )
+		{
+			//emote endloop
+			writeD(buf, 33); // unknown
+			writeC(buf, 0xc0); // unknown
+			writeC(buf, 0x40); // unknown
+		}
+		else
+		{
+		
+		writeC(buf, 0x01); // unknown
+		writeC(buf, 0x00); // unknown
+		writeH(buf, 0x00); // unknown
+		writeC(buf, 0xC0); // unknown
+		writeC(buf, 0x40); // unknown
 		if(unknown == 0x10)
 		{
 			writeD(buf, 0x00); // unknown
 			writeH(buf, emotionId);
 			writeC(buf, 0x01); // unknown
 		}
-		
-		if (unknown == 0x24) {
-			writeD(buf, senderObjectId); // unknown
-			writeD(buf, 12); // unknown
 		}
+
 	}
 }

@@ -16,7 +16,9 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
+import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.controllers.NpcController;
+import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
@@ -32,6 +34,10 @@ import com.aionemu.gameserver.world.WorldPosition;
 public class Npc extends Creature
 {
 	/**
+	 * Reference to AI
+	 */
+	private NpcAi npcAi;
+	/**
 	 *  Template keeping all base data for this npc 
 	 */
 	private NpcTemplate		template;
@@ -40,12 +46,18 @@ public class Npc extends Creature
 	 *  Spawn template of this npc. Currently every spawn template is responsible for spawning just one npc.
 	 */
 	private SpawnTemplate	spawn;
-	
+
 	/**
 	 *  LifeStats of this npc.
 	 */
 	private NpcLifeStats lifeStats;
-	
+
+	/**
+	 *  GameStats of this npc
+	 */
+	private NpcGameStats gameStats;
+
+
 	/**
 	 * Constructor creating instance of Npc.
 	 * 
@@ -61,6 +73,17 @@ public class Npc extends Creature
 		this.template = spawn.getNpc();
 		this.spawn = spawn;
 		controller.setOwner(this);
+		this.npcAi = new NpcAi(this);
+
+		this.gameStats = new NpcGameStats();
+	}
+
+	/**
+	 * @return the npcAi
+	 */
+	public NpcAi getNpcAi()
+	{
+		return npcAi;
 	}
 
 	public NpcTemplate getTemplate()
@@ -110,13 +133,26 @@ public class Npc extends Creature
 	}
 
 	/**
+	 * @param gameStats the gameStats to set
+	 */
+	public void setGameStats(NpcGameStats gameStats)
+	{
+		this.gameStats = gameStats;
+	}
+
+	/**
+	 * @return the gameStats
+	 */
+	public NpcGameStats getGameStats()
+	{
+		return gameStats;
+	}
+
+	/**
 	 * @param lifeStats the lifeStats to set
 	 */
 	public void setLifeStats(NpcLifeStats lifeStats)
 	{
 		this.lifeStats = lifeStats;
 	}
-	
-	
-
 }

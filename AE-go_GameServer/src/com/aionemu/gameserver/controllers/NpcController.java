@@ -18,11 +18,16 @@ package com.aionemu.gameserver.controllers;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.ai.AIState;
+import com.aionemu.gameserver.ai.events.AttackEvent;
+import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.stats.StatsTemplate;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
@@ -30,6 +35,7 @@ import com.aionemu.gameserver.services.DecayService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
+import com.aionemu.gameserver.world.World;
 
 /**
  * This class is for controlling Npc's
@@ -40,6 +46,43 @@ public class NpcController extends CreatureController<Npc>
 {
 	
 	private static Logger log = Logger.getLogger(NpcController.class);
+	
+	public void attackTarget(int targetObjectId)
+	{
+		Npc npc = getOwner();
+		NpcGameStats npcGameStats = npc.getGameStats();
+		long time = System.currentTimeMillis();
+		int attackType = 1; //TODO investigate attack types	
+		
+		World world = npc.getActiveRegion().getWorld();
+		//TODO refactor to possibility npc-npc fight
+		Player player = (Player) world.findAionObject(targetObjectId);
+		
+		//TODO fix last attack - cause mob is already dead
+		int damage = StatFunctions.calculateNpcBaseDamageToPlayer(npc, player);
+		
+		PacketSendUtility.broadcastPacket(player,
+			new SM_EMOTION(npc.getObjectId(), 19, player.getObjectId()), true);
+		
+		try {
+			Thread.sleep(50);	
+		} catch (InterruptedException e) {
+			System.out.println(e);
+		}
+
+		
+		PacketSendUtility.broadcastPacket(player,
+			new SM_ATTACK(npc.getObjectId(), player.getObjectId(),
+				npcGameStats.getAttackCounter(), (int) time, attackType, damage), true);
+		
+		
+		boolean attackSuccess = player.getController().onAttack(npc);
+		
+		if(attackSuccess)
+		{
+			npcGameStats.increateAttackCounter();
+		}		
+	}
 
 	/* (non-Javadoc)
 	 * @see com.aionemu.gameserver.controllers.CreatureController#onDie()
@@ -48,6 +91,7 @@ public class NpcController extends CreatureController<Npc>
 	public void onDie()
 	{
 		super.onDie();
+		this.getOwner().getNpcAi().setAiState(AIState.IDLE);
 		RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
 		DecayService.getInstance().scheduleDecayTask(this.getOwner());
 	}
@@ -73,6 +117,10 @@ public class NpcController extends CreatureController<Npc>
 		super.onAttack(creature);
 		
 		Npc npc = getOwner();
+		
+		NpcAi npcAi = npc.getNpcAi();
+		npcAi.handleEvent(new AttackEvent(creature));
+		
 		NpcLifeStats lifeStats = npc.getLifeStats();
 		
 		//TODO resolve synchronization issue
@@ -89,6 +137,8 @@ public class NpcController extends CreatureController<Npc>
 		
 		if(newHp == 0)
 		{
+			//TODO make one method - onDie
+			this.getOwner().getNpcAi().stopTask();
 			PacketSendUtility.broadcastPacket(npc, new SM_EMOTION(this.getOwner().getObjectId(), 13 , creature.getObjectId()));
 			this.doDrop();
 			this.doReward(creature);
