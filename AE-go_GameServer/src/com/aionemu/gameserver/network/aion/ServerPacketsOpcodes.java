@@ -126,6 +126,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_LEVEL_UPDATE.class, Version.Chiness ? -1 : 0x3f, idSet);//1.5.x
 		
 		addPacketOpcode(SM_FLY_TELEPORT.class, Version.Chiness ? -1 : 0xC2, idSet);//1.5.x
+		addPacketOpcode(SM_DIE.class, Version.Chiness ? -1 : 0xb8, idSet);	//1.5.x
 		
 		//Unrecognized Opcodes:
 		
