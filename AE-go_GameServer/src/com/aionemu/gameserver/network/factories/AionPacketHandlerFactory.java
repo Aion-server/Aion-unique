@@ -70,6 +70,8 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_LOCK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_OK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_REQUEST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_BUY_ITEM;
+
 import com.google.inject.Injector;
 
 /**
@@ -130,7 +132,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_CHAT_MESSAGE_WHISPER(0x86), State.IN_GAME);// 1.5.x
 		addPacket(new CM_CHAT_MESSAGE_PUBLIC(0x85), State.IN_GAME);
 		addPacket(new CM_CHARACTER_LIST(0x00), State.AUTHED);
-		addPacket(new CM_BLOCK_SET_REASON(0x9D),State.IN_GAME);
+		//addPacket(new CM_BLOCK_SET_REASON(0x9D),State.IN_GAME);
 		addPacket(new CM_BLOCK_DEL(0xA9), State.IN_GAME);
 		addPacket(new CM_BLOCK_ADD(0xAE), State.IN_GAME);
 		addPacket(new CM_TRADE_REQUEST(0x11), State.IN_GAME);
@@ -147,9 +149,12 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_DIALOG_SELECT(0xA0), State.IN_GAME);
 		addPacket(new CM_CLOSE_DIALOG(0x9f ), State.IN_GAME);//
 		addPacket(new CM_REVIVE(0xEF ), State.IN_GAME);//0x9F
+		addPacket(new CM_BUY_ITEM(0x9d ), State.IN_GAME);//0x9d
 		//addPacket(new CM_USE_ITEM(0x8F ), State.IN_GAME);//
 		//addPacket(new CM_EQUIP_ITEM(0x90 ), State.IN_GAME);//
 		//addPacket(new CM_DELETE_ITEM(0x5E ), State.IN_GAME);//
+
+		
 	}
 
 	public AionPacketHandler getPacketHandler()
