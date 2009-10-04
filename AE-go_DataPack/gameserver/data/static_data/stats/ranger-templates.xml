@@ -50,4 +50,33 @@
 		                main_hand_attack="18" main_hand_accuracy="348" main_hand_crit_rate="3"
 		                magic_accuracy="198" />
 	</player_stats>
+	
+	<player_stats class="RANGER" level="17">
+		<stats_template maxHp="884" maxMp="1291"
+		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="319" block="319" parry="319"
+		                main_hand_attack="18" main_hand_accuracy="356" main_hand_crit_rate="3"
+		                magic_accuracy="210" />
+	</player_stats>
+	
+	<player_stats class="RANGER" level="18">
+		<stats_template maxHp="942" maxMp="1361"
+		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="331" block="331" parry="331"
+		                main_hand_attack="18" main_hand_accuracy="364" main_hand_crit_rate="3"
+		                magic_accuracy="223" />
+	</player_stats>
+	
+	<player_stats class="RANGER" level="19">
+		<stats_template maxHp="1002" maxMp="1431"
+		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="344" block="344" parry="344"
+		                main_hand_attack="18" main_hand_accuracy="372" main_hand_crit_rate="3"
+		                magic_accuracy="270" />
 </stats_templates>
