@@ -65,7 +65,7 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 	3 - if 2 handed sword. covers 2 slots.
 	4 - head
 	8 - jacket
-	16 - gloves
+	16 - glove
 	32 - shoes 
 	64 - Right Earring 
 	128 - Left Earring
@@ -100,29 +100,38 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 	if (isAnInt){
 		slot = Integer.parseInt(slotName);
 		if (slot==5) {
-			slot = 1; // or 2
+			slot = 1; // or 2 weapon
+		}
+		if (slot==6) {
+			slot = 8192;//or 16384 power shard
+		}
+		if (slot==7) {
+			slot = 256;// 512 rings
+		}
+		if (slot==9) {
+			slot = 64;// 128 earrings
 		}
 	} else {
 		slot = 1;
 	}
 
-	//5 - main_or_sub.
+	//
 	
 	/*
-	slotName==main_or_sub
-	slotName==main
-	slotName==sub
-	slotName==right_or_left_battery
+	slotName==main_or_sub - 5
+	slotName==main - 1
+	slotName==sub - 2
+	slotName==right_or_left_battery - 6
 
-	slotName==torso
-	slotName==glove
-	slotName==shoulder
-	slotName==leg
-	slotName==neck
-	slotName==right_or_left_finger
-	slotName==head
+	slotName==torso - 8
+	slotName==glove - 16
+	slotName==shoulder - 2048
+	slotName==leg - not set yet.
+	slotName==neck - 1024
+	slotName==right_or_left_finger - 7
+	slotName==head - 4
 	slotName==right_or_left_ear
-
+- 9
 	slotName==none
 
 	*/
