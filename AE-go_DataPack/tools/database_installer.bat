@@ -144,6 +144,7 @@ echo GameServer database
 %MYG%< ../sql/gs_droplist.sql
 %MYG%< ../sql/gs_friends.sql
 %MYG% < ../sql/gs_inventory.sql
+%MYG% < ../sql/gs_item_list.sql
 %MYG% < ../sql/gs_skill_trees.sql
 
 REM End of the script

@@ -189,6 +189,7 @@ full_install()
 	$MYG < ../sql/gs_droplist.sql &> /dev/null
 	$MYG < ../sql/gs_friends.sql &> /dev/null
 	$MYG < ../sql/gs_inventory.sql &> /dev/null
+	$MYG < ../sql/gs_item_list.sql &> /dev/null
 	$MYG < ../sql/gs_skill_trees.sql &> /dev/null
 }
 
