@@ -129,23 +129,23 @@ echo #          Full Database Installation           #
 echo #################################################
 echo.
 echo LoginServer database
-%MYL% < ../sql/ls_account_data.sql
-%MYL% < ../sql/ls_account_time.sql
-%MYL% < ../sql/ls_banned_ip.sql
-%MYL% < ../sql/ls_gameservers.sql
+%MYL% < ../sql/loginserver/ls_account_data.sql
+%MYL% < ../sql/loginserver/ls_account_time.sql
+%MYL% < ../sql/loginserver/ls_banned_ip.sql
+%MYL% < ../sql/loginserver/ls_gameservers.sql
 echo GameServer database
-%MYG% < ../sql/gs_players.sql
-%MYG% < ../sql/gs_player_appearance.sql
-%MYG% < ../sql/gs_player_equipment.sql
-%MYG% < ../sql/gs_player_macrosses.sql
-%MYG% < ../sql/gs_player_skills.sql
-%MYG% < ../sql/gs_server_variables.sql
-%MYG%< ../sql/gs_blocks.sql
-%MYG%< ../sql/gs_droplist.sql
-%MYG%< ../sql/gs_friends.sql
-%MYG% < ../sql/gs_inventory.sql
-%MYG% < ../sql/gs_item_list.sql
-%MYG% < ../sql/gs_skill_trees.sql
+%MYG% < ../sql/gameserver/gs_players.sql
+%MYG% < ../sql/gameserver/gs_player_appearance.sql
+%MYG% < ../sql/gameserver/gs_player_equipment.sql
+%MYG% < ../sql/gameserver/gs_player_macrosses.sql
+%MYG% < ../sql/gameserver/gs_player_skills.sql
+%MYG% < ../sql/gameserver/gs_server_variables.sql
+%MYG%< ../sql/gameserver/gs_blocks.sql
+%MYG%< ../sql/gameserver/gs_droplist.sql
+%MYG%< ../sql/gameserver/gs_friends.sql
+%MYG% < ../sql/gameserver/gs_inventory.sql
+%MYG% < ../sql/gameserver/gs_item_list.sql
+%MYG% < ../sql/gameserver/gs_skill_trees.sql
 
 REM End of the script
 :finish
