@@ -102,7 +102,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_BUY_ITEM(0x9d ), State.IN_GAME);//0x9d
 		addPacket(new CM_USE_ITEM(0x8F ), State.IN_GAME);//
 		addPacket(new CM_EQUIP_ITEM(0x90 ), State.IN_GAME);//
-		addPacket(new CM_DELETE_ITEM(0x5E ), State.IN_GAME);//
+		//addPacket(new CM_DELETE_ITEM(0x5E ), State.IN_GAME);//
 
 		
 	}

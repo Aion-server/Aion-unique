@@ -122,12 +122,17 @@ public class ServerPacketsOpcodes
 		//addPacketOpcode(SM_EQUIP_ITEM.class, 0x24, idSet);//1.5.x
 		//addPacketOpcode(SM_DELETE_ITEM.class, 0x2f, idSet);//1.5.x
 		addPacketOpcode(SM_UPDATE_ITEM.class, 0x14, idSet);//1.5.x
+		//addPacketOpcode(SM_SHOW_ITEM.class, 0xFD, idSet);	//1.5.x
 
 		addPacketOpcode(SM_LEVEL_UPDATE.class, 0x3f, idSet);//1.5.x
 		
 		addPacketOpcode(SM_FLY_TELEPORT.class, 0xC2, idSet);//1.5.x
 		addPacketOpcode(SM_DIE.class, 0xb8, idSet);	//1.5.x
 		
+		
+
+
+
 		//Unrecognized Opcodes:
 		
 		addPacketOpcode(SM_TELEPORT.class, 0xBD, idSet);

@@ -103,7 +103,7 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 			slot = 1; // or 2
 		}
 	} else {
-		slot = 9;
+		slot = 1;
 	}
 
 	//5 - main_or_sub.
@@ -126,16 +126,19 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 	slotName==none
 
 	*/
-		slot = 1;
 		final Player activePlayer = getConnection().getActivePlayer();
 		int activeplayer = activePlayer.getObjectId();
 
-		inventory.getIsEquipedFromDb(activeplayer, itemUniqueId);
+
+
+		inventory.getIsEquipedFromDb(activeplayer, slot);
 
 		int isEquiped = inventory.getIsEquiped();
 		int unequipItemUniqueId = inventory.getIsEquipedItemUniqueId();
 
-		log.info(String.format("isEquiped slot itemUniqueId: %s %s %s %s %s",action , isEquiped, slot, itemUniqueId, slotName));
+
+
+		log.info(String.format("unequipItemUniqueId itemUniqueId: %s %s", unequipItemUniqueId, itemUniqueId));
 		
 		if (action==0) {
 			if (isEquiped==1) {

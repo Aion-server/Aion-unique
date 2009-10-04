@@ -103,17 +103,19 @@ public class Inventory
 		}
 	}
 
-	public void getIsEquipedFromDb(int activePlayer, int UniqueItemId) {
-		PreparedStatement ps6 = DB.prepareStatement("SELECT `isEquiped`,`itemId`,`itemUniqueId`,`slot`  FROM `inventory` WHERE `itemUniqueId` =" + UniqueItemId);
+	public void getIsEquipedFromDb(int activePlayer, int slot) {
+		PreparedStatement ps6 = DB.prepareStatement("SELECT `isEquiped`,`itemId`,`itemUniqueId`  FROM `inventory` WHERE `slot` =" + slot);
 		try
 		{
 			ResultSet rs = ps6.executeQuery();
-			
-			rs.absolute(1);
-			isEquiped = rs.getInt("isEquiped");
-			isEquipedItemId = rs.getInt("itemId");
-			isEquipedItemUniqueId = rs.getInt("itemUniqueId");
-			isEquipedItemSlot = rs.getInt("slot");
+			rs.last();
+			int row = rs.getRow();
+			if (row !=0) {
+				rs.absolute(1);
+				isEquiped = rs.getInt("isEquiped");
+				isEquipedItemId = rs.getInt("itemId");
+				isEquipedItemUniqueId = rs.getInt("itemUniqueId");
+			}
 		}
 		catch(SQLException e)
 		{
@@ -205,11 +207,11 @@ public class Inventory
 	}
 	
 	public void putIsEquipedToDb(int itemUniqueId, int IsEquiped, int slot) {
-		PreparedStatement ps4 = DB.prepareStatement("UPDATE `inventory` SET `isEquiped` = ? WHERE `itemUniqueId` =" + itemUniqueId);
+		PreparedStatement ps4 = DB.prepareStatement("UPDATE `inventory` SET `isEquiped` = ? , `slot` = ? WHERE `itemUniqueId` =" + itemUniqueId);
 		try
 		{
 			ps4.setInt(1, IsEquiped);
-			//ps4.setInt(2, slot);
+			ps4.setInt(2, slot);
 			ps4.executeUpdate();
 		}
 		catch(SQLException e)

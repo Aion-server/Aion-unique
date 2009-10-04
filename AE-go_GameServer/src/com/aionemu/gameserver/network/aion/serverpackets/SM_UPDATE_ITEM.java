@@ -79,6 +79,8 @@ public class SM_UPDATE_ITEM extends AionServerPacket
 			writeD(buf, 0); // slot
 			//end of item details block//
 		}
-		
+		if (action==2) {
+			//store kinah structure
+		}
 	}
 }
