@@ -79,4 +79,6 @@
 		                evasion="344" block="344" parry="344"
 		                main_hand_attack="18" main_hand_accuracy="372" main_hand_crit_rate="3"
 		                magic_accuracy="270" />
+	</player_stats>
+
 </stats_templates>
