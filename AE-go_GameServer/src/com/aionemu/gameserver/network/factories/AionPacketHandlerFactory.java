@@ -60,7 +60,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_RESTORE_CHARACTER(0x03), State.AUTHED);
 		addPacket(new CM_QUIT(0xED), State.AUTHED, State.IN_GAME);
 		addPacket(new CM_QUESTION_RESPONSE(0x22), State.IN_GAME);
-		addPacket(new CM_PLAYER_SEARCH(0xB1), State.IN_GAME);
+		addPacket(new CM_PLAYER_SEARCH(0x09), State.IN_GAME);
 		addPacket(new CM_PING(0x96), State.AUTHED, State.IN_GAME);
 		addPacket(new CM_MOVE(0x9A), State.IN_GAME);
 		addPacket(new CM_MAY_LOGIN_INTO_GAME(0x24), State.AUTHED);
@@ -82,9 +82,9 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_CHAT_MESSAGE_WHISPER(0x86), State.IN_GAME);// 1.5.x
 		addPacket(new CM_CHAT_MESSAGE_PUBLIC(0x85), State.IN_GAME);
 		addPacket(new CM_CHARACTER_LIST(0x00), State.AUTHED);
-		//addPacket(new CM_BLOCK_SET_REASON(0x9D),State.IN_GAME);
-		addPacket(new CM_BLOCK_DEL(0xA9), State.IN_GAME);
-		addPacket(new CM_BLOCK_ADD(0xAE), State.IN_GAME);
+		addPacket(new CM_BLOCK_SET_REASON(0x1D),State.IN_GAME);
+		addPacket(new CM_BLOCK_DEL(0x11), State.IN_GAME);
+		addPacket(new CM_BLOCK_ADD(0x10), State.IN_GAME);
 		addPacket(new CM_TRADE_REQUEST(0x11), State.IN_GAME);
 		addPacket(new CM_TRADE_LOCK(0x0D), State.IN_GAME);
 		addPacket(new CM_TRADE_CANCEL(0x0F), State.IN_GAME);

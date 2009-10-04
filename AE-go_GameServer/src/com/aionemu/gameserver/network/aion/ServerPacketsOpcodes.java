@@ -80,7 +80,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_QUESTION_WINDOW.class, 0x4D, idSet);
 		addPacketOpcode(SM_PONG.class, 0xA7, idSet);
 		addPacketOpcode(SM_PLAYER_STATE.class, 0x3D, idSet);
-		addPacketOpcode(SM_PLAYER_SEARCH.class, 0xD3, idSet);
+		addPacketOpcode(SM_PLAYER_SEARCH.class, 0xEA, idSet);
 		addPacketOpcode(SM_PLAYER_INFO.class, 0x19, idSet);
 		addPacketOpcode(SM_NPC_INFO.class, 0x27, idSet);
 		addPacketOpcode(SM_NICKNAME_CHECK_RESPONSE.class, 0xE0, idSet);
