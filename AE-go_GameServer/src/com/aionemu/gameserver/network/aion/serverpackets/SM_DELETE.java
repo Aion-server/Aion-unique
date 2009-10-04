@@ -50,8 +50,11 @@ public class SM_DELETE extends AionServerPacket
 	 */
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
-	{
-		writeD(buf, objectId);
-		writeC(buf, 15); // removal animation speed
+	{	
+		int action = 0;
+		if (action != 1){
+			writeD(buf, objectId);
+			writeC(buf, 15); // removal animation speed
+		}
 	}
 }

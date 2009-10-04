@@ -19,58 +19,8 @@ package com.aionemu.gameserver.network.factories;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionPacketHandler;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_ATTACK;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_BLOCK_ADD;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_BLOCK_DEL;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_BLOCK_SET_REASON;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_CASTSPELL;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_CHARACTER_LIST;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_CHAT_MESSAGE_PUBLIC;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_CHAT_MESSAGE_WHISPER;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_CHECK_NICKNAME;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_CLIENT_COMMAND_LOC;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_CLOSE_DIALOG;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_CLOSE_LOOT;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_CREATE_CHARACTER;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_DELETE_CHARACTER;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_DIALOG_SELECT;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_EMOTION;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_ADD;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_DEL;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_STATUS;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_L2AUTH_LOGIN_CHECK;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_LEVEL_READY;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_LOGIN_OUT;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_LOOT_ITEM;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_MACRO_CREATE;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_MACRO_DELETE;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_MAC_ADDRESS;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_MAC_ADDRESS2;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_MAY_LOGIN_INTO_GAME;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_MOVE;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_PING;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_PLAYER_SEARCH;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_QUESTION_RESPONSE;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_RECONNECT_AUTH;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_RESTORE_CHARACTER;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_REVIVE;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_SEARCH_STATUS;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_SET_NOTE;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_BLOCKLIST;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_DIALOG;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_FRIENDLIST;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_START_LOOT;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TARGET_SELECT;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TERRITORY;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TIME_CHECK;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_CANCEL;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_LOCK;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_OK;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_REQUEST;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_BUY_ITEM;
+import com.aionemu.gameserver.network.aion.clientpackets.*;
+
 
 import com.google.inject.Injector;
 
@@ -150,9 +100,9 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_CLOSE_DIALOG(0x9f ), State.IN_GAME);//
 		addPacket(new CM_REVIVE(0xEF ), State.IN_GAME);//0x9F
 		addPacket(new CM_BUY_ITEM(0x9d ), State.IN_GAME);//0x9d
-		//addPacket(new CM_USE_ITEM(0x8F ), State.IN_GAME);//
-		//addPacket(new CM_EQUIP_ITEM(0x90 ), State.IN_GAME);//
-		//addPacket(new CM_DELETE_ITEM(0x5E ), State.IN_GAME);//
+		addPacket(new CM_USE_ITEM(0x8F ), State.IN_GAME);//
+		addPacket(new CM_EQUIP_ITEM(0x90 ), State.IN_GAME);//
+		addPacket(new CM_DELETE_ITEM(0x5E ), State.IN_GAME);//
 
 		
 	}

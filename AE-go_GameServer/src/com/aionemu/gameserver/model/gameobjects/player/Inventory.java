@@ -44,29 +44,34 @@ public class Inventory
 	public int itemNameIdArray[];
 	public int itemCountArray[];
 	public int totalDbItemsCount;
-	
+	public int isEquiped;
+	public int isEquipedItemId;
+	public int isEquipedItemUniqueId;
+	public int itemId;
+	public int isEquipedItemSlot;
+
 	public void getInventoryFromDb(int activePlayer) {
-		PreparedStatement ps = DB.prepareStatement("SELECT `itemUniqueId`, `itemId`, `itemNameId`,`itemCount`FROM `inventory` WHERE `itemOwner`=" + activePlayer);
+		PreparedStatement ps = DB.prepareStatement("SELECT `itemUniqueId`, `itemId`,`itemCount`FROM `inventory` WHERE `itemOwner`=" + activePlayer);
 		try
 		{
 			ResultSet rs = ps.executeQuery();
 			rs.last();
 			int row = rs.getRow();
-			int row2 = 0;
-			totalItemsCount = row;
-			itemUniqueIdArray = new int[row+1];
-			itemIdArray = new int[row+1];
-			itemNameIdArray = new int[row+1];
-			itemCountArray = new int[row+1];
+			if (row !=0) {
+				int row2 = 0;
+				totalItemsCount = row;
+				itemUniqueIdArray = new int[row+1];
+				itemIdArray = new int[row+1];
+				itemCountArray = new int[row+1];
 			
-			while (row > 0) {
-				rs.absolute(row);
-				itemUniqueIdArray[row2] = rs.getInt("itemUniqueId");
-				itemIdArray[row2] = rs.getInt("itemId");
-				itemNameIdArray[row2] = rs.getInt("itemNameId");
-				itemCountArray[row2] = rs.getInt("itemCount");
-				row2 = row2 +1;
-				row = row - 1;
+				while (row > 0) {
+					rs.absolute(row);
+					itemUniqueIdArray[row2] = rs.getInt("itemUniqueId");
+					itemIdArray[row2] = rs.getInt("itemId");
+					itemCountArray[row2] = rs.getInt("itemCount");
+					row2 = row2 +1;
+					row = row - 1;
+				}
 			}
 		}
 		catch (SQLException e)
@@ -98,6 +103,28 @@ public class Inventory
 		}
 	}
 
+	public void getIsEquipedFromDb(int activePlayer, int UniqueItemId) {
+		PreparedStatement ps6 = DB.prepareStatement("SELECT `isEquiped`,`itemId`,`itemUniqueId`,`slot`  FROM `inventory` WHERE `itemUniqueId` =" + UniqueItemId);
+		try
+		{
+			ResultSet rs = ps6.executeQuery();
+			
+			rs.absolute(1);
+			isEquiped = rs.getInt("isEquiped");
+			isEquipedItemId = rs.getInt("itemId");
+			isEquipedItemUniqueId = rs.getInt("itemUniqueId");
+			isEquipedItemSlot = rs.getInt("slot");
+		}
+		catch(SQLException e)
+		{
+			Logger.getLogger(Inventory.class).error("Error loading is equiped", e);
+		}
+		finally
+		{
+			DB.close(ps6);
+		}
+	}
+
 	public void getDbItemsCountFromDb() {
 		PreparedStatement ps5 = DB.prepareStatement("SELECT * FROM `inventory`");
 		try
@@ -105,14 +132,38 @@ public class Inventory
 			ResultSet rs = ps5.executeQuery();
 			rs.last();
 			totalDbItemsCount = rs.getRow();
+			
 		}
 		catch(SQLException e)
 		{
-			Logger.getLogger(Inventory.class).error("Error loading kinah", e);
+			Logger.getLogger(Inventory.class).error("Error loading db items count", e);
 		}
 		finally
 		{
 			DB.close(ps5);
+		}
+	}
+
+	public void getItemIdByUniqueItemId(int itemUniqueId) {
+		PreparedStatement ps2 = DB.prepareStatement("SELECT `itemId` FROM `inventory` WHERE `itemUniqueId`=" + itemUniqueId);
+		try
+		{
+			ResultSet rs = ps2.executeQuery();
+			rs.last();
+			int row = rs.getRow();
+			if (row !=0) {
+				rs.absolute(1);
+				itemId = rs.getInt("itemId");
+			}
+		}
+		catch (SQLException e)
+		{
+			Logger.getLogger(Inventory.class).error("Error loading item by unique id", e);
+			
+		}
+		finally
+		{
+			DB.close(ps2);
 		}
 	}
 
@@ -134,14 +185,13 @@ public class Inventory
 		}
 	}
 
-	public void putItemToDb(int activePlayer, int itemId, int itemNameId, int itemCount) {
-		PreparedStatement ps4 = DB.prepareStatement("INSERT INTO `inventory` (`itemId`,`itemNameId`,`itemCount`,`itemOwner`) VALUES(?,?,?,?)");
+	public void putItemToDb(int activePlayer, int itemId, int itemCount) {
+		PreparedStatement ps4 = DB.prepareStatement("INSERT INTO `inventory` (`itemId`,`itemCount`,`itemOwner`) VALUES(?,?,?)");
 		try
 		{
 			ps4.setInt(1, itemId);
-			ps4.setInt(2, itemNameId);
-			ps4.setInt(3, itemCount);
-			ps4.setInt(4, activePlayer);
+			ps4.setInt(2, itemCount);
+			ps4.setInt(3, activePlayer);
 			ps4.executeUpdate();
 		}
 		catch(SQLException e)
@@ -153,6 +203,25 @@ public class Inventory
 			DB.close(ps4);
 		}
 	}
+	
+	public void putIsEquipedToDb(int itemUniqueId, int IsEquiped, int slot) {
+		PreparedStatement ps4 = DB.prepareStatement("UPDATE `inventory` SET `isEquiped` = ? WHERE `itemUniqueId` =" + itemUniqueId);
+		try
+		{
+			ps4.setInt(1, IsEquiped);
+			//ps4.setInt(2, slot);
+			ps4.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			Logger.getLogger(Inventory.class).error("Error storing is equiped", e);
+		}
+		finally
+		{
+			DB.close(ps4);
+		}
+	}
+	
 
 	public int getKinahCount() {
 		return kinah;
@@ -172,10 +241,20 @@ public class Inventory
 	public int getItemIdArray(int row) {
 		return itemIdArray[row];
 	}
-	public int getItemNameIdArray(int row) {
-		return itemNameIdArray[row];
-	}
+
 	public int getItemCountArray(int row) {
 		return itemCountArray[row];
+	}
+	public int getIsEquiped() {
+		return isEquiped;
+	}
+	public int getIsEquipedItemId() {
+		return isEquipedItemId;
+	}
+	public int getIsEquipedItemUniqueId() {
+		return isEquipedItemUniqueId;
+	}
+	public int getItemId() {
+		return itemId;
 	}
 }

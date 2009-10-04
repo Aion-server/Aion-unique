@@ -22,61 +22,63 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import com.aionemu.gameserver.model.gameobjects.player.ItemList;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import java.util.Random;
+
 
 
 public class SM_UPDATE_ITEM extends AionServerPacket
 {
 	private static final Logger	log	= Logger.getLogger(SM_UPDATE_ITEM.class);
-
-	public SM_UPDATE_ITEM()
+	private int action;
+	private int uniqueId;
+	private int slot;
+	public SM_UPDATE_ITEM(int slot, int action, int uniqueId)
 	{
-		
+		this.slot = slot;
+		this.action = action;
+		this.uniqueId = uniqueId;
 	}
 
 
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-//[22:46] <ATracer> 62 03 00 00 24 00 DB 69 15 00 00 00 16
-//[22:46] <ATracer> 00 00 3E 0A D6 00 00 00 00 00 00 00 00 00 00 00
-//[22:46] <ATracer> 00 00 00 00 00 00 00
 
-		writeD(buf, 866);
+	Inventory inventory = new Inventory();
 
-		writeD(buf, 36);
-		writeD(buf, 0);
-		writeD(buf, 0xDB);
-		writeD(buf, 0x69);
-		writeD(buf, 0x15);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0x16);
-		writeD(buf, 0);
-		writeD(buf, 0);
+	inventory.getItemIdByUniqueItemId(uniqueId);
+	int itemId = inventory.getItemId();
 
-		writeD(buf, 0x3E);
-		writeD(buf, 0x0A);
-		writeD(buf, 0xD6);
+	ItemList itemName = new ItemList();
+	itemName.getItemList(itemId);
+	int itemNameId = itemName.getItemNameId();
 
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-
+		//equip
+		if (action ==0) {
+			writeD(buf, uniqueId); // unique item id
+			writeH(buf, 36); // unk always 0x24
+			writeD(buf, itemNameId); // item name id
+			writeH(buf, 0); // always 0
+			writeH(buf, 5); // length of item details section
+			//item details block//
+			writeC(buf, 6);
+			writeD(buf, slot); // slot
+			//end of item details block//
+		} 
+		//unequip
+		if (action==1) {
+			writeD(buf, uniqueId); //  unique item id
+			writeH(buf, 36); // unk always 0x24
+			writeD(buf, itemNameId); // item name id
+			writeH(buf, 0); // always 0
+			writeH(buf, 5); // length of item details section
+			//item details block//
+			writeC(buf, 6);
+			writeD(buf, 0); // slot
+			//end of item details block//
+		}
+		
 	}
 }

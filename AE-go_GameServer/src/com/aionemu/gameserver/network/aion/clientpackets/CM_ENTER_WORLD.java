@@ -121,31 +121,42 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNK17());
 			// sendPacket(new SM_UNK5E());
 
-			sendPacket(new SM_INVENTORY_INFO());
 			
 //////////////////////////////LOAD INVENTORY FROM DB//////////////////////////////////////////////////////////////
 			Player player2 = getConnection().getActivePlayer();
 			int activePlayer = player2.getObjectId();
+
+
+
+
 
 			//items
 
 			Inventory items = new Inventory();
 			items.getInventoryFromDb(activePlayer);
 			int totalItemsCount = items.getItemsCount();
+
 			int row = 0;
+
 			while (totalItemsCount > 0) {
-				sendPacket(new SM_INVENTORY_UPDATE(items.getItemUniqueIdArray(row), items.getItemIdArray(row), items.getItemNameIdArray(row), items.getItemCountArray(row))); // give item
+				sendPacket(new SM_INVENTORY_INFO(items.getItemUniqueIdArray(row), items.getItemIdArray(row), items.getItemCountArray(row), 1, 0)); // give item
 				totalItemsCount = totalItemsCount-1;
 				row+=1;
-			}
+			} 
+			
+
+
+
 			// kinah
 
 			Inventory kinah2 = new Inventory();
 			kinah2.getKinahFromDb(activePlayer);
 			int kinah = kinah2.getKinahCount();
 			int uniquedeId = 0;
-			sendPacket(new SM_INVENTORY_UPDATE(uniquedeId, 182400001, 2211143, kinah));
+			sendPacket(new SM_INVENTORY_UPDATE(uniquedeId, 182400001, kinah));
+
 			
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// sendPacket(new SM_UNKD3());
 

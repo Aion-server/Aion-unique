@@ -23,7 +23,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import org.apache.log4j.Logger;
 
 import java.util.Random;
@@ -65,12 +65,12 @@ public class CM_LOOT_ITEM extends AionClientPacket
 		Player player = getConnection().getActivePlayer();
 		int activePlayer = player.getObjectId();
 		int itemId = player.getGameStats().getItemId();
-		int itemNameId = player.getGameStats().getItemNameId();
 		int count = player.getGameStats().getItemCount();
 
 		log.info(String.format("CM_LOOT_ITEM itemId: %s", itemId));
 			
 		if (itemId==182400001){
+		 //Figure out packet to update kinah
 			Random generator = new Random();
 			int randomKinah = generator.nextInt(50)+1;
 			int randomUniqueId = generator.nextInt(99999999)+generator.nextInt(99999999)+99999999+99999999; // To prevent replacement of other item.
@@ -81,11 +81,10 @@ public class CM_LOOT_ITEM extends AionClientPacket
 			kina.getKinahFromDb(activePlayer);
 			int kinah = kina.getKinahCount();
 			int totalKinah = kinah + randomKinah;
-			kina.putKinahToDb(activePlayer, totalKinah);
-			//Need item update packet
-			//sendPacket(new SM_UPDATE_ITEM()); - need more analysis.
+			//kina.putKinahToDb(activePlayer, totalKinah);
+			//sendPacket(new SM_UPDATE_ITEM(0, 2, 0));
 		
-		} else {
+		} else { 
 			Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
 			itemsDbOfPlayerCount.getInventoryFromDb(activePlayer);
 			int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
@@ -94,12 +93,11 @@ public class CM_LOOT_ITEM extends AionClientPacket
 			int allowItemsCount = cubesize*cubes-1;
 			if (totalItemsCount<=allowItemsCount){
 				Inventory items = new Inventory();
-				items.putItemToDb(activePlayer, itemId, itemNameId, count);
+				items.putItemToDb(activePlayer, itemId, count);
 				items.getDbItemsCountFromDb();
-
 				int totalDbItemsCount = items.getDbItemsCount();
 				int newItemUniqueId = totalDbItemsCount;
-				sendPacket(new SM_INVENTORY_UPDATE(newItemUniqueId, itemId, itemNameId, count)); // give item
+				sendPacket(new SM_INVENTORY_UPDATE(newItemUniqueId, itemId, count)); // give item
 			} else {
 				//todo show SM_INVENTORY_IS_FULL packet or smth.
 			}
