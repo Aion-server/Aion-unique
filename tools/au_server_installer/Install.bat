@@ -184,16 +184,16 @@ echo.
 echo.Installing Login Server !!!
 echo.
 echo.[Installing Table]: account_data.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < login/account_data.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < ../sql/loginserver/ls_account_data.sql
 
 echo.[Installing Table]: account_time.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < login/account_time.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < ../sql/loginserver/ls_account_time.sql
 
 echo.[Installing Table]: banned_ip.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < login/banned_ip.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < ../sql/loginserver/ls_banned_ip.sql
 
 echo.[Installing Table]: gameservers.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < login/gameservers.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %LSDBname% < ../sql/loginserver/ls_gameservers.sql
 echo.
 echo.Login Server Installed !!!  Now you are going to main menu.
 echo.
@@ -212,12 +212,18 @@ mysqldump.exe  --add-drop-table -h %DBHost% -u %user% --password=%pass% %GSDBnam
 echo.
 echo.[Drop Table]: blocks
 mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS blocks;"
+echo.[Drop Table]: droplist
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS droplist;"
 echo.[Drop Table]: friends
 mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS friends;"
 echo.[Drop Table]: inventory
 mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS inventory;"
+echo.[Drop Table]: item_list
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS item_list;"
 echo.[Drop Table]: player_appearance
 mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS player_appearance;"
+echo.[Drop Table]: player_equipment
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS player_equipment;"
 echo.[Drop Table]: player_macrosses
 mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% --execute="SET FOREIGN_KEY_CHECKS=0; DROP TABLE IF EXISTS player_macrosses;"
 echo.[Drop Table]: player_skills
@@ -232,23 +238,29 @@ echo.
 echo.Installing general tables !!!
 echo.
 echo [Installing Table]: blocks.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < game/blocks.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_blocks.sql
+echo [Installing Table]: gs_droplist.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_droplist.sql
 echo [Installing Table]: friends.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < game/friends.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_friends.sql
 echo [Installing Table]: inventory.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < game/inventory.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_inventory.sql
+echo [Installing Table]: gs_item_list.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_item_list.sql
 echo [Installing Table]: player_appearance.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < game/player_appearance.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_player_appearance.sql
+echo [Installing Table]: gs_player_equipment.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_player_equipment.sql
 echo [Installing Table]: player_macrosses.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < game/player_macrosses.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_player_macrosses.sql
 echo [Installing Table]: player_skills.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < game/player_skills.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_player_skills.sql
 echo [Installing Table]: players.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < game/players.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_players.sql
 echo [Installing Table]: server_variables.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < game/server_variables.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_server_variables.sql
 echo [Installing Table]: skill_trees.sql
-mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < game/skill_trees.sql
+mysql.exe -h %DBHost% -u %user% --password=%pass% -D %GSDBname% < ../sql/gameserver/gs_skill_trees.sql
 echo.
 echo.Game Server Installed !!!  Now you are going to main menu.
 echo.
