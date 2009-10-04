@@ -21,7 +21,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import org.apache.log4j.Logger;
@@ -97,8 +97,10 @@ public class CM_LOOT_ITEM extends AionClientPacket
 				items.getDbItemsCountFromDb();
 				int totalDbItemsCount = items.getDbItemsCount();
 				int newItemUniqueId = totalDbItemsCount;
-				sendPacket(new SM_INVENTORY_UPDATE(newItemUniqueId, itemId, count)); // give item
-			} else {
+
+				sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, itemId, count, 1, 8));
+
+				} else {
 				//todo show SM_INVENTORY_IS_FULL packet or smth.
 			}
 		}

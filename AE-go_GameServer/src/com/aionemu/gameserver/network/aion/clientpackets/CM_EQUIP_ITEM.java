@@ -102,7 +102,7 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 		if (slot==5) {
 			slot = 1; // or 2
 		}
-	}else {
+	} else {
 		slot = 9;
 	}
 

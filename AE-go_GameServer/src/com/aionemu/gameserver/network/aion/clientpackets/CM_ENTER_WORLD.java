@@ -137,7 +137,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			int totalItemsCount = items.getItemsCount();
 
 			int row = 0;
-
+			if (totalItemsCount==0) {
+				sendPacket(new SM_INVENTORY_INFO(1234235, 169300001, 20, 1, 8)); // give item	
+			}
 			while (totalItemsCount > 0) {
 				sendPacket(new SM_INVENTORY_INFO(items.getItemUniqueIdArray(row), items.getItemIdArray(row), items.getItemCountArray(row), 1, 0)); // give item
 				totalItemsCount = totalItemsCount-1;
