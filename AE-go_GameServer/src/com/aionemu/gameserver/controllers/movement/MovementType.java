@@ -45,6 +45,10 @@ public enum MovementType
 	 */
 	VALIDATE_JUMP(8),
 	/**
+	 * Validation (jump while moving).
+	 */
+	VALIDATE_JUMP_WHILE_MOVING(72),
+	/**
 	 * Movement stop.
 	 */
 	MOVEMENT_STOP(0);

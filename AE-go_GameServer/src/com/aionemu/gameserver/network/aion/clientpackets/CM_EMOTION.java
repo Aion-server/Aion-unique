@@ -80,7 +80,7 @@ public class CM_EMOTION extends AionClientPacket
 		} 
 		else if(unknown == 0x13)
 		{
-			emotion = readH();
+			//emotion = readH();
 		} 
 		else
 		{
