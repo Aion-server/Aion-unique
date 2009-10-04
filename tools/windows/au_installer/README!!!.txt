@@ -1,4 +1,4 @@
-Aion-Unique Server Emulator SVN Manager Help file!
+Aion-Unique Server Emulator Installer Help file!
 
 ======================================================================
 ==                   !!!Read this first!!!!                         ==
@@ -15,14 +15,16 @@ Aion-Unique Server Emulator SVN Manager Help file!
 ======================================================================
 
 READ ME HELP:
-1) if tortoiseSVN installed - unstall it
-2) Open Aion-Unique.bat in notepad (or other text editor)
-3) Config paths in some first lines
+1) Open Install.bat in notepad (or other text editor)
+2) Find mysql databases config lines (there is 3,4,5,6,7,8 lines)
+3) Config lines what found in step 2
 4) Save changes
-5) Install CollabNetSubversion-client-1.6.0-7.win32.exe
-6) Run Aion-Unique.bat and choose what you want
+5) Run Installer.bat
 
 TODO
-1) Associate SVN Manager with au_installer
+1) Config files editor
+2) Get db names from console
+3) Translate on other languages
+4) Associate installer with SVN Manager
 
 For support: http://www.aionunique.smfnew.com/
