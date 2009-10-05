@@ -90,5 +90,15 @@
 		                main_hand_attack="18" main_hand_accuracy="420" main_hand_crit_rate="3"
 		                magic_accuracy="356" />
 	</player_stats>
+	
+	<player_stats class="RANGER" level="26">
+		<stats_template maxHp="1466" maxMp="1923"
+		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="430" block="430" parry="430"
+		                main_hand_attack="18" main_hand_accuracy="428" main_hand_crit_rate="3"
+		                magic_accuracy="370" />
+	</player_stats>
 
 </stats_templates>
