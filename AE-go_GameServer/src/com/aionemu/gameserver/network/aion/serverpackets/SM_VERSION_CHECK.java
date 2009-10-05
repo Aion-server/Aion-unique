@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -46,13 +47,14 @@ public class SM_VERSION_CHECK extends AionServerPacket
 		writeD(buf, 0x4AAc2E70);// unk
 		//writeD(buf, 0x80000200);// unk
 		writeC(buf, 0x00);//unk
-		writeC(buf, 2);// country code;
+		writeC(buf, Config.SERVER_COUNTRY_CODE); // Server country code (cc)
 		writeC(buf, 0x00);//unk
-		writeC(buf, 0x80);//server mode?
+		writeC(buf, Config.SERVER_MODE); // Server mode : 0x00 = one race / 0x01 = free race / 0x22 = Character Reservation
 		writeD(buf, (int) (System.currentTimeMillis() / 1000));
 		writeD(buf, 0x0001015E);
 		writeC(buf, 0);
 		writeD(buf, 0xB09C7FCE);
 		writeH(buf, 0x2801);
+
 	}
 }
