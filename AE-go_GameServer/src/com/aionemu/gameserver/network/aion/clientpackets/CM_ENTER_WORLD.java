@@ -25,7 +25,7 @@ import java.sql.SQLException;
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
-
+import com.aionemu.gameserver.model.gameobjects.player.ItemList;
 import java.util.Random;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.ChatType;
@@ -135,6 +135,11 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			Inventory items = new Inventory();
 			items.getInventoryFromDb(activePlayer);
 			int totalItemsCount = items.getItemsCount();
+			ItemList itemName = new ItemList();
+			Inventory inventory = new Inventory();
+			
+			int slot;
+
 
 			int row = 0;
 			if (totalItemsCount==0) {
@@ -145,6 +150,18 @@ public class CM_ENTER_WORLD extends AionClientPacket
 				totalItemsCount = totalItemsCount-1;
 				row+=1;
 			} 
+			Inventory equipedItems = new Inventory();
+			equipedItems.getEquipedItemsFromDb(activePlayer);
+			int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
+
+
+			row = 0;
+			while (totalEquipedItemsCount > 0) {
+				sendPacket(new SM_UPDATE_ITEM(equipedItems.getEquipedItemSlotArray(row), 0, equipedItems.getEquipedItemUniqueIdArray(row)));
+				totalEquipedItemsCount = totalEquipedItemsCount-1;
+				row+=1;
+			}
+				
 			
 
 

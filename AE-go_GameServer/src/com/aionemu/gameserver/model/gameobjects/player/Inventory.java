@@ -50,6 +50,13 @@ public class Inventory
 	public int itemId;
 	public int isEquipedItemSlot;
 
+	public int totalEquipedItemsCount;
+	public int equipedItemUniqueIdArray[];
+	public int equipedItemSlotArray[];
+
+	public int a;
+	public int b;
+
 	public void getInventoryFromDb(int activePlayer) {
 		PreparedStatement ps = DB.prepareStatement("SELECT `itemUniqueId`, `itemId`,`itemCount`FROM `inventory` WHERE `itemOwner`=" + activePlayer);
 		try
@@ -57,9 +64,10 @@ public class Inventory
 			ResultSet rs = ps.executeQuery();
 			rs.last();
 			int row = rs.getRow();
+			totalItemsCount = row;
 			if (row !=0) {
 				int row2 = 0;
-				totalItemsCount = row;
+				
 				itemUniqueIdArray = new int[row+1];
 				itemIdArray = new int[row+1];
 				itemCountArray = new int[row+1];
@@ -82,6 +90,41 @@ public class Inventory
 		finally
 		{
 			DB.close(ps);
+		}
+	}
+
+	public void getEquipedItemsFromDb(int activePlayer) {
+		PreparedStatement ps10 = DB.prepareStatement("SELECT `itemUniqueId`, `slot` FROM `inventory` WHERE `isEquiped`='1' AND `itemOwner`=" + activePlayer); //  
+		try
+		{
+			ResultSet rs = ps10.executeQuery();
+			rs.last();
+			int row = rs.getRow();
+			totalEquipedItemsCount = row;
+			if (row !=0) {
+				int row2 = 0;
+				
+				equipedItemUniqueIdArray = new int[row+1];
+				equipedItemSlotArray = new int[row+1];
+			
+				while (row > 0) {
+					rs.absolute(row);
+					equipedItemUniqueIdArray[row2] = rs.getInt("itemUniqueId");
+					equipedItemSlotArray[row2] = rs.getInt("slot");
+
+					row2 = row2 +1;
+					row = row - 1;
+				}
+			}
+		}
+		catch (SQLException e)
+		{
+			Logger.getLogger(Inventory.class).error("Error loading equiped items info", e);
+			
+		}
+		finally
+		{
+			DB.close(ps10);
 		}
 	}
 
@@ -237,6 +280,10 @@ public class Inventory
 		return totalItemsCount;
 	}
 
+	public int getEquipedItemsCount() {
+		return totalEquipedItemsCount;
+	}
+
 	public int getItemUniqueIdArray(int row) {
 		return itemUniqueIdArray[row];
 	}
@@ -258,5 +305,12 @@ public class Inventory
 	}
 	public int getItemId() {
 		return itemId;
+	}
+
+	public int getEquipedItemSlotArray(int row) {
+		return equipedItemSlotArray[row];
+	}
+	public int getEquipedItemUniqueIdArray(int row) {
+		return equipedItemUniqueIdArray[row];
 	}
 }
