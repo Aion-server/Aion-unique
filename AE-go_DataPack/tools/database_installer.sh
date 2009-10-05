@@ -174,23 +174,23 @@ full_install()
 	echo "#################################################"
 	echo ""
 	echo "LoginServer database"
-	$MYL < ../sql/loginserver/ls_account_data.sql &> /dev/null
-	$MYL < ../sql/loginserver/ls_account_time.sql &> /dev/null
-	$MYL < ../sql/loginserver/ls_banned_ip.sql &> /dev/null
-	$MYL < ../sql/loginserver/ls_gameservers.sql &> /dev/null
+	$MYL < ../sql/loginserver/account_data.sql &> /dev/null
+	$MYL < ../sql/loginserver/account_time.sql &> /dev/null
+	$MYL < ../sql/loginserver/banned_ip.sql &> /dev/null
+	$MYL < ../sql/loginserver/gameservers.sql &> /dev/null
 	echo "GameServer database"
-	$MYG < ../sql/gameserver/gs_players.sql &> /dev/null
-	$MYG < ../sql/gameserver/gs_player_appearance.sql &> /dev/null
-	$MYG < ../sql/gameserver/gs_player_equipment.sql &> /dev/null
-	$MYG < ../sql/gameserver/gs_player_macrosses.sql &> /dev/null
-	$MYG < ../sql/gameserver/gs_player_skills.sql &> /dev/null
-	$MYG < ../sql/gameserver/gs_server_variables.sql &> /dev/null
-	$MYG < ../sql/gameserver/gs_blocks.sql &> /dev/null
-	$MYG < ../sql/gameserver/gs_droplist.sql &> /dev/null
-	$MYG < ../sql/gameserver/gs_friends.sql &> /dev/null
-	$MYG < ../sql/gameserver/gs_inventory.sql &> /dev/null
-	$MYG < ../sql/gameserver/gs_item_list.sql &> /dev/null
-	$MYG < ../sql/gameserver/gs_skill_trees.sql &> /dev/null
+	$MYG < ../sql/gameserver/players.sql &> /dev/null
+	$MYG < ../sql/gameserver/player_appearance.sql &> /dev/null
+	$MYG < ../sql/gameserver/player_equipment.sql &> /dev/null
+	$MYG < ../sql/gameserver/player_macrosses.sql &> /dev/null
+	$MYG < ../sql/gameserver/player_skills.sql &> /dev/null
+	$MYG < ../sql/gameserver/server_variables.sql &> /dev/null
+	$MYG < ../sql/gameserver/blocks.sql &> /dev/null
+	$MYG < ../sql/gameserver/droplist.sql &> /dev/null
+	$MYG < ../sql/gameserver/friends.sql &> /dev/null
+	$MYG < ../sql/gameserver/inventory.sql &> /dev/null
+	$MYG < ../sql/gameserver/item_list.sql &> /dev/null
+	$MYG < ../sql/gameserver/skill_trees.sql &> /dev/null
 }
 
 # End of the script
