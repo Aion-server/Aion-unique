@@ -59,7 +59,7 @@ public abstract class AbstractDirParser extends AbstractParser
 				{
 					parse(f.getAbsolutePath());
 				}
-				else if (f.getName().endsWith(".xml") && !f.getName().equals(_ignoringFile)) //затичка для шаблона
+				else if (f.getName().endsWith(".xml") && !f.getName().equals(_ignoringFile))
 				{
 					file = f;
 					parseDocument(f);
