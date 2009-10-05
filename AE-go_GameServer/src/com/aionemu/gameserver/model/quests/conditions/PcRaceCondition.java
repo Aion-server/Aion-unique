@@ -7,12 +7,9 @@ import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.Race;
 import org.w3c.dom.NamedNodeMap;
 
-/**
- * @author Blakkky
- */
 public class PcRaceCondition extends QuestCondition
 {
-	private static final String NAME = "test1";
+	private static final String NAME = "pc_race";
 	private final Race race;
 
 	public PcRaceCondition(NamedNodeMap attr)
@@ -33,9 +30,9 @@ public class PcRaceCondition extends QuestCondition
 		switch (getOp())
 		{
 			case EQUAL:
-				return state.getPlayer().getRace() == race;	//----- not done
+				return state.getPlayer().getRace() == race;
 			case NOT_EQUAL:
-				return state.getPlayer().getRace() != race;	//----- not done
+				return state.getPlayer().getRace() != race;
 			default:
 				return false;
 		}

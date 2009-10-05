@@ -10,9 +10,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
-/**
- * @author Blakkky
- */
 public class ConditionFactory
 {
 

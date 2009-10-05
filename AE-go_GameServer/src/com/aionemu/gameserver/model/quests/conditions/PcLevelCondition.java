@@ -5,12 +5,10 @@ import com.aionemu.gameserver.model.quests.QuestEngineException;
 import com.aionemu.gameserver.model.quests.QuestState;
 import org.w3c.dom.NamedNodeMap;
 
-/**
- * @author Blakkky
- */
+
 public class PcLevelCondition extends QuestCondition
 {
-	private static final String NAME = "test1";
+	private static final String NAME = "pc_level";
 	private final byte level;
 
 	public PcLevelCondition(NamedNodeMap attr)
