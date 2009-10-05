@@ -25,6 +25,7 @@ import com.aionemu.commons.network.NioServer;
 import com.aionemu.commons.services.LoggingService;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dataholders.SpawnData;
+import com.aionemu.gameserver.model.quests.qparser.QuestParser;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -79,6 +80,9 @@ public class GameServer
 
 		GameServer gs = new GameServer();
 		gs.spawnMonsters();
+		
+		// Loading quests
+		QuestParser.getInstance();
 
 		Util.printMemoryUsage(log);
 		log.info("###########################################################################");
