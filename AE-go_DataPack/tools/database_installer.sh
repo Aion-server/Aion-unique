@@ -74,7 +74,7 @@ DBSETING()
 	echo -ne "\n$LANG_LSDB ($LANG_Default au_server): "
 	read LSDB
 	if [ -z "$LSDB" ]; then
-		LSDB="au_server"
+		LSDB="au_server_ls"
 	fi
 	echo -ne "\n$LANG_LSUSER ($LANG_Default root): "
 	read LSUSER
@@ -96,7 +96,7 @@ DBSETING()
 	echo -ne "\n$LANG_GSDB ($LANG_Default $LSDB): "
 	read GSDB
 	if [ -z "$GSDB" ]; then
-		GSDB="$LSDB"
+		GSDB="au_server_gs"
 	fi
 	echo -ne "\n$LANG_GSUSER ($LANG_Default $LSUSER): "
 	read GSUSER

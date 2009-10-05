@@ -50,7 +50,7 @@ echo.
 set LSDBHOST=localhost
 set /p LSDBHOST=%LANG_LSHost% (%LANG_Default% %LSDBHOST%): 
 echo.
-set LSDB=au_server
+set LSDB=au_server_ls
 set /p LSDB=%LANG_LSDB% (%LANG_Default% %LSDB%): 
 echo.
 set LSUSER=root
@@ -61,7 +61,7 @@ echo.
 set GSDBHOST=%LSDBHOST%
 set /p GSDBHOST=%LANG_GSHost% (%LANG_Default% %GSDBHOST%): 
 echo.
-set GSDB=%LSDB%
+set GSDB=au_server_gs
 set /p GSDB=%LANG_GSDB% (%LANG_Default% %GSDB%): 
 echo.
 set GSUSER=%LSUSER%
