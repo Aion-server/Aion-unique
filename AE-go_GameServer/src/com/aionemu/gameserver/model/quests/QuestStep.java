@@ -66,7 +66,7 @@ public class QuestStep
 				oper.operate(state);
 			}
 			if (needIncStep)
-			{ // если забыли перещелкнуть квест на след. шаг, под конец делаем это принудительно
+			{
 				if (nextStep != null)
 				{
 					state.setQuestStep(nextStep.getNum());
