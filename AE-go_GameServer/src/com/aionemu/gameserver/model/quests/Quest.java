@@ -45,7 +45,7 @@ public class Quest
 		return steps.get(state.getQuestStep()).getNextStep();
 	}
 
-	public QuestState startQuest(Player player) throws QuestEngineException
+	public QuestState startQuest(PlayerCommonData player) throws QuestEngineException
 	{
 		QuestState state = new QuestState(player, this);
 		if (baseConditions.checkConditionOfSet(state))

@@ -1,6 +1,6 @@
 package com.aionemu.gameserver.model.quests;
 
-//import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.quests.types.QuestStatus;
 
