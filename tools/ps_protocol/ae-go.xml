@@ -7,9 +7,7 @@
 		<part name="maxExp" type="Q"/>
 	</packet>
 	<packet id="0x12" name="SM_INVENTORY_UPDATE"/>
-	<packet id="0x14" name="SM_STATUPDATE_MP">
-		<part name="currentMp" type="d"/>
-		<part name="maxMp" type="d"/>
+	<packet id="0x14" name="SM_UPDATE_ITEM">
 	</packet>	
 	<packet id="0x17" name="SM_STATUPDATE_DP">
 		<part name="currentDp" type="d"/>
@@ -253,16 +251,16 @@
 	</packet> 
 	<packet id="0x4F" name="SM_ATTACK">
 		<part name="attacker" type="d"/>
-		<part name="attackNumber" type="c"/>
+		<part name="attackNo" type="c"/>
 		<part name="time" type="h"/>
 		<part name="type" type="c"/>
 		<part name="target" type="d"/>
 		<part name="attackNumber+1" type="c"/>
-		<part name="unk" type="h"/>
+		<part name="unk84" type="h"/>
 		<part name="unk" type="c"/>
-		<part name="unk" type="c"/>
+		<part name="unk1" type="c"/>
 		<part name="damage" type="d"/>
-		<part name="unk" type="h"/>
+		<part name="unk10" type="h"/>
 		<part name="unk" type="c"/>
 	</packet> 
 	<packet id="0x5B" name="SM_QUIT_RESPONSE">
@@ -637,12 +635,11 @@
 	</packet>
 	<packet id="0xFC" name="SM_ATTACK_STATUS">
 		<part name="receiver" type="d"/>
-		<part name="currHpPercent" type="d"/>
+		<part name="unk" type="d"/>
+		<part name="unk5" type="c"/>
+		<part name="currHpPercent" type="h"/>
 		<part name="unk" type="c"/>
-		<part name="unk" type="c"/>
-		<part name="unk" type="c"/>
-		<part name="unk" type="c"/>
-		<part name="unk" type="c"/>
+		<part name="unk0x94" type="c"/>
 	</packet>
 </packetfamilly>
 <packetfamilly switchtype="c" way="ClientPackets">
@@ -718,11 +715,11 @@
 		<part name="targetObjectId" type="d"/>
 		<part name="unk" type="c"/>
 	</packet>
-	<packet id="0x04" name="CM_LOOT_ITEM">
+	<packet id="0x05" name="CM_LOOT_ITEM">
 		<part name="targetObjectId" type="d"/>
 		<part name="unk" type="c"/>
 	</packet>
-	<packet id="0x05" name="CM_CLOSE_LOOT">
+	<packet id="0x06" name="CM_CLOSE_LOOT">
 		<part name="targetObjectId" type="d"/>
 		<part name="unk" type="c"/>
 	</packet>
@@ -763,9 +760,22 @@
 		<part name="timer" type="d"/>
 		<part name="unk3" type="d"/>		
 	</packet>
+	<packet id="0x8B" name="CM_CASTSPELL">
+		<part name="spellId" type="h"/>
+		<part name="level" type="c"/>
+		<part name="unk" type="c"/>
+		<part name="targetObjectId" type="d"/>	
+		<part name="time" type="h"/>			
+	</packet>
 	<packet id="0x89" name="CM_TARGET_SELECT">
 		<part name="targetObjectId" type="d"/>
 		<part name="unk" type="c"/>
+	</packet>
+	<packet id="0x8F" name="CM_USE_ITEM">
+	</packet>
+	<packet id="0x90" name="CM_EQUIP_ITEM">
+	</packet>
+	<packet id="0x9D" name="CM_BUY_ITEM">
 	</packet>
 	<packet id="0x9A" name="CM_MOVE">
         <part name="x" type="f"/>
@@ -801,10 +811,11 @@
 	<packet id="0xE0" name="CM_FRIEND_DELETE"/>
 	<packet id="0xE1" name="CM_FRIEND_ADD"/>
 	<packet id="0xEA" name="CM_VERSION_CHECK"/>
+	<packet id="0xEC" name="CM_LOGIN_OUT"/>
 	<packet id="0xED" name="CM_QUIT">
 		<part name="unk" type="c"/>
 	</packet>
-	<packet id="0xEC" name="CM_LOGIN_OUT"/>
+	<packet id="0xEF" name="CM_REVIVE"/>
 	<packet id="0xF2" name="CM_ENTER_WORLD">
 		<part name="chaObjId" type="d"/>
 	</packet>
