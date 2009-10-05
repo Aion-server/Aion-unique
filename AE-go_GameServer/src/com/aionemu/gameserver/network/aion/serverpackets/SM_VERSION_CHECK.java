@@ -47,6 +47,7 @@ public class SM_VERSION_CHECK extends AionServerPacket
 		writeD(buf, 0x4AAc2E70);// unk
 		//writeD(buf, 0x80000200);// unk
 		writeC(buf, 0x00);//unk
+		writeC(buf, Config.GAMESERVER_ID); // Server id
 		writeC(buf, Config.SERVER_COUNTRY_CODE); // Server country code (cc)
 		writeC(buf, 0x00);//unk
 		writeC(buf, Config.SERVER_MODE); // Server mode : 0x00 = one race / 0x01 = free race / 0x22 = Character Reservation
