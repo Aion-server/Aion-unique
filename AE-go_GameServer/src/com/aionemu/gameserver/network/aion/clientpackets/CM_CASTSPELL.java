@@ -59,55 +59,10 @@ public class CM_CASTSPELL extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
+		player.getController().useSkill(spellid);
 		int playerobjid = player.getObjectId();
-		if(spellid == 1801)
-		{
-			return;
-		}
+
 		sendPacket(new SM_CASTSPELL(playerobjid,spellid,level,unk,targetObjectId));
 		sendPacket(new SM_CASTSPELL_END(playerobjid,spellid,level,unk,targetObjectId));
-		
-		if(playerobjid != targetObjectId)
-		{
-			if(targetObjectId != 0)
-			{
-				if(spellid == 1801)
-				{
-					return;
-				}
-				else
-				{
-				x = player.getTarget().getX();
-				y = player.getTarget().getY();
-				z = player.getTarget().getZ();
-				x2 = player.getX();
-				y2 = player.getY();
-				z2 = player.getZ();
-				
-				MovementType type = MovementType.getMovementTypeById((byte)0xE0);
-
-				sendPacket(new SM_MOVE((Creature) player.getTarget(),x,y,z,x2,y2,z2,player.getTarget().getHeading(),type));
-				sendPacket(new SM_ATTACK_STATUS(targetObjectId,12));
-				
-				//log.info(String.format("Attacking target with object id: %d", targetObjectId));
-				}
-			}
-		}
-
-		/*
-		sendPacket(new SM_ATTACK(playerobjid,targetObjectId,attackno,time,type));
-		if (attackno % 2 == 0) 
-		{
-			sendPacket(new SM_ATTACK(targetObjectId,playerobjid,attackno+2,time,type));
-			
-		}
-		sendPacket(new SM_ATTACK_STATUS(targetObjectId,attackno));
-		if (attackno % 5 == 0) 
-		{
-			sendPacket(new SM_EMOTION(targetObjectId,13,playerobjid));
-			sendPacket(new SM_LOOT_STATUS(targetObjectId,0));
-			
-		}
-		*/
 	}
 }

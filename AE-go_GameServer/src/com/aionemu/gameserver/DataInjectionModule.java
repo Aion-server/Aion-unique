@@ -16,22 +16,24 @@
  */
 package com.aionemu.gameserver;
 
+import com.aionemu.commons.services.ScriptService;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.dataholders.PlayerExperienceTable;
-import com.aionemu.gameserver.dataholders.SpawnData;
-import com.aionemu.gameserver.dataholders.WorldMapsData;
-import com.aionemu.gameserver.dataholders.TradeListData;
-import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
+import com.aionemu.gameserver.dataholders.PlayerStatsData;
+import com.aionemu.gameserver.dataholders.SkillData;
+import com.aionemu.gameserver.dataholders.SpawnData;
+import com.aionemu.gameserver.dataholders.TradeListData;
+import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.services.AccountService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.SocialService;
+import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlers;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlersFactory;
 import com.aionemu.gameserver.world.World;
-import com.aionemu.commons.services.ScriptService;
 import com.google.inject.AbstractModule;
 import com.google.inject.Injector;
 import com.google.inject.Provides;
@@ -120,5 +122,11 @@ public class DataInjectionModule extends AbstractModule
 	TradeListData provideTradeListData(DataManager datamanager)
 	{
 		return datamanager.TRADE_LIST_DATA;
+	}
+	
+	@Provides
+	SkillData provideSkillData(DataManager datamanager)
+	{
+		return datamanager.SKILL_DATA;
 	}
 }

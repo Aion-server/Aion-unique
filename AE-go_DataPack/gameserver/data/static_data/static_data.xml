@@ -78,5 +78,9 @@
 		<import file="npcs" skipRoot="true"/>
 	</npc_data>
 	
+	<skill_data>
+		<import file="skills" skipRoot="true"/>
+	</skill_data>
+	
 
 </ae_static_data>

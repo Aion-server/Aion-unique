@@ -27,6 +27,7 @@ import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.quests.qparser.QuestParser;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
+import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.ThreadUncaughtExceptionHandler;
@@ -83,6 +84,9 @@ public class GameServer
 		
 		// Loading quests
 		QuestParser.getInstance();
+		
+		// Ininitialize skill engine
+		SkillEngine.getInstance().registerAllSkills(gs.injector);
 
 		Util.printMemoryUsage(log);
 		log.info("###########################################################################");

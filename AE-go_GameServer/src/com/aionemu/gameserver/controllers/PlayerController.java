@@ -18,6 +18,7 @@ package com.aionemu.gameserver.controllers;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.dataholders.SkillData;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -32,10 +33,13 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.skillengine.SkillEngine;
+import com.aionemu.gameserver.skillengine.SkillHandler;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.ClassStats;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 
 /**
  * This class is for controlling players.
@@ -137,6 +141,16 @@ public class PlayerController extends CreatureController<Player>
 			this.onDie();
 		}
 		return true;
+	}
+	
+	public void useSkill(int skillId)
+	{
+		SkillHandler skillHandler = SkillEngine.getInstance().getSkillHandlerFor(skillId);
+		if(skillHandler != null)
+		{
+			//TODO pass targets
+			skillHandler.useSkill(this.getOwner(), null);
+		}
 	}
 
 	/* (non-Javadoc)

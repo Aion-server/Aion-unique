@@ -52,6 +52,9 @@ public class StaticData
 
 	@XmlElement(name = "player_initial_data")
 	public PlayerInitialData        playerInitialData;
+	
+	@XmlElement(name = "skill_data")
+	public SkillData				skillData;
 
 	// JAXB callback
 	private void afterUnmarshal(Unmarshaller unmarshaller, Object parent)
@@ -64,6 +67,7 @@ public class StaticData
 		DataManager.log.info("Loaded " + npcData.size() + " npc templates");
 		DataManager.log.info("Loaded " + playerInitialData.size() + " initial player templates");
 		DataManager.log.info("Loaded " + tradeListData.size() + " trade lists");
+		DataManager.log.info("Loaded " + skillData.size() + " skill templates");
 		
 	}
 }

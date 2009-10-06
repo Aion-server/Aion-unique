@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-    <classpathentry kind="src" path="gameserver/data/scripts/system/database"/>
-    <classpathentry kind="src" path="gameserver/data/scripts/system/handlers"/>
-    <classpathentry kind="src" path="loginserver/data/scripts/system/database"/>
+	<classpathentry kind="src" path="gameserver/data/scripts/system/database"/>
+	<classpathentry kind="src" path="gameserver/data/scripts/system/skills"/>
+	<classpathentry kind="src" path="gameserver/data/scripts/system/handlers"/>
+	<classpathentry kind="src" path="loginserver/data/scripts/system/database"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/AE-go_GameServer"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
-
