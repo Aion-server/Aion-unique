@@ -18,7 +18,9 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.apache.log4j.Logger;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 /**
  * 
@@ -55,6 +57,9 @@ public class CM_BUY_ITEM extends AionClientPacket
 		npcObjId = readD();
 		unk1	 = readH();
 		amount = readH(); //total no of items
+		Player player = getConnection().getActivePlayer();
+		int activePlayer = player.getObjectId();
+		
 		for (int i = 0; i < amount; i++) 
 		{
 			itemId = readD();
@@ -62,6 +67,26 @@ public class CM_BUY_ITEM extends AionClientPacket
 			unk2   = readD();
 			log.info(String.format("Buying itemId: %d count: %d", itemId, count));
 			
+			//Todo check the amount of kinah at server side
+			
+			Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
+			itemsDbOfPlayerCount.getInventoryFromDb(activePlayer);
+			int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
+			int cubes = 1;
+			int cubesize = 27;
+			int allowItemsCount = cubesize*cubes-1;
+			if (totalItemsCount<=allowItemsCount){
+				Inventory items = new Inventory();
+				items.putItemToDb(activePlayer, itemId, count);
+				items.getDbItemsCountFromDb();
+				int totalDbItemsCount = items.getDbItemsCount();
+				int newItemUniqueId = totalDbItemsCount;
+
+				sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, itemId, count, 1, 8));
+
+				} else {
+				//todo show SM_INVENTORY_IS_FULL packet or smth.
+			}
 		}
 	}
 
