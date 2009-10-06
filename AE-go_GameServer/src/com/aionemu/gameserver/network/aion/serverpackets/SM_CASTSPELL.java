@@ -19,14 +19,16 @@ public class SM_CASTSPELL extends AionServerPacket
 	private int	spellid;
 	private int	level;
 	private int	unk; //can cast?? 
+	private int duration;
 	
-	public SM_CASTSPELL(int attackerobjectid ,int spellid,int level,int unk, int targetObjectId)
+	public SM_CASTSPELL(int attackerobjectid ,int spellid,int level,int unk, int targetObjectId, int duration)
 	{
 		this.attackerobjectid = attackerobjectid;
 		this.targetObjectId = targetObjectId;
 		this.spellid = spellid ;// empty
 		this.level = level ;
 		this.unk = unk ;
+		this.duration = duration;
 	}
 
 	/**
@@ -42,7 +44,7 @@ public class SM_CASTSPELL extends AionServerPacket
 		writeC(buf, level);
 		writeC(buf, unk);
 		writeD(buf, targetObjectId); 
-		writeH(buf, 2000); // CAST TIME
+		writeH(buf, duration); // CAST TIME
 		writeC(buf, 0x00);//writeC(0);
 
 	}	

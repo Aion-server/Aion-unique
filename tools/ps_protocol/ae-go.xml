@@ -528,7 +528,7 @@
 		<part name="result" type="c"/>
 		<part name="key" type="d"/>
 	</packet>
-	<packet id="0xF6" name="SM_UNKF0C"/>
+	<!--<packet id="0xF6" name="SM_UNKF0C"/>-->
 	<packet id="0xF8" name="SM_STATS_INFO [UI]">
       	<part name="objectId" type="d"/>
        	<part name="gameTime" type="d"/>
@@ -644,7 +644,7 @@
 		<part name="unk" type="d"/>
 		<part name="unk" type="d"/>		
 	</packet>
-	<packet id="0xFA" name="SM_STATUPDATE_HP [?]">
+	<packet id="0xFA" name="SM_STATUPDATE_HP [?]"/>
 	<packet id="0xFC" name="SM_ATTACK_STATUS">
 		<part name="receiver" type="d"/>
 		<part name="unk" type="d"/>
@@ -653,7 +653,7 @@
 		<part name="unk" type="c"/>
 		<part name="unk0x94" type="c"/>
 	</packet>
-	<packet id="0xFD" name="SM_STATUPDATE_MP [?]">
+	<packet id="0xFD" name="SM_STATUPDATE_MP [?]"/>
 </packetfamilly>
 <packetfamilly switchtype="c" way="ClientPackets">
 	<packet id="0x00" name="CM_CHARACTER_LIST">

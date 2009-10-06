@@ -15,7 +15,8 @@
 	<xs:complexType name="skillTemplate">
 		<xs:attribute name="skill_id" type="skillId" use="required" />
 		<xs:attribute name="name" type="xs:string" use="required" />
-		<xs:attribute name="level" type="xs:byte" use="required" />
+		<xs:attribute name="level" type="xs:int" use="required" />
+		<xs:attribute name="duration" type="xs:int" use="required" />
 	</xs:complexType>
 	
 	<xs:simpleType name="skillId">

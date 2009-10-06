@@ -29,10 +29,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "skill_template")
 public class SkillTemplate
 {
+	@XmlAttribute(name = "skill_id", required = true)
 	private int	skillId;
 	
 	@XmlAttribute(name = "name", required = true)
 	private String name;
+	
+	@XmlAttribute(name = "level", required = true)
+	private int level;
+	
+	@XmlAttribute(name = "duration", required = true)
+	private int duration;
 
 	/**
 	 * @return the skillId
@@ -50,4 +57,19 @@ public class SkillTemplate
 		return name;
 	}
 
+	/**
+	 * @return the level
+	 */
+	public int getLevel()
+	{
+		return level;
+	}
+
+	/**
+	 * @return the duration
+	 */
+	public int getDuration()
+	{
+		return duration;
+	}
 }

@@ -60,9 +60,5 @@ public class CM_CASTSPELL extends AionClientPacket
 	{
 		Player player = getConnection().getActivePlayer();
 		player.getController().useSkill(spellid);
-		int playerobjid = player.getObjectId();
-
-		sendPacket(new SM_CASTSPELL(playerobjid,spellid,level,unk,targetObjectId));
-		sendPacket(new SM_CASTSPELL_END(playerobjid,spellid,level,unk,targetObjectId));
 	}
 }
