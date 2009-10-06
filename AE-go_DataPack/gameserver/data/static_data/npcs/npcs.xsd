@@ -55,13 +55,6 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
-	<xs:simpleType name="skillId">
-		<xs:restriction base="xs:int">
-			<xs:minInclusive value="1"/>
-			<xs:maxInclusive value="60000"/>
-		</xs:restriction>
-	</xs:simpleType>
-	
 	<xs:simpleType name="npcId">
 		<xs:restriction base="xs:int">
 			<xs:minInclusive value="200000"/>
