@@ -22,7 +22,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 /**
@@ -49,6 +49,8 @@ public class CM_DELETE_ITEM extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		//todo: send delete item packet
+		Inventory inventory = new Inventory();
+		inventory.deleteItemFromDb(uniqueItemId);
+		sendPacket(new SM_DELETE_ITEM(uniqueItemId));
 	}
 }

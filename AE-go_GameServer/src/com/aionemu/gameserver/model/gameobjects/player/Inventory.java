@@ -214,7 +214,7 @@ public class Inventory
 	}
 
 	public void getLastUniqueIdFromDb() {
-		PreparedStatement ps11 = DB.prepareStatement("SELECT `itemUniqueId` FROM `inventory`");
+		PreparedStatement ps11 = DB.prepareStatement("SELECT `itemUniqueId` FROM `inventory` ORDER BY `itemUniqueId` ASC");
 		try
 		{
 			ResultSet rs = ps11.executeQuery();
@@ -287,6 +287,22 @@ public class Inventory
 		finally
 		{
 			DB.close(ps4);
+		}
+	}
+
+	public void deleteItemFromDb(int itemUniqueId) {
+		PreparedStatement ps12 = DB.prepareStatement("DELETE FROM `inventory` WHERE `itemUniqueId` =" + itemUniqueId);
+		try
+		{
+			ps12.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			Logger.getLogger(Inventory.class).error("Error storing is equiped", e);
+		}
+		finally
+		{
+			DB.close(ps12);
 		}
 	}
 	

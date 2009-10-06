@@ -119,8 +119,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_DIALOG.class, 0x21, idSet);//1.5.x
 		addPacketOpcode(SM_DIALOG_WINDOW.class, 0x35, idSet);//1.5.x
 
-		//addPacketOpcode(SM_EQUIP_ITEM.class, 0x24, idSet);//1.5.x
-		//addPacketOpcode(SM_DELETE_ITEM.class, 0x2f, idSet);//1.5.x
+		addPacketOpcode(SM_DELETE_ITEM.class, 0x15, idSet);//1.5.x
 		addPacketOpcode(SM_UPDATE_ITEM.class, 0x14, idSet);//1.5.x
 		//addPacketOpcode(SM_SHOW_ITEM.class, 0xFD, idSet);	//1.5.x
 
