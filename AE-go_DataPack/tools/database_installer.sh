@@ -71,7 +71,7 @@ DBSETING()
 	if [ -z "$LSDBHOST" ]; then
 		LSDBHOST="localhost"
 	fi
-	echo -ne "\n$LANG_LSDB ($LANG_Default au_server): "
+	echo -ne "\n$LANG_LSDB ($LANG_Default au_server_ls): "
 	read LSDB
 	if [ -z "$LSDB" ]; then
 		LSDB="au_server_ls"
@@ -93,7 +93,7 @@ DBSETING()
 	if [ -z "$GSDBHOST" ]; then
 		GSDBHOST="$LSDBHOST"
 	fi
-	echo -ne "\n$LANG_GSDB ($LANG_Default $LSDB): "
+	echo -ne "\n$LANG_GSDB ($LANG_Default au_server_gs): "
 	read GSDB
 	if [ -z "$GSDB" ]; then
 		GSDB="au_server_gs"
