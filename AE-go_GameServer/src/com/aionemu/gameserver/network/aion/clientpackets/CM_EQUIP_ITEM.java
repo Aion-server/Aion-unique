@@ -83,7 +83,7 @@ public class CM_EQUIP_ITEM extends AionClientPacket
  	
 	there are alot of other combinations like head+jacket+main hand etc.
 	*/
-
+	
 	Inventory inventory = new Inventory();
 
 	inventory.getItemIdByUniqueItemId(itemUniqueId);
@@ -93,10 +93,10 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 
 	itemName.getItemList(itemId);
 	String slotName = itemName.getEquipmentSlots();
-
+	
 	char test = slotName.charAt(0);
 	boolean isAnInt= test>='0' && test<='9';
-
+	
 	if (isAnInt){
 		slot = Integer.parseInt(slotName);
 		if (slot==5) {
@@ -114,7 +114,8 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 	} else {
 		slot = 1;
 	}
-
+	
+	
 	//
 	
 	/*
@@ -138,17 +139,10 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 		final Player activePlayer = getConnection().getActivePlayer();
 		int activeplayer = activePlayer.getObjectId();
 
-
-
 		inventory.getIsEquipedFromDb(activeplayer, slot);
-
 		int isEquiped = inventory.getIsEquiped();
 		int unequipItemUniqueId = inventory.getIsEquipedItemUniqueId();
 
-
-
-		log.info(String.format("unequipItemUniqueId itemUniqueId: %s %s", unequipItemUniqueId, itemUniqueId));
-		
 		if (action==0) {
 			if (isEquiped==1) {
 				inventory.putIsEquipedToDb(unequipItemUniqueId, 0, 0);
@@ -165,5 +159,6 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 			inventory.putIsEquipedToDb(itemUniqueId, 0, 0);
 			sendPacket(new SM_UPDATE_ITEM(0, 1, itemUniqueId));
 		}
+		
 	}
 }

@@ -54,8 +54,7 @@ public class Inventory
 	public int equipedItemUniqueIdArray[];
 	public int equipedItemSlotArray[];
 
-	public int a;
-	public int b;
+	public int newItemUniqueIdValue;
 
 	public void getInventoryFromDb(int activePlayer) {
 		PreparedStatement ps = DB.prepareStatement("SELECT `itemUniqueId`, `itemId`,`itemCount`FROM `inventory` WHERE `itemOwner`=" + activePlayer);
@@ -212,6 +211,28 @@ public class Inventory
 		}
 	}
 
+	public void getLastUniqueIdFromDb() {
+		PreparedStatement ps11 = DB.prepareStatement("SELECT `itemUniqueId` FROM `inventory`");
+		try
+		{
+			ResultSet rs = ps11.executeQuery();
+			rs.last();
+			int row = rs.getRow();
+			rs.absolute(row);
+			newItemUniqueIdValue = rs.getInt("itemUniqueId");
+
+		}
+		catch (SQLException e)
+		{
+			Logger.getLogger(Inventory.class).error("Error loading last unique id", e);
+			
+		}
+		finally
+		{
+			DB.close(ps11);
+		}
+	}
+
 	public void putKinahToDb(int activePlayer, int count) {
 		PreparedStatement ps3 = DB.prepareStatement("UPDATE `players` SET `kinah` = ? WHERE `id`= ? ");
 		try
@@ -313,4 +334,8 @@ public class Inventory
 	public int getEquipedItemUniqueIdArray(int row) {
 		return equipedItemUniqueIdArray[row];
 	}
+	public int getnewItemUniqueIdValue() {
+		return newItemUniqueIdValue;
+	}
+
 }
