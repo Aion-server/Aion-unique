@@ -34,28 +34,32 @@ public class SM_VERSION_CHECK extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		write_1_5(con, buf);
-	}
 
-	private void write_1_5(AionConnection con, ByteBuffer buf)
-	{
-		writeH(buf, 0x2800);// unk
-		writeD(buf, 0x000162C8);// unk
-		writeD(buf, 0x000162C3);// unk
+		writeH(buf, 0x0C00);// unk
+		writeD(buf, 0x15FFA);// unk
+		writeD(buf, 0x15FFA);// unk
 		writeD(buf, 0x00);// unk
-		writeD(buf, 0x000162C3);// unk
-		writeD(buf, 0x4AAc2E70);// unk
-		//writeD(buf, 0x80000200);// unk
-		writeC(buf, 0x00);//unk
+		writeD(buf, 0x15FFA);// unk
+		writeD(buf, 0x4A4CEC02);// unk
+		writeD(buf, 0x01000100);// unk
+		// Server Version Check for 1.5.0.6 NA/EU
+		writeC(buf, 0x00);
 		writeC(buf, Config.GAMESERVER_ID); // Server id
+		writeD(buf, 0x0001631F);
+		writeD(buf, 0x000162C3);
+		writeD(buf, 0x00);
+		writeD(buf, 0x000162C3);
+		writeD(buf, 0x4AB3CB5C);
+		writeC(buf, 0x00);
 		writeC(buf, Config.SERVER_COUNTRY_CODE); // Server country code (cc)
-		writeC(buf, 0x00);//unk
+		writeC(buf, 0x00);
 		writeC(buf, Config.SERVER_MODE); // Server mode : 0x00 = one race / 0x01 = free race / 0x22 = Character Reservation
-		writeD(buf, (int) (System.currentTimeMillis() / 1000));
-		writeD(buf, 0x0001015E);
-		writeC(buf, 0);
-		writeD(buf, 0xB09C7FCE);
-		writeH(buf, 0x2801);
 
+		writeD(buf, (int) (System.currentTimeMillis() / 1000));// ServerTime in seconds
+
+		writeD(buf, 0x0001015E);
+		writeD(buf, 0x9C7FCE00);
+		writeC(buf, 0xB0);
+		writeH(buf, 0x2801);		
 	}
 }
