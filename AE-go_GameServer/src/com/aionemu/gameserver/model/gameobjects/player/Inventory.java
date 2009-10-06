@@ -53,6 +53,7 @@ public class Inventory
 	public int totalEquipedItemsCount;
 	public int equipedItemUniqueIdArray[];
 	public int equipedItemSlotArray[];
+	public int equipedItemIdArray[];
 
 	public int newItemUniqueIdValue;
 
@@ -93,7 +94,7 @@ public class Inventory
 	}
 
 	public void getEquipedItemsFromDb(int activePlayer) {
-		PreparedStatement ps10 = DB.prepareStatement("SELECT `itemUniqueId`, `slot` FROM `inventory` WHERE `isEquiped`='1' AND `itemOwner`=" + activePlayer); //  
+		PreparedStatement ps10 = DB.prepareStatement("SELECT `itemUniqueId`,`itemId`, `slot` FROM `inventory` WHERE `isEquiped`='1' AND `itemOwner`=" + activePlayer); //  
 		try
 		{
 			ResultSet rs = ps10.executeQuery();
@@ -105,12 +106,13 @@ public class Inventory
 				
 				equipedItemUniqueIdArray = new int[row+1];
 				equipedItemSlotArray = new int[row+1];
-			
+				equipedItemIdArray = new int[row+1];
+
 				while (row > 0) {
 					rs.absolute(row);
 					equipedItemUniqueIdArray[row2] = rs.getInt("itemUniqueId");
 					equipedItemSlotArray[row2] = rs.getInt("slot");
-
+					equipedItemIdArray[row2] = rs.getInt("itemId");
 					row2 = row2 +1;
 					row = row - 1;
 				}
@@ -327,12 +329,14 @@ public class Inventory
 	public int getItemId() {
 		return itemId;
 	}
-
 	public int getEquipedItemSlotArray(int row) {
 		return equipedItemSlotArray[row];
 	}
 	public int getEquipedItemUniqueIdArray(int row) {
 		return equipedItemUniqueIdArray[row];
+	}
+	public int getEquipedItemIdArray(int row) {
+		return equipedItemIdArray[row];
 	}
 	public int getnewItemUniqueIdValue() {
 		return newItemUniqueIdValue;

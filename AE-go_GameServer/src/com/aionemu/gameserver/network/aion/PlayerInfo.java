@@ -24,6 +24,8 @@ import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerItems;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * 
@@ -143,163 +145,21 @@ public abstract class PlayerInfo extends AionServerPacket
 		writeD(buf, 0);// unk 1242638636
 
 		int itemsSize = 0;
-		int i=0;
-		
-		if (playerItems.getWarmer()!=0)
-		{
-			 writeC(buf, i);
-		     writeD(buf, playerItems.getWarmer());
-		     writeD(buf, 0);
-		     writeD(buf, 0);
-		     i++;
-		     itemsSize = itemsSize + 13;
-		}
-    
-		if (playerItems.getShield()!=0)
-		{
-			 writeC(buf, i);
-		     writeD(buf, playerItems.getShield());
-		     writeD(buf, 0);
-		     writeD(buf, 0);
-		     i++;
-		     itemsSize = itemsSize + 13;
-		}
 
-	    
-		if (playerItems.getHelmet()!=0)
-		{
-			  writeC(buf, i);
-			  writeD(buf, playerItems.getHelmet());
-			  writeD(buf, 0);
-			  writeD(buf, 0);
-			  i++;
-			  itemsSize = itemsSize + 13;
-		}
+		Inventory equipedItems = new Inventory();
+		equipedItems.getEquipedItemsFromDb(pbd.getPlayerObjId());
+		int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
 
-		if (playerItems.getArmor()!=0)
-		{
-			writeC(buf, i);
-		    writeD(buf, playerItems.getArmor());
-		    writeD(buf, 0);
-		    writeD(buf, 0);
-		    i++;
-		    itemsSize = itemsSize + 13;
-		}
+		int row = 0;
+		while (totalEquipedItemsCount > 0) {
+ 			writeC(buf, row);
+		    	writeD(buf, equipedItems.getEquipedItemIdArray(row));
+		    	writeD(buf, 0);
+		     	writeD(buf, 0);
 
-		if (playerItems.getBoots()!=0)
-		{
-			  writeC(buf, i);
-			  writeD(buf, playerItems.getBoots());
-			  writeD(buf, 0);
-			  writeD(buf, 0);
-			  i++;
-			  itemsSize = itemsSize + 13;
-		}
-
-		if (playerItems.getLearrings()!=0)
-		{
-			 writeC(buf, i);
-		     writeD(buf, playerItems.getLearrings());
-		     writeD(buf, 0);
-		     writeD(buf, 0);
-		     i++;
-		     itemsSize = itemsSize + 13;
-		}
-
-		
-		if (playerItems.getRearrings()!=0)
-		{
-			 writeC(buf, i);
-		     writeD(buf, playerItems.getRearrings());
-		     writeD(buf, 0);
-		     writeD(buf, 0);
-		     i++;
-		     itemsSize = itemsSize + 13;
-		}
-
-		
-		if (playerItems.getLring()!=0)
-		{
-			 writeC(buf, i);
-		     writeD(buf, playerItems.getLring());
-		     writeD(buf, 0);
-		     writeD(buf, 0);
-		     i++;
-		     itemsSize = itemsSize + 13;
-		}
-
-		
-		
-		if (playerItems.getRring()!=0)
-		{
-			 writeC(buf, i);
-		     writeD(buf, playerItems.getRring());
-		     writeD(buf, 0);
-		     writeD(buf, 0);
-		     i++;
-		     itemsSize = itemsSize + 13;
-		}
-
-	    
-		if (playerItems.getNecklace()!=0)
-		{
-			 writeC(buf, i);
-			 writeD(buf, playerItems.getNecklace());
-		     writeD(buf, 0);
-		     writeD(buf, 0);
-		     i++;
-		     itemsSize = itemsSize + 13;
-		}
-
-		
-		if (playerItems.getPauldron()!=0)
-		{
-			  writeC(buf, i);
-			  writeD(buf, playerItems.getPauldron());
-			  writeD(buf, 0);
-			  writeD(buf, 0);
-			  i++;
-			  itemsSize = itemsSize + 13;
-		}
-
-		if (playerItems.getPants()!=0)
-		{
-			 writeC(buf, i);
-		     writeD(buf, playerItems.getPants());
-		     writeD(buf, 0);
-		     writeD(buf, 0);
-		     i++;
-		     itemsSize = itemsSize + 13;
-		}
-
-		if (playerItems.getRshard()!=0)
-		{
-			 writeC(buf, i);
-			 writeD(buf, playerItems.getRshard());
-			 writeD(buf, 0);
-			 writeD(buf, 0);
-			 i++;
-			 itemsSize = itemsSize + 13;
-		}
-
-		if (playerItems.getLshard()!=0)
-		{
-			 writeC(buf, i);
-		     writeD(buf, playerItems.getLshard());
-		     writeD(buf, 0);
-		     writeD(buf, 0);
-		     i++;
-			 itemsSize = itemsSize + 13;
-		}
-
-		if (playerItems.getWing()!=0)
-		{
-			 writeC(buf, i);
-		     writeD(buf, playerItems.getWing());
-		     writeD(buf, 0);
-		     writeD(buf, 0);
-		     i++;
-			 itemsSize = itemsSize + 13;
+			totalEquipedItemsCount = totalEquipedItemsCount-1;
+			itemsSize = itemsSize + 13;
+			row+=1;
 		}
 
 		
