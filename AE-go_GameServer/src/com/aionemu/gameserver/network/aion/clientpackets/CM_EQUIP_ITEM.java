@@ -156,8 +156,22 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 				sendPacket(new SM_UPDATE_ITEM(slot, action, itemUniqueId));
 			}
 		} else if (action==1) {
-			inventory.putIsEquipedToDb(itemUniqueId, 0, 0);
-			sendPacket(new SM_UPDATE_ITEM(0, 1, itemUniqueId));
+			inventory.getInventoryFromDb(activeplayer);
+			int totalItemsCount = inventory.getItemsCount();
+
+			inventory.getEquipedItemsFromDb(activeplayer);
+			int totalEquipedItemsCount = inventory.getEquipedItemsCount();
+
+			totalItemsCount = totalItemsCount - totalEquipedItemsCount;
+			
+			int cubes = 1;
+			int cubesize = 27;
+			int allowItemsCount = cubesize*cubes-1;
+
+			if (totalItemsCount<=allowItemsCount) {
+				inventory.putIsEquipedToDb(itemUniqueId, 0, 0);
+				sendPacket(new SM_UPDATE_ITEM(0, 1, itemUniqueId));
+			}
 		}
 		
 	}
