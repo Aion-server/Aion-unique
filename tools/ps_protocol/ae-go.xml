@@ -6,8 +6,23 @@
 		<part name="recoverableExp" type="Q"/>
 		<part name="maxExp" type="Q"/>
 	</packet>
+	<packet id="0x09" name="SM_FRIEND_UPDATE">
+       	<part name="name" type="s"/>
+       	<part name="level" type="d"/>
+		<part name="classID" type="d"/>
+       	<part name="isOnline" type="c"/>
+		<part name="mapId" type="d"/>
+       	<part name="lastOnlineTime" type="d"/>
+		<part name="note" type="s"/>
+       	<part name="statusIntValue" type="c"/>
+    </packet>
 	<packet id="0x12" name="SM_INVENTORY_UPDATE"/>
 	<packet id="0x14" name="SM_UPDATE_ITEM">
+		<part name="uniqueId" type="d"/>
+		<part name="unk[0x24]" type="h"/>
+		<part name="itemNameId" type="d"/>
+		<part name="unk[0]" type="h"/>
+		<part name="itemDetailsLength" type="h"/>
 	</packet>	
 	<packet id="0x17" name="SM_STATUPDATE_DP">
 		<part name="currentDp" type="d"/>
@@ -211,12 +226,6 @@
 		<part name="unk" type="c"/>
 		<part name="unk" type="c"/>
 	</packet> 
-	<packet id="0x3C" name="SM_QUESTION_WINDOW">
-		<part name="unk" type="d"/>
-		<part name="objId" type="d"/>
-		<part name="unk" type="h"/>
-		<part name="txt" type="S"/>
-	</packet> 
 	<packet id="0x3F" name="SM_LEVEL_UPDATE">
 		<part name="targeObjectId" type="d"/>
 		<part name="unk" type="h"/>
@@ -238,6 +247,12 @@
 			</for>
 		<part name="unk" type="d"/>
 	</packet>
+	<packet id="0x4D" name="SM_QUESTION_WINDOW [?]">
+		<part name="unk" type="d"/>
+		<part name="objId" type="d"/>
+		<part name="unk" type="h"/>
+		<part name="txt" type="S"/>
+	</packet> 
 	<packet id="0x4E" name="SM_MOVE">
 		<part name="objId" type="d"/>
 		<part name="x" type="f"/>
@@ -277,6 +292,7 @@
 		<part name="unk" type="c"/>
 		<part name="unk" type="c"/>
 	</packet>
+	<packet id="0xB8" name="SM_DIE"/>
 	<packet id="0xBE" name="SM_L2AUTH_LOGIN_CHECK">
 		<part name="result" type="d"/>
 		<part name="unk" type="S"/>
@@ -454,9 +470,21 @@
             	<part name="unk" type="b" size="18"/>
             </for>
     </packet>
+	<packet id="0xC2" name="SM_FLY_TELEPORT">
+		<part name="unk" type="d"/>
+       	<part name="teleportId?" type="d"/>
+	</packet>
 	<packet id="0xD3" name="SM_PLAYER_SEARCH">
 	</packet>
 	<packet id="0xD6" name="SM_BLOCK_RESPONSE">
+	</packet>
+	<packet id="0xD7" name="SM_FRIEND_RESPONSE">
+		<part name="player" type="s"/>
+       	<part name="code" type="c"/>
+	</packet>
+	<packet id="0xD8" name="SM_FRIEND_NOTIFY">
+		<part name="player" type="s"/>
+       	<part name="code" type="d"/>
 	</packet>
 	<packet id="0xD9" name="SM_BLOCK_LIST">
 	</packet>
@@ -469,14 +497,6 @@
 		    <part name="xml" type="S"/>
 		</for>
 	</packet>	
-	<packet id="0xD7" name="SM_FRIEND_RESPONSE">
-		<part name="player" type="s"/>
-       	<part name="code" type="c"/>
-	</packet>
-	<packet id="0xD8" name="SM_FRIEND_NOTIFY">
-		<part name="player" type="s"/>
-       	<part name="code" type="d"/>
-	</packet>
 	<packet id="0xE0" name="SM_NICKNAME_CHECK_RESPONSE">
 		<part name="result" type="c"/>
 	</packet>
@@ -497,17 +517,7 @@
        	<part name="targetObjectId" type="d"/>
        	<part name="count" type="h"/>
     </packet>
-	<packet id="0xEE" name="SM_FRIEND_UPDATE">
-       	<part name="name" type="s"/>
-       	<part name="level" type="d"/>
-		<part name="classID" type="d"/>
-       	<part name="isOnline" type="c"/>
-		<part name="mapId" type="d"/>
-       	<part name="lastOnlineTime" type="d"/>
-		<part name="note" type="s"/>
-       	<part name="statusIntValue" type="c"/>
-    </packet>
-	<packet id="0xF4" name="SM_BUYLIST">
+	<packet id="0xF4" name="SM_TRADELIST">
 		<part name="targetObjectId" type="d"/>
     	<part name="listid?" type="d"/>
     	<part name="unk" type="c"/>
@@ -518,6 +528,7 @@
 		<part name="result" type="c"/>
 		<part name="key" type="d"/>
 	</packet>
+	<packet id="0xF6" name="SM_UNKF0C"/>
 	<packet id="0xF8" name="SM_STATS_INFO [UI]">
       	<part name="objectId" type="d"/>
        	<part name="gameTime" type="d"/>
@@ -633,6 +644,7 @@
 		<part name="unk" type="d"/>
 		<part name="unk" type="d"/>		
 	</packet>
+	<packet id="0xFA" name="SM_STATUPDATE_HP [?]">
 	<packet id="0xFC" name="SM_ATTACK_STATUS">
 		<part name="receiver" type="d"/>
 		<part name="unk" type="d"/>
@@ -641,6 +653,7 @@
 		<part name="unk" type="c"/>
 		<part name="unk0x94" type="c"/>
 	</packet>
+	<packet id="0xFD" name="SM_STATUPDATE_MP [?]">
 </packetfamilly>
 <packetfamilly switchtype="c" way="ClientPackets">
 	<packet id="0x00" name="CM_CHARACTER_LIST">
@@ -726,24 +739,25 @@
 	<packet id="0x0C" name="CM_TRADE_OK"/>
 	<packet id="0x0D" name="CM_TRADE_LOCK"/>
 	<packet id="0x0F" name="CM_TRADE_CANCEL"/>
-	<packet id="0x11" name="CM_TRADE_REQUEST"/>
+	<packet id="0x11" name="CM_BLOCK_DEL"/>
+	<!--<packet id="0x11" name="CM_TRADE_REQUEST"/>-->
 	<packet id="0x12" name="CM_SHOW_BLOCKLIST"/>
 	<packet id="0x14" name="CM_FRIEND_STATUS"/>
 	<packet id="0x18" name="CM_MAC_ADDRESS2"/>
-	<packet id="0x1A" name="CM_SET_NOTE"/>
+	<packet id="0x19" name="CM_MACRO_CREATE"/>
+	<packet id="0x1A" name="CM_MACRO_DELETE"/>
 	<packet id="0x1B" name="CM_CHECK_NICKNAME">
 		<part name="nick" type="S"/>
 	</packet>
+	<packet id="0x1D" name="CM_BLOCK_SET_REASON"/>
 	<packet id="0x21" name="CM_RECONNECT_AUTH"/>
 	<packet id="0x22" name="CM_QUESTION_RESPONSE"/>
 	<packet id="0x24" name="CM_MAY_LOGIN_INTO_GAME"/>
-	<packet id="0x27" name="CM_MAC_ADDRESS"/>
-	<packet id="0x34" name="CM_CHAT_MESSAGE_WHISPER">
-		<part name="name" type="S"/>
-		<part name="msg" type="S"/>
-	</packet>  
+	<packet id="0x27" name="CM_MAC_ADDRESS"/>  
 	<packet id="0x4A" name="CM_TERRITORY"/>
 	<packet id="0x58" name="CM_SHOW_FRIENDLIST"/>
+	<packet id="0x59" name="CM_FRIEND_ADD"/>
+	<packet id="0x78" name="CM_CLIENT_COMMAND_LOC"/>
 	<packet id="0x7F" name="CM_L2AUTH_LOGIN_CHECK">
 		<part name="playOk2" type="d"/>
 		<part name="playOk1" type="d"/>
@@ -752,6 +766,10 @@
 	</packet>
 	<packet id="0x85" name="CM_CHAT_MESSAGE_PUBLIC">
 		<part name="type" type="c"/>
+		<part name="msg" type="S"/>
+	</packet>
+	<packet id="0x86" name="CM_CHAT_MESSAGE_WHISPER">
+		<part name="name" type="S"/>
 		<part name="msg" type="S"/>
 	</packet>
 	<packet id="0x8A" name="CM_ATTACK">
@@ -773,9 +791,10 @@
 	</packet>
 	<packet id="0x8F" name="CM_USE_ITEM">
 	</packet>
-	<packet id="0x90" name="CM_EQUIP_ITEM">
-	</packet>
-	<packet id="0x9D" name="CM_BUY_ITEM">
+	<packet id="0x90" name="CM_EQUIP_ITEM"/>
+	<packet id="0x95" name="CM_EMOTION"/>
+	<packet id="0x96" name="CM_PING">
+		<part name="unk" type="h"/>
 	</packet>
 	<packet id="0x9A" name="CM_MOVE">
         <part name="x" type="f"/>
@@ -784,11 +803,7 @@
 		<part name="unk" type="c"/>
 		<part name="unk" type="c"/>
     </packet>
-	<packet id="0x95" name="CM_EMOTION"/>
-	<packet id="0x96" name="CM_PING">
-		<part name="unk" type="h"/>
-	</packet>
-	<packet id="0x9D" name="CM_BLOCK_SET_REASON"/>
+	<packet id="0x9D" name="CM_BUY_ITEM"/>
 	<packet id="0x9E" name="CM_SHOW_DIALOG">
 		<part name="targetObjectId" type="d"/>
 	</packet>
@@ -804,12 +819,10 @@
 		<part name="order" type="c"/>
 		<part name="xml" type="S"/>
 	</packet>  
+	<packet id="0xA4" name="CM_SET_NOTE"/>
 	<packet id="0xAE" name="CM_BLOCK_DEL"/>
-	<packet id="0xA9" name="CM_BLOCK_DEL"/>
 	<packet id="0xB1" name="CM_PLAYER_SEARCH"/>
-	<packet id="0xC6" name="CM_CLIENT_COMMAND_LOC"/>
 	<packet id="0xE0" name="CM_FRIEND_DELETE"/>
-	<packet id="0xE1" name="CM_FRIEND_ADD"/>
 	<packet id="0xEA" name="CM_VERSION_CHECK"/>
 	<packet id="0xEC" name="CM_LOGIN_OUT"/>
 	<packet id="0xED" name="CM_QUIT">
