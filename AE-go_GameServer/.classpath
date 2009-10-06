@@ -16,5 +16,6 @@
 	<classpathentry kind="lib" path="lib/aopalliance.jar"/>
 	<classpathentry kind="lib" path="lib/guice-2.0.jar"/>
 	<classpathentry kind="lib" path="lib/guice-assistedinject-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/javolution-5.3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
