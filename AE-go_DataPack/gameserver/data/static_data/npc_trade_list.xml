@@ -4,7 +4,7 @@
 	<!-- Aldelle Village -->
 	<tradelist_template npc_id="203514" name="Hephe" count="2" listId0="259" listId1="260">
 	</tradelist_template>
-	<tradelist_template npc_id="203515" name="Dalor" count="4" listId0="251" listId1="262" listId2="263" listId3="454">
+	<tradelist_template npc_id="203515" name="Dalor" count="4" listId0="261" listId1="262" listId2="263" listId3="454">
 	</tradelist_template>
 	<tradelist_template npc_id="203526" name="Ungfu" count="1" listId0="265">
 	</tradelist_template>
@@ -12,6 +12,8 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203530" name="Kirhen" count="1" listId0="32">
 	</tradelist_template>
+	<tradelist_template npc_id="798038" name="Crizpinerk" count="1" listId0="264">
+	</tradelist_template>	
 	
 	<!-- Poeta -->
 	<!-- Akarios Village -->
@@ -19,10 +21,12 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203063" name="Amus" count="2" listId0="259" listId1="260">
 	</tradelist_template>
-	<tradelist_template npc_id="203060" name="Mune" count="4" listId0="251" listId1="262" listId2="263" listId3="454">
+	<tradelist_template npc_id="203060" name="Mune" count="4" listId0="261" listId1="262" listId2="263" listId3="454">
 	</tradelist_template>
 	<tradelist_template npc_id="203089" name="Esera" count="1" listId0="30">
 	</tradelist_template>
 	<tradelist_template npc_id="203090" name="Kagas" count="1" listId0="32">
 	</tradelist_template>
+	<tradelist_template npc_id="798007" name="Minalinerk" count="1" listId0="264">
+	</tradelist_template>	
 </npc_trade_list>
