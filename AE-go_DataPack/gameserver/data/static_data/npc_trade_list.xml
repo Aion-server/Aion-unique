@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc_trade_list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="npcTradeList.xsd">
-	<!-- Ishalgen -->
+		<!-- Ishalgen -->
 	<!-- Aldelle Village -->
 	<tradelist_template npc_id="203514" name="Hephe" count="2" listId0="259" listId1="260">
 	</tradelist_template>
@@ -19,7 +19,21 @@
 	<tradelist_template npc_id="203542" name="Denma" count="1" listId0="264">
 	</tradelist_template>	
 	<tradelist_template npc_id="798038" name="Crizpinerk" count="1" listId0="264">
-	</tradelist_template>	
+	</tradelist_template>
+	
+	<!-- Altgard -->
+	<tradelist_template npc_id="203577" name="Dortos" count="4" listId0="270" listId1="271" listId2="272" listId3="273">
+	</tradelist_template>
+	<tradelist_template npc_id="203578" name="Lunber" count="4" listId0="266" listId1="267" listId2="268" listId3="269">
+	</tradelist_template>
+	<tradelist_template npc_id="203579" name="Donabe" count="1" listId0="398">
+	</tradelist_template>
+	<tradelist_template npc_id="203657" name="Sarad" count="1" listId0="276">
+	</tradelist_template>
+	<tradelist_template npc_id="798123" name="Lakurunerk" count="1" listId0="318">
+	</tradelist_template>
+	<tradelist_template npc_id="203576" name="Nirmirn" count="1" listId0="143">
+	</tradelist_template>
 	
 	<!-- Poeta -->
 	<!-- Akarios Village -->
@@ -40,5 +54,19 @@
 	<tradelist_template npc_id="203090" name="Kagas" count="1" listId0="32">
 	</tradelist_template>
 	<tradelist_template npc_id="798007" name="Minalinerk" count="1" listId0="264">
-	</tradelist_template>	
+	</tradelist_template>
+
+	<!-- Verteron -->
+    <tradelist_template npc_id="203094" name="Drasia" count="1" listId0="133">
+	</tradelist_template>
+	<tradelist_template npc_id="203100" name="Ivis" count="4" listId0="134" listId1="135" listId2="136" listId3="137" >
+	</tradelist_template>
+	<tradelist_template npc_id="203101" name="Nadaelo" count="4" listId0="138" listId1="139" listId2="140" listId3="141" >
+	</tradelist_template>
+	<tradelist_template npc_id="203107" name="Irian" count="1" listId0="394">
+	</tradelist_template>
+	<tradelist_template npc_id="203108" name="Ispio" count="1" listId0="143">
+	</tradelist_template>
+	<tradelist_template npc_id="203130" name="Eradis" count="1" listId0="156">
+	</tradelist_template>
 </npc_trade_list>
