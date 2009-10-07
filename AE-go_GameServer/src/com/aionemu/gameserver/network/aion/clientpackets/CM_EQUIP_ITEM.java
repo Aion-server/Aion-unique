@@ -112,30 +112,10 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 			slot = 64;// 128 earrings
 		}
 	} else {
-		slot = 1;
+		slot = 0;
 	}
 	
-	
-	//
-	
-	/*
-	slotName==main_or_sub - 5
-	slotName==main - 1
-	slotName==sub - 2
-	slotName==right_or_left_battery - 6
 
-	slotName==torso - 8
-	slotName==glove - 16
-	slotName==shoulder - 2048
-	slotName==leg - not set yet.
-	slotName==neck - 1024
-	slotName==right_or_left_finger - 7
-	slotName==head - 4
-	slotName==right_or_left_ear
-- 9
-	slotName==none
-
-	*/
 		final Player activePlayer = getConnection().getActivePlayer();
 		int activeplayer = activePlayer.getObjectId();
 
