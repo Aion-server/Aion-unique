@@ -72,7 +72,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_LEVEL_READY(0xF3), State.IN_GAME);
 		addPacket(new CM_FRIEND_STATUS(0x14), State.IN_GAME);// 1.5.x
 		addPacket(new CM_FRIEND_DEL(0x5A), State.IN_GAME);// 1.5.x
-		addPacket(new CM_FRIEND_ADD(0x59), State.IN_GAME);// 1.5.x
+		addPacket(new CM_FRIEND_ADD(0x9C), State.IN_GAME);// 1.5.x
 		addPacket(new CM_ENTER_WORLD(0xF2), State.AUTHED);
 		addPacket(new CM_EMOTION(0x95), State.IN_GAME);
 		addPacket(new CM_DELETE_CHARACTER(0x02), State.AUTHED);// 1.5.x
