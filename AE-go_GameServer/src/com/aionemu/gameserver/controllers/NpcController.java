@@ -111,6 +111,9 @@ public class NpcController extends CreatureController<Npc>
 
 		RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
 		DecayService.getInstance().scheduleDecayTask(this.getOwner());
+		
+		//deselect target at the end
+		getOwner().setTarget(null);
 	}
 
 	/* (non-Javadoc)

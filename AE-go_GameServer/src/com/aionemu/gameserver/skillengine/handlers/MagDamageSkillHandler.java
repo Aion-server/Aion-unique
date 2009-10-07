@@ -69,7 +69,7 @@ public class MagDamageSkillHandler extends TemplateSkillHandler
         }
 
 		final int unk = 0;
-		log.info("SENDING: player=" +  player.getObjectId() + " skillid=" + getSkillId());
+
 		PacketSendUtility.broadcastPacket(player, 
 			new SM_CASTSPELL(player.getObjectId(), getSkillId(), getSkillTemplate().getLevel(),
 				unk, target.getObjectId(), getSkillTemplate().getDuration()), true);
