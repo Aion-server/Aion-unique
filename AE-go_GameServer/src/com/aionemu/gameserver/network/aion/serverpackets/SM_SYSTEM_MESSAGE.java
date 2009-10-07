@@ -84,7 +84,13 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	 * 
 	 */
 	public static SM_SYSTEM_MESSAGE REVIVE = new SM_SYSTEM_MESSAGE(1300738);
-
+	/**
+	 * 
+	 */
+	public static SM_SYSTEM_MESSAGE EXP(String _exp)
+	{
+		return new SM_SYSTEM_MESSAGE(1370002, _exp);
+	}
 	
 	/**
 	 * Your Friends List is full

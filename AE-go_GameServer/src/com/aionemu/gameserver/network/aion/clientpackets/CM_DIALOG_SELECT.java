@@ -17,9 +17,8 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
@@ -67,5 +66,8 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 		
 		if (unk1 ==2)
 		sendPacket(new SM_TRADELIST(player, targetObjectId));
+		
+		if (unk1 ==3)
+		sendPacket(new SM_SELL_ITEM(player, targetObjectId));
 	}
 }

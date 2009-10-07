@@ -31,7 +31,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.*;
  * @author alexa026
  * @author ATracer
  * @author avol
- * 
+ * @author orz
  */
 public class ServerPacketsOpcodes
 {
@@ -118,7 +118,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_TRADELIST.class, 0xF4, idSet);   //1.5.x 
 		addPacketOpcode(SM_DIALOG.class, 0x21, idSet);//1.5.x
 		addPacketOpcode(SM_DIALOG_WINDOW.class, 0x35, idSet);//1.5.x
-
+		addPacketOpcode(SM_SELL_ITEM.class, 0x37, idSet);//1.5.x
 		addPacketOpcode(SM_DELETE_ITEM.class, 0x15, idSet);//1.5.x
 		addPacketOpcode(SM_UPDATE_ITEM.class, 0x14, idSet);//1.5.x
 		//addPacketOpcode(SM_SHOW_ITEM.class, 0xFD, idSet);	//1.5.x

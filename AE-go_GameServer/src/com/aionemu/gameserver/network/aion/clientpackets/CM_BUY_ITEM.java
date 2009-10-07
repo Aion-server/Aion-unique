@@ -47,7 +47,38 @@ public class CM_BUY_ITEM extends AionClientPacket
 	 */
 	private static final Logger	log	= Logger.getLogger(CM_BUY_ITEM.class);
 
-	
+	public void additem(int _activePlayer, int _itemId, int _count)
+	{
+		log.info(String.format("Buying itemId: %d count: %d", _itemId, _count));
+		
+		Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
+		itemsDbOfPlayerCount.getInventoryFromDb(_activePlayer);
+		int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
+
+		Inventory equipedItems = new Inventory();
+		equipedItems.getEquipedItemsFromDb(_activePlayer);
+		int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
+
+		int cubes = 1;
+		int cubesize = 27;
+		int allowItemsCount = cubesize*cubes-1;
+
+		totalItemsCount = totalItemsCount - totalEquipedItemsCount;
+
+		if (totalItemsCount<=allowItemsCount){
+
+			Inventory items = new Inventory();
+			items.putItemToDb(_activePlayer, _itemId, _count);
+			items.getLastUniqueIdFromDb();
+			int newItemUniqueId = items.getnewItemUniqueIdValue();
+				
+			sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, _itemId, _count, 1, 8));
+
+			} else {
+			//todo show SM_INVENTORY_IS_FULL packet or smth.
+			}
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 */
@@ -60,32 +91,28 @@ public class CM_BUY_ITEM extends AionClientPacket
 		Player player = getConnection().getActivePlayer();
 		int activePlayer = player.getObjectId();
 		
+		if ((unk1 != 1)||(unk1 != 12))
+			log.info(String.format("Unhandle shop action unk1: %d", unk1));
+		
 		for (int i = 0; i < amount; i++) 
 		{
 			itemId = readD();
 			count  = readD();
 			unk2   = readD();
-			log.info(String.format("Buying itemId: %d count: %d", itemId, count));
 			
 			//Todo check the amount of kinah at server side
 			
-			Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
-			itemsDbOfPlayerCount.getInventoryFromDb(activePlayer);
-			int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
-			int cubes = 1;
-			int cubesize = 27;
-			int allowItemsCount = cubesize*cubes-1;
-			if (totalItemsCount<=allowItemsCount){
-				Inventory items = new Inventory();
-				items.putItemToDb(activePlayer, itemId, count);
-				items.getDbItemsCountFromDb();
-				int totalDbItemsCount = items.getDbItemsCount();
-				int newItemUniqueId = totalDbItemsCount;
-
-				sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, itemId, count, 1, 8));
-
-				} else {
-				//todo show SM_INVENTORY_IS_FULL packet or smth.
+			if (unk1 == 12) //buy
+			{
+				additem(activePlayer,itemId,count);
+			}
+			else if (unk1 == 1) //sell
+				log.info(String.format("Sell itemId: %d count: %d", itemId, count));
+			else
+			{
+				log.info(String.format("itemId unk: %d", unk1));
+				log.info(String.format("Sell itemId: %d count: %d", itemId, count));
+				
 			}
 		}
 	}
