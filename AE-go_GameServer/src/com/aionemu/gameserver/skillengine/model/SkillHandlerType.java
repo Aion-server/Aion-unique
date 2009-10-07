@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.skillengine.model;
 
+
 /**
  * @author ATracer
  *
@@ -25,6 +26,6 @@ public enum SkillHandlerType
 	BUFF,
 	MDAM,
 	MISC,
-	NOTIMPL,
-	PDAM
+	PDAM,
+	CREATE
 }

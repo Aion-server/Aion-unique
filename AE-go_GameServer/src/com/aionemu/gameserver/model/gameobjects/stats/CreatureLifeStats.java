@@ -152,7 +152,9 @@ public class CreatureLifeStats<T extends Creature>
 			int newHp = this.currentHp - value;
 			if(newHp < 0)
 			{
-				newHp = 0;
+				this.currentHp = 0;
+				getOwner().getController().onDie();
+				return 0;
 			}
 			this.currentHp = newHp;
 		}	

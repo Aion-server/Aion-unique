@@ -59,7 +59,7 @@ public class AttackTask extends AiTask
 	@Override
 	public void run()
 	{
-		while(true && taskValid)
+		while(taskValid)
 		{
 			Npc npc = (Npc) attacker;
 			npc.getController().attackTarget(target.getObjectId());

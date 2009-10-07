@@ -21,7 +21,7 @@ package com.aionemu.gameserver.skillengine.handlers;
  * @author ATracer
  *
  */
-public class NotImlementedSkillHandler extends TemplateSkillHandler
+public class NotImplementedSkillHandler extends TemplateSkillHandler
 {
 
 }

@@ -38,18 +38,8 @@ public abstract class SkillHandler
 	 */
 	private SkillTemplate skillTemplate;
 	
-	public SkillHandler()
-	{
-		
-	}
 	
-	@Deprecated
-	public SkillHandler(int skillId)
-	{
-		this.skillId = skillId;
-	}
-	
-	public abstract void useSkill(Creature creature, List<Creature> targets);
+	public abstract void useSkill(Creature creature);
 
 	/**
 	 * @return the skillTemplate
@@ -68,11 +58,18 @@ public abstract class SkillHandler
 	}
 
 	/**
+	 * @param skillId the skillId to set
+	 */
+	public void setSkillId(int skillId)
+	{
+		this.skillId = skillId;
+	}
+
+	/**
 	 * @param skillTemplate the skillTemplate to set
 	 */
 	public void setSkillTemplate(SkillTemplate skillTemplate)
 	{
 		this.skillTemplate = skillTemplate;
 	}
-
 }

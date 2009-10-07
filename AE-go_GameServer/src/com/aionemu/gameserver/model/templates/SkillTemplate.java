@@ -35,11 +35,27 @@ public class SkillTemplate
 	@XmlAttribute(name = "name", required = true)
 	private String name;
 	
+	@XmlAttribute(name = "type", required = true)
+	private String skillType;
+	
+	@XmlAttribute(name = "handler", required = true)
+	private String handlerType;
+	
 	@XmlAttribute(name = "level", required = true)
 	private int level;
 	
 	@XmlAttribute(name = "duration", required = true)
 	private int duration;
+	
+	@XmlAttribute(name = "target", required = true)
+	private String target;
+	
+	@XmlAttribute(name = "cooldown", required = true)
+	private String coolDown;
+	
+	//TODO min/max damage
+	@XmlAttribute(name = "damage", required = false)
+	private int damage;
 
 	/**
 	 * @return the skillId
@@ -58,6 +74,22 @@ public class SkillTemplate
 	}
 
 	/**
+	 * @return the skillType
+	 */
+	public String getSkillType()
+	{
+		return skillType;
+	}
+
+	/**
+	 * @return the handlerType
+	 */
+	public String getHandlerType()
+	{
+		return handlerType;
+	}
+
+	/**
 	 * @return the level
 	 */
 	public int getLevel()
@@ -71,5 +103,29 @@ public class SkillTemplate
 	public int getDuration()
 	{
 		return duration;
+	}
+
+	/**
+	 * @return the target
+	 */
+	public String getTarget()
+	{
+		return target;
+	}
+
+	/**
+	 * @return the coolDown
+	 */
+	public String getCoolDown()
+	{
+		return coolDown;
+	}
+
+	/**
+	 * @return the damage
+	 */
+	public int getDamage()
+	{
+		return damage;
 	}
 }

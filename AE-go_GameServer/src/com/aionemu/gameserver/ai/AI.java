@@ -88,8 +88,8 @@ public abstract class AI<T extends Creature>
 			scheduledTask.cancel(false);
 		}
 		this.simpleTask = task;
-		simpleTask.setTaskValid(true);
-		ThreadPoolManager.getInstance().schedule(task, 1000);	
+		task.setTaskValid(true);
+		scheduledTask = ThreadPoolManager.getInstance().schedule(task, 1000);	
 	}
 	
 	public void stopTask()
@@ -103,7 +103,6 @@ public abstract class AI<T extends Creature>
 		{
 			simpleTask.setTaskValid(false);
 		}
-		setAiState(AIState.IDLE);
 	}
 	
 	public boolean isBusyForTask(int taskPriority)

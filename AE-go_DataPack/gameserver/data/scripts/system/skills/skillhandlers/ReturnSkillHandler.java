@@ -16,28 +16,29 @@
  */
 package skillhandlers;
 
+import org.apache.log4j.Logger;
+
+import com.google.inject.Inject;
+
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.SkillTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
-import com.aionemu.gameserver.skillengine.SkillHandler;
+import com.aionemu.gameserver.skillengine.handlers.MiscSkillHandler;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
-import com.google.inject.Inject;
-
-import org.apache.log4j.Logger;
-
-import java.util.List;
 
 /**
  * @author ATracer
  *
  */
-public class ReturnSkillHandler extends SkillHandler
+public class ReturnSkillHandler extends MiscSkillHandler
 {
     private static final Logger log = Logger.getLogger(ReturnSkillHandler.class);
     
@@ -47,24 +48,43 @@ public class ReturnSkillHandler extends SkillHandler
     @Inject
     private PlayerInitialData playerInitialData;
 
-    public ReturnSkillHandler() {
-        super(1801);
+    public ReturnSkillHandler() 
+    {
+        this.setSkillId(1801);
     }
 
+    @Override
+    public void useSkill(Creature creature)
+    {
+        super.useSkill(creature);
+        log.info("RETURN skill handler was called");
+        
+        
+    }
+    
     /* (non-Javadoc)
-     * @see com.aionemu.gameserver.skillengine.SkillHandler#useSkill(com.aionemu.gameserver.model.gameobjects.Creature, java.util.List)
+     * @see com.aionemu.gameserver.skillengine.handlers.TemplateSkillHandler#startUsage()
      */
     @Override
-    public void useSkill(Creature creature, List<Creature> targets)
-    {
-        log.info("You are using return");
-        final Player player = (Player) creature;
+    protected void startUsage(Creature creature) 
+    {      
+        //TODO decide whether move logic upper in hierarchy
+        Player player = (Player) creature;
+        SkillTemplate template = getSkillTemplate();
         
-        scheduleAction(player);
+        final int unk = 0;
+        
+        PacketSendUtility.broadcastPacket(player, 
+                new SM_CASTSPELL(player.getObjectId(), getSkillId(), getSkillTemplate().getLevel(),
+                        unk, 0, getSkillTemplate().getDuration()), true);
+        
+        schedulePerformAction(creature, getSkillTemplate().getDuration());
     }
-
-    private void performAction(final Player player) 
-    {
+    
+    @Override
+    protected void performAction(Creature creature) 
+    {  
+        Player player = (Player) creature;
         world.despawn(player);
         LocationData locationData = playerInitialData.getSpawnLocation(player.getCommonData().getRace());
         
@@ -73,33 +93,12 @@ public class ReturnSkillHandler extends SkillHandler
         
         player.setProtectionActive(true);
         PacketSendUtility.sendPacket(player, new SM_UNKF5(player));
-    }
-
-    private void scheduleAction(final Player player) 
-    {
-
-        final int level = getSkillTemplate().getLevel();
-        final int spellId = getSkillId();
-        final int creatureId = player.getObjectId();
         
-        //TODO take from template
-        final int unk = 0;
-        final int targetId = 0;
-        final int damage = 0;
-        final int duration = getSkillTemplate().getDuration();
+        //TODO investigate unk
+        int unk = 0;
         
-        PacketSendUtility.broadcastPacket(player, 
-                new SM_CASTSPELL(creatureId, spellId, level, unk, targetId, duration), true);
-        
-        ThreadPoolManager.getInstance().schedule(new Runnable() 
-        {
-            public void run() 
-            {
-                PacketSendUtility.broadcastPacket(player,
-                        new SM_CASTSPELL_END(creatureId, spellId, level, unk, targetId, damage), true);
-                performAction(player);
-            }   
-        }, duration);
+        PacketSendUtility.broadcastPacket(player,
+                new SM_CASTSPELL_END(player.getObjectId(), getSkillId(), getSkillTemplate().getLevel(), unk, 0, 0), true);
     }
 
 }

@@ -16,12 +16,31 @@
  */
 package com.aionemu.gameserver.skillengine.handlers;
 
+import com.aionemu.gameserver.skillengine.SkillHandler;
+import com.aionemu.gameserver.skillengine.model.SkillHandlerType;
 
 /**
  * @author ATracer
  *
  */
-public class MiscSkillHandler extends TemplateSkillHandler
+public class GeneralSkillHandlerFactory
 {
-	
+	public static SkillHandler createSkillHandler(SkillHandlerType skillHandlerType)
+	{
+		switch(skillHandlerType)
+		{
+			case BUFF:
+				return new BuffSkillHandler();
+			case CREATE:
+				return new CreateSkillHandler();
+			case MDAM:
+				return new MagDamageSkillHandler();
+			case MISC:
+				return new MiscSkillHandler();
+			case PDAM:
+				return new PhysDamageSkillHandler();
+			default : 
+				return new NotImplementedSkillHandler();
+		}
+	}
 }

@@ -16,43 +16,48 @@
  */
 package com.aionemu.gameserver.skillengine.handlers;
 
-import java.util.List;
-
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.SkillHandler;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author ATracer
- * will be ~ template method 
  */
 public class TemplateSkillHandler extends SkillHandler
 {
 	
 	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.SkillHandler#useSkill(com.aionemu.gameserver.model.gameobjects.Creature, java.util.List)
+	 * @see com.aionemu.gameserver.skillengine.SkillHandler#useSkill(com.aionemu.gameserver.model.gameobjects.Creature)
 	 */
 	@Override
-	public void useSkill(Creature creature, List<Creature> targets)
+	public void useSkill(Creature creature)
 	{
-		startUsage();
-		performAction();
-		endUsage();
+		startUsage(creature);
 	}
-	
+
 	/**
 	 * SkillEffectPart.START_EFFECT
 	 */
-	protected void startUsage(){};
-	
-	/**
-	 * SkillEffectPart.END_EFFECT
-	 */
-	protected void endUsage(){};
-	
+	protected void startUsage(Creature creature){};
+
 	/**
 	 * SkillEffectPart.ACTION
 	 */
-	protected void performAction(){};
-	
-	
+	protected void performAction(Creature creature){};
+
+	/**
+	 * @param delay
+	 */
+	protected void schedulePerformAction(final Creature creature, int delay)
+	{
+		ThreadPoolManager.getInstance().schedule(new Runnable() 
+		{
+			public void run() 
+			{
+				performAction(creature);
+			}   
+		}, delay);
+	}
+
+
 }

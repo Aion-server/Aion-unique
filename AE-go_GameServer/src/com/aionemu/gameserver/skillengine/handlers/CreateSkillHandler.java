@@ -16,12 +16,11 @@
  */
 package com.aionemu.gameserver.skillengine.handlers;
 
-
 /**
  * @author ATracer
  *
  */
-public class MiscSkillHandler extends TemplateSkillHandler
+public class CreateSkillHandler extends TemplateSkillHandler
 {
-	
+
 }

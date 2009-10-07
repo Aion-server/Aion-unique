@@ -60,6 +60,14 @@ public class SkillData
 		return skillData.get(skillId);
 	}
 	
+	/**
+	 * @return
+	 */
+	public List<SkillTemplate> getSkillTemplates()
+	{
+		return skillTemplates;
+	}
+	
 	public int size()
 	{
 		return skillData.size();

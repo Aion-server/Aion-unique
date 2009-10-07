@@ -23,7 +23,8 @@ package com.aionemu.gameserver.ai;
 public enum AIState
 {
 	ATTACKING(2),
-	IDLE(1);
+	IDLE(1),
+	DEAD(10); //maximum number
 	
 	private int priority;
 	

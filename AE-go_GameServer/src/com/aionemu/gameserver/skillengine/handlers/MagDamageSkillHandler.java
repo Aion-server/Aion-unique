@@ -16,6 +16,15 @@
  */
 package com.aionemu.gameserver.skillengine.handlers;
 
+import org.apache.log4j.Logger;
+
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.stats.StatFunctions;
+
 
 /**
  * @author ATracer
@@ -23,5 +32,58 @@ package com.aionemu.gameserver.skillengine.handlers;
  */
 public class MagDamageSkillHandler extends TemplateSkillHandler
 {
+	private static final Logger log = Logger.getLogger(MagDamageSkillHandler.class);
+
+	@Override
+	protected void performAction(Creature creature)
+	{
+		Player player = (Player) creature;
+		//TODO extract method 
+        Creature target = creature.getTarget();
+        if(target == null)
+        {
+            return;
+        }
+        
+        //TODO investigate unk
+        int unk = 0;
+        
+        int damage = StatFunctions.calculateMagicDamageToTarget(player, target, getSkillTemplate());
+        target.getLifeStats().reduceHp(damage);
+        target.getController().onAttack(player);
+        
+        PacketSendUtility.broadcastPacket(player,
+            new SM_CASTSPELL_END(player.getObjectId(), getSkillId(), getSkillTemplate().getLevel(),
+            	unk, target.getObjectId(), damage), true);
+	}
+
+	@Override
+	protected void startUsage(Creature creature)
+	{
+		Player player = (Player) creature;
+		//TODO extract method 
+        Creature target = creature.getTarget();
+        if(target == null)
+        {
+            return;
+        }
+
+		final int unk = 0;
+		log.info("SENDING: player=" +  player.getObjectId() + " skillid=" + getSkillId());
+		PacketSendUtility.broadcastPacket(player, 
+			new SM_CASTSPELL(player.getObjectId(), getSkillId(), getSkillTemplate().getLevel(),
+				unk, target.getObjectId(), getSkillTemplate().getDuration()), true);
+
+		schedulePerformAction(player, getSkillTemplate().getDuration());
+	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.skillengine.handlers.TemplateSkillHandler#useSkill(com.aionemu.gameserver.model.gameobjects.Creature)
+	 */
+	@Override
+	public void useSkill(Creature creature)
+	{
+		super.useSkill(creature);
+	}
 
 }

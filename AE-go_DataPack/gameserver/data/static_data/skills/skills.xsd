@@ -15,9 +15,41 @@
 	<xs:complexType name="skillTemplate">
 		<xs:attribute name="skill_id" type="skillId" use="required" />
 		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="type" type="skillType" use="required" />
+		<xs:attribute name="handler" type="skillHandlerType" use="required" />
 		<xs:attribute name="level" type="xs:int" use="required" />
 		<xs:attribute name="duration" type="xs:int" use="required" />
+		<xs:attribute name="target" type="skillTarget" use="required" />
+		<xs:attribute name="cooldown" type="xs:int" use="optional" default="0"/>
+		<xs:attribute name="damage" type="xs:int" use="optional" default="0"/>
 	</xs:complexType>
+	
+	<xs:simpleType name="skillType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="INSTANT" />
+			<xs:enumeration value="CHANNELED" />
+			<xs:enumeration value="PASSIVE" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="skillHandlerType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BUFF" />
+			<xs:enumeration value="MDAM" />
+			<xs:enumeration value="MISC" />
+			<xs:enumeration value="PDAM" />
+			<xs:enumeration value="CREATE" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="skillTarget">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TARGET" />
+			<xs:enumeration value="TARGET_SELF" />
+			<xs:enumeration value="SELF" />
+			<xs:enumeration value="LOCATION" />
+		</xs:restriction>
+	</xs:simpleType>
 	
 	<xs:simpleType name="skillId">
 		<xs:restriction base="xs:int">
