@@ -45,7 +45,32 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 		itemName.getItemList(itemId);
 		itemNameId = itemName.getItemNameId();
 
-		slot = 8;
+		ItemList itemSlot = new ItemList();
+
+		itemSlot.getItemList(itemId);
+		String slotName = itemSlot.getEquipmentSlots();
+	
+		char test = slotName.charAt(0);
+		boolean isAnInt= test>='0' && test<='9';
+	
+		if (isAnInt){
+			slot = Integer.parseInt(slotName);
+			if (slot==5) {
+				slot = 1; // or 2 weapon
+			}
+			if (slot==6) {
+				slot = 8192;//or 16384 power shard
+			}
+			if (slot==7) {
+				slot = 256;// 512 rings
+			}
+			if (slot==9) {
+				slot = 64;// 128 earrings
+			}
+		} else {
+			slot = 0;
+		}
+
 		// something wrong with cube part.
 
 		writeC(buf, 1); // TRUE/FALSE (1/0) update cube size
@@ -61,14 +86,29 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 		writeD(buf, itemNameId); // item name id
 		writeH(buf, 0); //always 0
 
-		writeH(buf, 22); //lenght of item details
 
+
+		writeH(buf, 22); //lenght of item details
+if (slot == 0) {
+		writeC(buf, 0x00);
+		writeH(buf, 0x23E3);
+		writeD(buf, itemQuanty);
+		writeD(buf, 0);	
+		writeD(buf, 0);	
+		writeD(buf, 0);	
+		writeD(buf, 0);	
+		writeD(buf, 0);	
+		writeD(buf, 0);	
+		writeD(buf, 0);	
+		writeH(buf, 0);	
+}
+if (slot > 0) {
 		//item details block//
 
 		writeC(buf, 0x02); // equiped data follows
 
 		writeC(buf, 0x00);
-		writeC(buf, slot); // where this can be equiped. or whatever
+		writeC(buf, 8); // where this can be equiped. or whatever
 		writeH(buf, 0);
 
 		//---------------
@@ -126,6 +166,7 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 		writeC(buf, 0);
 
 		///details block end/// 
+}
 		writeC(buf, 24); // location in inventory -?
 		writeC(buf, 0); //
 		writeC(buf, 0); // sometimes 0x01
