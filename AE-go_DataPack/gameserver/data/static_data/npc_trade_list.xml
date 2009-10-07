@@ -8,10 +8,16 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203526" name="Ungfu" count="1" listId0="265">
 	</tradelist_template>
+	<tradelist_template npc_id="203527" name="Minu" count="1" listId0="29">
+	</tradelist_template>
+	<tradelist_template npc_id="203528" name="Wiokan" count="1" listId0="31">
+	</tradelist_template>	
 	<tradelist_template npc_id="203529" name="Jurwen" count="1" listId0="30">
 	</tradelist_template>
 	<tradelist_template npc_id="203530" name="Kirhen" count="1" listId0="32">
 	</tradelist_template>
+	<tradelist_template npc_id="203542" name="Denma" count="1" listId0="264">
+	</tradelist_template>	
 	<tradelist_template npc_id="798038" name="Crizpinerk" count="1" listId0="264">
 	</tradelist_template>	
 	
@@ -23,7 +29,13 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203060" name="Mune" count="4" listId0="261" listId1="262" listId2="263" listId3="454">
 	</tradelist_template>
+	<tradelist_template npc_id="203080" name="Lonian" count="1" listId0="264">
+	</tradelist_template>
+	<tradelist_template npc_id="203087" name="Kunandes" count="1" listId0="29">
+	</tradelist_template>	
 	<tradelist_template npc_id="203089" name="Esera" count="1" listId0="30">
+	</tradelist_template>
+	<tradelist_template npc_id="203088" name="Gilden" count="1" listId0="31">
 	</tradelist_template>
 	<tradelist_template npc_id="203090" name="Kagas" count="1" listId0="32">
 	</tradelist_template>
