@@ -21,10 +21,11 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.configs.Config;
 
 /**
  * @author ATracer
- *
+ * @author alexa026
  */
 public class StatFunctions
 {
@@ -46,8 +47,8 @@ public class StatFunctions
 		int baseXP = targetLevel * 80;
 		
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
-
-		return (int) Math.floor(baseXP * xpPercentage / 100);
+		
+		return (int) Math.floor(baseXP * xpPercentage * Config.EXP_RATE / 100);
 	}
 	
 	/**

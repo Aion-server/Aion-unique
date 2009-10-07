@@ -110,6 +110,12 @@ public class Config
 	@Property(key = "gameserver.mode",defaultValue = "1")
 	public static int				SERVER_MODE;
 	
+	/*
+	 * Exp Rate
+	 */
+	@Property(key = "ExpRate",defaultValue = "1")
+	public static int				EXP_RATE;
+	
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
 	 */
