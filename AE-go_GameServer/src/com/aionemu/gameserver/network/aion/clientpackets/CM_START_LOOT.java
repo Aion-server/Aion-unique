@@ -100,12 +100,7 @@ public class CM_START_LOOT extends AionClientPacket
 		if (playerGameStats.getItemId() == 0)
 		{
 			if (totalItemsCount == 0) {
-				//if no item is found for that mob, give item
-				int randomKinah = generator.nextInt(100)+1;
-				playerGameStats.setItemId(100000530);
-				playerGameStats.setItemCount(1);
-				sendPacket(new SM_LOOT_ITEMLIST(targetObjectId, 100000530, 1, 100, 1, 0));
-				sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
+				//if no drops is found for that monster do nothing?
 			} else {
 				int itemId = 1;
 				int itemMin = 1;
