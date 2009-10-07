@@ -29,7 +29,7 @@ import com.aionemu.gameserver.model.quests.QuestState;
 public class TakeItemOperation extends QuestOperation
 {
 
-	private static final String NAME = "give_item";
+	private static final String NAME = "take_item";
 	@SuppressWarnings("unused")
 	private static int itemCount;
 	@SuppressWarnings("unused")
