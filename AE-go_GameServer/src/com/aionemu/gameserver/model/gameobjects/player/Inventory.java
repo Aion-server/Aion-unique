@@ -94,7 +94,7 @@ public class Inventory
 	}
 
 	public void getEquipedItemsFromDb(int activePlayer) {
-		PreparedStatement ps10 = DB.prepareStatement("SELECT `itemUniqueId`,`itemId`, `slot` FROM `inventory` WHERE `isEquiped`='1' AND `itemOwner`=" + activePlayer); //  
+		PreparedStatement ps10 = DB.prepareStatement("SELECT `itemUniqueId`,`itemId`, `slot` FROM `inventory` WHERE `isEquiped`='1' AND `itemOwner`=" + activePlayer + " ORDER BY `slot` DESC"); //  
 		try
 		{
 			ResultSet rs = ps10.executeQuery();

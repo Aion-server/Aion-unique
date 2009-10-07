@@ -121,7 +121,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_SELL_ITEM.class, 0x37, idSet);//1.5.x
 		addPacketOpcode(SM_DELETE_ITEM.class, 0x15, idSet);//1.5.x
 		addPacketOpcode(SM_UPDATE_ITEM.class, 0x14, idSet);//1.5.x
-		//addPacketOpcode(SM_SHOW_ITEM.class, 0xFD, idSet);	//1.5.x
+		addPacketOpcode(SM_UPDATE_PLAYER_APPEARANCE.class, 0x1D, idSet);	//1.5.x
 
 		addPacketOpcode(SM_LEVEL_UPDATE.class, 0x3f, idSet);//1.5.x
 		

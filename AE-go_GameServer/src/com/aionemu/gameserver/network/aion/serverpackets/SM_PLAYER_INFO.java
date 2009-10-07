@@ -21,13 +21,14 @@ import java.nio.ByteBuffer;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
  * This packet is displaying visible players.
  * 
- * @author -Nemesiss-, AEJTester
+ * @author -Nemesiss-, Avol
  * 
  */
 public class SM_PLAYER_INFO extends AionServerPacket
@@ -95,64 +96,45 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeC(buf, 0x00);// unk (0x00)
 		writeC(buf, 0x00);// unk (0x00)
 		writeC(buf, 0x00);// unk (0x00)
-		writeH(buf, 0x1009);// items count!!
 
-		switch (pcd.getPlayerClass().getClassId())
-		{
-			case 0: //WARRIOR
-				writeD(buf, 100000094);// item id - Mace for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-				// 2
-				writeD(buf, 110500003);// item id - Leather Armor for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-				// 3
-				writeD(buf, 113500001);// item id - Leather Leg Armor for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-			break;
-			case 3: //SCOUT
-				writeD(buf, 100200112);// item id - Mace for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-				// 2
-				writeD(buf, 110300015);// item id - Leather Armor for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-				// 3
-				writeD(buf, 113300005);// item id - Leather Leg Armor for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-			break;
-			case 6: //MAGE
-				writeD(buf, 100600034);// item id - Mace for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-				// 2
-				writeD(buf, 110100009);// item id - Leather Armor for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-				// 3
-				writeD(buf, 113100005);// item id - Leather Leg Armor for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-			break;
-			case 9: //PRIEST
-				writeD(buf, 100100011);// item id - Mace for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-				// 2
-				writeD(buf, 110300292);// item id - Leather Armor for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-				// 3
-				writeD(buf, 113300278);// item id - Leather Leg Armor for Practice
-				writeD(buf, 0x00);// unk
-				writeD(buf, 0x00);// unk
-			break;
-		}	
+		Inventory equipedItems = new Inventory();
+		equipedItems.getEquipedItemsFromDb(player.getObjectId());
+		int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
+		
+		int itemsCount = 0;
+		int row = 0;
+		while (totalEquipedItemsCount > 0) {
+			int slot = equipedItems.getEquipedItemSlotArray(row);
+			if (slot==5) {
+				slot = 1; // or 2 weapon
+			}
+			if (slot==6) {
+				slot = 8192;//or 16384 power shard
+			}
+			if (slot==7) {
+				slot = 256;// 512 rings
+			}
+			if (slot==9) {
+				slot = 64;// 128 earrings
+			}
+			itemsCount = itemsCount + slot;
+			totalEquipedItemsCount = totalEquipedItemsCount-1;
+			row+=1;
+		}
+	
+		writeH(buf, itemsCount);// // items count
 
+		totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
+
+		row = 0;
+		while (totalEquipedItemsCount > 0) {
+			writeD(buf, equipedItems.getEquipedItemIdArray(row));// item id
+			writeD(buf, 0x00);// unk
+			writeD(buf, 0x00);// color code
+			totalEquipedItemsCount = totalEquipedItemsCount-1;
+			row+=1;
+		}
+			
 		writeD(buf, playerAppearance.getSkinRGB());
 		writeD(buf, playerAppearance.getHairRGB());
 		// 1.5.x EyeColor before LipColor

@@ -23,6 +23,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
 import com.aionemu.gameserver.model.gameobjects.player.ItemList;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
@@ -56,6 +57,7 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{	
+
 
 	/*	
 	slots
@@ -127,13 +129,17 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 			if (isEquiped==1) {
 				inventory.putIsEquipedToDb(unequipItemUniqueId, 0, 0);
 				sendPacket(new SM_UPDATE_ITEM(0, 1, unequipItemUniqueId));
-
+				
 				inventory.putIsEquipedToDb(itemUniqueId, 1, slot);
 				sendPacket(new SM_UPDATE_ITEM(slot, action, itemUniqueId));
+
+				sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
 			}
 			if (isEquiped==0) {
 				inventory.putIsEquipedToDb(itemUniqueId, 1, slot);
 				sendPacket(new SM_UPDATE_ITEM(slot, action, itemUniqueId));
+				
+				sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
 			}
 		} else if (action==1) {
 			inventory.getInventoryFromDb(activeplayer);
@@ -151,6 +157,7 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 			if (totalItemsCount<=allowItemsCount) {
 				inventory.putIsEquipedToDb(itemUniqueId, 0, 0);
 				sendPacket(new SM_UPDATE_ITEM(0, 1, itemUniqueId));
+				sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
 			}
 		}
 		
