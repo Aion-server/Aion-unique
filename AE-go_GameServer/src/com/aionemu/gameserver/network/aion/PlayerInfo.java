@@ -23,7 +23,6 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
-import com.aionemu.gameserver.model.gameobjects.player.PlayerItems;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 
@@ -43,7 +42,7 @@ public abstract class PlayerInfo extends AionServerPacket
 	}
 
 
-	protected void writePlayerInfo(ByteBuffer buf, PlayerAccountData accPlData, PlayerItems playerItems)
+	protected void writePlayerInfo(ByteBuffer buf, PlayerAccountData accPlData)
 	{
 		PlayerCommonData pbd = accPlData.getPlayerCommonData();
 		final int raceId = pbd.getRace().getRaceId();

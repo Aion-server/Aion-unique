@@ -46,7 +46,6 @@ public class Player extends Creature
 	private PlayerCommonData	playerCommonData;
 	private MacroList			macroList;
 	private SkillList			skillList;
-	private PlayerItems			playeritems;
 	private FriendList			friendList;
 	private BlockList			blockList;
 	private ResponseRequester	requester;
@@ -195,17 +194,6 @@ public class Player extends Creature
 		this.blockList = list;
 	}
 
-	
-	public PlayerItems getItems()
-	{
-		return playeritems;
-	}
-	
-	public void setItems(PlayerItems playeritems)
-	{
-		this.playeritems = playeritems;
-	}
-	
 	/**
 	 * @return the playerLifeStats
 	 */

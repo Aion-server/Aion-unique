@@ -18,11 +18,7 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-
-import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.dao.PlayerItemsDAO;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
-import com.aionemu.gameserver.model.gameobjects.player.PlayerItems;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.PlayerInfo;
 
@@ -91,33 +87,7 @@ public class SM_CREATE_CHARACTER extends PlayerInfo
 
 		if(responseCode == RESPONSE_OK)
 		{
-			PlayerItems playerItems = new PlayerItems();
-			switch (player.getPlayerCommonData().getPlayerClass().getClassId())
-			{
-				case 0: //WARRIOR
-					playerItems.setRshard(100000094);// item id - Mace for Practice
-					playerItems.setArmor(110500003);// item id - Leather Armor for Practice
-					playerItems.setPants(113500001);// item id - Leather Leg Armor for Practice
-				break;
-				case 3: //SCOUT		
-					playerItems.setRshard(100200112);// item id - Mace for Practice
-					playerItems.setArmor(110300015);// item id - Leather Armor for Practice
-					playerItems.setPants(113300005);// item id - Leather Leg Armor for Practice
-				break;
-				case 6: //MAGE
-					playerItems.setRshard(100600034);// item id - Mace for Practice
-					playerItems.setArmor(110100009);// item id - Leather Armor for Practice
-					playerItems.setPants(113100005);// item id - Leather Leg Armor for Practice	
-				break;
-				case 9: //PRIEST			
-					playerItems.setRshard(100100011);// item id - Mace for Practice					
-					playerItems.setArmor(110300292);// item id - Leather Armor for Practice
-					playerItems.setPants(113300278);// item id - Leather Leg Armor for Practice		
-				break;
-			}
-			DAOManager.getDAO(PlayerItemsDAO.class).addStartingItems(player.getPlayerCommonData(),playerItems);
-			playerItems=DAOManager.getDAO(PlayerItemsDAO.class).loadItems(player.getPlayerCommonData().getPlayerObjId());
-			writePlayerInfo(buf, player, playerItems); // if everything is fine, all the character's data should be sent
+			writePlayerInfo(buf, player); // if everything is fine, all the character's data should be sent
 		}
 		else
 		{
