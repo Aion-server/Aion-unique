@@ -118,11 +118,9 @@ public class CM_START_LOOT extends AionClientPacket
 					itemMin = dropData.getDropDataMin(row);
  					itemMax = dropData.getDropDataMax(row);
  					itemChance = dropData.getDropDataChance(row); 
+
 					//this count chance should be remade
-					randomCountChance = generator.nextInt(itemMax);
-					if (randomCountChance < itemMin) {
-						randomCountChance = itemMin;
-					} 
+					randomCountChance = (int)Math.random() * (itemMax - itemMin) + itemMin;
 					///////
 			
 					totalItemsCount = totalItemsCount-1;
