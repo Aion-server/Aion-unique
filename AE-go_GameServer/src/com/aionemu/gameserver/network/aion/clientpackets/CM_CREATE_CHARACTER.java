@@ -145,8 +145,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 		playerAppearance.setNeck(readC());
 		playerAppearance.setNeckLength(readC());
 
-		//playerAppearance.setShoulders(readC());
-		log.info("ShoulderSize: " + readC()); // 1.5.x May be Shoulders
+		playerAppearance.setShoulderSize(readC());
 		
 		playerAppearance.setTorso(readC());
 		playerAppearance.setChest(readC()); // only woman
@@ -154,15 +153,14 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 
 		playerAppearance.setHips(readC());
 		playerAppearance.setArmThickness(readC());
+		playerAppearance.setArmLength(readC());
 		playerAppearance.setHandSize(readC());
 		playerAppearance.setLegThicnkess(readC());
-
+		playerAppearance.setLegLength(readC()); //wrong??
 		playerAppearance.setFootSize(readC());
 		playerAppearance.setFacialRate(readC());
 
 		byte unk1 = (byte) readC(); // always 0
-		log.info ("ArmLength: " + readC()); // 1.5.x add ArmLength
-		log.info ("LegLength: " + readC()); // 1.5.x add LegLength
 		playerAppearance.setShoulders(readC()); // 1.5.x May be ShoulderSize
 		byte unk2 = (byte) readC(); // always 0
 		readC();
