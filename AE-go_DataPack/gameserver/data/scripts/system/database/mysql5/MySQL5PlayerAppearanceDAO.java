@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-emu <aion-emu.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  * aion-emu is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 /**
  * Class that is responsible for loading/storing {@link com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance} in mysql5
  * 
- * @author SoulKeeper, AEJTester
+ * @author SoulKeeper, AEJTester, srx47
  */
 public class MySQL5PlayerAppearanceDAO extends PlayerAppearanceDAO
 {
@@ -101,13 +101,16 @@ public class MySQL5PlayerAppearanceDAO extends PlayerAppearanceDAO
 				pa.setNeck(resultSet.getInt("neck"));
 				pa.setNeckLength(resultSet.getInt("neck_length"));
 				pa.setShoulders(resultSet.getInt("shoulders"));
+				pa.setShoulderSize(resultSet.getInt("shoulder_size"));
 				pa.setTorso(resultSet.getInt("torso"));
 				pa.setChest(resultSet.getInt("chest"));
 				pa.setWaist(resultSet.getInt("waist"));
 				pa.setHips(resultSet.getInt("hips"));
 				pa.setArmThickness(resultSet.getInt("arm_thickness"));
+				pa.setArmLength(resultSet.getInt("arm_length"));
 				pa.setHandSize(resultSet.getInt("hand_size"));
 				pa.setLegThicnkess(resultSet.getInt("leg_thickness"));
+				pa.setLegLength(resultSet.getInt("leg_length"));
 				pa.setFootSize(resultSet.getInt("foot_size"));
 				pa.setFacialRate(resultSet.getInt("facial_rate"));
 				pa.setVoice(resultSet.getInt("voice"));
@@ -153,10 +156,10 @@ public class MySQL5PlayerAppearanceDAO extends PlayerAppearanceDAO
 			+ "forehead, eye_height, eye_space, eye_width, eye_size, eye_shape, eye_angle,"
 			+ "brow_height, brow_angle, brow_shape, nose, nose_bridge, nose_width, nose_tip, "
 			+ "cheek, lip_height, mouth_size, lip_size, smile, lip_shape, jaw_height, chin_jut, ear_shape,"
-			+ "head_size, neck, neck_length, shoulders, torso, chest, waist, hips, arm_thickness, hand_size,"
-			+ "leg_thickness, foot_size, facial_rate, voice, height)" + " VALUES "
+			+ "head_size, neck, neck_length, shoulders, shoulder_size , torso, chest, waist, hips, arm_thickness, arm_length, hand_size,"
+			+ "leg_thickness, leg_length, foot_size, facial_rate, voice, height)" + " VALUES "
 			+ "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
-			+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" + ")", new IUStH() {
+			+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?" + ")", new IUStH() {
 			@Override
 			public void handleInsertUpdate(PreparedStatement ps) throws SQLException
 			{
@@ -198,17 +201,20 @@ public class MySQL5PlayerAppearanceDAO extends PlayerAppearanceDAO
 				ps.setInt(35, pa.getNeck());
 				ps.setInt(36, pa.getNeckLength());
 				ps.setInt(37, pa.getShoulders());
-				ps.setInt(38, pa.getTorso());
-				ps.setInt(39, pa.getChest());
-				ps.setInt(40, pa.getWaist());
-				ps.setInt(41, pa.getHips());
-				ps.setInt(42, pa.getArmThickness());
-				ps.setInt(43, pa.getHandSize());
-				ps.setInt(44, pa.getLegThicnkess());
-				ps.setInt(45, pa.getFootSize());
-				ps.setInt(46, pa.getFacialRate());
-				ps.setInt(47, pa.getVoice());
-				ps.setFloat(48, pa.getHeight());
+				ps.setInt(38, pa.getShoulderSize());
+				ps.setInt(39, pa.getTorso());
+				ps.setInt(40, pa.getChest());
+				ps.setInt(41, pa.getWaist());
+				ps.setInt(42, pa.getHips());
+				ps.setInt(43, pa.getArmThickness());
+				ps.setInt(44, pa.getArmLength());
+				ps.setInt(45, pa.getHandSize());
+				ps.setInt(46, pa.getLegThicnkess());
+				ps.setInt(47, pa.getLegLength());
+				ps.setInt(48, pa.getFootSize());
+				ps.setInt(49, pa.getFacialRate());
+				ps.setInt(50, pa.getVoice());
+				ps.setFloat(51, pa.getHeight());
 				ps.execute();
 			}
 		});

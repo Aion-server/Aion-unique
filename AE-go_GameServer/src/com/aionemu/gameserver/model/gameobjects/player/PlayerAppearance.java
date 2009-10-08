@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-emu <aion-emu.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  * aion-emu is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,11 +19,10 @@ package com.aionemu.gameserver.model.gameobjects.player;
 
 /**
  * 
- * This class was very very very very very boring to write. Damn NC should die for making me spend 5 hours on writing
- * stupid saving/loading code for players. DIE, DIE, DIE!!!
  * 
- * @author SoulKeeper
+ * @author SoulKeeper, srx47
  */
+
 public class PlayerAppearance
 {
 
@@ -31,239 +30,56 @@ public class PlayerAppearance
 	 * Player's face
 	 */
 	private int	face;
-
-	/**
-	 * Player's hair
-	 */
 	private int	hair;
-
-	/**
-	 * Dunno what it is, we should ask Nemesiss
-	 */
 	private int	deco;
-
-	/**
-	 * Some pretty tattoo
-	 */
 	private int	tattoo;
-
-	/**
-	 * Skin color in rgb? Maybe we will manage to create some sexy lesbians ;)
-	 */
 	private int	skinRGB;
-
-	/**
-	 * With pink hair
-	 */
 	private int	hairRGB;
-
-	/**
-	 * Juicy lips
-	 */
 	private int	lipRGB;
-
-	/**
-	 * Oval face
-	 */
 	private int	eyeColor;
-	
-	/**
-	 * Eye color
-	 */
 	private int	faceShape;
-
-	/**
-	 * Nice forehead
-	 */
 	private int	forehead;
-
-	/**
-	 * Very very high eyes
-	 */
 	private int	eyeHeight;
-
-	/**
-	 * With big big eyes
-	 */
 	private int	eyeSpace;
-
-	/**
-	 * That are also wide
-	 */
 	private int	eyeWidth;
-
-	/**
-	 * Well, i said that they must be big?
-	 */
 	private int	eyeSize;
-
-	/**
-	 * And ronnd!!!!
-	 */
 	private int	eyeShape;
-
-	/**
-	 * With almost not noticable angle
-	 */
 	private int	eyeAngle;
-
-	/**
-	 * And hight brows
-	 */
 	private int	browHeight;
-
-	/**
-	 * That are paralel to the eyes
-	 */
 	private int	browAngle;
-
-	/**
-	 * and wavy
-	 */
 	private int	browShape;
-
-	/**
-	 * with small nose
-	 */
 	private int	nose;
-
-	/**
-	 * And almost unseen nose bridge
-	 */
 	private int	noseBridge;
-
-	/**
-	 * With verry narrow nose
-	 */
 	private int	noseWidth;
-
-	/**
-	 * and a bit tippy nose
-	 */
 	private int	noseTip;
-
-	/**
-	 * With flat cheks
-	 */
 	private int	cheek;
-
-	/**
-	 * Almost without lips
-	 */
 	private int	lipHeight;
-
-	/**
-	 * And biiiiig mout
-	 */
 	private int	mouthSize;
-
-	/**
-	 * And very small lips
-	 */
 	private int	lipSize;
-
-	/**
-	 * With pretty smile
-	 */
 	private int	smile;
-
-	/**
-	 * I said that hentai girls doesn't have lips!!!
-	 */
 	private int	lipShape;
-
-	/**
-	 * And also they don't have jaws :)
-	 */
 	private int	jawHeigh;
-
-	/**
-	 * Chin is not jutty
-	 */
 	private int	chinJut;
-
-	/**
-	 * And ears are hidden under the heair
-	 */
 	private int	earShape;
-
-	/**
-	 * Head is obiously big
-	 */
 	private int	headSize;
-
-	/**
-	 * Sexy thick neck
-	 */
 	private int	neck;
-
-	/**
-	 * Not to big, middle size
-	 */
 	private int	neckLength;
-
-	/**
-	 * Narrow shoulders
-	 */
 	private int	shoulders;
-
-	/**
-	 * Also not big torso
-	 */
+	private int	shoulderSize;
 	private int	torso;
-
-	/**
-	 * But very very very sexy tits!!!
-	 */
 	private int	chest;
-
-	/**
-	 * Sure that our hentai girl is perfect, she has 60 sm waist
-	 */
 	private int	waist;
-
-	/**
-	 * and 90 sm hips :)
-	 */
 	private int	hips;
-
-	/**
-	 * Not very thick arms
-	 */
 	private int	armThickness;
-
-	/**
-	 * And hands are cute, with with manicure
-	 */
+	private int	armLength;
 	private int	handSize;
-
-	/**
-	 * Sure that legs are without any cellulite
-	 */
 	private int	legThicnkess;
-
-	/**
-	 * European 36-38 size
-	 */
+	private int	legLength;
 	private int	footSize;
-
-	/**
-	 * With perfect dunno-what-it-is
-	 */
 	private int	facialRate;
-
-	/**
-	 * And extremely seductive voice
-	 */
 	private int	voice;
-	/**
-	 * And height
-	 */
 	private float	height;
 
-	// Thanks for reading my weird commens :D
-	// But this is so booooooooring to write javadoc to data holder
-	// ZZZZzzzzzZZZZZzzzzZZZZzzzz.....
 
 	/**
 	 * Returns character face
@@ -1022,6 +838,28 @@ public class PlayerAppearance
 	}
 
 	/**
+	 * Shoulder Size
+	 * 
+	 * @return shouldeerSize
+	 */
+	public int getShoulderSize()
+	{
+		return shoulderSize;
+	}
+
+	/**
+	 * Shoulder Size
+	 * 
+	 * @param shoulderSize
+	 *            shoulderSize
+	 */
+	public void setShoulderSize(int shoulderSize)
+	{
+		this.shoulderSize = shoulderSize;
+	}
+
+
+	/**
 	 * Torso
 	 * 
 	 * @return torso
@@ -1127,6 +965,27 @@ public class PlayerAppearance
 	}
 
 	/**
+	 * Returns arm length
+	 * 
+	 * @return arm length
+	 */
+	public int getArmLength()
+	{
+		return armLength;
+	}
+
+	/**
+	 * Sets arm length
+	 * 
+	 * @param armLength
+	 *            arm length
+	 */
+	public void setArmLength(int armLength)
+	{
+		this.armLength = armLength;
+	}
+
+	/**
 	 * Returns hand size
 	 * 
 	 * @return hand size
@@ -1166,6 +1025,27 @@ public class PlayerAppearance
 	public void setLegThicnkess(int legThicnkess)
 	{
 		this.legThicnkess = legThicnkess;
+	}
+
+	/**
+	 * Returns legs Length
+	 * 
+	 * @return leg Length
+	 */
+	public int getLegLength()
+	{
+		return legLength;
+	}
+
+	/**
+	 * Sets leg length
+	 * 
+	 * @param legLength
+	 *            leg length
+	 */
+	public void setLegLength(int legLength)
+	{
+		this.legLength = legLength;
 	}
 
 	/**
@@ -1252,5 +1132,4 @@ public class PlayerAppearance
 		this.height = height;
 	}
 
-	// Hurrrraaaaay! it's the end of the class :D :D :D :D :D
 }

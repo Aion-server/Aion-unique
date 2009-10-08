@@ -1,5 +1,5 @@
 /**
- * This file is part of aion-emu <aion-emu.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 /**
  * This packet is displaying visible players.
  * 
- * @author -Nemesiss-, Avol
+ * @author -Nemesiss-, Avol, srx47
  * 
  */
 public class SM_PLAYER_INFO extends AionServerPacket
@@ -178,9 +178,9 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeC(buf, playerAppearance.getHeadSize());
 		// 1.5.x 0x00, shoulderSize, armLength, legLength (BYTE) after HeadSize
 		writeC(buf, 0x00); // 0x00
-		writeC(buf, 0x01); // shoulderSize
-		writeC(buf, 0x01); // armLength
-		writeC(buf, 0x01); // legLength
+		writeC(buf, playerAppearance.getShoulderSize());
+		writeC(buf, playerAppearance.getArmLength());
+		writeC(buf, playerAppearance.getLegLength());
 
 		writeC(buf, playerAppearance.getNeck());
 		writeC(buf, playerAppearance.getNeckLength());
