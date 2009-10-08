@@ -84,7 +84,7 @@ public class NpcController extends CreatureController<Npc>
 			player.getLifeStats().reduceHp(damage);
 			npcGameStats.increateAttackCounter();
 		}
-		if(!player.getLifeStats().isAlive())
+		if(player.getLifeStats().isAlreadyDead())
 		{
 			getOwner().getNpcAi().stopTask();
 		}
@@ -140,8 +140,7 @@ public class NpcController extends CreatureController<Npc>
 		Npc npc = getOwner();
 		NpcLifeStats lifeStats = npc.getLifeStats();
 
-		//TODO resolve synchronization issue
-		if(!lifeStats.isAlive())
+		if(lifeStats.isAlreadyDead())
 		{
 			return false;
 		}

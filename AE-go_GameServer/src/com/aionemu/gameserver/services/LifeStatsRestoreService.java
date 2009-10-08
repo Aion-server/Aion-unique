@@ -36,9 +36,9 @@ public class LifeStatsRestoreService
 
 	private static final int DEFAULT_DELAY = 1500;
 	
-	private static final int HP_RESTORE_TICK = 7;
+	private static final int HP_RESTORE_TICK = 5;
 	
-	private static final int MP_RESTORE_TICK = 7;
+	private static final int MP_RESTORE_TICK = 5;
 
 	private static LifeStatsRestoreService instance = new LifeStatsRestoreService();
 	
@@ -54,7 +54,8 @@ public class LifeStatsRestoreService
 			@Override
 			public void run()
 			{				
-				if(lifeStats.getCurrentHp() == lifeStats.getMaxHp() || !lifeStats.isAlive())
+				
+				if(lifeStats.getCurrentHp() == lifeStats.getMaxHp() || lifeStats.isAlreadyDead())
 				{
 					lifeStats.cancelRestoreTask();
 				}
@@ -66,7 +67,7 @@ public class LifeStatsRestoreService
 				//TODO restore MP also
 			}
 			
-		}), 1500, DEFAULT_DELAY);
+		}), 1700, DEFAULT_DELAY);
 
 	}
 	

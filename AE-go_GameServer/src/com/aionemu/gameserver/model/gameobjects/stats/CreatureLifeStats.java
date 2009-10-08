@@ -73,11 +73,6 @@ public class CreatureLifeStats<T extends Creature>
 		return owner;
 	}
 
-	public boolean isAlive()
-	{
-		return currentHp > 0;
-	}
-
 	/**
 	 * @return the currentHp
 	 */
@@ -146,7 +141,7 @@ public class CreatureLifeStats<T extends Creature>
 	 * @return the alreadyDead
 	 * There is no setter method cause life stats should be completely renewed on revive
 	 */
-	protected boolean isAlreadyDead()
+	public boolean isAlreadyDead()
 	{
 		return alreadyDead;
 	}
@@ -161,25 +156,29 @@ public class CreatureLifeStats<T extends Creature>
 		synchronized(this)
 		{
 			int newHp = this.currentHp - value;
+			
 			if(newHp < 0)
 			{
 				this.currentHp = 0;
-				if(!isAlreadyDead())
+				if(!alreadyDead)
 				{
-					getOwner().getController().onDie();
 					alreadyDead = true;
 				}			
-				return 0;
 			}
 			this.currentHp = newHp;
+			
+			sendHpPacketUpdate();
+			
+			if(alreadyDead)
+			{
+				getOwner().getController().onDie();	
+			}
 		}	
 		
-		if(lifeRestoreTask == null)
+		if(lifeRestoreTask == null && !alreadyDead)
 		{
 			this.lifeRestoreTask = LifeStatsRestoreService.getInstance().scheduleRestoreTask(this);
 		}
-		
-		sendHpPacketUpdate();
 		
 		return currentHp;
 	}
@@ -209,6 +208,10 @@ public class CreatureLifeStats<T extends Creature>
 	{
 		synchronized(this)
 		{
+			if(isAlreadyDead())
+			{
+				return 0;
+			}
 			int newHp = this.currentHp + value;
 			if(newHp > maxHp)
 			{

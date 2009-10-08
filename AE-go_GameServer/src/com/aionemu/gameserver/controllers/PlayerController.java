@@ -50,6 +50,9 @@ import com.google.inject.Inject;
 public class PlayerController extends CreatureController<Player>
 {
 	private static Logger log = Logger.getLogger(PlayerController.class);
+	
+	// TEMP till player AI introduced
+	private Creature lastAttacker;
 
 	/**
 	 * {@inheritDoc}
@@ -88,6 +91,8 @@ public class PlayerController extends CreatureController<Player>
 	{
 		super.onDie();
 
+		//TODO probably introduce variable - last attack creature in player AI
+		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13 , lastAttacker.getObjectId()), true);
 		Player player = this.getOwner();
 		PacketSendUtility.sendPacket(player, new SM_DIE());
 		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
@@ -125,17 +130,13 @@ public class PlayerController extends CreatureController<Player>
 	public boolean onAttack(Creature creature)
 	{
 		super.onAttack(creature);
+		lastAttacker = creature;
 		
 		Player player = getOwner();
 		PlayerLifeStats lifeStats = player.getLifeStats();
 
-		if(!lifeStats.isAlive())
-		{
-			//TODO this is not correct - death emotion should have actual killer objectId, not the last attacked by
-			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(this.getOwner().getObjectId(), 13 , creature.getObjectId()), true);
-			return false;
-		}
-		return true;
+		return !lifeStats.isAlreadyDead();
+
 	}
 	
 	public void useSkill(int skillId)
