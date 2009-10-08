@@ -8,6 +8,7 @@ CREATE TABLE `player_appearance` (
   `skin_rgb` int(11) NOT NULL,
   `hair_rgb` int(11) NOT NULL,
   `lip_rgb` int(11) NOT NULL,
+  `eye_rgb` int(11) NOT NULL,
   `face_shape` int(11) NOT NULL,
   `forehead` int(11) NOT NULL,
   `eye_height` int(11) NOT NULL,
@@ -50,6 +51,5 @@ CREATE TABLE `player_appearance` (
   `facial_rate` int(11) NOT NULL,
   `voice` int(11) NOT NULL,
   `height` float NOT NULL,
-  `eye_rgb` int(11) NOT NULL,
   PRIMARY KEY (`player_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

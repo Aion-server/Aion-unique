@@ -103,7 +103,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 		playerAppearance.setVoice(readD());
 		playerAppearance.setSkinRGB(readD());
 		playerAppearance.setHairRGB(readD());
-		log.info("EyesColor: " + readD());
+		//log.info("EyesColor: " + readD());
 		playerAppearance.setLipRGB(readD());
 		playerAppearance.setEyeRGB(readD());
 		playerAppearance.setFace(readC());

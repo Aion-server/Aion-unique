@@ -36,7 +36,7 @@ public class PlayerAppearance
 	private int	skinRGB;
 	private int	hairRGB;
 	private int	lipRGB;	
-	private int eyeRGB;
+	private int	eyeRGB;
 	private int	eyeColor;
 	private int	faceShape;
 	private int	forehead;
