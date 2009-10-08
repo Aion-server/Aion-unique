@@ -42,6 +42,8 @@ public class CreatureLifeStats<T extends Creature>
 	
 	private int maxMp;
 	
+	private boolean alreadyDead = false;
+	
 	private Creature owner;
 	
 	private Future<?> lifeRestoreTask;
@@ -141,6 +143,15 @@ public class CreatureLifeStats<T extends Creature>
 	}
 	
 	/**
+	 * @return the alreadyDead
+	 * There is no setter method cause life stats should be completely renewed on revive
+	 */
+	protected boolean isAlreadyDead()
+	{
+		return alreadyDead;
+	}
+
+	/**
 	 *  This method is called whenever caller wants to absorb creatures's HP
 	 * @param value
 	 * @return
@@ -153,7 +164,11 @@ public class CreatureLifeStats<T extends Creature>
 			if(newHp < 0)
 			{
 				this.currentHp = 0;
-				getOwner().getController().onDie();
+				if(!isAlreadyDead())
+				{
+					getOwner().getController().onDie();
+					alreadyDead = true;
+				}			
 				return 0;
 			}
 			this.currentHp = newHp;

@@ -80,6 +80,8 @@ public class PlayerController extends CreatureController<Player>
 
 	/**
 	 * {@inheritDoc}
+	 * 
+	 *  Shoul only be triggered from one place (life stats)
 	 */
 	@Override
 	public void onDie()
@@ -129,8 +131,9 @@ public class PlayerController extends CreatureController<Player>
 
 		if(!lifeStats.isAlive())
 		{
+			//TODO this is not correct - death emotion should have actual killer objectId, not the last attacked by
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(this.getOwner().getObjectId(), 13 , creature.getObjectId()), true);
-			this.onDie();
+			return false;
 		}
 		return true;
 	}

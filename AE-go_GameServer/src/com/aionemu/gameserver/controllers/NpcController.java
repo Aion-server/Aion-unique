@@ -143,7 +143,6 @@ public class NpcController extends CreatureController<Npc>
 		//TODO resolve synchronization issue
 		if(!lifeStats.isAlive())
 		{
-			//TODO send action failed packet
 			return false;
 		}
 		

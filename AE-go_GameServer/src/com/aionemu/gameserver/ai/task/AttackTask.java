@@ -19,6 +19,7 @@ package com.aionemu.gameserver.ai.task;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AI;
+import com.aionemu.gameserver.ai.AIState;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 
@@ -73,6 +74,9 @@ public class AttackTask extends AiTask
 				e.printStackTrace();
 			}
 		}
+		
+		//TODO generalize getNpcAi method to getAi
+		((Npc)attacker).getNpcAi().setAiState(AIState.IDLE);
 	}
 	/* (non-Javadoc)
 	 * @see com.aionemu.gameserver.ai.task.AiTask#getPriority()
