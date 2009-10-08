@@ -13,11 +13,13 @@ echo.
 echo.
 echo  0)  English
 echo  1)  Spanish
+echo  2)  Russian
 echo.
 set langoption=0
 set /p langoption=Please select the language in which you want to display this application: 
 if /i %langoption%==0 goto CMDLoadLang
 if /i %langoption%==1 goto CMDLoadLang
+if /i %langoption%==2 goto CMDLoadLang
 goto langselect
 
 REM ############################################
@@ -27,6 +29,7 @@ REM ############################################
 :CMDLoadLang
 if /i %langoption%==0 set cmdLANG=enGB
 if /i %langoption%==1 set cmdLANG=esES
+if /i %langoption%==2 set cmdLANG=ruRU
 call lang\%cmdLANG%.bat
 
 REM ############################################

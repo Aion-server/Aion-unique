@@ -2,8 +2,13 @@
 <skill_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="skills.xsd">
 	<!--
+	<skill_template skill_id="169" name="Severe Strike I" type="CHANNELED"
+		handler="PDAM" target="TARGET" level="1" duration="1" cooldown="10000"
+		damage="40" />
+	-->
+	<!--
 		<skill_template skill_id="965" name="Healing Light I" type="CHANNELED"
-		handler="MDAM" target="TARGET" level="1" duration="2000" cooldown="1"
+		handler="MDAM" target="TARGET" level="1" duration="2000" cooldown="1000"
 		damage="93"/>
 	-->
 	<skill_template skill_id="975" name="Smite I" type="CHANNELED"
@@ -14,7 +19,7 @@
 		handler="MDAM" target="TARGET" level="1" duration="1" cooldown="1000"
 		damage="0" />
 	-->
-	<skill_template skill_id="1351" name="Flame Bolt I "
+	<skill_template skill_id="1351" name="Flame Bolt I"
 		type="CHANNELED" handler="MDAM" target="TARGET" level="1" duration="2000"
 		cooldown="1000" damage="61" />
 	<!--
@@ -23,5 +28,10 @@
 		cooldown="10000" damage="76"/>
 	-->
 	<skill_template skill_id="1801" name="Return" type="CHANNELED"
-		handler="MISC" target="SELF" level="1" duration="6000" />
+		handler="MISC" target="SELF" level="1" duration="6000" cooldown="1200" />
+	<!--Uses 1 bandage to recover your HP-->
+	<!--
+	<skill_template skill_id="1803" name="Bandage Heal" type="CHANNELED"
+		handler="MISC" target="SELF" level="1" duration="4000" cooldown="16000" />
+	-->
 </skill_data>
