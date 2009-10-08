@@ -78,7 +78,7 @@
 		                attack_speed="1.5"
 		                evasion="260" block="260" parry="260"
 		                main_hand_attack="19" main_hand_accuracy="318" main_hand_crit_rate="2"
-		                magic_accuracy="198" />
+		                magic_accuracy="228" />
 	</player_stats>
 
 	<player_stats class="TEMPLAR" level="30">
