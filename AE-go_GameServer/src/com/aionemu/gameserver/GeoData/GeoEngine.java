@@ -1,4 +1,4 @@
-package jds.aion.gameserver.geodata;
+package com.aionemu.gameserver.GeoData;
 
 import org.apache.log4j.Logger;
 
