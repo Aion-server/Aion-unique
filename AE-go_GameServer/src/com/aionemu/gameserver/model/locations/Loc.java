@@ -18,9 +18,6 @@ package com.aionemu.gameserver.model.locations;
 
 import com.aionemu.gameserver.world.WorldMapType;
 
-/**
- * @author Blackmouse
- */
 public class Loc
 {
 	private float _x;
