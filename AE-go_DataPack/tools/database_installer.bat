@@ -136,7 +136,6 @@ echo LoginServer database
 echo GameServer database
 %MYG% < ../sql/gameserver/players.sql
 %MYG% < ../sql/gameserver/player_appearance.sql
-%MYG% < ../sql/gameserver/player_equipment.sql
 %MYG% < ../sql/gameserver/player_macrosses.sql
 %MYG% < ../sql/gameserver/player_skills.sql
 %MYG% < ../sql/gameserver/server_variables.sql

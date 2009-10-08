@@ -181,7 +181,6 @@ full_install()
 	echo "GameServer database"
 	$MYG < ../sql/gameserver/players.sql &> /dev/null
 	$MYG < ../sql/gameserver/player_appearance.sql &> /dev/null
-	$MYG < ../sql/gameserver/player_equipment.sql &> /dev/null
 	$MYG < ../sql/gameserver/player_macrosses.sql &> /dev/null
 	$MYG < ../sql/gameserver/player_skills.sql &> /dev/null
 	$MYG < ../sql/gameserver/server_variables.sql &> /dev/null
