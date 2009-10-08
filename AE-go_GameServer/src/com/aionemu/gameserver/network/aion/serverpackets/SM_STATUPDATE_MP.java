@@ -30,18 +30,18 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_STATUPDATE_MP extends AionServerPacket
 {
 
-	private int	currentHp;
-	private int	maxHp;
+	private int	currentMp;
+	private int	maxMp;
 
 	/**
 	 * 
 	 * @param currentHp
 	 * @param maxHp
 	 */
-	public SM_STATUPDATE_MP(int currentHp, int maxHp)
+	public SM_STATUPDATE_MP(int currentMp, int maxMp)
 	{
-		this.currentHp = currentHp;
-		this.maxHp = maxHp;
+		this.currentMp = currentMp;
+		this.maxMp = maxMp;
 	}
 
 	/**
@@ -50,8 +50,8 @@ public class SM_STATUPDATE_MP extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, currentHp);
-		writeD(buf, maxHp);
+		writeD(buf, currentMp);
+		writeD(buf, maxMp);
 	}
 
 }

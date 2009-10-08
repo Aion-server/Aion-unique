@@ -68,7 +68,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNK0A.class, -1, idSet);
 		addPacketOpcode(SM_VERSION_CHECK.class, 0xF9, idSet);
 		addPacketOpcode(SM_SYSTEM_MESSAGE.class, 0x30, idSet);
-		addPacketOpcode(SM_STATUPDATE_MP.class, 0xFD, idSet); // maybe update of item
+		addPacketOpcode(SM_STATUPDATE_MP.class, 0xFD, idSet);
 		addPacketOpcode(SM_STATUPDATE_HP.class, 0xFA, idSet); //0x12//need opcode for 1.5.x client
 		addPacketOpcode(SM_STATUPDATE_EXP.class, 0x01, idSet); // 1.5.x
 		addPacketOpcode(SM_STATUPDATE_DP.class, 0x17, idSet); // 0x17
