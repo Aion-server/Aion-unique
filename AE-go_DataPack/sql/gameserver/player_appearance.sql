@@ -36,7 +36,7 @@ CREATE TABLE `player_appearance` (
   `neck` int(11) NOT NULL,
   `neck_length` int(11) NOT NULL,
   `shoulders` int(11) NOT NULL,
-  `shouldersize` int(11) NOT NULL,
+  `shoulder_size` int(11) NOT NULL,
   `torso` int(11) NOT NULL,
   `chest` int(11) NOT NULL,
   `waist` int(11) NOT NULL,
