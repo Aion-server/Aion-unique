@@ -20,7 +20,7 @@ package com.aionemu.gameserver.model.gameobjects.player;
 /**
  * 
  * 
- * @author SoulKeeper, srx47
+ * @author SoulKeeper, srx47, alexa026
  */
 
 public class PlayerAppearance
@@ -35,7 +35,8 @@ public class PlayerAppearance
 	private int	tattoo;
 	private int	skinRGB;
 	private int	hairRGB;
-	private int	lipRGB;
+	private int	lipRGB;	
+	private int eyeRGB;
 	private int	eyeColor;
 	private int	faceShape;
 	private int	forehead;
@@ -207,6 +208,15 @@ public class PlayerAppearance
 	{
 		this.hairRGB = hairRGB;
 	}
+	public void setEyeRGB(int eyeRGB)
+		{
+			this.eyeRGB = eyeRGB;
+		}
+		
+		public int getEyeRGB()
+		{
+			return eyeRGB;
+		}
 
 	/**
 	 * Lips color.
@@ -230,23 +240,6 @@ public class PlayerAppearance
 	}
 
 
-	public void setEyeRGB(int eyeColor)
-	{
-		this.eyeColor = eyeColor;
-	}
-	
-	/**
-	 * Gets eye color, / | \.
-	 * 
-	 * @return eyeColor
-	 * 
-	 */
-	
-	public int getEyeRGB()
-	{
-		return eyeColor;
-	}
-	
 	/**
 	 * Returns face shape
 	 * 

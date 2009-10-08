@@ -35,8 +35,8 @@ public class SM_STATUPDATE_MP extends AionServerPacket
 
 	/**
 	 * 
-	 * @param currentHp
-	 * @param maxHp
+	 * @param currentMp
+	 * @param maxMp
 	 */
 	public SM_STATUPDATE_MP(int currentMp, int maxMp)
 	{

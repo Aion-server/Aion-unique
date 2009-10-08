@@ -137,7 +137,6 @@ public class SM_PLAYER_INFO extends AionServerPacket
 			
 		writeD(buf, playerAppearance.getSkinRGB());
 		writeD(buf, playerAppearance.getHairRGB());
-		// 1.5.x EyeColor before LipColor
 		writeD(buf, playerAppearance.getEyeRGB());
 		writeD(buf, playerAppearance.getLipRGB());
 		writeC(buf, playerAppearance.getFace());
