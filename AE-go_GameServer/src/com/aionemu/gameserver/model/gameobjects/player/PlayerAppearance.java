@@ -35,7 +35,7 @@ public class PlayerAppearance
 	private int	tattoo;
 	private int	skinRGB;
 	private int	hairRGB;
-	private int	lipRGB;	
+	private int	lipRGB;
 	private int	eyeRGB;
 	private int	eyeColor;
 	private int	faceShape;
@@ -208,15 +208,21 @@ public class PlayerAppearance
 	{
 		this.hairRGB = hairRGB;
 	}
+	/**
+	 * Eye colour
+	 */
 	public void setEyeRGB(int eyeRGB)
-		{
-			this.eyeRGB = eyeRGB;
-		}
-		
-		public int getEyeRGB()
-		{
-			return eyeRGB;
-		}
+	{
+		this.eyeRGB = eyeRGB;
+	}
+	
+	/**
+	 * Sets eye colour
+	 */
+	public int getEyeRGB()
+	{
+	return eyeRGB;
+	}
 
 	/**
 	 * Lips color.
