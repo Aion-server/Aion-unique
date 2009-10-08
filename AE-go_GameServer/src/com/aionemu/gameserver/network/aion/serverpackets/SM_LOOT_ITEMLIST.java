@@ -90,13 +90,12 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 					itemid = dropData.getDropDataItemId(row);
 				}
 				writeD(buf, itemid);
-				writeH(buf, count); //count
+				writeD(buf, count); //count
 				writeH(buf, 0);
 				writeC(buf, 0);
-				writeC(buf, 0);
 				row+=1;
-
 			}
+			writeH(buf, 0);
 		}
 
 	}	
