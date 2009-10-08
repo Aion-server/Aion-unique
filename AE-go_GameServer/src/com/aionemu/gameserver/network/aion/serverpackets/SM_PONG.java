@@ -23,14 +23,10 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 public class SM_PONG extends AionServerPacket
 {
-	private int val;
-					public SM_PONG(int val)
-					{
-						this.val = val;
-					}
-					@Override
-					protected void writeImpl(AionConnection con, ByteBuffer buf)
-					{
-						writeH(buf, val); // always 0 ? 
-					}
+		@Override	
+		protected void writeImpl(AionConnection con, ByteBuffer buf)
+		{
+		writeC(buf, 0x00);
+		writeC(buf, 0x00);
+		}
 }
