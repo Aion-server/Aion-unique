@@ -81,6 +81,16 @@
 		                magic_accuracy="228" />
 	</player_stats>
 
+	<player_stats class="TEMPLAR" level="17">
+		<stats_template maxHp="1452" maxMp="1351"
+						power="115" health="100" agility="100" accuracy="100" knowledge="90" will="105"
+						walk_speed="1.5" run_speed="6" fly_speed="9"
+						attack_speed="1.5"
+						evasion="272" block="272" parry="272"
+						main_hand_attack="19" main_hand_accuracy="326" main_hand_crit_rate="2"
+						magic_accuracy="242" />
+	</player_stats>
+
 	<player_stats class="TEMPLAR" level="30">
 		<stats_template maxHp="2903" maxMp="2264"
 		                power="115" health="100" agility="100" accuracy="100" knowledge="90" will="105"
