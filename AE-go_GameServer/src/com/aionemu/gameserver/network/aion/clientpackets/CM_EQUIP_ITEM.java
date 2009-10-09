@@ -125,21 +125,32 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 		int isEquiped = inventory.getIsEquiped();
 		int unequipItemUniqueId = inventory.getIsEquipedItemUniqueId();
 
+		ItemList itemLevel = new ItemList();
+		itemLevel.getItemList(inventory.getItemId());
+
 		if (action==0) {
 			if (isEquiped==1) {
-				inventory.putIsEquipedToDb(unequipItemUniqueId, 0, 0);
-				sendPacket(new SM_UPDATE_ITEM(0, 1, unequipItemUniqueId));
+				if (itemLevel.getLevel() <= activePlayer.getLevel()) {
+					inventory.putIsEquipedToDb(unequipItemUniqueId, 0, 0);
+					sendPacket(new SM_UPDATE_ITEM(0, 1, unequipItemUniqueId));
 				
-				inventory.putIsEquipedToDb(itemUniqueId, 1, slot);
-				sendPacket(new SM_UPDATE_ITEM(slot, action, itemUniqueId));
+					inventory.putIsEquipedToDb(itemUniqueId, 1, slot);
+					sendPacket(new SM_UPDATE_ITEM(slot, action, itemUniqueId));
 
-				sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
+					sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
+				} 
+				// show cannot equip packet or smth
 			}
+
+
 			if (isEquiped==0) {
-				inventory.putIsEquipedToDb(itemUniqueId, 1, slot);
-				sendPacket(new SM_UPDATE_ITEM(slot, action, itemUniqueId));
-				
-				sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
+				if (itemLevel.getLevel() <= activePlayer.getLevel()) {
+					inventory.getItemIdByUniqueItemId(itemUniqueId);
+					inventory.putIsEquipedToDb(itemUniqueId, 1, slot);
+					sendPacket(new SM_UPDATE_ITEM(slot, action, itemUniqueId));
+					sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
+				}
+				// show cannot equip packet or smth
 			}
 		} else if (action==1) {
 			inventory.getInventoryFromDb(activeplayer);
@@ -148,6 +159,10 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 			inventory.getEquipedItemsFromDb(activeplayer);
 			int totalEquipedItemsCount = inventory.getEquipedItemsCount();
 
+			//get item id by unique
+			
+
+			
 			totalItemsCount = totalItemsCount - totalEquipedItemsCount;
 			
 			int cubes = 1;
@@ -155,9 +170,10 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 			int allowItemsCount = cubesize*cubes-1;
 
 			if (totalItemsCount<=allowItemsCount) {
-				inventory.putIsEquipedToDb(itemUniqueId, 0, 0);
-				sendPacket(new SM_UPDATE_ITEM(0, 1, itemUniqueId));
-				sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
+					inventory.putIsEquipedToDb(itemUniqueId, 0, 0);
+					sendPacket(new SM_UPDATE_ITEM(0, 1, itemUniqueId));
+					sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
+				
 			}
 		}
 		

@@ -103,4 +103,8 @@ public class ItemList
 	public int getParry() {
 		return parry;
 	}
+	public int getLevel() {
+		return level;
+	}
+	
 }
