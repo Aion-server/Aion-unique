@@ -34,7 +34,33 @@ public class SM_VERSION_CHECK extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
+		if((Config.SERVER_MODE ==0)&&(Config.SERVER_COUNTRY_CODE ==1))
+		{
+            writeH(buf, 256);// unk
+            writeD(buf, 0);// unk
+            writeD(buf, 0);// unk
+            writeD(buf, 0);
+            writeD(buf, 90819);
+            writeD(buf, 1254913038);
+            writeC(buf, 0);
+            writeC(buf, 1);  //
+            writeC(buf, 0);
+            writeC(buf, 0x80);
+            writeC(buf, 0x36);
+            writeC(buf, 0xFE);
+            writeC(buf, 0xcd);
+            writeH(buf, 24138);
+            writeC(buf, 1);//
+            writeC(buf, 1);
+            writeC(buf, 0);
+            writeC(buf, 0);//0
+            writeD(buf, (int) (System.currentTimeMillis() / 1000));// ServerTime in seconds
 
+            writeC(buf, 1);
+            writeC(buf, 40);
+		}
+		else
+		{
 		writeH(buf, 0x0C00);// unk
 		writeD(buf, 0x15FFA);// unk
 		writeD(buf, 0x15FFA);// unk
@@ -60,6 +86,7 @@ public class SM_VERSION_CHECK extends AionServerPacket
 		writeD(buf, 0x0001015E);
 		writeD(buf, 0x9C7FCE00);
 		writeC(buf, 0xB0);
-		writeH(buf, 0x2801);		
+		writeH(buf, 0x2801);
+		}
 	}
 }
