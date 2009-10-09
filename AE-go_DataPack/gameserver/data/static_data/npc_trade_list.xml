@@ -35,6 +35,20 @@
 	<tradelist_template npc_id="203576" name="Nirmirn" count="1" listId0="143">
 	</tradelist_template>
 	
+	<!-- Pandaemonium -->
+	<tradelist_template npc_id="204177" name="Malfaisante" count="1" listId0="349">
+	</tradelist_template>
+	<tradelist_template npc_id="204184" name="Igsrun" count="4" listId0="270" listId1="271" listId2="272" listId3="273" >
+	</tradelist_template>
+	<tradelist_template npc_id="204205" name="Mareke" count="1" listId0="291">
+	</tradelist_template>
+	<tradelist_template npc_id="204204" name="Haink" count="1" listId0="286">
+	</tradelist_template>
+	<tradelist_template npc_id="798068" name="Maochinicherk" count="1" listId0="155">
+	</tradelist_template>
+	<tradelist_template npc_id="204183" name="Isdal" count="4" listId0="266" listId1="267" listId2="268" listId3="269" >
+	</tradelist_template>
+	
 	<!-- Poeta -->
 	<!-- Akarios Village -->
 	<tradelist_template npc_id="203061" name="Uno" count="1" listId0="265">
@@ -68,5 +82,19 @@
 	<tradelist_template npc_id="203108" name="Ispio" count="1" listId0="143">
 	</tradelist_template>
 	<tradelist_template npc_id="203130" name="Eradis" count="1" listId0="156">
+	</tradelist_template>
+	
+	<!-- Sanctum -->
+	<tradelist_template npc_id="203735" name="Himusus" count="1" listId0="394">
+	</tradelist_template>
+	<tradelist_template npc_id="203728" name="Evestina" count="4" listId0="149" listId1="150" listId2="151" listId3="152" >
+	</tradelist_template>
+	<tradelist_template npc_id="203733" name="Pulo" count="1" listId0="452">
+	</tradelist_template>
+	<tradelist_template npc_id="203734" name="Brantes" count="1" listId0="158">
+	</tradelist_template>
+	<tradelist_template npc_id="203736" name="Servillia" count="1" listId0="155">
+	</tradelist_template>
+	<tradelist_template npc_id="203727" name="Tunotos" count="4" listId0="145" listId1="146" listId2="147" listId3="148" >
 	</tradelist_template>
 </npc_trade_list>
