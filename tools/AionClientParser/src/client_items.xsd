@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+            jxb:version="2.1">
+
+	<xs:element name="client_items">
+	   <xs:complexType>
+		  <xs:sequence>
+			<xs:element name="client_item" type="ClientItem" minOccurs="1" maxOccurs="unbounded"/>
+		  </xs:sequence>
+	   </xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="ClientItem">
+	  <xs:sequence>
+		<xs:element name="id" type="xs:int"/>
+		<xs:element name="desc" type="xs:string"/>
+		<xs:element name="name" type="xs:string"/>
+		<xs:element name="weapon_type" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
