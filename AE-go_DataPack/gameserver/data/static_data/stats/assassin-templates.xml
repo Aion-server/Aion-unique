@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
 
+	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
 	<player_stats class="ASSASSIN" level="9">
 		<stats_template maxHp="612" maxMp="730"
 		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -8,9 +9,10 @@
 		                attack_speed="1.5"
 		                evasion="204" block="204" parry="204"
 		                main_hand_attack="19" main_hand_accuracy="282" main_hand_crit_rate="3"
-		                magic_accuracy="111" />
+		                magic_accuracy="128" />
 	</player_stats>
 
+	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
 	<player_stats class="ASSASSIN" level="10">
 		<stats_template maxHp="670" maxMp="800"
 		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -18,7 +20,7 @@
 		                attack_speed="1.5"
 		                evasion="217" block="217" parry="217"
 		                main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3"
-		                magic_accuracy="124" />
+		                magic_accuracy="142" />
 	</player_stats>
 
 	<player_stats class="ASSASSIN" level="11">
