@@ -50,7 +50,7 @@
 		                main_hand_attack="18" main_hand_accuracy="348" main_hand_crit_rate="3"
 		                magic_accuracy="198" />
 	</player_stats>
-	
+
 	<player_stats class="RANGER" level="17">
 		<stats_template maxHp="884" maxMp="1291"
 		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
@@ -60,7 +60,7 @@
 		                main_hand_attack="18" main_hand_accuracy="356" main_hand_crit_rate="3"
 		                magic_accuracy="210" />
 	</player_stats>
-	
+
 	<player_stats class="RANGER" level="18">
 		<stats_template maxHp="942" maxMp="1361"
 		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
@@ -70,7 +70,7 @@
 		                main_hand_attack="18" main_hand_accuracy="364" main_hand_crit_rate="3"
 		                magic_accuracy="223" />
 	</player_stats>
-	
+
 	<player_stats class="RANGER" level="19">
 		<stats_template maxHp="1002" maxMp="1431"
 		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
@@ -80,7 +80,7 @@
 		                main_hand_attack="18" main_hand_accuracy="372" main_hand_crit_rate="3"
 		                magic_accuracy="270" />
 	</player_stats>
-	
+
 	<player_stats class="RANGER" level="25">
 		<stats_template maxHp="1395" maxMp="1853"
 		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
@@ -90,7 +90,7 @@
 		                main_hand_attack="18" main_hand_accuracy="420" main_hand_crit_rate="3"
 		                magic_accuracy="356" />
 	</player_stats>
-	
+
 	<player_stats class="RANGER" level="26">
 		<stats_template maxHp="1466" maxMp="1923"
 		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
@@ -100,5 +100,4 @@
 		                main_hand_attack="18" main_hand_accuracy="428" main_hand_crit_rate="3"
 		                magic_accuracy="370" />
 	</player_stats>
-
 </stats_templates>
