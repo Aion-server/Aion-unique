@@ -45,5 +45,11 @@
 	<exp>49355480</exp> <!-- level 42 -->
 	<exp>57959880</exp> <!-- level 43 -->
 	<exp>64372369</exp> <!-- level 44 -->
-	<exp>70382402</exp> <!-- level 45 -->
+        <exp>70382402</exp> <!-- level 45 -->
+        <exp>80382402</exp> <!-- level 46 -->
+        <exp>90382402</exp> <!-- level 47 -->
+        <exp>100382403</exp> <!-- level 48 -->
+        <exp>111382404</exp> <!-- level 49 -->
+        <exp>112082405</exp> <!-- level 50 -->
+        <exp>113582406</exp> <!-- level 51 -->
 </player_experience_table>
