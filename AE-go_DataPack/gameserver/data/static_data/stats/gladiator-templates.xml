@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
 
+	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
 	<player_stats class="GLADIATOR" level="9">
 		<stats_template maxHp="814" maxMp="730"
 		                power="115" health="115" agility="100" accuracy="100" knowledge="90" will="90"
@@ -8,9 +9,10 @@
 		                attack_speed="1.5"
 		                evasion="173" block="173" parry="173"
 		                main_hand_attack="19" main_hand_accuracy="262" main_hand_crit_rate="2"
-		                magic_accuracy="111" />
+		                magic_accuracy="128" />
 	</player_stats>
 
+	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
 	<player_stats class="GLADIATOR" level="10">
 		<stats_template maxHp="885" maxMp="800"
 		                power="115" health="115" agility="100" accuracy="100" knowledge="90" will="90"
@@ -18,7 +20,7 @@
 		                attack_speed="1.5"
 		                evasion="186" block="186" parry="186"
 		                main_hand_attack="19" main_hand_accuracy="270" main_hand_crit_rate="2"
-		                magic_accuracy="124" />
+		                magic_accuracy="142" />
 	</player_stats>
 
 	<player_stats class="GLADIATOR" level="11">
