@@ -85,7 +85,9 @@ public class CM_EQUIP_ITEM extends AionClientPacket
  	
 	there are alot of other combinations like head+jacket+main hand etc.
 	*/
-	
+	final Player activePlayer = getConnection().getActivePlayer();
+	int activeplayer = activePlayer.getObjectId();
+
 	Inventory inventory = new Inventory();
 
 	inventory.getItemIdByUniqueItemId(itemUniqueId);
@@ -102,24 +104,51 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 	if (isAnInt){
 		slot = Integer.parseInt(slotName);
 		if (slot==5) {
-			slot = 1; // or 2 weapon
+			inventory.getIsEquipedFromDb(activeplayer, 1);
+			int isEquiped = inventory.getIsEquiped();
+			if (isEquiped == 1){
+				slot = 2;
+			} else {
+				slot = 1;
+			}
+			// 1, 2 weapon
 		}
 		if (slot==6) {
-			slot = 8192;//or 16384 power shard
+			inventory.getIsEquipedFromDb(activeplayer, 8192);
+			int isEquiped = inventory.getIsEquiped();
+			if (isEquiped == 1){
+				slot = 16384;
+			} else {
+				slot = 8192;
+			}
+			//8192, 16384 power shards
 		}
 		if (slot==7) {
-			slot = 256;// 512 rings
+			inventory.getIsEquipedFromDb(activeplayer, 256);
+			int isEquiped = inventory.getIsEquiped();
+			if (isEquiped == 1){
+				slot = 512;
+			} else {
+				slot = 256;
+			}
+			// 256, 512 rings
 		}
 		if (slot==9) {
-			slot = 64;// 128 earrings
+			inventory.getIsEquipedFromDb(activeplayer, 54);
+			int isEquiped = inventory.getIsEquiped();
+			if (isEquiped == 1){
+				slot = 128;
+			} else {
+				slot = 64;
+			}
+			// 128, 64 earrings
 		}
 	} else {
 		slot = 0;
 	}
 	
 
-		final Player activePlayer = getConnection().getActivePlayer();
-		int activeplayer = activePlayer.getObjectId();
+
 
 		inventory.getIsEquipedFromDb(activeplayer, slot);
 		int isEquiped = inventory.getIsEquiped();
