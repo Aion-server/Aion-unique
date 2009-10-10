@@ -19,7 +19,7 @@ package com.aionemu.gameserver.model.gameobjects.stats;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
- * @author ATracer
+ * @author ATracer, Avol
  *
  */
 public class PlayerGameStats extends CreatureGameStats<Player>
@@ -27,7 +27,9 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 	private int itemId; //TODO remove
 	private int itemNameId; //TODO remove
 	private int itemCount; //todo remove
-
+	private int itemIdArray[];
+	private int itemIdArrayLenght;
+	private int itemCountArray[];
 	public PlayerGameStats()
 	{
 		super();
@@ -48,6 +50,47 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 	{
 		this.itemId = itemId;
 	}
+
+	/**
+	 * @param itemIdArray the itemIdArray to set
+	 */
+	public void setItemIdArrayLenght(int lenght)
+	{
+		this.itemIdArray = new int[lenght];
+		this.itemCountArray = new int[lenght];
+		this.itemIdArrayLenght = lenght;
+	}
+
+	public void setItemIdArray(int itemId,int arrayRow)
+	{
+		this.itemIdArray[arrayRow] = itemId;
+	}
+
+	public void setItemCountArray(int count,int arrayRow)
+	{
+		this.itemCountArray[arrayRow] = count;
+	}
+
+	public int getItemIdArray(int arrayRow)
+	{
+		return itemIdArray[arrayRow];
+	}
+
+	public int getItemCountArray(int arrayRow)
+	{
+		return itemCountArray[arrayRow];
+	}
+
+
+	public int getArrayLenght()
+	{
+		return itemIdArrayLenght;
+	}
+
+
+
+
+
 
 	/**
 	 * @return the itemNameId

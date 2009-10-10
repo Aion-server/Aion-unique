@@ -38,7 +38,7 @@ public class CM_LOOT_ITEM extends AionClientPacket
 
 	private int					targetObjectId;
 	private int					unk;
-
+	private int					itemIdArray;
 	public CM_LOOT_ITEM(int opcode)
 	{
 		super(opcode);
@@ -64,53 +64,43 @@ public class CM_LOOT_ITEM extends AionClientPacket
 		
 		Player player = getConnection().getActivePlayer();
 		int activePlayer = player.getObjectId();
-		int itemId = player.getGameStats().getItemId();
-		int count = player.getGameStats().getItemCount();
 
-		log.info(String.format("CM_LOOT_ITEM itemId: %s", itemId));
+		Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
+		itemsDbOfPlayerCount.getInventoryFromDb(activePlayer);
+		int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
+
+		Inventory equipedItems = new Inventory();
+		equipedItems.getEquipedItemsFromDb(activePlayer);
+		int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
+
+		int cubes = 1;
+		int cubesize = 27;
+		int allowItemsCount = cubesize*cubes-1;
+
+		totalItemsCount = totalItemsCount - totalEquipedItemsCount;	
 			
-		if (itemId==182400001){
-		 //Figure out packet to update kinah
-			Random generator = new Random();
-			int randomKinah = generator.nextInt(50)+1;
-			int randomUniqueId = generator.nextInt(99999999)+generator.nextInt(99999999)+99999999+99999999; // To prevent replacement of other item.
-		
-			//calculate how much kinah to send
+		if (totalItemsCount<=allowItemsCount){
+			Inventory items = new Inventory();
+			int newItemUniqueId;
+			int arrayLenght = player.getGameStats().getArrayLenght();
 
-			Inventory kina = new Inventory();
-			kina.getKinahFromDb(activePlayer);
-			int kinah = kina.getKinahCount();
-			int totalKinah = kinah + randomKinah;
-			//kina.putKinahToDb(activePlayer, totalKinah);
-			//sendPacket(new SM_UPDATE_ITEM(0, 2, 0));
-		
-		} else { 
-			Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
-			itemsDbOfPlayerCount.getInventoryFromDb(activePlayer);
-			int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
+			int a=0;
+			
+			while (arrayLenght > 0 ) {
+				itemIdArray = player.getGameStats().getItemIdArray(a);
+				int itemCountArray = player.getGameStats().getItemCountArray(a);
 
-			Inventory equipedItems = new Inventory();
-			equipedItems.getEquipedItemsFromDb(activePlayer);
-			int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
-
-			int cubes = 1;
-			int cubesize = 27;
-			int allowItemsCount = cubesize*cubes-1;
-
-			totalItemsCount = totalItemsCount - totalEquipedItemsCount;
-
-			if (totalItemsCount<=allowItemsCount){
-
-				Inventory items = new Inventory();
-				items.putItemToDb(activePlayer, itemId, count);
+				items.putItemToDb(activePlayer, itemIdArray, itemCountArray);
 				items.getLastUniqueIdFromDb();
-				int newItemUniqueId = items.getnewItemUniqueIdValue();
-					
-				sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, itemId, count, 1, 8));
-	
-				} else {
-				//todo show SM_INVENTORY_IS_FULL packet or smth.
+				newItemUniqueId = items.getnewItemUniqueIdValue();
+
+				sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, itemIdArray, itemCountArray, 1, 8));
+				arrayLenght--;
+				a++;
 			}
+			
+		} else {
+				//todo show SM_INVENTORY_IS_FULL packet or smth.
 		}
 	}
 }

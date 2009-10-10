@@ -103,7 +103,7 @@ public class CM_START_LOOT extends AionClientPacket
 				//if no item is found for that mob, give item
 				playerGameStats.setItemId(100000530);
 				playerGameStats.setItemCount(1);
-				sendPacket(new SM_LOOT_ITEMLIST(targetObjectId, 100000530, 1, 100, 1, 0));
+				sendPacket(new SM_LOOT_ITEMLIST(monsterId,targetObjectId, player));
 				sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
 			} else {
 				int itemId = 1;
@@ -123,11 +123,13 @@ public class CM_START_LOOT extends AionClientPacket
 					totalItemsCount = totalItemsCount-1;
 					playerGameStats.setItemId(itemId);
 					playerGameStats.setItemCount(randomCountChance);
+
 					row+=1;
 				}
+
 				totalItemsCount = dropData.getItemsCount();
 				if (totalItemsCount > 0) {
-					sendPacket(new SM_LOOT_ITEMLIST(targetObjectId, itemId, randomCountChance, itemChance, totalItemsCount, monsterId));
+					sendPacket(new SM_LOOT_ITEMLIST(monsterId,targetObjectId, player));
 					sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
 				}
 			}

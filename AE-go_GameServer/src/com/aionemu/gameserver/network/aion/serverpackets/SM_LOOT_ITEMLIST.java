@@ -18,14 +18,18 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.model.gameobjects.player.DropList;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import java.util.Random;
 
 /**
  * 
- * @author alexa026
+ * @author alexa026, Avol
  * 
  */
 public class SM_LOOT_ITEMLIST extends AionServerPacket
@@ -36,15 +40,20 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 	private int	itemChance;
 	private int	itemCount;
 	private int	monsterId;
+	private int	playerObjectId;
+	private int	chance[];
+	private int	droppedItemId[];
+	private int	droppedItemQuanty[];
+	Player player;
+	
 
-	public SM_LOOT_ITEMLIST(int targetObjectId, int itemid ,int quantyCount,int itemChance, int itemCount, int monster)
+	private static final Logger	log	= Logger.getLogger(SM_LOOT_ITEMLIST.class);
+
+	public SM_LOOT_ITEMLIST(int monsterId, int targetObjectId, Player player)
 	{
+		this.monsterId = monsterId;
 		this.targetObjectId = targetObjectId;
-		this.count = quantyCount;
-		this.itemid = itemid;
-		this.itemChance = itemChance;
-		this.itemCount = itemCount;
-		this.monsterId = monster;
+		this.player = player;
 	}
 
 	/**
@@ -54,49 +63,89 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{	
-		/*
-		writeD(buf, targetObjectId);
-		writeC(buf, 0x01); 
-		writeC(buf, 0x00);
-		writeC(buf, 0xc4);
-		writeC(buf, 0x68);
-		writeC(buf, 0xf7);
+		PlayerGameStats playerGameStats = player.getGameStats();	
 		
-		writeC(buf, 0x05);
-		writeC(buf, 0x01);
-		writeD(buf, 0x00);
-		writeC(buf, 0x00);
-		*/
-
-		int row = 0;
+		int itemid;
+		int itemChance = 1;
+		int itemMin;
+		int itemMax;
+		int count;
+		int droppedItemCount = 0;
 
 		DropList dropData = new DropList();
 		dropData.getDropList(monsterId);
+		itemCount = dropData.getItemsCount();
+
 		Random r = new Random();
-		int chance;
-		if (itemChance == 1) {
-			chance = 0;
-		} else {
-			chance = r.nextInt(itemChance-1);
-		}
 
-		if (chance == 0){
-			writeD(buf, targetObjectId);
-			writeH(buf, itemCount);
-			for(int i = 0; i < itemCount; i++)
-			{
-				if (monsterId != 0) {
+		chance = new int[500];
+		droppedItemId = new int[500];
+		droppedItemQuanty = new int[500];
 
-					itemid = dropData.getDropDataItemId(row);
-				}
-				writeD(buf, itemid);
-				writeD(buf, count); //count
-				writeH(buf, 0);
-				writeC(buf, 0);
-				row+=1;
+		int row = 0;
+		int arrayLenght = 0;
+		for(int i = 0; i < itemCount; i++)
+		{	
+			itemChance = dropData.getDropDataChance(row);
+
+			if (itemChance == 1) {
+				chance[row] = 0;
+			} else {
+				chance[row] = r.nextInt(itemChance); //itemChance-1
 			}
-			writeH(buf, 0);
+			if (chance[row]==0) {
+				arrayLenght++;
+			}
+			row++;
 		}
+		
+		playerGameStats.setItemIdArrayLenght(arrayLenght);
+		
 
+		row = 0;
+		for(int i = 0; i < itemCount; i++)
+		{	
+			if (chance[row] == 0) {
+				droppedItemCount++;
+				droppedItemId[droppedItemCount-1] = dropData.getDropDataItemId(row);
+
+				itemMin = dropData.getDropDataMin(row);
+				itemMax = dropData.getDropDataMax(row);
+
+				if (itemMax == 1) {
+					droppedItemQuanty[row] = 1;
+				} else {
+					int add = itemMax - itemMin;
+					int dropedQuanty = r.nextInt(add);
+					if (dropedQuanty > 0) {
+						dropedQuanty--;
+					}
+					droppedItemQuanty[row] = itemMin + dropedQuanty;
+				}
+
+				playerGameStats.setItemIdArray(dropData.getDropDataItemId(row),droppedItemCount-1);
+				playerGameStats.setItemCountArray(droppedItemQuanty[row],droppedItemCount-1);
+
+			}
+			
+			row++;
+		}
+			
+
+		writeD(buf, targetObjectId);
+		writeH(buf, droppedItemCount);
+
+		row = 0;
+
+		for(int i = 0; i < droppedItemCount; i++)
+		{
+			writeD(buf, droppedItemId[row]);
+			writeD(buf, droppedItemQuanty[row]); //count
+			writeH(buf, 0);
+			writeC(buf, 0);
+
+			row+=1;
+		}
+		writeH(buf, 0);
 	}	
 }
