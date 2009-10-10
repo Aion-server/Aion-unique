@@ -189,6 +189,12 @@ public class AccountController
 		{
 			return AionAuthResponse.INVALID_PASSWORD;
 		}
+		
+		// check for paswords beeing equals
+		if(account.getActivated() != 1)
+		{
+			return AionAuthResponse.INVALID_PASSWORD;
+		}
 
 		// If account expired
 		if(AccountTimeController.isAccountExpired(account))
@@ -282,6 +288,7 @@ public class AccountController
 		account.setName(name);
 		account.setPasswordHash(passwordHash);
 		account.setAccessLevel((byte) 0);
+		account.setActivated((byte) 1);
 
 		if(getAccountDAO().insertAccount(account))
 		{

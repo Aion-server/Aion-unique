@@ -45,6 +45,11 @@ public class Account
 	private byte		accessLevel;
 
 	/**
+	 * Account activated
+	 */
+	private byte		activated;
+
+	/**
 	 * last server visited by user -1 if none
 	 */
 	private byte		lastServer;
@@ -148,6 +153,27 @@ public class Account
 		this.accessLevel = accessLevel;
 	}
 
+	/**
+	 * Returns account activated
+	 *
+	 * @return access level of account
+	 */
+	public byte getActivated()
+	{
+		return activated;
+	}
+
+	/**
+	 * Sets access level of account
+	 *
+	 * @param accessLevel
+	 *            access level of account
+	 */
+	public void setActivated(byte activated)
+	{
+		this.activated = activated;
+	}
+	
 	/**
 	 * Returns last server that player visited
 	 *
