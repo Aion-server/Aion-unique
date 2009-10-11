@@ -19,6 +19,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
@@ -89,12 +90,22 @@ public class CM_LOOT_ITEM extends AionClientPacket
 			while (arrayLenght > 0 ) {
 				itemIdArray = player.getGameStats().getItemIdArray(a);
 				int itemCountArray = player.getGameStats().getItemCountArray(a);
+				if(itemIdArray == 182400001) {
+					//items.putKinahToDb(activePlayer, itemCountArray);
+					Inventory kinah2 = new Inventory();
+					kinah2.putKinahToDb(activePlayer, itemCountArray);
+					kinah2.getKinahFromDb(activePlayer);
+					int kinah = kinah2.getKinahCount();
+					int uniquedeId = 0;
+					sendPacket(new SM_INVENTORY_INFO(uniquedeId, 182400001, kinah, 1, 8));
+					sendPacket(new SM_LOOT_STATUS(uniquedeId,3));
+				} else {
+					items.putItemToDb(activePlayer, itemIdArray, itemCountArray);
+					items.getLastUniqueIdFromDb();
+					newItemUniqueId = items.getnewItemUniqueIdValue();
 
-				items.putItemToDb(activePlayer, itemIdArray, itemCountArray);
-				items.getLastUniqueIdFromDb();
-				newItemUniqueId = items.getnewItemUniqueIdValue();
-
-				sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, itemIdArray, itemCountArray, 1, 8));
+					sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, itemIdArray, itemCountArray, 1, 8));
+				}
 				arrayLenght--;
 				a++;
 			}

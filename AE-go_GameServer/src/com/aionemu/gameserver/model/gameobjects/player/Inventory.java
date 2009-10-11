@@ -129,7 +129,7 @@ public class Inventory
 		}
 	}
 
-	public void getKinahFromDb(int activePlayer) {
+	public int getKinahFromDb(int activePlayer) {
 		PreparedStatement ps2 = DB.prepareStatement("SELECT `kinah` FROM `players` WHERE `id`=" + activePlayer);
 		try
 		{
@@ -145,6 +145,7 @@ public class Inventory
 		{
 			DB.close(ps2);
 		}
+		return activePlayer;
 	}
 
 	public void getIsEquipedFromDb(int activePlayer, int slot) {
@@ -236,7 +237,7 @@ public class Inventory
 	}
 
 	public void putKinahToDb(int activePlayer, int count) {
-		PreparedStatement ps3 = DB.prepareStatement("UPDATE `players` SET `kinah` = ? WHERE `id`= ? ");
+		PreparedStatement ps3 = DB.prepareStatement("UPDATE `players` SET `kinah` = kinah+? WHERE `id`= ? ");
 		try
 		{
 			ps3.setInt(1, count);
