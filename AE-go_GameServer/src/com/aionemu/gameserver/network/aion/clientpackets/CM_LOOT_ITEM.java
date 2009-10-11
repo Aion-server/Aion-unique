@@ -74,6 +74,7 @@ public class CM_LOOT_ITEM extends AionClientPacket
 		equipedItems.getEquipedItemsFromDb(activePlayer);
 		int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
 
+		int itemCountArray;
 		int cubes = 1;
 		int cubesize = 27;
 		int allowItemsCount = cubesize*cubes-1;
@@ -89,7 +90,7 @@ public class CM_LOOT_ITEM extends AionClientPacket
 			
 			while (arrayLenght > 0 ) {
 				itemIdArray = player.getGameStats().getItemIdArray(a);
-				int itemCountArray = player.getGameStats().getItemCountArray(a);
+				itemCountArray = player.getGameStats().getItemCountArray(a);
 				if(itemIdArray == 182400001) {
 					//items.putKinahToDb(activePlayer, itemCountArray);
 					Inventory kinah2 = new Inventory();
@@ -105,6 +106,7 @@ public class CM_LOOT_ITEM extends AionClientPacket
 					newItemUniqueId = items.getnewItemUniqueIdValue();
 
 					sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, itemIdArray, itemCountArray, 1, 8));
+					sendPacket(new SM_LOOT_STATUS(newItemUniqueId,3));
 				}
 				arrayLenght--;
 				a++;

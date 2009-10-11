@@ -113,18 +113,18 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 				itemMax = dropData.getDropDataMax(row);
 
 				if (itemMax == 1) {
-					droppedItemQuanty[row] = 1;
+					droppedItemQuanty[droppedItemCount-1] = 1;
 				} else {
 					int add = itemMax - itemMin;
 					int dropedQuanty = r.nextInt(add);
 					if (dropedQuanty > 0) {
 						dropedQuanty--;
 					}
-					droppedItemQuanty[row] = itemMin + dropedQuanty;
+					droppedItemQuanty[droppedItemCount-1] = itemMin + dropedQuanty;
 				}
 
-				playerGameStats.setItemIdArray(dropData.getDropDataItemId(row),droppedItemCount-1);
-				playerGameStats.setItemCountArray(droppedItemQuanty[row],droppedItemCount-1);
+				playerGameStats.setItemIdArray(dropData.getDropDataItemId(droppedItemCount-1),droppedItemCount-1);
+				playerGameStats.setItemCountArray(droppedItemQuanty[droppedItemCount-1],droppedItemCount-1);
 
 			}
 			
@@ -143,6 +143,8 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 			writeD(buf, droppedItemQuanty[row]); //count
 			writeH(buf, 0);
 			writeC(buf, 0);
+
+			log.info(String.format("item quanty: %s", droppedItemQuanty[row]));
 
 			row+=1;
 		}
