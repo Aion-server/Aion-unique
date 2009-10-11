@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.services;
 
+import java.util.concurrent.Future;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -37,12 +39,12 @@ public class DecayService
 
 	private static DecayService instance = new DecayService();
 	
-	public void scheduleDecayTask(final Npc npc)
+	public Future<?> scheduleDecayTask(final Npc npc)
 	{
 		final World world = npc.getActiveRegion().getWorld();
 		//TODO separate thread executor for decay/spawns
 		// or schedule separate decay runnable service with queue 
-		ThreadPoolManager.getInstance().schedule(new Runnable()
+		return ThreadPoolManager.getInstance().schedule(new Runnable()
 		{
 			@Override
 			public void run()

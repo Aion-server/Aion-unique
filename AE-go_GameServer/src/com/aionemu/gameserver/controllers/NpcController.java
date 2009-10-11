@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import java.util.concurrent.Future;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AIState;
@@ -28,7 +30,6 @@ import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.stats.StatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -47,6 +48,8 @@ public class NpcController extends CreatureController<Npc>
 {
 
 	private static Logger log = Logger.getLogger(NpcController.class);
+	
+	private Future<?> decayTask;
 
 	public void attackTarget(int targetObjectId)
 	{
@@ -108,9 +111,12 @@ public class NpcController extends CreatureController<Npc>
 		//TODO change - now reward is given to target only
 		Player target = (Player) this.getOwner().getTarget();
 		this.doReward(target);
-
-		RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
-		DecayService.getInstance().scheduleDecayTask(this.getOwner());
+		
+		if(decayTask == null)
+		{
+			RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
+			decayTask = DecayService.getInstance().scheduleDecayTask(this.getOwner());
+		}	
 		
 		//deselect target at the end
 		getOwner().setTarget(null);
@@ -123,6 +129,8 @@ public class NpcController extends CreatureController<Npc>
 	public void onRespawn()
 	{
 		super.onRespawn();
+		this.decayTask = null;
+		
 		this.getOwner().getNpcAi().setAiState(AIState.IDLE);
 		StatsTemplate statsTemplate = getOwner().getTemplate().getStatsTemplate();
 		this.getOwner().setLifeStats(new NpcLifeStats(statsTemplate.getMaxHp(),

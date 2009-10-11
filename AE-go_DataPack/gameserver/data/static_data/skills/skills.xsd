@@ -13,6 +13,9 @@
 	</xs:complexType>
 
 	<xs:complexType name="skillTemplate">
+		<xs:sequence>
+			<xs:element name="effects" type="Effects" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
 		<xs:attribute name="skill_id" type="skillId" use="required" />
 		<xs:attribute name="name" type="xs:string" use="required" />
 		<xs:attribute name="type" type="skillType" use="required" />
@@ -22,6 +25,17 @@
 		<xs:attribute name="target" type="skillTarget" use="required" />
 		<xs:attribute name="cooldown" type="xs:int" use="optional" default="0"/>
 		<xs:attribute name="damage" type="xs:int" use="optional" default="0"/>
+	</xs:complexType>
+	
+	<xs:complexType name="Effects" >
+		<xs:sequence>
+			<xs:element name="effect" type="Effect" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Effect" >
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="value" type="xs:string" use="required" />
 	</xs:complexType>
 	
 	<xs:simpleType name="skillType">
@@ -50,6 +64,8 @@
 			<xs:enumeration value="LOCATION" />
 		</xs:restriction>
 	</xs:simpleType>
+	
+	
 	
 	<xs:simpleType name="skillId">
 		<xs:restriction base="xs:int">

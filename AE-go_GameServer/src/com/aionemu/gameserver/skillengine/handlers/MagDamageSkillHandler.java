@@ -16,14 +16,20 @@
  */
 package com.aionemu.gameserver.skillengine.handlers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.SkillEffectData;
+import com.aionemu.gameserver.model.templates.SkillEffectTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
+import com.aionemu.gameserver.skillengine.effect.AbstractEffect;
+import com.aionemu.gameserver.skillengine.effect.SkillEffectType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.stats.StatFunctions;
 
 
 /**
@@ -48,13 +54,27 @@ public class MagDamageSkillHandler extends TemplateSkillHandler
         //TODO investigate unk
         int unk = 0;
         
-        int damage = StatFunctions.calculateMagicDamageToTarget(player, target, getSkillTemplate());
-        target.getLifeStats().reduceHp(damage);
+        Map<String, Integer> incluenceResult = new HashMap<String, Integer>();
+        
+        SkillEffectData skillEffectData = getSkillTemplate().getSkillEffectData();
+        if(skillEffectData != null)
+        {
+        	 for(SkillEffectTemplate effectTemplate : skillEffectData.getSkillEffects())
+             {
+             	AbstractEffect effect = SkillEffectType.getEffectByName(effectTemplate);
+             	//TODO player.onEffectInfluence(AbstractEffect)
+             	int result = effect.influence(player, target);
+             	log.error("putting into map: " + result + " " + effectTemplate.getName());
+             	incluenceResult.put(effectTemplate.getName(), result);
+             }
+        }
+
         target.getController().onAttack(player);
         
+        //TODO now spell ends after damage is done. 
         PacketSendUtility.broadcastPacket(player,
             new SM_CASTSPELL_END(player.getObjectId(), getSkillId(), getSkillTemplate().getLevel(),
-            	unk, target.getObjectId(), damage), true);
+            	unk, target.getObjectId(), incluenceResult.get(SkillEffectType.DAMAGE.getName())), true);
 	}
 
 	@Override
@@ -73,7 +93,8 @@ public class MagDamageSkillHandler extends TemplateSkillHandler
 		PacketSendUtility.broadcastPacket(player, 
 			new SM_CASTSPELL(player.getObjectId(), getSkillId(), getSkillTemplate().getLevel(),
 				unk, target.getObjectId(), getSkillTemplate().getDuration()), true);
-
+		
+		//TODO magic skill >1 lvl can be instant - check from template "type"
 		schedulePerformAction(player, getSkillTemplate().getDuration());
 	}
 

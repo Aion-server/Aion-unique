@@ -26,6 +26,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.templates.SkillTemplate;
 
 /**
@@ -36,6 +38,8 @@ import com.aionemu.gameserver.model.templates.SkillTemplate;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SkillData
 {
+	private static final Logger log = Logger.getLogger(SkillData.class);
+	
 	@XmlElement(name = "skill_template")
 	private List<SkillTemplate> skillTemplates;
 	/**
@@ -47,7 +51,7 @@ public class SkillData
 	{
 		for(SkillTemplate skillTempalte: skillTemplates)
 		{
-			skillData.put(skillTempalte.getSkillId(), skillTempalte);
+			skillData.put(skillTempalte.getSkillId(), skillTempalte);	
 		}
 	}
 	

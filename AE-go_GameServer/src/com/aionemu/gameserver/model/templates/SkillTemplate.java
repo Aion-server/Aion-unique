@@ -16,9 +16,12 @@
  */
 package com.aionemu.gameserver.model.templates;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -56,6 +59,9 @@ public class SkillTemplate
 	//TODO min/max damage
 	@XmlAttribute(name = "damage", required = false)
 	private int damage;
+	
+	@XmlElement(name = "effects")
+	private SkillEffectData skillEffectData;
 
 	/**
 	 * @return the skillId
@@ -127,5 +133,13 @@ public class SkillTemplate
 	public int getDamage()
 	{
 		return damage;
+	}
+
+	/**
+	 * @return the skillEffectData
+	 */
+	public SkillEffectData getSkillEffectData()
+	{
+		return skillEffectData;
 	}
 }
