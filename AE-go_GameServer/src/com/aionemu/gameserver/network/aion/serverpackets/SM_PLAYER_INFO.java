@@ -176,15 +176,12 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeC(buf, playerAppearance.getEarShape());
 		writeC(buf, playerAppearance.getHeadSize());
 		// 1.5.x 0x00, shoulderSize, armLength, legLength (BYTE) after HeadSize
-		writeC(buf, 0x00); // 0x00
-		writeC(buf, playerAppearance.getShoulderSize());
-		writeC(buf, playerAppearance.getArmLength());
-		writeC(buf, playerAppearance.getLegLength());
 
 		writeC(buf, playerAppearance.getNeck());
 		writeC(buf, playerAppearance.getNeckLength());
+		writeC(buf, playerAppearance.getShoulderSize());
+		
 
-		writeC(buf, playerAppearance.getShoulders());
 		writeC(buf, playerAppearance.getTorso());
 		writeC(buf, playerAppearance.getChest()); // only woman
 		writeC(buf, playerAppearance.getWaist());
@@ -196,10 +193,15 @@ public class SM_PLAYER_INFO extends AionServerPacket
 
 		writeC(buf, playerAppearance.getFootSize());
 		writeC(buf, playerAppearance.getFacialRate());
+		writeC(buf, playerAppearance.getVoice()); //maybe wrong voice
+		
+		writeC(buf, 0x00); // always 0
+		writeC(buf, playerAppearance.getArmLength());
+		writeC(buf, playerAppearance.getLegLength());
+		writeC(buf, playerAppearance.getShoulders());
+		writeC(buf, 0x00); // always 0
+		writeC(buf, 0x00); // 0x00
 
-		writeC(buf, 0x00); // always 0
-		writeC(buf, 0x00); // always 0
-		writeC(buf, playerAppearance.getVoice()); // voice
 		writeF(buf, playerAppearance.getHeight());
 
 		unk = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x80, (byte) 0x3E, (byte) 0x00, (byte) 0x00, (byte) 0x00,
