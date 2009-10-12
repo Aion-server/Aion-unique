@@ -123,7 +123,7 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 					droppedItemQuanty[droppedItemCount-1] = itemMin + dropedQuanty;
 				}
 
-				playerGameStats.setItemIdArray(dropData.getDropDataItemId(droppedItemCount-1),droppedItemCount-1);
+				playerGameStats.setItemIdArray(droppedItemId[droppedItemCount-1],droppedItemCount-1);
 				playerGameStats.setItemCountArray(droppedItemQuanty[droppedItemCount-1],droppedItemCount-1);
 
 			}

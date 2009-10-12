@@ -92,7 +92,6 @@ public class CM_LOOT_ITEM extends AionClientPacket
 				itemIdArray = player.getGameStats().getItemIdArray(a);
 				itemCountArray = player.getGameStats().getItemCountArray(a);
 				if(itemIdArray == 182400001) {
-					//items.putKinahToDb(activePlayer, itemCountArray);
 					Inventory kinah2 = new Inventory();
 					kinah2.putKinahToDb(activePlayer, itemCountArray);
 					kinah2.getKinahFromDb(activePlayer);
