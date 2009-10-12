@@ -122,8 +122,9 @@ public class AccountService
 		{
 			PlayerCommonData playerCommonData = playerDAO.loadPlayerCommonData(playerOid, world);
 			PlayerAppearance appereance = appereanceDAO.load(playerOid);
-
-			PlayerAccountData acData = new PlayerAccountData(playerCommonData, appereance);
+			
+			//TODO load Inventory from DB		
+			PlayerAccountData acData = new PlayerAccountData(playerCommonData, appereance, null);
 			playerDAO.setCreationDeletionTime(acData);
 
 			account.addPlayerAccountData(acData);

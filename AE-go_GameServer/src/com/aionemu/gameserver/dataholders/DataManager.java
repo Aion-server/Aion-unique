@@ -72,13 +72,13 @@ public final class DataManager
 	 */
 	public final PlayerStatsData		PLAYER_STATS_DATA;
 
-	private final ItemData				ITEM_DATA;
+	public static ItemData				ITEM_DATA;
 
 	/**
 	 * Player initial data table.<br />
 	 * Contains initial player settings.
 	 */
-	public final PlayerInitialData PLAYER_INITIAL_DATA;
+	public static PlayerInitialData PLAYER_INITIAL_DATA;
 	
 	/**
 	 * 

@@ -54,7 +54,7 @@ public class PlayerServiceTest
 
 		System.out.println("Testing PlayerService name validator.. ");
 
-		PlayerService playerService = new PlayerService(null, null,null);
+		PlayerService playerService = new PlayerService(null, null);
 		for(String name : names)
 		{
 			if(playerService.isValidName(name))

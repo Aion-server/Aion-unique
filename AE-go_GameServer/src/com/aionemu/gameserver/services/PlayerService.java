@@ -18,6 +18,7 @@
 package com.aionemu.gameserver.services;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -31,9 +32,13 @@ import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
-import com.aionemu.gameserver.dataholders.PlayerInitialData;
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.ItemType;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.MacroList;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
@@ -41,6 +46,7 @@ import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
@@ -70,15 +76,13 @@ public class PlayerService
 
 	private IDFactory					aionObjectsIDFactory;
 	private World						world;
-	private PlayerInitialData           playerInitialData;
 
 
 	@Inject
-	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, PlayerInitialData playerInitialData)
+	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
-		this.playerInitialData = playerInitialData;
 	}
 
 	/**
@@ -158,6 +162,10 @@ public class PlayerService
 		player.setFriendList(DAOManager.getDAO(FriendListDAO.class).load(player, world));
 		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player,world));
 		
+		//TODO populate inventory from database (DAO);
+		//Inventory inventory = DAOManager.getDAO(InventoryDAO.class).loadInventory(playerObjId);
+		player.setInventory(new Inventory());
+		
 		if(CacheConfig.CACHE_PLAYERS)
 			playerCache.put(playerObjId, player);	
 
@@ -174,19 +182,78 @@ public class PlayerService
 	public Player newPlayer(PlayerCommonData playerCommonData, PlayerAppearance playerAppearance)
 	{
 		// TODO values should go from template
-		LocationData ld = playerInitialData.getSpawnLocation(playerCommonData.getRace());
+		LocationData ld = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(playerCommonData.getRace());
 
 		WorldPosition position = world.createPosition(ld.getMapId(), ld.getX(), ld.getY(), ld.getZ(), ld.getHeading());
 
 		playerCommonData.setPosition(position);
 
 		// TODO: starting skills
-		// TODO: starting items;
+		
+		// Starting items
+		PlayerCreationData playerCreationData = 
+			DataManager.PLAYER_INITIAL_DATA.getPlayerCreationData(playerCommonData.getPlayerClass());
+		
+		List<ItemType> items = playerCreationData.getItems();
+		
+		Inventory playerInventory = new Inventory();
+		
+		for(ItemType itemType : items)
+		{
+			int itemId = itemType.getTemplate().getItemId();
+			ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
+			
+			Item item = new Item(aionObjectsIDFactory.nextId());
+			item.setItemTemplate(itemTemplate);
+			item.setItemCount(itemType.getCount());
+			
+			playerInventory.addToBag(item);
+		}	
+		
+		//TODO save inventory to db with corresponding playerObjectId	
+		// and
+		//TODO remove this code below
+		
+		Inventory inventory = new Inventory();
+		int activePlayer = playerCommonData.getPlayerObjId();
+		if (playerCommonData.getPlayerClass().getClassId() == 0) {// warrior
+				inventory.putItemToDb(activePlayer, 100000094, 1);//sword for training
+				inventory.putItemToDb(activePlayer, 110500003, 1);//Chain armor for training
+				inventory.putItemToDb(activePlayer, 113500001, 1);//Chain Greaves for training
+				inventory.putItemToDb(activePlayer, 160000001, 12); // mercenary Fruit Juice
+				inventory.putItemToDb(activePlayer, 169300001, 20); // bandage
+		}
+		if (playerCommonData.getPlayerClass().getClassId() == 3) { //SCOUT	
+				inventory.putItemToDb(activePlayer, 100200112, 1);//Dagger for training
+				inventory.putItemToDb(activePlayer, 110300015, 1);//Leather Jerkin for training
+				inventory.putItemToDb(activePlayer, 113300005, 1);//Leather leggins for training
+				inventory.putItemToDb(activePlayer, 160000001, 12); // mercenary Fruit Juice
+				inventory.putItemToDb(activePlayer, 169300001, 20); // bandage
+		}
+		if (playerCommonData.getPlayerClass().getClassId() == 6) {//MAGE
+				inventory.putItemToDb(activePlayer, 100600034, 1);//SpellBook for training
+				inventory.putItemToDb(activePlayer, 110100009, 1);//Cloth Tunic for Training
+				inventory.putItemToDb(activePlayer, 113100005, 1);//Cloth Leggins for training
+				inventory.putItemToDb(activePlayer, 160000001, 12); // mercenary Fruit Juice
+				inventory.putItemToDb(activePlayer, 169300001, 20); // bandage
+		}
+		if (playerCommonData.getPlayerClass().getClassId() == 9) {//PRIEST
+				inventory.putItemToDb(activePlayer, 100100011, 1);//Mace for training
+				inventory.putItemToDb(activePlayer, 110300292, 1);//Leather armor for training
+				inventory.putItemToDb(activePlayer, 113300278, 1);//Leather leg armor for training
+				inventory.putItemToDb(activePlayer, 160000001, 12); // mercenary Fruit Juice
+				inventory.putItemToDb(activePlayer, 169300001, 20); // bandage
+		}
+		
+		
 		Player newPlayer = new Player(new PlayerController(), playerCommonData, playerAppearance);
+		newPlayer.setInventory(inventory);
+		
 		//TODO retrieve from storage and calculate
 		newPlayer.setLifeStats(new PlayerLifeStats(
 			ClassStats.getMaxHpFor(newPlayer.getPlayerClass(), newPlayer.getLevel()), 650));
 		newPlayer.setGameStats(new PlayerGameStats());
+		
 		return newPlayer;
 	}
 

@@ -18,6 +18,7 @@ package com.aionemu.gameserver.model.account;
 
 import java.sql.Timestamp;
 
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 
@@ -34,14 +35,15 @@ public class PlayerAccountData
 {
 	private PlayerCommonData	playerCommonData;
 	private PlayerAppearance	appereance;
-
+	private Inventory			inventory;
 	private Timestamp			creationDate;
 	private Timestamp			deletionDate;
 
-	public PlayerAccountData(PlayerCommonData playerCommonData, PlayerAppearance appereance)
+	public PlayerAccountData(PlayerCommonData playerCommonData, PlayerAppearance appereance, Inventory inventory)
 	{
 		this.playerCommonData = playerCommonData;
 		this.appereance = appereance;
+		this.inventory = inventory;
 	}
 
 	public Timestamp getCreationDate()
@@ -87,6 +89,14 @@ public class PlayerAccountData
 	public PlayerAppearance getAppereance()
 	{
 		return appereance;
+	}
+
+	/**
+	 * @return the inventory
+	 */
+	protected Inventory getInventory()
+	{
+		return inventory;
 	}
 
 	/**
