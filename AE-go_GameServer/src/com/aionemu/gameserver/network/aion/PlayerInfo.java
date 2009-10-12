@@ -95,13 +95,11 @@ public abstract class PlayerInfo extends AionServerPacket
 		writeC(buf, playerAppearance.getEarShape());
 		writeC(buf, playerAppearance.getHeadSize());
 		// 1.5.x 0x00, shoulderSize, armLength, legLength (BYTE) after HeadSize
-		writeC(buf, 0x00); // 0x00
-		writeC(buf, playerAppearance.getShoulderSize()); // shoulderSize
-		writeC(buf, playerAppearance.getArmLength()); // armLength
-		writeC(buf, playerAppearance.getLegLength()); // legLength
+
 		writeC(buf, playerAppearance.getNeck());
 		writeC(buf, playerAppearance.getNeckLength());
-		writeC(buf, playerAppearance.getShoulders());
+		writeC(buf, playerAppearance.getShoulderSize()); // shoulderSize
+		
 		writeC(buf, playerAppearance.getTorso());
 		writeC(buf, playerAppearance.getChest());
 		writeC(buf, playerAppearance.getWaist());
@@ -111,8 +109,13 @@ public abstract class PlayerInfo extends AionServerPacket
 		writeC(buf, playerAppearance.getLegThicnkess());
 		writeC(buf, playerAppearance.getFootSize());
 		writeC(buf, playerAppearance.getFacialRate());
+		writeC(buf, 0x00); // 0x00
+		writeC(buf, playerAppearance.getArmLength()); // armLength
+		writeC(buf, playerAppearance.getLegLength()); // legLength
+		writeC(buf, playerAppearance.getShoulders());
 		writeC(buf, 0x00); // always 0 may be acessLevel
 		writeC(buf, 0x00); // always 0 - unk
+		
 		writeF(buf, playerAppearance.getHeight());
 		int raceSex = 100000 + raceId * 2 + genderId;
 		writeD(buf, raceSex);
