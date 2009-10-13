@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
 
-	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SCOUT" level="1">
 		<stats_template maxHp="219" maxMp="170"
 		                power="100" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -12,7 +12,7 @@
 		                magic_accuracy="14" />
 	</player_stats>
 
-	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SCOUT" level="2">
 		<stats_template maxHp="261" maxMp="240"
 		                power="100" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -23,7 +23,7 @@
 		                magic_accuracy="28" />
 	</player_stats>
 
-	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SCOUT" level="3">
 		<stats_template maxHp="305" maxMp="310"
 		                power="100" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -34,7 +34,7 @@
 		                magic_accuracy="42" />
 	</player_stats>
 
-	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SCOUT" level="4">
 		<stats_template maxHp="351" maxMp="380"
 		                power="100" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -45,7 +45,7 @@
 		                magic_accuracy="57" />
 	</player_stats>
 
-	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SCOUT" level="5">
 		<stats_template maxHp="399" maxMp="450"
 		                power="100" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -56,7 +56,7 @@
 		                magic_accuracy="71" />
 	</player_stats>
 
-	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SCOUT" level="6">
 		<stats_template maxHp="449" maxMp="520"
 		                power="100" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -67,7 +67,7 @@
 		                magic_accuracy="85" />
 	</player_stats>
 
-	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SCOUT" level="7">
 		<stats_template maxHp="501" maxMp="590"
 		                power="100" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -78,7 +78,7 @@
 		                magic_accuracy="99" />
 	</player_stats>
 
-	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SCOUT" level="8">
 		<stats_template maxHp="555" maxMp="660"
 		                power="100" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -89,7 +89,7 @@
 		                magic_accuracy="114" />
 	</player_stats>
 
-	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SCOUT" level="9">
 		<stats_template maxHp="612" maxMp="730"
 		                power="100" health="100" agility="110" accuracy="110" knowledge="90" will="90"
