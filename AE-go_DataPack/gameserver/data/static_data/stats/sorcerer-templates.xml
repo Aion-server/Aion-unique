@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<player_stats class="SORCERER" level="9">
+		<stats_template maxHp="416" maxMp="1215"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="173" block="173" parry="173"
+		                main_hand_attack="16" main_hand_accuracy="262" main_hand_crit_rate="2"
+		                magic_accuracy="128" />
+	</player_stats>
+
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SORCERER" level="10">
-		<stats_template maxHp="387" maxMp="1320"
+		<stats_template maxHp="458" maxMp="1320"
 		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="186" block="186" parry="186"
 		                main_hand_attack="16" main_hand_accuracy="270" main_hand_crit_rate="2"
-		                magic_accuracy="124" />
+		                magic_accuracy="142" />
 	</player_stats>
 
 	<player_stats class="SORCERER" level="11">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
 
-	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="GLADIATOR" level="9">
 		<stats_template maxHp="814" maxMp="730"
 		                power="115" health="115" agility="100" accuracy="100" knowledge="90" will="90"
@@ -12,7 +12,7 @@
 		                magic_accuracy="128" />
 	</player_stats>
 
-	<!-- Checked & Confirmed By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="GLADIATOR" level="10">
 		<stats_template maxHp="885" maxMp="800"
 		                power="115" health="115" agility="100" accuracy="100" knowledge="90" will="90"

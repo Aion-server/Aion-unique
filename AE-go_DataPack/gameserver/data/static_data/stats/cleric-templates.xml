@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stats.xsd">
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="CLERIC" level="9">
 		<stats_template maxHp="576" maxMp="1215"
 		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
@@ -8,9 +9,10 @@
 		                attack_speed="1.5"
 		                evasion="142" block="142" parry="142"
 		                main_hand_attack="18" main_hand_accuracy="242" main_hand_crit_rate="1"
-		                magic_accuracy="111" />
+		                magic_accuracy="128" />
 	</player_stats>
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="CLERIC" level="10">
 		<stats_template maxHp="628" maxMp="1320"
 		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
@@ -18,9 +20,10 @@
 		                attack_speed="1.5"
 		                evasion="155" block="155" parry="155"
 		                main_hand_attack="18" main_hand_accuracy="250" main_hand_crit_rate="1"
-		                magic_accuracy="124" />
+		                magic_accuracy="142" />
 	</player_stats>
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="CLERIC" level="11">
 		<stats_template maxHp="681" maxMp="1425"
 		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
@@ -28,9 +31,10 @@
 		                attack_speed="1.5"
 		                evasion="167" block="167" parry="167"
 		                main_hand_attack="18" main_hand_accuracy="258" main_hand_crit_rate="1"
-		                magic_accuracy="136" />
+		                magic_accuracy="156" />
 	</player_stats>
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="CLERIC" level="12">
 		<stats_template maxHp="737" maxMp="1531"
 		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
@@ -38,7 +42,7 @@
 		                attack_speed="1.5"
 		                evasion="179" block="179" parry="179"
 		                main_hand_attack="18" main_hand_accuracy="266" main_hand_crit_rate="1"
-		                magic_accuracy="148" />
+		                magic_accuracy="171" />
 	</player_stats>
 
 	<player_stats class="CLERIC" level="13">
