@@ -77,4 +77,15 @@
 		                main_hand_attack="16" main_hand_accuracy="310" main_hand_crit_rate="2"
 		                magic_accuracy="213" />
 	</player_stats>
+
+	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<player_stats class="SPIRIT_MASTER" level="19">
+		<stats_template maxHp="974" maxMp="2297"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="297" block="297" parry="297"
+		                main_hand_attack="16" main_hand_accuracy="342" main_hand_crit_rate="2"
+		                magic_accuracy="270" />
+	</player_stats>
 </stats_templates>
