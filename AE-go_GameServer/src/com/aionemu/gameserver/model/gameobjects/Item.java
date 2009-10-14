@@ -64,14 +64,20 @@ public class Item extends AionObject
 		this.equipmentSlot = equipmentSlot;
 	}
 	
-	@Deprecated
-	public Item(int objId, int itemId, int itemCount, int isEquipped, int equipmentSlot)
+	/**
+	 * @param objId
+	 * @param itemId
+	 * @param itemCount
+	 * @param isEquipped
+	 * @param equipmentSlot
+	 */
+	public Item(int objId, int itemId, int itemCount, boolean isEquipped, int equipmentSlot)
 	{
 		super(objId);
 		
 		this.itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
 		this.itemCount = itemCount;
-		this.isEquipped = isEquipped == 1 ? true : false;
+		this.isEquipped = isEquipped;
 		this.equipmentSlot = equipmentSlot;
 	}
 

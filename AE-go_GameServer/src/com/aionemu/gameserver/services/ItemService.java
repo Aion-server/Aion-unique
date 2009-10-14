@@ -48,12 +48,11 @@ public class ItemService
 	/**
 	 * @param itemId
 	 * @param count
-	 * @param slot
 	 * @return
 	 * 
 	 * Creates new Item instance
 	 */
-	public Item newItem(int itemId, int count, int slot)
+	public Item newItem(int itemId, int count)
 	{
 		ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
 		if(itemTemplate == null)
@@ -61,6 +60,17 @@ public class ItemService
 			log.error("Item was not populated correctly. Item template is missing for item id: " + itemId);
 		}
 		//TODO if Item object will contain ownerId - item can be saved to DB before return
-		return new Item(aionObjectsIDFactory.nextId(), itemTemplate, count, false, slot);
+		return new Item(aionObjectsIDFactory.nextId(), itemTemplate, count, false, 0);
+	}
+	
+	public Item loadItem(int itemId, int itemUniqueId, int count, boolean isEquipped, int slot)
+	{
+		ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
+		if(itemTemplate == null)
+		{
+			log.error("Item was not populated correctly. Item template is missing for item id: " + itemId);
+		}
+		
+		return new Item(itemUniqueId, itemTemplate, count, isEquipped, slot);
 	}
 }

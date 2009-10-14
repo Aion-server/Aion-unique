@@ -87,7 +87,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	@Override
 	public void storePlayer(final Player player)
 	{
-		DB.insertUpdate("UPDATE players SET name=?, exp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, admin=?, note=? WHERE id=?", new IUStH(){
+		DB.insertUpdate("UPDATE players SET name=?, exp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, admin=?, note=?, kinah=? WHERE id=?", new IUStH(){
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
@@ -104,7 +104,8 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				stmt.setTimestamp(9, player.getCommonData().getLastOnline());
 				stmt.setBoolean(10, player.getCommonData().isAdmin());
 				stmt.setString(11,player.getCommonData().getNote());
-				stmt.setInt(12, player.getObjectId());
+				stmt.setInt(12, player.getCommonData().getKinahCount());
+				stmt.setInt(13, player.getObjectId());
 				stmt.execute();
 			}
 		});
@@ -116,8 +117,8 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	public boolean saveNewPlayer(final PlayerCommonData pcd, final int accountId, final String accountName)
 	{
 		boolean success = DB.insertUpdate(
-				"INSERT INTO players(id, `name`, account_id, account_name, x, y, z, heading, world_id, gender, race, player_class , admin, online) " +
-				"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)",
+				"INSERT INTO players(id, `name`, account_id, account_name, x, y, z, heading, world_id, gender, race, player_class , admin, online, kinah) " +
+				"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0)",
 				new IUStH(){
 					@Override
 					public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
@@ -186,6 +187,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				cd.setAdmin(resultSet.getBoolean("admin"));
 				cd.setLastOnline(resultSet.getTimestamp("last_online"));
 				cd.setNote(resultSet.getString("note"));
+				cd.setKinahCount(resultSet.getInt("kinah"));
 				
 				float x = resultSet.getFloat("x");
 				float y = resultSet.getFloat("y");

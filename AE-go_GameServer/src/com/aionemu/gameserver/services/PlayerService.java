@@ -77,13 +77,14 @@ public class PlayerService
 
 	private IDFactory					aionObjectsIDFactory;
 	private World						world;
-
+	private ItemService 				itemService;
 
 	@Inject
-	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world)
+	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
+		this.itemService = itemService;
 	}
 
 	/**
@@ -203,15 +204,11 @@ public class PlayerService
 		
 		for(ItemType itemType : items)
 		{
-			int itemId = itemType.getTemplate().getItemId();
-			ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
-			
-			Item item = new Item(aionObjectsIDFactory.nextId());
-			item.setItemTemplate(itemTemplate);
-			item.setItemCount(itemType.getCount());
-			
+			int itemId = itemType.getTemplate().getItemId();		
+			Item item = itemService.newItem(itemId, itemType.getCount());		
 			playerInventory.addToBag(item);
 		}	
+		
 		// Save starting inventory
 		DAOManager.getDAO(InventoryDAO.class).store(playerInventory);
 		

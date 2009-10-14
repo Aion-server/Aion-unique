@@ -18,29 +18,34 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
-import com.aionemu.commons.database.DB;
-import com.aionemu.commons.database.IUStH;
-import com.aionemu.commons.database.ParamReadStH;
-import com.aionemu.gameserver.model.gameobjects.player.ItemList;
-import java.util.Random;
+import org.apache.log4j.Logger;
+
+import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.serverpackets.*;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.*;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ENTER_WORLD_CHECK;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
-import org.apache.log4j.Logger;
 
 /**
  * In this packets aion client is asking if given char [by oid] may login into game [ie start playing].
@@ -120,64 +125,21 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNK60());
 			// sendPacket(new SM_UNK17());
 			// sendPacket(new SM_UNK5E());
-
 			
-//////////////////////////////LOAD INVENTORY FROM DB//////////////////////////////////////////////////////////////
-			Player player2 = getConnection().getActivePlayer();
-			int activePlayer = player2.getObjectId();
-
-
-
+			
 			//TODO no need to load items here - inventory will be populated at startup
 			// will be removed next time
 
 			//items
+			Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(objectId);
+			player.setInventory(inventory);
 			
-			Inventory items = new Inventory();
-			items.getInventoryFromDb(activePlayer);
-			int totalItemsCount = items.getItemsCount();
-			ItemList itemName = new ItemList();
-			Inventory inventory = new Inventory();
-			
-			int slot;
-
-
-			int row = 0;
-			if (totalItemsCount==0) {
-				sendPacket(new SM_INVENTORY_INFO(1234235, 169300001, 20, 1, 8)); // give item	
-			}
-			while (totalItemsCount > 0) {
-				sendPacket(new SM_INVENTORY_INFO(items.getItemUniqueIdArray(row), items.getItemIdArray(row), items.getItemCountArray(row), 1, 0)); // give item
-				totalItemsCount = totalItemsCount-1;
-				row+=1;
-			} 
-			Inventory equipedItems = new Inventory();
-			equipedItems.getEquipedItemsFromDb(activePlayer);
-			int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
-
-
-			row = 0;
-			while (totalEquipedItemsCount > 0) {
-				sendPacket(new SM_UPDATE_ITEM(equipedItems.getEquipedItemSlotArray(row), 0, equipedItems.getEquipedItemUniqueIdArray(row)));
-				totalEquipedItemsCount = totalEquipedItemsCount-1;
-				row+=1;
-			}
-				
-			
-
-
-
-			// kinah
-
-			Inventory kinah2 = new Inventory();
-			kinah2.getKinahFromDb(activePlayer);
-			int kinah = kinah2.getKinahCount();
-			int uniquedeId = 0;
-			sendPacket(new SM_INVENTORY_UPDATE(uniquedeId, 182400001, kinah));
+			List<Item> items = inventory.getItems();
 
 			
+			//TODO send SM_INVENTORY_INFO
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 			// sendPacket(new SM_UNKD3());
 
 			/*

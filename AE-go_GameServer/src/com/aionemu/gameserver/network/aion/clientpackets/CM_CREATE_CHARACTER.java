@@ -55,6 +55,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 
 	@Inject
 	private PlayerService		playerService;
+	
 	@Inject
 	@IDFactoryAionObject
 	private IDFactory			aionObjectsIDFactory;
