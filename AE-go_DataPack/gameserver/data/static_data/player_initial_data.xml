@@ -14,6 +14,7 @@
 
 	<player_data class="WARRIOR">
 		<items>		
+			<item id="182400001" count="1000"/>
 			<item id="100000094" count="1"/>
 			<item id="110500003" count="1"/>
 			<item id="113500001" count="1"/>
@@ -24,6 +25,7 @@
 
 	<player_data class="MAGE">
 		<items>
+			<item id="182400001" count="1000"/>
 			<item id="100600034" count="1"/>
 			<item id="110100009" count="1"/>
 			<item id="113100005" count="1"/>
@@ -34,6 +36,7 @@
 
 	<player_data class="PRIEST">
 		<items>
+			<item id="182400001" count="1000"/>
 			<item id="100100011" count="1"/>
 			<item id="110300292" count="1"/>
 			<item id="113300278" count="1"/>
@@ -44,6 +47,7 @@
 
 	<player_data class="SCOUT">
 		<items>
+			<item id="182400001" count="1000"/>
 			<item id="100200112" count="1"/>
 			<item id="110300015" count="1"/>
 			<item id="113300005" count="1"/>

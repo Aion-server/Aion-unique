@@ -55,8 +55,6 @@ public class PlayerCommonData
 	private Timestamp		lastOnline;
 	private boolean 		online;
 	private String 			note;
-	//TODO kinah - probably is a regular item that have uniquId -> move out from here and players table to inventory
-	private int 			kinahCount;
 	private WorldPosition	position;
 	
 
@@ -227,22 +225,6 @@ public class PlayerCommonData
 	public void setNote(String note)
 	{
 		this.note = note;
-	}
-
-	/**
-	 * @return the kinahCount
-	 */
-	public int getKinahCount()
-	{
-		return kinahCount;
-	}
-
-	/**
-	 * @param kinahCount the kinahCount to set
-	 */
-	public void setKinahCount(int kinahCount)
-	{
-		this.kinahCount = kinahCount;
 	}
 
 	/**

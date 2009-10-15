@@ -23,9 +23,6 @@ import org.junit.Test;
 import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.commons.services.LoggingService;
 import com.aionemu.gameserver.configs.Config;
-import com.aionemu.gameserver.model.gameobjects.VisibleObject;
-import com.aionemu.gameserver.utils.idfactory.IDFactory;
-import com.aionemu.gameserver.world.World;
 
 /**
  * Test for PlayerService
@@ -54,7 +51,7 @@ public class PlayerServiceTest
 
 		System.out.println("Testing PlayerService name validator.. ");
 
-		PlayerService playerService = new PlayerService(null, null);
+		PlayerService playerService = new PlayerService(null, null, null);
 		for(String name : names)
 		{
 			if(playerService.isValidName(name))
