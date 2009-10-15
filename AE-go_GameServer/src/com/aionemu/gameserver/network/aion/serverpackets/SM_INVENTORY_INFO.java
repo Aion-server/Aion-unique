@@ -17,10 +17,14 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.List;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.ItemList;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.model.gameobjects.player.ItemList;
 
 /**
  * In this packet Server is sending Inventory Info?
@@ -37,6 +41,9 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 	private int itemQuanty;
 	private int entries;
 	private int slot;
+	
+	private List<Item> items;
+	private int size;
 	/**
 	 * Constructs new <tt>SM_INVENTORY_INFO </tt> packet
 	 */
@@ -48,6 +55,15 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 		this.entries = entries;
 		this.slot = slot;
 	}
+	
+	/**
+	 * @param inventory
+	 */
+	public SM_INVENTORY_INFO(Inventory inventory)
+	{
+		this.items = inventory.getItems();
+		this.size = items.size();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -55,137 +71,95 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-
-		//get item name id.
-		ItemList itemName = new ItemList();
-		itemName.getItemList(itemId);
-		itemNameId = itemName.getItemNameId();
-
-		ItemList itemSlot = new ItemList();
-
-		itemSlot.getItemList(itemId);
-		String slotName = itemSlot.getEquipmentSlots();
-	
-		char test = slotName.charAt(0);
-		boolean isAnInt= test>='0' && test<='9';
-	
-		if (isAnInt){
-			slot = Integer.parseInt(slotName);
-			if (slot==5) {
-				slot = 1; // or 2 weapon
-			}
-			if (slot==6) {
-				slot = 8192;//or 16384 power shard
-			}
-			if (slot==7) {
-				slot = 256;// 512 rings
-			}
-			if (slot==9) {
-				slot = 64;// 128 earrings
-			}
-		} else {
-			slot = 0;
-		}
-
 		// something wrong with cube part.
-
 		writeC(buf, 1); // TRUE/FALSE (1/0) update cube size
 		writeC(buf, 0); // cube size
 		writeH(buf, 0); // padding?
-		writeH(buf, 1); // number of entries
+		writeH(buf, size); // number of entries
 
-		//while (count < entries) {
 		
-		writeD(buf, uniqueItemId); //Unique Id
-		writeD(buf, itemId); //item Id 162000007
-		writeH(buf, 0x24); // always 36
-		writeD(buf, itemNameId); // item name id
-		writeH(buf, 0); //always 0
-
-
-
-		writeH(buf, 22); //lenght of item details
-if (slot == 0) {
-		writeC(buf, 0x00);
-		writeH(buf, 0x23E3);
-		writeD(buf, itemQuanty);
-		writeD(buf, 0);	
-		writeD(buf, 0);	
-		writeD(buf, 0);	
-		writeD(buf, 0);	
-		writeD(buf, 0);	
-		writeD(buf, 0);	
-		writeD(buf, 0);	
-		writeH(buf, 0);	
-}
-if (slot > 0) {
-		//item details block//
-
-		writeC(buf, 0x02); // equiped data follows
-
-		writeC(buf, 0x00);
-		writeC(buf, 8); // where this can be equiped. or whatever
+		for(Item item : items)
+		{
+			writeGeneralInfo(buf, item);
+			
+			ItemTemplate itemTemplate = item.getItemTemplate();
+			int itemSlot = itemTemplate.getItemSlot();
+			
+			if(itemSlot != 0)
+			{
+				writeGeneralItemInfo(buf, item);
+			}
+			else
+			{
+				writeEquipmentInfo(buf, item);
+			}
+		}
+	}
+	
+	private void writeGeneralInfo(ByteBuffer buf, Item item)
+	{
+		writeD(buf, item.getObjectId());
+		ItemTemplate itemTemplate = item.getItemTemplate();
+		writeD(buf, itemTemplate.getItemId());
+		writeH(buf, 0x24);
+		writeD(buf, itemTemplate.getItemId());
 		writeH(buf, 0);
-
-		//---------------
-
-		writeC(buf, 0x02);
-		writeC(buf, 0x00);
-		writeC(buf, 0x08); 
+	}
+	
+	private void writeGeneralItemInfo(ByteBuffer buf, Item item)
+	{
+		writeH(buf, 0x16); //length of details
+		writeC(buf, 0);
+		writeC(buf, 0x3E); //or can be 0x1E
+		writeC(buf, 0x63); // ?
+		writeD(buf, item.getItemCount());
+		writeD(buf, 0);
 		writeD(buf, 0);
 		writeD(buf, 0);
 		writeH(buf, 0);
-
-		/*//---------------
-		writeC(buf, 0x0B); // appearance info follows?
+		writeC(buf, 0);
+		writeH(buf, item.getEquipmentSlot());
+		writeC(buf, 0);
+	}
+	
+	private void writeEquipmentInfo(ByteBuffer buf, Item item)
+	{
+		//TODO the structure is incorrect here
+		writeC(buf, 0x01); //can be 0x02
+		writeD(buf, convertSlot(item.getEquipmentSlot()));
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeC(buf, 0x06); //eq data follows
+		writeD(buf,	convertSlot(item.getEquipmentSlot()));
+		writeC(buf, 0);
+		writeC(buf, 0x3E);
+		writeC(buf, 0x0A);
+		writeD(buf, item.getItemCount());
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
 		writeH(buf, 0);
-		writeD(buf, 0x7C85AE06); // changing this value tags item as skinned
-		writeD(buf, 0); // 4608 manastone type
-		writeD(buf, 0); // 14 mana stone atribute bonus
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
 		writeC(buf, 0);
-		writeC(buf, 0);
-		writeC(buf, 0);
-		//------------
-		writeC(buf, 0x0A);
-		writeD(buf, 196628);
-		writeC(buf, 0);
-		writeC(buf, 0);
-		writeC(buf, 0);
-		//------------
-		writeC(buf, 0x0A);
-		writeD(buf, 20971923);
-		writeC(buf, 0);
-		writeC(buf, 0);
-		writeC(buf, 0);
-		//------------
-		writeC(buf, 0x0A);
-		writeD(buf, 327784);
-		writeC(buf, 0);
-		writeC(buf, 0);
-		writeC(buf, 0);
-		//------------*/
-
-		writeC(buf, 0); // general info fallows
-		writeH(buf, 11264);  // sets the varios bits of attribute test on the tooltip
-		writeD(buf, itemQuanty); // quanty
-		
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-
-		writeC(buf, 0);
-		writeC(buf, 0);
-		writeC(buf, 0);
-
-		///details block end/// 
-}
-		writeC(buf, 24); // location in inventory -?
-		writeC(buf, 0); //
-		writeC(buf, 0); // sometimes 0x01
-
+		writeH(buf, 255); // FF FF equipment
+		writeC(buf, item.isEquipped() ? 1 : 0);
+	}
+	
+	//TODO find out dependency of slot number to slot in xml
+	// calculate mask
+	private int convertSlot(int slotNumber)
+	{
+		switch(slotNumber)
+		{
+			case 5 :
+				return 1;// or 2 weapon
+			case 6 :
+				return 8192;//or 16384 power shard
+			case 7 :
+				return 256;// 512 rings
+			case 9 :
+				return 64;// 128 earrings
+			default : 
+				return 0;
+		}
 	}
 }
