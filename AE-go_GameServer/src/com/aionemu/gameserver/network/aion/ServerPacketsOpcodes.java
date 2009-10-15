@@ -128,6 +128,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_FLY_TELEPORT.class, 0xC2, idSet);//1.5.x
 		addPacketOpcode(SM_DIE.class, 0xb8, idSet);	//1.5.x
 		
+		addPacketOpcode(SM_EMOTION_LIST.class, 0x66, idSet);	//1.5.x
 		
 
 

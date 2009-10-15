@@ -43,6 +43,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION_LIST;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -171,7 +172,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 * Needed
 			 */
 			sendPacket(new SM_UNKF5(player));
-
+			sendPacket(new SM_EMOTION_LIST());
 			// sendPacket(new SM_UNK32());
 			// sendPacket(new SM_UNK15());
 			// sendPacket(new SM_UNKC6());
