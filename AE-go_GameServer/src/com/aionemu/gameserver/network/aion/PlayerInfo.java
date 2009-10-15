@@ -154,7 +154,7 @@ public abstract class PlayerInfo extends AionServerPacket
 
 		int row = 0;
 		while (totalEquipedItemsCount > 0) {
- 			writeC(buf, row);
+ 				writeC(buf, 1); // this flas is needed to show equipment on selection screen
 		    	writeD(buf, equipedItems.getEquipedItemIdArray(row));
 		    	writeD(buf, 0);
 		     	writeD(buf, 0);

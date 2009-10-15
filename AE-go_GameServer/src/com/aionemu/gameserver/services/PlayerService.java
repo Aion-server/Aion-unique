@@ -47,6 +47,7 @@ import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
@@ -204,7 +205,16 @@ public class PlayerService
 		for(ItemType itemType : items)
 		{
 			int itemId = itemType.getTemplate().getItemId();		
-			Item item = itemService.newItem(itemId, itemType.getCount());		
+			Item item = itemService.newItem(itemId, itemType.getCount());
+			
+			//When creating new player - all equipment that has slot values will be equipped
+			//Make sure you will not put into xml file more items than possible to equip.
+			ItemTemplate itemTemplate = item.getItemTemplate();
+			if(itemTemplate.getItemSlot() != 0)
+			{
+				item.setEquipped(true);
+				//TODO set item equipment slot from template - but resolve to enum values
+			}
 			playerInventory.addToBag(item);
 		}	
 		

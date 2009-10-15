@@ -124,6 +124,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UPDATE_PLAYER_APPEARANCE.class, 0x1D, idSet);	//1.5.x
 
 		addPacketOpcode(SM_LEVEL_UPDATE.class, 0x3f, idSet);//1.5.x
+		addPacketOpcode(SM_UNKDC.class, 0xDC, idSet);//1.5.x
 		
 		addPacketOpcode(SM_FLY_TELEPORT.class, 0xC2, idSet);//1.5.x
 		addPacketOpcode(SM_DIE.class, 0xb8, idSet);	//1.5.x

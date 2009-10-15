@@ -42,6 +42,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKDC;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION_LIST;
 import com.aionemu.gameserver.services.PlayerService;
@@ -134,13 +135,10 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			//items
 			Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(objectId);
 			player.setInventory(inventory);
-			
-			List<Item> items = inventory.getItems();
 
-			
-			//TODO send SM_INVENTORY_INFO
-
-
+			client.sendPacket(new SM_INVENTORY_INFO(inventory));
+			client.sendPacket(new SM_INVENTORY_INFO(true));  //?? unknwon
+			client.sendPacket(new SM_UNKDC()); //?? unknwon
 			// sendPacket(new SM_UNKD3());
 
 			/*
