@@ -130,7 +130,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_DIE.class, 0xb8, idSet);	//1.5.x
 		
 		addPacketOpcode(SM_EMOTION_LIST.class, 0x66, idSet);	//1.5.x
-		
+		addPacketOpcode(SM_PLAY_MOVIE.class,0x60, idSet);	//1.5.x
 
 
 

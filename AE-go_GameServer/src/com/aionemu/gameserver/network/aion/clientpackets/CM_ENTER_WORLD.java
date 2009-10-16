@@ -45,6 +45,9 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKDC;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION_LIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -124,6 +127,12 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 */
 			client.sendPacket(new SM_ENTER_WORLD_CHECK());
 
+			LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
+			if((player.getPosition().getX() == locationData.getX())&&(player.getPosition().getY() == locationData.getY()))
+			{
+				client.sendPacket(new SM_PLAY_MOVIE(player));
+				
+			}
 			// sendPacket(new SM_UNK60());
 			// sendPacket(new SM_UNK17());
 			// sendPacket(new SM_UNK5E());
