@@ -17,6 +17,13 @@
        	<part name="statusIntValue" type="c"/>
     </packet>
 	<packet id="0x12" name="SM_INVENTORY_UPDATE"/>
+	<packet id="0x13" name="SM_INVENTORY_INFO">
+		<part name="udpateCubeSize" type="c"/>
+		<part name="cubeSize?" type="c"/>
+		<part name="padding?" type="h"/>
+      	<part name="numberOfEntries" type="h"/>
+		<!-- variable size items-->
+    </packet>
 	<packet id="0x14" name="SM_UPDATE_ITEM">
 		<part name="uniqueId" type="d"/>
 		<part name="unk[0x24]" type="h"/>
@@ -108,19 +115,6 @@
 		<part name="ukn" type="c"/>
 		<part name="ukn" type="c"/>
 	</packet>
-	<packet id="0x1D" name="SM_INVENTORY_INFO">
-      	<part name="hide?" type="d"/>
-       	<part id="0" name="items" type="h"/>
-           	<for id="0">
-				<part name="objId?" type="d"/>
-        	    <part name="itemId" type="d"/>
-        	    <part name="unk1" type="d"/>
-        	    <part name="unk2" type="d"/>
-        	    <part id="1" name="size" type="c"/>
-        	    <part name="unk" type="b" sizeid="1"/>
-        	    <part name="unk" type="d"/>
-        	</for>
-    </packet>
 	<packet id="0x1F" name="SM_GAME_TIME">
 		<part name="gameTime" type="d"/>
 	</packet>
@@ -166,7 +160,7 @@
 		<part name="unk" type="d"/>
 		<part name="level" type="c"/>
 		<part name="gearItemMask" type="h"/>
-		<part id="0" name="gears" type="d"/>
+		<!--<part id="0" name="gears" type="d"/>
 			<for id="0">
 				<part name="itemId" type="d"/>
 				<part name="0x00" type="d"/>
@@ -194,7 +188,7 @@
 		<part name="unk" type="c"/>
 		<part name="unk" type="c"/>
 		<part name="unk" type="h"/>
-		<part name="unk" type="c"/>
+		<part name="unk" type="c"/>-->
 	</packet>
 	<packet id="0x2F" name="SM_DELETE">
 		<part name="objId" type="d"/>
@@ -247,6 +241,9 @@
 			</for>
 		<part name="unk" type="d"/>
 	</packet>
+	<packet id="0x41" name="SM_WEATHER">
+	    <part name="key" type="d"/>
+    </packet>
 	<packet id="0x4D" name="SM_QUESTION_WINDOW [?]">
 		<part name="unk" type="d"/>
 		<part name="objId" type="d"/>
@@ -281,6 +278,19 @@
 	<packet id="0x5B" name="SM_QUIT_RESPONSE">
        	<part name="result" type="d"/>
        	<part name="unk" type="c"/>
+    </packet>
+	<packet id="0x60" name="SM_PLAY_MOVIE">
+       	<part name="result" type="c"/>
+       	<part name="unk" type="d"/>
+		<part name="unk" type="h"/>
+		<part name="race?" type="c"/>
+		<part name="unk" type="d"/>
+		<part name="unk" type="c"/>
+    </packet>
+	<packet id="0x66" name="SM_EMOTION_LIST">
+       	<part name="result" type="c"/>
+       	<part name="11" type="h"/>
+		<!-- cycle  emotions-->
     </packet>
 	<packet id="0x7D" name="SM_FRIEND_LIST [?]"/>
 	<packet id="0x80" name="SM_MAY_LOGIN_INTO_GAME">
@@ -803,7 +813,12 @@
 		<part name="unk" type="c"/>
 		<part name="unk" type="c"/>
     </packet>
-	<packet id="0x9D" name="CM_BUY_ITEM"/>
+	<packet id="0x9D" name="CM_BUY_ITEM">
+		<part name="npcObjectId" type="d"/>
+		<part name="unk" type="h"/>
+		<part name="amount" type="h"/>
+		<!-- more data follows-->
+	</packet>
 	<packet id="0x9E" name="CM_SHOW_DIALOG">
 		<part name="targetObjectId" type="d"/>
 	</packet>
