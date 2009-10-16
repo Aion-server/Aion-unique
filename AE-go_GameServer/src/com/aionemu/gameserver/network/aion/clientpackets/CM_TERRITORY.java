@@ -21,6 +21,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
+import com.aionemu.gameserver.services.WeatherService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -47,15 +48,14 @@ public class CM_TERRITORY extends AionClientPacket
 	protected void readImpl()
 	{
 		territoryId = readD();
-
 	}
 
 
 	@Override
 	protected void runImpl()
 	{	
-		final Player activePlayer = getConnection().getActivePlayer();
-		activePlayer.getClientConnection().sendPacket(new SM_WEATHER());
+		int weatherMaskId = WeatherService.getRandomWeather();
+		sendPacket(new SM_WEATHER(weatherMaskId));
 		//sendPacket(SM_UNKF54unk(1, territoryId)); 179372032
 	}
 }

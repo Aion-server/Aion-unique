@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 
 import sun.util.logging.resources.logging;
 
+import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.ItemList;
@@ -168,7 +169,7 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 	
 	private void writeEquipmentInfo(ByteBuffer buf, Item item)
 	{
-		int convertedSlot = convertSlot(item.getEquipmentSlot());
+		int convertedSlot = ItemSlot.convertSlot(item.getEquipmentSlot());
 		writeH(buf, 0x4A);
 		writeC(buf, 0x06);		
 		writeD(buf, convertedSlot);
@@ -196,24 +197,5 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 		writeC(buf, 0);
 		writeH(buf, 255); // FF FF equipment
 		writeC(buf,  1);//item.isEquipped() ? 1 : 0
-	}
-	
-	//TODO find out dependency of slot number to slot in xml
-	// calculate mask
-	private int convertSlot(int slotNumber)
-	{
-		switch(slotNumber)
-		{
-			case 5 :
-				return 1;// or 2 weapon
-			case 6 :
-				return 8192;//or 16384 power shard
-			case 7 :
-				return 256;// 512 rings
-			case 9 :
-				return 64;// 128 earrings
-			default : 
-				return slotNumber;
-		}
 	}
 }

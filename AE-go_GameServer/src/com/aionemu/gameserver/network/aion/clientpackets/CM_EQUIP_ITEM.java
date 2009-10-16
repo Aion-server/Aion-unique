@@ -88,123 +88,123 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 	final Player activePlayer = getConnection().getActivePlayer();
 	int activeplayer = activePlayer.getObjectId();
 
-	Inventory inventory = new Inventory();
-
-	inventory.getItemIdByUniqueItemId(itemUniqueId);
-	int itemId = inventory.getItemId();
-
-	ItemList itemName = new ItemList();
-
-	itemName.getItemList(itemId);
-	String slotName = itemName.getEquipmentSlots();
-	
-	char test = slotName.charAt(0);
-	boolean isAnInt= test>='0' && test<='9';
-	
-	if (isAnInt){
-		slot = Integer.parseInt(slotName);
-		if (slot==5) {
-			inventory.getIsEquipedFromDb(activeplayer, 1);
-			int isEquiped = inventory.getIsEquiped();
-			if (isEquiped == 1){
-				slot = 2;
-			} else {
-				slot = 1;
-			}
-			// 1, 2 weapon
-		}
-		if (slot==6) {
-			inventory.getIsEquipedFromDb(activeplayer, 8192);
-			int isEquiped = inventory.getIsEquiped();
-			if (isEquiped == 1){
-				slot = 16384;
-			} else {
-				slot = 8192;
-			}
-			//8192, 16384 power shards
-		}
-		if (slot==7) {
-			inventory.getIsEquipedFromDb(activeplayer, 256);
-			int isEquiped = inventory.getIsEquiped();
-			if (isEquiped == 1){
-				slot = 512;
-			} else {
-				slot = 256;
-			}
-			// 256, 512 rings
-		}
-		if (slot==9) {
-			inventory.getIsEquipedFromDb(activeplayer, 54);
-			int isEquiped = inventory.getIsEquiped();
-			if (isEquiped == 1){
-				slot = 128;
-			} else {
-				slot = 64;
-			}
-			// 128, 64 earrings
-		}
-	} else {
-		slot = 0;
-	}
-	
-
-
-
-		inventory.getIsEquipedFromDb(activeplayer, slot);
-		int isEquiped = inventory.getIsEquiped();
-		int unequipItemUniqueId = inventory.getIsEquipedItemUniqueId();
-
-		ItemList itemLevel = new ItemList();
-		itemLevel.getItemList(inventory.getItemId());
-
-		if (action==0) {
-			if (isEquiped==1) {
-				if (itemLevel.getLevel() <= activePlayer.getLevel()) {
-					inventory.putIsEquipedToDb(unequipItemUniqueId, 0, 0);
-					sendPacket(new SM_UPDATE_ITEM(0, 1, unequipItemUniqueId));
-				
-					inventory.putIsEquipedToDb(itemUniqueId, 1, slot);
-					sendPacket(new SM_UPDATE_ITEM(slot, action, itemUniqueId));
-
-					sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
-				} 
-				// show cannot equip packet or smth
-			}
-
-
-			if (isEquiped==0) {
-				if (itemLevel.getLevel() <= activePlayer.getLevel()) {
-					inventory.getItemIdByUniqueItemId(itemUniqueId);
-					inventory.putIsEquipedToDb(itemUniqueId, 1, slot);
-					sendPacket(new SM_UPDATE_ITEM(slot, action, itemUniqueId));
-					sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
-				}
-				// show cannot equip packet or smth
-			}
-		} else if (action==1) {
-			inventory.getInventoryFromDb(activeplayer);
-			int totalItemsCount = inventory.getItemsCount();
-
-			inventory.getEquipedItemsFromDb(activeplayer);
-			int totalEquipedItemsCount = inventory.getEquipedItemsCount();
-
-			//get item id by unique
-			
-
-			
-			totalItemsCount = totalItemsCount - totalEquipedItemsCount;
-			
-			int cubes = 1;
-			int cubesize = 27;
-			int allowItemsCount = cubesize*cubes-1;
-
-			if (totalItemsCount<=allowItemsCount) {
-					inventory.putIsEquipedToDb(itemUniqueId, 0, 0);
-					sendPacket(new SM_UPDATE_ITEM(0, 1, itemUniqueId));
-					sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
-				
-			}
-		}
+//	Inventory inventory = new Inventory();
+//
+//	inventory.getItemIdByUniqueItemId(itemUniqueId);
+//	int itemId = inventory.getItemId();
+//
+//	ItemList itemName = new ItemList();
+//
+//	itemName.getItemList(itemId);
+//	String slotName = itemName.getEquipmentSlots();
+//	
+//	char test = slotName.charAt(0);
+//	boolean isAnInt= test>='0' && test<='9';
+//	
+//	if (isAnInt){
+//		slot = Integer.parseInt(slotName);
+//		if (slot==5) {
+//			inventory.getIsEquipedFromDb(activeplayer, 1);
+//			int isEquiped = inventory.getIsEquiped();
+//			if (isEquiped == 1){
+//				slot = 2;
+//			} else {
+//				slot = 1;
+//			}
+//			// 1, 2 weapon
+//		}
+//		if (slot==6) {
+//			inventory.getIsEquipedFromDb(activeplayer, 8192);
+//			int isEquiped = inventory.getIsEquiped();
+//			if (isEquiped == 1){
+//				slot = 16384;
+//			} else {
+//				slot = 8192;
+//			}
+//			//8192, 16384 power shards
+//		}
+//		if (slot==7) {
+//			inventory.getIsEquipedFromDb(activeplayer, 256);
+//			int isEquiped = inventory.getIsEquiped();
+//			if (isEquiped == 1){
+//				slot = 512;
+//			} else {
+//				slot = 256;
+//			}
+//			// 256, 512 rings
+//		}
+//		if (slot==9) {
+//			inventory.getIsEquipedFromDb(activeplayer, 54);
+//			int isEquiped = inventory.getIsEquiped();
+//			if (isEquiped == 1){
+//				slot = 128;
+//			} else {
+//				slot = 64;
+//			}
+//			// 128, 64 earrings
+//		}
+//	} else {
+//		slot = 0;
+//	}
+//	
+//
+//
+//
+//		inventory.getIsEquipedFromDb(activeplayer, slot);
+//		int isEquiped = inventory.getIsEquiped();
+//		int unequipItemUniqueId = inventory.getIsEquipedItemUniqueId();
+//
+//		ItemList itemLevel = new ItemList();
+//		itemLevel.getItemList(inventory.getItemId());
+//
+//		if (action==0) {
+//			if (isEquiped==1) {
+//				if (itemLevel.getLevel() <= activePlayer.getLevel()) {
+//					inventory.putIsEquipedToDb(unequipItemUniqueId, 0, 0);
+//					sendPacket(new SM_UPDATE_ITEM(0, 1, unequipItemUniqueId));
+//				
+//					inventory.putIsEquipedToDb(itemUniqueId, 1, slot);
+//					sendPacket(new SM_UPDATE_ITEM(slot, action, itemUniqueId));
+//
+//					sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
+//				} 
+//				// show cannot equip packet or smth
+//			}
+//
+//
+//			if (isEquiped==0) {
+//				if (itemLevel.getLevel() <= activePlayer.getLevel()) {
+//					inventory.getItemIdByUniqueItemId(itemUniqueId);
+//					inventory.putIsEquipedToDb(itemUniqueId, 1, slot);
+//					sendPacket(new SM_UPDATE_ITEM(slot, action, itemUniqueId));
+//					sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
+//				}
+//				// show cannot equip packet or smth
+//			}
+//		} else if (action==1) {
+//			inventory.getInventoryFromDb(activeplayer);
+//			int totalItemsCount = inventory.getItemsCount();
+//
+//			inventory.getEquipedItemsFromDb(activeplayer);
+//			int totalEquipedItemsCount = inventory.getEquipedItemsCount();
+//
+//			//get item id by unique
+//			
+//
+//			
+//			totalItemsCount = totalItemsCount - totalEquipedItemsCount;
+//			
+//			int cubes = 1;
+//			int cubesize = 27;
+//			int allowItemsCount = cubesize*cubes-1;
+//
+//			if (totalItemsCount<=allowItemsCount) {
+//					inventory.putIsEquipedToDb(itemUniqueId, 0, 0);
+//					sendPacket(new SM_UPDATE_ITEM(0, 1, itemUniqueId));
+//					sendPacket(new SM_UPDATE_PLAYER_APPEARANCE(activeplayer));
+//				
+//			}
+//		}
 		
 	}
 }

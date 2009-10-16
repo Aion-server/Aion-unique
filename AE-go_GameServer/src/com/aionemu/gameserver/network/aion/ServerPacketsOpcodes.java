@@ -108,7 +108,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_ATTACK_STATUS.class, 0xFC, idSet);
 		addPacketOpcode(SM_LOOT_STATUS.class, 0xE4, idSet);
 		
-		addPacketOpcode(SM_WEATHER.class, 0x4A, idSet);
+		addPacketOpcode(SM_WEATHER.class, 0x3A, idSet);
 		
 		addPacketOpcode(SM_CASTSPELL.class, 0x18, idSet);	//1.5.x 
 		addPacketOpcode(SM_CASTSPELL_END.class, 0x42, idSet);	//1.5.x 

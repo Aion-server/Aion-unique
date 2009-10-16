@@ -54,4 +54,37 @@ public enum ItemSlot
 	{
 		return slotIdMask;
 	}
+	
+	public static ItemSlot getValue(int slotIdMask)
+	{
+		int slotIdConverted = convertSlot(slotIdMask);
+		for(ItemSlot itemSlot : values())
+		{
+			if(itemSlot.slotIdMask == slotIdConverted)
+			{
+				return itemSlot;
+			}
+		}
+
+		throw new IllegalArgumentException("Invalid slotIdMask provided");
+	}
+	
+	//TODO
+	// This is a temporary solution and will be removed after fix of templates in XML
+	public static int convertSlot(int slotId)
+	{
+		switch(slotId)
+		{
+			case 5 :
+				return 1;// or 2 weapon
+			case 6 :
+				return 8192;//or 16384 power shard
+			case 7 :
+				return 256;// 512 rings
+			case 9 :
+				return 64;// 128 earrings
+			default : 
+				return slotId;
+		}
+	}
 }
