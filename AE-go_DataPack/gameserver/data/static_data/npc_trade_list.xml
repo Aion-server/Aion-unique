@@ -71,7 +71,7 @@
 	</tradelist_template>
 
 	<!-- Verteron -->
-    <tradelist_template npc_id="203094" name="Drasia" count="1" listId0="133">
+        <tradelist_template npc_id="203094" name="Drasia" count="1" listId0="133">
 	</tradelist_template>
 	<tradelist_template npc_id="203100" name="Ivis" count="4" listId0="134" listId1="135" listId2="136" listId3="137" >
 	</tradelist_template>
@@ -96,5 +96,15 @@
 	<tradelist_template npc_id="203736" name="Servillia" count="1" listId0="155">
 	</tradelist_template>
 	<tradelist_template npc_id="203727" name="Tunotos" count="4" listId0="145" listId1="146" listId2="147" listId3="148" >
+	</tradelist_template>
+ 	<tradelist_template npc_id="203761" name="Hygea" count="2" listId0="10" listId1="9">
+	</tradelist_template>
+	<tradelist_template npc_id="203758" name="Macus" count="2" listId0="5" listId1="6">
+	</tradelist_template>
+	<tradelist_template npc_id="203760" name="Bellia" count="2" listId0="11" listId1="12">
+	</tradelist_template>
+	<tradelist_template npc_id="203759" name="Eumelos" count="2" listId0="7" listId1="8">
+	</tradelist_template>
+	<tradelist_template npc_id="203892" name="Elephenor" count="1" listId0="118">
 	</tradelist_template>
 </npc_trade_list>
