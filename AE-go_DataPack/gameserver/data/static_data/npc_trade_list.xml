@@ -107,4 +107,32 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203892" name="Elephenor" count="1" listId0="118">
 	</tradelist_template>
+ 	<tradelist_template npc_id="203707" name="Thrasymedes" count="2" listId0="17" listId1="18">
+	</tradelist_template>
+	<tradelist_template npc_id="203706" name="Charna" count="2" listId0="19" listId1="20">
+	</tradelist_template>
+	<tradelist_template npc_id="203705" name="Jumentis" count="2" listId0="15" listId1="16">
+	</tradelist_template>
+	<tradelist_template npc_id="203704" name="Boreas" count="2" listId0="13" listId1="14">
+	</tradelist_template>
+	<tradelist_template npc_id="203891" name="Karon" count="1" listId0="118">
+	</tradelist_template>
+	<tradelist_template npc_id="203709" name="Clymene" count="1" listId0="119">
+	</tradelist_template>
+	<tradelist_template npc_id="798013" name="Chiwurinerk" count="1" listId0="60">
+	</tradelist_template>
+	<tradelist_template npc_id="203787" name="Darius" count="2" listId0="67" listId1="61">
+	</tradelist_template>
+	<tradelist_template npc_id="203791" name="Menomes" count="2" listId0="63" listId1="58">
+	</tradelist_template>
+	<tradelist_template npc_id="203789" name="Nakia" count="2" listId0="63" listId1="79">
+	</tradelist_template>
+	<tradelist_template npc_id="203794" name="Proserpina" count="2" listId0="65" listId1="59">
+	</tradelist_template>
+	<tradelist_template npc_id="203785" name="Luelas" count="2" listId0="68" listId1="62">
+	</tradelist_template>
+	<tradelist_template npc_id="203781" name="Sabotes" count="1" listId0="427">
+	</tradelist_template>
+	<tradelist_template npc_id="203783" name="Maire" count="1" listId0="428">
+	</tradelist_template>
 </npc_trade_list>
