@@ -23,34 +23,59 @@
 		                magic_accuracy="142" />
 	</player_stats>
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SORCERER" level="11">
-		<stats_template maxHp="424" maxMp="1425"
+		<stats_template maxHp="501" maxMp="1425"
 		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="198" block="198" parry="198"
 		                main_hand_attack="16" main_hand_accuracy="278" main_hand_crit_rate="2"
-		                magic_accuracy="136" />
+		                magic_accuracy="156" />
 	</player_stats>
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SORCERER" level="12">
-		<stats_template maxHp="462" maxMp="1531"
+		<stats_template maxHp="547" maxMp="1531"
 		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="210" block="210" parry="210"
 		                main_hand_attack="16" main_hand_accuracy="286" main_hand_crit_rate="2"
-		                magic_accuracy="148" />
+		                magic_accuracy="171" />
 	</player_stats>
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="SORCERER" level="13">
-		<stats_template maxHp="502" maxMp="1636"
+		<stats_template maxHp="593" maxMp="1636"
 		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="223" block="223" parry="223"
 		                main_hand_attack="16" main_hand_accuracy="294" main_hand_crit_rate="2"
-		                magic_accuracy="161" />
+		                magic_accuracy="185" />
+	</player_stats>
+
+	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<player_stats class="SORCERER" level="14">
+		<stats_template maxHp="641" maxMp="1741"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="235" block="235" parry="235"
+		                main_hand_attack="16" main_hand_accuracy="302" main_hand_crit_rate="2"
+		                magic_accuracy="199" />
+	</player_stats>
+
+	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<player_stats class="SORCERER" level="15">
+		<stats_template maxHp="691" maxMp="1846"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="248" block="248" parry="248"
+		                main_hand_attack="16" main_hand_accuracy="310" main_hand_crit_rate="2"
+		                magic_accuracy="213" />
 	</player_stats>
 
 	<player_stats class="SORCERER" level="17">
