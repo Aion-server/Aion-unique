@@ -22,9 +22,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.Config;
-import com.aionemu.gameserver.dao.InventoryDAO;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
@@ -33,21 +33,18 @@ import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ENTER_WORLD_CHECK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKDC;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
-import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -55,7 +52,7 @@ import com.google.inject.Inject;
 /**
  * In this packets aion client is asking if given char [by oid] may login into game [ie start playing].
  * 
- * @author -Nemesiss-, Avol, Dominion
+ * @author -Nemesiss-, Avol
  * 
  */
 public class CM_ENTER_WORLD extends AionClientPacket
@@ -142,13 +139,22 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// will be removed next time
 
 			//items
-			Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(objectId);
-			player.setInventory(inventory);
+			Inventory inventory = player.getInventory();	
 			
-			client.sendPacket(new SM_INVENTORY_INFO(inventory.getEquippedItems()));
 			//TODO send <= 10 items at once only
-			client.sendPacket(new SM_INVENTORY_INFO(inventory.getItems()));
-			client.sendPacket(new SM_INVENTORY_INFO());  //?? unknwon
+			List<Item> equipedItems = inventory.getEquippedItems();
+			if(equipedItems.size() != 0)
+			{
+				client.sendPacket(new SM_INVENTORY_INFO(inventory.getEquippedItems()));
+			}
+			
+			List<Item> unequipedItems = inventory.getUnquippedItems();
+			if(unequipedItems.size() != 0)
+			{
+				client.sendPacket(new SM_INVENTORY_INFO(inventory.getUnquippedItems()));
+			}
+			
+			client.sendPacket(new SM_INVENTORY_INFO()); 
 			client.sendPacket(new SM_UNKDC()); //?? unknwon
 			// sendPacket(new SM_UNKD3());
 

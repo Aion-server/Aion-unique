@@ -24,6 +24,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
@@ -89,22 +90,20 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 			writeGeneralInfo(buf, item);
 			
 			ItemTemplate itemTemplate = item.getItemTemplate();
-			int itemSlot = itemTemplate.getItemSlot();
+			int itemSlot = item.getEquipmentSlot();
 			
-			if(itemTemplate.getItemId() == 182400001)
+			if(itemTemplate.getItemId() == ItemId.KINAH.value())
 			{
 				writeKinah(buf, item);
 			}
+			//TODO write based on item template type - armor/weapon/misc
+			else if(item.isEquipped())
+			{
+				writeEquipmentInfo(buf, item);
+			}
 			else
 			{
-				if(itemSlot == 0)
-				{
-					writeGeneralItemInfo(buf, item);
-				}
-				else
-				{
-					writeEquipmentInfo(buf, item);
-				}
+				writeGeneralItemInfo(buf, item);
 			}
 			
 		}
@@ -154,12 +153,12 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 	
 	private void writeEquipmentInfo(ByteBuffer buf, Item item)
 	{
-		int convertedSlot = ItemSlot.convertSlot(item.getEquipmentSlot());
+		int itemSlotId = item.getEquipmentSlot();
 		writeH(buf, 0x4A);
 		writeC(buf, 0x06);		
-		writeD(buf, convertedSlot);
+		writeD(buf, itemSlotId);
 		writeC(buf, 0x02); //can be 0x01 for weapons
-		writeD(buf,	convertedSlot);
+		writeD(buf,	itemSlotId);
 		writeD(buf, 0);
 		writeD(buf, 0);
 		writeC(buf, 0x0B); //? some details separator

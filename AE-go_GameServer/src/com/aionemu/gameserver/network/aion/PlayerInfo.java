@@ -17,14 +17,14 @@
 package com.aionemu.gameserver.network.aion;
 
 import java.nio.ByteBuffer;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.account.PlayerAccountData;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * 
@@ -145,30 +145,23 @@ public abstract class PlayerInfo extends AionServerPacket
 		writeD(buf, 0);// unk 50379392
 		writeD(buf, 0);// unk 1242638636
 
-		//TODO refactor to new inventory
-		int itemsSize = 0;
+		int itemsDataSize = 0;
 		
-		Inventory equipedItems = new Inventory();
-		equipedItems.getEquipedItemsFromDb(pbd.getPlayerObjId());
-		int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
+		List<Item> items = accPlData.getInventory().getEquippedItems();
+		
+		for(Item item : items) {
+			
+			writeC(buf, 1); // this flas is needed to show equipment on selection screen
+	    	writeD(buf, item.getItemTemplate().getItemId());
+	    	writeD(buf, 0);
+	     	writeD(buf, 0);
 
-		int row = 0;
-		while (totalEquipedItemsCount > 0) {
- 				writeC(buf, 1); // this flas is needed to show equipment on selection screen
-		    	writeD(buf, equipedItems.getEquipedItemIdArray(row));
-		    	writeD(buf, 0);
-		     	writeD(buf, 0);
-
-			totalEquipedItemsCount = totalEquipedItemsCount-1;
-			itemsSize = itemsSize + 13;
-			row+=1;
+			itemsDataSize += 13;
 		}
-
 		
-		stupidNc = new byte[208-itemsSize];
+		stupidNc = new byte[208-itemsDataSize];
 		writeB(buf, stupidNc);
 		writeD(buf, accPlData.getDeletionTimeInSeconds());
-		writeD(buf, 0x00);// unk
-		
+		writeD(buf, 0x00);// unk	
 	}
 }

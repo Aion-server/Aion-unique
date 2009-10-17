@@ -149,6 +149,7 @@ public class Item extends AionObject
 
 	/**
 	 * @return the equipmentSlot
+	 *  Equipment slot can be of 2 types - one is the ItemSlot enum type if equipped, second - is position in cube
 	 */
 	public int getEquipmentSlot()
 	{

@@ -71,7 +71,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
                     int isEquiped = rset.getInt("isEquiped");
                     int slot = rset.getInt("slot");
                     Item item = new Item(itemUniqueId, itemId, itemCount, isEquiped == 1, slot);
-                    inventory.add(item);
+                    inventory.onLoadHandler(item);
                 }
             }
         });
@@ -86,7 +86,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
         
         int playerId = inventory.getOwner().getObjectId();
         
-        List<Item> inventoryItems = inventory.getItems();
+        List<Item> inventoryItems = inventory.getAllItems();
         
         //TODO store only dirty items
         for(Item item : inventoryItems)
@@ -113,7 +113,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
                     ps.setInt(3, item.getItemCount());
                     ps.setInt(4, playerId);
                     ps.setInt(5, item.isEquipped() ? 1 : 0);
-                    ps.setInt(6, item.getItemTemplate().getItemSlot());
+                    ps.setInt(6, item.getEquipmentSlot());
                     ps.execute();
                 }
             });

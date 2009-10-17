@@ -94,7 +94,7 @@ public class PlayerAccountData
 	/**
 	 * @return the inventory
 	 */
-	protected Inventory getInventory()
+	public Inventory getInventory()
 	{
 		return inventory;
 	}

@@ -37,6 +37,7 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.ItemType;
+import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
@@ -132,6 +133,9 @@ public class PlayerService
 	public void storePlayer(Player player)
 	{
 		DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
+		
+		// TODO uncomment here only after full testing
+		//DAOManager.getDAO(InventoryDAO.class).store(player.getInventory());
 	}
 
 	/**
@@ -210,12 +214,13 @@ public class PlayerService
 			//When creating new player - all equipment that has slot values will be equipped
 			//Make sure you will not put into xml file more items than possible to equip.
 			ItemTemplate itemTemplate = item.getItemTemplate();
-			if(itemTemplate.getItemSlot() != 0)
+			int slotIdMask = itemTemplate.getItemSlot();
+			if(slotIdMask != 0)
 			{
 				item.setEquipped(true);
-				//TODO set item equipment slot from template - but resolve to enum values
+				item.setEquipmentSlot(ItemSlot.convertSlot(slotIdMask));
 			}
-			playerInventory.addToBag(item);
+			playerInventory.onLoadHandler(item);
 		}	
 		
 		// Save starting inventory

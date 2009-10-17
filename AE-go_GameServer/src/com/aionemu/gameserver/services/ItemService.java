@@ -63,6 +63,16 @@ public class ItemService
 		return new Item(aionObjectsIDFactory.nextId(), itemTemplate, count, false, 0);
 	}
 	
+	/**
+	 * @param itemId
+	 * @param itemUniqueId
+	 * @param count
+	 * @param isEquipped
+	 * @param slot
+	 * @return
+	 * 
+	 *  Loads Item instance with specified itemUniqueId
+	 */
 	public Item loadItem(int itemId, int itemUniqueId, int count, boolean isEquipped, int slot)
 	{
 		ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
