@@ -75,8 +75,6 @@ public class ItemStorage
 	 */
 	public Item getItemFromStorageByItemId(int itemId)
 	{
-		int index = 0;
-
 		for(Item item : storageItems)
 		{
 			if(item != null)
@@ -87,9 +85,21 @@ public class ItemStorage
 					return item;
 				}
 			}
-			index++;
+
 		}
 
+		return null;
+	}
+	
+	public Item getItemFromStorageByItemUniqueId(int itemUniqueId)
+	{
+		for(Item item : storageItems)
+		{
+			if(item != null && item.getObjectId() == itemUniqueId)
+			{
+				return item;
+			}
+		}
 		return null;
 	}
 
@@ -159,6 +169,7 @@ public class ItemStorage
 		if(availableSlot != -1)
 		{
 			storageItems.add(availableSlot, item);
+			item.setEquipmentSlot(availableSlot);
 		}
 		return false;
 	}

@@ -21,16 +21,13 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import sun.util.logging.resources.logging;
-
 import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
-import com.aionemu.gameserver.model.gameobjects.player.ItemList;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
+import com.sun.tools.javac.jvm.Items;
 
 /**
  * In this packet Server is sending Inventory Info?
@@ -43,42 +40,29 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 {
 	private static final Logger	log	= Logger.getLogger(SM_INVENTORY_INFO.class);
 	
-	private int uniqueItemId;
-	private int itemId;
-	private int itemNameId;
-	private int itemQuanty;
-	private int entries;
-	private int slot;
+	public static final int EMPTY = 0;
+	public static final int FULL = 1;
 	
 	private List<Item> items;
 	private int size;
-	
-	private boolean emptyPacket = false;
-	
-	/**
-	 * Constructs new <tt>SM_INVENTORY_INFO </tt> packet
-	 */
-	public SM_INVENTORY_INFO(int uniqueItemId, int itemId, int itemQuanty, int entries, int slot)
-	{
-		this.uniqueItemId = uniqueItemId;
-		this.itemId = itemId;
-		this.itemQuanty = itemQuanty;
-		this.entries = entries;
-		this.slot = slot;
-	}
+
+	public int packetType = FULL;
 	
 	/**
-	 * @param inventory
+	 * @param items
 	 */
-	public SM_INVENTORY_INFO(Inventory inventory)
+	public SM_INVENTORY_INFO(List<Item> items)
 	{
-		this.items = inventory.getItems();
+		this.items = items;
 		this.size = items.size();
 	}
 	
-	public SM_INVENTORY_INFO(boolean isEmpty)
+	/**
+	 * @param isEmpty
+	 */
+	public SM_INVENTORY_INFO()
 	{
-		this.emptyPacket = isEmpty;
+		this.packetType = EMPTY;
 	}
 
 	/**
@@ -87,12 +71,13 @@ public class SM_INVENTORY_INFO extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		if(emptyPacket)
+		if(this.packetType == EMPTY)
 		{
 			writeD(buf, 0);
 			writeH(buf, 0);
 			return;
 		}
+		
 		// something wrong with cube part.
 		writeC(buf, 1); // TRUE/FALSE (1/0) update cube size
 		writeC(buf, 0); // cube size

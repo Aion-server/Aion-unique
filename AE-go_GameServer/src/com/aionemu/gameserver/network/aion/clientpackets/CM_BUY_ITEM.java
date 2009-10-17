@@ -92,7 +92,8 @@ public class CM_BUY_ITEM extends AionClientPacket
 				item.setItemTemplate(itemTemplate);
 				item.setItemCount(count);
 				bag.addToBag(item);
-				sendPacket(new SM_INVENTORY_INFO(item.getObjectId(), itemId, count, 1, 8));
+				//TODO revisit here
+				//sendPacket(new SM_INVENTORY_INFO(item.getObjectId(), itemId, count, 1, 8));
 			}
 			else if (unk1 == 1) //sell
 			{

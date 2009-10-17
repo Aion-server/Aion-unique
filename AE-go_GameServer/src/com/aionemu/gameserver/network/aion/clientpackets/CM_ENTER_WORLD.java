@@ -144,9 +144,11 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			//items
 			Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(objectId);
 			player.setInventory(inventory);
-
-			client.sendPacket(new SM_INVENTORY_INFO(inventory));
-			client.sendPacket(new SM_INVENTORY_INFO(true));  //?? unknwon
+			
+			client.sendPacket(new SM_INVENTORY_INFO(inventory.getEquippedItems()));
+			//TODO send <= 10 items at once only
+			client.sendPacket(new SM_INVENTORY_INFO(inventory.getItems()));
+			client.sendPacket(new SM_INVENTORY_INFO());  //?? unknwon
 			client.sendPacket(new SM_UNKDC()); //?? unknwon
 			// sendPacket(new SM_UNKD3());
 

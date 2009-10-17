@@ -20,13 +20,19 @@ package com.aionemu.gameserver.model.gameobjects.player;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.items.ItemStorage;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author Avol
@@ -57,13 +63,17 @@ public class Inventory
 	
 	//TODO Remove code upper
 	
+	 private static final Logger log = Logger.getLogger(Inventory.class);
+	
 	private Player owner;
 	
 	private final ItemStorage defaultItemBag;
 	
+	private SortedMap<Integer, Item> equipment = Collections.synchronizedSortedMap(new TreeMap<Integer, Item>());
+	
 	public Inventory()
 	{
-		defaultItemBag = new ItemStorage(30); //TODO check this amount
+		defaultItemBag = new ItemStorage(27); //TODO check this amount
 	}
 	
 	public Inventory(Player owner)
@@ -86,6 +96,26 @@ public class Inventory
 	public void setOwner(Player owner)
 	{
 		this.owner = owner;
+	}
+	
+	/**
+	 * @param item
+	 *  This method should be called only for new items added to inventory (loading from DB)
+	 *  
+	 *  If item is equiped - will be put to equipment
+	 *  if item is unequiped - will be put to default bag for now
+	 */
+	public void add(Item item)
+	{
+		//TODO checks
+		if(item.isEquipped())
+		{
+			equipment.put(item.getEquipmentSlot(), item);
+		}
+		else
+		{
+			defaultItemBag.addItemToStorage(item);
+		}
 	}
 
 	/**
@@ -118,6 +148,68 @@ public class Inventory
 	public List<Item> getItems()
 	{
 		return defaultItemBag.getStorageItems();
+	}
+	
+	public List<Item> getEquippedItems()
+	{
+		List<Item> equippedItems = new ArrayList<Item>();
+		
+		synchronized(equipment)
+		{	
+			for(Item item : equipment.values())
+			{
+				if(item != null)
+				{
+					equippedItems.add(item);
+				}
+			}
+		}
+		
+		return equippedItems;
+	}
+	
+	public boolean equipItem(int itemUniqueId, int slot)
+	{
+		Item item = defaultItemBag.getItemFromStorageByItemUniqueId(itemUniqueId);
+		
+		item.setEquipped(true);
+		
+		defaultItemBag.removeItemFromStorage(item);
+		equipment.put(slot, item);
+
+		item.setEquipmentSlot(slot);
+		
+		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item, 0));
+		return true;
+	}
+	
+	public boolean unEquipItem(int itemUniqueId, int slot)
+	{
+		log.error("unEquipItem=" + itemUniqueId + " " + slot);
+		
+		synchronized(equipment)
+		{
+			Item itemToUnequip = null;
+			
+			for(Item item : equipment.values())
+			{
+				if(item.getObjectId() == itemUniqueId)
+				{
+					itemToUnequip = item;
+				}
+			}
+			
+			if(itemToUnequip == null)
+			{
+				return false;
+			}
+			equipment.remove(itemToUnequip.getEquipmentSlot());
+			itemToUnequip.setEquipped(false);
+			addToBag(itemToUnequip);
+			PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip, 1));
+		}
+		
+		return true;	
 	}
 
 	

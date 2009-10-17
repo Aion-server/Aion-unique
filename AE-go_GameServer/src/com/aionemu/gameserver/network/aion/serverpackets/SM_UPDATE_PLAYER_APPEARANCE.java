@@ -15,73 +15,60 @@
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// Author Avol
-
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.util.Random;
+import java.util.List;
 
 import org.apache.log4j.Logger;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
-
+/**
+ * 
+ * @author Avol
+ * modified by ATracer
+ */
 public class SM_UPDATE_PLAYER_APPEARANCE extends AionServerPacket
 {
 	private static final Logger	log	= Logger.getLogger(SM_UPDATE_PLAYER_APPEARANCE.class);
 
-	public int activePlayer;
+	public int playerId;
+	public int size;
+	public List<Item> items;
 
-	public SM_UPDATE_PLAYER_APPEARANCE(int activePlayer)
+	public SM_UPDATE_PLAYER_APPEARANCE(int playerId, List<Item> items)
 	{
-		this.activePlayer = activePlayer;
+		this.playerId = playerId;
+		this.items = items;
+		this.size = items.size();
 	}
-
 
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, activePlayer); // player
+		writeD(buf, playerId);
 		
-		Inventory equipedItems = new Inventory();
-		equipedItems.getEquipedItemsFromDb(activePlayer);
-		int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
+		short mask = 0;
+		for(Item item : items)
+		{
+			mask |= item.getEquipmentSlot();
+		}
 		
-		int itemsCount = 0;
-		int row = 0;
-		while (totalEquipedItemsCount > 0) {
-			int slot = equipedItems.getEquipedItemSlotArray(row);
-			if (slot==5) {
-				slot = 1; // or 2 weapon
-			}
-			if (slot==6) {
-				slot = 8192;//or 16384 power shard
-			}
-			if (slot==7) {
-				slot = 256;// 512 rings
-			}
-			if (slot==9) {
-				slot = 64;// 128 earrings
-			}
-			itemsCount = itemsCount + slot;
-			totalEquipedItemsCount = totalEquipedItemsCount-1;
-			row+=1;
-		}
-	
-		writeH(buf, itemsCount);// // items count
+		writeH(buf, mask);
 
-		totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
-
-		row = 0;
-		while (totalEquipedItemsCount > 0) {
-			writeD(buf, equipedItems.getEquipedItemIdArray(row));// item id
-			writeD(buf, 0x00);// unk
-			writeD(buf, 0x00);// color code
-			totalEquipedItemsCount = totalEquipedItemsCount-1;
-			row+=1;
+		for(Item item : items)
+		{		
+			writeD(buf, item.getItemTemplate().getItemId());
+			writeD(buf, 0); //unk
+			writeD(buf, 0); //color code
 		}
+		
+		writeH(buf, 0); //unk
+		writeC(buf, 0); //unk
+		
+		return;
 	}
 }

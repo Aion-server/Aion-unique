@@ -71,7 +71,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
                     int isEquiped = rset.getInt("isEquiped");
                     int slot = rset.getInt("slot");
                     Item item = new Item(itemUniqueId, itemId, itemCount, isEquiped == 1, slot);
-                    inventory.addToBag(item);
+                    inventory.add(item);
                 }
             }
         });
