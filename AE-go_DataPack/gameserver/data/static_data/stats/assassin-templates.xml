@@ -52,7 +52,7 @@
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="254" block="254" parry="254"
-		                main_hand_attack="19" main_hand_accuracy="334" main_hand_crit_rate="3"
+		                main_hand_attack="19" main_hand_accuracy="314" main_hand_crit_rate="3"
 		                magic_accuracy="185" />
 	</player_stats>
 
@@ -63,8 +63,19 @@
 		                walk_speed="1.5" run_speed="6" fly_speed="9"
 		                attack_speed="1.5"
 		                evasion="266" block="266" parry="266"
-		                main_hand_attack="19" main_hand_accuracy="334" main_hand_crit_rate="3"
+		                main_hand_attack="19" main_hand_accuracy="322" main_hand_crit_rate="3"
 		                magic_accuracy="199" />
+	</player_stats>
+
+	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<player_stats class="ASSASSIN" level="15">
+		<stats_template maxHp="993" maxMp="1151"
+		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="279" block="279" parry="279"
+		                main_hand_attack="19" main_hand_accuracy="330" main_hand_crit_rate="3"
+		                magic_accuracy="213" />
 	</player_stats>
 
 	<player_stats class="ASSASSIN" level="19">
