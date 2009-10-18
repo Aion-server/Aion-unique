@@ -135,4 +135,24 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203783" name="Maire" count="1" listId0="428">
 	</tradelist_template>
+	<tradelist_template npc_id="203724" name="Gwenspena" count="2" listId0="357" listId1="358">
+	</tradelist_template>
+	<tradelist_template npc_id="203809" name="Perena" count="3" listId0="162" listId1="163" listId2="164">
+	</tradelist_template>
+	<tradelist_template npc_id="203808" name="Ophenes" count="2" listId0="175" listId1="176">
+	</tradelist_template>
+	<tradelist_template npc_id="203814" name="Euchenor" count="4" listId0="165" listId1="166" listId2="167" listId3="168">
+	</tradelist_template>
+	<tradelist_template npc_id="203813" name="Esca" count="4" listId0="165" listId1="166" listId2="167" listId3="168">
+	</tradelist_template>
+	<tradelist_template npc_id="203816" name="Hesione" count="4" listId0="169" listId1="170" listId2="171" listId3="172">
+	</tradelist_template>
+	<tradelist_template npc_id="203815" name="Soana" count="4" listId0="169" listId1="170" listId2="171" listId3="172">
+	</tradelist_template>
+	<tradelist_template npc_id="203811" name="Arcinia" count="2" listId0="351" listId1="460">
+	</tradelist_template>
+	<tradelist_template npc_id="203812" name="Jooma" count="1" listId0="160">
+	</tradelist_template>
+	<tradelist_template npc_id="203819" name="Aktus" count="1" listId0="174">
+	</tradelist_template>
 </npc_trade_list>
