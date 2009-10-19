@@ -1,5 +1,5 @@
-/**
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+/*
+ * This file is part of aion-unique <aionu-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,38 +14,27 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets;
+package com.aionemu.gameserver.dao;
 
-import java.nio.ByteBuffer;
-
-import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.AionServerPacket;
+import com.aionemu.commons.database.dao.DAO;
+import com.aionemu.gameserver.model.drop.DropList;
 
 /**
- * 
- * @author alexa026
- * 
+ * @author ATracer
+ *
  */
-public class SM_LOOT_STATUS extends AionServerPacket
+public abstract class DropListDAO implements DAO
 {
-	private int	targetObjectId;
-	private int	state;
- 
-	
-	public SM_LOOT_STATUS(int targetObjectId, int state)
-	{
-		this.targetObjectId = targetObjectId;
-		this.state = state;
-	}
 
-	/**
-	 * {@inheritDoc} dc
+	/* (non-Javadoc)
+	 * @see com.aionemu.commons.database.dao.DAO#getClassName()
 	 */
-	
 	@Override
-	protected void writeImpl(AionConnection con, ByteBuffer buf)
-	{		
-		writeD(buf, targetObjectId);
-		writeC(buf, state);
-	}	
+	public String getClassName()
+	{
+		return DropListDAO.class.getName();
+	}
+	
+	public abstract DropList load();
+	
 }

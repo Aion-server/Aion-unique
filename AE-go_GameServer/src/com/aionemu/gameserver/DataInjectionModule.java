@@ -27,6 +27,7 @@ import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.services.AccountService;
+import com.aionemu.gameserver.services.DropService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.SocialService;
@@ -72,8 +73,10 @@ public class DataInjectionModule extends AbstractModule
 		bind(SocialService.class).in(Scopes.SINGLETON);
 		// binds ScriptService as singleton
 		bind(ScriptService.class).in(Scopes.SINGLETON);
-		// binds PlayerService as singleton
+		// binds ItemService as singleton
 		bind(ItemService.class).in(Scopes.SINGLETON);
+		// binds DropService as singleton and creates its singleton immediately
+		bind(DropService.class).asEagerSingleton();
 	}
 
 	@Provides

@@ -1,5 +1,5 @@
-/**
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+/*
+ * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,36 +17,35 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.model.drop.DropItem;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 
 /**
  * 
  * @author alexa026, Avol, Corrected by Metos
+ * 
+ * modified by ATracer
  * 
  */
 public class SM_LOOT_ITEMLIST extends AionServerPacket
 {
 	
 	private int	targetObjectId;
-	private int	monsterId;
-	private Player player;
-	private int [][] finaloot;
-	private int nbloot;
+	private Set<DropItem> dropItems;
+	private int size;
 
 	private static final Logger	log	= Logger.getLogger(SM_LOOT_ITEMLIST.class);
 
-	public SM_LOOT_ITEMLIST (int monsterId, int targetObjectId, Player player, int [][] finaloot, int nbloot) {
-		this.monsterId = monsterId;
+	public SM_LOOT_ITEMLIST(int targetObjectId, Set<DropItem> dropItems)
+	{
 		this.targetObjectId = targetObjectId;
-		this.player = player;
-		this.finaloot = finaloot;
-		this.nbloot = nbloot;
+		this.dropItems = dropItems;
+		size = dropItems.size();	
 	}
 
 	/**
@@ -54,24 +53,19 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 	 */
 	
 	@Override
-	protected void writeImpl(AionConnection con, ByteBuffer buf) {
-		PlayerGameStats playerGameStats = player.getGameStats();
-		
-		playerGameStats.setItemIdArrayLenght(nbloot);
-		for (int i = 0; i < nbloot; i++) {
-			playerGameStats.setItemIdArray(finaloot[i][0], i);
-			playerGameStats.setItemCountArray(finaloot[i][1], i);
-		}
-		
+	protected void writeImpl(AionConnection con, ByteBuffer buf) 
+	{
 		writeD(buf, targetObjectId);
-		writeH(buf, nbloot);
-		for(int i = 0; i < nbloot; i++) {
-			writeD(buf, finaloot[i][0]);
-			writeD(buf, finaloot[i][1]);
+		writeH(buf, size);
+		
+		for(DropItem dropItem : dropItems)
+		{
+			//writeC(buf, dropItem.getIndex()); // index in starting droplist ?
+			writeD(buf, dropItem.getDropTemplate().getItemId());
+			writeD(buf, dropItem.getCount());
 			writeH(buf, 0);
 			writeC(buf, 0);
 		}
-		writeH(buf, 0);
-		
+		writeH(buf, 0);	
 	}	
 }

@@ -34,10 +34,12 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.DecayService;
+import com.aionemu.gameserver.services.DropService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 
 /**
  * This class is for controlling Npc's
@@ -50,7 +52,14 @@ public class NpcController extends CreatureController<Npc>
 	private static Logger log = Logger.getLogger(NpcController.class);
 	
 	private Future<?> decayTask;
+	
+	private DropService dropService;
 
+	public void setDropService(DropService dropService)
+	{
+		this.dropService = dropService;
+	}
+	
 	public void attackTarget(int targetObjectId)
 	{
 		Npc npc = getOwner();
@@ -130,7 +139,7 @@ public class NpcController extends CreatureController<Npc>
 	{
 		super.onRespawn();
 		this.decayTask = null;
-		
+		dropService.unregisterDrop(getOwner());
 		this.getOwner().getNpcAi().setAiState(AIState.IDLE);
 		StatsTemplate statsTemplate = getOwner().getTemplate().getStatsTemplate();
 		this.getOwner().setLifeStats(new NpcLifeStats(statsTemplate.getMaxHp(),
@@ -166,6 +175,7 @@ public class NpcController extends CreatureController<Npc>
 	public void doDrop()
 	{
 		super.doDrop();
+		dropService.registerDrop(getOwner());
 		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
 	}
 

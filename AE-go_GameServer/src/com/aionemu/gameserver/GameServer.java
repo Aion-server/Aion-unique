@@ -25,6 +25,7 @@ import com.aionemu.commons.network.NioServer;
 import com.aionemu.commons.services.LoggingService;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dataholders.SpawnData;
+import com.aionemu.gameserver.model.drop.DropList;
 import com.aionemu.gameserver.model.quests.qparser.QuestParser;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.skillengine.SkillEngine;
@@ -35,7 +36,6 @@ import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.aionemu.gameserver.model.gameobjects.player.DropList;
 
 /**
  * <tt>GameServer</tt> is the main class of the application and represents the whole game server.<br>
@@ -87,10 +87,6 @@ public class GameServer
 		
 		// Ininitialize skill engine
 		SkillEngine.getInstance().registerAllSkills(gs.injector);
-		
-		// Drop list
-		
-		DropList.getInstance();
 
 		Util.printMemoryUsage(log);
 		log.info("###########################################################################");

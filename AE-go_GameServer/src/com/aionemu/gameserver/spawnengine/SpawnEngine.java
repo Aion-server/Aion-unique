@@ -21,9 +21,8 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
-import com.aionemu.gameserver.model.templates.stats.StatsTemplate;
+import com.aionemu.gameserver.services.DropService;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.KnownList;
@@ -53,6 +52,9 @@ public class SpawnEngine
 	 *            a {@link World} instance which NPCs are spawned in.
 	 */
 	@Inject
+	private DropService dropService;
+	
+	@Inject
 	public SpawnEngine(World world, @IDFactoryAionObject IDFactory aionObjectsIDFactory)
 	{
 		this.world = world;
@@ -67,7 +69,10 @@ public class SpawnEngine
 	 */
 	public Npc spawnNpc(SpawnTemplate spawn)
 	{
-		Npc npc = new Npc(spawn, aionObjectsIDFactory.nextId(), new NpcController());
+		NpcController npcController = new NpcController();
+		npcController.setDropService(dropService);
+		
+		Npc npc = new Npc(spawn, aionObjectsIDFactory.nextId(), npcController);
 
 		npc.setKnownlist(new KnownList(npc));
 		
