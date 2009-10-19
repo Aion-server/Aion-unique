@@ -30,14 +30,14 @@ import com.aionemu.gameserver.model.items.ItemQuality;
  * modified by ATracer
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlRootElement(name = "item_data")
+@XmlRootElement(name = "item_templates")
 public class ItemTemplate
 {
 	
 	private int			itemId;
 
 	@XmlAttribute(name = "equipment_slots")
-	private String	itemSlot; //TODO enum
+	private int itemSlot; 
 	
 	@XmlAttribute(name = "min_damage")
 	private int minDamage;
@@ -68,6 +68,9 @@ public class ItemTemplate
 	
 	@XmlAttribute(name = "weapon_type")
 	private String weaponType; //TODO enum
+	
+	@XmlAttribute(name = "armor_type")
+	private String armorType; //TODO enum
 	
 	@XmlAttribute(name = "attack_range")
 	private float attackRange;
@@ -208,12 +211,7 @@ public class ItemTemplate
 
 	public int getItemSlot()
 	{
-		int slot = 0;
-        if(!itemSlot.equals("none"))
-        {
-            slot = Integer.parseInt(itemSlot);
-        }
-        return slot;
+		return itemSlot;
 	}
 	
 	@SuppressWarnings("unused")
@@ -283,6 +281,14 @@ public class ItemTemplate
 	public String getWeaponType()
 	{
 		return weaponType;
+	}
+
+	/**
+	 * @return the armorType
+	 */
+	protected String getArmorType()
+	{
+		return armorType;
 	}
 
 	/**
@@ -659,5 +665,21 @@ public class ItemTemplate
 	public String getRacePermitted()
 	{
 		return racePermitted;
+	}
+	
+	/**
+	 * @return
+	 */
+	public boolean isWeapon()
+	{
+		return getWeaponType() != null;
+	}
+	
+	/**
+	 * @return
+	 */
+	public boolean isArmor()
+	{
+		return getArmorType() != null;
 	}
 }

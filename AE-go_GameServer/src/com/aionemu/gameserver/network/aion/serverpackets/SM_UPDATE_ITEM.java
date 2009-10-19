@@ -21,74 +21,52 @@ import java.nio.ByteBuffer;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.items.ItemId;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.AionServerPacket;
+import com.aionemu.gameserver.network.aion.InventoryPacket;
 
 /**
  * 
- * @author ATRacer
+ * @author ATracer
  *
  */
 
-public class SM_UPDATE_ITEM extends AionServerPacket
+public class SM_UPDATE_ITEM extends InventoryPacket
 {
 	private static final Logger	log	= Logger.getLogger(SM_UPDATE_ITEM.class);
 	
-	private int action;
-	private int uniqueId;
-	private int slot;
-	private int itemNameId;
+	private Item item;
 
 	public SM_UPDATE_ITEM(Item item, int action)
 	{
-		this.slot = item.getEquipmentSlot();
-		this.action = action;
-		this.uniqueId = item.getObjectId();
-		this.itemNameId = Integer.parseInt(item.getItemTemplate().getDescription());		
+		this.item = item;	
 	}
 	
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		// equip
-		if(action == 0)
+
+		writeGeneralInfo(buf, item);
+		
+		ItemTemplate itemTemplate = item.getItemTemplate();
+		
+		if(itemTemplate.getItemId() == ItemId.KINAH.value())
 		{
-			writeEquipAction(buf);
+			writeKinah(buf, item);
 		}
-		// unequip
-		if(action == 1)
+		else if (itemTemplate.isWeapon())
 		{
-			writeUnEquipAction(buf);
+			writeWeaponInfo(buf, item);
 		}
-		if(action == 2)
+		else if (itemTemplate.isArmor())
 		{
-			// store kinah structure
+			writeArmorInfo(buf,item);
+		}
+		else
+		{
+			writeGeneralItemInfo(buf, item);
 		}
 	}
-	
-	private void writeEquipAction(ByteBuffer buf)
-	{
-		writeD(buf, uniqueId); // unique item id
-		writeH(buf, 36); // unk always 0x24
-		writeD(buf, itemNameId); // item name id
-		writeH(buf, 0); // always 0
-		writeH(buf, 5); // length of item details section
-		//item details block//
-		writeC(buf, 6);
-		writeD(buf, slot); // slot
-		//end of item details block//
-	}
-	
-	private void writeUnEquipAction(ByteBuffer buf)
-	{
-		writeD(buf, uniqueId); // unique item id
-		writeH(buf, 36); // unk always 0x24
-		writeD(buf, itemNameId); // item name id
-		writeH(buf, 0); // always 0
-		writeH(buf, 5); // length of item details section
-		//item details block//
-		writeC(buf, 6);
-		writeD(buf, 0);
-		//end of item details block//
-	}
+
 }

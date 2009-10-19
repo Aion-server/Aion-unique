@@ -156,22 +156,24 @@ public class ItemStorage
 	 * @param item
 	 * @return
 	 */
-	public boolean addItemToStorage(Item item)
+	public Item addItemToStorage(Item item)
 	{
 		Item existingItem = getItemFromStorageByItemId(item.getItemTemplate().getItemId());
 
-		if(existingItem != null)
+		if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
 		{
 			//TODO overflow check
 			existingItem.increaseItemCount(item.getItemCount());
+			return existingItem;
 		}
 		int availableSlot = getNextAvailableSlot();
 		if(availableSlot != -1)
 		{
 			storageItems.add(availableSlot, item);
 			item.setEquipmentSlot(availableSlot);
+			return item;
 		}
-		return false;
+		return null;
 	}
 	
 	/**
@@ -181,7 +183,7 @@ public class ItemStorage
 	public boolean removeItemFromStorage(Item item)
 	{
 		int slot = getSlotIdByItemId(item.getItemTemplate().getItemId());
-		if(slot != 1)
+		if(slot != -1)
 		{
 			storageItems.remove(slot);
 			return true;

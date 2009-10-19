@@ -72,7 +72,6 @@ public class NpcEquippedGear implements Iterable<ItemTemplate>
 				for(ItemTemplate item : v.items)
 				{
 					ItemSlot itemSlot = ItemSlot.getValue(item.getItemSlot());
-
 					items.put(itemSlot, item);
 					mask |= itemSlot.getSlotIdMask();
 					v = null;

@@ -214,12 +214,13 @@ public class PlayerService
 			//When creating new player - all equipment that has slot values will be equipped
 			//Make sure you will not put into xml file more items than possible to equip.
 			ItemTemplate itemTemplate = item.getItemTemplate();
-			int slotIdMask = itemTemplate.getItemSlot();
-			if(slotIdMask != 0)
+
+			if(itemTemplate.isArmor() || itemTemplate.isWeapon())
 			{
 				item.setEquipped(true);
-				item.setEquipmentSlot(ItemSlot.convertSlot(slotIdMask));
+				item.setEquipmentSlot(ItemSlot.convertSlot(itemTemplate.getItemSlot()));
 			}
+			
 			playerInventory.onLoadHandler(item);
 		}	
 		

@@ -24,7 +24,7 @@ package com.aionemu.gameserver.model;
 public enum ItemSlot
 {
 	MAIN_HAND(0),
-	OFF_HAND(1),
+	SUB_HAND(1),
 	HELMET(2),
 	TORSO(3),
 	GLOVES(4),
@@ -34,14 +34,19 @@ public enum ItemSlot
 	RING_LEFT(8),
 	RING_RIGHT(9),
 	NECKLACE(10),
-	PAULDRON(11),
+	SHOULDER(11),
 	PANTS(12),
 	POWER_SHARD_RIGHT(13),
 	POWER_SHARD_LEFT(14),
 	WINGS(15),
 	WAIST(16),
-	SECOND_MAIN_HAND(17),
-	SECOND_OFF_HAND(18);
+	
+	//combo
+	MAIN_OR_SUB(0),
+	EARRING_RIGHT_OR_LEFT(6),
+	RING_RIGHT_OR_LEFT(8),
+	SHARD_RIGHT_OR_LEFT(13),
+	TORSO_GLOVE_FOOT_SHOULDER_LEG(19);
 	
 	private short slotIdMask;
 	

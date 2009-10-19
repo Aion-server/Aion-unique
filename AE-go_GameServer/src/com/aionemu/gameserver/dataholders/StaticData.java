@@ -44,7 +44,7 @@ public class StaticData
 	@XmlElement(name = "stats_templates")
 	public PlayerStatsData			statsData;
 
-	@XmlElement(name = "item_data")
+	@XmlElement(name = "item_templates")
 	public ItemData					itemData;
 	
 	@XmlElement(name = "npc_data")

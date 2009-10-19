@@ -16,19 +16,21 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import java.util.Collections;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
-import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.idfactory.IDFactory;
+import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
+import com.aionemu.gameserver.services.ItemService;
+import com.google.inject.Inject;
 
 /**
  * 
@@ -54,7 +56,9 @@ public class CM_BUY_ITEM extends AionClientPacket
 	 * Logger
 	 */
 	private static final Logger	log	= Logger.getLogger(CM_BUY_ITEM.class);
-	private IDFactory	aionObjectsIDFactory;
+	
+	@Inject
+	private ItemService itemService;
 
 	
 	/**
@@ -82,18 +86,14 @@ public class CM_BUY_ITEM extends AionClientPacket
 			
 			if (unk1 == 12) //buy
 			{
-				//todo show SM_INVENTORY_IS_FULL packet or smth.
-				//todo check reduce the amount of gold.
-				ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
-				
-				assert itemTemplate != null : itemId;
-				//TODO from ItemService
-				Item item = new Item(aionObjectsIDFactory.nextId());
-				item.setItemTemplate(itemTemplate);
-				item.setItemCount(count);
-				bag.addToBag(item);
-				//TODO revisit here
-				//sendPacket(new SM_INVENTORY_INFO(item.getObjectId(), itemId, count, 1, 8));
+				Item item = itemService.newItem(itemId, count);
+				Item resultItem = bag.addToBag(item);
+				if(resultItem != null)
+				{
+					//TODO check retail the real packets that sent to player
+					sendPacket(new SM_INVENTORY_INFO(Collections.singletonList(resultItem)));
+				}
+		
 			}
 			else if (unk1 == 1) //sell
 			{
@@ -105,9 +105,9 @@ public class CM_BUY_ITEM extends AionClientPacket
 				log.info(String.format("ItemId: %d count: %d", itemId, count));
 			}
 		}
-		//todo save inventory when player logout or  disconnect
-		// Save inventory
-		DAOManager.getDAO(InventoryDAO.class).store(bag);
+
+		//TODO uncomment only after inventory slot save testing
+		//DAOManager.getDAO(InventoryDAO.class).store(bag);
 
 	}
 

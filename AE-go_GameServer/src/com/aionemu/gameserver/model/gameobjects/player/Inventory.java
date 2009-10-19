@@ -116,22 +116,14 @@ public class Inventory
 	}
 
 	/**
+	 * 	Return is the result of add operation. It can be null if item was not stored, it can be existing 
+	 *  item reference if stack count was increased or new item in bag
+	 *  
 	 * @param item
 	 */
-	public void addToBag(Item item)
+	public Item addToBag(Item item)
 	{
-		defaultItemBag.addItemToStorage(item);
-	}
-
-	/**
-	 * @param items
-	 */
-	public void addToBag(List<Item> items)
-	{
-		for(Item item : items)
-		{
-			addToBag(item);
-		}
+		return defaultItemBag.addItemToStorage(item);
 	}
 
 	/**
