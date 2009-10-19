@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.util.Random;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -32,7 +33,7 @@ import com.aionemu.gameserver.world.World;
  */
 public class CM_DELETE_ITEM extends AionClientPacket
 {
-	public int uniqueItemId;
+	public int objId;
 	
 	public CM_DELETE_ITEM(int opcode)
 	{
@@ -43,14 +44,18 @@ public class CM_DELETE_ITEM extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		uniqueItemId = readD();
+		objId = readD();
 	}
 
 	@Override
 	protected void runImpl()
 	{
-		//Inventory inventory = new Inventory();
-		//inventory.deleteItemFromDb(uniqueItemId);
-		sendPacket(new SM_DELETE_ITEM(uniqueItemId));
+
+		Player player = getConnection().getActivePlayer();
+		Inventory bag = player.getInventory();
+		Item resultItem = bag.getItem(objId);
+		if (resultItem != null)
+			bag.removeFromBag(resultItem);
+		sendPacket(new SM_DELETE_ITEM(objId));
 	}
 }
