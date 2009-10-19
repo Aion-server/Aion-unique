@@ -22,38 +22,31 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.model.gameobjects.player.DropList;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
-import java.util.Random;
 
 /**
  * 
- * @author alexa026, Avol
+ * @author alexa026, Avol, Corrected by Metos
  * 
  */
 public class SM_LOOT_ITEMLIST extends AionServerPacket
 {
-	private int	targetObjectId;
-	private int	count;
-	private int	itemid;
-	private int	itemChance;
-	private int	itemCount;
-	private int	monsterId;
-	private int	playerObjectId;
-	private int	chance[];
-	private int	droppedItemId[];
-	private int	droppedItemQuanty[];
-	Player player;
 	
+	private int	targetObjectId;
+	private int	monsterId;
+	private Player player;
+	private int [][] finaloot;
+	private int nbloot;
 
 	private static final Logger	log	= Logger.getLogger(SM_LOOT_ITEMLIST.class);
 
-	public SM_LOOT_ITEMLIST(int monsterId, int targetObjectId, Player player)
-	{
+	public SM_LOOT_ITEMLIST (int monsterId, int targetObjectId, Player player, int [][] finaloot, int nbloot) {
 		this.monsterId = monsterId;
 		this.targetObjectId = targetObjectId;
 		this.player = player;
+		this.finaloot = finaloot;
+		this.nbloot = nbloot;
 	}
 
 	/**
@@ -61,93 +54,24 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 	 */
 	
 	@Override
-	protected void writeImpl(AionConnection con, ByteBuffer buf)
-	{	
-		PlayerGameStats playerGameStats = player.getGameStats();	
+	protected void writeImpl(AionConnection con, ByteBuffer buf) {
+		PlayerGameStats playerGameStats = player.getGameStats();
 		
-		int itemid;
-		int itemChance = 1;
-		int itemMin;
-		int itemMax;
-		int count;
-		int droppedItemCount = 0;
-
-		DropList dropData = new DropList();
-		dropData.getDropList(monsterId);
-		itemCount = dropData.getItemsCount();
-
-		Random r = new Random();
-
-		chance = new int[500];
-		droppedItemId = new int[500];
-		droppedItemQuanty = new int[500];
-
-		int row = 0;
-		int arrayLenght = 0;
-		for(int i = 0; i < itemCount; i++)
-		{	
-			itemChance = dropData.getDropDataChance(row);
-
-			if (itemChance == 1) {
-				chance[row] = 0;
-			} else {
-				chance[row] = r.nextInt(itemChance); //itemChance-1
-			}
-			if (chance[row]==0) {
-				arrayLenght++;
-			}
-			row++;
+		playerGameStats.setItemIdArrayLenght(nbloot);
+		for (int i = 0; i < nbloot; i++) {
+			playerGameStats.setItemIdArray(finaloot[i][0], i);
+			playerGameStats.setItemCountArray(finaloot[i][1], i);
 		}
 		
-		playerGameStats.setItemIdArrayLenght(arrayLenght);
-		
-
-		row = 0;
-		for(int i = 0; i < itemCount; i++)
-		{	
-			if (chance[row] == 0) {
-				droppedItemCount++;
-				droppedItemId[droppedItemCount-1] = dropData.getDropDataItemId(row);
-
-				itemMin = dropData.getDropDataMin(row);
-				itemMax = dropData.getDropDataMax(row);
-
-				if (itemMax == 1) {
-					droppedItemQuanty[droppedItemCount-1] = 1;
-				} else {
-					int add = itemMax - itemMin;
-					int dropedQuanty = r.nextInt(add);
-					if (dropedQuanty > 0) {
-						dropedQuanty--;
-					}
-					droppedItemQuanty[droppedItemCount-1] = itemMin + dropedQuanty;
-				}
-
-				playerGameStats.setItemIdArray(droppedItemId[droppedItemCount-1],droppedItemCount-1);
-				playerGameStats.setItemCountArray(droppedItemQuanty[droppedItemCount-1],droppedItemCount-1);
-
-			}
-			
-			row++;
-		}
-			
-
 		writeD(buf, targetObjectId);
-		writeH(buf, droppedItemCount);
-
-		row = 0;
-
-		for(int i = 0; i < droppedItemCount; i++)
-		{
-			writeD(buf, droppedItemId[row]);
-			writeD(buf, droppedItemQuanty[row]); //count
+		writeH(buf, nbloot);
+		for(int i = 0; i < nbloot; i++) {
+			writeD(buf, finaloot[i][0]);
+			writeD(buf, finaloot[i][1]);
 			writeH(buf, 0);
 			writeC(buf, 0);
-
-			log.info(String.format("item quanty: %s", droppedItemQuanty[row]));
-
-			row+=1;
 		}
 		writeH(buf, 0);
+		
 	}	
 }

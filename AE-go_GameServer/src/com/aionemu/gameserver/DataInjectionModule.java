@@ -27,9 +27,9 @@ import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.services.AccountService;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.SocialService;
-import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlers;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlersFactory;
@@ -72,6 +72,8 @@ public class DataInjectionModule extends AbstractModule
 		bind(SocialService.class).in(Scopes.SINGLETON);
 		// binds ScriptService as singleton
 		bind(ScriptService.class).in(Scopes.SINGLETON);
+		// binds PlayerService as singleton
+		bind(ItemService.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides

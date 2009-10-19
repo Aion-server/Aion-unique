@@ -20,6 +20,7 @@ import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
 
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -44,9 +45,6 @@ public class ReturnSkillHandler extends MiscSkillHandler
     
     @Inject
     private World   world;
-    
-    @Inject
-    private PlayerInitialData playerInitialData;
 
     public ReturnSkillHandler() 
     {
@@ -86,7 +84,7 @@ public class ReturnSkillHandler extends MiscSkillHandler
     {  
         Player player = (Player) creature;
         world.despawn(player);
-        LocationData locationData = playerInitialData.getSpawnLocation(player.getCommonData().getRace());
+        LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
         
         world.setPosition(player, locationData.getMapId(),
                 locationData.getX(), locationData.getY(), locationData.getZ(), locationData.getHeading());

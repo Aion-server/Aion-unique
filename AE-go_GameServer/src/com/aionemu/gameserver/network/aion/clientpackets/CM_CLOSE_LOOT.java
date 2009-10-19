@@ -17,11 +17,14 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 
 import java.util.Random;
+
+import org.apache.log4j.Logger;
 /**
  * 
  * @author alexa026
@@ -29,12 +32,14 @@ import java.util.Random;
  */
 public class CM_CLOSE_LOOT extends AionClientPacket
 {
+	private static final Logger	log	= Logger.getLogger(CM_CLOSE_LOOT.class);
+	
 	/**
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */
 	private int					targetObjectId;
 	private int					unk;
-
+	private int					slot;
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
 	 * @param opcode
@@ -51,7 +56,8 @@ public class CM_CLOSE_LOOT extends AionClientPacket
 	protected void readImpl()
 	{
 		targetObjectId = readD();// empty
-		unk = readC();
+		unk = readC(); readC();
+		slot = readH();
 	}
 
 	/**
@@ -60,6 +66,7 @@ public class CM_CLOSE_LOOT extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
+		//TODO this is incorrect - cause this packet called on each equip action
 		sendPacket(new SM_EMOTION(targetObjectId,36,0));
 		sendPacket(new SM_LOOT_STATUS(targetObjectId,3));
 	}

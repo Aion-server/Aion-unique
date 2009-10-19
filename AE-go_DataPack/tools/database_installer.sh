@@ -188,7 +188,6 @@ full_install()
 	$MYG < ../sql/gameserver/droplist.sql &> /dev/null
 	$MYG < ../sql/gameserver/friends.sql &> /dev/null
 	$MYG < ../sql/gameserver/inventory.sql &> /dev/null
-	$MYG < ../sql/gameserver/item_list.sql &> /dev/null
 	$MYG < ../sql/gameserver/skill_trees.sql &> /dev/null
 }
 

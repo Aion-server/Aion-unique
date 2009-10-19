@@ -17,6 +17,7 @@
 package com.aionemu.gameserver;
 
 import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
@@ -45,6 +46,7 @@ public class IDFactoriesInjectionModule extends AbstractModule
 		// Here should be calls to all IDFactoryAwareDAO implementations to initialize
 		// used values in IDFactory
 		idFactory.lockIds(DAOManager.getDAO(PlayerDAO.class).getUsedIDs());
+		idFactory.lockIds(DAOManager.getDAO(InventoryDAO.class).getUsedIDs());
 
 		return idFactory;
 	}

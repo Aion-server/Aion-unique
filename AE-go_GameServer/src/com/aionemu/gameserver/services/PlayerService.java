@@ -18,6 +18,7 @@
 package com.aionemu.gameserver.services;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -27,13 +28,19 @@ import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.dao.BlockListDAO;
 import com.aionemu.gameserver.dao.FriendListDAO;
+import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
-import com.aionemu.gameserver.dataholders.PlayerInitialData;
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.ItemType;
+import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.MacroList;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
@@ -41,6 +48,7 @@ import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
@@ -70,15 +78,14 @@ public class PlayerService
 
 	private IDFactory					aionObjectsIDFactory;
 	private World						world;
-	private PlayerInitialData           playerInitialData;
-
+	private ItemService 				itemService;
 
 	@Inject
-	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, PlayerInitialData playerInitialData)
+	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
-		this.playerInitialData = playerInitialData;
+		this.itemService = itemService;
 	}
 
 	/**
@@ -126,6 +133,9 @@ public class PlayerService
 	public void storePlayer(Player player)
 	{
 		DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
+		
+		// TODO uncomment here only after full testing
+		//DAOManager.getDAO(InventoryDAO.class).store(player.getInventory());
 	}
 
 	/**
@@ -158,6 +168,9 @@ public class PlayerService
 		player.setFriendList(DAOManager.getDAO(FriendListDAO.class).load(player, world));
 		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player,world));
 		
+		Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(playerObjId);
+		player.setInventory(inventory);
+		
 		if(CacheConfig.CACHE_PLAYERS)
 			playerCache.put(playerObjId, player);	
 
@@ -174,19 +187,50 @@ public class PlayerService
 	public Player newPlayer(PlayerCommonData playerCommonData, PlayerAppearance playerAppearance)
 	{
 		// TODO values should go from template
-		LocationData ld = playerInitialData.getSpawnLocation(playerCommonData.getRace());
+		LocationData ld = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(playerCommonData.getRace());
 
 		WorldPosition position = world.createPosition(ld.getMapId(), ld.getX(), ld.getY(), ld.getZ(), ld.getHeading());
 
 		playerCommonData.setPosition(position);
-
-		// TODO: starting skills
-		// TODO: starting items;
+		
 		Player newPlayer = new Player(new PlayerController(), playerCommonData, playerAppearance);
-		//TODO retrieve from storage and calculate
+		
+		// TODO: starting skills
+		
+		// Starting items
+		PlayerCreationData playerCreationData = 
+			DataManager.PLAYER_INITIAL_DATA.getPlayerCreationData(playerCommonData.getPlayerClass());
+		
+		List<ItemType> items = playerCreationData.getItems();
+		
+		Inventory playerInventory = new Inventory(newPlayer);
+		newPlayer.setInventory(playerInventory);
+		
+		for(ItemType itemType : items)
+		{
+			int itemId = itemType.getTemplate().getItemId();		
+			Item item = itemService.newItem(itemId, itemType.getCount());
+			
+			//When creating new player - all equipment that has slot values will be equipped
+			//Make sure you will not put into xml file more items than possible to equip.
+			ItemTemplate itemTemplate = item.getItemTemplate();
+
+			if(itemTemplate.isArmor() || itemTemplate.isWeapon())
+			{
+				item.setEquipped(true);
+				item.setEquipmentSlot(ItemSlot.convertSlot(itemTemplate.getItemSlot()));
+			}
+			
+			playerInventory.onLoadHandler(item);
+		}	
+		
+		// Save starting inventory
+		DAOManager.getDAO(InventoryDAO.class).store(playerInventory);
+		
 		newPlayer.setLifeStats(new PlayerLifeStats(
 			ClassStats.getMaxHpFor(newPlayer.getPlayerClass(), newPlayer.getLevel()), 650));
 		newPlayer.setGameStats(new PlayerGameStats());
+		
 		return newPlayer;
 	}
 

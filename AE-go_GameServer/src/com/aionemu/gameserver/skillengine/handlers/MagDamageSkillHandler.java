@@ -64,7 +64,6 @@ public class MagDamageSkillHandler extends TemplateSkillHandler
              	AbstractEffect effect = SkillEffectType.getEffectByName(effectTemplate);
              	//TODO player.onEffectInfluence(AbstractEffect)
              	int result = effect.influence(player, target);
-             	log.error("putting into map: " + result + " " + effectTemplate.getName());
              	incluenceResult.put(effectTemplate.getName(), result);
              }
         }

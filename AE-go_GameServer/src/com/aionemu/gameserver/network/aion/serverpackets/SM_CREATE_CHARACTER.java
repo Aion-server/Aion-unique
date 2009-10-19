@@ -18,10 +18,23 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.ItemType;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.PlayerInfo;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.utils.idfactory.IDFactory;
+import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
+import com.google.inject.Inject;
 /**
  * This packet is response for CM_CREATE_CHARACTER
  * 
@@ -29,7 +42,9 @@ import com.aionemu.gameserver.model.gameobjects.player.Inventory;
  * 
  */
 public class SM_CREATE_CHARACTER extends PlayerInfo
-{
+{	
+	private static Logger log = Logger.getLogger(SM_CREATE_CHARACTER.class);
+	
 	/** If response is ok */
 	public static final int	RESPONSE_OK				= 0x00;
 	
@@ -87,37 +102,6 @@ public class SM_CREATE_CHARACTER extends PlayerInfo
 
 		if(responseCode == RESPONSE_OK)
 		{
-			Inventory inventory = new Inventory();
-			int activePlayer = player.getPlayerCommonData().getPlayerObjId();
-			if (player.getPlayerCommonData().getPlayerClass().getClassId() == 0) {// warrior
-					inventory.putItemToDb(activePlayer, 100000094, 1);//sword for training
-					inventory.putItemToDb(activePlayer, 110500003, 1);//Chain armor for training
-					inventory.putItemToDb(activePlayer, 113500001, 1);//Chain Greaves for training
-					inventory.putItemToDb(activePlayer, 160000001, 12); // mercenary Fruit Juice
-					inventory.putItemToDb(activePlayer, 169300001, 20); // bandage
-			}
-			if (player.getPlayerCommonData().getPlayerClass().getClassId() == 3) { //SCOUT	
-					inventory.putItemToDb(activePlayer, 100200112, 1);//Dagger for training
-					inventory.putItemToDb(activePlayer, 110300015, 1);//Leather Jerkin for training
-					inventory.putItemToDb(activePlayer, 113300005, 1);//Leather leggins for training
-					inventory.putItemToDb(activePlayer, 160000001, 12); // mercenary Fruit Juice
-					inventory.putItemToDb(activePlayer, 169300001, 20); // bandage
-			}
-			if (player.getPlayerCommonData().getPlayerClass().getClassId() == 6) {//MAGE
-					inventory.putItemToDb(activePlayer, 100600034, 1);//SpellBook for training
-					inventory.putItemToDb(activePlayer, 110100009, 1);//Cloth Tunic for Training
-					inventory.putItemToDb(activePlayer, 113100005, 1);//Cloth Leggins for training
-					inventory.putItemToDb(activePlayer, 160000001, 12); // mercenary Fruit Juice
-					inventory.putItemToDb(activePlayer, 169300001, 20); // bandage
-			}
-			if (player.getPlayerCommonData().getPlayerClass().getClassId() == 9) {//PRIEST
-					inventory.putItemToDb(activePlayer, 100100011, 1);//Mace for training
-					inventory.putItemToDb(activePlayer, 110300292, 1);//Leather armor for training
-					inventory.putItemToDb(activePlayer, 113300278, 1);//Leather leg armor for training
-					inventory.putItemToDb(activePlayer, 160000001, 12); // mercenary Fruit Juice
-					inventory.putItemToDb(activePlayer, 169300001, 20); // bandage
-			}
-
 			writePlayerInfo(buf, player); // if everything is fine, all the character's data should be sent
 		}
 		else

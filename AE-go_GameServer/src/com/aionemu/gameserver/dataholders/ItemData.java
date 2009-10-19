@@ -32,11 +32,11 @@ import com.aionemu.gameserver.model.templates.ItemTemplate;
  * @author Luno
  *
  */
-@XmlRootElement(name = "item_data")
+@XmlRootElement(name = "item_templates")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ItemData
 {
-	@XmlElement(name="item")
+	@XmlElement(name="item_template")
 	private List<ItemTemplate> its;
 	
 	private Map<Integer, ItemTemplate> items;

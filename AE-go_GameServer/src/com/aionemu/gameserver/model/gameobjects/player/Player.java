@@ -50,6 +50,7 @@ public class Player extends Creature
 	private BlockList			blockList;
 	private ResponseRequester	requester;
 	private boolean lookingForGroup = false;
+	private Inventory			inventory;
 	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -267,6 +268,23 @@ public class Player extends Creature
 		return (byte)playerCommonData.getLevel();
 	}
 
+	/**
+	 * @return the inventory
+	 */
+	public Inventory getInventory()
+	{
+		return inventory;
+	}
+
+	/**
+	 * @param inventory the inventory to set
+	 * Inventory should be set right after player object is created
+	 */
+	public void setInventory(Inventory inventory)
+	{
+		this.inventory = inventory;
+		inventory.setOwner(this);
+	}
 
 	/**
 	 * This method is called when player logs into the game. It's main responsibility is to call all registered

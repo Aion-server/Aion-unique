@@ -146,7 +146,6 @@ echo GameServer database
 %MYG%< ../sql/gameserver/droplist.sql
 %MYG%< ../sql/gameserver/friends.sql
 %MYG% < ../sql/gameserver/inventory.sql
-%MYG% < ../sql/gameserver/item_list.sql
 %MYG% < ../sql/gameserver/skill_trees.sql
 
 REM End of the script

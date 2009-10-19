@@ -16,25 +16,25 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.DropList;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.DropList;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
-import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
-
-import org.apache.log4j.Logger;
 import java.util.Random;
+
 /**
  * 
- * @author alexa026
+ * @author alexa026, Correted by Metos
  * 
  */
 public class CM_START_LOOT extends AionClientPacket
@@ -44,6 +44,7 @@ public class CM_START_LOOT extends AionClientPacket
 	/**
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */
+	
 	private int					targetObjectId;
 	private int					unk;
 	private int					activePlayer;
@@ -53,8 +54,7 @@ public class CM_START_LOOT extends AionClientPacket
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
 	 * @param opcode
 	 */
-	public CM_START_LOOT(int opcode)
-	{
+	public CM_START_LOOT(int opcode) {
 		super(opcode);
 	}
 
@@ -62,8 +62,7 @@ public class CM_START_LOOT extends AionClientPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void readImpl()
-	{
+	protected void readImpl() {
 		targetObjectId = readD();// empty
 		unk = readC();
 	}
@@ -72,76 +71,51 @@ public class CM_START_LOOT extends AionClientPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void runImpl()
-	{
+	protected void runImpl() {
 		Player player = getConnection().getActivePlayer();
 		PlayerGameStats playerGameStats = player.getGameStats();
 		activePlayer = player.getObjectId();
-
-		Random generator = new Random();
-
+		
 		Npc npc = (Npc) world.findAionObject(targetObjectId);
 		int monsterId = npc.getTemplate().getNpcId();
-
-		// load items from database.
-		DropList dropData = new DropList();
-		dropData.getDropList(monsterId);
-
-		int totalItemsCount = dropData.getItemsCount();
-		int row = 0;
-
-
-
-		int ran = generator.nextInt(100)+1;
-
-		// need to get item name id's from somewhere
-		int itemNameId = 2211143 + ran;
 		
-		if (playerGameStats.getItemId() == 0)
-		{
-			if (totalItemsCount == 0) {
-				//if no item is found for that mob, give item
-				playerGameStats.setItemId(100000530);
-				playerGameStats.setItemCount(1);
-				sendPacket(new SM_LOOT_ITEMLIST(monsterId,targetObjectId, player));
-				sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
-			} else {
-				int itemId = 1;
-				int itemMin = 1;
-				int itemMax = 1;
-				int itemChance = 1;
-				int randomCountChance = 1;
-
-				while (totalItemsCount > 0) {
-					itemId = dropData.getDropDataItemId(row);
-					itemMin = dropData.getDropDataMin(row);
- 					itemMax = dropData.getDropDataMax(row);
- 					itemChance = dropData.getDropDataChance(row); 
-
-					randomCountChance = (int)Math.random() * (itemMax - itemMin) + itemMin;
-			
-					totalItemsCount = totalItemsCount-1;
-					playerGameStats.setItemId(itemId);
-					playerGameStats.setItemCount(randomCountChance);
-
-					row+=1;
-				}
-
-				totalItemsCount = dropData.getItemsCount();
-				if (totalItemsCount > 0) {
-					sendPacket(new SM_LOOT_ITEMLIST(monsterId,targetObjectId, player));
-					sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
+		//int [][] mytab = DropList.getInstance().getLootTable(monsterId);
+		DropList.lootingList [] mytab = DropList.getInstance().getLootTable(monsterId);
+		int [][] dropedlist = new int[mytab.length][2];
+		Random rand = new Random();
+		
+		if (playerGameStats.getItemId() == 0 && mytab.length != 0) {
+			int arrayLenght = 0;
+			for(int i = 0; i < mytab.length; i++) {
+				//if (rand.nextFloat(100) <= mytab[i][3]) {
+				if (rand.nextFloat() * 100 <= mytab[i].mobId) {
+					dropedlist[i][0] = mytab[i].itemId;
+					if (mytab[i].max - mytab[i].min > 0) {
+						dropedlist[i][1] = mytab[i].min + rand.nextInt(mytab[i].max - mytab[i].min);
+					}
+					else {
+						dropedlist[i][1] = mytab[i].max;
+					}
+					playerGameStats.setItemId(dropedlist[i][0]); //toujours pas bien compri a quoi sa sert
+					playerGameStats.setItemCount(dropedlist[i][1]);
+					arrayLenght++;
 				}
 			}
-
-			sendPacket(new SM_LOOT_STATUS(targetObjectId,2));
-			sendPacket(new SM_EMOTION(targetObjectId,35,0));
-
-		}else
-		{
-			//sendPacket(new SM_LOOT_ITEMLIST(targetObjectId,itemId,1));	
-			sendPacket(new SM_LOOT_STATUS(targetObjectId,3));
-			sendPacket(new SM_DELETE((Creature) player.getTarget()));
+			
+			if (arrayLenght > 0) {
+				sendPacket(new SM_LOOT_ITEMLIST(monsterId, targetObjectId, player, dropedlist, arrayLenght));
+				sendPacket(new SM_LOOT_STATUS(targetObjectId, 2));
+				sendPacket(new SM_EMOTION(targetObjectId, 35, 0));
+			}
+			else {
+				sendPacket(new SM_LOOT_STATUS(targetObjectId, 3)); //i think is no loot icon mouse
+				sendPacket(new SM_DELETE((Creature) player.getTarget())); // need deleted creature ?
+				playerGameStats.setItemId(0);
+			}
+		}
+		else { //nothing to loot	
+			sendPacket(new SM_LOOT_STATUS(targetObjectId, 3)); //i think is no loot icon mouse
+			sendPacket(new SM_DELETE((Creature) player.getTarget())); // need deleted creature ?
 			playerGameStats.setItemId(0);
 		}
 	}

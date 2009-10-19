@@ -66,53 +66,57 @@ public class CM_LOOT_ITEM extends AionClientPacket
 		Player player = getConnection().getActivePlayer();
 		int activePlayer = player.getObjectId();
 
-		Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
-		itemsDbOfPlayerCount.getInventoryFromDb(activePlayer);
-		int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
-
-		Inventory equipedItems = new Inventory();
-		equipedItems.getEquipedItemsFromDb(activePlayer);
-		int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
-
-		int itemCountArray;
-		int cubes = 1;
-		int cubesize = 27;
-		int allowItemsCount = cubesize*cubes-1;
-
-		totalItemsCount = totalItemsCount - totalEquipedItemsCount;	
-			
-		if (totalItemsCount<=allowItemsCount){
-			Inventory items = new Inventory();
-			int newItemUniqueId;
-			int arrayLenght = player.getGameStats().getArrayLenght();
-
-			int a=0;
-			
-			while (arrayLenght > 0 ) {
-				itemIdArray = player.getGameStats().getItemIdArray(a);
-				itemCountArray = player.getGameStats().getItemCountArray(a);
-				if(itemIdArray == 182400001) {
-					Inventory kinah2 = new Inventory();
-					kinah2.putKinahToDb(activePlayer, itemCountArray);
-					kinah2.getKinahFromDb(activePlayer);
-					int kinah = kinah2.getKinahCount();
-					int uniquedeId = 0;
-					sendPacket(new SM_INVENTORY_INFO(uniquedeId, 182400001, kinah, 1, 8));
-					sendPacket(new SM_LOOT_STATUS(uniquedeId,3));
-				} else {
-					items.putItemToDb(activePlayer, itemIdArray, itemCountArray);
-					items.getLastUniqueIdFromDb();
-					newItemUniqueId = items.getnewItemUniqueIdValue();
-
-					sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, itemIdArray, itemCountArray, 1, 8));
-					sendPacket(new SM_LOOT_STATUS(newItemUniqueId,3));
-				}
-				arrayLenght--;
-				a++;
-			}
-			
-		} else {
-				//todo show SM_INVENTORY_IS_FULL packet or smth.
-		}
+//		Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
+//		itemsDbOfPlayerCount.getInventoryFromDb(activePlayer);
+//		int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
+//
+//		Inventory equipedItems = new Inventory();
+//		equipedItems.getEquipedItemsFromDb(activePlayer);
+//		int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
+//
+//		int itemCountArray;
+//		int cubes = 1;
+//		int cubesize = 27;
+//		int allowItemsCount = cubesize*cubes-1;
+//
+//		totalItemsCount = totalItemsCount - totalEquipedItemsCount;	
+//		System.out.println("Error it full");
+//		if (totalItemsCount<=allowItemsCount){
+//			Inventory items = new Inventory();
+//			int newItemUniqueId;
+//			int arrayLenght = player.getGameStats().getArrayLenght();
+//
+//			int a=0;
+//			
+//			System.out.println("arrayLenght="+arrayLenght);
+//			
+//			while (arrayLenght > 0 ) {
+//				itemIdArray = player.getGameStats().getItemIdArray(a);
+//				itemCountArray = player.getGameStats().getItemCountArray(a);
+//				System.out.println("ItemIdArray="+itemIdArray+" Count:"+itemCountArray);
+//				if(itemIdArray == 182400001) {
+//					//items.putKinahToDb(activePlayer, itemCountArray);
+//					Inventory kinah2 = new Inventory();
+//					kinah2.putKinahToDb(activePlayer, itemCountArray);
+//					kinah2.getKinahFromDb(activePlayer);
+//					int kinah = kinah2.getKinahCount();
+//					int uniquedeId = 0;
+//					sendPacket(new SM_INVENTORY_INFO(uniquedeId, 182400001, kinah, 1, 8));
+//					sendPacket(new SM_LOOT_STATUS(uniquedeId,3));
+//				} else {
+//					items.putItemToDb(activePlayer, itemIdArray, itemCountArray);
+//					items.getLastUniqueIdFromDb();
+//					newItemUniqueId = items.getnewItemUniqueIdValue();
+//
+//					sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, itemIdArray, itemCountArray, 1, 8));
+//					sendPacket(new SM_LOOT_STATUS(newItemUniqueId,3));
+//				}
+//				arrayLenght--;
+//				a++;
+//			}
+//			
+//		} else {
+//				//todo show SM_INVENTORY_IS_FULL packet or smth.
+//		}
 	}
 }

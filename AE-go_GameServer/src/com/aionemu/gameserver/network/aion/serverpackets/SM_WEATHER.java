@@ -24,23 +24,26 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
-
+/**
+ * @author ATracer
+ */
 public class SM_WEATHER extends AionServerPacket
 {
 	private static final Logger	log	= Logger.getLogger(SM_WEATHER.class);
 
-	public SM_WEATHER()
+	private int weatherCode;
+	
+	public SM_WEATHER(int weatherCode)
 	{
-		
+		this.weatherCode = weatherCode;
 	}
 
 
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		Random generator = new Random();
-		int randomIndex = generator.nextInt(8);
-		//log.info(String.format("Weather is %s", randomIndex));
-		writeC(buf, randomIndex);
+		writeC(buf, 0);
+		writeH(buf, this.weatherCode);
+		writeC(buf, 0);
 	}
 }

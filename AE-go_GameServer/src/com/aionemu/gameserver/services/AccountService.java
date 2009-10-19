@@ -23,11 +23,13 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.CacheConfig;
+import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.model.account.Account;
 import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
@@ -122,8 +124,9 @@ public class AccountService
 		{
 			PlayerCommonData playerCommonData = playerDAO.loadPlayerCommonData(playerOid, world);
 			PlayerAppearance appereance = appereanceDAO.load(playerOid);
-
-			PlayerAccountData acData = new PlayerAccountData(playerCommonData, appereance);
+				
+			Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(playerOid);
+			PlayerAccountData acData = new PlayerAccountData(playerCommonData, appereance, inventory);
 			playerDAO.setCreationDeletionTime(acData);
 
 			account.addPlayerAccountData(acData);

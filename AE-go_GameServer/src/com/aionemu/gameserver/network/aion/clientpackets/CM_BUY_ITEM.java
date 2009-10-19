@@ -16,12 +16,22 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import java.util.Collections;
+
 import org.apache.log4j.Logger;
-import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
+
+import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.dao.InventoryDAO;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
+import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
+import com.aionemu.gameserver.services.ItemService;
+import com.google.inject.Inject;
+
 /**
  * 
  * @author orz
@@ -46,39 +56,11 @@ public class CM_BUY_ITEM extends AionClientPacket
 	 * Logger
 	 */
 	private static final Logger	log	= Logger.getLogger(CM_BUY_ITEM.class);
+	
+	@Inject
+	private ItemService itemService;
 
-	public void additem(int _activePlayer, int _itemId, int _count)
-	{
-		log.info(String.format("Buying itemId: %d count: %d", _itemId, _count));
-		
-		Inventory itemsDbOfPlayerCount = new Inventory(); // wrong
-		itemsDbOfPlayerCount.getInventoryFromDb(_activePlayer);
-		int totalItemsCount = itemsDbOfPlayerCount.getItemsCount();
-
-		Inventory equipedItems = new Inventory();
-		equipedItems.getEquipedItemsFromDb(_activePlayer);
-		int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
-
-		int cubes = 1;
-		int cubesize = 27;
-		int allowItemsCount = cubesize*cubes-1;
-
-		totalItemsCount = totalItemsCount - totalEquipedItemsCount;
-
-		if (totalItemsCount<=allowItemsCount){
-
-			Inventory items = new Inventory();
-			items.putItemToDb(_activePlayer, _itemId, _count);
-			items.getLastUniqueIdFromDb();
-			int newItemUniqueId = items.getnewItemUniqueIdValue();
-				
-			sendPacket(new SM_INVENTORY_INFO(newItemUniqueId, _itemId, _count, 1, 8));
-
-			} else {
-			//todo show SM_INVENTORY_IS_FULL packet or smth.
-			}
-		
-	}
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -89,8 +71,8 @@ public class CM_BUY_ITEM extends AionClientPacket
 		unk1	 = readH();
 		amount = readH(); //total no of items
 		Player player = getConnection().getActivePlayer();
-		int activePlayer = player.getObjectId();
-		
+		Inventory bag = player.getInventory();
+				
 		if ((unk1 != 1)||(unk1 != 12))
 			log.info(String.format("Unhandle shop action unk1: %d", unk1));
 		
@@ -104,17 +86,29 @@ public class CM_BUY_ITEM extends AionClientPacket
 			
 			if (unk1 == 12) //buy
 			{
-				additem(activePlayer,itemId,count);
+				Item item = itemService.newItem(itemId, count);
+				Item resultItem = bag.addToBag(item);
+				if(resultItem != null)
+				{
+					//TODO check retail the real packets that sent to player
+					sendPacket(new SM_INVENTORY_INFO(Collections.singletonList(resultItem)));
+				}
+		
 			}
 			else if (unk1 == 1) //sell
+			{
 				log.info(String.format("Sell itemId: %d count: %d", itemId, count));
+			}
 			else
 			{
-				log.info(String.format("itemId unk: %d", unk1));
-				log.info(String.format("Sell itemId: %d count: %d", itemId, count));
-				
+				log.info(String.format("Unhandle shop action: %d", unk1));
+				log.info(String.format("ItemId: %d count: %d", itemId, count));
 			}
 		}
+
+		//TODO uncomment only after inventory slot save testing
+		//DAOManager.getDAO(InventoryDAO.class).store(bag);
+
 	}
 
 	/**

@@ -1,5 +1,5 @@
 /**
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -20,67 +20,53 @@ import java.nio.ByteBuffer;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.items.ItemId;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.model.gameobjects.player.ItemList;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
-import java.util.Random;
+import com.aionemu.gameserver.network.aion.InventoryPacket;
 
+/**
+ * 
+ * @author ATracer
+ *
+ */
 
-
-public class SM_UPDATE_ITEM extends AionServerPacket
+public class SM_UPDATE_ITEM extends InventoryPacket
 {
 	private static final Logger	log	= Logger.getLogger(SM_UPDATE_ITEM.class);
-	private int action;
-	private int uniqueId;
-	private int slot;
-	public SM_UPDATE_ITEM(int slot, int action, int uniqueId)
+	
+	private Item item;
+
+	public SM_UPDATE_ITEM(Item item, int action)
 	{
-		this.slot = slot;
-		this.action = action;
-		this.uniqueId = uniqueId;
+		this.item = item;	
 	}
-
-
+	
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 
-	Inventory inventory = new Inventory();
-
-	inventory.getItemIdByUniqueItemId(uniqueId);
-	int itemId = inventory.getItemId();
-
-	ItemList itemName = new ItemList();
-	itemName.getItemList(itemId);
-	int itemNameId = itemName.getItemNameId();
-
-		//equip
-		if (action ==0) {
-			writeD(buf, uniqueId); // unique item id
-			writeH(buf, 36); // unk always 0x24
-			writeD(buf, itemNameId); // item name id
-			writeH(buf, 0); // always 0
-			writeH(buf, 5); // length of item details section
-			//item details block//
-			writeC(buf, 6);
-			writeD(buf, slot); // slot
-			//end of item details block//
-		} 
-		//unequip
-		if (action==1) {
-			writeD(buf, uniqueId); //  unique item id
-			writeH(buf, 36); // unk always 0x24
-			writeD(buf, itemNameId); // item name id
-			writeH(buf, 0); // always 0
-			writeH(buf, 5); // length of item details section
-			//item details block//
-			writeC(buf, 6);
-			writeD(buf, 0); // slot
-			//end of item details block//
+		writeGeneralInfo(buf, item);
+		
+		ItemTemplate itemTemplate = item.getItemTemplate();
+		
+		if(itemTemplate.getItemId() == ItemId.KINAH.value())
+		{
+			writeKinah(buf, item);
 		}
-		if (action==2) {
-			//store kinah structure
+		else if (itemTemplate.isWeapon())
+		{
+			writeWeaponInfo(buf, item);
+		}
+		else if (itemTemplate.isArmor())
+		{
+			writeArmorInfo(buf,item);
+		}
+		else
+		{
+			writeGeneralItemInfo(buf, item);
 		}
 	}
+
 }

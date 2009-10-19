@@ -108,7 +108,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_ATTACK_STATUS.class, 0xFC, idSet);
 		addPacketOpcode(SM_LOOT_STATUS.class, 0xE4, idSet);
 		
-		addPacketOpcode(SM_WEATHER.class, 0x4A, idSet);
+		addPacketOpcode(SM_WEATHER.class, 0x3A, idSet);
 		
 		addPacketOpcode(SM_CASTSPELL.class, 0x18, idSet);	//1.5.x 
 		addPacketOpcode(SM_CASTSPELL_END.class, 0x42, idSet);	//1.5.x 
@@ -124,11 +124,13 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UPDATE_PLAYER_APPEARANCE.class, 0x1D, idSet);	//1.5.x
 
 		addPacketOpcode(SM_LEVEL_UPDATE.class, 0x3f, idSet);//1.5.x
+		addPacketOpcode(SM_UNKDC.class, 0xDC, idSet);//1.5.x
 		
 		addPacketOpcode(SM_FLY_TELEPORT.class, 0xC2, idSet);//1.5.x
 		addPacketOpcode(SM_DIE.class, 0xb8, idSet);	//1.5.x
 		
-		
+		addPacketOpcode(SM_EMOTION_LIST.class, 0x66, idSet);	//1.5.x
+		addPacketOpcode(SM_PLAY_MOVIE.class,0x60, idSet);	//1.5.x
 
 
 

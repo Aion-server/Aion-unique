@@ -55,6 +55,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 
 	@Inject
 	private PlayerService		playerService;
+	
 	@Inject
 	@IDFactoryAionObject
 	private IDFactory			aionObjectsIDFactory;
@@ -208,7 +209,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 		}
 		else
 		{
-			PlayerAccountData accPlData = new PlayerAccountData(playerCommonData, playerAppearance);
+			PlayerAccountData accPlData = new PlayerAccountData(playerCommonData, playerAppearance, player.getInventory());
 			accPlData.setCreationDate(new Timestamp(System.currentTimeMillis()));
 
 			playerService.storeCreationTime(player.getObjectId(), accPlData.getCreationDate());

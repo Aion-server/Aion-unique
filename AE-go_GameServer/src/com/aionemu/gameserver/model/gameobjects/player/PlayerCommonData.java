@@ -55,8 +55,8 @@ public class PlayerCommonData
 	private Timestamp		lastOnline;
 	private boolean 		online;
 	private String 			note;
-	
 	private WorldPosition	position;
+	
 
 	public PlayerCommonData(int objId)
 	{
@@ -226,7 +226,7 @@ public class PlayerCommonData
 	{
 		this.note = note;
 	}
-	
+
 	/**
 	 * This method should be called exactly once after creating object of this class
 	 * @param position

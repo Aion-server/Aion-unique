@@ -4,7 +4,7 @@
 	<xs:include schemaLocation="global_types.xsd" />
 	<xs:include schemaLocation="import.xsd" />
 
-	<xs:include schemaLocation="items/items.xsd" />
+	<xs:include schemaLocation="items/item_templates.xsd" />
 	<xs:include schemaLocation="stats/stats.xsd" />
 	<xs:include schemaLocation="npcs/npcs.xsd"/>
 	<xs:include schemaLocation="player_experience_table.xsd"/>
@@ -21,7 +21,7 @@
 				<xs:element ref="npc_trade_list" minOccurs="0" />
 				<xs:element ref="player_experience_table" minOccurs="0" />
 				<xs:element ref="player_initial_data" minOccurs="0" />
-				<xs:element ref="item_data" minOccurs="0" />
+				<xs:element ref="item_templates" minOccurs="0" />
 				<xs:element ref="stats_templates" minOccurs="0" />
 				<xs:element ref="npc_data" minOccurs="0" />
 				<xs:element ref="skill_data" minOccurs="0" />

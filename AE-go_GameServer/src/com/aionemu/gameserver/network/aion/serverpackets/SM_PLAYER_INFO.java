@@ -17,11 +17,13 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.List;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -97,42 +99,20 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeC(buf, 0x00);// unk (0x00)
 		writeC(buf, 0x00);// unk (0x00)
 
-		Inventory equipedItems = new Inventory();
-		equipedItems.getEquipedItemsFromDb(player.getObjectId());
-		int totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
-		
-		int itemsCount = 0;
-		int row = 0;
-		while (totalEquipedItemsCount > 0) {
-			int slot = equipedItems.getEquipedItemSlotArray(row);
-			if (slot==5) {
-				slot = 1; // or 2 weapon
-			}
-			if (slot==6) {
-				slot = 8192;//or 16384 power shard
-			}
-			if (slot==7) {
-				slot = 256;// 512 rings
-			}
-			if (slot==9) {
-				slot = 64;// 128 earrings
-			}
-			itemsCount = itemsCount + slot;
-			totalEquipedItemsCount = totalEquipedItemsCount-1;
-			row+=1;
+		List<Item> items = player.getInventory().getEquippedItems();
+		short mask = 0;
+		for(Item item : items)
+		{
+			mask |=  item.getEquipmentSlot();
 		}
-	
-		writeH(buf, itemsCount);// // items count
+		
+		writeH(buf, mask);
 
-		totalEquipedItemsCount = equipedItems.getEquipedItemsCount();
-
-		row = 0;
-		while (totalEquipedItemsCount > 0) {
-			writeD(buf, equipedItems.getEquipedItemIdArray(row));// item id
-			writeD(buf, 0x00);// unk
-			writeD(buf, 0x00);// color code
-			totalEquipedItemsCount = totalEquipedItemsCount-1;
-			row+=1;
+		for(Item item : items)
+		{		
+			writeD(buf, item.getItemTemplate().getItemId());
+			writeD(buf, 0); //unk
+			writeD(buf, 0); //color code
 		}
 			
 		writeD(buf, playerAppearance.getSkinRGB());
@@ -193,13 +173,14 @@ public class SM_PLAYER_INFO extends AionServerPacket
 
 		writeC(buf, playerAppearance.getFootSize());
 		writeC(buf, playerAppearance.getFacialRate());
-		writeC(buf, playerAppearance.getVoice()); //maybe wrong voice
 		
 		writeC(buf, 0x00); // always 0
 		writeC(buf, playerAppearance.getArmLength());
 		writeC(buf, playerAppearance.getLegLength());
 		writeC(buf, playerAppearance.getShoulders());
 		writeC(buf, 0x00); // always 0
+		writeC(buf, playerAppearance.getVoice()); //maybe wrong voice
+		
 		writeC(buf, 0x00); // 0x00
 
 		writeF(buf, playerAppearance.getHeight());

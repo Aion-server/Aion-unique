@@ -49,8 +49,8 @@ public class CM_DELETE_ITEM extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		Inventory inventory = new Inventory();
-		inventory.deleteItemFromDb(uniqueItemId);
+		//Inventory inventory = new Inventory();
+		//inventory.deleteItemFromDb(uniqueItemId);
 		sendPacket(new SM_DELETE_ITEM(uniqueItemId));
 	}
 }

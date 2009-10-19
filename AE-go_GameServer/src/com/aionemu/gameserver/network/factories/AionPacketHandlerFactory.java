@@ -21,7 +21,6 @@ import com.aionemu.gameserver.network.aion.AionPacketHandler;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
 import com.aionemu.gameserver.network.aion.clientpackets.*;
 
-
 import com.google.inject.Injector;
 
 /**
@@ -37,7 +36,7 @@ public class AionPacketHandlerFactory
 {
 	private Injector			injector;
 	private AionPacketHandler	handler	= new AionPacketHandler();
-
+	
 	/**
 	 * Creates new instance of <tt>AionPacketHandlerFactory</tt><br>
 	 * 
