@@ -201,16 +201,28 @@ public class Inventory
 				return false;
 			}
 			
+			//check whether there is already item in specified slot
+			Item equippedItem = equipment.get(slot);
+			if(equippedItem != null)
+			{
+				unEquip(equippedItem);
+			}
+			
 			item.setEquipped(true);
 			
-			defaultItemBag.removeItemFromStorage(item);
-			equipment.put(slot, item);
-
-			item.setEquipmentSlot(slot);
-
-			PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item, 0));
+			equip(slot, item);
 		}
 		return true;
+	}
+
+	private void equip(int slot, Item item)
+	{
+		defaultItemBag.removeItemFromStorage(item);
+		equipment.put(slot, item);
+
+		item.setEquipmentSlot(slot);
+
+		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item, 0));
 	}
 	
 	/**
@@ -238,13 +250,18 @@ public class Inventory
 			{
 				return false;
 			}
-			equipment.remove(itemToUnequip.getEquipmentSlot());
-			itemToUnequip.setEquipped(false);
-			addToBag(itemToUnequip);
-			PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip, 1));
+			unEquip(itemToUnequip);
 		}
 
 		return true;	
+	}
+
+	private void unEquip(Item itemToUnequip)
+	{
+		equipment.remove(itemToUnequip.getEquipmentSlot());
+		itemToUnequip.setEquipped(false);
+		addToBag(itemToUnequip);
+		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip, 1));
 	}
 
 }
