@@ -264,12 +264,8 @@ public class Inventory
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip, 1));
 	}
 
-	public Item getItem(int value)
+	public Item getItemByObjId(int value)
 	{
-		Item item = defaultItemBag.getItemFromStorageByItemId(value);
-		if (item != null)
-			return item;
-		else
 		    return defaultItemBag.getItemFromStorageByItemUniqueId(value);
 	}
 }
