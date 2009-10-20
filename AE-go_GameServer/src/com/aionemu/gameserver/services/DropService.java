@@ -57,7 +57,7 @@ public class DropService
 	private Map<Integer, Set<DropItem>> currentDropMap = Collections.synchronizedMap(new HashMap<Integer, Set<DropItem>>());
 
 	private ItemService itemService;
-	
+
 	private World world;
 
 	@Inject
@@ -141,10 +141,10 @@ public class DropService
 			return;//TODO send right packet
 		}
 
+		DropItem requestedItem = null;
+
 		synchronized(dropItems)
 		{
-			DropItem requestedItem = null;
-
 			for(DropItem dropItem : dropItems)
 			{
 				if(dropItem.getIndex() == itemIndex)
@@ -152,38 +152,38 @@ public class DropService
 					requestedItem = dropItem;
 				}
 			}
-
-			if(requestedItem != null)
-			{
-				dropItems.remove(requestedItem);
-				int itemCount = requestedItem.getCount();
-				int itemId = requestedItem.getDropTemplate().getItemId();
-
-				if(itemId == ItemId.KINAH.value())
-				{
-					inventory.getKinahItem().increaseItemCount(itemCount);
-					PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
-					resendDropList(player, npcId, dropItems);
-					return;
-				}
-
-				Item item = inventory.getItemByItemId(itemId);
-				if(item != null) //item already in cube
-				{
-					item.increaseItemCount(itemCount);
-					PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
-				}
-				else // new item
-				{
-					item = itemService.newItem(itemId, itemCount);
-					inventory.addToBag(item);
-					PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(item)));
-				}
-				
-				resendDropList(player, npcId, dropItems);
-			}	
 		}
+		if(requestedItem != null)
+		{
+			dropItems.remove(requestedItem);
+			int itemCount = requestedItem.getCount();
+			int itemId = requestedItem.getDropTemplate().getItemId();
+
+			if(itemId == ItemId.KINAH.value())
+			{
+				inventory.getKinahItem().increaseItemCount(itemCount);
+				PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
+				resendDropList(player, npcId, dropItems);
+				return;
+			}
+
+			Item item = inventory.getItemByItemId(itemId);
+			if(item != null) //item already in cube
+			{
+				item.increaseItemCount(itemCount);
+				PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
+			}
+			else // new item
+			{
+				item = itemService.newItem(itemId, itemCount);
+				inventory.addToBag(item);
+				PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(item)));
+			}
+
+			resendDropList(player, npcId, dropItems);
+		}	
 	}
+
 
 	private void resendDropList(Player player, int npcId, Set<DropItem> dropItems)
 	{
@@ -195,13 +195,13 @@ public class DropService
 		else
 		{
 			PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 3));
-			
+
 			Creature creature = (Creature) world.findAionObject(npcId);
 			if(creature != null)
 			{
 				PacketSendUtility.broadcastPacket(creature, new SM_DELETE(creature));
 			}
-			
+
 			//TODO send 7B ??
 			//7B 54 38 00 00 0D 00 00 00 00 00 00
 			// or

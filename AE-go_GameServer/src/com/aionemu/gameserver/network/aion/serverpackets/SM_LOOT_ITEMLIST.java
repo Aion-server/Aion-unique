@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.Collections;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -44,8 +45,8 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 	public SM_LOOT_ITEMLIST(int targetObjectId, Set<DropItem> dropItems)
 	{
 		this.targetObjectId = targetObjectId;
-		this.dropItems = dropItems;
-		size = dropItems.size();	
+		this.dropItems = Collections.unmodifiableSet(dropItems);
+		size = this.dropItems.size();	
 	}
 
 	/**
@@ -57,7 +58,7 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 	{
 		writeD(buf, targetObjectId);
 		writeC(buf, size);
-		
+	
 		for(DropItem dropItem : dropItems)
 		{
 			writeC(buf, dropItem.getIndex()); // index in droplist
@@ -65,6 +66,7 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 			writeD(buf, dropItem.getCount());
 			writeH(buf, 0);		
 		}
+		
 		writeH(buf, 0);	
 	}	
 }
