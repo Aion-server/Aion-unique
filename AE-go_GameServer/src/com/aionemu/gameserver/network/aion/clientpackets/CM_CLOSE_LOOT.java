@@ -67,7 +67,8 @@ public class CM_CLOSE_LOOT extends AionClientPacket
 	protected void runImpl()
 	{
 		//TODO this is incorrect - cause this packet called on each equip action
-		sendPacket(new SM_EMOTION(targetObjectId,36,0));
-		sendPacket(new SM_LOOT_STATUS(targetObjectId,3));
+		//Is called when item is dragged to cube
+//		sendPacket(new SM_EMOTION(targetObjectId,36,0));
+//		sendPacket(new SM_LOOT_STATUS(targetObjectId,3));
 	}
 }

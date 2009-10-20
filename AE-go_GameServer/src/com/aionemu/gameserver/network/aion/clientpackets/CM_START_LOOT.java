@@ -49,9 +49,6 @@ public class CM_START_LOOT extends AionClientPacket
 	private int					targetObjectId;
 	private int					action;
 
-	@Inject	
-	private World			world;
-	
 	@Inject
 	private DropService 	dropService;
 	
@@ -84,33 +81,11 @@ public class CM_START_LOOT extends AionClientPacket
 		
 		if(action == 0) //open
 		{
-			dropService.requestDrop(player, targetObjectId);
+			dropService.requestDropList(player, targetObjectId);
 		}
 		else if(action == 1) //close
 		{
 			//TODO discard loot?
 		}
-			
-		//TODO remove in next iteration
-		
-//			if (arrayLenght > 0) 
-//			{
-//				sendPacket(new SM_LOOT_ITEMLIST(monsterId, targetObjectId, player, dropedlist, arrayLenght));
-//				sendPacket(new SM_LOOT_STATUS(targetObjectId, 2));
-//				sendPacket(new SM_EMOTION(targetObjectId, 35, 0));
-//			}
-//			else 
-//			{
-//				sendPacket(new SM_LOOT_STATUS(targetObjectId, 3)); //i think is no loot icon mouse
-//				sendPacket(new SM_DELETE((Creature) player.getTarget())); // need deleted creature ?
-//				playerGameStats.setItemId(0);
-//			}
-//		}
-//		else 
-//		{ //nothing to loot	
-//			sendPacket(new SM_LOOT_STATUS(targetObjectId, 3)); //i think is no loot icon mouse
-//			sendPacket(new SM_DELETE((Creature) player.getTarget())); // need deleted creature ?
-//			playerGameStats.setItemId(0);
-//		}
 	}
 }

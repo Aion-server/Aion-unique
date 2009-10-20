@@ -128,7 +128,7 @@ public class ItemStorage
 	 * @return index of available slot
 	 *  If storage is null - return -1
 	 */
-	protected int getNextAvailableSlot()
+	public int getNextAvailableSlot()
 	{
 		int size = storageItems.size();
 		for(int i = 0; i < size; i++)

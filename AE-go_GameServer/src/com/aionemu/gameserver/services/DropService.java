@@ -29,12 +29,21 @@ import com.aionemu.gameserver.dao.DropListDAO;
 import com.aionemu.gameserver.model.drop.DropItem;
 import com.aionemu.gameserver.model.drop.DropList;
 import com.aionemu.gameserver.model.drop.DropTemplate;
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.items.ItemId;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 
 /**
  * @author ATracer
@@ -42,17 +51,24 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class DropService
 {
 	private static final Logger log = Logger.getLogger(DropService.class);
-	
+
 	private DropList dropList;
-	
+
 	private Map<Integer, Set<DropItem>> currentDropMap = Collections.synchronizedMap(new HashMap<Integer, Set<DropItem>>());
+
+	private ItemService itemService;
 	
-	public DropService()
+	private World world;
+
+	@Inject
+	public DropService(ItemService itemService, World world)
 	{
+		this.itemService = itemService;
+		this.world = world;
 		dropList = DAOManager.getDAO(DropListDAO.class).load();
 		log.info(dropList.getSize() + " npc drops loaded");
 	}
-	
+
 	/**
 	 * After NPC dies - it can register arbitrary drop
 	 * @param npc
@@ -61,28 +77,27 @@ public class DropService
 	{
 		int npcUniqueId = npc.getObjectId();
 		int npcTemplateId = npc.getTemplate().getNpcId();
-		
+
 		Set<DropTemplate> templates = dropList.getDropsFor(npcTemplateId);
 		if(templates != null)
 		{
 			Set<DropItem> droppedItems = new HashSet<DropItem>();
-			
+
 			for(DropTemplate dropTemplate : templates)
 			{
 				DropItem dropItem = new DropItem(dropTemplate, droppedItems.size());
 				dropItem.calculateCount();
-				
+
 				if(dropItem.getCount() > 0)
 				{
 					droppedItems.add(dropItem);
 				}		
 			}
-			
+
 			currentDropMap.put(npcUniqueId, droppedItems);
-		}
-		
+		}		
 	}
-	
+
 	/**
 	 *  After NPC respawns - drop should be unregistered
 	 *  //TODO more correct - on despawn
@@ -93,23 +108,104 @@ public class DropService
 		int npcUniqueId = npc.getObjectId();
 		currentDropMap.remove(npcUniqueId);
 	}
-	
+
 	/**
-	 *  When player clicks on dead NPC to request drop
+	 *  When player clicks on dead NPC to request drop list
 	 *  
 	 * @param player
 	 * @param npcId
 	 */
-	public void requestDrop(Player player, int npcId)
+	public void requestDropList(Player player, int npcId)
 	{
 		Set<DropItem> dropItems = currentDropMap.get(npcId);
-		if(dropItems != null)
+
+		if(dropItems == null)
 		{
-			int size = dropItems.size();
+			dropItems = Collections.emptySet();
+		}
+
+		PacketSendUtility.sendPacket(player, new SM_LOOT_ITEMLIST(npcId, dropItems));
+		//PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, size > 0 ? size - 1 : size));
+		PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 2));
+		PacketSendUtility.sendPacket(player, new SM_EMOTION(npcId, 35, 0));
+	}
+
+	public void requestDropItem(Player player, int npcId, int itemIndex)
+	{
+		Set<DropItem> dropItems = currentDropMap.get(npcId);
+
+		Inventory inventory = player.getInventory();
+
+		if(inventory.isFull())
+		{
+			return;//TODO send right packet
+		}
+
+		synchronized(dropItems)
+		{
+			DropItem requestedItem = null;
+
+			for(DropItem dropItem : dropItems)
+			{
+				if(dropItem.getIndex() == itemIndex)
+				{
+					requestedItem = dropItem;
+				}
+			}
+
+			if(requestedItem != null)
+			{
+				dropItems.remove(requestedItem);
+				int itemCount = requestedItem.getCount();
+				int itemId = requestedItem.getDropTemplate().getItemId();
+
+				if(itemId == ItemId.KINAH.value())
+				{
+					inventory.getKinahItem().increaseItemCount(itemCount);
+					PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
+					resendDropList(player, npcId, dropItems);
+					return;
+				}
+
+				Item item = inventory.getItemByItemId(itemId);
+				if(item != null) //item already in cube
+				{
+					item.increaseItemCount(itemCount);
+					PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
+				}
+				else // new item
+				{
+					item = itemService.newItem(itemId, itemCount);
+					inventory.addToBag(item);
+					PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(item)));
+				}
+				
+				resendDropList(player, npcId, dropItems);
+			}	
+		}
+	}
+
+	private void resendDropList(Player player, int npcId, Set<DropItem> dropItems)
+	{
+		if(dropItems.size() != 0)
+		{
 			PacketSendUtility.sendPacket(player, new SM_LOOT_ITEMLIST(npcId, dropItems));
-			//PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, size > 0 ? size - 1 : size));
-			PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 2));
-			PacketSendUtility.sendPacket(player, new SM_EMOTION(npcId, 35, 0));
-		}	
+			PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 0));
+		}
+		else
+		{
+			PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 3));
+			
+			Creature creature = (Creature) world.findAionObject(npcId);
+			if(creature != null)
+			{
+				PacketSendUtility.broadcastPacket(creature, new SM_DELETE(creature));
+			}
+			
+			//TODO send 7B ??
+			//7B 54 38 00 00 0D 00 00 00 00 00 00
+			// or
+			//7B 54 38 00 00 0E 00 00 00 00 00 00
+		}
 	}
 }

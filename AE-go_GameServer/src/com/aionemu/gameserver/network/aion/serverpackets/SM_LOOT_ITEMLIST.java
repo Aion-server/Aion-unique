@@ -56,15 +56,14 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf) 
 	{
 		writeD(buf, targetObjectId);
-		writeH(buf, size);
+		writeC(buf, size);
 		
 		for(DropItem dropItem : dropItems)
 		{
-			//writeC(buf, dropItem.getIndex()); // index in starting droplist ?
+			writeC(buf, dropItem.getIndex()); // index in droplist
 			writeD(buf, dropItem.getDropTemplate().getItemId());
 			writeD(buf, dropItem.getCount());
-			writeH(buf, 0);
-			writeC(buf, 0);
+			writeH(buf, 0);		
 		}
 		writeH(buf, 0);	
 	}	

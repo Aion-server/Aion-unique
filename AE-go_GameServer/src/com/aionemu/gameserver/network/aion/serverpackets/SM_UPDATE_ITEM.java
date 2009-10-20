@@ -38,9 +38,19 @@ public class SM_UPDATE_ITEM extends InventoryPacket
 	
 	private Item item;
 
-	public SM_UPDATE_ITEM(Item item, int action)
+	public SM_UPDATE_ITEM(Item item)
 	{
 		this.item = item;	
+	}
+	
+	@Override
+	protected void writeGeneralInfo(ByteBuffer buf, Item item)
+	{
+		writeD(buf, item.getObjectId());
+		ItemTemplate itemTemplate = item.getItemTemplate();
+		writeH(buf, 0x24);
+		writeD(buf, Integer.parseInt(itemTemplate.getDescription()));
+		writeH(buf, 0);
 	}
 	
 	@Override
@@ -67,6 +77,23 @@ public class SM_UPDATE_ITEM extends InventoryPacket
 		{
 			writeGeneralItemInfo(buf, item);
 		}
+	}
+	
+	@Override
+	protected void writeKinah(ByteBuffer buf, Item item)
+	{
+		writeH(buf, 0x16); //length of details
+		writeC(buf, 0);
+		writeC(buf, 0x1E); //or can be 0x1E
+		writeC(buf, 0x63); // ?
+		writeD(buf, item.getItemCount());
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeH(buf, 0);
+		writeC(buf, 0);
+		writeC(buf, 0x1A); // FF FF equipment
+		writeC(buf, 0);
 	}
 
 }

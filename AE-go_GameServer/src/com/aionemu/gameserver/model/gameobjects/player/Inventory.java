@@ -222,7 +222,7 @@ public class Inventory
 
 		item.setEquipmentSlot(slot);
 
-		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item, 0));
+		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
 	}
 	
 	/**
@@ -261,11 +261,21 @@ public class Inventory
 		equipment.remove(itemToUnequip.getEquipmentSlot());
 		itemToUnequip.setEquipped(false);
 		addToBag(itemToUnequip);
-		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip, 1));
+		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip));
 	}
 
 	public Item getItemByObjId(int value)
 	{
-		    return defaultItemBag.getItemFromStorageByItemUniqueId(value);
+		return defaultItemBag.getItemFromStorageByItemUniqueId(value);
+	}
+	
+	public Item getItemByItemId(int value)
+	{
+		return defaultItemBag.getItemFromStorageByItemId(value);
+	}
+	
+	public boolean isFull()
+	{
+		return defaultItemBag.getNextAvailableSlot() == -1;
 	}
 }
