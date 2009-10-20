@@ -16,20 +16,13 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 
-import java.util.Random;
-/**
- * 
- * @author alexa026
- * 
- */
 
-import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
+
 /**
  * 
  * @author alexa026
@@ -65,11 +58,11 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		//Player player = getConnection().getActivePlayer();
-		//if(player == null)
-		//	return;
+		Player player = getConnection().getActivePlayer();
+		if(player == null)
+			return;
 		
-		sendPacket(new SM_DIALOG(targetObjectId, 4688));
+		sendPacket(new SM_LOOKATOBJECT(targetObjectId, player.getObjectId(), Math.abs(128 - player.getHeading())));
 		sendPacket(new SM_DIALOG_WINDOW(targetObjectId));
 
 	}

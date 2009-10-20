@@ -17,15 +17,8 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
 
-import java.util.Random;
-/**
- * 
- * @author alexa026
- * 
- */
 public class CM_CLOSE_DIALOG extends AionClientPacket
 {
 	/**
@@ -58,6 +51,6 @@ public class CM_CLOSE_DIALOG extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		sendPacket(new SM_DIALOG(targetObjectId,0));
+		sendPacket(new SM_LOOKATOBJECT(targetObjectId,0,0));
 	}
 }

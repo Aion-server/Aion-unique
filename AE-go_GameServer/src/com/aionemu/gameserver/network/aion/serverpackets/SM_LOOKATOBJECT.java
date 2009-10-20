@@ -26,16 +26,17 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author alexa026
  * 
  */
-public class SM_DIALOG extends AionServerPacket
+public class SM_LOOKATOBJECT extends AionServerPacket
 {
-	
+	private int	lookerObjectId;
 	private int	targetObjectId;
-	private int	unk;
+	private int	heading;
 	
-	public SM_DIALOG(int targetObjectId, int unk)
+	public SM_LOOKATOBJECT(int lookerObjectId, int targetObjectId, int heading)
 	{
+		this.lookerObjectId = lookerObjectId;
 		this.targetObjectId = targetObjectId;
-		this.unk = unk;
+		this.heading = heading;
 	}
 	/*public SM_DIALOG(int targetObjectId)
 	{
@@ -50,10 +51,9 @@ public class SM_DIALOG extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{		
-		writeD(buf, targetObjectId);
-		//writeD(buf, 4688); // unknown
-		writeD(buf, unk); // unknown
-		writeC(buf, 0); // unknown
+		writeD(buf, lookerObjectId);
+		writeD(buf, targetObjectId); // unknown
+		writeC(buf, heading); // unknown
 
 	}	
 }
