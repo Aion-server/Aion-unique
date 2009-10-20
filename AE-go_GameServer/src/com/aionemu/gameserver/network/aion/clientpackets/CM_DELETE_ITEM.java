@@ -53,7 +53,7 @@ public class CM_DELETE_ITEM extends AionClientPacket
 
 		Player player = getConnection().getActivePlayer();
 		Inventory bag = player.getInventory();
-		Item resultItem = bag.getItem(objId);
+		Item resultItem = bag.getItemByObjId(objId);
 		if (resultItem != null)
 			bag.removeFromBag(resultItem);
 		sendPacket(new SM_DELETE_ITEM(objId));
