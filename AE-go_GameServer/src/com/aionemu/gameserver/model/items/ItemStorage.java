@@ -204,7 +204,7 @@ public class ItemStorage
 		int slot = getSlotIdByObjId(item.getObjectId());
 		if(slot != -1)
 		{
-			storageItems.remove(slot);
+			storageItems.set(slot, null);
 			return true;
 		}
 		
