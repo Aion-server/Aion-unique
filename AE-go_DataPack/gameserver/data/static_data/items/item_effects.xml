@@ -2,6 +2,18 @@
 
 <item_effect_data>
 
+
+
+	<item>
+		<name>Mercenary's Fruit Juice</name>
+		<item_id>160000001</item_id>
+		<type>1</type>
+		<deletable>1</deletable>
+		<value>20</value>
+		<value2>0</value2>
+		<timer_end>20</timer_end>
+		<timer_interval>2</timer_interval>
+	</item>
 	<item>
 		<name>Full Recovery Potion</name>
 		<item_id>162000029</item_id>
@@ -11,7 +23,6 @@
 		<value2>0</value2>
 		<timer_end>0</timer_end>
 		<timer_interval>0</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Minor Recovery Serum</name>
@@ -22,7 +33,6 @@
 		<value2>540</value2>
 		<timer_end>0</timer_end>
 		<timer_interval>0</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Minor Life Serum</name>
@@ -33,7 +43,6 @@
 		<value2>0</value2>
 		<timer_end>0</timer_end>
 		<timer_interval>0</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Minor Recovery Potion</name>
@@ -44,7 +53,6 @@
 		<value2>37</value2>
 		<timer_end>2</timer_end>
 		<timer_interval>20</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Minor Secret Remedy of Mana</name>
@@ -55,7 +63,6 @@
 		<value2>0</value2>
 		<timer_end>0</timer_end>
 		<timer_interval>0</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Minor Life Potion</name>
@@ -66,7 +73,6 @@
 		<value2>0</value2>
 		<timer_end>2</timer_end>
 		<timer_interval>20</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Minor Mana Potion</name>
@@ -77,7 +83,6 @@
 		<value2>0</value2>
 		<timer_end>2</timer_end>
 		<timer_interval>20</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Lesser Recovery Serum</name>
@@ -88,7 +93,6 @@
 		<value2>900</value2>
 		<timer_end>0</timer_end>
 		<timer_interval>0</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Lesser Life Serum</name>
@@ -99,7 +103,6 @@
 		<value2>900</value2>
 		<timer_end>0</timer_end>
 		<timer_interval>0</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Lesser Recovery Potion</name>
@@ -110,7 +113,6 @@
 		<value2>67</value2>
 		<timer_end>2</timer_end>
 		<timer_interval>20</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Lesser Secret Remedy of Mana</name>
@@ -121,7 +123,6 @@
 		<value2>0</value2>
 		<timer_end>0</timer_end>
 		<timer_interval>0</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Lesser Life Potion</name>
@@ -132,7 +133,6 @@
 		<value2>0</value2>
 		<timer_end>2</timer_end>
 		<timer_interval>20</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 	<item>
 		<name>Lesser Mana Potion</name>
@@ -143,6 +143,5 @@
 		<value2>0</value2>
 		<timer_end>2</timer_end>
 		<timer_interval>20</timer_interval>
-		<reuse_time>30</reuse_time>
 	</item>
 </item_effect_data>

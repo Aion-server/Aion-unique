@@ -77,37 +77,37 @@ public class ItemActionSelecter
 		if (type==1) 
 		{
 			HpPotion effect = new HpPotion();
-			effect.execute(value, timerInterval, timerEnd, player);
+			effect.execute(value, timerEnd, timerInterval, player);
 			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else if(type==2) 
 		{
 			MpPotion effect = new MpPotion();
-			effect.execute(value, timerInterval, timerEnd, player);
+			effect.execute(value, timerEnd, timerInterval, player);
 			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else if(type==3) 
 		{
 			HpMpPotion effect = new HpMpPotion();
-			effect.execute(value,value2, timerInterval, timerEnd, player);
+			effect.execute(value,value2, timerEnd, timerInterval, player);
 			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else if(type==4) 
 		{
 			HpFood effect = new HpFood();
-			effect.execute(value, timerInterval, timerEnd, player);
+			effect.execute(value, timerEnd, timerInterval, player);
 			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else if(type==5) 
 		{
 			MpFood effect = new MpFood();
-			effect.execute(value, timerInterval, timerEnd, player);
+			effect.execute(value, timerEnd, timerInterval, player);
 			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else if(type==6) 
 		{
 			HpMpFood effect = new HpMpFood();
-			effect.execute(value,value2, timerInterval, timerEnd, player);
+			effect.execute(value,value2, timerEnd, timerInterval, player);
 			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else
