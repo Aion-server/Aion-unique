@@ -59,28 +59,6 @@ public class SM_VERSION_CHECK extends AionServerPacket
             writeC(buf, 1);
             writeC(buf, 40);
 		}
-		else if (Config.SERVER_MODE == 2) //cc2
-		{
-			writeH(buf, 0x2800);// unk
-			writeD(buf, 0x000162C8);// unk
-			writeD(buf, 0x000162C3);// unk
-
-			writeD(buf, 0x00);// unk
-			writeD(buf, 0x000162C3);// unk
-			writeD(buf, 0x4AAc2E70);// unk
-			writeC(buf, 0x00);//unk
-			writeC(buf, Config.SERVER_COUNTRY_CODE);// country code;
-			writeC(buf, 0x00);//unk
-			writeC(buf, 0x80);//server mode?
-			writeD(buf, (int) (System.currentTimeMillis() / 1000));
-
-			writeD(buf, 0x0001015E);
-			
-			writeC(buf, 0);
-			writeC(buf, 127);writeC(buf, 0);writeC(buf, 0);writeC(buf, 1);
-			//writeD(buf, 0xB09C7FCE); <-unknown nbsoft ip address :)
-			writeH(buf, 0x2801); //<- port
-		}
 		else
 		{
 		writeH(buf, 0x0C00);// unk
