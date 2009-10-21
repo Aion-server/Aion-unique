@@ -82,6 +82,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_VERSION_CHECK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_WEATHER;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK0A;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK0C;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK17;
@@ -217,7 +218,7 @@ public class ServerPacketsOpcodes
 		
 		addPacketOpcode(SM_PING_RESPONSE.class,0x79, idSet); //1.5.x ("/ping" command)
 
-
+		addPacketOpcode(SM_ITEM_USAGE_ANIMATION.class,0xCE, idSet);	//1.5.x
 
 		//Unrecognized Opcodes:
 		

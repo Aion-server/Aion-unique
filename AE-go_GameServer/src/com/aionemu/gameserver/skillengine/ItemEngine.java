@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-unique <www.aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
@@ -14,53 +14,42 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.clientpackets;
+package com.aionemu.gameserver.itemengine;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.itemengine.ItemEngine;
-import com.aionemu.gameserver.model.templates.ItemTemplate;
-import com.aionemu.gameserver.model.items.ItemStorage;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.items.ItemId;
 
 /**
- * 
  * @author Avol
- * 
+ *
  */
-public class CM_USE_ITEM extends AionClientPacket
+public class ItemEngine
 {
-	public int uniqueItemId;
-
-	private static final Logger log = Logger.getLogger(CM_USE_ITEM.class);
-
-	public CM_USE_ITEM(int opcode)
-	{
-		super(opcode);
-	}
+	private static final Logger log = Logger.getLogger(ItemEngine.class);
+	
+	public int itemUniqueId;
+	public int itemId;
 
 	/**
-	 * {@inheritDoc}
+	 * request effect handler for itemId
 	 */
-	@Override
-	protected void readImpl()
+
+	public void useItem(Player player, int itemUniqueId) 
 	{
-		uniqueItemId = readD();
+		Inventory inventory = player.getInventory();
+		
+		Item item = inventory.getItemByObjId(itemUniqueId);
+		itemId = item.getItemTemplate().getItemId();
+
+		ItemHandler itemHandler = new ItemHandler();
+		itemHandler.setItem(itemId, itemUniqueId);
+		itemHandler.useItem(player);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void runImpl()
-	{
-		Player player = getConnection().getActivePlayer();
-		ItemEngine itemEngine = new ItemEngine();
-		itemEngine.useItem(player, uniqueItemId);
-	}
 }
