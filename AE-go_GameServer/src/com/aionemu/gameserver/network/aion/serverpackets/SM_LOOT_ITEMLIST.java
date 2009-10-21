@@ -37,7 +37,7 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 {
 	
 	private int	targetObjectId;
-	private Set<DropItem> dropItems;
+	private DropItem[] dropItems;
 	private int size;
 
 	private static final Logger	log	= Logger.getLogger(SM_LOOT_ITEMLIST.class);
@@ -45,8 +45,8 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 	public SM_LOOT_ITEMLIST(int targetObjectId, Set<DropItem> dropItems)
 	{
 		this.targetObjectId = targetObjectId;
-		this.dropItems = Collections.unmodifiableSet(dropItems);
-		size = this.dropItems.size();	
+		this.dropItems = dropItems.toArray(new DropItem[dropItems.size()]);
+		size = this.dropItems.length;	
 	}
 
 	/**
