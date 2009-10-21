@@ -43,20 +43,17 @@ public class HpPotion
 
 	public void execute(final int value, final int timerEnd, final int timerInterval,final Player player) 
 	{
-		this.value = value;
-		this.timerEnd = timerEnd;
-		this.timerInterval = timerInterval;
-		this.stopAt = timerEnd / timerInterval;
 
 		if (timerInterval>0 && timerEnd>0)
 		{
+			this.stopAt = timerEnd / timerInterval;
+			this.value = value;
 			task = ThreadPoolManager.getInstance().scheduleAtFixedRate((new Runnable()
 			{
 				@Override
 				public void run()
 				{	
 					if (stopAt>0) {	
-						log.info("heal: "+ value);
 						player.getLifeStats().increaseHp(value);
 						stopAt--;
 					} else {
@@ -69,7 +66,6 @@ public class HpPotion
 		else
 		{
 			player.getLifeStats().increaseHp(value);
-			log.info("instant");
 		}
 	}	
 }

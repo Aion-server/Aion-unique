@@ -25,6 +25,7 @@ import com.aionemu.gameserver.itemengine.itemeffects.consumables.potions.HpPotio
 import com.aionemu.gameserver.itemengine.itemeffects.consumables.potions.MpPotion;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 /**
  * @author Avol
@@ -78,37 +79,37 @@ public class ItemActionSelecter
 		{
 			HpPotion effect = new HpPotion();
 			effect.execute(value, timerEnd, timerInterval, player);
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
+			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else if(type==2) 
 		{
 			MpPotion effect = new MpPotion();
 			effect.execute(value, timerEnd, timerInterval, player);
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
+			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else if(type==3) 
 		{
 			HpMpPotion effect = new HpMpPotion();
 			effect.execute(value,value2, timerEnd, timerInterval, player);
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
+			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else if(type==4) 
 		{
 			HpFood effect = new HpFood();
 			effect.execute(value, timerEnd, timerInterval, player);
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
+			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else if(type==5) 
 		{
 			MpFood effect = new MpFood();
 			effect.execute(value, timerEnd, timerInterval, player);
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
+			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else if(type==6) 
 		{
 			HpMpFood effect = new HpMpFood();
 			effect.execute(value,value2, timerEnd, timerInterval, player);
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
+			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
 		} 
 		else
 		{

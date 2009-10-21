@@ -36,6 +36,7 @@ public class ItemTemplateLoader
 
 	private static final Logger log = Logger.getLogger(ItemTemplateLoader.class);
 
+	public static String itemName;
 	public static int itemId;
 	public static int itemEffectType;
 	public static int itemEffectDeletable;
@@ -44,6 +45,7 @@ public class ItemTemplateLoader
 	public static int itemEffectTimerEnd;
 	public static int itemEffectTimerInterval;
 	public static int itemIdSel;
+
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
@@ -89,8 +91,12 @@ public class ItemTemplateLoader
  		 String timerEndXml=nameElements6.getChildNodes().item(0).getNodeValue();
 
  		 NodeList nameNlc7 = doc.getElementsByTagName("timer_interval");
- 		 Element nameElements=(Element)nameNlc7.item(i);
- 		 String timerIntervalXml=nameElements.getChildNodes().item(0).getNodeValue();
+ 		 Element nameElements7=(Element)nameNlc7.item(i);
+ 		 String timerIntervalXml=nameElements5.getChildNodes().item(0).getNodeValue();
+
+ 		 NodeList nameNlc8 = doc.getElementsByTagName("name");
+ 		 Element nameElements8=(Element)nameNlc8.item(i);
+ 		 String itemNameXml=nameElements8.getChildNodes().item(0).getNodeValue();
 
 		 int itemIdXmlInt = Integer.parseInt(itemIdXml);
 		 int itemDeletableXmlInt = Integer.parseInt(itemDeletableXml);
@@ -103,6 +109,7 @@ public class ItemTemplateLoader
 
 
 		 if (itemIdXmlInt==itemId) {
+			itemName = itemNameXml;
 			itemEffectType = itemTypeXmlInt;
 			itemEffectDeletable = itemDeletableXmlInt;
 			itemEffectValue = itemValueXmlInt;
@@ -124,6 +131,9 @@ public class ItemTemplateLoader
 
 	public int getCheckTemplate() {
 		return itemIdSel;
+	}
+	public String getItemName() {
+		return itemName;
 	}
 	public int getType() {
 		return itemEffectType;

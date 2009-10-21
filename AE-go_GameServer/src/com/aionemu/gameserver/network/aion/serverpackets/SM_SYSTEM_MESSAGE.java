@@ -28,6 +28,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author -Nemesiss-
  * @author EvilSpirit
  * @author Luno :D
+ * @author Avol!
  */
 public class SM_SYSTEM_MESSAGE extends AionServerPacket
 {
@@ -63,7 +64,16 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300627, playerName);
 	}
-	
+
+	/**
+	 *  You used item
+	 */
+
+	public static SM_SYSTEM_MESSAGE USE_ITEM(String itemName)
+	{
+		return new SM_SYSTEM_MESSAGE(1300423, itemName);
+	}
+
 	/**
 	 * The remaining playing time is %0.
 	 * 

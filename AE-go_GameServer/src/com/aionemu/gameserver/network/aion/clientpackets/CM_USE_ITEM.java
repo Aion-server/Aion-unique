@@ -20,6 +20,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -27,7 +28,7 @@ import com.aionemu.gameserver.itemengine.ItemEngine;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.model.items.ItemStorage;
 import com.aionemu.gameserver.model.gameobjects.Item;
-
+import com.aionemu.gameserver.itemengine.ItemTemplateLoader;
 /**
  * 
  * @author Avol
@@ -62,5 +63,20 @@ public class CM_USE_ITEM extends AionClientPacket
 		Player player = getConnection().getActivePlayer();
 		ItemEngine itemEngine = new ItemEngine();
 		itemEngine.useItem(player, uniqueItemId);
+
+		Inventory inventory = player.getInventory();
+		
+		Item item = inventory.getItemByObjId(uniqueItemId);
+		int itemId = item.getItemTemplate().getItemId();
+
+		ItemTemplateLoader itemTemplate = new ItemTemplateLoader();
+		itemTemplate.setItemId(itemId);
+		itemTemplate.loadFromXml();
+		if (itemTemplate.getCheckTemplate() == 1) 
+		{
+			sendPacket(SM_SYSTEM_MESSAGE.USE_ITEM(itemTemplate.getItemName()));
+		}
+
+		
 	}
 }
