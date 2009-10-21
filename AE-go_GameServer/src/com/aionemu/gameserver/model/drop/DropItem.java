@@ -73,5 +73,4 @@ public class DropItem
 	{
 		return dropTemplate;
 	}
-
 }

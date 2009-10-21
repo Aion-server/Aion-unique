@@ -133,14 +133,15 @@ public class DropService
 	public void requestDropItem(Player player, int npcId, int itemIndex)
 	{
 		Set<DropItem> dropItems = currentDropMap.get(npcId);
-
-		Inventory inventory = player.getInventory();
-
-		if(inventory.isFull())
+		
+		//drop was unregistered
+		if(dropItems == null)
 		{
-			return;//TODO send right packet
+			return;
 		}
-
+		
+		//TODO prevent stealing drop 
+		
 		DropItem requestedItem = null;
 
 		synchronized(dropItems)
@@ -150,36 +151,60 @@ public class DropService
 				if(dropItem.getIndex() == itemIndex)
 				{
 					requestedItem = dropItem;
+					break;
 				}
 			}
 		}
+		
+		Inventory inventory = player.getInventory();
+		
 		if(requestedItem != null)
 		{
-			dropItems.remove(requestedItem);
-			int itemCount = requestedItem.getCount();
+			int currentDropItemCount = requestedItem.getCount();
 			int itemId = requestedItem.getDropTemplate().getItemId();
-
+			
 			if(itemId == ItemId.KINAH.value())
 			{
-				inventory.getKinahItem().increaseItemCount(itemCount);
+				inventory.getKinahItem().increaseItemCount(currentDropItemCount);
 				PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
+				dropItems.remove(requestedItem);
 				resendDropList(player, npcId, dropItems);
 				return;
 			}
-
-			Item item = inventory.getItemByItemId(itemId);
-			if(item != null) //item already in cube
+			
+			Item newItem = itemService.newItem(itemId, currentDropItemCount);
+			
+			Item existingItem = inventory.getItemByItemId(itemId);
+			
+			//item already in cube
+			if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
 			{
-				item.increaseItemCount(itemCount);
-				PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
+				int oldItemCount = existingItem.getItemCount();
+				Item addedItem = inventory.addToBag(newItem);
+				if(addedItem != null)
+				{
+					currentDropItemCount -= addedItem.getItemCount() - oldItemCount;
+					PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
+				}
 			}
-			else // new item
+			// new item and inventory is not full
+			else if (!inventory.isFull())
 			{
-				item = itemService.newItem(itemId, itemCount);
-				inventory.addToBag(item);
-				PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(item)));
+				Item addedItem = inventory.addToBag(newItem);
+				if(addedItem != null)
+				{
+					currentDropItemCount -= addedItem.getItemCount();
+					PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(addedItem)));
+				}
 			}
-
+			
+			//item fully pickuped
+			if(currentDropItemCount == 0)
+			{
+				dropItems.remove(requestedItem);
+			}
+			
+			//show updated droplist
 			resendDropList(player, npcId, dropItems);
 		}	
 	}

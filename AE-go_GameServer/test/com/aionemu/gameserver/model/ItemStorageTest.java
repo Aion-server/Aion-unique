@@ -31,7 +31,6 @@ import com.aionemu.gameserver.model.templates.ItemTemplate;
 
 /**
  * @author ATracer
- *
  */
 public class ItemStorageTest
 {
@@ -109,7 +108,10 @@ public class ItemStorageTest
 		{
 			storage.addItemToStorage(itemList.get(i));
 		}
-		Assert.assertEquals(-1, storage.getNextAvailableSlot());		
+		Assert.assertEquals(-1, storage.getNextAvailableSlot());
+		Assert.assertEquals(27, storage.getStorageItems().size());
+		storage.removeItemFromStorage(itemList.get(1));
+		Assert.assertEquals(1, storage.getNextAvailableSlot());
 	}
 	
 	@Test
@@ -123,4 +125,32 @@ public class ItemStorageTest
 		storage.addItemToStorage(itemList.get(2));
 		Assert.assertEquals(1, itemList.get(2).getEquipmentSlot());
 	}
+	
+	@Test
+	public void testRemoveFromStorage2()
+	{
+		ItemStorage storage = new ItemStorage(27);
+		
+		for(int i = 0; i < 27; i++)
+		{
+			storage.addItemToStorage(itemList.get(i));
+		}
+		
+		Assert.assertEquals(-1, storage.getNextAvailableSlot());
+		Assert.assertEquals(27, storage.getStorageItems().size());
+		storage.removeItemFromStorage(itemList.get(1));
+		storage.removeItemFromStorage(itemList.get(15));
+		storage.removeItemFromStorage(itemList.get(23));
+		
+		storage.addItemToStorage(itemList.get(1));
+		storage.addItemToStorage(itemList.get(1));
+		storage.addItemToStorage(itemList.get(1));
+		storage.addItemToStorage(itemList.get(1));
+		storage.addItemToStorage(itemList.get(1));
+		
+		Assert.assertEquals(-1, storage.getNextAvailableSlot());
+		Assert.assertEquals(27, storage.getStorageItems().size());
+	}
+	
+
 }

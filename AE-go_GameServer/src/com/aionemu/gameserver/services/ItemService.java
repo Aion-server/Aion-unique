@@ -50,7 +50,8 @@ public class ItemService
 	 * @param count
 	 * @return
 	 * 
-	 * Creates new Item instance
+	 * Creates new Item instance.
+	 * If count is greater than template maxStackCount, count value will be cut to maximum allowed
 	 */
 	public Item newItem(int itemId, int count)
 	{
@@ -59,6 +60,15 @@ public class ItemService
 		{
 			log.error("Item was not populated correctly. Item template is missing for item id: " + itemId);
 		}
+		else
+		{
+			int maxStackCount = itemTemplate.getMaxStackCount();	
+			if(count > maxStackCount)
+			{
+				count = maxStackCount;
+			}
+		}
+		
 		//TODO if Item object will contain ownerId - item can be saved to DB before return
 		return new Item(aionObjectsIDFactory.nextId(), itemTemplate, count, false, 0);
 	}

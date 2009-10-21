@@ -32,14 +32,14 @@ public class ItemStorage
 	/**
 	 * In current implementation storageItems might contain Item object or null
 	 */
-	private List<Item> storageItems ;
+	private Item[] storageItems ;
 
 	private int limit = 0;
 
 	public ItemStorage(int limit)
 	{
 		this.limit = limit;
-		storageItems = new ArrayList<Item>(limit);
+		storageItems = new Item[limit];
 	}
 
 	/**
@@ -48,8 +48,15 @@ public class ItemStorage
 	 */
 	public List<Item> getStorageItems()
 	{
-		List<Item> readOnlyList =  new ArrayList<Item>(storageItems);
-		readOnlyList.removeAll(Collections.singleton(null));
+		List<Item> readOnlyList = new ArrayList<Item>();
+		for(Item item : storageItems)
+		{
+			if(item != null)
+			{
+				readOnlyList.add(item);
+			}
+		}
+
 		return readOnlyList;
 	}
 
@@ -149,25 +156,21 @@ public class ItemStorage
 	 */
 	public int getNextAvailableSlot()
 	{
-		int size = storageItems.size();
-		for(int i = 0; i < size; i++)
+		int size = storageItems.length;
+		for(int slot = 0; slot < size; slot++)
 		{
-			if(storageItems.get(i) == null && i < limit)
+			if(storageItems[slot] == null && slot < limit)
 			{
-				return i;
+				return slot;
 			}
 		}
 		
-		if(size < limit)
-		{
-			return size;
-		}
 		return -1;
 	}
 
 	protected boolean isSlotEmpty(int slot)
 	{
-		return slot <= limit && storageItems.get(slot) != null;
+		return slot <= limit && storageItems[slot] == null;
 	}
 
 	/**
@@ -180,14 +183,16 @@ public class ItemStorage
 
 		if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
 		{
-			//TODO overflow check
-			existingItem.increaseItemCount(item.getItemCount());
+			int maxValue = existingItem.getItemTemplate().getMaxStackCount();
+			int sum = item.getItemCount() + existingItem.getItemCount();
+			existingItem.setItemCount(sum >  maxValue ? maxValue : sum);
+			
 			return existingItem;
 		}
 		int availableSlot = getNextAvailableSlot();
 		if(availableSlot != -1)
 		{
-			storageItems.add(availableSlot, item);
+			storageItems[availableSlot] =  item;
 			item.setEquipmentSlot(availableSlot);
 			return item;
 		}
@@ -204,10 +209,9 @@ public class ItemStorage
 		int slot = getSlotIdByObjId(item.getObjectId());
 		if(slot != -1)
 		{
-			storageItems.set(slot, null);
+			storageItems[slot] = null;
 			return true;
-		}
-		
+		}	
 		return false;
 	}
 }
