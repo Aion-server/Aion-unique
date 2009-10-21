@@ -58,6 +58,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NICKNAME_CHECK_RESPONSE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PING_RESPONSE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SEARCH;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
@@ -213,6 +214,8 @@ public class ServerPacketsOpcodes
 		
 		addPacketOpcode(SM_EMOTION_LIST.class, 0x66, idSet);	//1.5.x
 		addPacketOpcode(SM_PLAY_MOVIE.class,0x60, idSet);	//1.5.x
+		
+		addPacketOpcode(SM_PING_RESPONSE.class,0x79, idSet); //1.5.x ("/ping" command)
 
 
 
