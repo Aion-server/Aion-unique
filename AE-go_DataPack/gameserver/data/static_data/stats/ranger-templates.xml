@@ -78,6 +78,7 @@
 		                magic_accuracy="213" />
 	</player_stats>
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="RANGER" level="16">
 		<stats_template maxHp="827" maxMp="1221"
 		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
@@ -85,7 +86,7 @@
 		                attack_speed="1.5"
 		                evasion="306" block="306" parry="306"
 		                main_hand_attack="18" main_hand_accuracy="348" main_hand_crit_rate="3"
-		                magic_accuracy="198" />
+		                magic_accuracy="228" />
 	</player_stats>
 
 	<player_stats class="RANGER" level="17">

@@ -79,6 +79,17 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<player_stats class="GLADIATOR" level="16">
+		<stats_template maxHp="1366" maxMp="1221"
+		                power="115" health="115" agility="100" accuracy="100" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="260" block="260" parry="260"
+		                main_hand_attack="19" main_hand_accuracy="318" main_hand_crit_rate="2"
+		                magic_accuracy="228" />
+	</player_stats>
+
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="GLADIATOR" level="17">
 		<stats_template maxHp="1455" maxMp="1291"
 		                power="115" health="115" agility="100" accuracy="100" knowledge="90" will="90"
