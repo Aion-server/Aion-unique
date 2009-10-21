@@ -682,4 +682,13 @@ public class ItemTemplate
 	{
 		return getArmorType() != null;
 	}
+
+	/** For testcase only
+	 * 
+	 * @param itemId the itemId to set
+	 */
+	public void setItemId(int itemId)
+	{
+		this.itemId = itemId;
+	}
 }

@@ -109,16 +109,35 @@ public class ItemStorage
 	 */
 	public int getSlotIdByItemId(int itemId)
 	{
-		int index = 0;
-
 		for(Item item : storageItems)
 		{
-			ItemTemplate itemTemplate = item.getItemTemplate();
-			if(itemTemplate.getItemId() == itemId)
+			if(item != null)
 			{
-				return index;
+				ItemTemplate itemTemplate = item.getItemTemplate();
+				if(itemTemplate.getItemId() == itemId)
+				{
+					return item.getEquipmentSlot();
+				}
 			}
-			index++;
+		}
+		return -1;
+	}
+	
+	/**
+	 * @param objId
+	 * @return
+	 */
+	public int getSlotIdByObjId(int objId)
+	{
+		for(Item item : storageItems)
+		{
+			if(item != null)
+			{
+				if(item.getObjectId() == objId)
+				{
+					return item.getEquipmentSlot();
+				}
+			}
 		}
 
 		return -1;
@@ -133,7 +152,7 @@ public class ItemStorage
 		int size = storageItems.size();
 		for(int i = 0; i < size; i++)
 		{
-			if(storageItems.get(i) == null)
+			if(storageItems.get(i) == null && i < limit)
 			{
 				return i;
 			}
@@ -141,8 +160,7 @@ public class ItemStorage
 		
 		if(size < limit)
 		{
-			storageItems.add(null);
-			return size + 1;
+			return size;
 		}
 		return -1;
 	}
@@ -177,12 +195,13 @@ public class ItemStorage
 	}
 	
 	/**
+	 * 
 	 * @param item
 	 * @return
 	 */
 	public boolean removeItemFromStorage(Item item)
 	{
-		int slot = getSlotIdByItemId(item.getItemTemplate().getItemId());
+		int slot = getSlotIdByObjId(item.getObjectId());
 		if(slot != -1)
 		{
 			storageItems.remove(slot);
