@@ -241,7 +241,7 @@
 			</for>
 		<part name="unk" type="d"/>
 	</packet>
-	<packet id="0x41" name="SM_WEATHER">
+	<packet id="0x3A" name="SM_WEATHER">
 	    <part name="key" type="d"/>
     </packet>
 	<packet id="0x4D" name="SM_QUESTION_WINDOW [?]">
