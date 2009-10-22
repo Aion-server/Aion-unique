@@ -9,6 +9,7 @@
 						<xs:attribute name="loc_id" type="xs:int" use="required" />
 						<xs:attribute name="mapid" type="xs:int" use="required" />	
 						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="teleportid" type="xs:int"/>
 						<xs:attribute name="posX" type="xs:float"/>
 						<xs:attribute name="posY" type="xs:float"/>
 						<xs:attribute name="posZ" type="xs:float"/>
