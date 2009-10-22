@@ -11,6 +11,9 @@
 	<xs:include schemaLocation="player_initial_data.xsd" />
 	<xs:include schemaLocation="world_maps.xsd" />
 	<xs:include schemaLocation="npc_trade_list.xsd" />
+	<xs:include schemaLocation="npc_teleporter.xsd" />
+	<xs:include schemaLocation="teleport_location.xsd" />
+
 	<xs:include schemaLocation="skills/skills.xsd" />
 	
 	<xs:element name="ae_static_data">
@@ -19,6 +22,8 @@
 				<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
 				<xs:element ref="world_maps" minOccurs="0" />
 				<xs:element ref="npc_trade_list" minOccurs="0" />
+				<xs:element ref="npc_teleporter" minOccurs="0" />
+				<xs:element ref="teleport_location" minOccurs="0" />
 				<xs:element ref="player_experience_table" minOccurs="0" />
 				<xs:element ref="player_initial_data" minOccurs="0" />
 				<xs:element ref="item_templates" minOccurs="0" />

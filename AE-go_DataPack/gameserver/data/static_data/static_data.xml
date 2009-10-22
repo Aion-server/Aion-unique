@@ -66,6 +66,8 @@
 
 	<import file="world_maps.xml" />
 	<import file="npc_trade_list.xml" />
+	<import file="npc_teleporter.xml" />
+	<import file="teleport_location.xml" />
 	<import file="player_experience_table.xml" />
 	<import file="player_initial_data.xml" />
 	<import file="items/item_templates.xml"/>

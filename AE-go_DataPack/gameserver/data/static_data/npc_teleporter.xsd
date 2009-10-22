@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="npc_teleporter">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="teleporter_template" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence />
+						<xs:attribute name="npc_id" type="xs:int" use="required" />
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="teleportId" type="xs:int" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+

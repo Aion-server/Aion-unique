@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teleport_location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="teleport_location.xsd">
+	<!-- ASMODIANS -->
+	<teleloc_template loc_id="7" mapid ="120010000" name="pandemonium" posX="1685.5665" posY="1399.6561" posZ="195.38385" heading="0" price="0">
+	</teleloc_template>
+	<teleloc_template loc_id="8" mapid ="220010000" name="ishalgen" posX="528.59595" posY="2449.176" posZ="281.59262" heading="0" price="0">
+	</teleloc_template>
+	<!-- ELYOS -->
+</teleport_location>
