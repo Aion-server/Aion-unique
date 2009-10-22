@@ -118,6 +118,8 @@ public class ItemTemplateLoader
 			itemEffectTimerInterval = itemTimerIntervalXmlInt;
 			i=nList.getLength();
 			itemIdSel = 1;
+		 } else {
+			itemIdSel = 0;
 		 }
 
 		}

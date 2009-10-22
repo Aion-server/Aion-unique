@@ -31,15 +31,14 @@ public class ItemHandler
 {
 	private static final Logger log = Logger.getLogger(ItemHandler.class);
 
-	public int itemId;
-	public int itemObjId;
-	public int deletable;
-	public int type;
-	public int value;
-	public int value2;
-	public int timerEnd;
-	public int timerInterval;
-
+	private int itemId;
+	private int itemObjId;
+	private int deletable;
+	private int type;
+	private int value;
+	private int value2;
+	private int timerEnd;
+	private int timerInterval;
 
 	/**
 	 * set itemId, itemUniqueId
@@ -60,6 +59,7 @@ public class ItemHandler
 		ItemTemplateLoader itemTemplate = new ItemTemplateLoader();
 		itemTemplate.setItemId(itemId);
 		itemTemplate.loadFromXml();
+
 		if (itemTemplate.getCheckTemplate() == 1) 
 		{
 			type = itemTemplate.getType();
@@ -87,7 +87,6 @@ public class ItemHandler
 						bag.removeFromBag(resultItem);
 					PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(itemObjId));
 				}
-
 
 		} else 
 		{
