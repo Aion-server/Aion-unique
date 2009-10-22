@@ -200,7 +200,8 @@ public class Inventory
 			{
 				return false;
 			}
-			
+			//remove item first from inventory to have at least one slot free
+			defaultItemBag.removeItemFromStorage(item);
 			//check whether there is already item in specified slot
 			Item equippedItem = equipment.get(slot);
 			if(equippedItem != null)
@@ -217,11 +218,8 @@ public class Inventory
 
 	private void equip(int slot, Item item)
 	{
-		defaultItemBag.removeItemFromStorage(item);
 		equipment.put(slot, item);
-
 		item.setEquipmentSlot(slot);
-
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
 	}
 	
@@ -234,6 +232,11 @@ public class Inventory
 	 */
 	public boolean unEquipItem(int itemUniqueId, int slot)
 	{
+		//if inventory is full unequip action is disabled
+		if(isFull())
+		{
+			return false;
+		}
 		synchronized(this)
 		{
 			Item itemToUnequip = null;
