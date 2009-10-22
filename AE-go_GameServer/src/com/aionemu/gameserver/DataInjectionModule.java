@@ -25,6 +25,8 @@ import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.SkillData;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.dataholders.TradeListData;
+import com.aionemu.gameserver.dataholders.TeleporterData;
+import com.aionemu.gameserver.dataholders.TeleLocationData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.services.AccountService;
 import com.aionemu.gameserver.services.DropService;
@@ -134,4 +136,17 @@ public class DataInjectionModule extends AbstractModule
 	{
 		return datamanager.SKILL_DATA;
 	}
+	
+	
+	@Provides
+	TeleporterData provideTeleporterData(DataManager datamanager)
+	{
+		return datamanager.TELEPORTER_DATA;
+	}
+	
+	@Provides
+	TeleLocationData provideTeleLocationData(DataManager datamanager)
+	{
+		return datamanager.TELELOCATION_DATA;
+	}	
 }

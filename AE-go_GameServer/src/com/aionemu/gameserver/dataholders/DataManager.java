@@ -67,6 +67,11 @@ public final class DataManager
 	
 	public static PlayerExperienceTable	PLAYER_EXPERIENCE_TABLE;
 
+	public static TeleporterData		TELEPORTER_DATA;
+	
+	public static TeleLocationData		TELELOCATION_DATA;
+	
+
 	/**
 	 * 
 	 */
@@ -113,6 +118,11 @@ public final class DataManager
 		SPAWN_DATA = new SpawnData(NPC_DATA);
 		
 		TRADE_LIST_DATA = data.tradeListData;
+		TELEPORTER_DATA = data.teleporterData;
+		
+		TELELOCATION_DATA = data.teleLocationData;
+	
+
 		
 		// some sexy time message
 		long seconds = time / 1000;

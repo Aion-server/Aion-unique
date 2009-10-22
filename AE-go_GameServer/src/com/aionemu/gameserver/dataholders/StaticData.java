@@ -38,6 +38,13 @@ public class StaticData
 	@XmlElement(name = "npc_trade_list")
 	public TradeListData			tradeListData;
 	
+	@XmlElement(name = "npc_teleporter")
+	public TeleporterData 			teleporterData;
+	
+	@XmlElement(name = "teleport_location")
+	public TeleLocationData 		teleLocationData;
+
+	
 	@XmlElement(name = "player_experience_table")
 	public PlayerExperienceTable	playerExperienceTable;
 
@@ -67,6 +74,8 @@ public class StaticData
 		DataManager.log.info("Loaded " + npcData.size() + " npc templates");
 		DataManager.log.info("Loaded " + playerInitialData.size() + " initial player templates");
 		DataManager.log.info("Loaded " + tradeListData.size() + " trade lists");
+		DataManager.log.info("Loaded " + teleporterData.size() + " npc teleporter templates");
+		DataManager.log.info("Loaded " + teleLocationData.size() + " teleport locations");
 		DataManager.log.info("Loaded " + skillData.size() + " skill templates");
 		
 	}

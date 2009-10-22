@@ -16,11 +16,13 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-
+import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 
 
 /**
@@ -34,6 +36,9 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 	* Target object id that client wants to TALK WITH or 0 if wants to unselect
 	*/
 	private int					targetObjectId;
+	
+	@Inject
+	private World world;
 	/**
 	* Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
 	* @param opcode
@@ -62,8 +67,19 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 		if(player == null)
 			return;
 		
+		AionObject o = world.findAionObject(targetObjectId);
+		if ( o == null)
+			return;
+		
 		sendPacket(new SM_LOOKATOBJECT(targetObjectId, player.getObjectId(), Math.abs(128 - player.getHeading())));
-		sendPacket(new SM_DIALOG_WINDOW(targetObjectId));
+		
+		if (o.getName().startsWith("Mail"))
+		{
+			sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 18));
+		}
+		else
+			sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 10));
 
+		
 	}
 }

@@ -29,12 +29,21 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_DIALOG_WINDOW extends AionServerPacket
 {
 	private int	targetObjectId;
+	private int dialogID;
+	private int	questId = 0;
 	
-	public SM_DIALOG_WINDOW(int targetObjectId)
+	public SM_DIALOG_WINDOW(int targetObjectId, int dlgID)
 	{
 		this.targetObjectId = targetObjectId;
+		this.dialogID = dlgID;
 	}
 
+	public SM_DIALOG_WINDOW(int targetObjectId , int dlgID , int questId)
+	{
+		this.targetObjectId = targetObjectId;
+		this.dialogID = dlgID;
+		this.questId = questId;
+	}
 	/**
 	* {@inheritDoc}
 	*/
@@ -42,9 +51,19 @@ public class SM_DIALOG_WINDOW extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{		
+		if (questId != 0)
+		{
+			writeD(buf, targetObjectId);
+			writeH(buf, dialogID);
+			writeD(buf, questId);
+			writeH(buf, 0);
+		}
+		else
+		{
 		writeD(buf, targetObjectId);
-		writeD(buf, 10); // window mode. 1- opens stigma window and show somekind of aura. 2- create legion window. 3 and higher - npc/quest dialog window + it's id.
-		writeD(buf, 0); // unk
+		writeD(buf, dialogID); // window mode. 1- opens stigma window and show somekind of aura. 2- create legion window. 3 and higher - npc/quest dialog window + it's id.
+ 		writeD(buf, 0); // unk
+		}
 
 	}	
 }
