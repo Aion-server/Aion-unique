@@ -27,7 +27,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import org.apache.log4j.Logger;
 /**
  * 
- * @author orz
+ * @author KKnD , orz
  * 
  */
 public class CM_DIALOG_SELECT extends AionClientPacket
@@ -132,6 +132,6 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 						sendPacket(new SM_DIALOG_WINDOW(targetObjectId, unk1));
 					break;
 				}
-		log.info("id: "+targetObjectId+" dialog type: " + unk1 +" other: " + unk2);
+		//log.info("id: "+targetObjectId+" dialog type: " + unk1 +" other: " + unk2);
 	}
 }

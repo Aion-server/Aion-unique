@@ -43,17 +43,19 @@ public class TelelocationTemplate
 	@XmlAttribute(name = "name", required = true)
 	private String	name	= "";
 
+	@XmlAttribute(name = "teleportid")
+	private int teleportid = 0;
 	
-	@XmlAttribute(name = "posX", required = true)
+	@XmlAttribute(name = "posX")
 	private float x = 0;
 	
-	@XmlAttribute(name = "posY", required = true)
+	@XmlAttribute(name = "posY")
 	private float y = 0;
 	
-	@XmlAttribute(name = "posZ", required = true)
+	@XmlAttribute(name = "posZ")
 	private float z = 0;
 	
-	@XmlAttribute(name = "heading", required = true)
+	@XmlAttribute(name = "heading")
 	private int	 heading = 0;
 	
 	@XmlAttribute(name = "price", required = true)
@@ -72,6 +74,11 @@ public class TelelocationTemplate
 	public String getName()
 	{
 		return name;
+	}
+	
+	public int getTeleportId()
+	{
+		return teleportid;
 	}
 	
 	public float getX()

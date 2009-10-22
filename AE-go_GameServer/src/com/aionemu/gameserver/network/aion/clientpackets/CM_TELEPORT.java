@@ -83,21 +83,28 @@ public class CM_TELEPORT extends AionClientPacket
 			return;
 	
 		_tele = DataManager.TELELOCATION_DATA.getTelelocationTemplate(locId);
-		
-		if (locId ==13)
+
+		if (_tele == null)
 		{
-			sendPacket(new SM_EMOTION(activePlayer.getObjectId(),6,5001));
+			log.info(String.format("Missing info at teleport_location.xml with locId: %d", locId));
+			PacketSendUtility.sendMessage(activePlayer, "Missing info at teleport_location.xml with locId: "+locId);
 			return;
 		}
-		
-		if ((_tele != null)&&(_tele.getLocId()!=0)&&(_tele.getMapId()!=0))
+		//normal teleport
+		if ((_tele.getLocId()!=0)&&(_tele.getMapId()!=0)&&(_tele.getTeleportId()== 0))
 		{
 			sendPacket(new SM_TELEPORT_LOC(_tele.getMapId(), _tele.getX(), _tele.getY(), _tele.getZ()));
 			TeleportService.getInstance().scheduleTeleportTask(activePlayer, _tele.getMapId(), _tele.getX(), _tele.getY(), _tele.getZ());
+			return;
+		}
+		//flying teleport
+		else if ((_tele.getLocId()!=0)&&(_tele.getTeleportId()!= 0))
+		{
+			sendPacket(new SM_EMOTION(activePlayer.getObjectId(),6,_tele.getTeleportId()));
+			return;
 		}
 		else
 		{
-						
 			log.info(String.format("Missing info at teleport_location.xml with locId: %d", locId));
 			PacketSendUtility.sendMessage(activePlayer, "Missing info at teleport_location.xml with locId: "+locId);
 		}
