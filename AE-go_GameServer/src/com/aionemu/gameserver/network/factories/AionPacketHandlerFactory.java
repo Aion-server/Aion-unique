@@ -67,7 +67,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_DIALOG;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_FRIENDLIST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_START_LOOT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TARGET_SELECT;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TELEPORT;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_TELEPORT_SELECT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TERRITORY;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TIME_CHECK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_CANCEL;
@@ -151,15 +151,15 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_CASTSPELL(0x8B), State.IN_GAME);
 		addPacket(new CM_SHOW_DIALOG(0x9E), State.IN_GAME);
 		addPacket(new CM_DIALOG_SELECT(0xA0), State.IN_GAME);
-		addPacket(new CM_CLOSE_DIALOG(0x9f ), State.IN_GAME);//
-		addPacket(new CM_REVIVE(0xEF ), State.IN_GAME);//0x9F
-		addPacket(new CM_BUY_ITEM(0x9d ), State.IN_GAME);//0x9d
-		addPacket(new CM_USE_ITEM(0x8F ), State.IN_GAME);//
-		addPacket(new CM_EQUIP_ITEM(0x90 ), State.IN_GAME);//
-		addPacket(new CM_DELETE_ITEM(0x5E ), State.IN_GAME);//
-		addPacket(new CM_PING_REQUEST(0x51 ), State.IN_GAME); //1.5.x
-		addPacket(new CM_TELEPORT(0x7E ), State.IN_GAME);//
-		addPacket(new CM_VERIFY_LOCATION(0x9B ), State.IN_GAME);//
+		addPacket(new CM_CLOSE_DIALOG(0x9f), State.IN_GAME);//
+		addPacket(new CM_REVIVE(0xEF), State.IN_GAME);//0x9F
+		addPacket(new CM_BUY_ITEM(0x9d), State.IN_GAME);//0x9d
+		addPacket(new CM_USE_ITEM(0x8F), State.IN_GAME);//
+		addPacket(new CM_EQUIP_ITEM(0x90), State.IN_GAME);//
+		addPacket(new CM_DELETE_ITEM(0x5E), State.IN_GAME);//
+		addPacket(new CM_PING_REQUEST(0x51), State.IN_GAME); //1.5.x
+		addPacket(new CM_TELEPORT_SELECT(0x7E), State.IN_GAME);//
+		addPacket(new CM_VERIFY_LOCATION(0x9B), State.IN_GAME);//
 		
 		//addPacket(new CM_INVITE_TO_GROUP(0x4B ), State.IN_GAME);//
 		//addPacket(new CM_VIEW_DETAIL(0x4E ), State.IN_GAME);//

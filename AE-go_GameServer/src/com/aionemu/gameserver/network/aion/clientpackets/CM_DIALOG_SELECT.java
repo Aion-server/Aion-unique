@@ -21,7 +21,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import org.apache.log4j.Logger;
@@ -106,7 +106,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 						break;
 					case 38:
 						//flight and teleport
-						sendPacket(new SM_TELEPORT(player, targetObjectId));
+						sendPacket(new SM_TELEPORT_MAP(player, targetObjectId));
 						break;
 					case 39:
 						//improve extraction skill npc cornelius, jhaelas in sanctum

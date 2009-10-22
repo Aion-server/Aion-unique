@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets.unk;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
@@ -22,10 +22,10 @@ import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
- * @author orz
+ * @author orz, xTr
  *
  */
-public class SM_UNK72 extends AionServerPacket
+public class SM_QUESTLIST extends AionServerPacket
 {
 	/**
 	 * {@inheritDoc}
@@ -33,28 +33,17 @@ public class SM_UNK72 extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeH(buf, 9);
+		int questList[] = { 2200, 2300, 1130, 1007, 1006, 2008, 2009, 1300 };
 		
-		writeH(buf, 0);
-		writeC(buf, 1);
-		writeH(buf, 2200);
-		writeC(buf, 1);
-		writeH(buf, 2300);
-		writeC(buf, 1);
-		writeH(buf, 1130);
-		writeC(buf, 1);
-		writeH(buf, 1007);
-		writeC(buf, 1);
-		writeH(buf, 1006);
-		writeC(buf, 1);
-		writeH(buf, 2008);
-		writeC(buf, 1);
-		writeH(buf, 2009);
-		writeC(buf, 1);
-		writeH(buf, 1300);
-		writeC(buf, 1);
+		writeH(buf, questList.length); // quest list size ( max is 25 )
+
+		for(int i = 0; i < questList.length; i++)
+		{
+			writeH(buf, questList[i]);
+			writeC(buf, 1);
+		}
 		
-		writeC(buf, 0);
+		writeC(buf, 0); // pinned quests list size
 	}
 
 }

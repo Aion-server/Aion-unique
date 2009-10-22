@@ -83,6 +83,18 @@ public class SM_EMOTION extends AionServerPacket
 			writeC(buf, 0x40); // unknown
 			writeD(buf, emotionId);
 		}
+		else if (unknown == 6 )
+		{
+			// fly
+			writeC(buf, 0x02); // unknown
+			writeC(buf, 0x00); // unknown
+			writeC(buf, 0x00); // unknown
+			writeC(buf, 0x00); // unknown
+			writeH(buf, 16576); // unsure about this - verteron has 16656, akarios 16576
+			writeH(buf, emotionId); // teleport Id
+			writeC(buf, 0x00); // unknown
+			writeC(buf, 0x00); // unknown
+		}
 		else if (unknown == 35 )
 		{
 			//emote startloop

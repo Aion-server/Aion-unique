@@ -60,10 +60,9 @@ public class SM_DIALOG_WINDOW extends AionServerPacket
 		}
 		else
 		{
-		writeD(buf, targetObjectId);
-		writeD(buf, dialogID); // window mode. 1- opens stigma window and show somekind of aura. 2- create legion window. 3 and higher - npc/quest dialog window + it's id.
- 		writeD(buf, 0); // unk
+			writeD(buf, targetObjectId);
+			writeD(buf, dialogID); // window mode. 1- opens stigma window and show somekind of aura. 2- create legion window. 3 and higher - npc/quest dialog window + it's id.
+			writeD(buf, 0); // unk
 		}
-
 	}	
 }

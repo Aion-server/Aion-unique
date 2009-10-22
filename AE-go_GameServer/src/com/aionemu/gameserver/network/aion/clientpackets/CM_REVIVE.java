@@ -22,7 +22,7 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK72;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.utils.stats.ClassStats;
 import com.aionemu.gameserver.world.World;
@@ -69,7 +69,7 @@ public class CM_REVIVE extends AionClientPacket
 			ClassStats.getMaxHpFor(activePlayer.getPlayerClass(), activePlayer.getLevel()), 650));
 		
 		sendPacket(SM_SYSTEM_MESSAGE.REVIVE);	
-		sendPacket(new SM_UNK72());
+		sendPacket(new SM_QUESTLIST());
 		sendPacket(new SM_STATS_INFO(activePlayer));			
 		sendPacket(new SM_PLAYER_INFO(activePlayer, true));	
 		

@@ -2,13 +2,13 @@
 <teleport_location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="teleport_location.xsd">
 	<!-- ASMODIANS -->
 	<!-- Normal Teleport-->
-	<teleloc_template loc_id="7" mapid ="120010000" name="pandemonium" posX="1685.5665" posY="1399.6561" posZ="195.38385" heading="0" price="0">
-	</teleloc_template>
-	<teleloc_template loc_id="8" mapid ="220010000" name="ishalgen" posX="528.59595" posY="2449.176" posZ="281.59262" heading="0" price="0">
-	</teleloc_template>
+	<teleloc_template loc_id="2" mapid="110010000" name="sanctum" posX="1313.9315" posY="1512.0283" posZ="568.107" heading="0" price="100"/>
+	<teleloc_template loc_id="3" mapid="210010000" name="akarios village" posX="806.11426" posY="1242.6438" posZ="118.98627" heading="0" price="100"/>
+	<teleloc_template loc_id="7" mapid="120010000" name="pandemonium" posX="1685.5665" posY="1399.6561" posZ="195.38385" heading="0" price="0"/>
+	<teleloc_template loc_id="8" mapid="220010000" name="ishalgen" posX="528.59595" posY="2449.176" posZ="281.59262" heading="0" price="0"/>
 	<!-- ELYOS -->
 	<!-- Flying teleport-->
-	<teleloc_template loc_id="13" mapid ="210010000" name="Melponeh Campsite" teleportid="5001" price="200">
-	</teleloc_template>
+	<teleloc_template loc_id="12" mapid="210010000" name="Akarios Village" teleportid="6001" price="200"/>
+	<teleloc_template loc_id="13" mapid="210010000" name="Melponeh Campsite" teleportid="5001" price="200"/>
 
 </teleport_location>

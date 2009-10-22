@@ -26,6 +26,8 @@
 	</teleporter_template>
 	<teleporter_template npc_id="203070" name="Kustanon" teleportId="103">
 	</teleporter_template>
+	<teleporter_template npc_id="203083" name="Aero" teleportId="104">
+	</teleporter_template>
 	<!-- Sanctum -->
 	<teleporter_template npc_id="203726" name="Polyidus" teleportId="1">
 	</teleporter_template>

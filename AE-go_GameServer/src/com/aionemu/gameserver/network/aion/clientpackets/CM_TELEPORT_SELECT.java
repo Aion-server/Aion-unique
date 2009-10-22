@@ -20,7 +20,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.TelelocationTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK72;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_LOC;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
@@ -35,7 +35,7 @@ import org.apache.log4j.Logger;
  * @author ATracer, orz
  *
  */
-public class CM_TELEPORT extends AionClientPacket
+public class CM_TELEPORT_SELECT extends AionClientPacket
 {
 
 
@@ -43,7 +43,7 @@ public class CM_TELEPORT extends AionClientPacket
 	/**
 	 * Logger
 	 */
-	private static final Logger	log	= Logger.getLogger(CM_TELEPORT.class);
+	private static final Logger	log	= Logger.getLogger(CM_TELEPORT_SELECT.class);
 
 	/**
 	 * Target object id that client wants to select or 0 if wants to unselect
@@ -56,7 +56,7 @@ public class CM_TELEPORT extends AionClientPacket
 
 	public  World				world;
 
-	public CM_TELEPORT(int opcode)
+	public CM_TELEPORT_SELECT(int opcode)
 	{
 		super(opcode);
 	}
@@ -90,17 +90,18 @@ public class CM_TELEPORT extends AionClientPacket
 			PacketSendUtility.sendMessage(activePlayer, "Missing info at teleport_location.xml with locId: "+locId);
 			return;
 		}
+
 		//normal teleport
-		if ((_tele.getLocId()!=0)&&(_tele.getMapId()!=0)&&(_tele.getTeleportId()== 0))
+		if (_tele.getLocId() != 0 && _tele.getMapId() != 0 && _tele.getTeleportId() == 0 && _tele.getX() != 0)
 		{
 			sendPacket(new SM_TELEPORT_LOC(_tele.getMapId(), _tele.getX(), _tele.getY(), _tele.getZ()));
 			TeleportService.getInstance().scheduleTeleportTask(activePlayer, _tele.getMapId(), _tele.getX(), _tele.getY(), _tele.getZ());
 			return;
 		}
 		//flying teleport
-		else if ((_tele.getLocId()!=0)&&(_tele.getTeleportId()!= 0))
+		else if (_tele.getLocId() != 0 && _tele.getTeleportId() != 0)
 		{
-			sendPacket(new SM_EMOTION(activePlayer.getObjectId(),6,_tele.getTeleportId()));
+			sendPacket(new SM_EMOTION(activePlayer.getObjectId(), 6, _tele.getTeleportId()));
 			return;
 		}
 		else

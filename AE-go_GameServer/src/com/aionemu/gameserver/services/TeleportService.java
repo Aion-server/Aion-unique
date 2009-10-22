@@ -33,7 +33,7 @@ public class TeleportService
 {
 	private static final Logger log = Logger.getLogger(TeleportService.class);
 
-	private static final int TELEPORT_DEFAULT_DELAY = 700;
+	private static final int TELEPORT_DEFAULT_DELAY = 2200;
 
 	private static TeleportService instance = new TeleportService();
 	
