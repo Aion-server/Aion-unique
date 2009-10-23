@@ -20,7 +20,7 @@ package com.aionemu.gameserver.ai.task;
  * @author ATracer
  *
  */
-public abstract class AiTask implements Runnable
+public abstract class AiTask
 {
 
 	protected int delay = 1000;
@@ -42,5 +42,7 @@ public abstract class AiTask implements Runnable
 	}
 	
 	public abstract int getPriority();
+	
+	public abstract void handleTask();
 
 }

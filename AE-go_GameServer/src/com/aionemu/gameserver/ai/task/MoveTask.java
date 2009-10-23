@@ -20,12 +20,10 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AIState;
 import com.aionemu.gameserver.ai.desires.AttackDesire;
-import com.aionemu.gameserver.ai.desires.MoveDesire;
 import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -70,8 +68,8 @@ public class MoveTask extends AiTask
 	/* (non-Javadoc)
 	 * @see java.lang.Runnable#run()
 	 */
-	@Override
-	public void run()
+
+	public void handleTask()
 	{
 		NpcAi npcAi = npc.getNpcAi();
 		dist = MathUtil.getDistance(npc.getX(), npc.getY(), npc.getZ(), toplayer.getX(), toplayer.getY(), toplayer.getZ())  ;

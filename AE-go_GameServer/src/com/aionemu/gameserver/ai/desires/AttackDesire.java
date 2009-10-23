@@ -24,7 +24,6 @@ import com.aionemu.gameserver.ai.AIState;
 import com.aionemu.gameserver.ai.task.AiTask;
 import com.aionemu.gameserver.ai.task.AttackTask;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * This class indicates that character wants to attack somebody
@@ -73,7 +72,7 @@ public final class AttackDesire extends AbstractDesire
 		
 		//TODO calculate delay (attack speed)
 		task = new AttackTask(creature, target, 3000);
-		task.run();
+		task.handleTask();
 	}
 
 	/**

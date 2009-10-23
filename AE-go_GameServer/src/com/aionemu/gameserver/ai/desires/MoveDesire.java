@@ -54,7 +54,7 @@ public class MoveDesire extends AbstractDesire
 		
 		//TODO calculate delay (moving speed)
 		task = new MoveTask((Npc) creature, target, 250);
-		task.run();
+		task.handleTask();
 		
 	}
 	

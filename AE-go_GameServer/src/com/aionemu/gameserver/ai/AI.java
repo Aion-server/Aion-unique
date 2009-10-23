@@ -89,7 +89,7 @@ public abstract class AI<T extends Creature>
 		}
 		this.simpleTask = task;
 		task.setTaskValid(true);
-		scheduledTask = ThreadPoolManager.getInstance().schedule(task, 1000);	
+		//scheduledTask = ThreadPoolManager.getInstance().schedule(task, 1000);	
 	}
 	
 	public void stopTask()

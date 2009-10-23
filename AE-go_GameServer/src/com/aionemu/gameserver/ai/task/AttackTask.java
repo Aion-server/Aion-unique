@@ -18,15 +18,12 @@ package com.aionemu.gameserver.ai.task;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.AIState;
 import com.aionemu.gameserver.ai.desires.MoveDesire;
 import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.MathUtil;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
@@ -65,8 +62,8 @@ public class AttackTask extends AiTask
 	/* (non-Javadoc)
 	 * @see com.aionemu.gameserver.ai.task.GeneralTask#run()
 	 */
-	@Override
-	public void run()
+
+	public void handleTask()
 	{
 		Npc npc = (Npc) attacker;
 		NpcAi npcAi = npc.getNpcAi();
