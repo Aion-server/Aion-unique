@@ -22,6 +22,7 @@ package com.aionemu.gameserver.ai;
  */
 public enum AIState
 {
+	MOVING(3),
 	ATTACKING(2),
 	IDLE(1),
 	DEAD(10); //maximum number

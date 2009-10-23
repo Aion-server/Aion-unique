@@ -47,6 +47,7 @@ public class RespawnService
 			@Override
 			public void run()
 			{
+				world.setPosition(npc, npc.getSpawn().getWorldId(), npc.getSpawn().getX(), npc.getSpawn().getY(), npc.getSpawn().getZ(), npc.getSpawn().getHeading());
 				world.spawn(npc);	
 				npc.getController().onRespawn();
 			}

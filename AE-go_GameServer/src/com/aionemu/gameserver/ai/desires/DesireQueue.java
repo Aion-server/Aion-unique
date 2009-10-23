@@ -21,6 +21,8 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 
+import org.apache.log4j.Logger;
+
 /**
  * This class represents desire queue, it's thread-safe. Desires can be added and removed. If desire is added - previous
  * desires will be checked, if same desire found then desire previous one will be removed from the queue
@@ -31,7 +33,7 @@ import java.util.PriorityQueue;
  */
 public class DesireQueue
 {
-
+	private static Logger log = Logger.getLogger(DesireQueue.class);
 	/**
 	 * Prioritized Queue of desires, lazy initialization.
 	 */

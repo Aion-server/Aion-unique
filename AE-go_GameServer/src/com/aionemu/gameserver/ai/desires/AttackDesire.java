@@ -17,17 +17,26 @@
 
 package com.aionemu.gameserver.ai.desires;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.ai.AI;
+import com.aionemu.gameserver.ai.AIState;
+import com.aionemu.gameserver.ai.task.AiTask;
+import com.aionemu.gameserver.ai.task.AttackTask;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * This class indicates that character wants to attack somebody
  * 
  * @author SoulKeeper
+ * @author Pinguin
  */
 public final class AttackDesire extends AbstractDesire
 {
+	private static Logger log = Logger.getLogger(AttackDesire.class);
 
+	AiTask task ;
 	/**
 	 * Target of this desire
 	 */
@@ -41,7 +50,7 @@ public final class AttackDesire extends AbstractDesire
 	 * @param desirePower
 	 *            initial attack power
 	 */
-	protected AttackDesire(Creature target, int desirePower)
+	public AttackDesire(Creature target, int desirePower)
 	{
 		super(desirePower);
 		this.target = target;
@@ -53,7 +62,18 @@ public final class AttackDesire extends AbstractDesire
 	@Override
 	public void handleDesire(AI ai)
 	{
-		// TODO: Implement
+		ai.setAiState(AIState.ATTACKING);
+		
+		Creature creature = ai.getOwner();
+
+		if(creature.getTarget() == null)
+		{
+			creature.setTarget(target);
+		}
+		
+		//TODO calculate delay (attack speed)
+		task = new AttackTask(creature, target, 3000);
+		task.run();
 	}
 
 	/**
@@ -89,5 +109,15 @@ public final class AttackDesire extends AbstractDesire
 	public Creature getTarget()
 	{
 		return target;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.ai.desires.Desire#stopDesire()
+	 */
+	@Override
+	public void stopDesire()
+	{
+		if(task != null)
+		task.setTaskValid(false);
 	}
 }

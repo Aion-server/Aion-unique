@@ -20,11 +20,17 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.AIState;
+import com.aionemu.gameserver.ai.desires.MoveDesire;
+import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.utils.MathUtil;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
+ * @author Pinguin
  *
  */
 public class AttackTask extends AiTask
@@ -37,6 +43,8 @@ public class AttackTask extends AiTask
 	private Creature target;
 	
 	public static final int PRIORITY = 2;
+	
+	private double dist ;
 	
 	public AttackTask(Creature attacker, Creature target, int delay)
 	{
@@ -60,23 +68,39 @@ public class AttackTask extends AiTask
 	@Override
 	public void run()
 	{
+		Npc npc = (Npc) attacker;
+		NpcAi npcAi = npc.getNpcAi();
+		dist = MathUtil.getDistance(npc.getX(), npc.getY(), npc.getZ(), target.getX(), target.getY(), target.getZ()) ;
 		while(taskValid)
 		{
-			Npc npc = (Npc) attacker;
-			npc.getController().attackTarget(target.getObjectId());
-			try
-			{
-				Thread.sleep(delay);
+			dist = MathUtil.getDistance(npc.getX(), npc.getY(), npc.getZ(), target.getX(), target.getY(), target.getZ()) ;
+			
+			if(dist < 2){
+				
+				npc.getController().attackTarget(target.getObjectId());
+					
+				if(!npcAi.getDesireQueue().isEmpty()){
+					if (!npcAi.getDesireQueue().peek().equals(npcAi.getDesireProcessor().desire)){
+						this.setTaskValid(false);
+					}
+				}
+			
+				try
+				{
+					Thread.sleep(delay);
+				}
+				catch(InterruptedException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else {
+				if (npcAi.getAiState() != AIState.DEAD ) npcAi.getDesireQueue().addDesire(new MoveDesire(target, npcAi.getDesireQueue().peek().getDesirePower() ));
+				this.setTaskValid(false);
 			}
-			catch(InterruptedException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
 		}
 		
-		//TODO generalize getNpcAi method to getAi
-		((Npc)attacker).getNpcAi().setAiState(AIState.IDLE);
 	}
 	/* (non-Javadoc)
 	 * @see com.aionemu.gameserver.ai.task.AiTask#getPriority()

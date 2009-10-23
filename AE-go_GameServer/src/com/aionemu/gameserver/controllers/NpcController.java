@@ -21,6 +21,8 @@ import java.util.concurrent.Future;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AIState;
+import com.aionemu.gameserver.ai.desires.AttackDesire;
+import com.aionemu.gameserver.ai.desires.DesireProcessor;
 import com.aionemu.gameserver.ai.events.AttackEvent;
 import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -63,6 +65,7 @@ public class NpcController extends CreatureController<Npc>
 	public void attackTarget(int targetObjectId)
 	{
 		Npc npc = getOwner();
+		NpcAi npcAi = npc.getNpcAi();
 		NpcGameStats npcGameStats = npc.getGameStats();
 		long time = System.currentTimeMillis();
 		int attackType = 1; //TODO investigate attack types	
@@ -98,7 +101,7 @@ public class NpcController extends CreatureController<Npc>
 		}
 		if(player.getLifeStats().isAlreadyDead())
 		{
-			getOwner().getNpcAi().stopTask();
+			npcAi.getDesireProcessor().desire.stopDesire();
 		}
 	}
 
@@ -112,7 +115,8 @@ public class NpcController extends CreatureController<Npc>
 		
 		NpcAi npcAi = this.getOwner().getNpcAi();
 		npcAi.setAiState(AIState.DEAD);
-		npcAi.stopTask();
+		npcAi.getDesireQueue().clear();
+		npcAi.getDesireProcessor().desire.stopDesire();
 		
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13 , getOwner().getObjectId()));
 		this.doDrop();
@@ -163,8 +167,11 @@ public class NpcController extends CreatureController<Npc>
 		}
 		
 		NpcAi npcAi = npc.getNpcAi();
-		npcAi.handleEvent(new AttackEvent(creature));
-
+		npcAi.getDesireQueue().addDesire(new AttackDesire(creature, 1));
+		if (npcAi.getAiState() == AIState.IDLE ){ 
+			new Thread(npcAi.getDesireProcessor()).start();		
+		}
+		
 		return true;
 	}
 

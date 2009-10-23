@@ -74,6 +74,7 @@ public class CM_MOVE extends AionClientPacket
 				x2 = readF();
 				y2 = readF();
 				z2 = readF();
+				world.updatePosition(player, x, y, z, heading);
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);
 				break;
 			case VALIDATE_MOUSE:

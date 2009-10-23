@@ -19,6 +19,8 @@ package com.aionemu.gameserver.ai.npcai;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AI;
+import com.aionemu.gameserver.ai.desires.DesireProcessor;
+import com.aionemu.gameserver.ai.desires.DesireQueue;
 import com.aionemu.gameserver.ai.events.AIEvent;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 
@@ -28,6 +30,8 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
  */
 public class NpcAi extends AI<Npc>
 {
+	protected DesireProcessor desireprocessor = new DesireProcessor(this.getOwner(), desireQueue) ;
+	
 	private static Logger log = Logger.getLogger(NpcAi.class);
 	
 	/**
@@ -44,6 +48,16 @@ public class NpcAi extends AI<Npc>
 	{
 		// TODO Auto-generated method stub
 		super.handleEvent(event);
+	}
+	
+	public DesireQueue getDesireQueue(){
+		return desireQueue;
+		
+	}
+	
+	public DesireProcessor getDesireProcessor(){
+		return desireprocessor;
+		
 	}
 
 }
