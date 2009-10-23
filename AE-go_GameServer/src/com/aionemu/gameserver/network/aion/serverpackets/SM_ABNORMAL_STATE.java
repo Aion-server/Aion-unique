@@ -31,9 +31,9 @@ public class SM_ABNORMAL_STATE extends AionServerPacket
 {
 	private static final Logger	log	= Logger.getLogger(SM_ABNORMAL_STATE.class);
 
-	private int action;
-	private int effect;
-	private int time;
+	public int action;
+	public int effect;
+	public int time;
 	
 	public SM_ABNORMAL_STATE(int action, int effect, int time)
 	{
@@ -45,12 +45,12 @@ public class SM_ABNORMAL_STATE extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf,0); // unk
+		writeD(buf, 0); // unk
 		writeH(buf, action); // 1 show, 2 close
 
-		writeD(0) // unk
-		writeD(effect) 49676793 + string from client_strings.xml
+		writeD(buf, 0); // unk
+		writeD(buf, effect); //49676793 + string from client_strings.xml
 
-		writeD(time); // time
+		writeD(buf, time); // time
 	}
 }

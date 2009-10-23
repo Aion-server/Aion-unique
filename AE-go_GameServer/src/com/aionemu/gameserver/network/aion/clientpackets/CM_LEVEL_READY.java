@@ -19,7 +19,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK0C;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -58,7 +58,7 @@ public class CM_LEVEL_READY extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		sendPacket(new SM_UNK0C());
+		sendPacket(new SM_ABNORMAL_STATE(0, 0, 0));
 		Player activePlayer = getConnection().getActivePlayer();
 		sendPacket(new SM_PLAYER_INFO(activePlayer, true));
 

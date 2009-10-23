@@ -107,7 +107,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKE1;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKE7;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEF;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_ABNORMAL_STATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
 
 /**
  * This class is holding opcodes for all server packets. It's used only to have all opcodes in one place
