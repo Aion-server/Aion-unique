@@ -82,6 +82,14 @@ public class CM_EMOTION extends AionClientPacket
 		{
 			//emotion = readH();
 		} 
+		else if(unknown == 0x8)
+		{
+			// fly up
+		} 
+		else if(unknown == 0x9)
+		{
+			// land
+		} 
 		else
 		{
 			log.info("Unknown emotion type? 0x" + Integer.toHexString(unknown).toUpperCase());

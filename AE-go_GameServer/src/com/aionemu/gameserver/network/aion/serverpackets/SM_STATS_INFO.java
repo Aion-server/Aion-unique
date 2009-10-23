@@ -25,22 +25,31 @@ import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.utils.stats.ClassStats;
+import java.util.List;
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+
+import org.apache.log4j.Logger;
 
 /**
- * In this packet Server is sending User Info?
+ * In this packet Server is sending User Info
  * 
  * @author -Nemesiss-
  * @author Luno
  */
 public class SM_STATS_INFO extends AionServerPacket
 {
+	private static final Logger log = Logger.getLogger(SM_STATS_INFO.class);
 
 	/**
 	 * Player that stats info will be send
 	 */
 	private Player	player;
+	
+	//////base part////////////////////////
 
 	//static.
+
 	public int power;
 	public int health;
 	public int agility;
@@ -54,14 +63,18 @@ public class SM_STATS_INFO extends AionServerPacket
 	public int earth = 0;
 	public int fire = 0;
 	public int fly_time = 60;
+
 	// needs calculations.
+
 	public int maxhp;
 	public int main_hand_accuracy;
 	public int magic_accuracy;
 	public int evasion;
 	public int block;
 	public int parry;
+
 	//unknown yet
+
 	public int maxdp = 100;
 	public int maxmp = 100;
 	public int magic_boost = 0;
@@ -70,6 +83,44 @@ public class SM_STATS_INFO extends AionServerPacket
 	public int attack_range = 0;
 	public int attack_speed = 0;
 	
+	///////////bonus part//////////////////////
+	
+	//static.
+
+	public int powerBonus = 0;
+	public int healthBonus = 0;
+	public int agilityBonus = 0;
+	public int accuracyBonus = 0;
+	public int knowledgeBonus = 0;
+	public int willBonus = 0;
+	public int main_hand_attackBonus = 0;
+	public int main_hand_crit_rateBonus = 0;
+	public int waterBonus = 0;
+	public int windBonus = 0;
+	public int earthBonus = 0;
+	public int fireBonus = 0;
+	public int fly_timeBonus = 0;
+
+	// needs calculations.
+
+	public int maxhpBonus = 0;
+	public int main_hand_accuracyBonus = 0;
+	public int magic_accuracyBonus = 0;
+	public int evasionBonus = 0;
+	public int blockBonus = 0;
+	public int parryBonus = 0;
+
+	//unknown yet
+
+	public int maxdpBonus = 0;
+	public int maxmpBonus = 0;
+	public int magic_boostBonus = 0;
+	public int pdefBonus = 0;
+	public int mresBonus = 0;
+	public int attack_rangeBonus = 0;
+	public int attack_speedBonus = 0;
+	
+
 	/**
 	 * Constructs new <tt>SM_UI</tt> packet
 	 * 
@@ -77,10 +128,13 @@ public class SM_STATS_INFO extends AionServerPacket
 	 */
 	public SM_STATS_INFO(Player player)
 	{
+		
 		this.player = player;
 		PlayerClass playerClass = player.getPlayerClass();
 		int level = player.getLevel();
-		
+
+		//base part
+
 		power = ClassStats.getPowerFor(playerClass);
 		health = ClassStats.getHealthFor(playerClass);
 		agility = ClassStats.getAgilityFor(playerClass);
@@ -103,7 +157,47 @@ public class SM_STATS_INFO extends AionServerPacket
 		
 		attack_range = ClassStats.getAttackRangeFor(playerClass);
 		attack_speed = ClassStats.getAttackSpeedFor(playerClass);
+
+		//Bonus part
+
+		Inventory inventory = player.getInventory();
+		List<Item> items = inventory.getEquippedItems();
+
+		for(Item item : items)
+		{		
+			if (item.getItemTemplate().getItemSlot() ==1) {
+				//attack_range = attack_range + item.getItemTemplate().getAttackRange();
+				
+			}
+			else if (item.getItemTemplate().getItemSlot() ==2) {
+				//attack_range = attack_range + item.getItemTemplate().getAttackRange();
+			}
+			
+		}
+
+		//Item item = inventory.getItemByObjId(itemUniqueId);
+		//itemId = item.getItemTemplate().getItemId();
+
+		powerBonus = 0;
+		healthBonus = 0;
+		agilityBonus = 0;
+		accuracyBonus = 0;
+		knowledgeBonus = 0;
+		willBonus =0;
+		main_hand_attackBonus = 0;
+		main_hand_crit_rateBonus = 0;
+		main_hand_accuracyBonus = 0;
+		waterBonus = 0;
+		windBonus = 0;
+		earthBonus = 0;
+		fireBonus = 0;
 		
+		maxhpBonus = 0;
+		magic_accuracyBonus = 0;
+		evasionBonus = 0;
+		blockBonus = 0;
+		parryBonus = 0;
+			
 	}
 
 	/**
@@ -117,22 +211,22 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeD(buf, player.getObjectId());
 		writeD(buf, GameTimeManager.getGameTime().getTime()); // Minutes since 1/1/00 00:00:00
 
-		writeH(buf, power);// [current power]
-		writeH(buf, health);// [current health]
-		writeH(buf, accuracy);// [current accuracy]
-		writeH(buf, agility);// [current agility]
-		writeH(buf, knowledge);// [current knowledge]
-		writeH(buf, will);// [current will]
+		writeH(buf, power + powerBonus);// [current power]
+		writeH(buf, health + healthBonus);// [current health]
+		writeH(buf, accuracy + accuracyBonus);// [current accuracy]
+		writeH(buf, agility + agilityBonus);// [current agility]
+		writeH(buf, knowledge + knowledgeBonus);// [current knowledge]
+		writeH(buf, will + willBonus);// [current will]
 
-		writeH(buf, water);// [current water]
-		writeH(buf, wind);// [current wind]
-		writeH(buf, earth);// [current earth]
-		writeH(buf, fire);// [current fire]
+		writeH(buf, water + waterBonus);// [current water]
+		writeH(buf, wind + windBonus);// [current wind]
+		writeH(buf, earth + earthBonus);// [current earth]
+		writeH(buf, fire + fireBonus);// [current fire]
 
 		writeD(buf, 0);// [unk]
 		writeH(buf, player.getLevel());// [level]
 		writeH(buf, 0); // [unk]
-		writeD(buf, maxhp);// [current hp]
+		writeD(buf, maxhp  + maxhpBonus);// [current hp]
 
 		writeQ(buf, pcd.getExpNeed());// [xp till next lv]
 		writeQ(buf, 0); // [recoverable exp]
@@ -143,43 +237,43 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeD(buf, maxhp);// [unk]
 
 		writeD(buf, maxmp);// [max mana]
-		writeD(buf, maxmp);// [current mana]
+		writeD(buf, maxmp + maxmpBonus);// [current mana]
 
 		writeH(buf, maxdp);// [max dp]
 		writeH(buf, 0);// [current dp]
 
 		writeD(buf, 0);// [unk]
 
-		writeD(buf, fly_time);// [current fly time]
+		writeD(buf, fly_time + fly_timeBonus);// [current fly time]
 
 		writeH(buf, 0);// [unk]
 
-		writeH(buf, main_hand_attack); // [current main hand attack]
-		writeH(buf, main_hand_attack); // [off hand attack]
+		writeH(buf, main_hand_attack + main_hand_attackBonus); // [current main hand attack]
+		writeH(buf, main_hand_attack + main_hand_attackBonus); // [off hand attack]
 
-		writeH(buf, pdef);// [current pdef]
-
-		writeH(buf, 0);// [unk]
-
-		writeH(buf, mres); // [current mres]
+		writeH(buf, pdef + pdefBonus);// [current pdef]
 
 		writeH(buf, 0);// [unk]
-		writeH(buf, attack_range);// attack range
+
+		writeH(buf, mres + mresBonus); // [current mres]
+
+		writeH(buf, 0);// [unk]
+		writeH(buf, 65535);// attack range
 		writeH(buf, attack_speed);// attack speed 
-		writeH(buf, evasion);// [current evasion]
-		writeH(buf, parry );// [current parry]
-		writeH(buf, block);// [current block]
+		writeH(buf, evasion + evasionBonus);// [current evasion]
+		writeH(buf, parry + parryBonus);// [current parry]
+		writeH(buf, block + blockBonus);// [current block]
 
-		writeH(buf, main_hand_crit_rate);// [current main hand crit rate]
-		writeH(buf, main_hand_crit_rate);// [current off hand crit rate]
+		writeH(buf, main_hand_crit_rate + main_hand_crit_rateBonus);// [current main hand crit rate]
+		writeH(buf, main_hand_crit_rate + main_hand_crit_rateBonus);// [current off hand crit rate]
 
-		writeH(buf, main_hand_accuracy);// [current main_hand_accuracy]
-		writeH(buf, main_hand_accuracy);// [current off_hand_accuracy]
+		writeH(buf, main_hand_accuracy + main_hand_accuracyBonus);// [current main_hand_accuracy]
+		writeH(buf, main_hand_accuracy + main_hand_accuracyBonus);// [current off_hand_accuracy]
 
 		writeH(buf, 0);// [unk]
-		writeH(buf, magic_accuracy);// [current magic accuracy]
+		writeH(buf, magic_accuracy + magic_accuracyBonus);// [current magic accuracy]
 		writeH(buf, 0); // [unk]
-		writeH(buf, magic_boost); // [current magic boost]
+		writeH(buf, magic_boost + magic_boostBonus); // [current magic boost]
 
 		writeH(buf, 0);// [unk]
 		writeH(buf, 0);// [unk]

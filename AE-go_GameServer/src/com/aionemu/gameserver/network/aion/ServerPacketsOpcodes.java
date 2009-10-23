@@ -85,7 +85,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_VERSION_CHECK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_WEATHER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK0A;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK0C;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK17;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK32;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
@@ -108,6 +107,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKE1;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKE7;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEF;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_ABNORMAL_STATE;
 
 /**
  * This class is holding opcodes for all server packets. It's used only to have all opcodes in one place
@@ -149,7 +149,6 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_QUESTLIST.class, 0x72, idSet);//1.5.x
 		addPacketOpcode(SM_UNK32.class, -1, idSet);
 		addPacketOpcode(SM_UNK17.class, -1, idSet);
-		addPacketOpcode(SM_UNK0C.class, 0x48, idSet);
 		addPacketOpcode(SM_UNK0A.class, -1, idSet);
 		addPacketOpcode(SM_VERSION_CHECK.class, 0xF9, idSet);
 		addPacketOpcode(SM_SYSTEM_MESSAGE.class, 0x30, idSet);
@@ -223,6 +222,8 @@ public class ServerPacketsOpcodes
 
 		addPacketOpcode(SM_TELEPORT_MAP.class, 0xBD, idSet); // 1.5.x
 		addPacketOpcode(SM_TELEPORT_LOC.class, 0x2D, idSet); // 1.5.x
+
+		addPacketOpcode(SM_ABNORMAL_STATE.class, 0x48, idSet); // 1.5.x
 
 		//Unrecognized Opcodes:
 		//addPacketOpcode(SM_TIME_CHECK.class, 0x26, idSet);
