@@ -1,7 +1,7 @@
 /*
  * This file is part of aion-unique <aion-unique.com>.
  *
- *  aion-emu is free software: you can redistribute it and/or modify
+ *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
@@ -16,58 +16,43 @@
  */
 package com.aionemu.gameserver.model.templates;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
+
 /**
- * @author orz
- * 
+ * @author ATracer
+ *
  */
-@XmlRootElement(name="teleporter_template")
-@XmlAccessorType(XmlAccessType.NONE)
-public class TeleporterTemplate
+@XmlRootElement(name = "locations")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class TeleLocIdData
 {
+	@XmlElement(name = "teleloc_template")
+	private List<TelelocationTemplate> locids;
+
 	/**
-	 * Npc Id.
+	 * @return Teleport locations
 	 */
-	@XmlAttribute(name = "npc_id", required = true)
-	private int		npcId;
+	public List<TelelocationTemplate> getTelelocations()
+	{
+		return locids;
+	}
 	
-	/**
-	 * Npc name.
-	 */
-	@XmlAttribute(name = "name", required = true)
-	private String	name	= "";
-
-	
-	@XmlAttribute(name = "teleportId", required = true)
-	private int	 teleportId = 0;
-
-	@XmlElement(name = "locations")
-	private TeleLocIdData teleLocIdData;
-
-	
-	public String getName()
+	public TelelocationTemplate getLoc(int value)
 	{
-		return name;
+		for(TelelocationTemplate t : locids)
+		{
+			if(t != null && t.getLocId() == value)
+			{
+				return t;
+			}
+		}
+		return null;
 	}
-
-	public int getNpcId()
-	{
-		return npcId;
-	}
-
-	public int getTeleportId()
-	{
-		return teleportId;
-	}
-
-	public TeleLocIdData getLocations()
-	{
-		return teleLocIdData;
-	}
-
 }

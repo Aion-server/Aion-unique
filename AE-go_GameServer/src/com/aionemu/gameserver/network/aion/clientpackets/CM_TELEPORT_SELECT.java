@@ -16,11 +16,17 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.model.ChatType;
+import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.TelelocationTemplate;
+import com.aionemu.gameserver.model.templates.TeleporterTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTLIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_LOC;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
@@ -55,6 +61,8 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 	public  TelelocationTemplate _tele;
 
 	public  World				world;
+	
+	private TeleporterTemplate teleport;
 
 	public CM_TELEPORT_SELECT(int opcode)
 	{
@@ -79,11 +87,21 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 	protected void runImpl()
 	{
 		Player activePlayer = getConnection().getActivePlayer();
+		Inventory bag = activePlayer.getInventory();
+		World world = activePlayer.getActiveRegion().getWorld();
+		Npc npc = (Npc)world.findAionObject(targetObjectId);
+		
 		if(activePlayer == null)
 			return;
-	
-		_tele = DataManager.TELELOCATION_DATA.getTelelocationTemplate(locId);
 
+		teleport = DataManager.TELEPORTER_DATA.getTeleporterTemplate(npc.getNpcId());
+		
+		if ((teleport != null )&&(teleport.getLocations()!= null))
+			_tele = teleport.getLocations().getLoc(locId);
+		
+		if (_tele == null)
+			_tele = DataManager.TELELOCATION_DATA.getTelelocationTemplate(locId);
+		
 		if (_tele == null)
 		{
 			log.info(String.format("Missing info at teleport_location.xml with locId: %d", locId));
@@ -94,6 +112,15 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 		//normal teleport
 		if (_tele.getLocId() != 0 && _tele.getMapId() != 0 && _tele.getTeleportId() == 0 && _tele.getX() != 0)
 		{
+			if (bag.getKinahItem().getItemCount()<_tele.getPrice())
+			{
+				//Todo using the correct system message
+				sendPacket(new SM_MESSAGE(0, null, "You don't have enough Kinah", null, ChatType.ANNOUNCEMENTS));
+				return;
+			}
+			
+			bag.getKinahItem().increaseItemCount(-1 * _tele.getPrice());
+			PacketSendUtility.sendPacket(activePlayer, new SM_UPDATE_ITEM(bag.getKinahItem()));
 			sendPacket(new SM_TELEPORT_LOC(_tele.getMapId(), _tele.getX(), _tele.getY(), _tele.getZ()));
 			TeleportService.getInstance().scheduleTeleportTask(activePlayer, _tele.getMapId(), _tele.getX(), _tele.getY(), _tele.getZ());
 			return;
@@ -101,6 +128,14 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 		//flying teleport
 		else if (_tele.getLocId() != 0 && _tele.getTeleportId() != 0)
 		{
+			if (bag.getKinahItem().getItemCount()<_tele.getPrice())
+			{
+				//Todo using the correct system message
+				sendPacket(new SM_MESSAGE(0, null, "You don't have enough Kinah", null, ChatType.ANNOUNCEMENTS));
+				return;
+			}
+			bag.getKinahItem().increaseItemCount(-1 * _tele.getPrice());
+			PacketSendUtility.sendPacket(activePlayer, new SM_UPDATE_ITEM(bag.getKinahItem()));
 			sendPacket(new SM_EMOTION(activePlayer.getObjectId(), 6, _tele.getTeleportId()));
 			return;
 		}

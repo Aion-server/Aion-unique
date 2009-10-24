@@ -80,6 +80,10 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 						//stigma
 						sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
 						break;
+					case 5:
+						//create legion
+						sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+						break;
 					case 20:
 						//warehouse
 						sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 26));
