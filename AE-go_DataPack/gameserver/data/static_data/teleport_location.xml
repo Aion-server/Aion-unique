@@ -20,14 +20,14 @@
 	<teleloc_template loc_id="12" mapid="210010000" name="Akarios Village" teleportid="6001" price="200"/>
 	<teleloc_template loc_id="13" mapid="210010000" name="Melponeh Campsite" teleportid="5001" price="200"/>
     	<teleloc_template loc_id="15" mapid="210030000" name="Pilgrims Respite" teleportid="7001" price="500"/>
-	<teleloc_template loc_id="14" mapid="210030000" name="Verteron Citadel" teleportid="8001" price="500"/> -->
+	<teleloc_template loc_id="14" mapid="210030000" name="Verteron Citadel" teleportid="8001" price="500"/>
 	<teleloc_template loc_id="16" mapid="210030000" name="Verteron Observatory" teleportid="9001" price="700"/>
 	<teleloc_template loc_id="14" mapid="210030000" name="Verteron Citadel" teleportid="10001" price="700"/>
     	<!-- ASMODIANS -->
 	<teleloc_template loc_id="18" mapid="220010000" name="Aldelle Village" teleportid="11001" price="200"/>
     	<teleloc_template loc_id="17" mapid="220010000" name="Anturoon Sentry Post" teleportid="12001" price="200"/>
     	<teleloc_template loc_id="20" mapid="220030000" name="Altgard Fortress" teleportid="13001" price="700"/>
-    	<teleloc_template loc_id="19" mapid="220030000" name="Traders Berth" teleportid="14001" price="700"/> -->
+    	<teleloc_template loc_id="19" mapid="220030000" name="Traders Berth" teleportid="14001" price="700"/>
     	<teleloc_template loc_id="32" mapid="220030000" name="Altgard Fortress" teleportid="15001" price="500"/>
 	<teleloc_template loc_id="19" mapid="220030000" name="Besfelt Village" teleportid="16001" price="500"/>
 </teleport_location>
