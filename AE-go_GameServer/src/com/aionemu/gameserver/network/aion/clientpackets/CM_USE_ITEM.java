@@ -61,22 +61,11 @@ public class CM_USE_ITEM extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
+		
 		ItemEngine itemEngine = new ItemEngine();
-		itemEngine.useItem(player, uniqueItemId);
+		itemEngine.setItem(uniqueItemId, player);
+		itemEngine.useItem();
 
-		Inventory inventory = player.getInventory();
-		
-		Item item = inventory.getItemByObjId(uniqueItemId);
-		int itemId = item.getItemTemplate().getItemId();
-
-		ItemTemplateLoader itemTemplate = new ItemTemplateLoader();
-		itemTemplate.setItemId(itemId);
-		itemTemplate.loadFromXml();
-		if (itemTemplate.getCheckTemplate() == 1) 
-		{
-			sendPacket(SM_SYSTEM_MESSAGE.USE_ITEM(itemTemplate.getItemName()));
-		}
-
-		
+		sendPacket(SM_SYSTEM_MESSAGE.USE_ITEM(itemEngine.getItemName()));
 	}
 }

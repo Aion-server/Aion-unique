@@ -17,11 +17,12 @@
 package com.aionemu.gameserver.itemengine;
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.itemengine.itemeffects.consumables.potions.HpPotion;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.itemengine.handlers.HpItem;
+
 /**
  * @author Avol
  * 
@@ -68,7 +69,7 @@ public class ItemActionSelecter
 	{
 		if (type==1) 
 		{
-			HpPotion effect = new HpPotion();
+			HpItem effect = new HpItem();
 			effect.execute(value, timerEnd, timerInterval, abnormal_id, player);
 			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId), true);
 		} 
