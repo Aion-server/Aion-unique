@@ -1,147 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <item_effect_data>
-
-
-
 	<item>
 		<name>Mercenary's Fruit Juice</name>
 		<item_id>160000001</item_id>
 		<type>1</type>
 		<deletable>1</deletable>
-		<value>20</value>
+		<value>2</value>
 		<value2>0</value2>
-		<timer_end>20</timer_end>
+		<timer_end>900</timer_end>
 		<timer_interval>2</timer_interval>
-	</item>
-	<item>
-		<name>Full Recovery Potion</name>
-		<item_id>162000029</item_id>
-		<type>1</type>
-		<deletable>1</deletable>
-		<value>1000000</value>
-		<value2>0</value2>
-		<timer_end>0</timer_end>
-		<timer_interval>0</timer_interval>
-	</item>
-	<item>
-		<name>Minor Recovery Serum</name>
-		<item_id>162000046</item_id>
-		<type>3</type>
-		<deletable>1</deletable>
-		<value>340</value>
-		<value2>540</value2>
-		<timer_end>0</timer_end>
-		<timer_interval>0</timer_interval>
-	</item>
-	<item>
-		<name>Minor Life Serum</name>
-		<item_id>162000012</item_id>
-		<type>1</type>
-		<deletable>1</deletable>
-		<value>340</value>
-		<value2>0</value2>
-		<timer_end>0</timer_end>
-		<timer_interval>0</timer_interval>
-	</item>
-	<item>
-		<name>Minor Recovery Potion</name>
-		<item_id>162000041</item_id>
-		<type>3</type>
-		<deletable>1</deletable>
-		<value>37</value>
-		<value2>37</value2>
-		<timer_end>2</timer_end>
-		<timer_interval>20</timer_interval>
-	</item>
-	<item>
-		<name>Minor Secret Remedy of Mana</name>
-		<item_id>162000017</item_id>
-		<type>2</type>
-		<deletable>1</deletable>
-		<value>540</value>
-		<value2>0</value2>
-		<timer_end>0</timer_end>
-		<timer_interval>0</timer_interval>
-	</item>
-	<item>
-		<name>Minor Life Potion</name>
-		<item_id>162000002</item_id>
-		<type>1</type>
-		<deletable>1</deletable>
-		<value>37</value>
-		<value2>0</value2>
-		<timer_end>2</timer_end>
-		<timer_interval>20</timer_interval>
-	</item>
-	<item>
-		<name>Minor Mana Potion</name>
-		<item_id>162000007</item_id>
-		<type>2</type>
-		<deletable>1</deletable>
-		<value>59</value>
-		<value2>0</value2>
-		<timer_end>2</timer_end>
-		<timer_interval>20</timer_interval>
-	</item>
-	<item>
-		<name>Lesser Recovery Serum</name>
-		<item_id>162000047</item_id>
-		<type>3</type>
-		<deletable>1</deletable>
-		<value>610</value>
-		<value2>900</value2>
-		<timer_end>0</timer_end>
-		<timer_interval>0</timer_interval>
-	</item>
-	<item>
-		<name>Lesser Life Serum</name>
-		<item_id>162000013</item_id>
-		<type>1</type>
-		<deletable>1</deletable>
-		<value>610</value>
-		<value2>900</value2>
-		<timer_end>0</timer_end>
-		<timer_interval>0</timer_interval>
-	</item>
-	<item>
-		<name>Lesser Recovery Potion</name>
-		<item_id>162000042</item_id>
-		<type>3</type>
-		<deletable>1</deletable>
-		<value>67</value>
-		<value2>67</value2>
-		<timer_end>2</timer_end>
-		<timer_interval>20</timer_interval>
-	</item>
-	<item>
-		<name>Lesser Secret Remedy of Mana</name>
-		<item_id>162000018</item_id>
-		<type>2</type>
-		<deletable>1</deletable>
-		<value>900</value>
-		<value2>0</value2>
-		<timer_end>0</timer_end>
-		<timer_interval>0</timer_interval>
-	</item>
-	<item>
-		<name>Lesser Life Potion</name>
-		<item_id>162000003</item_id>
-		<type>1</type>
-		<deletable>1</deletable>
-		<value>67</value>
-		<value2>0</value2>
-		<timer_end>2</timer_end>
-		<timer_interval>20</timer_interval>
-	</item>
-	<item>
-		<name>Lesser Mana Potion</name>
-		<item_id>162000008</item_id>
-		<type>2</type>
-		<deletable>1</deletable>
-		<value>98</value>
-		<value2>0</value2>
-		<timer_end>2</timer_end>
-		<timer_interval>20</timer_interval>
+		<abnormal_effect_id>729310</abnormal_effect_id>
 	</item>
 </item_effect_data>

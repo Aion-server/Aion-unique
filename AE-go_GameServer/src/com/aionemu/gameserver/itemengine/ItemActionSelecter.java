@@ -17,12 +17,7 @@
 package com.aionemu.gameserver.itemengine;
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.itemengine.itemeffects.consumables.food.HpFood;
-import com.aionemu.gameserver.itemengine.itemeffects.consumables.food.HpMpFood;
-import com.aionemu.gameserver.itemengine.itemeffects.consumables.food.MpFood;
-import com.aionemu.gameserver.itemengine.itemeffects.consumables.potions.HpMpPotion;
 import com.aionemu.gameserver.itemengine.itemeffects.consumables.potions.HpPotion;
-import com.aionemu.gameserver.itemengine.itemeffects.consumables.potions.MpPotion;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -41,16 +36,11 @@ public class ItemActionSelecter
 	public int timerInterval;
 	public int itemId;
 	public int itemObjId;
+	public int abnormal_id;
 
 	/** type list:
-	*   HP_POTION(1),
-	*   MP_POTION(2);
-	*   HP_MP_POTION(3);
-	*   HP_FOOD(4);
-	*   MP_FOOD(5);
-	*   HP_MP_FOOD(6);
+	*   HP_POTION(1)
 	*/
-
 
 	private static final Logger log = Logger.getLogger(ItemTemplateLoader.class);
 
@@ -58,7 +48,7 @@ public class ItemActionSelecter
 	* set type, value, value2, timerEnd, timerInterval
 	*/
 
-	public ItemActionSelecter(int type, int value, int value2, int timerEnd, int timerInterval, int itemObjId, int itemId) 
+	public ItemActionSelecter(int type, int value, int value2, int timerEnd, int timerInterval, int itemObjId, int itemId, int effect) 
 	{
 		this.type = type;
 		this.value = value;
@@ -67,10 +57,11 @@ public class ItemActionSelecter
 		this.timerInterval = timerInterval;
 		this.itemObjId = itemObjId;
 		this.itemId = itemId;
+		this.abnormal_id = effect;
 	}
 
 	/**
-	* execute item effect by type. (item effect types are int actionSelecter)
+	* execute item effect by type. (item effect types are in actionSelecter)
 	*/
 
 	public void execute(Player player)
@@ -78,46 +69,12 @@ public class ItemActionSelecter
 		if (type==1) 
 		{
 			HpPotion effect = new HpPotion();
-			effect.execute(value, timerEnd, timerInterval, player);
-			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
-		} 
-		else if(type==2) 
-		{
-			MpPotion effect = new MpPotion();
-			effect.execute(value, timerEnd, timerInterval, player);
-			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
-		} 
-		else if(type==3) 
-		{
-			HpMpPotion effect = new HpMpPotion();
-			effect.execute(value,value2, timerEnd, timerInterval, player);
-			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
-		} 
-		else if(type==4) 
-		{
-			HpFood effect = new HpFood();
-			effect.execute(value, timerEnd, timerInterval, player);
-			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
-		} 
-		else if(type==5) 
-		{
-			MpFood effect = new MpFood();
-			effect.execute(value, timerEnd, timerInterval, player);
-			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
-		} 
-		else if(type==6) 
-		{
-			HpMpFood effect = new HpMpFood();
-			effect.execute(value,value2, timerEnd, timerInterval, player);
-			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId));
+			effect.execute(value, timerEnd, timerInterval, abnormal_id, player);
+			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId), true);
 		} 
 		else
 		{
+			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, itemId), true);
 			log.info("Unkown item effect type: " + type);
 		}
 

@@ -39,6 +39,7 @@ public class ItemHandler
 	private int value2;
 	private int timerEnd;
 	private int timerInterval;
+	private int effect;
 
 	/**
 	 * set itemId, itemUniqueId
@@ -68,12 +69,22 @@ public class ItemHandler
 			value2 = itemTemplate.getValue2();
 			timerEnd = itemTemplate.getTimerEnd();
 			timerInterval = itemTemplate.getTimerInterval();
+			effect = itemTemplate.getItemAbnormalEffectId();
+
+			
+			log.info("Type " + type);
+			log.info("deletable " + deletable);
+			log.info("value " + value);
+			log.info("value2 " + value2);
+			log.info("Timer end " + timerEnd);
+			log.info("Timer interval " + timerInterval);
+			log.info("effect " + effect);
 
 				/**
 				 * select and execute action (hp pot etc.)
 				 */
 
-				ItemActionSelecter action = new ItemActionSelecter(type, value, value2, timerEnd, timerInterval, itemObjId, itemId);
+				ItemActionSelecter action = new ItemActionSelecter(type, value, value2, timerEnd, timerInterval, itemObjId, itemId, effect);
 				action.execute(player);
 
 				/**

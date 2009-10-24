@@ -394,8 +394,6 @@ public class MySQL5PlayerDAO extends PlayerDAO
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
-				log.info("[MySQL5PlayerDAO] all players set to offline status");
-				
 				stmt.setBoolean(1, online);
 				stmt.execute();
 			}

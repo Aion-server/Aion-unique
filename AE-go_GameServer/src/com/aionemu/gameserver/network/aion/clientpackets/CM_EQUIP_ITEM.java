@@ -22,6 +22,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -73,6 +74,8 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 		{
 			PacketSendUtility.broadcastPacket(activePlayer,
 				new SM_UPDATE_PLAYER_APPEARANCE(activePlayer.getObjectId(), inventory.getEquippedItems()), true);
+			PacketSendUtility.sendPacket(activePlayer,
+				new SM_STATS_INFO(activePlayer));
 		}
 
 		//TODO

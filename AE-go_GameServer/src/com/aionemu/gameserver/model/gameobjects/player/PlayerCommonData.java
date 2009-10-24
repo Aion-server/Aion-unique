@@ -89,8 +89,6 @@ public class PlayerCommonData
 	
 	public void setExp(long exp)
 	{
-		log.info("NEW EXPERIENCE: " + exp);
-		
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
 		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
 		if (exp > maxExp)

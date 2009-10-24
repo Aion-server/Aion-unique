@@ -45,6 +45,7 @@ public class ItemTemplateLoader
 	public static int itemEffectTimerEnd;
 	public static int itemEffectTimerInterval;
 	public static int itemIdSel;
+	public static int itemAbnormalEffectId;
 
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
@@ -92,11 +93,15 @@ public class ItemTemplateLoader
 
  		 NodeList nameNlc7 = doc.getElementsByTagName("timer_interval");
  		 Element nameElements7=(Element)nameNlc7.item(i);
- 		 String timerIntervalXml=nameElements5.getChildNodes().item(0).getNodeValue();
+ 		 String timerIntervalXml=nameElements7.getChildNodes().item(0).getNodeValue();
 
  		 NodeList nameNlc8 = doc.getElementsByTagName("name");
  		 Element nameElements8=(Element)nameNlc8.item(i);
  		 String itemNameXml=nameElements8.getChildNodes().item(0).getNodeValue();
+
+ 		 NodeList nameNlc9 = doc.getElementsByTagName("abnormal_effect_id");
+ 		 Element nameElements9=(Element)nameNlc9.item(i);
+ 		 String itemEffectXml=nameElements9.getChildNodes().item(0).getNodeValue();
 
 		 int itemIdXmlInt = Integer.parseInt(itemIdXml);
 		 int itemDeletableXmlInt = Integer.parseInt(itemDeletableXml);
@@ -105,9 +110,8 @@ public class ItemTemplateLoader
 		 int itemTimerEndXmlInt = Integer.parseInt(timerEndXml);
 		 int itemTimerIntervalXmlInt = Integer.parseInt(timerIntervalXml);
 		 int itemTypeXmlInt = Integer.parseInt(itemTypeXml);
+		 int itemEffectXmlInt = Integer.parseInt(itemEffectXml);
 		 
-
-
 		 if (itemIdXmlInt==itemId) {
 			itemName = itemNameXml;
 			itemEffectType = itemTypeXmlInt;
@@ -116,6 +120,7 @@ public class ItemTemplateLoader
 			itemEffectValue2 = itemValue2XmlInt;
 			itemEffectTimerEnd = itemTimerEndXmlInt;
 			itemEffectTimerInterval = itemTimerIntervalXmlInt;
+			itemAbnormalEffectId = itemEffectXmlInt;
 			i=nList.getLength();
 			itemIdSel = 1;
 		 } else {
@@ -151,6 +156,9 @@ public class ItemTemplateLoader
 	}
 	public int getTimerEnd() {
 		return itemEffectTimerEnd;
+	}
+	public int getItemAbnormalEffectId() {
+		return itemAbnormalEffectId;
 	}
 	public int getTimerInterval() {
 		return itemEffectTimerInterval;

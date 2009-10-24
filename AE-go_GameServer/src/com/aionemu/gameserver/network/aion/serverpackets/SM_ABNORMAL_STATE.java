@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.util.Random;
 
 import org.apache.log4j.Logger;
 
@@ -46,11 +45,11 @@ public class SM_ABNORMAL_STATE extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeD(buf, 0); // unk
-		writeH(buf, action); // 1 show, 2 close
+		writeH(buf, action); // 1 show, 0 close
 
 		writeD(buf, 0); // unk
-		writeD(buf, effect); //49676793 + string from client_strings.xml
+		writeD(buf, 49676793 + effect); //49676793 + string from client_strings.xml 50406103
 
-		writeD(buf, time); // time
+		writeD(buf, time); // time (900000 - 15 min)
 	}
 }

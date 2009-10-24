@@ -22,6 +22,8 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
 
 /**
  * @author Avol
@@ -37,17 +39,21 @@ public class HpPotion
 	public int timerInterval;
 	public int timerEnd;
 	public int stopAt;
+	public int effect;
+
 	Future<?> task;
 
 	private static HpPotion instance = new HpPotion();
 
-	public void execute(final int value, final int timerEnd, final int timerInterval,final Player player) 
+	public void execute(final int value, final int timerEnd, final int timerInterval, final int effect, final Player player) 
 	{
-
 		if (timerInterval>0 && timerEnd>0)
 		{
+			PacketSendUtility.sendPacket(player, new SM_ABNORMAL_STATE(1, effect, timerEnd*1000));
+		
 			this.stopAt = timerEnd / timerInterval;
 			this.value = value;
+
 			task = ThreadPoolManager.getInstance().scheduleAtFixedRate((new Runnable()
 			{
 				@Override
@@ -57,6 +63,7 @@ public class HpPotion
 						player.getLifeStats().increaseHp(value);
 						stopAt--;
 					} else {
+						PacketSendUtility.sendPacket(player, new SM_ABNORMAL_STATE(0, effect, timerEnd));
 						task.cancel(false);
 					}
 				}
