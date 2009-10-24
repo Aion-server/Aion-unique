@@ -70,6 +70,14 @@ public class CM_EMOTION extends AionClientPacket
 		{
 			// jump
 		}
+		else if(unknown == 0x4)
+		{
+			//Sit (Nothing to do)
+		}
+		else if(unknown == 0x5)
+		{
+			//standing (Nothing to do)
+		}
 		else if(unknown == 0x11)
 		{
 			// Nothing here
