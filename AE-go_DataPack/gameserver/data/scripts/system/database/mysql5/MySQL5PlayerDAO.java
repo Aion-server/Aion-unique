@@ -388,13 +388,13 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	/**
 	 * {@inheritDoc} - Nemiroff
 	 */
-	public void alloffline(final boolean online)
+	public void setPlayersOffline(final boolean online)
 	{
 		DB.insertUpdate("UPDATE players SET online=?", new IUStH(){
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
-				log.info("[MySQL5PlayerDAO] set all players is offline status ");
+				log.info("[MySQL5PlayerDAO] all players set to offline status");
 				
 				stmt.setBoolean(1, online);
 				stmt.execute();

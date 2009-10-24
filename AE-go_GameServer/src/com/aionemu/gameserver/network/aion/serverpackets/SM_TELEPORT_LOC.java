@@ -22,7 +22,7 @@ import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
- * This packet is used to update current hp and max hp values.
+ * This packet is used to teleport player
  * 
  * @author Luno , orz
  * 

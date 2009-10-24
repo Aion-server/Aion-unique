@@ -132,6 +132,20 @@ public class Item extends AionObject
 	}
 
 	/**
+	 * @param remCount
+	 */
+	public boolean decreaseItemCount(int remCount)
+	{
+		if( this.itemCount - remCount >= 0 )
+		{
+			this.itemCount -= remCount;
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
 	 * @return the isEquipped
 	 */
 	public boolean isEquipped()

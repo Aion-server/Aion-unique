@@ -106,7 +106,7 @@ public abstract class PlayerDAO implements IDFactoryAwareDAO
 	 * 
 	 * @param online
 	 */
-	public abstract void alloffline(final boolean online);
+	public abstract void setPlayersOffline(final boolean online);
 	
 	/**
 	 * Identifier name for all PlayerDAO classes

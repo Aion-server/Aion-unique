@@ -82,7 +82,7 @@ public class GameServer
 
 		GameServer gs = new GameServer();
 		//Set all players is offline
-		DAOManager.getDAO(PlayerDAO.class).alloffline(false);
+		DAOManager.getDAO(PlayerDAO.class).setPlayersOffline(false);
 		gs.spawnMonsters();
 		
 		// Loading quests
