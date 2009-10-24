@@ -20,6 +20,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.commons.log4j.exceptions.Log4jInitializationError;
 import com.aionemu.commons.network.NioServer;
 import com.aionemu.commons.services.LoggingService;
@@ -80,14 +81,16 @@ public class GameServer
 		initUtilityServicesAndConfig();
 
 		GameServer gs = new GameServer();
+		//Set all players is offline
+		DAOManager.getDAO(PlayerDAO.class).alloffline(false);
 		gs.spawnMonsters();
 		
 		// Loading quests
 		QuestParser.getInstance();
 		
+		
 		// Ininitialize skill engine
 		SkillEngine.getInstance().registerAllSkills(gs.injector);
-
 		Util.printMemoryUsage(log);
 		log.info("###########################################################################");
 		log.info("AE Game Server started in " + (System.currentTimeMillis() - start) / 1000 + " seconds.");

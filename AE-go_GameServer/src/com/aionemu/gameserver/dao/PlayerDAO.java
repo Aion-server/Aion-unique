@@ -19,7 +19,6 @@ package com.aionemu.gameserver.dao;
 
 import java.sql.Timestamp;
 import java.util.List;
-
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
@@ -30,6 +29,7 @@ import com.aionemu.gameserver.world.World;
  * 
  * @author SoulKeeper, Saelya
  */
+
 public abstract class PlayerDAO implements IDFactoryAwareDAO
 {
 
@@ -100,6 +100,13 @@ public abstract class PlayerDAO implements IDFactoryAwareDAO
 	 * @param player, online
 	 */
 	public abstract void onlinePlayer(final Player player, final boolean online);
+	
+	/**
+	 * Set all players offline status
+	 * 
+	 * @param online
+	 */
+	public abstract void alloffline(final boolean online);
 	
 	/**
 	 * Identifier name for all PlayerDAO classes
