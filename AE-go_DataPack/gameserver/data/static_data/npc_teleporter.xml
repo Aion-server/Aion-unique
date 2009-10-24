@@ -16,6 +16,13 @@
 	</teleporter_template>
 	<teleporter_template npc_id="203561" name="Lenat" teleportId="205">
 	</teleporter_template>
+	<teleporter_template npc_id="203678" name="Latunin" teleportId="206">
+		<locations>
+			<teleloc_template loc_id="19" mapid="220030000" name="Traders Berth" teleportid="14001" price="700"/>
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203683" name="Rubander" teleportId="207">
+	</teleporter_template>
 	<!-- Morheim -->
 	<teleporter_template npc_id="204399" name="Orhe" teleportId="53">
 	</teleporter_template>
@@ -29,7 +36,6 @@
 	</teleporter_template>
 	<teleporter_template npc_id="204718" name="Gylfi" teleportId="211">
 	</teleporter_template>
-	
 	<!-- Elyos -->
 	<!-- Poeta -->
 	<teleporter_template npc_id="203194" name="Daines" teleportId="2">
@@ -50,6 +56,13 @@
 	<teleporter_template npc_id="203091" name="Urakron" teleportId="3">
 	</teleporter_template>
 	<teleporter_template npc_id="203120" name="Mirdiena" teleportId="105">
+	</teleporter_template>
+	<teleporter_template npc_id="203159" name="Irona" teleportId="106">
+		<locations>
+			<teleloc_template loc_id="14" mapid="210030000" name="Verteron Citadel" teleportid="8001" price="500"/>
+		</locations>
+	</teleporter_template>
+        <teleporter_template npc_id="203173" name="Belfinu" teleportId="107">
 	</teleporter_template>
         <!-- Heiron -->
 	<teleporter_template npc_id="204514" name="Barantus" teleportId="6">
