@@ -600,7 +600,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203049" level="20" name_id="351000" npc_type="NON_ATTACKABLE" name="elpas" height="2.0" talking_distance="5">
+	<npc_template npc_id="203049" level="20" name_id="351000" title_id="350496" npc_type="NON_ATTACKABLE" name="elpas" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -613,7 +613,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203050" level="20" name_id="351072" npc_type="NON_ATTACKABLE" name="kales" height="2.0" talking_distance="5">
+	<npc_template npc_id="203050" level="20" name_id="351072" title_id="350444" npc_type="NON_ATTACKABLE" name="kales" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -710,7 +710,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203057" level="20" name_id="351103" npc_type="NON_ATTACKABLE" name="mires" height="2.0" talking_distance="5">
+	<npc_template npc_id="203057" level="20" name_id="351103" title_id="350496" npc_type="NON_ATTACKABLE" name="mires" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -723,7 +723,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203058" level="20" name_id="351001" npc_type="NON_ATTACKABLE" name="asteros" height="2.0" talking_distance="5">
+	<npc_template npc_id="203058" level="20" name_id="351001" title_id="350427" npc_type="NON_ATTACKABLE" name="asteros" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -737,7 +737,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203059" level="20" name_id="351002" npc_type="NON_ATTACKABLE" name="polinia" height="2.0" talking_distance="5">
+	<npc_template npc_id="203059" level="20" name_id="351002" title_id="350427" npc_type="NON_ATTACKABLE" name="polinia" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -751,7 +751,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203060" level="20" name_id="351003" npc_type="NON_ATTACKABLE" name="mune" height="2.0" talking_distance="5">
+	<npc_template npc_id="203060" level="20" name_id="351003" title_id="350351" npc_type="NON_ATTACKABLE" name="mune" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -763,7 +763,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203061" level="20" name_id="351004" npc_type="NON_ATTACKABLE" name="uno" height="2.0" talking_distance="5">
+	<npc_template npc_id="203061" level="20" name_id="351004" title_id="350374" npc_type="NON_ATTACKABLE" name="uno" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -777,12 +777,12 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203062" level="20" name_id="351005" npc_type="NON_ATTACKABLE" name="ager" height="1.8" talking_distance="5">
+	<npc_template npc_id="203062" level="20" name_id="351005" title_id="350542" npc_type="NON_ATTACKABLE" name="ager" height="1.8" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="203063" level="20" name_id="351006" npc_type="NON_ATTACKABLE" name="amus" height="2.0" talking_distance="5">
+	<npc_template npc_id="203063" level="20" name_id="351006" title_id="350350" npc_type="NON_ATTACKABLE" name="amus" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -794,7 +794,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203064" level="20" name_id="351007" npc_type="NON_ATTACKABLE" name="fulla" height="1.8" talking_distance="5">
+	<npc_template npc_id="203064" level="20" name_id="351007" title_id="350412" npc_type="NON_ATTACKABLE" name="fulla" height="1.8" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="2.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -802,7 +802,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203065" level="20" name_id="351076" npc_type="NON_ATTACKABLE" name="melampus" height="2.0" talking_distance="5">
+	<npc_template npc_id="203065" level="20" name_id="351076" title_id="350497" npc_type="NON_ATTACKABLE" name="melampus" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.3" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -816,7 +816,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203066" level="20" name_id="351008" npc_type="NON_ATTACKABLE" name="toleo" height="2.0" talking_distance="5">
+	<npc_template npc_id="203066" level="20" name_id="351008" title_id="350497" npc_type="NON_ATTACKABLE" name="toleo" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.3" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -830,7 +830,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203067" level="20" name_id="351009" npc_type="NON_ATTACKABLE" name="kalio" height="2.0" talking_distance="5">
+	<npc_template npc_id="203067" level="20" name_id="351009" title_id="350498" npc_type="NON_ATTACKABLE" name="kalio" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -843,7 +843,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203068" level="20" name_id="351082" npc_type="NON_ATTACKABLE" name="brutus" height="2.0" talking_distance="5">
+	<npc_template npc_id="203068" level="20" name_id="351082" title_id="350497" npc_type="NON_ATTACKABLE" name="brutus" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.3" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -857,7 +857,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203069" level="20" name_id="351077" npc_type="NON_ATTACKABLE" name="utenion" height="2.0" talking_distance="5">
+	<npc_template npc_id="203069" level="20" name_id="351077" title_id="350497" npc_type="NON_ATTACKABLE" name="utenion" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.3" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -871,12 +871,12 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203070" level="20" name_id="351062" npc_type="NON_ATTACKABLE" name="kustanon" height="1.8" talking_distance="3">
+	<npc_template npc_id="203070" level="20" name_id="351062" title_id="350420" npc_type="NON_ATTACKABLE" name="kustanon" height="1.8" talking_distance="3">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="203071" level="20" name_id="351095" npc_type="NON_ATTACKABLE" name="muranes" height="2.0" talking_distance="5">
+	<npc_template npc_id="203071" level="20" name_id="351095" title_id="350533" npc_type="NON_ATTACKABLE" name="muranes" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -889,7 +889,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203072" level="20" name_id="351010" npc_type="NON_ATTACKABLE" name="feira" height="2.0" talking_distance="5">
+	<npc_template npc_id="203072" level="20" name_id="351010" title_id="350433" npc_type="NON_ATTACKABLE" name="feira" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -902,7 +902,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203073" level="20" name_id="351106" npc_type="NON_ATTACKABLE" name="ben" height="2.0" talking_distance="5">
+	<npc_template npc_id="203073" level="20" name_id="351106" title_id="350433" npc_type="NON_ATTACKABLE" name="ben" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -916,7 +916,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203074" level="20" name_id="351011" npc_type="NON_ATTACKABLE" name="pranoa" height="2.0" talking_distance="5">
+	<npc_template npc_id="203074" level="20" name_id="351011" title_id="350444" npc_type="NON_ATTACKABLE" name="pranoa" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -930,7 +930,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203075" level="20" name_id="351012" npc_type="NON_ATTACKABLE" name="namus" height="2.0" talking_distance="5">
+	<npc_template npc_id="203075" level="20" name_id="351012" title_id="350434" npc_type="NON_ATTACKABLE" name="namus" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -944,7 +944,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203076" level="20" name_id="351096" npc_type="NON_ATTACKABLE" name="ampeis" height="2.0" talking_distance="5">
+	<npc_template npc_id="203076" level="20" name_id="351096" title_id="350499" npc_type="NON_ATTACKABLE" name="ampeis" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -985,7 +985,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203079" level="20" name_id="351013" npc_type="NON_ATTACKABLE" name="melponeh" height="2.0" talking_distance="5">
+	<npc_template npc_id="203079" level="20" name_id="351013" title_id="350470" npc_type="NON_ATTACKABLE" name="melponeh" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -998,7 +998,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203080" level="20" name_id="351069" npc_type="NON_ATTACKABLE" name="lonia" height="2.0" talking_distance="5">
+	<npc_template npc_id="203080" level="20" name_id="351069" title_id="350377" npc_type="NON_ATTACKABLE" name="lonia" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -1010,7 +1010,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203081" level="20" name_id="351097" npc_type="NON_ATTACKABLE" name="oz" height="2.0" talking_distance="5">
+	<npc_template npc_id="203081" level="20" name_id="351097" title_id="350501" npc_type="NON_ATTACKABLE" name="oz" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -1024,7 +1024,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203082" level="20" name_id="351098" npc_type="NON_ATTACKABLE" name="tula" height="2.0" talking_distance="5">
+	<npc_template npc_id="203082" level="20" name_id="351098" title_id="350533" npc_type="NON_ATTACKABLE" name="tula" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -1037,12 +1037,12 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203083" level="20" name_id="351137" npc_type="NON_ATTACKABLE" name="aero" height="1.8" talking_distance="3">
+	<npc_template npc_id="203083" level="20" name_id="351137" title_id="350420" npc_type="NON_ATTACKABLE" name="aero" height="1.8" talking_distance="3">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="203084" level="20" name_id="351144" npc_type="NON_ATTACKABLE" name="naeru" height="1.8" talking_distance="5">
+	<npc_template npc_id="203084" level="20" name_id="351144" title_id="350412" npc_type="NON_ATTACKABLE" name="naeru" height="1.8" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="2.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -1075,7 +1075,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203087" level="20" name_id="351148" npc_type="NON_ATTACKABLE" name="kunandes" height="2.0" talking_distance="5">
+	<npc_template npc_id="203087" level="20" name_id="351148" title_id="350538" npc_type="NON_ATTACKABLE" name="kunandes" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -1088,7 +1088,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203088" level="20" name_id="351149" npc_type="NON_ATTACKABLE" name="gilden" height="2.0" talking_distance="5">
+	<npc_template npc_id="203088" level="20" name_id="351149" title_id="350539" npc_type="NON_ATTACKABLE" name="gilden" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -1102,7 +1102,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203089" level="20" name_id="351150" npc_type="NON_ATTACKABLE" name="esera" height="2.0" talking_distance="5">
+	<npc_template npc_id="203089" level="20" name_id="351150" title_id="350540" npc_type="NON_ATTACKABLE" name="esera" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -1115,7 +1115,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203090" level="20" name_id="351151" npc_type="NON_ATTACKABLE" name="kagas" height="2.0" talking_distance="5">
+	<npc_template npc_id="203090" level="20" name_id="351151" title_id="350541" npc_type="NON_ATTACKABLE" name="kagas" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -2268,22 +2268,22 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203185" level="20" name_id="351087" npc_type="NON_ATTACKABLE" name="fungus boy shroomy" height="1.8" talking_distance="3">
+	<npc_template npc_id="203185" level="20" name_id="351087" title_id="350450" npc_type="NON_ATTACKABLE" name="fungus boy shroomy" height="1.8" talking_distance="3">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="0.7" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="203186" level="20" name_id="351118" npc_type="NON_ATTACKABLE" name="shroomin" height="1.8">
+	<npc_template npc_id="203186" level="20" name_id="351118" title_id="350450" npc_type="NON_ATTACKABLE" name="shroomin" height="1.8">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="0.7" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="203187" level="20" name_id="351119" npc_type="NON_ATTACKABLE" name="shroomba" height="1.8">
+	<npc_template npc_id="203187" level="20" name_id="351119" title_id="350450" npc_type="NON_ATTACKABLE" name="shroomba" height="1.8">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="0.7" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="203188" level="20" name_id="351120" npc_type="NON_ATTACKABLE" name="shroomer" height="1.8">
+	<npc_template npc_id="203188" level="20" name_id="351120" title_id="350450" npc_type="NON_ATTACKABLE" name="shroomer" height="1.8">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="0.7" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
@@ -2322,7 +2322,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203194" level="20" name_id="351402" npc_type="NON_ATTACKABLE" name="daines" height="1.8" talking_distance="3">
+	<npc_template npc_id="203194" level="20" name_id="351402" title_id="350423" npc_type="NON_ATTACKABLE" name="daines" height="1.8" talking_distance="3">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
@@ -2646,7 +2646,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203336" level="20" name_id="351162" npc_type="NON_ATTACKABLE" name="seril" height="2.0" talking_distance="5">
+	<npc_template npc_id="203336" level="20" name_id="351162" title_id="350414" npc_type="NON_ATTACKABLE" name="seril" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -2896,7 +2896,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203500" level="20" name_id="352100" npc_type="NON_ATTACKABLE" name="asak" height="2.0" talking_distance="5">
+	<npc_template npc_id="203500" level="20" name_id="352100" title_id="350515" npc_type="NON_ATTACKABLE" name="asak" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -2908,7 +2908,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203501" level="20" name_id="352101" npc_type="NON_ATTACKABLE" name="guheitun" height="2.0" talking_distance="5">
+	<npc_template npc_id="203501" level="20" name_id="352101" title_id="350515" npc_type="NON_ATTACKABLE" name="guheitun" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -2922,7 +2922,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203502" level="20" name_id="352243" npc_type="NON_ATTACKABLE" name="vanar" height="2.0" talking_distance="5">
+	<npc_template npc_id="203502" level="20" name_id="352243" title_id="350515" npc_type="NON_ATTACKABLE" name="vanar" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -2934,7 +2934,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203503" level="20" name_id="352244" npc_type="NON_ATTACKABLE" name="gurt" height="2.0" talking_distance="5">
+	<npc_template npc_id="203503" level="20" name_id="352244" title_id="350515" npc_type="NON_ATTACKABLE" name="gurt" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -2946,7 +2946,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203504" level="20" name_id="352127" npc_type="NON_ATTACKABLE" name="vandarnt" height="2.0" talking_distance="5">
+	<npc_template npc_id="203504" level="20" name_id="352127" title_id="350515" npc_type="NON_ATTACKABLE" name="vandarnt" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -2985,7 +2985,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203507" level="20" name_id="352102" npc_type="NON_ATTACKABLE" name="galar" height="2.0" talking_distance="5">
+	<npc_template npc_id="203507" level="20" name_id="352102" title_id="350471" npc_type="NON_ATTACKABLE" name="galar" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3036,7 +3036,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203511" level="20" name_id="352103" npc_type="NON_ATTACKABLE" name="huggin" height="2.0" talking_distance="5">
+	<npc_template npc_id="203511" level="20" name_id="352103" title_id="350427" npc_type="NON_ATTACKABLE" name="huggin" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3049,7 +3049,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203512" level="20" name_id="352104" npc_type="NON_ATTACKABLE" name="linevir" height="1.8" talking_distance="5">
+	<npc_template npc_id="203512" level="20" name_id="352104" title_id="350412" npc_type="NON_ATTACKABLE" name="linevir" height="1.8" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="2.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3057,24 +3057,12 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203513" level="20" name_id="352105" npc_type="NON_ATTACKABLE" name="sheofin" height="1.8" talking_distance="3">
+	<npc_template npc_id="203513" level="20" name_id="352105" title_id="350420" npc_type="NON_ATTACKABLE" name="sheofin" height="1.8" talking_distance="3">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="203514" level="20" name_id="352106" npc_type="NON_ATTACKABLE" name="hephe" height="2.0" talking_distance="5">
-		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
-			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
-		<equipment>
-			<item>110100303</item>
-			<item>113100276</item>
-			<item>114100294</item>
-			<item>112100256</item>
-			<item>111100277</item>
-		</equipment>
-	</npc_template>
-
-	<npc_template npc_id="203515" level="20" name_id="352108" npc_type="NON_ATTACKABLE" name="dalor" height="2.0" talking_distance="5">
+	<npc_template npc_id="203514" level="20" name_id="352106" title_id="350350" npc_type="NON_ATTACKABLE" name="hephe" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3086,7 +3074,19 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203516" level="20" name_id="352196" npc_type="NON_ATTACKABLE" name="ulgorn" height="2.0" talking_distance="5">
+	<npc_template npc_id="203515" level="20" name_id="352108" title_id="350351" npc_type="NON_ATTACKABLE" name="dalor" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
+		<equipment>
+			<item>110100303</item>
+			<item>113100276</item>
+			<item>114100294</item>
+			<item>112100256</item>
+			<item>111100277</item>
+		</equipment>
+	</npc_template>
+
+	<npc_template npc_id="203516" level="20" name_id="352196" title_id="350516" npc_type="NON_ATTACKABLE" name="ulgorn" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3101,7 +3101,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203517" level="20" name_id="352107" npc_type="NON_ATTACKABLE" name="tobu" height="2.0" talking_distance="5">
+	<npc_template npc_id="203517" level="20" name_id="352107" title_id="350578" npc_type="NON_ATTACKABLE" name="tobu" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3114,7 +3114,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203518" level="20" name_id="352199" npc_type="NON_ATTACKABLE" name="boromer" height="2.0" talking_distance="5">
+	<npc_template npc_id="203518" level="20" name_id="352199" title_id="350515" npc_type="NON_ATTACKABLE" name="boromer" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3127,7 +3127,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203519" level="20" name_id="352193" npc_type="NON_ATTACKABLE" name="nobekk" height="2.0" talking_distance="5">
+	<npc_template npc_id="203519" level="20" name_id="352193" title_id="350515" npc_type="NON_ATTACKABLE" name="nobekk" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3166,7 +3166,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203522" level="20" name_id="352109" npc_type="NON_ATTACKABLE" name="kaindal" height="2.0" talking_distance="5">
+	<npc_template npc_id="203522" level="20" name_id="352109" title_id="350515" npc_type="NON_ATTACKABLE" name="kaindal" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3179,7 +3179,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203523" level="20" name_id="352110" npc_type="NON_ATTACKABLE" name="glifko" height="2.0" talking_distance="5">
+	<npc_template npc_id="203523" level="20" name_id="352110" title_id="350515" npc_type="NON_ATTACKABLE" name="glifko" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3192,7 +3192,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203524" level="20" name_id="352198" npc_type="NON_ATTACKABLE" name="megin" height="2.0" talking_distance="5">
+	<npc_template npc_id="203524" level="20" name_id="352198" title_id="350515" npc_type="NON_ATTACKABLE" name="megin" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3205,7 +3205,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203525" level="20" name_id="352245" npc_type="NON_ATTACKABLE" name="srat" height="2.0" talking_distance="5">
+	<npc_template npc_id="203525" level="20" name_id="352245" title_id="350515" npc_type="NON_ATTACKABLE" name="srat" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3217,7 +3217,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203526" level="20" name_id="352111" npc_type="NON_ATTACKABLE" name="ungfu" height="2.0" talking_distance="5">
+	<npc_template npc_id="203526" level="20" name_id="352111" title_id="350374" npc_type="NON_ATTACKABLE" name="ungfu" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3231,7 +3231,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203527" level="20" name_id="352112" npc_type="NON_ATTACKABLE" name="minu" height="2.0" talking_distance="5">
+	<npc_template npc_id="203527" level="20" name_id="352112" title_id="350538" npc_type="NON_ATTACKABLE" name="minu" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3244,7 +3244,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203528" level="20" name_id="352113" npc_type="NON_ATTACKABLE" name="wiokan" height="2.0" talking_distance="5">
+	<npc_template npc_id="203528" level="20" name_id="352113" title_id="350539" npc_type="NON_ATTACKABLE" name="wiokan" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3258,7 +3258,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203529" level="20" name_id="352114" npc_type="NON_ATTACKABLE" name="jurwen" height="2.0" talking_distance="5">
+	<npc_template npc_id="203529" level="20" name_id="352114" title_id="350540" npc_type="NON_ATTACKABLE" name="jurwen" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3271,7 +3271,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203530" level="20" name_id="352115" npc_type="NON_ATTACKABLE" name="kirhen" height="2.0" talking_distance="5">
+	<npc_template npc_id="203530" level="20" name_id="352115" title_id="350541" npc_type="NON_ATTACKABLE" name="kirhen" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3284,7 +3284,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203531" level="20" name_id="352116" npc_type="NON_ATTACKABLE" name="negi" height="2.0" talking_distance="5">
+	<npc_template npc_id="203531" level="20" name_id="352116" title_id="350433" npc_type="NON_ATTACKABLE" name="negi" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3297,7 +3297,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203532" level="20" name_id="352220" npc_type="NON_ATTACKABLE" name="bolir" height="2.0" talking_distance="5">
+	<npc_template npc_id="203532" level="20" name_id="352220" title_id="350433" npc_type="NON_ATTACKABLE" name="bolir" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3311,7 +3311,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203533" level="20" name_id="352117" npc_type="NON_ATTACKABLE" name="motgar" height="2.0" talking_distance="5">
+	<npc_template npc_id="203533" level="20" name_id="352117" title_id="350483" npc_type="NON_ATTACKABLE" name="motgar" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3324,7 +3324,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203534" level="20" name_id="352122" npc_type="NON_ATTACKABLE" name="dabi" height="2.0" talking_distance="5">
+	<npc_template npc_id="203534" level="20" name_id="352122" title_id="350515" npc_type="NON_ATTACKABLE" name="dabi" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3337,7 +3337,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203535" level="20" name_id="352118" npc_type="NON_ATTACKABLE" name="kard" height="2.0" talking_distance="5">
+	<npc_template npc_id="203535" level="20" name_id="352118" title_id="350483" npc_type="NON_ATTACKABLE" name="kard" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3350,12 +3350,12 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203536" level="20" name_id="352222" npc_type="NON_ATTACKABLE" name="blabbermouth angmu" height="1.16" talking_distance="5">
+	<npc_template npc_id="203536" level="20" name_id="352222" title_id="350518" npc_type="NON_ATTACKABLE" name="blabbermouth angmu" height="1.16" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.6" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.3" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="203539" level="20" name_id="352119" npc_type="NON_ATTACKABLE" name="derot" height="2.0" talking_distance="5">
+	<npc_template npc_id="203539" level="20" name_id="352119" title_id="350515" npc_type="NON_ATTACKABLE" name="derot" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.3" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3369,7 +3369,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203540" level="20" name_id="352120" npc_type="NON_ATTACKABLE" name="mijou" height="2.0" talking_distance="5">
+	<npc_template npc_id="203540" level="20" name_id="352120" title_id="350515" npc_type="NON_ATTACKABLE" name="mijou" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.3" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3383,7 +3383,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203541" level="20" name_id="352246" npc_type="NON_ATTACKABLE" name="lidun" height="2.0" talking_distance="5">
+	<npc_template npc_id="203541" level="20" name_id="352246" title_id="350515" npc_type="NON_ATTACKABLE" name="lidun" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3396,7 +3396,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203542" level="20" name_id="352128" npc_type="NON_ATTACKABLE" name="denma" height="2.0" talking_distance="5">
+	<npc_template npc_id="203542" level="20" name_id="352128" title_id="350377" npc_type="NON_ATTACKABLE" name="denma" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3434,7 +3434,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203545" level="20" name_id="352242" npc_type="NON_ATTACKABLE" name="garhara" height="1.8" talking_distance="3">
+	<npc_template npc_id="203545" level="20" name_id="352242" title_id="350420" npc_type="NON_ATTACKABLE" name="garhara" height="1.8" talking_distance="3">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
@@ -3452,7 +3452,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203547" level="20" name_id="352123" npc_type="NON_ATTACKABLE" name="ere" height="2.0" talking_distance="5">
+	<npc_template npc_id="203547" level="20" name_id="352123" title_id="350515" npc_type="NON_ATTACKABLE" name="ere" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3465,7 +3465,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203548" level="20" name_id="352124" npc_type="NON_ATTACKABLE" name="jephani" height="2.0" talking_distance="5">
+	<npc_template npc_id="203548" level="20" name_id="352124" title_id="350515" npc_type="NON_ATTACKABLE" name="jephani" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3478,7 +3478,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203549" level="20" name_id="352129" npc_type="NON_ATTACKABLE" name="tanmarn" height="2.0" talking_distance="5">
+	<npc_template npc_id="203549" level="20" name_id="352129" title_id="350515" npc_type="NON_ATTACKABLE" name="tanmarn" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -3491,7 +3491,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203550" level="20" name_id="352125" npc_type="NON_ATTACKABLE" name="munin" height="2.0" talking_distance="5">
+	<npc_template npc_id="203550" level="20" name_id="352125" title_id="350486" npc_type="NON_ATTACKABLE" name="munin" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -4990,7 +4990,7 @@
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="203679" level="20" name_id="352256" npc_type="NON_ATTACKABLE" name="osmar" height="1.8" talking_distance="3">
+	<npc_template npc_id="203679" level="20" name_id="352256" title_id="350423" npc_type="NON_ATTACKABLE" name="osmar" height="1.8" talking_distance="3">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -5003,7 +5003,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203680" level="20" name_id="352257" npc_type="NON_ATTACKABLE" name="rusalka" height="1.8" talking_distance="5">
+	<npc_template npc_id="203680" level="20" name_id="352257" title_id="350412" npc_type="NON_ATTACKABLE" name="rusalka" height="1.8" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="2.1" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -5138,7 +5138,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="203692" level="20" name_id="352287" npc_type="NON_ATTACKABLE" name="dobar" height="2.0" talking_distance="5">
+	<npc_template npc_id="203692" level="20" name_id="352287" title_id="350414" npc_type="NON_ATTACKABLE" name="dobar" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -22945,17 +22945,17 @@
 			walk_speed="1.2" walk_speed_fight="0.0" run_speed="4.8" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="790001" level="20" name_id="351014" npc_type="NON_ATTACKABLE" name="pernos" height="2.0" talking_distance="5">
+	<npc_template npc_id="790001" level="20" name_id="351014" title_id="350436" npc_type="NON_ATTACKABLE" name="pernos" height="2.0" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="790002" level="20" name_id="352236" npc_type="NON_ATTACKABLE" name="verdandi" height="1.8" talking_distance="5">
+	<npc_template npc_id="790002" level="20" name_id="352236" title_id="350436" npc_type="NON_ATTACKABLE" name="verdandi" height="1.8" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.2" walk_speed_fight="0.0" run_speed="4.8" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="790003" level="20" name_id="352237" npc_type="NON_ATTACKABLE" name="urd" height="1.8" talking_distance="5">
+	<npc_template npc_id="790003" level="20" name_id="352237" title_id="350432" npc_type="NON_ATTACKABLE" name="urd" height="1.8" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.2" walk_speed_fight="0.0" run_speed="4.8" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
@@ -23080,12 +23080,12 @@
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="798007" level="20" name_id="351126" npc_type="NON_ATTACKABLE" name="minalinerk" height="1.375" talking_distance="5">
+	<npc_template npc_id="798007" level="20" name_id="351126" title_id="350377" npc_type="NON_ATTACKABLE" name="minalinerk" height="1.375" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="798008" level="20" name_id="351141" npc_type="NON_ATTACKABLE" name="baevrunerk" height="1.375" talking_distance="5">
+	<npc_template npc_id="798008" level="20" name_id="351141" title_id="350421" npc_type="NON_ATTACKABLE" name="baevrunerk" height="1.375" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
@@ -23230,12 +23230,12 @@
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="798037" level="20" name_id="352212" npc_type="NON_ATTACKABLE" name="bacorerk" height="1.375" talking_distance="5">
+	<npc_template npc_id="798037" level="20" name_id="352212" title_id="350421" npc_type="NON_ATTACKABLE" name="bacorerk" height="1.375" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>
 
-	<npc_template npc_id="798038" level="20" name_id="352213" npc_type="NON_ATTACKABLE" name="raorunerk" height="1.375" talking_distance="5">
+	<npc_template npc_id="798038" level="20" name_id="352213" title_id="350377" npc_type="NON_ATTACKABLE" name="raorunerk" height="1.375" talking_distance="5">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="4.2" run_speed_fight="4.2" fly_speed="9" attack_speed="1.5"/>
 	</npc_template>

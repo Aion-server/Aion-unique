@@ -2382,7 +2382,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="210735" level="20" name_id="301087" npc_type="ATTACKABLE" name="eyvindr peon" height="2.2">
+	<npc_template npc_id="210735" level="20" name_id="301087" title_id="350453" npc_type="ATTACKABLE" name="eyvindr peon" height="2.2">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -2393,7 +2393,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="210736" level="20" name_id="301088" npc_type="ATTACKABLE" name="eyvindr peon" height="2.2">
+	<npc_template npc_id="210736" level="20" name_id="301088" title_id="350453" npc_type="ATTACKABLE" name="eyvindr peon" height="2.2">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="1.5" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -2404,7 +2404,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="210737" level="20" name_id="301089" npc_type="ATTACKABLE" name="eyvindr sailor" height="2.3">
+	<npc_template npc_id="210737" level="20" name_id="301089" title_id="350453" npc_type="ATTACKABLE" name="eyvindr sailor" height="2.3">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="2.0" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
@@ -2415,7 +2415,7 @@
 		</equipment>
 	</npc_template>
 
-	<npc_template npc_id="210738" level="20" name_id="301090" npc_type="ATTACKABLE" name="eyvindr sailor" height="2.3">
+	<npc_template npc_id="210738" level="20" name_id="301090" title_id="350453" npc_type="ATTACKABLE" name="eyvindr sailor" height="2.3">
 		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
 			walk_speed="2.0" walk_speed_fight="0.0" run_speed="6.0" run_speed_fight="5.0" fly_speed="9" attack_speed="1.5"/>
 		<equipment>
