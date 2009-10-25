@@ -90,8 +90,8 @@ public class CM_LOGIN extends AionClientPacket
 			sendPacket(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR));
 			return;
 		}
-		String user = new String(decrypted, 64, 32).trim().toLowerCase();
-		String password = new String(decrypted, 96, 32).trim().toLowerCase();
+		String user = new String(decrypted, 64, 32).trim();
+		String password = new String(decrypted, 96, 32).trim();
 
 		int ncotp = decrypted[0x7c];
 		ncotp |= decrypted[0x7d] << 8;
