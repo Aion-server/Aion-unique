@@ -107,7 +107,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKE1;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKE7;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEF;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK76;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
 
 /**
@@ -129,7 +128,6 @@ public class ServerPacketsOpcodes
 
 		addPacketOpcode(SM_CUSTOM_PACKET.class, 99999, idSet); // fake packet
 		
-		addPacketOpcode(SM_UNK76.class, 0x76, idSet);
 		addPacketOpcode(SM_UNKF5.class, 0x26, idSet);
 		addPacketOpcode(SM_UNKEF.class, -1, idSet);
 		addPacketOpcode(SM_UNKE7.class, -1, idSet);
