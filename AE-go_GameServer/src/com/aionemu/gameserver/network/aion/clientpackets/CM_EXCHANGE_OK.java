@@ -1,0 +1,200 @@
+/**
+ * This file is part of aion-emu <www.aion-unique.com>.
+ *
+ *  aion-emu is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  aion-emu is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+package com.aionemu.gameserver.network.aion.clientpackets;
+
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_CONFIRMATION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
+import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.services.ItemService;
+import com.google.inject.Inject;
+import com.aionemu.gameserver.model.gameobjects.Item;
+import java.util.List;
+import java.util.Collections;
+import org.apache.log4j.Logger;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+
+/**
+ * @author -Avol-
+ * 
+ */
+
+public class CM_EXCHANGE_OK extends AionClientPacket
+{
+	private static final Logger	log	= Logger.getLogger(CM_EXCHANGE_OK.class);
+	@Inject	
+	private ItemService 		itemService;
+	private int			action;	
+	@Inject	
+	private World			world;
+
+	public CM_EXCHANGE_OK(int opcode)
+	{
+		super(opcode);
+	}
+
+	@Override
+	protected void readImpl()
+	{
+
+	}
+
+	@Override
+	protected void runImpl()
+	{	
+		final Player activePlayer = getConnection().getActivePlayer();
+		int targetPlayerId = activePlayer.getExchangeList().getExchangePartner();
+
+		final Player targetPlayer = world.findPlayer(targetPlayerId);
+
+		PacketSendUtility.sendPacket(targetPlayer, new SM_EXCHANGE_CONFIRMATION(2));
+
+		/*
+		* Set confirmed trade to activePlayer.
+		*/
+
+		activePlayer.getExchangeList().setConfirm(true);
+
+		/*
+		* Check if other player confirmed trade.
+		*/
+		
+		if (targetPlayer.getExchangeList().getConfirm() == true)
+		{
+			PacketSendUtility.sendPacket(targetPlayer, new SM_EXCHANGE_CONFIRMATION(0));
+			PacketSendUtility.sendPacket(activePlayer, new SM_EXCHANGE_CONFIRMATION(0));
+			
+			/*
+			* Store, delete items to active Player
+			*/
+			
+			int lenght = targetPlayer.getExchangeList().getExchangeItemListLenght();
+			while (lenght>0) 
+			{
+				lenght--;
+				int itemObjId = targetPlayer.getExchangeList().getExchangeItemList(lenght);
+				int itemCount = targetPlayer.getExchangeList().getExchangeItemCountList(lenght);
+
+				/*
+				* Add traded items.
+				*/
+
+				Inventory targetInventory = targetPlayer.getInventory();
+				Item itemIdSearch = targetInventory.getItemByObjId(itemObjId);
+				int itemId = itemIdSearch.getItemTemplate().getItemId();
+				
+				Inventory activeInventory = activePlayer.getInventory();
+
+				Item newItem = itemService.newItem(itemId, itemCount);
+				Item addedItem = activeInventory.addToBag(newItem);
+
+				if(addedItem != null)
+				{
+					PacketSendUtility.sendPacket(activePlayer, new SM_INVENTORY_INFO(Collections.singletonList(addedItem)));
+				}
+				
+				/*
+				* remove traded items.
+				*/
+				
+				Inventory bag = targetPlayer.getInventory();
+				Item resultItem = bag.getItemByObjId(itemObjId);
+				if (resultItem != null) 
+				{
+					bag.removeFromBag(resultItem);
+					PacketSendUtility.sendPacket(targetPlayer, new SM_DELETE_ITEM(itemObjId));
+				}
+			}
+
+			/*
+			* Store, delete items to target Player
+			*/
+
+			lenght = activePlayer.getExchangeList().getExchangeItemListLenght();
+			
+			
+			while (lenght>0) 
+			{
+				lenght--;
+				int itemObjId = activePlayer.getExchangeList().getExchangeItemList(lenght);
+				int itemCount = activePlayer.getExchangeList().getExchangeItemCountList(lenght);
+
+				/*
+				* Add traded items.
+				*/
+	
+				Inventory activeInventory = activePlayer.getInventory();
+				Item itemIdSearch = activeInventory.getItemByObjId(itemObjId);
+				int itemId = itemIdSearch.getItemTemplate().getItemId();
+				
+				Inventory targetInventory = targetPlayer.getInventory();
+			
+				Item newItem = itemService.newItem(itemId, itemCount);
+				Item addedItem = targetInventory.addToBag(newItem);
+
+				if(addedItem != null)
+				{
+					PacketSendUtility.sendPacket(targetPlayer, new SM_INVENTORY_INFO(Collections.singletonList(addedItem)));
+				}
+			
+				/*
+				* remove traded items.
+				*/	
+				
+				Inventory bag = activePlayer.getInventory();
+				Item resultItem = bag.getItemByObjId(itemObjId);
+				if (resultItem != null) 
+				{
+					bag.removeFromBag(resultItem);
+					PacketSendUtility.sendPacket(activePlayer, new SM_DELETE_ITEM(itemObjId));
+				}
+			} 
+
+
+			/*
+			* set kinah activePlayer
+			*/
+
+			Inventory currentKinahActive = activePlayer.getInventory();
+			int kinahCount = currentKinahActive.getKinahItem().getItemCount() - activePlayer.getExchangeList().getExchangeKinah() + targetPlayer.getExchangeList().getExchangeKinah();
+
+			int newKinah = kinahCount - currentKinahActive.getKinahItem().getItemCount();
+			currentKinahActive.getKinahItem().increaseItemCount(newKinah);
+
+			PacketSendUtility.sendPacket(activePlayer, new SM_UPDATE_ITEM(currentKinahActive.getKinahItem()));
+				
+			/*
+			* set kinah targetPlayer
+			*/
+
+			Inventory currentKinahTarget = targetPlayer.getInventory();
+			kinahCount = currentKinahTarget.getKinahItem().getItemCount() - targetPlayer.getExchangeList().getExchangeKinah() + activePlayer.getExchangeList().getExchangeKinah();
+	
+			newKinah = kinahCount - currentKinahTarget.getKinahItem().getItemCount();
+			currentKinahTarget.getKinahItem().increaseItemCount(newKinah);
+			PacketSendUtility.sendPacket(targetPlayer, new SM_UPDATE_ITEM(currentKinahTarget.getKinahItem()));	
+		}
+	}
+}

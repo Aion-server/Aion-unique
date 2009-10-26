@@ -1,45 +1,52 @@
 /**
- * This file is part of aion-emu <aion-emu.com>.
+ * This file is part of aion-unique <www.aion-unique.com>.
  *
- *  aion-emu is free software: you can redistribute it and/or modify
+ *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-emu is distributed in the hope that it will be useful,
+ *  aion-unique is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.Random;
+
+import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
- * @author -Avol-
- * 
+ * @author Avol
  */
-public class SM_TRADE_REQUEST extends AionServerPacket
+
+public class SM_EXCHANGE_ADD_KINAH extends AionServerPacket
 {
+	private static final Logger	log	= Logger.getLogger(SM_EXCHANGE_ADD_KINAH.class);
 
-	private String	receiver;
-	
-	
-	public SM_TRADE_REQUEST(String receiver)
+	private int itemCount;
+	private int action;
+
+	public SM_EXCHANGE_ADD_KINAH(int itemCount, int action)
 	{
-		this.receiver = receiver;
+		this.itemCount = itemCount;	
+		this.action = action;
 	}
-
 
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeS(buf, receiver);
+
+		writeC(buf, action); // 0 -self 1-other
+		writeD(buf, itemCount); // itemId
+		writeD(buf, 0); // unk
 	}
 }

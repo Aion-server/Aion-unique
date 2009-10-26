@@ -108,6 +108,10 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKE7;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEF;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_CONFIRMATION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_REQUEST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_KINAH;
 
 /**
  * This class is holding opcodes for all server packets. It's used only to have all opcodes in one place
@@ -224,6 +228,11 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_TELEPORT_LOC.class, 0x2D, idSet); // 1.5.x
 
 		addPacketOpcode(SM_ABNORMAL_STATE.class, 0x48, idSet); // 1.5.x
+
+		addPacketOpcode(SM_EXCHANGE_CONFIRMATION.class, 0x67, idSet);
+		addPacketOpcode(SM_EXCHANGE_REQUEST.class, 0x63, idSet);
+		addPacketOpcode(SM_EXCHANGE_ADD_ITEM.class, 0x62, idSet);
+		addPacketOpcode(SM_EXCHANGE_ADD_KINAH.class, 0x64, idSet);
 
 		//Unrecognized Opcodes:
 		//addPacketOpcode(SM_TIME_CHECK.class, 0x26, idSet);

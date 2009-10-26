@@ -53,7 +53,6 @@ public class CM_QUESTION_RESPONSE extends AionClientPacket
 	{
 		Player player = getConnection().getActivePlayer();
 		player.getResponseRequester().respond(code, response);
-
 	}
 
 }

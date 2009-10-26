@@ -20,18 +20,24 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADE_CONFIRMATION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_CONFIRMATION;
+import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author -Avol-
  * 
  */
-public class CM_TRADE_CANCEL extends AionClientPacket
+
+public class CM_EXCHANGE_CANCEL extends AionClientPacket
 {
 
 	private int	action;
+	@Inject	
+	private World			world;
 
-	public CM_TRADE_CANCEL(int opcode)
+	public CM_EXCHANGE_CANCEL(int opcode)
 	{
 		super(opcode);
 	}
@@ -39,14 +45,16 @@ public class CM_TRADE_CANCEL extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-
+		//0 bytes
 	}
 
 	@Override
 	protected void runImpl()
 	{	
 		final Player activePlayer = getConnection().getActivePlayer();
-		action = 1;
-		activePlayer.getClientConnection().sendPacket(new SM_TRADE_CONFIRMATION(action));
+		int targetPlayerId = activePlayer.getExchangeList().getExchangePartner();
+
+		final Player targetPlayer = world.findPlayer(targetPlayerId);
+		PacketSendUtility.sendPacket(targetPlayer, new SM_EXCHANGE_CONFIRMATION(1));
 	}
 }

@@ -70,13 +70,15 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_TARGET_SELECT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TELEPORT_SELECT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TERRITORY;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TIME_CHECK;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_CANCEL;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_LOCK;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_OK;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_TRADE_REQUEST;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_CANCEL;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_LOCK;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_OK;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_REQUEST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_USE_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERIFY_LOCATION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_ADD_ITEM;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_ADD_KINAH;
 import com.google.inject.Injector;
 
 /**
@@ -106,15 +108,15 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_L2AUTH_LOGIN_CHECK(0x7F), State.CONNECTED);
 		addPacket(new CM_VERSION_CHECK(0xEA), State.CONNECTED);
 		addPacket(new CM_TIME_CHECK(0xFC), State.CONNECTED, State.AUTHED, State.IN_GAME);
-		addPacket(new CM_ATTACK(0x8A), State.IN_GAME); //
-		addPacket(new CM_SET_NOTE(0xA4), State.IN_GAME); //0x1A on 1.2>
+		addPacket(new CM_ATTACK(0x8A), State.IN_GAME); 
+		addPacket(new CM_SET_NOTE(0xA4), State.IN_GAME); 
 		addPacket(new CM_TARGET_SELECT(0x89), State.IN_GAME);
 		addPacket(new CM_SHOW_FRIENDLIST(0x58), State.IN_GAME);
 		addPacket(new CM_SHOW_BLOCKLIST(0x12), State.IN_GAME);
 		addPacket(new CM_SEARCH_STATUS(0x4A), State.IN_GAME);
 		addPacket(new CM_RESTORE_CHARACTER(0x03), State.AUTHED);
 		addPacket(new CM_QUIT(0xED), State.AUTHED, State.IN_GAME);
-		addPacket(new CM_QUESTION_RESPONSE(0x22), State.IN_GAME);
+		addPacket(new CM_QUESTION_RESPONSE(0x9C), State.IN_GAME);
 		addPacket(new CM_PLAYER_SEARCH(0x09), State.IN_GAME);
 		addPacket(new CM_PING(0x96), State.AUTHED, State.IN_GAME);
 		addPacket(new CM_MOVE(0x9A), State.IN_GAME);
@@ -127,7 +129,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_LEVEL_READY(0xF3), State.IN_GAME);
 		addPacket(new CM_FRIEND_STATUS(0x14), State.IN_GAME);// 1.5.x
 		addPacket(new CM_FRIEND_DEL(0x5A), State.IN_GAME);// 1.5.x
-		addPacket(new CM_FRIEND_ADD(0x9C), State.IN_GAME);// 1.5.x
+		addPacket(new CM_FRIEND_ADD(-1), State.IN_GAME);// 1.5.x
 		addPacket(new CM_ENTER_WORLD(0xF2), State.AUTHED);
 		addPacket(new CM_EMOTION(0x95), State.IN_GAME);
 		addPacket(new CM_DELETE_CHARACTER(0x02), State.AUTHED);// 1.5.x
@@ -140,10 +142,14 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_BLOCK_SET_REASON(0x1D),State.IN_GAME);
 		addPacket(new CM_BLOCK_DEL(0x11), State.IN_GAME);
 		addPacket(new CM_BLOCK_ADD(0x10), State.IN_GAME);
-		addPacket(new CM_TRADE_REQUEST(0x11), State.IN_GAME);
-		addPacket(new CM_TRADE_LOCK(0x0D), State.IN_GAME);
-		addPacket(new CM_TRADE_CANCEL(0x0F), State.IN_GAME);
-		addPacket(new CM_TRADE_OK(0x0C), State.IN_GAME);
+
+		addPacket(new CM_EXCHANGE_REQUEST(0xA9), State.IN_GAME);
+		addPacket(new CM_EXCHANGE_LOCK(0xAD), State.IN_GAME);
+		addPacket(new CM_EXCHANGE_CANCEL(0xAF), State.IN_GAME);
+		addPacket(new CM_EXCHANGE_OK(0xAE), State.IN_GAME);
+		addPacket(new CM_EXCHANGE_ADD_ITEM(0xAA), State.IN_GAME);
+		addPacket(new CM_EXCHANGE_ADD_KINAH(0xAC), State.IN_GAME);
+
 		addPacket(new CM_TERRITORY(0x4A), State.IN_GAME);
 		addPacket(new CM_START_LOOT(0x04), State.IN_GAME);
 		addPacket(new CM_LOOT_ITEM(0x05), State.IN_GAME);
@@ -161,9 +167,9 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_TELEPORT_SELECT(0x7E), State.IN_GAME);//
 		addPacket(new CM_VERIFY_LOCATION(0x9B), State.IN_GAME);//
 		
-		//addPacket(new CM_INVITE_TO_GROUP(0x4B ), State.IN_GAME);//
-		//addPacket(new CM_VIEW_DETAIL(0x4E ), State.IN_GAME);//
-		//addPacket(new CM_REQUEST_DUEL(0x5C ), State.IN_GAME);//
+		//addPacket(new CM_INVITE_TO_GROUP(0x4B ), State.IN_GAME);
+		//addPacket(new CM_VIEW_DETAIL(0x4E ), State.IN_GAME);
+		//addPacket(new CM_REQUEST_DUEL(0x5C ), State.IN_GAME);
 
 		
 	}

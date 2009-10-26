@@ -42,6 +42,7 @@ import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.MacroList;
+import com.aionemu.gameserver.model.gameobjects.player.ExchangeList;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
@@ -167,7 +168,9 @@ public class PlayerService
 		player.setKnownlist(new KnownList(player));
 		player.setFriendList(DAOManager.getDAO(FriendListDAO.class).load(player, world));
 		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player,world));
-		
+
+		player.setExchangeList(new ExchangeList());
+
 		Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(playerObjId);
 		player.setInventory(inventory);
 		

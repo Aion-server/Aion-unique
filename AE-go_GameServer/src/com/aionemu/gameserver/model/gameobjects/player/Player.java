@@ -51,6 +51,7 @@ public class Player extends Creature
 	private ResponseRequester	requester;
 	private boolean lookingForGroup = false;
 	private Inventory			inventory;
+	private ExchangeList			exchangeList;
 	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -183,6 +184,16 @@ public class Player extends Creature
 	public void setFriendList(FriendList list)
 	{
 		this.friendList = list;
+	}
+
+	public ExchangeList getExchangeList()
+	{
+		return exchangeList;
+	}
+
+	public void setExchangeList(ExchangeList list)
+	{
+		this.exchangeList = list;
 	}
 	
 	public BlockList getBlockList()

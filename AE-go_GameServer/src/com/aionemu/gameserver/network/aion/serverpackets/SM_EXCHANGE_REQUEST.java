@@ -1,5 +1,5 @@
 /**
- * This file is part of aion-emu <aion-emu.com>.
+ * This file is part of aion-emu <aion-unique.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.network.aion.serverpackets;
 
@@ -25,19 +25,21 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author -Avol-
  * 
  */
-public class SM_TRADE_CONFIRMATION extends AionServerPacket
+public class SM_EXCHANGE_REQUEST extends AionServerPacket
 {
-	private int	action;
+
+	private String	receiver;
 	
 	
-	public SM_TRADE_CONFIRMATION(int action)
+	public SM_EXCHANGE_REQUEST(String receiver)
 	{
-		this.action = action;
+		this.receiver = receiver;
 	}
+
 
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, action);
+		writeS(buf, receiver);
 	}
 }

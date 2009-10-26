@@ -74,6 +74,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300423, itemName);
 	}
 
+	public static SM_SYSTEM_MESSAGE REQUEST_TRADE(String playerName)
+	{
+		return new SM_SYSTEM_MESSAGE(1300353, playerName);
+	}
+
 	/**
 	 * The remaining playing time is %0.
 	 * 
@@ -101,6 +106,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1370002, _exp);
 	}
+
+	/**
+	 * Your Requested player to trade
+	 */
+	public static final SM_SYSTEM_MESSAGE REQUEST_TRADE = new SM_SYSTEM_MESSAGE(1300353);
 	
 	/**
 	 * Your Friends List is full

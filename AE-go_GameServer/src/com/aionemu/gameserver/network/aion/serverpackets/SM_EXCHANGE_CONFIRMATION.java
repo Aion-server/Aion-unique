@@ -1,5 +1,5 @@
-/*
- * This file is part of aion-unique <aion-unique.com>.
+/**
+ * This file is part of aion-emu <aion-unique.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,17 +14,30 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects.stats;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
-import org.apache.log4j.Logger;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
+import java.nio.ByteBuffer;
+
+import com.aionemu.gameserver.network.aion.AionConnection;
+import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
- * @author  Avol
- *
+ * @author -Avol-
+ * 
  */
-public class PlayerGameStats extends CreatureGameStats<Player>
+public class SM_EXCHANGE_CONFIRMATION extends AionServerPacket
 {
+	private int	action;
+	
+	
+	public SM_EXCHANGE_CONFIRMATION(int action)
+	{
+		this.action = action;
+	}
 
-
+	@Override
+	protected void writeImpl(AionConnection con, ByteBuffer buf)
+	{
+		writeD(buf, action);
+	}
 }
