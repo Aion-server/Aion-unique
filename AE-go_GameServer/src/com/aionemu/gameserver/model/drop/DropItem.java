@@ -39,15 +39,15 @@ public class DropItem
 	
 	/**
 	 *  Regenerates item count upon each call
-	 *  // TODO input parameters
+	 *  // TODO input parameters - based on attacker stats
+	 *  // TODO more precise calculations (non-linear)
 	 */
 	public void calculateCount()
 	{
-		//TODO uncomment after droplist is ready
-		//if(Rnd.get() * 100 < dropTemplate.getChance())
-		//{
-			count = dropTemplate.getMin() + Rnd.nextInt(dropTemplate.getMax() - dropTemplate.getMin());
-		//}
+		if(Rnd.get() * 100 < dropTemplate.getChance())
+		{
+			count = Rnd.get(dropTemplate.getMin(), dropTemplate.getMax());
+		}
 	}
 
 	/**
