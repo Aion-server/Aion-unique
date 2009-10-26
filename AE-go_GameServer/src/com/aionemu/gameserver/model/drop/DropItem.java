@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.model.drop;
 
 import com.aionemu.commons.utils.Rnd;
+import com.aionemu.gameserver.configs.Config;
 
 /**
  * @author ATracer
@@ -44,7 +45,7 @@ public class DropItem
 	 */
 	public void calculateCount()
 	{
-		if(Rnd.get() * 100 < dropTemplate.getChance())
+		if(Rnd.get() * 100 < dropTemplate.getChance() * Config.DROP_RATE)
 		{
 			count = Rnd.get(dropTemplate.getMin(), dropTemplate.getMax());
 		}
