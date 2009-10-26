@@ -27,9 +27,9 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  *
  * @author IceReaper
  */
+
 public class SetExp extends AdminCommand
 {
-
 	public SetExp()
 	{
 		super("setexp");
@@ -39,13 +39,13 @@ public class SetExp extends AdminCommand
 	 *  (non-Javadoc)
 	 * @see com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.gameobjects.player.Player, java.lang.String[])
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String... params)
 	{
 		if(params == null || params.length < 1)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //setexp level");
-
+			PacketSendUtility.sendMessage(admin, "syntax //setexp <level>");
 			return;
 		}
 
@@ -58,7 +58,6 @@ public class SetExp extends AdminCommand
 		catch (NumberFormatException e)
 		{
 			PacketSendUtility.sendMessage(admin, "All the parameters should be numbers");
-
 			return;
 		}
 

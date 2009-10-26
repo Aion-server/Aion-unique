@@ -29,6 +29,7 @@ import com.google.inject.Inject;
  * @author Luno
  * 
  */
+
 public class SpawnNpc extends AdminCommand
 {
 	private final SpawnData		spawnData;
@@ -39,6 +40,7 @@ public class SpawnNpc extends AdminCommand
 	 * @param spawnData
 	 * @param spawnService
 	 */
+
 	@Inject
 	public SpawnNpc(SpawnData spawnData, SpawnEngine spawnService)
 	{
@@ -52,6 +54,7 @@ public class SpawnNpc extends AdminCommand
 	 * @seecom.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.
 	 * gameobjects.Player, java.lang.String[])
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
@@ -60,6 +63,7 @@ public class SpawnNpc extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "syntax //spawn <npc_id>");
 			return;
 		}
+
 		int npcId = Integer.parseInt(params[0]);
 		float x = admin.getX();
 		float y = admin.getY();
@@ -74,9 +78,10 @@ public class SpawnNpc extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "There is no npc with id " + npcId);
 			return;
 		}
+
 		Npc npc = spawnService.spawnNpc(spawn);
 
 		PacketSendUtility.sendMessage(admin, npc.getTemplate().getName()
-			+ " spawned. //save_spawn   command will save whole spawndata to file");
+		+ " spawned. //save_spawn   command will save whole spawndata to file");
 	}
 }

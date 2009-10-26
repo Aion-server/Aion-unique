@@ -31,6 +31,7 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  *
  * @author Cyrakuse
  */
+
 public class Promote extends AdminCommand
 {
 	@Inject
@@ -39,31 +40,32 @@ public class Promote extends AdminCommand
 	/**
 	 * Constructor.
 	 */
+
 	public Promote()
 	{
-	super("promote");
+		super("promote");
 	}
 
 	/**
 	 *  {@inheritDoc}
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String... params)
 	{
 		if (params == null || params.length < 1)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //promote characterName");
+			PacketSendUtility.sendMessage(admin, "syntax //promote <characterName>");
 			return;
 		}
 
-		
-		
 		Player player = world.findPlayer(params[0]);
 		if (player == null)
 		{
 			PacketSendUtility.sendMessage(admin, "The specified player is not online.");
 			return;
 		}
+
 		player.getCommonData().setAdmin(true);
 		PacketSendUtility.sendMessage(admin, player.getName() + " has been promoted Administrator");
 		PacketSendUtility.sendMessage(player, "You have been promoted Administrator.");

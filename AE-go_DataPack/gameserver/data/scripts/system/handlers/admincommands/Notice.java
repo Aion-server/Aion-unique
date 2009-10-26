@@ -29,6 +29,7 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  * @author Jenose
  * Updated By Darkwolf
  */
+
 public class Notice extends AdminCommand
 {
 	public Notice()
@@ -40,13 +41,13 @@ public class Notice extends AdminCommand
 	*  (non-Javadoc)
 	* @see com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.gameobjects.Player, java.lang.String[])
 	*/
+
 	@Override
 	public void executeCommand(Player admin, String... params)
 	{
 		if(params == null || params.length < 1)
 		{
 			PacketSendUtility.sendMessage(admin, "syntax //notice <message>");
-
 			return;
 		}
 
@@ -54,17 +55,16 @@ public class Notice extends AdminCommand
 
 		try
 		{
-			for (int i = 0; i < params.length; i++) {
-			  message += " " + params[i];
+			for (int i = 0; i < params.length; i++)
+			{
+				message += " " + params[i];
 			} 
 		}
-		catch (NumberFormatException e)
+			catch (NumberFormatException e)
 		{
 			PacketSendUtility.sendMessage(admin, "parameters should be text and number");
-
 			return;
 		}
-
 		PacketSendUtility.broadcastPacket(admin, new SM_MESSAGE(0,null,"Information : " + message,null, ChatType.SYSTEM_NOTICE), true);
 	}
 }

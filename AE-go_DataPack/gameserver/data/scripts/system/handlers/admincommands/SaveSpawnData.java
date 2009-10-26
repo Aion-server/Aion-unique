@@ -26,6 +26,7 @@ import com.google.inject.Inject;
  * @author Luno
  * 
  */
+
 public class SaveSpawnData extends AdminCommand
 {
 	private final SpawnData	spawnData;
@@ -33,11 +34,11 @@ public class SaveSpawnData extends AdminCommand
 	/**
 	 * 
 	 */
+
 	@Inject
 	public SaveSpawnData(SpawnData spawnData)
 	{
 		super("save_spawn");
-
 		this.spawnData = spawnData;
 	}
 
@@ -46,6 +47,7 @@ public class SaveSpawnData extends AdminCommand
 	 * @seecom.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.
 	 * gameobjects.Player, java.lang.String[])
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{

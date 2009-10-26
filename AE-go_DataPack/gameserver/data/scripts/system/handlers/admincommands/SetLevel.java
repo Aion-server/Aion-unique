@@ -27,6 +27,7 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  *
  * @author IceReaper
  */
+
 public class SetLevel extends AdminCommand
 {
 	public SetLevel()
@@ -38,13 +39,13 @@ public class SetLevel extends AdminCommand
 	 *  (non-Javadoc)
 	 * @see com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.gameobjects.Player, java.lang.String[])
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String... params)
 	{
 		if(params == null || params.length < 1)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //setlevel level");
-
+			PacketSendUtility.sendMessage(admin, "syntax //setlevel <level>");
 			return;
 		}
 
@@ -57,7 +58,6 @@ public class SetLevel extends AdminCommand
 		catch (NumberFormatException e)
 		{
 			PacketSendUtility.sendMessage(admin, "All the parameters should be numbers");
-
 			return;
 		}
 
@@ -73,6 +73,5 @@ public class SetLevel extends AdminCommand
 			admin.getCommonData().setLevel(level);
 			PacketSendUtility.sendMessage(admin, "Set your level to " + level);
 		}
-		
 	}
 }

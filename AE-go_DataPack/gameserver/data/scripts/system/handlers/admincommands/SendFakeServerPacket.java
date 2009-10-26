@@ -42,9 +42,9 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  * @author Luno
  * 
  */
+
 public class SendFakeServerPacket extends AdminCommand
 {
-	/***/
 	public SendFakeServerPacket()
 	{
 		super("fsc");
@@ -53,6 +53,7 @@ public class SendFakeServerPacket extends AdminCommand
 	/**
 	 * {@inheritDoc}
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
@@ -64,7 +65,7 @@ public class SendFakeServerPacket extends AdminCommand
 
 		int id = Integer.decode(params[0]);
 		String format = "";
-		
+
 		if(params.length > 1)
 			format = params[1];
 

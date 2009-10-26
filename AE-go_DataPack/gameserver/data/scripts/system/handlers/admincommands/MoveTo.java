@@ -29,6 +29,7 @@ import com.google.inject.Inject;
  * 
  * @author KID
  */
+
 public class MoveTo extends AdminCommand
 {
 	private final World		world;
@@ -36,17 +37,18 @@ public class MoveTo extends AdminCommand
 	/**
 	 * Constructor.
 	 */
+
 	@Inject
 	public MoveTo(World world)
 	{
 		super("moveto");
-
 		this.world = world; 
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{

@@ -31,6 +31,7 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  *
  * @author Tanelorn
  */
+
 public class MoveToPlayer extends AdminCommand
 {
 	@Inject
@@ -39,6 +40,7 @@ public class MoveToPlayer extends AdminCommand
 	/**
 	 * Constructor.
 	 */
+
 	public MoveToPlayer()
 	{
 		super("movetoplayer");
@@ -47,6 +49,7 @@ public class MoveToPlayer extends AdminCommand
 	/**
 	 * {@inheritDoc}
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String... params)
 	{
@@ -62,6 +65,7 @@ public class MoveToPlayer extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "The specified player is not online.");
 			return;
 		}
+
 		if (player == admin)
 		{
 			PacketSendUtility.sendMessage(admin, "Cannot use this command on yourself.");

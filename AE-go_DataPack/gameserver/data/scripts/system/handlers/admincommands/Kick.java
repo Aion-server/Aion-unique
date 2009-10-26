@@ -30,13 +30,16 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  * @author Elusive
  *
  */
+
 public class Kick extends AdminCommand
 {
 	@Inject
 	private World	world;
-/**
+
+	/**
 	 * @param commandName
 	 */
+
 	public Kick()
 	{
 		super("kick");
@@ -45,6 +48,7 @@ public class Kick extends AdminCommand
 	/* (non-Javadoc)
 	 * @see com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.gameobjects.Player, java.lang.String[])
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String... params)
 	{
@@ -62,5 +66,4 @@ public class Kick extends AdminCommand
 		player.getClientConnection().close(new SM_QUIT_RESPONSE(), true);
 		PacketSendUtility.sendMessage(admin, "Kicked player : " + player.getName());
 	}
-
 }

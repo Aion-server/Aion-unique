@@ -29,14 +29,16 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  *
  * @author Tanelorn
  */
+
 public class MovePlayerToPlayer extends AdminCommand
 {
-	
 	@Inject
 	private World	world;
-/**
+
+	/**
 	 * Constructor.
 	 */
+
 	public MovePlayerToPlayer()
 	{
 		super("moveplayertoplayer");
@@ -45,29 +47,30 @@ public class MovePlayerToPlayer extends AdminCommand
 	/**
 	 * {@inheritDoc}
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String... params)
 	{
 		if (params == null || params.length < 2)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //moveplayertoplayer characterNameToMove characterNameDestination");
+			PacketSendUtility.sendMessage(admin, "syntax //moveplayertoplayer <characterNameToMove> <characterNameDestination>");
 			return;
 		}
-		
+
 		Player playerToMove = world.findPlayer(params[0]);
 		if (playerToMove == null)
 		{
 			PacketSendUtility.sendMessage(admin, "The specified player is not online.");
 			return;
 		}
-		
+
 		Player playerDestination = world.findPlayer(params[1]);
 		if (playerDestination == null)
 		{
 			PacketSendUtility.sendMessage(admin, "The destination player is not online.");
 			return;
 		}
-		
+
 		if (playerToMove == playerDestination) {
 			PacketSendUtility.sendMessage(admin, "Cannot move the specified player to their own position.");
 			return;
@@ -75,7 +78,7 @@ public class MovePlayerToPlayer extends AdminCommand
 
 		world.setPosition(playerToMove, playerDestination.getWorldId(), playerDestination.getX(), playerDestination.getY(), playerDestination.getZ(), playerDestination.getHeading());
 		PacketSendUtility.sendPacket(playerToMove, new SM_UNKF5(playerToMove));
-		
+
 		PacketSendUtility.sendMessage(admin, "Teleported player " + playerToMove.getName() + " to the location of player " + playerDestination.getName() + ".");
 		PacketSendUtility.sendMessage(playerToMove, "You have been teleported by an administrator.");
 	}

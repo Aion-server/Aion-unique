@@ -55,6 +55,7 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  *
  * @author Aquanox
  */
+
 public class AdvSendFakeServerPacket extends AdminCommand
 {
 	private static final Logger logger = Logger.getLogger(AdvSendFakeServerPacket.class);
@@ -68,10 +69,10 @@ public class AdvSendFakeServerPacket extends AdminCommand
 	 *
 	 * @throws GameServerError on initialization error
 	 */
+
 	public AdvSendFakeServerPacket()
 	{
 		super("send");
-
 		// init unmrshaller once.
 		try
 		{
@@ -84,6 +85,7 @@ public class AdvSendFakeServerPacket extends AdminCommand
 	}
 
 	/** {@inheritDoc} */
+
 	@Override
 	public void executeCommand(final Player admin, String[] params)
 	{
@@ -108,7 +110,7 @@ public class AdvSendFakeServerPacket extends AdminCommand
 		}
 
 		final Packets packetsTemplate;
-		
+
 		try
 		{
 			packetsTemplate = (Packets) unmarshaller.unmarshal(packetsData);
@@ -172,12 +174,11 @@ public class AdvSendFakeServerPacket extends AdminCommand
 					//logger.debug("Sending: " + packetTemplate);
 					PacketSendUtility.sendPacket(target, packet);
 				}
-			}, packetIndex * packets.getDelay());
+			}, packetIndex * packets.getDelay()); //Kamui: this is correct or a mistake?
 
 			packetIndex++;
 		}
 	}
-
 
 	private Player getTargetPlayer(Player admin)
 	{

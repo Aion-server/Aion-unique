@@ -22,39 +22,43 @@ import java.util.Iterator;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
+
 /**
 * @author Ben
 *
 */
+
 public class Announce extends AdminCommand
 {
- 
-        public Announce() {
-                super("announce");
-        }
-        /* (non-Javadoc)
-         * @see com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.model.gameobjects.player.Player, java.lang.String[])
-         */
-        @Override
-        public void executeCommand(Player admin, String... params)
-        {       
-                if (params.length == 0) {
-                        PacketSendUtility.sendMessage(admin, "//announce <message>");
-                }
-                else {
-                        Iterator<Player> iter = admin.getActiveRegion().getWorld().getPlayersIterator();
-                        StringBuilder sbMessage = new StringBuilder("<Annonce> ");
-                        
-                        for (String p : params)
-                                sbMessage.append(p + " ");
-                        String sMessage = sbMessage.toString().trim();
-                        while (iter.hasNext()) {
-                                PacketSendUtility.sendMessage(iter.next(), sMessage);
-                        }
-                }
-                
-                // TODO Auto-generated method stub
- 
-        }
- 
+	public Announce()
+	{
+		super("announce");
+	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.model.gameobjects.player.Player, java.lang.String[])
+	 */
+
+	@Override
+	public void executeCommand(Player admin, String... params)
+	{
+		if (params.length == 0)
+		{
+			PacketSendUtility.sendMessage(admin, "//syntax announce <message>");
+		}
+		else
+		{
+			Iterator<Player> iter = admin.getActiveRegion().getWorld().getPlayersIterator();
+			StringBuilder sbMessage = new StringBuilder("Announce: ");
+
+			for (String p : params)
+			sbMessage.append(p + " ");
+			String sMessage = sbMessage.toString().trim();
+			while (iter.hasNext())
+			{
+				PacketSendUtility.sendMessage(iter.next(), sMessage);
+			}
+		}
+		// TODO Auto-generated method stub
+	}
 }

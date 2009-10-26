@@ -31,6 +31,7 @@ import com.google.inject.Inject;
  * @author Luno
  * 
  */
+
 public class ReloadSpawns extends AdminCommand
 {
 	@Inject
@@ -43,6 +44,7 @@ public class ReloadSpawns extends AdminCommand
 	/**
 	 * @param commandName
 	 */
+
 	public ReloadSpawns()
 	{
 		super("reload_spawn");
@@ -54,6 +56,7 @@ public class ReloadSpawns extends AdminCommand
 	 * com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.model
 	 * .gameobjects.Player, java.lang.String[])
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{

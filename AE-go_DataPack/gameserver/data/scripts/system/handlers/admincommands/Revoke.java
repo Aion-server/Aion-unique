@@ -31,6 +31,7 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  *
  * @author Cyrakuse
  */
+
 public class Revoke extends AdminCommand
 {
 	@Inject
@@ -39,14 +40,16 @@ public class Revoke extends AdminCommand
 	/**
 	 * Constructor.
 	 */
+
 	public Revoke()
 	{
-	super("revoke");
+		super("revoke");
 	}
 
 	/**
 	 *  {@inheritDoc}
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String... params)
 	{
@@ -56,16 +59,15 @@ public class Revoke extends AdminCommand
 			return;
 		}
 
-		
-		
 		Player player = world.findPlayer(params[0]);
 		if (player == null)
 		{
 			PacketSendUtility.sendMessage(admin, "The specified player is not online.");
 			return;
 		}
+
 		player.getCommonData().setAdmin(false);
-		PacketSendUtility.sendMessage(admin, player.getName() + " has been revoked");
-		PacketSendUtility.sendMessage(player, "Your Administrator rank has been revoked.");
+		PacketSendUtility.sendMessage(admin, player.getName() + " Administrator status has been revoked");
+		PacketSendUtility.sendMessage(player, "Your Administrator status has been revoked.");
 	}
 }

@@ -31,15 +31,16 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  *
  * @author Cyrakuse
  */
+
 public class MoveToMe extends AdminCommand
 {
-	
 	@Inject
 	private World	world;
 
 	/**
 	 * Constructor.
 	 */
+
 	public MoveToMe()
 	{
 		super("movetome");
@@ -48,23 +49,22 @@ public class MoveToMe extends AdminCommand
 	/**
 	 * {@inheritDoc}
 	 */
+
 	@Override
 	public void executeCommand(Player admin, String... params)
 	{
 		if (params == null || params.length < 1)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //movetome characterName");
+			PacketSendUtility.sendMessage(admin, "syntax //movetome <characterName>");
 			return;
 		}
-		
+
 		Player playerToMove = world.findPlayer(params[0]);
 		if (playerToMove == null)
 		{
 			PacketSendUtility.sendMessage(admin, "The specified player is not online.");
 			return;
 		}
-	
-
 
 		if (playerToMove == admin)
 		{
@@ -72,12 +72,9 @@ public class MoveToMe extends AdminCommand
 			return;
 		}
 
-
-
-
 		world.setPosition(playerToMove, admin.getWorldId(), admin.getX(), admin.getY(), admin.getZ(), admin.getHeading());
 		PacketSendUtility.sendPacket(playerToMove, new SM_UNKF5(playerToMove));
-		
+
 		PacketSendUtility.sendMessage(admin, "Teleported player " + playerToMove.getName() + " to your location.");
 		PacketSendUtility.sendMessage(playerToMove, "You have been teleported by " + admin.getName() + ".");
 	}
