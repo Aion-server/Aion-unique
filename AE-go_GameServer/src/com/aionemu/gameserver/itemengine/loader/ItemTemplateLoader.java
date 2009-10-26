@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.itemengine;
+package com.aionemu.gameserver.itemengine.loader;
 
 import java.io.File;
 

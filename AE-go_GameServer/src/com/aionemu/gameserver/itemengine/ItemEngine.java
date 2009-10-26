@@ -18,12 +18,10 @@ package com.aionemu.gameserver.itemengine;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.itemengine.loader.ItemTemplateLoader;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 /**
  * @author Avol
  * 
