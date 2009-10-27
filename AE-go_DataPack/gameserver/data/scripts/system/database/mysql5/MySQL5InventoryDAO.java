@@ -41,17 +41,18 @@ import java.util.List;
 public class MySQL5InventoryDAO extends InventoryDAO
 {
     private static final Logger log = Logger.getLogger(MySQL5InventoryDAO.class);
-    
+
     public static final String SELECT_QUERY = "SELECT `itemUniqueId`, `itemId`, `itemCount`, `isEquiped`, `slot` FROM `inventory` WHERE `itemOwner`=?";
-    
+
     /* (non-Javadoc)
      * @see com.aionemu.gameserver.dao.InventoryDAO#load(int)
      */
     @Override
-    public Inventory load(final int playerId) {
-  
+    public Inventory load(final int playerId)
+    {
+        //TODO load parts - cube, equipment etc.
         final Inventory inventory = new Inventory();
-        
+
         DB.select(SELECT_QUERY, new ParamReadStH()
         {
             @Override
@@ -82,77 +83,94 @@ public class MySQL5InventoryDAO extends InventoryDAO
      * @see com.aionemu.gameserver.dao.InventoryDAO#store(com.aionemu.gameserver.model.gameobjects.player.Inventory)
      */
     @Override
-    public void store(Inventory inventory) {
-        
+    public void store(Inventory inventory)
+    {
         int playerId = inventory.getOwner().getObjectId();
-        
         List<Item> inventoryItems = inventory.getAllItems();
-        
-        //TODO store only dirty items
+
         for(Item item : inventoryItems)
         {
             store(item, playerId);      
         } 
     }
-    
+
     /**
      * @param item
      * @return
      */
-    private boolean store(final Item item, final int playerId)
+    public boolean store(final Item item, final int playerId)
     {   
+        //TODO decide on performance
         return DB.insertUpdate("REPLACE INTO inventory ("
                 + "itemUniqueId, itemId, itemCount, itemOwner, isEquiped, slot)" + " VALUES "
                 + "(?, ?, ?, ?, ?, ?" + ")", new IUStH() {
-                @Override
-                public void handleInsertUpdate(PreparedStatement ps) throws SQLException
-                {
-                    log.info("[DAO: MySQL5InventoryDAO] storing inventory for " + playerId);
-                    ps.setInt(1, item.getObjectId());
-                    ps.setInt(2, item.getItemTemplate().getItemId());
-                    ps.setInt(3, item.getItemCount());
-                    ps.setInt(4, playerId);
-                    ps.setInt(5, item.isEquipped() ? 1 : 0);
-                    ps.setInt(6, item.getEquipmentSlot());
-                    ps.execute();
-                }
-            });
+                    @Override
+                    public void handleInsertUpdate(PreparedStatement ps) throws SQLException
+                    {
+                        ps.setInt(1, item.getObjectId());
+                        ps.setInt(2, item.getItemTemplate().getItemId());
+                        ps.setInt(3, item.getItemCount());
+                        ps.setInt(4, playerId);
+                        ps.setInt(5, item.isEquipped() ? 1 : 0);
+                        ps.setInt(6, item.getEquipmentSlot());
+                        ps.execute();
+                    }
+                });
+    }
+
+    /* (non-Javadoc)
+     * @see com.aionemu.gameserver.dao.InventoryDAO#delete(com.aionemu.gameserver.model.gameobjects.Item)
+     */
+    @Override
+    public void delete(Item item) 
+    {
+        PreparedStatement statement = DB.prepareStatement("DELETE FROM inventory WHERE itemUniqueId = ?");
+        try
+        {
+            statement.setInt(1, item.getObjectId());
+        }
+        catch(SQLException e)
+        {
+            log.error("Can't set int parameter to PreparedStatement", e);
+        }
+        DB.executeUpdateAndClose(statement);
     }
 
     /* (non-Javadoc)
      * @see com.aionemu.gameserver.dao.IDFactoryAwareDAO#getUsedIDs()
      */
     @Override
-    public int[] getUsedIDs() {
+    public int[] getUsedIDs() 
+    {
         PreparedStatement statement = DB.prepareStatement("SELECT itemUniqueId FROM inventory", ResultSet.TYPE_SCROLL_INSENSITIVE,
                 ResultSet.CONCUR_READ_ONLY);
 
-            try
+        try
+        {
+            ResultSet rs = statement.executeQuery();
+            rs.last();
+            int count = rs.getRow();
+            rs.beforeFirst();
+            int[] ids = new int[count];
+            for(int i = 0; i < count; i++)
             {
-                ResultSet rs = statement.executeQuery();
-                rs.last();
-                int count = rs.getRow();
-                rs.beforeFirst();
-                int[] ids = new int[count];
-                for(int i = 0; i < count; i++)
-                {
-                    rs.next();
-                    ids[i] = rs.getInt("itemUniqueId");
-                }
-                return ids;
+                rs.next();
+                ids[i] = rs.getInt("itemUniqueId");
             }
-            catch(SQLException e)
-            {
-                log.error("Can't get list of id's from inventory table", e);
-            }
-            finally
-            {
-                DB.close(statement);
-            }
+            return ids;
+        }
+        catch(SQLException e)
+        {
+            log.error("Can't get list of id's from inventory table", e);
+        }
+        finally
+        {
+            DB.close(statement);
+        }
 
-            return new int[0];
+        return new int[0];
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -161,5 +179,5 @@ public class MySQL5InventoryDAO extends InventoryDAO
     {
         return MySQL5DAOUtils.supports(s, i, i1);
     }
-    
+
 }

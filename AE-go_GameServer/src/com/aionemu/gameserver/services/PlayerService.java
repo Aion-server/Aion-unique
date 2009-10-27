@@ -134,9 +134,7 @@ public class PlayerService
 	public void storePlayer(Player player)
 	{
 		DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
-		
-		// TODO uncomment here only after full testing
-		//DAOManager.getDAO(InventoryDAO.class).store(player.getInventory());
+		DAOManager.getDAO(InventoryDAO.class).store(player.getInventory());
 	}
 
 	/**

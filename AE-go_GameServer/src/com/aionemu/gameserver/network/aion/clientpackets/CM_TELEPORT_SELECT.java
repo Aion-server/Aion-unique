@@ -108,7 +108,7 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 		//normal teleport
 		if (_tele.getLocId() != 0 && _tele.getMapId() != 0 && _tele.getTeleportId() == 0 && _tele.getX() != 0)
 		{
-			if (!bag.getKinahItem().decreaseItemCount(_tele.getPrice()))
+			if (!bag.decreaseKinah(_tele.getPrice()))
 			{
 				//Todo using the correct system message
 				sendPacket(new SM_MESSAGE(0, null, "You don't have enough Kinah", null, ChatType.ANNOUNCEMENTS));
@@ -123,7 +123,7 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 		//flying teleport
 		else if (_tele.getLocId() != 0 && _tele.getTeleportId() != 0)
 		{
-			if (!bag.getKinahItem().decreaseItemCount(_tele.getPrice()))
+			if (!bag.decreaseKinah(_tele.getPrice()))
 			{
 				//Todo using the correct system message
 				sendPacket(new SM_MESSAGE(0, null, "You don't have enough Kinah", null, ChatType.ANNOUNCEMENTS));

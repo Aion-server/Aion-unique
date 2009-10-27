@@ -18,6 +18,7 @@ package com.aionemu.gameserver.model.gameobjects;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 
@@ -123,6 +124,9 @@ public class Item extends AionObject
 	}
 	
 	/**
+	 *  Every increase operation should be persisted immediately in caller method
+	 *  Use <code>setItemCount</code> method for non-persisted operations
+	 *  
 	 * @param addCount 
 	 */
 	public void increaseItemCount(int addCount)
@@ -132,6 +136,9 @@ public class Item extends AionObject
 	}
 
 	/**
+	 *  Every decrease operation should be persisted immediately in caller method
+	 *  Use <code>setItemCount</code> method for non-persisted operations
+	 *  
 	 * @param remCount
 	 */
 	public boolean decreaseItemCount(int remCount)

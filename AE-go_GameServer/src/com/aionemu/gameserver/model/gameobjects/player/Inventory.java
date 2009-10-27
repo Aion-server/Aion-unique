@@ -25,6 +25,8 @@ import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.items.ItemStorage;
@@ -88,6 +90,30 @@ public class Inventory
 	{
 		return kinahItem;
 	}
+	/**
+	 *  Increasing kinah amount is persisted immediately
+	 *  
+	 * @param amount
+	 */
+	public void increaseKinah(int amount)
+	{
+		kinahItem.increaseItemCount(amount);
+		DAOManager.getDAO(InventoryDAO.class).store(kinahItem, getOwner().getObjectId());
+	}
+	/**
+	 *  Decreasing kinah amount is persisted immediately
+	 *  
+	 * @param amount
+	 */
+	public boolean decreaseKinah(int amount)
+	{
+		boolean operationResult = kinahItem.decreaseItemCount(amount);
+		if(operationResult)
+		{
+			DAOManager.getDAO(InventoryDAO.class).store(kinahItem, getOwner().getObjectId());
+		}
+		return operationResult;
+	}
 
 	/**
 	 * 
@@ -119,24 +145,37 @@ public class Inventory
 	 * 	Return is the result of add operation. It can be null if item was not stored, it can be existing 
 	 *  item reference if stack count was increased or new item in bag
 	 *  
+	 *  Every add operation is persisted immediately now
+	 *  
 	 * @param item
 	 */
 	public Item addToBag(Item item)
 	{
-		return defaultItemBag.addItemToStorage(item);
+		Item resultItem = defaultItemBag.addItemToStorage(item);
+		if(resultItem != null)
+		{
+			DAOManager.getDAO(InventoryDAO.class).store(resultItem, getOwner().getObjectId());
+		}
+		return resultItem;
 	}
 
 	/**
+	 *  Every remove operation is persisted immediately now
+	 *  
 	 * @param item
 	 */
 	public void removeFromBag(Item item)
 	{
-		defaultItemBag.removeItemFromStorage(item);
+		boolean operationResult = defaultItemBag.removeItemFromStorage(item);
+		if(operationResult)
+		{
+			DAOManager.getDAO(InventoryDAO.class).delete(item);
+		}
 	}
 	
 	/**
 	 *  Method primarily used when saving to DB
-	 *  
+	 *  //TODO getAllItems(compartment)
 	 * @return
 	 */
 	public List<Item> getAllItems()
@@ -263,7 +302,7 @@ public class Inventory
 	{
 		equipment.remove(itemToUnequip.getEquipmentSlot());
 		itemToUnequip.setEquipped(false);
-		addToBag(itemToUnequip);
+		defaultItemBag.addItemToStorage(itemToUnequip);
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip));
 	}
 
@@ -277,6 +316,11 @@ public class Inventory
 		return defaultItemBag.getItemFromStorageByItemId(value);
 	}
 	
+	/**
+	 *  Checks whether default cube is full
+	 *  
+	 * @return
+	 */
 	public boolean isFull()
 	{
 		return defaultItemBag.getNextAvailableSlot() == -1;

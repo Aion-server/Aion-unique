@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.model.items;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -98,6 +97,10 @@ public class ItemStorage
 		return null;
 	}
 	
+	/**
+	 * @param itemUniqueId
+	 * @return
+	 */
 	public Item getItemFromStorageByItemUniqueId(int itemUniqueId)
 	{
 		for(Item item : storageItems)
@@ -151,8 +154,9 @@ public class ItemStorage
 	}
 
 	/**
-	 * @return index of available slot
-	 *  If storage is null - return -1
+	 * If storage is null - return "-1"
+	 * 
+	 * @return index of available slot 
 	 */
 	public int getNextAvailableSlot()
 	{
@@ -174,6 +178,13 @@ public class ItemStorage
 	}
 
 	/**
+	 *  Add item logic:
+	 *  - If there is already existing item - try to increase stack count
+	 *  - If stack is full - place into next available slot
+	 *  
+	 *  - Return null if item was not added
+	 *  - Return Item as the result of successful operation
+	 *  
 	 * @param item
 	 * @return
 	 */
@@ -200,7 +211,9 @@ public class ItemStorage
 	}
 	
 	/**
-	 * 
+	 *  Return true if remove operation is successful
+	 *  Return false if remove encountered some problems
+	 *  
 	 * @param item
 	 * @return
 	 */

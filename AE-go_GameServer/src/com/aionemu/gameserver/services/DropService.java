@@ -165,7 +165,7 @@ public class DropService
 			
 			if(itemId == ItemId.KINAH.value())
 			{
-				inventory.getKinahItem().increaseItemCount(currentDropItemCount);
+				inventory.increaseKinah(currentDropItemCount);
 				PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
 				dropItems.remove(requestedItem);
 				resendDropList(player, npcId, dropItems);

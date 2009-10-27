@@ -111,11 +111,9 @@ public class CM_BUY_ITEM extends AionClientPacket
 			}
 		}
 
-		bag.getKinahItem().increaseItemCount(2* totalprice);
+		bag.increaseKinah(2 * totalprice);
 		if (totalprice != 0)
 			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(bag.getKinahItem()));
-		//TODO uncomment only after inventory slot save testing
-		//DAOManager.getDAO(InventoryDAO.class).store(bag);
 
 	}
 

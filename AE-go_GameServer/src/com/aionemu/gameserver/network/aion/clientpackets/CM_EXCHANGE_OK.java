@@ -81,6 +81,10 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 		* Check if other player confirmed trade.
 		*/
 		
+		//TODO run exchange operation under one transaction
+		//TODO fail whole operation if at least one action was unsuccessful
+		//TODO move logic to some Exchange service class
+		
 		if (targetPlayer.getExchangeList().getConfirm() == true)
 		{
 			PacketSendUtility.sendPacket(targetPlayer, new SM_EXCHANGE_CONFIRMATION(0));
@@ -96,7 +100,21 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 				lenght--;
 				int itemObjId = targetPlayer.getExchangeList().getExchangeItemList(lenght);
 				int itemCount = targetPlayer.getExchangeList().getExchangeItemCountList(lenght);
+				
 
+				/*
+				* remove traded items.
+				*/
+				
+				Inventory bag = targetPlayer.getInventory();
+				Item resultItem = bag.getItemByObjId(itemObjId);
+				
+				if (resultItem != null) 
+				{
+					bag.removeFromBag(resultItem);
+					PacketSendUtility.sendPacket(targetPlayer, new SM_DELETE_ITEM(itemObjId));
+				}
+				
 				/*
 				* Add traded items.
 				*/
@@ -113,19 +131,7 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 				if(addedItem != null)
 				{
 					PacketSendUtility.sendPacket(activePlayer, new SM_INVENTORY_INFO(Collections.singletonList(addedItem)));
-				}
-				
-				/*
-				* remove traded items.
-				*/
-				
-				Inventory bag = targetPlayer.getInventory();
-				Item resultItem = bag.getItemByObjId(itemObjId);
-				if (resultItem != null) 
-				{
-					bag.removeFromBag(resultItem);
-					PacketSendUtility.sendPacket(targetPlayer, new SM_DELETE_ITEM(itemObjId));
-				}
+				}	
 			}
 
 			/*
@@ -140,7 +146,19 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 				lenght--;
 				int itemObjId = activePlayer.getExchangeList().getExchangeItemList(lenght);
 				int itemCount = activePlayer.getExchangeList().getExchangeItemCountList(lenght);
-
+				
+				/*
+				* remove traded items.
+				*/	
+				
+				Inventory bag = activePlayer.getInventory();
+				Item resultItem = bag.getItemByObjId(itemObjId);
+				if (resultItem != null) 
+				{
+					bag.removeFromBag(resultItem);
+					PacketSendUtility.sendPacket(activePlayer, new SM_DELETE_ITEM(itemObjId));
+				}
+				
 				/*
 				* Add traded items.
 				*/
@@ -157,21 +175,8 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 				if(addedItem != null)
 				{
 					PacketSendUtility.sendPacket(targetPlayer, new SM_INVENTORY_INFO(Collections.singletonList(addedItem)));
-				}
-			
-				/*
-				* remove traded items.
-				*/	
-				
-				Inventory bag = activePlayer.getInventory();
-				Item resultItem = bag.getItemByObjId(itemObjId);
-				if (resultItem != null) 
-				{
-					bag.removeFromBag(resultItem);
-					PacketSendUtility.sendPacket(activePlayer, new SM_DELETE_ITEM(itemObjId));
-				}
+				}	
 			} 
-
 
 			/*
 			* set kinah activePlayer
@@ -181,7 +186,7 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 			int kinahCount = currentKinahActive.getKinahItem().getItemCount() - activePlayer.getExchangeList().getExchangeKinah() + targetPlayer.getExchangeList().getExchangeKinah();
 
 			int newKinah = kinahCount - currentKinahActive.getKinahItem().getItemCount();
-			currentKinahActive.getKinahItem().increaseItemCount(newKinah);
+			currentKinahActive.increaseKinah(newKinah);
 
 			PacketSendUtility.sendPacket(activePlayer, new SM_UPDATE_ITEM(currentKinahActive.getKinahItem()));
 				
@@ -193,7 +198,7 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 			kinahCount = currentKinahTarget.getKinahItem().getItemCount() - targetPlayer.getExchangeList().getExchangeKinah() + activePlayer.getExchangeList().getExchangeKinah();
 	
 			newKinah = kinahCount - currentKinahTarget.getKinahItem().getItemCount();
-			currentKinahTarget.getKinahItem().increaseItemCount(newKinah);
+			currentKinahTarget.increaseKinah(newKinah);
 			PacketSendUtility.sendPacket(targetPlayer, new SM_UPDATE_ITEM(currentKinahTarget.getKinahItem()));	
 		}
 	}

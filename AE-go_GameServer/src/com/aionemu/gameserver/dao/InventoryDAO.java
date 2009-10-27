@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.dao;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 
 /**
@@ -33,6 +34,16 @@ public abstract class InventoryDAO implements IDFactoryAwareDAO
 	 * @param inventory
 	 */
 	public abstract void store(Inventory inventory);
+	
+	/**
+	 * @param item
+	 */
+	public abstract boolean store(Item item, int playerId);
+	
+	/**
+	 * @param item
+	 */
+	public abstract void delete(Item item);
 	
 	/* (non-Javadoc)
 	 * @see com.aionemu.commons.database.dao.DAO#getClassName()
