@@ -101,6 +101,17 @@
 	</player_stats>
 
 	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<player_stats class="ASSASSIN" level="18">
+		<stats_template maxHp="1211" maxMp="1361"
+		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="316" block="316" parry="316"
+		                main_hand_attack="19" main_hand_accuracy="354" main_hand_crit_rate="3"
+		                magic_accuracy="256" />
+	</player_stats>
+
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="ASSASSIN" level="19">
 		<stats_template maxHp="1288" maxMp="1431"
 		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
