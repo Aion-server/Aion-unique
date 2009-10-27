@@ -244,8 +244,7 @@
     </packet>
     <packet id="0x42" name="SM_CASTSPELL_END"/>
 	<packet id="0x45" name="SM_SKILL_LIST">
-		<part name="skillListSize" type="h"/>
-		<part id="0" name="skills" type="h"/>
+		<part id="0" name="skillListSize" type="h"/>
 			<for id="0">
 				<part name="skillId" type="h"/>
 				<part name="lvl" type="d"/>
