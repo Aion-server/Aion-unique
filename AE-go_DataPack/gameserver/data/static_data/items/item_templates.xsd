@@ -60,6 +60,8 @@
 		<xs:attribute name="can_split" type="xs:boolean" />
 		<xs:attribute name="item_drop_permitted" type="xs:boolean" />
 		<xs:attribute name="race_permitted" type="xs:string" />
+		<xs:attribute name="physical_defend" type="xs:int" />
+		<xs:attribute name="magical_resist" type="xs:int" />
 		<xs:attribute name="price" type="xs:int" />
 		<xs:attribute name="quality" type="xs:string" />
 		<xs:attribute name="item_type" type="xs:string" />

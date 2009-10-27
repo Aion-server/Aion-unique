@@ -203,6 +203,12 @@ public class ItemTemplate
 	
 	@XmlAttribute(name = "race_permitted")
 	private String racePermitted;
+	
+	@XmlAttribute(name = "magical_resist")
+	private String magicalResist;
+	
+	@XmlAttribute(name = "physical_defend")
+	private int physicalDefend;
 
 	public int getItemId()
 	{
@@ -690,5 +696,21 @@ public class ItemTemplate
 	public void setItemId(int itemId)
 	{
 		this.itemId = itemId;
+	}
+
+	/**
+	 * @return the magicalResist
+	 */
+	public String getMagicalResist()
+	{
+		return magicalResist;
+	}
+
+	/**
+	 * @return the physicalDefend
+	 */
+	public int getPhysicalDefend()
+	{
+		return physicalDefend;
 	}
 }
