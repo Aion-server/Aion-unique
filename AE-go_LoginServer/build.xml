@@ -118,6 +118,11 @@
 			</fileset>
 		</copy>
 
+		<copy todir="${build.dist.login}/sql">
+            <fileset dir="sql">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
 
         <zip destfile="${build}/ae_login.zip"
              basedir="${build.dist}" />
