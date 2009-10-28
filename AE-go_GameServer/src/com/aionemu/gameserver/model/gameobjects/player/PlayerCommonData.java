@@ -84,9 +84,9 @@ public class PlayerCommonData
 		{
 			return 0;
 		}
-		return DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level+1)-DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level);
+		return DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level+1);
 	}
-	
+
 	public void setExp(long exp)
 	{
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
