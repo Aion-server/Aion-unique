@@ -23,15 +23,18 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
-
+import org.apache.log4j.Logger;
 
 /**
  * 
- * @author alexa026
+ * @author alexa026, Avol
  * 
  */
 public class CM_SHOW_DIALOG extends AionClientPacket
 {
+
+	private static final Logger log	= Logger.getLogger(CM_SHOW_DIALOG.class);
+
 	/**
 	* Target object id that client wants to TALK WITH or 0 if wants to unselect
 	*/
@@ -54,7 +57,7 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		targetObjectId = readD();// empty
+		targetObjectId = readD();
 	}
 
 	/**
@@ -63,25 +66,25 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		Player player = getConnection().getActivePlayer();
-		if(player == null)
+		if (world.findPlayer(targetObjectId) ==null) {
+			Player player = getConnection().getActivePlayer();
+			if(player == null)
+				return;
+		
+			AionObject o = world.findAionObject(targetObjectId);
+			if ( o == null)
 			return;
+			
+			sendPacket(new SM_LOOKATOBJECT(targetObjectId, player.getObjectId(), Math.abs(128 - player.getHeading())));
 		
-		AionObject o = world.findAionObject(targetObjectId);
-		if ( o == null)
-			return;
-		
-		sendPacket(new SM_LOOKATOBJECT(targetObjectId, player.getObjectId(), Math.abs(128 - player.getHeading())));
-		
-		if (o.getName().startsWith("Mail"))
-		{
-			sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 18));
+			if (o.getName().startsWith("Mail"))
+			{
+				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 18));
+			}
+			else
+			{
+				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 10));
+			}
 		}
-		else
-		{
-			sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 10));
-		}
-
-		
 	}
 }

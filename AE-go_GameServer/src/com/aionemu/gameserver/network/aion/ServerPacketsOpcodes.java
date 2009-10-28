@@ -112,6 +112,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_CONFIRMATIO
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_REQUEST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_KINAH;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_VIEW_PLAYER_DETAILS;
 
 /**
  * This class is holding opcodes for all server packets. It's used only to have all opcodes in one place
@@ -233,6 +234,8 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_EXCHANGE_REQUEST.class, 0x63, idSet);
 		addPacketOpcode(SM_EXCHANGE_ADD_ITEM.class, 0x62, idSet);
 		addPacketOpcode(SM_EXCHANGE_ADD_KINAH.class, 0x64, idSet);
+
+		addPacketOpcode(SM_VIEW_PLAYER_DETAILS.class, 0x38, idSet);
 
 		//Unrecognized Opcodes:
 		//addPacketOpcode(SM_TIME_CHECK.class, 0x26, idSet);

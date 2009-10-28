@@ -37,7 +37,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 
 public class CM_EXCHANGE_ADD_KINAH extends AionClientPacket
 {
-	public int itemObjId;
+	public int unk;
 	public int itemCount;
 
 	@Inject	
@@ -57,7 +57,7 @@ public class CM_EXCHANGE_ADD_KINAH extends AionClientPacket
 	protected void readImpl()
 	{
 		itemCount = readD();
-		itemObjId = readD();
+		unk = readD();
 	}
 
 	/**

@@ -73,8 +73,8 @@ public class CM_EXCHANGE_ADD_ITEM extends AionClientPacket
 		Item item = inventory.getItemByObjId(itemObjId);
 		int itemId = item.getItemTemplate().getItemId();
 		int itemNameId = Integer.parseInt(item.getItemTemplate().getDescription());
-		PacketSendUtility.sendPacket(activePlayer, new SM_EXCHANGE_ADD_ITEM(itemObjId, itemCount, 0, itemId, itemNameId));
-		PacketSendUtility.sendPacket(targetPlayer, new SM_EXCHANGE_ADD_ITEM(itemObjId, itemCount, 1, itemId, itemNameId));
+		PacketSendUtility.sendPacket(activePlayer, new SM_EXCHANGE_ADD_ITEM(itemObjId, itemCount, 0, itemId, itemNameId, activePlayer));
+		PacketSendUtility.sendPacket(targetPlayer, new SM_EXCHANGE_ADD_ITEM(itemObjId, itemCount, 1, itemId, itemNameId, activePlayer));
 
 		activePlayer.getExchangeList().exchangeItemListAdd(itemObjId, itemCount);
 	}

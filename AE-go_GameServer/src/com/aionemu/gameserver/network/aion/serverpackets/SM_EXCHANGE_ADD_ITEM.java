@@ -21,6 +21,11 @@ import java.util.Random;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.items.ItemId;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -37,14 +42,16 @@ public class SM_EXCHANGE_ADD_ITEM extends AionServerPacket
 	private int action;
 	private int itemId;
 	private int itemNameId;
+	private Player player;
 
-	public SM_EXCHANGE_ADD_ITEM(int itemObjId, int itemCount, int action, int itemId, int itemNameId)
+	public SM_EXCHANGE_ADD_ITEM(int itemObjId, int itemCount, int action, int itemId, int itemNameId, Player player)
 	{
 		this.itemObjId = itemObjId;
 		this.itemCount = itemCount;	
 		this.action = action;
 		this.itemId = itemId;
 		this.itemNameId = itemNameId;
+		this.player = player;
 	}
 
 	@Override
@@ -61,6 +68,77 @@ public class SM_EXCHANGE_ADD_ITEM extends AionServerPacket
 
 		writeH(buf, 0); 
 
+		Inventory inventory = player.getInventory();
+		Item item = inventory.getItemByObjId(itemObjId);
+		ItemTemplate itemTemplate = item.getItemTemplate();
+
+		if (itemTemplate.isWeapon()) 
+		{
+
+		int itemSlotId = item.getEquipmentSlot();
+		writeH(buf, 0x46);
+		writeC(buf, 0x06);	
+		writeD(buf, 0);
+		writeC(buf, 0x01);
+		writeD(buf, 0);
+		writeD(buf, 0x02);
+		writeC(buf, 0x0B); //? some details separator
+		writeH(buf, 0);
+		writeD(buf, itemId);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeC(buf, 0x3E);
+		writeC(buf, 0x0A);
+		writeD(buf, itemCount);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeH(buf, 0);
+		writeC(buf, 0);
+		writeH(buf, 0); // FF FF equipment
+		writeC(buf,  0);//item.isEquipped() ? 1 : 0
+
+		} 
+		else if (itemTemplate.isArmor()) 
+		{
+
+		writeH(buf, 0x4A);
+		writeC(buf, 0x06);		
+		writeD(buf, 0);
+		writeC(buf, 0x02);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeC(buf, 0x0B); //? some details separator
+		writeH(buf, 0);
+		writeD(buf, itemId);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeC(buf, 0x3E);
+		writeC(buf, 0x02);
+		writeD(buf, itemCount);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeD(buf, 0);
+		writeH(buf, 0);
+		writeC(buf, 0);
+		writeH(buf, 0); // FF FF equipment
+		writeC(buf, 1);//item.isEquipped() ? 1 : 0
+
+		}
+		else 
+		{
+
 		writeH(buf, 0x16); //length of details
 		writeC(buf, 0);
 		writeC(buf, 0x3E); //or can be 0x1E
@@ -71,7 +149,10 @@ public class SM_EXCHANGE_ADD_ITEM extends AionServerPacket
 		writeD(buf, 0);
 		writeH(buf, 0);
 		writeC(buf, 0);
-		writeH(buf, 1); // not equipable items
+		writeH(buf, 0); // not equipable items
 		writeC(buf, 0);
+
+		}
+
 	}
 }

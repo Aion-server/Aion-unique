@@ -39,7 +39,7 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 
 	private static final Logger	log	= Logger.getLogger(CM_EXCHANGE_REQUEST.class);
 
-	public Integer			ObjectId;
+	public Integer			targetObjectId;
 	@Inject	
 	private World			world;
 	private String receiver;
@@ -52,7 +52,7 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		ObjectId = readD();
+		targetObjectId = readD();
 	}
 
 
@@ -60,7 +60,7 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 	protected void runImpl()
 	{
 		final Player activePlayer = getConnection().getActivePlayer();
-		final Player targetPlayer = world.findPlayer(ObjectId);
+		final Player targetPlayer = world.findPlayer(targetObjectId);
 
 		/*
 		* check if not trading with yourself.
