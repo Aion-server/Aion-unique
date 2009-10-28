@@ -58,7 +58,7 @@ public class ItemService
 		ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
 		if(itemTemplate == null)
 		{
-			log.error("Item was not populated correctly. Item template is missing for item id: " + itemId);
+			log.warn("Item was not populated correctly. Item template is missing for item id: " + itemId);
 		}
 		else
 		{
