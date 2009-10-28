@@ -18,6 +18,8 @@
 package com.aionemu.gameserver.configs;
 
 import java.io.File;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,8 +80,15 @@ public class IPConfig
 
 					if(qName.equals("ipconfig"))
 					{
-						defaultAddress = IPRange.toByteArray(attributes.getValue("default"));
-					}
+                        try
+                        {
+                            defaultAddress = InetAddress.getByName(attributes.getValue("default")).getAddress();
+                        }
+                        catch (UnknownHostException e) 
+                        {
+                            throw new RuntimeException("Failed to resolve DSN for address: " + attributes.getValue("default"), e);
+                        }
+                    }
 					else if(qName.equals("iprange"))
 					{
 						String min = attributes.getValue("min");

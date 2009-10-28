@@ -19,6 +19,10 @@
     File that is responsible for network address mapping.
     We can have any number of ip ranges mapped to various network interfaces
     Useful for those who run server in local areas with two (or more) networks
+
+    For ipconfig's "default" attribute both DNS and ip address is supported.
+    Example: <ipconfig default="216.239.59.104">
+    Examples: <ipconfig default="google.de">
 -->
 
 <ipconfig default="127.0.0.1">
