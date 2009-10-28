@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="../stats/stats.xsd" />
+	<xs:include schemaLocation="../items/items.xsd" />
+
+	<xs:include schemaLocation="../import.xsd" />
+
+	<xs:element name="npc_data" type="npcData" />
+
+	<xs:complexType name="npcData">
+		<xs:sequence>
+			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="npc_template" type="npcTemplate" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="npcTemplate">
+		<xs:sequence>
+			<xs:element name="stats" type="npcStatsTemplate" />
+			<xs:element name="equipment" type="npcEquipmentList" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="npc_id" type="npcId" use="required" />
+		<xs:attribute name="level" type="xs:byte" use="required" />
+		<xs:attribute name="name_id" type="xs:int" use="required" />
+		<xs:attribute name="title_id" type="xs:int" default="0" />
+		<xs:attribute name="name" type="xs:string" default="" />
+		<xs:attribute name="height" type="xs:float" default="0" />
+		<xs:attribute name="talking_distance" type="xs:int" default="0" />
+		<xs:attribute name="ammo_speed" type="xs:int" />
+		<xs:attribute name="npc_type" type="npcType" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="npcStatsTemplate">
+		<xs:complexContent>
+			<xs:extension base="statsTemplate">
+				<xs:sequence />
+				<xs:attribute name="walk_speed_fight" type="xs:float" use="required" />
+				<xs:attribute name="run_speed_fight" type="xs:float" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="npcEquipmentList">
+		<xs:sequence>
+			<xs:element name="item" type="itemId" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="npcType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ATTACKABLE" />
+			<xs:enumeration value="AGGRESSIVE" />
+			<xs:enumeration value="NON_ATTACKABLE" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="npcId">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="200000"/>
+			<xs:maxInclusive value="800000"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
+

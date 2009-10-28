@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../npcs/npcs.xsd">
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250001" level="20" name_id="301425" npc_type="NON_ATTACKABLE" name="frame quake level 1 artifact - elyos" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250002" level="20" name_id="301426" npc_type="NON_ATTACKABLE" name="frame quake level 1 artifact - asmodians" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250003" level="20" name_id="301427" npc_type="NON_ATTACKABLE" name="frame quake level 1 artifact - balaur" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250004" level="20" name_id="301428" npc_type="NON_ATTACKABLE" name="(buff) warrior breath artifact - elyos" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250005" level="20" name_id="301429" npc_type="NON_ATTACKABLE" name="(buff) warrior breath artifact - asmodians" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250006" level="20" name_id="301430" npc_type="NON_ATTACKABLE" name="(buff) warrior breath artifact - balaur" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250007" level="20" name_id="301431" npc_type="NON_ATTACKABLE" name="frame quake level 2 artifact - elyos" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250008" level="20" name_id="301432" npc_type="NON_ATTACKABLE" name="frame quake level 2 artifact - asmodians" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250009" level="20" name_id="301433" npc_type="NON_ATTACKABLE" name="frame quake level 2 artifact - balaur" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250010" level="20" name_id="301434" npc_type="NON_ATTACKABLE" name="aurora heal artifact - elyos" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250011" level="20" name_id="301435" npc_type="NON_ATTACKABLE" name="aurora heal artifact - asmodians" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250012" level="20" name_id="301436" npc_type="NON_ATTACKABLE" name="aurora heal artifact - balaur" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250013" level="20" name_id="301437" npc_type="NON_ATTACKABLE" name="frozen cannon artifact - elyos" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250014" level="20" name_id="301438" npc_type="NON_ATTACKABLE" name="frozen cannon artifact - asmodians" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/npc/level_object/artifact -->
+	<npc_template npc_id="250015" level="20" name_id="301439" npc_type="NON_ATTACKABLE" name="frozen cannon artifact - balaur" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact -->
+	<npc_template npc_id="250082" level="20" name_id="301506" npc_type="NON_ATTACKABLE" name="castle gate  elyos only" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact -->
+	<npc_template npc_id="250083" level="20" name_id="301507" npc_type="NON_ATTACKABLE" name="castle gate  asmodians only" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact -->
+	<npc_template npc_id="250084" level="20" name_id="301508" npc_type="NON_ATTACKABLE" name="castle gate  balaur only" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact -->
+	<npc_template npc_id="250085" level="20" name_id="301509" npc_type="NON_ATTACKABLE" name="castle gate repair object  elyos only" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact -->
+	<npc_template npc_id="250086" level="20" name_id="301510" npc_type="NON_ATTACKABLE" name="castle gate repair object  asmodians only" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact -->
+	<npc_template npc_id="250087" level="20" name_id="301511" npc_type="NON_ATTACKABLE" name="castle gate repair object  balaur only" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="250131" level="20" name_id="305585" npc_type="NON_ATTACKABLE" name="elyos artifact  lava explosion" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="250132" level="20" name_id="305586" npc_type="NON_ATTACKABLE" name="asmodian artifact  lava explosion" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="250133" level="20" name_id="305587" npc_type="NON_ATTACKABLE" name="balaur artifact  lava explosion" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275030" level="20" name_id="301599" npc_type="NON_ATTACKABLE" name="elyos gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275031" level="20" name_id="301600" npc_type="NON_ATTACKABLE" name="asmodian gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275032" level="20" name_id="301601" npc_type="NON_ATTACKABLE" name="balaur gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275036" level="20" name_id="304819" npc_type="NON_ATTACKABLE" name="elyos outer castle gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275037" level="20" name_id="304820" npc_type="NON_ATTACKABLE" name="asmodian outer castle gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275038" level="20" name_id="304821" npc_type="NON_ATTACKABLE" name="balaur outer castle gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275206" level="20" name_id="301776" npc_type="NON_ATTACKABLE" name="elyos gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275207" level="20" name_id="301777" npc_type="NON_ATTACKABLE" name="asmodian gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275208" level="20" name_id="301778" npc_type="NON_ATTACKABLE" name="balaur gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275403" level="20" name_id="301977" npc_type="NON_ATTACKABLE" name="elyos gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275404" level="20" name_id="301978" npc_type="NON_ATTACKABLE" name="asmodian gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="275405" level="20" name_id="301979" npc_type="NON_ATTACKABLE" name="balaur gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276012" level="20" name_id="302180" npc_type="NON_ATTACKABLE" name="elyos gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276013" level="20" name_id="302181" npc_type="NON_ATTACKABLE" name="asmodian gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276014" level="20" name_id="302182" npc_type="NON_ATTACKABLE" name="balaur gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276212" level="20" name_id="302279" npc_type="NON_ATTACKABLE" name="elyos gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276213" level="20" name_id="302280" npc_type="NON_ATTACKABLE" name="asmodian gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276214" level="20" name_id="302281" npc_type="NON_ATTACKABLE" name="balaur gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276309" level="20" name_id="302404" npc_type="NON_ATTACKABLE" name="elyos gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276310" level="20" name_id="302405" npc_type="NON_ATTACKABLE" name="asmodian gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276311" level="20" name_id="302406" npc_type="NON_ATTACKABLE" name="balaur gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276409" level="20" name_id="302532" npc_type="NON_ATTACKABLE" name="elyos gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276410" level="20" name_id="302533" npc_type="NON_ATTACKABLE" name="asmodian gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276411" level="20" name_id="302534" npc_type="NON_ATTACKABLE" name="balaur gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276506" level="20" name_id="304674" npc_type="NON_ATTACKABLE" name="elyos gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276507" level="20" name_id="304675" npc_type="NON_ATTACKABLE" name="asmodian gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="276508" level="20" name_id="304676" npc_type="NON_ATTACKABLE" name="balaur gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276726" level="20" name_id="312111" npc_type="NON_ATTACKABLE" name="elyos artifact  aurora of abyss" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276727" level="20" name_id="312112" npc_type="NON_ATTACKABLE" name="asmodian artifact  aurora of abyss" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276728" level="20" name_id="312113" npc_type="NON_ATTACKABLE" name="balaur artifact  aurora of abyss" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276729" level="20" name_id="312114" npc_type="NON_ATTACKABLE" name="elyos artifact  shield of abyss" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276730" level="20" name_id="312115" npc_type="NON_ATTACKABLE" name="asmodian artifact  shield of abyss" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276731" level="20" name_id="312116" npc_type="NON_ATTACKABLE" name="balaur artifact  shield of abyss" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276732" level="20" name_id="312117" npc_type="NON_ATTACKABLE" name="elyos artifact  rain of illusion" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276733" level="20" name_id="312118" npc_type="NON_ATTACKABLE" name="asmodian artifact  rain of illusion" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276734" level="20" name_id="312119" npc_type="NON_ATTACKABLE" name="balaur artifact  rain of illusion" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276735" level="20" name_id="312120" npc_type="NON_ATTACKABLE" name="elyos artifact  power of legend" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276736" level="20" name_id="312121" npc_type="NON_ATTACKABLE" name="asmodian artifact  power of legend" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276737" level="20" name_id="312122" npc_type="NON_ATTACKABLE" name="balaur artifact  power of legend" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276738" level="20" name_id="312123" npc_type="NON_ATTACKABLE" name="elyos artifact  outcry of blood" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276739" level="20" name_id="312124" npc_type="NON_ATTACKABLE" name="asmodian artifact  outcry of blood" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276740" level="20" name_id="312125" npc_type="NON_ATTACKABLE" name="balaur artifact  outcry of blood" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276741" level="20" name_id="312126" npc_type="NON_ATTACKABLE" name="elyos artifact  abyss storm" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276742" level="20" name_id="312127" npc_type="NON_ATTACKABLE" name="asmodian artifact  abyss storm" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276743" level="20" name_id="312128" npc_type="NON_ATTACKABLE" name="balaur artifact  abyss storm" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276744" level="20" name_id="312129" npc_type="NON_ATTACKABLE" name="elyos artifact  vines of metamor" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276745" level="20" name_id="312130" npc_type="NON_ATTACKABLE" name="asmodian artifact  vines of metamor" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276746" level="20" name_id="312131" npc_type="NON_ATTACKABLE" name="balaur artifact  vines of metamor" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276747" level="20" name_id="312132" npc_type="NON_ATTACKABLE" name="elyos artifact  root of void" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276748" level="20" name_id="312133" npc_type="NON_ATTACKABLE" name="asmodian artifact  root of void" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276749" level="20" name_id="312134" npc_type="NON_ATTACKABLE" name="balaur artifact  root of void" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276750" level="20" name_id="312135" npc_type="NON_ATTACKABLE" name="elyos artifact  flaming hell" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276751" level="20" name_id="312136" npc_type="NON_ATTACKABLE" name="asmodian artifact  flaming hell" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276752" level="20" name_id="312137" npc_type="NON_ATTACKABLE" name="balaur artifact  flaming hell" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276753" level="20" name_id="312138" npc_type="NON_ATTACKABLE" name="elyos artifact  heavenly breath" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276754" level="20" name_id="312139" npc_type="NON_ATTACKABLE" name="asmodian artifact  heavenly breath" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276755" level="20" name_id="312140" npc_type="NON_ATTACKABLE" name="balaur artifact  heavenly breath" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276756" level="20" name_id="312141" npc_type="NON_ATTACKABLE" name="elyos artifact  curse of the sky" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276757" level="20" name_id="312142" npc_type="NON_ATTACKABLE" name="asmodian artifact  curse of the sky" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276758" level="20" name_id="312143" npc_type="NON_ATTACKABLE" name="balaur artifact  curse of the sky" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276759" level="20" name_id="312144" npc_type="NON_ATTACKABLE" name="elyos artifact  jeer of berdandi" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276760" level="20" name_id="312145" npc_type="NON_ATTACKABLE" name="asmodian artifact  jeer of berdandi" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276761" level="20" name_id="312146" npc_type="NON_ATTACKABLE" name="balaur artifact  jeer of berdandi" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="276762" level="20" name_id="312147" npc_type="NON_ATTACKABLE" name="elyos artifact  aetheric field of abyss" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="276763" level="20" name_id="312148" npc_type="NON_ATTACKABLE" name="asmodian artifact  aetheric field of abyss" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="276764" level="20" name_id="312149" npc_type="NON_ATTACKABLE" name="balaur artifact  aetheric field of abyss" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light_castle -->
+	<npc_template npc_id="277039" level="20" name_id="312743" npc_type="NON_ATTACKABLE" name="elyos artifact  divine felicitation" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark_castle -->
+	<npc_template npc_id="277040" level="20" name_id="312744" npc_type="NON_ATTACKABLE" name="asmodian artifact  divine felicitation" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon_castle -->
+	<npc_template npc_id="277041" level="20" name_id="312745" npc_type="NON_ATTACKABLE" name="balaur artifact  divine felicitation" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light_castle -->
+	<npc_template npc_id="277042" level="20" name_id="312746" npc_type="NON_ATTACKABLE" name="elyos artifact  felicitation of western siel" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark_castle -->
+	<npc_template npc_id="277043" level="20" name_id="312747" npc_type="NON_ATTACKABLE" name="asmodian artifact  felicitation of western siel" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon_castle -->
+	<npc_template npc_id="277044" level="20" name_id="312748" npc_type="NON_ATTACKABLE" name="balaur artifact  felicitation of western siel" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light_castle -->
+	<npc_template npc_id="277045" level="20" name_id="312749" npc_type="NON_ATTACKABLE" name="elyos artifact  felicitation of eastern siel" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark_castle -->
+	<npc_template npc_id="277046" level="20" name_id="312750" npc_type="NON_ATTACKABLE" name="asmodian artifact  felicitation of eastern siel" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon_castle -->
+	<npc_template npc_id="277047" level="20" name_id="312751" npc_type="NON_ATTACKABLE" name="balaur artifact  felicitation of eastern siel" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light_castle -->
+	<npc_template npc_id="277048" level="20" name_id="312752" npc_type="NON_ATTACKABLE" name="elyos artifact  felicitation of sulfur tree" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark_castle -->
+	<npc_template npc_id="277049" level="20" name_id="312753" npc_type="NON_ATTACKABLE" name="asmodian artifact  felicitation of sulfur tree" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon_castle -->
+	<npc_template npc_id="277050" level="20" name_id="312754" npc_type="NON_ATTACKABLE" name="balaur artifact  felicitation of sulfur tree" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light_castle -->
+	<npc_template npc_id="277051" level="20" name_id="312755" npc_type="NON_ATTACKABLE" name="elyos artifact  felicitation of ruins of roah" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark_castle -->
+	<npc_template npc_id="277052" level="20" name_id="312756" npc_type="NON_ATTACKABLE" name="asmodian artifact  felicitation of ruins of roah" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon_castle -->
+	<npc_template npc_id="277053" level="20" name_id="312757" npc_type="NON_ATTACKABLE" name="balaur artifact  felicitation of ruins of roah" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light_castle -->
+	<npc_template npc_id="277054" level="20" name_id="312758" npc_type="NON_ATTACKABLE" name="elyos artifact  felicitation of krotan" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark_castle -->
+	<npc_template npc_id="277055" level="20" name_id="312759" npc_type="NON_ATTACKABLE" name="asmodian artifact  felicitation of krotan" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon_castle -->
+	<npc_template npc_id="277056" level="20" name_id="312760" npc_type="NON_ATTACKABLE" name="balaur artifact  felicitation of krotan" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light_castle -->
+	<npc_template npc_id="277057" level="20" name_id="312761" npc_type="NON_ATTACKABLE" name="elyos artifact  felicitation of kysis" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark_castle -->
+	<npc_template npc_id="277058" level="20" name_id="312762" npc_type="NON_ATTACKABLE" name="asmodian artifact  felicitation of kysis" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon_castle -->
+	<npc_template npc_id="277059" level="20" name_id="312763" npc_type="NON_ATTACKABLE" name="balaur artifact  felicitation of kysis" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light_castle -->
+	<npc_template npc_id="277060" level="20" name_id="312764" npc_type="NON_ATTACKABLE" name="elyos artifact  felicitation of miren" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark_castle -->
+	<npc_template npc_id="277061" level="20" name_id="312765" npc_type="NON_ATTACKABLE" name="asmodian artifact  felicitation of miren" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon_castle -->
+	<npc_template npc_id="277062" level="20" name_id="312766" npc_type="NON_ATTACKABLE" name="balaur artifact  felicitation of miren" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light_castle -->
+	<npc_template npc_id="277063" level="20" name_id="312767" npc_type="NON_ATTACKABLE" name="elyos artifact  felicitation of asteria" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark_castle -->
+	<npc_template npc_id="277064" level="20" name_id="312768" npc_type="NON_ATTACKABLE" name="asmodain artifact  felicitation of asteria" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon_castle -->
+	<npc_template npc_id="277065" level="20" name_id="312769" npc_type="NON_ATTACKABLE" name="balaur artifact  felicitation of asteria" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_light -->
+	<npc_template npc_id="295056" level="20" name_id="305585" npc_type="NON_ATTACKABLE" name="elyos artifact  lava explosion" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dark -->
+	<npc_template npc_id="295057" level="20" name_id="305586" npc_type="NON_ATTACKABLE" name="asmodian artifact  lava explosion" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/artifact_dragon -->
+	<npc_template npc_id="295058" level="20" name_id="305587" npc_type="NON_ATTACKABLE" name="balaur artifact  lava explosion" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="295062" level="20" name_id="302404" npc_type="NON_ATTACKABLE" name="elyos gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="295063" level="20" name_id="302405" npc_type="NON_ATTACKABLE" name="asmodian gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/level_object/monster/ab_gatecontrol -->
+	<npc_template npc_id="295064" level="20" name_id="302406" npc_type="NON_ATTACKABLE" name="balaur gate guardian stone" height="2.0" talking_distance="5">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+</npc_data>

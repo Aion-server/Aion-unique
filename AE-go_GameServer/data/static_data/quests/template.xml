@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quest id="0" name="Quest Name">
+<!--<isMustMission value="true">-->
+<condition operate="and">
+	<pc_race op="eq" value="ASMODIAN" />
+	<pc_level op="ge" value="1" />
+</condition>
+
+<quest_step num="1">
+	<operation type="npc_dialog">
+	<npc id="0" />
+	<!-- dialog_id TODO-->
+	</operation>
+</quest_step>
+<quest_step num="2">
+	<operation type="end_quest" />	
+</quest_step>
+</quest>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="../import.xsd" />
+
+	<xs:element name="skill_data" type="skillData" />
+
+	<xs:complexType name="skillData">
+		<xs:sequence>
+			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="skill_template" type="skillTemplate" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="skillTemplate">
+		<xs:sequence>
+			<xs:element name="effects" type="Effects" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="skill_id" type="skillId" use="required" />
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="type" type="skillType" use="required" />
+		<xs:attribute name="handler" type="skillHandlerType" use="required" />
+		<xs:attribute name="level" type="xs:int" use="required" />
+		<xs:attribute name="duration" type="xs:int" use="required" />
+		<xs:attribute name="target" type="skillTarget" use="required" />
+		<xs:attribute name="cooldown" type="xs:int" use="optional" default="0"/>
+		<xs:attribute name="damage" type="xs:int" use="optional" default="0"/>
+	</xs:complexType>
+	
+	<xs:complexType name="Effects" >
+		<xs:sequence>
+			<xs:element name="effect" type="Effect" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Effect" >
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="value" type="xs:string" use="required" />
+	</xs:complexType>
+	
+	<xs:simpleType name="skillType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="INSTANT" />
+			<xs:enumeration value="CHANNELED" />
+			<xs:enumeration value="PASSIVE" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="skillHandlerType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BUFF" />
+			<xs:enumeration value="MDAM" />
+			<xs:enumeration value="MISC" />
+			<xs:enumeration value="PDAM" />
+			<xs:enumeration value="CREATE" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="skillTarget">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TARGET" />
+			<xs:enumeration value="TARGET_SELF" />
+			<xs:enumeration value="SELF" />
+			<xs:enumeration value="LOCATION" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+	
+	<xs:simpleType name="skillId">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="60000"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
+

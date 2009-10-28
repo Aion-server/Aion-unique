@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skill_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="skills.xsd">
+	
+<!-- Mage -->
+<skill_template skill_id="1351" name="Flame Bolt I" type="CHANNELED" 
+	handler="MDAM" target="TARGET" level="1" duration="2000" cooldown="1000">
+	<effects>
+		<effect name="damage" value="61" />
+	</effects>
+</skill_template>
+
+<!-- Priest -->
+<skill_template skill_id="975" name="Smite I" type="CHANNELED" 
+	handler="MDAM" target="TARGET" level="1" duration="2000" cooldown="2000">
+	<effects>
+		<effect name="damage" value="85" />
+	</effects>
+</skill_template>
+
+<!-- Scout -->
+<skill_template skill_id="564" name="Swift Edge I" type="INSTANT"
+	handler="PDAM" target="TARGET" level="1" duration="0" cooldown="7000">
+	<effects>
+		<effect name="damage" value="63" />
+	</effects>
+</skill_template>
+
+<!-- Warrior -->
+<skill_template skill_id="169" name="Ferocious Strike I" type="INSTANT"
+	handler="PDAM" target="TARGET" level="1" duration="0" cooldown="10000">
+	<effects>
+		<effect name="damage" value="41" />
+	</effects>
+</skill_template>
+
+<!-- MISC Here place general skills + skills that belongs to multiple classes -->
+
+<skill_template skill_id="1801" name="Return" type="CHANNELED"
+		handler="MISC" target="SELF" level="1" duration="6000" cooldown="1200" />
+
+	
+	
+	<!--
+		<skill_template skill_id="169" name="Severe Strike I" type="CHANNELED"
+		handler="PDAM" target="TARGET" level="1" duration="1" cooldown="10000"
+		damage="40" />
+	-->
+	<!--
+		<skill_template skill_id="965" name="Healing Light I" type="CHANNELED"
+		handler="MDAM" target="TARGET" level="1" duration="2000"
+		cooldown="1000" damage="93"/>
+	-->
+	<!--
+		<skill_template skill_id="1099" name="Root I " type="CHANNELED"
+		handler="MDAM" target="TARGET" level="1" duration="1" cooldown="1000"
+		damage="0" />
+	-->
+	<!--
+		<skill_template skill_id="1362" name="Ice Chain I" type="CHANNELED"
+		handler="MDAM" target="TARGET" level="1" duration="2000"
+		cooldown="10000" damage="76"/>
+	-->
+	
+	<!--Uses 1 bandage to recover your HP-->
+	<!--
+		<skill_template skill_id="1803" name="Bandage Heal" type="CHANNELED"
+		handler="MISC" target="SELF" level="1" duration="4000"
+		cooldown="16000" />
+	-->
+</skill_data>

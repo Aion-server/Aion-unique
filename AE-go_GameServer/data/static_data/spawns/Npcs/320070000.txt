@@ -1,0 +1,6 @@
+# mapid npcid x z y heading
+# Npc spawns by KID
+# Fix by Lamo2k123
+
+# Skuld
+320070000 204264 257.5292 250.65591 125.8369 0

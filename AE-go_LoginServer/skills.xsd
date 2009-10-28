@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="../import.xsd" />
+
+	<xs:element name="skill_data" type="skillData" />
+
+	<xs:complexType name="skillData">
+		<xs:sequence>
+			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="skill_template" type="skillTemplate" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="skillTemplate">
+		<xs:attribute name="skill_id" type="skillId" use="required" />
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="level" type="xs:byte" use="required" />
+	</xs:complexType>
+	
+	<xs:simpleType name="skillId">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="60000"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
+

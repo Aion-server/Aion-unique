@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../npcs/npcs.xsd">
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="294561" level="20" name_id="308195" npc_type="NON_ATTACKABLE" name="bomber" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="294562" level="20" name_id="308195" npc_type="NON_ATTACKABLE" name="bomber" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="294565" level="20" name_id="308197" npc_type="NON_ATTACKABLE" name="messenger" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="294566" level="20" name_id="308197" npc_type="NON_ATTACKABLE" name="messenger" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="294614" level="20" name_id="312164" npc_type="NON_ATTACKABLE" name="dredgion elite fighter" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="294790" level="20" name_id="312164" npc_type="NON_ATTACKABLE" name="dredgion elite fighter" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="294791" level="20" name_id="312164" npc_type="NON_ATTACKABLE" name="dredgion elite fighter" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="294792" level="20" name_id="312164" npc_type="NON_ATTACKABLE" name="dredgion elite fighter" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="295092" level="20" name_id="312164" npc_type="NON_ATTACKABLE" name="dredgion elite fighter" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="295181" level="20" name_id="312164" npc_type="NON_ATTACKABLE" name="dredgion elite fighter" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296337" level="20" name_id="312164" npc_type="NON_ATTACKABLE" name="dredgion elite fighter" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296338" level="20" name_id="312164" npc_type="NON_ATTACKABLE" name="dredgion elite fighter" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/noshownpc -->
+	<npc_template npc_id="296339" level="20" name_id="312164" npc_type="NON_ATTACKABLE" name="dredgion elite fighter" height="3.0">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749127" level="20" name_id="392031" npc_type="NON_ATTACKABLE" name="energy of abyss" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749128" level="20" name_id="392031" npc_type="NON_ATTACKABLE" name="energy of abyss" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749129" level="20" name_id="392032" npc_type="NON_ATTACKABLE" name="energy of abyss" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+		<!-- npc/skill_object/holyservant -->
+	<npc_template npc_id="749130" level="20" name_id="392032" npc_type="NON_ATTACKABLE" name="energy of abyss" height="1.02">
+		<stats 	maxHp="670"	maxMp="800"	block="217"	parry="217" evasion="217" main_hand_attack="19" main_hand_accuracy="290" main_hand_crit_rate="3" magic_accuracy="124"
+			walk_speed="0.0" walk_speed_fight="0.0" run_speed="0.0" run_speed_fight="0.0" fly_speed="9" attack_speed="1.5"/>
+	</npc_template>
+
+</npc_data>

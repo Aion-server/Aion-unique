@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<player_experience_table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="player_experience_table.xsd">
+	<exp>0</exp> <!-- level 1 -->
+	<exp>650</exp> <!-- level 2 -->
+	<exp>1917</exp> <!-- level 3 -->
+	<exp>4230</exp> <!-- level 4 -->
+	<exp>8693</exp> <!-- level 5 -->
+	<exp>14583</exp> <!-- level 6 -->
+	<exp>22885</exp> <!-- level 7 -->
+	<exp>34936</exp> <!-- level 8 -->
+	<exp>52435</exp> <!-- level 9 -->
+	<exp>73125</exp> <!-- level 10 -->
+	<exp>94104</exp> <!-- level 11 -->
+	<exp>130995</exp> <!-- level 12 -->
+	<exp>169608</exp> <!-- level 13 -->
+	<exp>217175</exp> <!-- level 14 -->
+	<exp>266649</exp> <!-- level 15 -->
+	<exp>326185</exp> <!-- level 16 -->
+	<exp>392297</exp> <!-- level 17 -->
+	<exp>522080</exp> <!-- level 18 -->
+	<exp>669712</exp> <!-- level 19 -->
+	<exp>817822</exp> <!-- level 20 -->
+	<exp>1000147</exp> <!-- level 21 -->
+	<exp>1295094</exp> <!-- level 22 -->
+	<exp>1609877</exp> <!-- level 23 -->
+	<exp>2001924</exp> <!-- level 24 -->
+	<exp>2348658</exp> <!-- level 25 -->
+	<exp>2686741</exp> <!-- level 26 -->
+	<exp>3117416</exp> <!-- level 27 -->
+	<exp>3602263</exp> <!-- level 28 -->
+	<exp>4012536</exp> <!-- level 29 -->
+	<exp>4676472</exp> <!-- level 30 -->
+	<exp>5828323</exp> <!-- level 31 -->
+	<exp>6808242</exp> <!-- level 32 -->
+	<exp>8091124</exp> <!-- level 33 -->
+	<exp>9689407</exp> <!-- level 34 -->
+	<exp>12669129</exp> <!-- level 35 -->
+	<exp>16124465</exp> <!-- level 36 -->
+	<exp>19742022</exp> <!-- level 37 -->
+	<exp>26021841</exp> <!-- level 38 -->
+	<exp>29936163</exp> <!-- level 39 -->
+	<exp>36147970</exp> <!-- level 40 -->
+	<exp>42137920</exp> <!-- level 41 -->
+	<exp>49355480</exp> <!-- level 42 -->
+	<exp>57959880</exp> <!-- level 43 -->
+	<exp>64372369</exp> <!-- level 44 -->
+        <exp>70382402</exp> <!-- level 45 -->
+        <exp>80382402</exp> <!-- level 46 -->
+        <exp>90382402</exp> <!-- level 47 -->
+        <exp>100382403</exp> <!-- level 48 -->
+        <exp>111382404</exp> <!-- level 49 -->
+        <exp>112082405</exp> <!-- level 50 -->
+        <exp>113582406</exp> <!-- level 51 -->
+</player_experience_table>

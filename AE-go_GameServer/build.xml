@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="AE_GameServer" default="dist" basedir=".">
+<project name="AE-go_GameServer" default="dist" basedir=".">
     <description>
-    	  This file is part of aion-unique [aionunique.smfnew.com].
+    	  This file is part of aion-emu [aion-emu.com].
     	 
     	   aion-emu is free software: you can redistribute it and/or modify
     	   it under the terms of the GNU General Public License as published by
@@ -16,6 +16,7 @@
     	   You should have received a copy of the GNU General Public License
     	   along with aion-emu.  If not, see http://www.gnu.org/licenses.
     </description>
+	
 	<property name="jre" location="${java.home}/lib"/>
     <property name="src" location="src"/>
 	<property name="config" location="config"/>
@@ -86,7 +87,9 @@
     	<mkdir dir="${build.dist}" />
     	<mkdir dir="${build.dist.gs}" />
     	<mkdir dir="${build.dist.gs}/config" />
+    	<mkdir dir="${build.dist.gs}/data" />
     	<mkdir dir="${build.dist.gs}/libs" />
+    	<mkdir dir="${build.dist.gs}/sql" />
     	
     	<copy todir="${build.dist.gs}">
             <fileset dir="${build}">
@@ -112,10 +115,20 @@
 			</fileset>
 		</copy>
 
+        <copy todir="${build.dist.gs}/data">
+            <fileset dir="data">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${build.dist.gs}/sql">
+            <fileset dir="sql">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+
         <zip destfile="${build}/ae_gameserver.zip"
              basedir="${build.dist}" />
     </target>   
-    
-   
-	
+
 </project>

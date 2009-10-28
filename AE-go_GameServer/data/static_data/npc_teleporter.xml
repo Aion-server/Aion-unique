@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc_teleporter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="npc_teleporter.xsd">
+	<!-- Asmodians -->
+	<!-- Pandaemonium -->
+	<teleporter_template npc_id="204191" name="Doman" teleportId="50">
+	</teleporter_template>
+	<!-- Ishalgen -->
+	<teleporter_template npc_id="203679" name="Osmar" teleportId="51">
+	</teleporter_template>
+	<teleporter_template npc_id="203513" name="Sheofin" teleportId="203">
+	</teleporter_template>
+	<teleporter_template npc_id="203545" name="Garhara" teleportId="204">
+	</teleporter_template>
+	<!-- Altgard -->
+	<teleporter_template npc_id="203581" name="Ukin" teleportId="52">
+	</teleporter_template>
+	<teleporter_template npc_id="203561" name="Lenat" teleportId="205">
+	</teleporter_template>
+	<teleporter_template npc_id="203678" name="Latunin" teleportId="206">
+		<locations>
+			<teleloc_template loc_id="19" mapid="220030000" name="Traders Berth" teleportid="14001" price="700"/>
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203683" name="Rubander" teleportId="207">
+	</teleporter_template>
+	<!-- Morheim -->
+	<teleporter_template npc_id="204399" name="Orhe" teleportId="53">
+	</teleporter_template>
+	<teleporter_template npc_id="204319" name="Yornduf" teleportId="208">
+	</teleporter_template>
+	<!-- Brusthonin -->
+	<teleporter_template npc_id="205124" name="Tusen" teleportId="54">
+	</teleporter_template>
+	<!-- Beluslan -->
+	<teleporter_template npc_id="204724" name="Eda" teleportId="55">
+	</teleporter_template>
+	<teleporter_template npc_id="204718" name="Gylfi" teleportId="211">
+	</teleporter_template>
+	<!-- Elyos -->
+	<!-- Poeta -->
+	<teleporter_template npc_id="203194" name="Daines" teleportId="2">
+	</teleporter_template>
+	<teleporter_template npc_id="203070" name="Kustanon" teleportId="103">
+	</teleporter_template>
+	<teleporter_template npc_id="203083" name="Aero" teleportId="104">
+	</teleporter_template>
+	<!-- Sanctum -->
+	<teleporter_template npc_id="203726" name="Polyidus" teleportId="1">
+	</teleporter_template>
+        <!-- Eltnen -->
+	<teleporter_template npc_id="203919" name="Onesimus" teleportId="4">
+	</teleporter_template>
+	<teleporter_template npc_id="203920" name="Naomi" teleportId="108">
+	</teleporter_template>
+         <!-- Verteron -->
+	<teleporter_template npc_id="203091" name="Urakron" teleportId="3">
+	</teleporter_template>
+	<teleporter_template npc_id="203120" name="Mirdiena" teleportId="105">
+	</teleporter_template>
+	<teleporter_template npc_id="203159" name="Irona" teleportId="106">
+		<locations>
+			<teleloc_template loc_id="14" mapid="210030000" name="Verteron Citadel" teleportid="8001" price="500"/>
+		</locations>
+	</teleporter_template>
+        <teleporter_template npc_id="203173" name="Belfinu" teleportId="107">
+	</teleporter_template>
+        <!-- Heiron -->
+	<teleporter_template npc_id="204514" name="Barantus" teleportId="6">
+	</teleporter_template>
+	<teleporter_template npc_id="204513" name="Amene" teleportId="111">
+	</teleporter_template>
+        <!-- Theomobos -->
+	<teleporter_template npc_id="798141" name="Thesaly" teleportId="5">
+	</teleporter_template>
+</npc_teleporter>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="../global_types.xsd" />
+	<xs:include schemaLocation="../import.xsd" />
+
+	<xs:element name="stats_templates" type="statsTemplatesType" />
+
+	<xs:complexType name="statsTemplateType">
+		<xs:sequence>
+			<xs:element name="stats_template" type="playerStatsTemplate" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute type="playerClass" name="class" use="required" />
+		<xs:attribute type="xs:byte" name="level" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="playerStatsTemplate">
+		<xs:complexContent>
+			<xs:extension base="statsTemplate">
+				<xs:attribute name="power" type="xs:int" use="required" />
+				<xs:attribute name="health" type="xs:int" use="required" />
+				<xs:attribute name="agility" type="xs:int" use="required" />
+				<xs:attribute name="accuracy" type="xs:int" use="required" />
+				<xs:attribute name="knowledge" type="xs:int" use="required" />
+				<xs:attribute name="will" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="statsTemplate" abstract="true">
+		<xs:attribute name="maxHp" type="xs:int" use="required" />
+		<xs:attribute name="maxMp" type="xs:int" use="required" />
+		<xs:attribute name="walk_speed" type="xs:float" use="required" />
+		<xs:attribute name="run_speed" type="xs:float" use="required" />
+		<xs:attribute name="fly_speed" type="xs:float" use="required" />
+		<xs:attribute name="attack_speed" type="xs:float" use="required" />
+		<xs:attribute name="evasion" type="xs:int" use="required" />
+		<xs:attribute name="block" type="xs:int" use="required" />
+		<xs:attribute name="parry" type="xs:int" use="required" />
+		<xs:attribute name="main_hand_attack" type="xs:int" use="required" />
+		<xs:attribute name="main_hand_accuracy" type="xs:int" use="required" />
+		<xs:attribute name="main_hand_crit_rate" type="xs:int" use="required" />
+		<xs:attribute name="magic_accuracy" type="xs:int" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="statsTemplatesType">
+		<xs:sequence>
+			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element type="statsTemplateType" name="player_stats" maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
+
