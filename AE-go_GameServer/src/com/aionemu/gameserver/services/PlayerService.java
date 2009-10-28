@@ -172,6 +172,11 @@ public class PlayerService
 		Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(playerObjId);
 		player.setInventory(inventory);
 		
+		player.setPlayerStatsTemplate(DataManager.PLAYER_STATS_DATA.getTemplate(player));
+		
+		player.setLifeStats(new PlayerLifeStats(player.getPlayerStatsTemplate().getMaxHp(), player.getPlayerStatsTemplate().getMaxMp()));
+		player.setGameStats(new PlayerGameStats());
+		
 		if(CacheConfig.CACHE_PLAYERS)
 			playerCache.put(playerObjId, player);	
 
@@ -228,10 +233,6 @@ public class PlayerService
 		// Save starting inventory
 		DAOManager.getDAO(InventoryDAO.class).store(playerInventory);
 		
-		newPlayer.setLifeStats(new PlayerLifeStats(
-			ClassStats.getMaxHpFor(newPlayer.getPlayerClass(), newPlayer.getLevel()), 650));
-		newPlayer.setGameStats(new PlayerGameStats());
-		
 		return newPlayer;
 	}
 
@@ -245,9 +246,6 @@ public class PlayerService
 	public void playerLoggedIn(Player player)
 	{
 		player.getCommonData().setOnline(true);
-		//TODO retrieve from storage and calculate
-		player.setLifeStats(new PlayerLifeStats(ClassStats.getMaxHpFor(player.getPlayerClass(), player.getLevel()), 650));
-		player.setGameStats(new PlayerGameStats());
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, true);
 		player.onLoggedIn();
 	}

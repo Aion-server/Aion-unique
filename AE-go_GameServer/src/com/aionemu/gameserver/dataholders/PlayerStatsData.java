@@ -31,6 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.stats.CalculatedPlayerStatsTemplate;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 
 /**
@@ -55,19 +56,39 @@ public class PlayerStatsData
 
 			templates.put(code, pt.getTemplate());
 		}
-
+		
+		/** for unknown templates **/
+		templates.put(makeHash(PlayerClass.WARRIOR, 0), new CalculatedPlayerStatsTemplate(PlayerClass.WARRIOR));
+		templates.put(makeHash(PlayerClass.ASSASSIN, 0), new CalculatedPlayerStatsTemplate(PlayerClass.ASSASSIN));
+		templates.put(makeHash(PlayerClass.CHANTER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.CHANTER));
+		templates.put(makeHash(PlayerClass.CLERIC, 0), new CalculatedPlayerStatsTemplate(PlayerClass.CLERIC));
+		templates.put(makeHash(PlayerClass.GLADIATOR, 0), new CalculatedPlayerStatsTemplate(PlayerClass.GLADIATOR));
+		templates.put(makeHash(PlayerClass.MAGE, 0), new CalculatedPlayerStatsTemplate(PlayerClass.MAGE));
+		templates.put(makeHash(PlayerClass.PRIEST, 0), new CalculatedPlayerStatsTemplate(PlayerClass.PRIEST));
+		templates.put(makeHash(PlayerClass.RANGER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.RANGER));
+		templates.put(makeHash(PlayerClass.SCOUT, 0), new CalculatedPlayerStatsTemplate(PlayerClass.SCOUT));
+		templates.put(makeHash(PlayerClass.SORCERER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.SORCERER));
+		templates.put(makeHash(PlayerClass.SPIRIT_MASTER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.SPIRIT_MASTER));
+		templates.put(makeHash(PlayerClass.TEMPLAR, 0), new CalculatedPlayerStatsTemplate(PlayerClass.TEMPLAR));
+		
 		templatesList.clear();
 		templatesList = null;
 	}
 
 	public PlayerStatsTemplate getTemplate(Player player)
 	{
-		return getTemplate(player.getCommonData().getPlayerClass(), player.getLevel());
+		PlayerStatsTemplate template = getTemplate(player.getCommonData().getPlayerClass(), player.getLevel());
+		if(template == null)
+			template = getTemplate(player.getCommonData().getPlayerClass(), 0);
+		return template;
 	}
 
 	public PlayerStatsTemplate getTemplate(PlayerClass playerClass, int level)
 	{
-		return templates.get(makeHash(playerClass, level));
+		PlayerStatsTemplate template =  templates.get(makeHash(playerClass, level));
+		if(template == null)
+			template = getTemplate(playerClass, 0);
+		return template;
 	}
 
 	public int size()

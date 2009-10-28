@@ -75,7 +75,7 @@ public final class DataManager
 	/**
 	 * 
 	 */
-	public final PlayerStatsData		PLAYER_STATS_DATA;
+	public static PlayerStatsData		PLAYER_STATS_DATA;
 
 	public static ItemData				ITEM_DATA;
 

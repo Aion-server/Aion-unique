@@ -65,8 +65,8 @@ public class CM_REVIVE extends AionClientPacket
 
 		Player activePlayer = getConnection().getActivePlayer();
 
-		activePlayer.setLifeStats(new PlayerLifeStats(
-			ClassStats.getMaxHpFor(activePlayer.getPlayerClass(), activePlayer.getLevel()), 650));
+		activePlayer.setLifeStats(new PlayerLifeStats(activePlayer.getPlayerStatsTemplate().getMaxHp(),
+			activePlayer.getPlayerStatsTemplate().getMaxMp()));
 		
 		sendPacket(SM_SYSTEM_MESSAGE.REVIVE);	
 		sendPacket(new SM_QUESTLIST());

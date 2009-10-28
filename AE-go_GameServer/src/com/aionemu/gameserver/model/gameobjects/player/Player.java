@@ -26,6 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOut
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.services.PlayerService;
@@ -52,6 +53,7 @@ public class Player extends Creature
 	private boolean lookingForGroup = false;
 	private Inventory			inventory;
 	private ExchangeList			exchangeList;
+	private PlayerStatsTemplate playerStatsTemplate;
 	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -285,6 +287,22 @@ public class Player extends Creature
 	public Inventory getInventory()
 	{
 		return inventory;
+	}
+
+	/**
+	 * @return the playerStatsTemplate
+	 */
+	public PlayerStatsTemplate getPlayerStatsTemplate()
+	{
+		return playerStatsTemplate;
+	}
+
+	/**
+	 * @param playerStatsTemplate the playerStatsTemplate to set
+	 */
+	public void setPlayerStatsTemplate(PlayerStatsTemplate playerStatsTemplate)
+	{
+		this.playerStatsTemplate = playerStatsTemplate;
 	}
 
 	/**

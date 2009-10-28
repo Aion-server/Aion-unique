@@ -28,6 +28,7 @@ import com.aionemu.gameserver.utils.stats.ClassStats;
 import java.util.List;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 
 import org.apache.log4j.Logger;
 
@@ -46,42 +47,27 @@ public class SM_STATS_INFO extends AionServerPacket
 	 */
 	private Player	player;
 	
+	private PlayerStatsTemplate statsTemplate;
+	
 	//////base part////////////////////////
 
 	//static.
-
-	public int power;
-	public int health;
-	public int agility;
-	public int accuracy;
-	public int knowledge;
-	public int will;
-	public int main_hand_attack;
-	public int main_hand_crit_rate;
+	
+	//TODO remove all fields below
+	
 	public int water = 0;
 	public int wind = 0;
 	public int earth = 0;
 	public int fire = 0;
 	public int fly_time = 60;
 
-	// needs calculations.
-
-	public int maxhp;
-	public int main_hand_accuracy;
-	public int magic_accuracy;
-	public int evasion;
-	public int block;
-	public int parry;
-
 	//unknown yet
 
 	public int maxdp = 100;
-	public int maxmp = 100;
 	public int magic_boost = 0;
 	public int pdef = 0;
 	public int mres = 0;
 	public int attack_range = 0;
-	public int attack_speed = 0;
 	
 	///////////bonus part//////////////////////
 	
@@ -130,33 +116,22 @@ public class SM_STATS_INFO extends AionServerPacket
 	{
 		
 		this.player = player;
+		this.statsTemplate = player.getPlayerStatsTemplate();
+		
 		PlayerClass playerClass = player.getPlayerClass();
-		int level = player.getLevel();
-
+		
+		//TODO move all default and bonus stats to stat data structure
+		//TODO remove everything below
+		// Every stat will be available in statTemplate as getter
+		// Every bonus stat will also be available and already calculated
+		
 		//base part
-
-		power = ClassStats.getPowerFor(playerClass);
-		health = ClassStats.getHealthFor(playerClass);
-		agility = ClassStats.getAgilityFor(playerClass);
-		accuracy = ClassStats.getAccuracyFor(playerClass);
-		knowledge = ClassStats.getKnowledgeFor(playerClass);
-		will = ClassStats.getWillFor(playerClass);
-		main_hand_attack = ClassStats.getMainHandAttackFor(playerClass);
-		main_hand_crit_rate = ClassStats.getMainHandCritRateFor(playerClass);
-		main_hand_accuracy = ClassStats.getMainHandAccuracyFor(playerClass);
 		water = ClassStats.getWaterResistFor(playerClass);
 		wind = ClassStats.getWindResistFor(playerClass);
 		earth = ClassStats.getEarthResistFor(playerClass);
 		fire = ClassStats.getFireResistFor(playerClass);
 		
-		maxhp = ClassStats.getMaxHpFor(playerClass, level);
-		magic_accuracy = ClassStats.getMagicAccuracyFor(playerClass);
-		evasion = ClassStats.getEvasionFor(playerClass);
-		block = ClassStats.getBlockFor(playerClass);
-		parry = ClassStats.getParryFor(playerClass);
-		
 		attack_range = ClassStats.getAttackRangeFor(playerClass);
-		attack_speed = ClassStats.getAttackSpeedFor(playerClass);
 
 		//Bonus part
 
@@ -211,12 +186,12 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeD(buf, player.getObjectId());
 		writeD(buf, GameTimeManager.getGameTime().getTime()); // Minutes since 1/1/00 00:00:00
 
-		writeH(buf, power + powerBonus);// [current power]
-		writeH(buf, health + healthBonus);// [current health]
-		writeH(buf, accuracy + accuracyBonus);// [current accuracy]
-		writeH(buf, agility + agilityBonus);// [current agility]
-		writeH(buf, knowledge + knowledgeBonus);// [current knowledge]
-		writeH(buf, will + willBonus);// [current will]
+		writeH(buf, statsTemplate.getPower() + powerBonus);// [current power]
+		writeH(buf, statsTemplate.getHealth() + healthBonus);// [current health]
+		writeH(buf, statsTemplate.getAccuracy() + accuracyBonus);// [current accuracy]
+		writeH(buf, statsTemplate.getAgility() + agilityBonus);// [current agility]
+		writeH(buf, statsTemplate.getKnowledge() + knowledgeBonus);// [current knowledge]
+		writeH(buf, statsTemplate.getWill() + willBonus);// [current will]
 
 		writeH(buf, water + waterBonus);// [current water]
 		writeH(buf, wind + windBonus);// [current wind]
@@ -226,18 +201,18 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeD(buf, 0);// [unk]
 		writeH(buf, player.getLevel());// [level]
 		writeH(buf, 0); // [unk]
-		writeD(buf, maxhp  + maxhpBonus);// [current hp]
+		writeD(buf, statsTemplate.getMaxHp()  + maxhpBonus);// [current hp]
 
 		writeQ(buf, pcd.getExpNeed());// [xp till next lv]
 		writeQ(buf, 0); // [recoverable exp]
 		writeQ(buf, pcd.getExpShown()); // [current xp]
 
 		writeD(buf, 0); // [unk]
-		writeD(buf, maxhp); // [max hp]
-		writeD(buf, maxhp);// [unk]
+		writeD(buf, statsTemplate.getMaxHp()); // [max hp]
+		writeD(buf, statsTemplate.getMaxHp());// [unk]
 
-		writeD(buf, maxmp);// [max mana]
-		writeD(buf, maxmp + maxmpBonus);// [current mana]
+		writeD(buf, statsTemplate.getMaxMp());// [max mana]
+		writeD(buf, statsTemplate.getMaxMp() + maxmpBonus);// [current mana]
 
 		writeH(buf, maxdp);// [max dp]
 		writeH(buf, 0);// [current dp]
@@ -248,8 +223,8 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeH(buf, 0);// [unk]
 
-		writeH(buf, main_hand_attack + main_hand_attackBonus); // [current main hand attack]
-		writeH(buf, main_hand_attack + main_hand_attackBonus); // [off hand attack]
+		writeH(buf, statsTemplate.getMainHandAttack() + main_hand_attackBonus); // [current main hand attack]
+		writeH(buf, statsTemplate.getMainHandAttack() + main_hand_attackBonus); // [off hand attack]
 
 		writeH(buf, pdef + pdefBonus);// [current pdef]
 
@@ -259,19 +234,19 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeH(buf, 0);// [unk]
 		writeH(buf, attack_range);// attack range
-		writeH(buf, attack_speed);// attack speed 
-		writeH(buf, evasion + evasionBonus);// [current evasion]
-		writeH(buf, parry + parryBonus);// [current parry]
-		writeH(buf, block + blockBonus);// [current block]
+		writeH(buf, (int) (1000 * statsTemplate.getAttackSpeed()));// attack speed 
+		writeH(buf, statsTemplate.getEvasion() + evasionBonus);// [current evasion]
+		writeH(buf, statsTemplate.getParry() + parryBonus);// [current parry]
+		writeH(buf, statsTemplate.getBlock() + blockBonus);// [current block]
 
-		writeH(buf, main_hand_crit_rate + main_hand_crit_rateBonus);// [current main hand crit rate]
-		writeH(buf, main_hand_crit_rate + main_hand_crit_rateBonus);// [current off hand crit rate]
+		writeH(buf, statsTemplate.getMainHandCritRate() + main_hand_crit_rateBonus);// [current main hand crit rate]
+		writeH(buf, statsTemplate.getMainHandCritRate() + main_hand_crit_rateBonus);// [current off hand crit rate]
 
-		writeH(buf, main_hand_accuracy + main_hand_accuracyBonus);// [current main_hand_accuracy]
-		writeH(buf, main_hand_accuracy + main_hand_accuracyBonus);// [current off_hand_accuracy]
+		writeH(buf, statsTemplate.getMainHandAccuracy() + main_hand_accuracyBonus);// [current main_hand_accuracy]
+		writeH(buf, statsTemplate.getMainHandAccuracy() + main_hand_accuracyBonus);// [current off_hand_accuracy]
 
 		writeH(buf, 0);// [unk]
-		writeH(buf, magic_accuracy + magic_accuracyBonus);// [current magic accuracy]
+		writeH(buf, statsTemplate.getMagicAccuracy() + magic_accuracyBonus);// [current magic accuracy]
 		writeH(buf, 0); // [unk]
 		writeH(buf, magic_boost + magic_boostBonus); // [current magic boost]
 
@@ -294,14 +269,14 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, 0);// [unk]
 		writeH(buf, 0);// [unk]
 
-		writeH(buf, power);// [base power]
-		writeH(buf, health);// [base health]
+		writeH(buf, statsTemplate.getPower());// [base power]
+		writeH(buf, statsTemplate.getHealth());// [base health]
 
-		writeH(buf, accuracy);// [base accuracy]
-		writeH(buf, agility);// [base agility]
+		writeH(buf, statsTemplate.getAccuracy());// [base accuracy]
+		writeH(buf, statsTemplate.getAgility());// [base agility]
 
-		writeH(buf, knowledge);// [base knowledge]
-		writeH(buf, will);// [base water res]
+		writeH(buf, statsTemplate.getKnowledge());// [base knowledge]
+		writeH(buf, statsTemplate.getWill());// [base will]
 
 		writeH(buf, water);// [base water res]
 		writeH(buf, wind);// [base water res]
@@ -311,15 +286,15 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeD(buf, 0);// [unk]
 
-		writeD(buf, maxhp);// [base hp]
+		writeD(buf, statsTemplate.getMaxHp());// [base hp]
 
-		writeD(buf, maxmp);// [base mana]
+		writeD(buf, statsTemplate.getMaxMp());// [base mana]
 
 		writeD(buf, 0);// [unk]
 		writeD(buf, 60);// [unk]
 
-		writeH(buf, main_hand_attack);// [base main hand attack]
-		writeH(buf, main_hand_attack);// [base off hand attack]
+		writeH(buf, statsTemplate.getMainHandAttack());// [base main hand attack]
+		writeH(buf, statsTemplate.getMainHandAttack());// [base off hand attack]
 
 		writeH(buf, 0); // [unk] 
 		writeH(buf, pdef); // [base pdef]
@@ -330,21 +305,21 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeD(buf, 1086324736);// [unk]
 
-		writeH(buf, evasion); // [base evasion]
+		writeH(buf, statsTemplate.getEvasion()); // [base evasion]
 
-		writeH(buf, parry); // [base parry]
+		writeH(buf, statsTemplate.getParry()); // [base parry]
  
-		writeH(buf, block); // [base block]
+		writeH(buf, statsTemplate.getBlock()); // [base block]
 
-		writeH(buf, main_hand_crit_rate); // [base main hand crit rate]
-		writeH(buf, main_hand_crit_rate); // [base off hand crit rate]
+		writeH(buf, statsTemplate.getMainHandCritRate()); // [base main hand crit rate]
+		writeH(buf, statsTemplate.getMainHandCritRate()); // [base off hand crit rate]
 
-		writeH(buf, main_hand_accuracy); // [base main hand accuracy]
-		writeH(buf, main_hand_accuracy); // [base off hand accuracy]
+		writeH(buf, statsTemplate.getMainHandAccuracy()); // [base main hand accuracy]
+		writeH(buf, statsTemplate.getMainHandAccuracy()); // [base off hand accuracy]
 
 		writeH(buf, 0); // [unk]
 
-		writeH(buf, magic_accuracy);// [base magic accuracy]
+		writeH(buf, statsTemplate.getMagicAccuracy());// [base magic accuracy]
 
 		writeH(buf, 0); // [unk]
 		writeH(buf, magic_boost);// [base magic boost]

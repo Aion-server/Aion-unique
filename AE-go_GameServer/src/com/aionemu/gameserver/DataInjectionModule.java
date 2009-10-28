@@ -137,7 +137,6 @@ public class DataInjectionModule extends AbstractModule
 		return datamanager.SKILL_DATA;
 	}
 	
-	
 	@Provides
 	TeleporterData provideTeleporterData(DataManager datamanager)
 	{

@@ -26,11 +26,11 @@ import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.stats.ClassStats;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -48,7 +48,8 @@ public class PlayerCommonData
 	private Race			race;
 	private String			name;
 	private PlayerClass		playerClass;
-	private int				level=1;
+	/** Should be changed right after character creation **/
+	private int				level = 0;
 	private long			exp = 0;
 	private boolean			admin;
 	private Gender			gender;
@@ -102,16 +103,21 @@ public class PlayerCommonData
 		}
 		if (level != this.level)
 		{
-			this.setLevel(level);
-			this.exp = exp;
+			this.level = level;
+			this.exp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);
 			
-			if(this.getPlayer()!=null)
+			if(this.getPlayer()!= null)
 			{
 				Player player = this.getPlayer();
+				PlayerStatsTemplate statsTemplate = DataManager.PLAYER_STATS_DATA.getTemplate(player);
+				
+				player.setLifeStats(new PlayerLifeStats(statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
+				player.setPlayerStatsTemplate(statsTemplate);
+				
 				PacketSendUtility.sendPacket(this.getPlayer(),
 					new SM_LEVEL_UPDATE(this.getPlayerObjId(), level));
-				player.setLifeStats(new PlayerLifeStats(
-					ClassStats.getMaxHpFor(player.getPlayerClass(), player.getLevel()), 650));
+				
+				PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATS_INFO(this.getPlayer()));
 			}
 		}
 		else
@@ -208,10 +214,7 @@ public class PlayerCommonData
 	{
 		if (level <= DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel())
 		{
-			this.level = level;
 			this.setExp(DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level));
-			if(this.getPlayer()!=null)
-				PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATS_INFO(this.getPlayer()));
 		}
 	}
 	
