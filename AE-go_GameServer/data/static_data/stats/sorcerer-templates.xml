@@ -100,6 +100,17 @@
 		                magic_accuracy="242" />
 	</player_stats>
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<player_stats class="SORCERER" level="18">
+		<stats_template maxHp="849" maxMp="2162"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="285" block="285" parry="285"
+		                main_hand_attack="16" main_hand_accuracy="334" main_hand_crit_rate="2"
+		                magic_accuracy="256" />
+	</player_stats>
+
 	<player_stats class="SORCERER" level="22">
 		<stats_template maxHp="914" maxMp="2583"
 		                power="90" health="90" agility="100" accuracy="100" knowledge="120" will="110"
