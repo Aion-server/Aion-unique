@@ -103,16 +103,20 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		short mask = 0;
 		for(Item item : items)
 		{
-			mask |=  item.getEquipmentSlot();
+			mask |= item.getEquipmentSlot();
+			
 		}
 		
 		writeH(buf, mask);
 
 		for(Item item : items)
 		{		
-			writeD(buf, item.getItemTemplate().getItemId());
-			writeD(buf, 0); //unk
-			writeD(buf, 0); //color code
+			if(item.getEquipmentSlot() < Short.MAX_VALUE * 2)
+			{
+				writeD(buf, item.getItemTemplate().getItemId());
+				writeD(buf, 0); //unk
+				writeD(buf, 0); //color code
+			}	
 		}
 			
 		writeD(buf, playerAppearance.getSkinRGB());

@@ -52,7 +52,7 @@ public enum ItemSlot
 	
 	private ItemSlot(int slotId)
 	{
-		this.slotIdMask = (short)(Math.pow(2, slotId));
+		this.slotIdMask = (short) (Math.pow(2, slotId));
 	}
 	
 	public short getSlotIdMask()

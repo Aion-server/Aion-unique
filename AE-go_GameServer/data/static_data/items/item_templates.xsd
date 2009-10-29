@@ -10,7 +10,7 @@
 	</xs:element>
 
 	<xs:complexType name="itemTemplate">
-		
+		<xs:attribute name="equipment_type" type="xs:int" />
 		<xs:attribute name="equipment_slots" type="xs:int" />
 		<xs:attribute name="cash_item" type="xs:int" />
 		<xs:attribute name="dmg_decal" type="xs:int" />

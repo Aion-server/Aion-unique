@@ -39,6 +39,9 @@ public class ItemTemplate
 	@XmlAttribute(name = "equipment_slots")
 	private int itemSlot; 
 	
+	@XmlAttribute(name = "equipment_type")
+	private int equipmentType; 
+	
 	@XmlAttribute(name = "min_damage")
 	private int minDamage;
 	
@@ -231,6 +234,18 @@ public class ItemTemplate
 		 * ID must be a string. 
 		 */
 		itemId = Integer.parseInt(uid);
+	}
+
+	/**
+	 *  0 for misc items
+	 *  1 for weapons
+	 *  2 for armor
+	 *  
+	 * @return the equipmentType
+	 */
+	public int getEquipmentType()
+	{
+		return equipmentType;
 	}
 
 	/**
@@ -678,7 +693,7 @@ public class ItemTemplate
 	 */
 	public boolean isWeapon()
 	{
-		return getWeaponType() != null;
+		return  equipmentType == 1;
 	}
 	
 	/**
@@ -686,7 +701,7 @@ public class ItemTemplate
 	 */
 	public boolean isArmor()
 	{
-		return getArmorType() != null;
+		return equipmentType == 2;
 	}
 
 	/** For testcase only
