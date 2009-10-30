@@ -130,6 +130,14 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public static final SM_SYSTEM_MESSAGE	BUDDYLIST_NOT_IN_LIST		= new SM_SYSTEM_MESSAGE(1300889);
 
 	/**
+	 * The server is due to shut down in %0 seconds. Please quit the game.
+	 */
+	public static SM_SYSTEM_MESSAGE	SERVER_SHUTDOWN(int seconds)
+	{
+		return new SM_SYSTEM_MESSAGE(1300642, Integer.toString(seconds));
+	}
+
+	/**
 	 * You cannot block a character who is currently on your Friends List.
 	 * 
 	 * @return

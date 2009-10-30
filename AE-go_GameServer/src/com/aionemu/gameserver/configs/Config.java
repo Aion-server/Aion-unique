@@ -122,6 +122,12 @@ public class Config
 	@Property(key = "gameserver.rate.drop",defaultValue = "1")
 	public static int				DROP_RATE;
 	
+	/*
+	 * Server shutdown delay
+	 */
+	@Property(key = "gameserver.shutdown.delay",defaultValue = "60")
+	public static int				SERVER_SHUTDOWN_DELAY;
+	
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
 	 */

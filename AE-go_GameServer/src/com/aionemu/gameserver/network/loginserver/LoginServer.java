@@ -321,4 +321,25 @@ public class LoginServer
 	{
 		return Collections.unmodifiableMap(loggedInAccounts);
 	}
+
+	/**
+	 * When Game Server shutdown, have to close all pending client connection
+	 */
+	public void gameServerDisconnected()
+	{
+		synchronized(this)
+		{
+			/**
+			 * GameServer shutting down, must close all pending login requests
+			 */
+			for(AionConnection client : loginRequests.values())
+			{
+				// TODO! somme error packet!
+				client.close(/* closePacket, */true);
+			}
+			loginRequests.clear();
+			
+			loginServer.close(true);
+		}
+	}
 }
