@@ -35,29 +35,34 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 
 	/**
 	 * Coordinates of current location: %WORLDNAME0 Region, X=%1 Y=%2 Z=%3
-	 *
-	 * @param worldId       id of the world
-	 * @param x             x coordinate
-	 * @param y             y coordinate
-	 * @param z             z coordinate
-	 * @return  Message instance.
+	 * 
+	 * @param worldId
+	 *            id of the world
+	 * @param x
+	 *            x coordinate
+	 * @param y
+	 *            y coordinate
+	 * @param z
+	 *            z coordinate
+	 * @return Message instance.
 	 */
 	public static SM_SYSTEM_MESSAGE CURRENT_LOCATION(int worldId, float x, float y, float z)
 	{
-		return new SM_SYSTEM_MESSAGE(230038,worldId, x, y, z);
+		return new SM_SYSTEM_MESSAGE(230038, worldId, x, y, z);
 	}
-	
+
 	/**
 	 * Busy in game
-	 *
+	 * 
 	 * @return
 	 */
-	public static final SM_SYSTEM_MESSAGE BUDDYLIST_BUSY = new SM_SYSTEM_MESSAGE(900847);
+	public static final SM_SYSTEM_MESSAGE	BUDDYLIST_BUSY	= new SM_SYSTEM_MESSAGE(900847);
 
 	/**
 	 * %0 is not playing the game
-	 *
-	 * @param playerName    Player name.
+	 * 
+	 * @param playerName
+	 *            Player name.
 	 * @return Message instance.
 	 */
 	public static SM_SYSTEM_MESSAGE PLAYER_IS_OFFLINE(String playerName)
@@ -66,7 +71,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	}
 
 	/**
-	 *  You used item
+	 * You used item
 	 */
 
 	public static SM_SYSTEM_MESSAGE USE_ITEM(String itemName)
@@ -82,23 +87,25 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	/**
 	 * The remaining playing time is %0.
 	 * 
-	 * @param playTime play time
+	 * @param playTime
+	 *            play time
 	 * @return Message instance.
 	 */
 	public static SM_SYSTEM_MESSAGE REMAINING_PLAYING_TIME(int playTime)
 	{
 		return new SM_SYSTEM_MESSAGE(1300719, playTime);
 	}
-	
+
 	/**
-	 *  You are dead
+	 * You are dead
 	 */
-	public static SM_SYSTEM_MESSAGE DIE = new SM_SYSTEM_MESSAGE(1340000);
-	
+	public static SM_SYSTEM_MESSAGE	DIE		= new SM_SYSTEM_MESSAGE(1340000);
+
 	/**
 	 * 
 	 */
-	public static SM_SYSTEM_MESSAGE REVIVE = new SM_SYSTEM_MESSAGE(1300738);
+	public static SM_SYSTEM_MESSAGE	REVIVE	= new SM_SYSTEM_MESSAGE(1300738);
+
 	/**
 	 * 
 	 */
@@ -110,33 +117,34 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	/**
 	 * Your Requested player to trade
 	 */
-	public static final SM_SYSTEM_MESSAGE REQUEST_TRADE = new SM_SYSTEM_MESSAGE(1300353);
-	
+	public static final SM_SYSTEM_MESSAGE	REQUEST_TRADE				= new SM_SYSTEM_MESSAGE(1300353);
+
 	/**
 	 * Your Friends List is full
 	 */
-	public static final SM_SYSTEM_MESSAGE BUDDYLIST_LIST_FULL = new SM_SYSTEM_MESSAGE(1300887);
-	
+	public static final SM_SYSTEM_MESSAGE	BUDDYLIST_LIST_FULL			= new SM_SYSTEM_MESSAGE(1300887);
+
 	/**
 	 * The character is not on your Friends List.
 	 */
-	public static final SM_SYSTEM_MESSAGE BUDDYLIST_NOT_IN_LIST = new SM_SYSTEM_MESSAGE(1300889);
-	
+	public static final SM_SYSTEM_MESSAGE	BUDDYLIST_NOT_IN_LIST		= new SM_SYSTEM_MESSAGE(1300889);
+
 	/**
 	 * You cannot block a character who is currently on your Friends List.
+	 * 
 	 * @return
 	 */
-	public static SM_SYSTEM_MESSAGE BLOCKLIST_NO_BUDDY = new SM_SYSTEM_MESSAGE(1300891);
+	public static SM_SYSTEM_MESSAGE			BLOCKLIST_NO_BUDDY			= new SM_SYSTEM_MESSAGE(1300891);
 	/**
 	 * Character already in block list
 	 */
-	public static SM_SYSTEM_MESSAGE BLOCKLIST_ALREADY_BLOCKED = new SM_SYSTEM_MESSAGE(1300894);
+	public static SM_SYSTEM_MESSAGE			BLOCKLIST_ALREADY_BLOCKED	= new SM_SYSTEM_MESSAGE(1300894);
 
 	/**
 	 * The character is not blocked.
 	 */
-	public static SM_SYSTEM_MESSAGE BLOCKLIST_NOT_BLOCKED = new SM_SYSTEM_MESSAGE(1300897);
-	
+	public static SM_SYSTEM_MESSAGE			BLOCKLIST_NOT_BLOCKED		= new SM_SYSTEM_MESSAGE(1300897);
+
 	/**
 	 * %0 has blocked you.
 	 */
@@ -144,19 +152,47 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300628, blocker);
 	}
-	
+
 	/**
 	 * Your accumulated play time is %0 hour(s) %1 minute(s). Your accumulated rest time is %2 hour(s) %3 minute(s).
 	 * 
-	 * @param onlineHours       accumulated online hours
-	 * @param onlineMinutes     accumulated online minutes
-	 * @param restHours         accumulated rest hours
-	 * @param restMinutes       accumulated rest minutes
+	 * @param onlineHours
+	 *            accumulated online hours
+	 * @param onlineMinutes
+	 *            accumulated online minutes
+	 * @param restHours
+	 *            accumulated rest hours
+	 * @param restMinutes
+	 *            accumulated rest minutes
 	 * @return Message instance.
 	 */
 	public static SM_SYSTEM_MESSAGE ACCUMULATED_TIME(int onlineHours, int onlineMinutes, int restHours, int restMinutes)
 	{
 		return new SM_SYSTEM_MESSAGE(1390141, onlineHours, onlineMinutes, restHours, restMinutes);
+	}
+
+	/**
+	 * %0 asks you for a PvP
+	 */
+	public static SM_SYSTEM_MESSAGE DUEL_ASKED_BY(String player)
+	{
+		return new SM_SYSTEM_MESSAGE(1301065, player);
+	}
+
+	/**
+	 * You ask %0 for a duel
+	 */
+	public static SM_SYSTEM_MESSAGE DUEL_ASKED_TO(String player)
+	{
+		return new SM_SYSTEM_MESSAGE(1300094, player);
+	}
+
+	/**
+	 * %0 rejects your duel request
+	 */
+	public static SM_SYSTEM_MESSAGE DUEL_REJECTED_BY(String player)
+	{
+		return new SM_SYSTEM_MESSAGE(1300097, player);
 	}
 
 	private final int		code;

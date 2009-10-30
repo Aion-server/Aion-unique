@@ -36,6 +36,8 @@ public class SM_QUESTION_WINDOW extends AionServerPacket
 	public static final int STR_BUDDYLIST_ADD_BUDDY_REQUETS = 0x0DBEE9;
 	public static final int STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE = 0x15f91;
 	public static final int STR_EXCHANGE_HE_REJECTED_EXCHANGE = 0x13D782;// TODO: make it a simple box, not a question.
+	public static final int STR_DUEL_DO_YOU_CONFIRM_DUEL = 0xc36e;
+	public static final int STR_DUEL_DO_YOU_ACCEPT_DUEL = 0xc36c;
 	
 	int code;
 	String[] params;
