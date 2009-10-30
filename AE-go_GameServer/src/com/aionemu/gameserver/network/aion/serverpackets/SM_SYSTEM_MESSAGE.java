@@ -247,6 +247,13 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300135,player);
 	}
 	
+	/**
+	 * You cannot duel with %0.
+	 */
+	public static SM_SYSTEM_MESSAGE DUEL_PARTNER_INVALID(String partner) {
+		return new SM_SYSTEM_MESSAGE(1300091,partner);
+	}
+	
 	private final int		code;
 	private final Object[]	params;
 

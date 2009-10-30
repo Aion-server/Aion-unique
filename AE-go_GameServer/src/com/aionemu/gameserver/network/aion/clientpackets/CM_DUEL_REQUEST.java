@@ -16,9 +16,11 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 
 import com.google.inject.Inject;
 
@@ -59,9 +61,14 @@ public class CM_DUEL_REQUEST extends AionClientPacket
 	protected void runImpl()
 	{
 		Player activePlayer = getConnection().getActivePlayer();
-		Player targetPlayer = world.findPlayer(objectId);
-
-		targetPlayer.getController().onDuelRequest(activePlayer);
-		activePlayer.getController().confirmDuelWith(targetPlayer);
+		AionObject target = world.findAionObject(objectId);
+		
+		if (target instanceof Player) {
+			Player targetPlayer = (Player)target;
+			targetPlayer.getController().onDuelRequest(activePlayer);
+			activePlayer.getController().confirmDuelWith(targetPlayer);
+		} else {
+			sendPacket(SM_SYSTEM_MESSAGE.DUEL_PARTNER_INVALID(target.getName()));
+		}
 	}
 }
