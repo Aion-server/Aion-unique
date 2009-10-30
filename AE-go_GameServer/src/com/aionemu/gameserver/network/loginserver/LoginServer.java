@@ -339,7 +339,7 @@ public class LoginServer
 			}
 			loginRequests.clear();
 			
-			loginServer.close(true);
+			loginServer.close(false);
 		}
 	}
 }

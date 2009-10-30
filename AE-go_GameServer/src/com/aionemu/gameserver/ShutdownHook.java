@@ -50,7 +50,7 @@ public class ShutdownHook implements Runnable
 	}
 	
 	private boolean broadcastShutdownMessage (int duration, int interval) {
-		for (int i=duration; i>interval; i-=interval) {
+		for (int i=duration; i>=interval; i-=interval) {
 			Iterator<Player> onlinePlayers = world.getPlayersIterator();
 			if (!onlinePlayers.hasNext()) {
 				return false;
@@ -59,10 +59,12 @@ public class ShutdownHook implements Runnable
 				Player onlinePlayer = onlinePlayers.next();
 				onlinePlayer.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(i));
 			}
-			try {
-				Thread.sleep(interval*1000);
-			} catch (InterruptedException e) {
-				return false;
+			if (i>interval) {
+				try {
+					Thread.sleep(interval*1000);
+				} catch (InterruptedException e) {
+					return false;
+				}
 			}
 		}
 		return true;
