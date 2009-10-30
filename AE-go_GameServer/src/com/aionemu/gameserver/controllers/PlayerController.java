@@ -18,6 +18,7 @@ package com.aionemu.gameserver.controllers;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -28,6 +29,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL_RESULT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL_STARTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
@@ -263,10 +265,8 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void wonDuelWith(Player attacker)
 	{
-		// TODO Duel end
 		log.debug("[PvP] Player " + attacker.getName() + " won duel against " + this.getOwner().getName());
-		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_END);
-		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_YOU_WON_AGAINST(attacker.getName()));
+		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_WON,attacker.getName()));
 	}
 	
 	/**
@@ -276,10 +276,8 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void lostDuelWith(Player attacker)
 	{
-		// TODO Duel end
 		log.debug("[PvP] Player " + attacker.getName() + " lost duel against " + this.getOwner().getName());
-		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_END);
-		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_YOU_LOST_AGAINST(attacker.getName()));
+		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_LOST,attacker.getName()));
 	}
 
 }

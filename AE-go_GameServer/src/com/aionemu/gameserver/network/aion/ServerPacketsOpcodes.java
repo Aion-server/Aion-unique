@@ -35,6 +35,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_CHARACTER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL_RESULT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL_STARTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION_LIST;
@@ -239,6 +240,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_VIEW_PLAYER_DETAILS.class, 0x38, idSet);
 		
 		addPacketOpcode(SM_DUEL_STARTED.class, 0xD0, idSet);
+		addPacketOpcode(SM_DUEL_RESULT.class, 0xB0, idSet);
 
 		//Unrecognized Opcodes:
 		//addPacketOpcode(SM_TIME_CHECK.class, 0x26, idSet);

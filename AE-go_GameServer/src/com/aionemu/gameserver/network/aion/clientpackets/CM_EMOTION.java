@@ -98,6 +98,10 @@ public class CM_EMOTION extends AionClientPacket
 		{
 			// land
 		} 
+		else if(unknown == 0x14)
+		{
+			// duel end
+		}
 		else
 		{
 			log.info("Unknown emotion type? 0x" + Integer.toHexString(unknown).toUpperCase());
