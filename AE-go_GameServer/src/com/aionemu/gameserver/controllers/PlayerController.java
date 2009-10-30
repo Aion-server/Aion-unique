@@ -93,13 +93,13 @@ public class PlayerController extends CreatureController<Player>
 		super.onDie();
 
 		// TODO probably introduce variable - last attack creature in player AI
-		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13,
-			lastAttacker.getObjectId()), true);
 		Player player = this.getOwner();
 		if (lastAttacker instanceof Player) { // PvP
 			((Player)lastAttacker).getController().wonDuelWith(player);
 			this.lostDuelWith((Player)lastAttacker);
 		} else { // PvE
+			PacketSendUtility.broadcastPacket(this.getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13,
+				lastAttacker.getObjectId()), true);
 			PacketSendUtility.sendPacket(player, new SM_DIE());
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
 		}

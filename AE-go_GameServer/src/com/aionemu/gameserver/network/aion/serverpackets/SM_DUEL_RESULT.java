@@ -35,6 +35,7 @@ public class SM_DUEL_RESULT extends AionServerPacket
 	public SM_DUEL_RESULT(DuelResult result, String player)
 	{
 		this.player = player;
+		this.result = result;
 	}
 
 	/**
