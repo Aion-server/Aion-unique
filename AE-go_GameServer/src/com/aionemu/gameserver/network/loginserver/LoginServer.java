@@ -70,6 +70,7 @@ public class LoginServer
 
 	private NioServer						nioServer;
 	private LoginServerConnectionFactory	lscFactory;
+	private boolean							serverShutdown = false;
 
 	@Inject
 	private AccountService accountService;
@@ -148,15 +149,17 @@ public class LoginServer
 		}
 
 		/**
-		 * Reconnect after 5s.
+		 * Reconnect after 5s if not server shutdown sequence
 		 */
-		ThreadPoolManager.getInstance().schedule(new Runnable(){
-			@Override
-			public void run()
-			{
-				connect();
-			}
-		}, 5000);
+		if (!serverShutdown) {
+			ThreadPoolManager.getInstance().schedule(new Runnable(){
+				@Override
+				public void run()
+				{
+					connect();
+				}
+			}, 5000);
+		}
 	}
 
 	/**
@@ -329,6 +332,7 @@ public class LoginServer
 	{
 		synchronized(this)
 		{
+			serverShutdown = true;
 			/**
 			 * GameServer shutting down, must close all pending login requests
 			 */

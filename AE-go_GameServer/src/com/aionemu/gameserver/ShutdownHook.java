@@ -30,46 +30,58 @@ import com.aionemu.gameserver.world.World;
 import com.google.inject.Injector;
 
 /**
- * This task is run, when server is shutting down.
- * We should do here all data saving etc. 
+ * This task is run, when server is shutting down. We should do here all data saving etc.
  * 
- * @author Luno
- *
+ * @author Luno, xavier
+ * 
  */
 public class ShutdownHook implements Runnable
 {
-	private static final Logger log = Logger.getLogger(ShutdownHook.class);
-	private World world;
-	private PlayerService playerService;
-	private LoginServer loginServer;
-	
-	public ShutdownHook (Injector injector) {
+	private static final Logger	log	= Logger.getLogger(ShutdownHook.class);
+	private World				world;
+	private PlayerService		playerService;
+	private LoginServer			loginServer;
+
+	public ShutdownHook(Injector injector)
+	{
 		world = injector.getInstance(World.class);
 		playerService = injector.getInstance(PlayerService.class);
 		loginServer = injector.getInstance(LoginServer.class);
 	}
-	
-	private boolean broadcastShutdownMessage (int duration, int interval) {
-		for (int i=duration; i>=interval; i-=interval) {
+
+	private boolean broadcastShutdownMessage(int duration, int interval)
+	{
+		for(int i = duration; i >= interval; i -= interval)
+		{
 			Iterator<Player> onlinePlayers = world.getPlayersIterator();
-			if (!onlinePlayers.hasNext()) {
+			if(!onlinePlayers.hasNext())
+			{
 				return false;
 			}
-			while (onlinePlayers.hasNext()) {
+			while(onlinePlayers.hasNext())
+			{
 				Player onlinePlayer = onlinePlayers.next();
 				onlinePlayer.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(i));
 			}
-			if (i>interval) {
-				try {
-					Thread.sleep(interval*1000);
-				} catch (InterruptedException e) {
-					return false;
+			try
+			{
+				if(i > interval)
+				{
+					Thread.sleep(interval * 1000);
 				}
+				else
+				{
+					Thread.sleep(1000);
+				}
+			}
+			catch(InterruptedException e)
+			{
+				return false;
 			}
 		}
 		return true;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -86,7 +98,8 @@ public class ShutdownHook implements Runnable
 		
 		onlinePlayers = world.getPlayersIterator();
 		while (onlinePlayers.hasNext()) {
-			playerService.storePlayer(onlinePlayers.next());
+			Player activePlayer = onlinePlayers.next();
+			playerService.playerLoggedOut(activePlayer);
 		}
 		
 		GameTimeManager.saveTime();
