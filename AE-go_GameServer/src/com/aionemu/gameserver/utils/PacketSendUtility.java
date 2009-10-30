@@ -49,6 +49,16 @@ public class PacketSendUtility
 	}
 
 	/**
+	 * Sends message to player (used for system notices)
+	 * 
+	 * @param player
+	 * @param msg
+	 */
+	public static void sendSysMessage(Player player, String msg)
+	{
+		sendPacket(player, new SM_MESSAGE(0, null, msg, null, ChatType.SYSTEM_NOTICE));
+	}
+	/**
 	 * Send packet to this player.
 	 * 
 	 * @param player
