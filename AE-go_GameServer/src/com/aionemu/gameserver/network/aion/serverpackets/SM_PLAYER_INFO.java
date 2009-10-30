@@ -183,9 +183,9 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeC(buf, playerAppearance.getLegLength());
 		writeC(buf, playerAppearance.getShoulders());
 		writeC(buf, 0x00); // always 0
-		writeC(buf, playerAppearance.getVoice()); //maybe wrong voice
-		
 		writeC(buf, 0x00); // 0x00
+		
+		writeC(buf, playerAppearance.getVoice()); 
 
 		writeF(buf, playerAppearance.getHeight());
 
