@@ -97,11 +97,13 @@ public class PlayerCommonData
 			exp = maxExp;
 		}
 		int level = 1;
-		while (exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level+1) && level != maxLevel)
+
+		while (exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level+1)+DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level) && level != maxLevel)
 		{
 			level++;
 		}
-		if (level != this.level)
+
+		if (level > this.level)
 		{
 			this.level = level;
 			this.exp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);
