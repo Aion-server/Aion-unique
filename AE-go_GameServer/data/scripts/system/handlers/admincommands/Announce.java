@@ -56,7 +56,7 @@ public class Announce extends AdminCommand
 			String sMessage = sbMessage.toString().trim();
 			while (iter.hasNext())
 			{
-				PacketSendUtility.sendMessage(iter.next(), sMessage);
+				PacketSendUtility.sendSysMessage(iter.next(), sMessage);
 			}
 		}
 		// TODO Auto-generated method stub
