@@ -179,6 +179,7 @@ public class PlayerController extends CreatureController<Player>
 			public void acceptRequest(Player requester, Player responder)
 			{
 				responder.getController().startDuelWith(requester);
+				requester.getController().startDuelWith(responder);
 			}
 		};
 		this.getOwner().getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_ACCEPT_DUEL, rrh);
@@ -205,7 +206,6 @@ public class PlayerController extends CreatureController<Player>
 			@Override
 			public void acceptRequest(Player requester, Player responder)
 			{
-				responder.getController().startDuelWith(requester);
 			}
 		};
 		this.getOwner().getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_CONFIRM_DUEL, rrh);
