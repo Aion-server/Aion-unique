@@ -36,6 +36,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.services.LifeStatsRestoreService;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.SkillHandler;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -95,8 +96,10 @@ public class PlayerController extends CreatureController<Player>
 		// TODO probably introduce variable - last attack creature in player AI
 		Player player = this.getOwner();
 		if (lastAttacker instanceof Player) { // PvP
-			((Player)lastAttacker).getController().wonDuelWith(player);
 			this.lostDuelWith((Player)lastAttacker);
+			((Player)lastAttacker).getController().wonDuelWith(player);
+			player.getLifeStats().increaseHp(1);
+			LifeStatsRestoreService.getInstance().scheduleRestoreTask(player.getLifeStats());
 		} else { // PvE
 			PacketSendUtility.broadcastPacket(this.getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13,
 				lastAttacker.getObjectId()), true);
@@ -266,8 +269,8 @@ public class PlayerController extends CreatureController<Player>
 	public void wonDuelWith(Player attacker)
 	{
 		log.debug("[PvP] Player " + attacker.getName() + " won duel against " + this.getOwner().getName());
-		//PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_WON,attacker.getName()));
 		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_YOU_WON_AGAINST(attacker.getName()));
+		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_WON,attacker.getName()));
 	}
 	
 	/**
@@ -278,8 +281,8 @@ public class PlayerController extends CreatureController<Player>
 	public void lostDuelWith(Player attacker)
 	{
 		log.debug("[PvP] Player " + attacker.getName() + " lost duel against " + this.getOwner().getName());
-		//PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_LOST,attacker.getName()));
 		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_YOU_LOST_AGAINST(attacker.getName()));
+		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_LOST,attacker.getName()));
 	}
 
 }
