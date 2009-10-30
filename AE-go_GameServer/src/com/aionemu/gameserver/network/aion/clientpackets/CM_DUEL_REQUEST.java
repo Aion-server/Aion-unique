@@ -63,7 +63,7 @@ public class CM_DUEL_REQUEST extends AionClientPacket
 		Player activePlayer = getConnection().getActivePlayer();
 		AionObject target = world.findAionObject(objectId);
 		
-		if (target instanceof Player) {
+		if ((target != null) && (target instanceof Player)) {
 			Player targetPlayer = (Player)target;
 			targetPlayer.getController().onDuelRequest(activePlayer);
 			activePlayer.getController().confirmDuelWith(targetPlayer);
