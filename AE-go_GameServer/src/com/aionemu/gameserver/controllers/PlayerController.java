@@ -223,6 +223,7 @@ public class PlayerController extends CreatureController<Player>
 	{
 		log.debug("[PvP] Player " + this.getOwner().getName() + "rejected duel request from " + requester.getName());
 		requester.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_REJECTED_BY(this.getOwner().getName()));
+		this.getOwner().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_REJECT_DUEL_OF(requester.getName()));
 	}
 
 	/**
@@ -233,7 +234,8 @@ public class PlayerController extends CreatureController<Player>
 	public void cancelDuelRequest(Player target)
 	{
 		log.debug("[PvP] Player " + this.getOwner().getName() + "cancelled his duel request with " + target.getName());
-		target.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_REJECTED_BY(this.getOwner().getName()));
+		target.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_BY(this.getOwner().getName()));
+		this.getOwner().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_WITH(target.getName()));
 	}
 
 	/**
@@ -245,17 +247,33 @@ public class PlayerController extends CreatureController<Player>
 	{
 		log.debug("[PvP] Player " + this.getOwner().getName() + " start duel with " + player.getName());
 		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_STARTED(player.getObjectId()));
+		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_STARTING_WITH(player.getName()));
 	}
 
 	/**
-	 * End the duel and declare winner and looser
+	 * Won the duel
 	 * 
 	 * @param attacker the other player
 	 */
-	public void duelEndWith(Player attacker)
+	public void wonDuelWith(Player attacker)
 	{
 		// TODO Duel end
-		log.debug("[PvP] Player " + attacker.getName() + " end duel with " + this.getOwner().getName());
+		log.debug("[PvP] Player " + attacker.getName() + " won duel with " + this.getOwner().getName());
+		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_END);
+		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_YOU_WON_AGAINST(attacker.getName()));
+	}
+	
+	/**
+	 * Lost the duel
+	 * 
+	 * @param attacker the other player
+	 */
+	public void lostDuelWith(Player attacker)
+	{
+		// TODO Duel end
+		log.debug("[PvP] Player " + attacker.getName() + " lost duel with " + this.getOwner().getName());
+		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_END);
+		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_YOU_LOST_AGAINST(attacker.getName()));
 	}
 
 }

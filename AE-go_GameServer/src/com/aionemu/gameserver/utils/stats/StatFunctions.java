@@ -61,8 +61,13 @@ public class StatFunctions
 	public static int calculateBaseDamageToTarget(Player player, Creature target)
 	{
 		int pAttack = ClassStats.getPowerFor(player.getPlayerClass());
-		int targetPDef = ((Npc) target).getTemplate().getStatsTemplate().getMaxHp();
-		
+		int targetPDef = 0;
+		if (target instanceof Npc) {
+			targetPDef = ((Npc) target).getTemplate().getStatsTemplate().getMaxHp();
+		}
+		if (target instanceof Player) {
+			targetPDef = ClassStats.getBlockFor(((Player)target).getPlayerClass());
+		}
 		return pAttack - targetPDef / 10;
 	}
 	

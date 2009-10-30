@@ -172,7 +172,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	}
 
 	/**
-	 * %0 asks you for a PvP
+	 * %0 has challenged you to a duel.
 	 */
 	public static SM_SYSTEM_MESSAGE DUEL_ASKED_BY(String player)
 	{
@@ -180,7 +180,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	}
 
 	/**
-	 * You ask %0 for a duel
+	 * You challenged %0 to a duel.
 	 */
 	public static SM_SYSTEM_MESSAGE DUEL_ASKED_TO(String player)
 	{
@@ -194,7 +194,59 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300097, player);
 	}
+	
+	/**
+	 * You won the duel against %0.
+	 */
+	public static SM_SYSTEM_MESSAGE DUEL_YOU_WON_AGAINST(String player) 
+	{
+		return new SM_SYSTEM_MESSAGE(1300098, player);
+	}
+	
+	/**
+	 * You lost the duel against %0.
+	 */
+	public static SM_SYSTEM_MESSAGE DUEL_YOU_LOST_AGAINST(String player) 
+	{
+		return new SM_SYSTEM_MESSAGE(1300099, player);
+	}
 
+	public static SM_SYSTEM_MESSAGE DUEL_START = new SM_SYSTEM_MESSAGE(1300770);
+	
+	public static SM_SYSTEM_MESSAGE DUEL_END = new SM_SYSTEM_MESSAGE(1300771);
+	
+	/**
+	 * Starting the duel with %0.
+	 */
+	public static SM_SYSTEM_MESSAGE DUEL_STARTING_WITH(String player)
+	{
+		return new SM_SYSTEM_MESSAGE(1300777,player);
+	}
+	
+	/**
+	 * You declined %0's challenge for a duel.
+	 */
+	public static SM_SYSTEM_MESSAGE DUEL_REJECT_DUEL_OF(String player)
+	{
+		return new SM_SYSTEM_MESSAGE(1301064,player);
+	}
+	
+	/**
+	 * %0 has withdrawn the challenge for a duel.
+	 */
+	public static SM_SYSTEM_MESSAGE DUEL_CANCEL_DUEL_BY(String player)
+	{
+		return new SM_SYSTEM_MESSAGE(1300134,player);
+	}
+	
+	/**
+	 * You have withdrawn the challenge to %0 for a duel.
+	 */
+	public static SM_SYSTEM_MESSAGE DUEL_CANCEL_DUEL_WITH(String player)
+	{
+		return new SM_SYSTEM_MESSAGE(1300135,player);
+	}
+	
 	private final int		code;
 	private final Object[]	params;
 
