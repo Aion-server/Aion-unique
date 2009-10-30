@@ -36,6 +36,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_CREATE_CHARACTER;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_DELETE_CHARACTER;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_DIALOG_SELECT;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_DUEL_REQUEST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_EMOTION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_EQUIP_ITEM;
@@ -169,6 +170,8 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_VERIFY_LOCATION(0x9B), State.IN_GAME);//
 
 		addPacket(new CM_VIEW_PLAYER_DETAILS(0x4E), State.IN_GAME);
+		
+		addPacket(new CM_DUEL_REQUEST(0x5C), State.IN_GAME);
 
 		//addPacket(new CM_INVITE_TO_GROUP(0x4B ), State.IN_GAME);
 		//addPacket(new CM_REQUEST_DUEL(0x5C ), State.IN_GAME);
