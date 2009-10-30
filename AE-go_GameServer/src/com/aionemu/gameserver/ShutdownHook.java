@@ -50,7 +50,7 @@ public class ShutdownHook implements Runnable
 	}
 	
 	private boolean broadcastShutdownMessage (int duration, int interval) {
-		for (int i=duration; i>=interval; i-=interval) {
+		for (int i=duration; i>interval; i-=interval) {
 			Iterator<Player> onlinePlayers = world.getPlayersIterator();
 			if (!onlinePlayers.hasNext()) {
 				return false;
