@@ -82,6 +82,7 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 		*/
 		
 		//TODO run exchange operation under one transaction
+		//TODO add more checks for items send along with client packet
 		//TODO fail whole operation if at least one action was unsuccessful
 		//TODO move logic to some Exchange service class
 		
@@ -105,9 +106,9 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 				/*
 				* remove traded items.
 				*/
-				
 				Inventory bag = targetPlayer.getInventory();
 				Item resultItem = bag.getItemByObjId(itemObjId);
+				int itemId = resultItem.getItemTemplate().getItemId();
 				
 				if (resultItem != null) 
 				{
@@ -118,11 +119,6 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 				/*
 				* Add traded items.
 				*/
-
-				Inventory targetInventory = targetPlayer.getInventory();
-				Item itemIdSearch = targetInventory.getItemByObjId(itemObjId);
-				int itemId = itemIdSearch.getItemTemplate().getItemId();
-				
 				Inventory activeInventory = activePlayer.getInventory();
 
 				Item newItem = itemService.newItem(itemId, itemCount);
@@ -149,10 +145,12 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 				
 				/*
 				* remove traded items.
-				*/	
+				*/
 				
 				Inventory bag = activePlayer.getInventory();
 				Item resultItem = bag.getItemByObjId(itemObjId);
+				int itemId = resultItem.getItemTemplate().getItemId();
+
 				if (resultItem != null) 
 				{
 					bag.removeFromBag(resultItem);
@@ -163,10 +161,6 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 				* Add traded items.
 				*/
 	
-				Inventory activeInventory = activePlayer.getInventory();
-				Item itemIdSearch = activeInventory.getItemByObjId(itemObjId);
-				int itemId = itemIdSearch.getItemTemplate().getItemId();
-				
 				Inventory targetInventory = targetPlayer.getInventory();
 			
 				Item newItem = itemService.newItem(itemId, itemCount);
