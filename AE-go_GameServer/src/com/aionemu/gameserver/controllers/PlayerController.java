@@ -267,7 +267,6 @@ public class PlayerController extends CreatureController<Player>
 	public void wonDuelWith(Player attacker)
 	{
 		log.debug("[PvP] Player " + attacker.getName() + " won duel against " + this.getOwner().getName());
-		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_YOU_WON_AGAINST(attacker.getName()));
 		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_WON,attacker.getName()));
 	}
 	
@@ -279,7 +278,6 @@ public class PlayerController extends CreatureController<Player>
 	public void lostDuelWith(Player attacker)
 	{
 		log.debug("[PvP] Player " + attacker.getName() + " lost duel against " + this.getOwner().getName());
-		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_YOU_LOST_AGAINST(attacker.getName()));
 		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_LOST,attacker.getName()));
 		PlayerLifeStats pls = getOwner().getLifeStats();
 		getOwner().setLifeStats(new PlayerLifeStats(1, pls.getCurrentMp(), pls.getMaxHp(), pls.getMaxMp()));
