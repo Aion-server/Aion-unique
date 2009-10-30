@@ -45,6 +45,7 @@ public class SM_DUEL_RESULT extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
+		writeC(buf, 0x00); // unknown
 		writeD(buf, result.getMsgId());
 		writeS(buf, player);
 	}
