@@ -106,18 +106,18 @@ public class PlayerController extends CreatureController<Player>
 		int attackType = 0; // TODO investigate attack types
 
 		World world = player.getActiveRegion().getWorld();
-		Npc npc = (Npc) world.findAionObject(targetObjectId);
+		Creature target = (Creature) world.findAionObject(targetObjectId);
 
 		// TODO fix last attack - cause mob is already dead
-		int damage = StatFunctions.calculateBaseDamageToTarget(player, npc);
+		int damage = StatFunctions.calculateBaseDamageToTarget(player, target);
 		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), targetObjectId, gameStats
 			.getAttackCounter(), (int) time, attackType, damage), true);
 
-		boolean attackSuccess = npc.getController().onAttack(player);
+		boolean attackSuccess = target.getController().onAttack(player);
 
 		if(attackSuccess)
 		{
-			npc.getLifeStats().reduceHp(damage);
+			target.getLifeStats().reduceHp(damage);
 			gameStats.increateAttackCounter();
 		}
 	}
@@ -167,7 +167,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void onDuelRequest(Player requester)
 	{
-		log.debug("[PvP] Player " + this.getOwner().getName() + "has been requested for a duel by "
+		log.debug("[PvP] Player " + this.getOwner().getName() + " has been requested for a duel by "
 			+ requester.getName());
 		RequestResponseHandler rrh = new RequestResponseHandler(requester){
 			public void denyRequest(Player requester, Player responder)
@@ -194,7 +194,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void confirmDuelWith(Player target)
 	{
-		log.debug("[PvP] Player " + this.getOwner().getName() + "has to confirm his duel with " + target.getName());
+		log.debug("[PvP] Player " + this.getOwner().getName() + " has to confirm his duel with " + target.getName());
 		RequestResponseHandler rrh = new RequestResponseHandler(target){
 			@Override
 			public void denyRequest(Player requester, Player responder)
@@ -211,7 +211,7 @@ public class PlayerController extends CreatureController<Player>
 		this.getOwner().getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_CONFIRM_DUEL, rrh);
 		PacketSendUtility.sendPacket(this.getOwner(), new SM_QUESTION_WINDOW(
 			SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_CONFIRM_DUEL, target.getName()));
-		PacketSendUtility.sendPacket(this.getOwner(), SM_SYSTEM_MESSAGE.DUEL_ASKED_BY(target.getName()));
+		PacketSendUtility.sendPacket(this.getOwner(), SM_SYSTEM_MESSAGE.DUEL_ASKED_TO(target.getName()));
 	}
 
 	/**
