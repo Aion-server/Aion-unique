@@ -253,7 +253,6 @@ public class PlayerController extends CreatureController<Player>
 	{
 		log.debug("[PvP] Player " + this.getOwner().getName() + " start duel with " + player.getName());
 		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_STARTED(player.getObjectId()));
-		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_STARTING_WITH(player.getName()));
 		lastAttacker = player;
 	}
 
