@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 
 /**
  * 
- * @author alexa026
+ * @author xavier
  * 
  */
 public class CM_DUEL_REQUEST extends AionClientPacket
@@ -37,7 +37,7 @@ public class CM_DUEL_REQUEST extends AionClientPacket
 	private World	world;
 
 	/**
-	 * Constructs new instance of <tt>CM_DUAL_REQUEST</tt> packet
+	 * Constructs new instance of <tt>CM_DUEL_REQUEST</tt> packet
 	 * 
 	 * @param opcode
 	 */

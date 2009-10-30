@@ -43,7 +43,7 @@ import com.aionemu.gameserver.world.World;
 /**
  * This class is for controlling players.
  * 
- * @author -Nemesiss-, ATracer (2009-09-29)
+ * @author -Nemesiss-, ATracer (2009-09-29), xavier
  * 
  */
 public class PlayerController extends CreatureController<Player>
@@ -94,8 +94,13 @@ public class PlayerController extends CreatureController<Player>
 		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13,
 			lastAttacker.getObjectId()), true);
 		Player player = this.getOwner();
-		PacketSendUtility.sendPacket(player, new SM_DIE());
-		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
+		if (lastAttacker instanceof Player) { // PvP
+			((Player)lastAttacker).getController().wonDuelWith(player);
+			this.lostDuelWith((Player)lastAttacker);
+		} else { // PvE
+			PacketSendUtility.sendPacket(player, new SM_DIE());
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
+		}
 	}
 
 	public void attackTarget(int targetObjectId)
@@ -200,12 +205,13 @@ public class PlayerController extends CreatureController<Player>
 			@Override
 			public void denyRequest(Player requester, Player responder)
 			{
-				responder.getController().cancelDuelRequest(requester);
+				log.debug("PvP] Player "+ responder.getName() + " confirmed his duel with "+requester.getName());
 			}
 
 			@Override
 			public void acceptRequest(Player requester, Player responder)
 			{
+				responder.getController().cancelDuelRequest(requester);
 			}
 		};
 		this.getOwner().getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_CONFIRM_DUEL, rrh);
@@ -221,7 +227,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void rejectDuelRequest(Player requester)
 	{
-		log.debug("[PvP] Player " + this.getOwner().getName() + "rejected duel request from " + requester.getName());
+		log.debug("[PvP] Player " + this.getOwner().getName() + " rejected duel request from " + requester.getName());
 		requester.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_REJECTED_BY(this.getOwner().getName()));
 		this.getOwner().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_REJECT_DUEL_OF(requester.getName()));
 	}
@@ -233,7 +239,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void cancelDuelRequest(Player target)
 	{
-		log.debug("[PvP] Player " + this.getOwner().getName() + "cancelled his duel request with " + target.getName());
+		log.debug("[PvP] Player " + this.getOwner().getName() + " cancelled his duel request with " + target.getName());
 		target.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_BY(this.getOwner().getName()));
 		this.getOwner().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_WITH(target.getName()));
 	}
@@ -248,6 +254,7 @@ public class PlayerController extends CreatureController<Player>
 		log.debug("[PvP] Player " + this.getOwner().getName() + " start duel with " + player.getName());
 		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_STARTED(player.getObjectId()));
 		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_STARTING_WITH(player.getName()));
+		lastAttacker = player;
 	}
 
 	/**
@@ -258,7 +265,7 @@ public class PlayerController extends CreatureController<Player>
 	public void wonDuelWith(Player attacker)
 	{
 		// TODO Duel end
-		log.debug("[PvP] Player " + attacker.getName() + " won duel with " + this.getOwner().getName());
+		log.debug("[PvP] Player " + attacker.getName() + " won duel against " + this.getOwner().getName());
 		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_END);
 		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_YOU_WON_AGAINST(attacker.getName()));
 	}
@@ -271,7 +278,7 @@ public class PlayerController extends CreatureController<Player>
 	public void lostDuelWith(Player attacker)
 	{
 		// TODO Duel end
-		log.debug("[PvP] Player " + attacker.getName() + " lost duel with " + this.getOwner().getName());
+		log.debug("[PvP] Player " + attacker.getName() + " lost duel against " + this.getOwner().getName());
 		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_END);
 		PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.DUEL_YOU_LOST_AGAINST(attacker.getName()));
 	}
