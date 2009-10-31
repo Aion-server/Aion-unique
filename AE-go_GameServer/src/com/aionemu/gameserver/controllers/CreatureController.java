@@ -16,10 +16,12 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+import com.aionemu.gameserver.controllers.movement.MoveObserver;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
-import com.aionemu.gameserver.services.DecayService;
-import com.aionemu.gameserver.services.RespawnService;
 
 /**
  * This class is for controlling Creatures [npc's, players etc]
@@ -29,6 +31,8 @@ import com.aionemu.gameserver.services.RespawnService;
  */
 public abstract class CreatureController<T extends Creature> extends VisibleObjectController<T>
 {
+	
+	protected Queue<MoveObserver> moveObservers = new ConcurrentLinkedQueue<MoveObserver>();
 	/**
 	 * {@inheritDoc}
 	 */
@@ -38,6 +42,14 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		super.notSee(object);
 		if(object == getOwner().getTarget())
 			getOwner().setTarget(null);
+	}
+	
+	/**
+	 *  Perform tasks on Creature move
+	 */
+	public void onMove()
+	{
+		notifyMoveObservers();
 	}
 	
 	/**
@@ -80,5 +92,23 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	public void doReward(Creature creature)
 	{
 		
+	}
+	
+	/**
+	 * 
+	 * @param moveObserver
+	 */
+	public void attach(MoveObserver moveObserver)
+	{
+		moveObservers.add(moveObserver);
+	}
+	
+	protected void notifyMoveObservers()
+	{
+		while(!moveObservers.isEmpty())
+		{
+			MoveObserver observer = moveObservers.poll();
+			observer.moved();
+		}
 	}
 }

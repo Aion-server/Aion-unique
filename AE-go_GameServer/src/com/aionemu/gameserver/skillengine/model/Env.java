@@ -18,6 +18,7 @@ package com.aionemu.gameserver.skillengine.model;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.skillengine.condition.ConditionChangeListener;
 import com.aionemu.gameserver.world.World;
 
 /**
@@ -27,19 +28,23 @@ import com.aionemu.gameserver.world.World;
 public class Env
 {
 	private World world;
-	
+
 	private Creature effected;
 
 	private Creature effector;
-	
+
 	private SkillTemplate skillTemplate;
 
-	public Env(Player player, SkillTemplate skillTemplate, World world)
+	private ConditionChangeListener conditionChangeListener;
+
+	public Env(Player player, SkillTemplate skillTemplate, 
+		ConditionChangeListener conditionChangeListener, World world)
 	{
 		super();
 		this.effected = player.getTarget();
 		this.effector = player;
 		this.skillTemplate = skillTemplate;
+		this.conditionChangeListener = conditionChangeListener;
 		this.world = world;
 	}
 
@@ -65,6 +70,14 @@ public class Env
 	public SkillTemplate getSkillTemplate()
 	{
 		return skillTemplate;
+	}
+
+	/**
+	 * @return the conditionChangeListener
+	 */
+	public ConditionChangeListener getConditionChangeListener()
+	{
+		return conditionChangeListener;
 	}
 
 	/**

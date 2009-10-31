@@ -22,6 +22,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.skillengine.condition.ConditionChangeListener;
 import com.aionemu.gameserver.skillengine.model.Env;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
@@ -60,7 +61,7 @@ public class SkillEngine
 		if(template == null)
 			return null;
 		
-		Env env = new Env(player, template, world);
+		Env env = new Env(player, template, new ConditionChangeListener(), world);
 		return new Skill(env);
 	}
 

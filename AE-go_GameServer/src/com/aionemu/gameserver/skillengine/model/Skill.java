@@ -21,6 +21,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
 import com.aionemu.gameserver.skillengine.action.Action;
 import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.Condition;
+import com.aionemu.gameserver.skillengine.condition.ConditionChangeListener;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
 import com.aionemu.gameserver.skillengine.effect.Effect;
 import com.aionemu.gameserver.skillengine.effect.Effects;
@@ -36,6 +37,11 @@ public class Skill
 	private Env env;
 	private SkillTemplate skillTemplate;
 	
+	/**
+	 *  Each skill is a separate object upon invocation
+	 *  
+	 * @param env
+	 */
 	public Skill(Env env)
 	{
 		super();
@@ -52,6 +58,8 @@ public class Skill
 			return;
 		
 		startCast();
+		env.getEffector().getController().attach(env.getConditionChangeListener());
+		
 		if(skillTemplate.getDuration() > 0)
 		{
 			schedule();
@@ -80,6 +88,9 @@ public class Skill
 	 */
 	private void endCast()
 	{
+		if(!preUsageCheck())
+			return;
+		
 		Effects skillEffects = skillTemplate.getEffects();
 		if(skillEffects != null)
 		{
@@ -94,6 +105,7 @@ public class Skill
 		{
 			for(Action action : skillActions.getActions())
 			{
+				
 				action.act(env);
 			}
 		}
@@ -114,14 +126,28 @@ public class Skill
 	}
 	
 	/**
-	 *  Check all conditions check before cast
+	 *  Check all conditions before starting cast
 	 */
 	private boolean preCastCheck()
 	{
-		Conditions skillConditions = skillTemplate.getConditions();
-		if(skillConditions != null)
+		Conditions skillConditions = skillTemplate.getStartconditions();
+		return checkConditions(skillConditions);
+	}
+	
+	/**
+	 *  Check all conditions before using skill
+	 */
+	private boolean preUsageCheck()
+	{
+		Conditions skillConditions = skillTemplate.getUseconditions();
+		return checkConditions(skillConditions);
+	}
+	
+	private boolean checkConditions(Conditions conditions)
+	{
+		if(conditions != null)
 		{
-			for(Condition condition : skillConditions.getConditions())
+			for(Condition condition : conditions.getConditions())
 			{
 				if(!condition.verify(env))
 				{
@@ -130,13 +156,5 @@ public class Skill
 			}
 		}
 		return true;
-	}
-	
-	/**
-	 *  Check all conditions before cast
-	 */
-	private void preUsageCheck()
-	{
-		
 	}
 }

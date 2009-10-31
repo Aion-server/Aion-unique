@@ -32,13 +32,15 @@ import com.aionemu.gameserver.skillengine.effect.Effects;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "skillTemplate", propOrder = {
-    "conditions",
+    "startconditions",
+    "useconditions",
     "effects",
     "actions"
 })
 public class SkillTemplate {
 
-    protected Conditions conditions;
+	protected Conditions startconditions;
+    protected Conditions useconditions;
     protected Effects effects;
     protected Actions actions;
     @XmlAttribute(name = "skill_id", required = true)
@@ -55,27 +57,27 @@ public class SkillTemplate {
     protected Integer cooldown;
 
     /**
-     * Gets the value of the conditions property.
+     * Gets the value of the startconditions property.
      * 
      * @return
      *     possible object is
      *     {@link Conditions }
      *     
      */
-    public Conditions getConditions() {
-        return conditions;
+    public Conditions getStartconditions() {
+        return startconditions;
     }
-
+    
     /**
-     * Sets the value of the conditions property.
+     * Gets the value of the useconditions property.
      * 
-     * @param value
-     *     allowed object is
+     * @return
+     *     possible object is
      *     {@link Conditions }
      *     
      */
-    public void setConditions(Conditions value) {
-        this.conditions = value;
+    public Conditions getUseconditions() {
+        return useconditions;
     }
 
     /**
@@ -91,18 +93,6 @@ public class SkillTemplate {
     }
 
     /**
-     * Sets the value of the effects property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Effects }
-     *     
-     */
-    public void setEffects(Effects value) {
-        this.effects = value;
-    }
-
-    /**
      * Gets the value of the actions property.
      * 
      * @return
@@ -115,31 +105,11 @@ public class SkillTemplate {
     }
 
     /**
-     * Sets the value of the actions property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Actions }
-     *     
-     */
-    public void setActions(Actions value) {
-        this.actions = value;
-    }
-
-    /**
      * Gets the value of the skillId property.
      * 
      */
     public int getSkillId() {
         return skillId;
-    }
-
-    /**
-     * Sets the value of the skillId property.
-     * 
-     */
-    public void setSkillId(int value) {
-        this.skillId = value;
     }
 
     /**
@@ -155,18 +125,6 @@ public class SkillTemplate {
     }
 
     /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setName(String value) {
-        this.name = value;
-    }
-
-    /**
      * Gets the value of the type property.
      * 
      * @return
@@ -179,18 +137,6 @@ public class SkillTemplate {
     }
 
     /**
-     * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SkillType }
-     *     
-     */
-    public void setType(SkillType value) {
-        this.type = value;
-    }
-
-    /**
      * Gets the value of the level property.
      * 
      */
@@ -199,27 +145,11 @@ public class SkillTemplate {
     }
 
     /**
-     * Sets the value of the level property.
-     * 
-     */
-    public void setLevel(int value) {
-        this.level = value;
-    }
-
-    /**
      * Gets the value of the duration property.
      * 
      */
     public int getDuration() {
         return duration;
-    }
-
-    /**
-     * Sets the value of the duration property.
-     * 
-     */
-    public void setDuration(int value) {
-        this.duration = value;
     }
 
     /**
@@ -236,18 +166,6 @@ public class SkillTemplate {
         } else {
             return cooldown;
         }
-    }
-
-    /**
-     * Sets the value of the cooldown property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setCooldown(Integer value) {
-        this.cooldown = value;
     }
 
 }

@@ -12,7 +12,9 @@
 
 	<xs:complexType name="skillTemplate">
 		<xs:sequence>
-			<xs:element name="conditions" type="Conditions" minOccurs="0"
+			<xs:element name="startconditions" type="Conditions" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="useconditions" type="Conditions" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="effects" type="Effects" minOccurs="0"
 				maxOccurs="1" />
@@ -40,6 +42,8 @@
 			<xs:element name="mp" type="MpCondition" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="target" type="TargetCondition"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="playermove" type="PlayerMovedCondition"
 				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
@@ -90,6 +94,14 @@
 		<xs:complexContent>
 			<xs:extension base="Condition">
 				<xs:attribute name="value" type="xs:int" use="required"></xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="PlayerMovedCondition">
+		<xs:complexContent>
+			<xs:extension base="Condition">
+				<xs:attribute name="allow" type="xs:boolean" use="required"></xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

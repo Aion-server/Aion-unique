@@ -5,9 +5,12 @@
 	<!-- Mage -->
 	<skill_template skill_id="1351" name="Flame Bolt I"
 		type="CHANNELED" level="1" duration="2000" cooldown="1000">
-		<conditions>
+		<startconditions>
 			<target value="NPC" />
-		</conditions>
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
 		<actions>
 			<damage value="61" />
 		</actions>
@@ -16,10 +19,13 @@
 	<!-- Priest -->
 	<skill_template skill_id="975" name="Smite I" type="CHANNELED"
 		level="1" duration="2000" cooldown="2000">
-		<conditions>
+		<startconditions>
 			<target value="NPC" />
 			<mp value="50" />
-		</conditions>
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
 		<actions>
 			<damage value="85" />
 		</actions>
@@ -27,10 +33,13 @@
 
 	<skill_template skill_id="965" name="Healing Light I"
 		type="CHANNELED" level="1" duration="2000" cooldown="1000">
-		<conditions>
+		<startconditions>
 			<target value="PLAYER" />
 			<mp value="50" />
-		</conditions>
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
 		<effects>
 			<heal value="93" />
 		</effects>
@@ -39,10 +48,13 @@
 	<!-- Scout -->
 	<skill_template skill_id="564" name="Swift Edge I" type="INSTANT"
 		level="1" duration="0" cooldown="7000">
-		<conditions>
+		<startconditions>
 			<target value="NPC" />
 			<mp value="50" />
-		</conditions>
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
 		<actions>
 			<damage value="63" />
 		</actions>
@@ -51,10 +63,13 @@
 	<!-- Warrior -->
 	<skill_template skill_id="169" name="Ferocious Strike I"
 		type="INSTANT" level="1" duration="0" cooldown="10000">
-		<conditions>
+		<startconditions>
 			<target value="NPC" />
 			<mp value="50" />
-		</conditions>
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
 		<actions>
 			<damage value="41" />
 		</actions>
@@ -67,9 +82,12 @@
 
 	<skill_template skill_id="1801" name="Return" type="CHANNELED"
 		level="1" duration="6000" cooldown="1200">
-		<conditions>
+		<startconditions>
 			<mp value="50" />
-		</conditions>
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
 		<actions>
 			<return />
 		</actions>

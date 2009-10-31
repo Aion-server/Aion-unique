@@ -37,7 +37,8 @@ public class Conditions
 {
     @XmlElements({
         @XmlElement(name = "target", type = TargetCondition.class),
-        @XmlElement(name = "mp", type = MpCondition.class)
+        @XmlElement(name = "mp", type = MpCondition.class),
+        @XmlElement(name = "playermove", type = PlayerMovedCondition.class)
     })
     protected List<Condition> conditions;
 

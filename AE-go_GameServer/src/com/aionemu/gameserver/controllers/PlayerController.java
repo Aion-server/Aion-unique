@@ -55,7 +55,7 @@ public class PlayerController extends CreatureController<Player>
 
 	// TEMP till player AI introduced
 	private Creature		lastAttacker;
-
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -166,6 +166,15 @@ public class PlayerController extends CreatureController<Player>
 	{
 		// TODO Auto-generated method stub
 		super.doDrop();
+	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.controllers.CreatureController#onMove()
+	 */
+	@Override
+	public void onMove()
+	{
+		super.onMove();
 	}
 
 	/**
