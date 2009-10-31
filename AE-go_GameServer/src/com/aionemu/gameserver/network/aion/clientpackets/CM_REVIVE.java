@@ -29,7 +29,7 @@ import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
- * @author ATracer, orz
+ * @author ATracer, orz, avol
  *
  */
 public class CM_REVIVE extends AionClientPacket
@@ -89,6 +89,7 @@ public class CM_REVIVE extends AionClientPacket
 		//world.spawn(activePlayer);
 		
 		sendPacket(new SM_UNKF5(activePlayer));
-	}
 
+		activePlayer.getCommonData().setExpLoss();
+	}
 }

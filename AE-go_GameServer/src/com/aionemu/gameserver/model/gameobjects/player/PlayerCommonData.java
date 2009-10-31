@@ -51,12 +51,14 @@ public class PlayerCommonData
 	/** Should be changed right after character creation **/
 	private int				level = 0;
 	private long			exp = 0;
+	private long			expLoss = 0;
 	private boolean			admin;
 	private Gender			gender;
 	private Timestamp		lastOnline;
 	private boolean 		online;
 	private String 			note;
 	private WorldPosition	position;
+
 	
 
 	public PlayerCommonData(int objId)
@@ -88,25 +90,63 @@ public class PlayerCommonData
 		return DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level+1);
 	}
 
+	public void setExpLoss()
+	{
+		int calculatedExpLoss = Math.round(getExpNeed() / 100 * 3);
+		expLoss = expLoss + calculatedExpLoss;
+		if (getExpShown() < expLoss) {
+			this.expLoss = getExpShown();
+		}
+		this.expLoss = expLoss;
+		PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATS_INFO(this.getPlayer()));
+	}
+
+	public void restoreRecoverableExp(long exp)
+	{
+		this.expLoss = expLoss - exp;
+	}
+
+	public long getExpRecoverable()
+	{
+		return expLoss;
+	}
+
 	public void setExp(long exp)
 	{
+
+
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
 		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
+
 		if (exp > maxExp)
 		{
 			exp = maxExp;
 		}
-		int level = 1;
 
-		while (exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level+1)+DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level) && level != maxLevel)
+		int level = 1;
+		long totalExp = 0;
+		long leakExp = 0;
+		
+
+
+		while (exp>= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level+1)+DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level) && level != maxLevel)
 		{
+
 			level++;
+			totalExp = leakExp + DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);
+		}
+
+		if (level>1) {
+			leakExp = exp - totalExp - DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level-1);
+		} 
+		else {
+			leakExp = exp - totalExp;
 		}
 
 		if (level > this.level)
 		{
 			this.level = level;
-			this.exp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);
+			this.exp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level) + leakExp;
 			
 			if(this.getPlayer()!= null)
 			{
@@ -121,6 +161,8 @@ public class PlayerCommonData
 				
 				PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATS_INFO(this.getPlayer()));
 			}
+
+
 		}
 		else
 		{
@@ -129,7 +171,7 @@ public class PlayerCommonData
 			if(this.getPlayer()!=null)
 			{
 				PacketSendUtility.sendPacket(this.getPlayer(),
-					new SM_STATUPDATE_EXP(this.getExpShown(), 0, this.getExpNeed()));
+					new SM_STATUPDATE_EXP(this.getExpShown(), this.getExpRecoverable(), this.getExpNeed()));
 			}
 		}
 	}

@@ -204,7 +204,7 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeD(buf, statsTemplate.getMaxHp()  + maxhpBonus);// [current hp]
 
 		writeQ(buf, pcd.getExpNeed());// [xp till next lv]
-		writeQ(buf, 0); // [recoverable exp]
+		writeQ(buf, pcd.getExpRecoverable()); // [recoverable exp]
 		writeQ(buf, pcd.getExpShown()); // [current xp]
 
 		writeD(buf, 0); // [unk]
