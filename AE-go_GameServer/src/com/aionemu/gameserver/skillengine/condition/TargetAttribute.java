@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,14 +14,35 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.handlers;
+package com.aionemu.gameserver.skillengine.condition;
+
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * @author ATracer
- *
+ * 
  */
-public class NotImplementedSkillHandler extends TemplateSkillHandler
+@XmlType(name = "TargetAttribute")
+@XmlEnum
+public enum TargetAttribute 
 {
+    CREATURE,
+    NPC,
+    PLAYER,
+    MONSTER,
+    SELF,
+    NONE;
+
+    public String value() 
+    {
+        return name();
+    }
+
+    public static TargetAttribute fromValue(String v) 
+    {
+        return valueOf(v);
+    }
 
 }

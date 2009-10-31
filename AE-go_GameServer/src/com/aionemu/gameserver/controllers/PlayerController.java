@@ -38,7 +38,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.LifeStatsRestoreService;
 import com.aionemu.gameserver.skillengine.SkillEngine;
-import com.aionemu.gameserver.skillengine.SkillHandler;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
@@ -150,10 +150,10 @@ public class PlayerController extends CreatureController<Player>
 
 	public void useSkill(int skillId)
 	{
-		SkillHandler skillHandler = SkillEngine.getInstance().getSkillHandlerFor(skillId);
-		if(skillHandler != null)
+		Skill skill = SkillEngine.getInstance().getSkillFor(getOwner(), skillId);
+		if(skill != null)
 		{
-			skillHandler.useSkill(this.getOwner());
+			skill.useSkill();
 		}
 	}
 

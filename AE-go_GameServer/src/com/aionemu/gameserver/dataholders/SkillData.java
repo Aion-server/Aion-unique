@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.model.templates.SkillTemplate;
+import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 
 /**
  * @author ATracer

@@ -14,40 +14,44 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.templates;
+package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+import com.aionemu.gameserver.skillengine.model.Env;
+
 
 /**
  * @author ATracer
- *
+ * 
  */
-@XmlAccessorType(XmlAccessType.NONE)
-@XmlRootElement(name = "effect")
-public class SkillEffectTemplate
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "MpCondition")
+public class MpCondition
+    extends Condition
 {
-	@XmlAttribute(name = "name", required = true)
-	private String name;
-	
-	@XmlAttribute(name = "value", required = true)
-	private String value;
 
-	/**
-	 * @return the name
-	 */
-	public String getName()
-	{
-		return name;
-	}
+    @XmlAttribute(required = true)
+    protected int value;
 
-	/**
-	 * @return the value
+    /**
+     * Gets the value of the value property.
+     * 
+     */
+    public int getValue() 
+    {
+        return value;
+    }
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.skillengine.condition.Condition#verify(com.aionemu.gameserver.skillengine.model.Env)
 	 */
-	public String getValue()
+	@Override
+	public boolean verify(Env env)
 	{
-		return value;
+		return env.getEffector().getLifeStats().getCurrentMp() > value;
 	}
 }

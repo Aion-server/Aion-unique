@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,14 +14,26 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.handlers;
+package com.aionemu.gameserver.skillengine.condition;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
+
+import com.aionemu.gameserver.skillengine.model.Env;
 
 
 /**
  * @author ATracer
- *
  */
-public class MiscSkillHandler extends TemplateSkillHandler
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Condition")
+public abstract class Condition 
 {
-	
+	/**
+	 *  Verify condition specified in template
+	 * @param env
+	 * @return
+	 */
+	public abstract boolean verify(Env env);
 }

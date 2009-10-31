@@ -14,41 +14,64 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
+package com.aionemu.gameserver.skillengine.model;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.SkillEffectTemplate;
-import com.aionemu.gameserver.utils.stats.StatFunctions;
+import com.aionemu.gameserver.world.World;
 
 /**
  * @author ATracer
  *
  */
-public class DamageEffect extends AbstractEffect
+public class Env
 {
+	private World world;
 	
-	public DamageEffect()
+	private Creature effected;
+
+	private Creature effector;
+	
+	private SkillTemplate skillTemplate;
+
+	public Env(Player player, SkillTemplate skillTemplate, World world)
 	{
 		super();
-		// TODO Auto-generated constructor stub
+		this.effected = player.getTarget();
+		this.effector = player;
+		this.skillTemplate = skillTemplate;
+		this.world = world;
 	}
 
-	public DamageEffect(SkillEffectTemplate skillEffectTemplate)
-	{
-		super(skillEffectTemplate);
-	}
-
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.effect.AbstractEffect#influence(com.aionemu.gameserver.model.gameobjects.Creature)
+	/**
+	 * @return the selectedTarget
 	 */
-	@Override
-	public int influence(Player influencer, Creature target)
+	public Creature getEffected()
 	{
-		//TODO check whether calculations of damage differs between magical spells and physical ones
-		int damage = StatFunctions.calculateMagicDamageToTarget(influencer, target, getSkillEffectTemplate());
-        target.getLifeStats().reduceHp(damage);
-        
-        return damage;
+		return effected;
+	}
+
+	/**
+	 * @return the skillUser
+	 */
+	public Creature getEffector()
+	{
+		return effector;
+	}
+
+	/**
+	 * @return the skillTemplate
+	 */
+	public SkillTemplate getSkillTemplate()
+	{
+		return skillTemplate;
+	}
+
+	/**
+	 * @param world the world to set
+	 */
+	public World getWorld()
+	{
+		return world;
 	}
 }

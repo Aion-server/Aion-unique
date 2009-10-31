@@ -22,7 +22,7 @@ import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.SkillEffectTemplate;
+import com.aionemu.gameserver.skillengine.action.DamageAction;
 
 /**
  * @author ATracer
@@ -77,10 +77,10 @@ public class StatFunctions
 	 * @param skillEffectTemplate
 	 * @return HP damage to target
 	 */
-	public static int calculateMagicDamageToTarget(Player player, Creature target, SkillEffectTemplate skillEffectTemplate)
+	public static int calculateMagicDamageToTarget(Player player, Creature target, int damage)
 	{
 		//TODO this is a dummmy cacluations
-		return Integer.parseInt(skillEffectTemplate.getValue()) * 3;
+		return damage * 3;
 	}
 	
 	public static int calculateNpcBaseDamageToPlayer(Npc npc, Player player)

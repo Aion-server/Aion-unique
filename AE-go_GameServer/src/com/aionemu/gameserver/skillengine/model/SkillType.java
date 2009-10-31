@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,13 +16,28 @@
  */
 package com.aionemu.gameserver.skillengine.model;
 
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlType;
+
+
 /**
  * @author ATracer
- * TODO should be added to skill.xml
+ * 
  */
-public enum SkillType
-{
-	INSTANT,
-	CHANNELED,
-	PASSIVE
+@XmlType(name = "skillType")
+@XmlEnum
+public enum SkillType {
+
+    INSTANT,
+    CHANNELED,
+    PASSIVE;
+
+    public String value() {
+        return name();
+    }
+
+    public static SkillType fromValue(String v) {
+        return valueOf(v);
+    }
+
 }

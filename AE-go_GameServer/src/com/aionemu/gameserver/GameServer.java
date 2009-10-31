@@ -34,7 +34,7 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.ThreadUncaughtExceptionHandler;
 import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
-
+import com.aionemu.gameserver.world.World;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
@@ -88,9 +88,8 @@ public class GameServer
 		// Loading quests
 		QuestParser.getInstance();
 		
+		SkillEngine.getInstance().setWorld(gs.injector.getInstance(World.class));
 		
-		// Ininitialize skill engine
-		SkillEngine.getInstance().registerAllSkills(gs.injector);
 		Util.printMemoryUsage(log);
 		log.info("###########################################################################");
 		log.info("AE Game Server started in " + (System.currentTimeMillis() - start) / 1000 + " seconds.");
