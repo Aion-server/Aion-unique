@@ -44,7 +44,8 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 
 	private ScheduledThreadPoolExecutorAE	scheduledThreadPool;
 	private ScheduledThreadPoolExecutorAE	disconnectionScheduledThreadPool;
-
+	private ScheduledThreadPoolExecutorAE	effectsScheduledThreadPool;
+	private ScheduledThreadPoolExecutorAE	aiScheduledThreadPool;
 	private ThreadPoolExecutor				loginServerPacketsThreadPool;
 
 	/**
@@ -63,6 +64,12 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 		scheduledThreadPool = new ScheduledThreadPoolExecutorAE(4, new PriorityThreadFactory("ScheduledThreadPool",
 			Thread.NORM_PRIORITY));
 		// scheduledThreadPool.setRemoveOnCancelPolicy(true);
+		
+		effectsScheduledThreadPool = new ScheduledThreadPoolExecutorAE(10, new PriorityThreadFactory("EffectsScheduledThreadPool",
+			Thread.NORM_PRIORITY));
+		
+		aiScheduledThreadPool = new ScheduledThreadPoolExecutorAE(10, new PriorityThreadFactory("AiScheduledThreadPool",
+			Thread.NORM_PRIORITY));
 
 		disconnectionScheduledThreadPool = new ScheduledThreadPoolExecutorAE(4, new PriorityThreadFactory(
 			"ScheduledThreadPool", Thread.NORM_PRIORITY));
@@ -71,7 +78,6 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 		loginServerPacketsThreadPool = new ThreadPoolExecutor(4, Integer.MAX_VALUE, 5L, TimeUnit.SECONDS,
 			new LinkedBlockingQueue<Runnable>(), new PriorityThreadFactory("Login Server Packet Pool",
 				Thread.NORM_PRIORITY + 3));
-
 	}
 
 	@SuppressWarnings("unchecked")
@@ -99,6 +105,76 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 			if(initial < 0)
 				initial = 0;
 			return (ScheduledFuture<T>) scheduledThreadPool.scheduleAtFixedRate(r, initial, delay,
+				TimeUnit.MILLISECONDS);
+		}
+		catch(RejectedExecutionException e)
+		{
+			return null;
+		}
+	}
+	
+	/** Effects schedulers **/
+	
+	@SuppressWarnings("unchecked")
+	public <T extends Runnable> ScheduledFuture<T> scheduleEffect(T r, long delay)
+	{
+		try
+		{
+			if(delay < 0)
+				delay = 0;
+			return (ScheduledFuture<T>) effectsScheduledThreadPool.schedule(r, delay, TimeUnit.MILLISECONDS);
+		}
+		catch(RejectedExecutionException e)
+		{
+			return null;
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T extends Runnable> ScheduledFuture<T> scheduleEffectAtFixedRate(T r, long initial, long delay)
+	{
+		try
+		{
+			if(delay < 0)
+				delay = 0;
+			if(initial < 0)
+				initial = 0;
+			return (ScheduledFuture<T>) effectsScheduledThreadPool.scheduleAtFixedRate(r, initial, delay,
+				TimeUnit.MILLISECONDS);
+		}
+		catch(RejectedExecutionException e)
+		{
+			return null;
+		}
+	}
+	
+	/** AI schedulers **/
+	
+	@SuppressWarnings("unchecked")
+	public <T extends Runnable> ScheduledFuture<T> scheduleAi(T r, long delay)
+	{
+		try
+		{
+			if(delay < 0)
+				delay = 0;
+			return (ScheduledFuture<T>) aiScheduledThreadPool.schedule(r, delay, TimeUnit.MILLISECONDS);
+		}
+		catch(RejectedExecutionException e)
+		{
+			return null;
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T extends Runnable> ScheduledFuture<T> scheduleAiAtFixedRate(T r, long initial, long delay)
+	{
+		try
+		{
+			if(delay < 0)
+				delay = 0;
+			if(initial < 0)
+				initial = 0;
+			return (ScheduledFuture<T>) aiScheduledThreadPool.scheduleAtFixedRate(r, initial, delay,
 				TimeUnit.MILLISECONDS);
 		}
 		catch(RejectedExecutionException e)
@@ -175,8 +251,12 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 		try
 		{
 			scheduledThreadPool.shutdown();
+			effectsScheduledThreadPool.shutdown();
+			aiScheduledThreadPool.shutdown();
 			loginServerPacketsThreadPool.shutdown();
 			scheduledThreadPool.awaitTermination(2, TimeUnit.SECONDS);
+			effectsScheduledThreadPool.awaitTermination(2, TimeUnit.SECONDS);
+			aiScheduledThreadPool.awaitTermination(2, TimeUnit.SECONDS);
 			loginServerPacketsThreadPool.awaitTermination(2, TimeUnit.SECONDS);
 			log.info("All ThreadPools are now stopped");
 		}
