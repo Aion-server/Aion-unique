@@ -83,12 +83,14 @@ public final class DataManager
 	 * Player initial data table.<br />
 	 * Contains initial player settings.
 	 */
-	public static PlayerInitialData PLAYER_INITIAL_DATA;
+	public static PlayerInitialData 	PLAYER_INITIAL_DATA;
 	
 	/**
 	 * 
 	 */
 	public static SkillData				SKILL_DATA;
+	
+	public static SkillTreeData			SKILL_TREE_DATA;
 
 	/**
 	 * Constructor creating <tt>DataManager</tt> instance.<br>
@@ -113,6 +115,7 @@ public final class DataManager
 		NPC_DATA = data.npcData;
 		PLAYER_INITIAL_DATA = data.playerInitialData;
 		SKILL_DATA = data.skillData;
+		SKILL_TREE_DATA = data.skillTreeData;
 		
 		// now this outstanding spawndata and (still) npcdata:
 		SPAWN_DATA = new SpawnData(NPC_DATA);

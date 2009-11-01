@@ -62,11 +62,13 @@ public class StaticData
 	
 	@XmlElement(name = "skill_data")
 	public SkillData				skillData;
+	
+	@XmlElement(name = "skill_tree")
+	public SkillTreeData			skillTreeData;
 
 	// JAXB callback
 	private void afterUnmarshal(Unmarshaller unmarshaller, Object parent)
 	{
-
 		DataManager.log.info("Loaded world maps data: " + worldMapsData.size() + " maps");
 		DataManager.log.info("Loaded player exp table: " + playerExperienceTable.getMaxLevel() + " levels");
 		DataManager.log.info("Loaded " + statsData.size() + " stat templates");
@@ -77,6 +79,7 @@ public class StaticData
 		DataManager.log.info("Loaded " + teleporterData.size() + " npc teleporter templates");
 		DataManager.log.info("Loaded " + teleLocationData.size() + " teleport locations");
 		DataManager.log.info("Loaded " + skillData.size() + " skill templates");
+		DataManager.log.info("Loaded " + skillTreeData.size() + " skill learn entries");
 		
 	}
 }

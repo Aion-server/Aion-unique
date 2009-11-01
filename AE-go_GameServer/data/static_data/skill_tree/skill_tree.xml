@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skill_tree xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="skill_tree.xsd">
+	<skill classId="0" skillId="1" skillLevel="1" name="Basic Sword Training"
+		type="0" minLevel="1" />
+	<skill classId="0" skillId="3" skillLevel="1" name="Basic Mace Training"
+		type="0" minLevel="1" />
+	<skill classId="0" skillId="4" skillLevel="1"
+		name="Basic Clothing Proficiency" type="0" minLevel="1" />
+	<skill classId="0" skillId="5" skillLevel="1"
+		name="Basic Leather Armor Proficiency" type="0" minLevel="1" />
+	<skill classId="0" skillId="6" skillLevel="1"
+		name="Basic Chain Armor Proficiency" type="0" minLevel="1" />
+	<skill classId="0" skillId="7" skillLevel="1" name="Basic Shield Training"
+		type="0" minLevel="1" />
+	<skill classId="0" skillId="8" skillLevel="1"
+		name="Advanced Sword Training I" type="0" minLevel="9" />
+	<skill classId="0" skillId="9" skillLevel="1"
+		name="Advanced Dagger Training I" type="0" minLevel="9" />
+	<skill classId="0" skillId="10" skillLevel="1"
+		name="Advanced Mace Training I" type="0" minLevel="9" />
+	<skill classId="0" skillId="12" skillLevel="1"
+		name="Quality Leather Armor Proficiency I" type="0" minLevel="9" />
+	<skill classId="0" skillId="13" skillLevel="1"
+		name="Quality Chain Armor Proficiency I" type="0" minLevel="9" />
+	<skill classId="0" skillId="14" skillLevel="1"
+		name="Advanced Shield Training I" type="0" minLevel="9" />
+	<skill classId="0" skillId="15" skillLevel="1"
+		name="Advanced Great Sword Training I" type="0" minLevel="9" />
+	<skill classId="0" skillId="16" skillLevel="1"
+		name="Advanced Polearm Training I" type="0" minLevel="9" />
+	<skill classId="0" skillId="17" skillLevel="1"
+		name="Advanced Archery Training I" type="0" minLevel="9" />
+	<skill classId="0" skillId="18" skillLevel="1"
+		name="Quality Plate Armor Proficiency I" type="0" minLevel="9" />
+	<skill classId="0" skillId="67" skillLevel="1"
+		name="Basic Cloth Armor Proficiency" type="0" minLevel="1" />
+	<skill classId="0" skillId="112" skillLevel="1"
+		name="Boost Physical Attack I" type="0" minLevel="1" />
+	<skill classId="0" skillId="120" skillLevel="1" name="Boost Parry I"
+		type="1" minLevel="9" />
+	<skill classId="0" skillId="121" skillLevel="1" name="Boost HP I"
+		type="1" minLevel="5" />
+	<skill classId="0" skillId="151" skillLevel="1"
+		name="Weakening Severe Blow I" type="1" minLevel="5" />
+	<skill classId="0" skillId="154" skillLevel="1"
+		name="Shield Counterattack I" type="1" minLevel="9" />
+	<skill classId="0" skillId="161" skillLevel="1" name="Shouting I"
+		type="1" minLevel="7" />
+	<skill classId="0" skillId="165" skillLevel="1" name="Resolute Strike I"
+		type="1" minLevel="3" />
+	<skill classId="0" skillId="169" skillLevel="1" name="Severe Strike I"
+		type="0" minLevel="1" />
+	<skill classId="0" skillId="173" skillLevel="1" name="Shield Defense I"
+		type="1" minLevel="3" />
+	<skill classId="0" skillId="1801" skillLevel="1" name="Return"
+		type="0" minLevel="1" />
+	<skill classId="0" skillId="1803" skillLevel="1" name="Bandage Heal"
+		type="0" minLevel="1" />
+	<skill classId="3" skillId="1" skillLevel="1" name="Basic Sword Training"
+		type="0" minLevel="1" />
+	<skill classId="3" skillId="2" skillLevel="1" name="Basic Dagger Training"
+		type="0" minLevel="1" />
+	<skill classId="3" skillId="4" skillLevel="1"
+		name="Basic Clothing Proficiency" type="0" minLevel="1" />
+	<skill classId="3" skillId="5" skillLevel="1"
+		name="Basic Leather Armor Proficiency" type="0" minLevel="1" />
+	<skill classId="3" skillId="8" skillLevel="1"
+		name="Advanced Sword Training I" type="0" minLevel="9" />
+	<skill classId="3" skillId="9" skillLevel="1"
+		name="Advanced Dagger Training I" type="0" minLevel="9" />
+	<skill classId="3" skillId="12" skillLevel="1"
+		name="Quality Leather Armor Proficiency I" type="0" minLevel="9" />
+	<skill classId="3" skillId="17" skillLevel="1"
+		name="Advanced Archery Training I" type="0" minLevel="9" />
+	<skill classId="3" skillId="19" skillLevel="1"
+		name="Advanced Dual-Wielding" type="1" minLevel="5" />
+	<skill classId="3" skillId="67" skillLevel="1"
+		name="Basic Cloth Armor Proficiency" type="0" minLevel="1" />
+	<skill classId="3" skillId="112" skillLevel="1"
+		name="Evasion Rate increase I" type="1" minLevel="9" />
+	<skill classId="3" skillId="113" skillLevel="1" name="Boost Accuracy I"
+		type="1" minLevel="5" />
+	<skill classId="3" skillId="360" skillLevel="2"
+		name="Equip Off Hand Weapon II" type="1" minLevel="9" />
+	<skill classId="3" skillId="551" skillLevel="1" name="Surprice Attack I"
+		type="1" minLevel="3" />
+	<skill classId="3" skillId="555" skillLevel="1" name="Counterslash I"
+		type="1" minLevel="5" />
+	<skill classId="3" skillId="559" skillLevel="1" name="Hide I"
+		type="1" minLevel="5" />
+	<skill classId="3" skillId="564" skillLevel="1" name="Swift Edge I"
+		type="0" minLevel="1" />
+	<skill classId="3" skillId="568" skillLevel="1" name="Soul Slash I"
+		type="1" minLevel="7" />
+	<skill classId="3" skillId="572" skillLevel="1" name="Focused Evasion I"
+		type="0" minLevel="1" />
+	<skill classId="3" skillId="577" skillLevel="1" name="Devotion I"
+		type="1" minLevel="9" />
+	<skill classId="3" skillId="1801" skillLevel="1" name="Return"
+		type="0" minLevel="1" />
+	<skill classId="3" skillId="1803" skillLevel="1" name="Bandage Heal"
+		type="0" minLevel="1" />
+	<skill classId="6" skillId="4" skillLevel="1"
+		name="Basic Clothing Proficiency" type="0" minLevel="1" />
+	<skill classId="6" skillId="64" skillLevel="1"
+		name="Basic Spellbook Training" type="0" minLevel="1" />
+	<skill classId="6" skillId="67" skillLevel="1"
+		name="Basic Cloth Armor Proficiency" type="0" minLevel="1" />
+	<skill classId="6" skillId="68" skillLevel="1"
+		name="Advanced Orb Training I" type="0" minLevel="9" />
+	<skill classId="6" skillId="70" skillLevel="1"
+		name="Advanced Cloth Armor Proficiency I" type="0" minLevel="9" />
+	<skill classId="6" skillId="71" skillLevel="1"
+		name="Advanced Spellbook Training I" type="0" minLevel="9" />
+	<skill classId="6" skillId="105" skillLevel="1" name="Concentration I"
+		type="1" minLevel="3" />
+	<skill classId="6" skillId="1099" skillLevel="1" name="Restraint I"
+		type="0" minLevel="1" />
+	<skill classId="6" skillId="1351" skillLevel="1" name="Flame Arrow I"
+		type="0" minLevel="1" />
+	<skill classId="6" skillId="1355" skillLevel="1" name="Cold Wave"
+		type="1" minLevel="7" />
+	<skill classId="6" skillId="1358" skillLevel="1" name="Erosion I"
+		type="1" minLevel="3" />
+	<skill classId="6" skillId="1362" skillLevel="1" name="Ice Chain I"
+		type="1" minLevel="3" />
+	<skill classId="6" skillId="1366" skillLevel="1" name="Blaze"
+		type="1" minLevel="5" />
+	<skill classId="6" skillId="1370" skillLevel="1"
+		name="Energy Absorption I" type="1" minLevel="9" />
+	<skill classId="6" skillId="1377" skillLevel="1" name="Stone Skin I"
+		type="1" minLevel="7" />
+	<skill classId="6" skillId="1801" skillLevel="1" name="Return"
+		type="0" minLevel="1" />
+	<skill classId="6" skillId="1803" skillLevel="1" name="Bandage Heal"
+		type="0" minLevel="1" />
+	<skill classId="9" skillId="3" skillLevel="1" name="Basic Mace Training"
+		type="0" minLevel="1" />
+	<skill classId="9" skillId="4" skillLevel="1"
+		name="Basic Clothing Proficiency" type="0" minLevel="1" />
+	<skill classId="9" skillId="5" skillLevel="1"
+		name="Basic Leather Armor Proficiency" type="0" minLevel="1" />
+	<skill classId="9" skillId="10" skillLevel="1"
+		name="Advanced Mace Training I" type="0" minLevel="9" />
+	<skill classId="9" skillId="12" skillLevel="1"
+		name="Quality Leather Armor Proficiency I" type="0" minLevel="9" />
+	<skill classId="9" skillId="13" skillLevel="1"
+		name="Quality Chain Armor Proficiency I" type="0" minLevel="9" />
+	<skill classId="9" skillId="14" skillLevel="1"
+		name="Advanced Shield Training I" type="0" minLevel="9" />
+	<skill classId="9" skillId="53" skillLevel="1"
+		name="Advanced Staff Training I" type="0" minLevel="9" />
+	<skill classId="9" skillId="67" skillLevel="1"
+		name="Basic Cloth Armor Proficiency" type="0" minLevel="1" />
+	<skill classId="9" skillId="70" skillLevel="1"
+		name="Advanced Cloth Armor Proficiency I" type="0" minLevel="9" />
+	<skill classId="9" skillId="408" skillLevel="1" name="Blessing of Life I"
+		type="1" minLevel="3" />
+	<skill classId="9" skillId="955" skillLevel="1"
+		name="Blessing of Protection I" type="1" minLevel="5" />
+	<skill classId="9" skillId="958" skillLevel="1" name="Light of Renewal I"
+		type="1" minLevel="5" />
+	<skill classId="9" skillId="962" skillLevel="1" name="Condemnation I"
+		type="1" minLevel="3" />
+	<skill classId="9" skillId="965" skillLevel="1" name="Healing Light I"
+		type="0" minLevel="1" />
+	<skill classId="9" skillId="969" skillLevel="1" name="Promise of Wind I"
+		type="1" minLevel="9" />
+	<skill classId="9" skillId="972" skillLevel="1"
+		name="Light of Resurrection I" type="1" minLevel="9" />
+	<skill classId="9" skillId="975" skillLevel="1"
+		name="Retribution of Earth I" type="0" minLevel="1" />
+	<skill classId="9" skillId="979" skillLevel="1" name="Heavens Judgement I"
+		type="1" minLevel="7" />
+	<skill classId="9" skillId="1801" skillLevel="1" name="Return"
+		type="0" minLevel="1" />
+	<skill classId="9" skillId="1803" skillLevel="1" name="Bandage Heal"
+		type="0" minLevel="1" />
+</skill_tree>

@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+	<xs:include schemaLocation="../import.xsd" />
+
 	<xs:element name="skill_data" type="skillData" />
 
 	<xs:complexType name="skillData">
 		<xs:sequence>
-			<xs:element name="skill_template" type="skillTemplate"
-				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="skill_template" type="SkillTemplate"
+				minOccurs="0" maxOccurs="unbounded" />		
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="skillTemplate">
+	<xs:complexType name="SkillTemplate">
 		<xs:sequence>
 			<xs:element name="startconditions" type="Conditions" minOccurs="0"
 				maxOccurs="1" />

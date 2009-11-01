@@ -71,7 +71,7 @@
 	<import file="player_experience_table.xml" />
 	<import file="player_initial_data.xml" />
 	<import file="items/item_templates.xml"/>
-
+	
 	<stats_templates>
 		<import file="stats/" skipRoot="true" />
 	</stats_templates>
@@ -84,5 +84,8 @@
 		<import file="skills" skipRoot="true"/>
 	</skill_data>
 	
+	<skill_tree>
+		<import file="skill_tree" skipRoot="true"/>
+	</skill_tree>
 
 </ae_static_data>

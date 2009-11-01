@@ -2,7 +2,7 @@
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 	<xs:include schemaLocation="../stats/stats.xsd" />
-	<xs:include schemaLocation="../items/items.xsd" />
+	<xs:include schemaLocation="../items/item_templates.xsd" />
 
 	<xs:include schemaLocation="../import.xsd" />
 
