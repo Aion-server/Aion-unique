@@ -29,8 +29,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "skill")
 public class SkillLearnTemplate
 {
+	//TODO enums instead of strings
+	
 	@XmlAttribute(name = "classId", required = true)
-	private int classId;
+	private String classId;
 	@XmlAttribute(name = "skillId", required = true)
 	private int skillId;
 	@XmlAttribute(name = "skillLevel", required = true)
@@ -38,14 +40,16 @@ public class SkillLearnTemplate
 	@XmlAttribute(name = "name", required = true)
 	private String name;
 	@XmlAttribute(name = "type", required = true)
-	private int type;
+	private String type;
+	@XmlAttribute(name = "race", required = true)
+	private String race;
 	@XmlAttribute(name = "minLevel", required = true)
 	private int minLevel;
 	
 	/**
 	 * @return the classId
 	 */
-	public int getClassId()
+	public String getClassId()
 	{
 		return classId;
 	}
@@ -73,7 +77,7 @@ public class SkillLearnTemplate
 	/**
 	 * @return the type
 	 */
-	public int getType()
+	public String getType()
 	{
 		return type;
 	}
@@ -84,5 +88,11 @@ public class SkillLearnTemplate
 	{
 		return minLevel;
 	}
-	
+	/**
+	 * @return the race
+	 */
+	public String getRace()
+	{
+		return race;
+	}
 }

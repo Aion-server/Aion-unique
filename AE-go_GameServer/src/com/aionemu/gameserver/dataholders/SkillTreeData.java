@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.skillengine.model.SkillLearnTemplate;
 
 /**
@@ -76,7 +77,8 @@ public class SkillTreeData
 	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + template.getClassId();
+		//TODO enum
+		result = prime * result + template.getClassId().hashCode();
 		result = prime * result + template.getMinLevel();
 		return result;
 	}
