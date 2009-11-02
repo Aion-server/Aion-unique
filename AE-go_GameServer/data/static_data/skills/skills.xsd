@@ -57,6 +57,8 @@
 				maxOccurs="1" />
 			<xs:element name="return" type="ReturnAction" minOccurs="0"
 				maxOccurs="1" />
+			<xs:element name="itemuse" type="ItemUseAction" minOccurs="0"
+				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -80,6 +82,15 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:complexType name="ItemUseAction">
+		<xs:complexContent>
+			<xs:extension base="Action">
+				<xs:attribute name="itemid" type="xs:int" use="required"/>
+				<xs:attribute name="count" type="xs:int" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<!-- EFFECTS -->
 	
@@ -87,6 +98,7 @@
 		<xs:complexContent>
 			<xs:extension base="Effect">
 				<xs:attribute name="value" type="xs:int" use="required"></xs:attribute>
+				<xs:attribute name="target" type="TargetAttribute"></xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

@@ -4,9 +4,10 @@
 
 	<!-- Mage -->
 	<skill_template skill_id="1351" name="Flame Bolt I"
-		type="CHANNELED" level="1" duration="2000" cooldown="1000">
+		type="CHANNELED" level="1" duration="2000" cooldown="1">
 		<startconditions>
 			<target value="NPC" />
+			<mp value="38" />
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
@@ -18,24 +19,24 @@
 
 	<!-- Priest -->
 	<skill_template skill_id="975" name="Smite I" type="CHANNELED"
-		level="1" duration="2000" cooldown="2000">
+		level="1" duration="2000" cooldown="2">
 		<startconditions>
 			<target value="NPC" />
-			<mp value="50" />
+			<mp value="16" />
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="85" />
+			<damage value="74" />
 		</actions>
 	</skill_template>
 
 	<skill_template skill_id="965" name="Healing Light I"
-		type="CHANNELED" level="1" duration="2000" cooldown="1000">
+		type="CHANNELED" level="1" duration="2000" cooldown="0">
 		<startconditions>
 			<target value="PLAYER" />
-			<mp value="50" />
+			<mp value="11" />
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
@@ -47,31 +48,31 @@
 
 	<!-- Scout -->
 	<skill_template skill_id="564" name="Swift Edge I" type="INSTANT"
-		level="1" duration="0" cooldown="7000">
+		level="1" duration="0" cooldown="7">
 		<startconditions>
 			<target value="NPC" />
-			<mp value="50" />
+			<mp value="0" />
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="63" />
+			<damage value="45" />
 		</actions>
 	</skill_template>
 
 	<!-- Warrior -->
 	<skill_template skill_id="169" name="Ferocious Strike I"
-		type="INSTANT" level="1" duration="0" cooldown="10000">
+		type="INSTANT" level="1" duration="0" cooldown="10">
 		<startconditions>
 			<target value="NPC" />
-			<mp value="50" />
+			<mp value="0" />
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="41" />
+			<damage value="23" />
 		</actions>
 	</skill_template>
 
@@ -83,13 +84,29 @@
 	<skill_template skill_id="1801" name="Return" type="CHANNELED"
 		level="1" duration="6000" cooldown="1200">
 		<startconditions>
-			<mp value="50" />
+			<mp value="0" />
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
 			<return />
+		</actions>
+	</skill_template>
+	
+	<skill_template skill_id="1803" name="Bandage Heal" type="CHANNELED"
+		level="1" duration="4000" cooldown="16">
+		<startconditions>
+			<mp value="50" />
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
+		<effects>
+			<heal value="178" target="SELF"/>	
+		</effects>
+		<actions>
+			<itemuse itemid="169300002" count="1"/>
 		</actions>
 	</skill_template>
 

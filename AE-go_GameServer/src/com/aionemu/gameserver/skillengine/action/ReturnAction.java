@@ -54,7 +54,7 @@ extends Action
 		int unk = 0;
 
 		PacketSendUtility.broadcastPacket(player,
-			new SM_CASTSPELL_END(player.getObjectId(), template.getSkillId(), template.getLevel(), unk, 0, 0), true);
+			new SM_CASTSPELL_END(player.getObjectId(), template.getSkillId(), template.getLevel(), unk, 0, 0, template.getCooldown()), true);
 
 		env.getWorld().despawn(player);
 		LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());

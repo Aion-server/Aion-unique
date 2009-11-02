@@ -174,6 +174,35 @@ public class Inventory
 	}
 	
 	/**
+	 *  Used to reduce item count in bag or completely remove
+	 *  Return value can be the following:
+	 *  - null (item doesn't exist in inventory)
+	 *  - item with same count value (if decrease operation failed)
+	 *  - item with less count value (normal operation)
+	 *  - item with 0 as a count value (item stack is empty)
+	 * @param itemId
+	 * @param count
+	 * @return
+	 */
+	public Item removeFromBag(int itemId, int count)
+	{
+		Item item = defaultItemBag.getItemFromStorageByItemId(itemId);
+		if(item == null || !item.decreaseItemCount(count))
+		{
+			return item;
+		}
+		if(item.getItemCount() == 0)
+		{
+			removeFromBag(item);
+		}
+		else
+		{
+			DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
+		}
+		return item;
+	}
+	
+	/**
 	 *  Method primarily used when saving to DB
 	 *  //TODO getAllItems(compartment)
 	 * @return

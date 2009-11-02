@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
+import com.aionemu.gameserver.skillengine.condition.TargetAttribute;
 import com.aionemu.gameserver.skillengine.model.Env;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -41,6 +42,9 @@ public class HealEffect
 
     @XmlAttribute(required = true)
     protected int value;
+    
+    @XmlAttribute(required = false)
+    protected TargetAttribute target;
 
     /**
      * Gets the value of the value property.
@@ -51,9 +55,19 @@ public class HealEffect
         return value;
     }
 
+
 	/* (non-Javadoc)
 	 * @see com.aionemu.gameserver.skillengine.effect.Effect#apply(com.aionemu.gameserver.skillengine.model.Env)
 	 */
+	/**
+	 * @return the target
+	 */
+	public TargetAttribute getTarget()
+	{
+		return target;
+	}
+
+
 	@Override
 	public void apply(Env env)
 	{
@@ -66,11 +80,25 @@ public class HealEffect
 		SkillTemplate template = env.getSkillTemplate();
 		
 		int unk = 0;
+		if(target == TargetAttribute.SELF)
+		{
+			effected = effector;
+			PacketSendUtility.broadcastPacket(effector,
+				new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
+					unk, 0, value, template.getCooldown()), true);
+		}
+		else
+		{
+			PacketSendUtility.broadcastPacket(effector,
+				new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
+					unk, effected.getObjectId(), value, template.getCooldown()), true);
+		}
 		
-		PacketSendUtility.broadcastPacket(effector,
-			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
-				unk, effected.getObjectId(), value), true);
 		
+		
+			effector.getLifeStats().increaseHp(value);
+		
+
 		effected.getLifeStats().increaseHp(value);
 	}
 }

@@ -35,8 +35,9 @@ public class SM_CASTSPELL_END extends AionServerPacket
 	private int	level;
 	private int	unk; //can cast?? 
 	private int damage;
+	private int cooldown;
 	
-	public SM_CASTSPELL_END(int attackerobjectid ,int spellid,int level,int unk, int targetObjectId, int damage)
+	public SM_CASTSPELL_END(int attackerobjectid ,int spellid,int level,int unk, int targetObjectId, int damage, int cooldown)
 	{
 		this.attackerobjectid = attackerobjectid;
 		this.targetObjectId = targetObjectId;
@@ -44,6 +45,7 @@ public class SM_CASTSPELL_END extends AionServerPacket
 		this.level = level ;
 		this.unk = unk ;
 		this.damage = damage;
+		this.cooldown = cooldown * 10;
 	}
 
 	/**
@@ -58,7 +60,7 @@ public class SM_CASTSPELL_END extends AionServerPacket
 		writeD(buf, targetObjectId);
 		writeH(buf, spellid); 
 		writeC(buf, level);
-		writeD(buf, 20);
+		writeD(buf, cooldown);
 		writeC(buf, 0xFE); //unk??
 		writeC(buf, 1); //unk??
 		writeD(buf, 512); //unk??

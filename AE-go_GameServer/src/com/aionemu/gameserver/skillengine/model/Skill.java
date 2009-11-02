@@ -62,7 +62,7 @@ public class Skill
 		
 		if(skillTemplate.getDuration() > 0)
 		{
-			schedule();
+			schedule(skillTemplate.getDuration());
 		}
 		else
 		{
@@ -75,12 +75,14 @@ public class Skill
 	 */
 	private void startCast()
 	{
+
 		Player effector = (Player) env.getEffector();
 		int targetObjId = env.getEffected() !=  null ? env.getEffected().getObjectId() : 0;
 		final int unk = 0;
 		PacketSendUtility.broadcastPacket(effector, 
 			new SM_CASTSPELL(effector.getObjectId(), skillTemplate.getSkillId(), skillTemplate.getLevel(),
 				unk, targetObjId, skillTemplate.getDuration()), true);
+
 	}
 	
 	/**
@@ -114,7 +116,7 @@ public class Skill
 	/**
 	 *  Schedule actions/effects of skill (channeled skills)
 	 */
-	private void schedule()
+	private void schedule(int delay)
 	{
 		ThreadPoolManager.getInstance().schedule(new Runnable() 
 		{
@@ -122,7 +124,7 @@ public class Skill
 			{
 				endCast();
 			}   
-		}, skillTemplate.getDuration());
+		}, delay);
 	}
 	
 	/**

@@ -21,55 +21,49 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.skillengine.model.Env;
-import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.stats.StatFunctions;
-
 
 /**
  * @author ATracer
- *  
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DamageAction")
-public class DamageAction
-    extends Action
+@XmlType(name = "ItemUseAction")
+public class ItemUseAction extends Action
 {
-
-    @XmlAttribute(required = true)
-    protected int value;
-
-    /**
-     * Gets the value of the value property.
-     * 
-     */
-    public int getValue() 
-    {
-        return value;
-    }
-
-    /* (non-Javadoc)
+	@XmlAttribute(required = true)
+    protected int itemid;
+	
+	@XmlAttribute(required = true)
+    protected int count;
+	
+	/* (non-Javadoc)
 	 * @see com.aionemu.gameserver.skillengine.action.Action#act(com.aionemu.gameserver.skillengine.model.Env)
 	 */
 	@Override
 	public void act(Env env)
 	{
-		Player effector = (Player) env.getEffector();
-		Creature effected = env.getEffected();
-		SkillTemplate template = env.getSkillTemplate();
-		int damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, value);
-		
-		int unk = 0;
-		
-		PacketSendUtility.broadcastPacket(effector,
-			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
-				unk, effected.getObjectId(), damage, template.getCooldown()), true);
-		
-		effected.getLifeStats().reduceHp(damage);
-		effected.getController().onAttack(effector);
+		Player player = (Player) env.getEffector();
+		Inventory inventory = player.getInventory();
+		Item item = inventory.removeFromBag(itemid, count);
+		if(item == null)
+		{
+			return;
+		}
+		if(item.getItemCount() > 0)
+		{
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
+		}
+		else
+		{
+			PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(item.getObjectId()));
+		}
 	}
+
 }

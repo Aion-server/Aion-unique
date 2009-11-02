@@ -38,7 +38,8 @@ public class Actions
 {
     @XmlElements({
         @XmlElement(name = "return", type = ReturnAction.class),
-        @XmlElement(name = "damage", type = DamageAction.class)
+        @XmlElement(name = "damage", type = DamageAction.class),
+        @XmlElement(name = "itemuse", type = ItemUseAction.class)
     })
     protected List<Action> actions;
 
