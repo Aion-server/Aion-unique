@@ -3,7 +3,7 @@
 # When I Have More Info I Will Add Them,
 # Remember The Spawns Need A Little Rework Later.
 # Updated Missing Spawns By DPGuide.
-# mapid npcid x z y heading
+# mapid npcid x y z heading
 
 # Aldelle Basin Sprigg Workers
 220010000 210364 631.9706 2776.6418 294.9599 64
@@ -902,6 +902,8 @@
 
 # Odella Plantation 1-Year-Old Ginseng Root
 220010000 210595 569.9711 1439.8833 310.25 75
+220010000 210595 566.0747 1412.66 309.79248 0
+220010000 210595 555.2744 1412.327 310.13394 0
 
 # Odella Plantation DunDun Watchtower Guard
 220010000 210609 560.5105 1456.3275 317.6324 21
