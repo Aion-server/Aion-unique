@@ -68,7 +68,9 @@ public class StatFunctions
 		if (target instanceof Player) {
 			targetPDef = ClassStats.getBlockFor(((Player)target).getPlayerClass());
 		}
-		return pAttack - targetPDef / 10;
+		
+		int damage = pAttack - targetPDef / 10;
+		return damage > 0 ? damage : 0;
 	}
 	
 	/**

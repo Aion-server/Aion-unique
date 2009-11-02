@@ -29,19 +29,72 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "npc_stats_template")
 public class NpcStatsTemplate extends StatsTemplate
 {
-	@XmlAttribute(name = "walk_speed_fight")
-	private float walkSpeedFight;
 	@XmlAttribute(name = "run_speed_fight")
 	private float runSpeedFight;
+	@XmlAttribute(name = "pdef")
+	private int pdef;
+	@XmlAttribute(name = "mdef")
+	private int mdef;
+	@XmlAttribute(name = "crit")
+	private int crit;
+	@XmlAttribute(name = "accuracy")
+	private int accuracy;
+	@XmlAttribute(name = "power")
+	private int power;
+	@XmlAttribute(name = "maxXp")
+	private int maxXp;
 	
-	public float getWalkSpeedFight()
-	{
-		return walkSpeedFight;
-	}
 	public float getRunSpeedFight()
 	{
 		return runSpeedFight;
 	}
-	
+
+	/**
+	 * @return the pdef
+	 */
+	public float getPdef()
+	{
+		return pdef;
+	}
+
+	/**
+	 * @return the mdef
+	 */
+	public float getMdef()
+	{
+		return mdef;
+	}
+
+	/**
+	 * @return the crit
+	 */
+	public float getCrit()
+	{
+		return crit;
+	}
+
+	/**
+	 * @return the accuracy
+	 */
+	public float getAccuracy()
+	{
+		return accuracy;
+	}
+
+	/**
+	 * @return the power
+	 */
+	public int getPower()
+	{
+		return power;
+	}
+
+	/**
+	 * @return the maxXp
+	 */
+	public int getMaxXp()
+	{
+		return maxXp;
+	}
 	
 }

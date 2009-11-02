@@ -113,7 +113,10 @@ public class NpcController extends CreatureController<Npc>
 		NpcAi npcAi = this.getOwner().getNpcAi();
 		npcAi.setAiState(AIState.DEAD);
 		npcAi.getDesireQueue().clear();
-		npcAi.getDesireProcessor().desire.stopDesire();
+		//TODO this should be removed
+		if(npcAi.getDesireProcessor().desire != null)
+			npcAi.getDesireProcessor().desire.stopDesire();
+		
 		
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13 , getOwner().getObjectId()));
 		this.doDrop();

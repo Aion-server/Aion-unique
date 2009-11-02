@@ -29,17 +29,17 @@
 
 	<xs:complexType name="statsTemplate" abstract="true">
 		<xs:attribute name="maxHp" type="xs:int" use="required" />
-		<xs:attribute name="maxMp" type="xs:int" use="required" />
+		<xs:attribute name="maxMp" type="xs:int" />
 		<xs:attribute name="walk_speed" type="xs:float" use="required" />
 		<xs:attribute name="run_speed" type="xs:float" use="required" />
 		<xs:attribute name="fly_speed" type="xs:float" use="required" />
-		<xs:attribute name="attack_speed" type="xs:float" use="required" />
+		<xs:attribute name="attack_speed" type="xs:float"/>
 		<xs:attribute name="evasion" type="xs:int" use="required" />
 		<xs:attribute name="block" type="xs:int" use="required" />
 		<xs:attribute name="parry" type="xs:int" use="required" />
-		<xs:attribute name="main_hand_attack" type="xs:int" use="required" />
-		<xs:attribute name="main_hand_accuracy" type="xs:int" use="required" />
-		<xs:attribute name="main_hand_crit_rate" type="xs:int" use="required" />
+		<xs:attribute name="main_hand_attack" type="xs:int" />
+		<xs:attribute name="main_hand_accuracy" type="xs:int" />
+		<xs:attribute name="main_hand_crit_rate" type="xs:int" />
 		<xs:attribute name="magic_accuracy" type="xs:int" use="required" />
 	</xs:complexType>
 

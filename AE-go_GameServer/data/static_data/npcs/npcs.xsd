@@ -35,8 +35,13 @@
 		<xs:complexContent>
 			<xs:extension base="statsTemplate">
 				<xs:sequence />
-				<xs:attribute name="walk_speed_fight" type="xs:float" use="required" />
 				<xs:attribute name="run_speed_fight" type="xs:float" use="required" />
+				<xs:attribute name="crit" type="xs:int" use="required" />
+				<xs:attribute name="pdef" type="xs:int" use="required" />
+				<xs:attribute name="mdef" type="xs:int" use="required" />
+				<xs:attribute name="maxXp" type="xs:int" use="required" />
+				<xs:attribute name="accuracy" type="xs:int" use="required" />
+				<xs:attribute name="power" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
