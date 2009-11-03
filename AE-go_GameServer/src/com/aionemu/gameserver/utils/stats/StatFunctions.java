@@ -19,10 +19,10 @@ package com.aionemu.gameserver.utils.stats;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.skillengine.action.DamageAction;
+import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 
 /**
  * @author ATracer
@@ -58,19 +58,23 @@ public class StatFunctions
 	 * @param target
 	 * @return Damage made to target (-hp value)
 	 */
-	public static int calculateBaseDamageToTarget(Player player, Creature target)
+	public static int calculateBaseDamageToTarget(Creature attacker, Creature target)
 	{
-		int pAttack = ClassStats.getPowerFor(player.getPlayerClass());
-		int targetPDef = 0;
-		if (target instanceof Npc) {
-			targetPDef = ((Npc) target).getTemplate().getStatsTemplate().getMaxHp();
-		}
-		if (target instanceof Player) {
-			targetPDef = ClassStats.getBlockFor(((Player)target).getPlayerClass());
-		}
+		CreatureGameStats<?> ags = attacker.getGameStats();
+		CreatureGameStats<?> tgs = target.getGameStats();
 		
-		int damage = pAttack - targetPDef / 10;
-		return damage > 0 ? damage : 0;
+		log.debug("Calculating base damages...");
+		log.debug("| Attacker: "+ags);
+		log.debug("| Target  : "+tgs);
+		int baseDamages = ags.getMainHandAttack();
+		int pDef = tgs.getPhysicalDefense();
+		int damages = baseDamages + Math.round(baseDamages*0.60f);
+		damages -= Math.round(pDef * 0.10f);
+		if (damages<=0) {
+			damages=1;
+		}
+		log.debug("|=> Damages calculation result: damages("+damages+")");
+		return damages;
 	}
 	
 	/**
@@ -79,16 +83,22 @@ public class StatFunctions
 	 * @param skillEffectTemplate
 	 * @return HP damage to target
 	 */
-	public static int calculateMagicDamageToTarget(Player player, Creature target, int damage)
+	public static int calculateMagicDamageToTarget(Creature speller, Creature target, int baseDamages, SkillElement element)
 	{
-		//TODO this is a dummmy cacluations
-		return damage * 3;
+		CreatureGameStats<?> sgs = speller.getGameStats();
+		CreatureGameStats<?> tgs = target.getGameStats();
+		log.debug("Calculating magic damages between "+speller.getObjectId()+" and "+target.getObjectId()+" ...");
+		log.debug("| Speller : "+sgs);
+		log.debug("| Target  : "+tgs);
+		int elementaryDefense = tgs.getMagicalDefenseFor(element);
+		int magicalResistance = tgs.getMagicResistance();
+		int magicBoost = sgs.getMagicBoost();
+		int damages = baseDamages+Math.round(magicBoost*0.60f);
+		damages -= Math.round((elementaryDefense+magicalResistance)*0.60f);
+		if (damages<=0) {
+			damages=1;
+		}
+		log.debug("|=> Magic damages calculation result: damages("+damages+")");
+		return damages;
 	}
-	
-	public static int calculateNpcBaseDamageToPlayer(Npc npc, Player player)
-	{
-		//TODO this is a dummy calcs
-		return npc.getLevel() * 5 + 20;
-	}
-	
 }

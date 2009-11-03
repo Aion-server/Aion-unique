@@ -22,6 +22,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -65,7 +66,8 @@ public class Npc extends Creature
 		controller.setOwner(this);
 		this.npcAi = new NpcAi(this);
 
-		super.setGameStats(new NpcGameStats());
+		NpcStatsTemplate nst = template.getStatsTemplate();
+		super.setGameStats(new NpcGameStats(this,nst));
 	}
 
 	/**

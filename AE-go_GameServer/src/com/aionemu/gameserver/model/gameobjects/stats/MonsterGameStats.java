@@ -16,12 +16,18 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
+
 
 /**
- * @author ATracer
+ * @author xavier
  *
  */
 public class MonsterGameStats extends NpcGameStats
 {
-
+	public MonsterGameStats (Npc npc, NpcStatsTemplate nst) {
+		super(npc,nst);
+	}
 }
+

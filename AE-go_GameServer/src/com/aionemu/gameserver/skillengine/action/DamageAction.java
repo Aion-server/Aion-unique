@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
@@ -61,7 +62,7 @@ public class DamageAction
 		Player effector = (Player) env.getEffector();
 		Creature effected = env.getEffected();
 		SkillTemplate template = env.getSkillTemplate();
-		int damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, value);
+		int damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, value, SkillElement.NONE);
 		
 		int unk = 0;
 		

@@ -126,7 +126,7 @@ public class PlayerController extends CreatureController<Player>
 		if(attackSuccess)
 		{
 			target.getLifeStats().reduceHp(damage);
-			gameStats.increateAttackCounter();
+			gameStats.increaseAttackCounter();
 		}
 	}
 

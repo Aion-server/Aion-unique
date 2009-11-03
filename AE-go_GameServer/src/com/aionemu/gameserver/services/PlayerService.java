@@ -175,7 +175,7 @@ public class PlayerService
 		player.setPlayerStatsTemplate(DataManager.PLAYER_STATS_DATA.getTemplate(player));
 		
 		player.setLifeStats(new PlayerLifeStats(player.getPlayerStatsTemplate().getMaxHp(), player.getPlayerStatsTemplate().getMaxMp()));
-		player.setGameStats(new PlayerGameStats());
+		player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA,player));
 		
 		if(CacheConfig.CACHE_PLAYERS)
 			playerCache.put(playerObjId, player);	

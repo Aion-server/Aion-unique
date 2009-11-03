@@ -72,7 +72,7 @@ public class NpcController extends CreatureController<Npc>
 		Player player = (Player) world.findAionObject(targetObjectId);
 
 		//TODO fix last attack - cause mob is already dead
-		int damage = StatFunctions.calculateNpcBaseDamageToPlayer(npc, player);
+		int damage = StatFunctions.calculateBaseDamageToTarget(npc, player);
 
 		PacketSendUtility.broadcastPacket(player,
 			new SM_EMOTION(npc.getObjectId(), 19, player.getObjectId()), true);
@@ -94,7 +94,7 @@ public class NpcController extends CreatureController<Npc>
 		if(attackSuccess)
 		{
 			player.getLifeStats().reduceHp(damage);
-			npcGameStats.increateAttackCounter();
+			npcGameStats.increaseAttackCounter();
 		}
 		if(player.getLifeStats().isAlreadyDead())
 		{
