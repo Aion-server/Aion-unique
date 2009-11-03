@@ -122,7 +122,7 @@
 		                magic_accuracy="270" />
 	</player_stats>
 
-	<!-- Wrong magic accuracy - sorry -->
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="ASSASSIN" level="20">
 		<stats_template maxHp="1368" maxMp="1502"
 		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -130,9 +130,10 @@
 		                attack_speed="1.5"
 		                evasion="341" block="341" parry="341"
 		                main_hand_attack="19" main_hand_accuracy="370" main_hand_crit_rate="3"
-		                magic_accuracy="248" />
+		                magic_accuracy="285" />
 	</player_stats>
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="ASSASSIN" level="22">
 		<stats_template maxHp="1532" maxMp="1642"
 		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"
@@ -140,7 +141,7 @@
 		                attack_speed="1.5"
 		                evasion="365" block="365" parry="365"
 		                main_hand_attack="19" main_hand_accuracy="386" main_hand_crit_rate="3"
-		                magic_accuracy="272" />
+		                magic_accuracy="313" />
 	</player_stats>
 
 	<player_stats class="ASSASSIN" level="23">

@@ -121,4 +121,26 @@
 		                main_hand_attack="16" main_hand_accuracy="342" main_hand_crit_rate="2"
 		                magic_accuracy="270" />
 	</player_stats>
+
+	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<player_stats class="SPIRIT_MASTER" level="20">
+		<stats_template maxHp="1036" maxMp="2403"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="310" block="310" parry="310"
+		                main_hand_attack="16" main_hand_accuracy="350" main_hand_crit_rate="2"
+		                magic_accuracy="285" />
+	</player_stats>
+
+	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<player_stats class="SPIRIT_MASTER" level="21">
+		<stats_template maxHp="1099" maxMp="2508"
+		                power="90" health="90" agility="100" accuracy="100" knowledge="115" will="115"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="322" block="322" parry="322"
+		                main_hand_attack="16" main_hand_accuracy="358" main_hand_crit_rate="2"
+		                magic_accuracy="299" />
+	</player_stats>
 </stats_templates>

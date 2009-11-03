@@ -111,6 +111,7 @@
 		                magic_accuracy="256" />
 	</player_stats>
 
+	<!-- Checked By Kamui 10/2009 at US Retail -->
 	<player_stats class="CLERIC" level="21">
 		<stats_template maxHp="1320" maxMp="2478"
 		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
@@ -118,7 +119,7 @@
 		                attack_speed="1.5"
 		                evasion="291" block="291" parry="291"
 		                main_hand_attack="18" main_hand_accuracy="338" main_hand_crit_rate="1"
-		                magic_accuracy="260" />
+		                magic_accuracy="299" />
 	</player_stats>
 
 	<player_stats class="CLERIC" level="25">
