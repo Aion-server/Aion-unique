@@ -30,7 +30,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.PlayerClass;
-import com.aionemu.gameserver.skillengine.model.SkillLearnTemplate;
+import com.aionemu.gameserver.model.Race;
+import com.aionemu.gameserver.skillengine.model.learn.SkillClass;
+import com.aionemu.gameserver.skillengine.model.learn.SkillLearnTemplate;
+import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
 
 /**
  * @author ATracer
@@ -49,15 +52,20 @@ public class SkillTreeData
 	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
-		for(SkillLearnTemplate learnTemplate : skillTemplates)
+		for(SkillLearnTemplate template : skillTemplates)
 		{
-			addTemplate(learnTemplate);
+			addTemplate(template);
 		}
+		skillTemplates = null;
 	}
 	
 	private void addTemplate(SkillLearnTemplate template)
 	{
-		int hash = makeHash(template);
+		SkillRace race = template.getRace();
+		if(race == null)
+			race = SkillRace.ALL;
+
+		int hash = makeHash(template.getClassId().ordinal(), race.ordinal(), template.getMinLevel());
 		ArrayList<SkillLearnTemplate> value = templates.get(hash);
 		if(value == null)
 		{
@@ -67,19 +75,43 @@ public class SkillTreeData
 			
 		value.add(template);
 	}
-	
-	public int size()
+
+	/**
+	 * @return the templates
+	 */
+	public Map<Integer, ArrayList<SkillLearnTemplate>> getTemplates()
 	{
-		return skillTemplates.size();
+		return templates;
 	}
 	
-	private static int makeHash(SkillLearnTemplate template)
+	public SkillLearnTemplate[] getTemplatesFor(PlayerClass playerClass, int level, Race race)
 	{
-		final int prime = 31;
-		int result = 1;
-		//TODO enum
-		result = prime * result + template.getClassId().hashCode();
-		result = prime * result + template.getMinLevel();
-		return result;
+		List<SkillLearnTemplate> temps = new ArrayList<SkillLearnTemplate>();
+		
+		List<SkillLearnTemplate> classSpecificTemplates = 
+			templates.get(makeHash(playerClass.ordinal(), race.ordinal(), level));
+		List<SkillLearnTemplate> generalTemplates = 
+			templates.get(makeHash(SkillClass.ALL.ordinal(), SkillRace.ALL.ordinal(), level));
+		
+		if(classSpecificTemplates != null)
+			temps.addAll(classSpecificTemplates);
+		if(generalTemplates != null)
+			temps.addAll(generalTemplates);
+		return temps.toArray(new SkillLearnTemplate[temps.size()]);
+	}
+
+	public int size()
+	{
+		int size = 0;
+		for(Integer key : templates.keySet())
+			size += templates.get(key).size();
+		return size;
+	}
+	
+	private static int makeHash(int classId, int race, int level)
+	{
+		int result = classId << 8;
+        result = (result | race) << 8;
+        return result | level;
 	}
 }

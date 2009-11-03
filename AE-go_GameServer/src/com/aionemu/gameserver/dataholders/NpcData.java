@@ -37,7 +37,7 @@ import com.aionemu.gameserver.model.templates.NpcTemplate;
  * @author Luno
  * 
  */
-@XmlRootElement(name = "npc_data")
+@XmlRootElement(name = "npc_templates")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class NpcData
 {

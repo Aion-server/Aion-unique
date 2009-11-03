@@ -31,6 +31,7 @@ import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
+import com.aionemu.gameserver.skillengine.SkillLearnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.WorldPosition;
 
@@ -88,7 +89,8 @@ public class PlayerCommonData
 		{
 			return 0;
 		}
-		return DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level+1);
+		return DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level+1) - 
+			DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level);
 	}
 
 	public void setExpLoss()
@@ -114,8 +116,6 @@ public class PlayerCommonData
 
 	public void setExp(long exp)
 	{
-
-
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
 		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
 
@@ -127,27 +127,26 @@ public class PlayerCommonData
 		int level = 1;
 		long totalExp = 0;
 		long leakExp = 0;
-		
 
-
-		while (exp>= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level+1)+DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level) && level != maxLevel)
+		while (exp>= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level+1) && level != maxLevel)
 		{
 
 			level++;
-			totalExp = leakExp + DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);
+			//totalExp = leakExp + DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);
 		}
-
-		if (level>1) {
-			leakExp = exp - totalExp - DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level-1);
-		} 
-		else {
-			leakExp = exp - totalExp;
-		}
+		//TODO fix leakExp
+		
+//		if (level>1) {
+//			leakExp = exp - totalExp - DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level-1);
+//		} 
+//		else {
+//			leakExp = exp - totalExp;
+//		}
 
 		if (level > this.level)
 		{
 			this.level = level;
-			this.exp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level) + leakExp;
+			this.exp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);// + leakExp;
 			
 			if(this.getPlayer()!= null)
 			{
@@ -162,9 +161,9 @@ public class PlayerCommonData
 					new SM_LEVEL_UPDATE(this.getPlayerObjId(), level));
 				
 				PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATS_INFO(this.getPlayer()));
-			}
-
-
+				//add new skills
+				SkillLearnService.addNewSkills(getPlayer());
+			}	
 		}
 		else
 		{

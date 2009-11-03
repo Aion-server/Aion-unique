@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.model;
+package com.aionemu.gameserver.skillengine.model.learn;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -29,10 +29,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "skill")
 public class SkillLearnTemplate
 {
-	//TODO enums instead of strings
-	
-	@XmlAttribute(name = "classId", required = true)
-	private String classId;
+
+	@XmlAttribute(name = "classId",  required = true)
+	private SkillClass classId;
 	@XmlAttribute(name = "skillId", required = true)
 	private int skillId;
 	@XmlAttribute(name = "skillLevel", required = true)
@@ -40,16 +39,16 @@ public class SkillLearnTemplate
 	@XmlAttribute(name = "name", required = true)
 	private String name;
 	@XmlAttribute(name = "type", required = true)
-	private String type;
+	private SkillUsageType type;
 	@XmlAttribute(name = "race", required = true)
-	private String race;
+	private SkillRace race;
 	@XmlAttribute(name = "minLevel", required = true)
 	private int minLevel;
 	
 	/**
 	 * @return the classId
 	 */
-	public String getClassId()
+	public SkillClass getClassId()
 	{
 		return classId;
 	}
@@ -77,7 +76,7 @@ public class SkillLearnTemplate
 	/**
 	 * @return the type
 	 */
-	public String getType()
+	public SkillUsageType getType()
 	{
 		return type;
 	}
@@ -91,7 +90,7 @@ public class SkillLearnTemplate
 	/**
 	 * @return the race
 	 */
-	public String getRace()
+	public SkillRace getRace()
 	{
 		return race;
 	}

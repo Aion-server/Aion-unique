@@ -6,9 +6,9 @@
 
 	<xs:include schemaLocation="../import.xsd" />
 
-	<xs:element name="npc_data" type="npcData" />
+	<xs:element name="npc_templates" type="npcTemplates" />
 
-	<xs:complexType name="npcData">
+	<xs:complexType name="npcTemplates">
 		<xs:sequence>
 			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="npc_template" type="npcTemplate" minOccurs="0" maxOccurs="unbounded" />

@@ -76,9 +76,9 @@
 		<import file="stats/" skipRoot="true" />
 	</stats_templates>
 	
-	<npc_data>
+	<npc_templates>
 		<import file="npcs" skipRoot="true"/>
-	</npc_data>
+	</npc_templates>
 	
 	<skill_data>
 		<import file="skills" skipRoot="true"/>

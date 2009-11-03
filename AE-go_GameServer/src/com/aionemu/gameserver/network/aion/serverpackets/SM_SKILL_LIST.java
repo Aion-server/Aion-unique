@@ -20,7 +20,6 @@ import java.nio.ByteBuffer;
 import java.util.Map;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -29,11 +28,13 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * 
  * @author -Nemesiss-
  * 
+ * modified by ATracer
+ * 
  */
 public class SM_SKILL_LIST extends AionServerPacket
 {
 
-	private Player player;
+	private Map<Integer, Integer> skillList;
 
 
 	/**
@@ -42,8 +43,18 @@ public class SM_SKILL_LIST extends AionServerPacket
 
 	public SM_SKILL_LIST(Player player)
  	{
-		this.player = player;
+		this.skillList = player.getSkillList().getSkillList();
  	}
+	
+	/**
+	 *  This constructor is used to update player with new asquired skills only 
+	 *  
+	 * @param skillList
+	 */
+	public SM_SKILL_LIST(Map<Integer, Integer> skillList)
+	{
+		this.skillList = skillList;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -52,12 +63,12 @@ public class SM_SKILL_LIST extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 
-		final int size = player.getSkillList().getSize();
+		final int size = skillList.size();
 		writeH(buf, size);//skills list size
 		
 		if (size > 0)
 		{
-			for (Map.Entry<Integer, Integer> entry : player.getSkillList().entrySet())
+			for (Map.Entry<Integer, Integer> entry : skillList.entrySet())
 			{
 				writeH(buf, entry.getKey());//id
 				writeD(buf, entry.getValue());//lvl

@@ -54,7 +54,7 @@ public class StaticData
 	@XmlElement(name = "item_templates")
 	public ItemData					itemData;
 	
-	@XmlElement(name = "npc_data")
+	@XmlElement(name = "npc_templates")
 	public NpcData					npcData;
 
 	@XmlElement(name = "player_initial_data")

@@ -77,11 +77,11 @@ public class SkillList
 	 * @return <tt>true</tt> if Skill addition was successful, and it can be stored into database.
 	 *      Otherwise <tt>false</tt>.
 	 */
-	public synchronized boolean addSkills(int skillId, int skillLevel)
+	public synchronized boolean addSkill(int skillId, int skillLevel)
 	{
-		if (skills.containsKey(skillId))
+		if (skills.containsKey(skillId) && skills.get(skillId) < skillLevel)
 		{
-			logger.warn("Trying to add skill with already existing order.");
+			logger.warn("Trying to add skill with lower skill level. ");
 			return false;
 		}
 
