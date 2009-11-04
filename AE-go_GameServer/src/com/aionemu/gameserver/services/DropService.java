@@ -55,7 +55,7 @@ public class DropService
 	private DropList dropList;
 
 	private Map<Integer, Set<DropItem>> currentDropMap = Collections.synchronizedMap(new HashMap<Integer, Set<DropItem>>());
-
+	private Map<Integer, DropTemplate> kinahDrops = new HashMap<Integer, DropTemplate>();
 	private ItemService itemService;
 
 	private World world;
@@ -66,6 +66,7 @@ public class DropService
 		this.itemService = itemService;
 		this.world = world;
 		dropList = DAOManager.getDAO(DropListDAO.class).load();
+		addKinahCalculatedTemplates();
 		log.info(dropList.getSize() + " npc drops loaded");
 	}
 
@@ -77,15 +78,22 @@ public class DropService
 	{
 		int npcUniqueId = npc.getObjectId();
 		int npcTemplateId = npc.getTemplate().getNpcId();
-
+		int level = npc.getLevel();
+		
 		Set<DropTemplate> templates = dropList.getDropsFor(npcTemplateId);
 		if(templates != null)
 		{
 			Set<DropItem> droppedItems = new HashSet<DropItem>();
-
+			
+			/** Add kinah with 100% chance and level-based amount **/
+			DropItem kinahItem = new DropItem(kinahDrops.get(level), 0);
+			kinahItem.calculateCount();
+			droppedItems.add(kinahItem);
+			
+			int index = 1;
 			for(DropTemplate dropTemplate : templates)
 			{
-				DropItem dropItem = new DropItem(dropTemplate, droppedItems.size());
+				DropItem dropItem = new DropItem(dropTemplate, index++);
 				dropItem.calculateCount();
 
 				if(dropItem.getCount() > 0)
@@ -231,6 +239,16 @@ public class DropService
 			//7B 54 38 00 00 0D 00 00 00 00 00 00
 			// or
 			//7B 54 38 00 00 0E 00 00 00 00 00 00
+		}
+	}
+	
+	private void addKinahCalculatedTemplates()
+	{	
+		for(int i = 1; i < 51; i++)
+		{
+			int kinahAmount = 4+((i*i)/4)+((i*i)/3);
+			DropTemplate template = new DropTemplate(0, ItemId.KINAH.value(), kinahAmount, kinahAmount, 100, 0);
+			kinahDrops.put(i, template);
 		}
 	}
 }
