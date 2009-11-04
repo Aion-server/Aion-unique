@@ -190,6 +190,16 @@
 		<part name="unk" type="h"/>
 		<part name="unk" type="c"/>-->
 	</packet>
+	<packet id="0x2D" name="SM_TELEPORT_LOC">
+		<part name="unk" type="c"/>
+		<part name="unk" type="c"/>
+		<part name="unk" type="c"/>
+		<part name="mapId" type="d"/>
+		<part name="x" type="f"/>
+		<part name="y" type="f"/>
+		<part name="z" type="f"/>
+		<part name="unk" type="c"/>
+	</packet>
 	<packet id="0x2F" name="SM_DELETE">
 		<part name="objId" type="d"/>
 		<part name="deleteTime" type="c"/>
@@ -214,6 +224,9 @@
     	<part name="windowMode" type="d"/>
     	<part name="unk" type="d"/>
 	</packet>
+	<packet id="0x3A" name="SM_WEATHER">
+	    <part name="key" type="d"/>
+    </packet>
 	<packet id="0x3D" name="SM_PLAYER_STATE">
 		<part name="playerObjId" type="d"/>
 		<part name="unk" type="c"/>
@@ -231,8 +244,7 @@
     </packet>
     <packet id="0x42" name="SM_CASTSPELL_END"/>
 	<packet id="0x45" name="SM_SKILL_LIST">
-		<part name="skillListSize" type="h"/>
-		<part id="0" name="skills" type="h"/>
+		<part id="0" name="skillListSize" type="h"/>
 			<for id="0">
 				<part name="skillId" type="h"/>
 				<part name="lvl" type="d"/>
@@ -241,9 +253,13 @@
 			</for>
 		<part name="unk" type="d"/>
 	</packet>
-	<packet id="0x3A" name="SM_WEATHER">
-	    <part name="key" type="d"/>
-    </packet>
+	<packet id="0x48" name="SM_ABNORMAL_STATE">
+		<part name="unk" type="d"/>
+		<part name="action" type="h"/>
+		<part name="unk" type="d"/>
+		<part name="effect" type="d"/>
+		<part name="time" type="d"/>
+	</packet>
 	<packet id="0x4D" name="SM_QUESTION_WINDOW [?]">
 		<part name="unk" type="d"/>
 		<part name="objId" type="d"/>
@@ -287,11 +303,68 @@
 		<part name="unk" type="d"/>
 		<part name="unk" type="c"/>
     </packet>
+	<packet id="0x62" name="SM_EXCHANGE_ADD_ITEM">
+       	<part name="action" type="c"/>
+		<part name="itemId" type="d"/>
+		<part name="itemObjId" type="d"/>
+		<part name="unk[36]" type="d"/>
+		<part name="itemNameId" type="d"/>
+		<part name="unk" type="h"/>
+		<part name="lengthOfDetails[16]" type="h"/>
+		<part name="unk[0]" type="c"/>
+		<part name="unk[0x3e | 0x1E]" type="c"/>
+		<part name="unk[0x63]" type="c"/>
+		<part name="unk" type="d"/>
+		<part name="unk" type="d"/>
+		<part name="unk" type="d"/>
+		<part name="unk" type="h"/>
+		<part name="unk" type="c"/>
+		<part name="notEquipable?" type="h"/>
+		<part name="unk" type="c"/>
+    </packet>
+	<packet id="0x63" name="SM_EXCHANGE_REQUEST">
+       	<part name="receiver" type="S"/>
+    </packet>
+	<packet id="0x64" name="SM_EXCHANGE_ADD_KINAH">
+       	<part name="action" type="c"/>
+		<part name="itemCount" type="d"/>
+		<part name="unk" type="d"/>
+    </packet>
 	<packet id="0x66" name="SM_EMOTION_LIST">
        	<part name="result" type="c"/>
        	<part name="11" type="h"/>
 		<!-- cycle  emotions-->
     </packet>
+	<packet id="0x67" name="SM_EXCHANGE_CONFIRMATION">
+       	<part name="action" type="d"/>
+    </packet>
+	<packet id="0x72" name="SM_QUEST_RELATED:)?">
+	</packet>
+	<packet id="0x74" name="SM_QUEST_COMPLETE?">
+		<part name="Quest ID" type="h"/>
+		<part name="unk" type="h"/>
+		<part name="unk" type="h"/>
+		<part name="unk" type="h"/>
+	</packet>
+	<packet id="0x75" name="SM_QUEST_ACCEPTED??">
+		<part id="0" name="packet" type="b"/>
+		<part name="Quest ID" type="h"/>
+		<part name="unk" type="h"/>
+		<part name="unk" type="h"/>
+		<part name="unk" type="h"/>
+	</packet>
+	<packet id="0x76" name="SM_QUEST_LIST?">
+		<part id="0" name="Count" type="c"/>
+		<part name="unk" type="c"/>
+		<part name="unk" type="c"/>
+		<for id="0">
+			<part  name="Quest ID" type="h"/>
+			<part  name="unk" type="h"/>
+		</for>
+	</packet>
+	<packet id="0x79" name="SM_PING_RESPONSE">
+		<part name="0x04" type="c"/>
+	</packet>
 	<packet id="0x7D" name="SM_FRIEND_LIST [?]"/>
 	<packet id="0x80" name="SM_MAY_LOGIN_INTO_GAME">
        	<part name="result" type="d"/>
@@ -307,7 +380,9 @@
 		<part name="result" type="d"/>
 		<part name="unk" type="S"/>
 	</packet>
-	<packet id="0xBD" name="SM_TELEPORT">
+	<packet id="0xBD" name="SM_TELEPORT_MAP">
+		<part name="targetObjId" type="d"/>
+		<part name="teleportId" type="d"/>
 	</packet>
 	 <packet id="0xC0" name="SM_CREATE_CHARACTER">
         	<part name="unk1" type="d"/>
@@ -483,6 +558,19 @@
 	<packet id="0xC2" name="SM_FLY_TELEPORT">
 		<part name="unk" type="d"/>
        	<part name="teleportId?" type="d"/>
+	</packet>
+	<packet id="0xCE" name="SM_ITEM_USAGE_ANIMATION">
+		<part name="playerObjId" type="d"/>
+       	<part name="playerObjeId?" type="d"/>
+		<part name="itemObjId" type="d"/>
+		<part name="itemId" type="d"/>
+		<part name="unk" type="d"/>
+		<part name="unk[1]" type="c"/>
+		<part name="unk[1]" type="c"/>
+		<part name="unk[0]" type="c"/>
+		<part name="unk[1]" type="c"/>
+		<part name="unk[0]" type="h"/>
+		<part name="unk[0]" type="c"/>
 	</packet>
 	<packet id="0xD3" name="SM_PLAYER_SEARCH">
 	</packet>
@@ -736,11 +824,11 @@
 	<packet id="0x03" name="CM_RESTORE_CHARACTER"/>
 	<packet id="0x04" name="CM_START_LOOT">
 		<part name="targetObjectId" type="d"/>
-		<part name="unk" type="c"/>
+		<part name="action" type="c"/>
 	</packet>
 	<packet id="0x05" name="CM_LOOT_ITEM">
 		<part name="targetObjectId" type="d"/>
-		<part name="unk" type="c"/>
+		<part name="index" type="c"/>
 	</packet>
 	<packet id="0x06" name="CM_CLOSE_LOOT">
 		<part name="targetObjectId" type="d"/>
@@ -765,9 +853,17 @@
 	<packet id="0x24" name="CM_MAY_LOGIN_INTO_GAME"/>
 	<packet id="0x27" name="CM_MAC_ADDRESS"/>  
 	<packet id="0x4A" name="CM_TERRITORY"/>
+	<packet id="0x51" name="CM_PING_REQUEST"/>
 	<packet id="0x58" name="CM_SHOW_FRIENDLIST"/>
 	<packet id="0x59" name="CM_FRIEND_ADD"/>
+	<packet id="0x5E" name="CM_DELETE_ITEM">
+		<part name="itemObjId" type="d"/>
+	</packet>
 	<packet id="0x78" name="CM_CLIENT_COMMAND_LOC"/>
+	<packet id="0x7E" name="CM_TELEPORT_SELECT">
+		<part name="targetObjId" type="d"/>
+		<part name="locId" type="d"/>
+	</packet>
 	<packet id="0x7F" name="CM_L2AUTH_LOGIN_CHECK">
 		<part name="playOk2" type="d"/>
 		<part name="playOk1" type="d"/>
@@ -800,6 +896,7 @@
 		<part name="unk" type="c"/>
 	</packet>
 	<packet id="0x8F" name="CM_USE_ITEM">
+		<part name="itemObjId" type="d"/>
 	</packet>
 	<packet id="0x90" name="CM_EQUIP_ITEM"/>
 	<packet id="0x95" name="CM_EMOTION"/>
@@ -813,6 +910,13 @@
 		<part name="unk" type="c"/>
 		<part name="unk" type="c"/>
     </packet>
+	<packet id="0x9B" name="CM_VERIFY_LOCATION">
+		<part name="mapID" type="d"/>
+		<part name="x" type="f"/>
+		<part name="y" type="f"/>
+		<part name="z" type="f"/>
+		<part name="heading" type="c"/>
+	</packet>
 	<packet id="0x9D" name="CM_BUY_ITEM">
 		<part name="npcObjectId" type="d"/>
 		<part name="unk" type="h"/>
@@ -835,7 +939,20 @@
 		<part name="xml" type="S"/>
 	</packet>  
 	<packet id="0xA4" name="CM_SET_NOTE"/>
-	<packet id="0xAE" name="CM_BLOCK_DEL"/>
+	<packet id="0xA9" name="CM_EXCHANGE_REQUEST">
+		<part name="playerObjId" type="d"/>
+	</packet>
+	<packet id="0xAA" name="CM_EXCHANGE_ADD_ITEM">
+		<part name="itemObjId" type="d"/>
+		<part name="itemCount" type="d"/>
+	</packet>
+	<packet id="0xAC" name="CM_EXCHANGE_ADD_KINAH">
+		<part name="itemCount" type="d"/>
+		<part name="unk" type="d"/>
+	</packet>
+	<packet id="0xAD" name="CM_EXCHANGE_LOCK"/>
+	<packet id="0xAE" name="CM_EXCHANGE_OK"/>
+	<packet id="0xAF" name="CM_EXCHANGE_CANCEL"/>
 	<packet id="0xB1" name="CM_PLAYER_SEARCH"/>
 	<packet id="0xE0" name="CM_FRIEND_DELETE"/>
 	<packet id="0xEA" name="CM_VERSION_CHECK"/>
