@@ -62,7 +62,7 @@ public class ItemStorage
 	/**
 	 * @return the limit
 	 */
-	protected int getLimit()
+	public int getLimit()
 	{
 		return limit;
 	}
@@ -70,7 +70,7 @@ public class ItemStorage
 	/**
 	 * @param limit the limit to set
 	 */
-	protected void setLimit(int limit)
+	public void setLimit(int limit)
 	{
 		this.limit = limit;
 	}

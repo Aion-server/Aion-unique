@@ -194,7 +194,7 @@ public class DropService
 				if(addedItem != null)
 				{
 					currentDropItemCount -= addedItem.getItemCount();
-					PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(addedItem)));
+					PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), player.getCubeSize()));
 				}
 			}
 			

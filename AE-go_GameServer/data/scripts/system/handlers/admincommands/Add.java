@@ -87,7 +87,7 @@ public class Add extends AdminCommand
 		
 		if(addedItem != null)
 		{
-			PacketSendUtility.sendPacket(admin, new SM_INVENTORY_INFO(Collections.singletonList(addedItem)));
+			PacketSendUtility.sendPacket(admin, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), admin.getCubeSize()));
 			PacketSendUtility.sendMessage(admin, "Item added successfully");
 		}
 		else

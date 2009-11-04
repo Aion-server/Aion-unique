@@ -91,7 +91,7 @@ public class CM_BUY_ITEM extends AionClientPacket
 					Item resultItem = bag.addToBag(item);
 					totalprice = totalprice - item.getItemTemplate().getPrice() * count;
 					//TODO check retail the real packets that sent to player
-					sendPacket(new SM_INVENTORY_INFO(Collections.singletonList(resultItem)));
+					sendPacket(new SM_INVENTORY_INFO(Collections.singletonList(resultItem), player.getCubeSize()));
 				}
 			}
 			else if (unk1 == 1) //sell

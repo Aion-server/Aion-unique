@@ -126,7 +126,7 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 
 				if(addedItem != null)
 				{
-					PacketSendUtility.sendPacket(activePlayer, new SM_INVENTORY_INFO(Collections.singletonList(addedItem)));
+					PacketSendUtility.sendPacket(activePlayer, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), activePlayer.getCubeSize()));
 				}	
 			}
 
@@ -168,7 +168,7 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 
 				if(addedItem != null)
 				{
-					PacketSendUtility.sendPacket(targetPlayer, new SM_INVENTORY_INFO(Collections.singletonList(addedItem)));
+					PacketSendUtility.sendPacket(targetPlayer, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), targetPlayer.getCubeSize()));
 				}	
 			} 
 

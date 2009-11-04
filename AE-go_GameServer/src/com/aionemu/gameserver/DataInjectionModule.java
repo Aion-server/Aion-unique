@@ -17,6 +17,7 @@
 package com.aionemu.gameserver;
 
 import com.aionemu.commons.services.ScriptService;
+import com.aionemu.gameserver.dataholders.CubeExpandData;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.dataholders.PlayerExperienceTable;
@@ -148,4 +149,9 @@ public class DataInjectionModule extends AbstractModule
 	{
 		return datamanager.TELELOCATION_DATA;
 	}	
+	@Provides
+	CubeExpandData provideCubeExpandData(DataManager datamanager)
+	{
+		return datamanager.CUBEEXPANDER_DATA;
+	}
 }

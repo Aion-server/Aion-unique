@@ -15,6 +15,7 @@
 	<xs:include schemaLocation="teleport_location.xsd" />
 	<xs:include schemaLocation="skills/skills.xsd" />
 	<xs:include schemaLocation="skill_tree/skill_tree.xsd"/>
+	<xs:include schemaLocation="cube_expander/cube_expander.xsd" />
 	
 	<xs:element name="ae_static_data">
 		<xs:complexType>
@@ -31,6 +32,7 @@
 				<xs:element ref="npc_templates" minOccurs="0" />
 				<xs:element ref="skill_data" minOccurs="0" />
 				<xs:element ref="skill_tree" minOccurs="0" />
+				<xs:element ref="cube_expander" minOccurs="0" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

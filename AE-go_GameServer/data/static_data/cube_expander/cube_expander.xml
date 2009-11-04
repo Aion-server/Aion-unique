@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cube_expander xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cube_expander.xsd">
+	<!-- Poeta -->
+	<cube_npc id="798008" name="Baevrunerk" min_level="0" max_level="1" price01="1000" />
+	<!-- Ishalgen -->
+	<cube_npc id="798037" name="Bacorerk" min_level="0" max_level="1" price01="1000" />
+	<!-- Pandaemonium -->
+	<cube_npc id="798058" name="Ondarinerk" min_level="1" max_level="9" price01="12100" price02="60500" price03="181000" price04="0" price05="0" price06="0" price07="0" price08="0" price09="0" />
+	<cube_npc id="798059" name="Nekorunerk" min_level="1" max_level="9" price01="12100" price02="60500" price03="181000" price04="0" price05="0" price06="0" price07="0" price08="0" price09="0" />
+	<!-- Sanctum -->
+	<cube_npc id="798011" name="Heerunerk" min_level="1" max_level="9" price01="12100" price02="60500" price03="181000" price04="0" price05="0" price06="0" price07="0" price08="0" price09="0" />
+	<cube_npc id="798012" name="Yiehmonerk" min_level="1" max_level="9" price01="12100" price02="60500" price03="181000" price04="0" price05="0" price06="0" price07="0" price08="0" price09="0" />
+</cube_expander>

@@ -42,6 +42,7 @@ public class SM_INVENTORY_INFO extends InventoryPacket
 	
 	public static final int EMPTY = 0;
 	public static final int FULL = 1;
+	public int CUBE = 0;
 	
 	private List<Item> items;
 	private int size;
@@ -51,10 +52,11 @@ public class SM_INVENTORY_INFO extends InventoryPacket
 	/**
 	 * @param items
 	 */
-	public SM_INVENTORY_INFO(List<Item> items)
+	public SM_INVENTORY_INFO(List<Item> items, int cubesize)
 	{
 		this.items = items;
 		this.size = items.size();
+		this.CUBE = cubesize;
 	}
 	
 	/**
@@ -80,7 +82,7 @@ public class SM_INVENTORY_INFO extends InventoryPacket
 		
 		// something wrong with cube part.
 		writeC(buf, 1); // TRUE/FALSE (1/0) update cube size
-		writeC(buf, 0); // cube size
+		writeC(buf, CUBE); // cube size
 		writeH(buf, 0); // padding?
 		writeH(buf, size); // number of entries
 

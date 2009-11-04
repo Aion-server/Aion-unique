@@ -66,6 +66,9 @@ public class StaticData
 	@XmlElement(name = "skill_tree")
 	public SkillTreeData			skillTreeData;
 
+	@XmlElement(name = "cube_expander")
+	public CubeExpandData			cubeExpandData;
+	
 	// JAXB callback
 	private void afterUnmarshal(Unmarshaller unmarshaller, Object parent)
 	{
@@ -80,6 +83,7 @@ public class StaticData
 		DataManager.log.info("Loaded " + teleLocationData.size() + " teleport locations");
 		DataManager.log.info("Loaded " + skillData.size() + " skill templates");
 		DataManager.log.info("Loaded " + skillTreeData.size() + " skill learn entries");
+		DataManager.log.info("Loaded " + cubeExpandData.size() + " cube expand entries");
 		
 	}
 }

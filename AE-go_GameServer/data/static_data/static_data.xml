@@ -87,5 +87,9 @@
 	<skill_tree>
 		<import file="skill_tree" skipRoot="true"/>
 	</skill_tree>
+	
+	<cube_expander>
+		<import file="cube_expander" skipRoot="true" />
+	</cube_expander>
 
 </ae_static_data>

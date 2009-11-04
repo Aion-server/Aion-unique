@@ -1,10 +1,13 @@
-DROP TABLE IF EXISTS `players`;
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for players
+-- ----------------------------
 CREATE TABLE `players` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `account_id` int(11) NOT NULL, 
+  `account_id` int(11) NOT NULL,
   `account_name` varchar(50) NOT NULL,
-  `exp` bigint(20) NOT NULL default 0,
+  `exp` bigint(20) NOT NULL default '0',
   `x` float NOT NULL,
   `y` float NOT NULL,
   `z` float NOT NULL,
@@ -14,12 +17,14 @@ CREATE TABLE `players` (
   `race` enum('ASMODIANS','ELYOS') NOT NULL,
   `player_class` enum('WARRIOR','GLADIATOR','TEMPLAR','SCOUT','ASSASSIN','RANGER','MAGE','SORCERER','SPIRIT_MASTER','PRIEST','CLERIC','CHANTER') NOT NULL,
   `creation_date` timestamp NOT NULL default '0000-00-00 00:00:00',
-  `deletion_date` timestamp NULL DEFAULT NULL,
-  `last_online` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `admin` boolean NOT NULL DEFAULT FALSE,
-  `online` boolean NOT NULL DEFAULT FALSE,
+  `deletion_date` timestamp NULL default NULL,
+  `last_online` timestamp NOT NULL default '0000-00-00 00:00:00' on update CURRENT_TIMESTAMP,
+  `cube_size` tinyint(1) NOT NULL default '0',
+  `admin` tinyint(1) NOT NULL default '0',
+  `online` tinyint(1) NOT NULL default '0',
   `note` text,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name_unique` (`name`),
-  INDEX (`account_id`)
+  KEY `account_id` (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

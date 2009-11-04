@@ -18,12 +18,20 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.ChatType;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.CubeExpandTemplate;
+import com.aionemu.gameserver.model.templates.TradeListTemplate;
+
 import org.apache.log4j.Logger;
 /**
  * 
@@ -39,6 +47,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	private int					targetObjectId;
 	private int					unk1;
 	private int					unk2;
+	private CubeExpandTemplate 	clist;
 	/**
 	* Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
 	* @param opcode
@@ -82,7 +91,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 						break;
 					case 5:
 						//create legion
-						sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+						sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 2));
 						break;
 					case 20:
 						//warehouse
@@ -122,7 +131,34 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 						break;
 					case 41:
 						//expand cube
-						sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+						Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
+						clist = DataManager.CUBEEXPANDER_DATA.getCubeExpandListTemplate(npc.getNpcId());
+						if ((clist != null)&&(clist.getNpcId()!=0)){
+						if(player.getCubeSize()==0){
+							if(clist.getMinLevel()==0){
+								sendPacket(new SM_MESSAGE(0, null, "Cube Upgraded to level 1.", null, ChatType.ANNOUNCEMENTS));
+								sendPacket(new SM_SYSTEM_MESSAGE(1300431, "9"));// 9 Slots added 
+								player.setCubesize(1);
+								player.getInventory().setLimit(36);
+								sendPacket(new SM_INVENTORY_INFO(player.getInventory().getAllItems(), player.getCubeSize()));
+							}else{
+								sendPacket(new SM_SYSTEM_MESSAGE(1300436, clist.getName(), clist.getMinLevel()));
+							}
+						}else{
+							if(player.getCubeSize()>=clist.getMaxLevel()){
+								if(player.getCubeSize()!=9)
+								sendPacket(new SM_SYSTEM_MESSAGE(1300437, clist.getName(), clist.getMaxLevel()));
+								else
+								sendPacket(new SM_SYSTEM_MESSAGE(1300430));//Cannot upgrade anymore.
+							}else{
+								sendPacket(new SM_MESSAGE(0, null, "Cube Upgraded to Level "+(player.getCubeSize()+1)+".", null, ChatType.ANNOUNCEMENTS));
+								sendPacket(new SM_SYSTEM_MESSAGE(1300431, "9"));// 9 Slots added
+								player.setCubesize(player.getCubeSize()+1);
+								player.getInventory().setLimit(player.getInventory().getLimit()+9);
+								sendPacket(new SM_INVENTORY_INFO(player.getInventory().getAllItems(), player.getCubeSize()));
+							}
+						}
+						}else{sendPacket(new SM_MESSAGE(0, null, "NPC Template for this cube Expander is missing.", null, ChatType.ANNOUNCEMENTS));}
 						break;
 					case 52:
 						//work order from lerning npc in sanctum

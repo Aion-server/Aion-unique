@@ -71,6 +71,8 @@ public final class DataManager
 	
 	public static TeleLocationData		TELELOCATION_DATA;
 	
+	public static CubeExpandData 		CUBEEXPANDER_DATA;
+	
 
 	/**
 	 * 
@@ -124,7 +126,8 @@ public final class DataManager
 		TELEPORTER_DATA = data.teleporterData;
 		
 		TELELOCATION_DATA = data.teleLocationData;
-	
+		
+		CUBEEXPANDER_DATA = data.cubeExpandData;
 
 		
 		// some sexy time message

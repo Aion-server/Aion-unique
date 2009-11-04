@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="cube_expander">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="cube_npc" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence />
+						<xs:attribute name="id" type="xs:int" use="required" />
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="min_level" type="xs:int" use="required" />
+						<xs:attribute name="max_level" type="xs:int" use="required"/>
+						<xs:attribute name="price01" type="xs:int" />
+						<xs:attribute name="price02" type="xs:int" />
+						<xs:attribute name="price03" type="xs:int" />
+						<xs:attribute name="price04" type="xs:int" />
+						<xs:attribute name="price05" type="xs:int" />
+						<xs:attribute name="price06" type="xs:int" />
+						<xs:attribute name="price07" type="xs:int" />
+						<xs:attribute name="price08" type="xs:int" />
+						<xs:attribute name="price09" type="xs:int" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+

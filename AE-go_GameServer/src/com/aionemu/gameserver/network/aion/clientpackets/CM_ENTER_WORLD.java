@@ -136,10 +136,13 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNK17());
 			// sendPacket(new SM_UNK5E());
 			
+			//Cubesize limit set in inventory.
+			int cubeSize = player.getCubeSize();
+			player.getInventory().setLimit(27 + cubeSize * 9);
 			
 			//TODO no need to load items here - inventory will be populated at startup
 			// will be removed next time
-
+			
 			//items
 			Inventory inventory = player.getInventory();	
 			
@@ -147,13 +150,13 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			List<Item> equipedItems = inventory.getEquippedItems();
 			if(equipedItems.size() != 0)
 			{
-				client.sendPacket(new SM_INVENTORY_INFO(inventory.getEquippedItems()));
+				client.sendPacket(new SM_INVENTORY_INFO(inventory.getEquippedItems(), player.getCubeSize()));
 			}
 			
 			List<Item> unequipedItems = inventory.getUnquippedItems();
 			if(unequipedItems.size() != 0)
 			{
-				client.sendPacket(new SM_INVENTORY_INFO(inventory.getUnquippedItems()));
+				client.sendPacket(new SM_INVENTORY_INFO(inventory.getUnquippedItems(), player.getCubeSize()));
 			}
 			
 			client.sendPacket(new SM_INVENTORY_INFO()); 
@@ -200,6 +203,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNK0A());
 			// sendPacket(new SM_UNK97());
 			// sendPacket(new SM_UNK8D());
+			
+			
 			
 			sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME
 				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.com team.\nCopyright 2009", null,

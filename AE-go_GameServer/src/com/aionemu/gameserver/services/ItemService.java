@@ -63,7 +63,7 @@ public class ItemService
 		else
 		{
 			int maxStackCount = itemTemplate.getMaxStackCount();	
-			if(count > maxStackCount)
+			if(count > maxStackCount && maxStackCount != 0)
 			{
 				count = maxStackCount;
 			}

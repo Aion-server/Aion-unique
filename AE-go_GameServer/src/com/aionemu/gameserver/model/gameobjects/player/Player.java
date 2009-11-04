@@ -55,6 +55,7 @@ public class Player extends Creature
 	private ExchangeList			exchangeList;
 	private PlayerStatsTemplate playerStatsTemplate;
 	
+	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
 
@@ -254,6 +255,11 @@ public class Player extends Creature
 		return getClientConnection() != null;
 	}
 	
+	public int getCubeSize()
+	{
+		return this.playerCommonData.getCubeSize();
+	}
+	
 	public PlayerClass getPlayerClass()
 	{
 		return playerCommonData.getPlayerClass();
@@ -314,7 +320,15 @@ public class Player extends Creature
 		this.inventory = inventory;
 		inventory.setOwner(this);
 	}
-
+	/**
+	 * @param CubeUpgrade int
+	 * Sets the cubesize
+	 */
+	public void setCubesize(int cubesize)
+	{
+		this.playerCommonData.setCubesize(cubesize);
+	}
+	
 	/**
 	 * This method is called when player logs into the game. It's main responsibility is to call all registered
 	 * listeners.<br>

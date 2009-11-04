@@ -44,7 +44,7 @@ public class Inventory
 
 	private Player owner;
 
-	private final ItemStorage defaultItemBag;
+	private ItemStorage defaultItemBag;
 
 	private SortedMap<Integer, Item> equipment = Collections.synchronizedSortedMap(new TreeMap<Integer, Item>());
 	
@@ -55,7 +55,7 @@ public class Inventory
 	 */
 	public Inventory()
 	{
-		defaultItemBag = new ItemStorage(27); //TODO check this amount
+		defaultItemBag = new ItemStorage(108);
 	}
 	
 	/**
@@ -354,4 +354,20 @@ public class Inventory
 	{
 		return defaultItemBag.getNextAvailableSlot() == -1;
 	}
+	/**
+	 *  Sets the Inventory Limit from Cube Size
+	 *  
+	 * @param Limit
+	 */
+	public void setLimit(int limit){
+		this.defaultItemBag.setLimit(limit);
+	}
+	public int getLimit(){
+		return this.defaultItemBag.getLimit();
+	}
+	public ItemStorage getItemBag(){
+		return this.defaultItemBag;
+	}
+	
+	
 }

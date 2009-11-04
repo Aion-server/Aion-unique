@@ -127,6 +127,22 @@ public class SM_EMOTION extends AionServerPacket
 			writeC(buf, 0xc0); // unknown
 			writeC(buf, 0x40); // unknown
 		}
+		else if (unknown == 0x16)//Run
+		{
+			writeC(buf, 0x01);
+			writeC(buf, 0x00);
+			writeH(buf, 0x00);
+			writeC(buf, 0xC0);
+			writeC(buf, 0x40);			
+		}
+		else if (unknown == 0x15)//Walk
+		{
+			writeC(buf, 0x41);
+			writeC(buf, 0x00);
+			writeH(buf, 0x00);
+			writeC(buf, 0xC0);
+			writeC(buf, 0x3F);	
+		}
 		else
 		{
 		

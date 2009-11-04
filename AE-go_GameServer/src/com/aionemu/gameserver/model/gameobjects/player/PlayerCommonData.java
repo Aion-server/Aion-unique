@@ -60,6 +60,7 @@ public class PlayerCommonData
 	private boolean 		online;
 	private String 			note;
 	private WorldPosition	position;
+	private int 			cubeSize = 0;
 
 	
 
@@ -77,7 +78,14 @@ public class PlayerCommonData
 	{
 		return this.exp;
 	}
-	
+	public int getCubeSize()
+	{
+		return this.cubeSize;
+	}
+	public void setCubesize(int cubeSize)
+	{
+		this.cubeSize = cubeSize;
+	}
 	public long getExpShown()
 	{
 		return this.exp - DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level);

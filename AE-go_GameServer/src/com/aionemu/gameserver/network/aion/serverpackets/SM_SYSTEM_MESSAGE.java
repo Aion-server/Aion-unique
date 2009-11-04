@@ -272,7 +272,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	 *            operation code, take it from SM_SYSTEM_MESSAGE public static values
 	 * @param params
 	 */
-	private SM_SYSTEM_MESSAGE(int code, Object... params)
+	public SM_SYSTEM_MESSAGE(int code, Object... params)
 	{
 		this.code = code;
 		this.params = params;
