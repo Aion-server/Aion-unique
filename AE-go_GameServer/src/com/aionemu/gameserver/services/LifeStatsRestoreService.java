@@ -34,7 +34,7 @@ public class LifeStatsRestoreService
 {
 	private static final Logger log = Logger.getLogger(LifeStatsRestoreService.class);
 
-	private static final int DEFAULT_DELAY = 1500;
+	private static final int DEFAULT_DELAY = 2500;
 	
 	private static final int HP_RESTORE_TICK = 5;
 	

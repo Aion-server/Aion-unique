@@ -175,13 +175,11 @@ public class CreatureLifeStats<T extends Creature>
 			}
 		}	
 		
-		if(lifeRestoreTask == null && !alreadyDead)
-		{
-			this.lifeRestoreTask = LifeStatsRestoreService.getInstance().scheduleRestoreTask(this);
-		}
+		triggerRestoreTask();
 		
 		return currentHp;
 	}
+	
 	/**
 	 * Informs about HP change
 	 */
@@ -225,6 +223,20 @@ public class CreatureLifeStats<T extends Creature>
 		return currentHp;
 	}
 	
+	/**
+	 *  Will trigger restore task if not already
+	 */
+	public void triggerRestoreTask()
+	{
+		if(lifeRestoreTask == null && !alreadyDead)
+		{
+			this.lifeRestoreTask = LifeStatsRestoreService.getInstance().scheduleRestoreTask(this);
+		}
+	}
+	
+	/**
+	 *  Cancel currently running restore task
+	 */
 	public void cancelRestoreTask()
 	{
 		if(lifeRestoreTask != null && !lifeRestoreTask.isCancelled())

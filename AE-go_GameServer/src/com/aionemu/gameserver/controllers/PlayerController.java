@@ -290,7 +290,7 @@ public class PlayerController extends CreatureController<Player>
 		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_LOST,attacker.getName()));
 		PlayerLifeStats pls = getOwner().getLifeStats();
 		getOwner().setLifeStats(new PlayerLifeStats(1, pls.getCurrentMp(), pls.getMaxHp(), pls.getMaxMp()));
-		LifeStatsRestoreService.getInstance().scheduleRestoreTask(getOwner().getLifeStats());
+		getOwner().getLifeStats().triggerRestoreTask();
 	}
 
 }

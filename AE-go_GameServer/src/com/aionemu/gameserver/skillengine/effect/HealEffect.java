@@ -73,7 +73,6 @@ public class HealEffect
 	{
 		//TODO this is for demonstration only cause effects
 		// will be applied to object (effector) and now it behaves as action
-		//TODO correct packet structure to send
 		//TODO calculate heal value
 		Player effector = (Player) env.getEffector();
 		Creature effected = env.getEffected();
@@ -82,23 +81,13 @@ public class HealEffect
 		int unk = 0;
 		if(target == TargetAttribute.SELF)
 		{
-			effected = effector;
-			PacketSendUtility.broadcastPacket(effector,
-				new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
-					unk, 0, value, template.getCooldown()), true);
-		}
-		else
-		{
-			PacketSendUtility.broadcastPacket(effector,
-				new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
-					unk, effected.getObjectId(), value, template.getCooldown()), true);
+			effected = effector;		
 		}
 		
+		PacketSendUtility.broadcastPacket(effector,
+			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
+				unk, effected.getObjectId(), -value, template.getCooldown()), true);
 		
-		
-			effector.getLifeStats().increaseHp(value);
-		
-
 		effected.getLifeStats().increaseHp(value);
 	}
 }
