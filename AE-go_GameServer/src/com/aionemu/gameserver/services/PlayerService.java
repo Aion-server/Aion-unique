@@ -165,13 +165,13 @@ public class PlayerService
 
 		player.setExchangeList(new ExchangeList());
 
-		Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(playerObjId);
-		player.setInventory(inventory);
-		
 		player.setPlayerStatsTemplate(DataManager.PLAYER_STATS_DATA.getTemplate(player));
 		
 		player.setLifeStats(new PlayerLifeStats(player.getPlayerStatsTemplate().getMaxHp(), player.getPlayerStatsTemplate().getMaxMp()));
 		player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA,player));
+		
+		Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(player);
+		player.setInventory(inventory);
 		
 		if(CacheConfig.CACHE_PLAYERS)
 			playerCache.put(playerObjId, player);	

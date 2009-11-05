@@ -72,4 +72,42 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 	{
 		this.playerStatsData = playerStatsData;
 	}
+
+	public void setMainHandAccuracy(int mainHandAccuracy)
+	{
+		this.mainHandAccuracy = mainHandAccuracy;
+	}
+	
+	public void setOffHandAccuracy(int offHandAccuracy)
+	{
+		this.offHandAccuracy = offHandAccuracy;
+	}
+
+	public void setPhysicalDefense(int physicalDefense)
+	{
+		this.physicalDefense = physicalDefense;
+	}
+
+	public void setParry(int parry)
+	{
+		this.parry = parry;
+	}
+
+	/**
+	 * @param i
+	 */
+	public void setMagicBoost(int magicBoost)
+	{
+		this.magicBoost = magicBoost;
+	}
+
+	public void setMagicAccuracy(int magicAccuracy)
+	{
+		this.magicAccuracy = magicAccuracy;
+	}
+	
+	public void setMagicResistance(int magicResistance)
+	{
+		this.magicResistance = magicResistance;
+	}
 }
