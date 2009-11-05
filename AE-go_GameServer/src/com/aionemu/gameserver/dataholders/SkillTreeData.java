@@ -84,20 +84,36 @@ public class SkillTreeData
 		return templates;
 	}
 	
+	/**
+	 *  Perform search for:
+	 *   - class specific skills (race = ALL)
+	 *   - class and race specific skills
+	 *   - non-specific skills (race = ALL, class = ALL)
+	 *   
+	 * @param playerClass
+	 * @param level
+	 * @param race
+	 * @return
+	 */
 	public SkillLearnTemplate[] getTemplatesFor(PlayerClass playerClass, int level, Race race)
 	{
-		List<SkillLearnTemplate> temps = new ArrayList<SkillLearnTemplate>();
+		List<SkillLearnTemplate> newSkills = new ArrayList<SkillLearnTemplate>();
 		
-		List<SkillLearnTemplate> classSpecificTemplates = 
+		List<SkillLearnTemplate> classRaceSpecificTemplates = 
 			templates.get(makeHash(playerClass.ordinal(), race.ordinal(), level));
+		List<SkillLearnTemplate> classSpecificTemplates = 
+			templates.get(makeHash(playerClass.ordinal(), SkillRace.ALL.ordinal(), level));
 		List<SkillLearnTemplate> generalTemplates = 
 			templates.get(makeHash(SkillClass.ALL.ordinal(), SkillRace.ALL.ordinal(), level));
 		
+		if(classRaceSpecificTemplates != null)
+			newSkills.addAll(classSpecificTemplates);
 		if(classSpecificTemplates != null)
-			temps.addAll(classSpecificTemplates);
+			newSkills.addAll(classSpecificTemplates);
 		if(generalTemplates != null)
-			temps.addAll(generalTemplates);
-		return temps.toArray(new SkillLearnTemplate[temps.size()]);
+			newSkills.addAll(generalTemplates);
+		
+		return newSkills.toArray(new SkillLearnTemplate[newSkills.size()]);
 	}
 
 	public int size()

@@ -20,8 +20,9 @@ import java.util.Collections;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.dataholders.SkillTreeData;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -36,29 +37,47 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class SkillLearnService
 {
-	private static final Logger log = Logger.getLogger(SkillTreeData.class);
+	private static final Logger log = Logger.getLogger(SkillLearnService.class);
 	
-	public static void addNewSkills(Player player)
+	/**
+	 * 
+	 * @param player
+	 * @param isNewCharacter
+	 */
+	public static void addNewSkills(Player player, boolean isNewCharacter)
 	{
 		int level = player.getCommonData().getLevel();
-		SkillList skillList = player.getSkillList();
 		PlayerClass playerClass = player.getCommonData().getPlayerClass();
 		Race playerRace = player.getCommonData().getRace();
 
 		SkillLearnTemplate[] skillTemplates =
 			DataManager.SKILL_TREE_DATA.getTemplatesFor(playerClass, level, playerRace);
-
+		
+		if(isNewCharacter)
+		{
+			player.setSkillList(new SkillList());
+		}
+		
 		for(SkillLearnTemplate template : skillTemplates)
 		{
-			if(template == null)
+			player.getSkillList().addSkill(template.getSkillId(), template.getSkillLevel());
+			
+			if(!isNewCharacter)
 			{
-				log.warn("Skill learn template is null");
-				continue;
+				//TODO message should be SM_SKILL_LIST.YOU_LEARNED
+				PacketSendUtility.sendPacket(player,
+					new SM_SKILL_LIST(Collections.singletonMap(template.getSkillId(), template.getSkillLevel()),
+						0));
 			}
-			//player.getSkillList().addSkills(temlate.getSkillId(), temlate.getSkillLevel());
-			PacketSendUtility.sendPacket(player,
-				new SM_SKILL_LIST(Collections.singletonMap(template.getSkillId(), template.getSkillLevel())));
+			
+			if(template.getSkillLevel() == 1)
+			{
+				DAOManager.getDAO(PlayerSkillListDAO.class).addSkill(player.getObjectId(), template.getSkillId(), template.getSkillLevel());
+			}
+			else
+			{
+				DAOManager.getDAO(PlayerSkillListDAO.class).updateSkill(player.getObjectId(), template.getSkillId(), template.getSkillLevel());
+			}
 		}
-
 	}
 }

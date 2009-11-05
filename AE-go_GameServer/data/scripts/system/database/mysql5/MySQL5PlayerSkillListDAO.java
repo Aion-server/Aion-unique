@@ -27,8 +27,6 @@ import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 
 /**
@@ -40,10 +38,10 @@ import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 public class MySQL5PlayerSkillListDAO extends PlayerSkillListDAO
 {
 	public static final String INSERT_QUERY = "INSERT INTO `player_skills` (`player_id`, `skillId`, `skillLevel`) VALUES (?,?,?)";
+	public static final String UPDATE_QUERY = "UPDATE `player_skills` set skillLevel=? where player_id=? AND skillId=?";
 	public static final String DELETE_QUERY = "DELETE FROM `player_skills` WHERE `player_id`=?";
 	public static final String SELECT_QUERY = "SELECT `skillId`, `skillLevel` FROM `player_skills` WHERE `player_id`=?";
-	public static final String SELECT_SKILL_TREE = "SELECT `skillId`, `skillLevel` FROM `skill_trees` WHERE `class_id`=? AND `min_level`<=?";
-
+	
 	/**
 	 * Add a skill information into database
 	 *
@@ -51,7 +49,7 @@ public class MySQL5PlayerSkillListDAO extends PlayerSkillListDAO
 	 * @param skill    skill contents.
 	 */
 	@Override
-	public void addSkills(final int playerId, final int skillId, final int skillLevel)
+	public void addSkill(final int playerId, final int skillId, final int skillLevel)
 	{
 		DB.insertUpdate(INSERT_QUERY, new IUStH() {
 			@Override
@@ -64,42 +62,22 @@ public class MySQL5PlayerSkillListDAO extends PlayerSkillListDAO
 			}
 		});
 	}
-	public void addSkillsTree(Player player)
-	{		
-		final PlayerCommonData pcd = player.getCommonData();
-		
-		DB.select(SELECT_SKILL_TREE, new ParamReadStH()
-		{
-		@Override
-		public void setParams(PreparedStatement stmt) throws SQLException
-		{
-			
-			stmt.setInt(1, pcd.getPlayerClass().getClassId());
-			stmt.setInt(2, pcd.getLevel());
-		}
-
-		@Override
-		public void handleRead(ResultSet rset) throws SQLException
-		{
-			while(rset.next())
+	
+	@Override
+	public void updateSkill(final int playerId, final int skillId, final int skillLevel)
+	{
+		DB.insertUpdate(UPDATE_QUERY, new IUStH() {
+			@Override
+			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
-				final int id = rset.getInt("skillId");
-				final int lv = rset.getInt("skillLevel");
-				
-				DB.insertUpdate(INSERT_QUERY, new IUStH() {
-					@Override
-					public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
-				{
-						stmt.setInt(1, pcd.getPlayerObjId());
-						stmt.setInt(2, id);
-						stmt.setInt(3, lv);
-						stmt.execute();
-					}
-				});
+				stmt.setInt(1, skillLevel);
+				stmt.setInt(2, playerId);
+				stmt.setInt(3, skillId);
+				stmt.execute();
 			}
-		}
 		});
 	}
+	
 	/** {@inheritDoc} */
 	@Override
 	public void deleteSkills(final int playerId)
@@ -117,7 +95,7 @@ public class MySQL5PlayerSkillListDAO extends PlayerSkillListDAO
 
 	/** {@inheritDoc} */
 	@Override
-	public SkillList restoreSkillList(final int playerId)
+	public SkillList loadSkillList(final int playerId)
 	{
 		final Map<Integer, Integer> skills = new HashMap<Integer, Integer>();
 		DB.select(SELECT_QUERY, new ParamReadStH()

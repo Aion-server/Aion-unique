@@ -79,7 +79,7 @@ public class SkillList
 	 */
 	public synchronized boolean addSkill(int skillId, int skillLevel)
 	{
-		if (skills.containsKey(skillId) && skills.get(skillId) < skillLevel)
+		if (skills.containsKey(skillId) && skills.get(skillId) > skillLevel)
 		{
 			logger.warn("Trying to add skill with lower skill level. ");
 			return false;
@@ -88,7 +88,6 @@ public class SkillList
 		skills.put(skillId, skillLevel);
 		return true;
 	}
-
 	
 	/**
 	 * Returns count of available skillist.

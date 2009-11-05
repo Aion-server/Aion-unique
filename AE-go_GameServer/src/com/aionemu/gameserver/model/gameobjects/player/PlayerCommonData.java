@@ -20,6 +20,8 @@ import java.sql.Timestamp;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.Gender;
@@ -170,7 +172,10 @@ public class PlayerCommonData
 				
 				PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATS_INFO(this.getPlayer()));
 				//add new skills
-				SkillLearnService.addNewSkills(getPlayer());
+				SkillLearnService.addNewSkills(getPlayer(), false);
+				
+				//save player at this point
+				DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
 			}	
 		}
 		else

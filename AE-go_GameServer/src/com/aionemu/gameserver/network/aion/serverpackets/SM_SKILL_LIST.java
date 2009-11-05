@@ -35,25 +35,30 @@ public class SM_SKILL_LIST extends AionServerPacket
 {
 
 	private Map<Integer, Integer> skillList;
-
+	private int messageId;
+	public static final int YOU_LEARNED_SKILL = 1300050;
 
 	/**
+	 *  This constructor is used on player entering the world
+	 *  
  	 * Constructs new <tt>SM_SKILL_LIST </tt> packet
  	 */
 
 	public SM_SKILL_LIST(Player player)
  	{
 		this.skillList = player.getSkillList().getSkillList();
+		this.messageId = 0;
  	}
 	
 	/**
-	 *  This constructor is used to update player with new asquired skills only 
+	 *  This constructor is used to update player with new skills 
 	 *  
 	 * @param skillList
 	 */
-	public SM_SKILL_LIST(Map<Integer, Integer> skillList)
+	public SM_SKILL_LIST(Map<Integer, Integer> skillList, int messageId)
 	{
 		this.skillList = skillList;
+		this.messageId = messageId;
 	}
 
 	/**
@@ -76,7 +81,6 @@ public class SM_SKILL_LIST extends AionServerPacket
 				writeC(buf, 0);//unk
 			}
 		}
-		writeD(buf, 0);// unk
-
+		writeD(buf, messageId);// unk
 	}
 }

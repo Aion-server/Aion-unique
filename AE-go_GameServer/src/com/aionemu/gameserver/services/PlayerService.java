@@ -53,6 +53,7 @@ import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
+import com.aionemu.gameserver.skillengine.SkillLearnService;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
@@ -122,7 +123,6 @@ public class PlayerService
 	 */
 	public boolean storeNewPlayer(Player player, String accountName, int accountId)
 	{
-		DAOManager.getDAO(PlayerSkillListDAO.class).addSkillsTree(player);
 		return DAOManager.getDAO(PlayerDAO.class).saveNewPlayer(player.getCommonData(), accountId, accountName) && DAOManager.getDAO(PlayerAppearanceDAO.class).store(player);
 	}
 
@@ -155,14 +155,10 @@ public class PlayerService
 
 		player = new Player(new PlayerController(), pcd, appereance);
 		player.setMacroList(macroses);
-		SkillList sl = DAOManager.getDAO(PlayerSkillListDAO.class).restoreSkillList(playerObjId);
-		if(sl!=null && sl.getSize()>0)
-			player.setSkillList(sl);
-		else
-		{
-			DAOManager.getDAO(PlayerSkillListDAO.class).addSkillsTree(player);
-			player.setSkillList(DAOManager.getDAO(PlayerSkillListDAO.class).restoreSkillList(playerObjId));
-		}
+		
+		SkillList sl = DAOManager.getDAO(PlayerSkillListDAO.class).loadSkillList(playerObjId);
+		player.setSkillList(sl);
+		
 		player.setKnownlist(new KnownList(player));
 		player.setFriendList(DAOManager.getDAO(FriendListDAO.class).load(player, world));
 		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player,world));
@@ -201,7 +197,8 @@ public class PlayerService
 		
 		Player newPlayer = new Player(new PlayerController(), playerCommonData, playerAppearance);
 		
-		// TODO: starting skills
+		// Starting skills
+		SkillLearnService.addNewSkills(newPlayer, true);
 		
 		// Starting items
 		PlayerCreationData playerCreationData = 

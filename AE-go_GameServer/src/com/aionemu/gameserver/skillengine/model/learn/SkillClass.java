@@ -32,8 +32,8 @@ public enum SkillClass
 	MAGE,
 	WIZARD,
 	ELEMENTALLIST,
-	PRIEST,
-	CLERIC,
+	CLERIC, //in reality priest
+	PRIEST, //in reality cleric
 	CHANTER,
 	ALL
 }
