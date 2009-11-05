@@ -51,7 +51,11 @@ public class ItemEquipmentListener
 		if (!item.isEquipped()) {
 			sign = -1;
 		}
-		switch(ItemSlot.getValue(item.getEquipmentSlot()))
+		ItemSlot itemSlot = null;
+		try {
+			itemSlot = ItemSlot.getValue(item.getEquipmentSlot());
+		} catch (IllegalArgumentException e) { }
+		switch(itemSlot)
 		{
 			case MAIN_HAND:
 				pgs.setMainHandAttack(pgs.getMainHandAttack() + sign*it.getMaxDamage());
