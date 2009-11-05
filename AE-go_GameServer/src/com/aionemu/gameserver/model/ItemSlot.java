@@ -71,7 +71,7 @@ public enum ItemSlot
 			}
 		}
 
-		throw new IllegalArgumentException("Invalid provided slotIdMask "+slotIdMask);
+		throw new IllegalArgumentException("Invalid slotIdMask provided");
 	}
 	
 	//TODO

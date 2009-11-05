@@ -57,7 +57,7 @@ public class CreatureGameStats<T extends Creature>
 	protected int evasion = 0;
 	protected int block = 0;
 	protected int parry = 0;
-	protected int magicBoost = 0;
+	private int magicBoost = 0;
 	private int attackSpeed = 0;
 	private int attackRange = 0;
 	private boolean initialized = false;

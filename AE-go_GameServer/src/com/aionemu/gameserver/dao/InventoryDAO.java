@@ -18,7 +18,6 @@ package com.aionemu.gameserver.dao;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * @author ATracer
@@ -26,10 +25,10 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 public abstract class InventoryDAO implements IDFactoryAwareDAO
 {
 	/**
-	 * @param player
+	 * @param playerId
 	 * @return
 	 */
-	public abstract Inventory load(Player player);
+	public abstract Inventory load(int playerId);
 	
 	/**
 	 * @param inventory

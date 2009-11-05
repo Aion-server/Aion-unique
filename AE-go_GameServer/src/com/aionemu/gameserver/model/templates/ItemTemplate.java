@@ -208,7 +208,7 @@ public class ItemTemplate
 	private String racePermitted;
 	
 	@XmlAttribute(name = "magical_resist")
-	private int magicalResist;
+	private String magicalResist;
 	
 	@XmlAttribute(name = "physical_defend")
 	private int physicalDefend;
@@ -716,7 +716,7 @@ public class ItemTemplate
 	/**
 	 * @return the magicalResist
 	 */
-	public int getMagicalResist()
+	public String getMagicalResist()
 	{
 		return magicalResist;
 	}

@@ -18,7 +18,6 @@ package mysql5;
 
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 import com.aionemu.gameserver.model.gameobjects.Item;
 
@@ -49,11 +48,10 @@ public class MySQL5InventoryDAO extends InventoryDAO
      * @see com.aionemu.gameserver.dao.InventoryDAO#load(int)
      */
     @Override
-    public Inventory load(Player player)
+    public Inventory load(final int playerId)
     {
         //TODO load parts - cube, equipment etc.
-        final Inventory inventory = new Inventory(player);
-        final int playerId = player.getObjectId();
+        final Inventory inventory = new Inventory();
 
         DB.select(SELECT_QUERY, new ParamReadStH()
         {
