@@ -49,9 +49,8 @@ public class LifeStatsRestoreService
 		{
 			@Override
 			public void run()
-			{				
-				
-				if(lifeStats.isAlreadyDead())
+			{							
+				if(lifeStats.isAlreadyDead() || lifeStats.isFullyRestored())
 				{
 					lifeStats.cancelRestoreTask();
 				}
@@ -60,8 +59,6 @@ public class LifeStatsRestoreService
 					lifeStats.restoreHp();
 					lifeStats.restoreMp();
 				}
-				
-				//TODO restore MP also
 			}
 			
 		}), 1700, DEFAULT_DELAY);

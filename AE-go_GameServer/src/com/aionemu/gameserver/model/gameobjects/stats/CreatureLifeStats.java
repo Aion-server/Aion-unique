@@ -312,6 +312,15 @@ public abstract class CreatureLifeStats<T extends Creature>
 		}
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isFullyRestored()
+	{
+		return maxHp == currentHp && maxMp == currentMp;
+	}
+	
 	protected abstract void onIncreaseMp();
 	
 	protected abstract void onReduceMp();
