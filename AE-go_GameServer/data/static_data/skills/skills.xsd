@@ -9,16 +9,16 @@
 		<xs:sequence>
 			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="skill_template" type="SkillTemplate"
-				minOccurs="0" maxOccurs="unbounded" />		
+				minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="SkillTemplate">
 		<xs:sequence>
-			<xs:element name="startconditions" type="Conditions" minOccurs="0"
-				maxOccurs="1" />
-			<xs:element name="useconditions" type="Conditions" minOccurs="0"
-				maxOccurs="1" />
+			<xs:element name="startconditions" type="Conditions"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="useconditions" type="Conditions"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="effects" type="Effects" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="actions" type="Actions" minOccurs="0"
@@ -61,6 +61,10 @@
 				maxOccurs="1" />
 			<xs:element name="itemuse" type="ItemUseAction" minOccurs="0"
 				maxOccurs="1" />
+			<xs:element name="mpuse" type="MpUseAction" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="hpuse" type="HpUseAction" minOccurs="0"
+				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -73,12 +77,12 @@
 	<xs:complexType name="DamageAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required"/>
-				<xs:attribute name="type" type="DamageType" use="required"/>
+				<xs:attribute name="value" type="xs:int" use="required" />
+				<xs:attribute name="type" type="DamageType" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:simpleType name="DamageType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="PHYSICAL" />
@@ -92,18 +96,34 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="ItemUseAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
-				<xs:attribute name="itemid" type="xs:int" use="required"/>
-				<xs:attribute name="count" type="xs:int" use="required"/>
+				<xs:attribute name="itemid" type="xs:int" use="required" />
+				<xs:attribute name="count" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="MpUseAction">
+		<xs:complexContent>
+			<xs:extension base="Action">
+				<xs:attribute name="value" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="HpUseAction">
+		<xs:complexContent>
+			<xs:extension base="Action">
+				<xs:attribute name="value" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 
 	<!-- EFFECTS -->
-	
+
 	<xs:complexType name="HealEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
@@ -112,7 +132,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="RootEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
@@ -120,7 +140,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<!-- CONDITIONS -->
 
 	<xs:complexType name="MpCondition">
@@ -130,7 +150,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="PlayerMovedCondition">
 		<xs:complexContent>
 			<xs:extension base="Condition">

@@ -61,7 +61,6 @@ public class StatFunctions
 	public static int calculateBaseDamageToTarget(Creature attacker, Creature target)
 	{
 		return calculatePhysicDamageToTarget(attacker, target, 0);
-		
 	}
 	
 	/**
@@ -79,7 +78,7 @@ public class StatFunctions
 		log.debug("Calculating base damages...");
 		log.debug("| Attacker: "+ags);
 		log.debug("| Target  : "+tgs);
-		int baseDamages = ags.getMainHandAttack() + skillDamages;;
+		int baseDamages = ags.getMainHandAttack() + skillDamages;
 		int pDef = tgs.getPhysicalDefense();
 		int damages = baseDamages + Math.round(baseDamages*0.60f);
 		damages -= Math.round(pDef * 0.10f);

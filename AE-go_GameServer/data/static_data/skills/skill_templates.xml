@@ -14,6 +14,7 @@
 		</useconditions>
 		<actions>
 			<damage value="61" type="MAGICAL"/>
+			<mpuse value="38"/>
 		</actions>
 	</skill_template>
 	
@@ -26,6 +27,9 @@
 		<effects>
 			<root duration="20" />
 		</effects>
+		<actions>
+			<mpuse value="35"/>
+		</actions>
 	</skill_template>
 
 	<!-- Priest -->
@@ -40,6 +44,7 @@
 		</useconditions>
 		<actions>
 			<damage value="74" type="MAGICAL"/>
+			<mpuse value="16"/>
 		</actions>
 	</skill_template>
 
@@ -55,6 +60,9 @@
 		<effects>
 			<heal value="93" />
 		</effects>
+		<actions>
+			<mpuse value="11"/>
+		</actions>
 	</skill_template>
 
 	<!-- Scout -->
@@ -62,7 +70,6 @@
 		level="1" duration="0" cooldown="7">
 		<startconditions>
 			<target value="CREATURE" />
-			<mp value="0" />
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
@@ -77,7 +84,6 @@
 		type="INSTANT" level="1" duration="0" cooldown="10">
 		<startconditions>
 			<target value="CREATURE" />
-			<mp value="0" />
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
@@ -94,9 +100,6 @@
 
 	<skill_template skill_id="1801" name="Return" type="CHANNELED"
 		level="1" duration="6000" cooldown="1200">
-		<startconditions>
-			<mp value="0" />
-		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
@@ -118,6 +121,7 @@
 		</effects>
 		<actions>
 			<itemuse itemid="169300002" count="1"/>
+			<mpuse value="50"/>
 		</actions>
 	</skill_template>
 

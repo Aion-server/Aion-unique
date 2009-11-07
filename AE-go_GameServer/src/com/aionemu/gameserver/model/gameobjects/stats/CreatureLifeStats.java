@@ -17,12 +17,14 @@
 package com.aionemu.gameserver.model.gameobjects.stats;
 
 import java.util.concurrent.Future;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_MP;
 import com.aionemu.gameserver.services.LifeStatsRestoreService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -30,21 +32,25 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  * @author ATracer
  *
  */
-public class CreatureLifeStats<T extends Creature>
+public abstract class CreatureLifeStats<T extends Creature>
 {
 	private static final Logger log = Logger.getLogger(CreatureLifeStats.class);
+
+	protected int currentHp;
+	protected int currentMp;
+
+	protected int maxHp;
+	protected int maxMp;
+
+	protected boolean alreadyDead = false;
+
+	protected Creature owner;
+
+	private final ReentrantLock hpLock = new ReentrantLock();
+	private final ReentrantLock mpLock = new ReentrantLock();
 	
-	private int currentHp;
-	
-	private int currentMp;
-	
-	private int maxHp;
-	
-	private int maxMp;
-	
-	private boolean alreadyDead = false;
-	
-	private Creature owner;
+	private int HP_RESTORE_TICK = 5;
+	private int MP_RESTORE_TICK = 5;
 	
 	private Future<?> lifeRestoreTask;
 
@@ -56,7 +62,7 @@ public class CreatureLifeStats<T extends Creature>
 		this.maxHp = maxHp;
 		this.maxMp = maxMp;
 	}
-	
+
 	/**
 	 * @param owner
 	 */
@@ -82,27 +88,11 @@ public class CreatureLifeStats<T extends Creature>
 	}
 
 	/**
-	 * @param currentHp the currentHp to set
-	 */
-	public void setCurrentHp(int currentHp)
-	{
-		this.currentHp = currentHp;
-	}
-
-	/**
 	 * @return the currentMp
 	 */
 	public int getCurrentMp()
 	{
 		return currentMp;
-	}
-
-	/**
-	 * @param currentMp the currentMp to set
-	 */
-	public void setCurrentMp(int currentMp)
-	{
-		this.currentMp = currentMp;
 	}
 
 	/**
@@ -114,14 +104,6 @@ public class CreatureLifeStats<T extends Creature>
 	}
 
 	/**
-	 * @param maxHp the maxHp to set
-	 */
-	public void setMaxHp(int maxHp)
-	{
-		this.maxHp = maxHp;
-	}
-
-	/**
 	 * @return the maxMp
 	 */
 	public int getMaxMp()
@@ -129,14 +111,6 @@ public class CreatureLifeStats<T extends Creature>
 		return maxMp;
 	}
 
-	/**
-	 * @param maxMp the maxMp to set
-	 */
-	public void setMaxMp(int maxMp)
-	{
-		this.maxMp = maxMp;
-	}
-	
 	/**
 	 * @return the alreadyDead
 	 * There is no setter method cause life stats should be completely renewed on revive
@@ -153,10 +127,11 @@ public class CreatureLifeStats<T extends Creature>
 	 */
 	public int reduceHp(int value)
 	{
-		synchronized(this)
+		hpLock.lock();
+		try
 		{
 			int newHp = this.currentHp - value;
-			
+
 			if(newHp < 0)
 			{
 				this.currentHp = 0;
@@ -166,20 +141,52 @@ public class CreatureLifeStats<T extends Creature>
 				}			
 			}
 			this.currentHp = newHp;
-			
+
 			sendHpPacketUpdate();
-			
+
 			if(alreadyDead)
 			{
 				getOwner().getController().onDie();	
 			}
-		}	
-		
-		triggerRestoreTask();
-		
+		}
+		finally
+		{
+			hpLock.unlock();
+		}
+
+		onReduceHp();
+
 		return currentHp;
 	}
+
+	/**
+	 *  This method is called whenever caller wants to absorb creatures's HP
+	 * @param value
+	 * @return
+	 */
+	public int reduceMp(int value)
+	{
+		mpLock.lock();
+		try
+		{
+			int newMp = this.currentMp - value;
+
+			if(newMp < 0)
+				newMp = 0;
+
+			this.currentMp = newMp;	
+		}
+		finally
+		{
+			mpLock.unlock();
+		}
+		
+		onReduceMp();
+
+		return currentMp;
+	}
 	
+
 	/**
 	 * Informs about HP change
 	 */
@@ -196,7 +203,7 @@ public class CreatureLifeStats<T extends Creature>
 			PacketSendUtility.sendPacket((Player) owner, new SM_ATTACK_STATUS(getOwner().getObjectId(), hpPercentage));
 		}
 	}
-	
+
 	/**
 	 *  This method is called whenever caller wants to restore creatures's HP
 	 * @param value
@@ -204,7 +211,11 @@ public class CreatureLifeStats<T extends Creature>
 	 */
 	public int increaseHp(int value)
 	{
-		synchronized(this)
+		if(value == maxHp)
+			return 0;
+		
+		hpLock.lock();
+		try
 		{
 			if(isAlreadyDead())
 			{
@@ -216,13 +227,68 @@ public class CreatureLifeStats<T extends Creature>
 				newHp = maxHp;
 			}
 			this.currentHp = newHp;		
+		}
+		finally
+		{
+			hpLock.unlock();
 		}		
-		
+
 		sendHpPacketUpdate();
+
+		return currentHp;
+	}
+
+	/**
+	 * This method is called whenever caller wants to restore creatures's MP
+	 * @param value
+	 * @return
+	 */
+	public int increaseMp(int value)
+	{
+		if(value == maxMp)
+			return 0;
 		
+		mpLock.lock();
+		
+		try
+		{
+			if(isAlreadyDead())
+			{
+				return 0;
+			}
+			int newMp = this.currentMp + value;
+			if(newMp > maxMp)
+			{
+				newMp = maxMp;
+			}
+			this.currentMp = newMp;
+		}	
+		finally
+		{
+			mpLock.unlock();
+		}
+
+		onIncreaseMp();
+
 		return currentHp;
 	}
 	
+	/**
+	 *  Restores HP with value set as HP_RESTORE_TICK
+	 */
+	public void restoreHp()
+	{
+		increaseHp(HP_RESTORE_TICK);
+	}
+	
+	/**
+	 *  Restores HP with value set as MP_RESTORE_TICK
+	 */
+	public void restoreMp()
+	{
+		increaseMp(MP_RESTORE_TICK);
+	}
+
 	/**
 	 *  Will trigger restore task if not already
 	 */
@@ -233,7 +299,7 @@ public class CreatureLifeStats<T extends Creature>
 			this.lifeRestoreTask = LifeStatsRestoreService.getInstance().scheduleRestoreTask(this);
 		}
 	}
-	
+
 	/**
 	 *  Cancel currently running restore task
 	 */
@@ -245,4 +311,10 @@ public class CreatureLifeStats<T extends Creature>
 			this.lifeRestoreTask = null;
 		}
 	}
+	
+	protected abstract void onIncreaseMp();
+	
+	protected abstract void onReduceMp();
+	
+	protected abstract void onReduceHp();
 }

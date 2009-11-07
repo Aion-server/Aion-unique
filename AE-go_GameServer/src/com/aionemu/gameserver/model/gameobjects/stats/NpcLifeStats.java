@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -30,5 +30,31 @@ public class NpcLifeStats extends CreatureLifeStats<Npc>
 		super(currentHp, currentMp, maxHp, maxMp);
 		// TODO Auto-generated constructor stub
 	}
-	
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats#onReduceHp()
+	 */
+	@Override
+	protected void onReduceHp()
+	{
+		// TODO Auto-generated method stub		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats#onReduceMp()
+	 */
+	@Override
+	protected void onReduceMp()
+	{
+		// TODO Auto-generated method stub	
+	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats#onIncreaseMp()
+	 */
+	@Override
+	protected void onIncreaseMp()
+	{
+		// TODO Auto-generated method stub	
+	}
 }

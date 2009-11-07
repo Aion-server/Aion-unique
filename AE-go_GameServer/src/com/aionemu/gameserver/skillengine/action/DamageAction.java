@@ -78,13 +78,13 @@ public class DamageAction
 		switch(type)
 		{
 			case PHYSICAL:
-				damage = StatFunctions.calculatePhysicDamageToTarget(effector, effector, value);
+				damage = StatFunctions.calculatePhysicDamageToTarget(effector, effected, value);
 				break;
 			case MAGICAL:
-				damage = StatFunctions.calculateMagicDamageToTarget(effector, effector, value, SkillElement.NONE);
+				damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, value, SkillElement.NONE);
 				break;
 			default:
-				damage = StatFunctions.calculateBaseDamageToTarget(effector, effector);
+				damage = StatFunctions.calculateBaseDamageToTarget(effector, effected);
 		}
 		
 		int unk = 0;

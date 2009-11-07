@@ -39,7 +39,9 @@ public class Actions
     @XmlElements({
         @XmlElement(name = "return", type = ReturnAction.class),
         @XmlElement(name = "damage", type = DamageAction.class),
-        @XmlElement(name = "itemuse", type = ItemUseAction.class)
+        @XmlElement(name = "itemuse", type = ItemUseAction.class),
+        @XmlElement(name = "mpuse", type = MpUseAction.class),
+        @XmlElement(name = "hpuse", type = HpUseAction.class)
     })
     protected List<Action> actions;
 
@@ -63,7 +65,9 @@ public class Actions
      * Objects of the following type(s) are allowed in the list
      * {@link ReturnAction }
      * {@link DamageAction }
-     * {@link HealAction }
+     * {@link ItemUseAction }
+     * {@link MpUseAction }
+     * {@link HpUseAction }
      * 
      * 
      */

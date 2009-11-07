@@ -110,7 +110,6 @@ public class PlayerCommonData
 		if (getExpShown() < expLoss) {
 			this.expLoss = getExpShown();
 		}
-		this.expLoss = expLoss;
 		PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATS_INFO(this.getPlayer()));
 	}
 
@@ -122,6 +121,40 @@ public class PlayerCommonData
 	public long getExpRecoverable()
 	{
 		return expLoss;
+	}
+	
+	//TODO need to test before use
+	public void addExp(long value)
+	{
+		long newExp = this.exp + value;
+		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
+		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
+
+		if (newExp > maxExp)
+		{
+			newExp = maxExp;
+		}
+		
+		this.exp = newExp;
+		
+		if(this.level != maxLevel)
+		{
+			long nextLevelExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level + 1);
+			if(nextLevelExp < newExp)
+			{
+				
+				this.level += 1;
+				upgradePlayer();
+			}
+			else
+			{			
+				if(this.getPlayer()!=null)
+				{
+					PacketSendUtility.sendPacket(this.getPlayer(),
+						new SM_STATUPDATE_EXP(this.getExpShown(), this.getExpRecoverable(), this.getExpNeed()));
+				}
+			}
+		}
 	}
 
 	public void setExp(long exp)
@@ -156,26 +189,15 @@ public class PlayerCommonData
 		if (level > this.level)
 		{
 			this.level = level;
-			this.exp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);// + leakExp;
-			
-			if(this.getPlayer()!= null)
+			Player player = getPlayer();
+			if(player == null)
 			{
-				Player player = this.getPlayer();
-				PlayerStatsTemplate statsTemplate = DataManager.PLAYER_STATS_DATA.getTemplate(player);
-				
-				player.setLifeStats(new PlayerLifeStats(statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
-				player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA,player));
-				player.setPlayerStatsTemplate(statsTemplate);
-				
-				PacketSendUtility.sendPacket(this.getPlayer(),
-					new SM_LEVEL_UPDATE(this.getPlayerObjId(), level));
-				
-				PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATS_INFO(this.getPlayer()));
-				//add new skills
-				SkillLearnService.addNewSkills(getPlayer(), false);
-				
-				//save player at this point
-				DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
+				this.exp = exp;
+			}
+			else
+			{
+				this.exp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);// + leakExp;
+				upgradePlayer();
 			}	
 		}
 		else
@@ -187,6 +209,29 @@ public class PlayerCommonData
 				PacketSendUtility.sendPacket(this.getPlayer(),
 					new SM_STATUPDATE_EXP(this.getExpShown(), this.getExpRecoverable(), this.getExpNeed()));
 			}
+		}
+	}
+
+	private void upgradePlayer()
+	{
+		Player player = this.getPlayer();
+		if(player != null)
+		{
+			PlayerStatsTemplate statsTemplate = DataManager.PLAYER_STATS_DATA.getTemplate(player);
+			
+			player.setLifeStats(new PlayerLifeStats(statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
+			player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA,player));
+			player.setPlayerStatsTemplate(statsTemplate);
+			
+			PacketSendUtility.sendPacket(player,
+				new SM_LEVEL_UPDATE(player.getObjectId(), this.level));
+			
+			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+			//add new skills
+			SkillLearnService.addNewSkills(player, false);
+			
+			//save player at this point
+			DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
 		}
 	}
 
