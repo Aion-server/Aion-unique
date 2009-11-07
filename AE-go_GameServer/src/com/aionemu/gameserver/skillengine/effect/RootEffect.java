@@ -14,86 +14,56 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.action;
+package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
+import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.Env;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.stats.StatFunctions;
-
 
 /**
  * @author ATracer
- *  
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DamageAction")
-public class DamageAction
-    extends Action
+@XmlType(name = "RootEffect")
+public class RootEffect extends EffectTemplate
 {
-
-    @XmlAttribute(required = true)
-    protected int value;
-    
-    @XmlAttribute(required = true)
-    protected DamageType type;
-
-    /**
-     * Gets the value of the value property.
-     * 
-     */
-    public int getValue() 
-    {
-        return value;
-    }
-
-    /**
-	 * @return the damageType
-	 */
-	public DamageType getType()
-	{
-		return type;
-	}
-
+	/** duration is in seconds **/
+	@XmlAttribute(required = true)
+    protected int duration;
+	
 	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.action.Action#act(com.aionemu.gameserver.skillengine.model.Env)
+	 * @see com.aionemu.gameserver.skillengine.effect.Effect#apply(com.aionemu.gameserver.skillengine.model.Env)
 	 */
 	@Override
-	public void act(Env env)
+	public void apply(Env env)
 	{
 		Player effector = (Player) env.getEffector();
 		Creature effected = env.getEffected();
 		SkillTemplate template = env.getSkillTemplate();
-		int damage = 0;
 		
-		switch(type)
-		{
-			case PHYSICAL:
-				damage = StatFunctions.calculatePhysicDamageToTarget(effector, effector, value);
-				break;
-			case MAGICAL:
-				damage = StatFunctions.calculateMagicDamageToTarget(effector, effector, value, SkillElement.NONE);
-				break;
-			default:
-				damage = StatFunctions.calculateBaseDamageToTarget(effector, effector);
-		}
+		//TODO send effect to effected
+		//TODO broadcast from effected
+		
+		Effect effect = new Effect(template.getSkillId(),template.getLevel(), duration, this);
+		effected.getEffectController().addEffect(effect);
 		
 		int unk = 0;
 		
 		PacketSendUtility.broadcastPacket(effector,
 			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
-				unk, effected.getObjectId(), damage, template.getCooldown()), true);
-		
-		effected.getLifeStats().reduceHp(damage);
-		effected.getController().onAttack(effector);
+				unk, effected.getObjectId(), 0, template.getCooldown()), true);
 	}
+	
+	
+	//TODO perform
 }

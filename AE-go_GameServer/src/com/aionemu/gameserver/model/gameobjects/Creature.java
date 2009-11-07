@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.controllers.CreatureController;
+import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.world.WorldPosition;
@@ -34,6 +35,8 @@ public abstract class Creature extends VisibleObject
 	private CreatureLifeStats<? extends Creature> lifeStats;
 	
 	private CreatureGameStats<? extends Creature> gameStats;
+	
+	private EffectController effectController;
 
 	public Creature(int objId, CreatureController<? extends Creature> controller, WorldPosition position)
 	{
@@ -101,4 +104,20 @@ public abstract class Creature extends VisibleObject
 	}
 
 	public abstract byte getLevel();
+
+	/**
+	 * @return the effectController
+	 */
+	public EffectController getEffectController()
+	{
+		return effectController;
+	}
+
+	/**
+	 * @param effectController the effectController to set
+	 */
+	public void setEffectController(EffectController effectController)
+	{
+		this.effectController = effectController;
+	}
 }

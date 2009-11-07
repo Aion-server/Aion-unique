@@ -23,7 +23,7 @@ import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.Condition;
 import com.aionemu.gameserver.skillengine.condition.ConditionChangeListener;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
-import com.aionemu.gameserver.skillengine.effect.Effect;
+import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
 import com.aionemu.gameserver.skillengine.effect.Effects;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -49,6 +49,14 @@ public class Skill
 		this.skillTemplate = env.getSkillTemplate();
 	}
 	
+	/**
+	 * @return the skillTemplate
+	 */
+	public SkillTemplate getSkillTemplate()
+	{
+		return skillTemplate;
+	}
+
 	/**
 	 *  Skill entry point
 	 */
@@ -96,7 +104,7 @@ public class Skill
 		Effects skillEffects = skillTemplate.getEffects();
 		if(skillEffects != null)
 		{
-			for(Effect effect : skillEffects.getEffects())
+			for(EffectTemplate effect : skillEffects.getEffects())
 			{
 				effect.apply(env);
 			}

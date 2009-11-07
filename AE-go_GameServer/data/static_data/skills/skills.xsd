@@ -37,6 +37,8 @@
 		<xs:sequence>
 			<xs:element name="heal" type="HealEffect" minOccurs="0"
 				maxOccurs="1" />
+			<xs:element name="root" type="RootEffect" minOccurs="0"
+				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -71,10 +73,18 @@
 	<xs:complexType name="DamageAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required"></xs:attribute>
+				<xs:attribute name="value" type="xs:int" use="required"/>
+				<xs:attribute name="type" type="DamageType" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:simpleType name="DamageType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PHYSICAL" />
+			<xs:enumeration value="MAGICAL" />
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:complexType name="ReturnAction">
 		<xs:complexContent>
@@ -99,6 +109,14 @@
 			<xs:extension base="Effect">
 				<xs:attribute name="value" type="xs:int" use="required"></xs:attribute>
 				<xs:attribute name="target" type="TargetAttribute"></xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="RootEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="duration" type="xs:int" use="required"></xs:attribute>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

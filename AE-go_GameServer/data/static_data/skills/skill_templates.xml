@@ -13,8 +13,19 @@
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="61" />
+			<damage value="61" type="MAGICAL"/>
 		</actions>
+	</skill_template>
+	
+	<skill_template skill_id="1373" name="Root I " type="CHANNELED"
+		 level="1" duration="1000" cooldown="60">
+		 <startconditions>
+			<target value="CREATURE" />
+			<mp value="35" />
+		</startconditions>
+		<effects>
+			<root duration="20" />
+		</effects>
 	</skill_template>
 
 	<!-- Priest -->
@@ -28,7 +39,7 @@
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="74" />
+			<damage value="74" type="MAGICAL"/>
 		</actions>
 	</skill_template>
 
@@ -57,7 +68,7 @@
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="45" />
+			<damage value="45" type="PHYSICAL"/>
 		</actions>
 	</skill_template>
 
@@ -72,7 +83,7 @@
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="23" />
+			<damage value="23" type="PHYSICAL"/>
 		</actions>
 	</skill_template>
 
@@ -129,10 +140,4 @@
 		cooldown="10000" damage="76"/>
 	-->
 
-	<!--Uses 1 bandage to recover your HP-->
-	<!--
-		<skill_template skill_id="1803" name="Bandage Heal" type="CHANNELED"
-		handler="MISC" target="SELF" level="1" duration="4000"
-		cooldown="16000" />
-	-->
 </skill_data>

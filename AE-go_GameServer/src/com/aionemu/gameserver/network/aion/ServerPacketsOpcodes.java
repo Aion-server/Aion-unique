@@ -21,6 +21,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_EFFECT;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_BLOCK_LIST;
@@ -40,6 +42,10 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL_STARTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ENTER_WORLD_CHECK;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_KINAH;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_CONFIRMATION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_REQUEST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FLY_TELEPORT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_NOTIFY;
@@ -48,6 +54,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_KEY;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_L2AUTH_LOGIN_CHECK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
@@ -67,6 +74,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PONG;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUIT_RESPONSE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RECONNECT_KEY;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RESTORE_CHARACTER;
@@ -84,8 +92,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_VERSION_CHECK;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_VIEW_PLAYER_DETAILS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_WEATHER;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK0A;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK17;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK32;
@@ -93,7 +101,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK60;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK64;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK66;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK8D;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK91;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK97;
@@ -109,12 +116,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKE1;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKE7;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEF;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_CONFIRMATION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_REQUEST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_KINAH;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_VIEW_PLAYER_DETAILS;
 
 /**
  * This class is holding opcodes for all server packets. It's used only to have all opcodes in one place
@@ -231,6 +232,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_TELEPORT_LOC.class, 0x2D, idSet); // 1.5.x
 
 		addPacketOpcode(SM_ABNORMAL_STATE.class, 0x48, idSet); // 1.5.x
+		addPacketOpcode(SM_ABNORMAL_EFFECT.class, 0x4B, idSet); // 1.5.x
 
 		addPacketOpcode(SM_EXCHANGE_CONFIRMATION.class, 0x67, idSet);
 		addPacketOpcode(SM_EXCHANGE_REQUEST.class, 0x63, idSet);

@@ -18,6 +18,7 @@ package com.aionemu.gameserver.spawnengine;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -75,6 +76,7 @@ public class SpawnEngine
 		Npc npc = new Npc(spawn, aionObjectsIDFactory.nextId(), npcController);
 
 		npc.setKnownlist(new KnownList(npc));
+		npc.setEffectController(new EffectController(npc));
 		
 		npc.getController().onRespawn();
 		

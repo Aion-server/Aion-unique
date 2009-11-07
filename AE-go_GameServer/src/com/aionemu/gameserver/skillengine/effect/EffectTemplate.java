@@ -29,7 +29,7 @@ import com.aionemu.gameserver.skillengine.model.Env;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Effect")
-public abstract class Effect 
+public abstract class EffectTemplate 
 {
 	/**
 	 *  Applies effect specified in template

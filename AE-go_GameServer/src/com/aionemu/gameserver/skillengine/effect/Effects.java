@@ -38,9 +38,10 @@ public class Effects
 {
 	
 	@XmlElements({
-        @XmlElement(name = "heal", type = HealEffect.class)
+        @XmlElement(name = "heal", type = HealEffect.class),
+        @XmlElement(name = "root", type = RootEffect.class)
     })
-    protected List<Effect> effects;
+    protected List<EffectTemplate> effects;
 
     /**
      * Gets the value of the effects property.
@@ -58,10 +59,10 @@ public class Effects
      * </pre>
      * 
      */
-    public List<Effect> getEffects() 
+    public List<EffectTemplate> getEffects() 
     {
         if (effects == null) {
-            effects = new ArrayList<Effect>();
+            effects = new ArrayList<EffectTemplate>();
         }
         return this.effects;
     }

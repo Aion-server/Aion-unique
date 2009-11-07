@@ -37,7 +37,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "HealEffect")
 public class HealEffect
-    extends Effect
+    extends EffectTemplate
 {
 
     @XmlAttribute(required = true)

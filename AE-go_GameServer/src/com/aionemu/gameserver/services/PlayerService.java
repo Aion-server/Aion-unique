@@ -25,6 +25,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.CacheConfig;
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.dao.BlockListDAO;
 import com.aionemu.gameserver.dao.FriendListDAO;
@@ -40,9 +41,9 @@ import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.I
 import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.ExchangeList;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.MacroList;
-import com.aionemu.gameserver.model.gameobjects.player.ExchangeList;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
@@ -58,7 +59,6 @@ import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
-import com.aionemu.gameserver.utils.stats.ClassStats;
 import com.aionemu.gameserver.world.KnownList;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldPosition;
@@ -172,6 +172,8 @@ public class PlayerService
 		
 		player.setLifeStats(new PlayerLifeStats(player.getPlayerStatsTemplate().getMaxHp(), player.getPlayerStatsTemplate().getMaxMp()));
 		player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA,player));
+		
+		player.setEffectController(new EffectController(player));
 		
 		if(CacheConfig.CACHE_PLAYERS)
 			playerCache.put(playerObjId, player);	
