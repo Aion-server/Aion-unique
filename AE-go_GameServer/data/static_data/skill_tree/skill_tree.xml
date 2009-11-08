@@ -2214,7 +2214,7 @@
     <skill minLevel="45" skillId="640" skillLevel="1" name="Gale Arrow I" race="ALL" classId="RANGER" type="ACTIVE"/>
     <skill minLevel="45" skillId="641" skillLevel="1" name="Speed of the Wind I" race="ALL" classId="RANGER" type="ACTIVE"/>
     <skill minLevel="45" skillId="642" skillLevel="1" name="Explosive Arrow I" race="ALL" classId="RANGER" type="ACTIVE"/>
-    <skill minLevel="45" skillId="643" skillLevel="1" name="Hunter’s Might I" race="ALL" classId="RANGER" type="ACTIVE"/>
+    <skill minLevel="45" skillId="643" skillLevel="1" name="Hunter`s Might I" race="ALL" classId="RANGER" type="ACTIVE"/>
     <skill minLevel="46" skillId="698" skillLevel="1" name="Snare Trap IV" race="PC_LIGHT" classId="RANGER" type="ACTIVE"/>
     <skill minLevel="46" skillId="700" skillLevel="1" name="Snare Trap IV" race="PC_DARK" classId="RANGER" type="ACTIVE"/>
     <skill minLevel="46" skillId="729" skillLevel="1" name="Breath of Nature III" race="ALL" classId="RANGER" type="ACTIVE"/>
@@ -3127,21 +3127,21 @@
     <skill minLevel="11" skillId="958" skillLevel="7" name="Light of Renewal I" race="ALL" classId="CHANTER" type="ACTIVE"/>
     <skill minLevel="12" skillId="958" skillLevel="8" name="Light of Renewal I" race="ALL" classId="CHANTER" type="ACTIVE"/>
     <skill minLevel="13" skillId="958" skillLevel="9" name="Light of Renewal I" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill minLevel="7" skillId="979" skillLevel="1" name="Heaven’s Judgment I" race="ALL" classId="CLERIC" type="ACTIVE"/>
-    <skill minLevel="8" skillId="979" skillLevel="2" name="Heaven’s Judgment I" race="ALL" classId="CLERIC" type="ACTIVE"/>
-    <skill minLevel="9" skillId="979" skillLevel="3" name="Heaven’s Judgment I" race="ALL" classId="CLERIC" type="ACTIVE"/>
-    <skill minLevel="10" skillId="979" skillLevel="4" name="Heaven’s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="11" skillId="979" skillLevel="5" name="Heaven’s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="12" skillId="979" skillLevel="6" name="Heaven’s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="13" skillId="979" skillLevel="7" name="Heaven’s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="14" skillId="979" skillLevel="8" name="Heaven’s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="15" skillId="979" skillLevel="9" name="Heaven’s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="10" skillId="979" skillLevel="4" name="Heaven’s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill minLevel="11" skillId="979" skillLevel="5" name="Heaven’s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill minLevel="12" skillId="979" skillLevel="6" name="Heaven’s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill minLevel="13" skillId="979" skillLevel="7" name="Heaven’s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill minLevel="14" skillId="979" skillLevel="8" name="Heaven’s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill minLevel="15" skillId="979" skillLevel="9" name="Heaven’s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill minLevel="7" skillId="979" skillLevel="1" name="Heaven`s Judgment I" race="ALL" classId="CLERIC" type="ACTIVE"/>
+    <skill minLevel="8" skillId="979" skillLevel="2" name="Heaven`s Judgment I" race="ALL" classId="CLERIC" type="ACTIVE"/>
+    <skill minLevel="9" skillId="979" skillLevel="3" name="Heaven`s Judgment I" race="ALL" classId="CLERIC" type="ACTIVE"/>
+    <skill minLevel="10" skillId="979" skillLevel="4" name="Heaven`s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="11" skillId="979" skillLevel="5" name="Heaven`s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="12" skillId="979" skillLevel="6" name="Heaven`s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="13" skillId="979" skillLevel="7" name="Heaven`s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="14" skillId="979" skillLevel="8" name="Heaven`s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="15" skillId="979" skillLevel="9" name="Heaven`s Judgment I" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="10" skillId="979" skillLevel="4" name="Heaven`s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill minLevel="11" skillId="979" skillLevel="5" name="Heaven`s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill minLevel="12" skillId="979" skillLevel="6" name="Heaven`s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill minLevel="13" skillId="979" skillLevel="7" name="Heaven`s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill minLevel="14" skillId="979" skillLevel="8" name="Heaven`s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill minLevel="15" skillId="979" skillLevel="9" name="Heaven`s Judgment I" race="ALL" classId="CHANTER" type="ACTIVE"/>
     <skill minLevel="9" skillId="969" skillLevel="1" name="Promise of Wind I" race="ALL" classId="CLERIC" type="ACTIVE"/>
     <skill minLevel="10" skillId="969" skillLevel="2" name="Promise of Wind I" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill minLevel="11" skillId="969" skillLevel="3" name="Promise of Wind I" race="ALL" classId="PRIEST" type="ACTIVE"/>
@@ -3305,15 +3305,15 @@
     <skill minLevel="28" skillId="977" skillLevel="7" name="Smite III" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill minLevel="29" skillId="977" skillLevel="8" name="Smite III" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill minLevel="30" skillId="977" skillLevel="9" name="Smite III" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="22" skillId="980" skillLevel="1" name="Heaven’s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="23" skillId="980" skillLevel="2" name="Heaven’s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="24" skillId="980" skillLevel="3" name="Heaven’s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="25" skillId="980" skillLevel="4" name="Heaven’s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="26" skillId="980" skillLevel="5" name="Heaven’s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="27" skillId="980" skillLevel="6" name="Heaven’s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="28" skillId="980" skillLevel="7" name="Heaven’s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="29" skillId="980" skillLevel="8" name="Heaven’s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="30" skillId="980" skillLevel="9" name="Heaven’s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="22" skillId="980" skillLevel="1" name="Heaven`s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="23" skillId="980" skillLevel="2" name="Heaven`s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="24" skillId="980" skillLevel="3" name="Heaven`s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="25" skillId="980" skillLevel="4" name="Heaven`s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="26" skillId="980" skillLevel="5" name="Heaven`s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="27" skillId="980" skillLevel="6" name="Heaven`s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="28" skillId="980" skillLevel="7" name="Heaven`s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="29" skillId="980" skillLevel="8" name="Heaven`s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="30" skillId="980" skillLevel="9" name="Heaven`s Judgment II" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill minLevel="22" skillId="1096" skillLevel="1" name="Light of Rejuvenation II" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill minLevel="23" skillId="1096" skillLevel="2" name="Light of Rejuvenation II" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill minLevel="24" skillId="1096" skillLevel="3" name="Light of Rejuvenation II" race="ALL" classId="PRIEST" type="ACTIVE"/>
@@ -3645,15 +3645,15 @@
     <skill minLevel="50" skillId="988" skillLevel="7" name="Smite V" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill minLevel="51" skillId="988" skillLevel="8" name="Smite V" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill minLevel="52" skillId="988" skillLevel="9" name="Smite V" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="44" skillId="982" skillLevel="1" name="Heaven’s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="45" skillId="982" skillLevel="2" name="Heaven’s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="46" skillId="982" skillLevel="3" name="Heaven’s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="47" skillId="982" skillLevel="4" name="Heaven’s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="48" skillId="982" skillLevel="5" name="Heaven’s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="49" skillId="982" skillLevel="6" name="Heaven’s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="50" skillId="982" skillLevel="7" name="Heaven’s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="51" skillId="982" skillLevel="8" name="Heaven’s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill minLevel="52" skillId="982" skillLevel="9" name="Heaven’s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="44" skillId="982" skillLevel="1" name="Heaven`s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="45" skillId="982" skillLevel="2" name="Heaven`s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="46" skillId="982" skillLevel="3" name="Heaven`s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="47" skillId="982" skillLevel="4" name="Heaven`s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="48" skillId="982" skillLevel="5" name="Heaven`s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="49" skillId="982" skillLevel="6" name="Heaven`s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="50" skillId="982" skillLevel="7" name="Heaven`s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="51" skillId="982" skillLevel="8" name="Heaven`s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill minLevel="52" skillId="982" skillLevel="9" name="Heaven`s Judgment IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill minLevel="44" skillId="1180" skillLevel="1" name="Splendor of Purification I" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill minLevel="45" skillId="1118" skillLevel="1" name="Light of Rejuvenation IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill minLevel="46" skillId="1118" skillLevel="2" name="Light of Rejuvenation IV" race="ALL" classId="PRIEST" type="ACTIVE"/>
