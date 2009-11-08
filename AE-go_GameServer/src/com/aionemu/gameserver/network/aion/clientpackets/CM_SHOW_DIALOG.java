@@ -108,20 +108,26 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 						public void acceptRequest(Player requester, Player responder)
 						{
 							Player player = getConnection().getActivePlayer();
+							
 							Npc npc = (Npc) world.findAionObject(targetObjectId);
 							int npcId = npc.getNpcId();
 							bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate(npcId);
-
-							if (player.getInventory().getKinahItem().getItemCount()>=bplist.getPrice())
-							{
-								sendPacket(new SM_MESSAGE(0, null, "You have successfully binded to this location.", null, ChatType.ANNOUNCEMENTS));
-								player.getInventory().getKinahItem().decreaseItemCount(bplist.getPrice());
-								PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(player.getInventory().getKinahItem()));
-								player.getCommonData().setBindPoint(bplist.getBindId());
+							if (player.getCommonData().getBindPoint() != bplist.getBindId()) {
+								if (player.getInventory().getKinahItem().getItemCount()>=bplist.getPrice())
+								{
+									sendPacket(new SM_MESSAGE(0, null, "You have successfully binded to this location.", null, ChatType.ANNOUNCEMENTS));
+									player.getInventory().getKinahItem().decreaseItemCount(bplist.getPrice());
+									PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(player.getInventory().getKinahItem()));
+									player.getCommonData().setBindPoint(bplist.getBindId());
+								}
+								else
+								{
+									sendPacket(new SM_MESSAGE(0, null, "You don't have enough Kinah.", null, ChatType.ANNOUNCEMENTS));
+								}
 							}
 							else
 							{
-								sendPacket(new SM_MESSAGE(0, null, "You don't have enough Kinah", null, ChatType.ANNOUNCEMENTS));
+								sendPacket(new SM_MESSAGE(0, null, "You are already binded to this location.", null, ChatType.ANNOUNCEMENTS));
 							}
 						}
 						public void denyRequest(Player requester, Player responder)

@@ -82,11 +82,7 @@ extends Action
 			z = locationData.getZ();
 		}
 		
-		log.info("worldId" + worldId);
-		log.info("x" + x);
-		log.info("y" + y);
-		log.info("z" + z);
-		env.getWorld().setPosition(player, 210010000, x, y, z, player.getHeading());
+		env.getWorld().setPosition(player, worldId, x, y, z, player.getHeading());
 
 		player.setProtectionActive(true);
 		PacketSendUtility.sendPacket(player, new SM_UNKF5(player));
