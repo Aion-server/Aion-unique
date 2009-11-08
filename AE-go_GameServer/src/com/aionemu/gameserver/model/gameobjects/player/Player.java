@@ -320,6 +320,7 @@ public class Player extends Creature
 		this.inventory = inventory;
 		inventory.setOwner(this);
 	}
+
 	/**
 	 * @param CubeUpgrade int
 	 * Sets the cubesize

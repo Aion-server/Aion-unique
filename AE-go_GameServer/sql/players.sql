@@ -20,6 +20,7 @@ CREATE TABLE `players` (
   `deletion_date` timestamp NULL default NULL,
   `last_online` timestamp NOT NULL default '0000-00-00 00:00:00' on update CURRENT_TIMESTAMP,
   `cube_size` tinyint(1) NOT NULL default '0',
+  `bind_point` INT NOT NULL default '0',
   `admin` tinyint(1) NOT NULL default '0',
   `online` tinyint(1) NOT NULL default '0',
   `note` text,

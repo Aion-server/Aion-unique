@@ -73,7 +73,7 @@ public final class DataManager
 	
 	public static CubeExpandData 		CUBEEXPANDER_DATA;
 	
-
+	public static BindPointData 		BIND_POINT_DATA;
 	/**
 	 * 
 	 */

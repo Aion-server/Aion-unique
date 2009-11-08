@@ -88,6 +88,10 @@
 		<import file="skill_tree" skipRoot="true"/>
 	</skill_tree>
 	
+	<bind_points>
+		<import file="bind_points" skipRoot="true"/>
+	</bind_points>
+	
 	<cube_expander>
 		<import file="cube_expander" skipRoot="true" />
 	</cube_expander>

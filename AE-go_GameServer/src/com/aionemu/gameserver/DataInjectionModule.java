@@ -20,6 +20,7 @@ import com.aionemu.commons.services.ScriptService;
 import com.aionemu.gameserver.dataholders.CubeExpandData;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.NpcData;
+import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.PlayerExperienceTable;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
@@ -153,5 +154,10 @@ public class DataInjectionModule extends AbstractModule
 	CubeExpandData provideCubeExpandData(DataManager datamanager)
 	{
 		return datamanager.CUBEEXPANDER_DATA;
+	}
+	@Provides
+	BindPointData provideBindPointData(DataManager datamanager)
+	{
+		return datamanager.BIND_POINT_DATA;
 	}
 }

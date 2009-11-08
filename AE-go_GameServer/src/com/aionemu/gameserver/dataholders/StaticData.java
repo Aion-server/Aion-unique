@@ -44,6 +44,8 @@ public class StaticData
 	@XmlElement(name = "teleport_location")
 	public TeleLocationData 		teleLocationData;
 
+	@XmlElement(name = "bind_points")
+	public BindPointData 			bindPointData;
 	
 	@XmlElement(name = "player_experience_table")
 	public PlayerExperienceTable	playerExperienceTable;
@@ -84,6 +86,6 @@ public class StaticData
 		DataManager.log.info("Loaded " + skillData.size() + " skill templates");
 		DataManager.log.info("Loaded " + skillTreeData.size() + " skill learn entries");
 		DataManager.log.info("Loaded " + cubeExpandData.size() + " cube expand entries");
-		
+		DataManager.log.info("Loaded " + bindPointData.size() + " bind point entries");	
 	}
 }

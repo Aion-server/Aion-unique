@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -27,6 +27,10 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.utils.stats.ClassStats;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.templates.BindPointTemplate;
+import org.apache.log4j.Logger;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 
 /**
  * @author ATracer, orz, avol
@@ -34,10 +38,14 @@ import com.google.inject.Inject;
  */
 public class CM_REVIVE extends AionClientPacket
 {
+	private static final Logger	log	= Logger.getLogger(CM_REVIVE.class);
+
 	@Inject
 	private World	world;
-    private float   x ,y,z;
-    
+	private float   x ,y,z;
+	private BindPointTemplate bplist;
+	private LocationData      locationData;
+	private int		  worldId;
 	/**
 	 * Constructs new instance of <tt>CM_REVIVE </tt> packet
 	 * @param opcode
@@ -66,7 +74,7 @@ public class CM_REVIVE extends AionClientPacket
 		Player activePlayer = getConnection().getActivePlayer();
 
 		activePlayer.setLifeStats(new PlayerLifeStats(activePlayer.getPlayerStatsTemplate().getMaxHp(),
-			activePlayer.getPlayerStatsTemplate().getMaxMp()));
+		activePlayer.getPlayerStatsTemplate().getMaxMp()));
 		
 		sendPacket(SM_SYSTEM_MESSAGE.REVIVE);	
 		sendPacket(new SM_QUESTLIST());
@@ -74,13 +82,31 @@ public class CM_REVIVE extends AionClientPacket
 		sendPacket(new SM_PLAYER_INFO(activePlayer, true));	
 		
 		/**
-		 * Spawn player into the world.
+		 * get place where to spawn.
 		 */
-		int worldId = activePlayer.getWorldId();
-		x = activePlayer.getX();
-		y = activePlayer.getY();
-		z = activePlayer.getZ();
-		
+
+		int bindPointId = activePlayer.getCommonData().getBindPoint();
+
+		if (bindPointId != 0) {
+			bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate2(bindPointId);
+			worldId = bplist.getZoneId();
+			x = bplist.getX();
+			y = bplist.getY();
+			z = bplist.getZ();
+		}
+		else
+		{
+			locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(activePlayer.getCommonData().getRace());
+			worldId = locationData.getMapId();
+			x = locationData.getX();
+			y = locationData.getY();
+			z = locationData.getZ();
+		}
+
+		/**
+		 * Spawn player.
+		 */
+
 		world.despawn(activePlayer);
 		// TODO! this should go to PlayerController.teleportTo(...)
 		// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but something else
@@ -89,6 +115,10 @@ public class CM_REVIVE extends AionClientPacket
 		//world.spawn(activePlayer);
 		
 		sendPacket(new SM_UNKF5(activePlayer));
+		
+		/**
+		 * Set recoverable exp to player.
+		 */
 
 		activePlayer.getCommonData().setExpLoss();
 	}

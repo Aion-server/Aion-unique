@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aionunique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ import com.aionemu.gameserver.model.templates.TradeListTemplate;
 import org.apache.log4j.Logger;
 /**
  * 
- * @author KKnD , orz
+ * @author KKnD , orz, avol
  * 
  */
 public class CM_DIALOG_SELECT extends AionClientPacket

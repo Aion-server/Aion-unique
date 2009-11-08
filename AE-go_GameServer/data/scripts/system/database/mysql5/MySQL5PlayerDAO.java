@@ -87,7 +87,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	@Override
 	public void storePlayer(final Player player)
 	{
-		DB.insertUpdate("UPDATE players SET name=?, exp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, cube_size=?, admin=?, note=? WHERE id=?", new IUStH(){
+		DB.insertUpdate("UPDATE players SET name=?, exp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, cube_size=?, admin=?, note=?, bind_point=? WHERE id=?", new IUStH(){
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
@@ -106,6 +106,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				stmt.setBoolean(11, player.getCommonData().isAdmin());
 				stmt.setString(12,player.getCommonData().getNote());
 				stmt.setInt(13, player.getObjectId());
+				stmt.setInt(14, player.getCommonData().getBindPoint());
 				stmt.execute();
 			}
 		});
@@ -189,7 +190,8 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				cd.setLastOnline(resultSet.getTimestamp("last_online"));
 				cd.setNote(resultSet.getString("note"));
 				cd.setCubesize(resultSet.getInt("cube_size"));
-				
+				cd.setCubesize(resultSet.getInt("bind_point"));
+
 				float x = resultSet.getFloat("x");
 				float y = resultSet.getFloat("y");
 				float z = resultSet.getFloat("z");
@@ -388,6 +390,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 			}
 		});
 	}
+
 	/**
 	 * {@inheritDoc} - Nemiroff
 	 */

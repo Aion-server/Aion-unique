@@ -63,7 +63,7 @@ public class PlayerCommonData
 	private String 			note;
 	private WorldPosition	position;
 	private int 			cubeSize = 0;
-
+	private int			bindPoint;
 	
 
 	public PlayerCommonData(int objId)
@@ -301,6 +301,16 @@ public class PlayerCommonData
 	public Timestamp getLastOnline()
 	{
 		return lastOnline;
+	}
+
+	public void setBindPoint(int bindId)
+	{
+		this.bindPoint = bindId;
+	}
+	
+	public int getBindPoint()
+	{
+		return bindPoint;
 	}
 	
 	public void setLastOnline(Timestamp timestamp)
