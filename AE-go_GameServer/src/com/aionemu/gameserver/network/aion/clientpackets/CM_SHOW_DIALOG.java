@@ -97,7 +97,9 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 
  			Npc npc = (Npc) world.findAionObject(targetObjectId);
 			int npcId = npc.getNpcId();
+
 			bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate(npcId);
+			
 			if (("obelisk").equalsIgnoreCase(o.getName()))
 			{
 				if (bplist != null) {

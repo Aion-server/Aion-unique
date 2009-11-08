@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -28,7 +29,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.skillengine.model.Env;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-
+import org.apache.log4j.Logger;
 
 /**
  * @author ATracer
@@ -39,6 +40,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class ReturnAction
 extends Action
 {
+	private static final Logger	log	= Logger.getLogger(ReturnAction.class);
 
 	/* (non-Javadoc)
 	 * @see com.aionemu.gameserver.skillengine.action.Action#act(com.aionemu.gameserver.skillengine.model.Env)
@@ -46,6 +48,9 @@ extends Action
 	@Override
 	public void act(Env env)
 	{
+		float x,y,z;
+		int worldId;
+		BindPointTemplate bplist;
 
 		Player player = (Player) env.getEffector();
 		SkillTemplate template = env.getSkillTemplate();
@@ -59,8 +64,29 @@ extends Action
 		env.getWorld().despawn(player);
 		LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
 
-		env.getWorld().setPosition(player, locationData.getMapId(),
-			locationData.getX(), locationData.getY(), locationData.getZ(), locationData.getHeading());
+		int bindPointId = player.getCommonData().getBindPoint();
+
+		if (bindPointId != 0) {
+			bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate2(bindPointId);
+			worldId = bplist.getZoneId();
+			x = bplist.getX();
+			y = bplist.getY();
+			z = bplist.getZ();
+		}
+		else
+		{
+			locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
+			worldId = locationData.getMapId();
+			x = locationData.getX();
+			y = locationData.getY();
+			z = locationData.getZ();
+		}
+		
+		log.info("worldId" + worldId);
+		log.info("x" + x);
+		log.info("y" + y);
+		log.info("z" + z);
+		env.getWorld().setPosition(player, 210010000, x, y, z, player.getHeading());
 
 		player.setProtectionActive(true);
 		PacketSendUtility.sendPacket(player, new SM_UNKF5(player));

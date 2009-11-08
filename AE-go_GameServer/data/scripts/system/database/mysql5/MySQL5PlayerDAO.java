@@ -190,7 +190,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				cd.setLastOnline(resultSet.getTimestamp("last_online"));
 				cd.setNote(resultSet.getString("note"));
 				cd.setCubesize(resultSet.getInt("cube_size"));
-				cd.setCubesize(resultSet.getInt("bind_point"));
+				cd.setBindPoint(resultSet.getInt("bind_point"));
 
 				float x = resultSet.getFloat("x");
 				float y = resultSet.getFloat("y");

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bind_points xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="bind_points.xsd">
-	<bind_point name="Poeta - akarios village" npcid="700012" bindid="1" mapid="220010000" posX="839.521" posY="1234.2567" posZ="118.97006" price="100"/>
+	<bind_point name="akariosVillage" npcid="700012" bindid="1" mapid="210010000" posX="853.09706" posY="1206.9664" posZ="118.432625" price="100"/>
 </bind_points>

@@ -128,6 +128,7 @@ public final class DataManager
 		TELELOCATION_DATA = data.teleLocationData;
 		
 		CUBEEXPANDER_DATA = data.cubeExpandData;
+		BIND_POINT_DATA = data.bindPointData;
 
 		
 		// some sexy time message
