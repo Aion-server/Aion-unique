@@ -20,5 +20,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/org.springframework.beans-3.0.0.RC1.jar" sourcepath="libsrc/org.springframework.beans-sources-3.0.0.RC1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.springframework.core-3.0.0.RC1.jar" sourcepath="libsrc/org.springframework.core-sources-3.0.0.RC1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-io-1.4.jar" sourcepath="libsrc/commons-io-1.4-sources.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/JUnit"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
