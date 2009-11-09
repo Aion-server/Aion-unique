@@ -105,8 +105,8 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				stmt.setInt(10, player.getCubeSize());
 				stmt.setBoolean(11, player.getCommonData().isAdmin());
 				stmt.setString(12,player.getCommonData().getNote());
-				stmt.setInt(13, player.getObjectId());
-				stmt.setInt(14, player.getCommonData().getBindPoint());
+				stmt.setInt(13, player.getCommonData().getBindPoint());
+				stmt.setInt(14, player.getObjectId());
 				stmt.execute();
 			}
 		});
