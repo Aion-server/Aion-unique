@@ -105,7 +105,22 @@
         	<part name="unk" type="h"/>
         	<part name="unk" type="d"/>
     </packet>
-	<packet id="0x1A" name="SM_WAIT_LIST"/>
+    <packet id="0x28" name="SM_OBJECT_SPAWN">
+      <part name="x" type="f" />
+      <part name="y" type="f" />
+      <part name="z" type="f" />
+      <part name="objectId" type="d" />
+      <part name="unk1" type="d" />
+      <part name="npcId" type="d" />
+      <part name="unk2" type="c" />
+      <part name="unk3" type="h" />
+      <part name="nameId" type="d" />
+      <part name="unk" type="h" />
+      <part name="unk" type="h" />
+      <part name="unk" type="h" />
+      <part name="unk" type="c" />
+    </packet>
+    <packet id="0x1A" name="SM_WAIT_LIST"/>
 	<packet id="0x1C" name="SM_EMOTION">
 		<part name="senderObjId" type="d"/>
 		<part name="ukn" type="c"/>
