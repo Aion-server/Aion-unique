@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50138
 File Encoding         : 65001
 
-Date: 2009-11-09 22:54:27
+Date: 2009-11-10 00:05:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -71,10 +71,10 @@ CREATE TABLE `banned_ip` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `gameservers`
+-- Table structure for `gameserver`
 -- ----------------------------
-DROP TABLE IF EXISTS `gameservers`;
-CREATE TABLE `gameservers` (
+DROP TABLE IF EXISTS `gameserver`;
+CREATE TABLE `gameserver` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `mask` varchar(45) NOT NULL,
   `password` varchar(65) NOT NULL,
@@ -82,5 +82,5 @@ CREATE TABLE `gameservers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of gameservers
+-- Records of gameserver
 -- ----------------------------
