@@ -22,11 +22,11 @@ import java.nio.channels.SocketChannel;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+import com.aionemu.loginserver.GameServer;
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.network.AConnection;
 import com.aionemu.commons.network.Dispatcher;
-import com.aionemu.loginserver.GameServerInfo;
 import com.aionemu.loginserver.utils.ThreadPoolManager;
 
 /**
@@ -67,9 +67,9 @@ public class GsConnection extends AConnection
 	private State						state;
 
 	/**
-	 * GameServerInfo for this GsConnection.
+	 * GameServer for this GsConnection.
 	 */
-	private GameServerInfo				gameServerInfo	= null;
+	private GameServer gameServer = null;
 
 	/**
 	 * Constructor.
@@ -143,11 +143,11 @@ public class GsConnection extends AConnection
 	protected final void onDisconnect()
 	{
 		log.info(this + " disconnected");
-		if (gameServerInfo != null)
+		if (gameServer != null)
 		{
-			gameServerInfo.setGsConnection(null);
-			gameServerInfo.clearAccountsOnGameServer();
-			gameServerInfo = null;
+			gameServer.setGsConnection(null);
+			gameServer.clearAccountsOnGameServer();
+			gameServer = null;
 		}
 	}
 
@@ -231,18 +231,18 @@ public class GsConnection extends AConnection
 	/**
 	 * @return GameServerInfo for this GsConnection or null if this GsConnection is not authenticated yet.
 	 */
-	public GameServerInfo getGameServerInfo()
+	public GameServer getGameServerInfo()
 	{
-		return gameServerInfo;
+		return gameServer;
 	}
 
 	/**
-	 * @param gameServerInfo
-	 *            Set GameServerInfo for this GsConnection.
+	 * @param gameServer
+	 *            Set GameServer for this GsConnection.
 	 */
-	public void setGameServerInfo(GameServerInfo gameServerInfo)
+	public void setGameServerInfo(GameServer gameServer)
 	{
-		this.gameServerInfo = gameServerInfo;
+		this.gameServer = gameServer;
 	}
 
 	/**
@@ -253,9 +253,9 @@ public class GsConnection extends AConnection
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("GameServer [ID:");
-		if (gameServerInfo != null)
+		if (gameServer != null)
 		{
-			sb.append(gameServerInfo.getId());
+			sb.append(gameServer.getId());
 		}
 		else
 		{

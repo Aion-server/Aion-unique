@@ -16,7 +16,7 @@
  */
 package com.aionemu.loginserver.network.aion.clientpackets;
 
-import com.aionemu.loginserver.GameServerInfo;
+import com.aionemu.loginserver.GameServer;
 import com.aionemu.loginserver.GameServerTable;
 import com.aionemu.loginserver.network.aion.AionAuthResponse;
 import com.aionemu.loginserver.network.aion.AionClientPacket;
@@ -78,7 +78,7 @@ public class CM_PLAY extends AionClientPacket
 		SessionKey key = con.getSessionKey();
 		if (key.checkLogin(accountId, loginOk))
 		{
-			GameServerInfo gsi = GameServerTable.getGameServerInfo(servId);
+			GameServer gsi = GameServerTable.getGameServerInfo(servId);
 			if (gsi == null || !gsi.isOnline())
 				con.sendPacket(new SM_PLAY_FAIL(AionAuthResponse.SERVER_DOWN));
 			// else if(serv gm only)

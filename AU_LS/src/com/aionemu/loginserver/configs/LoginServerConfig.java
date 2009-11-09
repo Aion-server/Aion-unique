@@ -18,7 +18,6 @@ package com.aionemu.loginserver.configs;
 
 import com.aionemu.commons.configuration.AbstractConfig;
 import com.aionemu.commons.configuration.Property;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -32,21 +31,6 @@ import java.net.InetAddress;
 @Component
 public class LoginServerConfig extends AbstractConfig
 {
-	/**
-	 * Logger for this class.
-	 */
-	private static final Logger	log	= Logger.getLogger(LoginServerConfig.class);
-
-    /**
-     * Default system property for location of loginserver properties
-     */
-    public static final String LOGINSERVER_PROPERTIES_KEY = "com.aionemu.loginserver.properties";
-
-    /**
-     * Default location of loginserver properties
-     */
-    public static final String LOGINSERVER_PROPERTIES_LOCATION = "./config/loginserver.properties";
-
     /**
      * Address that will be used to listen for clients
      */

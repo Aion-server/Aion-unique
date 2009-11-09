@@ -16,33 +16,35 @@
  */
 package com.aionemu.loginserver.dao;
 
-import java.util.Map;
-
 import com.aionemu.commons.database.dao.DAO;
-import com.aionemu.loginserver.GameServerInfo;
+import com.aionemu.loginserver.GameServer;
+
+import java.util.Map;
 
 /**
  * DAO that manages GameServers
  * 
  * @author -Nemesiss-
  */
-public abstract class GameServersDAO implements DAO
+public abstract class GameServerDAO implements DAO<GameServer, Byte>
 {
+
+	/**
+	 * Throws {@link UnsupportedOperationException}. Servers should be loaded once on start.
+	 * @param id
+	 *            - primary key
+	 * @return nothing
+	 * @throws UnsupportedOperationException Always
+	 */
+	@Override
+	public final GameServer load(Byte id) throws UnsupportedOperationException {
+		throw new UnsupportedOperationException("Use #getAllGameServers() once on load instead");
+	}
+
 	/**
 	 * Returns all gameservers from database.
 	 * 
 	 * @return all gameservers from database.
 	 */
-	public abstract Map<Byte, GameServerInfo> getAllGameServers();
-
-	/**
-	 * Returns class name that will be uses as unique identifier for all DAO classes
-	 * 
-	 * @return class name
-	 */
-	@Override
-	public final String getClassName()
-	{
-		return GameServersDAO.class.getName();
-	}
+	public abstract Map<Byte, GameServer> getAllGameServers();
 }

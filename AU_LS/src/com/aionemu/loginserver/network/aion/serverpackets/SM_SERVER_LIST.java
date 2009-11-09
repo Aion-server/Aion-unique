@@ -16,7 +16,7 @@
  */
 package com.aionemu.loginserver.network.aion.serverpackets;
 
-import com.aionemu.loginserver.GameServerInfo;
+import com.aionemu.loginserver.GameServer;
 import com.aionemu.loginserver.GameServerTable;
 import com.aionemu.loginserver.network.aion.AionConnection;
 import com.aionemu.loginserver.network.aion.AionServerPacket;
@@ -49,12 +49,12 @@ public class SM_SERVER_LIST extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		Collection<GameServerInfo> servers = GameServerTable.getGameServers();
+		Collection<GameServer> servers = GameServerTable.getGameServers();
 
 		writeC(buf, getOpcode());
 		writeC(buf, servers.size());// servers
 		writeC(buf, con.getAccount().getLastServer());// last server
-		for (GameServerInfo gsi : servers)
+		for (GameServer gsi : servers)
 		{
 			writeC(buf, gsi.getId());// server id
 			writeB(buf, gsi.getIPAddressForPlayer(con.getIP())); // server IP

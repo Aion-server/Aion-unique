@@ -16,6 +16,8 @@
  */
 package com.aionemu.loginserver.model;
 
+import com.aionemu.commons.database.PersistentObject;
+
 import java.sql.Timestamp;
 
 /**
@@ -23,8 +25,7 @@ import java.sql.Timestamp;
  * 
  * @author SoulKeeper
  */
-public class BannedIP
-{
+public class BannedIP implements PersistentObject<Integer> {
 	/**
 	 * Returns id of ip ban
 	 */

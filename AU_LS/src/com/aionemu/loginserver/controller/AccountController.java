@@ -22,7 +22,7 @@ import java.util.Map;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.utils.NetworkUtils;
-import com.aionemu.loginserver.GameServerInfo;
+import com.aionemu.loginserver.GameServer;
 import com.aionemu.loginserver.GameServerTable;
 import com.aionemu.loginserver.dao.AccountDAO;
 import com.aionemu.loginserver.dao.AccountTimeDAO;
@@ -87,7 +87,7 @@ public class AccountController
 				 */
 				accountsOnLS.remove(key.accountId);
 
-				GameServerInfo	gsi = gsConnection.getGameServerInfo();
+				GameServer gsi = gsConnection.getGameServerInfo();
 				Account			acc = con.getAccount();
 
 				/**

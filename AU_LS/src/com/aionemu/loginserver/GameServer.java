@@ -16,14 +16,15 @@
  */
 package com.aionemu.loginserver;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.aionemu.commons.database.PersistentObject;
 import com.aionemu.commons.network.IPRange;
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.network.gameserver.GsConnection;
 import com.aionemu.loginserver.network.gameserver.GsConnection.State;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * This class represents GameServer at LoginServer side. It contain info about id, ip etc.
@@ -31,12 +32,12 @@ import com.aionemu.loginserver.network.gameserver.GsConnection.State;
  * @author -Nemesiss-
  * 
  */
-public class GameServerInfo
+public class GameServer implements PersistentObject<Byte>
 {
 	/**
 	 * Id of this GameServer
 	 */
-	private final byte					id;
+	private final Byte					id;
 
 	/**
 	 * Allowed IP for this GameServer if gs will connect from another ip wont be registered.
@@ -85,7 +86,7 @@ public class GameServerInfo
 	 * @param ip
 	 * @param password
 	 */
-	public GameServerInfo(byte id, String ip, String password)
+	public GameServer(byte id, String ip, String password)
 	{
 		this.id = id;
 		this.ip = ip;
@@ -97,7 +98,7 @@ public class GameServerInfo
 	 * 
 	 * @return byte id
 	 */
-	public byte getId()
+	public Byte getId()
 	{
 		return id;
 	}
