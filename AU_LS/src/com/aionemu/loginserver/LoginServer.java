@@ -28,6 +28,7 @@ import com.aionemu.commons.utils.ExitCode;
 import com.aionemu.loginserver.controller.BannedIpController;
 import com.aionemu.loginserver.network.IOServer;
 import com.aionemu.loginserver.network.ncrypt.KeyGen;
+import com.aionemu.loginserver.network.netty.LoginNettyServer;
 import com.aionemu.loginserver.utils.DeadLockDetector;
 import com.aionemu.loginserver.utils.ThreadPoolManager;
 
@@ -76,8 +77,13 @@ public class LoginServer
 
         // TODO! flood protector
         // TODO! brute force protector
-
-        IOServer.getInstance().connect();
+        
+        /**
+         * Default NIO server
+         */
+        //IOServer.getInstance().connect();
+        LoginNettyServer.getInstance().initialize();
+        
         Runtime.getRuntime().addShutdownHook(Shutdown.getInstance());
 
         MemoryUsage	hm  = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage();
