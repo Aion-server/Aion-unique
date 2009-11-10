@@ -18,6 +18,7 @@ public class LoginPacketEncoder extends OneToOneEncoder
 {
 	private static final Logger logger = Logger.getLogger(LoginPacketEncoder.class);
 
+	
 	/* (non-Javadoc)
 	 * @see org.jboss.netty.handler.codec.oneone.OneToOneEncoder#encode(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.Channel, java.lang.Object)
 	 */
@@ -30,20 +31,18 @@ public class LoginPacketEncoder extends OneToOneEncoder
 		logger.info("Before encoding: " + ChannelBuffers.hexDump(message));
 		
 		int size = message.readableBytes();
-		
-		byte[] data = new byte[size];
-		message.readBytes(data);
-		
-		ChannelHandler channelHandler = (ChannelHandler) ctx.getHandler();
-		int newSize = channelHandler.getCryptEngine().encrypt(data, 0, size);
-		
-		ChannelBuffer encryptedMessage = ChannelBuffers.wrappedBuffer(data);
-		encryptedMessage.writeShort((short) newSize);
-		
-		logger.info("After encoding: " + ChannelBuffers.hexDump(message));
-		
-		return message;
-	}
 
-	
+		byte[] data = new byte[size + 8];
+		message.readBytes(data, 0, size);
+		
+		ChannelHandler channelHandler = (ChannelHandler) ctx.getPipeline().getLast();
+		int newSize = channelHandler.getCryptEngine().encrypt(data, 2, size - 4);
+		
+		ChannelBuffer encryptedMessage = ChannelBuffers.wrappedBuffer(data, 0, newSize);
+		encryptedMessage.setShort(0, (short) newSize);
+		
+		logger.info("After encoding: " + ChannelBuffers.hexDump(encryptedMessage));
+		
+		return encryptedMessage;
+	}
 }

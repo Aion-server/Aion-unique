@@ -15,12 +15,7 @@ public class PacketFrameDecoder extends LengthFieldBasedFrameDecoder
 {
 	private static final int MAX_PACKET_LENGTH = 8192 * 2;
 	private static final int LENGTH_FIELD_OFFSET = 0;
-	/**
-	 *  Options;
-	 *  0 - length field will be in message
-	 *  2 - length field will be removed
-	 */
-	private static final int LENGTH_FIELD_LENGTH = 0;
+	private static final int LENGTH_FIELD_LENGTH = 2;
 	
 	public PacketFrameDecoder()
 	{

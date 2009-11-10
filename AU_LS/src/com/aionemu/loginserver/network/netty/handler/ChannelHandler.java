@@ -1,5 +1,6 @@
 package com.aionemu.loginserver.network.netty.handler;
 
+import java.nio.ByteOrder;
 import java.security.interfaces.RSAPrivateKey;
 
 import javax.crypto.SecretKey;
@@ -16,11 +17,13 @@ import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 
-import com.aionemu.loginserver.network.aion.AionServerPacket;
+import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.network.aion.SessionKey;
 import com.aionemu.loginserver.network.ncrypt.CryptEngine;
 import com.aionemu.loginserver.network.ncrypt.EncryptedRSAKeyPair;
 import com.aionemu.loginserver.network.ncrypt.KeyGen;
+import com.aionemu.loginserver.network.netty.packet.AbstractServerPacket;
+import com.aionemu.loginserver.network.netty.packet.server.SM_INIT;
 
 /**
  * @author ATracer
@@ -34,6 +37,10 @@ public class ChannelHandler extends SimpleChannelUpstreamHandler
 	private EncryptedRSAKeyPair encryptedRSAKeyPair;
 	private SessionKey sessionKey;
 	private int sessionId = hashCode();
+	private State state;
+	private Channel channel;
+	private Account account;
+	private boolean joinedGs;
 
 	/* (non-Javadoc)
 	 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#channelConnected(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.ChannelStateEvent)
@@ -48,9 +55,9 @@ public class ChannelHandler extends SimpleChannelUpstreamHandler
 		SecretKey blowfishKey = KeyGen.generateBlowfishKey();
 		cryptEngine = new CryptEngine();
 		cryptEngine.updateKey(blowfishKey.getEncoded());
-		
-		//TODO send SM_INIT
-		//sendPacket(ctx.getChannel(), new SM_INIT(this, blowfishKey));
+		this.channel = ctx.getChannel();
+
+		sendPacket(new SM_INIT(this, blowfishKey));
 	}
 
 	/* (non-Javadoc)
@@ -81,8 +88,8 @@ public class ChannelHandler extends SimpleChannelUpstreamHandler
 		if (e instanceof ChannelStateEvent) 
 		{
 			logger.info(e.toString());
-			super.handleUpstream(ctx, e);
 		}
+		super.handleUpstream(ctx, e);
 	}
 
 	/* (non-Javadoc)
@@ -98,7 +105,83 @@ public class ChannelHandler extends SimpleChannelUpstreamHandler
 		 */
 		logger.info("Message received");
 	}
+	
+	/**
+	 * 
+	 * @param packet
+	 */
+	public void sendPacket(AbstractServerPacket packet)
+	{
+		ChannelBuffer cb = ChannelBuffers.buffer(ByteOrder.LITTLE_ENDIAN, 2*8192);
+		packet.write(this, cb);
+		this.channel.write(cb);
+	}
+	
+	/**
+	 * 
+	 * @param packet
+	 * @param forced
+	 */
+	public void close(AbstractServerPacket packet, boolean forced)
+	{
+		//TODO close channel
+	}
+	
+	/**
+	 * 
+	 * @param forced
+	 */
+	public void close(boolean forced)
+	{
+		//TODO close channel
+	}
+	
+	public String getIP()
+	{
+		return "127.0.0.1";//TODO
+	}
+	
+	public void setJoinedGs()
+	{
+		joinedGs = true;
+	}
 
+	/**
+	 * Possible states of AionConnection
+	 */
+	public static enum State
+	{
+		/**
+		 * Means that client just connects
+		 */
+		CONNECTED,
+
+		/**
+		 * Means that clients GameGuard is authenticated
+		 */
+		AUTHED_GG,
+
+		/**
+		 * Means that client is logged in.
+		 */
+		AUTHED_LOGIN
+	}
+
+	/**
+	 * @return the state
+	 */
+	public State getState()
+	{
+		return state;
+	}
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(State state)
+	{
+		this.state = state;
+	}
 
 	/**
 	 * Return Scrambled modulus
@@ -136,5 +219,37 @@ public class ChannelHandler extends SimpleChannelUpstreamHandler
 	public CryptEngine getCryptEngine()
 	{
 		return cryptEngine;
+	}
+
+	/**
+	 * @return the sessionKey
+	 */
+	public SessionKey getSessionKey()
+	{
+		return sessionKey;
+	}
+
+	/**
+	 * @param sessionKey the sessionKey to set
+	 */
+	public void setSessionKey(SessionKey sessionKey)
+	{
+		this.sessionKey = sessionKey;
+	}
+
+	/**
+	 * @return the account
+	 */
+	public Account getAccount()
+	{
+		return account;
+	}
+
+	/**
+	 * @param account the account to set
+	 */
+	public void setAccount(Account account)
+	{
+		this.account = account;
 	}
 }
