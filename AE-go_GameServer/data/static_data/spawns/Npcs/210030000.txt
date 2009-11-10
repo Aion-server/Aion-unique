@@ -1,4 +1,4 @@
-# mapid npcid x z y heading
+# mapid npcid x y z heading
 # Npc spawns by KID
 # Fix by Lamo2k123
 
@@ -196,5 +196,3 @@
 210030000 203146 1546.5394 1157.788 114.36784 0
 # Alrunta
 210030000 730014 2280.2178 1900.5709 113.70483 0
-# Obelisk(Verteron)
-210030000 700015 1692.8931 1479.1415 122.181274 50
