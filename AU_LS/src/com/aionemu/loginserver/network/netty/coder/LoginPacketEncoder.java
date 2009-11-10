@@ -8,6 +8,8 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelPipelineCoverage;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
 
+import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
+
 /**
  * @author ATracer
  */
@@ -20,11 +22,26 @@ public class LoginPacketEncoder extends OneToOneEncoder
 	 * @see org.jboss.netty.handler.codec.oneone.OneToOneEncoder#encode(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.Channel, java.lang.Object)
 	 */
 	@Override
-	protected Object encode(ChannelHandlerContext arg0, Channel arg1,
+	protected Object encode(ChannelHandlerContext ctx, Channel arg1,
 			Object arg2) throws Exception 
 	{
 		ChannelBuffer message = (ChannelBuffer) arg2;
-		logger.info(ChannelBuffers.hexDump(message));
+		
+		logger.info("Before encoding: " + ChannelBuffers.hexDump(message));
+		
+		int size = message.readableBytes();
+		
+		byte[] data = new byte[size];
+		message.readBytes(data);
+		
+		ChannelHandler channelHandler = (ChannelHandler) ctx.getHandler();
+		int newSize = channelHandler.getCryptEngine().encrypt(data, 0, size);
+		
+		ChannelBuffer encryptedMessage = ChannelBuffers.wrappedBuffer(data);
+		encryptedMessage.writeShort((short) newSize);
+		
+		logger.info("After encoding: " + ChannelBuffers.hexDump(message));
+		
 		return message;
 	}
 
