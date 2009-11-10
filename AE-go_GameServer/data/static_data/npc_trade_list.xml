@@ -48,6 +48,8 @@
 	</tradelist_template>
 	<tradelist_template npc_id="204183" name="Isdal" count="4" listId0="266" listId1="267" listId2="268" listId3="269" >
 	</tradelist_template>
+	<tradelist_template npc_id="204274" name="Huron" count="1" listId0="426">
+	</tradelist_template>
 	
 	<!-- Poeta -->
 	<!-- Akarios Village -->
@@ -154,5 +156,18 @@
 	<tradelist_template npc_id="203812" name="Jooma" count="1" listId0="160">
 	</tradelist_template>
 	<tradelist_template npc_id="203819" name="Aktus" count="1" listId0="174">
+	</tradelist_template>
+	<tradelist_template npc_id="203732" name="Judisina" count="1" listId0="157">
+	</tradelist_template>
+	<tradelist_template npc_id="203817" name="Aegist" count="1" listId0="173">
+	</tradelist_template>
+	<tradelist_template npc_id="203879" name="Idomeneus" count="1" listId0="425">
+	</tradelist_template>
+
+
+	<!-- Elthen -->
+	<tradelist_template npc_id="203922" name="Hibrion" count="4" listId0="177" listId1="178" listId2="179" listId3="180" >
+	</tradelist_template>
+	<tradelist_template npc_id="203923" name="Krato" count="4" listId0="181" listId1="182" listId2="183" listId3="184" >
 	</tradelist_template>
 </npc_trade_list>

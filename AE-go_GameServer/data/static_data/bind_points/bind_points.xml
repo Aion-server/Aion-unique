@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bind_points xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="bind_points.xsd">
-	<bind_point name="akariosVillage" npcid="700012" bindid="1" mapid="210010000" posX="853.09706" posY="1206.9664" posZ="118.432625" price="100"/>
+	<bind_point name="Sanctum" npcid="700012" bindid="1" mapid="110010000" posX="1475.9093" posY="1596.1237" posZ="572.872" price="100"/>
+	<bind_point name="Akarios" npcid="700013" bindid="2" mapid="210010000" posX="853.09706" posY="1206.9664" posZ="118.432625" price="100"/>
+	<bind_point name="Eltnen" npcid="700014" bindid="3" mapid="210020000" posX="284.7345" posY="2750.1418" posZ="270.45584" price="100"/>
+	<bind_point name="Verteron" npcid="700015" bindid="4" mapid="210030000" posX="1691.4541" posY="1480.3118" posZ="121.44352" price="100"/>
+	<bind_point name="Heiron" npcid="700016" bindid="5" mapid="210040000" posX="2469.5862" posY="304.4748" posZ="415.62418" price="100"/>	
+	<bind_point name="Theobomos" npcid="700017" bindid="6" mapid="210060000" posX="1424.0519" posY="1568.8479" posZ="30.875" price="100"/>	
 </bind_points>
