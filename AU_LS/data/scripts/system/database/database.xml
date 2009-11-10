@@ -20,8 +20,6 @@
 <scriptlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:noNamespaceSchemaLocation="../../contexts.xsd">
 
-    <scriptinfo root="./data/scripts/system/database">
-        <compiler>com.aionemu.commons.scripting.impl.groovycompiler.GroovyScriptCompilerImpl</compiler>
-    </scriptinfo>
+    <scriptinfo root="./data/scripts/system/database"/>
 
 </scriptlist>
