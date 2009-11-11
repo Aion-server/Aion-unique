@@ -63,7 +63,7 @@ public class LoginNettyServer
 	private void configure(ServerBootstrap bootstrap)
 	{
 		bootstrap.setPipelineFactory(new LoginServerPipeLineFactory());
-		bootstrap.setOption("bufferfactory", HeapChannelBufferFactory.getInstance(ByteOrder.LITTLE_ENDIAN));	
+		bootstrap.setOption("child.bufferFactory", HeapChannelBufferFactory.getInstance(ByteOrder.LITTLE_ENDIAN));	
 		bootstrap.setOption("child.tcpNoDelay", true);
 		bootstrap.setOption("child.keepAlive", true);
 		bootstrap.setOption("child.reuseAddress", true);

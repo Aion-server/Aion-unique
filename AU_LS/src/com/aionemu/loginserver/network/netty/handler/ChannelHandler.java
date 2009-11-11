@@ -75,8 +75,8 @@ public class ChannelHandler extends SimpleChannelUpstreamHandler
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e) throws Exception 
 	{
-		// TODO Auto-generated method stub
-		super.exceptionCaught(ctx, e);
+		e.getCause().printStackTrace();
+		e.getChannel().close();
 	}
 
 	/* (non-Javadoc)

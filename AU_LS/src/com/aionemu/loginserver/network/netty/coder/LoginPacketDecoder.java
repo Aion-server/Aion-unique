@@ -1,5 +1,7 @@
 package com.aionemu.loginserver.network.netty.coder;
 
+import java.nio.ByteOrder;
+
 import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
@@ -26,22 +28,23 @@ public class LoginPacketDecoder extends OneToOneDecoder
 			Object arg2) throws Exception 
 	{	
 		ChannelBuffer message = (ChannelBuffer) arg2;
-		
+
 		logger.info("Before decoding: " + ChannelBuffers.hexDump(message));
 		
-		short size = message.getShort(0);
-		byte[] data = new byte[size];
+		int dataSize = message.readShort() - 2;
+		byte[] data = new byte[dataSize];
 		message.readBytes(data);
 		
-		ChannelHandler channelHandler = (ChannelHandler)ctx.getHandler();
-		boolean result = channelHandler.getCryptEngine().decrypt(data, 0, size);
+		ChannelHandler channelHandler = (ChannelHandler)ctx.getPipeline().getLast();
 		
-		ChannelBuffer decodedMessage = ChannelBuffers.wrappedBuffer(data);
-		
-		logger.info("After decoding: " + ChannelBuffers.hexDump(decodedMessage));
-		
-		if (!result)
+		if (!channelHandler.getCryptEngine().decrypt(data, 0, dataSize))
+		{
 			logger.warn("Wrong checksum from client: " + this);	
+			arg1.disconnect();
+		}
+		
+		ChannelBuffer decodedMessage = ChannelBuffers.wrappedBuffer(ByteOrder.LITTLE_ENDIAN, data);
+		logger.info("After decoding: " + ChannelBuffers.hexDump(decodedMessage));	
 
 		return decodedMessage;
 	}	

@@ -1,5 +1,7 @@
 package com.aionemu.loginserver.network.netty.coder;
 
+import java.nio.ByteOrder;
+
 import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
@@ -31,18 +33,18 @@ public class LoginPacketEncoder extends OneToOneEncoder
 		logger.info("Before encoding: " + ChannelBuffers.hexDump(message));
 		
 		int size = message.readableBytes();
-
+		/** extra 8 is for keys **/
 		byte[] data = new byte[size + 8];
 		message.readBytes(data, 0, size);
 		
 		ChannelHandler channelHandler = (ChannelHandler) ctx.getPipeline().getLast();
 		int newSize = channelHandler.getCryptEngine().encrypt(data, 2, size - 4);
 		
-		ChannelBuffer encryptedMessage = ChannelBuffers.wrappedBuffer(data, 0, newSize);
-		encryptedMessage.setShort(0, (short) newSize);
+		ChannelBuffer encryptedMessage = ChannelBuffers.wrappedBuffer(ByteOrder.LITTLE_ENDIAN,data, 0 , newSize + 2);
+		encryptedMessage.setShort(0, (short) (newSize + 2));
 		
-		logger.info("After encoding: " + ChannelBuffers.hexDump(encryptedMessage));
-		
+		logger.info("After encoding: " + ChannelBuffers.hexDump(encryptedMessage) + " size: " + encryptedMessage.capacity());
+
 		return encryptedMessage;
 	}
 }
