@@ -22,6 +22,7 @@ import com.aionemu.loginserver.network.aion.SessionKey;
 import com.aionemu.loginserver.network.ncrypt.CryptEngine;
 import com.aionemu.loginserver.network.ncrypt.EncryptedRSAKeyPair;
 import com.aionemu.loginserver.network.ncrypt.KeyGen;
+import com.aionemu.loginserver.network.netty.packet.AbstractClientPacket;
 import com.aionemu.loginserver.network.netty.packet.AbstractServerPacket;
 import com.aionemu.loginserver.network.netty.packet.server.SM_INIT;
 
@@ -55,7 +56,8 @@ public class ChannelHandler extends SimpleChannelUpstreamHandler
 		SecretKey blowfishKey = KeyGen.generateBlowfishKey();
 		cryptEngine = new CryptEngine();
 		cryptEngine.updateKey(blowfishKey.getEncoded());
-		this.channel = ctx.getChannel();
+		channel = ctx.getChannel();
+		state = State.CONNECTED;
 
 		sendPacket(new SM_INIT(this, blowfishKey));
 	}
@@ -104,6 +106,11 @@ public class ChannelHandler extends SimpleChannelUpstreamHandler
 		 *  Here packet will be read and submitted to execution
 		 */
 		logger.info("Message received");
+		AbstractClientPacket clientPacket = ClientPacketHandler.handle((ChannelBuffer) e.getMessage(), this);
+		if(clientPacket != null && clientPacket.read())
+		{
+			clientPacket.run();
+		}
 	}
 	
 	/**

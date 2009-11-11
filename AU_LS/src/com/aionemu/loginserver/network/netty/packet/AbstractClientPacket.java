@@ -30,6 +30,41 @@ public abstract class AbstractClientPacket extends AbstractPacket
 		this.buf = channelBuffer;
 		this.channelHandler = channelHandler;
 	}
+	
+	/**
+	 *  Perform packet read
+	 *  
+	 * @return boolean
+	 */
+	public boolean read()
+	{
+		try
+		{
+			readImpl();
+			if(getRemainingBytes() > 0)
+				log.debug("Packet " + this + " not fully readed!");
+			return true;
+		}catch(Exception ex)
+		{
+			log.error("Reading failed for packet " + this, ex);
+			return false;
+		}
+		
+	}
+	
+	/**
+	 *  Perform packet action
+	 */
+	public void run()
+	{
+		try
+		{
+			runImpl();
+		}catch(Exception ex)
+		{
+			log.error("Running failed for packet " + this, ex);
+		}		
+	}
 
 	protected abstract void readImpl();
 
