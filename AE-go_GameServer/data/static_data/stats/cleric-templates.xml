@@ -122,7 +122,18 @@
 		                magic_accuracy="270" />
 	</player_stats>
 
-	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CLERIC" level="20">
+		<stats_template maxHp="1248" maxMp="2373"
+		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="279" block="279" parry="279"
+		                main_hand_attack="18" main_hand_accuracy="330" main_hand_crit_rate="1"
+		                magic_accuracy="285" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
 	<player_stats class="CLERIC" level="21">
 		<stats_template maxHp="1320" maxMp="2478"
 		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
@@ -133,6 +144,40 @@
 		                magic_accuracy="299" />
 	</player_stats>
 
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CLERIC" level="22">
+		<stats_template maxHp="1394" maxMp="2583"
+		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="303" block="303" parry="303"
+		                main_hand_attack="18" main_hand_accuracy="346" main_hand_crit_rate="1"
+		                magic_accuracy="313" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CLERIC" level="23">
+		<stats_template maxHp="1469" maxMp="2688"
+		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="316" block="316" parry="316"
+		                main_hand_attack="18" main_hand_accuracy="354" main_hand_crit_rate="1"
+		                magic_accuracy="327" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CLERIC" level="24">
+		<stats_template maxHp="1547" maxMp="2794"
+		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="328" block="328" parry="328"
+		                main_hand_attack="18" main_hand_accuracy="362" main_hand_crit_rate="1"
+		                magic_accuracy="342" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
 	<player_stats class="CLERIC" level="25">
 		<stats_template maxHp="1627" maxMp="2899"
 		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
@@ -140,9 +185,10 @@
 		                attack_speed="1.5"
 		                evasion="341" block="341" parry="341"
 		                main_hand_attack="18" main_hand_accuracy="370" main_hand_crit_rate="1"
-		                magic_accuracy="310" />
+		                magic_accuracy="356" />
 	</player_stats>
 
+	<!-- Checked By Kamui 11/2009 at US Retail -->
 	<player_stats class="CLERIC" level="26">
 		<stats_template maxHp="1708" maxMp="3005"
 		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
@@ -150,6 +196,50 @@
 		                attack_speed="1.5"
 		                evasion="353" block="353" parry="353"
 		                main_hand_attack="18" main_hand_accuracy="378" main_hand_crit_rate="1"
-		                magic_accuracy="322" />
+		                magic_accuracy="370" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CLERIC" level="27">
+		<stats_template maxHp="1791" maxMp="3110"
+		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="365" block="365" parry="365"
+		                main_hand_attack="18" main_hand_accuracy="386" main_hand_crit_rate="1"
+		                magic_accuracy="385" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CLERIC" level="28">
+		<stats_template maxHp="1876" maxMp="3215"
+		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="378" block="378" parry="378"
+		                main_hand_attack="18" main_hand_accuracy="394" main_hand_crit_rate="1"
+		                magic_accuracy="399" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CLERIC" level="29">
+		<stats_template maxHp="1963" maxMp="3321"
+		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="390" block="390" parry="390"
+		                main_hand_attack="18" main_hand_accuracy="402" main_hand_crit_rate="1"
+		                magic_accuracy="413" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CLERIC" level="30">
+		<stats_template maxHp="2052" maxMp="3426"
+		                power="105" health="110" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="403" block="403" parry="403"
+		                main_hand_attack="18" main_hand_accuracy="410" main_hand_crit_rate="1"
+		                magic_accuracy="427" />
 	</player_stats>
 </stats_templates>
