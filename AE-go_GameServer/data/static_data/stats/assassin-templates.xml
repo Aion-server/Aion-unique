@@ -122,7 +122,7 @@
 		                magic_accuracy="270" />
 	</player_stats>
 
-	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 11/2009 at US Retail -->
 	<player_stats class="ASSASSIN" level="20">
 		<stats_template maxHp="1368" maxMp="1502"
 		                power="110" health="100" agility="110" accuracy="110" knowledge="90" will="90"

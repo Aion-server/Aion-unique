@@ -240,6 +240,6 @@
 		                attack_speed="1.5"
 		                evasion="434" block="434" parry="434"
 		                main_hand_attack="19" main_hand_accuracy="430" main_hand_crit_rate="2"
-		                magic_accuracy="327" />
+		                magic_accuracy="427" />
 	</player_stats>
 </stats_templates>
