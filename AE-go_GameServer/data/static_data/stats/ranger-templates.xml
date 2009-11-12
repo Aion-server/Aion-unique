@@ -122,7 +122,7 @@
 		                magic_accuracy="270" />
 	</player_stats>
 
-	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 11/2009 at US Retail -->
 	<player_stats class="RANGER" level="20">
 		<stats_template maxHp="1064" maxMp="1502"
 		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
@@ -133,7 +133,7 @@
 		                magic_accuracy="285" />
 	</player_stats>
 
-	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 11/2009 at US Retail -->
 	<player_stats class="RANGER" level="21">
 		<stats_template maxHp="1127" maxMp="1572"
 		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
@@ -144,7 +144,7 @@
 		                magic_accuracy="299" />
 	</player_stats>
 
-	<!-- Checked By Kamui 10/2009 at US Retail -->
+	<!-- Checked By Kamui 11/2009 at US Retail -->
 	<player_stats class="RANGER" level="22">
 		<stats_template maxHp="1191" maxMp="1642"
 		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
@@ -155,6 +155,29 @@
 		                magic_accuracy="313" />
 	</player_stats>
 
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="RANGER" level="23">
+		<stats_template maxHp="1258" maxMp="1712"
+		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="393" block="393" parry="393"
+		                main_hand_attack="18" main_hand_accuracy="404" main_hand_crit_rate="3"
+		                magic_accuracy="327" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="RANGER" level="24">
+		<stats_template maxHp="1326" maxMp="1782"
+		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="406" block="406" parry="406"
+		                main_hand_attack="18" main_hand_accuracy="412" main_hand_crit_rate="3"
+		                magic_accuracy="342" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
 	<player_stats class="RANGER" level="25">
 		<stats_template maxHp="1395" maxMp="1853"
 		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
@@ -165,6 +188,7 @@
 		                magic_accuracy="356" />
 	</player_stats>
 
+	<!-- Checked By Kamui 11/2009 at US Retail -->
 	<player_stats class="RANGER" level="26">
 		<stats_template maxHp="1466" maxMp="1923"
 		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
@@ -173,5 +197,49 @@
 		                evasion="430" block="430" parry="430"
 		                main_hand_attack="18" main_hand_accuracy="428" main_hand_crit_rate="3"
 		                magic_accuracy="370" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="RANGER" level="27">
+		<stats_template maxHp="1539" maxMp="1993"
+		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="443" block="443" parry="443"
+		                main_hand_attack="18" main_hand_accuracy="436" main_hand_crit_rate="3"
+		                magic_accuracy="385" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="RANGER" level="28">
+		<stats_template maxHp="1613" maxMp="2063"
+		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="455" block="455" parry="455"
+		                main_hand_attack="18" main_hand_accuracy="444" main_hand_crit_rate="3"
+		                magic_accuracy="399" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="RANGER" level="29">
+		<stats_template maxHp="1689" maxMp="2134"
+		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="468" block="468" parry="468"
+		                main_hand_attack="18" main_hand_accuracy="452" main_hand_crit_rate="3"
+		                magic_accuracy="413" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="RANGER" level="30">
+		<stats_template maxHp="1767" maxMp="2204"
+		                power="100" health="100" agility="115" accuracy="115" knowledge="90" will="90"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="480" block="480" parry="480"
+		                main_hand_attack="18" main_hand_accuracy="460" main_hand_crit_rate="3"
+		                magic_accuracy="427" />
 	</player_stats>
 </stats_templates>
