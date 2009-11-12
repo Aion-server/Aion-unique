@@ -10,7 +10,7 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelPipelineCoverage;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
 
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 
 /**
  * @author ATracer
@@ -37,7 +37,7 @@ public class LoginPacketEncoder extends OneToOneEncoder
 		byte[] data = new byte[size + 8];
 		message.readBytes(data, 0, size);
 		
-		ChannelHandler channelHandler = (ChannelHandler) ctx.getPipeline().getLast();
+		ClientChannelHandler channelHandler = (ClientChannelHandler) ctx.getPipeline().getLast();
 		int newSize = channelHandler.getCryptEngine().encrypt(data, 2, size - 4);
 		
 		ChannelBuffer encryptedMessage = ChannelBuffers.wrappedBuffer(ByteOrder.LITTLE_ENDIAN,data, 0 , newSize + 2);

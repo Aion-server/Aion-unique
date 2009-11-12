@@ -1,5 +1,6 @@
 package com.aionemu.loginserver.network.netty.handler;
 
+import java.net.InetSocketAddress;
 import java.nio.ByteOrder;
 import java.security.interfaces.RSAPrivateKey;
 
@@ -9,39 +10,37 @@ import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelEvent;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelPipelineCoverage;
 import org.jboss.netty.channel.ChannelStateEvent;
-import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.MessageEvent;
-import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.network.aion.SessionKey;
 import com.aionemu.loginserver.network.ncrypt.CryptEngine;
 import com.aionemu.loginserver.network.ncrypt.EncryptedRSAKeyPair;
 import com.aionemu.loginserver.network.ncrypt.KeyGen;
-import com.aionemu.loginserver.network.netty.packet.AbstractClientPacket;
-import com.aionemu.loginserver.network.netty.packet.AbstractServerPacket;
-import com.aionemu.loginserver.network.netty.packet.server.SM_INIT;
+import com.aionemu.loginserver.network.netty.packet.handler.ClientPacketHandler;
+import com.aionemu.loginserver.network.netty.packet.l2c.AbstractClientPacket;
+import com.aionemu.loginserver.network.netty.packet.l2c.AbstractServerPacket;
+import com.aionemu.loginserver.network.netty.packet.l2c.server.SM_INIT;
 
 /**
  * @author ATracer
  */
 @ChannelPipelineCoverage("one") 
-public class ChannelHandler extends SimpleChannelUpstreamHandler
+public class ClientChannelHandler extends AbstractChannelHandler
 {
-	private static final Logger logger = Logger.getLogger(ChannelHandler.class);
+	private static final Logger logger = Logger.getLogger(ClientChannelHandler.class);
 
 	private CryptEngine cryptEngine;
 	private EncryptedRSAKeyPair encryptedRSAKeyPair;
 	private SessionKey sessionKey;
 	private int sessionId = hashCode();
 	private State state;
-	private Channel channel;
 	private Account account;
 	private boolean joinedGs;
+	
 
 	/* (non-Javadoc)
 	 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#channelConnected(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.ChannelStateEvent)
@@ -51,47 +50,17 @@ public class ChannelHandler extends SimpleChannelUpstreamHandler
 	{
 		super.channelConnected(ctx, e);
 		logger.info("Channel connected: " + sessionId);
+		Channel channel = ctx.getChannel();
 		
 		encryptedRSAKeyPair = KeyGen.getEncryptedRSAKeyPair();
 		SecretKey blowfishKey = KeyGen.generateBlowfishKey();
 		cryptEngine = new CryptEngine();
 		cryptEngine.updateKey(blowfishKey.getEncoded());
-		channel = ctx.getChannel();
 		state = State.CONNECTED;
-
+		inetAddress =  ((InetSocketAddress) e.getChannel().getRemoteAddress()).getAddress();
+		channel = ctx.getChannel();
+		
 		sendPacket(new SM_INIT(this, blowfishKey));
-	}
-
-	/* (non-Javadoc)
-	 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#channelDisconnected(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.ChannelStateEvent)
-	 */
-	@Override
-	public void channelDisconnected(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception 
-	{
-		logger.info("Channel disconnected");
-	}
-
-	/* (non-Javadoc)
-	 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#exceptionCaught(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.ExceptionEvent)
-	 */
-	@Override
-	public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e) throws Exception 
-	{
-		e.getCause().printStackTrace();
-		e.getChannel().close();
-	}
-
-	/* (non-Javadoc)
-	 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#handleUpstream(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.ChannelEvent)
-	 */
-	@Override
-	public void handleUpstream(ChannelHandlerContext ctx, ChannelEvent e) throws Exception 
-	{
-		if (e instanceof ChannelStateEvent) 
-		{
-			logger.info(e.toString());
-		}
-		super.handleUpstream(ctx, e);
 	}
 
 	/* (non-Javadoc)
@@ -121,31 +90,7 @@ public class ChannelHandler extends SimpleChannelUpstreamHandler
 	{
 		ChannelBuffer cb = ChannelBuffers.buffer(ByteOrder.LITTLE_ENDIAN, 2*8192);
 		packet.write(this, cb);
-		this.channel.write(cb);
-	}
-	
-	/**
-	 * 
-	 * @param packet
-	 * @param forced
-	 */
-	public void close(AbstractServerPacket packet, boolean forced)
-	{
-		//TODO close channel
-	}
-	
-	/**
-	 * 
-	 * @param forced
-	 */
-	public void close(boolean forced)
-	{
-		//TODO close channel
-	}
-	
-	public String getIP()
-	{
-		return "127.0.0.1";//TODO
+		channel.write(cb);
 	}
 	
 	public void setJoinedGs()

@@ -10,7 +10,7 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelPipelineCoverage;
 import org.jboss.netty.handler.codec.oneone.OneToOneDecoder;
 
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 
 /**
  * @author ATracer
@@ -35,7 +35,7 @@ public class LoginPacketDecoder extends OneToOneDecoder
 		byte[] data = new byte[dataSize];
 		message.readBytes(data);
 		
-		ChannelHandler channelHandler = (ChannelHandler)ctx.getPipeline().getLast();
+		ClientChannelHandler channelHandler = (ClientChannelHandler)ctx.getPipeline().getLast();
 		
 		if (!channelHandler.getCryptEngine().decrypt(data, 0, dataSize))
 		{

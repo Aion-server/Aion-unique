@@ -14,46 +14,56 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.loginserver.network.netty.packet.server;
+package com.aionemu.loginserver.network.netty.packet.l2c.server;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
-import com.aionemu.loginserver.network.netty.packet.AbstractServerPacket;
+import com.aionemu.loginserver.network.aion.SessionKey;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
+import com.aionemu.loginserver.network.netty.packet.l2c.AbstractServerPacket;
 
 /**
  * @author -Nemesiss-
  */
-public class SM_AUTH_GG extends AbstractServerPacket
+public class SM_LOGIN_OK extends AbstractServerPacket
 {
 	/**
-	 * Session Id of this connection
+	 * accountId is part of session key - its used for security purposes
 	 */
-	private final int	sessionId;
+	private final int	accountId;
+	/**
+	 * loginOk is part of session key - its used for security purposes
+	 */
+	private final int	loginOk;
 
 	/**
-	 * Constructs new instance of <tt>SM_AUTH_GG</tt> packet
+	 * Constructs new instance of <tt>SM_LOGIN_OK</tt> packet.
 	 * 
-	 * @param sessionId
+	 * @param key session key
 	 */
-	public SM_AUTH_GG(int sessionId)
+	public SM_LOGIN_OK(SessionKey key)
 	{
-		super(0x0B);
-
-		this.sessionId = sessionId;
+		super(0x03);
+		
+		this.accountId = key.accountId;
+		this.loginOk = key.loginOk;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(ChannelHandler cHandler, ChannelBuffer buf)
+	protected void writeImpl(ClientChannelHandler channelHandler, ChannelBuffer buf)
 	{
 		writeC(buf, getOpCode());
-		writeD(buf, sessionId);
+		writeD(buf, accountId);
+		writeD(buf, loginOk);
+		writeD(buf, 0x00);
+		writeD(buf, 0x00);
+		writeD(buf, 0x000003ea);
 		writeD(buf, 0x00);
 		writeD(buf, 0x00);
 		writeD(buf, 0x00);
-		writeD(buf, 0x00);
+		writeB(buf, new byte[16]);
 	}
 }

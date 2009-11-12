@@ -1,15 +1,16 @@
-package com.aionemu.loginserver.network.netty.handler;
+package com.aionemu.loginserver.network.netty.packet.handler;
 
 import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler.State;
-import com.aionemu.loginserver.network.netty.packet.AbstractClientPacket;
-import com.aionemu.loginserver.network.netty.packet.client.CM_AUTH_GG;
-import com.aionemu.loginserver.network.netty.packet.client.CM_LOGIN;
-import com.aionemu.loginserver.network.netty.packet.client.CM_PLAY;
-import com.aionemu.loginserver.network.netty.packet.client.CM_SERVER_LIST;
-import com.aionemu.loginserver.network.netty.packet.client.CM_UPDATE_SESSION;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler.State;
+import com.aionemu.loginserver.network.netty.packet.l2c.AbstractClientPacket;
+import com.aionemu.loginserver.network.netty.packet.l2c.client.CM_AUTH_GG;
+import com.aionemu.loginserver.network.netty.packet.l2c.client.CM_LOGIN;
+import com.aionemu.loginserver.network.netty.packet.l2c.client.CM_PLAY;
+import com.aionemu.loginserver.network.netty.packet.l2c.client.CM_SERVER_LIST;
+import com.aionemu.loginserver.network.netty.packet.l2c.client.CM_UPDATE_SESSION;
 
 /**
  * @author ATracer
@@ -25,7 +26,7 @@ public class ClientPacketHandler
 	 * @param channelHandler
 	 * @return AbstractClientPacket 
 	 */
-	public static AbstractClientPacket handle(ChannelBuffer buf, ChannelHandler channelHandler)
+	public static AbstractClientPacket handle(ChannelBuffer buf, ClientChannelHandler channelHandler)
 	{
 		byte opCode = buf.readByte();
 		State state = channelHandler.getState();

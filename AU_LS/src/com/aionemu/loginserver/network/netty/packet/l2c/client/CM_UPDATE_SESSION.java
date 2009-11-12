@@ -14,13 +14,13 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.loginserver.network.netty.packet.client;
+package com.aionemu.loginserver.network.netty.packet.l2c.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.aionemu.loginserver.controller.AccountController;
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
-import com.aionemu.loginserver.network.netty.packet.AbstractClientPacket;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
+import com.aionemu.loginserver.network.netty.packet.l2c.AbstractClientPacket;
 
 /**
  * This packet is send when client was connected to game server and now is reconnection to login server.
@@ -49,7 +49,7 @@ public class CM_UPDATE_SESSION extends AbstractClientPacket
 	 * @param buf       packet data
 	 * @param client    client
 	 */
-	public CM_UPDATE_SESSION(ChannelBuffer buf, ChannelHandler client)
+	public CM_UPDATE_SESSION(ChannelBuffer buf, ClientChannelHandler client)
 	{
 		super(buf, client, 0x08);
 	}

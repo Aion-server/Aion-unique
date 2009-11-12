@@ -14,17 +14,17 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.loginserver.network.netty.packet.server;
+package com.aionemu.loginserver.network.netty.packet.l2c.server;
 
 import java.util.Collection;
 
 import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.aionemu.loginserver.GameServerInfo;
+import com.aionemu.loginserver.GameServer;
 import com.aionemu.loginserver.GameServerTable;
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
-import com.aionemu.loginserver.network.netty.packet.AbstractServerPacket;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
+import com.aionemu.loginserver.network.netty.packet.l2c.AbstractServerPacket;
 
 /**
  * @author -Nemesiss-
@@ -48,14 +48,14 @@ public class SM_SERVER_LIST extends AbstractServerPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(ChannelHandler channelHandler, ChannelBuffer buf)
+	protected void writeImpl(ClientChannelHandler channelHandler, ChannelBuffer buf)
 	{
-		Collection<GameServerInfo> servers = GameServerTable.getGameServers();
+		Collection<GameServer> servers = GameServerTable.getGameServers();
 
 		writeC(buf, getOpCode());
 		writeC(buf, servers.size());// servers
 		writeC(buf, channelHandler.getAccount().getLastServer());// last server
-		for (GameServerInfo gsi : servers)
+		for (GameServer gsi : servers)
 		{
 			writeC(buf, gsi.getId());// server id
 			writeB(buf, gsi.getIPAddressForPlayer(channelHandler.getIP())); // server IP

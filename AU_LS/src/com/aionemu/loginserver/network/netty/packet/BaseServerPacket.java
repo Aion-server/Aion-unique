@@ -1,37 +1,21 @@
 package com.aionemu.loginserver.network.netty.packet;
 
+import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
-
-/**
- * @author ATracer
- */
-public abstract class AbstractServerPacket extends AbstractPacket
+public abstract class BaseServerPacket extends AbstractPacket
 {
+	private static final Logger log = Logger.getLogger(BaseServerPacket.class);
+	
 	/**
 	 * 
 	 * @param opCode
 	 */
-	public AbstractServerPacket(int opCode)
+	public BaseServerPacket(int opCode)
 	{
 		super(opCode);
-		// TODO Auto-generated constructor stub
 	}
 	
-	public void write(ChannelHandler cHandler, ChannelBuffer buf)
-	{
-		buf.writeShort((short)0);
-		writeImpl(cHandler, buf);
-	}
-	
-	/**
-	 * 
-	 * @param cHandler
-	 * @param buf
-	 */
-	protected abstract void writeImpl(ChannelHandler cHandler, ChannelBuffer buf);
-
 	/**
 	 * 
 	 * @param buf
@@ -71,4 +55,6 @@ public abstract class AbstractServerPacket extends AbstractPacket
 	{
 		buf.writeBytes(data);
 	}
+	
+
 }

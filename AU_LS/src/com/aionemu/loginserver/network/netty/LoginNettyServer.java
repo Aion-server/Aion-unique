@@ -10,59 +10,87 @@ import org.jboss.netty.buffer.HeapChannelBufferFactory;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelFactory;
 import org.jboss.netty.channel.group.ChannelGroup;
+import org.jboss.netty.channel.group.ChannelGroupFuture;
 import org.jboss.netty.channel.group.DefaultChannelGroup;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 
-import com.aionemu.loginserver.network.netty.pipeline.LoginServerPipeLineFactory;
+import com.aionemu.loginserver.network.netty.pipeline.LoginToClientPipeLineFactory;
+import com.aionemu.loginserver.network.netty.pipeline.LoginToGamePipelineFactory;
 
 /**
  * @author ATracer
  */
-
 public class LoginNettyServer 
 {
 	private static final Logger logger = Logger.getLogger(LoginNettyServer.class);
-	
+
 	private static final LoginNettyServer instance = new LoginNettyServer();
+
+	private ChannelGroup channelGroup = new DefaultChannelGroup(LoginNettyServer.class.getName());
+	
+	private ChannelFactory loginToClientChannelFactory;
+	private ChannelFactory loginToGameChannelFactory;
 	
 	/**
 	 *  Initialize listening on login port
 	 */
 	public void initialize() 
 	{
-		// Create the global ChannelGroup
-		ChannelGroup channelGroup = new DefaultChannelGroup(
-				LoginNettyServer.class.getName());
+		Channel loginToClientChannel = initLoginToClientChannel();
+		Channel loginToGameChannel = initLoginToGameChannel();
 		
-		ChannelFactory factory = new NioServerSocketChannelFactory(Executors
-				.newCachedThreadPool(), Executors.newCachedThreadPool(),
-				Runtime.getRuntime().availableProcessors() * 2 + 1);
-		
-		ServerBootstrap bootstrap = new ServerBootstrap(factory);
-		
-		configure(bootstrap);
-
-		// Add the parent channel to the group
-		Channel channel = bootstrap.bind(new InetSocketAddress(2106));
-		channelGroup.add(channel);
+		channelGroup.add(loginToClientChannel);
+		channelGroup.add(loginToGameChannel);
 
 		logger.info("LoginNettyServer started");
 	}
+
+	private Channel initLoginToClientChannel()
+	{
+		loginToClientChannelFactory = new NioServerSocketChannelFactory(Executors
+			.newCachedThreadPool(), Executors.newCachedThreadPool(),
+			Runtime.getRuntime().availableProcessors() * 2 + 1);
+
+		ServerBootstrap bootstrap = new ServerBootstrap(loginToClientChannelFactory);
+
+		configureLoginToClient(bootstrap);
+
+		Channel channel = bootstrap.bind(new InetSocketAddress(2106));
+		return channel;
+	}
 	
+	private Channel initLoginToGameChannel()
+	{
+		loginToGameChannelFactory = new NioServerSocketChannelFactory(Executors
+			.newCachedThreadPool(), Executors.newCachedThreadPool(),
+			Runtime.getRuntime().availableProcessors() * 2 + 1);
+
+		ServerBootstrap bootstrap = new ServerBootstrap(loginToGameChannelFactory);
+
+		configureLoginToClient(bootstrap);
+
+		Channel channel = bootstrap.bind(new InetSocketAddress(9014));
+		return channel;
+	}
+
 	/**
 	 *  Shutdown server
 	 */
-	public void shutdown()
+	public void shutdownAll()
 	{
-		
+		ChannelGroupFuture future = channelGroup.close();
+		future.awaitUninterruptibly();
+		loginToClientChannelFactory.releaseExternalResources();
+		loginToGameChannelFactory.releaseExternalResources();
 	}
+	
 
 	/**
 	 * @param bootstrap
 	 */
-	private void configure(ServerBootstrap bootstrap)
+	private void configureLoginToClient(ServerBootstrap bootstrap)
 	{
-		bootstrap.setPipelineFactory(new LoginServerPipeLineFactory());
+		bootstrap.setPipelineFactory(new LoginToClientPipeLineFactory());
 		bootstrap.setOption("child.bufferFactory", HeapChannelBufferFactory.getInstance(ByteOrder.LITTLE_ENDIAN));	
 		bootstrap.setOption("child.tcpNoDelay", true);
 		bootstrap.setOption("child.keepAlive", true);
@@ -71,6 +99,20 @@ public class LoginNettyServer
 		bootstrap.setOption("readWriteFair", true);
 	}
 	
+	/**
+	 * @param bootstrap
+	 */
+	private void configureLoginToGame(ServerBootstrap bootstrap)
+	{
+		bootstrap.setPipelineFactory(new LoginToGamePipelineFactory());
+		bootstrap.setOption("child.bufferFactory", HeapChannelBufferFactory.getInstance(ByteOrder.LITTLE_ENDIAN));	
+		bootstrap.setOption("child.tcpNoDelay", true);
+		bootstrap.setOption("child.keepAlive", true);
+		bootstrap.setOption("child.reuseAddress", true);
+		bootstrap.setOption("child.connectTimeoutMillis", 100);
+		bootstrap.setOption("readWriteFair", true);
+	}
+
 	/**
 	 * @return LoginNettyServer instance
 	 */

@@ -14,49 +14,52 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.loginserver.network.netty.packet.server;
+package com.aionemu.loginserver.network.netty.packet.l2c.server;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.aionemu.loginserver.network.aion.SessionKey;
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
-import com.aionemu.loginserver.network.netty.packet.AbstractServerPacket;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
+import com.aionemu.loginserver.network.netty.packet.l2c.AbstractServerPacket;
 
 /**
+ * This packet is send to client to update sessionKey [for fast reconnection feature]
+ * 
  * @author -Nemesiss-
  */
-public class SM_PLAY_OK extends AbstractServerPacket
+public class SM_UPDATE_SESSION extends AbstractServerPacket
 {
 	/**
-	 * playOk1 is part of session key - its used for security purposes [checked at game server side]
+	 * accountId is part of session key - its used for security purposes
 	 */
-	private final int	playOk1;
+	private final int	accountId;
 	/**
-	 * playOk2 is part of session key - its used for security purposes [checked at game server side]
+	 * loginOk is part of session key - its used for security purposes
 	 */
-	private final int	playOk2;
+	private final int	loginOk;
 
 	/**
-	 * Constructs new instance of <tt>SM_PLAY_OK </tt> packet.
+	 * Constructs new instance of <tt>SM_UPDATE_SESSION </tt> packet.
 	 * 
 	 * @param key session key
 	 */
-	public SM_PLAY_OK(SessionKey key)
+	public SM_UPDATE_SESSION(SessionKey key)
 	{
-		super(0x07);
+		super(0x0c);
 
-		this.playOk1 = key.playOk1;
-		this.playOk2 = key.playOk2;
+		this.accountId = key.accountId;
+		this.loginOk = key.loginOk;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(ChannelHandler channelHandler, ChannelBuffer buf)
+	protected void writeImpl(ClientChannelHandler channelHandler, ChannelBuffer buf)
 	{
 		writeC(buf, getOpCode());
-		writeD(buf, playOk1);
-		writeD(buf, playOk2);
+		writeD(buf, accountId);
+		writeD(buf, loginOk);
+		writeC(buf, 0x00);// sysmsg if smth is wrong
 	}
 }

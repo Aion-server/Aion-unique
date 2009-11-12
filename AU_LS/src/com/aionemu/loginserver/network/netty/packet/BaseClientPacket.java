@@ -3,32 +3,26 @@ package com.aionemu.loginserver.network.netty.packet;
 import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.aionemu.loginserver.network.netty.coder.LoginPacketDecoder;
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
-import com.sun.corba.se.impl.ior.ByteBuffer;
-
-/**
- * @author ATracer
- */
-public abstract class AbstractClientPacket extends AbstractPacket
+public abstract class BaseClientPacket extends AbstractPacket
 {
-	private static final Logger log = Logger.getLogger(AbstractClientPacket.class);
+	private static final Logger log = Logger.getLogger(BaseClientPacket.class);
 
 	private ChannelBuffer buf;
-	private ChannelHandler channelHandler;
-
+	
 	/**
 	 * 
 	 * @param channelBuffer
-	 * @param channelHandler
 	 * @param opCode
 	 */
-	public AbstractClientPacket(ChannelBuffer channelBuffer, ChannelHandler channelHandler,
-		int opCode)
+	public BaseClientPacket(ChannelBuffer channelBuffer, int opCode)
 	{
 		super(opCode);
 		this.buf = channelBuffer;
-		this.channelHandler = channelHandler;
+	}
+	
+	public int getRemainingBytes()
+	{
+		return buf.readableBytes();
 	}
 	
 	/**
@@ -65,26 +59,10 @@ public abstract class AbstractClientPacket extends AbstractPacket
 			log.error("Running failed for packet " + this, ex);
 		}		
 	}
-
+	
 	protected abstract void readImpl();
 
 	protected abstract void runImpl();
-	
-	/**
-	 * 
-	 * @return
-	 */
-	protected ChannelHandler getHandler()
-	{
-		return channelHandler;
-	}
-	
-	public int getRemainingBytes()
-	{
-		return buf.readableBytes();
-	}
-	
-	/** READERS **/
 	
 	/**
 	 * Read int from this packet buffer.
@@ -181,21 +159,24 @@ public abstract class AbstractClientPacket extends AbstractPacket
 	 * 
 	 * @return String
 	 */
-//	protected final String readS()
-//	{
-//		StringBuffer sb = new StringBuffer();
-//		char ch;
-//		try
-//		{
-//			while ((ch = buf.readChar()) != 0)
-//				sb.append(ch);
-//		}
-//		catch (Exception e)
-//		{
-//			log.error("Missing S for: " + this);
-//		}
-//		return sb.toString();
-//	}
+	protected final String readS()
+	{
+		StringBuffer sb = new StringBuffer();
+		char ch;
+		try
+		{
+			byte b1 = buf.readByte();
+			byte b2 = buf.readByte();
+			ch = (char) ( b1 << 8 | (b2 & 0xff));
+			while (ch != 0)
+				sb.append(ch);
+		}
+		catch (Exception e)
+		{
+			log.error("Missing S for: " + this);
+		}
+		return sb.toString();
+	}
 
 	/**
 	 * Read n bytes from this packet buffer, n = length.

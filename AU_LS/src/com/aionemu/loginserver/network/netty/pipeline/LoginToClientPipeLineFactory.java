@@ -12,17 +12,17 @@ import org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor;
 import com.aionemu.loginserver.network.netty.coder.LoginPacketDecoder;
 import com.aionemu.loginserver.network.netty.coder.LoginPacketEncoder;
 import com.aionemu.loginserver.network.netty.coder.PacketFrameDecoder;
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 
 /**
  * @author ATracer
  */
-public class LoginServerPipeLineFactory implements ChannelPipelineFactory
+public class LoginToClientPipeLineFactory implements ChannelPipelineFactory
 {
 
-	private static final int THREADS_MAX = 100;
+	private static final int THREADS_MAX = 10;
 	private static final int MEMORY_PER_CHANNEL = 1048576;
-	private static final int TOTAL_MEMORY = 1073741824;
+	private static final int TOTAL_MEMORY = 134217728;
 	private static final int TIMEOUT = 100;
 	
 	/**
@@ -50,7 +50,7 @@ public class LoginServerPipeLineFactory implements ChannelPipelineFactory
 				.defaultThreadFactory());
 
 		pipeline.addLast("executor", new ExecutionHandler(pipelineExecutor)); 
-		pipeline.addLast("handler", new ChannelHandler());
+		pipeline.addLast("handler", new ClientChannelHandler());
 
 		return pipeline;
 	}

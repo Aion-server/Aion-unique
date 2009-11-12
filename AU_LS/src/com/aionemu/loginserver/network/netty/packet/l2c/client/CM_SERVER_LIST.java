@@ -14,16 +14,16 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.loginserver.network.netty.packet.client;
+package com.aionemu.loginserver.network.netty.packet.l2c.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.aionemu.loginserver.GameServerTable;
 import com.aionemu.loginserver.network.aion.AionAuthResponse;
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
-import com.aionemu.loginserver.network.netty.packet.AbstractClientPacket;
-import com.aionemu.loginserver.network.netty.packet.server.SM_LOGIN_FAIL;
-import com.aionemu.loginserver.network.netty.packet.server.SM_SERVER_LIST;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
+import com.aionemu.loginserver.network.netty.packet.l2c.AbstractClientPacket;
+import com.aionemu.loginserver.network.netty.packet.l2c.server.SM_LOGIN_FAIL;
+import com.aionemu.loginserver.network.netty.packet.l2c.server.SM_SERVER_LIST;
 
 /**
  * @author -Nemesiss-
@@ -45,7 +45,7 @@ public class CM_SERVER_LIST extends AbstractClientPacket
 	 * @param buf
 	 * @param client
 	 */
-	public CM_SERVER_LIST(ChannelBuffer buf, ChannelHandler client)
+	public CM_SERVER_LIST(ChannelBuffer buf, ClientChannelHandler client)
 	{
 		super(buf, client, 0x05);
 	}
@@ -67,7 +67,7 @@ public class CM_SERVER_LIST extends AbstractClientPacket
 	@Override
 	protected void runImpl()
 	{
-		ChannelHandler channelHandler = getHandler();
+		ClientChannelHandler channelHandler = getHandler();
 		if (channelHandler.getSessionKey().checkLogin(accountId, loginOk))
 		{
 			if (GameServerTable.getGameServers().size() == 0)

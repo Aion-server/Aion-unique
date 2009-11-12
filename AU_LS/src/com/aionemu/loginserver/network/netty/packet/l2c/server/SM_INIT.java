@@ -14,15 +14,15 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.loginserver.network.netty.packet.server;
+package com.aionemu.loginserver.network.netty.packet.l2c.server;
 
 import javax.crypto.SecretKey;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.channel.Channel;
 
-import com.aionemu.loginserver.network.aion.AionConnection;
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
-import com.aionemu.loginserver.network.netty.packet.AbstractServerPacket;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
+import com.aionemu.loginserver.network.netty.packet.l2c.AbstractServerPacket;
 
 /**
  * Format: dd b dddd s d: session id d: protocol revision b: 0x90 bytes : 0x80 bytes for the scrambled RSA public key
@@ -51,7 +51,7 @@ public final class SM_INIT extends AbstractServerPacket
 	 * @param channelHandler
 	 * @param blowfishKey 
 	 */
-	public SM_INIT(ChannelHandler channelHandler, SecretKey blowfishKey)
+	public SM_INIT(ClientChannelHandler channelHandler,  SecretKey blowfishKey)
 	{
 		this(channelHandler.getEncryptedModulus(), blowfishKey.getEncoded(), channelHandler.getSessionId());
 	}
@@ -76,7 +76,7 @@ public final class SM_INIT extends AbstractServerPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(ChannelHandler cHandler, ChannelBuffer buf)
+	protected void writeImpl(ClientChannelHandler cHandler, ChannelBuffer buf)
 	{
 		writeC(buf, getOpCode()); // init packet id
 

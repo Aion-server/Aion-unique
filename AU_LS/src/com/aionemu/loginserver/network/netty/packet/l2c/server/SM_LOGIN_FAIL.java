@@ -14,13 +14,13 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.loginserver.network.netty.packet.server;
+package com.aionemu.loginserver.network.netty.packet.l2c.server;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.aionemu.loginserver.network.aion.AionAuthResponse;
-import com.aionemu.loginserver.network.netty.handler.ChannelHandler;
-import com.aionemu.loginserver.network.netty.packet.AbstractServerPacket;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
+import com.aionemu.loginserver.network.netty.packet.l2c.AbstractServerPacket;
 
 /**
  * @author KID
@@ -47,7 +47,7 @@ public class SM_LOGIN_FAIL extends AbstractServerPacket
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void writeImpl(ChannelHandler channelHandler, ChannelBuffer buf)
+	protected void writeImpl(ClientChannelHandler channelHandler, ChannelBuffer buf)
 	{
 		writeC(buf, getOpCode());
 		writeD(buf, response.getMessageId());
