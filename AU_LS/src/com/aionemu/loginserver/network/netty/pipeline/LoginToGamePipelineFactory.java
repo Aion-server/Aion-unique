@@ -9,6 +9,8 @@ import org.jboss.netty.channel.Channels;
 import org.jboss.netty.handler.execution.ExecutionHandler;
 import org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor;
 
+import com.aionemu.loginserver.network.netty.coder.GameServerPacketDecoder;
+import com.aionemu.loginserver.network.netty.coder.GameServerPacketEncoder;
 import com.aionemu.loginserver.network.netty.coder.LoginPacketDecoder;
 import com.aionemu.loginserver.network.netty.coder.LoginPacketEncoder;
 import com.aionemu.loginserver.network.netty.coder.PacketFrameDecoder;
@@ -42,8 +44,8 @@ public class LoginToGamePipelineFactory implements ChannelPipelineFactory
 		ChannelPipeline pipeline = Channels.pipeline();
 
 		pipeline.addLast("framedecoder", new PacketFrameDecoder());
-		pipeline.addLast("packetdecoder", new LoginPacketDecoder());
-		pipeline.addLast("packetencoder", new LoginPacketEncoder());
+		pipeline.addLast("packetdecoder", new GameServerPacketDecoder());
+		pipeline.addLast("packetencoder", new GameServerPacketEncoder());
 
 		OrderedMemoryAwareThreadPoolExecutor pipelineExecutor = new OrderedMemoryAwareThreadPoolExecutor(
 				THREADS_MAX, MEMORY_PER_CHANNEL, TOTAL_MEMORY, TIMEOUT, TimeUnit.MILLISECONDS, Executors

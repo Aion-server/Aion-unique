@@ -67,7 +67,7 @@ public class LoginNettyServer
 
 		ServerBootstrap bootstrap = new ServerBootstrap(loginToGameChannelFactory);
 
-		configureLoginToClient(bootstrap);
+		configureLoginToGame(bootstrap);
 
 		Channel channel = bootstrap.bind(new InetSocketAddress(9014));
 		return channel;

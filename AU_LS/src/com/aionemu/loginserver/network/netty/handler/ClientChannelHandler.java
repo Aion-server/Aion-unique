@@ -50,7 +50,6 @@ public class ClientChannelHandler extends AbstractChannelHandler
 	{
 		super.channelConnected(ctx, e);
 		logger.info("Channel connected: " + sessionId);
-		Channel channel = ctx.getChannel();
 		
 		encryptedRSAKeyPair = KeyGen.getEncryptedRSAKeyPair();
 		SecretKey blowfishKey = KeyGen.generateBlowfishKey();

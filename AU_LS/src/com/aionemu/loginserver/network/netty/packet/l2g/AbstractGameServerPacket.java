@@ -29,6 +29,7 @@ public abstract class AbstractGameServerPacket extends BaseServerPacket
 	 */
 	public void write(GameChannelHandler channelHandler, ChannelBuffer buf)
 	{
+		writeH(buf, 0);
 		writeImpl(channelHandler, buf);
 	}
 	
