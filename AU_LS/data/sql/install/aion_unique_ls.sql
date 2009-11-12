@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : localhost
 Source Server Version : 50138
 Source Host           : localhost:3306
-Source Database       : aion_unique_ls
+Source Database       : au_server_ls
 
 Target Server Type    : MYSQL
 Target Server Version : 50138
 File Encoding         : 65001
 
-Date: 2009-11-10 00:05:38
+Date: 2009-11-12 22:17:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -59,10 +59,9 @@ CREATE TABLE `account_time` (
 -- ----------------------------
 DROP TABLE IF EXISTS `banned_ip`;
 CREATE TABLE `banned_ip` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `mask` varchar(45) NOT NULL,
   `time_end` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`mask`),
   UNIQUE KEY `mask` (`mask`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

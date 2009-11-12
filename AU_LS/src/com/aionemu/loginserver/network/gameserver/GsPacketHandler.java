@@ -16,26 +16,36 @@
  */
 package com.aionemu.loginserver.network.gameserver;
 
-import java.nio.ByteBuffer;
-
-import org.apache.log4j.Logger;
-
+import com.aionemu.loginserver.GameServerService;
+import com.aionemu.loginserver.service.AccountTimeService;
 import com.aionemu.loginserver.network.gameserver.GsConnection.State;
-import com.aionemu.loginserver.network.gameserver.clientpackets.CM_ACCOUNT_AUTH;
-import com.aionemu.loginserver.network.gameserver.clientpackets.CM_ACCOUNT_DISCONNECTED;
-import com.aionemu.loginserver.network.gameserver.clientpackets.CM_ACCOUNT_LIST;
-import com.aionemu.loginserver.network.gameserver.clientpackets.CM_ACCOUNT_RECONNECT_KEY;
-import com.aionemu.loginserver.network.gameserver.clientpackets.CM_GS_AUTH;
+import com.aionemu.loginserver.network.gameserver.clientpackets.*;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.nio.ByteBuffer;
 
 /**
  * @author -Nemesiss-
  */
+@Component
 public class GsPacketHandler
 {
 	/**
 	 * logger for this class
 	 */
 	private static final Logger	log	= Logger.getLogger(GsPacketHandler.class);
+
+	private final GameServerService gameServerService;
+
+	private final AccountTimeService accountTimeService;
+
+	@Autowired
+	public GsPacketHandler(GameServerService gameServerService, AccountTimeService accountTimeService){
+		this.gameServerService = gameServerService;
+		this.accountTimeService = accountTimeService;
+	}
 
 	/**
 	 * Reads one packet from given ByteBuffer
@@ -44,7 +54,7 @@ public class GsPacketHandler
 	 * @param client
 	 * @return GsClientPacket object from binary data
 	 */
-	public static GsClientPacket handle(ByteBuffer data, GsConnection client)
+	public GsClientPacket handle(ByteBuffer data, GsConnection client)
 	{
 		GsClientPacket msg = null;
 		State state = client.getState();
@@ -57,7 +67,7 @@ public class GsPacketHandler
 				switch (id)
 				{
 					case 0x00:
-						msg = new CM_GS_AUTH(data, client);
+						msg = new CM_GS_AUTH(data, client, gameServerService);
 						break;
 					default:
 						unknownPacket(state, id);
@@ -75,7 +85,7 @@ public class GsPacketHandler
 						msg = new CM_ACCOUNT_RECONNECT_KEY(data, client);
 						break;
 					case 0x03:
-						msg = new CM_ACCOUNT_DISCONNECTED(data, client);
+						msg = new CM_ACCOUNT_DISCONNECTED(data, client, accountTimeService);
 						break;
 					case 0x04:
 						msg = new CM_ACCOUNT_LIST(data, client);
@@ -95,8 +105,8 @@ public class GsPacketHandler
 	 * @param state
 	 * @param id
 	 */
-	private static void unknownPacket(State state, int id)
+	private void unknownPacket(State state, int id)
 	{
-		log.warn(String.format("Unknown packet recived from Game Server: 0x%02X state=%s", id, state.toString()));
+		log.warn(String.format("Unknown packet received from Game Server: 0x%02X state=%s", id, state.toString()));
 	}
 }

@@ -15,14 +15,16 @@
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aionemu.loginserver.controller;
-
-import java.sql.Timestamp;
+package com.aionemu.loginserver.service;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.loginserver.dao.AccountTimeDAO;
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.model.AccountTime;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.sql.Timestamp;
 
 /**
  * This class is for account time controlling.
@@ -32,8 +34,17 @@ import com.aionemu.loginserver.model.AccountTime;
  *
  * @author EvilSpirit
  */
-public class AccountTimeController
+@Service
+public class AccountTimeService
 {
+
+	private DAOManager daoManager;
+
+	@Autowired
+	public AccountTimeService(DAOManager daoManager){
+		this.daoManager = daoManager;
+	}
+
 	/**
 	 * Update account time when character logins.
 	 * The following field are being updated:
@@ -41,18 +52,9 @@ public class AccountTimeController
 	 * - RestTime (set to (RestTime + (CurrentTime-LastLoginTime - SessionDuration))
 	 * @param account
 	 */
-	public static void updateOnLogin(Account account)
+	public void updateOnLogin(Account account)
 	{
 		AccountTime	accountTime = account.getAccountTime();
-
-		/**
-		 * It seems the account was just created, so new accountTime
-		 * should be created too
-		 */
-		if(accountTime == null)
-		{
-			accountTime = new AccountTime();
-		}
 
 		int	lastLoginDay = getDays(accountTime.getLastLoginTime().getTime());
 		int	currentDay   = getDays(System.currentTimeMillis());
@@ -77,7 +79,7 @@ public class AccountTimeController
 
 		accountTime.setLastLoginTime(new Timestamp(System.currentTimeMillis()));
 
-		DAOManager.getDAO(AccountTimeDAO.class).updateAccountTime(account.getId(), accountTime);
+		daoManager.getDAO(AccountTimeDAO.class).save(accountTime);
 		account.setAccountTime(accountTime);
 	}
 
@@ -88,13 +90,13 @@ public class AccountTimeController
 	 * - AccumulatedOnlineTime (set to AccumulatedOnlineTime + SessionTime)
 	 * @param account
 	 */
-	public static void updateOnLogout(Account account)
+	public void updateOnLogout(Account account)
 	{
 		AccountTime	accountTime = account.getAccountTime();
 
 		accountTime.setSessionDuration(System.currentTimeMillis() - accountTime.getLastLoginTime().getTime());
 		accountTime.setAccumulatedOnlineTime(accountTime.getAccumulatedOnlineTime() + accountTime.getSessionDuration());
-		DAOManager.getDAO(AccountTimeDAO.class).updateAccountTime(account.getId(), accountTime);
+		daoManager.getDAO(AccountTimeDAO.class).save(accountTime);
 		account.setAccountTime(accountTime);
 	}
 
@@ -103,7 +105,7 @@ public class AccountTimeController
 	 * @param account
 	 * @return true, if account is expired, false otherwise
 	 */
-	public static boolean isAccountExpired(Account account)
+	public boolean isAccountExpired(Account account)
 	{
 		AccountTime	accountTime = account.getAccountTime();
 
@@ -116,7 +118,7 @@ public class AccountTimeController
 	 * @param account
 	 * @return true, is penalty is active, false otherwise
 	 */
-	public static boolean isAccountPenaltyActive(Account account)
+	public boolean isAccountPenaltyActive(Account account)
 	{
 		AccountTime	accountTime = account.getAccountTime();
 

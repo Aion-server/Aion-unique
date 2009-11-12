@@ -21,7 +21,7 @@ import com.aionemu.commons.network.AConnection;
 import com.aionemu.commons.network.Dispatcher;
 import com.aionemu.commons.network.PacketProcessor;
 import com.aionemu.loginserver.controller.AccountController;
-import com.aionemu.loginserver.controller.AccountTimeController;
+import com.aionemu.loginserver.service.AccountTimeService;
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.network.aion.serverpackets.SM_INIT;
 import com.aionemu.loginserver.network.ncrypt.CryptEngine;
@@ -205,9 +205,6 @@ public class AionConnection extends AConnection
 		return 0;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void onDisconnect()
 	{
@@ -217,13 +214,10 @@ public class AionConnection extends AConnection
 		if ((account != null) && !joinedGs)
 		{
 			AccountController.removeAccountOnLS(account);
-			AccountTimeController.updateOnLogout(account);
+			AccountTimeService.updateOnLogout(account);
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void onServerClose()
 	{

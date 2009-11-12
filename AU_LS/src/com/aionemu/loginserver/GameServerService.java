@@ -16,45 +16,54 @@
  */
 package com.aionemu.loginserver;
 
+import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.commons.network.IPRange;
+import com.aionemu.commons.utils.NetworkUtils;
+import com.aionemu.loginserver.dao.GameServerDAO;
+import com.aionemu.loginserver.model.Account;
+import com.aionemu.loginserver.network.gameserver.GsAuthResponse;
+import com.aionemu.loginserver.network.gameserver.GsConnection;
+import com.aionemu.loginserver.network.gameserver.serverpackets.SM_REQUEST_KICK_ACCOUNT;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import com.aionemu.loginserver.dao.GameServerDAO;
-import org.apache.log4j.Logger;
-
-import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.commons.network.IPRange;
-import com.aionemu.commons.utils.NetworkUtils;
-import com.aionemu.loginserver.model.Account;
-import com.aionemu.loginserver.network.gameserver.GsAuthResponse;
-import com.aionemu.loginserver.network.gameserver.GsConnection;
-import com.aionemu.loginserver.network.gameserver.serverpackets.SM_REQUEST_KICK_ACCOUNT;
-
 /**
- * GameServerTable contains list of GameServers registered on this LoginServer. GameServer may by online or down.
+ * GameServerService contains list of GameServers registered on this LoginServer. GameServer may by online or down.
  * 
  * @author -Nemesiss-
  */
-public class GameServerTable
+@Service
+public class GameServerService
 {
 	/**
 	 * Logger for this class.
 	 */
-	private static final Logger					log	= Logger.getLogger(GameServerTable.class);
+	private static final Logger					log	= Logger.getLogger(GameServerService.class);
 
 	/**
 	 * Map<Id,GameServer>
 	 */
-	private static Map<Byte, GameServer>	gameservers;
+	private Map<Byte, GameServer>	gameservers;
+
+	private final DAOManager daoManager;
+
+	@Autowired
+	public GameServerService(DAOManager daoManager){
+		this.daoManager = daoManager;
+	}
 
 	/**
 	 * Return collection contains all registered [up/down] GameServers.
 	 * 
 	 * @return collection of GameServers.
 	 */
-	public static Collection<GameServer> getGameServers()
+	public Collection<GameServer> getGameServers()
 	{
 		return Collections.unmodifiableCollection(gameservers.values());
 	}
@@ -62,10 +71,10 @@ public class GameServerTable
 	/**
 	 * Load GameServers from database.
 	 */
-	public static void load()
+	public void load()
 	{
 		gameservers = getDAO().getAllGameServers();
-		log.info("GameServerTable loaded " + gameservers.size() + " registered GameServers.");
+		log.info("GameServerService loaded " + gameservers.size() + " registered GameServers.");
 	}
 
 	/**
@@ -87,7 +96,7 @@ public class GameServerTable
 	 *            server password that is specified configs, used to check if gs can auth on ls
 	 * @return GsAuthResponse
 	 */
-	public static GsAuthResponse registerGameServer(GsConnection gsConnection, byte requestedId, byte[] defaultAddress,
+	public GsAuthResponse registerGameServer(GsConnection gsConnection, byte requestedId, byte[] defaultAddress,
 		List<IPRange> ipRanges, int port, int maxPlayers, String password)
 	{
 		GameServer gsi = gameservers.get(requestedId);
@@ -132,7 +141,7 @@ public class GameServerTable
 	 * @param gameServerId
 	 * @return GameSererInfo object for given gameserverId.
 	 */
-	public static GameServer getGameServerInfo(byte gameServerId)
+	public GameServer getGameServerInfo(byte gameServerId)
 	{
 		return gameservers.get(gameServerId);
 	}
@@ -143,7 +152,7 @@ public class GameServerTable
 	 * @param acc account to check
 	 * @return true is account is logged in on one of GameServers
 	 */
-	public static boolean isAccountOnAnyGameServer(Account acc)
+	public boolean isAccountOnAnyGameServer(Account acc)
 	{
 		for (GameServer gsi : getGameServers())
 		{
@@ -159,7 +168,7 @@ public class GameServerTable
 	 * Helper method, used to kick account from any gameServer if it's logged in
 	 * @param account account to kick
 	 */
-	public static void kickAccountFromGameServer(Account account)
+	public void kickAccountFromGameServer(Account account)
 	{
 		for (GameServer gsi : getGameServers())
 		{
@@ -176,8 +185,8 @@ public class GameServerTable
 	 * 
 	 * @return {@link com.aionemu.loginserver.dao.GameServerDAO}
 	 */
-	private static GameServerDAO getDAO()
+	private GameServerDAO getDAO()
 	{
-		return DAOManager.getDAO(GameServerDAO.class);
+		return daoManager.getDAO(GameServerDAO.class);
 	}
 }

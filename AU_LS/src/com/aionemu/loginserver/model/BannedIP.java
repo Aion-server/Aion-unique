@@ -25,11 +25,7 @@ import java.sql.Timestamp;
  * 
  * @author SoulKeeper
  */
-public class BannedIP implements PersistentObject<Integer> {
-	/**
-	 * Returns id of ip ban
-	 */
-	private Integer		id;
+public class BannedIP implements PersistentObject<String> {
 
 	/**
 	 * Returns ip mask
@@ -52,24 +48,13 @@ public class BannedIP implements PersistentObject<Integer> {
 	}
 
 	/**
-	 * Returns ban id
+	 * Returns ban mask
 	 * 
-	 * @return ban id
+	 * @return ban mask
 	 */
-	public Integer getId()
+	public String getId()
 	{
-		return id;
-	}
-
-	/**
-	 * Sets ban id
-	 * 
-	 * @param id
-	 *            ban id
-	 */
-	public void setId(Integer id)
-	{
-		this.id = id;
+		return mask;
 	}
 
 	/**

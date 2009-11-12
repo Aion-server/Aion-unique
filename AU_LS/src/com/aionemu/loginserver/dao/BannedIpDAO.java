@@ -26,17 +26,8 @@ import java.util.Set;
  * 
  * @author SoulKeeper
  */
-public abstract class BannedIpDAO implements DAO<BannedIP, Integer>
+public abstract class BannedIpDAO implements DAO<BannedIP, String>
 {
-	/**
-	 * Removes ban by mask.<br>
-	 * Returns true in case of success, false othervise.<br>
-	 *
-	 * @param mask
-	 *            ip mask to remove
-	 */
-	public abstract void remove(String mask);
-
 	/**
 	 * This method will always throw {@link UnsupportedOperationException}
 	 * @param id
@@ -45,7 +36,7 @@ public abstract class BannedIpDAO implements DAO<BannedIP, Integer>
 	 * @throws UnsupportedOperationException Always
 	 */
 	@Override
-	public final BannedIP load(Integer id) throws UnsupportedOperationException {
+	public final BannedIP load(String id) throws UnsupportedOperationException {
 		throw new UnsupportedOperationException("No need to load bans by id, please load all using #getAllBans()");
 	}
 

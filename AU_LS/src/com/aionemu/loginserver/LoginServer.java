@@ -16,21 +16,7 @@
  */
 package com.aionemu.loginserver;
 
-import java.lang.management.ManagementFactory;
-import java.lang.management.MemoryUsage;
-
 import org.apache.log4j.Logger;
-
-import com.aionemu.commons.database.DatabaseFactory;
-import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.commons.services.LoggingService;
-import com.aionemu.commons.utils.ExitCode;
-import com.aionemu.loginserver.controller.BannedIpController;
-import com.aionemu.loginserver.network.IOServer;
-import com.aionemu.loginserver.network.ncrypt.KeyGen;
-import com.aionemu.loginserver.network.netty.LoginNettyServer;
-import com.aionemu.loginserver.utils.DeadLockDetector;
-import com.aionemu.loginserver.utils.ThreadPoolManager;
 
 /**
  * @author -Nemesiss-
@@ -42,9 +28,8 @@ public class LoginServer
      */
     private static final Logger	log = Logger.getLogger(LoginServer.class);
 
-    /**
-     * @param args
-     */
+/*
+//TODO: move to LoginServer2 needed data, remove rest
     public static void main(String[] args)
     {
         LoggingService.init();
@@ -54,14 +39,13 @@ public class LoginServer
 		DatabaseFactory.init();
 		DAOManager.init();
 
-        /** Start deadlock detector that will restart server if deadlock happened */
+        // Start deadlock detector that will restart server if deadlock happened
         new DeadLockDetector(60, DeadLockDetector.RESTART).start();
         ThreadPoolManager.getInstance();
 
 
-        /**
-         * Initialize Key Generator
-         */
+
+        // Initialize Key Generator
         try
         {
             KeyGen.init();
@@ -72,16 +56,16 @@ public class LoginServer
             System.exit(ExitCode.CODE_ERROR);
         }
 
-        GameServerTable.load();
-        BannedIpController.load();
+        GameServerService.load();
+        BannedIpService.load();
 
         // TODO! flood protector
         // TODO! brute force protector
         
-        /**
-         * Default NIO server
-         */
-        //IOServer.getInstance().connect();
+
+
+        // Default NIO server
+        // IOServer.getInstance().connect();
         LoginNettyServer.getInstance().initialize();
         
         Runtime.getRuntime().addShutdownHook(Shutdown.getInstance());
@@ -92,4 +76,5 @@ public class LoginServer
         log.info("Heap Memory Usage: " + (hm.getUsed() / 1048576) + "/" + (hm.getMax() / 1048576) + " MB");
         log.info("NonHeap Memory Usage: " + (nhm.getUsed() / 1048576) + "/" + (nhm.getMax() / 1048576) + " MB");
     }
+*/
 }

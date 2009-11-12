@@ -44,7 +44,6 @@ public class MySQLBannedIpDAO extends BannedIpDAO {
 			public void handleRead(ResultSet rset) throws SQLException {
 				while (rset.next()) {
 					BannedIP bi = new BannedIP();
-					bi.setId(rset.getInt("id"));
 					bi.setMask(rset.getString("mask"));
 					bi.setTimeEnd(rset.getTimestamp("time_end"));
 					result.add(bi);
@@ -63,8 +62,7 @@ public class MySQLBannedIpDAO extends BannedIpDAO {
 		try {
 
 			MySQLInsertUpdateHelper iu = new MySQLInsertUpdateHelper("banned_ip");
-			iu.addPrimaryKey("id", object.getId());
-			iu.addValue("mask", object.getMask());
+			iu.addPrimaryKey("mask", object.getMask());
 			iu.addValue("time_end", object.getTimeEnd());
 
 			ps = db.prepareStatement(iu.toString());
@@ -77,17 +75,6 @@ public class MySQLBannedIpDAO extends BannedIpDAO {
 				DB.close(ps);
 			}
 		}
-	}
-
-	@Override
-	public void remove(final Integer id) {
-		db.insertUpdate("DELETE FROM banned_ip WHERE banned_ip.id = ?", new IUStH() {
-			@Override
-			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
-				stmt.setInt(1, id);
-				stmt.execute();
-			}
-		});
 	}
 
 	@Override

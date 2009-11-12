@@ -17,16 +17,14 @@
 
 package com.aionemu.loginserver.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.utils.NetworkUtils;
 import com.aionemu.loginserver.GameServer;
-import com.aionemu.loginserver.GameServerTable;
+import com.aionemu.loginserver.GameServerService;
 import com.aionemu.loginserver.dao.AccountDAO;
 import com.aionemu.loginserver.dao.AccountTimeDAO;
 import com.aionemu.loginserver.model.Account;
+import com.aionemu.loginserver.model.AccountTime;
 import com.aionemu.loginserver.model.ReconnectingAccount;
 import com.aionemu.loginserver.network.aion.AionAuthResponse;
 import com.aionemu.loginserver.network.aion.AionConnection;
@@ -35,7 +33,11 @@ import com.aionemu.loginserver.network.aion.SessionKey;
 import com.aionemu.loginserver.network.aion.serverpackets.SM_UPDATE_SESSION;
 import com.aionemu.loginserver.network.gameserver.GsConnection;
 import com.aionemu.loginserver.network.gameserver.serverpackets.SM_ACCOUNT_AUTH_RESPONSE;
+import com.aionemu.loginserver.service.AccountTimeService;
 import com.aionemu.loginserver.utils.AccountUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class is resposible for controlling all account actions
@@ -196,13 +198,13 @@ public class AccountController
 		}
 
 		// If account expired
-		if(AccountTimeController.isAccountExpired(account))
+		if(AccountTimeService.isAccountExpired(account))
 		{
 			return AionAuthResponse.TIME_EXPIRED;
 		}
 
 		// if account is banned
-		if(AccountTimeController.isAccountPenaltyActive(account))
+		if(AccountTimeService.isAccountPenaltyActive(account))
 		{
 			return AionAuthResponse.BAN_IP;
 		}
@@ -217,7 +219,7 @@ public class AccountController
 		}
 
 		// if ip is banned
-		if(BannedIpController.isBanned(connection.getIP()))
+		if(BannedIpService.isBanned(connection.getIP()))
 		{
 			return AionAuthResponse.BAN_IP;
 		}
@@ -225,9 +227,9 @@ public class AccountController
 		// Do not allow to login two times with same account
 		synchronized (AccountController.class)
 		{
-			if(GameServerTable.isAccountOnAnyGameServer(account))
+			if(GameServerService.isAccountOnAnyGameServer(account))
 			{
-				GameServerTable.kickAccountFromGameServer(account);
+				GameServerService.kickAccountFromGameServer(account);
 				return AionAuthResponse.ALREADY_LOGGED_IN;
 			}
 
@@ -247,7 +249,7 @@ public class AccountController
 			}
 		}
 
-		AccountTimeController.updateOnLogin(account);
+		AccountTimeService.updateOnLogin(account);
 
 		// if everything was OK
 		getAccountDAO().updateLastIp(account.getId(), connection.getIP());
@@ -270,34 +272,7 @@ public class AccountController
 		return account;
 	}
 
-	/**
-	 * Creates new account and stores it in DB. Returns account object in case of success or null if failed
-	 *
-	 * @param name
-	 *            account name
-	 * @param password
-	 *            account password
-	 * @return account object or null
-	 */
-	public static Account createAccount(String name, String password)
-	{
-		String	passwordHash = AccountUtils.encodePassword(password);
-		Account	account      = new Account();
 
-		account.setName(name);
-		account.setPasswordHash(passwordHash);
-		account.setAccessLevel((byte) 0);
-		account.setActivated((byte) 1);
-
-		if(getAccountDAO().insertAccount(account))
-		{
-			return account;
-		}
-		else
-		{
-			return null;
-		}
-	}
 
 	/**
 	 * Returns {@link com.aionemu.loginserver.dao.AccountDAO}, just a shortcut

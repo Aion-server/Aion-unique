@@ -18,7 +18,7 @@ package com.aionemu.loginserver.network.netty.packet.l2c.client;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.aionemu.loginserver.GameServerTable;
+import com.aionemu.loginserver.GameServerService;
 import com.aionemu.loginserver.network.aion.AionAuthResponse;
 import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 import com.aionemu.loginserver.network.netty.packet.l2c.AbstractClientPacket;
@@ -70,7 +70,7 @@ public class CM_SERVER_LIST extends AbstractClientPacket
 		ClientChannelHandler channelHandler = getHandler();
 		if (channelHandler.getSessionKey().checkLogin(accountId, loginOk))
 		{
-			if (GameServerTable.getGameServers().size() == 0)
+			if (GameServerService.getGameServers().size() == 0)
 				channelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.NO_GS_REGISTERED), true);
 			else
 				channelHandler.sendPacket(new SM_SERVER_LIST());

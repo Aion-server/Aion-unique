@@ -17,7 +17,7 @@
 package com.aionemu.loginserver.network.aion.serverpackets;
 
 import com.aionemu.loginserver.GameServer;
-import com.aionemu.loginserver.GameServerTable;
+import com.aionemu.loginserver.GameServerService;
 import com.aionemu.loginserver.network.aion.AionConnection;
 import com.aionemu.loginserver.network.aion.AionServerPacket;
 import org.apache.log4j.Logger;
@@ -49,7 +49,7 @@ public class SM_SERVER_LIST extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		Collection<GameServer> servers = GameServerTable.getGameServers();
+		Collection<GameServer> servers = GameServerService.getGameServers();
 
 		writeC(buf, getOpcode());
 		writeC(buf, servers.size());// servers

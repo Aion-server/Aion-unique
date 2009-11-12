@@ -16,18 +16,16 @@
  */
 package com.aionemu.loginserver.network.gameserver;
 
+import com.aionemu.commons.network.AConnection;
+import com.aionemu.commons.network.Dispatcher;
+import com.aionemu.loginserver.GameServer;
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.util.ArrayDeque;
 import java.util.Deque;
-
-import com.aionemu.loginserver.GameServer;
-import org.apache.log4j.Logger;
-
-import com.aionemu.commons.network.AConnection;
-import com.aionemu.commons.network.Dispatcher;
-import com.aionemu.loginserver.utils.ThreadPoolManager;
 
 /**
  * Object representing connection between LoginServer and GameServer.
@@ -99,8 +97,10 @@ public class GsConnection extends AConnection
 		GsClientPacket pck = GsPacketHandler.handle(data, this);
 		log.info("recived packet: " + pck);
 
-		if (pck != null && pck.read())
-			ThreadPoolManager.getInstance().executeGsPacket(pck);
+		if (pck != null && pck.read()){
+			//ThreadPoolManager.getInstance().executeGsPacket(pck);
+			// TODO: Rewrite network using netty
+		}
 
 		return true;
 	}
@@ -136,9 +136,6 @@ public class GsConnection extends AConnection
 		return 0;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void onDisconnect()
 	{
@@ -151,9 +148,6 @@ public class GsConnection extends AConnection
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected final void onServerClose()
 	{

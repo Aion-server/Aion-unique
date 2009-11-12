@@ -17,7 +17,7 @@
 
 package com.aionemu.loginserver.network.gameserver.clientpackets;
 
-import com.aionemu.loginserver.controller.AccountTimeController;
+import com.aionemu.loginserver.service.AccountTimeService;
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.network.gameserver.GsClientPacket;
 import com.aionemu.loginserver.network.gameserver.GsConnection;
@@ -32,6 +32,8 @@ import java.nio.ByteBuffer;
  */
 public class CM_ACCOUNT_DISCONNECTED extends GsClientPacket
 {
+	private final AccountTimeService accountTimeService;
+
 	/**
 	 * AccountId of account that was disconnected form GameServer.
 	 */
@@ -42,24 +44,20 @@ public class CM_ACCOUNT_DISCONNECTED extends GsClientPacket
 	 *
 	 * @param buf
 	 * @param client
+	 * @param accountTimeService Service
 	 */
-	public CM_ACCOUNT_DISCONNECTED(ByteBuffer buf, GsConnection client)
+	public CM_ACCOUNT_DISCONNECTED(ByteBuffer buf, GsConnection client, AccountTimeService accountTimeService)
 	{
 		super(buf, client, 0x03);
+		this.accountTimeService = accountTimeService;
 	}
 
-	/**
-	 *  {@inheritDoc}
-	 */
 	@Override
 	protected void readImpl()
 	{
 		accountId = readD();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void runImpl()
 	{
@@ -71,8 +69,7 @@ public class CM_ACCOUNT_DISCONNECTED extends GsClientPacket
          */
 		if(account != null)
 		{
-			AccountTimeController.updateOnLogout(account);
+			accountTimeService.updateOnLogout(account);
 		}
 	}
 }
- 

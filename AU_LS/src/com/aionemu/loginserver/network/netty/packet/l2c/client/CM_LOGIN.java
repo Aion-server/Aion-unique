@@ -58,9 +58,6 @@ public class CM_LOGIN extends AbstractClientPacket
 		super(buf, channelHandler, 0x0B);
 	}
 
-	/**
-	 *  {@inheritDoc}
-	 */
 	@Override
 	protected void readImpl()
 	{
@@ -71,9 +68,6 @@ public class CM_LOGIN extends AbstractClientPacket
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	protected void runImpl()
 	{
 		if (data == null)

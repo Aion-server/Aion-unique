@@ -17,7 +17,7 @@
 package com.aionemu.loginserver.network.aion.clientpackets;
 
 import com.aionemu.loginserver.GameServer;
-import com.aionemu.loginserver.GameServerTable;
+import com.aionemu.loginserver.GameServerService;
 import com.aionemu.loginserver.network.aion.AionAuthResponse;
 import com.aionemu.loginserver.network.aion.AionClientPacket;
 import com.aionemu.loginserver.network.aion.AionConnection;
@@ -33,6 +33,8 @@ import java.nio.ByteBuffer;
  */
 public class CM_PLAY extends AionClientPacket
 {
+	private GameServerService gameServerService;
+
 	/**
 	 * accountId is part of session key - its used for security purposes
 	 */
@@ -52,14 +54,12 @@ public class CM_PLAY extends AionClientPacket
 	 * @param buf       packet data
 	 * @param client    client
 	 */
-	public CM_PLAY(ByteBuffer buf, AionConnection client)
+	public CM_PLAY(ByteBuffer buf, AionConnection client, GameServerService gameServerService)
 	{
 		super(buf, client, 0x02);
+		this.gameServerService = gameServerService;
 	}
 
-	/**
-	 *  {@inheritDoc}
-	 */
 	@Override
 	protected void readImpl()
 	{
@@ -68,9 +68,6 @@ public class CM_PLAY extends AionClientPacket
 		servId = (byte) readC();		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void runImpl()
 	{
@@ -78,7 +75,7 @@ public class CM_PLAY extends AionClientPacket
 		SessionKey key = con.getSessionKey();
 		if (key.checkLogin(accountId, loginOk))
 		{
-			GameServer gsi = GameServerTable.getGameServerInfo(servId);
+			GameServer gsi = gameServerService.getGameServerInfo(servId);
 			if (gsi == null || !gsi.isOnline())
 				con.sendPacket(new SM_PLAY_FAIL(AionAuthResponse.SERVER_DOWN));
 			// else if(serv gm only)

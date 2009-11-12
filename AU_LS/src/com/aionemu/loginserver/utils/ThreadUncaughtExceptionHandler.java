@@ -28,9 +28,6 @@ public class ThreadUncaughtExceptionHandler implements Thread.UncaughtExceptionH
 	 */
 	private static final Logger	log	= Logger.getLogger(ThreadUncaughtExceptionHandler.class);
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void uncaughtException(Thread t, Throwable e)
 	{

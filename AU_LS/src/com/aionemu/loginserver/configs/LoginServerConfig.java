@@ -20,9 +20,9 @@ import com.aionemu.commons.configuration.AbstractConfig;
 import com.aionemu.commons.configuration.Property;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.Properties;
 
 /**
  * @author -Nemesiss-
@@ -31,7 +31,26 @@ import java.net.InetAddress;
 @Component
 public class LoginServerConfig extends AbstractConfig
 {
-    /**
+	/**
+	 * @see com.aionemu.commons.configuration.AbstractConfig#AbstractConfig()
+	 * @throws java.io.IOException if failed to load default properties
+	 * @throws RuntimeException  if failed to parse properties
+	 */
+	public LoginServerConfig() throws IOException, RuntimeException {
+		super();
+	}
+
+	/**
+	 * @param properties properties object to use or null to use default
+	 * @see com.aionemu.commons.configuration.AbstractConfig#AbstractConfig()
+	 * @throws java.io.IOException if failed to load default properties
+	 * @throws RuntimeException  if failed to parse properties
+	 */
+	public LoginServerConfig(Properties properties) throws IOException, RuntimeException {
+		super(properties);
+	}
+
+	/**
      * Address that will be used to listen for clients
      */
     @Property(key = "loginserver.network.client.listen.address", defaultValue = "*:2106")
@@ -61,29 +80,15 @@ public class LoginServerConfig extends AbstractConfig
 	@Property(key = "loginserver.accounts.autocreate", defaultValue = "true")
 	public boolean			autocreateAccounts;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected String getSystemPropertiesKey() {
 		return "com.aionemu.loginserver.properties";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected String getDefaultPropertiesLocation() {
 		return "./config/loginserver.properties";
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-    @PostConstruct
-    public void load() throws IOException {
-        super.load();
-    }
 
     /**
      * Returns address that will be used to listen for clients

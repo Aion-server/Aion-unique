@@ -16,7 +16,7 @@
  */
 package com.aionemu.loginserver.network.aion.clientpackets;
 
-import com.aionemu.loginserver.GameServerTable;
+import com.aionemu.loginserver.GameServerService;
 import com.aionemu.loginserver.network.aion.AionAuthResponse;
 import com.aionemu.loginserver.network.aion.AionClientPacket;
 import com.aionemu.loginserver.network.aion.AionConnection;
@@ -50,9 +50,6 @@ public class CM_SERVER_LIST extends AionClientPacket
 		super(buf, client, 0x05);
 	}
 
-	/**
-	 *  {@inheritDoc}
-	 */
 	@Override
 	protected void readImpl()
 	{
@@ -61,16 +58,13 @@ public class CM_SERVER_LIST extends AionClientPacket
 		readD();// unk
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void runImpl()
 	{
 		AionConnection con = getConnection();
 		if (con.getSessionKey().checkLogin(accountId, loginOk))
 		{
-			if (GameServerTable.getGameServers().size() == 0)
+			if (GameServerService.getGameServers().size() == 0)
 				con.close(new SM_LOGIN_FAIL(AionAuthResponse.NO_GS_REGISTERED), true);
 			else
 				sendPacket(new SM_SERVER_LIST());

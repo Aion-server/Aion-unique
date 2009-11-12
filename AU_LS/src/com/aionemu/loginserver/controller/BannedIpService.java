@@ -16,39 +16,52 @@
  */
 package com.aionemu.loginserver.controller;
 
-import java.sql.Timestamp;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
-
-import org.apache.log4j.Logger;
-
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.utils.NetworkUtils;
 import com.aionemu.loginserver.dao.BannedIpDAO;
 import com.aionemu.loginserver.model.BannedIP;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
+import java.sql.Timestamp;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * Class that controlls all ip banning activity
  * 
  * @author SoulKeeper
  */
-public class BannedIpController
+@Service
+public class BannedIpService
 {
 	/**
 	 * Logger for this class.
 	 */
-	private static final Logger		log	= Logger.getLogger(BannedIpController.class);
+	private static final Logger		log	= Logger.getLogger(BannedIpService.class);
 
 	/**
 	 * List of banned ip adresses
 	 */
-	private static Set<BannedIP>	banList;
+	private Set<BannedIP>	banList;
+
+
+
+	private final DAOManager daoManager;
+
+	@Autowired
+	public BannedIpService(DAOManager daoManager){
+		this.daoManager = daoManager;
+	}
 
 	/**
 	 * Loads list of banned ips
 	 */
-	public static void load()
+	@PostConstruct
+	public void load()
 	{
 		reload();
 	}
@@ -56,11 +69,11 @@ public class BannedIpController
 	/**
 	 * Loads list of banned ips
 	 */
-	public static void reload()
+	public void reload()
 	{
 		// we are not going to make ip ban every minute, so it's ok to simplify a concurrent code a bit
 		banList = new CopyOnWriteArraySet<BannedIP>(getDAO().getAllBans());
-		log.info("BannedIpController loaded " + banList.size() + " IP bans.");
+		log.info("BannedIpService loaded " + banList.size() + " IP bans.");
 	}
 
 	/**
@@ -70,7 +83,7 @@ public class BannedIpController
 	 *            ip address to check for ban
 	 * @return is it banned or not
 	 */
-	public static boolean isBanned(String ip)
+	public boolean isBanned(String ip)
 	{
 		for (BannedIP ipBan : banList)
 		{
@@ -81,96 +94,63 @@ public class BannedIpController
 	}
 
 	/**
-	 * Bans ip or mask for infinite period of time
+	 * Bans ip or mask for infinite period of time.<br>
+	 * Updates ban if exists
 	 * 
 	 * @param ip
 	 *            ip to ban
-	 * @return was ip banned or not
 	 */
-	public static boolean banIp(String ip)
+	public void banIp(String ip)
 	{
-		return banIp(ip, null);
+		banIp(ip, null);
 	}
 
 	/**
-	 * Bans ip (or mask)
+	 * Bans ip (or mask).<br>
+	 * Updates ban if exists
 	 * 
 	 * @param ip
 	 *            ip to ban
 	 * @param expireTime
 	 *            ban expiration time, null = never expires
-	 * @return was ip banned or not
 	 */
-	public static boolean banIp(String ip, Timestamp expireTime)
+	public void banIp(String ip, Timestamp expireTime)
 	{
 		BannedIP ipBan = new BannedIP();
 		ipBan.setMask(ip);
 		ipBan.setTimeEnd(expireTime);
-		if (getDAO().insert(ipBan))
-		{
-			banList.add(ipBan);
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * Adds or updates ip ban. Changes are reflected in DB
-	 * 
-	 * @param ipBan
-	 *            banned ip to add or change
-	 * @return was it updated or not
-	 */
-	public static boolean addOrUpdateBan(BannedIP ipBan)
-	{
-		if (ipBan.getId() == null)
-		{
-			if (getDAO().insert(ipBan))
-			{
-				banList.add(ipBan);
-				return true;
-			}
-			else
-				return false;
-		}
-		else
-			return getDAO().update(ipBan);
+		getDAO().save(ipBan);
+		banList.add(ipBan);
 	}
 
 	/**
 	 * Removes ip ban.
 	 * 
-	 * @param ip
+	 * @param mask
 	 *            ip to unban
-	 * @return returns true if ip was successfully unbanned
 	 */
-	public static boolean unbanIp(String ip)
+	public void unbanIp(String mask)
 	{
 		Iterator<BannedIP> it = banList.iterator();
 		while (it.hasNext())
 		{
 			BannedIP ipBan = it.next();
-			if (ipBan.getMask().equals(ip))
+			if (ipBan.getMask().equals(mask))
 			{
-				if (getDAO().remove(ipBan))
-				{
-					it.remove();
-					return true;
-				}
-				else
-					break;
+				getDAO().remove(ipBan.getId());
+				it.remove();
+				break;
 			}
 		}
-		return false;
 	}
 
 	/**
-	 * Retuns {@link com.aionemu.loginserver.dao.BannedIpDAO} , just a shortcut
+	 * Returns {@link com.aionemu.loginserver.dao.BannedIpDAO} , just a shortcut
 	 * 
 	 * @return {@link com.aionemu.loginserver.dao.BannedIpDAO}
 	 */
-	private static BannedIpDAO getDAO()
+	private BannedIpDAO getDAO()
 	{
-		return DAOManager.getDAO(BannedIpDAO.class);
+		return daoManager.getDAO(BannedIpDAO.class);
 	}
 }

@@ -42,7 +42,7 @@ public class GameServer implements PersistentObject<Byte>
 	/**
 	 * Allowed IP for this GameServer if gs will connect from another ip wont be registered.
 	 */
-	private final String				ip;
+	private final String				ip; // TODO: Rename this field or `mask` in db
 
 	/**
 	 * Password

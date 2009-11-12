@@ -17,7 +17,7 @@
 package com.aionemu.loginserver.network.gameserver.clientpackets;
 
 import com.aionemu.commons.network.IPRange;
-import com.aionemu.loginserver.GameServerTable;
+import com.aionemu.loginserver.GameServerService;
 import com.aionemu.loginserver.network.gameserver.GsAuthResponse;
 import com.aionemu.loginserver.network.gameserver.GsClientPacket;
 import com.aionemu.loginserver.network.gameserver.GsConnection;
@@ -65,20 +65,21 @@ public class CM_GS_AUTH extends GsClientPacket
 	 */
 	private List<IPRange>	ipRanges;
 
+	private GameServerService gameServerService;
+
 	/**
 	 * Constructor.
 	 * 
 	 * @param buf
 	 * @param client
+	 * @param gameServerService
 	 */
-	public CM_GS_AUTH(ByteBuffer buf, GsConnection client)
+	public CM_GS_AUTH(ByteBuffer buf, GsConnection client, GameServerService gameServerService)
 	{
 		super(buf, client, 0x00);
+		this.gameServerService = gameServerService;
 	}
 
-	/**
-	 *  {@inheritDoc}
-	 */
 	@Override
 	protected void readImpl()
 	{
@@ -97,15 +98,12 @@ public class CM_GS_AUTH extends GsClientPacket
 		password = readS();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void runImpl()
 	{
 		GsConnection client = getConnection();
 
-		GsAuthResponse resp = GameServerTable.registerGameServer(client, gameServerId, defaultAddress, ipRanges, port,
+		GsAuthResponse resp = gameServerService.registerGameServer(client, gameServerId, defaultAddress, ipRanges, port,
 			maxPlayers, password);
 
 		switch (resp)
