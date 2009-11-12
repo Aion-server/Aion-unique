@@ -17,7 +17,7 @@
 
 package com.aionemu.commons.scripting.scriptmanager;
 
-import com.aionemu.commons.callbacks.Enhancable;
+import com.aionemu.commons.callbacks.Enhanceable;
 import com.aionemu.commons.scripting.ScriptContext;
 import com.aionemu.commons.scripting.ScriptContextFactory;
 import com.aionemu.commons.scripting.scriptmanager.listener.ContextCreationListener;
@@ -116,7 +116,7 @@ public class ScriptManager
 	 * @throws Exception
 	 *             if can't create context
 	 */
-	@Enhancable(callback = ContextCreationListener.class)
+	@Enhanceable(callback = ContextCreationListener.class)
 	public ScriptContext createContext(ScriptInfo si, ScriptContext parent) throws Exception
 	{
 		ScriptContext context = scriptContextFactory.getScriptContext(si, parent);
@@ -156,7 +156,7 @@ public class ScriptManager
 	/**
 	 * Reloads all contexes
 	 */
-	@Enhancable(callback = ReloadListener.class)
+	@Enhanceable(callback = ReloadListener.class)
 	public synchronized void reload()
 	{
 		for (ScriptContext context : contexts)
@@ -169,7 +169,7 @@ public class ScriptManager
 	 * Reloads specified context.
 	 * @param ctx Script context instance.
 	 */
-	@Enhancable(callback = ContextReloadListener.class)
+	@Enhanceable(callback = ContextReloadListener.class)
 	public void reloadContext(ScriptContext ctx)
 	{
 		ctx.reload();

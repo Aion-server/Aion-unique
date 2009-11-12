@@ -24,7 +24,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Documented;
 
 /**
- * Marker annotation that is used to mark disabled DAO's so they will be ignored by {@link DAOLoader}
+ * Marker annotation that is used to mark disabled DAO's so they will be ignored by {@link com.aionemu.commons.database.dao.DAOManager}
  * 
  * @author SoulKeeper
  */

@@ -28,32 +28,20 @@ public class DAOException extends DatabaseException
 {
 	private static final long	serialVersionUID	= 7637014806313099318L;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public DAOException()
 	{
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public DAOException(String message)
 	{
 		super(message);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public DAOException(String message, Throwable cause)
 	{
 		super(message, cause);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public DAOException(Throwable cause)
 	{
 		super(cause);

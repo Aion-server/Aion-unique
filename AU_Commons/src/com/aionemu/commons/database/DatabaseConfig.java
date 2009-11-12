@@ -22,9 +22,9 @@ import com.aionemu.commons.configuration.Property;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.IOException;
+import java.util.Properties;
 
 /**
  * This class holds all configuration of database
@@ -33,6 +33,25 @@ import java.io.IOException;
  */
 @Service
 public class DatabaseConfig extends AbstractConfig {
+
+
+	/**
+	 * @see com.aionemu.commons.configuration.AbstractConfig#AbstractConfig()
+	 * @throws java.io.IOException if failed to load default properties
+	 * @throws RuntimeException  if failed to parse properties
+	 */
+	public DatabaseConfig() throws IOException, RuntimeException {
+	}
+
+	/**
+	 * @param properties properties object to use or null to use default
+	 * @see com.aionemu.commons.configuration.AbstractConfig#AbstractConfig()
+	 * @throws java.io.IOException if failed to load default properties
+	 * @throws RuntimeException  if failed to parse properties
+	 */
+	public DatabaseConfig(Properties properties) throws IOException, RuntimeException {
+		super(properties);
+	}
 
 	/**
 	 * Logger for database config
@@ -91,28 +110,14 @@ public class DatabaseConfig extends AbstractConfig {
 	@Property(key = "database.scriptcontext.descriptor", defaultValue = "./data/scripts/system/database.xml")
 	public File scriptContextDescriptor;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected String getSystemPropertiesKey() {
 		return "com.aionemu.commons.database.properties";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected String getDefaultPropertiesLocation() {
 		return "./config/database.properties";
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@PostConstruct
-	public void load() throws IOException {
-		super.load();
 	}
 
 	/**

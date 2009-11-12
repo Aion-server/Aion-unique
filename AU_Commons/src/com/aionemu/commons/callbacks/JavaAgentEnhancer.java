@@ -1,5 +1,11 @@
 package com.aionemu.commons.callbacks;
 
+import com.aionemu.commons.utils.ExitCode;
+import javassist.*;
+import javassist.bytecode.AnnotationsAttribute;
+import javassist.bytecode.annotation.Annotation;
+import org.apache.log4j.Logger;
+
 import java.io.ByteArrayInputStream;
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
@@ -13,23 +19,9 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.apache.log4j.Logger;
-
-import com.aionemu.commons.utils.ExitCode;
-
-import javassist.CannotCompileException;
-import javassist.ClassPool;
-import javassist.CtClass;
-import javassist.CtField;
-import javassist.CtMethod;
-import javassist.LoaderClassPath;
-import javassist.NotFoundException;
-import javassist.bytecode.AnnotationsAttribute;
-import javassist.bytecode.annotation.Annotation;
-
 /**
  * This class is used as javaagent to do on-class-load transformations with objects whose methods are marked by
- * {@link com.aionemu.commons.callbacks.Enhancable} annotation.<br>
+ * {@link Enhanceable} annotation.<br>
  * Code is inserted dynamicly before method call and after method call.<br>
  * For implementation docs please reffer to: http://www.csg.is.titech.ac.jp/~chiba/javassist/tutorial/tutorial2.html<br>
  * <br>
@@ -141,7 +133,7 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 
 		for (CtMethod method : clazz.getMethods())
 		{
-			if (!isEnhancable(method))
+			if (!isEnhanceable(method))
 			{
 				continue;
 			}
@@ -197,7 +189,7 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 			if (o instanceof AnnotationsAttribute)
 			{
 				AnnotationsAttribute attribute = (AnnotationsAttribute) o;
-				enhancable = attribute.getAnnotation(Enhancable.class.getName());
+				enhancable = attribute.getAnnotation(Enhanceable.class.getName());
 				break;
 			}
 		}
@@ -453,17 +445,17 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 	}
 
 	/**
-	 * Checks if method is enhancable. It should be marked with {@link com.aionemu.commons.callbacks.Enhancable}
+	 * Checks if method is enhanceable. It should be marked with {@link Enhanceable}
 	 * annotation, be not native and not abstract
 	 * 
 	 * @param method
 	 *            method to check
 	 * @return check result
 	 */
-	protected boolean isEnhancable(CtMethod method)
+	protected boolean isEnhanceable(CtMethod method)
 	{
 		int modifiers = method.getModifiers();
 		return !(Modifier.isAbstract(modifiers) || Modifier.isNative(modifiers))
-			&& isAnnotationPresent(method, Enhancable.class);
+			&& isAnnotationPresent(method, Enhanceable.class);
 	}
 }

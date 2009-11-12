@@ -71,7 +71,7 @@ public interface Callback<T>
 	public CallbackResult afterCall(T obj, Object[] args, Object methodResult);
 
 	/**
-	 * Returns base class that will be used as callback identificator.<br> {@link Enhancable#callback()} should contain
+	 * Returns base class that will be used as callback identificator.<br> {@link Enhanceable#callback()} should contain
 	 * class that will be invoked
 	 * 
 	 * @return base class of callback

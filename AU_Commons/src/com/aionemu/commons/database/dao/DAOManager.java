@@ -139,25 +139,31 @@ public class DAOManager
 	 * First it checks if current DB is supported by calling {@link DAOUtils#isDBSupportedByDAO(Class, DatabaseInfo)},
 	 * after that method ckecks if another DAO isn't in use already. If not - dao is successfully registered.
 	 * 
-	 * @param clazz
-	 *            DAO implementation
+	 * @param dao
+	 *            DAO implementation object
 	 * @throws DAOAlreadyRegisteredException
 	 *             if DAO is already registered
 	 * @throws IllegalAccessException
 	 *             if something went wrong during instantiation of DAO
 	 * @throws InstantiationException
 	 *             if something went wrong during instantiation of DAO
+	 * @throws DAOException
+	 * 				if DAO metada is not valid(missing)
 	 */
-	public void registerDAO(Class<? extends DAO> clazz) throws DAOAlreadyRegisteredException, IllegalAccessException,
+	public void registerDAO(DAO dao) throws DAOException, IllegalAccessException,
 		InstantiationException
 	{
-		if (!DAOUtils.isDBSupportedByDAO(clazz, databaseInfo))
+		if(!DAOUtils.isSuitableClass(dao.getClass())){
+			throw new DAOException("Something wrong with metadata, please check!");
+		}
+
+		if (!DAOUtils.isDBSupportedByDAO(dao.getClass(), databaseInfo))
 		{
-			log.debug("DAO " + clazz.getName() + " skipped, " + databaseInfo + " is not supported.");
+			log.debug("DAO " + dao.getClass().getName() + " skipped, " + databaseInfo + " is not supported.");
 			return;
 		}
 
-		Class<? extends DAO> baseClass = DAOUtils.getBaseClass(clazz);
+		Class<? extends DAO> baseClass = DAOUtils.getBaseClass(dao.getClass());
 
 		synchronized (this)
 		{
@@ -167,15 +173,15 @@ public class DAOManager
 				StringBuilder sb = new StringBuilder();
 				sb.append("DAO with className ").append(baseClass).append(" is used by ");
 				sb.append(oldDao.getClass().getName()).append(". Can't override with ");
-				sb.append(clazz.getName()).append(".");
+				sb.append(dao.getClass().getName()).append(".");
 				String s = sb.toString();
 				log.error(s);
 				throw new DAOAlreadyRegisteredException(s);
 			}
 			else
 			{
-                daoMap.put(baseClass, clazz.newInstance());
-				log.info("Using DAO " + clazz.getName() + " for " + databaseInfo);
+                daoMap.put(baseClass, dao);
+				log.info("Using DAO " + dao.getClass().getName() + " for " + databaseInfo);
 			}
 		}
 	}
@@ -183,19 +189,19 @@ public class DAOManager
 	/**
 	 * Unregisters DAO class
 	 * 
-	 * @param daoClass
+	 * @param dao
 	 *            DAO implementation to unregister
 	 */
 	@SuppressWarnings( { "unchecked" })
-	public void unregisterDAO(Class<? extends DAO> daoClass)
+	public void unregisterDAO(DAO dao)
 	{
-		Class<? extends DAO> baseClass = DAOUtils.getBaseClass(daoClass);
+		Class<? extends DAO> baseClass = DAOUtils.getBaseClass(dao.getClass());
 
 		synchronized (this)
 		{
-			for (DAO dao : daoMap.values())
+			for (DAO obj : daoMap.values())
 			{
-                if (dao.getClass() == daoClass)
+                if (obj.getClass() == dao.getClass())
 				{
 					daoMap.remove(baseClass);
 					break;

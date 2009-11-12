@@ -19,19 +19,29 @@ package com.aionemu.commons.database.dao;
 
 import com.aionemu.commons.database.DatabaseInfo;
 import com.aionemu.commons.database.dao.scriptloader.DAOInfo;
+import com.aionemu.commons.database.dao.scriptloader.DisabledDAO;
 import com.aionemu.commons.database.dao.scriptloader.SupportedDB;
+import com.aionemu.commons.utils.ClassUtils;
+import org.apache.log4j.Logger;
+
+import java.lang.reflect.Modifier;
 
 /**
  * DAO utility class
- * 
+ *
  * @author SoulKeeper
  */
 public class DAOUtils
 {
 
 	/**
+	 * Logger
+	 */
+	private static final Logger log = Logger.getLogger(DAOUtils.class);
+
+	/**
 	 * Checks if DAO supports current DB
-	 * 
+	 *
 	 * @param clazz
 	 *            DAO class
 	 * @param databaseInfo
@@ -77,7 +87,7 @@ public class DAOUtils
 
 	/**
 	 * Returns base class for dao class.
-	 * 
+	 *
 	 * @param clazz
 	 *            class to check
 	 * @return base class for dao
@@ -93,5 +103,51 @@ public class DAOUtils
 		}
 
 		return clazz.getAnnotation(DAOInfo.class).baseClass();
+	}
+
+	/**
+	 * Checks if class is suitable DAO classes to load/unload.<br>
+	 * Class is counted as DAO if the following conditions are met:
+	 * <ul>
+	 * <li>Class is subclass of {@link com.aionemu.commons.database.dao.DAO}</li>
+	 * <li>Class is not abstract</li>
+	 * <li>Class is not interface</li>
+	 * <li>Class is public</li>
+	 * <li>Class doesn't have {@link DisabledDAO} annotation present</li>
+	 * <li>Class is marked with {@link DAOInfo} annotation</li>
+	 * </ul>
+	 *
+	 * @param clazz
+	 *            class to check
+	 * @return list of DAO classes to load/unload
+	 */
+	public static boolean isSuitableClass(Class clazz) {
+		if (!ClassUtils.isSubclass(clazz, DAO.class)) {
+			log.debug("Class " + clazz.getName() + " skipped, reason: Is not DAO subclass");
+			return false;
+		}
+
+		if (Modifier.isAbstract(clazz.getModifiers()) || Modifier.isInterface(clazz.getModifiers())) {
+			log.debug("Class " + clazz.getName() + " skipped, reason: Is abstract or interface");
+			return false;
+		}
+
+		if (!Modifier.isPublic(clazz.getModifiers())) {
+			log.debug("Class " + clazz.getName() + " skipped, reason: Is not public");
+			return false;
+		}
+
+		if (clazz.isAnnotationPresent(DisabledDAO.class)) {
+			log.debug("Class " + clazz.getName() + " skipped, reason: Is disabled");
+			return false;
+		}
+
+		if (!clazz.isAnnotationPresent(DAOInfo.class)) {
+			log.debug("Class " + clazz.getName() + " skipped, reason: Has no annotation DAOInfo present");
+			return false;
+		}
+
+		log.debug("Class " + clazz.getName() + " skipped, reason: Has no annotation DAOInfo present");
+		return true;
 	}
 }

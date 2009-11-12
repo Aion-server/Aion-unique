@@ -22,7 +22,7 @@ import com.aionemu.commons.database.PersistentObject;
 /**
  * This class represents basic DAO.<br>
  * DAO implementation must match the set of conditions, check the
- * {@link com.aionemu.commons.database.dao.scriptloader.DAOLoader#getSuitableClasses(Class[])} for details.<br>
+ * {@link com.aionemu.commons.database.dao.DAOUtils#isSuitableClass(Class)} for details.<br>
  * DAO subclass must have public no-arg constructor, in other case {@link InstantiationException} will be thrown by
  * {@link com.aionemu.commons.database.dao.DAOManager}<br>
  * 
