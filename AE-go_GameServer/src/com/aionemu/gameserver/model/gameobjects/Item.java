@@ -16,10 +16,13 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
+import java.lang.reflect.Field;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 
 /**
@@ -36,6 +39,8 @@ public class Item extends AionObject
 	private boolean isEquipped = false;
 	
 	private int equipmentSlot = 0;
+	
+	private int effectId = 0;
 	
 	/**
 	 * @param objId
@@ -183,5 +188,34 @@ public class Item extends AionObject
 	public void setEquipmentSlot(int equipmentSlot)
 	{
 		this.equipmentSlot = equipmentSlot;
+	}
+	
+	@Override
+	public String toString () {
+		StringBuilder sb = new StringBuilder();
+		sb.append('{');
+		Class<?> clazz = Item.class;
+		for (Field fi : clazz.getDeclaredFields()) {
+			sb.append(fi.getName()); sb.append(':');
+			try { sb.append(fi.getInt(this)); }
+			catch(Exception e) { try { sb.append(fi.getBoolean(this)); }
+			catch(Exception f) { try { sb.append(fi.getFloat(this)); }
+			catch(Exception g) { try { sb.append(fi.getDouble(this)); }
+			catch(Exception h) { try { sb.append(fi.get(this).toString()); }
+			catch(Exception i) { sb.append('?'); } } } } }
+			sb.append(':');
+		}
+		sb.append('}');
+		return sb.toString();
+	}
+
+	public int getEffectId()
+	{
+		return effectId;
+	}
+	
+	public void setEffectId (int effectId)
+	{
+		this.effectId = effectId;
 	}
 }

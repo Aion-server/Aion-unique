@@ -22,6 +22,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
@@ -39,7 +40,6 @@ public class SM_STATS_INFO extends AionServerPacket
 	 */
 	private Player	player;
 	private PlayerGameStats pgs;
-	private PlayerGameStats bgs;
 	private PlayerLifeStats pls;
 	private PlayerCommonData pcd;
 	
@@ -53,7 +53,6 @@ public class SM_STATS_INFO extends AionServerPacket
 		this.player = player;
 		this.pcd = player.getCommonData();
 		this.pgs = player.getGameStats();
-		this.bgs = pgs.getBaseGameStats();
 		this.pls = player.getLifeStats();
 	}
 
@@ -66,17 +65,17 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeD(buf, player.getObjectId());
 		writeD(buf, GameTimeManager.getGameTime().getTime()); // Minutes since 1/1/00 00:00:00
 
-		writeH(buf, pgs.getPower());// [current power]
-		writeH(buf, pgs.getHealth());// [current health]
-		writeH(buf, pgs.getAccuracy());// [current accuracy]
-		writeH(buf, pgs.getAgility());// [current agility]
-		writeH(buf, pgs.getKnowledge());// [current knowledge]
-		writeH(buf, pgs.getWill());// [current will]
+		writeH(buf, pgs.getCurrentStat(StatEnum.POWER));// [current power]
+		writeH(buf, pgs.getCurrentStat(StatEnum.HEALTH));// [current health]
+		writeH(buf, pgs.getCurrentStat(StatEnum.ACCURACY));// [current accuracy]
+		writeH(buf, pgs.getCurrentStat(StatEnum.AGILITY));// [current agility]
+		writeH(buf, pgs.getCurrentStat(StatEnum.KNOWLEDGE));// [current knowledge]
+		writeH(buf, pgs.getCurrentStat(StatEnum.WILL));// [current will]
 
-		writeH(buf, pgs.getWater());// [current water]
-		writeH(buf, pgs.getWind());// [current wind]
-		writeH(buf, pgs.getEarth());// [current earth]
-		writeH(buf, pgs.getFire());// [current fire]
+		writeH(buf, pgs.getCurrentStat(StatEnum.WATER_RESISTANCE));// [current water]
+		writeH(buf, pgs.getCurrentStat(StatEnum.WIND_RESISTANCE));// [current wind]
+		writeH(buf, pgs.getCurrentStat(StatEnum.EARTH_RESISTANCE));// [current earth]
+		writeH(buf, pgs.getCurrentStat(StatEnum.FIRE_RESISTANCE));// [current fire]
 
 		writeD(buf, 0);// [unk]
 		writeH(buf, player.getLevel());// [level]
@@ -88,47 +87,47 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeQ(buf, pcd.getExpShown()); // [current xp]
 
 		writeD(buf, 0); // [unk]
-		writeD(buf, pls.getMaxHp()); // [max hp]
+		writeD(buf, pgs.getCurrentStat(StatEnum.MAXHP)); // [max hp]
 		writeD(buf, pls.getCurrentHp());// [unk]
 
-		writeD(buf, pls.getMaxMp());// [max mana]
+		writeD(buf, pgs.getCurrentStat(StatEnum.MAXMP));// [max mana]
 		writeD(buf, pls.getCurrentMp());// [current mana]
 
-		writeH(buf, 0);// [max dp]
+		writeH(buf, pgs.getCurrentStat(StatEnum.MAXDP));// [max dp]
 		writeH(buf, 0);// [current dp]
 
 		writeD(buf, 0);// [unk]
 
-		writeD(buf, pgs.getFlyTime());// [current fly time]
+		writeD(buf, pgs.getCurrentStat(StatEnum.FLY_TIME));// [current fly time]
 
 		writeH(buf, 0);// [unk]
 
-		writeH(buf, pgs.getMainHandAttack()); // [current main hand attack]
-		writeH(buf, pgs.getOffHandAttack()); // [off hand attack]
+		writeH(buf, pgs.getCurrentStat(StatEnum.MAIN_HAND_POWER)); // [current main hand attack]
+		writeH(buf, pgs.getCurrentStat(StatEnum.OFF_HAND_POWER)); // [off hand attack]
 
-		writeH(buf, pgs.getPhysicalDefense());// [current pdef]
+		writeH(buf, pgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE));// [current pdef]
 
-		writeH(buf, 0);// [unk]
+		writeH(buf, pgs.getCurrentStat(StatEnum.MAIN_HAND_POWER));// [current magic attack ?]
 
-		writeH(buf, pgs.getMagicResistance()); // [current mres]
-
-		writeH(buf, 0);// [unk]
-		writeH(buf, pgs.getAttackRange());// attack range
-		writeH(buf, pgs.getAttackSpeed());// attack speed 
-		writeH(buf, pgs.getEvasion());// [current evasion]
-		writeH(buf, pgs.getParry());// [current parry]
-		writeH(buf, pgs.getBlock());// [current block]
-
-		writeH(buf, pgs.getMainHandCritRate());// [current main hand crit rate]
-		writeH(buf, pgs.getOffHandCritRate());// [current off hand crit rate]
-
-		writeH(buf, pgs.getMainHandAccuracy());// [current main_hand_accuracy]
-		writeH(buf, pgs.getOffHandAccuracy());// [current off_hand_accuracy]
+		writeH(buf, pgs.getCurrentStat(StatEnum.MAGICAL_RESIST)); // [current mres]
 
 		writeH(buf, 0);// [unk]
-		writeH(buf, pgs.getMagicAccuracy());// [current magic accuracy]
+		writeH(buf, pgs.getCurrentStat(StatEnum.ATTACK_RANGE));// attack range
+		writeH(buf, pgs.getCurrentStat(StatEnum.ATTACK_SPEED));// attack speed 
+		writeH(buf, pgs.getCurrentStat(StatEnum.EVASION));// [current evasion]
+		writeH(buf, pgs.getCurrentStat(StatEnum.PARRY));// [current parry]
+		writeH(buf, pgs.getCurrentStat(StatEnum.BLOCK));// [current block]
+
+		writeH(buf, pgs.getCurrentStat(StatEnum.MAIN_HAND_CRITICAL));// [current main hand crit rate]
+		writeH(buf, pgs.getCurrentStat(StatEnum.OFF_HAND_CRITICAL));// [current off hand crit rate]
+
+		writeH(buf, pgs.getCurrentStat(StatEnum.MAIN_HAND_ACCURACY));// [current main_hand_accuracy]
+		writeH(buf, pgs.getCurrentStat(StatEnum.OFF_HAND_ACCURACY));// [current off_hand_accuracy]
+
+		writeH(buf, 0);// [unk]
+		writeH(buf, pgs.getCurrentStat(StatEnum.MAGICAL_ACCURACY));// [current magic accuracy]
 		writeH(buf, 0); // [unk]
-		writeH(buf, pgs.getMagicBoost()); // [current magic boost]
+		writeH(buf, pgs.getCurrentStat(StatEnum.MAGICAL_ATTACK)); // [current magic boost]
 
 		writeH(buf, 0);// [unk]
 		writeH(buf, 0);// [unk]
@@ -149,60 +148,60 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, 0);// [unk]
 		writeH(buf, 0);// [unk]
 
-		writeH(buf, bgs.getPower());// [base power]
-		writeH(buf, bgs.getHealth());// [base health]
+		writeH(buf, pgs.getBaseStat(StatEnum.POWER));// [base power]
+		writeH(buf, pgs.getBaseStat(StatEnum.HEALTH));// [base health]
 
-		writeH(buf, bgs.getAccuracy());// [base accuracy]
-		writeH(buf, bgs.getAgility());// [base agility]
+		writeH(buf, pgs.getBaseStat(StatEnum.ACCURACY));// [base accuracy]
+		writeH(buf, pgs.getBaseStat(StatEnum.AGILITY));// [base agility]
 
-		writeH(buf, bgs.getKnowledge());// [base knowledge]
-		writeH(buf, bgs.getWill());// [base water res]
+		writeH(buf, pgs.getBaseStat(StatEnum.KNOWLEDGE));// [base knowledge]
+		writeH(buf, pgs.getBaseStat(StatEnum.WILL));// [base will]
 
-		writeH(buf, bgs.getWater());// [base water res]
-		writeH(buf, bgs.getWind());// [base water res]
+		writeH(buf, pgs.getBaseStat(StatEnum.WATER_RESISTANCE));// [base water res]
+		writeH(buf, pgs.getBaseStat(StatEnum.WIND_RESISTANCE));// [base water res]
 		
-		writeH(buf, bgs.getEarth());// [base earth resist]
-		writeH(buf, bgs.getFire());// [base water res]
+		writeH(buf, pgs.getBaseStat(StatEnum.EARTH_RESISTANCE));// [base earth resist]
+		writeH(buf, pgs.getBaseStat(StatEnum.FIRE_RESISTANCE));// [base water res]
 
 		writeD(buf, 0);// [unk]
 
-		writeD(buf, pls.getMaxHp());// [base hp]
+		writeD(buf, pgs.getBaseStat(StatEnum.MAXHP));// [base hp]
 
-		writeD(buf, pls.getMaxMp());// [base mana]
+		writeD(buf, pgs.getBaseStat(StatEnum.MAXMP));// [base mana]
 
 		writeD(buf, 0);// [unk]
-		writeD(buf, 60);// [unk]
+		writeD(buf, pgs.getBaseStat(StatEnum.FLY_TIME));// [unk]
 
-		writeH(buf, bgs.getMainHandAttack());// [base main hand attack]
-		writeH(buf, bgs.getOffHandAttack());// [base off hand attack]
+		writeH(buf, pgs.getBaseStat(StatEnum.MAIN_HAND_POWER));// [base main hand attack]
+		writeH(buf, pgs.getBaseStat(StatEnum.OFF_HAND_POWER));// [base off hand attack]
 
-		writeH(buf, 0); // [unk] 
-		writeH(buf, bgs.getPhysicalDefense()); // [base pdef]
+		writeH(buf, pgs.getBaseStat(StatEnum.MAIN_HAND_POWER)); // [base magic attack ?] 
+		writeH(buf, pgs.getBaseStat(StatEnum.PHYSICAL_DEFENSE)); // [base pdef]
 
-		writeH(buf, bgs.getMagicResistance()); // [base magic res]
+		writeH(buf, pgs.getBaseStat(StatEnum.MAGICAL_RESIST)); // [base magic res]
 
 		writeH(buf, 0); // [unk]
 
 		writeD(buf, 1086324736);// [unk]
 
-		writeH(buf, bgs.getEvasion()); // [base evasion]
+		writeH(buf, pgs.getBaseStat(StatEnum.EVASION)); // [base evasion]
 
-		writeH(buf, bgs.getParry()); // [base parry]
+		writeH(buf, pgs.getBaseStat(StatEnum.PARRY)); // [base parry]
  
-		writeH(buf, bgs.getBlock()); // [base block]
+		writeH(buf, pgs.getBaseStat(StatEnum.BLOCK)); // [base block]
 
-		writeH(buf, bgs.getMainHandCritRate()); // [base main hand crit rate]
-		writeH(buf, bgs.getOffHandCritRate()); // [base off hand crit rate]
+		writeH(buf, pgs.getBaseStat(StatEnum.MAIN_HAND_CRITICAL)); // [base main hand crit rate]
+		writeH(buf, pgs.getBaseStat(StatEnum.OFF_HAND_CRITICAL)); // [base off hand crit rate]
 
-		writeH(buf, bgs.getMainHandAccuracy()); // [base main hand accuracy]
-		writeH(buf, bgs.getOffHandAccuracy()); // [base off hand accuracy]
-
-		writeH(buf, 0); // [unk]
-
-		writeH(buf, bgs.getMagicAccuracy());// [base magic accuracy]
+		writeH(buf, pgs.getBaseStat(StatEnum.MAIN_HAND_ACCURACY)); // [base main hand accuracy]
+		writeH(buf, pgs.getBaseStat(StatEnum.OFF_HAND_ACCURACY)); // [base off hand accuracy]
 
 		writeH(buf, 0); // [unk]
-		writeH(buf, bgs.getMagicBoost());// [base magic boost]
+
+		writeH(buf, pgs.getBaseStat(StatEnum.MAGICAL_ACCURACY));// [base magic accuracy]
+
+		writeH(buf, 0); // [unk]
+		writeH(buf, pgs.getBaseStat(StatEnum.MAGICAL_ATTACK));// [base magic boost]
 
 		writeH(buf, 0); // [unk]
 

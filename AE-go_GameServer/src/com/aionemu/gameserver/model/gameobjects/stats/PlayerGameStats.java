@@ -21,55 +21,28 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 
 /**
- * @author  xavier
- *
+ * @author xavier
+ * 
  */
 public class PlayerGameStats extends CreatureGameStats<Player>
 {
-	private PlayerStatsData	playerStatsData;
+	public PlayerGameStats(Player owner)
+	{
+		super(owner);
+		this.setInitialized(true);
+	}
 
 	public PlayerGameStats(PlayerStatsData playerStatsData, Player owner)
 	{
-		super(owner, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-		this.playerStatsData = playerStatsData;
+		super(owner);
 		PlayerStatsTemplate pst = playerStatsData.getTemplate(owner.getPlayerClass(), owner.getLevel());
 		setAttackCounter(1);
-		setPower(pst.getPower());
-		setHealth(pst.getHealth());
-		setAgility(pst.getAgility());
-		setAccuracy(pst.getAccuracy());
-		setKnowledge(pst.getKnowledge());
-		setWill(pst.getWill());
-		setMainHandAttack(pst.getMainHandAttack());
-		setMainHandCritRate(pst.getMainHandCritRate());
-		// TODO find off hand attack and crit rate values
-		setOffHandAttack(pst.getMainHandAttack());
-		setOffHandCritRate(pst.getMainHandCritRate());
-		setWater(0);
-		setWind(0);
-		setEarth(0);
-		setFire(0);
-		// TODO find good values for attack range
-		setAttackRange(1500);
-		setAttackSpeed(Math.round(pst.getAttackSpeed() * 1000));
+		initStats(pst.getMaxHp(),pst.getMaxMp(),pst.getPower(), pst.getHealth(), pst.getAgility(), pst.getAccuracy(), pst.getKnowledge(), pst
+			.getWill(), pst.getMainHandAttack(), pst.getMainHandCritRate(), Math.round(pst.getAttackSpeed() * 1000),
+			1500);
 		// TODO find good values for fly time
-		setFlyTime(60);
-		setInitialized(true);
+		setStat(StatEnum.FLY_TIME, 60);
 		log.debug("loading base game stats for player " + owner.getName() + " (id " + owner.getObjectId() + "): "
 			+ this);
-	}
-
-	public PlayerGameStats getBaseGameStats()
-	{
-		int level = this.getOwner().getLevel();
-		final PlayerGameStats pgs = new PlayerGameStats(playerStatsData,(Player)getOwner());
-		log.debug("Loading base game stats for player " + getOwner().getName() + "(id " + getOwner().getObjectId()
-			+ ") for level " + level + ": " + pgs);
-		return pgs;
-	}
-
-	public void setPlayerStatsData(PlayerStatsData playerStatsData)
-	{
-		this.playerStatsData = playerStatsData;
 	}
 }

@@ -28,6 +28,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.items.ItemStorage;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
@@ -130,6 +131,7 @@ public class Inventory
 		if(item.isEquipped())
 		{
 			equipment.put(item.getEquipmentSlot(), item);
+			ItemEquipmentListener.onItemEquipmentChange(this, item);
 		}
 		else if(item.getItemTemplate().getItemId() == ItemId.KINAH.value())
 		{
@@ -288,6 +290,7 @@ public class Inventory
 	{
 		equipment.put(slot, item);
 		item.setEquipmentSlot(slot);
+		ItemEquipmentListener.onItemEquipmentChange(this, item);
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
 	}
 	
@@ -331,6 +334,7 @@ public class Inventory
 	{
 		equipment.remove(itemToUnequip.getEquipmentSlot());
 		itemToUnequip.setEquipped(false);
+		ItemEquipmentListener.onItemEquipmentChange(this, itemToUnequip);
 		defaultItemBag.addItemToStorage(itemToUnequip);
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip));
 	}

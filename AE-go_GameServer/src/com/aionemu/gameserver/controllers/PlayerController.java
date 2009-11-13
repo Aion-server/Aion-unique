@@ -16,9 +16,12 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import java.util.Random;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.DuelResult;
+import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -26,6 +29,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
@@ -105,27 +109,43 @@ public class PlayerController extends CreatureController<Player>
 		}
 	}
 
+	private boolean doAttack (Player player, Creature target, PlayerGameStats pgs, long time, int attackType, int damage) {
+		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), target.getObjectId(), pgs
+			.getAttackCounter(), (int) time, attackType, damage), true);
+		boolean attackSuccess = target.getController().onAttack(player);
+
+		if(attackSuccess)
+		{
+			target.getLifeStats().reduceHp(damage);
+			pgs.increaseAttackCounter();
+		}
+		return attackSuccess;
+	}
+	
 	public void attackTarget(int targetObjectId)
 	{
 		Player player = getOwner();
 		PlayerGameStats gameStats = player.getGameStats();
 		long time = System.currentTimeMillis();
 		int attackType = 0; // TODO investigate attack types
+		Random generator = new Random();
 
 		World world = player.getActiveRegion().getWorld();
 		Creature target = (Creature) world.findAionObject(targetObjectId);
 
 		// TODO fix last attack - cause mob is already dead
-		int damage = StatFunctions.calculateBaseDamageToTarget(player, target);
-		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), targetObjectId, gameStats
-			.getAttackCounter(), (int) time, attackType, damage), true);
-
-		boolean attackSuccess = target.getController().onAttack(player);
-
-		if(attackSuccess)
-		{
-			target.getLifeStats().reduceHp(damage);
-			gameStats.increaseAttackCounter();
+		int damage;
+		if (gameStats.getBaseStat(StatEnum.IS_MAGICAL_ATTACK)==1) {
+			int baseDamage = gameStats.getBaseStat(StatEnum.MIN_DAMAGES);
+			baseDamage += generator.nextInt(gameStats.getBaseStat(StatEnum.MAX_DAMAGES)-gameStats.getBaseStat(StatEnum.MIN_DAMAGES));
+			damage = StatFunctions.calculateMagicDamageToTarget(player, target, baseDamage, SkillElement.NONE);
+		} else {
+			damage = StatFunctions.calculateBaseDamageToTarget(player, target);
+		}
+		boolean attackSuccess = doAttack(player,target,gameStats,time,attackType,damage);
+		for (int i=1; (i<gameStats.getBaseStat(StatEnum.HIT_COUNT))&&attackSuccess; i++) {
+			damage = generator.nextInt(damage/10);
+			attackSuccess = doAttack(player,target,gameStats,time,attackType,damage);
 		}
 	}
 
@@ -288,7 +308,7 @@ public class PlayerController extends CreatureController<Player>
 		log.debug("[PvP] Player " + attacker.getName() + " lost duel against " + this.getOwner().getName());
 		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_LOST,attacker.getName()));
 		PlayerLifeStats pls = getOwner().getLifeStats();
-		getOwner().setLifeStats(new PlayerLifeStats(1, pls.getCurrentMp(), pls.getMaxHp(), pls.getMaxMp()));
+		getOwner().setLifeStats(new PlayerLifeStats(getOwner(), 1, pls.getCurrentMp()));
 		getOwner().getLifeStats().triggerRestoreTask();
 	}
 

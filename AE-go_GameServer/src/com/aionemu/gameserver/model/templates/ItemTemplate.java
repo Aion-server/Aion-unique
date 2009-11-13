@@ -16,14 +16,22 @@
  */
 package com.aionemu.gameserver.model.templates;
 
+import java.lang.reflect.Field;
+
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.aionemu.gameserver.model.ItemSlot;
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.items.ItemQuality;
+import com.aionemu.gameserver.model.templates.item.EquipType;
+import com.aionemu.gameserver.model.templates.item.ItemBonus;
+import com.aionemu.gameserver.model.templates.item.ItemStats;
 
 /**
  * @author Luno
@@ -35,12 +43,15 @@ public class ItemTemplate
 {
 	
 	private int			itemId;
+	
+	@XmlElement(name = "stats", required = false)
+    protected ItemStats itemStats;
 
 	@XmlAttribute(name = "equipment_slots")
 	private int itemSlot; 
 	
 	@XmlAttribute(name = "equipment_type")
-	private int equipmentType; 
+	private EquipType equipmentType; 
 	
 	@XmlAttribute(name = "min_damage")
 	private int minDamage;
@@ -208,7 +219,7 @@ public class ItemTemplate
 	private String racePermitted;
 	
 	@XmlAttribute(name = "magical_resist")
-	private String magicalResist;
+	private int magicalResist;
 	
 	@XmlAttribute(name = "physical_defend")
 	private int physicalDefend;
@@ -235,15 +246,34 @@ public class ItemTemplate
 		 */
 		itemId = Integer.parseInt(uid);
 	}
+	
+	void afterUnmarshal(Unmarshaller u, Object parent) {
+		Logger log = Logger.getLogger(ItemTemplate.class);
+		if (this.itemId==110100733) {
+			if (itemStats==null) {
+				log.debug("item 11010073 has <stats> but itemStats is null...");
+			} else {
+				if (itemStats.getStat().size()==0) {
+					log.debug("item 11010073 has several <stat ...> but stat count is 0 ...");
+				}
+			}
+			
+		}
+	}
 
 	/**
-	 *  0 for misc items
-	 *  1 for weapons
-	 *  2 for armor
+	 * @return the itemStats
+	 */
+	public ItemStats getItemStats()
+	{
+		return itemStats;
+	}
+
+	/**
 	 *  
 	 * @return the equipmentType
 	 */
-	public int getEquipmentType()
+	public EquipType getEquipmentType()
 	{
 		return equipmentType;
 	}
@@ -693,7 +723,7 @@ public class ItemTemplate
 	 */
 	public boolean isWeapon()
 	{
-		return  equipmentType == 1;
+		return  equipmentType == EquipType.WEAPON;
 	}
 	
 	/**
@@ -701,7 +731,7 @@ public class ItemTemplate
 	 */
 	public boolean isArmor()
 	{
-		return equipmentType == 2;
+		return equipmentType == EquipType.ARMOR;
 	}
 
 	/** For testcase only
@@ -716,7 +746,7 @@ public class ItemTemplate
 	/**
 	 * @return the magicalResist
 	 */
-	public String getMagicalResist()
+	public int getMagicalResist()
 	{
 		return magicalResist;
 	}

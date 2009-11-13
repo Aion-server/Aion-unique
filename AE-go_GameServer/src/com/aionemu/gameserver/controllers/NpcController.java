@@ -28,7 +28,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
-import com.aionemu.gameserver.model.templates.stats.StatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
@@ -145,9 +144,7 @@ public class NpcController extends CreatureController<Npc>
 		this.decayTask = null;
 		dropService.unregisterDrop(getOwner());
 		this.getOwner().getNpcAi().setAiState(AIState.IDLE);
-		StatsTemplate statsTemplate = getOwner().getTemplate().getStatsTemplate();
-		this.getOwner().setLifeStats(new NpcLifeStats(statsTemplate.getMaxHp(),
-			statsTemplate.getMaxMp(), statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
+		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
 	}
 
 	/* (non-Javadoc)

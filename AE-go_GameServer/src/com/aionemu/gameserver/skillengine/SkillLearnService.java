@@ -60,10 +60,10 @@ public class SkillLearnService
 		
 		for(SkillLearnTemplate template : skillTemplates)
 		{
-			boolean success = player.getSkillList().addSkill(template.getSkillId(), template.getSkillLevel());
-			
-			if(!success)
-				continue;
+ 			boolean success = player.getSkillList().addSkill(template.getSkillId(), template.getSkillLevel());
+  			
+ 			if(!success)
+ 				continue;
 			
 			if(!isNewCharacter)
 			{

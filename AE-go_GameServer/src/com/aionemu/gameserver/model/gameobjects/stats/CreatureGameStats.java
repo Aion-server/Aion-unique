@@ -16,7 +16,10 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
-import java.lang.reflect.Field;
+import java.util.Map.Entry;
+
+import javolution.util.FastList;
+import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
@@ -25,89 +28,110 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 
 /**
  * @author xavier
- *
+ * 
  */
 public class CreatureGameStats<T extends Creature>
 {
-	protected static final Logger log = Logger.getLogger(CreatureGameStats.class);
-	
-	private static final int ATTACK_MAX_COUNTER = Integer.MAX_VALUE;
-	
-	private int attackCounter = 0;
-	private int power = 0;
-	private int health = 0;
-	private int agility = 0;
-	private int accuracy = 0;
-	private int knowledge = 0;
-	private int will = 0;
-	protected int mainHandAttack = 0;
-	protected int mainHandCritRate = 0;
-	private int offHandAttack = 0;
-	private int offHandCritRate = 0;
-	private int water = 0;
-	private int wind = 0;
-	private int earth = 0;
-	private int fire = 0;
-	private int flyTime = 0;
-	protected int mainHandAccuracy = 0;
-	protected int offHandAccuracy = 0;
-	protected int magicAccuracy = 0;
-	protected int magicResistance = 0;
-	protected int physicalDefense = 0;
-	protected int evasion = 0;
-	protected int block = 0;
-	protected int parry = 0;
-	private int magicBoost = 0;
-	private int attackSpeed = 0;
-	private int attackRange = 0;
-	private boolean initialized = false;
-	private T owner = null;
-	
-	protected CreatureGameStats (T owner, int power, int health, int agility, int accuracy, int knowledge, int will, int mainHandAttack, int mainHandCritRate, int offHandAttack, int offHandCritRate, int attackSpeed, int attackRange)
+	protected static final Logger						log					= Logger.getLogger(CreatureGameStats.class);
+
+	private static final int							ATTACK_MAX_COUNTER	= Integer.MAX_VALUE;
+
+	private FastMap<StatEnum, Integer>					baseStats;
+	private FastMap<StatEnum, Integer>					bonusStats;
+
+	private FastMap<Integer, FastList<StatModifier>>	effects;
+	private static Integer								nextEffectId		= 1;
+
+	private int											attackCounter		= 0;
+	private boolean										initialized			= false;
+	private T											owner				= null;
+
+	protected CreatureGameStats(T owner)
 	{
 		this.owner = owner;
+		this.baseStats = new FastMap<StatEnum, Integer>();
+		this.bonusStats = new FastMap<StatEnum, Integer>();
+		this.effects = new FastMap<Integer, FastList<StatModifier>>();
+	}
+
+	protected void initStats(int maxHp, int maxMp, int power, int health, int agility, int accuracy, int knowledge,
+		int will, int mainHandAttack, int mainHandCritRate, int attackSpeed, int attackRange)
+	{
+		baseStats.put(StatEnum.MAXHP, maxHp);
+		baseStats.put(StatEnum.MAXMP, maxMp);
+		baseStats.put(StatEnum.POWER, power);
+		baseStats.put(StatEnum.POWER, power);
+		baseStats.put(StatEnum.HEALTH, health);
+		baseStats.put(StatEnum.AGILITY, agility);
+		baseStats.put(StatEnum.KNOWLEDGE, knowledge);
+		baseStats.put(StatEnum.WILL, will);
+		baseStats.put(StatEnum.MAIN_HAND_POWER, mainHandAttack);
+		baseStats.put(StatEnum.MAIN_HAND_CRITICAL, mainHandCritRate);
+		baseStats.put(StatEnum.OFF_HAND_POWER, 0);
+		baseStats.put(StatEnum.OFF_HAND_CRITICAL, 0);
+		baseStats.put(StatEnum.ATTACK_SPEED, attackSpeed);
+		baseStats.put(StatEnum.ATTACK_RANGE, attackRange);
+		baseStats.put(StatEnum.PHYSICAL_DEFENSE, Math.round(health / 3.1f));
+		baseStats.put(StatEnum.PARRY, Math.round(agility / 3.1f));
+		baseStats.put(StatEnum.EVASION, Math.round(agility / 3.1f));
+		baseStats.put(StatEnum.BLOCK, Math.round(agility / 3.1f));
+		baseStats.put(StatEnum.MAIN_HAND_ACCURACY, Math.round(accuracy * 1.25f));
+		baseStats.put(StatEnum.OFF_HAND_ACCURACY, 0);
+		baseStats.put(StatEnum.MAGICAL_RESIST, Math.round(knowledge / 3.1f));
+		baseStats.put(StatEnum.MAGICAL_ACCURACY, Math.round(will * 0.75f));
 		this.initialized = true;
-		setPower(power);
-		setHealth(health);
-		setAgility(agility);
-		setAccuracy(accuracy);
-		setKnowledge(knowledge); 
-		setWill(will);
-		setMainHandAttack(mainHandAttack);
-		setMainHandCritRate(mainHandCritRate);
-		setOffHandAttack(offHandAttack);
-		setOffHandCritRate(offHandCritRate);
-		setAttackSpeed(attackSpeed);
-		setAttackRange(attackRange);
 	}
 
 	@Override
-	public String toString () {
+	public String toString()
+	{
 		StringBuilder sb = new StringBuilder();
 		sb.append('{');
-		Class<?> clazz = CreatureGameStats.class;
-		for (Field fi : clazz.getDeclaredFields()) {
-			sb.append(fi.getName()); sb.append(':');
-			try { sb.append(fi.getInt(this)); }
-			catch(Exception e) { try { sb.append(fi.getBoolean(this)); }
-			catch(Exception f) { try { sb.append(fi.getFloat(this)); }
-			catch(Exception g) { try { sb.append(fi.getDouble(this)); }
-			catch(Exception h) { try { sb.append(fi.get(this).toString()); }
-			catch(Exception i) { sb.append('?'); } } } } }
+		sb.append("owner:" + owner.getObjectId());
+		for(Entry<StatEnum, Integer> stat : baseStats.entrySet())
+		{
+			sb.append(';');
+			sb.append(stat.getKey().getName());
 			sb.append(':');
+			sb.append("(" + getBaseStat(stat.getKey()) + "+" + getStatBonus(stat.getKey()) + ")");
 		}
 		sb.append('}');
 		return sb.toString();
 	}
-	
-	public boolean isInitialized () {
+
+	public void setStat(StatEnum stat, int value)
+	{
+		setStat(stat, value, false);
+	}
+
+	public void setStat(StatEnum stat, int value, boolean bonus)
+	{
+		if(bonus)
+		{
+			synchronized(bonusStats)
+			{
+				bonusStats.put(stat, value);
+			}
+		}
+		else
+		{
+			synchronized(baseStats)
+			{
+				baseStats.put(stat, value);
+			}
+		}
+	}
+
+	public boolean isInitialized()
+	{
 		return initialized;
 	}
-	
-	public void setInitialized (boolean initialized) {
+
+	public void setInitialized(boolean initialized)
+	{
 		this.initialized = initialized;
 	}
-	
+
 	/**
 	 * @return the atcount
 	 */
@@ -117,17 +141,21 @@ public class CreatureGameStats<T extends Creature>
 	}
 
 	/**
-	 * @param atcount the atcount to set
+	 * @param atcount
+	 *            the atcount to set
 	 */
 	public void setAttackCounter(int attackCounter)
 	{
-		if (attackCounter<=0) {
+		if(attackCounter <= 0)
+		{
 			this.attackCounter = 1;
-		} else {
+		}
+		else
+		{
 			this.attackCounter = attackCounter;
 		}
 	}
-	
+
 	public void increaseAttackCounter()
 	{
 		if(attackCounter == ATTACK_MAX_COUNTER)
@@ -139,361 +167,299 @@ public class CreatureGameStats<T extends Creature>
 			this.attackCounter++;
 		}
 	}
-	
-	/**
-	 * @return the power
-	 */
-	public int getPower()
+
+	public int getBaseStat(StatEnum stat)
 	{
-		return power;
-	}
-	/**
-	 * @param power the power to set
-	 */
-	public void setPower(int power)
-	{
-		this.power = power;
-	}
-	/**
-	 * @return the health
-	 */
-	public int getHealth()
-	{
-		return health;
-	}
-	/**
-	 * @param health the health to set
-	 */
-	public void setHealth(int health)
-	{
-		this.health = health;
-		this.physicalDefense = (int)Math.round(health / 3.1);
-	}
-	/**
-	 * @return the agility
-	 */
-	public int getAgility()
-	{
-		return agility;
-	}
-	/**
-	 * @param agility the agility to set
-	 */
-	public void setAgility(int agility)
-	{
-		this.agility = agility;
-		this.parry = (int)Math.round(agility / 3.1);
-		this.evasion = (int)Math.round(agility / 3.1);
-		this.block = (int)Math.round(agility / 3.1);
-	}
-	/**
-	 * @return the accuracy
-	 */
-	public int getAccuracy()
-	{
-		return accuracy;
-	}
-	/**
-	 * @param accuracy the accuracy to set
-	 */
-	public void setAccuracy(int accuracy)
-	{
-		this.accuracy = accuracy;
-		this.mainHandAccuracy = (int) Math.round(accuracy * 1.25);
-		this.offHandAccuracy = (int) Math.round(accuracy * 0.75);
-	}
-	/**
-	 * @return the knowledge
-	 */
-	public int getKnowledge()
-	{
-		return knowledge;
-	}
-	/**
-	 * @param knowledge the knowledge to set
-	 */
-	public void setKnowledge(int knowledge)
-	{
-		this.knowledge = knowledge;
-		this.magicResistance = (int)Math.round(knowledge / 3.1);
-	}
-	/**
-	 * @return the will
-	 */
-	public int getWill()
-	{
-		return will;
-	}
-	/**
-	 * @param will the will to set
-	 */
-	public void setWill(int will)
-	{
-		this.will = will;
-		this.magicAccuracy = (int) Math.round(will * 0.75);
-	}
-	/**
-	 * @return the mainHandAttack
-	 */
-	public int getMainHandAttack()
-	{
-		return mainHandAttack;
-	}
-	/**
-	 * @param mainHandAttack the mainHandAttack to set
-	 */
-	public void setMainHandAttack(int mainHandAttack)
-	{
-		this.mainHandAttack = mainHandAttack;
-	}
-	/**
-	 * @return the mainHandCritRate
-	 */
-	public int getMainHandCritRate()
-	{
-		return mainHandCritRate;
-	}
-	/**
-	 * @param mainHandCritRate the mainHandCritRate to set
-	 */
-	public void setMainHandCritRate(int mainHandCritRate)
-	{
-		this.mainHandCritRate = mainHandCritRate;
-	}
-	/**
-	 * @return the otherHandAttack
-	 */
-	public int getOffHandAttack()
-	{
-		return offHandAttack;
-	}
-	/**
-	 * @param otherHandAttack the otherHandAttack to set
-	 */
-	public void setOffHandAttack(int offHandAttack)
-	{
-		this.offHandAttack = offHandAttack;
-	}
-	/**
-	 * @return the otherHandCritRate
-	 */
-	public int getOffHandCritRate()
-	{
-		return offHandCritRate;
-	}
-	/**
-	 * @param otherHandCritRate the otherHandCritRate to set
-	 */
-	public void setOffHandCritRate(int offHandCritRate)
-	{
-		this.offHandCritRate = offHandCritRate;
-	}
-	
-	/**
-	 * @return the attackSpeed
-	 */
-	public int getAttackSpeed()
-	{
-		return attackSpeed;
+		int value = 0;
+		synchronized(baseStats)
+		{
+			if(baseStats.containsKey(stat))
+			{
+				value = baseStats.get(stat);
+			}
+		}
+		return value;
 	}
 
-	/**
-	 * @param attackSpeed the attackSpeed to set
-	 */
-	public void setAttackSpeed(int attackSpeed)
+	public int getStatBonus(StatEnum stat)
 	{
-		this.attackSpeed = attackSpeed;
+		int value = 0;
+		synchronized(bonusStats)
+		{
+			if(bonusStats.containsKey(stat))
+			{
+				value = bonusStats.get(stat);
+			}
+		}
+		return value;
 	}
 
-	/**
-	 * @return the attackRange
-	 */
-	public int getAttackRange()
+	public int getCurrentStat(StatEnum stat)
 	{
-		return attackRange;
-	}
-	
-	/**
-	 * @param attackRange the attackRange to set
-	 */
-	public void setAttackRange(int attackRange)
-	{
-		this.attackRange = attackRange;
+		int baseStat = getBaseStat(stat);
+		boolean contains = false;
+		synchronized(bonusStats)
+		{
+			contains = bonusStats.containsKey(stat);
+		}
+		if(contains)
+		{
+			return (baseStat + getStatBonus(stat));
+		}
+		return baseStat;
 	}
 
-	/**
-	 * @return the water
-	 */
-	public int getWater()
+	private int getNextEffectId()
 	{
-		return water;
+		int effectId = -1;
+		while(effectId < 0)
+		{
+			synchronized(nextEffectId)
+			{
+				nextEffectId = (nextEffectId % Integer.MAX_VALUE) + 1;
+				effectId = nextEffectId;
+			}
+			synchronized(effects)
+			{
+				if(effects.size() == Integer.MAX_VALUE)
+				{
+					effectId = 0;
+				}
+				if(effects.containsKey(effectId))
+				{
+					effectId = -1;
+				}
+			}
+		}
+		return effectId;
 	}
-	/**
-	 * @param water the water to set
-	 */
-	public void setWater(int water)
+
+	public int getEffectId() throws IllegalAccessException
 	{
-		this.water = water;
+		int effectId = getNextEffectId();
+
+		if(effectId == 0)
+		{
+			throw new IllegalAccessException("Cannot get a new Effect id");
+		}
+
+		FastList<StatModifier> modifiers = new FastList<StatModifier>();
+		synchronized(effects)
+		{
+			effects.put(effectId, modifiers);
+		}
+		return effectId;
 	}
-	/**
-	 * @return the wind
-	 */
-	public int getWind()
+
+	public void addEffectOnStat(int effectId, StatEnum stat, String value)
 	{
-		return wind;
+		addEffectOnStat(effectId, stat, value, false);
 	}
-	/**
-	 * @param wind the wind to set
-	 */
-	public void setWind(int wind)
+
+// TODO update applyModifiersOnStat to get awaited behaviour
+//	private int applyOldModifiersOnNewStat(int effectId, StatEnum stat, int base)
+//	{
+//		int newValue = base;
+//		synchronized(effects)
+//		{
+//			for(Entry<Integer, FastList<StatModifier>> effect : effects.entrySet())
+//			{
+//				if(effect.getKey() != effectId)
+//				{
+//					FastList<StatModifier> modifiers = effect.getValue();
+//					synchronized(modifiers)
+//					{
+//						for(StatModifier modifier : modifiers)
+//						{
+//							if(modifier.getModifiedStat() == stat)
+//							{
+//								modifier.setOldValue(newValue);
+//								if(stat.isReplace()&&!modifier.isBonus())
+//								{
+//									newValue = modifier.getModifier();
+//								}
+//								else
+//								{
+//									newValue = newValue + modifier.getModifier();
+//								}
+//							}
+//						}
+//					}
+//
+//				}
+//			}
+//
+//		}
+//		return newValue;
+//	}
+
+//	private int applyOldModifiersOnOldStat(StatEnum stat, int base)
+//	{
+//		int newValue = base;
+//		synchronized(effects)
+//		{
+//			for(Entry<Integer, FastList<StatModifier>> effect : effects.entrySet())
+//			{
+//				FastList<StatModifier> modifiers = effect.getValue();
+//				synchronized(modifiers)
+//				{
+//					for(StatModifier modifier : modifiers)
+//					{
+//						if((modifier.getModifiedStat() == stat) && (!modifier.isEnded()))
+//						{
+//							modifier.setOldValue(newValue);
+//							if(stat.isReplace()&&!modifier.isBonus())
+//							{
+//								newValue = modifier.getModifier();
+//							}
+//							else
+//							{
+//								newValue = newValue + modifier.getModifier();
+//							}
+//						}
+//					}
+//				}
+//
+//			}
+//		}
+//
+//		return newValue;
+//	}
+
+	public void addEffectOnStat(int effectId, StatEnum stat, String value, boolean bonus)
 	{
-		this.wind = wind;
+		log.debug("Adding modifier for effect#" + effectId + ": stat:" + stat.getName() + ",value:" + value + ",bonus:"
+			+ bonus);
+		FastList<StatModifier> modifiers = null;
+		synchronized(effects)
+		{
+			modifiers = effects.get(effectId);
+		}
+		if(modifiers == null)
+		{
+			throw new IllegalArgumentException("Invalid effect id " + effectId);
+		}
+
+		StatModifier modifier = new StatModifier(stat, value, getBaseStat(stat), bonus);
+
+		if(bonus)
+		{
+			synchronized(bonusStats)
+			{
+				if (stat.isReplace()) {
+					// TODO do the right thing to remove bonus modifier to a replacable stat
+				} else {
+					bonusStats.put(stat, getStatBonus(stat) + modifier.getModifier());
+				}
+			}
+		}
+		else
+		{
+			synchronized(baseStats)
+			{
+				if(stat.isReplace())
+				{
+					// TODO correct behaviour to set the new stats, then apply all active modifiers to it
+					// baseStats.put(stat, applyOldModifiersOnNewStat(effectId, stat, modifier.getModifier()));
+					baseStats.put(stat, modifier.getModifier());
+				}
+				else
+				{
+					baseStats.put(stat, getBaseStat(stat) + modifier.getModifier());
+				}
+			}
+		}
+
+		synchronized(modifiers)
+		{
+			modifiers.add(modifier);
+		}
+
 	}
-	/**
-	 * @return the earth
-	 */
-	public int getEarth()
+
+	public void endEffect(int effectId)
 	{
-		return earth;
+		synchronized(effects)
+		{
+			FastList<StatModifier> modifiers = effects.get(effectId);
+			if(modifiers != null)
+			{
+				for(StatModifier modifier : modifiers)
+				{
+					log.debug("Removing modifier for effect#" + effectId + ": stat:"
+						+ modifier.getModifiedStat().getName() + ",value:" + modifier.getModifier() + ",bonus:"
+						+ modifier.isBonus());
+					if(modifier.isBonus())
+					{
+						synchronized(bonusStats)
+						{
+							if (modifier.getModifiedStat().isReplace()) {
+								// TODO do the right thing to remove bonus modifier to a replacable stat
+							} else {
+								bonusStats.put(modifier.getModifiedStat(), modifier.endModifier(bonusStats.get(modifier
+									.getModifiedStat())));
+							}
+						}
+					}
+					else
+					{
+						synchronized(baseStats)
+						{
+							if(modifier.getModifiedStat().isReplace())
+							{
+								// TODO update normal behaviour: apply all actives modifiers on old stat
+								// baseStats.put(modifier.getModifiedStat(), applyOldModifiersOnOldStat(modifier
+								//  	.getModifiedStat(), modifier.endModifier(modifier.getModifier())));
+								baseStats.put(modifier.getModifiedStat(), modifier.endModifier(modifier.getModifier()));
+							}
+							else
+							{
+								baseStats.put(modifier.getModifiedStat(), modifier.endModifier(baseStats.get(modifier
+									.getModifiedStat())));
+							}
+						}
+					}
+				}
+				effects.remove(effectId);
+			}
+			else
+			{
+				throw new IllegalArgumentException("Invalid effect id " + effectId);
+			}
+		}
 	}
-	/**
-	 * @param earth the earth to set
-	 */
-	public void setEarth(int earth)
-	{
-		this.earth = earth;
-	}
-	/**
-	 * @return the fire
-	 */
-	public int getFire()
-	{
-		return fire;
-	}
-	/**
-	 * @param fire the fire to set
-	 */
-	public void setFire(int fire)
-	{
-		this.fire = fire;
-	}
-	/**
-	 * @return the flyTime
-	 */
-	public int getFlyTime()
-	{
-		return flyTime;
-	}
-	/**
-	 * @param flyTime the flyTime to set
-	 */
-	public void setFlyTime(int flyTime)
-	{
-		this.flyTime = flyTime;
-	}
-	/**
-	 * @return the mainHandAccuracy
-	 */
-	public int getMainHandAccuracy()
-	{
-		return mainHandAccuracy;
-	}
-	/**
-	 * @return the otherHandAccuracy
-	 */
-	public int getOffHandAccuracy()
-	{
-		return offHandAccuracy;
-	}
-	/**
-	 * @return the magicAccuracy
-	 */
-	public int getMagicAccuracy()
-	{
-		return magicAccuracy;
-	}
-	/**
-	 * @return the magicResistance
-	 */
-	public int getMagicResistance()
-	{
-		return magicResistance;
-	}
-	/**
-	 * @return the physicalDefense
-	 */
-	public int getPhysicalDefense()
-	{
-		return physicalDefense;
-	}
-	/**
-	 * @return the evasion
-	 */
-	public int getEvasion()
-	{
-		return evasion;
-	}
-	/**
-	 * @return the block
-	 */
-	public int getBlock()
-	{
-		return block;
-	}
-	/**
-	 * @return the parry
-	 */
-	public int getParry()
-	{
-		return parry;
-	}
-	/**
-	 * @return the magicBoost
-	 */
-	public int getMagicBoost()
-	{
-		return magicBoost;
-	}
+
 	/**
 	 * @return the owner
 	 */
-	public Creature getOwner () {
+	public Creature getOwner()
+	{
 		return owner;
 	}
+
 	/**
-	 * @param Creature the owner
+	 * @param Creature
+	 *            the owner
 	 */
-	public void setOwner (T owner) {
+	public void setOwner(T owner)
+	{
 		this.owner = owner;
 	}
-	
-	public int getMagicalDefenseFor (SkillElement element) {
-		switch (element) {
+
+	public int getMagicalDefenseFor(SkillElement element)
+	{
+		switch(element)
+		{
 			case EARTH:
-				return earth; 
+				return getCurrentStat(StatEnum.EARTH_RESISTANCE);
 			case FIRE:
-				return fire;
+				return getCurrentStat(StatEnum.FIRE_RESISTANCE);
 			case WATER:
-				return water;
+				return getCurrentStat(StatEnum.WATER_RESISTANCE);
 			case WIND:
-				return wind;
+				return getCurrentStat(StatEnum.WIND_RESISTANCE);
 			default:
 				return 0;
-		}
-	}
-	
-	public void setMagicalDefenseFor (SkillElement element, int value) {
-		switch (element) {
-			case EARTH:
-				this.earth = value; break; 
-			case FIRE:
-				this.fire = value; break;
-			case WATER:
-				this.water = value; break;
-			case WIND:
-				this.wind = value; break;
-			default:
-				break;
 		}
 	}
 }

@@ -23,6 +23,7 @@ import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 
 /**
  * @author ATracer
@@ -65,10 +66,10 @@ public class StatFunctions
 	
 	/**
 	 * 
-	 * @param attacker
+	 * @param player
 	 * @param target
 	 * @param skillDamages
-	 * @return
+	 * @return Damage made to target (-hp value)
 	 */
 	public static int calculatePhysicDamageToTarget(Creature attacker, Creature target, int skillDamages)
 	{
@@ -78,8 +79,8 @@ public class StatFunctions
 		log.debug("Calculating base damages...");
 		log.debug("| Attacker: "+ags);
 		log.debug("| Target  : "+tgs);
-		int baseDamages = ags.getMainHandAttack() + skillDamages;
-		int pDef = tgs.getPhysicalDefense();
+		int baseDamages = ags.getCurrentStat(StatEnum.MAIN_HAND_POWER) + skillDamages;
+		int pDef = tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE);
 		int damages = baseDamages + Math.round(baseDamages*0.60f);
 		damages -= Math.round(pDef * 0.10f);
 		if (damages<=0) {
@@ -88,6 +89,7 @@ public class StatFunctions
 		log.debug("|=> Damages calculation result: damages("+damages+")");
 		return damages;
 	}
+	
 	
 	/**
 	 * @param player
@@ -103,8 +105,8 @@ public class StatFunctions
 		log.debug("| Speller : "+sgs);
 		log.debug("| Target  : "+tgs);
 		int elementaryDefense = tgs.getMagicalDefenseFor(element);
-		int magicalResistance = tgs.getMagicResistance();
-		int magicBoost = sgs.getMagicBoost();
+		int magicalResistance = tgs.getCurrentStat(StatEnum.MAGICAL_RESIST);
+		int magicBoost = sgs.getCurrentStat(StatEnum.MAGICAL_ATTACK);
 		int damages = baseDamages+Math.round(magicBoost*0.60f);
 		damages -= Math.round((elementaryDefense+magicalResistance)*0.60f);
 		if (damages<=0) {

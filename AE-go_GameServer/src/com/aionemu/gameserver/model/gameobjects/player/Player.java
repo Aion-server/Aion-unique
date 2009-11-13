@@ -54,6 +54,7 @@ public class Player extends Creature
 	private Inventory			inventory;
 	private ExchangeList			exchangeList;
 	private PlayerStatsTemplate playerStatsTemplate;
+	private PlayerGameStats		playerStatsBonus;
 	
 	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
@@ -239,6 +240,7 @@ public class Player extends Creature
 	public void setGameStats(PlayerGameStats gameStats)
 	{
 		super.setGameStats(gameStats);
+		this.playerStatsBonus = new PlayerGameStats (this);
 	}
 
 	/**

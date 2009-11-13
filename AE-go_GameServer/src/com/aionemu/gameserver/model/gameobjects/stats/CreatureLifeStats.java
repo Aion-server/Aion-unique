@@ -39,9 +39,6 @@ public abstract class CreatureLifeStats<T extends Creature>
 	protected int currentHp;
 	protected int currentMp;
 
-	protected int maxHp;
-	protected int maxMp;
-
 	protected boolean alreadyDead = false;
 
 	protected Creature owner;
@@ -54,21 +51,26 @@ public abstract class CreatureLifeStats<T extends Creature>
 	
 	private Future<?> lifeRestoreTask;
 
-	public CreatureLifeStats(int currentHp, int currentMp, int maxHp, int maxMp)
+	public CreatureLifeStats(Creature owner, int currentHp, int currentMp)
 	{
 		super();
+		setOwner(owner);
 		this.currentHp = currentHp;
 		this.currentMp = currentMp;
-		this.maxHp = maxHp;
-		this.maxMp = maxMp;
 	}
 
 	/**
 	 * @param owner
 	 */
-	public void setOwner(Creature owner)
+	public void setOwner(Creature owner) throws IllegalArgumentException
 	{
 		this.owner = owner;
+		if (owner==null) {
+			return;
+		}
+		if (owner.getGameStats()==null) {
+			throw new IllegalArgumentException("cannot set owner because he have no gamestats");
+		}
 	}
 
 	/**
@@ -95,22 +97,14 @@ public abstract class CreatureLifeStats<T extends Creature>
 		return currentMp;
 	}
 
-	/**
-	 * @return the maxHp
-	 */
-	public int getMaxHp()
-	{
-		return maxHp;
+	public int getMaxHp () {
+		return this.getOwner().getGameStats().getCurrentStat(StatEnum.MAXHP);
 	}
-
-	/**
-	 * @return the maxMp
-	 */
-	public int getMaxMp()
-	{
-		return maxMp;
+	
+	public int getMaxMp () {
+		return this.getOwner().getGameStats().getCurrentStat(StatEnum.MAXMP);
 	}
-
+	
 	/**
 	 * @return the alreadyDead
 	 * There is no setter method cause life stats should be completely renewed on revive
@@ -196,7 +190,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 		{
 			return;
 		}
-		int hpPercentage = Math.round(100 *  currentHp / maxHp);
+		int hpPercentage = Math.round(100 *  currentHp / getMaxHp());
 		PacketSendUtility.broadcastPacket(owner, new SM_ATTACK_STATUS(getOwner().getObjectId(), hpPercentage));
 		if(owner instanceof Player)
 		{
@@ -211,7 +205,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	 */
 	public int increaseHp(int value)
 	{
-		if(value == maxHp)
+		if(value == getMaxHp())
 			return 0;
 		
 		hpLock.lock();
@@ -222,9 +216,9 @@ public abstract class CreatureLifeStats<T extends Creature>
 				return 0;
 			}
 			int newHp = this.currentHp + value;
-			if(newHp > maxHp)
+			if(newHp > getMaxHp())
 			{
-				newHp = maxHp;
+				newHp = getMaxHp();
 			}
 			this.currentHp = newHp;		
 		}
@@ -245,7 +239,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	 */
 	public int increaseMp(int value)
 	{
-		if(value == maxMp)
+		if(value == getMaxMp())
 			return 0;
 		
 		mpLock.lock();
@@ -257,9 +251,9 @@ public abstract class CreatureLifeStats<T extends Creature>
 				return 0;
 			}
 			int newMp = this.currentMp + value;
-			if(newMp > maxMp)
+			if(newMp > getMaxMp())
 			{
-				newMp = maxMp;
+				newMp = getMaxMp();
 			}
 			this.currentMp = newMp;
 		}	
@@ -318,7 +312,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	 */
 	public boolean isFullyRestored()
 	{
-		return maxHp == currentHp && maxMp == currentMp;
+		return getMaxHp() == currentHp && getMaxMp() == currentMp;
 	}
 	
 	protected abstract void onIncreaseMp();

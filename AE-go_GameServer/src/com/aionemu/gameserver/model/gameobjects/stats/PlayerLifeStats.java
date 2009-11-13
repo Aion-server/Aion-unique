@@ -27,14 +27,9 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class PlayerLifeStats extends CreatureLifeStats<Player>
 {
 
-	public PlayerLifeStats(int currentHp, int currentMp, int maxHp, int maxMp)
+	public PlayerLifeStats(Player owner, int currentHp, int currentMp)
 	{
-		super(currentHp, currentMp, maxHp, maxMp);
-	}	
-	
-	public PlayerLifeStats(int maxHp, int maxMp)
-	{
-		super(maxHp, maxMp, maxHp, maxMp);
+		super(owner,currentHp,currentMp);
 	}
 
 	/* (non-Javadoc)
@@ -73,6 +68,6 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 		if(owner == null)
 			return;
 
-		PacketSendUtility.sendPacket((Player) owner, new SM_STATUPDATE_MP(currentMp, maxMp));
+		PacketSendUtility.sendPacket((Player) owner, new SM_STATUPDATE_MP(currentMp, getMaxMp()));
 	}
 }

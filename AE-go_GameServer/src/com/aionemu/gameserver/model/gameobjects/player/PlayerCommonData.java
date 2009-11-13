@@ -29,6 +29,7 @@ import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
@@ -219,9 +220,10 @@ public class PlayerCommonData
 		{
 			PlayerStatsTemplate statsTemplate = DataManager.PLAYER_STATS_DATA.getTemplate(player);
 			
-			player.setLifeStats(new PlayerLifeStats(statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
 			player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA,player));
 			player.setPlayerStatsTemplate(statsTemplate);
+			player.setLifeStats(new PlayerLifeStats(player, statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
+			ItemEquipmentListener.onLevelChange(player.getInventory());
 			
 			PacketSendUtility.sendPacket(player,
 				new SM_LEVEL_UPDATE(player.getObjectId(), this.level));

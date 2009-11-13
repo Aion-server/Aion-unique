@@ -25,10 +25,11 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 public class NpcLifeStats extends CreatureLifeStats<Npc>
 {
 
-	public NpcLifeStats(int currentHp, int currentMp, int maxHp, int maxMp)
+	public NpcLifeStats(Npc owner)
 	{
-		super(currentHp, currentMp, maxHp, maxMp);
-		// TODO Auto-generated constructor stub
+		super(owner,0,0);
+		this.currentHp = owner.getGameStats().getCurrentStat(StatEnum.MAXHP);
+		this.currentMp = owner.getGameStats().getCurrentStat(StatEnum.MAXMP);	
 	}
 
 	/* (non-Javadoc)
