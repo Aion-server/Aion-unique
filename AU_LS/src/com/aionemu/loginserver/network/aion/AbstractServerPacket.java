@@ -1,9 +1,9 @@
-package com.aionemu.loginserver.network.netty.packet.l2c;
+package com.aionemu.loginserver.network.aion;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
+import com.aionemu.loginserver.network.BaseServerPacket;
 import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
-import com.aionemu.loginserver.network.netty.packet.BaseServerPacket;
 
 /**
  * @author ATracer
@@ -19,10 +19,10 @@ public abstract class AbstractServerPacket extends BaseServerPacket
 		super(opCode);
 	}
 	
-	public void write(ClientChannelHandler cHandler, ChannelBuffer buf)
+	public void write(ClientChannelHandler clientChannelHandler, ChannelBuffer buf)
 	{
 		buf.writeShort((short)0);
-		writeImpl(cHandler, buf);
+		writeImpl(clientChannelHandler, buf);
 	}
 	
 	/**

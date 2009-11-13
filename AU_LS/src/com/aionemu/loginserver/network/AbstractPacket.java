@@ -1,4 +1,4 @@
-package com.aionemu.loginserver.network.netty.packet;
+package com.aionemu.loginserver.network;
 
 
 /**

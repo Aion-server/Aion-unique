@@ -16,16 +16,16 @@
  */
 package com.aionemu.loginserver.network.gameserver.clientpackets;
 
+import org.apache.log4j.Logger;
+import org.jboss.netty.buffer.ChannelBuffer;
+
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.loginserver.controller.AccountController;
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.model.ReconnectingAccount;
-import com.aionemu.loginserver.network.gameserver.GsClientPacket;
-import com.aionemu.loginserver.network.gameserver.GsConnection;
+import com.aionemu.loginserver.network.gameserver.AbstractGameClientPacket;
 import com.aionemu.loginserver.network.gameserver.serverpackets.SM_ACCOUNT_RECONNECT_KEY;
-import org.apache.log4j.Logger;
-
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
 
 /**
  * This packet is sended by GameServer when player is requesting fast reconnect to login server. LoginServer in response
@@ -34,7 +34,7 @@ import java.nio.ByteBuffer;
  * @author -Nemesiss-
  * 
  */
-public class CM_ACCOUNT_RECONNECT_KEY extends GsClientPacket
+public class CM_ACCOUNT_RECONNECT_KEY extends AbstractGameClientPacket
 {
 	/**
 	 * Logger for this class.
@@ -51,7 +51,7 @@ public class CM_ACCOUNT_RECONNECT_KEY extends GsClientPacket
 	 * @param buf
 	 * @param client
 	 */
-	public CM_ACCOUNT_RECONNECT_KEY(ByteBuffer buf, GsConnection client)
+	public CM_ACCOUNT_RECONNECT_KEY(ChannelBuffer buf, GameChannelHandler client)
 	{
 		super(buf, client, 0x02);
 	}
@@ -72,11 +72,11 @@ public class CM_ACCOUNT_RECONNECT_KEY extends GsClientPacket
 	protected void runImpl()
 	{
 		int reconectKey = Rnd.nextInt();
-		Account acc = getConnection().getGameServerInfo().removeAccountFromGameServer(accountId);
+		Account acc = gameChannelHandler.getGameServerInfo().removeAccountFromGameServer(accountId);
 		if (acc == null)
 			log.info("This shouldnt happend! [Error]");
 		else
 			AccountController.addReconnectingAccount(new ReconnectingAccount(acc, reconectKey));
-		sendPacket(new SM_ACCOUNT_RECONNECT_KEY(accountId, reconectKey));
+		gameChannelHandler.sendPacket(new SM_ACCOUNT_RECONNECT_KEY(accountId, reconectKey));
 	}
 }

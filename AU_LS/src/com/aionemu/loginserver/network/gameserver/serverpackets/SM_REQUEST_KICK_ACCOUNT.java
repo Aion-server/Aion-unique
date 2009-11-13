@@ -16,10 +16,10 @@
  */
 package com.aionemu.loginserver.network.gameserver.serverpackets;
 
-import com.aionemu.loginserver.network.gameserver.GsConnection;
-import com.aionemu.loginserver.network.gameserver.GsServerPacket;
+import org.jboss.netty.buffer.ChannelBuffer;
 
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.network.gameserver.AbstractGameServerPacket;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
 
 /**
  * In this packet LoginSerer is requesting kicking account from GameServer.
@@ -27,7 +27,7 @@ import java.nio.ByteBuffer;
  * @author -Nemesiss-
  * 
  */
-public class SM_REQUEST_KICK_ACCOUNT extends GsServerPacket
+public class SM_REQUEST_KICK_ACCOUNT extends AbstractGameServerPacket
 {
 	/**
 	 * Account that must be kicked at GameServer side.
@@ -50,9 +50,9 @@ public class SM_REQUEST_KICK_ACCOUNT extends GsServerPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(GsConnection con, ByteBuffer buf)
+	protected void writeImpl(GameChannelHandler gameChannelHandler, ChannelBuffer buf)
 	{
-		writeC(buf, getOpcode());
+		writeC(buf, getOpCode());
 		writeD(buf, accountId);
 	}
 }

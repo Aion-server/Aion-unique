@@ -16,18 +16,18 @@
  */
 package com.aionemu.loginserver.network.aion.serverpackets;
 
-import com.aionemu.loginserver.network.aion.AionConnection;
-import com.aionemu.loginserver.network.aion.AionServerPacket;
-import com.aionemu.loginserver.network.aion.SessionKey;
+import org.jboss.netty.buffer.ChannelBuffer;
 
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.network.aion.AbstractServerPacket;
+import com.aionemu.loginserver.network.aion.SessionKey;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 
 /**
  * This packet is send to client to update sessionKey [for fast reconnection feature]
  * 
  * @author -Nemesiss-
  */
-public class SM_UPDATE_SESSION extends AionServerPacket
+public class SM_UPDATE_SESSION extends AbstractServerPacket
 {
 	/**
 	 * accountId is part of session key - its used for security purposes
@@ -55,9 +55,9 @@ public class SM_UPDATE_SESSION extends AionServerPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(AionConnection con, ByteBuffer buf)
+	protected void writeImpl(ClientChannelHandler channelHandler, ChannelBuffer buf)
 	{
-		writeC(buf, getOpcode());
+		writeC(buf, getOpCode());
 		writeD(buf, accountId);
 		writeD(buf, loginOk);
 		writeC(buf, 0x00);// sysmsg if smth is wrong

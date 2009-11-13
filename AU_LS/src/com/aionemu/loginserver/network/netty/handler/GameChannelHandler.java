@@ -12,9 +12,9 @@ import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.MessageEvent;
 
 import com.aionemu.loginserver.GameServer;
-import com.aionemu.loginserver.network.netty.packet.handler.GameServerPacketHandler;
-import com.aionemu.loginserver.network.netty.packet.l2g.AbstractGameClientPacket;
-import com.aionemu.loginserver.network.netty.packet.l2g.AbstractGameServerPacket;
+import com.aionemu.loginserver.network.gameserver.AbstractGameClientPacket;
+import com.aionemu.loginserver.network.gameserver.AbstractGameServerPacket;
+import com.aionemu.loginserver.network.gameserver.GameServerPacketHandler;
 
 /**
  * @author ATracer

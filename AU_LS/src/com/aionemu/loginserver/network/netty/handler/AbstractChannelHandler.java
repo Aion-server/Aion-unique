@@ -10,7 +10,7 @@ import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 
-import com.aionemu.loginserver.network.netty.packet.BaseServerPacket;
+import com.aionemu.loginserver.network.BaseServerPacket;
 
 /**
  * @author ATracer
@@ -77,5 +77,4 @@ public abstract class AbstractChannelHandler extends SimpleChannelUpstreamHandle
 	{
 		return inetAddress.getHostAddress();
 	}
-
 }

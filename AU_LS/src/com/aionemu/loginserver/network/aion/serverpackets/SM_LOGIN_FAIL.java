@@ -16,16 +16,16 @@
  */
 package com.aionemu.loginserver.network.aion.serverpackets;
 
-import com.aionemu.loginserver.network.aion.AionAuthResponse;
-import com.aionemu.loginserver.network.aion.AionConnection;
-import com.aionemu.loginserver.network.aion.AionServerPacket;
+import org.jboss.netty.buffer.ChannelBuffer;
 
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.network.aion.AbstractServerPacket;
+import com.aionemu.loginserver.network.aion.AionAuthResponse;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 
 /**
  * @author KID
  */
-public class SM_LOGIN_FAIL extends AionServerPacket
+public class SM_LOGIN_FAIL extends AbstractServerPacket
 {
 	/**
 	 * response - why login fail
@@ -47,9 +47,9 @@ public class SM_LOGIN_FAIL extends AionServerPacket
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void writeImpl(AionConnection con, ByteBuffer buf)
+	protected void writeImpl(ClientChannelHandler channelHandler, ChannelBuffer buf)
 	{
-		writeC(buf, getOpcode());
+		writeC(buf, getOpCode());
 		writeD(buf, response.getMessageId());
 	}
 }

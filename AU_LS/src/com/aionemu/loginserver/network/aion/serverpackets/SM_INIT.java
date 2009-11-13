@@ -16,17 +16,19 @@
  */
 package com.aionemu.loginserver.network.aion.serverpackets;
 
-import com.aionemu.loginserver.network.aion.AionConnection;
-import com.aionemu.loginserver.network.aion.AionServerPacket;
-
 import javax.crypto.SecretKey;
-import java.nio.ByteBuffer;
+
+import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.channel.Channel;
+
+import com.aionemu.loginserver.network.aion.AbstractServerPacket;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 
 /**
  * Format: dd b dddd s d: session id d: protocol revision b: 0x90 bytes : 0x80 bytes for the scrambled RSA public key
  * 0x10 bytes at 0x00 d: unknow d: unknow d: unknow d: unknow s: blowfish key
  */
-public final class SM_INIT extends AionServerPacket
+public final class SM_INIT extends AbstractServerPacket
 {
 	/**
 	 * Session Id of this connection
@@ -46,12 +48,12 @@ public final class SM_INIT extends AionServerPacket
 	/**
 	 * Constructor
 	 * 
-	 * @param client
+	 * @param channelHandler
 	 * @param blowfishKey 
 	 */
-	public SM_INIT(AionConnection client, SecretKey blowfishKey)
+	public SM_INIT(ClientChannelHandler channelHandler,  SecretKey blowfishKey)
 	{
-		this(client.getEncryptedModulus(), blowfishKey.getEncoded(), client.getSessionId());
+		this(channelHandler.getEncryptedModulus(), blowfishKey.getEncoded(), channelHandler.getSessionId());
 	}
 
 	/**
@@ -74,9 +76,9 @@ public final class SM_INIT extends AionServerPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(AionConnection con, ByteBuffer buf)
+	protected void writeImpl(ClientChannelHandler cHandler, ChannelBuffer buf)
 	{
-		writeC(buf, getOpcode()); // init packet id
+		writeC(buf, getOpCode()); // init packet id
 
 		writeD(buf, sessionId); // session id
 		writeD(buf, 0x0000c621); // protocol revision

@@ -9,21 +9,22 @@ import javax.crypto.SecretKey;
 import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
-import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelPipelineCoverage;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.MessageEvent;
 
+import com.aionemu.loginserver.controller.AccountController;
 import com.aionemu.loginserver.model.Account;
+import com.aionemu.loginserver.network.aion.AbstractClientPacket;
+import com.aionemu.loginserver.network.aion.AbstractServerPacket;
+import com.aionemu.loginserver.network.aion.ClientPacketHandler;
 import com.aionemu.loginserver.network.aion.SessionKey;
+import com.aionemu.loginserver.network.aion.serverpackets.SM_INIT;
 import com.aionemu.loginserver.network.ncrypt.CryptEngine;
 import com.aionemu.loginserver.network.ncrypt.EncryptedRSAKeyPair;
 import com.aionemu.loginserver.network.ncrypt.KeyGen;
-import com.aionemu.loginserver.network.netty.packet.handler.ClientPacketHandler;
-import com.aionemu.loginserver.network.netty.packet.l2c.AbstractClientPacket;
-import com.aionemu.loginserver.network.netty.packet.l2c.AbstractServerPacket;
-import com.aionemu.loginserver.network.netty.packet.l2c.server.SM_INIT;
+import com.aionemu.loginserver.service.AccountTimeService;
 
 /**
  * @author ATracer
@@ -61,6 +62,20 @@ public class ClientChannelHandler extends AbstractChannelHandler
 		
 		sendPacket(new SM_INIT(this, blowfishKey));
 	}
+	
+	@Override
+	public void channelDisconnected(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception
+	{
+		/**
+		 * Remove account only if not joined GameServer yet.
+		 */
+		if ((account != null) && !joinedGs)
+		{
+			AccountController.removeAccountOnLS(account);
+			AccountTimeService.updateOnLogout(account);
+		}
+	}
+
 
 	/* (non-Javadoc)
 	 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#messageReceived(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.MessageEvent)
@@ -79,6 +94,12 @@ public class ClientChannelHandler extends AbstractChannelHandler
 		{
 			clientPacket.run();
 		}
+	}
+	
+	protected final void onServerClose()
+	{
+		// TODO mb some packet should be send to client before closing?
+		close( /* packet, */true);
 	}
 	
 	/**

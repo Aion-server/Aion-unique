@@ -1,10 +1,10 @@
-package com.aionemu.loginserver.network.netty.packet.l2c;
+package com.aionemu.loginserver.network.aion;
 
 import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 
+import com.aionemu.loginserver.network.BaseClientPacket;
 import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
-import com.aionemu.loginserver.network.netty.packet.BaseClientPacket;
 
 /**
  * @author ATracer
@@ -13,29 +13,18 @@ public abstract class AbstractClientPacket extends BaseClientPacket
 {
 	private static final Logger log = Logger.getLogger(AbstractClientPacket.class);
 
-	private ClientChannelHandler channelHandler;
+	protected ClientChannelHandler clientChannelHandler;
 
 	/**
 	 * 
 	 * @param channelBuffer
-	 * @param channelHandler
+	 * @param clientChannelHandler
 	 * @param opCode
 	 */
-	public AbstractClientPacket(ChannelBuffer channelBuffer, ClientChannelHandler channelHandler,
+	public AbstractClientPacket(ChannelBuffer channelBuffer, ClientChannelHandler clientChannelHandler,
 		int opCode)
 	{
 		super(channelBuffer, opCode);
-		this.channelHandler = channelHandler;
+		this.clientChannelHandler = clientChannelHandler;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	protected ClientChannelHandler getHandler()
-	{
-		return channelHandler;
-	}
-	
-	
 }

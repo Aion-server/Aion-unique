@@ -1,4 +1,4 @@
-package com.aionemu.loginserver.network.netty.packet;
+package com.aionemu.loginserver.network;
 
 import java.nio.ByteOrder;
 
@@ -59,12 +59,23 @@ public abstract class BaseServerPacket extends AbstractPacket
 		buf.writeBytes(data);
 	}
 	
+	/**
+	 * 
+	 * @param buf
+	 * @param data
+	 */
 	protected final void writeS(ChannelBuffer buf, String data)
 	{
+		//TODO rework here
 		ChannelBuffer copyBuf = ChannelBuffers.copiedBuffer(data, "UTF-16");
 		buf.writeBytes(copyBuf, 2, copyBuf.capacity() - 2);
 	}
 	
+	/**
+	 * 
+	 * @param buf
+	 * @param data
+	 */
 	protected final void writeQ(ChannelBuffer buf, long data)
 	{
 		buf.writeLong(data);

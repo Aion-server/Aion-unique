@@ -16,25 +16,27 @@
  */
 package com.aionemu.loginserver.network.gameserver.clientpackets;
 
-import com.aionemu.commons.network.IPRange;
-import com.aionemu.loginserver.GameServerService;
-import com.aionemu.loginserver.network.gameserver.GsAuthResponse;
-import com.aionemu.loginserver.network.gameserver.GsClientPacket;
-import com.aionemu.loginserver.network.gameserver.GsConnection;
-import com.aionemu.loginserver.network.gameserver.GsConnection.State;
-import com.aionemu.loginserver.network.gameserver.serverpackets.SM_GS_AUTH_RESPONSE;
-
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.aionemu.commons.network.IPRange;
+import com.aionemu.loginserver.GameServerService;
+import com.aionemu.loginserver.network.gameserver.AbstractGameClientPacket;
+import com.aionemu.loginserver.network.gameserver.GsAuthResponse;
+import com.aionemu.loginserver.network.gameserver.serverpackets.SM_GS_AUTH_RESPONSE;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler.State;
 
 /**
  * This is authentication packet that gs will send to login server for registration.
  * 
  * @author -Nemesiss-
  */
-public class CM_GS_AUTH extends GsClientPacket
+public class CM_GS_AUTH extends AbstractGameClientPacket
 {
+	private GameServerService gameServerService;
 	/**
 	 * Password for authentication
 	 */
@@ -65,18 +67,15 @@ public class CM_GS_AUTH extends GsClientPacket
 	 */
 	private List<IPRange>	ipRanges;
 
-	private GameServerService gameServerService;
-
 	/**
 	 * Constructor.
 	 * 
 	 * @param buf
-	 * @param client
-	 * @param gameServerService
+	 * @param gameChannelHandler
 	 */
-	public CM_GS_AUTH(ByteBuffer buf, GsConnection client, GameServerService gameServerService)
+	public CM_GS_AUTH(ChannelBuffer buf, GameChannelHandler gameChannelHandler, GameServerService gameServerService)
 	{
-		super(buf, client, 0x00);
+		super(buf, gameChannelHandler, 0x00);
 		this.gameServerService = gameServerService;
 	}
 
@@ -101,20 +100,18 @@ public class CM_GS_AUTH extends GsClientPacket
 	@Override
 	protected void runImpl()
 	{
-		GsConnection client = getConnection();
-
-		GsAuthResponse resp = gameServerService.registerGameServer(client, gameServerId, defaultAddress, ipRanges, port,
+		GsAuthResponse resp = gameServerService.registerGameServer(gameChannelHandler, gameServerId, defaultAddress, ipRanges, port,
 			maxPlayers, password);
 
 		switch (resp)
 		{
 			case AUTHED:
-				getConnection().setState(State.AUTHED);
-				sendPacket(new SM_GS_AUTH_RESPONSE(resp));
+				gameChannelHandler.setState(State.AUTHED);
+				gameChannelHandler.sendPacket(new SM_GS_AUTH_RESPONSE(resp));
 				break;
 
 			default:
-				client.close(new SM_GS_AUTH_RESPONSE(resp), true);
+				gameChannelHandler.close(new SM_GS_AUTH_RESPONSE(resp), true);
 		}
 	}
 }

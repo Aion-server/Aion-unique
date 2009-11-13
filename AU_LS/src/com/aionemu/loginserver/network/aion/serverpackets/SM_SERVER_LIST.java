@@ -16,20 +16,22 @@
  */
 package com.aionemu.loginserver.network.aion.serverpackets;
 
+import java.util.Collection;
+
+import org.apache.log4j.Logger;
+import org.jboss.netty.buffer.ChannelBuffer;
+
 import com.aionemu.loginserver.GameServer;
 import com.aionemu.loginserver.GameServerService;
-import com.aionemu.loginserver.network.aion.AionConnection;
-import com.aionemu.loginserver.network.aion.AionServerPacket;
-import org.apache.log4j.Logger;
-
-import java.nio.ByteBuffer;
-import java.util.Collection;
+import com.aionemu.loginserver.network.aion.AbstractServerPacket;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 
 /**
  * @author -Nemesiss-
  */
-public class SM_SERVER_LIST extends AionServerPacket
+public class SM_SERVER_LIST extends AbstractServerPacket
 {
+	private GameServerService gameServerService;
 	/**
 	 * Logger for this class.
 	 */
@@ -38,26 +40,27 @@ public class SM_SERVER_LIST extends AionServerPacket
 	/**
 	 * Constructs new instance of <tt>SM_SERVER_LIST</tt> packet.
 	 */
-	public SM_SERVER_LIST()
+	public SM_SERVER_LIST(GameServerService gameServerService)
 	{
 		super(0x04);
+		this.gameServerService = gameServerService;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(AionConnection con, ByteBuffer buf)
+	protected void writeImpl(ClientChannelHandler channelHandler, ChannelBuffer buf)
 	{
-		Collection<GameServer> servers = GameServerService.getGameServers();
+		Collection<GameServer> servers = gameServerService.getGameServers();
 
-		writeC(buf, getOpcode());
+		writeC(buf, getOpCode());
 		writeC(buf, servers.size());// servers
-		writeC(buf, con.getAccount().getLastServer());// last server
+		writeC(buf, channelHandler.getAccount().getLastServer());// last server
 		for (GameServer gsi : servers)
 		{
 			writeC(buf, gsi.getId());// server id
-			writeB(buf, gsi.getIPAddressForPlayer(con.getIP())); // server IP
+			writeB(buf, gsi.getIPAddressForPlayer(channelHandler.getIP())); // server IP
 			writeD(buf, gsi.getPort());// port
 			writeC(buf, 0x00); // age limit
 			writeC(buf, 0x01);// pvp=1

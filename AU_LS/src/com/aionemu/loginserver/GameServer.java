@@ -16,15 +16,15 @@
  */
 package com.aionemu.loginserver;
 
-import com.aionemu.commons.database.PersistentObject;
-import com.aionemu.commons.network.IPRange;
-import com.aionemu.loginserver.model.Account;
-import com.aionemu.loginserver.network.gameserver.GsConnection;
-import com.aionemu.loginserver.network.gameserver.GsConnection.State;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.aionemu.commons.database.PersistentObject;
+import com.aionemu.commons.network.IPRange;
+import com.aionemu.loginserver.model.Account;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler.State;
 
 /**
  * This class represents GameServer at LoginServer side. It contain info about id, ip etc.
@@ -65,9 +65,9 @@ public class GameServer implements PersistentObject<Byte>
 	private int							port;
 
 	/**
-	 * gsConnection - if GameServer is connected to LoginServer.
+	 * gameChannelHandler - if GameServer is connected to LoginServer.
 	 */
-	private GsConnection				gsConnection;
+	private GameChannelHandler				gameChannelHandler;
 
 	/**
 	 * Max players count that may play on this GameServer.
@@ -186,26 +186,26 @@ public class GameServer implements PersistentObject<Byte>
 	}
 
 	/**
-	 * Returns active GsConnection for this GameServer or null if this GameServer is down.
+	 * Returns active GameChannelHandler for this GameServer or null if this GameServer is down.
 	 * 
-	 * @return GsConnection
+	 * @return GameChannelHandler
 	 */
-	public final GsConnection getGsConnection()
+	public final GameChannelHandler getGameChannelHandler()
 	{
-		return gsConnection;
+		return gameChannelHandler;
 	}
 
 	/**
-	 * Set active GsConnection.
+	 * Set active GameChannelHandler.
 	 * 
-	 * @param gsConnection
+	 * @param GameChannelHandler
 	 */
-	public final void setGsConnection(GsConnection gsConnection)
+	public final void setGsConnection(GameChannelHandler gameChannelHandler)
 	{
-		if (gsConnection == null)
+		if (gameChannelHandler == null)
 			setPort(0);
 
-		this.gsConnection = gsConnection;
+		this.gameChannelHandler = gameChannelHandler;
 	}
 
 	/**
@@ -235,7 +235,7 @@ public class GameServer implements PersistentObject<Byte>
 	 */
 	public final boolean isOnline()
 	{
-		return gsConnection != null && gsConnection.getState() == State.AUTHED;
+		return gameChannelHandler != null && gameChannelHandler.getState() == State.AUTHED;
 	}
 
 	/**

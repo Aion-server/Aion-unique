@@ -16,15 +16,15 @@
  */
 package com.aionemu.loginserver.network.aion.serverpackets;
 
-import com.aionemu.loginserver.network.aion.AionConnection;
-import com.aionemu.loginserver.network.aion.AionServerPacket;
+import org.jboss.netty.buffer.ChannelBuffer;
 
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.network.aion.AbstractServerPacket;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 
 /**
  * @author -Nemesiss-
  */
-public class SM_AUTH_GG extends AionServerPacket
+public class SM_AUTH_GG extends AbstractServerPacket
 {
 	/**
 	 * Session Id of this connection
@@ -38,8 +38,7 @@ public class SM_AUTH_GG extends AionServerPacket
 	 */
 	public SM_AUTH_GG(int sessionId)
 	{
-		super(0x0b);
-
+		super(0x0B);
 		this.sessionId = sessionId;
 	}
 
@@ -47,9 +46,9 @@ public class SM_AUTH_GG extends AionServerPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(AionConnection con, ByteBuffer buf)
+	protected void writeImpl(ClientChannelHandler cHandler, ChannelBuffer buf)
 	{
-		writeC(buf, getOpcode());
+		writeC(buf, getOpCode());
 		writeD(buf, sessionId);
 		writeD(buf, 0x00);
 		writeD(buf, 0x00);

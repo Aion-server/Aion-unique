@@ -16,10 +16,10 @@
  */
 package com.aionemu.loginserver.network.gameserver.serverpackets;
 
-import com.aionemu.loginserver.network.gameserver.GsConnection;
-import com.aionemu.loginserver.network.gameserver.GsServerPacket;
+import org.jboss.netty.buffer.ChannelBuffer;
 
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.network.gameserver.AbstractGameServerPacket;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
 
 /**
  * In this packet LoginServer is sending response for CM_ACCOUNT_RECONNECT_KEY with account name and reconnectionKey.
@@ -27,7 +27,7 @@ import java.nio.ByteBuffer;
  * @author -Nemesiss-
  * 
  */
-public class SM_ACCOUNT_RECONNECT_KEY extends GsServerPacket
+public class SM_ACCOUNT_RECONNECT_KEY extends AbstractGameServerPacket
 {
 	/**
 	 * accountId of account that will be reconnecting.
@@ -56,9 +56,9 @@ public class SM_ACCOUNT_RECONNECT_KEY extends GsServerPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(GsConnection con, ByteBuffer buf)
+	protected void writeImpl(GameChannelHandler gameChannelHandler, ChannelBuffer buf)
 	{
-		writeC(buf, getOpcode());
+		writeC(buf, getOpCode());
 		writeD(buf, accountId);
 		writeD(buf, reconnectKey);
 	}

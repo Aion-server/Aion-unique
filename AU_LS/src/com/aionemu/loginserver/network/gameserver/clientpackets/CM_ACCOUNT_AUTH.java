@@ -16,12 +16,12 @@
  */
 package com.aionemu.loginserver.network.gameserver.clientpackets;
 
+import org.jboss.netty.buffer.ChannelBuffer;
+
 import com.aionemu.loginserver.controller.AccountController;
 import com.aionemu.loginserver.network.aion.SessionKey;
-import com.aionemu.loginserver.network.gameserver.GsClientPacket;
-import com.aionemu.loginserver.network.gameserver.GsConnection;
-
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.network.gameserver.AbstractGameClientPacket;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
 
 /**
  * In this packet Gameserver is asking if given account sessionKey is valid at Loginserver side. [if user that is
@@ -30,7 +30,7 @@ import java.nio.ByteBuffer;
  * @author -Nemesiss-
  * 
  */
-public class CM_ACCOUNT_AUTH extends GsClientPacket
+public class CM_ACCOUNT_AUTH extends AbstractGameClientPacket
 {
 	/**
 	 * SessionKey that GameServer needs to check if is valid at Loginserver side.
@@ -43,7 +43,7 @@ public class CM_ACCOUNT_AUTH extends GsClientPacket
 	 * @param buf
 	 * @param client
 	 */
-	public CM_ACCOUNT_AUTH(ByteBuffer buf, GsConnection client)
+	public CM_ACCOUNT_AUTH(ChannelBuffer buf, GameChannelHandler client)
 	{
 		super(buf, client, 0x01);
 
@@ -69,6 +69,6 @@ public class CM_ACCOUNT_AUTH extends GsClientPacket
 	@Override
 	protected void runImpl()
 	{
-		AccountController.checkAuth(sessionKey, getConnection());
+		AccountController.checkAuth(sessionKey, gameChannelHandler);
 	}
 }

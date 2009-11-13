@@ -17,12 +17,12 @@
 
 package com.aionemu.loginserver.network.gameserver.clientpackets;
 
-import com.aionemu.loginserver.service.AccountTimeService;
-import com.aionemu.loginserver.model.Account;
-import com.aionemu.loginserver.network.gameserver.GsClientPacket;
-import com.aionemu.loginserver.network.gameserver.GsConnection;
+import org.jboss.netty.buffer.ChannelBuffer;
 
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.model.Account;
+import com.aionemu.loginserver.network.gameserver.AbstractGameClientPacket;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
+import com.aionemu.loginserver.service.AccountTimeService;
 
 /**
  * In this packet GameServer is informing LoginServer that some account is no longer on GameServer [ie was disconencted]
@@ -30,10 +30,9 @@ import java.nio.ByteBuffer;
  * @author -Nemesiss-
  *
  */
-public class CM_ACCOUNT_DISCONNECTED extends GsClientPacket
+public class CM_ACCOUNT_DISCONNECTED extends AbstractGameClientPacket
 {
 	private final AccountTimeService accountTimeService;
-
 	/**
 	 * AccountId of account that was disconnected form GameServer.
 	 */
@@ -46,7 +45,7 @@ public class CM_ACCOUNT_DISCONNECTED extends GsClientPacket
 	 * @param client
 	 * @param accountTimeService Service
 	 */
-	public CM_ACCOUNT_DISCONNECTED(ByteBuffer buf, GsConnection client, AccountTimeService accountTimeService)
+	public CM_ACCOUNT_DISCONNECTED(ChannelBuffer buf, GameChannelHandler client, AccountTimeService accountTimeService)
 	{
 		super(buf, client, 0x03);
 		this.accountTimeService = accountTimeService;
@@ -61,7 +60,7 @@ public class CM_ACCOUNT_DISCONNECTED extends GsClientPacket
 	@Override
 	protected void runImpl()
 	{
-		Account	account = getConnection().getGameServerInfo().removeAccountFromGameServer(accountId);
+		Account	account = gameChannelHandler.getGameServerInfo().removeAccountFromGameServer(accountId);
 
         /**
          * account can be null if a player logged out from gs
@@ -73,3 +72,4 @@ public class CM_ACCOUNT_DISCONNECTED extends GsClientPacket
 		}
 	}
 }
+ 

@@ -42,7 +42,7 @@ public class LoginNettyServer
 		channelGroup.add(loginToClientChannel);
 		channelGroup.add(loginToGameChannel);
 
-		logger.info("LoginNettyServer started");
+		logger.info("Login Server started");
 	}
 
 	private Channel initLoginToClientChannel()
@@ -55,7 +55,7 @@ public class LoginNettyServer
 
 		configureLoginToClient(bootstrap);
 
-		Channel channel = bootstrap.bind(new InetSocketAddress(2106));
+		Channel channel = bootstrap.bind(new InetSocketAddress(2106));//TODO config
 		return channel;
 	}
 	
@@ -69,7 +69,7 @@ public class LoginNettyServer
 
 		configureLoginToGame(bootstrap);
 
-		Channel channel = bootstrap.bind(new InetSocketAddress(9014));
+		Channel channel = bootstrap.bind(new InetSocketAddress(9014));//TODO config
 		return channel;
 	}
 

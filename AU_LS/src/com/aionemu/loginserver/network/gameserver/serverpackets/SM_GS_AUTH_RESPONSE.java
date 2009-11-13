@@ -16,18 +16,18 @@
  */
 package com.aionemu.loginserver.network.gameserver.serverpackets;
 
-import com.aionemu.loginserver.network.gameserver.GsAuthResponse;
-import com.aionemu.loginserver.network.gameserver.GsConnection;
-import com.aionemu.loginserver.network.gameserver.GsServerPacket;
+import org.jboss.netty.buffer.ChannelBuffer;
 
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.network.gameserver.AbstractGameServerPacket;
+import com.aionemu.loginserver.network.gameserver.GsAuthResponse;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
 
 /**
  * This packet is response for CM_GS_AUTH its notify Gameserver if registration was ok or what was wrong.
  * 
  * @author -Nemesiss-
  */
-public class SM_GS_AUTH_RESPONSE extends GsServerPacket
+public class SM_GS_AUTH_RESPONSE extends AbstractGameServerPacket
 {
 	/**
 	 * Response for Gameserver authentication
@@ -50,9 +50,9 @@ public class SM_GS_AUTH_RESPONSE extends GsServerPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(GsConnection con, ByteBuffer buf)
+	protected void writeImpl(GameChannelHandler gameChannelHandler, ChannelBuffer buf)
 	{
-		writeC(buf, getOpcode());
+		writeC(buf, getOpCode());
 		writeC(buf, response.getResponseId());
 	}
 }

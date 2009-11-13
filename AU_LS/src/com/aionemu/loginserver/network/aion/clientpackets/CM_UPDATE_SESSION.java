@@ -16,18 +16,18 @@
  */
 package com.aionemu.loginserver.network.aion.clientpackets;
 
-import com.aionemu.loginserver.controller.AccountController;
-import com.aionemu.loginserver.network.aion.AionClientPacket;
-import com.aionemu.loginserver.network.aion.AionConnection;
+import org.jboss.netty.buffer.ChannelBuffer;
 
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.controller.AccountController;
+import com.aionemu.loginserver.network.aion.AbstractClientPacket;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 
 /**
  * This packet is send when client was connected to game server and now is reconnection to login server.
  * 
  * @author -Nemesiss-
  */
-public class CM_UPDATE_SESSION extends AionClientPacket
+public class CM_UPDATE_SESSION extends AbstractClientPacket
 {
 	/**
 	 * accountId is part of session key - its used for security purposes
@@ -49,7 +49,7 @@ public class CM_UPDATE_SESSION extends AionClientPacket
 	 * @param buf       packet data
 	 * @param client    client
 	 */
-	public CM_UPDATE_SESSION(ByteBuffer buf, AionConnection client)
+	public CM_UPDATE_SESSION(ChannelBuffer buf, ClientChannelHandler client)
 	{
 		super(buf, client, 0x08);
 	}
@@ -71,6 +71,6 @@ public class CM_UPDATE_SESSION extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		AccountController.authReconnectingAccount(accountId, loginOk, reconnectKey, getConnection());
+		AccountController.authReconnectingAccount(accountId, loginOk, reconnectKey, clientChannelHandler);
 	}
 }

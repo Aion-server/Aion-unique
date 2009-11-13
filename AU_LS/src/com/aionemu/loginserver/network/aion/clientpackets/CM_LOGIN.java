@@ -16,24 +16,26 @@
  */
 package com.aionemu.loginserver.network.aion.clientpackets;
 
+import java.security.GeneralSecurityException;
+
+import javax.crypto.Cipher;
+
+import org.apache.log4j.Logger;
+import org.jboss.netty.buffer.ChannelBuffer;
+
 import com.aionemu.loginserver.controller.AccountController;
+import com.aionemu.loginserver.network.aion.AbstractClientPacket;
 import com.aionemu.loginserver.network.aion.AionAuthResponse;
-import com.aionemu.loginserver.network.aion.AionClientPacket;
-import com.aionemu.loginserver.network.aion.AionConnection;
-import com.aionemu.loginserver.network.aion.AionConnection.State;
 import com.aionemu.loginserver.network.aion.SessionKey;
 import com.aionemu.loginserver.network.aion.serverpackets.SM_LOGIN_FAIL;
 import com.aionemu.loginserver.network.aion.serverpackets.SM_LOGIN_OK;
-import org.apache.log4j.Logger;
-
-import javax.crypto.Cipher;
-import java.nio.ByteBuffer;
-import java.security.GeneralSecurityException;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler.State;
 
 /**
  * @author -Nemesiss-, KID
  */
-public class CM_LOGIN extends AionClientPacket
+public class CM_LOGIN extends AbstractClientPacket
 {
 	/**
 	 * Logger for this class.
@@ -49,16 +51,13 @@ public class CM_LOGIN extends AionClientPacket
 	 * Constructs new instance of <tt>CM_LOGIN </tt> packet.
 	 * 
 	 * @param buf
-	 * @param client
+	 * @param channelHandler
 	 */
-	public CM_LOGIN(ByteBuffer buf, AionConnection client)
+	public CM_LOGIN(ChannelBuffer buf, ClientChannelHandler channelHandler)
 	{
-		super(buf, client, 0x0b);
+		super(buf, channelHandler, 0x0B);
 	}
 
-	/**
-	 *  {@inheritDoc}
-	 */
 	@Override
 	protected void readImpl()
 	{
@@ -68,10 +67,8 @@ public class CM_LOGIN extends AionClientPacket
 			data = readB(128);
 		}
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
+	
+	@Override
 	protected void runImpl()
 	{
 		if (data == null)
@@ -81,13 +78,13 @@ public class CM_LOGIN extends AionClientPacket
 		try
 		{
 			Cipher rsaCipher = Cipher.getInstance("RSA/ECB/nopadding");
-			rsaCipher.init(Cipher.DECRYPT_MODE, getConnection().getRSAPrivateKey());
+			rsaCipher.init(Cipher.DECRYPT_MODE, clientChannelHandler.getRSAPrivateKey());
 			decrypted = rsaCipher.doFinal(data, 0, 128);
 		}
 		catch (GeneralSecurityException e)
 		{
 			log.warn("Error while decripting data on user auth." + e, e);
-			sendPacket(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR));
+			clientChannelHandler.sendPacket(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR));
 			return;
 		}
 		String user = new String(decrypted, 64, 32).trim().toLowerCase();
@@ -100,18 +97,17 @@ public class CM_LOGIN extends AionClientPacket
 
 		log.debug("AuthLogin: " + user + " pass: " + password + " ncotp: " + ncotp);
 
-		AionConnection client = getConnection();
-		AionAuthResponse response = AccountController.login(user, password, client);
+		AionAuthResponse response = AccountController.login(user, password, clientChannelHandler);
 		switch (response)
 		{
 			case AUTHED:
-				client.setState(State.AUTHED_LOGIN);
-				client.setSessionKey(new SessionKey(client.getAccount()));
-				client.sendPacket(new SM_LOGIN_OK(client.getSessionKey()));
+				clientChannelHandler.setState(State.AUTHED_LOGIN);
+				clientChannelHandler.setSessionKey(new SessionKey(clientChannelHandler.getAccount()));
+				clientChannelHandler.sendPacket(new SM_LOGIN_OK(clientChannelHandler.getSessionKey()));
 				break;
 
 			default:
-				client.close(new SM_LOGIN_FAIL(response), true);
+				clientChannelHandler.close(new SM_LOGIN_FAIL(response), true);
 				break;
 		}
 	}

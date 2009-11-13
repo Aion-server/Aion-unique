@@ -17,11 +17,11 @@
 
 package com.aionemu.loginserver.network.gameserver.serverpackets;
 
-import com.aionemu.loginserver.model.AccountTime;
-import com.aionemu.loginserver.network.gameserver.GsConnection;
-import com.aionemu.loginserver.network.gameserver.GsServerPacket;
+import org.jboss.netty.buffer.ChannelBuffer;
 
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.model.AccountTime;
+import com.aionemu.loginserver.network.gameserver.AbstractGameServerPacket;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
 
 /**
  * In this packet LoginServer is answering on GameServer request about valid authentication data and also sends account
@@ -30,7 +30,7 @@ import java.nio.ByteBuffer;
  * @author -Nemesiss-
  *
  */
-public class SM_ACCOUNT_AUTH_RESPONSE extends GsServerPacket
+public class SM_ACCOUNT_AUTH_RESPONSE extends AbstractGameServerPacket
 {
 	/**
 	 * Account id
@@ -67,9 +67,9 @@ public class SM_ACCOUNT_AUTH_RESPONSE extends GsServerPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(GsConnection con, ByteBuffer buf)
+	protected void writeImpl(GameChannelHandler gameChannelHandler, ChannelBuffer buf)
 	{
-		writeC(buf, getOpcode());
+		writeC(buf, getOpCode());
 		writeD(buf, accountId);
 		writeC(buf, ok ? 1 : 0);
 
@@ -77,7 +77,7 @@ public class SM_ACCOUNT_AUTH_RESPONSE extends GsServerPacket
 		{
 			writeS(buf, accountName);
 
-			AccountTime	accountTime = con.getGameServerInfo().getAccountFromGameServer(accountId).getAccountTime();
+			AccountTime	accountTime = gameChannelHandler.getGameServerInfo().getAccountFromGameServer(accountId).getAccountTime();
 
 			writeQ(buf, accountTime.getAccumulatedOnlineTime());
 			writeQ(buf, accountTime.getAccumulatedRestTime());

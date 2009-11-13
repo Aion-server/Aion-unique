@@ -16,22 +16,23 @@
  */
 package com.aionemu.loginserver;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.network.IPRange;
 import com.aionemu.commons.utils.NetworkUtils;
 import com.aionemu.loginserver.dao.GameServerDAO;
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.network.gameserver.GsAuthResponse;
-import com.aionemu.loginserver.network.gameserver.GsConnection;
 import com.aionemu.loginserver.network.gameserver.serverpackets.SM_REQUEST_KICK_ACCOUNT;
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
 
 /**
  * GameServerService contains list of GameServers registered on this LoginServer. GameServer may by online or down.
@@ -96,7 +97,7 @@ public class GameServerService
 	 *            server password that is specified configs, used to check if gs can auth on ls
 	 * @return GsAuthResponse
 	 */
-	public GsAuthResponse registerGameServer(GsConnection gsConnection, byte requestedId, byte[] defaultAddress,
+	public GsAuthResponse registerGameServer(GameChannelHandler gsConnection, byte requestedId, byte[] defaultAddress,
 		List<IPRange> ipRanges, int port, int maxPlayers, String password)
 	{
 		GameServer gsi = gameservers.get(requestedId);
@@ -113,7 +114,7 @@ public class GameServerService
 		/**
 		 * Check if this GameServer is not already registered.
 		 */
-		if (gsi.getGsConnection() != null)
+		if (gsi.getGameChannelHandler() != null)
 			return GsAuthResponse.ALREADY_REGISTERED;
 
 		/**
@@ -174,7 +175,7 @@ public class GameServerService
 		{
 			if (gsi.isAccountOnGameServer(account.getId()))
 			{
-				gsi.getGsConnection().sendPacket(new SM_REQUEST_KICK_ACCOUNT(account.getId()));
+				gsi.getGameChannelHandler().sendPacket(new SM_REQUEST_KICK_ACCOUNT(account.getId()));
 				break;
 			}
 		}

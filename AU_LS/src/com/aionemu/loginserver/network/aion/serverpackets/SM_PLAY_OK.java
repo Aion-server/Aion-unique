@@ -16,16 +16,16 @@
  */
 package com.aionemu.loginserver.network.aion.serverpackets;
 
-import com.aionemu.loginserver.network.aion.AionConnection;
-import com.aionemu.loginserver.network.aion.AionServerPacket;
-import com.aionemu.loginserver.network.aion.SessionKey;
+import org.jboss.netty.buffer.ChannelBuffer;
 
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.network.aion.AbstractServerPacket;
+import com.aionemu.loginserver.network.aion.SessionKey;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 
 /**
  * @author -Nemesiss-
  */
-public class SM_PLAY_OK extends AionServerPacket
+public class SM_PLAY_OK extends AbstractServerPacket
 {
 	/**
 	 * playOk1 is part of session key - its used for security purposes [checked at game server side]
@@ -53,9 +53,9 @@ public class SM_PLAY_OK extends AionServerPacket
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(AionConnection con, ByteBuffer buf)
+	protected void writeImpl(ClientChannelHandler channelHandler, ChannelBuffer buf)
 	{
-		writeC(buf, getOpcode());
+		writeC(buf, getOpCode());
 		writeD(buf, playOk1);
 		writeD(buf, playOk2);
 	}

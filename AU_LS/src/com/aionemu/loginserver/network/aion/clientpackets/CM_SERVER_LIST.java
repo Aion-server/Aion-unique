@@ -16,20 +16,21 @@
  */
 package com.aionemu.loginserver.network.aion.clientpackets;
 
+import org.jboss.netty.buffer.ChannelBuffer;
+
 import com.aionemu.loginserver.GameServerService;
+import com.aionemu.loginserver.network.aion.AbstractClientPacket;
 import com.aionemu.loginserver.network.aion.AionAuthResponse;
-import com.aionemu.loginserver.network.aion.AionClientPacket;
-import com.aionemu.loginserver.network.aion.AionConnection;
 import com.aionemu.loginserver.network.aion.serverpackets.SM_LOGIN_FAIL;
 import com.aionemu.loginserver.network.aion.serverpackets.SM_SERVER_LIST;
-
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 
 /**
  * @author -Nemesiss-
  */
-public class CM_SERVER_LIST extends AionClientPacket
+public class CM_SERVER_LIST extends AbstractClientPacket
 {
+	private GameServerService gameServerService;
 	/**
 	 * accountId is part of session key - its used for security purposes
 	 */
@@ -45,11 +46,15 @@ public class CM_SERVER_LIST extends AionClientPacket
 	 * @param buf
 	 * @param client
 	 */
-	public CM_SERVER_LIST(ByteBuffer buf, AionConnection client)
+	public CM_SERVER_LIST(ChannelBuffer buf, ClientChannelHandler client, GameServerService gameServerService)
 	{
 		super(buf, client, 0x05);
+		this.gameServerService = gameServerService;
 	}
 
+	/**
+	 *  {@inheritDoc}
+	 */
 	@Override
 	protected void readImpl()
 	{
@@ -58,23 +63,25 @@ public class CM_SERVER_LIST extends AionClientPacket
 		readD();// unk
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void runImpl()
 	{
-		AionConnection con = getConnection();
-		if (con.getSessionKey().checkLogin(accountId, loginOk))
+		if (clientChannelHandler.getSessionKey().checkLogin(accountId, loginOk))
 		{
-			if (GameServerService.getGameServers().size() == 0)
-				con.close(new SM_LOGIN_FAIL(AionAuthResponse.NO_GS_REGISTERED), true);
+			if (gameServerService.getGameServers().size() == 0)
+				clientChannelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.NO_GS_REGISTERED), true);
 			else
-				sendPacket(new SM_SERVER_LIST());
+				clientChannelHandler.sendPacket(new SM_SERVER_LIST(gameServerService));
 		}
 		else
 		{
 			/**
 			 * Session key is not ok - inform client that smth went wrong - dc client
 			 */
-			con.close(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR), true);
+			clientChannelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR), true);
 		}
 	}
 }

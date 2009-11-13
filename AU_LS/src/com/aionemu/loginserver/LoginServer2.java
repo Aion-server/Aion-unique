@@ -1,6 +1,7 @@
 package com.aionemu.loginserver;
 
 import com.aionemu.commons.Server;
+import com.aionemu.loginserver.network.netty.LoginNettyServer;
 import com.aionemu.loginserver.utils.ThreadUncaughtExceptionHandler;
 
 /**
@@ -10,12 +11,14 @@ public class LoginServer2 extends Server {
 
 	public void start(){
 		super.start();
-		// TODO: Start network here
+		// Start network 
+		LoginNettyServer.getInstance().initialize();
 	}
 
 	@Override
 	protected void onShutdown() {
-		//TODO: Stop network here
+		//Stop network
+		LoginNettyServer.getInstance().shutdownAll();
 	}
 
 	public static void main(String[] args) {

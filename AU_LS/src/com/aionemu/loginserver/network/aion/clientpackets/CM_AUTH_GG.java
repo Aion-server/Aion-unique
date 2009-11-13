@@ -16,19 +16,19 @@
  */
 package com.aionemu.loginserver.network.aion.clientpackets;
 
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.aionemu.loginserver.network.aion.AbstractClientPacket;
 import com.aionemu.loginserver.network.aion.AionAuthResponse;
-import com.aionemu.loginserver.network.aion.AionClientPacket;
-import com.aionemu.loginserver.network.aion.AionConnection;
-import com.aionemu.loginserver.network.aion.AionConnection.State;
 import com.aionemu.loginserver.network.aion.serverpackets.SM_AUTH_GG;
 import com.aionemu.loginserver.network.aion.serverpackets.SM_LOGIN_FAIL;
-
-import java.nio.ByteBuffer;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler.State;
 
 /**
  * @author -Nemesiss-
  */
-public class CM_AUTH_GG extends AionClientPacket
+public class CM_AUTH_GG extends AbstractClientPacket
 {
 	/**
 	 * session id - its should match sessionId that was send in Init packet.
@@ -45,9 +45,9 @@ public class CM_AUTH_GG extends AionClientPacket
 	 * @param buf
 	 * @param client
 	 */
-	public CM_AUTH_GG(ByteBuffer buf, AionConnection client)
+	public CM_AUTH_GG(ChannelBuffer buf, ClientChannelHandler clientChannelHandler)
 	{
-		super(buf, client, 0x07);
+		super(buf, clientChannelHandler, (byte) 0x07);
 	}
 
 	/**
@@ -70,18 +70,17 @@ public class CM_AUTH_GG extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		AionConnection con = getConnection();
-		if (con.getSessionId() == sessionId)
+		if (clientChannelHandler.getSessionId() == sessionId)
 		{
-			con.setState(State.AUTHED_GG);
-			con.sendPacket(new SM_AUTH_GG(sessionId));
+			clientChannelHandler.setState(State.AUTHED_GG);
+			clientChannelHandler.sendPacket(new SM_AUTH_GG(sessionId));
 		}
 		else
 		{
 			/**
 			 * Session id is not ok - inform client that smth went wrong - dc client
 			 */
-			con.close(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR), true);
+			clientChannelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR), true);
 		}
 	}
 }

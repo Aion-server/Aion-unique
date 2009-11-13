@@ -17,22 +17,23 @@
 
 package com.aionemu.loginserver.network.gameserver.clientpackets;
 
-import java.nio.ByteBuffer;
+import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.aionemu.loginserver.GameServerService;
 import com.aionemu.loginserver.controller.AccountController;
 import com.aionemu.loginserver.model.Account;
-import com.aionemu.loginserver.network.gameserver.GsClientPacket;
-import com.aionemu.loginserver.network.gameserver.GsConnection;
+import com.aionemu.loginserver.network.gameserver.AbstractGameClientPacket;
 import com.aionemu.loginserver.network.gameserver.serverpackets.SM_REQUEST_KICK_ACCOUNT;
+import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
 
 /**
  * Reads the list of accoutn id's that are logged to game server
  *
  * @author SoulKeeper
  */
-public class CM_ACCOUNT_LIST extends GsClientPacket
+public class CM_ACCOUNT_LIST extends AbstractGameClientPacket
 {
+	private GameServerService gameServerService;
 	/**
 	 * Array with accounts that are logged in
 	 */
@@ -44,9 +45,10 @@ public class CM_ACCOUNT_LIST extends GsClientPacket
 	 * @param buf	packet data
 	 * @param client client
 	 */
-	public CM_ACCOUNT_LIST(ByteBuffer buf, GsConnection client)
+	public CM_ACCOUNT_LIST(ChannelBuffer buf, GameChannelHandler client, GameServerService gameServerService)
 	{
 		super(buf, client, 0x04);
+		this.gameServerService = gameServerService;
 	}
 
 	@Override
@@ -65,12 +67,12 @@ public class CM_ACCOUNT_LIST extends GsClientPacket
 		for(String s : accountNames)
 		{
 			Account a = AccountController.loadAccount(s);
-			if(GameServerService.isAccountOnAnyGameServer(a))
+			if(gameServerService.isAccountOnAnyGameServer(a))
 			{
-				getConnection().sendPacket(new SM_REQUEST_KICK_ACCOUNT(a.getId()));
+				gameChannelHandler.sendPacket(new SM_REQUEST_KICK_ACCOUNT(a.getId()));
 				continue;
 			}
-			getConnection().getGameServerInfo().addAccountToGameServer(a);
+			gameChannelHandler.getGameServerInfo().addAccountToGameServer(a);
 		}
 	}
 }

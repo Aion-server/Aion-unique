@@ -11,10 +11,7 @@ import org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor;
 
 import com.aionemu.loginserver.network.netty.coder.GameServerPacketDecoder;
 import com.aionemu.loginserver.network.netty.coder.GameServerPacketEncoder;
-import com.aionemu.loginserver.network.netty.coder.LoginPacketDecoder;
-import com.aionemu.loginserver.network.netty.coder.LoginPacketEncoder;
 import com.aionemu.loginserver.network.netty.coder.PacketFrameDecoder;
-import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
 
 /**
