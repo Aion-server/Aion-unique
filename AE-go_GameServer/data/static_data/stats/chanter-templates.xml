@@ -352,4 +352,114 @@
 		                main_hand_attack="19" main_hand_accuracy="490" main_hand_crit_rate="1"
 		                magic_accuracy="570" />
 	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CHANTER" level="41">
+		<stats_template maxHp="3524" maxMp="4587"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="539" block="539" parry="539"
+		                main_hand_attack="19" main_hand_accuracy="498" main_hand_crit_rate="1"
+		                magic_accuracy="585" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CHANTER" level="42">
+		<stats_template maxHp="3649" maxMp="4693"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="551" block="551" parry="551"
+		                main_hand_attack="19" main_hand_accuracy="506" main_hand_crit_rate="1"
+		                magic_accuracy="599" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CHANTER" level="43">
+		<stats_template maxHp="3775" maxMp="4798"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="564" block="564" parry="564"
+		                main_hand_attack="19" main_hand_accuracy="514" main_hand_crit_rate="1"
+		                magic_accuracy="613" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CHANTER" level="44">
+		<stats_template maxHp="3904" maxMp="4904"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="576" block="576" parry="576"
+		                main_hand_attack="19" main_hand_accuracy="522" main_hand_crit_rate="1"
+		                magic_accuracy="627" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CHANTER" level="45">
+		<stats_template maxHp="4035" maxMp="5010"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="589" block="589" parry="589"
+		                main_hand_attack="19" main_hand_accuracy="530" main_hand_crit_rate="1"
+		                magic_accuracy="642" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CHANTER" level="46">
+		<stats_template maxHp="4168" maxMp="5115"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="601" block="601" parry="601"
+		                main_hand_attack="19" main_hand_accuracy="538" main_hand_crit_rate="1"
+		                magic_accuracy="656" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CHANTER" level="47">
+		<stats_template maxHp="4303" maxMp="5221"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="613" block="613" parry="613"
+		                main_hand_attack="19" main_hand_accuracy="546" main_hand_crit_rate="1"
+		                magic_accuracy="670" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CHANTER" level="48">
+		<stats_template maxHp="4440" maxMp="5327"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="626" block="626" parry="626"
+		                main_hand_attack="19" main_hand_accuracy="554" main_hand_crit_rate="1"
+		                magic_accuracy="685" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CHANTER" level="49">
+		<stats_template maxHp="4579" maxMp="5433"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="638" block="638" parry="638"
+		                main_hand_attack="19" main_hand_accuracy="562" main_hand_crit_rate="1"
+		                magic_accuracy="699" />
+	</player_stats>
+
+	<!-- Checked By Kamui 11/2009 at US Retail -->
+	<player_stats class="CHANTER" level="50">
+		<stats_template maxHp="4720" maxMp="5538"
+		                power="110" health="105" agility="90" accuracy="90" knowledge="105" will="110"
+		                walk_speed="1.5" run_speed="6" fly_speed="9"
+		                attack_speed="1.5"
+		                evasion="651" block="651" parry="651"
+		                main_hand_attack="19" main_hand_accuracy="570" main_hand_crit_rate="1"
+		                magic_accuracy="713" />
+	</player_stats>
 </stats_templates>
