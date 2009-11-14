@@ -16,10 +16,9 @@
  */
 package com.aionemu.gameserver.controllers;
 
-import java.util.Random;
-
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -128,7 +127,6 @@ public class PlayerController extends CreatureController<Player>
 		PlayerGameStats gameStats = player.getGameStats();
 		long time = System.currentTimeMillis();
 		int attackType = 0; // TODO investigate attack types
-		Random generator = new Random();
 
 		World world = player.getActiveRegion().getWorld();
 		Creature target = (Creature) world.findAionObject(targetObjectId);
@@ -137,14 +135,14 @@ public class PlayerController extends CreatureController<Player>
 		int damage;
 		if (gameStats.getBaseStat(StatEnum.IS_MAGICAL_ATTACK)==1) {
 			int baseDamage = gameStats.getBaseStat(StatEnum.MIN_DAMAGES);
-			baseDamage += generator.nextInt(gameStats.getBaseStat(StatEnum.MAX_DAMAGES)-gameStats.getBaseStat(StatEnum.MIN_DAMAGES));
+			baseDamage += Rnd.get(gameStats.getBaseStat(StatEnum.MIN_DAMAGES), gameStats.getBaseStat(StatEnum.MAX_DAMAGES));
 			damage = StatFunctions.calculateMagicDamageToTarget(player, target, baseDamage, SkillElement.NONE);
 		} else {
 			damage = StatFunctions.calculateBaseDamageToTarget(player, target);
 		}
 		boolean attackSuccess = doAttack(player,target,gameStats,time,attackType,damage);
 		for (int i=1; (i<gameStats.getBaseStat(StatEnum.HIT_COUNT))&&attackSuccess; i++) {
-			damage = generator.nextInt(damage/10);
+			damage = Rnd.get(damage/10);
 			attackSuccess = doAttack(player,target,gameStats,time,attackType,damage);
 		}
 	}
