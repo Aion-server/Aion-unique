@@ -51,7 +51,7 @@ public class NpcData
 	{
 		for(NpcTemplate npc: npcs)
 		{
-			npcData.put(npc.getNpcId(), npc);
+			npcData.put(npc.getTemplateId(), npc);
 		}
 	}
 	

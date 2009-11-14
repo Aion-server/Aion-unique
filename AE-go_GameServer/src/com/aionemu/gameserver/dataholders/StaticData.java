@@ -71,6 +71,9 @@ public class StaticData
 	@XmlElement(name = "cube_expander")
 	public CubeExpandData			cubeExpandData;
 	
+	@XmlElement(name = "gatherable_templates")
+	public GatherableData			gatherableData;
+	
 	// JAXB callback
 	private void afterUnmarshal(Unmarshaller unmarshaller, Object parent)
 	{
@@ -87,5 +90,6 @@ public class StaticData
 		DataManager.log.info("Loaded " + skillTreeData.size() + " skill learn entries");
 		DataManager.log.info("Loaded " + cubeExpandData.size() + " cube expand entries");
 		DataManager.log.info("Loaded " + bindPointData.size() + " bind point entries");	
+		DataManager.log.info("Loaded " + gatherableData.size() + " gatherable entries");	
 	}
 }

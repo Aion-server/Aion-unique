@@ -52,6 +52,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_NOTIFY;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_RESPONSE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHERABLE_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
@@ -243,6 +244,7 @@ public class ServerPacketsOpcodes
 		
 		addPacketOpcode(SM_DUEL_STARTED.class, 0xD0, idSet);
 		addPacketOpcode(SM_DUEL_RESULT.class, 0xB3, idSet);
+		addPacketOpcode(SM_GATHERABLE_INFO.class, 0x28, idSet); // 1.5
 
 		//Unrecognized Opcodes:
 		//addPacketOpcode(SM_TIME_CHECK.class, 0x26, idSet);

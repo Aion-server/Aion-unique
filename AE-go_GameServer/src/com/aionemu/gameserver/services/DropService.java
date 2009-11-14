@@ -77,7 +77,7 @@ public class DropService
 	public void registerDrop(Npc npc)
 	{
 		int npcUniqueId = npc.getObjectId();
-		int npcTemplateId = npc.getTemplate().getNpcId();
+		int npcTemplateId = npc.getTemplate().getTemplateId();
 		int level = npc.getLevel();
 		
 		Set<DropTemplate> templates = dropList.getDropsFor(npcTemplateId);

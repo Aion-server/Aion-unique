@@ -95,5 +95,9 @@
 	<cube_expander>
 		<import file="cube_expander" skipRoot="true" />
 	</cube_expander>
+	
+	<gatherable_templates>
+		<import file="gatherables" skipRoot="true" />
+	</gatherable_templates>
 
 </ae_static_data>

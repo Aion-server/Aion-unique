@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="../import.xsd" />
 	<xs:element name="cube_expander">
 		<xs:complexType>
 			<xs:sequence>
+				<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
 				<xs:element name="cube_npc" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:sequence />

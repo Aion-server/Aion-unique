@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gatherable_templates>
+    <gatherable_template id="400001" name="Kukuru" nameId="701957" sourceType="VEGETABLE" harvestCount="3" skillLevel="20" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400002" name="Liguri" nameId="701958" sourceType="VEGETABLE" harvestCount="3" skillLevel="55" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400003" name="Dado" nameId="701959" sourceType="VEGETABLE" harvestCount="3" skillLevel="75" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400004" name="Rubashi" nameId="701982" sourceType="VEGETABLE" harvestCount="3" skillLevel="120" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400005" name="Ruta" nameId="701983" sourceType="VEGETABLE" harvestCount="3" skillLevel="180" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400006" name="Ruta" nameId="701983" sourceType="VEGETABLE" harvestCount="3" skillLevel="180" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400007" name="Zeyla" nameId="702003" sourceType="VEGETABLE" harvestCount="3" skillLevel="240" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400008" name="Triora" nameId="702004" sourceType="VEGETABLE" harvestCount="3" skillLevel="280" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400009" name="Zigi" nameId="702005" sourceType="VEGETABLE" harvestCount="3" skillLevel="330" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400010" name="Perer" nameId="717237" sourceType="VEGETABLE" harvestCount="3" skillLevel="375" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400011" name="Dado" nameId="723628" sourceType="VEGETABLE" harvestCount="3" skillLevel="75" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400012" name="Triora" nameId="742988" sourceType="VEGETABLE" harvestCount="3" skillLevel="280" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400013" name="Zigi" nameId="742989" sourceType="VEGETABLE" harvestCount="3" skillLevel="330" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400014" name="Perer" nameId="743752" sourceType="VEGETABLE" harvestCount="3" skillLevel="375" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400015" name="Perer" nameId="742990" sourceType="VEGETABLE" harvestCount="3" skillLevel="375" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400051" name="Briga" nameId="702108" sourceType="VEGETABLE" harvestCount="3" skillLevel="20" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400052" name="Krimer" nameId="702109" sourceType="VEGETABLE" harvestCount="3" skillLevel="55" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400053" name="Horto" nameId="702110" sourceType="VEGETABLE" harvestCount="3" skillLevel="75" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400054" name="Rabano" nameId="703606" sourceType="VEGETABLE" harvestCount="3" skillLevel="140" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400055" name="Chikra" nameId="703607" sourceType="VEGETABLE" harvestCount="3" skillLevel="190" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400056" name="Rogen" nameId="703608" sourceType="VEGETABLE" harvestCount="3" skillLevel="230" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400057" name="Zeller" nameId="703609" sourceType="VEGETABLE" harvestCount="3" skillLevel="290" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400058" name="Zeller" nameId="703609" sourceType="VEGETABLE" harvestCount="3" skillLevel="290" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400059" name="Vigen" nameId="715697" sourceType="VEGETABLE" harvestCount="3" skillLevel="335" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400060" name="Cippo" nameId="717238" sourceType="VEGETABLE" harvestCount="3" skillLevel="375" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400061" name="Horto" nameId="723629" sourceType="VEGETABLE" harvestCount="3" skillLevel="75" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400062" name="Rabano" nameId="723630" sourceType="VEGETABLE" harvestCount="3" skillLevel="140" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400063" name="Zeller" nameId="742991" sourceType="VEGETABLE" harvestCount="3" skillLevel="290" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400064" name="Vigen" nameId="742992" sourceType="VEGETABLE" harvestCount="3" skillLevel="335" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400065" name="Cippo" nameId="742993" sourceType="VEGETABLE" harvestCount="3" skillLevel="375" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400066" name="Cippo" nameId="742994" sourceType="VEGETABLE" harvestCount="3" skillLevel="375" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400101" name="Silver" nameId="701945" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="35" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400102" name="Gold" nameId="701967" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="160" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400103" name="Platinum" nameId="701968" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="210" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400104" name="Mithril" nameId="701988" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="320" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400105" name="Gold" nameId="723631" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="160" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400106" name="Mithril" nameId="742995" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="320" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400107" name="Burning Mithril" nameId="742996" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="370" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400108" name="Mithril" nameId="742997" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="320" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400151" name="Silver" nameId="702095" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="35" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400152" name="Gold" nameId="703584" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="160" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400153" name="Platinum" nameId="703585" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="210" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400154" name="Mithril" nameId="715698" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="320" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400155" name="Gold" nameId="723632" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="160" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400156" name="Mithril" nameId="742998" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="320" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400157" name="Mithril" nameId="742999" sourceType="NOBLEMETAL" harvestCount="3" skillLevel="320" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400201" name="Ore" nameId="701941" sourceType="METAL" harvestCount="3" skillLevel="15" harvestSkill="30001" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400202" name="Iron" nameId="701944" sourceType="METAL" harvestCount="3" skillLevel="15" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400203" name="Iron" nameId="701944" sourceType="METAL" harvestCount="3" skillLevel="15" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400204" name="Titanium" nameId="701965" sourceType="METAL" harvestCount="3" skillLevel="100" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400205" name="Titanium" nameId="701965" sourceType="METAL" harvestCount="3" skillLevel="100" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400206" name="Adamantium" nameId="701966" sourceType="METAL" harvestCount="3" skillLevel="200" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400207" name="Adamantium" nameId="701966" sourceType="METAL" harvestCount="3" skillLevel="200" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400208" name="Orichalcum" nameId="701987" sourceType="METAL" harvestCount="3" skillLevel="300" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400209" name="Titanium" nameId="723633" sourceType="METAL" harvestCount="3" skillLevel="100" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400210" name="Orichalcum" nameId="743000" sourceType="METAL" harvestCount="3" skillLevel="300" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400211" name="Burning Orichalcum" nameId="743001" sourceType="METAL" harvestCount="3" skillLevel="360" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400212" name="Orichalcum" nameId="743002" sourceType="METAL" harvestCount="3" skillLevel="300" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400251" name="Ore" nameId="702091" sourceType="METAL" harvestCount="3" skillLevel="15" harvestSkill="30001" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400252" name="Iron" nameId="702094" sourceType="METAL" harvestCount="3" skillLevel="15" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400253" name="Iron" nameId="702094" sourceType="METAL" harvestCount="3" skillLevel="15" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400254" name="Titanium" nameId="703580" sourceType="METAL" harvestCount="3" skillLevel="100" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400255" name="Titanium" nameId="703580" sourceType="METAL" harvestCount="3" skillLevel="100" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400256" name="Adamantium" nameId="703582" sourceType="METAL" harvestCount="3" skillLevel="200" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400257" name="Adamantium" nameId="703582" sourceType="METAL" harvestCount="3" skillLevel="200" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400258" name="Orichalcum" nameId="715699" sourceType="METAL" harvestCount="3" skillLevel="300" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400259" name="Titanium" nameId="723634" sourceType="METAL" harvestCount="3" skillLevel="100" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400260" name="Orichalcum" nameId="743003" sourceType="METAL" harvestCount="3" skillLevel="300" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400301" name="Rose Quartz" nameId="701946" sourceType="JEWELRY" harvestCount="1" skillLevel="40" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400302" name="Amethyst" nameId="701947" sourceType="JEWELRY" harvestCount="1" skillLevel="80" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400303" name="Crystal" nameId="701948" sourceType="JEWELRY" harvestCount="1" skillLevel="60" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400304" name="Topaz" nameId="701969" sourceType="JEWELRY" harvestCount="1" skillLevel="145" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400305" name="Aquamarine" nameId="701970" sourceType="JEWELRY" harvestCount="1" skillLevel="155" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400306" name="Zircon" nameId="701971" sourceType="JEWELRY" harvestCount="1" skillLevel="185" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400307" name="Garnet" nameId="701972" sourceType="JEWELRY" harvestCount="1" skillLevel="215" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400308" name="Lapis Lazuli" nameId="701973" sourceType="JEWELRY" harvestCount="1" skillLevel="245" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400309" name="Moonstone" nameId="701974" sourceType="JEWELRY" harvestCount="1" skillLevel="280" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400310" name="Ruby" nameId="701989" sourceType="JEWELRY" harvestCount="1" skillLevel="315" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400311" name="Sapphire" nameId="701990" sourceType="JEWELRY" harvestCount="1" skillLevel="350" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400312" name="Diamond" nameId="701991" sourceType="JEWELRY" harvestCount="1" skillLevel="380" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400313" name="Topaz" nameId="723635" sourceType="JEWELRY" harvestCount="1" skillLevel="145" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400314" name="Aquamarine" nameId="723636" sourceType="JEWELRY" harvestCount="1" skillLevel="155" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400315" name="Zircon" nameId="723637" sourceType="JEWELRY" harvestCount="1" skillLevel="185" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400316" name="Ruby" nameId="743004" sourceType="JEWELRY" harvestCount="1" skillLevel="315" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400317" name="Ruby" nameId="743005" sourceType="JEWELRY" harvestCount="1" skillLevel="315" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400318" name="Sapphire" nameId="743006" sourceType="JEWELRY" harvestCount="1" skillLevel="350" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400319" name="Sapphire" nameId="743007" sourceType="JEWELRY" harvestCount="1" skillLevel="350" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400320" name="Diamond" nameId="743008" sourceType="JEWELRY" harvestCount="1" skillLevel="380" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400321" name="Diamond" nameId="743009" sourceType="JEWELRY" harvestCount="1" skillLevel="380" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400322" name="Diamond" nameId="743010" sourceType="JEWELRY" harvestCount="1" skillLevel="380" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400351" name="Rose Quartz" nameId="702096" sourceType="JEWELRY" harvestCount="1" skillLevel="40" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400352" name="Amethyst" nameId="702097" sourceType="JEWELRY" harvestCount="1" skillLevel="80" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400353" name="Crystal" nameId="702098" sourceType="JEWELRY" harvestCount="1" skillLevel="60" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400354" name="Topaz" nameId="703586" sourceType="JEWELRY" harvestCount="1" skillLevel="145" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400355" name="Aquamarine" nameId="703587" sourceType="JEWELRY" harvestCount="1" skillLevel="155" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400356" name="Zircon" nameId="703588" sourceType="JEWELRY" harvestCount="1" skillLevel="185" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400357" name="Garnet" nameId="703589" sourceType="JEWELRY" harvestCount="1" skillLevel="215" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400358" name="Lapis Lazuli" nameId="715700" sourceType="JEWELRY" harvestCount="1" skillLevel="245" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400359" name="Moonstone" nameId="715701" sourceType="JEWELRY" harvestCount="1" skillLevel="280" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400360" name="Ruby" nameId="715702" sourceType="JEWELRY" harvestCount="1" skillLevel="315" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400361" name="Sapphire" nameId="715703" sourceType="JEWELRY" harvestCount="1" skillLevel="350" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400362" name="Diamond" nameId="715704" sourceType="JEWELRY" harvestCount="1" skillLevel="380" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400363" name="Topaz" nameId="723638" sourceType="JEWELRY" harvestCount="1" skillLevel="145" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400364" name="Aquamarine" nameId="723639" sourceType="JEWELRY" harvestCount="1" skillLevel="155" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400365" name="Zircon" nameId="723640" sourceType="JEWELRY" harvestCount="1" skillLevel="185" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400366" name="Ruby" nameId="743011" sourceType="JEWELRY" harvestCount="1" skillLevel="315" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400367" name="Sapphire" nameId="743012" sourceType="JEWELRY" harvestCount="1" skillLevel="350" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400368" name="Sapphire" nameId="743013" sourceType="JEWELRY" harvestCount="1" skillLevel="350" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400369" name="Diamond" nameId="743014" sourceType="JEWELRY" harvestCount="1" skillLevel="380" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400370" name="Diamond" nameId="743015" sourceType="JEWELRY" harvestCount="1" skillLevel="380" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400371" name="Diamond" nameId="743016" sourceType="JEWELRY" harvestCount="1" skillLevel="380" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400401" name="Betua Log" nameId="701949" sourceType="TREE" harvestCount="3" skillLevel="30" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400402" name="Betua Log" nameId="701949" sourceType="TREE" harvestCount="3" skillLevel="30" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400403" name="Koa Log" nameId="701975" sourceType="TREE" harvestCount="3" skillLevel="140" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400404" name="Koa Log" nameId="701975" sourceType="TREE" harvestCount="3" skillLevel="140" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400405" name="Koa Log" nameId="701975" sourceType="TREE" harvestCount="3" skillLevel="140" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400406" name="Ulmus Log" nameId="701992" sourceType="TREE" harvestCount="3" skillLevel="250" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400407" name="Ulmus Log" nameId="701992" sourceType="TREE" harvestCount="3" skillLevel="250" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400408" name="Ulmus Log" nameId="701992" sourceType="TREE" harvestCount="3" skillLevel="250" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400409" name="Ulmus Log" nameId="701992" sourceType="TREE" harvestCount="3" skillLevel="250" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400410" name="Egrasi Log" nameId="701993" sourceType="TREE" harvestCount="3" skillLevel="345" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400411" name="Egrasi Log" nameId="701993" sourceType="TREE" harvestCount="3" skillLevel="345" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400412" name="Koa Log" nameId="723641" sourceType="TREE" harvestCount="3" skillLevel="140" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400413" name="Egrasi Log" nameId="743017" sourceType="TREE" harvestCount="3" skillLevel="345" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400451" name="Tecoma Log" nameId="702099" sourceType="TREE" harvestCount="3" skillLevel="30" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400452" name="Tecoma Log" nameId="702099" sourceType="TREE" harvestCount="3" skillLevel="30" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400453" name="Wrud Log" nameId="703590" sourceType="TREE" harvestCount="3" skillLevel="110" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400454" name="Wrud Log" nameId="703590" sourceType="TREE" harvestCount="3" skillLevel="110" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400455" name="Salix Log" nameId="703592" sourceType="TREE" harvestCount="3" skillLevel="250" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400456" name="Salix Log" nameId="703592" sourceType="TREE" harvestCount="3" skillLevel="250" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400457" name="Asvata Log" nameId="715705" sourceType="TREE" harvestCount="3" skillLevel="340" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400458" name="Wrud Log" nameId="723642" sourceType="TREE" harvestCount="3" skillLevel="110" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400459" name="Asvata Log" nameId="743018" sourceType="TREE" harvestCount="3" skillLevel="340" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400501" name="Ruko" nameId="701950" sourceType="PLANT" harvestCount="3" skillLevel="25" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400502" name="Ruko" nameId="701950" sourceType="PLANT" harvestCount="3" skillLevel="25" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400503" name="Fess" nameId="701976" sourceType="PLANT" harvestCount="3" skillLevel="150" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400504" name="Fess" nameId="701976" sourceType="PLANT" harvestCount="3" skillLevel="150" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400505" name="Fess" nameId="701976" sourceType="PLANT" harvestCount="3" skillLevel="150" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400506" name="Fess" nameId="701976" sourceType="PLANT" harvestCount="3" skillLevel="150" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400507" name="Sobi" nameId="701994" sourceType="PLANT" harvestCount="3" skillLevel="235" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400508" name="Sobi" nameId="701994" sourceType="PLANT" harvestCount="3" skillLevel="235" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400509" name="Linon" nameId="701995" sourceType="PLANT" harvestCount="3" skillLevel="335" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400510" name="Fess" nameId="723643" sourceType="PLANT" harvestCount="3" skillLevel="150" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400511" name="Linon" nameId="743019" sourceType="PLANT" harvestCount="3" skillLevel="335" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400551" name="Tikel" nameId="702101" sourceType="PLANT" harvestCount="3" skillLevel="25" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400552" name="Tikel" nameId="702101" sourceType="PLANT" harvestCount="3" skillLevel="25" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400553" name="Twisp" nameId="703594" sourceType="PLANT" harvestCount="3" skillLevel="120" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400554" name="Twisp" nameId="703594" sourceType="PLANT" harvestCount="3" skillLevel="120" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400555" name="Xilix" nameId="703596" sourceType="PLANT" harvestCount="3" skillLevel="260" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400556" name="Xilix" nameId="703596" sourceType="PLANT" harvestCount="3" skillLevel="260" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400557" name="Xilix" nameId="703596" sourceType="PLANT" harvestCount="3" skillLevel="260" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400558" name="Anathe" nameId="715706" sourceType="PLANT" harvestCount="3" skillLevel="330" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400559" name="Anathe" nameId="715706" sourceType="PLANT" harvestCount="3" skillLevel="330" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400560" name="Twisp" nameId="723644" sourceType="PLANT" harvestCount="3" skillLevel="120" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400561" name="Anathe" nameId="743020" sourceType="PLANT" harvestCount="3" skillLevel="330" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400601" name="Aria" nameId="701942" sourceType="HERB" harvestCount="3" skillLevel="1" harvestSkill="30001" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400602" name="Aria" nameId="701951" sourceType="HERB" harvestCount="3" skillLevel="1" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400603" name="Aria" nameId="701951" sourceType="HERB" harvestCount="5" skillLevel="1" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400604" name="Targena" nameId="701952" sourceType="HERB" harvestCount="3" skillLevel="45" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400605" name="Targena" nameId="701952" sourceType="HERB" harvestCount="3" skillLevel="45" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400606" name="Lumesia" nameId="701977" sourceType="HERB" harvestCount="3" skillLevel="105" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400607" name="Lumesia" nameId="701977" sourceType="HERB" harvestCount="3" skillLevel="105" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400608" name="Umblia" nameId="701978" sourceType="HERB" harvestCount="3" skillLevel="170" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400609" name="Nepeta" nameId="701979" sourceType="HERB" harvestCount="3" skillLevel="225" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400610" name="Amalil" nameId="701996" sourceType="HERB" harvestCount="3" skillLevel="270" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400611" name="Ferilla" nameId="701997" sourceType="HERB" harvestCount="3" skillLevel="310" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400612" name="Ferilla" nameId="701997" sourceType="HERB" harvestCount="3" skillLevel="310" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400613" name="Griffonia" nameId="701998" sourceType="HERB" harvestCount="3" skillLevel="365" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400614" name="Lumesia" nameId="723645" sourceType="HERB" harvestCount="3" skillLevel="105" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400615" name="Amalil" nameId="743753" sourceType="HERB" harvestCount="3" skillLevel="270" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400616" name="Ferilla" nameId="743021" sourceType="HERB" harvestCount="3" skillLevel="310" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400617" name="Griffonia" nameId="743022" sourceType="HERB" harvestCount="3" skillLevel="365" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400651" name="Azpha" nameId="702092" sourceType="HERB" harvestCount="3" skillLevel="1" harvestSkill="30001" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400652" name="Azpha" nameId="702103" sourceType="HERB" harvestCount="3" skillLevel="1" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400653" name="Kandula" nameId="702104" sourceType="HERB" harvestCount="3" skillLevel="45" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400654" name="Kandula" nameId="702104" sourceType="HERB" harvestCount="3" skillLevel="45" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400655" name="Theonia" nameId="703598" sourceType="HERB" harvestCount="3" skillLevel="130" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400656" name="Hasia" nameId="703599" sourceType="HERB" harvestCount="3" skillLevel="170" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400657" name="Neunan" nameId="703600" sourceType="HERB" harvestCount="3" skillLevel="220" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400658" name="Calamot" nameId="703601" sourceType="HERB" harvestCount="3" skillLevel="270" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400659" name="Subella" nameId="715707" sourceType="HERB" harvestCount="3" skillLevel="305" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400660" name="Grobule" nameId="715708" sourceType="HERB" harvestCount="3" skillLevel="365" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400661" name="Theonia" nameId="723646" sourceType="HERB" harvestCount="3" skillLevel="130" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400662" name="Subella" nameId="743023" sourceType="HERB" harvestCount="3" skillLevel="305" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400663" name="Grobule" nameId="743024" sourceType="HERB" harvestCount="3" skillLevel="365" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400701" name="Mela" nameId="701943" sourceType="BERRY" harvestCount="3" skillLevel="10" harvestSkill="30001" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400702" name="Mela" nameId="701953" sourceType="BERRY" harvestCount="3" skillLevel="10" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400703" name="Rubus" nameId="701954" sourceType="BERRY" harvestCount="3" skillLevel="50" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400704" name="Rubus" nameId="701954" sourceType="BERRY" harvestCount="3" skillLevel="50" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400705" name="Caprauna" nameId="701956" sourceType="BERRY" harvestCount="3" skillLevel="90" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400706" name="Wiki" nameId="701980" sourceType="BERRY" harvestCount="3" skillLevel="110" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400707" name="Omblic" nameId="701981" sourceType="BERRY" harvestCount="3" skillLevel="165" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400708" name="Meon" nameId="701999" sourceType="BERRY" harvestCount="3" skillLevel="220" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400709" name="Ormea" nameId="702000" sourceType="BERRY" harvestCount="6" skillLevel="260" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400710" name="Tange" nameId="702001" sourceType="BERRY" harvestCount="3" skillLevel="325" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400711" name="Ervio" nameId="702002" sourceType="BERRY" harvestCount="3" skillLevel="355" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400712" name="Lunime" nameId="717239" sourceType="BERRY" harvestCount="3" skillLevel="385" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400713" name="Caprauna" nameId="723647" sourceType="BERRY" harvestCount="3" skillLevel="90" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400714" name="Tange" nameId="743025" sourceType="BERRY" harvestCount="3" skillLevel="325" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400715" name="Ervio" nameId="743026" sourceType="BERRY" harvestCount="3" skillLevel="355" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400716" name="Ervio" nameId="743027" sourceType="BERRY" harvestCount="3" skillLevel="355" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400717" name="Lunime" nameId="743028" sourceType="BERRY" harvestCount="3" skillLevel="385" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400718" name="Lunime" nameId="743754" sourceType="BERRY" harvestCount="3" skillLevel="385" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400751" name="Raydam" nameId="702093" sourceType="BERRY" harvestCount="3" skillLevel="10" harvestSkill="30001" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400752" name="Raydam" nameId="702105" sourceType="BERRY" harvestCount="3" skillLevel="10" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400753" name="Otombliss" nameId="702106" sourceType="BERRY" harvestCount="3" skillLevel="50" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400754" name="Otombliss" nameId="702106" sourceType="BERRY" harvestCount="3" skillLevel="50" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400755" name="Ringa" nameId="702107" sourceType="BERRY" harvestCount="3" skillLevel="90" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400756" name="Vinna" nameId="703602" sourceType="BERRY" harvestCount="3" skillLevel="135" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400757" name="Kirka" nameId="703603" sourceType="BERRY" harvestCount="3" skillLevel="180" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400758" name="Brommel" nameId="703604" sourceType="BERRY" harvestCount="3" skillLevel="240" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400759" name="Pressa" nameId="703605" sourceType="BERRY" harvestCount="3" skillLevel="275" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400760" name="Pressa" nameId="703605" sourceType="BERRY" harvestCount="3" skillLevel="275" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400761" name="Merone" nameId="715709" sourceType="BERRY" harvestCount="3" skillLevel="325" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400762" name="Kukar" nameId="715710" sourceType="BERRY" harvestCount="3" skillLevel="355" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400763" name="Leopis" nameId="717240" sourceType="BERRY" harvestCount="3" skillLevel="390" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400764" name="Vinna" nameId="723648" sourceType="BERRY" harvestCount="3" skillLevel="135" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400765" name="Pressa" nameId="743029" sourceType="BERRY" harvestCount="3" skillLevel="275" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400766" name="Kukar" nameId="743030" sourceType="BERRY" harvestCount="3" skillLevel="355" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400767" name="Kukar" nameId="743031" sourceType="BERRY" harvestCount="3" skillLevel="355" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400768" name="Leopis" nameId="743032" sourceType="BERRY" harvestCount="3" skillLevel="390" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400801" name="Cypri" nameId="701960" sourceType="FISH" harvestCount="3" skillLevel="5" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400802" name="Modida" nameId="701961" sourceType="FISH" harvestCount="3" skillLevel="65" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400803" name="Modida" nameId="701961" sourceType="FISH" harvestCount="3" skillLevel="65" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400804" name="Afari" nameId="701962" sourceType="FISH" harvestCount="3" skillLevel="95" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400805" name="Afari" nameId="701962" sourceType="FISH" harvestCount="3" skillLevel="95" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400806" name="Lapia" nameId="701984" sourceType="FISH" harvestCount="3" skillLevel="130" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400807" name="Bacora" nameId="701985" sourceType="FISH" harvestCount="3" skillLevel="190" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400808" name="Pleuro" nameId="701986" sourceType="FISH" harvestCount="3" skillLevel="230" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400809" name="Megrim" nameId="702006" sourceType="FISH" harvestCount="3" skillLevel="265" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400810" name="Esosa" nameId="702007" sourceType="FISH" harvestCount="3" skillLevel="290" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400851" name="Pujery" nameId="702111" sourceType="FISH" harvestCount="3" skillLevel="5" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400852" name="Porel" nameId="702112" sourceType="FISH" harvestCount="3" skillLevel="65" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400853" name="Porel" nameId="702112" sourceType="FISH" harvestCount="3" skillLevel="65" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400854" name="Kisaki" nameId="702113" sourceType="FISH" harvestCount="3" skillLevel="95" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400855" name="Gadill" nameId="703610" sourceType="FISH" harvestCount="3" skillLevel="115" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400856" name="Dorado" nameId="703611" sourceType="FISH" harvestCount="3" skillLevel="150" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400857" name="Jardine" nameId="703612" sourceType="FISH" harvestCount="3" skillLevel="255" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400858" name="Rask" nameId="703613" sourceType="FISH" harvestCount="3" skillLevel="310" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400859" name="Carpen" nameId="715711" sourceType="FISH" harvestCount="3" skillLevel="345" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400860" name="Rask" nameId="743033" sourceType="FISH" harvestCount="3" skillLevel="310" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400861" name="Carpen" nameId="743034" sourceType="FISH" harvestCount="3" skillLevel="345" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400862" name="Carpen" nameId="743035" sourceType="FISH" harvestCount="3" skillLevel="345" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400863" name="Carpen" nameId="743036" sourceType="FISH" harvestCount="3" skillLevel="345" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400901" name="Inina" nameId="701963" sourceType="SHELL" harvestCount="3" skillLevel="1" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400902" name="Venera" nameId="701964" sourceType="SHELL" harvestCount="3" skillLevel="85" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400903" name="Litrea" nameId="702008" sourceType="SHELL" harvestCount="3" skillLevel="305" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400904" name="Litrea" nameId="743037" sourceType="SHELL" harvestCount="3" skillLevel="305" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400951" name="Conide" nameId="702114" sourceType="SHELL" harvestCount="3" skillLevel="1" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400952" name="Blicora" nameId="702115" sourceType="SHELL" harvestCount="3" skillLevel="85" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400953" name="Almeha" nameId="715712" sourceType="SHELL" harvestCount="3" skillLevel="280" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="400954" name="Blicora" nameId="723649" sourceType="SHELL" harvestCount="3" skillLevel="85" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401001" name="Small Vortex" nameId="701940" sourceType="OD" harvestCount="5" skillLevel="1" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401002" name="Small Vortex" nameId="701940" sourceType="OD" harvestCount="5" skillLevel="1" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401003" name="Small Vortex" nameId="701940" sourceType="OD" harvestCount="5" skillLevel="25" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401004" name="Small Vortex" nameId="701940" sourceType="OD" harvestCount="5" skillLevel="50" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401005" name="Small Vortex" nameId="701940" sourceType="OD" harvestCount="5" skillLevel="75" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401006" name="Small Vortex" nameId="701940" sourceType="OD" harvestCount="5" skillLevel="75" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401007" name="Big Vortex" nameId="707712" sourceType="OD" harvestCount="5" skillLevel="100" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401008" name="Big Vortex" nameId="707712" sourceType="OD" harvestCount="5" skillLevel="100" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401009" name="Big Vortex" nameId="707712" sourceType="OD" harvestCount="5" skillLevel="100" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401010" name="Big Vortex" nameId="707712" sourceType="OD" harvestCount="5" skillLevel="125" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401011" name="Big Vortex" nameId="707712" sourceType="OD" harvestCount="5" skillLevel="150" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401012" name="Big Vortex" nameId="707712" sourceType="OD" harvestCount="5" skillLevel="175" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401013" name="Shining Vortex" nameId="707713" sourceType="OD" harvestCount="5" skillLevel="200" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401014" name="Shining Vortex" nameId="707713" sourceType="OD" harvestCount="5" skillLevel="200" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401015" name="Shining Vortex" nameId="707713" sourceType="OD" harvestCount="5" skillLevel="225" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401016" name="Shining Vortex" nameId="707713" sourceType="OD" harvestCount="5" skillLevel="250" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401017" name="Shining Vortex" nameId="707713" sourceType="OD" harvestCount="5" skillLevel="275" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401018" name="Burning Vortex" nameId="707714" sourceType="OD" harvestCount="5" skillLevel="300" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401019" name="Burning Vortex" nameId="707714" sourceType="OD" harvestCount="5" skillLevel="300" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401020" name="Burning Vortex" nameId="707714" sourceType="OD" harvestCount="5" skillLevel="325" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401021" name="Burning Vortex" nameId="707714" sourceType="OD" harvestCount="5" skillLevel="350" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401022" name="Burning Vortex" nameId="707714" sourceType="OD" harvestCount="5" skillLevel="375" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401023" name="Big Vortex" nameId="707712" sourceType="OD" harvestCount="5" skillLevel="125" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401024" name="Big Vortex" nameId="707712" sourceType="OD" harvestCount="5" skillLevel="150" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401025" name="Big Vortex" nameId="707712" sourceType="OD" harvestCount="5" skillLevel="175" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401026" name="Shining Vortex" nameId="707713" sourceType="OD" harvestCount="5" skillLevel="225" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401027" name="Shining Vortex" nameId="707713" sourceType="OD" harvestCount="5" skillLevel="250" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401028" name="Shining Vortex" nameId="707713" sourceType="OD" harvestCount="5" skillLevel="275" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401029" name="Burning Vortex" nameId="707714" sourceType="OD" harvestCount="5" skillLevel="325" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401030" name="Burning Vortex" nameId="707714" sourceType="OD" harvestCount="5" skillLevel="350" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401031" name="Burning Vortex" nameId="707714" sourceType="OD" harvestCount="5" skillLevel="375" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401032" name="Shining Vortex" nameId="707713" sourceType="OD" harvestCount="5" skillLevel="225" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401033" name="Shining Vortex" nameId="707713" sourceType="OD" harvestCount="5" skillLevel="250" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401034" name="Shining Vortex" nameId="707713" sourceType="OD" harvestCount="5" skillLevel="275" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401035" name="Burning Vortex" nameId="707714" sourceType="OD" harvestCount="5" skillLevel="325" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401051" name="Small Vortex" nameId="702116" sourceType="OD" harvestCount="5" skillLevel="1" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401052" name="Small Vortex" nameId="702116" sourceType="OD" harvestCount="5" skillLevel="1" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401053" name="Small Vortex" nameId="702116" sourceType="OD" harvestCount="5" skillLevel="25" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401054" name="Small Vortex" nameId="702116" sourceType="OD" harvestCount="5" skillLevel="50" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401055" name="Small Vortex" nameId="702116" sourceType="OD" harvestCount="5" skillLevel="75" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401056" name="Small Vortex" nameId="702116" sourceType="OD" harvestCount="5" skillLevel="75" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401057" name="Big Vortex" nameId="703615" sourceType="OD" harvestCount="5" skillLevel="100" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401058" name="Big Vortex" nameId="703615" sourceType="OD" harvestCount="5" skillLevel="100" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401059" name="Big Vortex" nameId="703615" sourceType="OD" harvestCount="5" skillLevel="100" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401060" name="Big Vortex" nameId="703615" sourceType="OD" harvestCount="5" skillLevel="125" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401061" name="Big Vortex" nameId="703615" sourceType="OD" harvestCount="5" skillLevel="150" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401062" name="Big Vortex" nameId="703615" sourceType="OD" harvestCount="5" skillLevel="175" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401063" name="Shining Vortex" nameId="703620" sourceType="OD" harvestCount="5" skillLevel="200" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401064" name="Shining Vortex" nameId="703620" sourceType="OD" harvestCount="5" skillLevel="200" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401065" name="Shining Vortex" nameId="703620" sourceType="OD" harvestCount="5" skillLevel="225" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401066" name="Shining Vortex" nameId="703620" sourceType="OD" harvestCount="5" skillLevel="250" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401067" name="Shining Vortex" nameId="703620" sourceType="OD" harvestCount="5" skillLevel="275" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401068" name="Burning Vortex" nameId="715713" sourceType="OD" harvestCount="5" skillLevel="300" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401069" name="Burning Vortex" nameId="715713" sourceType="OD" harvestCount="5" skillLevel="300" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401070" name="Burning Vortex" nameId="715713" sourceType="OD" harvestCount="5" skillLevel="325" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401071" name="Burning Vortex" nameId="715713" sourceType="OD" harvestCount="5" skillLevel="350" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401072" name="Burning Vortex" nameId="715713" sourceType="OD" harvestCount="5" skillLevel="375" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+    <gatherable_template id="401101" name="Huge Titanium" nameId="703262" sourceType="METAL" harvestCount="12" skillLevel="100" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401102" name="Huge Platinum" nameId="703263" sourceType="NOBLEMETAL" harvestCount="8" skillLevel="210" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401103" name="Huge Aquamarine" nameId="703264" sourceType="JEWELRY" harvestCount="6" skillLevel="155" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401104" name="Huge Sobi" nameId="703544" sourceType="PLANT" harvestCount="12" skillLevel="235" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401105" name="Huge Meon" nameId="703545" sourceType="BERRY" harvestCount="12" skillLevel="220" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401106" name="Huge Ulmus Log" nameId="703546" sourceType="TREE" harvestCount="12" skillLevel="250" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401107" name="Huge Nepeta" nameId="703547" sourceType="HERB" harvestCount="12" skillLevel="225" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401108" name="Huge Zeyla" nameId="703548" sourceType="VEGETABLE" harvestCount="12" skillLevel="240" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401109" name="Huge Ruby" nameId="743038" sourceType="JEWELRY" harvestCount="6" skillLevel="315" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401110" name="Huge Diamond" nameId="743039" sourceType="JEWELRY" harvestCount="6" skillLevel="380" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401111" name="Huge Vine" nameId="746255" sourceType="TREE" harvestCount="1" skillLevel="300" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401112" name="Nex" nameId="746258" sourceType="METAL" harvestCount="1" skillLevel="399" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401151" name="Huge Theonia" nameId="723650" sourceType="HERB" harvestCount="12" skillLevel="130" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="401152" name="Red Rose" nameId="743040" sourceType="JEWELRY" harvestCount="6" skillLevel="315" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="409000" name="Mithril" nameId="701988" sourceType="NOBLEMETAL" harvestCount="32" skillLevel="320" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="409001" name="Orichalcum" nameId="701987" sourceType="METAL" harvestCount="32" skillLevel="300" harvestSkill="30002" successAdj="100" failureAdj="100" aerialAdj="100"/>
+    <gatherable_template id="409002" name="Burning Vortex" nameId="715713" sourceType="OD" harvestCount="32" skillLevel="300" harvestSkill="30003" successAdj="100" failureAdj="100" aerialAdj="200"/>
+</gatherable_templates>

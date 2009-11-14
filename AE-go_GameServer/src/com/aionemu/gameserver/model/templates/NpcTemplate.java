@@ -33,7 +33,7 @@ import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlRootElement(name = "npc_template")
-public class NpcTemplate
+public class NpcTemplate implements VisibleObjectTemplate
 {
 	private int					npcId;
 	@XmlAttribute(name = "level", required = true)
@@ -57,7 +57,7 @@ public class NpcTemplate
 	@XmlElement(name = "ammo_speed")
 	private int					ammoSpeed		= 0;
 
-	public int getNpcId()
+	public int getTemplateId()
 	{
 		return npcId;
 	}

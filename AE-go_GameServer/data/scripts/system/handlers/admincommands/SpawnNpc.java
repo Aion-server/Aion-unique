@@ -17,7 +17,9 @@
 package admincommands;
 
 import com.aionemu.gameserver.dataholders.SpawnData;
+import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
@@ -60,28 +62,36 @@ public class SpawnNpc extends AdminCommand
 	{
 		if(params.length < 1)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //spawn <npc_id>");
+			PacketSendUtility.sendMessage(admin, "syntax //spawn <template_id>");
 			return;
 		}
 
-		int npcId = Integer.parseInt(params[0]);
+		int templateId = Integer.parseInt(params[0]);
 		float x = admin.getX();
 		float y = admin.getY();
 		float z = admin.getZ();
 		byte heading = admin.getHeading();
 		int worldId = admin.getWorldId();
 
-		SpawnTemplate spawn = spawnData.addNewSpawn(worldId, npcId, x, y, z, heading);
+		SpawnTemplate spawn = spawnData.addNewSpawn(worldId, templateId, x, y, z, heading);
 
 		if(spawn == null)
 		{
-			PacketSendUtility.sendMessage(admin, "There is no npc with id " + npcId);
+			PacketSendUtility.sendMessage(admin, "There is no template with id " + templateId);
 			return;
 		}
 
-		Npc npc = spawnService.spawnNpc(spawn);
+		VisibleObject visibleObject = spawnService.spawnObject(spawn);
+		String objectName = "";
+		if(visibleObject instanceof Npc)
+		{
+			objectName = ((Npc) visibleObject).getTemplate().getName();
+		}else if(visibleObject instanceof Gatherable)
+		{
+			objectName = ((Gatherable) visibleObject).getTemplate().getName();
+		}
 
-		PacketSendUtility.sendMessage(admin, npc.getTemplate().getName()
+		PacketSendUtility.sendMessage(admin, objectName
 		+ " spawned. //save_spawn   command will save whole spawndata to file");
 	}
 }

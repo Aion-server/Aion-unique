@@ -19,20 +19,21 @@ package com.aionemu.gameserver.model.templates;
 /**
  * @author Luno
  * 
+ * modified by ATracer
  */
 public class SpawnTemplate
 {
-	private NpcTemplate	npc;
+	private VisibleObjectTemplate	objectTemplate;
 	private int			worldId;
 	private float		x;
 	private float		y;
 	private float		z;
 	private byte		heading;
 
-	public SpawnTemplate(NpcTemplate npc, int worldId, float x, float y, float z, byte heading)
+	public SpawnTemplate(VisibleObjectTemplate objectTemplate, int worldId, float x, float y, float z, byte heading)
 	{
 		super();
-		this.npc = npc;
+		this.objectTemplate = objectTemplate;
 		this.worldId = worldId;
 		this.x = x;
 		this.y = y;
@@ -40,9 +41,9 @@ public class SpawnTemplate
 		this.heading = heading;
 	}
 
-	public NpcTemplate getNpc()
+	public VisibleObjectTemplate getObjectTemplate()
 	{
-		return npc;
+		return objectTemplate;
 	}
 
 	public int getWorldId()
@@ -77,6 +78,6 @@ public class SpawnTemplate
 	@Override
 	public String toString()
 	{
-		return "SpawnTemplate " + npc.getName() + " " + worldId + " " + x + " " + y + " " + z;
+		return "SpawnTemplate " + objectTemplate.getName() + " " + worldId + " " + x + " " + y + " " + z;
 	}
 }

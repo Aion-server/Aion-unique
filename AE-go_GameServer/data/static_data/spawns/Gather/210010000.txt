@@ -1,0 +1,8 @@
+#Gatherable spawns
+#
+#mapid templateid x y z
+
+#Poeta
+
+#Name
+210010000 400601 1176.4381 1057.6884 133.98843

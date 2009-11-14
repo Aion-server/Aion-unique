@@ -22,6 +22,7 @@ import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -35,6 +36,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL_RESULT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL_STARTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHERABLE_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
@@ -72,6 +74,9 @@ public class PlayerController extends CreatureController<Player>
 		else if(object instanceof Npc)
 		{
 			PacketSendUtility.sendPacket(getOwner(), new SM_NPC_INFO((Npc) object));
+		}else if(object instanceof Gatherable)
+		{
+			PacketSendUtility.sendPacket(getOwner(), new SM_GATHERABLE_INFO((Gatherable) object));
 		}
 	}
 

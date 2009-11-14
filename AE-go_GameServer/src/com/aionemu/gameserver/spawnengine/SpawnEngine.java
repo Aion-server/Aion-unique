@@ -19,9 +19,14 @@ package com.aionemu.gameserver.spawnengine;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.controllers.EffectController;
+import com.aionemu.gameserver.controllers.GatherableController;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.dataholders.SpawnData;
+import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.model.templates.GatherableTemplate;
+import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.services.DropService;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
@@ -37,24 +42,27 @@ import com.google.inject.Inject;
  * 
  * @author Luno
  * 
+ * modified by ATracer
+ * 
  */
 public class SpawnEngine
 {
 	private static Logger log = Logger.getLogger(SpawnEngine.class);
 	
-	/** In this world NPCs are spawned by this SpawnEngine */
+	/** In this world VisibleObjects are spawned by this SpawnEngine */
 	private World	world;
 
 	private IDFactory aionObjectsIDFactory;
+
+	@Inject
+	private DropService dropService;
+	
 	/**
 	 * Constructor creating <tt>SpawnEngine</tt> instance.
 	 * 
 	 * @param world
-	 *            a {@link World} instance which NPCs are spawned in.
+	 *            a {@link World} instance which VisibleObjects are spawned in.
 	 */
-	@Inject
-	private DropService dropService;
-	
 	@Inject
 	public SpawnEngine(World world, @IDFactoryAionObject IDFactory aionObjectsIDFactory)
 	{
@@ -63,28 +71,44 @@ public class SpawnEngine
 	}
 
 	/**
-	 * Creates NPCs instance and spawns it using given {@link SpawnTemplate} instance.
+	 * Creates VisibleObject instance and spawns it using given {@link SpawnTemplate} instance.
 	 * 
 	 * @param spawn
-	 * @return created and spawned NPC
+	 * @return created and spawned VisibleObject
 	 */
-	public Npc spawnNpc(SpawnTemplate spawn)
+	public VisibleObject spawnObject(SpawnTemplate spawn)
 	{
-		NpcController npcController = new NpcController();
-		npcController.setDropService(dropService);
-		
-		Npc npc = new Npc(spawn, aionObjectsIDFactory.nextId(), npcController);
 
-		npc.setKnownlist(new KnownList(npc));
-		npc.setEffectController(new EffectController(npc));
-		
-		npc.getController().onRespawn();
-		
-		world.storeObject(npc);
-		world.setPosition(npc, spawn.getWorldId(), spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getHeading());
-		world.spawn(npc);
+		if(spawn.getObjectTemplate() instanceof NpcTemplate)
+		{
+			NpcController npcController = new NpcController();
+			npcController.setDropService(dropService);
+			
+			Npc npc = new Npc(spawn, aionObjectsIDFactory.nextId(), npcController);
 
-		return npc;
+			npc.setKnownlist(new KnownList(npc));
+			npc.setEffectController(new EffectController(npc));
+			
+			npc.getController().onRespawn();
+			bringIntoWorld(npc, spawn);
+			return npc;
+		}
+		else if(spawn.getObjectTemplate() instanceof GatherableTemplate)
+		{
+			GatherableController gatherableController = new GatherableController();
+			Gatherable gatherable = new Gatherable(spawn, aionObjectsIDFactory.nextId(), gatherableController);
+			gatherable.setKnownlist(new KnownList(gatherable));
+			bringIntoWorld(gatherable, spawn);
+			return gatherable;
+		}
+		return null;
+	}
+
+	private void bringIntoWorld(VisibleObject visibleObject, SpawnTemplate spawn)
+	{
+		world.storeObject(visibleObject);
+		world.setPosition(visibleObject, spawn.getWorldId(), spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getHeading());
+		world.spawn(visibleObject);
 	}
 
 	/**
@@ -97,7 +121,7 @@ public class SpawnEngine
 	{
 		for(SpawnTemplate spawn : spawnData)
 		{
-			spawnNpc(spawn);
+			spawnObject(spawn);
 		}
 	}
 }

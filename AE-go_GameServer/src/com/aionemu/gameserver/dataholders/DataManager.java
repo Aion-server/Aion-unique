@@ -43,6 +43,13 @@ public final class DataManager
 	 * @see NpcData
 	 */
 	public final NpcData				NPC_DATA;
+	
+	/**
+	 * Gatherable data is keeping information about all gatherables.
+	 * 
+	 * @see GatherableData
+	 */
+	public final GatherableData			GATHERABLE_DATA;
 
 	/**
 	 * Spawn data is keeping information about all spawn definitions.
@@ -115,12 +122,13 @@ public final class DataManager
 		PLAYER_STATS_DATA = data.statsData;
 		ITEM_DATA = data.itemData;
 		NPC_DATA = data.npcData;
+		GATHERABLE_DATA = data.gatherableData;
 		PLAYER_INITIAL_DATA = data.playerInitialData;
 		SKILL_DATA = data.skillData;
 		SKILL_TREE_DATA = data.skillTreeData;
 		
-		// now this outstanding spawndata and (still) npcdata:
-		SPAWN_DATA = new SpawnData(NPC_DATA);
+		//spawn data use NPC_DATA and GATHERABLE_DATA
+		SPAWN_DATA = new SpawnData(NPC_DATA, GATHERABLE_DATA);
 		
 		TRADE_LIST_DATA = data.tradeListData;
 		TELEPORTER_DATA = data.teleporterData;

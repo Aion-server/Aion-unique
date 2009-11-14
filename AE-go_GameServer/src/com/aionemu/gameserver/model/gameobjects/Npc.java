@@ -61,7 +61,7 @@ public class Npc extends Creature
 	{
 		super(objId, controller, new WorldPosition());
 
-		this.template = spawn.getNpc();
+		this.template = (NpcTemplate) spawn.getObjectTemplate();
 		this.spawn = spawn;
 		controller.setOwner(this);
 		this.npcAi = new NpcAi(this);
@@ -96,7 +96,7 @@ public class Npc extends Creature
 
 	public int getNpcId()
 	{
-		return getTemplate().getNpcId();
+		return getTemplate().getTemplateId();
 	}
 
 	/**

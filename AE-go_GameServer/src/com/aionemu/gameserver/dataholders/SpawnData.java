@@ -25,6 +25,7 @@ import java.util.Set;
 
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.utils.collections.IteratorIterator;
 
 /**
@@ -37,26 +38,33 @@ import com.aionemu.gameserver.utils.collections.IteratorIterator;
 public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 {
 	/** Map of all spawn templates, divided by mapId (which is a key in this map) */
-	private Map<Integer, Set<SpawnTemplate>>	spawns	= new HashMap<Integer, Set<SpawnTemplate>>();
+	private Map<Integer, Set<SpawnTemplate>> spawns	= new HashMap<Integer, Set<SpawnTemplate>>();
 
 	/** Reference to singleton {@link NpcData}, used to get NpcTemplate */
-	private NpcData								npcData;
+	private NpcData npcData;
+	
+	/**Reference to singleton {@link GatherableData}, used to get GatherableTemplate */
+	private GatherableData gatherableData;
 
-	/** Counter counting number of spawns */
-	private int									i		= 0;
+	/** Counter counting number of npc spawns */
+	private int									npcCounter		= 0;
+	/** Counter counting number of gatherable spawns */
+	private int									gatherableCounter		= 0;
 
 	/**
 	 * SpawnData constructor, should be called only from {@link DataManager} class.
 	 * 
 	 * @param npcData
 	 */
-	SpawnData(NpcData npcData)
+	SpawnData(NpcData npcData, GatherableData gatherableData)
 	{
 		super("spawns");
 		this.npcData = npcData;
+		this.gatherableData = gatherableData;
 
 		loadData();
-		log.info("Loaded " + i + " spawns");
+		log.info("Loaded " + npcCounter + " npc spawns");
+		log.info("Loaded " + gatherableCounter + " gatherable spawns");
 	}
 
 	/**
@@ -97,13 +105,25 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 	 * @param heading
 	 * @return SpawnTemplate object representing new spawn or null when there is no template for npcId
 	 */
-	public SpawnTemplate addNewSpawn(int worldId, int npcId, float x, float y, float z, byte heading)
+	public SpawnTemplate addNewSpawn(int worldId, int objectId, float x, float y, float z, byte heading)
 	{
-		NpcTemplate npcTemplate = npcData.getNpcTemplate(npcId);
-		if(npcTemplate == null)
-			return null;
+		VisibleObjectTemplate template = null;
+		if(objectId > 400000 && objectId < 499999)// gatherable
+		{
+			template = gatherableData.getGatherableTemplate(objectId);
+			if(template == null)
+				return null;
+			gatherableCounter++;
+		}
+		else // npc
+		{
+			template = npcData.getNpcTemplate(objectId);
+			if(template == null)
+				return null;
+			npcCounter++;
+		}
 
-		SpawnTemplate spawnTemplate = new SpawnTemplate(npcTemplate, worldId, x, y, z, heading);
+		SpawnTemplate spawnTemplate = new SpawnTemplate(template, worldId, x, y, z, heading);
 		addSpawn(spawnTemplate);
 
 		return spawnTemplate;
@@ -159,7 +179,7 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 
 		for(SpawnTemplate temp : this)
 		{
-			fr.write(temp.getWorldId() + " " + temp.getNpc().getNpcId() + " " + temp.getX() + " " + temp.getY() + " "
+			fr.write(temp.getWorldId() + " " + temp.getObjectTemplate().getTemplateId() + " " + temp.getX() + " " + temp.getY() + " "
 				+ temp.getZ() + " " + temp.getHeading() + "\n");
 			fr.flush();
 		}
@@ -179,7 +199,6 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 			spawns.put(spawn.getWorldId(), worldSpawns);
 		}
 		worldSpawns.add(spawn);
-		i++;
 	}
 
 	/**
