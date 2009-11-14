@@ -53,12 +53,6 @@ public class ItemTemplate
 	@XmlAttribute(name = "equipment_type")
 	private EquipType equipmentType; 
 	
-	@XmlAttribute(name = "min_damage")
-	private int minDamage;
-	
-	@XmlAttribute(name = "max_damage")
-	private int maxDamage;
-	
 	@XmlAttribute(name = "cash_item")
 	private int cashItem;
 	
@@ -86,47 +80,14 @@ public class ItemTemplate
 	@XmlAttribute(name = "armor_type")
 	private String armorType; //TODO enum
 	
-	@XmlAttribute(name = "attack_range")
-	private float attackRange;
-	
-	@XmlAttribute(name = "hit_count")
-	private int hitCount;
-	
-	@XmlAttribute(name = "hit_accuracy")
-	private int hitAccuracy;
-	
 	@XmlAttribute(name = "attack_type")
 	private String attackType; //TODO enum
 	
 	@XmlAttribute(name = "attack_gap")
 	private float attackGap; //TODO enum
 	
-	@XmlAttribute(name = "attack_delay")
-	private int attackDelay;
-	
 	@XmlAttribute(name = "lore")
 	private boolean lore;
-	
-	@XmlAttribute(name = "magical_hit_accuracy")
-	private int magicalHitAccuracy;
-	
-	@XmlAttribute(name = "magical_skill_boost")
-	private int magicalSkillBoost;
-	
-	@XmlAttribute(name = "parry")
-	private int parrry;
-	
-	@XmlAttribute(name = "critical")
-	private int critical;
-	
-	@XmlAttribute(name = "kno")
-	private int knowledge;
-	
-	@XmlAttribute(name = "agi")
-	private int agility;
-	
-	@XmlAttribute(name = "str")
-	private int strength;
 	
 	@XmlAttribute(name = "desc")
 	private String description; //TODO string or int
@@ -217,12 +178,6 @@ public class ItemTemplate
 	
 	@XmlAttribute(name = "race_permitted")
 	private String racePermitted;
-	
-	@XmlAttribute(name = "magical_resist")
-	private int magicalResist;
-	
-	@XmlAttribute(name = "physical_defend")
-	private int physicalDefend;
 
 	public int getItemId()
 	{
@@ -247,20 +202,6 @@ public class ItemTemplate
 		itemId = Integer.parseInt(uid);
 	}
 	
-	void afterUnmarshal(Unmarshaller u, Object parent) {
-		Logger log = Logger.getLogger(ItemTemplate.class);
-		if (this.itemId==110100733) {
-			if (itemStats==null) {
-				log.debug("item 11010073 has <stats> but itemStats is null...");
-			} else {
-				if (itemStats.getStat().size()==0) {
-					log.debug("item 11010073 has several <stat ...> but stat count is 0 ...");
-				}
-			}
-			
-		}
-	}
-
 	/**
 	 * @return the itemStats
 	 */
@@ -276,22 +217,6 @@ public class ItemTemplate
 	public EquipType getEquipmentType()
 	{
 		return equipmentType;
-	}
-
-	/**
-	 * @return the minDamage
-	 */
-	public int getMinDamage()
-	{
-		return minDamage;
-	}
-
-	/**
-	 * @return the maxDamage
-	 */
-	public int getMaxDamage()
-	{
-		return maxDamage;
 	}
 
 	/**
@@ -343,86 +268,6 @@ public class ItemTemplate
 	}
 
 	/**
-	 * @return the attackRange
-	 */
-	public float getAttackRange()
-	{
-		return attackRange;
-	}
-
-	/**
-	 * @return the hitCount
-	 */
-	public int getHitCount()
-	{
-		return hitCount;
-	}
-
-	/**
-	 * @return the attackDelay
-	 */
-	public int getAttackDelay()
-	{
-		return attackDelay;
-	}
-
-	/**
-	 * @return the magicalHitAccuracy
-	 */
-	public int getMagicalHitAccuracy()
-	{
-		return magicalHitAccuracy;
-	}
-
-	/**
-	 * @return the magicalSkillBoost
-	 */
-	public int getMagicalSkillBoost()
-	{
-		return magicalSkillBoost;
-	}
-
-	/**
-	 * @return the parrry
-	 */
-	public int getParrry()
-	{
-		return parrry;
-	}
-
-	/**
-	 * @return the critical
-	 */
-	public int getCritical()
-	{
-		return critical;
-	}
-
-	/**
-	 * @return the knowledge
-	 */
-	public int getKnowledge()
-	{
-		return knowledge;
-	}
-
-	/**
-	 * @return the agility
-	 */
-	public int getAgility()
-	{
-		return agility;
-	}
-
-	/**
-	 * @return the strength
-	 */
-	public int getStrength()
-	{
-		return strength;
-	}
-
-	/**
 	 * @return the description
 	 */
 	public String getDescription()
@@ -452,14 +297,6 @@ public class ItemTemplate
 	public int getMaxStackCount()
 	{
 		return maxStackCount;
-	}
-
-	/**
-	 * @return the hitAccuracy
-	 */
-	public int getHitAccuracy()
-	{
-		return hitAccuracy;
 	}
 
 	/**
@@ -741,21 +578,5 @@ public class ItemTemplate
 	public void setItemId(int itemId)
 	{
 		this.itemId = itemId;
-	}
-
-	/**
-	 * @return the magicalResist
-	 */
-	public int getMagicalResist()
-	{
-		return magicalResist;
-	}
-
-	/**
-	 * @return the physicalDefend
-	 */
-	public int getPhysicalDefend()
-	{
-		return physicalDefend;
 	}
 }

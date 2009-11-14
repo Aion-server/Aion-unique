@@ -17,13 +17,9 @@
 		<xs:attribute name="equipment_slots" type="xs:int" />
 		<xs:attribute name="cash_item" type="xs:int" />
 		<xs:attribute name="dmg_decal" type="xs:int" />
-		<xs:attribute name="min_damage" type="xs:int" />
-		<xs:attribute name="max_damage" type="xs:int" />
-		<xs:attribute name="attack_range" type="xs:float" />
 		<xs:attribute name="attack_type" type="xs:string" />
 		<xs:attribute name="attack_gap" type="xs:float" />
 		<xs:attribute name="lore" type="xs:boolean" />
-		<xs:attribute name="hit_count" type="xs:int" />
 		<xs:attribute name="desc" type="xs:int" />
 		<xs:attribute name="can_exchange" type="xs:boolean" />
 		<xs:attribute name="can_sell_to_npc" type="xs:boolean" />

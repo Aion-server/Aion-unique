@@ -83,24 +83,24 @@ public class ItemEquipmentListener
 			}
 		}
 		// TODO Convert theses attributes to <stat ...> elements
-		if (it.getAttackDelay()!=0) {
-			pgs.addEffectOnStat(effectId, StatEnum.ATTACK_SPEED, Integer.toString(it.getAttackDelay()));
-		}
-		if (it.getHitCount()!=0) {
-			pgs.addEffectOnStat(effectId, StatEnum.HIT_COUNT, Integer.toString(it.getHitCount()));
-		}
-		if (it.getAttackRange()!=0) {
-			pgs.addEffectOnStat(effectId, StatEnum.ATTACK_RANGE, Integer.toString(Math.round(it.getAttackRange()*1000f)));
-		}
-		if (it.getMaxDamage()!=0) {
-			if ((itemSlot==ItemSlot.MAIN_HAND)||(itemSlot==ItemSlot.SUB_HAND)) {
-				pgs.addEffectOnStat(effectId, StatEnum.MAX_DAMAGES.getMainOrSubHandStat(itemSlot), Integer.toString(it.getMaxDamage()));
-			}
-			pgs.addEffectOnStat(effectId, StatEnum.MAX_DAMAGES, Integer.toString(it.getMaxDamage()));
-		}
-		if (it.getMinDamage()!=0) {
-			pgs.addEffectOnStat(effectId, StatEnum.MIN_DAMAGES, Integer.toString(it.getMinDamage()));
-		}
+//		if (it.getAttackDelay()!=0) {
+//			pgs.addEffectOnStat(effectId, StatEnum.ATTACK_SPEED, Integer.toString(it.getAttackDelay()));
+//		}
+//		if (it.getHitCount()!=0) {
+//			pgs.addEffectOnStat(effectId, StatEnum.HIT_COUNT, Integer.toString(it.getHitCount()));
+//		}
+//		if (it.getAttackRange()!=0) {
+//			pgs.addEffectOnStat(effectId, StatEnum.ATTACK_RANGE, Integer.toString(it.getAttackRange()));
+//		}
+//		if (it.getMaxDamage()!=0) {
+//			if ((itemSlot==ItemSlot.MAIN_HAND)||(itemSlot==ItemSlot.SUB_HAND)) {
+//				pgs.addEffectOnStat(effectId, StatEnum.MAX_DAMAGES.getMainOrSubHandStat(itemSlot), Integer.toString(it.getMaxDamage()));
+//			}
+//			pgs.addEffectOnStat(effectId, StatEnum.MAX_DAMAGES, Integer.toString(it.getMaxDamage()));
+//		}
+//		if (it.getMinDamage()!=0) {
+//			pgs.addEffectOnStat(effectId, StatEnum.MIN_DAMAGES, Integer.toString(it.getMinDamage()));
+//		}
 		if (it.getAttackType()!=null) {
 			pgs.addEffectOnStat(effectId, StatEnum.IS_MAGICAL_ATTACK, (it.getAttackType().contains("magic"))?"1":"0");
 		}

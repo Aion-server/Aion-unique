@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Env;
@@ -67,6 +68,8 @@ public class TargetCondition
 			//TODO multiple target condition refactoring
 			case CREATURE:
 				return env.getEffected() instanceof Creature;
+			case MONSTER:		
+				return env.getEffected() instanceof Monster;
 			case NPC:
 				return env.getEffected() instanceof Npc;
 			case PLAYER:
