@@ -1,19 +1,5 @@
 package com.aionemu.loginserver.network.netty.handler;
 
-import java.net.InetSocketAddress;
-import java.nio.ByteOrder;
-import java.security.interfaces.RSAPrivateKey;
-
-import javax.crypto.SecretKey;
-
-import org.apache.log4j.Logger;
-import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.buffer.ChannelBuffers;
-import org.jboss.netty.channel.ChannelHandlerContext;
-import org.jboss.netty.channel.ChannelPipelineCoverage;
-import org.jboss.netty.channel.ChannelStateEvent;
-import org.jboss.netty.channel.MessageEvent;
-
 import com.aionemu.loginserver.controller.AccountController;
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.network.aion.AbstractClientPacket;
@@ -24,7 +10,19 @@ import com.aionemu.loginserver.network.aion.serverpackets.SM_INIT;
 import com.aionemu.loginserver.network.ncrypt.CryptEngine;
 import com.aionemu.loginserver.network.ncrypt.EncryptedRSAKeyPair;
 import com.aionemu.loginserver.network.ncrypt.KeyGen;
-import com.aionemu.loginserver.service.AccountTimeService;
+import com.aionemu.loginserver.service.AccountService;
+import org.apache.log4j.Logger;
+import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.buffer.ChannelBuffers;
+import org.jboss.netty.channel.ChannelHandlerContext;
+import org.jboss.netty.channel.ChannelPipelineCoverage;
+import org.jboss.netty.channel.ChannelStateEvent;
+import org.jboss.netty.channel.MessageEvent;
+
+import javax.crypto.SecretKey;
+import java.net.InetSocketAddress;
+import java.nio.ByteOrder;
+import java.security.interfaces.RSAPrivateKey;
 
 /**
  * @author ATracer
@@ -34,6 +32,12 @@ public class ClientChannelHandler extends AbstractChannelHandler
 {
 	private static final Logger logger = Logger.getLogger(ClientChannelHandler.class);
 
+	private final AccountController accountController;
+
+	private final AccountService accountService;
+
+	private final ClientPacketHandler clientPacketHandler;
+
 	private CryptEngine cryptEngine;
 	private EncryptedRSAKeyPair encryptedRSAKeyPair;
 	private SessionKey sessionKey;
@@ -41,11 +45,17 @@ public class ClientChannelHandler extends AbstractChannelHandler
 	private State state;
 	private Account account;
 	private boolean joinedGs;
-	
+
+	public ClientChannelHandler(AccountController accountController, AccountService accountService, ClientPacketHandler clientPacketHandler) {
+		this.accountController = accountController;
+		this.accountService = accountService;
+		this.clientPacketHandler = clientPacketHandler;
+	}
+
 
 	/* (non-Javadoc)
-	 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#channelConnected(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.ChannelStateEvent)
-	 */
+		 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#channelConnected(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.ChannelStateEvent)
+		 */
 	@Override
 	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception 
 	{
@@ -71,8 +81,8 @@ public class ClientChannelHandler extends AbstractChannelHandler
 		 */
 		if ((account != null) && !joinedGs)
 		{
-			AccountController.removeAccountOnLS(account);
-			AccountTimeService.updateOnLogout(account);
+			accountController.removeAccountOnLS(account);
+			accountService.onLogout(account);
 		}
 	}
 
@@ -89,7 +99,7 @@ public class ClientChannelHandler extends AbstractChannelHandler
 		 *  Here packet will be read and submitted to execution
 		 */
 		logger.info("Message received");
-		AbstractClientPacket clientPacket = ClientPacketHandler.handle((ChannelBuffer) e.getMessage(), this);
+		AbstractClientPacket clientPacket = clientPacketHandler.handle((ChannelBuffer) e.getMessage(), this);
 		if(clientPacket != null && clientPacket.read())
 		{
 			clientPacket.run();

@@ -1,16 +1,10 @@
 package com.aionemu.loginserver.network.netty.handler;
 
-import java.net.InetAddress;
-
-import org.apache.log4j.Logger;
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelEvent;
-import org.jboss.netty.channel.ChannelHandlerContext;
-import org.jboss.netty.channel.ChannelStateEvent;
-import org.jboss.netty.channel.ExceptionEvent;
-import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
-
 import com.aionemu.loginserver.network.BaseServerPacket;
+import org.apache.log4j.Logger;
+import org.jboss.netty.channel.*;
+
+import java.net.InetAddress;
 
 /**
  * @author ATracer
@@ -37,7 +31,8 @@ public abstract class AbstractChannelHandler extends SimpleChannelUpstreamHandle
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e) throws Exception 
 	{
-		e.getCause().printStackTrace();
+		//noinspection ThrowableResultOfMethodCallIgnored
+		log.error("Netty: Exception caught", e.getCause());
 		e.getChannel().close();
 	}
 

@@ -17,11 +17,8 @@
 
 package com.aionemu.loginserver.service;
 
-import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.loginserver.dao.AccountTimeDAO;
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.model.AccountTime;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -37,13 +34,6 @@ import java.sql.Timestamp;
 @Service
 public class AccountTimeService
 {
-
-	private DAOManager daoManager;
-
-	@Autowired
-	public AccountTimeService(DAOManager daoManager){
-		this.daoManager = daoManager;
-	}
 
 	/**
 	 * Update account time when character logins.
@@ -89,7 +79,6 @@ public class AccountTimeService
 	{
 		accountTime.setSessionDuration(System.currentTimeMillis() - accountTime.getLastLoginTime().getTime());
 		accountTime.setAccumulatedOnlineTime(accountTime.getAccumulatedOnlineTime() + accountTime.getSessionDuration());
-		daoManager.getDAO(AccountTimeDAO.class).save(accountTime);
 	}
 
 	/**

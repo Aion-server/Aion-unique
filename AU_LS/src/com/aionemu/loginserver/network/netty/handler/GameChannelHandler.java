@@ -1,8 +1,9 @@
 package com.aionemu.loginserver.network.netty.handler;
 
-import java.net.InetSocketAddress;
-import java.nio.ByteOrder;
-
+import com.aionemu.loginserver.GameServer;
+import com.aionemu.loginserver.network.gameserver.AbstractGameClientPacket;
+import com.aionemu.loginserver.network.gameserver.AbstractGameServerPacket;
+import com.aionemu.loginserver.network.gameserver.GameServerPacketHandler;
 import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
@@ -11,29 +12,33 @@ import org.jboss.netty.channel.ChannelPipelineCoverage;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.MessageEvent;
 
-import com.aionemu.loginserver.GameServer;
-import com.aionemu.loginserver.network.gameserver.AbstractGameClientPacket;
-import com.aionemu.loginserver.network.gameserver.AbstractGameServerPacket;
-import com.aionemu.loginserver.network.gameserver.GameServerPacketHandler;
+import java.net.InetSocketAddress;
+import java.nio.ByteOrder;
 
 /**
  * @author ATracer
  */
-@ChannelPipelineCoverage("one") 
+@ChannelPipelineCoverage("one")
 public class GameChannelHandler extends AbstractChannelHandler
 {
 	private static final Logger logger = Logger.getLogger(GameChannelHandler.class);
-	
+
+	private final GameServerPacketHandler gameServerPacketHandler;
+
 	private State state;
 	
 	/**
 	 * GameServer for this GsConnection.
 	 */
 	private GameServer gameServer = null;
-	
+
+	public GameChannelHandler(GameServerPacketHandler gameServerPacketHandler) {
+		this.gameServerPacketHandler = gameServerPacketHandler;
+	}
+
 	/* (non-Javadoc)
-	 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#channelConnected(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.ChannelStateEvent)
-	 */
+		 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#channelConnected(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.ChannelStateEvent)
+		 */
 	@Override
 	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception 
 	{
@@ -55,7 +60,7 @@ public class GameChannelHandler extends AbstractChannelHandler
 		 *  Here packet will be read and submitted to execution
 		 */
 		logger.info("Message received");
-		AbstractGameClientPacket gameServerPacket = GameServerPacketHandler.handle((ChannelBuffer) e.getMessage(), this);
+		AbstractGameClientPacket gameServerPacket = gameServerPacketHandler.handle((ChannelBuffer) e.getMessage(), this);
 		if(gameServerPacket != null && gameServerPacket.read())
 		{
 			gameServerPacket.run();

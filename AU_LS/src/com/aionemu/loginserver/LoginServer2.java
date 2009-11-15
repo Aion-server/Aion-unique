@@ -11,14 +11,14 @@ public class LoginServer2 extends Server {
 
 	public void start(){
 		super.start();
-		// Start network 
-		LoginNettyServer.getInstance().initialize();
+		LoginNettyServer network = getApplicationContext().getBean(LoginNettyServer.SPRING_BEAN_NAME, LoginNettyServer.class);
+		network.initialize();
 	}
 
 	@Override
 	protected void onShutdown() {
-		//Stop network
-		LoginNettyServer.getInstance().shutdownAll();
+		LoginNettyServer network = getApplicationContext().getBean(LoginNettyServer.SPRING_BEAN_NAME, LoginNettyServer.class);
+		network.shutdownAll();
 	}
 
 	public static void main(String[] args) {

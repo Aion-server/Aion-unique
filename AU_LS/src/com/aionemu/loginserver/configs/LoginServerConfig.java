@@ -21,7 +21,7 @@ import com.aionemu.commons.configuration.Property;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.util.Properties;
 
 /**
@@ -54,13 +54,13 @@ public class LoginServerConfig extends AbstractConfig
      * Address that will be used to listen for clients
      */
     @Property(key = "loginserver.network.client.listen.address", defaultValue = "*:2106")
-    private InetAddress clientListenAddress;
+    private InetSocketAddress clientListenAddress;
 
     /**
      * Address that will be used to listen for gameservers
      */
     @Property(key = "loginserver.network.gameserver.listen.address", defaultValue = "*:9014")
-    private InetAddress gameServerListenAddress;
+    private InetSocketAddress gameServerListenAddress;
 
 	/**
 	 * Number of Threads that will handle io read (>= 0)
@@ -94,7 +94,7 @@ public class LoginServerConfig extends AbstractConfig
      * Returns address that will be used to listen for clients
      * @return address that will be used to listen for clients
      */
-    public InetAddress getClientListenAddress() {
+    public InetSocketAddress getClientListenAddress() {
         return clientListenAddress;
     }
 
@@ -102,7 +102,7 @@ public class LoginServerConfig extends AbstractConfig
      * Sets address that will be used to listen for clients
      * @param clientListenAddress address that will be used to listen for clients
      */
-    public void setClientListenAddress(InetAddress clientListenAddress) {
+    public void setClientListenAddress(InetSocketAddress clientListenAddress) {
         this.clientListenAddress = clientListenAddress;
     }
 
@@ -110,7 +110,7 @@ public class LoginServerConfig extends AbstractConfig
      * Returns address that will be used to listen for gameservers
      * @return address that will be used to listen for gameservers
      */
-    public InetAddress getGameServerListenAddress() {
+    public InetSocketAddress getGameServerListenAddress() {
         return gameServerListenAddress;
     }
 
@@ -118,7 +118,7 @@ public class LoginServerConfig extends AbstractConfig
      * Sets address that will be used to listen for gameservers
      * @param gameServerListenAddress address that will be used to listen for gameservers
      */
-    public void setGameServerListenAddress(InetAddress gameServerListenAddress) {
+    public void setGameServerListenAddress(InetSocketAddress gameServerListenAddress) {
         this.gameServerListenAddress = gameServerListenAddress;
     }
 
