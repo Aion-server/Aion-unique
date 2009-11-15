@@ -20,9 +20,13 @@ package com.aionemu.commons.database.dao;
 import com.aionemu.commons.database.DatabaseConfig;
 import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.commons.database.DatabaseInfo;
+import com.aionemu.commons.scripting.ScriptContext;
+import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
 import com.aionemu.commons.services.ScriptService;
+import com.aionemu.commons.utils.ClassUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -92,6 +96,30 @@ public class DAOManager
     public void initDAOs()
     {
         scriptService.load(databaseConfig.getScriptContextDescriptor());
+
+		ScriptManager mgr = scriptService.getLoadedScriptManagers().get(databaseConfig.getScriptContextDescriptor());
+		ScriptContext ctx = mgr.getScriptContexts().iterator().next();
+
+		Class[] classes = ctx.getCompilationResult().getCompiledClasses();
+		ApplicationContext actx = ctx.getApplicationContext();
+
+		for(Class c : classes){
+
+			if(!ClassUtils.isSubclass(c, DAO.class)){
+				continue;
+			}
+
+			//noinspection unchecked
+			if(!DAOUtils.isDBSupportedByDAO(c, databaseInfo)){
+				continue;
+			}
+
+			try {
+				registerDAO((DAO) actx.getBean(actx.getBeanNamesForType(c)[0]));
+			} catch (Exception e) {
+				throw new RuntimeException("Exception while initializing DAOs", e);
+			}
+		}
     }
 
     /**
