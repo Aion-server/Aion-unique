@@ -17,14 +17,13 @@
 
 package com.aionemu.loginserver.network.gameserver.clientpackets;
 
-import org.jboss.netty.buffer.ChannelBuffer;
-
 import com.aionemu.loginserver.GameServerService;
-import com.aionemu.loginserver.controller.AccountController;
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.network.gameserver.AbstractGameClientPacket;
 import com.aionemu.loginserver.network.gameserver.serverpackets.SM_REQUEST_KICK_ACCOUNT;
 import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
+import com.aionemu.loginserver.service.AccountService;
+import org.jboss.netty.buffer.ChannelBuffer;
 
 /**
  * Reads the list of accoutn id's that are logged to game server
@@ -34,6 +33,9 @@ import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
 public class CM_ACCOUNT_LIST extends AbstractGameClientPacket
 {
 	private GameServerService gameServerService;
+
+	private AccountService accountService;
+
 	/**
 	 * Array with accounts that are logged in
 	 */
@@ -44,8 +46,12 @@ public class CM_ACCOUNT_LIST extends AbstractGameClientPacket
 	 *
 	 * @param buf	packet data
 	 * @param client client
+	 * @param gameServerService
+	 * @param accountService
 	 */
-	public CM_ACCOUNT_LIST(ChannelBuffer buf, GameChannelHandler client, GameServerService gameServerService)
+	public CM_ACCOUNT_LIST(ChannelBuffer buf, GameChannelHandler client,
+						   GameServerService gameServerService,
+						   AccountService accountService)
 	{
 		super(buf, client, 0x04);
 		this.gameServerService = gameServerService;
@@ -66,7 +72,7 @@ public class CM_ACCOUNT_LIST extends AbstractGameClientPacket
 	{
 		for(String s : accountNames)
 		{
-			Account a = AccountController.loadAccount(s);
+			Account a = accountService.loadAccount(s);
 			if(gameServerService.isAccountOnAnyGameServer(a))
 			{
 				gameChannelHandler.sendPacket(new SM_REQUEST_KICK_ACCOUNT(a.getId()));

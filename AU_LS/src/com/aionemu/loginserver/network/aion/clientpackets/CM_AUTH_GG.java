@@ -50,9 +50,6 @@ public class CM_AUTH_GG extends AbstractClientPacket
 		super(buf, clientChannelHandler, (byte) 0x07);
 	}
 
-	/**
-	 *  {@inheritDoc}
-	 */
 	@Override
 	protected void readImpl()
 	{
@@ -64,9 +61,6 @@ public class CM_AUTH_GG extends AbstractClientPacket
 		/*data4 = */readD();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void runImpl()
 	{

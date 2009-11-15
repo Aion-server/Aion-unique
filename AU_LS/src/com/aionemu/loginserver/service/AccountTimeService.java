@@ -50,12 +50,10 @@ public class AccountTimeService
 	 * The following field are being updated:
 	 * - LastLoginTime (set to CurrentTime)
 	 * - RestTime (set to (RestTime + (CurrentTime-LastLoginTime - SessionDuration))
-	 * @param account
+	 * @param accountTime object to update on login
 	 */
-	public void updateOnLogin(Account account)
+	public void updateOnLogin(AccountTime accountTime)
 	{
-		AccountTime	accountTime = account.getAccountTime();
-
 		int	lastLoginDay = getDays(accountTime.getLastLoginTime().getTime());
 		int	currentDay   = getDays(System.currentTimeMillis());
 
@@ -78,9 +76,6 @@ public class AccountTimeService
 		}
 
 		accountTime.setLastLoginTime(new Timestamp(System.currentTimeMillis()));
-
-		daoManager.getDAO(AccountTimeDAO.class).save(accountTime);
-		account.setAccountTime(accountTime);
 	}
 
 	/**
@@ -88,16 +83,13 @@ public class AccountTimeService
 	 * The following field are being updated:
 	 * - SessionTime (set to CurrentTime - LastLoginTime)
 	 * - AccumulatedOnlineTime (set to AccumulatedOnlineTime + SessionTime)
-	 * @param account
+	 * @param accountTime to update on logout
 	 */
-	public void updateOnLogout(Account account)
+	public void updateOnLogout(AccountTime accountTime)
 	{
-		AccountTime	accountTime = account.getAccountTime();
-
 		accountTime.setSessionDuration(System.currentTimeMillis() - accountTime.getLastLoginTime().getTime());
 		accountTime.setAccumulatedOnlineTime(accountTime.getAccumulatedOnlineTime() + accountTime.getSessionDuration());
 		daoManager.getDAO(AccountTimeDAO.class).save(accountTime);
-		account.setAccountTime(accountTime);
 	}
 
 	/**
@@ -109,7 +101,7 @@ public class AccountTimeService
 	{
 		AccountTime	accountTime = account.getAccountTime();
 
-		return accountTime != null && accountTime.getExpirationTime() != null &&
+		return accountTime.getExpirationTime() != null &&
 			   accountTime.getExpirationTime().getTime() < System.currentTimeMillis();
 	}
 
@@ -122,7 +114,7 @@ public class AccountTimeService
 	{
 		AccountTime	accountTime = account.getAccountTime();
 
-		return accountTime != null && accountTime.getPenaltyEnd() != null &&
+		return accountTime.getPenaltyEnd() != null &&
 			   accountTime.getPenaltyEnd().getTime() >= System.currentTimeMillis();
 	}
 

@@ -6,6 +6,7 @@ import com.aionemu.loginserver.dao.AccountDAO;
 import com.aionemu.loginserver.dao.AccountTimeDAO;
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.model.AccountTime;
+import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 import com.aionemu.loginserver.utils.AccountUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,18 +108,30 @@ public class AccountService {
 			saveAccount(account);
 		} catch (Exception e) {
 			// TODO: check SQL exception for message about constraint violation (duplicated name) and ignore it
-			log.warn("Failed to save account", e);
+			log.error("Failed to save account", e);
 			return null;
 		}
 
 		return account;
 	}
 
-	public void onLogin(Account account){
-		// TODO: implement
+	/**
+	 * Actions that should be done on account login
+	 * @param account object that logged in
+	 * @param channelHandler
+	 */
+	public void onLogin(Account account, ClientChannelHandler channelHandler){
+		account.setLastIp(channelHandler.getIP());
+		accountTimeService.updateOnLogin(account.getAccountTime());
+		saveAccount(account);
 	}
 
+	/**
+	 * Actions that should be done on logout
+	 * @param account object that logged out
+	 */
 	public void onLogout(Account account){
-		// TODO: implement
+		accountTimeService.updateOnLogout(account.getAccountTime());
+		saveAccount(account);
 	}
 }

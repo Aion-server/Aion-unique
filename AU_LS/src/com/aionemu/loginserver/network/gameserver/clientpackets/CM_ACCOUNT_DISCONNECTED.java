@@ -17,12 +17,11 @@
 
 package com.aionemu.loginserver.network.gameserver.clientpackets;
 
-import org.jboss.netty.buffer.ChannelBuffer;
-
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.network.gameserver.AbstractGameClientPacket;
 import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
-import com.aionemu.loginserver.service.AccountTimeService;
+import com.aionemu.loginserver.service.AccountService;
+import org.jboss.netty.buffer.ChannelBuffer;
 
 /**
  * In this packet GameServer is informing LoginServer that some account is no longer on GameServer [ie was disconencted]
@@ -32,7 +31,7 @@ import com.aionemu.loginserver.service.AccountTimeService;
  */
 public class CM_ACCOUNT_DISCONNECTED extends AbstractGameClientPacket
 {
-	private final AccountTimeService accountTimeService;
+	private final AccountService accountService;
 	/**
 	 * AccountId of account that was disconnected form GameServer.
 	 */
@@ -43,12 +42,12 @@ public class CM_ACCOUNT_DISCONNECTED extends AbstractGameClientPacket
 	 *
 	 * @param buf
 	 * @param client
-	 * @param accountTimeService Service
+	 * @param accountService Service
 	 */
-	public CM_ACCOUNT_DISCONNECTED(ChannelBuffer buf, GameChannelHandler client, AccountTimeService accountTimeService)
+	public CM_ACCOUNT_DISCONNECTED(ChannelBuffer buf, GameChannelHandler client, AccountService accountService)
 	{
 		super(buf, client, 0x03);
-		this.accountTimeService = accountTimeService;
+		this.accountService = accountService;
 	}
 
 	@Override
@@ -68,8 +67,7 @@ public class CM_ACCOUNT_DISCONNECTED extends AbstractGameClientPacket
          */
 		if(account != null)
 		{
-			accountTimeService.updateOnLogout(account);
+			accountService.onLogout(account);
 		}
 	}
 }
- 

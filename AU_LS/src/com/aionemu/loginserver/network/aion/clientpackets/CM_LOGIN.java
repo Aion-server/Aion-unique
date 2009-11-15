@@ -16,13 +16,6 @@
  */
 package com.aionemu.loginserver.network.aion.clientpackets;
 
-import java.security.GeneralSecurityException;
-
-import javax.crypto.Cipher;
-
-import org.apache.log4j.Logger;
-import org.jboss.netty.buffer.ChannelBuffer;
-
 import com.aionemu.loginserver.controller.AccountController;
 import com.aionemu.loginserver.network.aion.AbstractClientPacket;
 import com.aionemu.loginserver.network.aion.AionAuthResponse;
@@ -31,6 +24,11 @@ import com.aionemu.loginserver.network.aion.serverpackets.SM_LOGIN_FAIL;
 import com.aionemu.loginserver.network.aion.serverpackets.SM_LOGIN_OK;
 import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
 import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler.State;
+import org.apache.log4j.Logger;
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import javax.crypto.Cipher;
+import java.security.GeneralSecurityException;
 
 /**
  * @author -Nemesiss-, KID
@@ -42,6 +40,8 @@ public class CM_LOGIN extends AbstractClientPacket
 	 */
 	private static final Logger	log	= Logger.getLogger(CM_LOGIN.class);
 
+	private final AccountController accountController;
+
 	/**
 	 * byte array contains encrypted login and password.
 	 */
@@ -52,10 +52,12 @@ public class CM_LOGIN extends AbstractClientPacket
 	 * 
 	 * @param buf
 	 * @param channelHandler
+	 * @param accountController
 	 */
-	public CM_LOGIN(ChannelBuffer buf, ClientChannelHandler channelHandler)
+	public CM_LOGIN(ChannelBuffer buf, ClientChannelHandler channelHandler, AccountController accountController)
 	{
 		super(buf, channelHandler, 0x0B);
+		this.accountController = accountController;
 	}
 
 	@Override
@@ -97,7 +99,7 @@ public class CM_LOGIN extends AbstractClientPacket
 
 		log.debug("AuthLogin: " + user + " pass: " + password + " ncotp: " + ncotp);
 
-		AionAuthResponse response = AccountController.login(user, password, clientChannelHandler);
+		AionAuthResponse response = accountController.login(user, password, clientChannelHandler);
 		switch (response)
 		{
 			case AUTHED:
@@ -105,7 +107,6 @@ public class CM_LOGIN extends AbstractClientPacket
 				clientChannelHandler.setSessionKey(new SessionKey(clientChannelHandler.getAccount()));
 				clientChannelHandler.sendPacket(new SM_LOGIN_OK(clientChannelHandler.getSessionKey()));
 				break;
-
 			default:
 				clientChannelHandler.close(new SM_LOGIN_FAIL(response), true);
 				break;

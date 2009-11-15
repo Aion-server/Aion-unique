@@ -32,6 +32,9 @@ import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
  */
 public class CM_ACCOUNT_AUTH extends AbstractGameClientPacket
 {
+
+	private final AccountController accountController;
+
 	/**
 	 * SessionKey that GameServer needs to check if is valid at Loginserver side.
 	 */
@@ -42,16 +45,14 @@ public class CM_ACCOUNT_AUTH extends AbstractGameClientPacket
 	 * 
 	 * @param buf
 	 * @param client
+	 * @param accountController
 	 */
-	public CM_ACCOUNT_AUTH(ChannelBuffer buf, GameChannelHandler client)
+	public CM_ACCOUNT_AUTH(ChannelBuffer buf, GameChannelHandler client, AccountController accountController)
 	{
 		super(buf, client, 0x01);
-
+		this.accountController = accountController;
 	}
 
-	/**
-	 *  {@inheritDoc}
-	 */
 	@Override
 	protected void readImpl()
 	{
@@ -63,12 +64,9 @@ public class CM_ACCOUNT_AUTH extends AbstractGameClientPacket
 		sessionKey = new SessionKey(accountId, loginOk, playOk1, playOk2);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void runImpl()
 	{
-		AccountController.checkAuth(sessionKey, gameChannelHandler);
+		accountController.checkAuth(sessionKey, gameChannelHandler);
 	}
 }

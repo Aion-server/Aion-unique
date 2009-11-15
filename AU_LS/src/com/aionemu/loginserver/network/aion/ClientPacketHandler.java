@@ -1,5 +1,6 @@
 package com.aionemu.loginserver.network.aion;
 
+import com.aionemu.loginserver.controller.AccountController;
 import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +28,17 @@ public class ClientPacketHandler extends AbstractPacketHandler
 	private final AccountTimeService accountTimeService;
 	
 	private final GameServerService gameServerService;
+
+	private final AccountController accountController;
 	
 	@Autowired
-	public ClientPacketHandler(AccountTimeService accountTimeService, GameServerService gameServerService)
+	public ClientPacketHandler(AccountTimeService accountTimeService, GameServerService gameServerService,
+							AccountController accountController)
 	{
 		super();
 		this.accountTimeService = accountTimeService;
 		this.gameServerService = gameServerService;
+		this.accountController = accountController;
 	}
 	/**
 	 *  Reads one packet from ChannelBuffer
@@ -57,7 +62,7 @@ public class ClientPacketHandler extends AbstractPacketHandler
 						clientPacket = new CM_AUTH_GG(buf, channelHandler);
 						break;
 					case 0x08:
-						clientPacket = new CM_UPDATE_SESSION(buf, channelHandler);
+						clientPacket = new CM_UPDATE_SESSION(buf, channelHandler, accountController);
 						break;
 					default :
 						unknownPacket(opCode, state.toString());						
@@ -67,7 +72,7 @@ public class ClientPacketHandler extends AbstractPacketHandler
 				switch(opCode)
 				{
 					case 0x0B:
-						clientPacket = new CM_LOGIN(buf, channelHandler);
+						clientPacket = new CM_LOGIN(buf, channelHandler, accountController);
 						break;
 					default :
 						unknownPacket(opCode, state.toString());

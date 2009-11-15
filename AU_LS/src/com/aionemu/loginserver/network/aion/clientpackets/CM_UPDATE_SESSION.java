@@ -29,6 +29,8 @@ import com.aionemu.loginserver.network.netty.handler.ClientChannelHandler;
  */
 public class CM_UPDATE_SESSION extends AbstractClientPacket
 {
+	private final AccountController accountController;
+
 	/**
 	 * accountId is part of session key - its used for security purposes
 	 */
@@ -49,14 +51,12 @@ public class CM_UPDATE_SESSION extends AbstractClientPacket
 	 * @param buf       packet data
 	 * @param client    client
 	 */
-	public CM_UPDATE_SESSION(ChannelBuffer buf, ClientChannelHandler client)
+	public CM_UPDATE_SESSION(ChannelBuffer buf, ClientChannelHandler client, AccountController accountController)
 	{
 		super(buf, client, 0x08);
+		this.accountController = accountController;
 	}
 
-	/**
-	 *  {@inheritDoc}
-	 */
 	@Override
 	protected void readImpl()
 	{
@@ -65,12 +65,9 @@ public class CM_UPDATE_SESSION extends AbstractClientPacket
 		reconnectKey = readD();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void runImpl()
 	{
-		AccountController.authReconnectingAccount(accountId, loginOk, reconnectKey, clientChannelHandler);
+		accountController.authReconnectingAccount(accountId, loginOk, reconnectKey, clientChannelHandler);
 	}
 }

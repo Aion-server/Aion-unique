@@ -40,6 +40,9 @@ public class CM_ACCOUNT_RECONNECT_KEY extends AbstractGameClientPacket
 	 * Logger for this class.
 	 */
 	private static final Logger	log	= Logger.getLogger(CM_ACCOUNT_RECONNECT_KEY.class);
+
+	private final AccountController accountController;
+
 	/**
 	 * accoundId of account that will be reconnecting.
 	 */
@@ -50,33 +53,32 @@ public class CM_ACCOUNT_RECONNECT_KEY extends AbstractGameClientPacket
 	 * 
 	 * @param buf
 	 * @param client
+	 * @param accpAccountController
 	 */
-	public CM_ACCOUNT_RECONNECT_KEY(ChannelBuffer buf, GameChannelHandler client)
+	public CM_ACCOUNT_RECONNECT_KEY(ChannelBuffer buf, GameChannelHandler client, AccountController accpAccountController)
 	{
 		super(buf, client, 0x02);
+		this.accountController = accpAccountController;
 	}
 
-	/**
-	 *  {@inheritDoc}
-	 */
 	@Override
 	protected void readImpl()
 	{
 		accountId = readD();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void runImpl()
 	{
-		int reconectKey = Rnd.nextInt();
+		int reconnectKey = Rnd.nextInt();
 		Account acc = gameChannelHandler.getGameServerInfo().removeAccountFromGameServer(accountId);
-		if (acc == null)
-			log.info("This shouldnt happend! [Error]");
-		else
-			AccountController.addReconnectingAccount(new ReconnectingAccount(acc, reconectKey));
-		gameChannelHandler.sendPacket(new SM_ACCOUNT_RECONNECT_KEY(accountId, reconectKey));
+		if (acc == null){
+			log.error("This shouldn't happen!");
+			// TODO: Throw exception here
+		}
+		else{
+			accountController.addReconnectingAccount(new ReconnectingAccount(acc, reconnectKey));
+		}
+		gameChannelHandler.sendPacket(new SM_ACCOUNT_RECONNECT_KEY(accountId, reconnectKey));
 	}
 }
