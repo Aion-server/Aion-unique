@@ -16,6 +16,9 @@
  */
 package com.aionemu.gameserver.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This enum is defining inventory slots, to which items can be equipped.
  * @author Luno
@@ -23,73 +26,74 @@ package com.aionemu.gameserver.model;
  */
 public enum ItemSlot
 {
-	MAIN_HAND(0),
-	SUB_HAND(1),
-	HELMET(2),
-	TORSO(3),
-	GLOVES(4),
-	BOOTS(5),
-	EARRINGS_LEFT(6),
-	EARRINGS_RIGHT(7),
-	RING_LEFT(8),
-	RING_RIGHT(9),
-	NECKLACE(10),
-	SHOULDER(11),
-	PANTS(12),
-	POWER_SHARD_RIGHT(13),
-	POWER_SHARD_LEFT(14),
-	WINGS(15),
-	WAIST(16),
-	
+	MAIN_HAND(1),
+	SUB_HAND(1<<1),
+	HELMET(1<<2),
+	TORSO(1<<3),
+	GLOVES(1<<4),
+	BOOTS(1<<5),
+	EARRINGS_LEFT(1<<6),
+	EARRINGS_RIGHT(1<<7),
+	RING_LEFT(1<<8),
+	RING_RIGHT(1<<9),
+	NECKLACE(1<<10),
+	SHOULDER(1<<11),
+	PANTS(1<<12),
+	POWER_SHARD_RIGHT(1<<13),
+	POWER_SHARD_LEFT(1<<14),
+	WINGS(1<<15),
+	//non-NPC equips (slot > Short.MAX)
+	WAIST(1<<16),
+	MAIN_OFF_HAND(1<<17),
+	SUB_OFF_HAND(1<<18),
 	//combo
-	MAIN_OR_SUB(0),
-	EARRING_RIGHT_OR_LEFT(6),
-	RING_RIGHT_OR_LEFT(8),
-	SHARD_RIGHT_OR_LEFT(13),
-	TORSO_GLOVE_FOOT_SHOULDER_LEG(19);
+	MAIN_OR_SUB(MAIN_HAND.slotIdMask & SUB_HAND.slotIdMask), // 3
+	EARRING_RIGHT_OR_LEFT(EARRINGS_LEFT.slotIdMask & EARRINGS_RIGHT.slotIdMask), //192
+	RING_RIGHT_OR_LEFT(RING_LEFT.slotIdMask & RING_RIGHT.slotIdMask), //768
+	SHARD_RIGHT_OR_LEFT(POWER_SHARD_LEFT.slotIdMask & POWER_SHARD_RIGHT.slotIdMask), //24576
+	TORSO_GLOVE_FOOT_SHOULDER_LEG(0);//TODO
+
+	private int slotIdMask;
 	
-	private short slotIdMask;
-	
-	private ItemSlot(int slotId)
+	private ItemSlot(int mask)
 	{
-		this.slotIdMask = (short) (Math.pow(2, slotId));
+		this.slotIdMask = mask;
 	}
 	
-	public short getSlotIdMask()
+	public int getSlotIdMask()
 	{
 		return slotIdMask;
 	}
 	
-	public static ItemSlot getValue(int slotIdMask)
+	public static List<ItemSlot> getSlotsFor(int slotIdMask)
 	{
-		int slotIdConverted = convertSlot(slotIdMask);
+		List<ItemSlot> slots = new ArrayList<ItemSlot>();
+		ItemSlot equalSlot = null;
 		for(ItemSlot itemSlot : values())
 		{
-			if(itemSlot.slotIdMask == slotIdConverted)
-			{
-				return itemSlot;
-			}
+			int sumMask = itemSlot.slotIdMask & slotIdMask;
+			/**
+			 * possible values in this check
+			 * - one of combo slots (MAIN, RIGHT_RING etc)
+			 */
+			if(sumMask > 0 && sumMask < slotIdMask)
+				slots.add(itemSlot);
+			/**
+			 * possible values for equalSlot:
+			 * - onlyone slots (TORSO etc)
+			 * - combo slots (MAIN_AND_SUB)
+			 */
+			if(sumMask == slotIdMask)
+				equalSlot = itemSlot;
 		}
-
-		throw new IllegalArgumentException("Invalid provided slotIdMask "+slotIdMask);
-	}
-	
-	//TODO
-	// This is a temporary solution and will be removed after fix of templates in XML
-	public static int convertSlot(int slotId)
-	{
-		switch(slotId)
-		{
-			case 5 :
-				return 1;// or 2 weapon
-			case 6 :
-				return 8192;//or 16384 power shard
-			case 7 :
-				return 256;// 512 rings
-			case 9 :
-				return 64;// 128 earrings
-			default : 
-				return slotId;
-		}
+		
+		// add "onlyone" slots and don't add combo slots
+		if(slots.size() == 0 && equalSlot != null)
+			slots.add(equalSlot);
+		
+		if(slots.size() == 0)
+			throw new IllegalArgumentException("Invalid provided slotIdMask "+slotIdMask);
+		
+		return slots;
 	}
 }

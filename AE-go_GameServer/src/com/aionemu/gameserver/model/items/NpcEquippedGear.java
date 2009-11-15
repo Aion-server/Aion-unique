@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.model.items;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -60,7 +61,8 @@ public class NpcEquippedGear implements Iterable<ItemTemplate>
 	}
 
 	/**
-	 * 
+	 *  Here NPC equipment mask is initialized.
+	 *  All NPC slot masks should be lower than 65536
 	 */
 	private void init()
 	{
@@ -71,12 +73,19 @@ public class NpcEquippedGear implements Iterable<ItemTemplate>
 				items = new TreeMap<ItemSlot, ItemTemplate>();
 				for(ItemTemplate item : v.items)
 				{
-					ItemSlot itemSlot = ItemSlot.getValue(item.getItemSlot());
-					items.put(itemSlot, item);
-					mask |= itemSlot.getSlotIdMask();
-					v = null;
+					List<ItemSlot> itemSlots = ItemSlot.getSlotsFor(item.getItemSlot());
+					for(ItemSlot itemSlot : itemSlots)
+					{
+						if(items.get(itemSlot) == null)
+						{
+							items.put(itemSlot, item);
+							mask |= itemSlot.getSlotIdMask();
+							break;
+						}
+					}	
 				}
 			}
+			v = null;
 		}
 	}
 	

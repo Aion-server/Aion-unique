@@ -27,6 +27,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.InventoryDAO;
+import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.items.ItemId;
@@ -131,7 +132,7 @@ public class Inventory
 		if(item.isEquipped())
 		{
 			equipment.put(item.getEquipmentSlot(), item);
-			ItemEquipmentListener.onItemEquipmentChange(this, item);
+			ItemEquipmentListener.onItemEquipmentChange(this, item, item.getEquipmentSlot());
 		}
 		else if(item.getItemTemplate().getItemId() == ItemId.KINAH.value())
 		{
@@ -273,7 +274,24 @@ public class Inventory
 			//remove item first from inventory to have at least one slot free
 			defaultItemBag.removeItemFromStorage(item);
 			//check whether there is already item in specified slot
-			Item equippedItem = equipment.get(slot);
+			int itemSlotMask = item.getItemTemplate().getItemSlot();
+			int itemSlotToEquip = 0;
+			List<ItemSlot> possibleSlots = ItemSlot.getSlotsFor(itemSlotMask);
+			for(ItemSlot possibleSlot : possibleSlots)
+			{
+				if(equipment.get(possibleSlot.getSlotIdMask()) == null)
+				{
+					itemSlotToEquip = possibleSlot.getSlotIdMask();
+					break;
+				}	
+			}
+			// equip first occupied slot if there is no free
+			if(itemSlotToEquip == 0)
+			{
+				itemSlotToEquip = possibleSlots.get(0).getSlotIdMask();
+			}
+			
+			Item equippedItem = equipment.get(itemSlotToEquip);
 			if(equippedItem != null)
 			{
 				unEquip(equippedItem);
@@ -281,7 +299,7 @@ public class Inventory
 			
 			item.setEquipped(true);
 			
-			equip(slot, item);
+			equip(itemSlotToEquip, item);
 		}
 		return true;
 	}
@@ -290,7 +308,7 @@ public class Inventory
 	{
 		equipment.put(slot, item);
 		item.setEquipmentSlot(slot);
-		ItemEquipmentListener.onItemEquipmentChange(this, item);
+		ItemEquipmentListener.onItemEquipmentChange(this, item, slot);
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
 	}
 	
@@ -334,9 +352,23 @@ public class Inventory
 	{
 		equipment.remove(itemToUnequip.getEquipmentSlot());
 		itemToUnequip.setEquipped(false);
-		ItemEquipmentListener.onItemEquipmentChange(this, itemToUnequip);
+		ItemEquipmentListener.onItemEquipmentChange(this, itemToUnequip, 0);
 		defaultItemBag.addItemToStorage(itemToUnequip);
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip));
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean switchHands(int itemUniqueId, int slot)
+	{
+		Item mainHandItem = equipment.get(ItemSlot.MAIN_HAND.getSlotIdMask());
+		Item subHandItem = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
+		Item mainOffHandItem = equipment.get(ItemSlot.MAIN_OFF_HAND.getSlotIdMask());
+		Item subOffHandItem = equipment.get(ItemSlot.SUB_OFF_HAND.getSlotIdMask());
+		//TODO switch items
+		return false;
 	}
 
 	public Item getItemByObjId(int value)

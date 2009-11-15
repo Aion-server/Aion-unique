@@ -224,7 +224,8 @@ public class PlayerService
 			if(itemTemplate.isArmor() || itemTemplate.isWeapon())
 			{
 				item.setEquipped(true);
-				item.setEquipmentSlot(ItemSlot.convertSlot(itemTemplate.getItemSlot()));
+				List<ItemSlot> itemSlots = ItemSlot.getSlotsFor(itemTemplate.getItemSlot());
+				item.setEquipmentSlot(itemSlots.get(0).getSlotIdMask());
 			}
 			
 			playerInventory.onLoadHandler(item);

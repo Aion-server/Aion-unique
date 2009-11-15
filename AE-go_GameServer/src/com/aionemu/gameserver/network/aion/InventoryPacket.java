@@ -102,7 +102,7 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeC(buf, 0x06);	
 		writeD(buf, item.isEquipped() ? itemSlotId : 0);
 		writeC(buf, 0x01);
-		writeD(buf,	ItemSlot.convertSlot(item.getItemTemplate().getItemSlot()));
+		writeD(buf,	ItemSlot.getSlotsFor(item.getItemTemplate().getItemSlot()).get(0).getSlotIdMask());
 		writeD(buf, 0x02);
 		writeC(buf, 0x0B); //? some details separator
 		writeH(buf, 0);
@@ -138,7 +138,7 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeC(buf, 0x06);		
 		writeD(buf, item.isEquipped() ? itemSlotId : 0);
 		writeC(buf, 0x02);
-		writeD(buf,	ItemSlot.convertSlot(item.getItemTemplate().getItemSlot()));
+		writeD(buf,	ItemSlot.getSlotsFor(item.getItemTemplate().getItemSlot()).get(0).getSlotIdMask());
 		writeD(buf, 0);
 		writeD(buf, 0);
 		writeC(buf, 0x0B); //? some details separator

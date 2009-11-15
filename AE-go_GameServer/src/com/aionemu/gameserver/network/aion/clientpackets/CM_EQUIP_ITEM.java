@@ -69,6 +69,10 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 		{
 			operationResult = inventory.unEquipItem(itemUniqueId, slotRead);
 		}
+		else if (action == 2)
+		{
+			operationResult = inventory.switchHands(itemUniqueId, slotRead);
+		}
 
 		if(operationResult)
 		{

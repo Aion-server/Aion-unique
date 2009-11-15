@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.listeners;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.ItemSlot;
@@ -33,7 +35,7 @@ public class ItemEquipmentListener
 {
 	private static final Logger	log	= Logger.getLogger(ItemEquipmentListener.class);
 
-	public static void onItemEquipmentChange(Inventory inventory, Item item)
+	public static void onItemEquipmentChange(Inventory inventory, Item item, int slotId)
 	{
 		ItemTemplate it = item.getItemTemplate();
 		if(inventory.getOwner() == null)
@@ -67,40 +69,16 @@ public class ItemEquipmentListener
 			return;
 		}
 		item.setEffectId(effectId);
-		ItemSlot itemSlot = null;
-		try
-		{
-			itemSlot = ItemSlot.getValue(item.getEquipmentSlot());
-		}
-		catch(IllegalArgumentException e)
-		{
-		}
+
 		if (it.getItemStats()==null) {
 			log.debug("cannot get item stats from item");
 		} else {
+			List<ItemSlot> slots = ItemSlot.getSlotsFor(slotId);
 			for (ItemStat stat : it.getItemStats().getStat()) {
-				pgs.addEffectOnStat(effectId, stat.getStatEnum().getMainOrSubHandStat(itemSlot), stat.getValue(), stat.isBonus());
+				pgs.addEffectOnStat(effectId, stat.getStatEnum().getMainOrSubHandStat(slots.get(0)), stat.getValue(), stat.isBonus());
 			}
 		}
 		// TODO Convert theses attributes to <stat ...> elements
-//		if (it.getAttackDelay()!=0) {
-//			pgs.addEffectOnStat(effectId, StatEnum.ATTACK_SPEED, Integer.toString(it.getAttackDelay()));
-//		}
-//		if (it.getHitCount()!=0) {
-//			pgs.addEffectOnStat(effectId, StatEnum.HIT_COUNT, Integer.toString(it.getHitCount()));
-//		}
-//		if (it.getAttackRange()!=0) {
-//			pgs.addEffectOnStat(effectId, StatEnum.ATTACK_RANGE, Integer.toString(it.getAttackRange()));
-//		}
-//		if (it.getMaxDamage()!=0) {
-//			if ((itemSlot==ItemSlot.MAIN_HAND)||(itemSlot==ItemSlot.SUB_HAND)) {
-//				pgs.addEffectOnStat(effectId, StatEnum.MAX_DAMAGES.getMainOrSubHandStat(itemSlot), Integer.toString(it.getMaxDamage()));
-//			}
-//			pgs.addEffectOnStat(effectId, StatEnum.MAX_DAMAGES, Integer.toString(it.getMaxDamage()));
-//		}
-//		if (it.getMinDamage()!=0) {
-//			pgs.addEffectOnStat(effectId, StatEnum.MIN_DAMAGES, Integer.toString(it.getMinDamage()));
-//		}
 		if (it.getAttackType()!=null) {
 			pgs.addEffectOnStat(effectId, StatEnum.IS_MAGICAL_ATTACK, (it.getAttackType().contains("magic"))?"1":"0");
 		}
@@ -110,7 +88,7 @@ public class ItemEquipmentListener
 	
 	public static void onLevelChange (Inventory inventory) {
 		for (Item item : inventory.getEquippedItems()) {
-			onItemEquipmentChange(inventory, item);
+			onItemEquipmentChange(inventory, item, item.getEquipmentSlot());
 		}
 	}
 }
