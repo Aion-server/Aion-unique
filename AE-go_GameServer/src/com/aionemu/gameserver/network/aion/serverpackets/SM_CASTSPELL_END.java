@@ -63,7 +63,7 @@ public class SM_CASTSPELL_END extends AionServerPacket
 		writeD(buf, cooldown);
 		writeC(buf, 0xFE); //unk??
 		writeC(buf, 1); //unk??
-		writeD(buf, 512); //unk??
+		writeD(buf, 8192); //chain 2
 
 		writeH(buf, 1); 
 		writeD(buf, targetObjectId); 

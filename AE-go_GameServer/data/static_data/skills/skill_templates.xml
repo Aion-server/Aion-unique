@@ -18,6 +18,51 @@
 		</actions>
 	</skill_template>
 	
+	<skill_template skill_id="1366" name="Blaze I"
+		type="CHANNELED" level="1" duration="2000" cooldown="30">
+		<startconditions>
+			<target value="CREATURE" />
+			<mp value="60" />
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
+		<actions>
+			<damage value="92" type="MAGICAL"/>
+			<mpuse value="60"/>
+		</actions>
+	</skill_template>
+	
+	<skill_template skill_id="1362" name="Ice Chain I"
+		type="CHANNELED" level="1" duration="2000" cooldown="10">
+		<startconditions>
+			<target value="CREATURE" />
+			<mp value="42" />
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
+		<actions>
+			<damage value="66" type="MAGICAL"/>
+			<mpuse value="42"/>
+		</actions>
+	</skill_template>
+	
+	<skill_template skill_id="1355" name="Frozen Shock I"
+		type="CHANNELED" level="1" duration="2000" cooldown="30">
+		<startconditions>
+			<target value="CREATURE" />
+			<mp value="50" />
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
+		<actions>
+			<damage value="101" type="MAGICAL"/>
+			<mpuse value="50"/>
+		</actions>
+	</skill_template>
+	
 	<skill_template skill_id="1373" name="Root I " type="CHANNELED"
 		 level="1" duration="1000" cooldown="60">
 		 <startconditions>
@@ -124,24 +169,5 @@
 			<mpuse value="50"/>
 		</actions>
 	</skill_template>
-
-	<!--
-		<skill_template skill_id="169" name="Severe Strike I" type="CHANNELED"
-		handler="PDAM" target="TARGET" level="1" duration="1" cooldown="10000"
-		damage="40" />
-	-->
-	<!--
-		
-	-->
-	<!--
-		<skill_template skill_id="1099" name="Root I " type="CHANNELED"
-		handler="MDAM" target="TARGET" level="1" duration="1" cooldown="1000"
-		damage="0" />
-	-->
-	<!--
-		<skill_template skill_id="1362" name="Ice Chain I" type="CHANNELED"
-		handler="MDAM" target="TARGET" level="1" duration="2000"
-		cooldown="10000" damage="76"/>
-	-->
 
 </skill_data>
