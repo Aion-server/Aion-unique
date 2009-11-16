@@ -127,7 +127,7 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, 0);// [unk]
 		writeH(buf, pgs.getCurrentStat(StatEnum.MAGICAL_ACCURACY));// [current magic accuracy]
 		writeH(buf, 0); // [unk]
-		writeH(buf, pgs.getCurrentStat(StatEnum.MAGICAL_ATTACK)); // [current magic boost]
+		writeH(buf, pgs.getCurrentStat(StatEnum.MAGICAL_ATTACK)+pgs.getCurrentStat(StatEnum.BOOST_MAGICAL_SKILL)); // [current magic boost]
 
 		writeH(buf, 0);// [unk]
 		writeH(buf, 0);// [unk]
@@ -201,7 +201,7 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, pgs.getBaseStat(StatEnum.MAGICAL_ACCURACY));// [base magic accuracy]
 
 		writeH(buf, 0); // [unk]
-		writeH(buf, pgs.getBaseStat(StatEnum.MAGICAL_ATTACK));// [base magic boost]
+		writeH(buf, pgs.getBaseStat(StatEnum.MAGICAL_ATTACK)+pgs.getBaseStat(StatEnum.BOOST_MAGICAL_SKILL));// [base magic boost]
 
 		writeH(buf, 0); // [unk]
 

@@ -60,7 +60,7 @@ public class CreatureGameStats<T extends Creature>
 		baseStats.put(StatEnum.MAXHP, maxHp);
 		baseStats.put(StatEnum.MAXMP, maxMp);
 		baseStats.put(StatEnum.POWER, power);
-		baseStats.put(StatEnum.POWER, power);
+		baseStats.put(StatEnum.ACCURACY, accuracy);
 		baseStats.put(StatEnum.HEALTH, health);
 		baseStats.put(StatEnum.AGILITY, agility);
 		baseStats.put(StatEnum.KNOWLEDGE, knowledge);

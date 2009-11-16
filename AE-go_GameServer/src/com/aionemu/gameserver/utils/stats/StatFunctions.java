@@ -76,12 +76,12 @@ public class StatFunctions
 		CreatureGameStats<?> ags = attacker.getGameStats();
 		CreatureGameStats<?> tgs = target.getGameStats();
 		
-		log.debug("Calculating base damages...");
+		log.debug("Calculating base damages (skill base damages: "+skillDamages+") ...");
 		log.debug("| Attacker: "+ags);
 		log.debug("| Target  : "+tgs);
 		int baseDamages = ags.getCurrentStat(StatEnum.MAIN_HAND_POWER) + skillDamages;
 		int pDef = tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE);
-		int damages = baseDamages + Math.round(baseDamages*0.60f);
+		int damages = baseDamages; // + Math.round(baseDamages*0.60f);
 		damages -= Math.round(pDef * 0.10f);
 		if (damages<=0) {
 			damages=1;
