@@ -21,7 +21,9 @@ import java.util.Collections;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -83,11 +85,21 @@ public class Add extends AdminCommand
 		}
 		
 		Inventory inventory = admin.getInventory();
-		Item addedItem = inventory.addToBag(item);
+		Item addedItem = null;
+		
+		if(itemId == ItemId.KINAH.value())
+		{
+			addedItem = inventory.getKinahItem();
+			addedItem.increaseItemCount(itemCount);
+		}
+		else
+		{
+			addedItem = inventory.addToBag(item);
+		}
 		
 		if(addedItem != null)
 		{
-			PacketSendUtility.sendPacket(admin, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), admin.getCubeSize()));
+			PacketSendUtility.sendPacket(admin, new SM_INVENTORY_UPDATE(Collections.singletonList(addedItem)));
 			PacketSendUtility.sendMessage(admin, "Item added successfully");
 		}
 		else

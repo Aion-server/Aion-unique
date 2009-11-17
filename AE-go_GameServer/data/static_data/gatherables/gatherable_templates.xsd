@@ -15,6 +15,9 @@
 	</xs:complexType>
 
 	<xs:complexType name="gatherableTemplate">
+		<xs:sequence>
+			<xs:element name="materials" type="Materials"/>
+		</xs:sequence>
 		<xs:attribute name="aerialAdj" type="xs:int" />
 		<xs:attribute name="failureAdj" type="xs:int" />
 		<xs:attribute name="successAdj" type="xs:int" />
@@ -34,6 +37,19 @@
 			<xs:maxInclusive value="499999"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
+	
+	<xs:complexType name="Materials">
+	  <xs:sequence>
+		<xs:element name="material" type="Material" minOccurs="0" maxOccurs="6"/>
+	  </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Material">
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="nameid" type="xs:int"/>
+		<xs:attribute name="rate" type="xs:int"/>
+	</xs:complexType>
 
 </xs:schema>
 
