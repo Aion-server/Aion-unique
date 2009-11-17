@@ -35,6 +35,7 @@ import com.aionemu.gameserver.services.DropService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.SocialService;
+import com.aionemu.gameserver.services.TradeService;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlers;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlersFactory;
@@ -63,23 +64,15 @@ public class DataInjectionModule extends AbstractModule
 	@Override
 	protected void configure()
 	{
-		// binds DataManager and creates its singleton immediately
 		bind(DataManager.class).asEagerSingleton();
-		// binds World and creates its singleton immediately
 		bind(World.class).asEagerSingleton();
-		// binds Spawn engine and creates its singleton immediately
 		bind(SpawnEngine.class).asEagerSingleton();
-		// binds PlayerService as singleton
 		bind(PlayerService.class).in(Scopes.SINGLETON);
-		// binds AccountService as singleton
 		bind(AccountService.class).in(Scopes.SINGLETON);
-		// binds SocialService as singleton
 		bind(SocialService.class).in(Scopes.SINGLETON);
-		// binds ScriptService as singleton
 		bind(ScriptService.class).in(Scopes.SINGLETON);
-		// binds ItemService as singleton
 		bind(ItemService.class).in(Scopes.SINGLETON);
-		// binds DropService as singleton and creates its singleton immediately
+		bind(TradeService.class).in(Scopes.SINGLETON);
 		bind(DropService.class).asEagerSingleton();
 	}
 

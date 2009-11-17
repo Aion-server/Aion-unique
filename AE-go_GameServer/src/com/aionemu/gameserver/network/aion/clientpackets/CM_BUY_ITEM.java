@@ -16,28 +16,18 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import java.util.Collections;
-
 import org.apache.log4j.Logger;
 
-import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.dao.InventoryDAO;
-import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.trade.TradeList;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
-import com.aionemu.gameserver.services.ItemService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.services.TradeService;
 import com.google.inject.Inject;
 
 /**
  * 
  * @author orz
- * 
+ * modified by ATracer
  */
 public class CM_BUY_ITEM extends AionClientPacket
 {
@@ -60,7 +50,7 @@ public class CM_BUY_ITEM extends AionClientPacket
 	private static final Logger	log	= Logger.getLogger(CM_BUY_ITEM.class);
 	
 	@Inject
-	private ItemService itemService;
+	private TradeService tradeService;
 
 	
 	/**
@@ -72,48 +62,40 @@ public class CM_BUY_ITEM extends AionClientPacket
 		npcObjId = readD();
 		unk1	 = readH();
 		amount = readH(); //total no of items
-		int totalprice = 0;
-		
+
 		Player player = getConnection().getActivePlayer();
-		Inventory bag = player.getInventory();
+		
+		TradeList tradeList = new TradeList();
 		
 		for (int i = 0; i < amount; i++) 
 		{
 			itemId = readD();
 			count  = readD();
 			unk2   = readD();
-							
-			if (unk1 == 12) //buy
+			
+			if(unk1 == 12)
 			{
-				Item item = itemService.newItem(itemId, count);
-				if((item != null)&&(!bag.isFull()))
-				{
-					Item resultItem = bag.addToBag(item);
-					totalprice = totalprice - item.getItemTemplate().getPrice() * count;
-					//TODO check retail the real packets that sent to player
-					sendPacket(new SM_INVENTORY_INFO(Collections.singletonList(resultItem), player.getCubeSize()));
-				}
+				tradeList.addBuyItem(itemId, count);
 			}
-			else if (unk1 == 1) //sell
+			else if(unk1 == 1)
 			{
-				Item item = bag.getItemByObjId(itemId);
-				if (item != null)
-				{
-					bag.removeFromBag(item);
-					totalprice = totalprice + item.getItemTemplate().getPrice()* count / 4;
-				//TODO check retail the real packets that sent to player
-				sendPacket(new SM_DELETE_ITEM(item.getObjectId()));
-				}
+				tradeList.addSellItem(itemId, count);
 			}
-			else
-			{
-				log.info(String.format("Unhandle shop action unk1: %d", unk1));
-			}
+			
 		}
-
-		bag.increaseKinah(2 * totalprice);
-		if (totalprice != 0)
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(bag.getKinahItem()));
+		
+		if (unk1 == 12) //buy
+		{
+			tradeService.performBuyFromShop(player, tradeList);
+		}
+		else if (unk1 == 1) //sell
+		{
+			tradeService.performSellToShop(player, tradeList);
+		}
+		else
+		{
+			log.info(String.format("Unhandle shop action unk1: %d", unk1));
+		}
 
 	}
 

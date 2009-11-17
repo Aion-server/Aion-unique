@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aionunique.smfnew.com>.
+ * This file is part of aion-unique <aionunique.com>.
  *
  * aion-unique is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,30 +17,28 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.List;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.items.ItemId;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.model.gameobjects.player.ItemList;
-import java.util.Random;
+import com.aionemu.gameserver.network.aion.InventoryPacket;
 
 /**
  * 
- * @author alexa026
+ * @author ATracer
  * 
  */
-public class SM_INVENTORY_UPDATE extends AionServerPacket
+public class SM_INVENTORY_UPDATE extends InventoryPacket
 {
-	private int	itemId;
-	private int	itemCount = 0;
-	private int	itemNameId = 0;
-	private int	itemUniqueId;
-	private int	slot;
+	private List<Item> items;
+	private int size;
 	
-	public SM_INVENTORY_UPDATE(int itemUniqueId,int itemId, int itemCount)
+	public SM_INVENTORY_UPDATE(List<Item> items)
 	{
-		this.itemId = itemId;
-		this.itemCount = itemCount;
-		this.itemUniqueId = itemUniqueId;
+		this.items = items;
+		this.size = items.size();
 	}
 
 	/**
@@ -50,41 +48,30 @@ public class SM_INVENTORY_UPDATE extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{	
-		ItemList itemName = new ItemList();
-		itemName.getItemList(itemId);
-		itemNameId = itemName.getItemNameId();
-		slot = 8;
-		if (itemId !=0) {
-		writeH(buf, 25); 
-		writeH(buf, 1); // unk
-		
-		writeD(buf, itemUniqueId); // unique item id
-
-		writeD(buf, itemId); //item id
-		writeH(buf, 36); //always 0x24
-
-		writeD(buf, itemNameId); // itemNameId
-		writeH(buf, 0);
-		writeH(buf, 0x16); // length of item details
-		writeC(buf, 0);
-		writeH(buf, 0xa3e);
-		writeD(buf, itemCount); //count
-		
-		//dummy
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeH(buf, 0);
-		writeC(buf, 0);
-		
-		writeC(buf, 0xff);
-		writeC(buf, 0xff);
-		writeC(buf, 0);
-
-		}
-		else
-		{
-			//if item's id is wrong Do nothing
-		}
+		writeH(buf, 25); // padding?
+		writeH(buf, size); // number of entries
+		for(Item item : items)
+ 		{
+			writeGeneralInfo(buf, item);
+			
+			ItemTemplate itemTemplate = item.getItemTemplate();
+			
+			if(itemTemplate.getItemId() == ItemId.KINAH.value())
+			{
+				writeKinah(buf, item);
+			}
+			else if (itemTemplate.isWeapon())
+			{
+				writeWeaponInfo(buf, item);
+			}
+			else if (itemTemplate.isArmor())
+			{
+				writeArmorInfo(buf,item);
+			}
+			else
+			{
+				writeGeneralItemInfo(buf, item);
+			}
+ 		}
 	}	
 }
