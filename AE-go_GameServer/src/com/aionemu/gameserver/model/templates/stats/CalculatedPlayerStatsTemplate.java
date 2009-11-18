@@ -166,7 +166,7 @@ public class CalculatedPlayerStatsTemplate extends PlayerStatsTemplate
 	@Override
 	public int getMaxHp()
 	{
-		return ClassStats.getMaxHpFor(playerClass, 25); // level is hardcoded
+		return ClassStats.getMaxHpFor(playerClass, 10); // level is hardcoded
 	}
 
 	/* (non-Javadoc)
