@@ -75,6 +75,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_CANCEL;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_LOCK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_OK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_REQUEST;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_UI_SETTINGS;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_USE_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERIFY_LOCATION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
@@ -172,7 +173,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_VIEW_PLAYER_DETAILS(0x4E), State.IN_GAME);
 		
 		addPacket(new CM_DUEL_REQUEST(0x5C), State.IN_GAME);
-
+		//addPacket(new CM_UI_SETTINGS(0xF4), State.IN_GAME);
 		//addPacket(new CM_INVITE_TO_GROUP(0x4B ), State.IN_GAME);
 		//addPacket(new CM_REQUEST_DUEL(0x5C ), State.IN_GAME);
 

@@ -50,11 +50,12 @@ public class Player extends Creature
 	private FriendList			friendList;
 	private BlockList			blockList;
 	private ResponseRequester	requester;
-	private boolean lookingForGroup = false;
+	private boolean 			lookingForGroup = false;
 	private Inventory			inventory;
-	private ExchangeList			exchangeList;
+	private ExchangeList		exchangeList;
 	private PlayerStatsTemplate playerStatsTemplate;
 	private PlayerGameStats		playerStatsBonus;
+	private byte[]				uiSettings;
 	
 	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
@@ -332,6 +333,22 @@ public class Player extends Creature
 		this.playerCommonData.setCubesize(cubesize);
 	}
 	
+	/**
+	 * @return the uiSettings
+	 */
+	public byte[] getUiSettings()
+	{
+		return uiSettings;
+	}
+
+	/**
+	 * @param uiSettings the uiSettings to set
+	 */
+	public void setUiSettings(byte[] uiSettings)
+	{
+		this.uiSettings = uiSettings;
+	}
+
 	/**
 	 * This method is called when player logs into the game. It's main responsibility is to call all registered
 	 * listeners.<br>

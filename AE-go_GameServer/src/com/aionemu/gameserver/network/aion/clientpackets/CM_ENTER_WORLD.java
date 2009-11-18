@@ -40,12 +40,13 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UI_SETTINGS;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKDC;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTLIST;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -125,7 +126,12 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 */
 			client.sendPacket(new SM_ENTER_WORLD_CHECK());
 			client.sendPacket(new SM_QUESTLIST());
-
+			
+//			if(player.getUiSettings() != null)
+//			{
+//				client.sendPacket(new SM_UI_SETTINGS(player));
+//			}
+			
 			LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
 			if((player.getPosition().getX() == locationData.getX())&&(player.getPosition().getY() == locationData.getY()))
 			{
@@ -162,7 +168,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			client.sendPacket(new SM_INVENTORY_INFO()); 
 			client.sendPacket(new SM_UNKDC()); //?? unknwon
 			// sendPacket(new SM_UNKD3());
-
+			
 			/*
 			 * Needed
 			 */

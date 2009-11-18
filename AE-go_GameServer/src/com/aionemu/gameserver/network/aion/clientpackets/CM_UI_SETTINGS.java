@@ -14,22 +14,38 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects;
+package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.controllers.NpcController;
-import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.AionClientPacket;
+
 /**
  * @author ATracer
  */
-public class Citizen extends Npc
+public class CM_UI_SETTINGS extends AionClientPacket
 {
+	byte[] data;
+	int objectid;
 
-	/**
-	 * @param template
-	 */
-	public Citizen(SpawnTemplate spawn, int objId, NpcController controller)
+	public CM_UI_SETTINGS(int opcode)
 	{
-		super(spawn, objId, controller);
+		super(opcode);
 	}
 
+	@Override
+	protected void readImpl()
+	{
+//		readB(4);
+//		data = readB(getRemainingBytes());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void runImpl()
+	{
+		Player player =  getConnection().getActivePlayer();
+		player.setUiSettings(data);
+	}
 }

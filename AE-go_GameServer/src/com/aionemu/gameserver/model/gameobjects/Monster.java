@@ -17,39 +17,17 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.controllers.NpcController;
-import com.aionemu.gameserver.model.gameobjects.stats.MonsterLifeStats;
-import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 
 public class Monster extends Npc
 {
 
-	private MonsterLifeStats lifeStats;
-	
 	/**
 	 * @param template
 	 */
 	public Monster(SpawnTemplate spawn, int objId, NpcController controller)
 	{
 		super(spawn, objId, controller);
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @return the lifeStats
-	 */
-	@Override
-	public MonsterLifeStats getLifeStats()
-	{
-		return lifeStats;
-	}
-
-	/**
-	 * @param lifeStats the lifeStats to set
-	 */
-	public void setLifeStats(MonsterLifeStats lifeStats)
-	{
-		this.lifeStats = lifeStats;
 	}
 
 }

@@ -23,6 +23,7 @@ import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -135,7 +136,9 @@ public class PlayerController extends CreatureController<Player>
 
 		World world = player.getActiveRegion().getWorld();
 		Creature target = (Creature) world.findAionObject(targetObjectId);
-
+		if(target == null || !(target instanceof Monster))
+			return;
+		
 		// TODO fix last attack - cause mob is already dead
 		int damage;
 		if (gameStats.getBaseStat(StatEnum.IS_MAGICAL_ATTACK)==1) {

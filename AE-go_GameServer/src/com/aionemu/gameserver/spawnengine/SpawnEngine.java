@@ -18,11 +18,16 @@ package com.aionemu.gameserver.spawnengine;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.controllers.CitizenController;
 import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.GatherableController;
+import com.aionemu.gameserver.controllers.MonsterController;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.dataholders.SpawnData;
+import com.aionemu.gameserver.model.NpcType;
+import com.aionemu.gameserver.model.gameobjects.Citizen;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
@@ -81,10 +86,26 @@ public class SpawnEngine
 
 		if(spawn.getObjectTemplate() instanceof NpcTemplate)
 		{
-			NpcController npcController = new NpcController();
-			npcController.setDropService(dropService);
+			NpcType npcType = ((NpcTemplate)spawn.getObjectTemplate()).getNpcType();	
+			NpcController npcController = null;
+			Npc npc = null;
 			
-			Npc npc = new Npc(spawn, aionObjectsIDFactory.nextId(), npcController);
+			switch(npcType)
+			{
+				case ATTACKABLE:
+					npcController = new MonsterController();
+					npcController.setDropService(dropService);
+					npc = new Monster(spawn, aionObjectsIDFactory.nextId(), npcController);
+					break;
+				case NON_ATTACKABLE:
+					npcController = new CitizenController();	
+					npc = new Citizen(spawn, aionObjectsIDFactory.nextId(), npcController);
+					break;
+				default: 
+					npcController = new NpcController();
+					npc = new Npc(spawn, aionObjectsIDFactory.nextId(), npcController);
+						
+			}
 
 			npc.setKnownlist(new KnownList(npc));
 			npc.setEffectController(new EffectController(npc));

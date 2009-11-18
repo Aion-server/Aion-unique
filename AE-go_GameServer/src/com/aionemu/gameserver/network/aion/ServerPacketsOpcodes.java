@@ -90,6 +90,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_LOC;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UI_SETTINGS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_VERSION_CHECK;
@@ -245,6 +246,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_DUEL_STARTED.class, 0xD0, idSet);
 		addPacketOpcode(SM_DUEL_RESULT.class, 0xB3, idSet);
 		addPacketOpcode(SM_GATHERABLE_INFO.class, 0x28, idSet); // 1.5
+		//addPacketOpcode(SM_UI_SETTINGS.class, 0x17, idSet); // 1.5
 
 		//Unrecognized Opcodes:
 		//addPacketOpcode(SM_TIME_CHECK.class, 0x26, idSet);

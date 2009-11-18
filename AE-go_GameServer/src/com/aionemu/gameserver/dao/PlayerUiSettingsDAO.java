@@ -14,22 +14,37 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects;
+package com.aionemu.gameserver.dao;
 
-import com.aionemu.gameserver.controllers.NpcController;
-import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import com.aionemu.commons.database.dao.DAO;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+
 /**
  * @author ATracer
  */
-public class Citizen extends Npc
+public abstract class PlayerUiSettingsDAO implements DAO
 {
-
 	/**
-	 * @param template
+	 * Returns unique identifier for PlayerUiSettingsDAO
+	 * 
+	 * @return unique identifier for PlayerUiSettingsDAO
 	 */
-	public Citizen(SpawnTemplate spawn, int objId, NpcController controller)
+	@Override
+	public final String getClassName()
 	{
-		super(spawn, objId, controller);
+		return PlayerUiSettingsDAO.class.getName();
 	}
-
+	
+	/**
+	 * 
+	 * @param playerId
+	 * @param data
+	 */
+	public abstract void saveUiSettings(final Player player);
+	
+	/**
+	 * 
+	 * @param playerId
+	 */
+	public abstract void loadUiSettings(final Player player);
 }

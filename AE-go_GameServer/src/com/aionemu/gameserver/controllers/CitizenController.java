@@ -14,22 +14,13 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects;
+package com.aionemu.gameserver.controllers;
 
-import com.aionemu.gameserver.controllers.NpcController;
-import com.aionemu.gameserver.model.templates.SpawnTemplate;
 /**
  * @author ATracer
+ *
  */
-public class Citizen extends Npc
+public class CitizenController extends NpcController
 {
-
-	/**
-	 * @param template
-	 */
-	public Citizen(SpawnTemplate spawn, int objId, NpcController controller)
-	{
-		super(spawn, objId, controller);
-	}
 
 }

@@ -41,7 +41,7 @@ public class Npc extends Creature
 	/**
 	 *  Template keeping all base data for this npc 
 	 */
-	private NpcTemplate		template;
+	protected NpcTemplate		template;
 
 	/**
 	 *  Spawn template of this npc. Currently every spawn template is responsible for spawning just one npc.
@@ -125,26 +125,10 @@ public class Npc extends Creature
 	}
 
 	/**
-	 * @param gameStats the gameStats to set
-	 */
-	public void setGameStats(NpcGameStats gameStats)
-	{
-		super.setGameStats(gameStats);
-	}
-
-	/**
 	 * @return the gameStats
 	 */
 	public NpcGameStats getGameStats()
 	{
 		return (NpcGameStats) super.getGameStats();
-	}
-
-	/**
-	 * @param lifeStats the lifeStats to set
-	 */
-	public void setLifeStats(NpcLifeStats lifeStats)
-	{
-		super.setLifeStats(lifeStats);
 	}
 }
