@@ -21,6 +21,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
@@ -146,17 +147,20 @@ public abstract class PlayerInfo extends AionServerPacket
 		writeD(buf, 0);// unk 1242638636
 
 		int itemsDataSize = 0;
-		
+		//TODO figure out this part when fully equipped
 		List<Item> items = accPlData.getInventory().getEquippedItems();
 		
 		for(Item item : items) {
 			
-			writeC(buf, 1); // this flas is needed to show equipment on selection screen
-	    	writeD(buf, item.getItemTemplate().getItemId());
-	    	writeD(buf, 0);
-	     	writeD(buf, 0);
+			if(itemsDataSize < 208 && item.getItemTemplate().getItemSlot() <= ItemSlot.PANTS.getSlotIdMask())
+			{
+				writeC(buf, 1); // this flas is needed to show equipment on selection screen
+		    	writeD(buf, item.getItemTemplate().getItemId());
+		    	writeD(buf, 0);
+		     	writeD(buf, 0);
 
-			itemsDataSize += 13;
+				itemsDataSize += 13;
+			}	
 		}
 		
 		stupidNc = new byte[208-itemsDataSize];
