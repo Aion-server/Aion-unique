@@ -19,6 +19,7 @@ package com.aionemu.loginserver.network.ncrypt;
 
 import com.aionemu.commons.utils.Rnd;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -33,6 +34,7 @@ import java.security.spec.RSAKeyGenParameterSpec;
  * @author -Nemesiss-
  *
  */
+@Service
 public class KeyGen
 {
 	/**
@@ -43,19 +45,19 @@ public class KeyGen
 	/**
 	 * Key generator for blowfish
 	 */
-	private static KeyGenerator		blowfishKeyGen;
+	private KeyGenerator		blowfishKeyGen;
 
 	/**
 	 *  Public/Static RSA KeyPairs with encrypted modulus N
 	 */
-	private static EncryptedRSAKeyPair[] encryptedRSAKeyPairs;
+	private EncryptedRSAKeyPair[] encryptedRSAKeyPairs;
 
     /**
 	 * Initialize Key Generator (Blowfish keygen and RSA keygen)
 	 *
 	 * @throws GeneralSecurityException
 	 */
-	public static void init() throws GeneralSecurityException
+	public KeyGen() throws GeneralSecurityException
 	{
 		log.info("Initializing Key Generator...");
 
@@ -85,7 +87,7 @@ public class KeyGen
 	 *
 	 * @return Random generated blowfish key
 	 */
-	public static SecretKey generateBlowfishKey()
+	public SecretKey generateBlowfishKey()
 	{
 		return blowfishKeyGen.generateKey();
 	}
@@ -94,7 +96,7 @@ public class KeyGen
 	 * Get common RSA Public/Static Key Pair with encrypted modulus N
 	 * @return
 	 */
-	public static EncryptedRSAKeyPair getEncryptedRSAKeyPair()
+	public EncryptedRSAKeyPair getEncryptedRSAKeyPair()
 	{
 		return encryptedRSAKeyPairs[Rnd.nextInt(10)];
 	}

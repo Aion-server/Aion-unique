@@ -38,6 +38,8 @@ public class ClientChannelHandler extends AbstractChannelHandler
 
 	private final ClientPacketHandler clientPacketHandler;
 
+	private final KeyGen keygen;
+
 	private CryptEngine cryptEngine;
 	private EncryptedRSAKeyPair encryptedRSAKeyPair;
 	private SessionKey sessionKey;
@@ -46,10 +48,12 @@ public class ClientChannelHandler extends AbstractChannelHandler
 	private Account account;
 	private boolean joinedGs;
 
-	public ClientChannelHandler(AccountController accountController, AccountService accountService, ClientPacketHandler clientPacketHandler) {
+	public ClientChannelHandler(AccountController accountController, AccountService accountService,
+								ClientPacketHandler clientPacketHandler, KeyGen keygen) {
 		this.accountController = accountController;
 		this.accountService = accountService;
 		this.clientPacketHandler = clientPacketHandler;
+		this.keygen = keygen;
 	}
 
 
@@ -62,8 +66,8 @@ public class ClientChannelHandler extends AbstractChannelHandler
 		super.channelConnected(ctx, e);
 		logger.info("Channel connected: " + sessionId);
 		
-		encryptedRSAKeyPair = KeyGen.getEncryptedRSAKeyPair();
-		SecretKey blowfishKey = KeyGen.generateBlowfishKey();
+		encryptedRSAKeyPair = keygen.getEncryptedRSAKeyPair();
+		SecretKey blowfishKey = keygen.generateBlowfishKey();
 		cryptEngine = new CryptEngine();
 		cryptEngine.updateKey(blowfishKey.getEncoded());
 		state = State.CONNECTED;

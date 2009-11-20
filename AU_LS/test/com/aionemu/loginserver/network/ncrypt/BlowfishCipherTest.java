@@ -17,11 +17,7 @@
 
 package com.aionemu.loginserver.network.ncrypt;
 
-import junit.framework.TestCase;
 import org.junit.Test;
-
-import java.security.NoSuchAlgorithmException;
-import java.security.GeneralSecurityException;
 
 /**
  * Simple test to check blowfish cipher encryption and decryption results.
@@ -61,20 +57,13 @@ public class BlowfishCipherTest
     }
 
     @Test
-    public void testBlowfishKeygenPerformance()
+    public void testBlowfishKeygenPerformance() throws Exception
     {
-        try
-        {
-            KeyGen.init();
-        }
-        catch (GeneralSecurityException e)
-        {
-            e.printStackTrace();
-        }
+        KeyGen keygen = new KeyGen();
 
         for(int i = 0; i < 10; i++)
         {
-            KeyGen.generateBlowfishKey();
+            keygen.generateBlowfishKey();
         }
     }
 }

@@ -2,6 +2,7 @@ package com.aionemu.loginserver.network.netty.pipeline;
 
 import com.aionemu.loginserver.controller.AccountController;
 import com.aionemu.loginserver.network.aion.ClientPacketHandler;
+import com.aionemu.loginserver.network.ncrypt.KeyGen;
 import com.aionemu.loginserver.network.netty.coder.LoginPacketDecoder;
 import com.aionemu.loginserver.network.netty.coder.LoginPacketEncoder;
 import com.aionemu.loginserver.network.netty.coder.PacketFrameDecoder;
@@ -36,12 +37,15 @@ public class LoginToClientPipeLineFactory implements ChannelPipelineFactory
 
 	private final ClientPacketHandler clientPacketHandler;
 
+	private final KeyGen keyGen;
+
 	@Autowired
 	public LoginToClientPipeLineFactory(AccountController accountController, AccountService accountService,
-										ClientPacketHandler clientPacketHandler) {
+										ClientPacketHandler clientPacketHandler, KeyGen keyGen) {
 		this.accountController = accountController;
 		this.accountService = accountService;
 		this.clientPacketHandler = clientPacketHandler;
+		this.keyGen = keyGen;
 	}
 
 
@@ -70,7 +74,7 @@ public class LoginToClientPipeLineFactory implements ChannelPipelineFactory
 				.defaultThreadFactory());
 
 		pipeline.addLast("executor", new ExecutionHandler(pipelineExecutor)); 
-		pipeline.addLast("handler", new ClientChannelHandler(accountController, accountService, clientPacketHandler));
+		pipeline.addLast("handler", new ClientChannelHandler(accountController, accountService, clientPacketHandler, keyGen));
 
 		return pipeline;
 	}

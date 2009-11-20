@@ -16,15 +16,6 @@
  */
 package com.aionemu.loginserver;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.network.IPRange;
 import com.aionemu.commons.utils.NetworkUtils;
@@ -33,6 +24,15 @@ import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.network.gameserver.GsAuthResponse;
 import com.aionemu.loginserver.network.gameserver.serverpackets.SM_REQUEST_KICK_ACCOUNT;
 import com.aionemu.loginserver.network.netty.handler.GameChannelHandler;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 /**
  * GameServerService contains list of GameServers registered on this LoginServer. GameServer may by online or down.
@@ -72,6 +72,7 @@ public class GameServerService
 	/**
 	 * Load GameServers from database.
 	 */
+	@PostConstruct
 	public void load()
 	{
 		gameservers = getDAO().getAllGameServers();
