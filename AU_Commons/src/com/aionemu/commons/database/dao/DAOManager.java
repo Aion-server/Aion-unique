@@ -61,11 +61,6 @@ public class DAOManager
 	private final DatabaseInfo						databaseInfo;
 
 	/**
-	 * DatabaseConfig object reference
-	 */
-	private final DatabaseConfig					databaseConfig;
-
-	/**
 	 * ScriptService that will be used to load DAOs
 	 */
 	private ScriptService							scriptService;
@@ -84,7 +79,6 @@ public class DAOManager
 	public DAOManager(DatabaseFactory databaseFactory, DatabaseConfig databaseConfig, ScriptService scriptService)
 	{
 		this.databaseInfo = databaseFactory.getDatabaseInfo();
-		this.databaseConfig = databaseConfig;
         this.scriptService = scriptService;
 
 		this.daoLoader = new DAOLoader(this, scriptService, databaseConfig, databaseInfo);
