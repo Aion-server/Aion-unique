@@ -18,6 +18,7 @@
 package com.aionemu.commons.database.dao;
 
 import com.aionemu.commons.database.DatabaseInfo;
+import com.aionemu.commons.database.dao.scriptloader.ComparatorType;
 import com.aionemu.commons.database.dao.scriptloader.DAOInfo;
 import com.aionemu.commons.database.dao.scriptloader.DisabledDAO;
 import com.aionemu.commons.database.dao.scriptloader.SupportedDB;
@@ -69,17 +70,12 @@ public class DAOUtils
 				continue;
 			}
 
-			if (!db.majorVersionComparator().compare(db.majorVersion(), databaseInfo.getMajorVersion()))
-			{
-				continue;
-			}
-
-			if (!db.minorVersionComparator().compare(db.minorVersion(), databaseInfo.getMinorVersion()))
-			{
-				continue;
-			}
-
-			return true;
+			return ComparatorType.compare(new ComparatorType[]{db.majorVersionComparator(), db.minorVersionComparator()},
+					new ComparatorType.Pair[]{
+							new ComparatorType.Pair(databaseInfo.getMajorVersion(), db.majorVersion()),
+							new ComparatorType.Pair(databaseInfo.getMajorVersion(), db.minorVersion())
+					}
+			);
 		}
 
 		return false;

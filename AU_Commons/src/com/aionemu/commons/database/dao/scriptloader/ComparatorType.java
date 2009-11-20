@@ -28,69 +28,87 @@ public enum ComparatorType
 	/**
 	 * <
 	 */
-	LESS
-	{
-		public boolean compare(int a, int b)
-		{
-			return a < b;
-		}
-	},
+	LESS,
 
 	/**
 	 * <=
 	 */
-	LESS_OR_EQUAL
-	{
-		public boolean compare(int a, int b)
-		{
-			return a <= b;
-		}
-	},
+	LESS_OR_EQUAL,
 
 	/**
 	 * ==
 	 */
-	EQUAL
-	{
-		public boolean compare(int a, int b)
-		{
-			return a == b;
-		}
-	},
+	EQUAL,
 
 	/**
 	 * >=
 	 */
-	GREATER_OR_EQUAL
-	{
-		public boolean compare(int a, int b)
-		{
-			return a >= b;
-		}
-	},
+	GREATER_OR_EQUAL,
 
 	/**
 	 * >
 	 */
-	GREATER
-	{
-		public boolean compare(int a, int b)
-		{
-			return a > b;
-		}
-	};
+	GREATER;
 
-	/**
-	 * Retrns true if 'a <ENUM ACTION> b'
-	 * 
-	 * @param a
-	 *            first integer
-	 * @param b
-	 *            second integer
-	 * @return result
-	 */
-	public boolean compare(int a, int b)
-	{
-		throw new UnsupportedOperationException("This exception should be never thrown");
+	public static boolean compare(ComparatorType[] cts, Pair[] nums){
+
+		if(cts.length != nums.length){
+			throw new RuntimeException("Number of comparators and arguments should be equal");
+		}
+
+		for(int i = 0; i < cts.length; i++){
+			ComparatorType ct = cts[i];
+			Pair numbers = nums[i];
+
+			switch(ct){
+				case LESS:
+					if(numbers.getN1() >= numbers.getN2()){
+						return false;
+					}
+					break;
+				case LESS_OR_EQUAL:
+					if(numbers.getN1() > numbers.getN2()){
+						return false;
+					}
+					break;
+				case EQUAL:
+					if(numbers.getN1() != numbers.getN2()){
+						return false;
+					}
+					break;
+				case GREATER_OR_EQUAL:
+					if(numbers.getN1() < numbers.getN2()){
+						return false;
+					}
+					break;
+				case GREATER:
+					if(numbers.getN1() <= numbers.getN2()){
+						return false;
+					}
+					break;
+			}
+		}
+
+		return true;
+	}
+
+	public static class Pair{
+
+		private final int n1;
+
+		private final int n2;
+
+		public Pair(int n1, int n2) {
+			this.n1 = n1;
+			this.n2 = n2;
+		}
+
+		public int getN1() {
+			return n1;
+		}
+
+		public int getN2() {
+			return n2;
+		}
 	}
 }

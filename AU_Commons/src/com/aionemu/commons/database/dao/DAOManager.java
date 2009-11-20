@@ -26,7 +26,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -89,17 +88,9 @@ public class DAOManager
         this.scriptService = scriptService;
 
 		this.daoLoader = new DAOLoader(this, scriptService, databaseConfig, databaseInfo);
-	}
 
-    /**
-     * Called after this bean was initialized.<br>
-     * Launches script context load of DAO's
-     */
-    @PostConstruct
-    public void initDAOs()
-    {
 		daoLoader.initDAOs();
-    }
+	}
 
     /**
 	 * Should be called in case of shutdown of DAOManager
