@@ -67,6 +67,6 @@ public final class ScriptContextFactory implements ApplicationContextAware
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-
+		this.parentApplicationContext = applicationContext;
     }
 }
