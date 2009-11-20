@@ -220,6 +220,8 @@ public class PlayerService
 		{
 			int itemId = itemType.getTemplate().getItemId();		
 			Item item = itemService.newItem(itemId, itemType.getCount());
+			if(item == null)
+				continue;
 			
 			//When creating new player - all equipment that has slot values will be equipped
 			//Make sure you will not put into xml file more items than possible to equip.

@@ -181,6 +181,14 @@ public class DropService
 			}
 			
 			Item newItem = itemService.newItem(itemId, currentDropItemCount);
+			//dropped item have incorrect templateid
+			if(newItem == null)
+			{
+				dropItems.remove(requestedItem);
+				resendDropList(player, npcId, dropItems);
+				return;
+			}
+				
 			
 			Item existingItem = inventory.getItemByItemId(itemId);
 			

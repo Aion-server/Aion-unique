@@ -52,21 +52,21 @@ public class ItemService
 	 * 
 	 * Creates new Item instance.
 	 * If count is greater than template maxStackCount, count value will be cut to maximum allowed
+	 * This method will return null if ItemTemplate for itemId was not found.
 	 */
 	public Item newItem(int itemId, int count)
 	{
 		ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
 		if(itemTemplate == null)
 		{
-			log.warn("Item was not populated correctly. Item template is missing for item id: " + itemId);
+			log.error("Item was not populated correctly. Item template is missing for item id: " + itemId);
+			return null;
 		}
-		else
+		
+		int maxStackCount = itemTemplate.getMaxStackCount();	
+		if(count > maxStackCount && maxStackCount != 0)
 		{
-			int maxStackCount = itemTemplate.getMaxStackCount();	
-			if(count > maxStackCount && maxStackCount != 0)
-			{
-				count = maxStackCount;
-			}
+			count = maxStackCount;
 		}
 		
 		//TODO if Item object will contain ownerId - item can be saved to DB before return

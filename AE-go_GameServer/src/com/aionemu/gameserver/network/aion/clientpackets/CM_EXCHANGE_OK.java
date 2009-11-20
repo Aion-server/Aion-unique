@@ -122,6 +122,9 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 				Inventory activeInventory = activePlayer.getInventory();
 
 				Item newItem = itemService.newItem(itemId, itemCount);
+				if(newItem == null)
+					continue;
+				
 				Item addedItem = activeInventory.addToBag(newItem);
 
 				if(addedItem != null)
