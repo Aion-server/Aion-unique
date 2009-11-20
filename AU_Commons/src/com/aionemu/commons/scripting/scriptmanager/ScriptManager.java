@@ -22,7 +22,8 @@ import com.aionemu.commons.scripting.ScriptContext;
 import com.aionemu.commons.scripting.ScriptContextFactory;
 import com.aionemu.commons.scripting.scriptmanager.listener.ContextCreationListener;
 import com.aionemu.commons.scripting.scriptmanager.listener.ContextReloadListener;
-import com.aionemu.commons.scripting.scriptmanager.listener.ReloadListener;
+import com.aionemu.commons.scripting.scriptmanager.listener.ScriptManagerReloadListener;
+import com.aionemu.commons.scripting.scriptmanager.listener.ScriptManagerShutdownListener;
 import org.apache.log4j.Logger;
 
 import javax.xml.bind.JAXBContext;
@@ -47,8 +48,10 @@ import java.util.Set;
  * </pre>
  * 
  * {@link ScriptContext} object creation listener can be added by using {@link com.aionemu.commons.scripting.scriptmanager.listener.ContextCreationListener}
+ * <br>
  * {@link ScriptContext} object reload listener can be added by using {@link com.aionemu.commons.scripting.scriptmanager.listener.ContextReloadListener}
- * {@link ScriptManager} reload listener can be added by using {@link com.aionemu.commons.scripting.scriptmanager.listener.ReloadListener}
+ * <br>
+ * {@link ScriptManager} reload listener can be added by using {@link com.aionemu.commons.scripting.scriptmanager.listener.ScriptManagerReloadListener}
  *
  * @author SoulKeeper, Aquanox
  */
@@ -143,6 +146,7 @@ public class ScriptManager
 	/**
 	 * Initializes shutdown on all contexes
 	 */
+	@Enhanceable(callback = ScriptManagerShutdownListener.class)
 	public synchronized void shutdown()
 	{
 		for (ScriptContext context : contexts)
@@ -156,7 +160,7 @@ public class ScriptManager
 	/**
 	 * Reloads all contexes
 	 */
-	@Enhanceable(callback = ReloadListener.class)
+	@Enhanceable(callback = ScriptManagerReloadListener.class)
 	public synchronized void reload()
 	{
 		for (ScriptContext context : contexts)

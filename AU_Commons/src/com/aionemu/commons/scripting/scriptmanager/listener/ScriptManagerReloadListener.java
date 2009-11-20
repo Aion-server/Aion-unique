@@ -27,9 +27,8 @@ import com.aionemu.commons.callbacks.CallbackResult;
  *
  * @author SoulKeeper, Aquanox
  */
-public abstract class ReloadListener implements Callback
+public abstract class ScriptManagerReloadListener implements Callback
 {
-	/** {@inheritDoc} */
 	@Override
 	public final CallbackResult beforeCall(Object obj, Object[] args)
 	{
@@ -37,7 +36,6 @@ public abstract class ReloadListener implements Callback
 		return CallbackResult.newContinue();
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public final CallbackResult afterCall(Object obj, Object[] args, Object methodResult)
 	{
@@ -61,10 +59,9 @@ public abstract class ReloadListener implements Callback
 		//empty
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public final Class getBaseClass()
 	{
-		return ReloadListener.class;
+		return ScriptManagerReloadListener.class;
 	}
 }

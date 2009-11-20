@@ -1,5 +1,7 @@
 package com.aionemu.commons;
 
+import com.aionemu.commons.database.DatabaseFactory;
+import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.services.LoggingService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -46,7 +48,17 @@ public abstract class Server {
 
 		onShutdown();
 
+		// Getting link on DAOManager and DatabaseFactory
+		// We have to make sure that all stuff can be saved into DB
+		DAOManager daoManager = applicationContext.getBean(DAOManager.class);
+		DatabaseFactory dbf = applicationContext.getBean(DatabaseFactory.class);
+
+		// Server shutdown
 		applicationContext.close();
+
+		// And actual database shutdown
+		daoManager.shutdown();
+		dbf.shutdown();
 	}
 
 	public ApplicationContext getApplicationContext() {

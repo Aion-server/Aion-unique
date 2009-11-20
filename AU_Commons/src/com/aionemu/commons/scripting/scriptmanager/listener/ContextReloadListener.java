@@ -30,7 +30,6 @@ import com.aionemu.commons.scripting.ScriptContext;
  */
 public abstract class ContextReloadListener implements Callback
 {
-	/** {@inheritDoc} */
 	@Override
 	public final CallbackResult beforeCall(Object obj, Object[] args)
 	{
@@ -38,9 +37,6 @@ public abstract class ContextReloadListener implements Callback
 		return CallbackResult.newContinue();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final CallbackResult afterCall(Object obj, Object[] args, Object methodResult)
 	{
@@ -50,6 +46,7 @@ public abstract class ContextReloadListener implements Callback
 
 	/**
 	 * Invoke before context reload procedure.
+	 * @param ctx context that is beeing reloaded
 	 */
 	protected void beforeReload(ScriptContext ctx)
 	{
@@ -58,13 +55,13 @@ public abstract class ContextReloadListener implements Callback
 
 	/**
 	 * Invoke after context reload procedure.
+	 * @param ctx context that is beeng reloaded
 	 */
 	protected void afterReload(ScriptContext ctx)
 	{
 		//empty
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public final Class getBaseClass()
 	{

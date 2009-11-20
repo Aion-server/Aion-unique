@@ -8,6 +8,7 @@ import com.aionemu.commons.database.dao.scriptloader.SupportedDB;
 import com.aionemu.loginserver.GameServer;
 import com.aionemu.loginserver.dao.GameServerDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import system.database.mysql.utils.MySQLInsertUpdateHelper;
 
@@ -26,6 +27,7 @@ import java.util.Map;
         }
 )
 @Component
+@Scope("prototype")
 public class MySQLGameServerDAO extends GameServerDAO {
 
 	private final DB db;

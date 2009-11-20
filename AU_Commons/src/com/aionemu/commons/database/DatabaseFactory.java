@@ -26,7 +26,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PreDestroy;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -166,7 +165,6 @@ public class DatabaseFactory
 	 * Shuts down pool and closes connections.
      * Invoked by spring
 	 */
-    @PreDestroy
 	public synchronized void shutdown()
 	{
         log.error("DBFactory - > shutdown");

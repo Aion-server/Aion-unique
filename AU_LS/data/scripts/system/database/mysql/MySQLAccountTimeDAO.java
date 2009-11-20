@@ -8,6 +8,7 @@ import com.aionemu.commons.database.dao.scriptloader.SupportedDB;
 import com.aionemu.loginserver.dao.AccountTimeDAO;
 import com.aionemu.loginserver.model.AccountTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import system.database.mysql.utils.MySQLInsertUpdateHelper;
 
@@ -25,6 +26,7 @@ import java.sql.SQLException;
         }
 )
 @Component
+@Scope("prototype")
 public class MySQLAccountTimeDAO implements AccountTimeDAO {
 
     private DB db;

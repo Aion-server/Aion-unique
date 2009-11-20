@@ -8,6 +8,7 @@ import com.aionemu.commons.database.dao.scriptloader.SupportedDB;
 import com.aionemu.loginserver.dao.BannedIpDAO;
 import com.aionemu.loginserver.model.BannedIP;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import system.database.mysql.utils.MySQLInsertUpdateHelper;
 
@@ -26,6 +27,7 @@ import java.util.Set;
 		}
 )
 @Component
+@Scope("prototype")
 public class MySQLBannedIpDAO extends BannedIpDAO {
 
 	private DB db;
