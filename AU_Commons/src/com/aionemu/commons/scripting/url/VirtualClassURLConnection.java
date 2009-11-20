@@ -17,13 +17,13 @@
 
 package com.aionemu.commons.scripting.url;
 
+import com.aionemu.commons.scripting.ScriptClassLoader;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
-
-import com.aionemu.commons.scripting.ScriptClassLoader;
 
 /**
  * This class represents URL Connection that is used to "connect" to scripts binary data that was loaded by specified
@@ -64,9 +64,6 @@ public class VirtualClassURLConnection extends URLConnection
 
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public InputStream getInputStream() throws IOException
 	{

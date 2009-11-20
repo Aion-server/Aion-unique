@@ -36,7 +36,7 @@ public class ThreadUncaughtExceptionHandler implements Thread.UncaughtExceptionH
 			log.fatal("Out of memory error!!!", e);
 			// TODO: try to get more on restart
 		} else {
-			log.error("Critical Error - Thread: " + t.getName() + " terminated abnormaly: " + e, e);
+			log.error("Critical Error - Thread: " + t.getName() + " terminated abnormally: " + e, e);
 		}
 		// TODO! some threads should be "restarted" on error
 	}
