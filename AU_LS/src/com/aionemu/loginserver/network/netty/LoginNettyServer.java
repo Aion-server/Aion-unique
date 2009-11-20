@@ -23,12 +23,10 @@ import java.util.concurrent.Executors;
 /**
  * @author ATracer
  */
-@Service(LoginNettyServer.SPRING_BEAN_NAME)
+@Service()
 public class LoginNettyServer 
 {
 	private static final Logger logger = Logger.getLogger(LoginNettyServer.class);
-
-	public static final String SPRING_BEAN_NAME = "loginNettyServer";
 
 	private final ChannelGroup channelGroup = new DefaultChannelGroup(LoginNettyServer.class.getName());
 

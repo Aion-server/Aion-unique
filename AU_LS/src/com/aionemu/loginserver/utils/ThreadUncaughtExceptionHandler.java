@@ -34,7 +34,8 @@ public class ThreadUncaughtExceptionHandler implements Thread.UncaughtExceptionH
 		log.error("Critical Error - Thread: " + t.getName() + " terminated abnormaly: " + e, e);
 		if (e instanceof OutOfMemoryError)
 		{
-			// TODO try get some memory or restart
+			log.fatal("Out of memory error!!!", e);
+			// TODO: try to get more on restart
 		}
 		// TODO! some threads should be "restarted" on error
 	}
