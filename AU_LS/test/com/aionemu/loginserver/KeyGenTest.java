@@ -17,12 +17,10 @@
 
 package com.aionemu.loginserver;
 
-import com.aionemu.loginserver.network.ncrypt.KeyGen;
 import com.aionemu.loginserver.network.ncrypt.EncryptedRSAKeyPair;
 import org.junit.Test;
 
 import javax.crypto.Cipher;
-import java.security.GeneralSecurityException;
 import java.security.KeyPairGenerator;
 import java.security.spec.RSAKeyGenParameterSpec;
 
@@ -31,19 +29,6 @@ import java.security.spec.RSAKeyGenParameterSpec;
  */
 public class KeyGenTest
 {
-	@Test
-	public void testKeyGenInit()
-	{
-		try
-		{
-			KeyGen.init();
-		}
-		catch (GeneralSecurityException e)
-		{
-			e.printStackTrace();
-		}
-	}
-
 
 	@Test
 	public void testRSAPreInit() throws Exception{
