@@ -7,7 +7,7 @@ import com.aionemu.loginserver.utils.ThreadUncaughtExceptionHandler;
 /**
  * Author: SoulKeeper
  */
-public class LoginServer2 extends Server {
+public class LoginServer extends Server {
 
 	public void start(){
 		super.start();
@@ -23,6 +23,6 @@ public class LoginServer2 extends Server {
 
 	public static void main(String[] args) {
 		Thread.currentThread().setUncaughtExceptionHandler(new ThreadUncaughtExceptionHandler());
-		new LoginServer2().start();
+		new LoginServer().start();
 	}
 }
