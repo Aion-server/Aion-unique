@@ -3,7 +3,6 @@ package com.aionemu.commons;
 import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.services.LoggingService;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -61,7 +60,7 @@ public abstract class Server {
 		dbf.shutdown();
 	}
 
-	public ApplicationContext getApplicationContext() {
+	public ClassPathXmlApplicationContext getApplicationContext() {
 		return applicationContext;
 	}
 
