@@ -78,7 +78,7 @@ public class Add extends AdminCommand
 		
 		Item item  = itemService.newItem(itemId, itemCount);
 		
-		if(item.getItemTemplate() == null)
+		if(item == null)
 		{
 			PacketSendUtility.sendMessage(admin, "Item template was not found for this itemId");
 			return;

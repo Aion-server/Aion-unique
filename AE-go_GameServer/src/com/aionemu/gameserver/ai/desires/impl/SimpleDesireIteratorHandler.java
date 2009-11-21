@@ -1,5 +1,5 @@
-/*
- * This file is part of aion-unique <aion-unique.com>.
+/*  
+ *  This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,31 +14,32 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects;
+package com.aionemu.gameserver.ai.desires.impl;
 
-import com.aionemu.gameserver.controllers.CitizenController;
-import com.aionemu.gameserver.controllers.NpcController;
-import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import java.util.Iterator;
+
+import com.aionemu.gameserver.ai.AI;
+import com.aionemu.gameserver.ai.desires.Desire;
+import com.aionemu.gameserver.ai.desires.DesireIteratorHandler;
+
 /**
  * @author ATracer
  */
-public class Citizen extends Npc
+public class SimpleDesireIteratorHandler implements DesireIteratorHandler
 {
-
+	private AI ai;
 	/**
-	 * @param template
+	 * @param ai
 	 */
-	public Citizen(SpawnTemplate spawn, int objId, NpcController controller)
+	public SimpleDesireIteratorHandler(AI ai)
 	{
-		super(spawn, objId, controller);
+		super();
+		this.ai = ai;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.gameobjects.Npc#getController()
-	 */
 	@Override
-	public CitizenController getController()
+	public void next(Desire desire, Iterator<Desire> iterator)
 	{
-		return (CitizenController) super.getController();
+		desire.handleDesire(ai);
 	}
 }

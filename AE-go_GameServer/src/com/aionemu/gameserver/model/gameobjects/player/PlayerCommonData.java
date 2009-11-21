@@ -213,7 +213,7 @@ public class PlayerCommonData
 		}
 	}
 
-	private void upgradePlayer()
+	public void upgradePlayer()
 	{
 		Player player = this.getPlayer();
 		if(player != null)

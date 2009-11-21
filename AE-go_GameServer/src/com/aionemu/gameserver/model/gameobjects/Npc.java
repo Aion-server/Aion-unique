@@ -16,7 +16,8 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
-import com.aionemu.gameserver.ai.npcai.NpcAi;
+import com.aionemu.gameserver.ai.npcai.MonsterAi;
+import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
@@ -37,7 +38,7 @@ public class Npc extends Creature
 	/**
 	 * Reference to AI
 	 */
-	private NpcAi npcAi;
+	private MonsterAi npcAi; //TODO NpcAi
 	/**
 	 *  Template keeping all base data for this npc 
 	 */
@@ -64,7 +65,7 @@ public class Npc extends Creature
 		this.template = (NpcTemplate) spawn.getObjectTemplate();
 		this.spawn = spawn;
 		controller.setOwner(this);
-		this.npcAi = new NpcAi(this);
+		this.npcAi = new MonsterAi(this);
 
 		NpcStatsTemplate nst = template.getStatsTemplate();
 		super.setGameStats(new NpcGameStats(this,nst));
@@ -73,7 +74,7 @@ public class Npc extends Creature
 	/**
 	 * @return the npcAi
 	 */
-	public NpcAi getNpcAi()
+	public MonsterAi getNpcAi() //TODO NpcAi
 	{
 		return npcAi;
 	}

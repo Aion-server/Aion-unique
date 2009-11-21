@@ -1,5 +1,5 @@
-/*
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+/*  
+ *  This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,8 +17,6 @@
 package com.aionemu.gameserver.ai.events;
 
 import com.aionemu.gameserver.ai.AI;
-import com.aionemu.gameserver.ai.AIState;
-import com.aionemu.gameserver.ai.task.AttackTask;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 
 /**
@@ -36,28 +34,10 @@ public class AttackEvent implements AIEvent
 		this.originator = originator;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.ai.events.AIEvent#handleEvent(com.aionemu.gameserver.ai.AI)
-	 */
 	@Override
 	public void handleEvent(AI ai)
 	{
-		if(ai.isBusyForTask(AttackTask.PRIORITY))
-		{
-			return;
-		}
-		
-		ai.setAiState(AIState.ATTACKING);
-		
-		Creature creature = ai.getOwner();
-
-		if(creature.getTarget() == null)
-		{
-			creature.setTarget(originator);
-		}
-		
-		//TODO calculate delay
-		ai.startNewTask(new AttackTask(creature, originator, 3000));
+		ai.handleEvent(this);
 	}
 
 	/**

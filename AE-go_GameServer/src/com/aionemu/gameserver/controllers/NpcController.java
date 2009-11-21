@@ -41,13 +41,4 @@ public class NpcController extends CreatureController<Npc>
 	{
 		this.dropService = dropService;
 	}
-	
-	/**
-	 * 
-	 * @param targetObjectId
-	 */
-	public void attackTarget(int targetObjectId)
-	{
-		//attack target
-	}
 }

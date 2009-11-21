@@ -111,4 +111,13 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			observer.moved();
 		}
 	}
+
+	/**
+	 * 
+	 * @param targetObjectId
+	 */
+	public void attackTarget(int targetObjectId)
+	{
+		//attack target
+	}
 }

@@ -1,5 +1,4 @@
-/*
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+/* This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,35 +13,25 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.task;
+package com.aionemu.gameserver.ai.desires.impl;
+
+import com.aionemu.gameserver.ai.desires.Desire;
+import com.aionemu.gameserver.ai.desires.DesireIteratorFilter;
+import com.aionemu.gameserver.ai.desires.MoveDesire;
 
 /**
  * @author ATracer
  *
  */
-public abstract class AiTask
+public class MoveDesireFilter implements DesireIteratorFilter
 {
 
-	protected int delay = 1000;
-	
-	protected boolean taskValid = true;
-	
-	
-	public AiTask(int delay)
-	{
-		this.delay = delay;
-	}
-	
-	/**
-	 * @param taskValid the taskValid to set
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.ai.desires.DesireIteratorFilter#isOk(com.aionemu.gameserver.ai.desires.Desire)
 	 */
-	public void setTaskValid(boolean taskValid)
+	@Override
+	public boolean isOk(Desire desire)
 	{
-		this.taskValid = taskValid;
+		return desire instanceof MoveDesire;
 	}
-	
-	public abstract int getPriority();
-	
-	public abstract void handleTask();
-
 }

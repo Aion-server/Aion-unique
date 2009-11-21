@@ -1,24 +1,25 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-emu <aion-emu.com>.
  *
- *  aion-unique is free software: you can redistribute it and/or modify
+ *  aion-emu is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-unique is distributed in the hope that it will be useful,
+ *  aion-emu is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.controllers;
 
 import com.aionemu.gameserver.ai.AIState;
-import com.aionemu.gameserver.ai.desires.AttackDesire;
-import com.aionemu.gameserver.ai.npcai.NpcAi;
+import com.aionemu.gameserver.ai.desires.impl.AttackDesire;
+import com.aionemu.gameserver.ai.events.AttackEvent;
+import com.aionemu.gameserver.ai.npcai.MonsterAi;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -89,22 +90,19 @@ public class MonsterController extends NpcController
 			return false;
 		}
 		
-		NpcAi npcAi = npc.getNpcAi();
-		npcAi.getDesireQueue().addDesire(new AttackDesire(creature, 1));
-		if (npcAi.getAiState() == AIState.IDLE ){ 
-			new Thread(npcAi.getDesireProcessor()).start();		
-		}
+		MonsterAi npcAi = npc.getNpcAi();
+		npcAi.handleEvent(new AttackEvent(creature));
 		
 		return true;
 	}
-	@Override
+	
 	public void attackTarget(int targetObjectId)
 	{
 		Npc npc = getOwner();
-		NpcAi npcAi = npc.getNpcAi();
+		MonsterAi npcAi = npc.getNpcAi();
 		NpcGameStats npcGameStats = npc.getGameStats();
-		long time = System.currentTimeMillis();
-		int attackType = 1; //TODO investigate attack types	
+
+		int attackType = 0; //TODO investigate attack types	(0 or 1)
 
 		World world = npc.getActiveRegion().getWorld();
 		//TODO refactor to possibility npc-npc fight
@@ -114,18 +112,9 @@ public class MonsterController extends NpcController
 		int damage = StatFunctions.calculateBaseDamageToTarget(npc, player);
 
 		PacketSendUtility.broadcastPacket(player,
-			new SM_EMOTION(npc.getObjectId(), 19, player.getObjectId()), true);
-
-		try {
-			Thread.sleep(50);	
-		} catch (InterruptedException e) {
-			System.out.println(e);
-		}
-
-
-		PacketSendUtility.broadcastPacket(player,
 			new SM_ATTACK(npc.getObjectId(), player.getObjectId(),
-				npcGameStats.getAttackCounter(), (int) time, attackType, damage), true);
+				npcGameStats.getAttackCounter(), 274, attackType, damage), true);
+		//wtf is 274 - invetigate
 
 
 		boolean attackSuccess = player.getController().onAttack(npc);
@@ -137,7 +126,7 @@ public class MonsterController extends NpcController
 		}
 		if(player.getLifeStats().isAlreadyDead())
 		{
-			npcAi.getDesireProcessor().desire.stopDesire();
+			npcAi.setAiState(AIState.IDLE);
 		}
 	}
 
@@ -149,13 +138,8 @@ public class MonsterController extends NpcController
 	{
 		super.onDie();
 		
-		NpcAi npcAi = this.getOwner().getNpcAi();
-		npcAi.setAiState(AIState.DEAD);
-		npcAi.getDesireQueue().clear();
-		//TODO this should be removed
-		if(npcAi.getDesireProcessor().desire != null)
-			npcAi.getDesireProcessor().desire.stopDesire();
-		
+		MonsterAi npcAi = this.getOwner().getNpcAi();
+		npcAi.setAiState(AIState.NONE);
 		
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13 , getOwner().getObjectId()));
 		this.doDrop();
@@ -183,7 +167,6 @@ public class MonsterController extends NpcController
 		super.onRespawn();
 		this.decayTask = null;
 		dropService.unregisterDrop(getOwner());
-		this.getOwner().getNpcAi().setAiState(AIState.IDLE);
 		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
 	}
 }

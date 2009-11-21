@@ -18,51 +18,57 @@
 package com.aionemu.gameserver.ai;
 
 import java.util.concurrent.Future;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.desires.Desire;
 import com.aionemu.gameserver.ai.desires.DesireQueue;
 import com.aionemu.gameserver.ai.events.AIEvent;
-import com.aionemu.gameserver.ai.task.AiTask;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
 
-public abstract class AI<T extends Creature>
+public abstract class AI<T extends Creature> implements Runnable
 {
-
 	private static Logger log = Logger.getLogger(AI.class);
 	
 	protected DesireQueue	desireQueue	= new DesireQueue();
 
 	protected final T		creature;
 	
-	private Future<?> scheduledTask;	
+	protected ReentrantLock aiLock = new ReentrantLock();
 	
-	private AiTask simpleTask;
+	protected AIState aiState = AIState.NONE;
 	
-	private AIState aiState;
-
+	/**
+	 * @param creature
+	 */
 	public AI(T creature)
 	{
 		this.creature = creature;
-		aiState = AIState.IDLE;
 	}
 	
 	/**
-	 * @return the scheduledTask
+	 * @param desire
 	 */
-	public Future<?> getScheduledTask()
+	public void handleDesire(Desire desire)
 	{
-		return scheduledTask;
+		desire.handleDesire(this);
 	}
-
+	
 	/**
-	 * @param scheduledTask the scheduledTask to set
+	 * @param event
 	 */
-	public void setScheduledTask(Future<?> scheduledTask)
+	public void handleEvent(AIEvent event)
 	{
-		this.scheduledTask = scheduledTask;
+		event.handleEvent(this);
+	}
+	
+	/**
+	 * @return owner of this AI
+	 */
+	public T getOwner()
+	{
+		return creature;
 	}
 
 	/**
@@ -78,51 +84,15 @@ public abstract class AI<T extends Creature>
 	 */
 	public void setAiState(AIState aiState)
 	{
+		analyzeState(aiState);
 		this.aiState = aiState;
 	}
 
-	public void startNewTask(AiTask task)
-	{
-		if(scheduledTask != null)
-		{
-			scheduledTask.cancel(false);
-		}
-		this.simpleTask = task;
-		task.setTaskValid(true);
-		//scheduledTask = ThreadPoolManager.getInstance().schedule(task, 1000);	
-	}
-	
-	public void stopTask()
-	{
-		if(scheduledTask != null)
-		{
-			scheduledTask.cancel(false);
-			scheduledTask = null;
-		}
-		if(simpleTask != null)
-		{
-			simpleTask.setTaskValid(false);
-		}
-	}
-	
-	public boolean isBusyForTask(int taskPriority)
-	{
-		return taskPriority <= aiState.getPriority();
-	}
+	protected abstract void analyzeState(AIState aiState);
 
-	protected void handleDesire(Desire desire)
-	{
-		desire.handleDesire(this);
-	}
-
-	public void handleEvent(AIEvent event)
-	{
-		event.handleEvent(this);
-	}
+	public abstract void schedule();
 	
-	public T getOwner()
-	{
-		return creature;
-	}
-
+	public abstract void stop();
+	
+	public abstract boolean isScheduled();
 }

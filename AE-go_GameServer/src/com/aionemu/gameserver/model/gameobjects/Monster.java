@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
+import com.aionemu.gameserver.controllers.MonsterController;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 
@@ -30,4 +31,10 @@ public class Monster extends Npc
 		super(spawn, objId, controller);
 	}
 
+	@Override
+	public MonsterController getController()
+	{
+		return (MonsterController) super.getController();
+	}	
+	
 }

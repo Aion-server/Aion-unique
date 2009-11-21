@@ -23,4 +23,9 @@ package com.aionemu.gameserver.controllers;
 public class CitizenController extends NpcController
 {
 
+	public CitizenController()
+	{
+		super();
+	}
+
 }

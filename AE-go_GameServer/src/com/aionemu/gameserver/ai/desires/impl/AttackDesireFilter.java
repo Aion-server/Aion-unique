@@ -1,5 +1,4 @@
-/*
- * This file is part of aion-unique <aion-unique.com>.
+/* This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,31 +13,24 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects;
+package com.aionemu.gameserver.ai.desires.impl;
 
-import com.aionemu.gameserver.controllers.CitizenController;
-import com.aionemu.gameserver.controllers.NpcController;
-import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import com.aionemu.gameserver.ai.desires.Desire;
+import com.aionemu.gameserver.ai.desires.DesireIteratorFilter;
+
 /**
  * @author ATracer
+ *
  */
-public class Citizen extends Npc
+public class AttackDesireFilter implements DesireIteratorFilter
 {
 
-	/**
-	 * @param template
-	 */
-	public Citizen(SpawnTemplate spawn, int objId, NpcController controller)
-	{
-		super(spawn, objId, controller);
-	}
-
 	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.gameobjects.Npc#getController()
+	 * @see com.aionemu.gameserver.ai.desires.DesireIteratorFilter#isOk(com.aionemu.gameserver.ai.desires.Desire)
 	 */
 	@Override
-	public CitizenController getController()
+	public boolean isOk(Desire desire)
 	{
-		return (CitizenController) super.getController();
+		return desire instanceof AttackDesire;
 	}
 }

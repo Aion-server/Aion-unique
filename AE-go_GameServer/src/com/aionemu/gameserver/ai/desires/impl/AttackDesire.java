@@ -1,29 +1,26 @@
-/*
- * This file is part of aion-emu <aion-emu.com>.
+/* This file is part of aion-unique <aion-unique.com>.
  *
- * aion-emu is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ *  aion-unique is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  *
- * aion-emu is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *  aion-unique is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ *  You should have received a copy of the GNU General Public License
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-package com.aionemu.gameserver.ai.desires;
+package com.aionemu.gameserver.ai.desires.impl;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AI;
-import com.aionemu.gameserver.ai.AIState;
-import com.aionemu.gameserver.ai.task.AiTask;
-import com.aionemu.gameserver.ai.task.AttackTask;
+import com.aionemu.gameserver.ai.desires.AbstractDesire;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.utils.MathUtil;
 
 /**
  * This class indicates that character wants to attack somebody
@@ -35,7 +32,6 @@ public final class AttackDesire extends AbstractDesire
 {
 	private static Logger log = Logger.getLogger(AttackDesire.class);
 
-	AiTask task ;
 	/**
 	 * Target of this desire
 	 */
@@ -61,18 +57,19 @@ public final class AttackDesire extends AbstractDesire
 	@Override
 	public void handleDesire(AI ai)
 	{
-		ai.setAiState(AIState.ATTACKING);
-		
-		Creature creature = ai.getOwner();
+		Creature owner = ai.getOwner();
 
-		if(creature.getTarget() == null)
+		if(owner.getTarget() == null)
 		{
-			creature.setTarget(target);
+			owner.setTarget(target);
 		}
 		
-		//TODO calculate delay (attack speed)
-		task = new AttackTask(creature, target, 3000);
-		task.handleTask();
+		double distance = MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), target.getX(), target.getY(), target.getZ()) ;
+
+		if(distance <= 3)
+		{
+			owner.getController().attackTarget(target.getObjectId());
+		}
 	}
 
 	/**
@@ -110,13 +107,4 @@ public final class AttackDesire extends AbstractDesire
 		return target;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.ai.desires.Desire#stopDesire()
-	 */
-	@Override
-	public void stopDesire()
-	{
-		if(task != null)
-		task.setTaskValid(false);
-	}
 }

@@ -1,5 +1,5 @@
-/*
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+/*  
+ *  This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -22,10 +22,9 @@ package com.aionemu.gameserver.ai;
  */
 public enum AIState
 {
-	MOVING(3),
 	ATTACKING(2),
 	IDLE(1),
-	DEAD(10); //maximum number
+	NONE(0);
 	
 	private int priority;
 	

@@ -60,7 +60,7 @@ public class SM_ATTACK extends AionServerPacket
 		writeC(buf, type); // unknown
 		//defender
 		writeD(buf, targetObjectId);
-		writeC(buf, attackno + 1);
+		writeC(buf, 5); //unknown
 		writeH(buf, 84); // unknown
 		writeC(buf, 0); // unknown
 		
