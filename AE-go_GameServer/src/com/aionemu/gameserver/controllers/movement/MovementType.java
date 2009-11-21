@@ -33,6 +33,10 @@ public enum MovementType
 	 */
 	MOVEMENT_START_KEYBOARD(-64),
 	/**
+	 * Movement by glide(press space while flying).
+	 */
+	MOVEMENT_START_GLIDE(-124), //TODO confirm
+	/**
 	 * Validation (movement by mouse).
 	 */
 	VALIDATE_MOUSE(-96),
@@ -49,9 +53,20 @@ public enum MovementType
 	 */
 	VALIDATE_JUMP_WHILE_MOVING(72),
 	/**
+	 * Validation (glide).
+	 */
+	VALIDATE_GLIDE(-60), //TODO confirm
+	/**
 	 * Movement stop.
 	 */
 	MOVEMENT_STOP(0);
+
+	//TODO
+	//UNKNOWN1(112),
+	//UNKNOWN2(-48),
+	//UNKNOWN3(16),
+	//UNKNOWN4(24),
+	//UNKNOWN5(-28);
 
 	private int	typeId;
 
