@@ -271,6 +271,11 @@ public class Inventory
 			{
 				return false;
 			}
+			//don't allow to wear items of higher level
+			if(item.getItemTemplate().getLevel() > owner.getCommonData().getLevel())
+			{
+				return false;
+			}
 			//remove item first from inventory to have at least one slot free
 			defaultItemBag.removeItemFromStorage(item);
 			//check whether there is already item in specified slot
