@@ -20,7 +20,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_EFFECT;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -64,24 +66,60 @@ public class EffectController
 			resultEffect.endEffect();		
 		}
 		effect.startEffect();
-		//TODO
-		broadCastEffects();
+		
+		// effect icon updates
+		if(owner instanceof Player)
+		{
+			addIconToPlayer(effect);
+		}
+		broadCastEffects();	
 	}
 	
+	/**
+	 *  Broadcasts current effects to all visible objects
+	 */
 	private void broadCastEffects()
-	{
+	{	
 		PacketSendUtility.broadcastPacket(getOwner(),
 			new SM_ABNORMAL_EFFECT(getOwner().getObjectId(),
-				effectMap.values().toArray(new Effect[effectMap.size()])));
+				effectMap.values().toArray(new Effect[effectMap.size()])));	
 	}
-	
-	public void removeEffect(int skillId)
+	/**
+	 *  Adds icon of effect to owner (only for Player objects)
+	 *  
+	 * @param effect
+	 */
+	private void addIconToPlayer(Effect effect)
 	{
-		effectMap.remove(skillId);
-		//TODO remove accomplished effects
-		broadCastEffects();
+		//TODO need correct SM_ABNORMAL_EFFECT FIRST
+//		PacketSendUtility.sendPacket((Player) getOwner(),
+//			new SM_ABNORMAL_STATE(1, effect.getSkillId(),effect.getElapsedTime()));
+	}
+	/**
+	 *  Removed icon of effect from owner (only for Player objects)
+	 *  
+	 * @param effect
+	 */
+	private void removeIconFromPlayer(Effect effect)
+	{
+		//TODO need correct SM_ABNORMAL_EFFECT FIRST
+//		PacketSendUtility.sendPacket((Player) getOwner(),
+//			new SM_ABNORMAL_STATE(0, effect.getSkillId(),effect.getElapsedTime()));
 	}
 	
-	//TODO removeAndStopEffect
+	/**
+	 * 
+	 * @param effect
+	 */
+	public void removeEffect(Effect effect)
+	{
+		effectMap.remove(effect.getSkillId());
+		
+		broadCastEffects();
+		if(owner instanceof Player)
+		{
+			removeIconFromPlayer(effect);
+		}
+	}
 
 }

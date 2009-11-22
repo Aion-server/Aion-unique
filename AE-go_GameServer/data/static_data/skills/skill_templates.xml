@@ -2,7 +2,8 @@
 <skill_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="skills.xsd">
 
-	<!-- Mage -->
+	<!-- MAGE -->
+	
 	<skill_template skill_id="1351" name="Flame Bolt I"
 		type="CHANNELED" level="1" duration="2000" cooldown="1">
 		<startconditions>
@@ -74,10 +75,12 @@
 		</effects>
 		<actions>
 			<mpuse value="35"/>
+			<dummy/>
 		</actions>
 	</skill_template>
 
-	<!-- Priest -->
+	<!-- PRIEST -->
+	
 	<skill_template skill_id="975" name="Smite I" type="CHANNELED"
 		level="1" duration="2000" cooldown="2">
 		<startconditions>
@@ -109,8 +112,43 @@
 			<mpuse value="11"/>
 		</actions>
 	</skill_template>
+	
+	<skill_template skill_id="951" name="Blessing of Health I"
+		type="INSTANT" level="1" duration="0" cooldown="1">
+		<startconditions>
+			<target value="PLAYER" />
+			<mp value="30" />
+		</startconditions>
+		<effects>
+			<buf duration="3600">
+				<change stat="MAXHP" func="MULTIPLY" value="1.1"/>
+			</buf>
+		</effects>
+		<actions>
+			<mpuse value="30"/>
+			<dummy/>
+		</actions>
+	</skill_template>
+	
+	<skill_template skill_id="955" name="Blessing of Rock I"
+		type="INSTANT" level="1" duration="0" cooldown="1">
+		<startconditions>
+			<target value="PLAYER" />
+			<mp value="41" />
+		</startconditions>
+		<effects>
+			<buf duration="3600">
+				<change stat="PHYSICAL_DEFENSE" func="MULTIPLY" value="1.1"/>
+			</buf>
+		</effects>
+		<actions>
+			<mpuse value="41"/>
+			<dummy/>
+		</actions>
+	</skill_template>
 
-	<!-- Scout -->
+	<!-- SCOUT -->
+	
 	<skill_template skill_id="564" name="Swift Edge I" type="INSTANT"
 		level="1" duration="0" cooldown="7">
 		<startconditions>
@@ -123,8 +161,23 @@
 			<damage value="45" type="PHYSICAL"/>
 		</actions>
 	</skill_template>
+	
+	<skill_template skill_id="572" name="Focused Evasion I" type="INSTANT"
+		level="1" duration="0" cooldown="30">
+		<startconditions>
+			<mp value="50" />
+		</startconditions>
+		<effects>
+			<buf duration="5" target="SELF"/>
+		</effects>
+		<actions>
+			<mpuse value="50"/>
+			<dummy/>
+		</actions>
+	</skill_template>
 
-	<!-- Warrior -->
+	<!-- WARRIROR -->
+	
 	<skill_template skill_id="169" name="Ferocious Strike I"
 		type="INSTANT" level="1" duration="0" cooldown="10">
 		<startconditions>

@@ -41,7 +41,8 @@ public class Actions
         @XmlElement(name = "damage", type = DamageAction.class),
         @XmlElement(name = "itemuse", type = ItemUseAction.class),
         @XmlElement(name = "mpuse", type = MpUseAction.class),
-        @XmlElement(name = "hpuse", type = HpUseAction.class)
+        @XmlElement(name = "hpuse", type = HpUseAction.class),
+        @XmlElement(name = "dummy", type = DummyAction.class)
     })
     protected List<Action> actions;
 
@@ -68,7 +69,7 @@ public class Actions
      * {@link ItemUseAction }
      * {@link MpUseAction }
      * {@link HpUseAction }
-     * 
+     * {@link DummyAction }
      * 
      */
     public List<Action> getActions() 

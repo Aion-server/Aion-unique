@@ -40,29 +40,22 @@ public class SM_ABNORMAL_EFFECT extends AionServerPacket
 		this.effectedId = effectedId;
 	}
 
-
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeD(buf, effectedId); 
-		writeD(buf, 1); //unk
-		writeC(buf, 0); //unk
-		if(effects != null && effects.length > 0)
+		writeC(buf, 1); //unk isdebuff
+		writeD(buf, 0); //unk
+		writeD(buf, 0); //unk
+
+		writeH(buf, effects.length); //effects size
+		
+		for(Effect effect : effects)
 		{
-			writeD(buf, 16); //unk 
-			writeH(buf, effects.length); //effects size
-			
-			for(Effect effect : effects)
-			{
-				writeH(buf, effect.getSkillId()); 
-				writeC(buf, effect.getSkillLevel()); //unk level?
-				writeC(buf, 1); //unk
-				writeD(buf, effect.getDuration() * 1000); // TODO elapsed time
-			}	
-		}else
-		{
-			writeD(buf, 0);
-			writeC(buf, 0);
-		}	
+			writeH(buf, effect.getSkillId()); 
+			writeC(buf, effect.getSkillLevel()); //unk level?
+			writeC(buf, 0); //unk
+			writeD(buf, effect.getElapsedTime()); //TODO elapsed time	
+		}
 	}
 }

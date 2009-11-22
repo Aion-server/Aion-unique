@@ -16,46 +16,78 @@
  */
 package com.aionemu.gameserver.skillengine.effect;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
+import com.aionemu.gameserver.skillengine.condition.TargetAttribute;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.Env;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RootEffect")
-public class RootEffect extends EffectTemplate
+@XmlType(name = "BufEffect")
+public class BufEffect extends EffectTemplate
 {
-	/** duration is in seconds **/
+	@XmlElements({
+        @XmlElement(name = "change", type = Change.class)
+    })
+	List<Change> changes;
 	@XmlAttribute(required = true)
-    protected int duration;
+	private int duration;
+	@XmlAttribute(required = false)
+    private TargetAttribute target;
 	
+	
+	/**
+	 * @return the changes
+	 */
+	public List<Change> getChanges()
+	{
+		return changes;
+	}
+
+	/**
+	 * @return the duration
+	 */
+	public int getDuration()
+	{
+		return duration;
+	}
+
+	/**
+	 * @return the target
+	 */
+	public TargetAttribute getTarget()
+	{
+		return target;
+	}
+
 	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.effect.Effect#apply(com.aionemu.gameserver.skillengine.model.Env)
+	 * @see com.aionemu.gameserver.skillengine.effect.EffectTemplate#apply(com.aionemu.gameserver.skillengine.model.Env)
 	 */
 	@Override
 	public void apply(Env env)
 	{
-		Player effector = (Player) env.getEffector();
 		Creature effected = env.getEffected();
-		SkillTemplate template = env.getSkillTemplate();
+		if(target == TargetAttribute.SELF)
+		{
+			effected = env.getEffector();
+		}
 		
-		//TODO send effect to effected
-		//TODO broadcast from effected
+		SkillTemplate template = env.getSkillTemplate();
 		
 		Effect effect = new Effect(template.getSkillId(),template.getLevel(), duration, this);
 		effected.getEffectController().addEffect(effect);
-
 	}
 }

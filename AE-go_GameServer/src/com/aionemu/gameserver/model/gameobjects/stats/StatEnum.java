@@ -16,6 +16,9 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlType;
+
 import com.aionemu.gameserver.model.ItemSlot;
 
 /**
@@ -23,6 +26,8 @@ import com.aionemu.gameserver.model.ItemSlot;
  * @author ATracer
  *
  */
+@XmlType(name = "StatEnum")
+@XmlEnum
 public enum StatEnum
 {
 	MAXDP("maxdp"),

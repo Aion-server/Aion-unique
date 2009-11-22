@@ -39,6 +39,8 @@
 				maxOccurs="1" />
 			<xs:element name="root" type="RootEffect" minOccurs="0"
 				maxOccurs="1" />
+			<xs:element name="buf" type="BufEffect" minOccurs="0"
+				maxOccurs="unbounded" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -64,6 +66,8 @@
 			<xs:element name="mpuse" type="MpUseAction" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="hpuse" type="HpUseAction" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="dummy" type="DummyAction" minOccurs="0"
 				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
@@ -121,6 +125,13 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:complexType name="DummyAction">
+		<xs:complexContent>
+			<xs:extension base="Action">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<!-- EFFECTS -->
 
@@ -140,6 +151,21 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:complexType name="BufEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="change" type="Change" minOccurs="1"
+						maxOccurs="unbounded" />
+				</xs:sequence>
+				<xs:attribute name="duration" type="xs:int" use="required"/>
+				<xs:attribute name="target" type="TargetAttribute"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	
 
 	<!-- CONDITIONS -->
 
@@ -179,7 +205,13 @@
 	</xs:simpleType>
 
 	<!-- MISC -->
-
+	
+	<xs:complexType name="Change">
+		<xs:attribute name="stat" type="StatEnum" use="required"/>
+		<xs:attribute name="func" type="xs:string" use="required"/> <!-- TODO -->
+		<xs:attribute name="value" type="xs:float" use="required"/>
+	</xs:complexType>
+	
 	<xs:simpleType name="skillType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="INSTANT" />
@@ -192,6 +224,76 @@
 		<xs:restriction base="xs:int">
 			<xs:minInclusive value="1" />
 			<xs:maxInclusive value="60000" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="StatEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MAXHP" />
+			<xs:enumeration value="MAXDP" />
+			<xs:enumeration value="MAXHP" />
+			<xs:enumeration value="MAXMP" />
+			<xs:enumeration value="AGILITY" />
+			<xs:enumeration value="BLOCK" />
+			<xs:enumeration value="CRITICAL" />
+			<xs:enumeration value="EVASION" />
+			<xs:enumeration value="WILL" />
+			<xs:enumeration value="HEALTH" />
+			<xs:enumeration value="ACCURACY" />
+			<xs:enumeration value="KNOWLEDGE" />
+			<xs:enumeration value="PARRY" />
+			<xs:enumeration value="POWER" />
+			<xs:enumeration value="STRENGTH" />
+			<xs:enumeration value="SPEED" />		
+			<xs:enumeration value="HIT_COUNT" />
+			<xs:enumeration value="ATTACK_RANGE" />
+			<xs:enumeration value="ATTACK_SPEED" />
+			<xs:enumeration value="PHYSICAL_DEFENSE" />
+			<xs:enumeration value="MAIN_HAND_ACCURACY" />
+			<xs:enumeration value="MAIN_HAND_CRITICAL" />
+			<xs:enumeration value="MAIN_HAND_POWER" />
+			<xs:enumeration value="OFF_HAND_ACCURACY" />
+			<xs:enumeration value="OFF_HAND_CRITICAL" />
+			<xs:enumeration value="OFF_HAND_POWER" />
+			<xs:enumeration value="MAGICAL_ATTACK" />
+			<xs:enumeration value="MAGICAL_CRITICAL" />
+			<xs:enumeration value="MAGICAL_ACCURACY" />
+			<xs:enumeration value="MAGICAL_RESIST" />
+			<xs:enumeration value="MAX_DAMAGES" />
+			<xs:enumeration value="MIN_DAMAGES" />
+			<xs:enumeration value="IS_MAGICAL_ATTACK" />
+			<xs:enumeration value="EARTH_RESISTANCE" />
+			<xs:enumeration value="FIRE_RESISTANCE" />
+			<xs:enumeration value="WIND_RESISTANCE" />
+			<xs:enumeration value="WATER_RESISTANCE" />
+			<xs:enumeration value="BOOST_MAGICAL_SKILL" />
+			<xs:enumeration value="BOOST_CASTING_TIME" />
+			<xs:enumeration value="BOOST_HATE" />
+			<xs:enumeration value="FLY_TIME" />
+			<xs:enumeration value="FLY_SPEED" />
+			<xs:enumeration value="PVP_ATTACK_RATIO" />
+			<xs:enumeration value="PVP_DEFEND_RATIO" />
+			<xs:enumeration value="DAMAGE_REDUCE" />
+			<xs:enumeration value="BLEED_RESISTANCE" />
+			<xs:enumeration value="BLIND_RESISTANCE" />
+			<xs:enumeration value="CHARM_RESISTANCE" />
+			<xs:enumeration value="CONFUSE_RESISTANCE" />
+			<xs:enumeration value="CURSE_RESISTANCE" />
+			<xs:enumeration value="DISEASE_RESISTANCE" />
+			<xs:enumeration value="FEAR_RESISTANCE" />
+			<xs:enumeration value="OPENAREIAL_RESISTANCE" />
+			<xs:enumeration value="PARALYZE_RESISTANCE" />
+			<xs:enumeration value="PERIFICATION_RESISTANCE" />
+			<xs:enumeration value="POISON_RESISTANCE" />
+			<xs:enumeration value="ROOT_RESISTANCE" />
+			<xs:enumeration value="SILENCE_RESISTANCE" />
+			<xs:enumeration value="SLEEP_RESISTANCE" />
+			<xs:enumeration value="SLOW_RESISTANCE" />
+			<xs:enumeration value="SNARE_RESISTANCE" />
+			<xs:enumeration value="SPIN_RESISTANCE" />
+			<xs:enumeration value="STAGGER_RESISTANCE" />
+			<xs:enumeration value="STUMBLE_RESISTANCE" />
+			<xs:enumeration value="STUN_RESISTANCE" />
 		</xs:restriction>
 	</xs:simpleType>
 

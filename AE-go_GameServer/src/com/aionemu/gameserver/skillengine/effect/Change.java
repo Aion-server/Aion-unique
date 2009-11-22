@@ -21,41 +21,43 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
-import com.aionemu.gameserver.skillengine.model.Effect;
-import com.aionemu.gameserver.skillengine.model.Env;
-import com.aionemu.gameserver.skillengine.model.SkillTemplate;
-import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 
 /**
  * @author ATracer
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RootEffect")
-public class RootEffect extends EffectTemplate
+@XmlType(name = "Change")
+public class Change
 {
-	/** duration is in seconds **/
 	@XmlAttribute(required = true)
-    protected int duration;
+	private StatEnum stat;
+	@XmlAttribute(required = true)
+	private String func;
+	@XmlAttribute(required = true)
+	private float value;
 	
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.effect.Effect#apply(com.aionemu.gameserver.skillengine.model.Env)
+	/**
+	 * @return the stat
 	 */
-	@Override
-	public void apply(Env env)
+	public StatEnum getStat()
 	{
-		Player effector = (Player) env.getEffector();
-		Creature effected = env.getEffected();
-		SkillTemplate template = env.getSkillTemplate();
-		
-		//TODO send effect to effected
-		//TODO broadcast from effected
-		
-		Effect effect = new Effect(template.getSkillId(),template.getLevel(), duration, this);
-		effected.getEffectController().addEffect(effect);
+		return stat;
+	}
 
+	/**
+	 * @return the func
+	 */
+	public String getFunc()
+	{
+		return func;
+	}
+
+	/**
+	 * @return the value
+	 */
+	public float getValue()
+	{
+		return value;
 	}
 }

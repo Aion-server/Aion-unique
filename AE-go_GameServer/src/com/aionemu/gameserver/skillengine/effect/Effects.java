@@ -39,7 +39,8 @@ public class Effects
 	
 	@XmlElements({
         @XmlElement(name = "heal", type = HealEffect.class),
-        @XmlElement(name = "root", type = RootEffect.class)
+        @XmlElement(name = "root", type = RootEffect.class),
+        @XmlElement(name = "buf", type = BufEffect.class)
     })
     protected List<EffectTemplate> effects;
 
@@ -66,5 +67,4 @@ public class Effects
         }
         return this.effects;
     }
-
 }

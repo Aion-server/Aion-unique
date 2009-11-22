@@ -32,6 +32,8 @@ public class Effect
 	private int skillLevel;
 
 	private int duration;
+	
+	private int endTime;
 
 	private EffectController controller;
 
@@ -84,7 +86,8 @@ public class Effect
 	{
 		//TODO
 		//effectTemplate.perform
-
+		endTime = (int) System.currentTimeMillis() + duration * 1000;
+		
 		ThreadPoolManager.getInstance().scheduleEffect((new Runnable()
 		{
 			@Override
@@ -99,6 +102,12 @@ public class Effect
 
 	public void endEffect()
 	{
-		controller.removeEffect(skillId);
+		controller.removeEffect(this);
+	}
+	
+	public int getElapsedTime()
+	{
+		int elapsedTime = endTime - (int)System.currentTimeMillis();
+		return elapsedTime > 0 ? elapsedTime : 0;
 	}
 }
