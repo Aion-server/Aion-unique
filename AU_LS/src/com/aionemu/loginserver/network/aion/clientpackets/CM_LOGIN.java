@@ -108,7 +108,7 @@ public class CM_LOGIN extends AbstractClientPacket
 				clientChannelHandler.sendPacket(new SM_LOGIN_OK(clientChannelHandler.getSessionKey()));
 				break;
 			default:
-				clientChannelHandler.close(new SM_LOGIN_FAIL(response), true);
+				clientChannelHandler.close(new SM_LOGIN_FAIL(response));
 				break;
 		}
 	}

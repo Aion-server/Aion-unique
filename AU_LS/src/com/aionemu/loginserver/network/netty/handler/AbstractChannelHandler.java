@@ -1,10 +1,17 @@
 package com.aionemu.loginserver.network.netty.handler;
 
-import com.aionemu.loginserver.network.BaseServerPacket;
-import org.apache.log4j.Logger;
-import org.jboss.netty.channel.*;
-
 import java.net.InetAddress;
+
+import org.apache.log4j.Logger;
+import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.ChannelEvent;
+import org.jboss.netty.channel.ChannelFutureListener;
+import org.jboss.netty.channel.ChannelHandlerContext;
+import org.jboss.netty.channel.ChannelStateEvent;
+import org.jboss.netty.channel.ExceptionEvent;
+import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
+
+import com.aionemu.loginserver.network.BaseServerPacket;
 
 /**
  * @author ATracer
@@ -12,12 +19,18 @@ import java.net.InetAddress;
 public abstract class AbstractChannelHandler extends SimpleChannelUpstreamHandler
 {
 	private static final Logger log = Logger.getLogger(AbstractChannelHandler.class);
-
+	
+	/**
+	 *  IP address of channel client
+	 */
 	protected InetAddress inetAddress;
+	/**
+	 * Associated channel
+	 */
 	protected Channel channel;
 	
-	/* (non-Javadoc)
-	 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#channelDisconnected(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.ChannelStateEvent)
+	/**
+	 * Invoked when a Channel was disconnected from its remote peer
 	 */
 	@Override
 	public void channelDisconnected(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception 
@@ -35,7 +48,7 @@ public abstract class AbstractChannelHandler extends SimpleChannelUpstreamHandle
 		log.error("Netty: Exception caught", e.getCause());
 		e.getChannel().close();
 	}
-
+	
 	/* (non-Javadoc)
 	 * @see org.jboss.netty.channel.SimpleChannelUpstreamHandler#handleUpstream(org.jboss.netty.channel.ChannelHandlerContext, org.jboss.netty.channel.ChannelEvent)
 	 */
@@ -50,24 +63,26 @@ public abstract class AbstractChannelHandler extends SimpleChannelUpstreamHandle
 	}
 	
 	/**
-	 * 
+	 *  Closes the channel but ensures that packet is send before close
+	 *  
 	 * @param packet
-	 * @param forced
 	 */
-	public void close(BaseServerPacket packet, boolean forced)
+	public void close(BaseServerPacket packet)
 	{
-		//TODO close channel
+		channel.write(packet).addListener(ChannelFutureListener.CLOSE);
 	}
 	
 	/**
-	 * 
-	 * @param forced
+	 *  Closes the channel
 	 */
-	public void close(boolean forced)
+	public void close()
 	{
-		//TODO close channel
+		channel.close();
 	}
 	
+	/**
+	 * @return the IP address string
+	 */
 	public String getIP()
 	{
 		return inetAddress.getHostAddress();

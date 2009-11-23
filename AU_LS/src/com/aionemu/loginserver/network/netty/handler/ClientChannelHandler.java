@@ -113,7 +113,7 @@ public class ClientChannelHandler extends AbstractChannelHandler
 	protected final void onServerClose()
 	{
 		// TODO mb some packet should be send to client before closing?
-		close( /* packet, */true);
+		close();
 	}
 	
 	/**

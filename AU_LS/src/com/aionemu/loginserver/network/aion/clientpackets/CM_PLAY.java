@@ -87,6 +87,6 @@ public class CM_PLAY extends AbstractClientPacket
 			}
 		}
 		else
-			clientChannelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR), true);
+			clientChannelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR));
 	}
 }

@@ -74,7 +74,7 @@ public class CM_AUTH_GG extends AbstractClientPacket
 			/**
 			 * Session id is not ok - inform client that smth went wrong - dc client
 			 */
-			clientChannelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR), true);
+			clientChannelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR));
 		}
 	}
 }

@@ -173,7 +173,7 @@ public class AccountController
 		}
 		else
 		{
-			channelHandler.close( /* new SM_UPDATE_SESSION, */true);
+			channelHandler.close( /* new SM_UPDATE_SESSION, */);
 		}
 	}
 
@@ -254,7 +254,7 @@ public class AccountController
 			{
 				ClientChannelHandler clientChannelHandler = accountsOnLS.remove(account.getId());
 
-				clientChannelHandler.close(true);
+				clientChannelHandler.close();
 
 				return AionAuthResponse.ALREADY_LOGGED_IN;
 			}

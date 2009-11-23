@@ -111,7 +111,7 @@ public class CM_GS_AUTH extends AbstractGameClientPacket
 				break;
 
 			default:
-				gameChannelHandler.close(new SM_GS_AUTH_RESPONSE(resp), true);
+				gameChannelHandler.close(new SM_GS_AUTH_RESPONSE(resp));
 		}
 	}
 }

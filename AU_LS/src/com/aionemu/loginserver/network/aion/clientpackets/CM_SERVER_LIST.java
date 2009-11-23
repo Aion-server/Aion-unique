@@ -72,7 +72,7 @@ public class CM_SERVER_LIST extends AbstractClientPacket
 		if (clientChannelHandler.getSessionKey().checkLogin(accountId, loginOk))
 		{
 			if (gameServerService.getGameServers().size() == 0)
-				clientChannelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.NO_GS_REGISTERED), true);
+				clientChannelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.NO_GS_REGISTERED));
 			else
 				clientChannelHandler.sendPacket(new SM_SERVER_LIST(gameServerService));
 		}
@@ -81,7 +81,7 @@ public class CM_SERVER_LIST extends AbstractClientPacket
 			/**
 			 * Session key is not ok - inform client that smth went wrong - dc client
 			 */
-			clientChannelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR), true);
+			clientChannelHandler.close(new SM_LOGIN_FAIL(AionAuthResponse.SYSTEM_ERROR));
 		}
 	}
 }
