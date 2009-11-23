@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -54,6 +55,8 @@ public class SM_INVENTORY_INFO extends InventoryPacket
 	 */
 	public SM_INVENTORY_INFO(List<Item> items, int cubesize)
 	{
+		//this should prevent client crashes but need to discover when item is null
+		items.removeAll(Collections.singletonList(null));
 		this.items = items;
 		this.size = items.size();
 		this.CUBE = cubesize;
