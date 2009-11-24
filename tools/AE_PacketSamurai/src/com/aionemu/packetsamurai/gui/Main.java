@@ -31,14 +31,18 @@ import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 import javax.swing.filechooser.FileFilter;
 
+import javolution.util.FastList;
+
 import com.aionemu.packetsamurai.Captor;
 import com.aionemu.packetsamurai.IUserInterface;
 import com.aionemu.packetsamurai.PacketSamurai;
 import com.aionemu.packetsamurai.gui.logrepo.LogRepoTab;
 import com.aionemu.packetsamurai.gui.protocoleditor.ProtocolEditor;
 import com.aionemu.packetsamurai.logreaders.AbstractLogReader;
+import com.aionemu.packetsamurai.session.DataPacket;
 import com.aionemu.packetsamurai.session.GameSessionTable;
 import com.aionemu.packetsamurai.session.Session;
+import com.aionemu.packetsamurai.utils.NpcTitleExporter;
 
 /**
  * @author Ulysses R. Ribeiro
@@ -50,6 +54,7 @@ public class Main implements IUserInterface {
 
 	private JMenu _fileMenu = new JMenu("File");
 	private JMenu _editMenu = new JMenu("Edit");
+	private JMenu _utilsMenu = new JMenu("Utils");
 	private JMenu _toolsMenu = new JMenu("Tools");
 	private JMenu _helpMenu = new JMenu("Help");
 
@@ -84,7 +89,7 @@ public class Main implements IUserInterface {
 	}
 
 	public void init() {
-		_frame = new JFrame("Packet Samurai [aion-emu edition]");
+		_frame = new JFrame("Packet Samurai [aion-unique edition]");
 		_frame.setLayout(new BorderLayout());
 		_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -139,6 +144,12 @@ public class Main implements IUserInterface {
 		_itemFilter.addActionListener(_menuListener);
 		_editMenu.add(_itemFilter);
 
+		// Utils
+		JMenuItem exportTitles = new JMenuItem("Export Npc Titles");
+		exportTitles.setActionCommand("ExportNpcTitles");
+		exportTitles.addActionListener(_menuListener);
+		_utilsMenu.add(exportTitles);
+
 		// Tools
 		JMenuItem itemSelectInterface = new JMenuItem("Select Interface");
 		itemSelectInterface.setActionCommand("SelectInterface");
@@ -163,6 +174,7 @@ public class Main implements IUserInterface {
 
 		_menuBar.add(_fileMenu);
 		_menuBar.add(_editMenu);
+		_menuBar.add(_utilsMenu);
 		_menuBar.add(_toolsMenu);
 		_menuBar.add(_helpMenu);
 		_frame.setJMenuBar(_menuBar);
@@ -309,6 +321,19 @@ public class Main implements IUserInterface {
 		_pEditor.setVisible(!_pEditor.isVisible());
 	}
 
+	private void exportNpcTitles() {
+		if (getViewerTab().getComponentCount() > 0) {
+
+			ViewPane pane = ((Main) PacketSamurai.getUserInterface()).getViewerTab().getCurrentViewPane();
+			if (pane != null) {
+				String sessionName = pane.getGameSessionViewer().getSession().getSessionName();
+				FastList<DataPacket> packets = pane.getGameSessionViewer().getSession().getPackets();
+				new NpcTitleExporter(packets, sessionName).parse();
+				
+			}
+		}
+	}
+
 	// MenuActions
 	public class MenuActionListener implements ActionListener {
 
@@ -386,9 +411,11 @@ public class Main implements IUserInterface {
 				showAboutDialog();
 			} else if (actionCmd.equals("EditProtocol")) {
 				toggleProtocolEditor();
+			} else if (actionCmd.equals("ExportNpcTitles")){
+				exportNpcTitles();
 			}
-		}
 
+		}
 	}
 
 	public ProtocolEditor getProtocolEditor() {
