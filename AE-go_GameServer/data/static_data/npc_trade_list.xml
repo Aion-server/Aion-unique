@@ -79,11 +79,17 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203101" name="Nadaelo" count="4" listId0="138" listId1="139" listId2="140" listId3="141" >
 	</tradelist_template>
-	<tradelist_template npc_id="203107" name="Irian" count="1" listId0="394">
+	<tradelist_template npc_id="203107" name="Irian" count="2" listId0="118" listId1="395">
 	</tradelist_template>
 	<tradelist_template npc_id="203108" name="Ispio" count="1" listId0="143">
 	</tradelist_template>
 	<tradelist_template npc_id="203130" name="Eradis" count="1" listId0="156">
+	</tradelist_template>
+	<tradelist_template npc_id="203161" name="Eninte" count="1" listId0="174">
+	</tradelist_template>
+	<tradelist_template npc_id="203158" name="Ibion" count="2" listId0="142" listId1="143">
+	</tradelist_template>
+	<tradelist_template npc_id="203131" name="Maniparas" count="3" listId0="142" listId1="143" listId2="239">
 	</tradelist_template>
 	
 	<!-- Sanctum -->
@@ -163,11 +169,38 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203879" name="Idomeneus" count="1" listId0="425">
 	</tradelist_template>
-
+	<tradelist_template npc_id="203884" name="Atifure" count="1" listId0="174">
+	</tradelist_template>
+	<tradelist_template npc_id="203884" name="Tures" count="1" listId0="174">
+	</tradelist_template>
 
 	<!-- Elthen -->
 	<tradelist_template npc_id="203922" name="Hibrion" count="4" listId0="177" listId1="178" listId2="179" listId3="180" >
 	</tradelist_template>
 	<tradelist_template npc_id="203923" name="Krato" count="4" listId0="181" listId1="182" listId2="183" listId3="184" >
+	</tradelist_template>
+	<tradelist_template npc_id="790004" name="Hannet" count="2" listId0="185" listId1="239">
+	</tradelist_template>
+	<tradelist_template npc_id="203925" name="Octavia" count="1" listId0="174">
+	</tradelist_template>
+
+	<!-- Theobomos -->
+	<tradelist_template npc_id="798220" name="Prokinu" count="4" listId0="485" listId1="486" listId2="487" listId3="488">
+	</tradelist_template>
+	<tradelist_template npc_id="798219" name="Terusas" count="4" listId0="481" listId1="482" listId2="483" listId3="484">
+	</tradelist_template>
+		
+	<!-- Heiron -->
+	<tradelist_template npc_id="204523" name="Jukabe" count="4" listId0="189" listId1="190" listId2="191" listId3="192">
+	</tradelist_template>
+	<tradelist_template npc_id="204524" name="Kelber" count="5" listId0="193" listId1="194" listId2="195" listId3="196" listId4="453">
+	</tradelist_template>
+	<tradelist_template npc_id="204528" name="Orhes" count="1" listId0="234">
+	</tradelist_template>
+	<tradelist_template npc_id="204525" name="Resha" count="1" listId0="174">
+	</tradelist_template>
+	<tradelist_template npc_id="204633" name="Roina" count="2" listId0="234" listId1="318">
+	</tradelist_template>
+	<tradelist_template npc_id="204535" name="Maximus" count="3" listId0="118" listId1="197" listId2="155">
 	</tradelist_template>
 </npc_trade_list>
