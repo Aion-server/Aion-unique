@@ -41,7 +41,7 @@ public class Env
 		ConditionChangeListener conditionChangeListener, World world)
 	{
 		super();
-		this.effected = player.getTarget();
+		this.effected = (Creature) player.getTarget();
 		this.effector = player;
 		this.skillTemplate = skillTemplate;
 		this.conditionChangeListener = conditionChangeListener;

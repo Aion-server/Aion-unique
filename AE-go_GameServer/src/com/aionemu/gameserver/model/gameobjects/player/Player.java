@@ -68,7 +68,7 @@ public class Player extends Creature
 
 	public Player(PlayerController controller, PlayerCommonData plCommonData, PlayerAppearance appereance)
 	{
-		super(plCommonData.getPlayerObjId(), controller, plCommonData.getPosition());
+		super(plCommonData.getPlayerObjId(), controller, null, plCommonData.getPosition());
 
 		this.playerCommonData = plCommonData;
 		this.playerAppearance = appereance;
@@ -347,6 +347,14 @@ public class Player extends Creature
 	public void setUiSettings(byte[] uiSettings)
 	{
 		this.uiSettings = uiSettings;
+	}
+	
+	
+	@Override
+	public void initializeAi()
+	{
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**

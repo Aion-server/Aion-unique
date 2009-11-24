@@ -86,4 +86,12 @@ public abstract class VisibleObjectController<T extends VisibleObject>
 		 */
 		world.removeObject(getOwner());
 	}
+	
+	/**
+	 *  Called when object is re-spawned
+	 */
+	public void onRespawn()
+	{
+		
+	}
 }

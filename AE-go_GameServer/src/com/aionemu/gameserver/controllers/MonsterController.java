@@ -17,13 +17,13 @@
 package com.aionemu.gameserver.controllers;
 
 import com.aionemu.gameserver.ai.AIState;
-import com.aionemu.gameserver.ai.desires.impl.AttackDesire;
 import com.aionemu.gameserver.ai.events.AttackEvent;
 import com.aionemu.gameserver.ai.npcai.MonsterAi;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
@@ -48,13 +48,10 @@ public class MonsterController extends NpcController
 	public void doDrop()
 	{
 		super.doDrop();
-		dropService.registerDrop(getOwner());
+		dropService.registerDrop((Monster) getOwner());
 		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.controllers.CreatureController#doReward()
-	 */
 	@Override
 	public void doReward(Creature creature)
 	{
@@ -74,50 +71,47 @@ public class MonsterController extends NpcController
 		}
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.controllers.CreatureController#onAttack(com.aionemu.gameserver.model.gameobjects.Creature)
-	 */
 	@Override
 	public boolean onAttack(Creature creature)
 	{
 		super.onAttack(creature);
 		
-		Npc npc = getOwner();
-		NpcLifeStats lifeStats = npc.getLifeStats();
+		Monster monster = getOwner();
+		CreatureLifeStats<? extends Creature> lifeStats = monster.getLifeStats();
 
 		if(lifeStats.isAlreadyDead())
 		{
 			return false;
 		}
 		
-		MonsterAi npcAi = npc.getNpcAi();
-		npcAi.handleEvent(new AttackEvent(creature));
+		MonsterAi monsterAi = monster.getAi();
+		monsterAi.handleEvent(new AttackEvent(creature));
 		
 		return true;
 	}
 	
 	public void attackTarget(int targetObjectId)
 	{
-		Npc npc = getOwner();
-		MonsterAi npcAi = npc.getNpcAi();
-		NpcGameStats npcGameStats = npc.getGameStats();
+		Monster monster = getOwner();
+		MonsterAi monsterAi = monster.getAi();
+		CreatureGameStats<? extends Creature> npcGameStats = monster.getGameStats();
 
 		int attackType = 0; //TODO investigate attack types	(0 or 1)
 
-		World world = npc.getActiveRegion().getWorld();
+		World world = monster.getActiveRegion().getWorld();
 		//TODO refactor to possibility npc-npc fight
 		Player player = (Player) world.findAionObject(targetObjectId);
 
 		//TODO fix last attack - cause mob is already dead
-		int damage = StatFunctions.calculateBaseDamageToTarget(npc, player);
+		int damage = StatFunctions.calculateBaseDamageToTarget(monster, player);
 
 		PacketSendUtility.broadcastPacket(player,
-			new SM_ATTACK(npc.getObjectId(), player.getObjectId(),
+			new SM_ATTACK(monster.getObjectId(), player.getObjectId(),
 				npcGameStats.getAttackCounter(), 274, attackType, damage), true);
 		//wtf is 274 - invetigate
 
 
-		boolean attackSuccess = player.getController().onAttack(npc);
+		boolean attackSuccess = player.getController().onAttack(monster);
 
 		if(attackSuccess)
 		{
@@ -126,20 +120,17 @@ public class MonsterController extends NpcController
 		}
 		if(player.getLifeStats().isAlreadyDead())
 		{
-			npcAi.setAiState(AIState.IDLE);
+			monsterAi.setAiState(AIState.IDLE);
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.controllers.CreatureController#onDie()
-	 */
 	@Override
 	public void onDie()
 	{
 		super.onDie();
 		
-		MonsterAi npcAi = this.getOwner().getNpcAi();
-		npcAi.setAiState(AIState.NONE);
+		MonsterAi monsterAi = getOwner().getAi();
+		monsterAi.setAiState(AIState.NONE);
 		
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13 , getOwner().getObjectId()));
 		this.doDrop();
@@ -158,15 +149,23 @@ public class MonsterController extends NpcController
 		getOwner().setTarget(null);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.controllers.CreatureController#onRespawn()
-	 */
 	@Override
 	public void onRespawn()
 	{
-		super.onRespawn();
 		this.decayTask = null;
 		dropService.unregisterDrop(getOwner());
 		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
+	}
+
+	@Override
+	public Monster getOwner()
+	{
+		return (Monster) super.getOwner();
+	}
+	
+	@Override
+	public boolean isAttackable()
+	{
+		return true;
 	}
 }

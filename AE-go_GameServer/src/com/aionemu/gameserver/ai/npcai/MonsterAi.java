@@ -17,11 +17,9 @@
 package com.aionemu.gameserver.ai.npcai;
 
 import java.util.concurrent.Future;
-import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.AIState;
 import com.aionemu.gameserver.ai.desires.Desire;
 import com.aionemu.gameserver.ai.desires.impl.AttackDesire;
@@ -32,7 +30,6 @@ import com.aionemu.gameserver.ai.desires.impl.MoveToTargetDesire;
 import com.aionemu.gameserver.ai.desires.impl.SimpleDesireIteratorHandler;
 import com.aionemu.gameserver.ai.events.AttackEvent;
 import com.aionemu.gameserver.model.gameobjects.Monster;
-import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -42,20 +39,12 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  * @author ATracer
  *
  */
-public class MonsterAi extends AI<Npc>
+public class MonsterAi extends NpcAi
 {
 	private static Logger log = Logger.getLogger(MonsterAi.class);
 
 	private Future<?> moveTask;
 	private Future<?> attackTask;
-	/**
-	 * @param npc
-	 */
-	public MonsterAi(Npc npc)
-	{
-		super(npc);
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * @param event

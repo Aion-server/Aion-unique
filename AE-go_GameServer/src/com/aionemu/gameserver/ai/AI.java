@@ -17,7 +17,6 @@
 
 package com.aionemu.gameserver.ai;
 
-import java.util.concurrent.Future;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.log4j.Logger;
@@ -31,21 +30,14 @@ public abstract class AI<T extends Creature> implements Runnable
 {
 	private static Logger log = Logger.getLogger(AI.class);
 	
-	protected DesireQueue	desireQueue	= new DesireQueue();
+	protected DesireQueue desireQueue = new DesireQueue();
 
-	protected final T		creature;
+	protected Creature owner;
 	
 	protected ReentrantLock aiLock = new ReentrantLock();
 	
 	protected AIState aiState = AIState.NONE;
 	
-	/**
-	 * @param creature
-	 */
-	public AI(T creature)
-	{
-		this.creature = creature;
-	}
 	
 	/**
 	 * @param desire
@@ -66,9 +58,17 @@ public abstract class AI<T extends Creature> implements Runnable
 	/**
 	 * @return owner of this AI
 	 */
-	public T getOwner()
+	public Creature getOwner()
 	{
-		return creature;
+		return owner;
+	}
+	
+	/**
+	 * @return owner of this AI
+	 */
+	public void setOwner(Creature owner)
+	{
+		this.owner = owner;
 	}
 
 	/**

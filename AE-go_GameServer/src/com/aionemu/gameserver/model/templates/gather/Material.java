@@ -33,6 +33,8 @@ public class Material {
     @XmlAttribute
     protected String name;
     @XmlAttribute
+    protected Integer itemid;
+    @XmlAttribute
     protected Integer nameid;
     @XmlAttribute
     protected Integer rate;
@@ -48,8 +50,16 @@ public class Material {
     public String getName() {
         return name;
     }
-
+    
     /**
+	 * @return the itemid
+	 */
+	public Integer getItemid()
+	{
+		return itemid;
+	}
+
+	/**
      * Gets the value of the nameid property.
      * 
      * @return

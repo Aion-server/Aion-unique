@@ -75,7 +75,8 @@ public class PlayerController extends CreatureController<Player>
 		else if(object instanceof Npc)
 		{
 			PacketSendUtility.sendPacket(getOwner(), new SM_NPC_INFO((Npc) object));
-		}else if(object instanceof Gatherable)
+		}
+		else if(object instanceof Gatherable)
 		{
 			PacketSendUtility.sendPacket(getOwner(), new SM_GATHERABLE_INFO((Gatherable) object));
 		}
@@ -114,7 +115,8 @@ public class PlayerController extends CreatureController<Player>
 		}
 	}
 
-	private boolean doAttack (Player player, Creature target, PlayerGameStats pgs, long time, int attackType, int damage) {
+	private boolean doAttack (Player player, Creature target, PlayerGameStats pgs, long time, int attackType, int damage) 
+	{
 		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), target.getObjectId(), pgs
 			.getAttackCounter(), (int) time, attackType, damage), true);
 		boolean attackSuccess = target.getController().onAttack(player);
@@ -136,7 +138,7 @@ public class PlayerController extends CreatureController<Player>
 
 		World world = player.getActiveRegion().getWorld();
 		Creature target = (Creature) world.findAionObject(targetObjectId);
-		if(target == null || !(target instanceof Monster))
+		if(target == null || !target.getController().isAttackable())
 			return;
 		
 		// TODO fix last attack - cause mob is already dead
@@ -316,6 +318,19 @@ public class PlayerController extends CreatureController<Player>
 		PlayerLifeStats pls = getOwner().getLifeStats();
 		getOwner().setLifeStats(new PlayerLifeStats(getOwner(), 1, pls.getCurrentMp()));
 		getOwner().getLifeStats().triggerRestoreTask();
+	}
+
+	@Override
+	public Player getOwner()
+	{
+		return (Player) super.getOwner();
+	}
+
+
+	@Override
+	public boolean isAttackable()
+	{
+		return true;
 	}
 
 }

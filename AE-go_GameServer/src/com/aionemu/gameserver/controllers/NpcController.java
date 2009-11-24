@@ -20,7 +20,9 @@ import java.util.concurrent.Future;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.services.DropService;
 
 /**
@@ -32,13 +34,28 @@ public class NpcController extends CreatureController<Npc>
 {
 
 	private static Logger log = Logger.getLogger(NpcController.class);
-	
+
 	protected Future<?> decayTask;
-	
+
 	protected DropService dropService;
 
 	public void setDropService(DropService dropService)
 	{
 		this.dropService = dropService;
 	}
+
+	@Override
+	public void onRespawn()
+	{
+		this.decayTask = null;
+		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
+	}
+
+
+	@Override
+	public Npc getOwner()
+	{
+		return (Npc) super.getOwner();
+	}
+
 }

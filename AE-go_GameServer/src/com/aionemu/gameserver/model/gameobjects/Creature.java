@@ -16,10 +16,12 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
+import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
+import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -30,7 +32,11 @@ import com.aionemu.gameserver.world.WorldPosition;
  */
 public abstract class Creature extends VisibleObject
 {
-	private Creature	target;
+	
+	/**
+	 * Reference to AI
+	 */
+	protected AI<? extends Creature> ai;
 	
 	private CreatureLifeStats<? extends Creature> lifeStats;
 	
@@ -38,19 +44,11 @@ public abstract class Creature extends VisibleObject
 	
 	private EffectController effectController;
 
-	public Creature(int objId, CreatureController<? extends Creature> controller, WorldPosition position)
+	public Creature(int objId, CreatureController<? extends Creature> controller,
+		SpawnTemplate spawnTemplate, WorldPosition position)
 	{
-		super(objId, controller, position);
-	}
-
-	public Creature getTarget()
-	{
-		return target;
-	}
-
-	public void setTarget(Creature creature)
-	{
-		target = creature;
+		super(objId, controller, spawnTemplate, position);
+		initializeAi();
 	}
 
 	/**
@@ -60,9 +58,9 @@ public abstract class Creature extends VisibleObject
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public CreatureController<? extends Creature> getController()
+	public CreatureController getController()
 	{
-		return (CreatureController<? extends Creature>) super.getController();
+		return (CreatureController) super.getController();
 	}
 	
 	/**
@@ -104,6 +102,8 @@ public abstract class Creature extends VisibleObject
 	}
 
 	public abstract byte getLevel();
+	
+	public abstract void initializeAi();
 
 	/**
 	 * @return the effectController
@@ -120,4 +120,21 @@ public abstract class Creature extends VisibleObject
 	{
 		this.effectController = effectController;
 	}
+	
+	/**
+	 * @return the npcAi
+	 */
+	public AI<? extends Creature> getAi()
+	{
+		return ai;
+	}
+
+	/**
+	 * @param ai the ai to set
+	 */
+	public void setAi(AI<? extends Creature> ai)
+	{
+		this.ai = ai;
+	}
+	
 }

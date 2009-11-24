@@ -50,7 +50,7 @@ public class DoNothingEvent implements AIEvent
 	 *            Ai intance that is executiong this event
 	 */
 	@Override
-	public void handleEvent(AI ai)
+	public void handleEvent(AI<?> ai)
 	{
 		// TODO: Default behavior for DoNothingEvent
 	}

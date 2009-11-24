@@ -19,6 +19,7 @@ package admincommands;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
@@ -49,7 +50,7 @@ public class DeleteSpawn extends AdminCommand
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
-		Creature cre = admin.getTarget();
+		VisibleObject cre = admin.getTarget();
 		if(!(cre instanceof Npc))
 		{
 			PacketSendUtility.sendMessage(admin, "Wrong target");

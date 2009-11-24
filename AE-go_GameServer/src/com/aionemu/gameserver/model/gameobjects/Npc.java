@@ -16,8 +16,7 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
-import com.aionemu.gameserver.ai.npcai.MonsterAi;
-import com.aionemu.gameserver.controllers.CreatureController;
+import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
@@ -35,19 +34,11 @@ import com.aionemu.gameserver.world.WorldPosition;
  */
 public class Npc extends Creature
 {
-	/**
-	 * Reference to AI
-	 */
-	private MonsterAi npcAi; //TODO NpcAi
+	
 	/**
 	 *  Template keeping all base data for this npc 
 	 */
 	protected NpcTemplate		template;
-
-	/**
-	 *  Spawn template of this npc. Currently every spawn template is responsible for spawning just one npc.
-	 */
-	private SpawnTemplate	spawn;
 
 
 	/**
@@ -58,37 +49,20 @@ public class Npc extends Creature
 	 * @param objId
 	 *            unique objId
 	 */
-	public Npc(SpawnTemplate spawn, int objId, NpcController controller)
+	public Npc(int objId, NpcController controller, SpawnTemplate spawnTemplate)
 	{
-		super(objId, controller, new WorldPosition());
-
-		this.template = (NpcTemplate) spawn.getObjectTemplate();
-		this.spawn = spawn;
+		super(objId, controller, spawnTemplate, new WorldPosition());
 		controller.setOwner(this);
-		this.npcAi = new MonsterAi(this);
-
+		
+		this.template = (NpcTemplate) spawnTemplate.getObjectTemplate();
 		NpcStatsTemplate nst = template.getStatsTemplate();
 		super.setGameStats(new NpcGameStats(this,nst));
-	}
-
-	/**
-	 * @return the npcAi
-	 */
-	public MonsterAi getNpcAi() //TODO NpcAi
-	{
-		return npcAi;
 	}
 
 	public NpcTemplate getTemplate()
 	{
 		return template;
 	}
-
-	public SpawnTemplate getSpawn()
-	{
-		return spawn;
-	}
-
 	@Override
 	public String getName()
 	{
@@ -98,17 +72,6 @@ public class Npc extends Creature
 	public int getNpcId()
 	{
 		return getTemplate().getTemplateId();
-	}
-
-	/**
-	 * Return NpcController of this Npc object.
-	 * 
-	 * @return NpcController.
-	 */
-	@Override
-	public NpcController getController()
-	{
-		return (NpcController) super.getController();
 	}
 
 	@Override
@@ -132,4 +95,12 @@ public class Npc extends Creature
 	{
 		return (NpcGameStats) super.getGameStats();
 	}
+
+	@Override
+	public void initializeAi()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

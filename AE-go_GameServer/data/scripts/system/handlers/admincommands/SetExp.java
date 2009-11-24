@@ -17,7 +17,7 @@
 
 package admincommands;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
@@ -61,10 +61,10 @@ public class SetExp extends AdminCommand
 			return;
 		}
 
-		Creature cre = admin.getTarget();
-		if(cre instanceof Player)
+		VisibleObject target = admin.getTarget();
+		if(target instanceof Player)
 		{
-			Player player = (Player)cre;
+			Player player = (Player)target;
 			player.getCommonData().setExp(exp);
 		}
 		else

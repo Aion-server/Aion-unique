@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.controllers.VisibleObjectController;
+import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.world.KnownList;
 import com.aionemu.gameserver.world.MapRegion;
 import com.aionemu.gameserver.world.WorldPosition;
@@ -39,11 +40,12 @@ public abstract class VisibleObject extends AionObject
 	 * 
 	 * @param objId
 	 */
-	public VisibleObject(int objId, VisibleObjectController<? extends VisibleObject> controller, WorldPosition position)
+	public VisibleObject(int objId, VisibleObjectController<? extends VisibleObject> controller, SpawnTemplate spawnTemplate, WorldPosition position)
 	{
 		super(objId);
 		this.controller = controller;
 		this.position = position;
+		this.spawn = spawnTemplate;
 	}
 
 	/**
@@ -60,6 +62,16 @@ public abstract class VisibleObject extends AionObject
 	 * Controller of this VisibleObject
 	 */
 	private final VisibleObjectController<? extends VisibleObject>	controller;
+	
+	/**
+	 * Visible object's target
+	 */
+	private VisibleObject	target;
+	
+	/**
+	 *  Spawn template of this visibleObject. .
+	 */
+	private SpawnTemplate	spawn;
 
 	/**
 	 * Returns current WorldRegion AionObject is in.
@@ -185,5 +197,33 @@ public abstract class VisibleObject extends AionObject
 	public VisibleObjectController<? extends VisibleObject> getController()
 	{
 		return controller;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public VisibleObject getTarget()
+	{
+		return target;
+	}
+	
+	/**
+	 * 
+	 * @param creature
+	 */
+	public void setTarget(VisibleObject creature)
+	{
+		target = creature;
+	}
+	
+	/**
+	 *  Return spawn template of this VisibleObject
+	 *  
+	 * @return
+	 */
+	public SpawnTemplate getSpawn()
+	{
+		return spawn;
 	}
 }

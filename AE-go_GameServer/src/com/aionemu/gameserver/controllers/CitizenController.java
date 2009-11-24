@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.controllers;
 
+
 /**
  * @author ATracer
  *
@@ -27,5 +28,4 @@ public class CitizenController extends NpcController
 	{
 		super();
 	}
-
 }

@@ -34,6 +34,7 @@ import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.services.DropService;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.KnownList;
@@ -62,6 +63,9 @@ public class SpawnEngine
 	@Inject
 	private DropService dropService;
 	
+	@Inject
+	private ItemService itemService;
+	
 	/**
 	 * Constructor creating <tt>SpawnEngine</tt> instance.
 	 * 
@@ -87,23 +91,20 @@ public class SpawnEngine
 		if(spawn.getObjectTemplate() instanceof NpcTemplate)
 		{
 			NpcType npcType = ((NpcTemplate)spawn.getObjectTemplate()).getNpcType();	
-			NpcController npcController = null;
 			Npc npc = null;
 			
 			switch(npcType)
 			{
 				case ATTACKABLE:
-					npcController = new MonsterController();
-					npcController.setDropService(dropService);
-					npc = new Monster(spawn, aionObjectsIDFactory.nextId(), npcController);
+					MonsterController mosnterController = new MonsterController();
+					mosnterController.setDropService(dropService);
+					npc = new Monster(aionObjectsIDFactory.nextId(), mosnterController, spawn);
 					break;
 				case NON_ATTACKABLE:
-					npcController = new CitizenController();	
-					npc = new Citizen(spawn, aionObjectsIDFactory.nextId(), npcController);
+					npc = new Citizen(aionObjectsIDFactory.nextId(), new CitizenController(), spawn);
 					break;
 				default: 
-					npcController = new NpcController();
-					npc = new Npc(spawn, aionObjectsIDFactory.nextId(), npcController);
+					npc = new Npc(aionObjectsIDFactory.nextId(), new NpcController(), spawn);
 						
 			}
 
@@ -117,6 +118,7 @@ public class SpawnEngine
 		else if(spawn.getObjectTemplate() instanceof GatherableTemplate)
 		{
 			GatherableController gatherableController = new GatherableController();
+			gatherableController.setItemService(itemService);
 			Gatherable gatherable = new Gatherable(spawn, aionObjectsIDFactory.nextId(), gatherableController);
 			gatherable.setKnownlist(new KnownList(gatherable));
 			bringIntoWorld(gatherable, spawn);

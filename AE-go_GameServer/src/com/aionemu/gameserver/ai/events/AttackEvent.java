@@ -35,7 +35,7 @@ public class AttackEvent implements AIEvent
 	}
 
 	@Override
-	public void handleEvent(AI ai)
+	public void handleEvent(AI<?> ai)
 	{
 		ai.handleEvent(this);
 	}

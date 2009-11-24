@@ -18,10 +18,7 @@ package com.aionemu.gameserver.services;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.model.templates.SpawnTemplate;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
-import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 
@@ -37,9 +34,9 @@ public class RespawnService
 
 	private static RespawnService instance = new RespawnService();
 	
-	public void scheduleRespawnTask(final Npc npc)
+	public void scheduleRespawnTask(final VisibleObject visibleObject)
 	{
-		final World world = npc.getActiveRegion().getWorld();
+		final World world = visibleObject.getActiveRegion().getWorld();
 		//TODO separate thread executor for decay/spawns
 		// or schedule separate decay runnable service with queue 
 		ThreadPoolManager.getInstance().schedule(new Runnable()
@@ -47,9 +44,9 @@ public class RespawnService
 			@Override
 			public void run()
 			{
-				world.setPosition(npc, npc.getSpawn().getWorldId(), npc.getSpawn().getX(), npc.getSpawn().getY(), npc.getSpawn().getZ(), npc.getSpawn().getHeading());
-				world.spawn(npc);	
-				npc.getController().onRespawn();
+				world.setPosition(visibleObject, visibleObject.getSpawn().getWorldId(), visibleObject.getSpawn().getX(), visibleObject.getSpawn().getY(), visibleObject.getSpawn().getZ(), visibleObject.getSpawn().getHeading());
+				world.spawn(visibleObject);	
+				visibleObject.getController().onRespawn();
 			}
 		}, RESPAWN_DEFAULT_DELAY);
 

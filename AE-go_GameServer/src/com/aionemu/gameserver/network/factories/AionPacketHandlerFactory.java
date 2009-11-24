@@ -43,6 +43,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_EQUIP_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_ADD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_DEL;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_STATUS;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_GATHER;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_L2AUTH_LOGIN_CHECK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_LEVEL_READY;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_LOGIN_OUT;
@@ -169,10 +170,9 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_PING_REQUEST(0x51), State.IN_GAME); //1.5.x
 		addPacket(new CM_TELEPORT_SELECT(0x7E), State.IN_GAME);//
 		addPacket(new CM_VERIFY_LOCATION(0x9B), State.IN_GAME);//
-
-		addPacket(new CM_VIEW_PLAYER_DETAILS(0x4E), State.IN_GAME);
-		
+		addPacket(new CM_VIEW_PLAYER_DETAILS(0x4E), State.IN_GAME);		
 		addPacket(new CM_DUEL_REQUEST(0x5C), State.IN_GAME);
+		addPacket(new CM_GATHER(0xFD), State.IN_GAME);//1.5
 		//addPacket(new CM_UI_SETTINGS(0xF4), State.IN_GAME);
 		//addPacket(new CM_INVITE_TO_GROUP(0x4B ), State.IN_GAME);
 		//addPacket(new CM_REQUEST_DUEL(0x5C ), State.IN_GAME);

@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.controllers.CitizenController;
-import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 /**
  * @author ATracer
@@ -28,9 +27,9 @@ public class Citizen extends Npc
 	/**
 	 * @param template
 	 */
-	public Citizen(SpawnTemplate spawn, int objId, NpcController controller)
+	public Citizen(int objId, CitizenController controller, SpawnTemplate spawn)
 	{
-		super(spawn, objId, controller);
+		super(objId, controller, spawn);
 	}
 
 	/* (non-Javadoc)

@@ -20,7 +20,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.AionObject;
-import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.world.World;
@@ -88,9 +88,9 @@ public class CM_TARGET_SELECT extends AionClientPacket
 		if(targetObjectId != 0)
 		{
 			AionObject obj = world.findAionObject(targetObjectId);
-			if(obj != null && obj instanceof Creature)
+			if(obj != null && obj instanceof VisibleObject)
 			{
-				player.setTarget((Creature) obj);
+				player.setTarget((VisibleObject)obj);
 			}
 
 		}

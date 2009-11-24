@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.controllers.GatherableController;
+import com.aionemu.gameserver.controllers.VisibleObjectController;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.world.WorldPosition;
@@ -29,13 +30,11 @@ public class Gatherable extends VisibleObject
 {
 	private GatherableTemplate gatherableTemplate;
 	
-	private SpawnTemplate	spawnTemplate;
-	
 	public Gatherable(SpawnTemplate spawnTemplate, int objId, GatherableController controller)
 	{
-		super(objId, controller, new WorldPosition());
+		super(objId, controller, spawnTemplate, new WorldPosition());
+		controller.setOwner(this);
 		this.gatherableTemplate = (GatherableTemplate) spawnTemplate.getObjectTemplate();
-		this.spawnTemplate = spawnTemplate; 
 	}
 
 	@Override
@@ -52,12 +51,9 @@ public class Gatherable extends VisibleObject
 		return gatherableTemplate;
 	}
 
-	/**
-	 * @return the spawnTemplate
-	 */
-	public SpawnTemplate getSpawnTemplate()
+	@Override
+	public GatherableController getController()
 	{
-		return spawnTemplate;
+		return (GatherableController) super.getController();
 	}
-
 }

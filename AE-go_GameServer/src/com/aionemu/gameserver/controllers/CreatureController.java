@@ -29,7 +29,7 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
  * @author -Nemesiss-, ATracer(2009-09-29)
  * 
  */
-public abstract class CreatureController<T extends Creature> extends VisibleObjectController<T>
+public abstract class CreatureController<T extends Creature> extends VisibleObjectController<Creature>
 {
 	
 	protected Queue<MoveObserver> moveObservers = new ConcurrentLinkedQueue<MoveObserver>();
@@ -43,7 +43,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		if(object == getOwner().getTarget())
 			getOwner().setTarget(null);
 	}
-	
+
 	/**
 	 *  Perform tasks on Creature move
 	 */
@@ -119,5 +119,15 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	public void attackTarget(int targetObjectId)
 	{
 		//attack target
+	}
+	
+	/**
+	 *  Specifies whether this target is attackable
+	 *  
+	 * @return
+	 */
+	public boolean isAttackable()
+	{
+		return false;
 	}
 }

@@ -16,25 +16,36 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
+import com.aionemu.gameserver.ai.npcai.MonsterAi;
 import com.aionemu.gameserver.controllers.MonsterController;
-import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 
 public class Monster extends Npc
 {
-
 	/**
 	 * @param template
 	 */
-	public Monster(SpawnTemplate spawn, int objId, NpcController controller)
+	public Monster(int objId, MonsterController controller, SpawnTemplate spawn)
 	{
-		super(spawn, objId, controller);
+		super(objId, controller, spawn);
 	}
 
 	@Override
 	public MonsterController getController()
 	{
 		return (MonsterController) super.getController();
-	}	
-	
+	}
+
+	@Override
+	public MonsterAi getAi()
+	{
+		return (MonsterAi) super.getAi();
+	}
+
+	@Override
+	public void initializeAi()
+	{
+		this.ai = new MonsterAi();
+		ai.setOwner(this);
+	}
 }

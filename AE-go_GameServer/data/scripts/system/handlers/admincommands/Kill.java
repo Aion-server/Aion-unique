@@ -1,12 +1,8 @@
 package admincommands;
 
-import java.util.Collections;
-
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
@@ -41,13 +37,18 @@ public class Kill extends AdminCommand
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
-		Creature creature = admin.getTarget();
-		if(creature == null)
+		VisibleObject target = admin.getTarget();
+		if(target == null)
 		{
 			PacketSendUtility.sendMessage(admin, "No target selected");
 			return;
 		}
-		creature.getController().onAttack(admin);
-		creature.getLifeStats().reduceHp(1000000); //hope it is enough to kill every life :)	
+		if(target instanceof Creature)
+		{
+			Creature creature = (Creature) target;
+			creature.getController().onAttack(admin);
+			creature.getLifeStats().reduceHp(1000000); //hope it is enough to kill every life :)	
+		}
+		
 	}
 }

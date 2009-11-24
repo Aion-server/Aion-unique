@@ -47,6 +47,7 @@
 	
 	<xs:complexType name="Material">
 		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="itemid" type="xs:int"/>
 		<xs:attribute name="nameid" type="xs:int"/>
 		<xs:attribute name="rate" type="xs:int"/>
 	</xs:complexType>

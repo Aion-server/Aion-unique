@@ -19,6 +19,7 @@ package com.aionemu.gameserver.ai.events;
 
 import com.aionemu.gameserver.ai.AI;
 
+
 /**
  * This interface is basic event notifier for AI.<br>
  * Each event should implement {@link #handleEvent(com.aionemu.gameserver.ai.AI)} with default behaviour.<br>
@@ -42,5 +43,5 @@ public interface AIEvent
 	 * @param ai
 	 *            active ai instance that has to handle this event.
 	 */
-	public void handleEvent(AI ai);
+	public void handleEvent(AI<?> ai);
 }
