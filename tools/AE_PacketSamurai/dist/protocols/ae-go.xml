@@ -45,9 +45,15 @@
         	<part name="shit" type="b" size="15"/>
         	<part name="name" type="S"/>
         	<part name="shit" type="b" size="61"/>
-	    	<part name="skinRGB" type="d"/>
-	    	<part name="hairRGB" type="d"/>
-	    	<part name="lipRGB" type="d"/>
+	    	<part name="skinRGB" type="d">
+				<reader type="Color" />
+			</part>
+	    	<part name="hairRGB" type="d">
+				<reader type="Color" />
+			</part>
+	    	<part name="lipRGB" type="d">
+				<reader type="Color" />
+			</part>
 	    	<part name="face" type="c"/>
 	    	<part name="hair" type="c"/>
 	    	<part name="deco" type="c"/>
@@ -407,9 +413,15 @@
 	    	<part name="race" type="d"/>
 	    	<part name="classId" type="d"/>
 	    	<part name="voice" type="d"/>
-	    	<part name="skinRGB" type="d"/>
-	    	<part name="hairRGB" type="d"/>
-	    	<part name="lipRGB" type="d"/>
+	    	<part name="skinRGB" type="d">
+				<reader type="Color" />
+			</part>
+	    	<part name="hairRGB" type="d">
+				<reader type="Color" />
+			</part>			
+	    	<part name="lipRGB" type="d">
+				<reader type="Color" />
+			</part>			
 	    	<part name="face" type="c"/>
 	    	<part name="hair" type="c"/>
 	    	<part name="deco" type="c"/>
@@ -474,10 +486,18 @@
 				<part name="race" type="d"/>
 				<part name="classId" type="d"/>
 				<part name="voice" type="d"/>
-				<part name="skinRGB" type="d"/>
-				<part name="hairRGB" type="d"/>
-				<part name="lipRGB" type="d"/>
-				<part name="eyeColor" type="d"/>
+				<part name="skinRGB" type="d">
+					<reader type="Color" />
+				</part>
+				<part name="hairRGB" type="d">
+					<reader type="Color" />
+				</part>			
+				<part name="lipRGB" type="d">
+					<reader type="Color" />
+				</part>
+				<part name="eyeColor" type="d">
+					<reader type="Color"/>
+				</part>
 				<part name="face" type="c"/>
 				<part name="hair" type="c"/>
 				<part name="deco" type="c"/>
@@ -753,7 +773,9 @@
 		<part name="serverCountryCode" type="c"/>
 		<part name="unk" type="c"/>
 		<part name="serverMode" type="c"/>
-		<part name="serverTime" type="d"/>
+		<part name="serverTime" type="d">
+			<reader type="Time"/>
+		</part>
 		<part name="unk" type="d"/>
 		<part name="unk" type="d"/>		
 	</packet>
@@ -887,11 +909,15 @@
 	</packet>
 	<packet id="0x85" name="CM_CHAT_MESSAGE_PUBLIC">
 		<part name="type" type="c"/>
-		<part name="msg" type="S"/>
+		<part name="msg" type="S">
+			<reader type="Text" />
+		</part>
 	</packet>
 	<packet id="0x86" name="CM_CHAT_MESSAGE_WHISPER">
 		<part name="name" type="S"/>
-		<part name="msg" type="S"/>
+		<part name="msg" type="S">
+			<reader type="Text" />
+		</part>
 	</packet>
 	<packet id="0x8A" name="CM_ATTACK">
 		<part name="targetId" type="h"/>
@@ -981,7 +1007,9 @@
 	</packet>
 	<packet id="0xF3" name="CM_LEVEL_READY"/>
 	<packet id="0xFC" name="CM_TIME_CHECK">
-		<part name="nanoTime/1000000 [?]" type="d"/>
+		<part name="nanoTime/1000000 [?]" type="d">
+			<reader type="Time" />
+		</part>
 	</packet>  
 </packetfamilly>
 </protocol>

@@ -33,7 +33,9 @@
 			<part name="last serv" type="c" />
 			<for id="1">
 				<part name="id" type="c" />
-				<part name="ip" type="d" />
+				<part name="ip" type="d" >
+					<reader type="IPv4"/>
+				</part>
 				<part name="port" type="d" />
 				<part name="age" type="c" />
 				<part name="pvp" type="c" />
@@ -61,7 +63,9 @@
 			<part name="size" type="c" id="1" />
 			<for id="1">
 				<part name="?" type="h" />
-				<part name="msg ?" type="S" />
+				<part name="msg ?" type="S">
+					<reader type="Text" />
+				</part>
 			</for>
 		</packet>
 		<packet id="0x0a" name="??">
