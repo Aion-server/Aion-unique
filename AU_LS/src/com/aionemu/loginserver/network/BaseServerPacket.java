@@ -50,6 +50,28 @@ public abstract class BaseServerPacket extends AbstractPacket
 	}
 
 	/**
+	 * Write double to buffer.
+	 * 
+	 * @param buf
+	 * @param value
+	 */
+	protected final void writeDF(ChannelBuffer buf, double value)
+	{
+		buf.writeDouble(value);
+	}
+	
+	/**
+	 * Write float to buffer.
+	 * 
+	 * @param buf
+	 * @param value
+	 */
+	protected final void writeF(ChannelBuffer buf, float value)
+	{
+		buf.writeFloat(value);
+	}
+	
+	/**
 	 * 
 	 * @param buf
 	 * @param data
@@ -60,15 +82,24 @@ public abstract class BaseServerPacket extends AbstractPacket
 	}
 	
 	/**
+	 * Write String to buffer
 	 * 
 	 * @param buf
-	 * @param data
+	 * @param text
 	 */
-	protected final void writeS(ChannelBuffer buf, String data)
+	protected final void writeS(ChannelBuffer buf, String text)
 	{
-		//TODO rework here
-		ChannelBuffer copyBuf = ChannelBuffers.copiedBuffer(data, "UTF-16");
-		buf.writeBytes(copyBuf, 2, copyBuf.capacity() - 2);
+		if (text == null)
+		{
+			buf.writeChar('\000');
+		}
+		else
+		{
+			final int len = text.length();
+			for (int i = 0; i < len; i++)
+				buf.writeChar(text.charAt(i));
+			buf.writeChar('\000');
+		}
 	}
 	
 	/**
@@ -81,5 +112,4 @@ public abstract class BaseServerPacket extends AbstractPacket
 		buf.writeLong(data);
 	}
 	
-
 }

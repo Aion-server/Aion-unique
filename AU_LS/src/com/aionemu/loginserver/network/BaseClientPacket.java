@@ -117,6 +117,25 @@ public abstract class BaseClientPacket extends AbstractPacket
 		}
 		return 0;
 	}
+	
+	/**
+	 * Read double from this packet buffer.
+	 * 
+	 * @return double
+	 */
+	protected final double readDF()
+	{
+		try
+		{
+			return buf.readDouble();
+		}
+		catch (Exception e)
+		{
+			log.error("Missing DF for: " + this);
+		}
+		return 0;
+	}
+
 
 	/**
 	 * Read double from this packet buffer.
@@ -127,7 +146,7 @@ public abstract class BaseClientPacket extends AbstractPacket
 	{
 		try
 		{
-			return (float) buf.readInt();
+			return buf.readFloat();
 		}
 		catch (Exception e)
 		{
@@ -165,10 +184,7 @@ public abstract class BaseClientPacket extends AbstractPacket
 		char ch;
 		try
 		{
-			byte b1 = buf.readByte();
-			byte b2 = buf.readByte();
-			ch = (char) ( b1 << 8 | (b2 & 0xff));
-			while (ch != 0)
+			while ((ch = buf.readChar()) != 0)
 				sb.append(ch);
 		}
 		catch (Exception e)
@@ -176,6 +192,7 @@ public abstract class BaseClientPacket extends AbstractPacket
 			log.error("Missing S for: " + this);
 		}
 		return sb.toString();
+
 	}
 
 	/**
