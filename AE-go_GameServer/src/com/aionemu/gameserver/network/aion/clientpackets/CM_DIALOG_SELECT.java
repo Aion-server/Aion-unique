@@ -19,6 +19,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -42,24 +43,24 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 {
 	private static final Logger	log	= Logger.getLogger(CM_DIALOG_SELECT.class);
 	/**
-	* Target object id that client wants to TALK WITH or 0 if wants to unselect
-	*/
+	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
+	 */
 	private int					targetObjectId;
 	private int					unk1;
 	private int					unk2;
 	private CubeExpandTemplate 	clist;
 	/**
-	* Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
-	* @param opcode
-	*/
+	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
+	 * @param opcode
+	 */
 	public CM_DIALOG_SELECT(int opcode)
 	{
 		super(opcode);
 	}
 
 	/**
-	* {@inheritDoc}
-	*/
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void readImpl()
 	{
@@ -69,109 +70,117 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	}
 
 	/**
-	* {@inheritDoc}
-	*/
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
 		if(player == null)
 			return;
+
+		if(targetObjectId == 0)
+		{
+			//TODO find appropriate packet to send as response
+			// ? sendPacket(new SM_LOOKATOBJECT(player.getObjectId(), 0, unk1));
+			return;
+		}
+
 		switch (unk1)
 		{
-					case 2:
-						sendPacket(new SM_TRADELIST(player, targetObjectId));
-						break;
-					case 3:
-						sendPacket(new SM_SELL_ITEM(player, targetObjectId));
-						break;
-					case 4:
-						//stigma
-						sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-						break;
-					case 5:
-						//create legion
-						sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 2));
-						break;
-					case 20:
-						//warehouse
-						sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 26));
-						break;
-					case 27:
-						//Consign trade?? npc karinerk, koorunerk
-						sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-						break;
-					case 29:
-						//soul healing
-						sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-						break;
-					case 35:
-						//Godstone socketing
-						sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 21));
-						break;
-					case 36:
-						//remove mana stone 
-						sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 20));
-						break;
-					case 37:
-						//modify appearance
-						sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 19));
-						break;
-					case 38:
-						//flight and teleport
-						sendPacket(new SM_TELEPORT_MAP(player, targetObjectId));
-						break;
-					case 39:
-						//improve extraction skill npc cornelius, jhaelas in sanctum
-						sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-						break;
-					case 40:
-						//learn tailoring armor smithing etc...
-						sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-						break;
-					case 41:
-						//expand cube
-						Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
-						clist = DataManager.CUBEEXPANDER_DATA.getCubeExpandListTemplate(npc.getNpcId());
-						if ((clist != null)&&(clist.getNpcId()!=0)){
-						if(player.getCubeSize()==0){
-							if(clist.getMinLevel()==0){
-								sendPacket(new SM_MESSAGE(0, null, "Cube Upgraded to level 1.", null, ChatType.ANNOUNCEMENTS));
-								sendPacket(new SM_SYSTEM_MESSAGE(1300431, "9"));// 9 Slots added 
-								player.setCubesize(1);
-								player.getInventory().setLimit(36);
-								sendPacket(new SM_INVENTORY_INFO(player.getInventory().getAllItems(), player.getCubeSize()));
-							}else{
-								sendPacket(new SM_SYSTEM_MESSAGE(1300436, clist.getName(), clist.getMinLevel()));
-							}
+			case 2:
+				sendPacket(new SM_TRADELIST(player, targetObjectId));
+				break;
+			case 3:
+				sendPacket(new SM_SELL_ITEM(player, targetObjectId));
+				break;
+			case 4:
+				//stigma
+				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+				break;
+			case 5:
+				//create legion
+				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 2));
+				break;
+			case 20:
+				//warehouse
+				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 26));
+				break;
+			case 27:
+				//Consign trade?? npc karinerk, koorunerk
+				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+				break;
+			case 29:
+				//soul healing
+				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+				break;
+			case 35:
+				//Godstone socketing
+				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 21));
+				break;
+			case 36:
+				//remove mana stone 
+				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 20));
+				break;
+			case 37:
+				//modify appearance
+				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 19));
+				break;
+			case 38:
+				//flight and teleport
+				sendPacket(new SM_TELEPORT_MAP(player, targetObjectId));
+				break;
+			case 39:
+				//improve extraction skill npc cornelius, jhaelas in sanctum
+				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+				break;
+			case 40:
+				//learn tailoring armor smithing etc...
+				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+				break;
+			case 41:
+				//expand cube
+				Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
+				clist = DataManager.CUBEEXPANDER_DATA.getCubeExpandListTemplate(npc.getNpcId());
+				if ((clist != null)&&(clist.getNpcId()!=0)){
+					if(player.getCubeSize()==0){
+						if(clist.getMinLevel()==0){
+							sendPacket(new SM_MESSAGE(0, null, "Cube Upgraded to level 1.", null, ChatType.ANNOUNCEMENTS));
+							sendPacket(new SM_SYSTEM_MESSAGE(1300431, "9"));// 9 Slots added 
+							player.setCubesize(1);
+							player.getInventory().setLimit(36);
+							sendPacket(new SM_INVENTORY_INFO(player.getInventory().getAllItems(), player.getCubeSize()));
 						}else{
-							if(player.getCubeSize()>=clist.getMaxLevel()){
-								if(player.getCubeSize()!=9)
-								sendPacket(new SM_SYSTEM_MESSAGE(1300437, clist.getName(), clist.getMaxLevel()));
-								else
-								sendPacket(new SM_SYSTEM_MESSAGE(1300430));//Cannot upgrade anymore.
-							}else{
-								sendPacket(new SM_MESSAGE(0, null, "Cube Upgraded to Level "+(player.getCubeSize()+1)+".", null, ChatType.ANNOUNCEMENTS));
-								sendPacket(new SM_SYSTEM_MESSAGE(1300431, "9"));// 9 Slots added
-								player.setCubesize(player.getCubeSize()+1);
-								player.getInventory().setLimit(player.getInventory().getLimit()+9);
-								sendPacket(new SM_INVENTORY_INFO(player.getInventory().getAllItems(), player.getCubeSize()));
-							}
+							sendPacket(new SM_SYSTEM_MESSAGE(1300436, clist.getName(), clist.getMinLevel()));
 						}
-						}else{sendPacket(new SM_MESSAGE(0, null, "NPC Template for this cube Expander is missing.", null, ChatType.ANNOUNCEMENTS));}
-						break;
-					case 52:
-						//work order from lerning npc in sanctum
-						sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-						break;
-					case 53:
-						//coin reward
-						sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-						break;
-					default:
-						sendPacket(new SM_DIALOG_WINDOW(targetObjectId, unk1));
-					break;
-				}
+					}else{
+						if(player.getCubeSize()>=clist.getMaxLevel()){
+							if(player.getCubeSize()!=9)
+								sendPacket(new SM_SYSTEM_MESSAGE(1300437, clist.getName(), clist.getMaxLevel()));
+							else
+								sendPacket(new SM_SYSTEM_MESSAGE(1300430));//Cannot upgrade anymore.
+						}else{
+							sendPacket(new SM_MESSAGE(0, null, "Cube Upgraded to Level "+(player.getCubeSize()+1)+".", null, ChatType.ANNOUNCEMENTS));
+							sendPacket(new SM_SYSTEM_MESSAGE(1300431, "9"));// 9 Slots added
+							player.setCubesize(player.getCubeSize()+1);
+							player.getInventory().setLimit(player.getInventory().getLimit()+9);
+							sendPacket(new SM_INVENTORY_INFO(player.getInventory().getAllItems(), player.getCubeSize()));
+						}
+					}
+				}else{sendPacket(new SM_MESSAGE(0, null, "NPC Template for this cube Expander is missing.", null, ChatType.ANNOUNCEMENTS));}
+				break;
+			case 52:
+				//work order from lerning npc in sanctum
+				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+				break;
+			case 53:
+				//coin reward
+				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+				break;
+			default:
+				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, unk1));
+				break;
+		}
 		//log.info("id: "+targetObjectId+" dialog type: " + unk1 +" other: " + unk2);
 	}
 }
