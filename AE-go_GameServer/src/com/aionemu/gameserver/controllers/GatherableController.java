@@ -60,15 +60,24 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	{
 		this.itemService = itemService;
 	}
-
+	
+	/**
+	 *  Start gathering process
+	 *  
+	 * @param player
+	 */
 	public void onStartUse(final Player player)
 	{
 		//basic actions, need to improve here
 		final GatherableTemplate template = this.getOwner().getTemplate();
+		
+		if(!checkPlayerSkill(player, template))
+			return;
+		
 		List<Material> materials = template.getMaterials().getMaterial();
 		final Material material = materials.get(0);
 
-		if(player != null && state != GatherState.GATHERING)
+		if(state != GatherState.GATHERING)
 		{
 			state = GatherState.GATHERING;
 			player.getController().attach(new MoveObserver(){
@@ -89,7 +98,38 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 			scheduleGathering(player, template, material);
 		}
 	}
-
+	
+	/**
+	 *  Checks whether player have needed skill for gathering and skill level is sufficient
+	 *  
+	 * @param player
+	 * @param template
+	 * @return
+	 */
+	private boolean checkPlayerSkill(final Player player, final GatherableTemplate template)
+	{
+		//check skill is available
+		Integer skillLevel = player.getSkillList().getSkillList().get(template.getHarvestSkill());
+		if(skillLevel == null)
+		{
+			//TODO send some message ?
+			return false;
+		}
+		if(skillLevel < template.getSkillLevel())
+		{
+			//TODO send some message ?
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 *  Schedules gathering process animation
+	 *  
+	 * @param player
+	 * @param template
+	 * @param material
+	 */
 	private void scheduleGathering(final Player player,
 		final GatherableTemplate template, final Material material)
 	{
@@ -106,6 +146,10 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 				{							
 					PacketSendUtility.sendPacket(player, new SM_GATHER_UPDATE(template, material, successCounter, failureCounter, 1));
 					analyze();
+				}
+				else
+				{
+					finishGathering();
 				}
 			}
 
@@ -140,6 +184,12 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 		}), 1000, 2500);
 	}
 	
+	/**
+	 *  Adds item to inventory on successful gathering
+	 *  
+	 * @param material
+	 * @param player
+	 */
 	private void addItem(Material material, Player player)
 	{
 		Item item = itemService.newItem(material.getItemid(), 1);//TODO count always 1 ?
