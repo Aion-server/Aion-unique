@@ -160,6 +160,7 @@ public class PlayerCommonData
 
 	public void setExp(long exp)
 	{
+		//maxLevel is 51 but in game 50 should be shown with full XP bar
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
 		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
 
@@ -171,10 +172,10 @@ public class PlayerCommonData
 		int level = 1;
 		long totalExp = 0;
 		long leakExp = 0;
-
-		while (exp>= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level+1) && level != maxLevel)
+		
+		//make sure level is never larget than maxLevel-1
+		while ((level + 1) != maxLevel && exp>= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level+1))
 		{
-
 			level++;
 			//totalExp = leakExp + DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);
 		}

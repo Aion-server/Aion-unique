@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<skill_tree>
+    <skill minLevel="1" skillId="30001" skillLevel="1" name="Gathering I" race="ALL" classId="ALL" type="ACTIVE"/>
+</skill_tree>
