@@ -84,27 +84,33 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 		
 		log.info("Saving settings");
 		
-		DB.insertUpdate("REPLACE INTO player_settings values (?, ?,  ?)", new IUStH() {
-			@Override
-			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
-			{
-				stmt.setInt(1, playerId);
-				stmt.setInt(2, 0);
-				stmt.setBytes(3, uiSettings);
-				stmt.execute();
-			}
-		});
+		if(uiSettings != null)
+		{
+			DB.insertUpdate("REPLACE INTO player_settings values (?, ?,  ?)", new IUStH() {
+				@Override
+				public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+				{
+					stmt.setInt(1, playerId);
+					stmt.setInt(2, 0);
+					stmt.setBytes(3, uiSettings);
+					stmt.execute();
+				}
+			});
+		}
 		
-		DB.insertUpdate("REPLACE INTO player_settings values (?, ?,  ?)", new IUStH() {
-			@Override
-			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
-			{
-				stmt.setInt(1, playerId);
-				stmt.setInt(2, 1);
-				stmt.setBytes(3, shortcuts);
-				stmt.execute();
-			}
-		});
+		if(shortcuts != null)
+		{
+			DB.insertUpdate("REPLACE INTO player_settings values (?, ?,  ?)", new IUStH() {
+				@Override
+				public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+				{
+					stmt.setInt(1, playerId);
+					stmt.setInt(2, 1);
+					stmt.setBytes(3, shortcuts);
+					stmt.execute();
+				}
+			});
+		}	
 	}
 
 	@Override
