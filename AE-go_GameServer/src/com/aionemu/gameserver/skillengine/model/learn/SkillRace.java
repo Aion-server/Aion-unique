@@ -24,6 +24,6 @@ public enum SkillRace
 {
 	/** Positioning in enum should correspond to com.aionemu.gameserver.model.Race **/
 	PC_LIGHT,
-	PC_DAR,
+	PC_DARK,
 	ALL
 }

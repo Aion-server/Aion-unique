@@ -107,7 +107,7 @@ public class SkillTreeData
 			templates.get(makeHash(SkillClass.ALL.ordinal(), SkillRace.ALL.ordinal(), level));
 		
 		if(classRaceSpecificTemplates != null)
-			newSkills.addAll(classSpecificTemplates);
+			newSkills.addAll(classRaceSpecificTemplates);
 		if(classSpecificTemplates != null)
 			newSkills.addAll(classSpecificTemplates);
 		if(generalTemplates != null)
