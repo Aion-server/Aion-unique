@@ -35,20 +35,22 @@ public enum StatEnum
 	MAXMP("maxmp"),
 	AGILITY("agility",true),
 	BLOCK("block"),
-	CRITICAL("critical",true),
 	EVASION("dodge"),
-	WILL("concentration",true),
+	CONCENTRATION("concentration"),
+	WILL("will",true),
 	HEALTH("health",true),
-	ACCURACY("hitaccuracy",true),
+	ACCURACY("accuracy",true),
 	KNOWLEDGE("knowledge",true),
 	PARRY("parry"),
-	POWER("phyattack",true),
-	STRENGTH("strength",true),
+	POWER("strength",true),
 	SPEED("speed",true),
 	
 	HIT_COUNT("hitcount",true),
 	ATTACK_RANGE("attackrange",true),
 	ATTACK_SPEED("attackdelay",-1,true),
+	PHYSICAL_ATTACK("phyattack"),
+	PHYSICAL_ACCURACY("hitaccuracy"),
+	PHYSICAL_CRITICAL("critical"),
 	PHYSICAL_DEFENSE("physicaldefend"),
 	MAIN_HAND_ACCURACY("mainhandaccuracy"),
 	MAIN_HAND_CRITICAL("mainhandcritical"),
@@ -58,8 +60,8 @@ public enum StatEnum
 	OFF_HAND_POWER("offhandpower"),
 	
 	MAGICAL_ATTACK("magicalattack"),
-	MAGICAL_CRITICAL("magicalcritical"),
 	MAGICAL_ACCURACY("magicalhitaccuracy"),
+	MAGICAL_CRITICAL("magicalcritical"),
 	MAGICAL_RESIST("magicalresist"),
 	MAX_DAMAGES("maxdamages",true),
 	MIN_DAMAGES("mindamages",true),
@@ -71,7 +73,7 @@ public enum StatEnum
 	WATER_RESISTANCE("elementaldefendwater"),
 	
 	BOOST_MAGICAL_SKILL("magicalskillboost"),
-	BOOST_CASTING_TIME("boostcastingtime"),
+	BOOST_CASTING_TIME("boostcastingtime",-1),
 	BOOST_HATE("boosthate"),
 	
 	FLY_TIME("maxfp"),
@@ -149,41 +151,26 @@ public enum StatEnum
 		if (slot==null)
 			return this;
 		switch (this) {
-			case POWER:
+			case PHYSICAL_ATTACK:
 				switch (slot) {
-					case MAIN_HAND:
-						return MAIN_HAND_POWER;
 					case SUB_HAND:
 						return OFF_HAND_POWER;
 					default:
-						return this;
-				}
-			case MAX_DAMAGES:
-				switch (slot) {
-					case MAIN_HAND:
 						return MAIN_HAND_POWER;
-					case SUB_HAND:
-						return OFF_HAND_POWER;
-					default:
-						return this;
 				}
-			case ACCURACY:
+			case PHYSICAL_ACCURACY:
 				switch (slot) {
-					case MAIN_HAND:
-						return MAIN_HAND_ACCURACY;
 					case SUB_HAND:
 						return OFF_HAND_ACCURACY;
 					default:
-						return this;
+						return MAIN_HAND_ACCURACY;
 				}
-			case CRITICAL:
+			case PHYSICAL_CRITICAL:
 				switch (slot) {
-					case MAIN_HAND:
-						return MAIN_HAND_CRITICAL;
 					case SUB_HAND:
 						return OFF_HAND_CRITICAL;
 					default:
-						return this;
+						return MAIN_HAND_CRITICAL;
 				}
 			default:
 				return this;

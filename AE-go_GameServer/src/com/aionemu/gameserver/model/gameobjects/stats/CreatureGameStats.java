@@ -18,13 +18,14 @@ package com.aionemu.gameserver.model.gameobjects.stats;
 
 import java.util.Map.Entry;
 
-import javolution.util.FastList;
 import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.SkillElement;
+import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 
 /**
  * @author xavier
@@ -36,11 +37,10 @@ public class CreatureGameStats<T extends Creature>
 
 	private static final int							ATTACK_MAX_COUNTER	= Integer.MAX_VALUE;
 
+	private FastMap<StatEnum, Integer>					defaultStats;
 	private FastMap<StatEnum, Integer>					baseStats;
 	private FastMap<StatEnum, Integer>					bonusStats;
-
-	private FastMap<Integer, FastList<StatModifier>>	effects;
-	private static Integer								nextEffectId		= 1;
+	private FastMap<StatEnum, StatEffect>				effects;
 
 	private int											attackCounter		= 0;
 	private boolean										initialized			= false;
@@ -49,9 +49,10 @@ public class CreatureGameStats<T extends Creature>
 	protected CreatureGameStats(T owner)
 	{
 		this.owner = owner;
+		this.defaultStats = new FastMap<StatEnum, Integer>();
 		this.baseStats = new FastMap<StatEnum, Integer>();
 		this.bonusStats = new FastMap<StatEnum, Integer>();
-		this.effects = new FastMap<Integer, FastList<StatModifier>>();
+		this.effects = new FastMap<StatEnum, StatEffect>();
 	}
 
 	protected void initStats(int maxHp, int maxMp, int power, int health, int agility, int accuracy, int knowledge,
@@ -209,222 +210,64 @@ public class CreatureGameStats<T extends Creature>
 		return baseStat;
 	}
 
-	private int getNextEffectId()
+	public void processEffects(StatEnum stat)
 	{
-		int effectId = -1;
-		while(effectId < 0)
-		{
-			synchronized(nextEffectId)
-			{
-				nextEffectId = (nextEffectId % Integer.MAX_VALUE) + 1;
-				effectId = nextEffectId;
-			}
-			synchronized(effects)
-			{
-				if(effects.size() == Integer.MAX_VALUE)
-				{
-					effectId = 0;
-				}
-				if(effects.containsKey(effectId))
-				{
-					effectId = -1;
-				}
+		StatEffect effect = effects.get(stat);
+		
+		setStat(stat, defaultStats.get(stat));
+		setStat(stat, 0, true);
+		
+		for (StatModifier modifier : effect.getModifiers()) {
+			int newValue = modifier.apply(getCurrentStat(stat));
+			StringBuilder sb = new StringBuilder();
+			sb.append("Applying modifier "+modifier+" on "+stat+": old:");
+			sb.append(getBaseStat(stat)+"+"+getStatBonus(stat)+",new:");
+			sb.append(getBaseStat(stat)+(modifier.isBonus()?0:newValue));
+			sb.append("+");
+			sb.append((modifier.isBonus()?getStatBonus(stat)+newValue:0));
+			log.debug(sb.toString());
+			if (modifier.isBonus()) {
+				bonusStats.put(stat, newValue+getStatBonus(stat));
+			} else {
+				baseStats.put(stat, newValue);
 			}
 		}
-		return effectId;
 	}
-
-	public int getEffectId() throws IllegalAccessException
-	{
-		int effectId = getNextEffectId();
-
-		if(effectId == 0)
-		{
-			throw new IllegalAccessException("Cannot get a new Effect id");
-		}
-
-		FastList<StatModifier> modifiers = new FastList<StatModifier>();
-		synchronized(effects)
-		{
-			effects.put(effectId, modifiers);
-		}
-		return effectId;
-	}
-
-	public void addEffectOnStat(int effectId, StatEnum stat, String value)
-	{
-		addEffectOnStat(effectId, stat, value, false);
-	}
-
-// TODO update applyModifiersOnStat to get awaited behaviour
-//	private int applyOldModifiersOnNewStat(int effectId, StatEnum stat, int base)
-//	{
-//		int newValue = base;
-//		synchronized(effects)
-//		{
-//			for(Entry<Integer, FastList<StatModifier>> effect : effects.entrySet())
-//			{
-//				if(effect.getKey() != effectId)
-//				{
-//					FastList<StatModifier> modifiers = effect.getValue();
-//					synchronized(modifiers)
-//					{
-//						for(StatModifier modifier : modifiers)
-//						{
-//							if(modifier.getModifiedStat() == stat)
-//							{
-//								modifier.setOldValue(newValue);
-//								if(stat.isReplace()&&!modifier.isBonus())
-//								{
-//									newValue = modifier.getModifier();
-//								}
-//								else
-//								{
-//									newValue = newValue + modifier.getModifier();
-//								}
-//							}
-//						}
-//					}
-//
-//				}
-//			}
-//
-//		}
-//		return newValue;
-//	}
-
-//	private int applyOldModifiersOnOldStat(StatEnum stat, int base)
-//	{
-//		int newValue = base;
-//		synchronized(effects)
-//		{
-//			for(Entry<Integer, FastList<StatModifier>> effect : effects.entrySet())
-//			{
-//				FastList<StatModifier> modifiers = effect.getValue();
-//				synchronized(modifiers)
-//				{
-//					for(StatModifier modifier : modifiers)
-//					{
-//						if((modifier.getModifiedStat() == stat) && (!modifier.isEnded()))
-//						{
-//							modifier.setOldValue(newValue);
-//							if(stat.isReplace()&&!modifier.isBonus())
-//							{
-//								newValue = modifier.getModifier();
-//							}
-//							else
-//							{
-//								newValue = newValue + modifier.getModifier();
-//							}
-//						}
-//					}
-//				}
-//
-//			}
-//		}
-//
-//		return newValue;
-//	}
-
-	public void addEffectOnStat(int effectId, StatEnum stat, String value, boolean bonus)
-	{
-		log.debug("Adding modifier for effect#" + effectId + ": stat:" + stat.getName() + ",value:" + value + ",bonus:"
-			+ bonus);
-		FastList<StatModifier> modifiers = null;
-		synchronized(effects)
-		{
-			modifiers = effects.get(effectId);
-		}
-		if(modifiers == null)
-		{
-			throw new IllegalArgumentException("Invalid effect id " + effectId);
-		}
-
-		StatModifier modifier = new StatModifier(stat, value, getBaseStat(stat), bonus);
-
-		if(bonus)
-		{
-			synchronized(bonusStats)
-			{
-				if (stat.isReplace()) {
-					// TODO do the right thing to remove bonus modifier to a replacable stat
-				} else {
-					bonusStats.put(stat, getStatBonus(stat) + modifier.getModifier());
-				}
+	
+	public void addModifierOnStat(StatEnum stat, StatModifier modifier) {
+		synchronized(effects) {
+			if (effects.containsKey(stat)) {
+				effects.get(stat).add(modifier);
+			} else {
+				StatEffect effect = new StatEffect ();
+				defaultStats.put(stat, getCurrentStat(stat));
+				effect.add(modifier);
+				effects.put(stat,effect);
 			}
 		}
-		else
-		{
-			synchronized(baseStats)
-			{
-				if(stat.isReplace())
-				{
-					// TODO correct behaviour to set the new stats, then apply all active modifiers to it
-					// baseStats.put(stat, applyOldModifiersOnNewStat(effectId, stat, modifier.getModifier()));
-					baseStats.put(stat, modifier.getModifier());
-				}
-				else
-				{
-					baseStats.put(stat, getBaseStat(stat) + modifier.getModifier());
-				}
-			}
-		}
-
-		synchronized(modifiers)
-		{
-			modifiers.add(modifier);
-		}
-
+		
+		processEffects(stat);
 	}
-
-	public void endEffect(int effectId)
-	{
-		synchronized(effects)
-		{
-			FastList<StatModifier> modifiers = effects.get(effectId);
-			if(modifiers != null)
-			{
-				for(StatModifier modifier : modifiers)
-				{
-					log.debug("Removing modifier for effect#" + effectId + ": stat:"
-						+ modifier.getModifiedStat().getName() + ",value:" + modifier.getModifier() + ",bonus:"
-						+ modifier.isBonus());
-					if(modifier.isBonus())
-					{
-						synchronized(bonusStats)
-						{
-							if (modifier.getModifiedStat().isReplace()) {
-								// TODO do the right thing to remove bonus modifier to a replacable stat
-							} else {
-								bonusStats.put(modifier.getModifiedStat(), modifier.endModifier(bonusStats.get(modifier
-									.getModifiedStat())));
-							}
-						}
-					}
-					else
-					{
-						synchronized(baseStats)
-						{
-							if(modifier.getModifiedStat().isReplace())
-							{
-								// TODO update normal behaviour: apply all actives modifiers on old stat
-								// baseStats.put(modifier.getModifiedStat(), applyOldModifiersOnOldStat(modifier
-								//  	.getModifiedStat(), modifier.endModifier(modifier.getModifier())));
-								baseStats.put(modifier.getModifiedStat(), modifier.endModifier(modifier.getModifier()));
-							}
-							else
-							{
-								baseStats.put(modifier.getModifiedStat(), modifier.endModifier(baseStats.get(modifier
-									.getModifiedStat())));
-							}
-						}
-					}
-				}
-				effects.remove(effectId);
+	
+	public void addEffectOnStat(StatEnum stat, StatEffect effect)
+	{	
+		synchronized(effects) {
+			if (effects.containsKey(stat)) {
+				effects.get(stat).addAll(effect.getModifiers());
+			} else {
+				defaultStats.put(stat, getCurrentStat(stat));
+				effects.put(stat,effect);
 			}
-			else
-			{
-				throw new IllegalArgumentException("Invalid effect id " + effectId);
+		}
+		
+		processEffects(stat);
+	}
+	
+	public void endEffect(AionObject owner) {
+		synchronized (effects) {
+			for(Entry<StatEnum,StatEffect> entry : effects.entrySet()) {
+				entry.getValue().endEffects(owner);
+				processEffects(entry.getKey());
 			}
 		}
 	}

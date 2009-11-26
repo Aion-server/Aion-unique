@@ -20,9 +20,7 @@ import java.lang.reflect.Field;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 
 /**
@@ -39,8 +37,6 @@ public class Item extends AionObject
 	private boolean isEquipped = false;
 	
 	private int equipmentSlot = 0;
-	
-	private int effectId = 0;
 	
 	/**
 	 * @param objId
@@ -207,15 +203,5 @@ public class Item extends AionObject
 		}
 		sb.append('}');
 		return sb.toString();
-	}
-
-	public int getEffectId()
-	{
-		return effectId;
-	}
-	
-	public void setEffectId (int effectId)
-	{
-		this.effectId = effectId;
 	}
 }

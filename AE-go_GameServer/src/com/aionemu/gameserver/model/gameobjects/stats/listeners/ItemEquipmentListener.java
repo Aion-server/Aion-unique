@@ -25,6 +25,9 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.AddModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.PercentModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.ReplaceModifier;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.model.templates.item.ItemStat;
 
@@ -54,40 +57,61 @@ public class ItemEquipmentListener
 			log.debug("Item #" + item.getObjectId() + " isn't an equipment, not changing stats");
 			return;
 		}
-		log.debug("changing game stats "+pgs+" for equipment change of player #"+inventory.getOwner().getObjectId());
-		int effectId;
-		if (!item.isEquipped()) {
-			effectId = item.getEffectId();
-			pgs.endEffect(effectId);
-			log.debug("Changed stats after equipment change of item "+ item +" to player #" + inventory.getOwner().getObjectId() + ":" + pgs);
-			return;
-		}
-		try {
-			effectId = pgs.getEffectId();
-		} catch (IllegalAccessException e) {
-			log.debug("cannot get an effect id");
-			return;
-		}
-		item.setEffectId(effectId);
+		log.debug("changing game stats " + pgs + " for equipment change of player #"
+			+ inventory.getOwner().getObjectId());
 
-		if (it.getItemStats()==null) {
+		if(!item.isEquipped())
+		{
+			pgs.endEffect(item);
+			log.debug("Changed stats after equipment change of item " + item + " to player #"
+				+ inventory.getOwner().getObjectId() + ":" + pgs);
+			return;
+		}
+
+		if(it.getItemStats() == null)
+		{
 			log.debug("cannot get item stats from item");
-		} else {
+		}
+		else
+		{
 			List<ItemSlot> slots = ItemSlot.getSlotsFor(slotId);
-			for (ItemStat stat : it.getItemStats().getStat()) {
-				pgs.addEffectOnStat(effectId, stat.getStatEnum().getMainOrSubHandStat(slots.get(0)), stat.getValue(), stat.isBonus());
+			for(ItemStat stat : it.getItemStats().getStat())
+			{
+				StatEnum statToModify = stat.getStatEnum().getMainOrSubHandStat(slots.get(0));
+				if(stat.getValue().contains("%"))
+				{
+					pgs.addModifierOnStat(statToModify, new PercentModifier(item, stat.isBonus(), stat.getValue(), statToModify.getSign()));
+				}
+				else
+				{
+					if(statToModify.isReplace())
+					{
+						pgs.addModifierOnStat(statToModify, new ReplaceModifier(item, stat.getValue()));
+					}
+					else
+					{
+						pgs.addModifierOnStat(statToModify, new AddModifier(item, stat.isBonus(), stat.getValue(), statToModify.getSign()));
+					}
+				}
 			}
+			
 		}
+
 		// TODO Convert theses attributes to <stat ...> elements
-		if (it.getAttackType()!=null) {
-			pgs.addEffectOnStat(effectId, StatEnum.IS_MAGICAL_ATTACK, (it.getAttackType().contains("magic"))?"1":"0");
+		if(it.getAttackType() != null)
+		{
+			pgs.addModifierOnStat(StatEnum.IS_MAGICAL_ATTACK, new ReplaceModifier(item, (it.getAttackType()
+				.contains("magic")) ? "1" : "0"));
 		}
-		
-		log.debug("Changed stats after equipment change of item "+ item +" to player #" + inventory.getOwner().getObjectId() + ":" + pgs);
+
+		log.debug("Changed stats after equipment change of item " + item + " to player #"
+			+ inventory.getOwner().getObjectId() + ":" + pgs);
 	}
-	
-	public static void onLevelChange (Inventory inventory) {
-		for (Item item : inventory.getEquippedItems()) {
+
+	public static void onLevelChange(Inventory inventory)
+	{
+		for(Item item : inventory.getEquippedItems())
+		{
 			onItemEquipmentChange(inventory, item, item.getEquipmentSlot());
 		}
 	}
