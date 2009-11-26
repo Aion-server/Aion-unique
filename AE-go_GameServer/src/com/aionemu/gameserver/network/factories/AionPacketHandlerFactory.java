@@ -173,7 +173,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_VIEW_PLAYER_DETAILS(0x4E), State.IN_GAME);		
 		addPacket(new CM_DUEL_REQUEST(0x5C), State.IN_GAME);
 		addPacket(new CM_GATHER(0xFD), State.IN_GAME);//1.5
-		//addPacket(new CM_UI_SETTINGS(0xF4), State.IN_GAME);
+		addPacket(new CM_UI_SETTINGS(0xF4), State.IN_GAME);
 		//addPacket(new CM_INVITE_TO_GROUP(0x4B ), State.IN_GAME);
 		//addPacket(new CM_REQUEST_DUEL(0x5C ), State.IN_GAME);
 

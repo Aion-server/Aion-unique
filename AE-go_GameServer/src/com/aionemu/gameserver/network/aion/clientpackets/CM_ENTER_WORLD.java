@@ -45,6 +45,9 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UI_SETTINGS;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKC9;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKDC;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.services.PlayerService;
@@ -127,10 +130,14 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			client.sendPacket(new SM_ENTER_WORLD_CHECK());
 			client.sendPacket(new SM_QUESTLIST());
 			
-//			if(player.getUiSettings() != null)
-//			{
-//				client.sendPacket(new SM_UI_SETTINGS(player));
-//			}
+			byte[] uiSettings = player.getUiSettings();
+			byte[] shortcuts = player.getShortcuts();
+			
+			if(uiSettings != null)
+				client.sendPacket(new SM_UI_SETTINGS(uiSettings, 0));
+			
+			if(shortcuts != null)
+				client.sendPacket(new SM_UI_SETTINGS(shortcuts, 1));;
 			
 			LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
 			if((player.getPosition().getX() == locationData.getX())&&(player.getPosition().getY() == locationData.getY()))
@@ -140,7 +147,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			}
 			// sendPacket(new SM_UNK60());
 			// sendPacket(new SM_UNK17());
-			// sendPacket(new SM_UNK5E());
+			sendPacket(new SM_UNK5E());
 			
 			//Cubesize limit set in inventory.
 			int cubeSize = player.getCubeSize();
@@ -167,18 +174,19 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			
 			client.sendPacket(new SM_INVENTORY_INFO()); 
 			client.sendPacket(new SM_UNKDC()); //?? unknwon
-			// sendPacket(new SM_UNKD3());
+			//sendPacket(new SM_UNKD3());
 			
 			/*
 			 * Needed
 			 */
 			client.sendPacket(new SM_STATS_INFO(player));
-
+			sendPacket(new SM_UNK7B());
 			// sendPacket(new SM_UNKE1());
 			sendPacket(new SM_MACRO_LIST(player));
 			
 
 			sendPacket(new SM_GAME_TIME());
+			sendPacket(new SM_UNKC9());
 			sendPacket(SM_SYSTEM_MESSAGE.REMAINING_PLAYING_TIME(12043));
 
 			/**

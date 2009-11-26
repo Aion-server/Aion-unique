@@ -34,7 +34,7 @@ import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
-import com.aionemu.gameserver.dao.PlayerUiSettingsDAO;
+import com.aionemu.gameserver.dao.PlayerSettingsDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
@@ -136,7 +136,7 @@ public class PlayerService
 	{
 		DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
 		DAOManager.getDAO(InventoryDAO.class).store(player.getInventory());
-		//DAOManager.getDAO(PlayerUiSettingsDAO.class).saveUiSettings(player);
+		DAOManager.getDAO(PlayerSettingsDAO.class).saveSettings(player);
 	}
 
 	/**
@@ -165,7 +165,7 @@ public class PlayerService
 		player.setFriendList(DAOManager.getDAO(FriendListDAO.class).load(player, world));
 		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player,world));
 		
-		//DAOManager.getDAO(PlayerUiSettingsDAO.class).loadUiSettings(player);
+		DAOManager.getDAO(PlayerSettingsDAO.class).loadSettings(player);
 
 		player.setExchangeList(new ExchangeList());
 

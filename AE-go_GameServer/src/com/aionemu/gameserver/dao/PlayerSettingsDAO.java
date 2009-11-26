@@ -22,7 +22,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 /**
  * @author ATracer
  */
-public abstract class PlayerUiSettingsDAO implements DAO
+public abstract class PlayerSettingsDAO implements DAO
 {
 	/**
 	 * Returns unique identifier for PlayerUiSettingsDAO
@@ -32,7 +32,7 @@ public abstract class PlayerUiSettingsDAO implements DAO
 	@Override
 	public final String getClassName()
 	{
-		return PlayerUiSettingsDAO.class.getName();
+		return PlayerSettingsDAO.class.getName();
 	}
 	
 	/**
@@ -40,11 +40,11 @@ public abstract class PlayerUiSettingsDAO implements DAO
 	 * @param playerId
 	 * @param data
 	 */
-	public abstract void saveUiSettings(final Player player);
+	public abstract void saveSettings(final Player player);
 	
 	/**
 	 * 
 	 * @param playerId
 	 */
-	public abstract void loadUiSettings(final Player player);
+	public abstract void loadSettings(final Player player);
 }

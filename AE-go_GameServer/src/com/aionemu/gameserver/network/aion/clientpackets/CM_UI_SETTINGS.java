@@ -24,8 +24,9 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
  */
 public class CM_UI_SETTINGS extends AionClientPacket
 {
+	int settingsType;
 	byte[] data;
-	int objectid;
+	int size;
 
 	public CM_UI_SETTINGS(int opcode)
 	{
@@ -35,8 +36,10 @@ public class CM_UI_SETTINGS extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-//		readB(4);
-//		data = readB(getRemainingBytes());
+		settingsType = readC();
+		readH();
+		size = readH();
+		data = readB(getRemainingBytes());
 	}
 
 	/**
@@ -46,6 +49,13 @@ public class CM_UI_SETTINGS extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player =  getConnection().getActivePlayer();
-		player.setUiSettings(data);
+		if(settingsType == 0)
+		{		
+			player.setUiSettings(data);
+		}
+		else if (settingsType == 1)
+		{
+			player.setShortcuts(data);
+		}
 	}
 }

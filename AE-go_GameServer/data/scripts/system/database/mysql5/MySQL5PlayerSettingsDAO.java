@@ -25,21 +25,21 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
-import com.aionemu.gameserver.dao.PlayerUiSettingsDAO;
+import com.aionemu.gameserver.dao.PlayerSettingsDAO;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * @author ATracer
  *
  */
-public class MySQL5PlayerUiSettingsDAO extends PlayerUiSettingsDAO
+public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 {
 
-	private static final Logger log = Logger.getLogger(MySQL5PlayerUiSettingsDAO.class);
+	private static final Logger log = Logger.getLogger(MySQL5PlayerSettingsDAO.class);
 
 
 	@Override
-	public void loadUiSettings(final Player player)
+	public void loadSettings(final Player player)
 	{
 		final int playerId = player.getObjectId();
 
@@ -48,9 +48,21 @@ public class MySQL5PlayerUiSettingsDAO extends PlayerUiSettingsDAO
 			@Override
 			public void handleRead(ResultSet resultSet) throws SQLException
 			{
+				while(resultSet.next())
+				{
+					int type = resultSet.getInt("settings_type");
+					if(type == 0)
+					{
+						player.setUiSettings(resultSet.getBytes("settings"));
+					}
+					else if(type == 1)
+					{
+						player.setShortcuts(resultSet.getBytes("settings"));
+					}
+				}
 				if(resultSet.next())
 				{
-					player.setUiSettings(resultSet.getBytes("settings"));
+					
 				}
 			}
 
@@ -64,19 +76,32 @@ public class MySQL5PlayerUiSettingsDAO extends PlayerUiSettingsDAO
 	}
 
 	@Override
-	public void saveUiSettings(final Player player)
+	public void saveSettings(final Player player)
 	{
 		final int playerId = player.getObjectId();
-		final byte[] data = player.getUiSettings();
+		final byte[] uiSettings = player.getUiSettings();
+		final byte[] shortcuts = player.getShortcuts();
 		
 		log.info("Saving settings");
 		
-		DB.insertUpdate("INSERT INTO player_settings values (?, ?)", new IUStH() {
+		DB.insertUpdate("REPLACE INTO player_settings values (?, ?,  ?)", new IUStH() {
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
 				stmt.setInt(1, playerId);
-				stmt.setBytes(2, data);
+				stmt.setInt(2, 0);
+				stmt.setBytes(3, uiSettings);
+				stmt.execute();
+			}
+		});
+		
+		DB.insertUpdate("REPLACE INTO player_settings values (?, ?,  ?)", new IUStH() {
+			@Override
+			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, playerId);
+				stmt.setInt(2, 1);
+				stmt.setBytes(3, shortcuts);
 				stmt.execute();
 			}
 		});

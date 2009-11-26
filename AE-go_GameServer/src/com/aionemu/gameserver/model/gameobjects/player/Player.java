@@ -56,6 +56,7 @@ public class Player extends Creature
 	private PlayerStatsTemplate playerStatsTemplate;
 	private PlayerGameStats		playerStatsBonus;
 	private byte[]				uiSettings;
+	private byte[]				shortcuts;
 	
 	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
@@ -332,6 +333,22 @@ public class Player extends Creature
 	{
 		this.playerCommonData.setCubesize(cubesize);
 	}
+
+	/**
+	 * @return the shortcuts
+	 */
+	public byte[] getShortcuts()
+	{
+		return shortcuts;
+	}
+
+	/**
+	 * @param shortcuts the shortcuts to set
+	 */
+	public void setShortcuts(byte[] shortcuts)
+	{
+		this.shortcuts = shortcuts;
+	}
 	
 	/**
 	 * @return the uiSettings
@@ -347,8 +364,7 @@ public class Player extends Creature
 	public void setUiSettings(byte[] uiSettings)
 	{
 		this.uiSettings = uiSettings;
-	}
-	
+	}	
 	
 	@Override
 	public void initializeAi()

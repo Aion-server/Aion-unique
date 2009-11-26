@@ -84,7 +84,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_RESTORE_CHARACTER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_DP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_HP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_MP;
@@ -92,6 +91,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_LOC;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UI_SETTINGS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_VERSION_CHECK;
@@ -104,6 +104,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK60;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK64;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK66;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK8D;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK91;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK97;
@@ -111,6 +112,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKBD;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKC6;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKC7;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKC8;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKC9;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKCB;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKD3;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKD9;
@@ -149,6 +151,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNKC8.class, -1, idSet);
 		addPacketOpcode(SM_UNKC7.class, -1, idSet);
 		addPacketOpcode(SM_UNKC6.class, -1, idSet);
+		addPacketOpcode(SM_UNKC9.class, 0xC9, idSet);
 		addPacketOpcode(SM_UNKBD.class, 0xCF, idSet);
 		addPacketOpcode(SM_UNK97.class, -1, idSet);
 		addPacketOpcode(SM_UNK91.class, -1, idSet);
@@ -156,7 +159,8 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNK66.class, -1, idSet);
 		addPacketOpcode(SM_UNK64.class, -1, idSet);
 		addPacketOpcode(SM_UNK60.class, -1, idSet);
-		addPacketOpcode(SM_UNK5E.class, -1, idSet);
+		addPacketOpcode(SM_UNK5E.class, 0x5E, idSet);
+		addPacketOpcode(SM_UNK7B.class, 0x7B, idSet);
 		addPacketOpcode(SM_QUESTLIST.class, 0x72, idSet);//1.5.x
 		addPacketOpcode(SM_UNK32.class, -1, idSet);
 		addPacketOpcode(SM_UNK17.class, -1, idSet);
@@ -166,7 +170,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_STATUPDATE_MP.class, 0xFD, idSet);
 		addPacketOpcode(SM_STATUPDATE_HP.class, 0xFA, idSet); //0x12//need opcode for 1.5.x client
 		addPacketOpcode(SM_STATUPDATE_EXP.class, 0x01, idSet); // 1.5.x
-		addPacketOpcode(SM_STATUPDATE_DP.class, 0x17, idSet); // 0x17
+		//addPacketOpcode(SM_STATUPDATE_DP.class, 0x17, idSet); // 0x17
 		addPacketOpcode(SM_STATS_INFO.class, 0xF8, idSet);
 		addPacketOpcode(SM_SKILL_LIST.class, 0x45, idSet); // 0x45
 		addPacketOpcode(SM_RESTORE_CHARACTER.class, 0xE2, idSet);
@@ -249,7 +253,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_GATHERABLE_INFO.class, 0x28, idSet); // 1.5
 		addPacketOpcode(SM_GATHER_UPDATE.class, 0x1A, idSet); // 1.5
 		addPacketOpcode(SM_GATHER_STATUS.class, 0x1B, idSet); // 1.5
-		//addPacketOpcode(SM_UI_SETTINGS.class, 0x17, idSet); // 1.5
+		addPacketOpcode(SM_UI_SETTINGS.class, 0x17, idSet); // 1.5
 
 		//Unrecognized Opcodes:
 		//addPacketOpcode(SM_TIME_CHECK.class, 0x26, idSet);
