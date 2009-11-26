@@ -16,7 +16,12 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import org.apache.log4j.Logger;
+
+import sun.util.logging.resources.logging;
+
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.world.World;
 
 /**
@@ -28,6 +33,7 @@ import com.aionemu.gameserver.world.World;
  */
 public abstract class VisibleObjectController<T extends VisibleObject>
 {
+	private static Logger log = Logger.getLogger(VisibleObjectController.class);
 	/**
 	 * Object that is controlled by this controller.
 	 */
@@ -80,7 +86,10 @@ public abstract class VisibleObjectController<T extends VisibleObject>
 		/**
 		 * despawn object from world.
 		 */
-		world.despawn(getOwner());
+		if(getOwner().isSpawned())
+			world.despawn(getOwner());
+		else
+			log.error("Attempt to remove from world not spawned object");
 		/**
 		 * Delete object from World.
 		 */
