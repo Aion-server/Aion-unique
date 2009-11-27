@@ -66,7 +66,7 @@ public class PartTypeManager
         IconsTable.getInstance().registerIcon(PartType.h, IconsTable.ICON_H);
         IconsTable.getInstance().registerIcon(PartType.d, IconsTable.ICON_D);
         IconsTable.getInstance().registerIcon(PartType.cbs, IconsTable.ICON_C);
-        IconsTable.getInstance().registerIcon(PartType.hbs, IconsTable.ICON_H);
+        IconsTable.getInstance().registerIcon(PartType.hbs, IconsTable.ICON_HBS);
         IconsTable.getInstance().registerIcon(PartType.dbs, IconsTable.ICON_D);
         IconsTable.getInstance().registerIcon(PartType.f, IconsTable.ICON_F);
         IconsTable.getInstance().registerIcon(PartType.df, IconsTable.ICON_DF);

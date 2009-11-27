@@ -8,6 +8,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
+import com.aionemu.packetsamurai.PacketSamurai;
 import com.aionemu.packetsamurai.parser.datatree.ValuePart;
 import com.aionemu.packetsamurai.session.DataPacket;
 
@@ -29,7 +30,7 @@ public class NpcTitleExporter
 
 	public void parse()
 	{
-		String fileName = "npctitles_" + sessionName + ".dump";
+		String fileName = "npctitles_" + sessionName + ".txt";
 
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter(fileName));
@@ -49,7 +50,7 @@ public class NpcTitleExporter
 						String partName = valuePart.getModelPart().getName();
 						if("npcId".equals(partName)){
 							npcId = valuePart.readValue();
-						}else if("npcTemplateTitleId".equals(partName)){
+						}else if("titleId".equals(partName)){
 							titleId = valuePart.readValue();
 						}	
 					}
@@ -81,6 +82,6 @@ public class NpcTitleExporter
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("The npctitles data has been written");
+		PacketSamurai.getUserInterface().log("The npctitles data has been written");
 	}
 }
