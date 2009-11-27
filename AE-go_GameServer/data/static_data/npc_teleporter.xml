@@ -1,75 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc_teleporter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="npc_teleporter.xsd">
-	<!-- Asmodians -->
+<npc_teleporter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="npc_teleporter.xsd">
+	
+	<!-- 
+		Here possible to define 2 types of teleporters: REGULAR and FLIGHT
+		All of them have destination locations with different prices
+		
+		FLIGHT teleporters have:
+		- loc_id
+		- teleportid
+		- price
+		
+		REGULAR teleporters have:
+		-loc_id
+		-price
+		
+		All loc_id should be defined in teleport_location.xml file
+	 -->
+	 
+	<!-- ASMODIANS -->
+
 	<!-- Pandaemonium -->
-	<teleporter_template npc_id="204191" name="Doman" teleportId="50">
+	<teleporter_template npc_id="204191" name="Doman"
+		teleportId="50" type="REGULAR">
+		<locations>
+			<telelocation loc_id="8" price="100" />
+			<telelocation loc_id="9" price="500" />
+			<telelocation loc_id="10" price="1500" />
+			<telelocation loc_id="11" price="2500" />
+			<telelocation loc_id="82" price="1400" />
+		</locations>
 	</teleporter_template>
+
 	<!-- Ishalgen -->
-	<teleporter_template npc_id="203679" name="Osmar" teleportId="51">
+	<teleporter_template npc_id="203679" name="Osmar"
+		teleportId="51" type="REGULAR">
+		<locations>
+			<telelocation loc_id="7" price="100" />
+			<telelocation loc_id="9" price="800" />
+		</locations>
 	</teleporter_template>
-	<teleporter_template npc_id="203513" name="Sheofin" teleportId="203">
+	<teleporter_template npc_id="203513" name="Sheofin"
+		teleportId="203" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="17" teleportid="12001" price="200" />
+		</locations>
 	</teleporter_template>
-	<teleporter_template npc_id="203545" name="Garhara" teleportId="204">
+	<teleporter_template npc_id="203545" name="Garhara"
+		teleportId="204" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="18" teleportid="11001" price="200" />
+		</locations>
 	</teleporter_template>
+
 	<!-- Altgard -->
-	<teleporter_template npc_id="203581" name="Ukin" teleportId="52">
-	</teleporter_template>
-	<teleporter_template npc_id="203561" name="Lenat" teleportId="205">
-	</teleporter_template>
-	<teleporter_template npc_id="203678" name="Latunin" teleportId="206">
+	<teleporter_template npc_id="203581" name="Ukin"
+		teleportId="52" type="REGULAR">
 		<locations>
-			<teleloc_template loc_id="19" mapid="220030000" name="Traders Berth" teleportid="14001" price="700"/>
+			<telelocation loc_id="7" price="500" />
+			<telelocation loc_id="8" price="800" />
+			<telelocation loc_id="10" price="1700" />
+			<telelocation loc_id="11" price="2700" />
+			<telelocation loc_id="82" price="1600" />
 		</locations>
 	</teleporter_template>
-	<teleporter_template npc_id="203683" name="Rubander" teleportId="207">
+	<teleporter_template npc_id="203561" name="Lenat"
+		teleportId="205" type="FLIGHT">
 	</teleporter_template>
+	<teleporter_template npc_id="203678" name="Latunin"
+		teleportId="206" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="19" teleportid="14001" price="700" />
+			<telelocation loc_id="20" teleportid="13001" price="700" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203683" name="Rubander"
+		teleportId="207" type="FLIGHT">
+	</teleporter_template>
+
 	<!-- Morheim -->
-	<teleporter_template npc_id="204399" name="Orhe" teleportId="53">
-	</teleporter_template>
-	<teleporter_template npc_id="204319" name="Yornduf" teleportId="208">
-	</teleporter_template>
-	<!-- Brusthonin -->
-	<teleporter_template npc_id="205124" name="Tusen" teleportId="54">
-	</teleporter_template>
-	<!-- Beluslan -->
-	<teleporter_template npc_id="204724" name="Eda" teleportId="55">
-	</teleporter_template>
-	<teleporter_template npc_id="204718" name="Gylfi" teleportId="211">
-	</teleporter_template>
-	<!-- Elyos -->
-	<!-- Poeta -->
-	<teleporter_template npc_id="203194" name="Daines" teleportId="2">
-	</teleporter_template>
-	<teleporter_template npc_id="203070" name="Kustanon" teleportId="103">
-	</teleporter_template>
-	<teleporter_template npc_id="203083" name="Aero" teleportId="104">
-	</teleporter_template>
-	<!-- Sanctum -->
-	<teleporter_template npc_id="203726" name="Polyidus" teleportId="1">
-	</teleporter_template>
-        <!-- Eltnen -->
-	<teleporter_template npc_id="203919" name="Onesimus" teleportId="4">
-	</teleporter_template>
-	<teleporter_template npc_id="203920" name="Naomi" teleportId="108">
-	</teleporter_template>
-         <!-- Verteron -->
-	<teleporter_template npc_id="203091" name="Urakron" teleportId="3">
-	</teleporter_template>
-	<teleporter_template npc_id="203120" name="Mirdiena" teleportId="105">
-	</teleporter_template>
-	<teleporter_template npc_id="203159" name="Irona" teleportId="106">
+	<teleporter_template npc_id="204399" name="Orhe"
+		teleportId="53" type="REGULAR">
 		<locations>
-			<teleloc_template loc_id="14" mapid="210030000" name="Verteron Citadel" teleportid="8001" price="500"/>
+			<telelocation loc_id="7" price="1500" />
+			<telelocation loc_id="9" price="1700" />
+			<telelocation loc_id="82" price="2000" />
+			<telelocation loc_id="11" price="3200" />
 		</locations>
 	</teleporter_template>
-        <teleporter_template npc_id="203173" name="Belfinu" teleportId="107">
+	<teleporter_template npc_id="204319" name="Yornduf"
+		teleportId="208" type="FLIGHT">
 	</teleporter_template>
-        <!-- Heiron -->
-	<teleporter_template npc_id="204514" name="Barantus" teleportId="6">
+
+	<!-- Brusthonin -->
+	<teleporter_template npc_id="205124" name="Tusen"
+		teleportId="54" type="REGULAR">
+		<locations>
+			<telelocation loc_id="7" price="1400" />
+			<telelocation loc_id="9" price="1600" />
+			<telelocation loc_id="10" price="2000" />
+			<telelocation loc_id="11" price="2900" />
+		</locations>
 	</teleporter_template>
-	<teleporter_template npc_id="204513" name="Amene" teleportId="111">
+
+	<!-- Beluslan -->
+	<!-- probably spawns or teleport x,y are wrong cause i didn't find teleporters -->
+	<teleporter_template npc_id="204724" name="Eda"
+		teleportId="55" type="REGULAR">
+		<locations>
+			<telelocation loc_id="7" price="100" />
+			<telelocation loc_id="9" price="500" />
+			<telelocation loc_id="10" price="1500" />
+			<telelocation loc_id="82" price="1400" />
+		</locations>
 	</teleporter_template>
-        <!-- Theomobos -->
-	<teleporter_template npc_id="798141" name="Thesaly" teleportId="5">
+	<teleporter_template npc_id="204718" name="Gylfi"
+		teleportId="211" type="FLIGHT">
+	</teleporter_template>
+
+	<!-- ELYOS -->
+
+	<!-- Poeta -->
+	<teleporter_template npc_id="203194" name="Daines"
+		teleportId="2" type="REGULAR">
+		<locations>
+			<telelocation loc_id="2" price="100" />
+			<telelocation loc_id="4" price="800" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203070" name="Kustanon"
+		teleportId="103" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="13" teleportid="5001" price="200" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203083" name="Aero"
+		teleportId="104" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="12" teleportid="6001" price="200" />
+		</locations>
+	</teleporter_template>
+
+	<!-- Sanctum -->
+	<teleporter_template npc_id="203726" name="Polyidus"
+		teleportId="1" type="REGULAR">
+		<locations>
+			<telelocation loc_id="3" price="100" />
+			<telelocation loc_id="4" price="500" />
+			<telelocation loc_id="5" price="1500" />
+			<telelocation loc_id="6" price="2500" />
+			<telelocation loc_id="81" price="1400" />
+		</locations>
+	</teleporter_template>
+
+	<!-- Eltnen -->
+	<teleporter_template npc_id="203919" name="Onesimus"
+		teleportId="4" type="REGULAR">
+		<locations>
+			<telelocation loc_id="2" price="1500" />
+			<telelocation loc_id="4" price="1700" />
+			<telelocation loc_id="6" price="3200" />
+			<telelocation loc_id="81" price="2000" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203920" name="Naomi"
+		teleportId="108" type="FLIGHT">
+	</teleporter_template>
+
+	<!-- Verteron -->
+	<teleporter_template npc_id="203091" name="Urakron"
+		teleportId="3" type="REGULAR">
+		<locations>
+			<telelocation loc_id="3" price="800" />
+			<telelocation loc_id="2" price="500" />
+			<telelocation loc_id="5" price="1700" />
+			<telelocation loc_id="6" price="2700" />
+			<telelocation loc_id="81" price="1600" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203120" name="Mirdiena"
+		teleportId="105" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="16" teleportid="9001" price="700" />
+			<!--<telelocation loc_id="15" teleportid="0" price="500" />  -->
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203159" name="Irona"
+		teleportId="106" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="14" teleportid="8001" price="500" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203173" name="Belfinu"
+		teleportId="107" type="FLIGHT">
+		<locations>
+			<!-- <telelocation loc_id="14" teleportid="" price="700" /> -->
+		</locations>
+	</teleporter_template>
+
+	<!-- Heiron -->
+	<teleporter_template npc_id="204514" name="Barantus"
+		teleportId="6" type="REGULAR">
+		<locations>
+			<telelocation loc_id="4" price="2700" />
+			<telelocation loc_id="5" price="3200" />
+			<telelocation loc_id="2" price="2500" />
+			<telelocation loc_id="81" price="2900" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="204513" name="Amene"
+		teleportId="111" type="FLIGHT">
+	</teleporter_template>
+
+	<!-- Theomobos -->
+	<teleporter_template npc_id="798141" name="Thesaly"
+		teleportId="5" type="REGULAR">
+		<locations>
+			<telelocation loc_id="4" price="1600" />
+			<telelocation loc_id="5" price="2000" />
+			<telelocation loc_id="2" price="1400" />
+			<telelocation loc_id="6" price="2900" />
+		</locations>
 	</teleporter_template>
 </npc_teleporter>

@@ -26,7 +26,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.TeleporterTemplate;
+import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
 import com.aionemu.gameserver.dataholders.DataManager;
 /**
  * 

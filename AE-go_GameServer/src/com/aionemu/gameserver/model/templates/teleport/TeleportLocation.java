@@ -14,60 +14,42 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.templates;
+package com.aionemu.gameserver.model.templates.teleport;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author orz
- * 
+ * @author ATracer
+ *
  */
-@XmlRootElement(name="teleporter_template")
-@XmlAccessorType(XmlAccessType.NONE)
-public class TeleporterTemplate
+@XmlRootElement(name = "telelocation")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class TeleportLocation
 {
-	/**
-	 * Npc Id.
-	 */
-	@XmlAttribute(name = "npc_id", required = true)
-	private int		npcId;
-	
-	/**
-	 * Npc name.
-	 */
-	@XmlAttribute(name = "name", required = true)
-	private String	name	= "";
+	@XmlAttribute(name = "loc_id", required = true)
+	private int locId;
 
-	
-	@XmlAttribute(name = "teleportId", required = true)
-	private int	 teleportId = 0;
+	@XmlAttribute(name = "teleportid")
+	private int teleportid = 0;
 
-	@XmlElement(name = "locations")
-	private TeleLocIdData teleLocIdData;
+	@XmlAttribute(name = "price", required = true)
+	private int price = 0;
 
-	
-	public String getName()
+	public int getLocId()
 	{
-		return name;
-	}
-
-	public int getNpcId()
-	{
-		return npcId;
+		return locId;
 	}
 
 	public int getTeleportId()
 	{
-		return teleportId;
+		return teleportid;
 	}
 
-	public TeleLocIdData getLocations()
+	public int getPrice()
 	{
-		return teleLocIdData;
+		return price;
 	}
-
 }

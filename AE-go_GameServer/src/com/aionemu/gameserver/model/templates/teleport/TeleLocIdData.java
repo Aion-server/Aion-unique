@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.templates;
+package com.aionemu.gameserver.model.templates.teleport;
 
 import java.util.List;
 
@@ -22,8 +22,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import com.aionemu.gameserver.model.gameobjects.Item;
 
 /**
  * @author ATracer
@@ -33,20 +31,20 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class TeleLocIdData
 {
-	@XmlElement(name = "teleloc_template")
-	private List<TelelocationTemplate> locids;
+	@XmlElement(name = "telelocation")
+	private List<TeleportLocation> locids;
 
 	/**
 	 * @return Teleport locations
 	 */
-	public List<TelelocationTemplate> getTelelocations()
+	public List<TeleportLocation> getTelelocations()
 	{
 		return locids;
 	}
 	
-	public TelelocationTemplate getLoc(int value)
+	public TeleportLocation getTeleportLocation(int value)
 	{
-		for(TelelocationTemplate t : locids)
+		for(TeleportLocation t : locids)
 		{
 			if(t != null && t.getLocId() == value)
 			{

@@ -20,8 +20,9 @@ import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.TelelocationTemplate;
-import com.aionemu.gameserver.model.templates.TeleporterTemplate;
+import com.aionemu.gameserver.model.templates.teleport.TelelocationTemplate;
+import com.aionemu.gameserver.model.templates.teleport.TeleportType;
+import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
@@ -88,57 +89,16 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 
 		teleport = DataManager.TELEPORTER_DATA.getTeleporterTemplate(npc.getNpcId());
 		
-		if ((teleport != null ) && (teleport.getLocations() != null))
+		switch(teleport.getType())
 		{
-			_tele = teleport.getLocations().getLoc(locId);
-		}
-		
-		if (_tele == null)
-		{
-			_tele = DataManager.TELELOCATION_DATA.getTelelocationTemplate(locId);
-		}
-
-		if (_tele == null)
-		{
-			log.info(String.format("Missing info at teleport_location.xml with locId: %d", locId));
-			PacketSendUtility.sendMessage(activePlayer, "Missing info at teleport_location.xml with locId: "+locId);
-			return;
-		}
-
-		//normal teleport
-		if (_tele.getLocId() != 0 && _tele.getMapId() != 0 && _tele.getTeleportId() == 0 && _tele.getX() != 0)
-		{
-			if (!bag.decreaseKinah(_tele.getPrice()))
-			{
-				//Todo using the correct system message
-				sendPacket(new SM_MESSAGE(0, null, "You don't have enough Kinah", null, ChatType.ANNOUNCEMENTS));
-				return;
-			}
-			
-			PacketSendUtility.sendPacket(activePlayer, new SM_UPDATE_ITEM(bag.getKinahItem()));
-			sendPacket(new SM_TELEPORT_LOC(_tele.getMapId(), _tele.getX(), _tele.getY(), _tele.getZ()));
-			TeleportService.getInstance().scheduleTeleportTask(activePlayer, _tele.getMapId(), _tele.getX(), _tele.getY(), _tele.getZ());
-			return;
-		}
-		//flying teleport
-		else if (_tele.getLocId() != 0 && _tele.getTeleportId() != 0)
-		{
-			if (!bag.decreaseKinah(_tele.getPrice()))
-			{
-				//Todo using the correct system message
-				sendPacket(new SM_MESSAGE(0, null, "You don't have enough Kinah", null, ChatType.ANNOUNCEMENTS));
-				return;
-			}
-			
-			PacketSendUtility.sendPacket(activePlayer, new SM_UPDATE_ITEM(bag.getKinahItem()));
-			sendPacket(new SM_EMOTION(activePlayer.getObjectId(), 6, _tele.getTeleportId()));
-			return;
-		}
-		else
-		{
-			log.info(String.format("Missing info at teleport_location.xml with locId: %d", locId));
-			PacketSendUtility.sendMessage(activePlayer, "Missing info at teleport_location.xml with locId: "+locId);
+			case FLIGHT:
+				TeleportService.getInstance().flightTeleport(teleport, locId, activePlayer);
+				break;
+			case REGULAR:
+				TeleportService.getInstance().regularTeleport(teleport, locId, activePlayer);
+				break;
+			default:
+				//TODO
 		}
 	}
-
 }
