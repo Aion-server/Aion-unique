@@ -2,6 +2,8 @@
 # Npc spawns by KID
 # Fix by Lamo2k123
 
+# Sanctum
+
 # Lufe
 110010000 203842 1968.491 1772.8949 578.66815 60
 # Ulbert
@@ -409,14 +411,10 @@
 # Bella
 110010000 203860 1810.1893 2131.4094 530.0 33
 
-
-
 # Monster/Objects spawns by Atomix from http://aion.atomixro.com
 # NPCs/Mobs Missing ?
 # Thanks to TheOne & Matej for helping me.
 # mapid npcid x y z heading
-
-# Sanctum
 
 110010000 213792 1573.238 1510.662 573.5056 0
 110010000 213792 1367.327 1511.907 570 0

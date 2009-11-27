@@ -2,6 +2,8 @@
 # Npc spawns by KID
 # Fix by Lamo2k123
  
+# Theobomos
+ 
 # Guruminerk
 210060000 798133 1420.032 1509.4457 33.0 0
 # Ankises

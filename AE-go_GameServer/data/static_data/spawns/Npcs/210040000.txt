@@ -1,4 +1,4 @@
-# mapid npcid x z y heading
+# mapid npcid x y z heading
 # Npc spawns by KID
 # Fix by Lamo2k123
 

@@ -3,6 +3,8 @@
 # Updated + Fixed by Atomix from http://aion.atomixro.com
 # mapid npcid x y z heading
 
+# Poeta
+
 # Obelisk (akarios village)
 210010000 700013 853.09706 1206.9664 118.432625 -5
 # Obelisk (Melponeh Campsite)
@@ -113,6 +115,11 @@
 210010000 203089 818.20496 1265.2709 119.162605 110
 # Sleeping Elder
 210010000 730010 558.8128 1597.4272 115.09842 74
+
+# NPCs/Objects spawns by Atomix from http://aion.atomixro.com
+# Thanks to TheOne & Matej for helping me.
+# mapid npcid x y z heading
+
 # Kerub Grain sack
 210010000 700105 1131.334 977.4501 132.99 0
 210010000 700105 1126.023 974.8395 132.07 0

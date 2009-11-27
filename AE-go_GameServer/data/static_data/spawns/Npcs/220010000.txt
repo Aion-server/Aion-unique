@@ -1,7 +1,9 @@
 # Npc spawns by KID
 # Fix by Lamo2k123
-# Updated + Fixed by Atomix from http://aion.atomixro.com
+# Updated + Fix by Atomix from http://aion.atomixro.com
 # mapid npcid x y z heading
+
+# Ishalgen
 
 # Boromer
 220010000 203518 538.02893 2418.898 277.60895 33
@@ -107,6 +109,11 @@
 220010000 203516 589.40967 2449.9937 278.375 40
 # Srat
 220010000 203525 402.20844 2354.868 260.5447 0
+
+# NPCs/Objects spawns by Atomix from http://aion.atomixro.com
+# Thanks to TheOne & Matej for helping me.
+# mapid npcid x y z heading
+
 # Ampreh Flower
 220010000 700125 613.5958 2213.441 247.40 0
 220010000 700125 612.1631 2258.61 247.40 0
@@ -285,6 +292,7 @@
 220010000 700047 580.63 1856.88 288.02 0
 220010000 700047 569.07 1848.78 292.09 0
 220010000 700047 589.13 1875.26 284.68 0
+220010000 700047 576.24 1885.75 285.44 0
 220010000 700047 576.24 1885.75 285.44 0
 # Obelisk (aldelleVillage)
 220010000 700062 587.59735 2467.2158 279.13333 0

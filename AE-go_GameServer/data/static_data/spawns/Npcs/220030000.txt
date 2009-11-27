@@ -1,5 +1,6 @@
 # mapid npcid x y z heading
 # Fix by Alias
+
 # Altgard
 
 # Groken
@@ -254,6 +255,11 @@
 220030000 700232 1800.1959 711.43225 262.62534
 # Obelisk (heartOfImpetusium)
 220030000 700297 2656.601 1660.3987 325.05222
+
+# NPCs/Objects spawns by Atomix from http://aion.atomixro.com
+# Thanks to TheOne & Matej for helping me.
+# mapid npcid x y z heading
+
 # Altgard Abyss Gate
 220030000 700089 2451.53 2546.45 317.13 25
 220030000 700089 1658.61 1812.1 365.50943 25

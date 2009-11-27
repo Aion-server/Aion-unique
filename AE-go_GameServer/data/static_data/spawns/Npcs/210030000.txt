@@ -209,6 +209,11 @@
 210030000 700023 2318.4395 1801.497 195.900 15
 # Obelisk (tolbasVillage)
 210030000 700024 1267.5803 2170.8855 151.83209 15
+
+# NPCs/Objects spawns by Atomix from http://aion.atomixro.com
+# Thanks to TheOne & Matej for helping me.
+# mapid npcid x y z heading
+
 # Abyss Fragment
 210030000 700091 1648.886 1484.324 190 0
 210030000 700091 1695.46 1548.1 175 0

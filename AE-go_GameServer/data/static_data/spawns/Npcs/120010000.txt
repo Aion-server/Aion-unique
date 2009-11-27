@@ -2,6 +2,8 @@
 # Npc spawns by KID
 # Fix by Lamo2k123
 
+# Pandaemonium
+
 # Gagan
 120010000 204220 1205.3455 1233.1533 210.0 60
 # Huron
@@ -474,8 +476,6 @@
 # NPCs/Mobs Missing ?
 # Thanks to TheOne & Matej for helping me.
 # mapid npcid x y z heading
-
-# Pandaemonium
 
 120010000 213793 1018.649 1131.708 201.1617 0
 120010000 213793 1019.41 1131.345 201.1617 0
