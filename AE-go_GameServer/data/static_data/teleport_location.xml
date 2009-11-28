@@ -4,36 +4,49 @@
 	<!-- Normal Teleport-->
 	
 	<!-- ELYOS -->
-	<teleloc_template loc_id="2" mapid="110010000" name="sanctum" posX="1313.9315" posY="1512.0283" posZ="568.107" heading="0"/>
-	<teleloc_template loc_id="3" mapid="210010000" name="akarios village" posX="806.11426" posY="1242.6438" posZ="118.98627" heading="0"/>
-	<teleloc_template loc_id="4" mapid="210030000" name="verteron" posX="1643" posY="1500" posZ="119" heading="0"/>
-	<teleloc_template loc_id="5" mapid="210020000" name="eltnen" posX="343" posY="2724" posZ="264" heading="0"/>
-    <teleloc_template loc_id="6" mapid="210040000" name="heiron" posX="2540" posY="343" posZ="411" heading="0"/> 
-    <teleloc_template loc_id="81" mapid="210060000" name="theobomos" posX="1398" posY="1557" posZ="31" heading="0"/>
+	<teleloc_template loc_id="2" mapid="110010000" name="Sanctum" posX="1313.9315" posY="1512.0283" posZ="568.107" heading="0"/>
+	<teleloc_template loc_id="3" mapid="210010000" name="Akarios Village" posX="806.11426" posY="1242.6438" posZ="118.98627" heading="0"/>
+	<teleloc_template loc_id="4" mapid="210030000" name="Verteron" posX="1643" posY="1500" posZ="119" heading="0"/>
+	<teleloc_template loc_id="5" mapid="210020000" name="Eltnen" posX="343" posY="2724" posZ="264" heading="0"/>
+	<teleloc_template loc_id="6" mapid="210040000" name="Heiron" posX="2540" posY="343" posZ="411" heading="0"/> 
+	<teleloc_template loc_id="81" mapid="210060000" name="Theobomos" posX="1398" posY="1557" posZ="31" heading="0"/>
 	
 	<!-- ASMODIANS -->
-    <teleloc_template loc_id="7" mapid="120010000" name="pandemonium" posX="1685.5665" posY="1399.6561" posZ="195.38385" heading="0"/>
-	<teleloc_template loc_id="8" mapid="220010000" name="ishalgen" posX="528.59595" posY="2449.176" posZ="281.59262" heading="0"/>
-	<teleloc_template loc_id="9" mapid="220030000" name="altgard" posX="1748" posY="1807" posZ="254" heading="0"/>
-	<teleloc_template loc_id="10" mapid="220020000" name="morheim" posX="308" posY="2274" posZ="449" heading="0"/>
-	<teleloc_template loc_id="11" mapid="220040000" name="beluslan" posX="325" posY="336" posZ="229" heading="0"/>
-	<teleloc_template loc_id="82" mapid="220050000" name="brusthonin" posX="2917" posY="2421" posZ="15" heading="0"/>
+	<teleloc_template loc_id="7" mapid="120010000" name="Pandemonium" posX="1685.5665" posY="1399.6561" posZ="195.38385" heading="0"/>
+	<teleloc_template loc_id="8" mapid="220010000" name="Ishalgen" posX="528.59595" posY="2449.176" posZ="281.59262" heading="0"/>
+	<teleloc_template loc_id="9" mapid="220030000" name="Altgard" posX="1748" posY="1807" posZ="254" heading="0"/>
+	<teleloc_template loc_id="10" mapid="220020000" name="Morheim" posX="308" posY="2274" posZ="449" heading="0"/>
+	<teleloc_template loc_id="11" mapid="220040000" name="Beluslan" posX="325" posY="336" posZ="229" heading="0"/>
+	<teleloc_template loc_id="82" mapid="220050000" name="Brusthonin" posX="2917" posY="2421" posZ="15" heading="0"/>
 	
-	<!-- Flying teleport-->
+	<!-- Flying Teleport-->
 	
 	<!-- ELYOS -->
 	<teleloc_template loc_id="12" mapid="210010000" name="Akarios Village"/>
 	<teleloc_template loc_id="13" mapid="210010000" name="Melponeh Campsite"/>
-	<teleloc_template loc_id="15" mapid="210030000" name="Pilgrims Respite"/>
-	<teleloc_template loc_id="14" mapid="210030000" name="Verteron Citadel"/>
-	<teleloc_template loc_id="16" mapid="210030000" name="Verteron Observatory"/>
-	<teleloc_template loc_id="14" mapid="210030000" name="Verteron Citadel"/>
 	
-    <!-- ASMODIANS -->
+	<teleloc_template loc_id="14" mapid="210030000" name="Verteron Citadel"/>
+	<teleloc_template loc_id="15" mapid="210030000" name="Pilgrims Respite"/>
+	<teleloc_template loc_id="16" mapid="210030000" name="Verteron Observatory"/>
+	
+	<teleloc_template loc_id="21" mapid="210020000" name="Eltnen Fortress"/>
+	<teleloc_template loc_id="22" mapid="210020000" name="Golden Bough Garrison"/>
+	<teleloc_template loc_id="23" mapid="210020000" name="Agairon Village"/>
+	
+	<teleloc_template loc_id="28" mapid="210040000" name="New Heiron Gate"/>
+	<teleloc_template loc_id="29" mapid="210040000" name="Heiron Observatory"/>
+	<teleloc_template loc_id="30" mapid="210040000" name="Arbolu's Haven"/>
+	<teleloc_template loc_id="31" mapid="210040000" name="Jeiaparan Village"/>
+	
+	<teleloc_template loc_id="83" mapid="210060000" name="Maniherk Excavation Camp"/>
+	<teleloc_template loc_id="84" mapid="210060000" name="Observatory Village"/>
+	<teleloc_template loc_id="85" mapid="210060000" name="Jamanok Inn"/>
+	
+	<!-- ASMODIANS -->
 	<teleloc_template loc_id="18" mapid="220010000" name="Aldelle Village"/>
 	<teleloc_template loc_id="17" mapid="220010000" name="Anturoon Sentry Post"/>
-	<teleloc_template loc_id="20" mapid="220030000" name="Altgard Fortress"/>
 	<teleloc_template loc_id="19" mapid="220030000" name="Traders Berth"/>
-	<teleloc_template loc_id="32" mapid="220030000" name="Altgard Fortress"/>
 	<teleloc_template loc_id="19" mapid="220030000" name="Besfelt Village"/>
+	<teleloc_template loc_id="20" mapid="220030000" name="Altgard Fortress"/>
+	<teleloc_template loc_id="32" mapid="220030000" name="Altgard Fortress"/>
 </teleport_location>

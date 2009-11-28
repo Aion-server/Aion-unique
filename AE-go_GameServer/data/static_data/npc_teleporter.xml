@@ -153,20 +153,6 @@
 		</locations>
 	</teleporter_template>
 
-	<!-- Eltnen -->
-	<teleporter_template npc_id="203919" name="Onesimus"
-		teleportId="4" type="REGULAR">
-		<locations>
-			<telelocation loc_id="2" price="1500" />
-			<telelocation loc_id="4" price="1700" />
-			<telelocation loc_id="6" price="3200" />
-			<telelocation loc_id="81" price="2000" />
-		</locations>
-	</teleporter_template>
-	<teleporter_template npc_id="203920" name="Naomi"
-		teleportId="108" type="FLIGHT">
-	</teleporter_template>
-
 	<!-- Verteron -->
 	<teleporter_template npc_id="203091" name="Urakron"
 		teleportId="3" type="REGULAR">
@@ -182,7 +168,7 @@
 		teleportId="105" type="FLIGHT">
 		<locations>
 			<telelocation loc_id="16" teleportid="9001" price="700" />
-			<!--<telelocation loc_id="15" teleportid="0" price="500" />  -->
+			<telelocation loc_id="15" teleportid="7001" price="500" />
 		</locations>
 	</teleporter_template>
 	<teleporter_template npc_id="203159" name="Irona"
@@ -194,7 +180,39 @@
 	<teleporter_template npc_id="203173" name="Belfinu"
 		teleportId="107" type="FLIGHT">
 		<locations>
-			<!-- <telelocation loc_id="14" teleportid="" price="700" /> -->
+			<telelocation loc_id="14" teleportid="10001" price="700" />
+		</locations>
+	</teleporter_template>
+
+	<!-- Eltnen -->
+	<teleporter_template npc_id="203919" name="Onesimus"
+		teleportId="4" type="REGULAR">
+		<locations>
+			<telelocation loc_id="2" price="1500" />
+			<telelocation loc_id="4" price="1700" />
+			<telelocation loc_id="6" price="3200" />
+			<telelocation loc_id="81" price="2000" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203920" name="Naomi"
+		teleportId="108" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="22" teleportid="18001" price="1200" />
+			<telelocation loc_id="23" teleportid="20001" price="1500" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203986" name="Navilreas"
+		teleportId="109" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="21" teleportid="21001" price="1200" />
+			<telelocation loc_id="23" teleportid="22001" price="1800" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="203962" name="Tareash"
+		teleportId="110" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="21" teleportid="19001" price="1500" />
+			<telelocation loc_id="22" teleportid="23001" price="1800" />
 		</locations>
 	</teleporter_template>
 
@@ -210,6 +228,31 @@
 	</teleporter_template>
 	<teleporter_template npc_id="204513" name="Amene"
 		teleportId="111" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="29" teleportid="40001" price="1600" />
+			<telelocation loc_id="30" teleportid="42001" price="1800" />
+			<telelocation loc_id="31" teleportid="44001" price="2300" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="204556" name="Seiana"
+		teleportId="112" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="28" teleportid="41001" price="1600" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="204561" name="Arkos"
+		teleportId="113" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="28" teleportid="43001" price="1800" />
+			<telelocation loc_id="31" teleportid="46001" price="2800" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="204532" name="Nibeon"
+		teleportId="114" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="28" teleportid="45001" price="2300" />
+			<telelocation loc_id="30" teleportid="47001" price="2800" />
+		</locations>
 	</teleporter_template>
 
 	<!-- Theomobos -->
@@ -220,6 +263,27 @@
 			<telelocation loc_id="5" price="2000" />
 			<telelocation loc_id="2" price="1400" />
 			<telelocation loc_id="6" price="2900" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="798216" name="Gerana"
+		teleportId="606" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="84" teleportid="59001" price="2300" />
+			<telelocation loc_id="85" teleportid="64001" price="2900" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="798157" name="Palimedes"
+		teleportId="607" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="83" teleportid="60001" price="2300" />
+			<telelocation loc_id="85" teleportid="61001" price="3300" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="798188" name="Ida"
+		teleportId="608" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="83" teleportid="63001" price="2900" />
+			<telelocation loc_id="84" teleportid="62001" price="3300" />
 		</locations>
 	</teleporter_template>
 </npc_teleporter>
