@@ -27,6 +27,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.AddModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.PercentModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.PowerModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.ReplaceModifier;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.model.templates.item.ItemStat;
@@ -90,7 +91,15 @@ public class ItemEquipmentListener
 					}
 					else
 					{
-						pgs.addModifierOnStat(statToModify, new AddModifier(item, stat.isBonus(), stat.getValue(), statToModify.getSign()));
+						if ((statToModify==StatEnum.MAX_DAMAGES)||(statToModify==StatEnum.MIN_DAMAGES)) {
+							pgs.addModifierOnStat(statToModify, new AddModifier(item, stat.isBonus(), stat.getValue(), statToModify.getSign()));
+							log.debug("testing damages : max:"+pgs.getBaseStat(StatEnum.MAX_DAMAGES)+",min:"+pgs.getBaseStat(StatEnum.MIN_DAMAGES));
+							if ((pgs.getBaseStat(StatEnum.MAX_DAMAGES)!=0)&&(pgs.getBaseStat(StatEnum.MIN_DAMAGES)!=0)) {
+								pgs.addModifierOnStat(StatEnum.MAIN_HAND_POWER, new PowerModifier (item, pgs.getBaseStat(StatEnum.MIN_DAMAGES), pgs.getBaseStat(StatEnum.MAX_DAMAGES)));
+							}
+						} else {
+							pgs.addModifierOnStat(statToModify, new AddModifier(item, stat.isBonus(), stat.getValue(), statToModify.getSign()));
+						}
 					}
 				}
 			}

@@ -63,8 +63,8 @@ public enum StatEnum
 	MAGICAL_ACCURACY("magicalhitaccuracy"),
 	MAGICAL_CRITICAL("magicalcritical"),
 	MAGICAL_RESIST("magicalresist"),
-	MAX_DAMAGES("maxdamages",true),
-	MIN_DAMAGES("mindamages",true),
+	MAX_DAMAGES("maxdamages"),
+	MIN_DAMAGES("mindamages"),
 	IS_MAGICAL_ATTACK("ismagicalattack",true),
 	
 	EARTH_RESISTANCE("elementaldefendearth"),
