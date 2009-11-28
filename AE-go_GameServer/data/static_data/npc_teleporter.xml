@@ -43,13 +43,13 @@
 	<teleporter_template npc_id="203513" name="Sheofin"
 		teleportId="203" type="FLIGHT">
 		<locations>
-			<telelocation loc_id="17" teleportid="12001" price="200" />
+			<telelocation loc_id="18" teleportid="11001" price="200" />
 		</locations>
 	</teleporter_template>
 	<teleporter_template npc_id="203545" name="Garhara"
 		teleportId="204" type="FLIGHT">
 		<locations>
-			<telelocation loc_id="18" teleportid="11001" price="200" />
+			<telelocation loc_id="17" teleportid="12001" price="200" />
 		</locations>
 	</teleporter_template>
 
@@ -66,16 +66,22 @@
 	</teleporter_template>
 	<teleporter_template npc_id="203561" name="Lenat"
 		teleportId="205" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="32" teleportid="15001" price="500" />
+			<telelocation loc_id="20" teleportid="13001" price="700" />
+		</locations>
 	</teleporter_template>
 	<teleporter_template npc_id="203678" name="Latunin"
 		teleportId="206" type="FLIGHT">
 		<locations>
 			<telelocation loc_id="19" teleportid="14001" price="700" />
-			<telelocation loc_id="20" teleportid="13001" price="700" />
 		</locations>
 	</teleporter_template>
 	<teleporter_template npc_id="203683" name="Rubander"
 		teleportId="207" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="19" teleportid="16001" price="500" />
+		</locations>
 	</teleporter_template>
 
 	<!-- Morheim -->
@@ -90,6 +96,57 @@
 	</teleporter_template>
 	<teleporter_template npc_id="204319" name="Yornduf"
 		teleportId="208" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="65" teleportid="25001" price="1600" />
+			<telelocation loc_id="64" teleportid="24001" price="1000" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="204334" name="Grander"
+		teleportId="209" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="63" teleportid="26001" price="1000" />
+			<telelocation loc_id="65" teleportid="27001" price="1800" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="204358" name="Kiril"
+		teleportId="210" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="63" teleportid="28001" price="1600" />
+			<telelocation loc_id="64" teleportid="29001" price="1800" />
+		</locations>
+	</teleporter_template>
+
+	<!-- Beluslan -->
+	<!-- player spawn are not in front of teleporters, search and you will find teleporters -->
+	<teleporter_template npc_id="204724" name="Eda"
+		teleportId="55" type="REGULAR">
+		<locations>
+			<telelocation loc_id="7" price="100" />
+			<telelocation loc_id="9" price="500" />
+			<telelocation loc_id="10" price="1500" />
+			<telelocation loc_id="82" price="1400" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="204718" name="Gylfi"
+		teleportId="211" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="79" teleportid="48001" price="1400" />
+			<telelocation loc_id="80" teleportid="50001" price="1900" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="204747" name="Kunbernan"
+		teleportId="212" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="78" teleportid="49001" price="1400" />
+			<telelocation loc_id="80" teleportid="52001" price="2100" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="204756" name="Boudica"
+		teleportId="213" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="78" teleportid="51001" price="1900" />
+			<telelocation loc_id="79" teleportid="53001" price="2100" />
+		</locations>
 	</teleporter_template>
 
 	<!-- Brusthonin -->
@@ -102,22 +159,29 @@
 			<telelocation loc_id="11" price="2900" />
 		</locations>
 	</teleporter_template>
-
-	<!-- Beluslan -->
-	<!-- probably spawns or teleport x,y are wrong cause i didn't find teleporters -->
-	<teleporter_template npc_id="204724" name="Eda"
-		teleportId="55" type="REGULAR">
+	<!-- all the cpmmented teleports below have correct id but cant figure out why they are not working -->
+	<teleporter_template npc_id="205207" name="Ullur"
+		teleportId="609" type="FLIGHT">
 		<locations>
-			<telelocation loc_id="7" price="100" />
-			<telelocation loc_id="9" price="500" />
-			<telelocation loc_id="10" price="1500" />
-			<telelocation loc_id="82" price="1400" />
+			<telelocation loc_id="87" teleportid="65001" price="2300" /> <!-- working -->
+			<telelocation loc_id="88" teleportid="70001" price="2900" /> <!-- correct id but not working -->
 		</locations>
 	</teleporter_template>
-	<teleporter_template npc_id="204718" name="Gylfi"
-		teleportId="211" type="FLIGHT">
+	<teleporter_template npc_id="205145" name="Billeten"
+		teleportId="610" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="86" teleportid="66001" price="2300" /> <!-- correct id but not working -->
+			<telelocation loc_id="88" teleportid="67001" price="3300" /> <!-- correct id but not working -->
+		</locations>
 	</teleporter_template>
-
+	<teleporter_template npc_id="205174" name="Svan"
+		teleportId="611" type="FLIGHT">
+		<locations>
+			<telelocation loc_id="86" teleportid="69001" price="1" /> <!-- correct id but not working -->
+			<telelocation loc_id="87" teleportid="68001" price="1" /> <!-- correct id but not working -->
+		</locations>
+	</teleporter_template>
+	
 	<!-- ELYOS -->
 
 	<!-- Poeta -->
