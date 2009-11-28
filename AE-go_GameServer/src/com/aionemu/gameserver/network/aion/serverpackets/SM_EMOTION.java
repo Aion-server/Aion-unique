@@ -91,7 +91,7 @@ public class SM_EMOTION extends AionServerPacket
 			writeC(buf, 0x00); // unknown
 			writeC(buf, 0x00); // unknown
 			writeH(buf, 16576); // unsure about this - verteron has 16656, akarios 16576
-			writeH(buf, emotionId); // teleport Id
+			writeD(buf, emotionId); // teleport Id
 			writeC(buf, 0x00); // unknown
 			writeC(buf, 0x00); // unknown
 		}

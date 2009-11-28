@@ -159,26 +159,25 @@
 			<telelocation loc_id="11" price="2900" />
 		</locations>
 	</teleporter_template>
-	<!-- all the cpmmented teleports below have correct id but cant figure out why they are not working -->
 	<teleporter_template npc_id="205207" name="Ullur"
 		teleportId="609" type="FLIGHT">
 		<locations>
-			<telelocation loc_id="87" teleportid="65001" price="2300" /> <!-- working -->
-			<telelocation loc_id="88" teleportid="70001" price="2900" /> <!-- correct id but not working -->
+			<telelocation loc_id="87" teleportid="65001" price="2300" />
+			<telelocation loc_id="88" teleportid="70001" price="2900" />
 		</locations>
 	</teleporter_template>
 	<teleporter_template npc_id="205145" name="Billeten"
 		teleportId="610" type="FLIGHT">
 		<locations>
-			<telelocation loc_id="86" teleportid="66001" price="2300" /> <!-- correct id but not working -->
-			<telelocation loc_id="88" teleportid="67001" price="3300" /> <!-- correct id but not working -->
+			<telelocation loc_id="86" teleportid="66001" price="2300" />
+			<telelocation loc_id="88" teleportid="67001" price="3300" />
 		</locations>
 	</teleporter_template>
 	<teleporter_template npc_id="205174" name="Svan"
 		teleportId="611" type="FLIGHT">
 		<locations>
-			<telelocation loc_id="86" teleportid="69001" price="1" /> <!-- correct id but not working -->
-			<telelocation loc_id="87" teleportid="68001" price="1" /> <!-- correct id but not working -->
+			<telelocation loc_id="86" teleportid="69001" price="2900" />
+			<telelocation loc_id="87" teleportid="68001" price="3300" />
 		</locations>
 	</teleporter_template>
 	
