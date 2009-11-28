@@ -114,21 +114,18 @@
 	</skill_template>
 	
 	<skill_template skill_id="962" name="Hallowed Strike I"
-		type="CHANNELED" level="1" duration="2000" cooldown="8">
+		type="INSTANT" level="1" duration="0" cooldown="8">
 		<startconditions>
 			<target value="CREATURE" />
 			<mp value="11"/>
 		</startconditions>
-		<useconditions>
-			<playermove allow="false"/>
-		</useconditions>
 		<effects>
 			<debuf duration="10">
 				<change stat="SPEED" func="ADD" value="-30"/>
 			</debuf>
 		</effects>
 		<actions>
-			<damage value="35" delta="4" type="MAGICAL"/>
+			<damage value="35" delta="4" type="PHYSICAL"/>
 			<mpuse value="11"/>
 		</actions>
 	</skill_template>
