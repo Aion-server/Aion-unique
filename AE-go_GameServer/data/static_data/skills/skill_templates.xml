@@ -8,14 +8,14 @@
 		type="CHANNELED" level="1" duration="2000" cooldown="1">
 		<startconditions>
 			<target value="CREATURE" />
-			<mp value="38" />
+			<mp value="38" delta="2"/>
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="61" type="MAGICAL"/>
-			<mpuse value="38"/>
+			<damage value="61" delta="13" type="MAGICAL"/>
+			<mpuse value="38" delta="2"/>
 		</actions>
 	</skill_template>
 	
@@ -23,14 +23,14 @@
 		type="CHANNELED" level="1" duration="2000" cooldown="30">
 		<startconditions>
 			<target value="CREATURE" />
-			<mp value="60" />
+			<mp value="60" delta="2"/>
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="92" type="MAGICAL"/>
-			<mpuse value="60"/>
+			<damage value="92" delta="12" type="MAGICAL"/>
+			<mpuse value="60" delta="2"/>
 		</actions>
 	</skill_template>
 	
@@ -38,14 +38,14 @@
 		type="CHANNELED" level="1" duration="2000" cooldown="10">
 		<startconditions>
 			<target value="CREATURE" />
-			<mp value="42" />
+			<mp value="42" delta="1"/>
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="66" type="MAGICAL"/>
-			<mpuse value="42"/>
+			<damage value="66" delta="13" type="MAGICAL"/>
+			<mpuse value="42" delta="1"/>
 		</actions>
 	</skill_template>
 	
@@ -53,14 +53,14 @@
 		type="CHANNELED" level="1" duration="2000" cooldown="30">
 		<startconditions>
 			<target value="CREATURE" />
-			<mp value="50" />
+			<mp value="50" delta="2" />
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="101" type="MAGICAL"/>
-			<mpuse value="50"/>
+			<damage value="101" delta="9" type="MAGICAL"/>
+			<mpuse value="50" delta="2"/>
 		</actions>
 	</skill_template>
 	
@@ -68,13 +68,13 @@
 		 level="1" duration="1000" cooldown="60">
 		 <startconditions>
 			<target value="CREATURE" />
-			<mp value="35" />
+			<mp value="35" delta="3"/>
 		</startconditions>
 		<effects>
 			<root duration="20" />
 		</effects>
 		<actions>
-			<mpuse value="35"/>
+			<mpuse value="35" delta="3"/>
 			<dummy/>
 		</actions>
 	</skill_template>
@@ -85,14 +85,14 @@
 		level="1" duration="2000" cooldown="2">
 		<startconditions>
 			<target value="CREATURE" />
-			<mp value="16" />
+			<mp value="16" delta="2"/>
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
 		<actions>
-			<damage value="74" type="MAGICAL"/>
-			<mpuse value="16"/>
+			<damage value="74" delta="7" type="MAGICAL"/>
+			<mpuse value="16" delta="2"/>
 		</actions>
 	</skill_template>
 
@@ -100,16 +100,53 @@
 		type="CHANNELED" level="1" duration="2000" cooldown="0">
 		<startconditions>
 			<target value="PLAYER" />
-			<mp value="11" />
+			<mp value="11" delta="2"/>
 		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
 		<effects>
-			<heal value="93" />
+			<heal value="93" delta="12" />
 		</effects>
 		<actions>
+			<mpuse value="11" delta="2"/>
+		</actions>
+	</skill_template>
+	
+	<skill_template skill_id="962" name="Hallowed Strike I"
+		type="CHANNELED" level="1" duration="2000" cooldown="8">
+		<startconditions>
+			<target value="CREATURE" />
+			<mp value="11"/>
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
+		<effects>
+			<debuf duration="10">
+				<change stat="SPEED" func="ADD" value="-30"/>
+			</debuf>
+		</effects>
+		<actions>
+			<damage value="35" delta="4" type="MAGICAL"/>
 			<mpuse value="11"/>
+		</actions>
+	</skill_template>
+	
+	<skill_template skill_id="979" name="Internal Blaze I"
+		type="CHANNELED" level="1" duration="2000" cooldown="24">
+		<startconditions>
+			<target value="CREATURE" />
+			<mp value="25" delta="2"/>
+		</startconditions>
+		<useconditions>
+			<playermove allow="false"/>
+		</useconditions>
+		<effects>
+		</effects>
+		<actions>
+			<damage value="106" delta="10" type="MAGICAL"/>
+			<mpuse value="25" delta="2"/>
 		</actions>
 	</skill_template>
 	
@@ -117,11 +154,11 @@
 		type="INSTANT" level="1" duration="0" cooldown="1">
 		<startconditions>
 			<target value="PLAYER" />
-			<mp value="30" />
+			<mp value="30"/>
 		</startconditions>
 		<effects>
 			<buf duration="3600">
-				<change stat="MAXHP" func="MULTIPLY" value="1.1"/>
+				<change stat="MAXHP" func="PERCENT" value="10"/>
 			</buf>
 		</effects>
 		<actions>
@@ -138,7 +175,7 @@
 		</startconditions>
 		<effects>
 			<buf duration="3600">
-				<change stat="PHYSICAL_DEFENSE" func="MULTIPLY" value="1.1"/>
+				<change stat="PHYSICAL_DEFENSE" func="PERCENT" value="10"/>
 			</buf>
 		</effects>
 		<actions>
@@ -154,11 +191,8 @@
 		<startconditions>
 			<target value="CREATURE" />
 		</startconditions>
-		<useconditions>
-			<playermove allow="false"/>
-		</useconditions>
 		<actions>
-			<damage value="45" type="PHYSICAL"/>
+			<damage value="45" delta="2" type="PHYSICAL"/>
 		</actions>
 	</skill_template>
 	
@@ -175,6 +209,28 @@
 			<dummy/>
 		</actions>
 	</skill_template>
+	
+	<skill_template skill_id="551" name="Surprise Attack I"
+		type="INSTANT" level="1" duration="0" cooldown="16">
+		<startconditions>
+			<target value="CREATURE" />
+			<mp value="13" />
+		</startconditions>
+		<actions>
+			<!-- TODO back condition -->
+			<damage value="0" type="PHYSICAL" />
+		</actions>
+	</skill_template>
+	
+	<skill_template skill_id="568" name="Soul Slash I"
+		type="INSTANT" level="1" duration="0" cooldown="6">
+		<startconditions>
+			<target value="CREATURE" />
+		</startconditions>
+		<actions>
+			<damage value="51" delta="4" type="PHYSICAL"/>
+		</actions>
+	</skill_template>
 
 	<!-- WARRIROR -->
 	
@@ -183,11 +239,33 @@
 		<startconditions>
 			<target value="CREATURE" />
 		</startconditions>
-		<useconditions>
-			<playermove allow="false"/>
-		</useconditions>
 		<actions>
-			<damage value="23" type="PHYSICAL"/>
+			<damage value="23" delta="1" type="PHYSICAL"/>
+		</actions>
+	</skill_template>
+	
+	<skill_template skill_id="165" name="Robust Blow I"
+		type="INSTANT" level="1" duration="0" cooldown="8">
+		<startconditions>
+			<target value="CREATURE" />
+		</startconditions>
+		<actions>
+			<damage value="32" delta="2" type="PHYSICAL"/>
+		</actions>
+	</skill_template>
+	
+	<skill_template skill_id="151" name="Weakening Severe Blow I"
+		type="INSTANT" level="1" duration="0" cooldown="12">
+		<startconditions>
+			<target value="CREATURE" />
+		</startconditions>
+		<effects>
+			<debuf duration="10">
+				<change stat="PHYSICAL_DEFENSE" func="ADD" value="-100"/>
+			</debuf>
+		</effects>
+		<actions>
+			<damage value="11" delta="1" type="PHYSICAL"/>
 		</actions>
 	</skill_template>
 
@@ -215,7 +293,7 @@
 			<playermove allow="false"/>
 		</useconditions>
 		<effects>
-			<heal value="178" target="SELF"/>	
+			<heal value="178" delta="9" target="SELF"/>	
 		</effects>
 		<actions>
 			<itemuse itemid="169300002" count="1"/>

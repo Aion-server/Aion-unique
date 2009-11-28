@@ -34,6 +34,8 @@ public class Env
 	private Creature effector;
 
 	private SkillTemplate skillTemplate;
+	
+	private int skillLevel;
 
 	private ConditionChangeListener conditionChangeListener;
 
@@ -45,6 +47,7 @@ public class Env
 		this.effector = player;
 		this.skillTemplate = skillTemplate;
 		this.conditionChangeListener = conditionChangeListener;
+		this.skillLevel = player.getSkillList().getSkillLevel(skillTemplate.getSkillId());
 		this.world = world;
 	}
 
@@ -70,6 +73,14 @@ public class Env
 	public SkillTemplate getSkillTemplate()
 	{
 		return skillTemplate;
+	}
+
+	/**
+	 * @return the skillLevel
+	 */
+	public int getSkillLevel()
+	{
+		return skillLevel;
 	}
 
 	/**

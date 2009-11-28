@@ -41,6 +41,8 @@
 				maxOccurs="1" />
 			<xs:element name="buf" type="BufEffect" minOccurs="0"
 				maxOccurs="unbounded" />
+			<xs:element name="debuf" type="DebufEffect" minOccurs="0"
+				maxOccurs="unbounded" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -82,6 +84,7 @@
 		<xs:complexContent>
 			<xs:extension base="Action">
 				<xs:attribute name="value" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int"/>
 				<xs:attribute name="type" type="DamageType" use="required" />
 			</xs:extension>
 		</xs:complexContent>
@@ -114,6 +117,7 @@
 		<xs:complexContent>
 			<xs:extension base="Action">
 				<xs:attribute name="value" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -138,8 +142,9 @@
 	<xs:complexType name="HealEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
-				<xs:attribute name="value" type="xs:int" use="required"></xs:attribute>
-				<xs:attribute name="target" type="TargetAttribute"></xs:attribute>
+				<xs:attribute name="value" type="xs:int" use="required"/>
+				<xs:attribute name="delta" type="xs:int" use="required"/>
+				<xs:attribute name="target" type="TargetAttribute"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -147,12 +152,25 @@
 	<xs:complexType name="RootEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
-				<xs:attribute name="duration" type="xs:int" use="required"></xs:attribute>
+				<xs:attribute name="duration" type="xs:int" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	
 	<xs:complexType name="BufEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="change" type="Change" minOccurs="1"
+						maxOccurs="unbounded" />
+				</xs:sequence>
+				<xs:attribute name="duration" type="xs:int" use="required"/>
+				<xs:attribute name="target" type="TargetAttribute"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="DebufEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
 				<xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -172,7 +190,8 @@
 	<xs:complexType name="MpCondition">
 		<xs:complexContent>
 			<xs:extension base="Condition">
-				<xs:attribute name="value" type="xs:int" use="required"></xs:attribute>
+				<xs:attribute name="value" type="xs:int" use="required"/>
+				<xs:attribute name="delta" type="xs:int"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -180,7 +199,7 @@
 	<xs:complexType name="PlayerMovedCondition">
 		<xs:complexContent>
 			<xs:extension base="Condition">
-				<xs:attribute name="allow" type="xs:boolean" use="required"></xs:attribute>
+				<xs:attribute name="allow" type="xs:boolean" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -188,7 +207,7 @@
 	<xs:complexType name="TargetCondition">
 		<xs:complexContent>
 			<xs:extension base="Condition">
-				<xs:attribute name="value" type="TargetAttribute" use="required"></xs:attribute>
+				<xs:attribute name="value" type="TargetAttribute" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

@@ -61,6 +61,10 @@ public class SkillEngine
 		if(template == null)
 			return null;
 		
+		//player doesn't have such skill
+		if(!player.getSkillList().isSkillPresent(skillId))
+			return null;
+		
 		Env env = new Env(player, template, new ConditionChangeListener(), world);
 		return new Skill(env);
 	}

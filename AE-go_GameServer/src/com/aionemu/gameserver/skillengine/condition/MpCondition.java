@@ -36,6 +36,9 @@ public class MpCondition
 
     @XmlAttribute(required = true)
     protected int value;
+    
+    @XmlAttribute
+    protected int delta;
 
     /**
      * Gets the value of the value property.
@@ -52,6 +55,7 @@ public class MpCondition
 	@Override
 	public boolean verify(Env env)
 	{
-		return env.getEffector().getLifeStats().getCurrentMp() > value;
+		int valueWithDelta = value + delta * env.getSkillLevel();
+		return env.getEffector().getLifeStats().getCurrentMp() > valueWithDelta;
 	}
 }

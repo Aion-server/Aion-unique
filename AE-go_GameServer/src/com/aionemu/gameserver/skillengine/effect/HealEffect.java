@@ -43,6 +43,9 @@ public class HealEffect
     @XmlAttribute(required = true)
     protected int value;
     
+    @XmlAttribute
+    protected int delta;
+    
     @XmlAttribute(required = false)
     protected TargetAttribute target;
 
@@ -56,9 +59,6 @@ public class HealEffect
     }
 
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.effect.Effect#apply(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	/**
 	 * @return the target
 	 */
@@ -66,7 +66,6 @@ public class HealEffect
 	{
 		return target;
 	}
-
 
 	@Override
 	public void apply(Env env)
@@ -84,10 +83,12 @@ public class HealEffect
 			effected = effector;		
 		}
 		
+		int valueWithDelta = value + delta * env.getSkillLevel();
+		
 		PacketSendUtility.broadcastPacket(effector,
 			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
-				unk, effected.getObjectId(), -value, template.getCooldown()), true);
+				unk, effected.getObjectId(), -valueWithDelta, template.getCooldown()), true);
 		
-		effected.getLifeStats().increaseHp(value);
+		effected.getLifeStats().increaseHp(valueWithDelta);
 	}
 }

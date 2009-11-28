@@ -40,7 +40,8 @@ public class Effects
 	@XmlElements({
         @XmlElement(name = "heal", type = HealEffect.class),
         @XmlElement(name = "root", type = RootEffect.class),
-        @XmlElement(name = "buf", type = BufEffect.class)
+        @XmlElement(name = "buf", type = BufEffect.class),
+        @XmlElement(name = "debuf", type = DebufEffect.class)
     })
     protected List<EffectTemplate> effects;
 

@@ -14,41 +14,60 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.action;
+package com.aionemu.gameserver.skillengine.effect;
+
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.skillengine.condition.TargetAttribute;
 import com.aionemu.gameserver.skillengine.model.Env;
 
 /**
  * @author ATracer
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MpUseAction")
-public class MpUseAction extends Action
+@XmlType(name = "DebufEffect")
+public class DebufEffect extends EffectTemplate
 {
-
+	@XmlElements({
+        @XmlElement(name = "change", type = Change.class)
+    })
+	protected List<Change> changes;
+	
 	@XmlAttribute(required = true)
-    protected int value;
+	protected int duration;
 	
-	@XmlAttribute
-	protected int delta;
+	@XmlAttribute(required = false)
+    protected TargetAttribute target;
 	
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.action.Action#act(com.aionemu.gameserver.skillengine.model.Env)
+	
+	/**
+	 * @return the changes
 	 */
-	@Override
-	public void act(Env env)
+	public List<Change> getChanges()
 	{
-		Creature effector = env.getEffector();
-		int valueWithDelta = value + delta * env.getSkillLevel();
-		
-		effector.getLifeStats().reduceMp(valueWithDelta);
+		return changes;
 	}
 
+	@Override
+	public void apply(Env env)
+	{
+		//TODO
+//		Creature effected = env.getEffected();
+//		if(target == TargetAttribute.SELF)
+//		{
+//			effected = env.getEffector();
+//		}
+//		
+//		SkillTemplate template = env.getSkillTemplate();
+//		
+//		Effect effect = new Effect(template.getSkillId(),template.getLevel(), duration, this);
+//		effected.getEffectController().addEffect(effect);
+	}
 }

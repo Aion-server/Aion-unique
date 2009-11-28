@@ -44,6 +44,9 @@ public class DamageAction
     @XmlAttribute(required = true)
     protected int value;
     
+    @XmlAttribute
+    protected int delta;
+    
     @XmlAttribute(required = true)
     protected DamageType type;
 
@@ -57,6 +60,14 @@ public class DamageAction
     }
 
     /**
+	 * @return the delta
+	 */
+	public int getDelta()
+	{
+		return delta;
+	}
+
+	/**
 	 * @return the damageType
 	 */
 	public DamageType getType()
@@ -75,13 +86,15 @@ public class DamageAction
 		SkillTemplate template = env.getSkillTemplate();
 		int damage = 0;
 		
+		int valueWithDelta = value + delta * env.getSkillLevel();
+		
 		switch(type)
 		{
 			case PHYSICAL:
-				damage = StatFunctions.calculatePhysicDamageToTarget(effector, effected, value);
+				damage = StatFunctions.calculatePhysicDamageToTarget(effector, effected, valueWithDelta);
 				break;
 			case MAGICAL:
-				damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, value, SkillElement.NONE);
+				damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, valueWithDelta, SkillElement.NONE);
 				break;
 			default:
 				damage = StatFunctions.calculateBaseDamageToTarget(effector, effected);

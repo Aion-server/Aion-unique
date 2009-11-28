@@ -33,7 +33,6 @@ import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 
 /**
  * @author ATracer
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BufEffect")
@@ -42,11 +41,13 @@ public class BufEffect extends EffectTemplate
 	@XmlElements({
         @XmlElement(name = "change", type = Change.class)
     })
-	List<Change> changes;
+	protected List<Change> changes;
+	
 	@XmlAttribute(required = true)
-	private int duration;
+	protected int duration;
+	
 	@XmlAttribute(required = false)
-    private TargetAttribute target;
+    protected TargetAttribute target;
 	
 	
 	/**
@@ -57,25 +58,6 @@ public class BufEffect extends EffectTemplate
 		return changes;
 	}
 
-	/**
-	 * @return the duration
-	 */
-	public int getDuration()
-	{
-		return duration;
-	}
-
-	/**
-	 * @return the target
-	 */
-	public TargetAttribute getTarget()
-	{
-		return target;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.effect.EffectTemplate#apply(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	@Override
 	public void apply(Env env)
 	{

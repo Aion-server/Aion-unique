@@ -90,6 +90,26 @@ public class SkillList
 	}
 	
 	/**
+	 * Checks whether player have skill with specified skillId
+	 * 
+	 * @param skillId
+	 * @return
+	 */
+	public boolean isSkillPresent(int skillId)
+	{
+		return skills.containsKey(skillId);
+	}
+	
+	/**
+	 * @param skillId
+	 * @return level of the skill with specified skillId
+	 */
+	public int getSkillLevel(int skillId)
+	{
+		return skills.get(skillId);
+	}
+	
+	/**
 	 * Returns count of available skillist.
 	 * @return count of available skillist.
 	 */
