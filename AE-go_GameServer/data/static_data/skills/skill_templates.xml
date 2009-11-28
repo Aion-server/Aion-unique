@@ -20,14 +20,11 @@
 	</skill_template>
 	
 	<skill_template skill_id="1366" name="Blaze I"
-		type="CHANNELED" level="1" duration="2000" cooldown="30">
+		type="INSTANT" level="1" duration="0" cooldown="30">
 		<startconditions>
 			<target value="CREATURE" />
 			<mp value="60" delta="2"/>
 		</startconditions>
-		<useconditions>
-			<playermove allow="false"/>
-		</useconditions>
 		<actions>
 			<damage value="92" delta="12" type="MAGICAL"/>
 			<mpuse value="60" delta="2"/>
@@ -50,14 +47,11 @@
 	</skill_template>
 	
 	<skill_template skill_id="1355" name="Frozen Shock I"
-		type="CHANNELED" level="1" duration="2000" cooldown="30">
+		type="INSTANT" level="1" duration="0" cooldown="30">
 		<startconditions>
 			<target value="CREATURE" />
 			<mp value="50" delta="2" />
 		</startconditions>
-		<useconditions>
-			<playermove allow="false"/>
-		</useconditions>
 		<actions>
 			<damage value="101" delta="9" type="MAGICAL"/>
 			<mpuse value="50" delta="2"/>
