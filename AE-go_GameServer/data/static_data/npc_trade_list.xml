@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc_trade_list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="npcTradeList.xsd">
-		<!-- Ishalgen -->
+	<!-- Ishalgen -->
 	<!-- Aldelle Village -->
 	<tradelist_template npc_id="203514" name="Hephe" count="2" listId0="259" listId1="260">
 	</tradelist_template>
@@ -34,6 +34,14 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203576" name="Nirmirn" count="1" listId0="143">
 	</tradelist_template>
+	<tradelist_template npc_id="203615" name="bergard" count="3" listId0="118" listId1="142" listId2="143">
+	</tradelist_template>
+	<tradelist_template npc_id="203579" name="Donade" count="2" listId0="399" listId1="118">
+	</tradelist_template>
+	<tradelist_template npc_id="204129" name="Dorein" count="1" listId0="350">
+	</tradelist_template>
+	<tradelist_template npc_id="203613" name="Gilungk" count="1" listId0="348">
+	</tradelist_template>
 	
 	<!-- Pandaemonium -->
 	<tradelist_template npc_id="204177" name="Malfaisante" count="1" listId0="349">
@@ -46,9 +54,17 @@
 	</tradelist_template>
 	<tradelist_template npc_id="798068" name="Maochinicherk" count="1" listId0="155">
 	</tradelist_template>
-	<tradelist_template npc_id="204183" name="Isdal" count="4" listId0="266" listId1="267" listId2="268" listId3="269" >
+	<tradelist_template npc_id="204183" name="Isdal" count="4" listId0="278" listId1="279" listId2="280" listId3="281" >
 	</tradelist_template>
 	<tradelist_template npc_id="204274" name="Huron" count="1" listId0="426">
+	</tradelist_template>
+	<tradelist_template npc_id="204099" name="Areke" count="1" listId0="430">
+	</tradelist_template>
+	<tradelist_template npc_id="204101" name="Daraia" count="3" listId0="93" listId1="99" listId2="478">
+	</tradelist_template>
+	<tradelist_template npc_id="204107" name="Grupaks" count="3" listId0="89" listId1="64" listId2="478">
+	</tradelist_template>
+	<tradelist_template npc_id="204204" name="Haink" count="1" listId0="286">
 	</tradelist_template>
 	
 	<!-- Poeta -->
@@ -73,7 +89,7 @@
 	</tradelist_template>
 
 	<!-- Verteron -->
-        <tradelist_template npc_id="203094" name="Drasia" count="1" listId0="133">
+    <tradelist_template npc_id="203094" name="Drasia" count="1" listId0="133">
 	</tradelist_template>
 	<tradelist_template npc_id="203100" name="Ivis" count="4" listId0="134" listId1="135" listId2="136" listId3="137" >
 	</tradelist_template>
@@ -83,9 +99,9 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203108" name="Ispio" count="1" listId0="143">
 	</tradelist_template>
-	<tradelist_template npc_id="203130" name="Eradis" count="1" listId0="156">
+	<tradelist_template npc_id="203130" name="Eradis" count="1" listId0="188">
 	</tradelist_template>
-	<tradelist_template npc_id="203161" name="Eninte" count="1" listId0="174">
+	<tradelist_template npc_id="203161" name="Eninte" count="1" listId0="174"><!-- Can't buy from her -->
 	</tradelist_template>
 	<tradelist_template npc_id="203158" name="Ibion" count="2" listId0="142" listId1="143">
 	</tradelist_template>
@@ -202,5 +218,14 @@
 	<tradelist_template npc_id="204633" name="Roina" count="2" listId0="234" listId1="318">
 	</tradelist_template>
 	<tradelist_template npc_id="204535" name="Maximus" count="3" listId0="118" listId1="197" listId2="155">
+	</tradelist_template>
+	
+	
+	<!-- Brusthonin -->
+	<tradelist_template npc_id="205120" name="Blume" count="2" listId0="118" listId1="353">
+	</tradelist_template>
+	
+	<!-- Morheim -->
+	<tradelist_template npc_id="790011" name="Grammati" count="2" listId0="118" listId1="318">
 	</tradelist_template>
 </npc_trade_list>
