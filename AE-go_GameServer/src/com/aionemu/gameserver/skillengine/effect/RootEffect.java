@@ -53,8 +53,9 @@ public class RootEffect extends EffectTemplate
 		
 		//TODO send effect to effected
 		//TODO broadcast from effected
+		int effectorId = env.getEffector().getObjectId();
 		
-		Effect effect = new Effect(template.getSkillId(),template.getLevel(), duration, this);
+		Effect effect = new Effect(effectorId, template.getSkillId(),template.getLevel(), duration, this);
 		effected.getEffectController().addEffect(effect);
 
 	}

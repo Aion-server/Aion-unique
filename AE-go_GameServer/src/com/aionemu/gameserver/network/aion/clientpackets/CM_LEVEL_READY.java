@@ -58,8 +58,9 @@ public class CM_LEVEL_READY extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		sendPacket(new SM_ABNORMAL_STATE(0, 0, 0));
+		
 		Player activePlayer = getConnection().getActivePlayer();
+		activePlayer.getEffectController().updatePlayerEffectIcons();
 		sendPacket(new SM_PLAYER_INFO(activePlayer, true));
 
 		/**

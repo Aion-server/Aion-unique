@@ -49,7 +49,9 @@ public class HpItem
 	{
 		if (timerInterval>0 && timerEnd>0)
 		{
-			PacketSendUtility.sendPacket(player, new SM_ABNORMAL_STATE(1, effect, timerEnd*1000));
+			//TODO item engine need to be rewritten :(
+			
+			//PacketSendUtility.sendPacket(player, new SM_ABNORMAL_STATE(1, effect, timerEnd*1000));
 		
 			this.stopAt = timerEnd / timerInterval;
 			this.value = value;
@@ -63,7 +65,7 @@ public class HpItem
 						player.getLifeStats().increaseHp(value);
 						stopAt--;
 					} else {
-						PacketSendUtility.sendPacket(player, new SM_ABNORMAL_STATE(0, effect, timerEnd));
+						//PacketSendUtility.sendPacket(player, new SM_ABNORMAL_STATE(0, effect, timerEnd));
 						task.cancel(false);
 					}
 				}

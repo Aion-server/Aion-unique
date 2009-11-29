@@ -66,10 +66,11 @@ public class BufEffect extends EffectTemplate
 		{
 			effected = env.getEffector();
 		}
+		int effectorId = env.getEffector().getObjectId();
 		
 		SkillTemplate template = env.getSkillTemplate();
 		
-		Effect effect = new Effect(template.getSkillId(),template.getLevel(), duration, this);
+		Effect effect = new Effect(effectorId,template.getSkillId(),template.getLevel(), duration, this);
 		effected.getEffectController().addEffect(effect);
 	}
 }

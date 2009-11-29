@@ -22,34 +22,36 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
- * @author Avol
+ * @author Avol, ATracer
+ * 
  */
 public class SM_ABNORMAL_STATE extends AionServerPacket
 {
 	private static final Logger	log	= Logger.getLogger(SM_ABNORMAL_STATE.class);
 
 	public int action;
-	public int effect;
-	public int time;
+	private Effect[] effects;
 	
-	public SM_ABNORMAL_STATE(int action, int effect, int time)
+	public SM_ABNORMAL_STATE(Effect[] effects)
 	{
-		this.action = action;
-		this.effect = effect;
-		this.time = time;
+		this.effects = effects;
 	}
 
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, 0); // unk
-		writeH(buf, action); // 1 show, 0 close
-
-		writeD(buf, 0); // unk
-		writeD(buf, 49676793 + effect); //49676793 + string from client_strings.xml 50406103
-
-		writeD(buf, time); // time (900000 - 15 min)
+		writeD(buf, 0); // abnormal TODO
+		writeH(buf, effects.length); 
+		
+		for(Effect effect : effects)
+		{
+			writeD(buf, effect.getEffectorId());
+			writeH(buf, effect.getSkillId());
+			writeH(buf, effect.getSkillLevel());
+			writeD(buf, effect.getElapsedTime());
+		}
 	}
 }

@@ -30,6 +30,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  * @author ATracer
  *
  */
+// Global TODO - differentiate effect controllers to npcs and players ?
 public class EffectController
 {
 	private Creature owner;
@@ -70,7 +71,7 @@ public class EffectController
 		// effect icon updates
 		if(owner instanceof Player)
 		{
-			addIconToPlayer(effect);
+			updatePlayerEffectIcons();
 		}
 		broadCastEffects();	
 	}
@@ -84,27 +85,16 @@ public class EffectController
 			new SM_ABNORMAL_EFFECT(getOwner().getObjectId(),
 				effectMap.values().toArray(new Effect[effectMap.size()])));	
 	}
+	
 	/**
 	 *  Adds icon of effect to owner (only for Player objects)
 	 *  
 	 * @param effect
 	 */
-	private void addIconToPlayer(Effect effect)
+	public void updatePlayerEffectIcons()
 	{
-		//TODO need correct SM_ABNORMAL_EFFECT FIRST
-//		PacketSendUtility.sendPacket((Player) getOwner(),
-//			new SM_ABNORMAL_STATE(1, effect.getSkillId(),effect.getElapsedTime()));
-	}
-	/**
-	 *  Removed icon of effect from owner (only for Player objects)
-	 *  
-	 * @param effect
-	 */
-	private void removeIconFromPlayer(Effect effect)
-	{
-		//TODO need correct SM_ABNORMAL_EFFECT FIRST
-//		PacketSendUtility.sendPacket((Player) getOwner(),
-//			new SM_ABNORMAL_STATE(0, effect.getSkillId(),effect.getElapsedTime()));
+		PacketSendUtility.sendPacket((Player) owner,
+			new SM_ABNORMAL_STATE(effectMap.values().toArray(new Effect[effectMap.size()])));
 	}
 	
 	/**
@@ -118,7 +108,7 @@ public class EffectController
 		broadCastEffects();
 		if(owner instanceof Player)
 		{
-			removeIconFromPlayer(effect);
+			updatePlayerEffectIcons();
 		}
 	}
 

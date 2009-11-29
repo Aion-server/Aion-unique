@@ -27,26 +27,32 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  */
 public class Effect
 {
+	private int effectorId;
 	private int skillId;
-
 	private int skillLevel;
-
 	private int duration;
-	
 	private int endTime;
 
 	private EffectController controller;
-
 	private EffectTemplate effectTemplate;
-
 	private Creature effectedObject;
 
-	public Effect(int skillId, int skillLevel, int duration, EffectTemplate effectTemplate)
+	public Effect(int effectorId, int skillId, int skillLevel,
+		int duration, EffectTemplate effectTemplate)
 	{
+		this.effectorId = effectorId;
 		this.skillId = skillId;
 		this.skillLevel = skillLevel;
 		this.duration = duration;
 		this.effectTemplate = effectTemplate;
+	}
+	
+	/**
+	 * @return the effectorId
+	 */
+	public int getEffectorId()
+	{
+		return effectorId;
 	}
 
 	/**
@@ -87,7 +93,7 @@ public class Effect
 		//TODO
 		//effectTemplate.perform
 		endTime = (int) System.currentTimeMillis() + duration * 1000;
-		
+
 		ThreadPoolManager.getInstance().scheduleEffect((new Runnable()
 		{
 			@Override
@@ -104,7 +110,7 @@ public class Effect
 	{
 		controller.removeEffect(this);
 	}
-	
+
 	public int getElapsedTime()
 	{
 		int elapsedTime = endTime - (int)System.currentTimeMillis();
