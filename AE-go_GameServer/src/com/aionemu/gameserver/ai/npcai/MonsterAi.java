@@ -113,7 +113,7 @@ public class MonsterAi extends NpcAi
 			{
 				desireQueue.iterateDesires(handler, moveDesireFilter);
 			}
-		}, 1000, 1000);	//TODO profile/optimize and probably increase interval
+		}, 1000, 500);	//TODO profile/optimize and probably increase interval
 
 		attackTask = ThreadPoolManager.getInstance().scheduleAiAtFixedRate(new Runnable(){
 

@@ -263,10 +263,10 @@ public class CreatureGameStats<T extends Creature>
 		processEffects(stat);
 	}
 	
-	public void endEffect(AionObject owner) {
+	public void endEffect(int ownerId) {
 		synchronized (effects) {
 			for(Entry<StatEnum,StatEffect> entry : effects.entrySet()) {
-				entry.getValue().endEffects(owner);
+				entry.getValue().endEffects(ownerId);
 				processEffects(entry.getKey());
 			}
 		}

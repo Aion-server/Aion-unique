@@ -26,8 +26,9 @@ public class ReplaceModifier extends StatModifier
 {
 	private int value;
 	
-	public ReplaceModifier (AionObject owner, String value) {
-		super(owner,StatModifierPriority.HIGH,StatModifierSign.NONE,false);
+	public ReplaceModifier (int ownerId, String value) 
+	{
+		super(ownerId,StatModifierPriority.HIGH,StatModifierSign.NONE,false);
 		this.value = Integer.parseInt(value);
 	}
 

@@ -26,6 +26,11 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.AddModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.PercentModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.ReplaceModifier;
+import com.aionemu.gameserver.skillengine.change.Change;
 import com.aionemu.gameserver.skillengine.condition.TargetAttribute;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.Env;
@@ -66,11 +71,48 @@ public class BufEffect extends EffectTemplate
 		{
 			effected = env.getEffector();
 		}
-		int effectorId = env.getEffector().getObjectId();
 		
 		SkillTemplate template = env.getSkillTemplate();
 		
-		Effect effect = new Effect(effectorId,template.getSkillId(),template.getLevel(), duration, this);
+		Effect effect = new Effect( env.getEffector().getObjectId(),template.getSkillId(),template.getLevel(), duration, this);
 		effected.getEffectController().addEffect(effect);
 	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.skillengine.effect.EffectTemplate#endEffect()
+	 */
+	@Override
+	public void endEffect(Creature effected, int skillId)
+	{
+		effected.getGameStats().endEffect(skillId);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.skillengine.effect.EffectTemplate#startEffect()
+	 */
+	@Override
+	public void startEffect(Creature effected, int skillId)
+	{
+		if(changes == null)
+			return;
+		
+		CreatureGameStats<? extends Creature> cgs = effected.getGameStats();
+		for(Change change : changes)
+		{
+			switch(change.getFunc())
+			{
+				case ADD:
+					cgs.addModifierOnStat(change.getStat(), new AddModifier(skillId, true, change.getValue()));
+					break;
+				case PERCENT:
+					cgs.addModifierOnStat(change.getStat(), new PercentModifier(skillId, true, change.getValue()));
+					break;
+				case REPLACE:
+					cgs.addModifierOnStat(change.getStat(), new ReplaceModifier(skillId, change.getValue()));
+					break;
+			}
+		}
+	}
+	
+	
 }

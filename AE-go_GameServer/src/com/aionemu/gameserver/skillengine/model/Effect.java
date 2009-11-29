@@ -89,9 +89,8 @@ public class Effect
 	}
 
 	public void startEffect()
-	{
-		//TODO
-		//effectTemplate.perform
+	{	
+		effectTemplate.startEffect(effectedObject, skillId);
 		endTime = (int) System.currentTimeMillis() + duration * 1000;
 
 		ThreadPoolManager.getInstance().scheduleEffect((new Runnable()
@@ -108,6 +107,7 @@ public class Effect
 
 	public void endEffect()
 	{
+		effectTemplate.endEffect(effectedObject, skillId);
 		controller.removeEffect(this);
 	}
 

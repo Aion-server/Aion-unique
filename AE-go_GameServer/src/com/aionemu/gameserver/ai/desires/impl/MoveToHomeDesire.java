@@ -58,14 +58,14 @@ public class MoveToHomeDesire extends AbstractDesire implements MoveDesire
 		if(dist > 2)
 		{
 			
-			float x2 = (float) (((x - owner.getX())/dist) * walkSpeed * 0.672) ;
-			float y2 = (float) (((y - owner.getY())/dist) * walkSpeed * 0.672) ;
-			float z2 = (float) (((z - owner.getZ())/dist) * walkSpeed * 0.672) ; 
+			float x2 = (float) (((x - owner.getX())/dist) * walkSpeed * 0.3) ;
+			float y2 = (float) (((y - owner.getY())/dist) * walkSpeed * 0.3) ;
+			float z2 = (float) (((z - owner.getZ())/dist) * walkSpeed * 0.3) ; 
 
 			
 			byte heading2 = (byte) (Math.toDegrees(Math.atan2(y2, x2))/3) ;
 
-			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(),(float) (x2 / 0.672) , (float) (y2 / 0.672) , 0 , heading2, MovementType.MOVEMENT_START_KEYBOARD));
+			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(),(float) (x2 / 0.3) , (float) (y2 / 0.3) , 0 , heading2, MovementType.MOVEMENT_START_KEYBOARD));
 			owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX() + x2, owner.getY() + y2, owner.getZ() + z2, heading2);
 		}
 		else

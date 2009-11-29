@@ -16,7 +16,6 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
-import com.aionemu.gameserver.model.gameobjects.AionObject;
 
 /**
  * @author xavier
@@ -26,14 +25,12 @@ public class PowerModifier extends StatModifier
 {
 	private int value;
 	
-	public PowerModifier (AionObject owner, int minDamages, int maxDamages) {
-		super(owner,StatModifierPriority.HIGH,StatModifierSign.PLUS,false);
+	public PowerModifier (int ownerId, int minDamages, int maxDamages) 
+	{
+		super(ownerId, StatModifierPriority.HIGH, StatModifierSign.PLUS, false);
 		this.value = Math.round((minDamages+maxDamages)/2f);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier#apply(int)
-	 */
 	@Override
 	public int apply(int stat)
 	{

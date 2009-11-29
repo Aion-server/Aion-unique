@@ -29,9 +29,10 @@ public class PercentModifier extends StatModifier
 	 * @param modifiedStat
 	 * @param isBonus
 	 */
-	public PercentModifier(AionObject owner, boolean isBonus, String percent, int sign)
+	public PercentModifier(int ownerId, boolean isBonus, String percent, int sign)
 	{
-		super(owner,StatModifierPriority.LOW, StatModifierSign.get(sign), isBonus);
+		super(ownerId,StatModifierPriority.LOW, StatModifierSign.get(sign), isBonus);
+		
 		if (percent.contains("%")) {
 			this.value = Integer.parseInt(percent.substring(0, percent.indexOf("%")))/100f;
 		} else {
@@ -39,8 +40,9 @@ public class PercentModifier extends StatModifier
 		}
 	}
 	
-	public PercentModifier(AionObject owner, boolean isBonus, String percent) {
-		this(owner,isBonus,percent,1);
+	public PercentModifier(int ownerId, boolean isBonus, String percent) 
+	{
+		this(ownerId,isBonus,percent,1);
 	}
 
 	/* (non-Javadoc)

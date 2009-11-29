@@ -149,7 +149,7 @@
 		</startconditions>
 		<effects>
 			<buf duration="3600">
-				<change stat="MAXHP" func="PERCENT" value="10"/>
+				<change stat="MAXHP" func="PERCENT" value="10%"/>
 			</buf>
 		</effects>
 		<actions>
@@ -166,7 +166,7 @@
 		</startconditions>
 		<effects>
 			<buf duration="3600">
-				<change stat="PHYSICAL_DEFENSE" func="PERCENT" value="10"/>
+				<change stat="PHYSICAL_DEFENSE" func="PERCENT" value="10%"/>
 			</buf>
 		</effects>
 		<actions>
@@ -277,9 +277,6 @@
 	
 	<skill_template skill_id="1803" name="Bandage Heal" type="CHANNELED"
 		level="1" duration="4000" cooldown="16">
-		<startconditions>
-			<mp value="50" />
-		</startconditions>
 		<useconditions>
 			<playermove allow="false"/>
 		</useconditions>
@@ -288,7 +285,6 @@
 		</effects>
 		<actions>
 			<itemuse itemid="169300002" count="1"/>
-			<mpuse value="50"/>
 		</actions>
 	</skill_template>
 

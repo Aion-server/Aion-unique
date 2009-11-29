@@ -50,13 +50,25 @@ public class RootEffect extends EffectTemplate
 		Player effector = (Player) env.getEffector();
 		Creature effected = env.getEffected();
 		SkillTemplate template = env.getSkillTemplate();
-		
-		//TODO send effect to effected
-		//TODO broadcast from effected
-		int effectorId = env.getEffector().getObjectId();
-		
-		Effect effect = new Effect(effectorId, template.getSkillId(),template.getLevel(), duration, this);
+
+		Effect effect = new Effect(env.getEffector().getObjectId(), template.getSkillId(),template.getLevel(), duration, this);
 		effected.getEffectController().addEffect(effect);
 
 	}
+
+	@Override
+	public void endEffect(Creature effected, int skillId)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void startEffect(Creature effected, int skillId)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }

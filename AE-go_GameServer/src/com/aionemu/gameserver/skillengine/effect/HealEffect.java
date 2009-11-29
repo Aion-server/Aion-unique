@@ -70,9 +70,8 @@ public class HealEffect
 	@Override
 	public void apply(Env env)
 	{
-		//TODO this is for demonstration only cause effects
-		// will be applied to object (effector) and now it behaves as action
 		//TODO calculate heal value
+		//TODO move to actions
 		Player effector = (Player) env.getEffector();
 		Creature effected = env.getEffected();
 		SkillTemplate template = env.getSkillTemplate();
@@ -91,4 +90,21 @@ public class HealEffect
 		
 		effected.getLifeStats().increaseHp(valueWithDelta);
 	}
+
+	@Override
+	public void endEffect(Creature effected, int skillId)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void startEffect(Creature effected, int skillId)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }

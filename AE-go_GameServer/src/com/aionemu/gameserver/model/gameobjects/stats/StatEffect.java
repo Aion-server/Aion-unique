@@ -62,12 +62,12 @@ public class StatEffect
 		return modifiers;
 	}
 
-	public void endEffects(AionObject owner)
+	public void endEffects(int ownerId)
 	{
 		ArrayList<StatModifier> toRemove = new ArrayList<StatModifier>();
 		for(StatModifier modifier : modifiers)
 		{
-			if(modifier.getOwner().getObjectId() == owner.getObjectId())
+			if(modifier.getOwnerId() == ownerId)
 			{
 				toRemove.add(modifier);
 			}
@@ -77,7 +77,7 @@ public class StatEffect
 		{
 			if(!modifiers.removeAll(toRemove))
 			{
-				log.error("Cannot remove " + toRemove.size() + "modifiers from " + owner.getObjectId());
+				log.error("Cannot remove " + toRemove.size() + "modifiers from " + ownerId);
 			}
 		}
 	}

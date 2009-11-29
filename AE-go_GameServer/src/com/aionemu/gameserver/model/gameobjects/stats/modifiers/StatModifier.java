@@ -28,26 +28,26 @@ public abstract class StatModifier implements Comparable<StatModifier>
 	private StatModifierPriority	priority;
 	private StatModifierSign		sign;
 	private boolean					isBonus;
-	private AionObject				owner;
+	private int						ownerId;
 	private int						id;
 
-	protected StatModifier(AionObject owner, StatModifierPriority priority, StatModifierSign sign, boolean isBonus)
+	protected StatModifier(int ownerId, StatModifierPriority priority, StatModifierSign sign, boolean isBonus)
 	{
 		this.priority = priority;
 		this.isBonus = isBonus;
 		this.sign = sign;
-		this.owner = owner;
+		this.ownerId = ownerId;
 		this.id = MODIFIER_ID++;
 	}
 
-	protected StatModifier(AionObject owner)
+	protected StatModifier(int ownerId)
 	{
-		this(owner, StatModifierPriority.LOW, StatModifierSign.PLUS, false);
+		this(ownerId, StatModifierPriority.LOW, StatModifierSign.PLUS, false);
 	}
 
-	public AionObject getOwner()
+	public int getOwnerId()
 	{
-		return owner;
+		return ownerId;
 	}
 
 	public boolean isBonus()

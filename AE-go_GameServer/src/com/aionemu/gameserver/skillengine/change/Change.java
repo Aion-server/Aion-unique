@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
+package com.aionemu.gameserver.skillengine.change;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -33,9 +33,9 @@ public class Change
 	@XmlAttribute(required = true)
 	private StatEnum stat;
 	@XmlAttribute(required = true)
-	private String func;
+	private Func func;
 	@XmlAttribute(required = true)
-	private float value;
+	private String value;
 	
 	/**
 	 * @return the stat
@@ -48,7 +48,7 @@ public class Change
 	/**
 	 * @return the func
 	 */
-	public String getFunc()
+	public Func getFunc()
 	{
 		return func;
 	}
@@ -56,7 +56,7 @@ public class Change
 	/**
 	 * @return the value
 	 */
-	public float getValue()
+	public String getValue()
 	{
 		return value;
 	}

@@ -14,34 +14,20 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
+package com.aionemu.gameserver.skillengine.change;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
-
-import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.skillengine.model.Env;
-
 
 /**
  * @author ATracer
- * 
+ *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Effect")
-public abstract class EffectTemplate 
+@XmlType(name = "Func")
+@XmlEnum
+public enum Func
 {
-	/**
-	 *  Applies effect specified in template
-	 *  
-	 *  @param env
-	 */
-	public abstract void apply(Env env);
-	
-	
-	public abstract void startEffect(Creature effected, int skillId);
-	
-	public abstract void endEffect(Creature effected, int skillId);
-
+	ADD,
+	PERCENT,
+	REPLACE
 }

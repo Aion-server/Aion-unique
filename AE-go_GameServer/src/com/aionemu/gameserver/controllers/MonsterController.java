@@ -101,21 +101,24 @@ public class MonsterController extends NpcController
 		World world = monster.getActiveRegion().getWorld();
 		//TODO refactor to possibility npc-npc fight
 		Player player = (Player) world.findAionObject(targetObjectId);
-
+		//if player disconnected - IDLE state
+		if(player == null)
+		{
+			monsterAi.setAiState(AIState.IDLE);
+		}
 		//TODO fix last attack - cause mob is already dead
 		int damage = StatFunctions.calculateBaseDamageToTarget(monster, player);
-
-		PacketSendUtility.broadcastPacket(player,
-			new SM_ATTACK(monster.getObjectId(), player.getObjectId(),
-				npcGameStats.getAttackCounter(), 274, attackType, damage), true);
-		//wtf is 274 - invetigate
-
 
 		boolean attackSuccess = player.getController().onAttack(monster);
 
 		if(attackSuccess)
 		{
 			player.getLifeStats().reduceHp(damage);
+			
+			//wtf is 274 - invetigate
+			PacketSendUtility.broadcastPacket(player,
+				new SM_ATTACK(monster.getObjectId(), player.getObjectId(),
+					npcGameStats.getAttackCounter(), 274, attackType, damage), true);
 			npcGameStats.increaseAttackCounter();
 		}
 		if(player.getLifeStats().isAlreadyDead())

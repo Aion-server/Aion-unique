@@ -29,14 +29,15 @@ public class AddModifier extends StatModifier
 	 * @param modifiedStat
 	 * @param isBonus
 	 */
-	public AddModifier(AionObject owner, boolean isBonus, String value, int sign)
+	public AddModifier(int ownerId, boolean isBonus, String value, int sign)
 	{
-		super(owner,StatModifierPriority.MEDIUM, StatModifierSign.get(sign), isBonus);
+		super(ownerId,StatModifierPriority.MEDIUM, StatModifierSign.get(sign), isBonus);
 		this.value = Integer.parseInt(value);
 	}
 	
-	public AddModifier(AionObject owner, boolean isBonus, String value) {
-		this(owner,isBonus,value,1);
+	public AddModifier(int ownerId, boolean isBonus, String value)
+	{
+		this(ownerId, isBonus, value, 1);
 	}
 
 	/* (non-Javadoc)

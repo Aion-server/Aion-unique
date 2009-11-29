@@ -49,6 +49,9 @@ public class CM_UI_SETTINGS extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player =  getConnection().getActivePlayer();
+		if(player == null) //since 1.5.1 needed, investigate
+			return;
+		
 		if(settingsType == 0)
 		{		
 			player.setUiSettings(data);

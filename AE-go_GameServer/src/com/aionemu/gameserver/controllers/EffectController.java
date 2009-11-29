@@ -23,6 +23,8 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_EFFECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -59,19 +61,20 @@ public class EffectController
 	public void addEffect(Effect effect)
 	{
 		effect.setController(this);
-		//TODO effect and stack groups
-		Effect resultEffect = effectMap.putIfAbsent(effect.getSkillId(), effect);
-		if(resultEffect != null && resultEffect.getSkillLevel() < effect.getSkillLevel())
+		//TODO stack groups and level check
+		if(effectMap.containsKey(effect.getSkillId()))
 		{
-			effectMap.replace(effect.getSkillId(), effect);	
-			resultEffect.endEffect();		
+			effectMap.get(effect.getSkillId()).endEffect();
 		}
+		effectMap.put(effect.getSkillId(), effect);
+		
 		effect.startEffect();
 		
 		// effect icon updates
 		if(owner instanceof Player)
 		{
 			updatePlayerEffectIcons();
+			updatePlayerStats();
 		}
 		broadCastEffects();	
 	}
@@ -95,6 +98,15 @@ public class EffectController
 	{
 		PacketSendUtility.sendPacket((Player) owner,
 			new SM_ABNORMAL_STATE(effectMap.values().toArray(new Effect[effectMap.size()])));
+	}
+	
+	/**
+	 * Updates player stats in UI
+	 */
+	private void updatePlayerStats()
+	{
+		Player player = (Player) owner;
+		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 	}
 	
 	/**

@@ -63,7 +63,7 @@ public class ItemEquipmentListener
 
 		if(!item.isEquipped())
 		{
-			pgs.endEffect(item);
+			pgs.endEffect(item.getObjectId());
 			log.debug("Changed stats after equipment change of item " + item + " to player #"
 				+ inventory.getOwner().getObjectId() + ":" + pgs);
 			return;
@@ -81,24 +81,26 @@ public class ItemEquipmentListener
 				StatEnum statToModify = stat.getStatEnum().getMainOrSubHandStat(slots.get(0));
 				if(stat.getValue().contains("%"))
 				{
-					pgs.addModifierOnStat(statToModify, new PercentModifier(item, stat.isBonus(), stat.getValue(), statToModify.getSign()));
+					pgs.addModifierOnStat(statToModify, new PercentModifier(item.getObjectId(), stat.isBonus(), stat.getValue(), statToModify.getSign()));
 				}
 				else
 				{
 					if(statToModify.isReplace())
 					{
-						pgs.addModifierOnStat(statToModify, new ReplaceModifier(item, stat.getValue()));
+						pgs.addModifierOnStat(statToModify, new ReplaceModifier(item.getObjectId(), stat.getValue()));
 					}
 					else
 					{
-						if ((statToModify==StatEnum.MAX_DAMAGES)||(statToModify==StatEnum.MIN_DAMAGES)) {
-							pgs.addModifierOnStat(statToModify, new AddModifier(item, stat.isBonus(), stat.getValue(), statToModify.getSign()));
+						if ((statToModify==StatEnum.MAX_DAMAGES)||(statToModify==StatEnum.MIN_DAMAGES)) 
+						{
+							pgs.addModifierOnStat(statToModify, new AddModifier(item.getObjectId(), stat.isBonus(), stat.getValue(), statToModify.getSign()));
 							log.debug("testing damages : max:"+pgs.getBaseStat(StatEnum.MAX_DAMAGES)+",min:"+pgs.getBaseStat(StatEnum.MIN_DAMAGES));
-							if ((pgs.getBaseStat(StatEnum.MAX_DAMAGES)!=0)&&(pgs.getBaseStat(StatEnum.MIN_DAMAGES)!=0)) {
-								pgs.addModifierOnStat(StatEnum.MAIN_HAND_POWER, new PowerModifier (item, pgs.getBaseStat(StatEnum.MIN_DAMAGES), pgs.getBaseStat(StatEnum.MAX_DAMAGES)));
+							if ((pgs.getBaseStat(StatEnum.MAX_DAMAGES)!=0)&&(pgs.getBaseStat(StatEnum.MIN_DAMAGES)!=0)) 
+							{
+								pgs.addModifierOnStat(StatEnum.MAIN_HAND_POWER, new PowerModifier (item.getObjectId(), pgs.getBaseStat(StatEnum.MIN_DAMAGES), pgs.getBaseStat(StatEnum.MAX_DAMAGES)));
 							}
 						} else {
-							pgs.addModifierOnStat(statToModify, new AddModifier(item, stat.isBonus(), stat.getValue(), statToModify.getSign()));
+							pgs.addModifierOnStat(statToModify, new AddModifier(item.getObjectId(), stat.isBonus(), stat.getValue(), statToModify.getSign()));
 						}
 					}
 				}
@@ -109,7 +111,7 @@ public class ItemEquipmentListener
 		// TODO Convert theses attributes to <stat ...> elements
 		if(it.getAttackType() != null)
 		{
-			pgs.addModifierOnStat(StatEnum.IS_MAGICAL_ATTACK, new ReplaceModifier(item, (it.getAttackType()
+			pgs.addModifierOnStat(StatEnum.IS_MAGICAL_ATTACK, new ReplaceModifier(item.getObjectId(), (it.getAttackType()
 				.contains("magic")) ? "1" : "0"));
 		}
 
