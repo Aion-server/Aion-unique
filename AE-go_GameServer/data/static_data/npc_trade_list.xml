@@ -42,6 +42,10 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203613" name="Gilungk" count="1" listId0="348">
 	</tradelist_template>
+	<tradelist_template npc_id="203619" name="Nornes" count="2" listId0="404" listId1="277">
+	</tradelist_template>
+	<tradelist_template npc_id="798030" name="Japayerk" count="2" listId0="142" listId1="143">
+	</tradelist_template>
 	
 	<!-- Pandaemonium -->
 	<tradelist_template npc_id="204177" name="Malfaisante" count="1" listId0="349">
@@ -60,11 +64,61 @@
 	</tradelist_template>
 	<tradelist_template npc_id="204099" name="Areke" count="1" listId0="430">
 	</tradelist_template>
-	<tradelist_template npc_id="204101" name="Daraia" count="3" listId0="93" listId1="99" listId2="478">
+	<tradelist_template npc_id="204101" name="Daraia" count="3" listId0="93" listId1="99" listId2="479">
 	</tradelist_template>
-	<tradelist_template npc_id="204107" name="Grupaks" count="3" listId0="89" listId1="64" listId2="478">
+	<tradelist_template npc_id="204107" name="Grupaks" count="3" listId0="89" listId1="64" listId2="479">
 	</tradelist_template>
 	<tradelist_template npc_id="204204" name="Haink" count="1" listId0="286">
+	</tradelist_template>
+	<tradelist_template npc_id="204103" name="Grad" count="2" listId0="92" listId1="98">
+	</tradelist_template>
+	<tradelist_template npc_id="204202" name="Nekai" count="1" listId0="398">
+	</tradelist_template>
+	<tradelist_template npc_id="798060" name="Obirunerk" count="3" listId0="91" listId1="97" listId2="479">
+	</tradelist_template>
+	<tradelist_template npc_id="204111" name="Kaiot" count="3" listId0="96" listId1="90" listId2="479">
+	</tradelist_template>
+	<tradelist_template npc_id="204097" name="Relir" count="1" listId0="429">
+	</tradelist_template>
+	<tradelist_template npc_id="204084" name="Vidarini" count="1" listId0="118">
+	</tradelist_template>
+	<tradelist_template npc_id="798153" name="Lyeikunerk" count="2" listId0="431" listId1="441">
+	</tradelist_template>
+	<tradelist_template npc_id="204125" name="Niz" count="4" listId0="302" listId1="303" listId2="304" listId3="305">
+	</tradelist_template>
+	<tradelist_template npc_id="204126" name="Merar" count="1" listId0="306">
+	</tradelist_template>
+	<tradelist_template npc_id="204124" name="Hoki" count="4" listId0="302" listId1="303" listId2="304" listId3="305">
+	</tradelist_template>
+	<tradelist_template npc_id="204122" name="Yuret" count="4" listId0="298" listId1="299" listId2="300" listId3="301">
+	</tradelist_template>
+	<tradelist_template npc_id="204118" name="Gerad" count="3" listId0="308" listId1="309" listId2="475">
+	</tradelist_template>
+	<tradelist_template npc_id="204123" name="Kroia" count="4" listId0="298" listId1="299" listId2="300" listId3="301">
+	</tradelist_template>
+	<tradelist_template npc_id="204120" name="Lark" count="3" listId0="352" listId1="462" listId2="472">
+	</tradelist_template>
+	<tradelist_template npc_id="204121" name="Kinot" count="1" listId0="293">
+	</tradelist_template>
+	<tradelist_template npc_id="204128" name="Kitanya" count="1" listId0="350">
+	</tradelist_template>
+	<tradelist_template npc_id="204051" name="Vergelmir" count="1" listId0="294">
+	</tradelist_template>
+	<tradelist_template npc_id="204083" name="Lyfjaberga" count="2" listId0="37" listId1="38">
+	</tradelist_template>
+	<tradelist_template npc_id="204081" name="Thialfi" count="2" listId0="35" listId1="36">
+	</tradelist_template>
+	<tradelist_template npc_id="204082" name="Ve" count="2" listId0="39" listId1="40">
+	</tradelist_template>
+	<tradelist_template npc_id="204080" name="Kalsten" count="2" listId0="33" listId1="34">
+	</tradelist_template>
+	<tradelist_template npc_id="204056" name="Traufnir" count="2" listId0="41" listId1="42">
+	</tradelist_template>
+	<tradelist_template npc_id="204058" name="Sif" count="2" listId0="47" listId1="48">
+	</tradelist_template>
+	<tradelist_template npc_id="204057" name="Sigyn" count="2" listId0="43" listId1="44">
+	</tradelist_template>
+	<tradelist_template npc_id="204059" name="Freyr" count="2" listId0="45" listId1="46">
 	</tradelist_template>
 	
 	<!-- Poeta -->
@@ -101,11 +155,11 @@
 	</tradelist_template>
 	<tradelist_template npc_id="203130" name="Eradis" count="1" listId0="188">
 	</tradelist_template>
-	<tradelist_template npc_id="203161" name="Eninte" count="1" listId0="174"><!-- Can't buy from her -->
-	</tradelist_template>
 	<tradelist_template npc_id="203158" name="Ibion" count="2" listId0="142" listId1="143">
 	</tradelist_template>
 	<tradelist_template npc_id="203131" name="Maniparas" count="3" listId0="142" listId1="143" listId2="239">
+	</tradelist_template>
+	<tradelist_template npc_id="798124" name="Feimerk" count="1" listId0="142">
 	</tradelist_template>
 	
 	<!-- Sanctum -->
@@ -188,6 +242,10 @@
 	<tradelist_template npc_id="203884" name="Atifure" count="1" listId0="174">
 	</tradelist_template>
 	<tradelist_template npc_id="203884" name="Tures" count="1" listId0="174">
+	</tradelist_template>
+	<tradelist_template npc_id="798013" name="Chiwurinerk" count="3" listId0="60" listId1="66" listId2="478">
+	</tradelist_template>
+	<tradelist_template npc_id="798152" name="Ayurinrinerk" count="2" listId0="431" listId1="436">
 	</tradelist_template>
 
 	<!-- Elthen -->
