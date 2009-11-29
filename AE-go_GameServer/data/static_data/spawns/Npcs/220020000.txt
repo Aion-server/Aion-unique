@@ -306,6 +306,8 @@
 220020000 700068 2803.048 1101.1567 171.84885 65
 # Obelisk (kellansCabin)
 220020000 700213 1095.8608 2482.1711 240.43764 50
+# Obelisk (halatanaHotSprings)
+220020000 700261 2347.3225 2224.931 128.23569 0
 
 # NPCs/Objects spawns by Atomix from http://aion.atomixro.com
 # Thanks to TheOne & Matej for helping me.

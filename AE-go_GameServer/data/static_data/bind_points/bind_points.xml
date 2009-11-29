@@ -37,9 +37,10 @@
 	<bind_point name="morheimiceFortress" npcid="700064" bindid="25" mapid="220020000" posX="268.0237" posY="2338.6914" posZ="444.12332" price="100"/>
 	<bind_point name="salintusObservationPost" npcid="700065" bindid="26" mapid="220020000" posX="626.63153" posY="907.1654" posZ="361.7638" price="100"/>
 	<bind_point name="alsigVillage" npcid="700066" bindid="27" mapid="220020000" posX="2384.385" posY="1750.1564" posZ="102.37332" price="100"/>
-	<bind_point name="mt.Musphel" npcid="700067" bindid="28" mapid="220020000" posX="1782.7863" posY="1782.7863" posZ="198.17012" price="100"/>
+	<bind_point name="mt.Musphel" npcid="700067" bindid="28" mapid="220020000" posX="1782.7863" posY="1666.893" posZ="197.625" price="100"/>
 	<bind_point name="morheimObservatory" npcid="700068" bindid="29" mapid="220020000" posX="2803.048" posY="1101.1567" posZ="171.84885" price="100"/>
 	<bind_point name="kellansCabin" npcid="700213" bindid="30" mapid="220020000" posX="1095.8608" posY="2482.1711" posZ="240.43764" price="100"/>
+	<bind_point name="halatanaHotSprings" npcid="700261" bindid="42" mapid="220020000" posX="2351.5486" posY="2224.4414" posZ="126.584015" price="100"/>
 	<!-- Altgard -->
 	<bind_point name="altgardFortress" npcid="700231" bindid="31" mapid="220030000" posX="1658.2705" posY="1814.9916" posZ="254.09915" price="100"/>
 	<bind_point name="basfeltVillage" npcid="700232" bindid="32" mapid="220030000" posX="1800.1959" posY="711.43225" posZ="262.62534" price="100"/>
