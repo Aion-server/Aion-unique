@@ -59,13 +59,14 @@ public enum MovementType
 	/**
 	 * Movement stop.
 	 */
-	MOVEMENT_STOP(0);
+	MOVEMENT_STOP(0),
+	
+	MOVEMENT_STAYIN_ELEVATOR(24),
+	MOVEMENT_JUMPIN_ELEVATOR(-48), //sometimes not jump
+	MOVEMENT_VALIDATEIN_ELEVATOR(-112), //unk
+	MOVEMEMNT_MOVIN_ELEVATOR(16);
 
 	//TODO
-	//UNKNOWN1(112),
-	//UNKNOWN2(-48),
-	//UNKNOWN3(16),
-	//UNKNOWN4(24),
 	//UNKNOWN5(-28);
 
 	private int	typeId;
