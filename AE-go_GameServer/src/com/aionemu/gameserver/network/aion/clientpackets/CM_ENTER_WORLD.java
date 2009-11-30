@@ -163,13 +163,21 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			List<Item> equipedItems = inventory.getEquippedItems();
 			if(equipedItems.size() != 0)
 			{
-				client.sendPacket(new SM_INVENTORY_INFO(inventory.getEquippedItems(), player.getCubeSize()));
+				client.sendPacket(new SM_INVENTORY_INFO(inventory.getEquippedItems(), cubeSize));
 			}
 			
 			List<Item> unequipedItems = inventory.getUnquippedItems();
-			if(unequipedItems.size() != 0)
+			int itemsSize = unequipedItems.size();
+			
+			if(itemsSize != 0)
 			{
-				client.sendPacket(new SM_INVENTORY_INFO(inventory.getUnquippedItems(), player.getCubeSize()));
+				int index = 0;
+				while(index + 10 < itemsSize)
+				{
+					client.sendPacket(new SM_INVENTORY_INFO(unequipedItems.subList(index, index+10), cubeSize));
+					index += 10;
+				}
+				client.sendPacket(new SM_INVENTORY_INFO(unequipedItems.subList(index, itemsSize - 1), cubeSize));
 			}
 			
 			client.sendPacket(new SM_INVENTORY_INFO()); 
