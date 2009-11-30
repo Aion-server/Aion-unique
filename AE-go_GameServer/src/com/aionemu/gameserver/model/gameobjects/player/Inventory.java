@@ -133,6 +133,10 @@ public class Inventory
 		{
 			equipment.put(item.getEquipmentSlot(), item);
 			ItemEquipmentListener.onItemEquipmentChange(this, item, item.getEquipmentSlot());
+			if(owner.getLifeStats() != null)//TODO why onLoadHandler called 2 times on load ?
+			{
+				owner.getLifeStats().synchronizeWithMaxStats();
+			}			
 		}
 		else if(item.getItemTemplate().getItemId() == ItemId.KINAH.value())
 		{
@@ -314,6 +318,7 @@ public class Inventory
 		equipment.put(slot, item);
 		item.setEquipmentSlot(slot);
 		ItemEquipmentListener.onItemEquipmentChange(this, item, slot);
+		owner.getLifeStats().updateCurrentStats();
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
 	}
 	
@@ -358,6 +363,7 @@ public class Inventory
 		equipment.remove(itemToUnequip.getEquipmentSlot());
 		itemToUnequip.setEquipped(false);
 		ItemEquipmentListener.onItemEquipmentChange(this, itemToUnequip, 0);
+		owner.getLifeStats().updateCurrentStats();
 		defaultItemBag.addItemToStorage(itemToUnequip);
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip));
 	}

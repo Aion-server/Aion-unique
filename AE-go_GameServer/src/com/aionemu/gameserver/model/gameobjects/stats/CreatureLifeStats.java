@@ -97,11 +97,19 @@ public abstract class CreatureLifeStats<T extends Creature>
 		return currentMp;
 	}
 
-	public int getMaxHp () {
+	/**
+	 * @return maxHp of creature according to stats
+	 */
+	public int getMaxHp () 
+	{
 		return this.getOwner().getGameStats().getCurrentStat(StatEnum.MAXHP);
 	}
 	
-	public int getMaxMp () {
+	/**
+	 * @return maxMp of creature according to stats
+	 */
+	public int getMaxMp () 
+	{
 		return this.getOwner().getGameStats().getCurrentStat(StatEnum.MAXMP);
 	}
 	
@@ -313,6 +321,33 @@ public abstract class CreatureLifeStats<T extends Creature>
 	public boolean isFullyRestored()
 	{
 		return getMaxHp() == currentHp && getMaxMp() == currentMp;
+	}
+	
+	/**
+	 * The purpose of this method is synchronize current HP and MP with updated MAXHP and MAXMP stats 
+	 * This method should be called only on creature load to game
+	 */
+	public void synchronizeWithMaxStats()
+	{
+		if(getMaxHp() != currentHp)
+			currentHp = getMaxHp();
+		if(getMaxMp() != currentMp)
+			currentMp = getMaxMp();
+	}
+	
+	/**
+	 * The purpose of this method is synchronize current HP and MP with MAXHP and MAXMP when max
+	 * stats were decreased below current level
+	 */
+	public void updateCurrentStats()
+	{
+		if(getMaxHp() < currentHp)
+			currentHp = getMaxHp();
+		if(getMaxHp() < currentMp)
+			currentMp = getMaxMp();
+		
+		if(!isFullyRestored())
+			triggerRestoreTask();
 	}
 	
 	protected abstract void onIncreaseMp();
