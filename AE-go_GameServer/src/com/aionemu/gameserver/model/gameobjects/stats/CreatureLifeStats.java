@@ -325,7 +325,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	
 	/**
 	 * The purpose of this method is synchronize current HP and MP with updated MAXHP and MAXMP stats 
-	 * This method should be called only on creature load to game
+	 * This method should be called only on creature load to game or player level up
 	 */
 	public void synchronizeWithMaxStats()
 	{

@@ -223,8 +223,10 @@ public class PlayerCommonData
 			
 			player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA,player));
 			player.setPlayerStatsTemplate(statsTemplate);
-			player.setLifeStats(new PlayerLifeStats(player, statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
+			
+			player.setLifeStats(new PlayerLifeStats(player, statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));		
 			ItemEquipmentListener.onLevelChange(player.getInventory());
+			player.getLifeStats().synchronizeWithMaxStats();
 			
 			PacketSendUtility.sendPacket(player,
 				new SM_LEVEL_UPDATE(player.getObjectId(), this.level));
