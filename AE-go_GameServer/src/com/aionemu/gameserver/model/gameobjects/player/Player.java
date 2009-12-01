@@ -52,6 +52,7 @@ public class Player extends Creature
 	private ResponseRequester	requester;
 	private boolean 			lookingForGroup = false;
 	private Inventory			inventory;
+	private PlayerStore			store;
 	private ExchangeList		exchangeList;
 	private PlayerStatsTemplate playerStatsTemplate;
 	private PlayerGameStats		playerStatsBonus;
@@ -299,6 +300,23 @@ public class Player extends Creature
 		return inventory;
 	}
 
+	/**
+	 * @return the player private store
+	 */
+	public PlayerStore getStore()
+	{
+		return store;
+	}
+	
+	/**
+	 * @return the player private store
+	 */
+	public void setStore(PlayerStore store)
+	{
+		this.store = store;
+		store.setOwner(this);
+	}
+	
 	/**
 	 * @return the playerStatsTemplate
 	 */

@@ -38,6 +38,6 @@ public class SM_EXCHANGE_CONFIRMATION extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, action);
+		writeC(buf, action);
 	}
 }

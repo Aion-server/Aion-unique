@@ -20,6 +20,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_RESULT;
 import com.aionemu.gameserver.services.PlayerService;
 import com.google.inject.Inject;
 
@@ -76,5 +77,7 @@ public class CM_MACRO_DELETE extends AionClientPacket
 		log.debug("Request to delete macro #" + macroPosition);
 
 		playerService.removeMacro(getConnection().getActivePlayer(), macroPosition);
+		
+		sendPacket(SM_MACRO_RESULT.SM_MACRO_DELETED);
 	}
 }

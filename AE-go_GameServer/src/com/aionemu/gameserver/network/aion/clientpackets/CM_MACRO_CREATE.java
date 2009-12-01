@@ -20,6 +20,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_RESULT;
 import com.aionemu.gameserver.services.PlayerService;
 import com.google.inject.Inject;
 
@@ -77,5 +78,7 @@ public class CM_MACRO_CREATE extends AionClientPacket
 		log.debug(String.format("Created Macro #%d: %s", macroPosition, macroXML));
 
 		playerService.addMacro(getConnection().getActivePlayer(), macroPosition, macroXML);
+		
+		sendPacket(SM_MACRO_RESULT.SM_MACRO_CREATED);
 	}
 }

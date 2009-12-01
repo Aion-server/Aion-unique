@@ -25,7 +25,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author orz, xTr
  *
  */
-public class SM_QUESTLIST extends AionServerPacket
+public class SM_QUEST_LIST extends AionServerPacket
 {
 	/**
 	 * {@inheritDoc}

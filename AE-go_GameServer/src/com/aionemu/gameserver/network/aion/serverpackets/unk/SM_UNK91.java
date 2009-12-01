@@ -23,14 +23,21 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 public class SM_UNK91 extends AionServerPacket
 {
+	private String guildDescr;
+	private int unk1;
+	
+	public SM_UNK91 (int unk1, String descr) {
+		this.guildDescr = descr;
+		this.unk1 = unk1;
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeH(buf, 1);
-		writeH(buf, 0x7D0);
-		writeH(buf, 1);
+		writeD(buf, unk1);
+		writeS(buf, guildDescr);
 	}
 }

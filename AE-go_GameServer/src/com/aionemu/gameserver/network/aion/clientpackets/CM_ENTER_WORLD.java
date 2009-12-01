@@ -40,7 +40,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTLIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -128,7 +128,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 * Needed
 			 */
 			client.sendPacket(new SM_ENTER_WORLD_CHECK());
-			client.sendPacket(new SM_QUESTLIST());
+			client.sendPacket(new SM_QUEST_LIST());
 			
 			byte[] uiSettings = player.getUiSettings();
 			byte[] shortcuts = player.getShortcuts();

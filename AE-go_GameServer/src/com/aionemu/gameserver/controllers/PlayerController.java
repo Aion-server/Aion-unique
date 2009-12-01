@@ -23,7 +23,6 @@ import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
-import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -34,8 +33,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL_RESULT;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL_STARTED;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHERABLE_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
@@ -291,7 +289,7 @@ public class PlayerController extends CreatureController<Player>
 	public void startDuelWith(Player player)
 	{
 		log.debug("[PvP] Player " + this.getOwner().getName() + " start duel with " + player.getName());
-		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_STARTED(player.getObjectId()));
+		PacketSendUtility.sendPacket(getOwner(), SM_DUEL.SM_DUEL_STARTED(player.getObjectId()));
 		lastAttacker = player;
 	}
 
@@ -303,7 +301,7 @@ public class PlayerController extends CreatureController<Player>
 	public void wonDuelWith(Player attacker)
 	{
 		log.debug("[PvP] Player " + attacker.getName() + " won duel against " + this.getOwner().getName());
-		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_WON,attacker.getName()));
+		PacketSendUtility.sendPacket(getOwner(), SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_WON,attacker.getName()));
 	}
 	
 	/**
@@ -314,7 +312,7 @@ public class PlayerController extends CreatureController<Player>
 	public void lostDuelWith(Player attacker)
 	{
 		log.debug("[PvP] Player " + attacker.getName() + " lost duel against " + this.getOwner().getName());
-		PacketSendUtility.sendPacket(getOwner(), new SM_DUEL_RESULT(DuelResult.DUEL_LOST,attacker.getName()));
+		PacketSendUtility.sendPacket(getOwner(), SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_LOST,attacker.getName()));
 		PlayerLifeStats pls = getOwner().getLifeStats();
 		getOwner().setLifeStats(new PlayerLifeStats(getOwner(), 1, pls.getCurrentMp()));
 		getOwner().getLifeStats().triggerRestoreTask();
