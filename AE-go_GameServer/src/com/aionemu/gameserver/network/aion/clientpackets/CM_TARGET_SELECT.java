@@ -20,9 +20,11 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.AionObject;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_SELECTED;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -91,6 +93,11 @@ public class CM_TARGET_SELECT extends AionClientPacket
 			if(obj != null && obj instanceof VisibleObject)
 			{
 				player.setTarget((VisibleObject)obj);
+				if (obj instanceof Creature)
+				{
+					Creature c = (Creature)obj;
+					sendPacket(new SM_TARGET_SELECTED(targetObjectId, c.getLevel()));
+				}
 			}
 
 		}
