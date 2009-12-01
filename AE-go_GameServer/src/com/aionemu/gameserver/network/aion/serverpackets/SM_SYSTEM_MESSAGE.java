@@ -114,6 +114,10 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1370002, _exp);
 	}
 
+	public static SM_SYSTEM_MESSAGE Gather_Success(String _value)
+	{
+		return new SM_SYSTEM_MESSAGE(1330058, _value);
+	}
 	/**
 	 * Your Requested player to trade
 	 */

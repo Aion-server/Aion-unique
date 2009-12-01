@@ -30,6 +30,7 @@ import com.aionemu.gameserver.model.templates.gather.Material;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHER_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHER_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -169,6 +170,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 					PacketSendUtility.sendPacket(player, new SM_GATHER_UPDATE(template, material, successCounter, failureCounter, 2));					
 					PacketSendUtility.sendPacket(player, new SM_GATHER_UPDATE(template, material, successCounter, failureCounter, 6));
 					PacketSendUtility.broadcastPacket(player, new SM_GATHER_STATUS(player.getObjectId(), getOwner().getObjectId(), 2), true);
+					PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.Gather_Success(Integer.toString(60)));
 					addItem(material, player);
 					finishGathering();
 				}
