@@ -125,7 +125,7 @@
 	</skill_template>
 	
 	<skill_template skill_id="979" name="Internal Blaze I"
-		type="CHANNELED" level="1" duration="2000" cooldown="24">
+		type="INSTANT" level="1" duration="0" cooldown="24">
 		<startconditions>
 			<target value="CREATURE" />
 			<mp value="25" delta="2"/>
