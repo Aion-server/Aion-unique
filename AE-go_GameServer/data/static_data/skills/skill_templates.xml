@@ -5618,6 +5618,7 @@
     </skill_template>
     <skill_template skill_id="951" name="Blessing of Health I" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="1" duration="0">
         <startconditions>
+			<target value="PC" />
             <mp value="30" delta="0"/>
         </startconditions>
 		<effects>
@@ -5659,6 +5660,7 @@
     </skill_template>
     <skill_template skill_id="955" name="Blessing of Rock I" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="1" duration="0">
         <startconditions>
+			<target value="PC" />
             <mp value="41" delta="0"/>
         </startconditions>
 		<effects>
@@ -8880,6 +8882,7 @@
     </skill_template>
     <skill_template skill_id="1373" name="Root I" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="60" duration="0">
         <startconditions>
+			<target value="NPC" />
             <mp value="35" delta="3"/>
         </startconditions>
         <effects>
