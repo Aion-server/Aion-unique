@@ -67,14 +67,15 @@ public class BufEffect extends EffectTemplate
 	public void apply(Env env)
 	{
 		Creature effected = env.getEffected();
-		if(target == TargetAttribute.SELF)
-		{
-			effected = env.getEffector();
-		}
+//		if(target == TargetAttribute.SELF)
+//		{
+//			effected = env.getEffector();
+//		}
 		
 		SkillTemplate template = env.getSkillTemplate();
 		
-		Effect effect = new Effect( env.getEffector().getObjectId(),template.getSkillId(),template.getLevel(), duration, this);
+		Effect effect = new Effect(env.getEffector().getObjectId(), template.getSkillId(),
+			env.getSkillLevel(), duration, this);
 		effected.getEffectController().addEffect(effect);
 	}
 

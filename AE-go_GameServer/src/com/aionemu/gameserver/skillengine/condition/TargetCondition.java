@@ -65,14 +65,9 @@ public class TargetCondition
 		}
 		switch(value)
 		{
-			//TODO multiple target condition refactoring
-			case CREATURE:
-				return env.getEffected() instanceof Creature;
-			case MONSTER:		
-				return env.getEffected() instanceof Monster;
 			case NPC:
-				return env.getEffected() instanceof Npc;
-			case PLAYER:
+				return env.getEffected() instanceof Monster;
+			case PC:
 				return env.getEffected() instanceof Player;
 			default:
 				return false;

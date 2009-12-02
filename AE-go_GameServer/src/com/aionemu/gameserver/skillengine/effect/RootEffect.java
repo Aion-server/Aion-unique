@@ -22,12 +22,9 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.Env;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
@@ -47,13 +44,12 @@ public class RootEffect extends EffectTemplate
 	@Override
 	public void apply(Env env)
 	{
-		Player effector = (Player) env.getEffector();
 		Creature effected = env.getEffected();
 		SkillTemplate template = env.getSkillTemplate();
 
-		Effect effect = new Effect(env.getEffector().getObjectId(), template.getSkillId(),template.getLevel(), duration, this);
+		Effect effect = new Effect(env.getEffector().getObjectId(), template.getSkillId(),
+			env.getSkillLevel(), duration, this);
 		effected.getEffectController().addEffect(effect);
-
 	}
 
 	@Override

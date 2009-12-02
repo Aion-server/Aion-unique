@@ -71,7 +71,6 @@ public class HealEffect
 	public void apply(Env env)
 	{
 		//TODO calculate heal value
-		//TODO move to actions
 		Player effector = (Player) env.getEffector();
 		Creature effected = env.getEffected();
 		SkillTemplate template = env.getSkillTemplate();
@@ -85,7 +84,7 @@ public class HealEffect
 		int valueWithDelta = value + delta * env.getSkillLevel();
 		
 		PacketSendUtility.broadcastPacket(effector,
-			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
+			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), env.getSkillLevel(),
 				unk, effected.getObjectId(), -valueWithDelta, template.getCooldown()), true);
 		
 		effected.getLifeStats().increaseHp(valueWithDelta);

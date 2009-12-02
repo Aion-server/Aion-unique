@@ -46,9 +46,6 @@ public class DamageAction
     
     @XmlAttribute
     protected int delta;
-    
-    @XmlAttribute(required = true)
-    protected DamageType type;
 
     /**
      * Gets the value of the value property.
@@ -67,14 +64,6 @@ public class DamageAction
 		return delta;
 	}
 
-	/**
-	 * @return the damageType
-	 */
-	public DamageType getType()
-	{
-		return type;
-	}
-
 	/* (non-Javadoc)
 	 * @see com.aionemu.gameserver.skillengine.action.Action#act(com.aionemu.gameserver.skillengine.model.Env)
 	 */
@@ -88,7 +77,7 @@ public class DamageAction
 		
 		int valueWithDelta = value + delta * env.getSkillLevel();
 		
-		switch(type)
+		switch(env.getSkillTemplate().getType())
 		{
 			case PHYSICAL:
 				damage = StatFunctions.calculatePhysicDamageToTarget(effector, effected, valueWithDelta);
@@ -103,7 +92,7 @@ public class DamageAction
 		int unk = 0;
 		
 		PacketSendUtility.broadcastPacket(effector,
-			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
+			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), env.getSkillLevel(),
 				unk, effected.getObjectId(), damage, template.getCooldown()), true);
 		
 		effected.getLifeStats().reduceHp(damage);

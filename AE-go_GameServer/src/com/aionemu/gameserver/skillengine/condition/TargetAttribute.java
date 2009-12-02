@@ -28,10 +28,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum TargetAttribute 
 {
-    CREATURE,
     NPC,
-    PLAYER,
-    MONSTER,
+    PC,
+    ALL,
     SELF,
     NONE;
 

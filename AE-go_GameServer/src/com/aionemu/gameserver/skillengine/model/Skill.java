@@ -62,6 +62,9 @@ public class Skill
 	 */
 	public void useSkill()
 	{
+		if(skillTemplate.getActivationAttribute() != ActivationAttribute.ACTIVE)
+			return;
+		
 		if(!preCastCheck())
 			return;
 		
@@ -88,7 +91,7 @@ public class Skill
 		int targetObjId = env.getEffected() !=  null ? env.getEffected().getObjectId() : 0;
 		final int unk = 0;
 		PacketSendUtility.broadcastPacket(effector, 
-			new SM_CASTSPELL(effector.getObjectId(), skillTemplate.getSkillId(), skillTemplate.getLevel(),
+			new SM_CASTSPELL(effector.getObjectId(), skillTemplate.getSkillId(), env.getSkillLevel(),
 				unk, targetObjId, skillTemplate.getDuration()), true);
 
 	}

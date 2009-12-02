@@ -54,7 +54,7 @@ public class DummyAction extends Action
 		int unk = 0;
 		
 		PacketSendUtility.broadcastPacket(effector,
-			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), template.getLevel(),
+			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), env.getSkillLevel(),
 				unk, effected.getObjectId(), 0, template.getCooldown()), true);
 	}
 

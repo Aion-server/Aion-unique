@@ -26,11 +26,11 @@
 		</xs:sequence>
 		<xs:attribute name="skill_id" type="skillId" use="required" />
 		<xs:attribute name="name" type="xs:string" use="required" />
-		<xs:attribute name="type" type="skillType" use="required" />
-		<xs:attribute name="level" type="xs:int" use="required" />
+		<xs:attribute name="skilltype" type="skillType" use="required" />
+		<xs:attribute name="skillsubtype" type="skillSubType" use="required" />
+		<xs:attribute name="activation" type="activationAttribute" use="required" />
 		<xs:attribute name="duration" type="xs:int" use="required" />
-		<xs:attribute name="cooldown" type="xs:int" use="optional"
-			default="0" />
+		<xs:attribute name="cooldown" type="xs:int" use="optional" default="0" />
 	</xs:complexType>
 
 	<xs:complexType name="Effects">
@@ -85,17 +85,9 @@
 			<xs:extension base="Action">
 				<xs:attribute name="value" type="xs:int" use="required" />
 				<xs:attribute name="delta" type="xs:int"/>
-				<xs:attribute name="type" type="DamageType" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
-	<xs:simpleType name="DamageType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="PHYSICAL" />
-			<xs:enumeration value="MAGICAL" />
-		</xs:restriction>
-	</xs:simpleType>
 
 	<xs:complexType name="ReturnAction">
 		<xs:complexContent>
@@ -214,12 +206,11 @@
 
 	<xs:simpleType name="TargetAttribute">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="CREATURE" />
 			<xs:enumeration value="NPC" />
-			<xs:enumeration value="PLAYER" />
-			<xs:enumeration value="MONSTER" />
-			<xs:enumeration value="SELF" />
+			<xs:enumeration value="PC" />
+			<xs:enumeration value="ALL" />
 			<xs:enumeration value="NONE" />
+			<xs:enumeration value="SELF" />
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -233,8 +224,33 @@
 	
 	<xs:simpleType name="skillType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="INSTANT" />
-			<xs:enumeration value="CHANNELED" />
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="PHYSICAL" />
+			<xs:enumeration value="MAGICAL" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="skillSubType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="ATTACK" />
+			<xs:enumeration value="CHANT" />
+			<xs:enumeration value="HEAL" />
+			<xs:enumeration value="BUFF" />
+			<xs:enumeration value="DEBUFF" />
+			<xs:enumeration value="SUMMON" />
+			<xs:enumeration value="SUMMONHOMING" />
+			<xs:enumeration value="SUMMONTRAP" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="activationAttribute">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="ACTIVE" />
+			<xs:enumeration value="PROVOKED" />
+			<xs:enumeration value="MAINTAIN" />
+			<xs:enumeration value="TOGGLE" />
 			<xs:enumeration value="PASSIVE" />
 		</xs:restriction>
 	</xs:simpleType>

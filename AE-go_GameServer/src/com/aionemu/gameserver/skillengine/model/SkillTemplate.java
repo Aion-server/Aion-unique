@@ -47,10 +47,12 @@ public class SkillTemplate {
     protected int skillId;
     @XmlAttribute(required = true)
     protected String name;
-    @XmlAttribute(required = true)
+    @XmlAttribute(name = "skilltype", required = true)
     protected SkillType type;
-    @XmlAttribute(required = true)
-    protected int level;
+    @XmlAttribute(name = "skillsubtype", required = true)
+    protected SkillSubType subType;
+    @XmlAttribute(name = "activation", required = true)
+    protected ActivationAttribute activationAttribute;
     @XmlAttribute(required = true)
     protected int duration;
     @XmlAttribute
@@ -135,24 +137,32 @@ public class SkillTemplate {
     public SkillType getType() {
         return type;
     }
-
+    
     /**
-     * Gets the value of the level property.
-     * 
-     */
-    public int getLevel() {
-        return level;
-    }
+	 * @return the subType
+	 */
+	public SkillSubType getSubType()
+	{
+		return subType;
+	}
+	
+	/**
+	 * @return the duration
+	 */
+	public int getDuration()
+	{
+		return duration;
+	}
 
-    /**
-     * Gets the value of the duration property.
-     * 
-     */
-    public int getDuration() {
-        return duration;
-    }
+	/**
+	 * @return the activationAttribute
+	 */
+	public ActivationAttribute getActivationAttribute()
+	{
+		return activationAttribute;
+	}
 
-    /**
+	/**
      * Gets the value of the cooldown property.
      * 
      * @return

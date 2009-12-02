@@ -19,16 +19,21 @@ package com.aionemu.gameserver.skillengine.model;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * @author ATracer
- * 
+ *
  */
-@XmlType(name = "skillType")
+@XmlType(name = "skillSubType")
 @XmlEnum
-public enum SkillType
+public enum SkillSubType
 {
 	NONE,
-    PHYSICAL,
-    MAGICAL
+	ATTACK,
+	CHANT,
+	HEAL,
+	BUFF,
+	DEBUFF,
+	SUMMON,
+	SUMMONHOMING,
+	SUMMONTRAP
 }
