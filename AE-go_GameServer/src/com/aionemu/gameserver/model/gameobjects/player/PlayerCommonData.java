@@ -64,7 +64,8 @@ public class PlayerCommonData
 	private String 			note;
 	private WorldPosition	position;
 	private int 			cubeSize = 0;
-	private int			bindPoint;
+	private int			    bindPoint;
+   private int             titleId;
 	
 
 	public PlayerCommonData(int objId)
@@ -288,6 +289,7 @@ public class PlayerCommonData
 	{
 		this.online = online;
 	}
+
 	public Gender getGender()
 	{
 		return gender;
@@ -346,6 +348,15 @@ public class PlayerCommonData
 		this.note = note;
 	}
 
+    public int getTitleId()
+    {
+        return titleId;
+    }
+
+    public void setTitleId(int titleId)
+    {
+        this.titleId = titleId;
+    }
 	/**
 	 * This method should be called exactly once after creating object of this class
 	 * @param position

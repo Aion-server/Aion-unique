@@ -44,10 +44,10 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UI_SETTINGS;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKC9;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKDC;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.services.PlayerService;
@@ -56,9 +56,9 @@ import com.google.inject.Inject;
 
 /**
  * In this packets aion client is asking if given char [by oid] may login into game [ie start playing].
- * 
+ *
  * @author -Nemesiss-, Avol
- * 
+ *
  */
 public class CM_ENTER_WORLD extends AionClientPacket
 {
@@ -75,7 +75,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 
 	/**
 	 * Constructs new instance of <tt>CM_ENTER_WORLD </tt> packet
-	 * 
+	 *
 	 * @param opcode
 	 */
 	public CM_ENTER_WORLD(int opcode)
@@ -106,9 +106,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			//Somebody wanted to login on character that is not at his account
 			return;
 		}
-		
+
 		Player player = playerService.getPlayer(objectId);
-		
+
 		if(player != null && client.setActivePlayer(player))
 		{
 			player.setClientConnection(client);
@@ -129,46 +129,46 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 */
 			client.sendPacket(new SM_ENTER_WORLD_CHECK());
 			client.sendPacket(new SM_QUEST_LIST());
-			
+
 			byte[] uiSettings = player.getUiSettings();
 			byte[] shortcuts = player.getShortcuts();
-			
+
 			if(uiSettings != null)
 				client.sendPacket(new SM_UI_SETTINGS(uiSettings, 0));
-			
+
 			if(shortcuts != null)
-				client.sendPacket(new SM_UI_SETTINGS(shortcuts, 1));;
-			
+				client.sendPacket(new SM_UI_SETTINGS(shortcuts, 1));
+
 			LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
 			if((player.getPosition().getX() == locationData.getX())&&(player.getPosition().getY() == locationData.getY()))
 			{
 				client.sendPacket(new SM_PLAY_MOVIE(player));
-				
+
 			}
 			// sendPacket(new SM_UNK60());
 			// sendPacket(new SM_UNK17());
 			sendPacket(new SM_UNK5E());
-			
+
 			//Cubesize limit set in inventory.
 			int cubeSize = player.getCubeSize();
 			player.getInventory().setLimit(27 + cubeSize * 9);
-			
+
 			//TODO no need to load items here - inventory will be populated at startup
 			// will be removed next time
-			
+
 			//items
-			Inventory inventory = player.getInventory();	
-			
+			Inventory inventory = player.getInventory();
+
 			//TODO send <= 10 items at once only
 			List<Item> equipedItems = inventory.getEquippedItems();
 			if(equipedItems.size() != 0)
 			{
 				client.sendPacket(new SM_INVENTORY_INFO(inventory.getEquippedItems(), cubeSize));
 			}
-			
+
 			List<Item> unequipedItems = inventory.getUnquippedItems();
 			int itemsSize = unequipedItems.size();
-			
+
 			if(itemsSize != 0)
 			{
 				int index = 0;
@@ -179,11 +179,11 @@ public class CM_ENTER_WORLD extends AionClientPacket
 				}
 				client.sendPacket(new SM_INVENTORY_INFO(unequipedItems.subList(index, itemsSize - 1), cubeSize));
 			}
-			
-			client.sendPacket(new SM_INVENTORY_INFO()); 
+
+			client.sendPacket(new SM_INVENTORY_INFO());
 			client.sendPacket(new SM_UNKDC()); //?? unknwon
 			//sendPacket(new SM_UNKD3());
-			
+
 			/*
 			 * Needed
 			 */
@@ -191,10 +191,10 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			sendPacket(new SM_UNK7B());
 			// sendPacket(new SM_UNKE1());
 			sendPacket(new SM_MACRO_LIST(player));
-			
+
 
 			sendPacket(new SM_GAME_TIME());
-			sendPacket(new SM_UNKC9());
+			sendPacket(new SM_TITLE_LIST());
 			sendPacket(SM_SYSTEM_MESSAGE.REMAINING_PLAYING_TIME(12043));
 
 			/**
@@ -204,7 +204,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			AccountTime accountTime = getConnection().getAccount().getAccountTime();
 
 			sendPacket(SM_SYSTEM_MESSAGE.ACCUMULATED_TIME(
-															accountTime .getAccumulatedOnlineHours(), 
+															accountTime.getAccumulatedOnlineHours(), 
 															accountTime.getAccumulatedOnlineMinutes(),
 															accountTime.getAccumulatedRestHours(),
 															accountTime.getAccumulatedRestMinutes())
@@ -225,13 +225,13 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNK0A());
 			// sendPacket(new SM_UNK97());
 			// sendPacket(new SM_UNK8D());
-			
-			
-			
+
+
+
 			sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME
 				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.com team.\nCopyright 2009", null,
 				ChatType.ANNOUNCEMENTS));
-			
+
 			playerService.playerLoggedIn(player);
 		}
 		else

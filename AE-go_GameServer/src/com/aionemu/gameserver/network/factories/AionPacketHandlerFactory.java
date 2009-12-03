@@ -86,6 +86,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_ADD_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_ADD_KINAH;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VIEW_PLAYER_DETAILS;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_TITLE_SET;
 import com.aionemu.gameserver.network.aion.clientpackets.unk.CM_UNK08;
 import com.aionemu.gameserver.network.aion.clientpackets.unk.CM_UNK27;
 import com.aionemu.gameserver.network.aion.clientpackets.unk.CM_UNK8B;
@@ -154,7 +155,8 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_BLOCK_SET_REASON(0x16),State.IN_GAME);
 		addPacket(new CM_BLOCK_DEL(0x0A), State.IN_GAME);
 		addPacket(new CM_BLOCK_ADD(0x09), State.IN_GAME);
-		addPacket(new CM_TERRITORY(0x53), State.IN_GAME);
+		addPacket(new CM_TITLE_SET(0x7E), State.IN_GAME);
+       addPacket(new CM_TERRITORY(0x53), State.IN_GAME);
 		addPacket(new CM_START_LOOT(0x0D), State.IN_GAME);
 		addPacket(new CM_LOOT_ITEM(0x0E), State.IN_GAME);
 		addPacket(new CM_CLOSE_LOOT(0x0F), State.IN_GAME);

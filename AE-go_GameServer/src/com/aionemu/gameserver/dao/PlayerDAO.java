@@ -51,7 +51,7 @@ public abstract class PlayerDAO implements IDFactoryAwareDAO
 	/**
 	 * This method is used to store only newly created characters
 	 * 
-	 * @param player
+	 * @param pcd
 	 *            player to save in database
 	 * @return true if every things went ok.
 	 */

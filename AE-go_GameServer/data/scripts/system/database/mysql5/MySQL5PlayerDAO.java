@@ -87,7 +87,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	@Override
 	public void storePlayer(final Player player)
 	{
-		DB.insertUpdate("UPDATE players SET name=?, exp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, cube_size=?, admin=?, note=?, bind_point=? WHERE id=?", new IUStH(){
+		DB.insertUpdate("UPDATE players SET name=?, exp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, cube_size=?, admin=?, note=?, bind_point=?, title_id=? WHERE id=?", new IUStH(){
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
@@ -106,7 +106,8 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				stmt.setBoolean(11, player.getCommonData().isAdmin());
 				stmt.setString(12,player.getCommonData().getNote());
 				stmt.setInt(13, player.getCommonData().getBindPoint());
-				stmt.setInt(14, player.getObjectId());
+				stmt.setInt(14, player.getCommonData().getTitleId());
+               stmt.setInt(15, player.getObjectId());
 				stmt.execute();
 			}
 		});
@@ -191,6 +192,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				cd.setNote(resultSet.getString("note"));
 				cd.setCubesize(resultSet.getInt("cube_size"));
 				cd.setBindPoint(resultSet.getInt("bind_point"));
+               cd.setTitleId(resultSet.getInt("title_id"));
 
 				float x = resultSet.getFloat("x");
 				float y = resultSet.getFloat("y");

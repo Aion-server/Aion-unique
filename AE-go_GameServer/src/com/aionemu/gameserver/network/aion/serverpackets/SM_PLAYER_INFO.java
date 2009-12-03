@@ -89,7 +89,9 @@ public class SM_PLAYER_INFO extends AionServerPacket
 
 		writeS(buf, player.getName());
 
-		unk = new byte[] { (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0x00, (byte) 0x00, (byte) 0x00,
+		writeD(buf, pcd.getTitleId());
+
+        unk = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00,
 			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
 			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
 		writeB(buf, unk);
