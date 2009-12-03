@@ -80,6 +80,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PONG;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUIT_RESPONSE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RECONNECT_KEY;
@@ -218,6 +219,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_PONG.class, 0xA6, idSet);
 		addPacketOpcode(SM_QUEST_ACCEPTED.class, 0x74, idSet);
 		addPacketOpcode(SM_QUEST_LIST.class, 0x75, idSet);
+		addPacketOpcode(SM_QUEST_DELETE.class,0x76, idSet);
 		addPacketOpcode(SM_QUESTION_WINDOW.class, 0x4C, idSet);
 		addPacketOpcode(SM_QUIT_RESPONSE.class, 0x5A, idSet);
 		addPacketOpcode(SM_RECONNECT_KEY.class, 0xF9, idSet);
