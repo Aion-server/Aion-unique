@@ -36,13 +36,30 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 	{
 		super(owner);
 		PlayerStatsTemplate pst = playerStatsData.getTemplate(owner.getPlayerClass(), owner.getLevel());
-		setAttackCounter(1);
-		initStats(pst.getMaxHp(),pst.getMaxMp(),pst.getPower(), pst.getHealth(), pst.getAgility(), pst.getAccuracy(), pst.getKnowledge(), pst
-			.getWill(), pst.getMainHandAttack(), pst.getMainHandCritRate(), Math.round(pst.getAttackSpeed() * 1000),
-			1500);
-		// TODO find good values for fly time
-		setStat(StatEnum.FLY_TIME, 60);
+		initStats(pst);
 		log.debug("loading base game stats for player " + owner.getName() + " (id " + owner.getObjectId() + "): "
 			+ this);
+	}
+
+	private void initStats(PlayerStatsTemplate pst)
+	{
+		super.initStats(pst.getMaxHp(), pst.getMaxMp(), pst.getPower(), pst.getHealth(), pst.getAgility(), pst
+			.getAccuracy(), pst.getKnowledge(), pst.getWill(), pst.getMainHandAttack(), pst.getMainHandCritRate(), Math
+			.round(pst.getAttackSpeed() * 1000), 1500);
+		setAttackCounter(1);
+		setStat(StatEnum.PARRY, pst.getParry());
+		setStat(StatEnum.BLOCK, pst.getBlock());
+		setStat(StatEnum.EVASION, pst.getEvasion());
+		setStat(StatEnum.MAGICAL_ACCURACY, pst.getMagicAccuracy());
+		setStat(StatEnum.FLY_SPEED, Math.round(pst.getFlySpeed()*1000f));
+		setStat(StatEnum.MAIN_HAND_ACCURACY, pst.getMainHandAccuracy());
+		// TODO find good values for fly time
+		setStat(StatEnum.FLY_TIME, 60);
+	}
+
+	public void doLevelUpgrade (PlayerStatsData playerStatsData, int level) {
+		PlayerStatsTemplate pst = playerStatsData.getTemplate(((Player)getOwner()).getPlayerClass(), level);
+		initStats(pst);
+		recomputeStats();
 	}
 }

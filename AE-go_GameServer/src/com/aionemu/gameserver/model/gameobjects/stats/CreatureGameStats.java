@@ -23,7 +23,6 @@ import javolution.util.FastMap;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.SkillElement;
-import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 
@@ -33,18 +32,18 @@ import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
  */
 public class CreatureGameStats<T extends Creature>
 {
-	protected static final Logger						log					= Logger.getLogger(CreatureGameStats.class);
+	protected static final Logger			log					= Logger.getLogger(CreatureGameStats.class);
 
-	private static final int							ATTACK_MAX_COUNTER	= Integer.MAX_VALUE;
+	private static final int				ATTACK_MAX_COUNTER	= Integer.MAX_VALUE;
 
-	private FastMap<StatEnum, Integer>					defaultStats;
-	private FastMap<StatEnum, Integer>					baseStats;
-	private FastMap<StatEnum, Integer>					bonusStats;
-	private FastMap<StatEnum, StatEffect>				effects;
+	private FastMap<StatEnum, Integer>		defaultStats;
+	private FastMap<StatEnum, Integer>		baseStats;
+	private FastMap<StatEnum, Integer>		bonusStats;
+	private FastMap<StatEnum, StatEffect>	effects;
 
-	private int											attackCounter		= 0;
-	private boolean										initialized			= false;
-	private T											owner				= null;
+	private int								attackCounter		= 0;
+	private boolean							initialized			= false;
+	private T								owner				= null;
 
 	protected CreatureGameStats(T owner)
 	{
@@ -58,6 +57,9 @@ public class CreatureGameStats<T extends Creature>
 	protected void initStats(int maxHp, int maxMp, int power, int health, int agility, int accuracy, int knowledge,
 		int will, int mainHandAttack, int mainHandCritRate, int attackSpeed, int attackRange)
 	{
+		baseStats.clear();
+		bonusStats.clear();
+		defaultStats.clear();
 		baseStats.put(StatEnum.MAXHP, maxHp);
 		baseStats.put(StatEnum.MAXMP, maxMp);
 		baseStats.put(StatEnum.POWER, power);
@@ -210,62 +212,86 @@ public class CreatureGameStats<T extends Creature>
 		return baseStat;
 	}
 
-	public void processEffects(StatEnum stat)
+	protected void recomputeStats()
+	{
+		for(StatEnum stat : baseStats.keySet())
+		{
+			recomputeStat(stat);
+		}
+	}
+
+	protected void recomputeStat(StatEnum stat)
 	{
 		StatEffect effect = effects.get(stat);
+		if (effect==null)
+			return;
 		
-		setStat(stat, defaultStats.get(stat));
-		setStat(stat, 0, true);
-		
-		for (StatModifier modifier : effect.getModifiers()) {
+		defaultStats.put(stat,getCurrentStat(stat));
+		for(StatModifier modifier : effect.getModifiers())
+		{
 			int newValue = modifier.apply(getCurrentStat(stat));
-			StringBuilder sb = new StringBuilder();
-			sb.append("Applying modifier "+modifier+" on "+stat+": old:");
-			sb.append(getBaseStat(stat)+"+"+getStatBonus(stat)+",new:");
-			sb.append(getBaseStat(stat)+(modifier.isBonus()?0:newValue));
-			sb.append("+");
-			sb.append((modifier.isBonus()?getStatBonus(stat)+newValue:0));
-			log.debug(sb.toString());
-			if (modifier.isBonus()) {
-				bonusStats.put(stat, newValue+getStatBonus(stat));
-			} else {
+			if(modifier.isBonus())
+			{
+				bonusStats.put(stat, newValue + getStatBonus(stat));
+			}
+			else
+			{
 				baseStats.put(stat, newValue);
 			}
 		}
 	}
-	
-	public void addModifierOnStat(StatEnum stat, StatModifier modifier) {
-		synchronized(effects) {
-			if (effects.containsKey(stat)) {
+
+	public void processEffects(StatEnum stat)
+	{
+		setStat(stat, defaultStats.containsKey(stat)?defaultStats.get(stat):0);
+		setStat(stat, 0, true);
+		recomputeStat(stat);
+	}
+
+	public void addModifierOnStat(StatEnum stat, StatModifier modifier)
+	{
+		synchronized(effects)
+		{
+			if(effects.containsKey(stat))
+			{
 				effects.get(stat).add(modifier);
-			} else {
-				StatEffect effect = new StatEffect ();
+			}
+			else
+			{
+				StatEffect effect = new StatEffect();
 				defaultStats.put(stat, getCurrentStat(stat));
 				effect.add(modifier);
-				effects.put(stat,effect);
+				effects.put(stat, effect);
 			}
 		}
-		
+
 		processEffects(stat);
 	}
-	
+
 	public void addEffectOnStat(StatEnum stat, StatEffect effect)
-	{	
-		synchronized(effects) {
-			if (effects.containsKey(stat)) {
+	{
+		synchronized(effects)
+		{
+			if(effects.containsKey(stat))
+			{
 				effects.get(stat).addAll(effect.getModifiers());
-			} else {
+			}
+			else
+			{
 				defaultStats.put(stat, getCurrentStat(stat));
-				effects.put(stat,effect);
+				effects.put(stat, effect);
 			}
 		}
-		
+
 		processEffects(stat);
 	}
-	
-	public void endEffect(int ownerId) {
-		synchronized (effects) {
-			for(Entry<StatEnum,StatEffect> entry : effects.entrySet()) {
+
+	public void endEffect(int ownerId)
+	{
+		synchronized(effects)
+		{
+			for(Entry<StatEnum, StatEffect> entry : effects.entrySet())
+			{
 				entry.getValue().endEffects(ownerId);
 				processEffects(entry.getKey());
 			}

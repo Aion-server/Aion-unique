@@ -177,7 +177,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 					client.sendPacket(new SM_INVENTORY_INFO(unequipedItems.subList(index, index+10), cubeSize));
 					index += 10;
 				}
-				client.sendPacket(new SM_INVENTORY_INFO(unequipedItems.subList(index, itemsSize - 1), cubeSize));
+				client.sendPacket(new SM_INVENTORY_INFO(unequipedItems.subList(index, itemsSize), cubeSize));
 			}
 
 			client.sendPacket(new SM_INVENTORY_INFO());

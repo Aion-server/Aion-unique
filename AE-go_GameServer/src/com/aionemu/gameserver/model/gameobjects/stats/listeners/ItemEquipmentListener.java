@@ -118,12 +118,4 @@ public class ItemEquipmentListener
 		log.debug("Changed stats after equipment change of item " + item + " to player #"
 			+ inventory.getOwner().getObjectId() + ":" + pgs);
 	}
-
-	public static void onLevelChange(Inventory inventory)
-	{
-		for(Item item : inventory.getEquippedItems())
-		{
-			onItemEquipmentChange(inventory, item, item.getEquipmentSlot());
-		}
-	}
 }
