@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.items.NpcEquippedGear;
+import com.aionemu.gameserver.model.templates.stats.NpcRank;
 import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
 
 /**
@@ -56,6 +57,8 @@ public class NpcTemplate implements VisibleObjectTemplate
 	private NpcEquippedGear		equipment;
 	@XmlElement(name = "ammo_speed")
 	private int					ammoSpeed		= 0;
+	@XmlAttribute(name = "rank")
+	private NpcRank				rank;
 
 	public int getTemplateId()
 	{
@@ -138,4 +141,13 @@ public class NpcTemplate implements VisibleObjectTemplate
 		 */
 		npcId = Integer.parseInt(uid);
 	}
+
+	/**
+	 * @return the rank
+	 */
+	public NpcRank getRank()
+	{
+		return rank;
+	}
+
 }

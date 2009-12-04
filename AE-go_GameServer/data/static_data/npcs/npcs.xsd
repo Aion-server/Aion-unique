@@ -29,6 +29,7 @@
 		<xs:attribute name="talking_distance" type="xs:int" default="0" />
 		<xs:attribute name="ammo_speed" type="xs:int" />
 		<xs:attribute name="npc_type" type="npcType" use="required" />
+		<xs:attribute name="rank" type="NpcRank" />
 	</xs:complexType>
 
 	<xs:complexType name="npcStatsTemplate">
@@ -41,7 +42,7 @@
 				<xs:attribute name="mdef" type="xs:int" use="required" />
 				<xs:attribute name="maxXp" type="xs:int" use="required" />
 				<xs:attribute name="accuracy" type="xs:int" use="required" />
-				<xs:attribute name="power" type="xs:int" use="required" />
+				<xs:attribute name="power" type="xs:int" use="required" />			
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -57,6 +58,16 @@
 			<xs:enumeration value="ATTACKABLE" />
 			<xs:enumeration value="AGGRESSIVE" />
 			<xs:enumeration value="NON_ATTACKABLE" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="NpcRank">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NORMAL" />
+			<xs:enumeration value="ELITE" />
+			<xs:enumeration value="JUNK" />
+			<xs:enumeration value="HERO" />
+			<xs:enumeration value="LEGENDARY" />
 		</xs:restriction>
 	</xs:simpleType>
 	
