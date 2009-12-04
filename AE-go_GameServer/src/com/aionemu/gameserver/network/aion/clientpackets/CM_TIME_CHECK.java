@@ -20,6 +20,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TIME_CHECK;
 
 /**
  * I dont know what this packet is doing - probably its ping/pong packet
@@ -66,6 +67,8 @@ public class CM_TIME_CHECK extends AionClientPacket
 		AionConnection client = getConnection();
 		int timeNow = (int) (System.nanoTime() / 1000000);
 		int diff = timeNow - nanoTime;
+		client.sendPacket(new SM_TIME_CHECK(nanoTime));
+		
 		//log.info("CM_TIME_CHECK: " + nanoTime + " =?= " + timeNow + " dif: " + diff);
 	}
 }

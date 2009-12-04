@@ -96,6 +96,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_SELECTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_LOC;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TIME_CHECK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_SET;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_UPDATE;
@@ -235,10 +236,11 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_SYSTEM_MESSAGE.class, 0x13, idSet);
 		addPacketOpcode(SM_TELEPORT_LOC.class, 0x2C, idSet);
 		addPacketOpcode(SM_TELEPORT_MAP.class, 0xBC, idSet);
-       addPacketOpcode(SM_TITLE_LIST.class, 0xC8, idSet);
-       addPacketOpcode(SM_TITLE_SET.class, 0xCB, idSet);
-       addPacketOpcode(SM_TITLE_UPDATE.class, 0xCD, idSet);
-       addPacketOpcode(SM_TRADELIST.class, 0xF7, idSet);
+		addPacketOpcode(SM_TIME_CHECK.class, 0x21, idSet);
+        addPacketOpcode(SM_TITLE_LIST.class, 0xC8, idSet);
+        addPacketOpcode(SM_TITLE_SET.class, 0xCB, idSet);
+        addPacketOpcode(SM_TITLE_UPDATE.class, 0xCD, idSet);
+        addPacketOpcode(SM_TRADELIST.class, 0xF7, idSet);
 		addPacketOpcode(SM_TARGET_SELECTED.class, 0x43, idSet);
 		addPacketOpcode(SM_UI_SETTINGS.class, 0x16, idSet);
 		addPacketOpcode(SM_UNK02.class, 0x05, idSet);
@@ -246,7 +248,6 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNK05.class, 0x04, idSet);
 		addPacketOpcode(SM_UNK07.class, 0x06, idSet);
 		addPacketOpcode(SM_UNK0D.class, 0x0C, idSet);
-		addPacketOpcode(SM_UNK1E.class, 0x21, idSet);
 		addPacketOpcode(SM_UNK32.class, 0x32, idSet);
 		addPacketOpcode(SM_UNK33.class, 0x33, idSet);
 		addPacketOpcode(SM_UNK42.class, 0x42, idSet);
@@ -293,7 +294,6 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_EXCHANGE_ADD_KINAH.class, 0x67, idSet);
 
 		//Unrecognized Opcodes from 1.5.0:
-		//addPacketOpcode(SM_TIME_CHECK.class, 0x26, idSet);
 		//addPacketOpcode(SM_VIRTUAL_AUTH.class, 0xE4, idSet);
 		//addPacketOpcode(SM_WAITING_LIST.class, 0x18, idSet);		
 	}
