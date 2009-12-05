@@ -38,9 +38,6 @@ public class RootEffect extends EffectTemplate
 	@XmlAttribute(required = true)
     protected int duration;
 	
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.effect.Effect#apply(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	@Override
 	public void apply(Env env)
 	{
@@ -60,7 +57,7 @@ public class RootEffect extends EffectTemplate
 	}
 
 	@Override
-	public void startEffect(Creature effected, int skillId)
+	public void startEffect(Creature effected, int skillId, int skillLvl)
 	{
 		// TODO Auto-generated method stub
 		

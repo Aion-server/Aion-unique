@@ -27,7 +27,6 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.change.Change;
-import com.aionemu.gameserver.skillengine.condition.TargetAttribute;
 import com.aionemu.gameserver.skillengine.model.Env;
 
 /**
@@ -43,11 +42,7 @@ public class DebufEffect extends EffectTemplate
 	protected List<Change> changes;
 	
 	@XmlAttribute(required = true)
-	protected int duration;
-	
-	@XmlAttribute(required = false)
-    protected TargetAttribute target;
-	
+	protected int duration;	
 	
 	/**
 	 * @return the changes
@@ -62,10 +57,6 @@ public class DebufEffect extends EffectTemplate
 	{
 		//TODO
 //		Creature effected = env.getEffected();
-//		if(target == TargetAttribute.SELF)
-//		{
-//			effected = env.getEffector();
-//		}
 //		
 //		SkillTemplate template = env.getSkillTemplate();
 //		
@@ -81,7 +72,7 @@ public class DebufEffect extends EffectTemplate
 	}
 
 	@Override
-	public void startEffect(Creature effected, int skillId)
+	public void startEffect(Creature effected, int skillId, int skillLvl)
 	{
 		// TODO Auto-generated method stub
 		

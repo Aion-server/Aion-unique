@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.condition;
+package com.aionemu.gameserver.skillengine.properties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,45 +24,52 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
 
+
 /**
- * @author ATracer 
+ * @author ATracer
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Conditions", propOrder = {
-    "conditions"
-})
-public class Conditions 
-{
+@XmlType(name = "Properties")
+public class Properties {
+
     @XmlElements({
-        @XmlElement(name = "target", type = TargetCondition.class),
-        @XmlElement(name = "mp", type = MpCondition.class),
-        @XmlElement(name = "playermove", type = PlayerMovedCondition.class),
-        @XmlElement(name = "arrowcheck", type = ArrowCheckCondition.class)
+        @XmlElement(name = "firsttarget", type = FirstTargetProperty.class),
+        @XmlElement(name = "targetrange", type = TargetRangeProperty.class),
+        @XmlElement(name = "addweaponrange", type = AddWeaponRangeProperty.class),
+        @XmlElement(name = "targetrelation", type = TargetRelationProperty.class)
     })
-    protected List<Condition> conditions;
+    protected List<Property> properties;
 
     /**
-     * Gets the value of the conditions property.
+     * Gets the value of the getProperties property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the conditions property.
+     * This is why there is not a <CODE>set</CODE> method for the getProperties property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getConditions().add(newItem);
+     *    getProperties().add(newItem);
      * </pre>
      * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link FirstTargetProperty }
+     * {@link TargetRangeProperty }
+     * {@link AddWeaponRangeProperty }
+     * {@link TargetRelationProperty }
+     * 
+     * 
      */
-    public List<Condition> getConditions()
-    {
-        if (conditions == null) {
-            conditions = new ArrayList<Condition>();
+    public List<Property> getProperties() {
+        if (properties == null) {
+        	properties = new ArrayList<Property>();
         }
-        return this.conditions;
+        return this.properties;
     }
 
 }

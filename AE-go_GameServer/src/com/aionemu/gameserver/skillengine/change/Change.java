@@ -34,8 +34,12 @@ public class Change
 	private StatEnum stat;
 	@XmlAttribute(required = true)
 	private Func func;
+	@XmlAttribute
+	private int duration;
 	@XmlAttribute(required = true)
-	private String value;
+	private int value;	
+	@XmlAttribute
+	private int delta;
 	
 	/**
 	 * @return the stat
@@ -56,8 +60,24 @@ public class Change
 	/**
 	 * @return the value
 	 */
-	public String getValue()
+	public int getValue()
 	{
 		return value;
+	}
+
+	/**
+	 * @return the duration
+	 */
+	public int getDuration()
+	{
+		return duration;
+	}
+
+	/**
+	 * @return the delta
+	 */
+	public int getDelta()
+	{
+		return delta;
 	}
 }

@@ -51,10 +51,6 @@ public class BufEffect extends EffectTemplate
 	@XmlAttribute(required = true)
 	protected int duration;
 	
-	@XmlAttribute(required = false)
-    protected TargetAttribute target;
-	
-	
 	/**
 	 * @return the changes
 	 */
@@ -67,11 +63,7 @@ public class BufEffect extends EffectTemplate
 	public void apply(Env env)
 	{
 		Creature effected = env.getEffected();
-		if(target == TargetAttribute.SELF)
-		{
-			effected = env.getEffector();
-		}
-		
+
 		SkillTemplate template = env.getSkillTemplate();
 		
 		Effect effect = new Effect(env.getEffector().getObjectId(), template.getSkillId(),
@@ -79,20 +71,14 @@ public class BufEffect extends EffectTemplate
 		effected.getEffectController().addEffect(effect);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.effect.EffectTemplate#endEffect()
-	 */
 	@Override
 	public void endEffect(Creature effected, int skillId)
 	{
 		effected.getGameStats().endEffect(skillId);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.effect.EffectTemplate#startEffect()
-	 */
 	@Override
-	public void startEffect(Creature effected, int skillId)
+	public void startEffect(Creature effected, int skillId, int skillLvl)
 	{
 		if(changes == null)
 			return;
@@ -100,16 +86,18 @@ public class BufEffect extends EffectTemplate
 		CreatureGameStats<? extends Creature> cgs = effected.getGameStats();
 		for(Change change : changes)
 		{
+			int valueWithDelta = change.getValue() + change.getDelta() * skillLvl;
+			
 			switch(change.getFunc())
 			{
 				case ADD:
-					cgs.addModifierOnStat(change.getStat(), new AddModifier(skillId, true, change.getValue()));
+					cgs.addModifierOnStat(change.getStat(), new AddModifier(skillId, true, valueWithDelta));
 					break;
 				case PERCENT:
-					cgs.addModifierOnStat(change.getStat(), new PercentModifier(skillId, true, change.getValue()));
+					cgs.addModifierOnStat(change.getStat(), new PercentModifier(skillId, true, String.valueOf(valueWithDelta) + "%"));
 					break;
 				case REPLACE:
-					cgs.addModifierOnStat(change.getStat(), new ReplaceModifier(skillId, change.getValue()));
+					cgs.addModifierOnStat(change.getStat(), new ReplaceModifier(skillId, valueWithDelta));
 					break;
 			}
 		}

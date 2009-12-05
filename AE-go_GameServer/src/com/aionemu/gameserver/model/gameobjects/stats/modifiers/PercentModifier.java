@@ -16,7 +16,6 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
-import com.aionemu.gameserver.model.gameobjects.AionObject;
 
 /**
  * @author xavier

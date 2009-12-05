@@ -30,9 +30,6 @@ public class PlayerMovedCondition
         return allow;
     }
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.condition.Condition#verify(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	@Override
 	public boolean verify(Env env)
 	{

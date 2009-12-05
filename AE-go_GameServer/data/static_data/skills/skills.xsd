@@ -15,7 +15,11 @@
 
 	<xs:complexType name="SkillTemplate">
 		<xs:sequence>
+			<xs:element name="initproperties" type="Properties"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="startconditions" type="Conditions"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="setproperties" type="Properties"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="useconditions" type="Conditions"
 				minOccurs="0" maxOccurs="1" />
@@ -40,9 +44,9 @@
 			<xs:element name="root" type="RootEffect" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="buf" type="BufEffect" minOccurs="0"
-				maxOccurs="unbounded" />
+				maxOccurs="1" />
 			<xs:element name="debuf" type="DebufEffect" minOccurs="0"
-				maxOccurs="unbounded" />
+				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -53,6 +57,21 @@
 			<xs:element name="target" type="TargetCondition"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="playermove" type="PlayerMovedCondition"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="arrowcheck" type="ArrowCheckCondition"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Properties">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="addweaponrange" type="AddWeaponRangeProperty" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="firsttarget" type="FirstTargetProperty"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="targetrange" type="TargetRangeProperty"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="targetrelation" type="TargetRelationProperty"
 				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
@@ -77,17 +96,26 @@
 	<xs:complexType name="Condition" abstract="true" />
 	<xs:complexType name="Action" abstract="true" />
 	<xs:complexType name="Effect" abstract="true" />
+	<xs:complexType name="Property" abstract="true" />
 
 	<!-- ACTIONS -->
 
 	<xs:complexType name="DamageAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
+				<xs:attribute name="type" type="DamageType"/>
 				<xs:attribute name="value" type="xs:int" use="required" />
 				<xs:attribute name="delta" type="xs:int"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:simpleType name="DamageType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PHYSICAL" />
+			<xs:enumeration value="MAGICAL" />
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:complexType name="ReturnAction">
 		<xs:complexContent>
@@ -136,7 +164,6 @@
 			<xs:extension base="Effect">
 				<xs:attribute name="value" type="xs:int" use="required"/>
 				<xs:attribute name="delta" type="xs:int" use="required"/>
-				<xs:attribute name="target" type="TargetAttribute"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -152,12 +179,11 @@
 	<xs:complexType name="BufEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
-				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:sequence>
 					<xs:element name="change" type="Change" minOccurs="1"
 						maxOccurs="unbounded" />
 				</xs:sequence>
 				<xs:attribute name="duration" type="xs:int" use="required"/>
-				<xs:attribute name="target" type="TargetAttribute"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -165,12 +191,11 @@
 	<xs:complexType name="DebufEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
-				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:sequence>
 					<xs:element name="change" type="Change" minOccurs="1"
 						maxOccurs="unbounded" />
 				</xs:sequence>
 				<xs:attribute name="duration" type="xs:int" use="required"/>
-				<xs:attribute name="target" type="TargetAttribute"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -203,7 +228,56 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
+	
+	<xs:complexType name="ArrowCheckCondition">
+		<xs:complexContent>
+			<xs:extension base="Condition">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<!-- PROPERTIES -->
+	
+	<!-- init properties -->
+	
+	<xs:complexType name="AddWeaponRangeProperty">
+		<xs:complexContent>
+			<xs:extension base="Property">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<!-- set properties -->
+	
+	<xs:complexType name="FirstTargetProperty">
+		<xs:complexContent>
+			<xs:extension base="Property">
+				<xs:attribute name="value" type="FirstTargetAttribute"
+					use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="TargetRangeProperty">
+		<xs:complexContent>
+			<xs:extension base="Property">
+				<xs:attribute name="value" type="TargetRangeAttribute"
+					use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="TargetRelationProperty">
+		<xs:complexContent>
+			<xs:extension base="Property">
+				<xs:attribute name="value" type="TargetRelationAttribute"
+					use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<!-- MISC -->
+	
 	<xs:simpleType name="TargetAttribute">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NPC" />
@@ -213,13 +287,13 @@
 			<xs:enumeration value="SELF" />
 		</xs:restriction>
 	</xs:simpleType>
-
-	<!-- MISC -->
 	
 	<xs:complexType name="Change">
 		<xs:attribute name="stat" type="StatEnum" use="required"/>
-		<xs:attribute name="func" type="StatFunc" use="required"/> <!-- TODO -->
+		<xs:attribute name="func" type="StatFunc" use="required"/>
+		<xs:attribute name="duration" type="xs:int"/>
 		<xs:attribute name="value" type="xs:string" use="required"/>
+		<xs:attribute name="delta" type="xs:int"/>
 	</xs:complexType>
 	
 	<xs:simpleType name="skillType">
@@ -254,6 +328,40 @@
 			<xs:enumeration value="PASSIVE" />
 		</xs:restriction>
 	</xs:simpleType>
+	
+	<xs:simpleType name="FirstTargetAttribute">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="TARGETORME" />
+			<xs:enumeration value="ME" />
+			<xs:enumeration value="MYPET" />
+			<xs:enumeration value="TARGET" />
+			<xs:enumeration value="PASSIVE" />
+			<xs:enumeration value="TARGET_MYPARTY_NONVISIBLE" />
+			<xs:enumeration value="POINT" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TargetRangeAttribute">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="ONLYONE" />
+			<xs:enumeration value="PARTY" />
+			<xs:enumeration value="AREA" />
+			<xs:enumeration value="PARTY_WITHPET" />
+			<xs:enumeration value="POINT" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="TargetRelationAttribute">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="ENEMY" />
+			<xs:enumeration value="MYPARTY" />
+			<xs:enumeration value="ALL" />
+			<xs:enumeration value="FRIEND" />
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:simpleType name="skillId">
 		<xs:restriction base="xs:int">
@@ -272,6 +380,8 @@
 	
 	<xs:simpleType name="StatEnum">
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="HPREGEN" />
+			<xs:enumeration value="MPREGEN" />
 			<xs:enumeration value="MAXHP" />
 			<xs:enumeration value="MAXDP" />
 			<xs:enumeration value="MAXHP" />
@@ -280,6 +390,7 @@
 			<xs:enumeration value="BLOCK" />
 			<xs:enumeration value="CRITICAL" />
 			<xs:enumeration value="EVASION" />
+			<xs:enumeration value="CONCENTRATION" />
 			<xs:enumeration value="WILL" />
 			<xs:enumeration value="HEALTH" />
 			<xs:enumeration value="ACCURACY" />
@@ -291,7 +402,10 @@
 			<xs:enumeration value="HIT_COUNT" />
 			<xs:enumeration value="ATTACK_RANGE" />
 			<xs:enumeration value="ATTACK_SPEED" />
+			<xs:enumeration value="PHYSICAL_ATTACK" />
 			<xs:enumeration value="PHYSICAL_DEFENSE" />
+			<xs:enumeration value="PHYSICAL_CRITICAL" />
+			<xs:enumeration value="PHYSICAL_ACCURACY" />
 			<xs:enumeration value="MAIN_HAND_ACCURACY" />
 			<xs:enumeration value="MAIN_HAND_CRITICAL" />
 			<xs:enumeration value="MAIN_HAND_POWER" />

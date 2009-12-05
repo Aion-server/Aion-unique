@@ -14,29 +14,26 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.condition;
 
-import com.aionemu.gameserver.controllers.movement.MoveObserver;
+package com.aionemu.gameserver.skillengine.properties;
+
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlType;
+
 
 /**
  * @author ATracer
- *
  */
-public class ConditionChangeListener implements MoveObserver
+@XmlType(name = "FirstTargetAttribute")
+@XmlEnum
+public enum FirstTargetAttribute 
 {
-	private boolean effectorMoved = false;
-
-	/**
-	 * @return the effectorMoved
-	 */
-	public boolean isEffectorMoved()
-	{
-		return effectorMoved;
-	}
-
-	@Override
-	public void moved()
-	{
-		effectorMoved = true;
-	}
+    NONE,
+    TARGETORME,
+    ME,
+    MYPET,
+    TARGET,
+    PASSIVE,
+    TARGET_MYPARTY_NONVISIBLE,
+    POINT
 }

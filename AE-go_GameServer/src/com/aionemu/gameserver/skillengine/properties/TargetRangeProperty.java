@@ -14,34 +14,44 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
+package com.aionemu.gameserver.skillengine.properties;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.model.Env;
 
 
 /**
  * @author ATracer
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Effect")
-public abstract class EffectTemplate 
+@XmlType(name = "TargetRangeProperty")
+public class TargetRangeProperty
+    extends Property
 {
-	/**
-	 *  Applies effect specified in template
-	 *  
-	 *  @param env
-	 */
-	public abstract void apply(Env env);
-	
-	
-	public abstract void startEffect(Creature effected, int skillId, int skillLvl);
-	
-	public abstract void endEffect(Creature effected, int skillId);
 
+    @XmlAttribute(required = true)
+    protected TargetRangeAttribute value;
+
+    /**
+     * Gets the value of the value property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TargetRangeAttribute }
+     *     
+     */
+    public TargetRangeAttribute getValue() {
+        return value;
+    }
+    
+    @Override
+	public boolean set(Env env)
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
-import com.aionemu.gameserver.model.gameobjects.AionObject;
-
 /**
  * @author xavier
  *
@@ -26,15 +24,12 @@ public class ReplaceModifier extends StatModifier
 {
 	private int value;
 	
-	public ReplaceModifier (int ownerId, String value) 
+	public ReplaceModifier (int ownerId, int value) 
 	{
-		super(ownerId,StatModifierPriority.HIGH,StatModifierSign.NONE,false);
-		this.value = Integer.parseInt(value);
+		super(ownerId,StatModifierPriority.HIGH, StatModifierSign.NONE, false);
+		this.value = value;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier#apply(int)
-	 */
 	@Override
 	public int apply(int stat)
 	{
@@ -45,7 +40,8 @@ public class ReplaceModifier extends StatModifier
 	}
 	
 	@Override
-	public String toString () {
+	public String toString () 
+	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append(",value:"+value);

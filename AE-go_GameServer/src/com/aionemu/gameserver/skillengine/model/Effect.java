@@ -90,8 +90,8 @@ public class Effect
 
 	public void startEffect()
 	{	
-		effectTemplate.startEffect(effectedObject, skillId);
-		endTime = (int) System.currentTimeMillis() + duration * 1000;
+		effectTemplate.startEffect(effectedObject, skillId, skillLevel);
+		endTime = (int) System.currentTimeMillis() + duration;
 
 		ThreadPoolManager.getInstance().scheduleEffect((new Runnable()
 		{
@@ -101,7 +101,7 @@ public class Effect
 				endEffect();
 			}
 
-		}), duration * 1000);
+		}), duration);
 	}
 
 

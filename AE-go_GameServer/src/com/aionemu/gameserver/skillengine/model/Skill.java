@@ -21,10 +21,11 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
 import com.aionemu.gameserver.skillengine.action.Action;
 import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.Condition;
-import com.aionemu.gameserver.skillengine.condition.ConditionChangeListener;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
 import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
 import com.aionemu.gameserver.skillengine.effect.Effects;
+import com.aionemu.gameserver.skillengine.properties.Properties;
+import com.aionemu.gameserver.skillengine.properties.Property;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
@@ -62,11 +63,16 @@ public class Skill
 	 */
 	public void useSkill()
 	{
+		//TODO OOP
 		if(skillTemplate.getActivationAttribute() != ActivationAttribute.ACTIVE)
 			return;
 		
+		setProperties(skillTemplate.getInitproperties());
+		
 		if(!preCastCheck())
 			return;
+		
+		setProperties(skillTemplate.getSetproperties());
 		
 		startCast();
 		env.getEffector().getController().attach(env.getConditionChangeListener());
@@ -93,7 +99,6 @@ public class Skill
 		PacketSendUtility.broadcastPacket(effector, 
 			new SM_CASTSPELL(effector.getObjectId(), skillTemplate.getSkillId(), env.getSkillLevel(),
 				unk, targetObjId, skillTemplate.getDuration()), true);
-
 	}
 	
 	/**
@@ -163,6 +168,21 @@ public class Skill
 			for(Condition condition : conditions.getConditions())
 			{
 				if(!condition.verify(env))
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	private boolean setProperties(Properties properties)
+	{
+		if(properties != null)
+		{
+			for(Property property : properties.getProperties())
+			{
+				if(!property.set(env))
 				{
 					return false;
 				}

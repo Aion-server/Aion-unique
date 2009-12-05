@@ -46,27 +46,10 @@ public class DamageAction
     
     @XmlAttribute
     protected int delta;
+    
+    @XmlAttribute(name="type")
+    protected DamageType damageType;
 
-    /**
-     * Gets the value of the value property.
-     * 
-     */
-    public int getValue() 
-    {
-        return value;
-    }
-
-    /**
-	 * @return the delta
-	 */
-	public int getDelta()
-	{
-		return delta;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.action.Action#act(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	@Override
 	public void act(Env env)
 	{
@@ -77,7 +60,10 @@ public class DamageAction
 		
 		int valueWithDelta = value + delta * env.getSkillLevel();
 		
-		switch(env.getSkillTemplate().getType())
+		if(damageType == null)
+			damageType = DamageType.valueOf(env.getSkillTemplate().getType().name());
+		
+		switch(damageType)
 		{
 			case PHYSICAL:
 				damage = StatFunctions.calculatePhysicDamageToTarget(effector, effected, valueWithDelta);

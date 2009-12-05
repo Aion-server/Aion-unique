@@ -16,7 +16,6 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
-import com.aionemu.gameserver.model.gameobjects.AionObject;
 
 /**
  * @author xavier
@@ -29,20 +28,17 @@ public class AddModifier extends StatModifier
 	 * @param modifiedStat
 	 * @param isBonus
 	 */
-	public AddModifier(int ownerId, boolean isBonus, String value, int sign)
+	public AddModifier(int ownerId, boolean isBonus, int value, int sign)
 	{
 		super(ownerId,StatModifierPriority.MEDIUM, StatModifierSign.get(sign), isBonus);
-		this.value = Integer.parseInt(value);
+		this.value = value;
 	}
 	
-	public AddModifier(int ownerId, boolean isBonus, String value)
+	public AddModifier(int ownerId, boolean isBonus, int value)
 	{
 		this(ownerId, isBonus, value, 1);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier#apply()
-	 */
 	@Override
 	public int apply(int stat)
 	{

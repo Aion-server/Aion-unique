@@ -68,6 +68,22 @@ public class Env
 	}
 
 	/**
+	 * @param effected the effected to set
+	 */
+	public void setEffected(Creature effected)
+	{
+		this.effected = effected;
+	}
+
+	/**
+	 * @param effector the effector to set
+	 */
+	public void setEffector(Creature effector)
+	{
+		this.effector = effector;
+	}
+
+	/**
 	 * @return the skillTemplate
 	 */
 	public SkillTemplate getSkillTemplate()

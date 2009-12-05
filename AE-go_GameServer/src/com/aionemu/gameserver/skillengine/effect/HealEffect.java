@@ -45,9 +45,6 @@ public class HealEffect
     
     @XmlAttribute
     protected int delta;
-    
-    @XmlAttribute(required = false)
-    protected TargetAttribute target;
 
     /**
      * Gets the value of the value property.
@@ -58,15 +55,6 @@ public class HealEffect
         return value;
     }
 
-
-	/**
-	 * @return the target
-	 */
-	public TargetAttribute getTarget()
-	{
-		return target;
-	}
-
 	@Override
 	public void apply(Env env)
 	{
@@ -76,10 +64,6 @@ public class HealEffect
 		SkillTemplate template = env.getSkillTemplate();
 		
 		int unk = 0;
-		if(target == TargetAttribute.SELF)
-		{
-			effected = effector;		
-		}
 		
 		int valueWithDelta = value + delta * env.getSkillLevel();
 		
@@ -99,11 +83,9 @@ public class HealEffect
 
 
 	@Override
-	public void startEffect(Creature effected, int skillId)
+	public void startEffect(Creature effected, int skillId, int skillLvl)
 	{
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
 }

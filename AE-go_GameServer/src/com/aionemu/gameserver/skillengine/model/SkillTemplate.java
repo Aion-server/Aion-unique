@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
 import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
 import com.aionemu.gameserver.skillengine.effect.Effects;
+import com.aionemu.gameserver.skillengine.properties.Properties;
 
 
 /**
@@ -32,17 +33,22 @@ import com.aionemu.gameserver.skillengine.effect.Effects;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "skillTemplate", propOrder = {
+	"initproperties",
     "startconditions",
+    "setproperties",
     "useconditions",
     "effects",
     "actions"
 })
-public class SkillTemplate {
-
+public class SkillTemplate 
+{
+	protected Properties initproperties;
 	protected Conditions startconditions;
+	protected Properties setproperties;
     protected Conditions useconditions;
     protected Effects effects;
     protected Actions actions;
+    
     @XmlAttribute(name = "skill_id", required = true)
     protected int skillId;
     @XmlAttribute(required = true)
@@ -59,6 +65,22 @@ public class SkillTemplate {
     protected Integer cooldown;
 
     /**
+	 * @return the initProperties
+	 */
+	public Properties getInitproperties()
+	{
+		return initproperties;
+	}
+
+	/**
+	 * @return the setProperties
+	 */
+	public Properties getSetproperties()
+	{
+		return setproperties;
+	}
+
+	/**
      * Gets the value of the startconditions property.
      * 
      * @return

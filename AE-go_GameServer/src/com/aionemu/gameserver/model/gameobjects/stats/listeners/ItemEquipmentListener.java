@@ -87,20 +87,20 @@ public class ItemEquipmentListener
 				{
 					if(statToModify.isReplace())
 					{
-						pgs.addModifierOnStat(statToModify, new ReplaceModifier(item.getObjectId(), stat.getValue()));
+						pgs.addModifierOnStat(statToModify, new ReplaceModifier(item.getObjectId(), Integer.parseInt(stat.getValue())));
 					}
 					else
 					{
 						if ((statToModify==StatEnum.MAX_DAMAGES)||(statToModify==StatEnum.MIN_DAMAGES)) 
 						{
-							pgs.addModifierOnStat(statToModify, new AddModifier(item.getObjectId(), stat.isBonus(), stat.getValue(), statToModify.getSign()));
+							pgs.addModifierOnStat(statToModify, new AddModifier(item.getObjectId(), stat.isBonus(), Integer.parseInt(stat.getValue()), statToModify.getSign()));
 							log.debug("testing damages : max:"+pgs.getBaseStat(StatEnum.MAX_DAMAGES)+",min:"+pgs.getBaseStat(StatEnum.MIN_DAMAGES));
 							if ((pgs.getBaseStat(StatEnum.MAX_DAMAGES)!=0)&&(pgs.getBaseStat(StatEnum.MIN_DAMAGES)!=0)) 
 							{
 								pgs.addModifierOnStat(StatEnum.MAIN_HAND_POWER, new PowerModifier (item.getObjectId(), pgs.getBaseStat(StatEnum.MIN_DAMAGES), pgs.getBaseStat(StatEnum.MAX_DAMAGES)));
 							}
 						} else {
-							pgs.addModifierOnStat(statToModify, new AddModifier(item.getObjectId(), stat.isBonus(), stat.getValue(), statToModify.getSign()));
+							pgs.addModifierOnStat(statToModify, new AddModifier(item.getObjectId(), stat.isBonus(), Integer.parseInt(stat.getValue()), statToModify.getSign()));
 						}
 					}
 				}
@@ -112,7 +112,7 @@ public class ItemEquipmentListener
 		if(it.getAttackType() != null)
 		{
 			pgs.addModifierOnStat(StatEnum.IS_MAGICAL_ATTACK, new ReplaceModifier(item.getObjectId(), (it.getAttackType()
-				.contains("magic")) ? "1" : "0"));
+				.contains("magic")) ?  1 : 0));
 		}
 
 		log.debug("Changed stats after equipment change of item " + item + " to player #"

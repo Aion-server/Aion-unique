@@ -53,9 +53,6 @@ public class TargetCondition
         return value;
     }
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.condition.Condition#verify(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	@Override
 	public boolean verify(Env env)
 	{
