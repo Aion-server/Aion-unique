@@ -18,11 +18,15 @@ package com.aionemu.gameserver.spawnengine;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.controllers.ActionitemController;
+import com.aionemu.gameserver.controllers.BindpointController;
 import com.aionemu.gameserver.controllers.CitizenController;
 import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.GatherableController;
 import com.aionemu.gameserver.controllers.MonsterController;
 import com.aionemu.gameserver.controllers.NpcController;
+import com.aionemu.gameserver.controllers.PostboxController;
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.gameobjects.Citizen;
@@ -102,6 +106,17 @@ public class SpawnEngine
 					break;
 				case NON_ATTACKABLE:
 					npc = new Citizen(aionObjectsIDFactory.nextId(), new CitizenController(), spawn);
+					break;
+				case POSTBOX:
+					npc = new Npc(aionObjectsIDFactory.nextId(), new PostboxController(), spawn);
+					break;
+				case RESURRECT:
+					BindpointController bindPointController = new BindpointController();
+					bindPointController.setBindPointTemplate(DataManager.BIND_POINT_DATA.getBindPointTemplate(spawn.getObjectTemplate().getTemplateId()));
+					npc = new Npc(aionObjectsIDFactory.nextId(), bindPointController, spawn);
+					break;
+				case USEITEM:
+					npc = new Npc(aionObjectsIDFactory.nextId(), new ActionitemController(), spawn);
 					break;
 				default: 
 					npc = new Npc(aionObjectsIDFactory.nextId(), new NpcController(), spawn);

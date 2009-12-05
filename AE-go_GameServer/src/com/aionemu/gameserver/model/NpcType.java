@@ -27,7 +27,13 @@ public enum NpcType
 	/** These are monsters that are pre-aggressive */
 	AGGRESSIVE(8),
 	/** These are non attackable NPCs */
-	NON_ATTACKABLE(38);
+	NON_ATTACKABLE(38),
+	/** Binding obelisks **/
+	RESURRECT(38), //TODO check
+	/** Mail boxes **/
+	POSTBOX(38),
+	/** Action item **/
+	USEITEM(38);
 	
 	private int someClientSideId;
 	

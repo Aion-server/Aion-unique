@@ -22,6 +22,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import com.aionemu.gameserver.controllers.movement.MoveObserver;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * This class is for controlling Creatures [npc's, players etc]
@@ -90,6 +91,14 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 */
 	//TODO probably do reward on list of objects
 	public void doReward(Creature creature)
+	{
+		
+	}
+	
+	/**
+	 * This method should be overriden in more specific controllers
+	 */
+	public void onDialogRequest(Player player)
 	{
 		
 	}

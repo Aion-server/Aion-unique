@@ -20,10 +20,12 @@ import java.util.concurrent.Future;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.services.DropService;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * This class is for controlling Npc's
@@ -51,11 +53,17 @@ public class NpcController extends CreatureController<Npc>
 		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
 	}
 
-
 	@Override
 	public Npc getOwner()
 	{
 		return (Npc) super.getOwner();
 	}
 
+	@Override
+	public void onDialogRequest(Player player)
+	{
+		//TODO need check here
+		PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getOwner().getObjectId(), 10));
+	}
+	
 }
