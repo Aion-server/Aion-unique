@@ -85,7 +85,12 @@ public class CM_TARGET_SELECT extends AionClientPacket
 		if(player == null)
 			return;
 		
-		int targeterOid = player.getObjectId();
+		if (player.getObjectId() == targetObjectId) 
+		{
+			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+			player.setTarget(player);
+			return;
+		}
 		
 		if(targetObjectId != 0)
 		{
