@@ -33,8 +33,9 @@ import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
-import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.dao.PlayerSettingsDAO;
+import com.aionemu.gameserver.dao.PlayerSkillListDAO;
+import com.aionemu.gameserver.dao.QuestListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
@@ -140,6 +141,7 @@ public class PlayerService
 		DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
 		DAOManager.getDAO(InventoryDAO.class).store(player.getInventory());
 		DAOManager.getDAO(PlayerSettingsDAO.class).saveSettings(player);
+		DAOManager.getDAO(QuestListDAO.class).store(player.getObjectId(), player.getQuestStateList());
 	}
 
 	/**
@@ -176,8 +178,9 @@ public class PlayerService
 		player.setLifeStats(new PlayerLifeStats(player, player.getPlayerStatsTemplate().getMaxHp(), player.getPlayerStatsTemplate().getMaxMp()));		
 		player.setEffectController(new EffectController(player));
 		
+		player.setQuestStateList(DAOManager.getDAO(QuestListDAO.class).load(player));
 		player.setInventory(DAOManager.getDAO(InventoryDAO.class).load(player));
-		
+
 		if(CacheConfig.CACHE_PLAYERS)
 			playerCache.put(playerObjId, player);	
 

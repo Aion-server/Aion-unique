@@ -38,7 +38,7 @@ public interface Desire extends Comparable<Desire>
 	 * @param ai
 	 *            actor that is doing this desire
 	 */
-	void handleDesire(AI ai);
+	void handleDesire(AI<?> ai);
 
 	/**
 	 * Returns hashcode for this object, must be overrided by child

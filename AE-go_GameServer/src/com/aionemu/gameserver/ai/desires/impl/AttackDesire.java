@@ -55,7 +55,7 @@ public final class AttackDesire extends AbstractDesire
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void handleDesire(AI ai)
+	public void handleDesire(AI<?> ai)
 	{
 		Creature owner = ai.getOwner();
 

@@ -16,24 +16,23 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.CubeExpandTemplate;
-import com.aionemu.gameserver.model.templates.TradeListTemplate;
-
-import org.apache.log4j.Logger;
+import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
+import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 /**
  * 
  * @author KKnD , orz, avol
@@ -46,8 +45,12 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */
 	private int					targetObjectId;
+	private int					dialogId;
+	@SuppressWarnings("unused")
 	private int					unk1;
-	private int					unk2;
+	@SuppressWarnings("unused")
+	private int					lastPage;
+	private int					questId;
 	private CubeExpandTemplate 	clist;
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
@@ -65,8 +68,10 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	protected void readImpl()
 	{
 		targetObjectId = readD();// empty
-		unk1 = readH(); //total no of choice
-		unk2 = readH(); //maybe answer 1
+		dialogId = readH(); //total no of choice
+		unk1 = readH();
+		lastPage = readH();
+		questId = readD();
 	}
 
 	/**
@@ -86,7 +91,10 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 			return;
 		}
 
-		switch (unk1)
+		if (QuestEngine.getInstance().doDialog(targetObjectId, questId, dialogId, player))
+			return;
+
+		switch (dialogId)
 		{
 			case 2:
 				sendPacket(new SM_TRADELIST(player, targetObjectId));
@@ -169,6 +177,9 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 					}
 				}else{sendPacket(new SM_MESSAGE(0, null, "NPC Template for this cube Expander is missing.", null, ChatType.ANNOUNCEMENTS));}
 				break;
+			case 50:
+				// WTF??? Quest dialog packet
+				break;
 			case 52:
 				//work order from lerning npc in sanctum
 				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
@@ -178,7 +189,10 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
 				break;
 			default:
-				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, unk1));
+				if (questId > 0)
+					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(targetObjectId, dialogId, questId));
+				else
+					sendPacket(new SM_DIALOG_WINDOW(targetObjectId, dialogId));
 				break;
 		}
 		//log.info("id: "+targetObjectId+" dialog type: " + unk1 +" other: " + unk2);

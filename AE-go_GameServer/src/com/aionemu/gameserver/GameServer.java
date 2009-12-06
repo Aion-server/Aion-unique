@@ -20,14 +20,14 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.commons.log4j.exceptions.Log4jInitializationError;
 import com.aionemu.commons.network.NioServer;
 import com.aionemu.commons.services.LoggingService;
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dataholders.SpawnData;
-import com.aionemu.gameserver.model.quests.qparser.QuestParser;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
+import com.aionemu.gameserver.questEngine.qparser.QuestParser;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.ThreadPoolManager;

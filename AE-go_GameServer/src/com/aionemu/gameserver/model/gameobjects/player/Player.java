@@ -16,11 +16,16 @@
  */
 package com.aionemu.gameserver.model.gameobjects.player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aionemu.commons.callbacks.Enhancable;
 import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
@@ -28,7 +33,10 @@ import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
+import com.aionemu.gameserver.questEngine.Quest;
+import com.aionemu.gameserver.questEngine.QuestEngineException;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -58,6 +66,9 @@ public class Player extends Creature
 	private PlayerGameStats		playerStatsBonus;
 	private byte[]				uiSettings;
 	private byte[]				shortcuts;
+
+	private QuestStateList 	questStateList;
+	private List<Integer> nearbyQuestList = new ArrayList<Integer>();
 	
 	
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
@@ -76,7 +87,7 @@ public class Player extends Creature
 		this.playerAppearance = appereance;
 		
 		this.requester = new ResponseRequester(this);
-		
+		this.questStateList = new QuestStateList();
 		controller.setOwner(this);
 
 	}
@@ -318,6 +329,22 @@ public class Player extends Creature
 	}
 	
 	/**
+	 * @return the questStatesList
+	 */
+	public QuestStateList getQuestStateList()
+	{
+		return questStateList;
+	}
+
+	/**
+	 * @param QuestStateList the QuestStateList to set
+	 */
+	public void setQuestStateList(QuestStateList questStateList)
+	{
+		this.questStateList = questStateList;
+	}
+
+	/**
 	 * @return the playerStatsTemplate
 	 */
 	public PlayerStatsTemplate getPlayerStatsTemplate()
@@ -333,6 +360,40 @@ public class Player extends Creature
 		this.playerStatsTemplate = playerStatsTemplate;
 	}
 
+	public void updateNearbyQuests()
+	{
+		nearbyQuestList.clear();
+		for (VisibleObject obj : getKnownList() )
+		{
+			if (obj instanceof Npc)
+			{
+				for (Quest quest : ((Npc)obj).getTemplate().getNpcQuestData().getOnQuestStart())
+				{
+					try
+					{
+						if (quest.checkStartCondition(this))
+						{
+							int questId = quest.getId();
+						    if (!nearbyQuestList.contains(questId))
+						    {
+						    	nearbyQuestList.add(questId);
+						    }
+						}
+					}
+					catch(QuestEngineException e)
+					{
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		PacketSendUtility.sendPacket( this, new SM_NEARBY_QUESTS(nearbyQuestList));
+	}
+
+	public List<Integer> getNearbyQuests()
+	{
+		return nearbyQuestList;
+	}
 	/**
 	 * @param inventory the inventory to set
 	 * Inventory should be set right after player object is created

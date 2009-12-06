@@ -46,6 +46,9 @@ public class StaticData
 
 	@XmlElement(name = "bind_points")
 	public BindPointData 			bindPointData;
+
+	@XmlElement(name = "quests")
+	public QuestsData			questData;
 	
 	@XmlElement(name = "player_experience_table")
 	public PlayerExperienceTable	playerExperienceTable;
@@ -89,7 +92,8 @@ public class StaticData
 		DataManager.log.info("Loaded " + skillData.size() + " skill templates");
 		DataManager.log.info("Loaded " + skillTreeData.size() + " skill learn entries");
 		DataManager.log.info("Loaded " + cubeExpandData.size() + " cube expand entries");
-		DataManager.log.info("Loaded " + bindPointData.size() + " bind point entries");	
+		DataManager.log.info("Loaded " + bindPointData.size() + " bind point entries");
+		DataManager.log.info("Loaded " + questData.size() + " quest data entries");	
 		DataManager.log.info("Loaded " + gatherableData.size() + " gatherable entries");	
 	}
 }

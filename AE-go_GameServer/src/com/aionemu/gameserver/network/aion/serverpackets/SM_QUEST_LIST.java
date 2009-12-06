@@ -17,33 +17,70 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import com.aionemu.gameserver.questEngine.QuestState;
+import com.aionemu.gameserver.questEngine.types.QuestStatus;
 
 /**
- * @author orz, xTr
+ * @author MrPoke
  *
  */
 public class SM_QUEST_LIST extends AionServerPacket
 {
+	
+	private List<QuestState> compliteQuestList = new ArrayList<QuestState>();
+	private List<QuestState> startedQuestList = new ArrayList<QuestState>();
+
+	public SM_QUEST_LIST(Player player)
+	{
+		for (QuestState qs : player.getQuestStateList().getAllQuestState())
+		{
+			if (qs.getStatus() == QuestStatus.COMPLITE)
+				compliteQuestList.add(qs);
+			else
+				startedQuestList.add(qs);
+		}
+	}
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		int questList[] = { 2200, 2300, 1130, 1007, 1006, 2008, 2009, 1300 };
-		
-		writeH(buf, questList.length); // quest list size ( max is 25 )
+		//temp solution to enable teleports
+		// TODO remove this as this quests are implemented
+		int[] questList = { 2200, 2300, 1130, 1007, 1006, 2008, 2009, 1300 };
 
-		for(int i = 0; i < questList.length; i++)
+		writeH(buf, compliteQuestList.size() + questList.length);
+		for (QuestState qs : compliteQuestList)
 		{
-			writeH(buf, questList[i]);
+			writeH(buf, qs.getQuestId());
 			writeC(buf, 1);
 		}
 		
-		writeC(buf, 0); // pinned quests list size
+		for(int questId : questList)
+		{
+			writeH(buf, questId);
+			writeC(buf, 1);
+		}
+		
+		writeC(buf, startedQuestList.size());
+		for (QuestState qs : startedQuestList) // quest list size ( max is 25 )
+		{
+			writeH(buf, qs.getQuestId());
+			writeH(buf, 0);
+		}
+		for (QuestState qs : startedQuestList)
+		{
+			writeC(buf, qs.getStatus().value());
+			writeD(buf, qs.getQuestVars().getQuestVars());
+			writeC(buf, 0);
+		}
 	}
 
 }

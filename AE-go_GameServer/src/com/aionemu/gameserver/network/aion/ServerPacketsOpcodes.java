@@ -70,6 +70,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_RESULT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MAY_LOGIN_INTO_GAME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NICKNAME_CHECK_RESPONSE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PING_RESPONSE;
@@ -82,6 +83,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUIT_RESPONSE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RECONNECT_KEY;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RESTORE_CHARACTER;
@@ -123,8 +125,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK68;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK6C;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK6D;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK73;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK76;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK77;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK80;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK89;
@@ -257,8 +257,6 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNK6C.class, 0x6F, idSet);
 		addPacketOpcode(SM_UNK6D.class, 0x6C, idSet);
 		addPacketOpcode(SM_UNK73.class, 0x72, idSet);
-		addPacketOpcode(SM_UNK76.class, 0x79, idSet);
-		addPacketOpcode(SM_UNK77.class, 0x77, idSet);
 		addPacketOpcode(SM_UNK7B.class, 0x7A, idSet);
 		addPacketOpcode(SM_UNK80.class, 0x80, idSet);
 		addPacketOpcode(SM_UNK89.class, 0x89, idSet);
@@ -291,6 +289,9 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_EXCHANGE_REQUEST.class, 0x62, idSet);
 		addPacketOpcode(SM_EXCHANGE_ADD_ITEM.class, 0x65, idSet);
 		addPacketOpcode(SM_EXCHANGE_ADD_KINAH.class, 0x67, idSet);
+
+		addPacketOpcode(SM_QUEST_STEP.class, 0x77, idSet);
+		addPacketOpcode(SM_NEARBY_QUESTS.class, 0x79, idSet);
 
 		//Unrecognized Opcodes from 1.5.0:
 		//addPacketOpcode(SM_VIRTUAL_AUTH.class, 0xE4, idSet);

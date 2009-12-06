@@ -41,6 +41,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
+import com.aionemu.gameserver.questEngine.QuestState;
+import com.aionemu.gameserver.questEngine.types.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -74,7 +76,7 @@ public class DropService
 	 * After NPC dies - it can register arbitrary drop
 	 * @param npc
 	 */
-	public void registerDrop(Npc npc)
+	public void registerDrop(Npc npc, Player player)
 	{
 		int npcUniqueId = npc.getObjectId();
 		int npcTemplateId = npc.getTemplate().getTemplateId();
@@ -94,6 +96,15 @@ public class DropService
 			for(DropTemplate dropTemplate : templates)
 			{
 				DropItem dropItem = new DropItem(dropTemplate, index++);
+				int questId = dropItem.getDropTemplate().getQuest();
+				if (questId != 0)
+				{
+					if (player == null)
+						continue;
+					QuestState qs = player.getQuestStateList().getQuestState(questId);
+					if (qs != null && qs.getStatus() != QuestStatus.START)
+						continue;
+				}
 				dropItem.calculateCount();
 
 				if(dropItem.getCount() > 0)

@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.items.NpcEquippedGear;
+import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
 import com.aionemu.gameserver.model.templates.stats.NpcRank;
 import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
 
@@ -59,6 +60,11 @@ public class NpcTemplate implements VisibleObjectTemplate
 	private int					ammoSpeed		= 0;
 	@XmlAttribute(name = "rank")
 	private NpcRank				rank;
+	
+	// TODO [ATracer]
+	//      this instance variable can highly affect performance
+	// if create for every npc object -> moved to sync method to lazy init it
+	private NpcQuestData 	questData;
 
 	public int getTemplateId()
 	{
@@ -117,6 +123,14 @@ public class NpcTemplate implements VisibleObjectTemplate
 	public void setStatsTemplate(NpcStatsTemplate statsTemplate)
 	{
 		this.statsTemplate = statsTemplate;
+	}
+
+	public synchronized NpcQuestData getNpcQuestData()
+	{
+		if(questData == null)
+			questData = new NpcQuestData();
+		
+		return questData;
 	}
 
 	/**

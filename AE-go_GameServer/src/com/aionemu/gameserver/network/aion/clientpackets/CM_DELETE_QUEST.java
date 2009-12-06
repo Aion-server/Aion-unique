@@ -16,11 +16,10 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import java.util.Random;
-
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_DELETE;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 
 public class CM_DELETE_QUEST extends AionClientPacket
 {
@@ -41,10 +40,10 @@ public class CM_DELETE_QUEST extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-
 		Player player = getConnection().getActivePlayer();
+		if (!QuestEngine.getInstance().deleteQuest(player, questId))
+			return;
 		sendPacket(new SM_QUEST_DELETE(questId));
-		//player.removeQuest(questId);
-		//player.updateNearbyQuests();
+		player.updateNearbyQuests();
 	}
 }

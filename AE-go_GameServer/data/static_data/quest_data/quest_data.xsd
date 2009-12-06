@@ -1,0 +1,69 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+            jxb:version="2.1">
+
+	<xs:element name="quests" type="QuestsTemplates" />
+	
+	<xs:complexType name="QuestsTemplates">
+		<xs:sequence>
+			<xs:element name="quest" type="QuestTemplate" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="QuestTemplate">
+		<xs:sequence>
+			<xs:element name="drops" type="QuestDrop" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="collect_items" type="CollectItems" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="rewards" type="Rewards" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="finished_quest_conds" type="FinishedQuestConds" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:int"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="minlevel_permitted" type="xs:int"/>
+		<xs:attribute name="max_repeat_count" type="xs:int"/>
+		<xs:attribute name="cannot_share" type="xs:int"/>
+		<xs:attribute name="cannot_giveup" type="xs:int"/>
+		<xs:attribute name="f_mission" type="xs:int"/>
+		<xs:attribute name="race_permitted" type="xs:string"/>
+	</xs:complexType>
+	
+	<xs:complexType name="QuestDrop">
+		<xs:sequence>
+			<xs:element name="drop" type="Drop" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CollectItems">
+		<xs:sequence>
+			<xs:element name="collect_item" type="CollectItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Rewards" >
+		<xs:sequence/>
+			<xs:attribute name="reward_id" type="xs:int"/>
+			<xs:attribute name="gold" type="xs:int"/>
+			<xs:attribute name="exp" type="xs:int"/>
+			<xs:attribute name="reward_abyss_point" type="xs:int"/>
+			<xs:attribute name="title" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="Drop" >
+		<xs:sequence/>
+			<xs:attribute name="npc_id" type="xs:int"/>
+			<xs:attribute name="item_id" type="xs:int"/>
+			<xs:attribute name="chance" type="xs:int"/>
+	</xs:complexType>
+	
+	<xs:complexType name="CollectItem" >
+		<xs:sequence/>
+			<xs:attribute name="item_id" type="xs:int"/>
+			<xs:attribute name="count" type="xs:int"/>
+	</xs:complexType>
+
+	<xs:complexType name="FinishedQuestConds">
+		<xs:sequence>
+			<xs:element name="finished_quest_cond" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -80,7 +80,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	/**
 	 *  Perform drop operation
 	 */
-	public void doDrop()
+	public void doDrop(Player player)
 	{
 		
 	}

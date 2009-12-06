@@ -42,7 +42,7 @@ public final class DataManager
 	 * 
 	 * @see NpcData
 	 */
-	public final NpcData				NPC_DATA;
+	public static NpcData				NPC_DATA;
 	
 	/**
 	 * Gatherable data is keeping information about all gatherables.
@@ -81,6 +81,8 @@ public final class DataManager
 	public static CubeExpandData 		CUBEEXPANDER_DATA;
 	
 	public static BindPointData 		BIND_POINT_DATA;
+	
+	public static QuestsData			QUEST_DATA;
 	/**
 	 * 
 	 */
@@ -137,7 +139,7 @@ public final class DataManager
 		
 		CUBEEXPANDER_DATA = data.cubeExpandData;
 		BIND_POINT_DATA = data.bindPointData;
-
+		QUEST_DATA     = data.questData;
 		
 		// some sexy time message
 		long seconds = time / 1000;

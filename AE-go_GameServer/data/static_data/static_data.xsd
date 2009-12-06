@@ -18,6 +18,7 @@
 	<xs:include schemaLocation="bind_points/bind_points.xsd" />
 	<xs:include schemaLocation="cube_expander/cube_expander.xsd" />
 	<xs:include schemaLocation="gatherables/gatherable_templates.xsd" />
+	<xs:include schemaLocation="quest_data/quest_data.xsd" />
 	
 	<xs:element name="ae_static_data">
 		<xs:complexType>
@@ -37,6 +38,7 @@
 				<xs:element ref="bind_points" minOccurs="0" />
 				<xs:element ref="cube_expander" minOccurs="0" />
 				<xs:element ref="gatherable_templates" minOccurs="0" />
+				<xs:element ref="quests" minOccurs="0" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

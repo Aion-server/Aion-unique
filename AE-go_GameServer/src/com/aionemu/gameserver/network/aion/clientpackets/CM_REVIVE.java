@@ -24,7 +24,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
-import com.aionemu.gameserver.utils.stats.ClassStats;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -77,7 +76,7 @@ public class CM_REVIVE extends AionClientPacket
 		activePlayer.getPlayerStatsTemplate().getMaxMp()));
 		
 		sendPacket(SM_SYSTEM_MESSAGE.REVIVE);	
-		sendPacket(new SM_QUEST_LIST());
+		sendPacket(new SM_QUEST_LIST(activePlayer));
 		sendPacket(new SM_STATS_INFO(activePlayer));			
 		sendPacket(new SM_PLAYER_INFO(activePlayer, true));	
 		

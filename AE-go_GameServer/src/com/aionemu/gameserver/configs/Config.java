@@ -117,6 +117,12 @@ public class Config
 	public static int				XP_RATE;
 	
 	/*
+	 * Quest Xp Rate
+	 */
+	@Property(key = "gameserver.rate.quest.xp",defaultValue = "1")
+	public static int				QUEST_XP_RATE;
+	
+	/*
 	 * Drop Rate
 	 */
 	@Property(key = "gameserver.rate.drop",defaultValue = "1")

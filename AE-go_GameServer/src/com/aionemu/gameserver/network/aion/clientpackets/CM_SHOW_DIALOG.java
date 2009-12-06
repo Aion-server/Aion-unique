@@ -23,6 +23,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -66,12 +67,13 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 	protected void runImpl()
 	{
 		AionObject targetObject = world.findAionObject(targetObjectId);
-
-		if(targetObject == null)
-			return;
-
 		Player player = getConnection().getActivePlayer();
-		if(player == null)
+		
+		if(targetObject == null || player == null)
+				return;
+
+		//TODO [ATracer] refactor to onDialogRequest
+		if (QuestEngine.getInstance().doDialog(targetObjectId, 0, 10, player))
 			return;
 
 		//TODO this is not needed for all dialog requests

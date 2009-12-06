@@ -99,5 +99,8 @@
 	<gatherable_templates>
 		<import file="gatherables" skipRoot="true" />
 	</gatherable_templates>
-
+	
+	<quests>
+		<import file="quest_data" skipRoot="true"/>
+	</quests>
 </ae_static_data>

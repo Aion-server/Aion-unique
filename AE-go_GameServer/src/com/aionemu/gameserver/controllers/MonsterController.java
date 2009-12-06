@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.ai.AIState;
 import com.aionemu.gameserver.ai.events.AttackEvent;
 import com.aionemu.gameserver.ai.npcai.MonsterAi;
@@ -29,6 +31,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.events.QuestEvent;
 import com.aionemu.gameserver.services.DecayService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -41,14 +45,13 @@ import com.aionemu.gameserver.world.World;
  */
 public class MonsterController extends NpcController
 {
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.controllers.CreatureController#doDrop()
-	 */
+	private static Logger log = Logger.getLogger(MonsterController.class);
+	
 	@Override
-	public void doDrop()
+	public void doDrop(Player player)
 	{
-		super.doDrop();
-		dropService.registerDrop((Monster) getOwner());
+		super.doDrop(player);
+		dropService.registerDrop((Monster) getOwner() , player);
 		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
 	}
 
@@ -68,6 +71,17 @@ public class MonsterController extends NpcController
 
 			PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Long.toString(xpReward)));
 
+			for (QuestEvent questEvent : getOwner().getTemplate().getNpcQuestData().getOnKillEvent())
+			{
+				try
+				{
+					questEvent.operate(player, getOwner().getNpcId());
+				}
+				catch(QuestEngineException e)
+				{
+					// TODO [ATracer] i want to get rid of questengine exceptions
+				}
+			}
 		}
 	}
 	
@@ -136,11 +150,11 @@ public class MonsterController extends NpcController
 		monsterAi.setAiState(AIState.NONE);
 		
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13 , getOwner().getObjectId()));
-		this.doDrop();
 
 		//TODO change - now reward is given to target only
 		Player target = (Player) this.getOwner().getTarget();
 		this.doReward(target);
+		this.doDrop(target);
 		
 		if(decayTask == null)
 		{

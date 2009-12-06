@@ -36,10 +36,13 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHERABLE_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.questEngine.Quest;
+import com.aionemu.gameserver.questEngine.QuestEngineException;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -72,7 +75,29 @@ public class PlayerController extends CreatureController<Player>
 		}
 		else if(object instanceof Npc)
 		{
+			boolean update = false;
 			PacketSendUtility.sendPacket(getOwner(), new SM_NPC_INFO((Npc) object));
+			for (Quest quest : ((Npc)object).getTemplate().getNpcQuestData().getOnQuestStart())
+			{
+				try
+				{
+					if (quest.checkStartCondition(getOwner()))
+					{
+						int questId = quest.getId();
+					    if (!getOwner().getNearbyQuests().contains(questId))
+					    {
+					    	update = true;
+					    	getOwner().getNearbyQuests().add(questId);
+					    }
+					}
+				}
+				catch(QuestEngineException e)
+				{
+					continue;
+				}
+			}
+			if (update)
+				PacketSendUtility.sendPacket( getOwner(), new SM_NEARBY_QUESTS(getOwner().getNearbyQuests()));
 		}
 		else if(object instanceof Gatherable)
 		{
@@ -87,6 +112,32 @@ public class PlayerController extends CreatureController<Player>
 	public void notSee(VisibleObject object)
 	{
 		super.notSee(object);
+		if (object instanceof Npc)
+		{
+			boolean update = false;
+			for (Quest quest : ((Npc)object).getTemplate().getNpcQuestData().getOnQuestStart())
+			{
+				try
+				{
+					if (quest.checkStartCondition(getOwner()))
+					{
+						int questId = quest.getId();
+					    if (getOwner().getNearbyQuests().contains(questId))
+					    {
+					    	update = true;
+					    	getOwner().getNearbyQuests().remove(getOwner().getNearbyQuests().indexOf(questId));
+					    }
+					}
+				}
+				catch(QuestEngineException e)
+				{
+					continue;
+				}
+			}
+			if (update)
+				PacketSendUtility.sendPacket( getOwner(), new SM_NEARBY_QUESTS(getOwner().getNearbyQuests()));
+		}
+
 		PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object));
 	}
 
@@ -102,6 +153,7 @@ public class PlayerController extends CreatureController<Player>
 
 		// TODO probably introduce variable - last attack creature in player AI
 		Player player = this.getOwner();
+		//TODO move to DuelController
 		if (lastAttacker instanceof Player) { // PvP
 			this.lostDuelWith((Player)lastAttacker);
 			((Player)lastAttacker).getController().wonDuelWith(player);
@@ -187,10 +239,10 @@ public class PlayerController extends CreatureController<Player>
 	 * @see com.aionemu.gameserver.controllers.CreatureController#doDrop()
 	 */
 	@Override
-	public void doDrop()
+	public void doDrop(Player player)
 	{
 		// TODO Auto-generated method stub
-		super.doDrop();
+		super.doDrop(player);
 	}
 
 	/* (non-Javadoc)
