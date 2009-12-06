@@ -134,6 +134,12 @@ public class Config
 	@Property(key = "gameserver.shutdown.delay",defaultValue = "60")
 	public static int				SERVER_SHUTDOWN_DELAY;
 	
+	/*
+	 * Factions speaking mode
+	 */
+	@Property(key = "gameserver.factions.speaking.mode",defaultValue = "0")
+	public static int				FACTIONS_SPEAKING_MODE;
+	
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
 	 */

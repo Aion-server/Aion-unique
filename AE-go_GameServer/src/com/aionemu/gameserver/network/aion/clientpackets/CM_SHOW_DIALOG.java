@@ -72,9 +72,13 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 		if(targetObject == null || player == null)
 				return;
 
-		//TODO [ATracer] refactor to onDialogRequest
-		if (QuestEngine.getInstance().doDialog(targetObjectId, 0, 10, player))
-			return;
+		//TODO this is temporal check and should be removed after both races can fight to each other
+		if(targetObject instanceof Npc)
+		{
+			//TODO [ATracer] refactor to onDialogRequest
+			if (QuestEngine.getInstance().doDialog(targetObjectId, 0, 10, player))
+				return;
+		}
 
 		//TODO this is not needed for all dialog requests
 		sendPacket(new SM_LOOKATOBJECT(targetObjectId, player.getObjectId(), Math.abs(128 - player.getHeading())));

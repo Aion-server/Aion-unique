@@ -161,8 +161,6 @@ public class CM_ENTER_WORLD extends AionClientPacket
 
 			//items
 			Inventory inventory = player.getInventory();
-
-			//TODO send <= 10 items at once only
 			List<Item> equipedItems = inventory.getEquippedItems();
 			if(equipedItems.size() != 0)
 			{

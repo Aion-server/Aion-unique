@@ -76,7 +76,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeD(buf, raceSex);
 		writeD(buf, raceSex);
 
-		writeC(buf, 0x26); // unk
+		writeC(buf, 0x26); // unk 0x00 - name in red
 		writeC(buf, raceId); //race
 		writeC(buf, pcd.getPlayerClass().getClassId());
 		writeC(buf, genderId); //sex

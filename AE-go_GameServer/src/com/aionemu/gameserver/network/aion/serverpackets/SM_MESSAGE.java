@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -106,9 +107,11 @@ public class SM_MESSAGE extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		boolean canRead = true;
+
 		if(race != null)
 		{
-			canRead = race.equals(con.getActivePlayer().getCommonData().getRace());
+			canRead = race.equals(con.getActivePlayer().getCommonData().getRace()) 
+				|| Config.FACTIONS_SPEAKING_MODE == 1;
 		}
 
 		writeC(buf, chatType.toInteger()); // type
