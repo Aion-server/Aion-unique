@@ -16,13 +16,13 @@
  */
 package com.aionemu.gameserver.model.gameobjects.player;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 
-import java.util.Collections;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.HashMap;
+import com.aionemu.gameserver.model.gameobjects.PersistentState;
 
 /**
  * Created on: 15.07.2009 19:33:07
@@ -42,21 +42,21 @@ public class SkillList
 	/**
 	 * Container of skilllist, position to xml.
 	 */
-	private final Map<Integer, Integer> skills;
+	private final Map<Integer, SkillListEntry> skills;
 
 	/**
 	 * Creates an empty skill list
 	 */
 	public SkillList()
 	{
-		this.skills = new HashMap<Integer, Integer>();
+		this.skills = new HashMap<Integer, SkillListEntry>();
 	}
 
 	/**
 	 * Create new instance of <tt>SkillList</tt>.
 	 * @param arg 
 	 */
-	public SkillList(Map<Integer, Integer> arg)
+	public SkillList(Map<Integer, SkillListEntry> arg)
 	{
 		this.skills = arg;
 	}
@@ -65,9 +65,27 @@ public class SkillList
 	 * Returns map with all skilllist 
 	 * @return all skilllist
 	 */
-	public Map<Integer, Integer> getSkillList()
+	public Map<Integer, SkillListEntry> getSkillMap()
 	{
 		return Collections.unmodifiableMap(skills);
+	}
+	
+	/**
+	 * Returns array with all skills
+	 * @return
+	 */
+	public SkillListEntry[] getAllSkills()
+	{
+		return skills.values().toArray(new SkillListEntry[skills.size()]);
+	}
+	
+	/**
+	 * @param skillId
+	 * @return
+	 */
+	public SkillListEntry getSkillEntry(int skillId)
+	{
+		return skills.get(skillId);
 	}
 
 	/**
@@ -79,13 +97,21 @@ public class SkillList
 	 */
 	public synchronized boolean addSkill(int skillId, int skillLevel)
 	{
-		if (skills.containsKey(skillId) && skills.get(skillId) > skillLevel)
+		SkillListEntry existingSkill = skills.get(skillId);
+		if (existingSkill != null)
 		{
-			logger.warn("Trying to add skill with lower skill level. ");
-			return false;
+			if(existingSkill.getSkillLevel() > skillLevel)
+			{
+				logger.warn("Trying to add skill with lower skill level. ");
+				return false;
+			}
+			existingSkill.setSkillLvl(skillLevel);
 		}
-
-		skills.put(skillId, skillLevel);
+		else
+		{
+			skills.put(skillId, new SkillListEntry(skillId, skillLevel, PersistentState.NEW));
+		}
+		
 		return true;
 	}
 	
@@ -103,10 +129,11 @@ public class SkillList
 	/**
 	 * @param skillId
 	 * @return level of the skill with specified skillId
+	 * 
 	 */
 	public int getSkillLevel(int skillId)
 	{
-		return skills.get(skillId);
+		return skills.get(skillId).getSkillLevel();
 	}
 	
 	/**
@@ -117,12 +144,5 @@ public class SkillList
 	{
 		return skills.size();
 	}
-
-	/**
-	 * Returns an entry set of skill id to skill contents.
-	 */
-	public Set<Entry<Integer, Integer>> entrySet()
-	{
-		return Collections.unmodifiableSet(getSkillList().entrySet());
-	}
+	
 }

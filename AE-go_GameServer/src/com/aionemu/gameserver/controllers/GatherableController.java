@@ -25,6 +25,7 @@ import com.aionemu.gameserver.controllers.movement.MoveObserver;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.gather.Material;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHER_STATUS;
@@ -110,13 +111,13 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	private boolean checkPlayerSkill(final Player player, final GatherableTemplate template)
 	{
 		//check skill is available
-		Integer skillLevel = player.getSkillList().getSkillList().get(template.getHarvestSkill());
-		if(skillLevel == null)
+		SkillListEntry skillEntry = player.getSkillList().getSkillMap().get(template.getHarvestSkill());
+		if(skillEntry == null)
 		{
 			//TODO send some message ?
 			return false;
 		}
-		if(skillLevel < template.getSkillLevel())
+		if(skillEntry.getSkillLevel() < template.getSkillLevel())
 		{
 			//TODO send some message ?
 			return false;

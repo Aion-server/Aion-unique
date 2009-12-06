@@ -22,6 +22,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerDAO;
+import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.Gender;
@@ -233,6 +234,7 @@ public class PlayerCommonData
 			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 			//add new skills
 			SkillLearnService.addNewSkills(player, false);
+			DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
 			
 			//save player at this point
 			DAOManager.getDAO(PlayerDAO.class).storePlayer(player);

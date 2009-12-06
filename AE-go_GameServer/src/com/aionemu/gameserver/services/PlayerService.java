@@ -124,7 +124,10 @@ public class PlayerService
 	 */
 	public boolean storeNewPlayer(Player player, String accountName, int accountId)
 	{
-		return DAOManager.getDAO(PlayerDAO.class).saveNewPlayer(player.getCommonData(), accountId, accountName) && DAOManager.getDAO(PlayerAppearanceDAO.class).store(player);
+		return DAOManager.getDAO(PlayerDAO.class).saveNewPlayer(player.getCommonData(), accountId, accountName) 
+		&& DAOManager.getDAO(PlayerAppearanceDAO.class).store(player)
+		&& DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player)
+		&& DAOManager.getDAO(InventoryDAO.class).store(player.getInventory());
 	}
 
 	/**
@@ -158,9 +161,7 @@ public class PlayerService
 		player = new Player(new PlayerController(), pcd, appereance);
 		player.setMacroList(macroses);
 		
-		SkillList sl = DAOManager.getDAO(PlayerSkillListDAO.class).loadSkillList(playerObjId);
-		player.setSkillList(sl);
-		
+		player.setSkillList(DAOManager.getDAO(PlayerSkillListDAO.class).loadSkillList(playerObjId));
 		player.setKnownlist(new KnownList(player));
 		player.setFriendList(DAOManager.getDAO(FriendListDAO.class).load(player, world));
 		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player,world));
@@ -169,16 +170,13 @@ public class PlayerService
 
 		player.setExchangeList(new ExchangeList());
 
-		player.setPlayerStatsTemplate(DataManager.PLAYER_STATS_DATA.getTemplate(player));
-		
+		player.setPlayerStatsTemplate(DataManager.PLAYER_STATS_DATA.getTemplate(player));	
 		
 		player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA,player));
-		player.setLifeStats(new PlayerLifeStats(player, player.getPlayerStatsTemplate().getMaxHp(), player.getPlayerStatsTemplate().getMaxMp()));
-		
+		player.setLifeStats(new PlayerLifeStats(player, player.getPlayerStatsTemplate().getMaxHp(), player.getPlayerStatsTemplate().getMaxMp()));		
 		player.setEffectController(new EffectController(player));
-
-		Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(player);
-		player.setInventory(inventory);
+		
+		player.setInventory(DAOManager.getDAO(InventoryDAO.class).load(player));
 		
 		if(CacheConfig.CACHE_PLAYERS)
 			playerCache.put(playerObjId, player);	
@@ -236,9 +234,6 @@ public class PlayerService
 			
 			playerInventory.onLoadHandler(item);
 		}	
-		
-		// Save starting inventory
-		DAOManager.getDAO(InventoryDAO.class).store(playerInventory);
 		
 		return newPlayer;
 	}
@@ -323,7 +318,6 @@ public class PlayerService
 	 */
 	void deletePlayerFromDB(int playerId)
 	{
-		DAOManager.getDAO(PlayerSkillListDAO.class).deleteSkills(playerId);
 		DAOManager.getDAO(PlayerDAO.class).deletePlayer(playerId);
 	}
 

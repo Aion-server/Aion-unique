@@ -16,24 +16,20 @@
  */
 package mysql5;
 
-import com.aionemu.gameserver.dao.InventoryDAO;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.SkillList;
-import com.aionemu.gameserver.model.gameobjects.Item;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
-
-import org.apache.log4j.Logger;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+import com.aionemu.gameserver.dao.InventoryDAO;
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * @author ATracer
@@ -45,9 +41,6 @@ public class MySQL5InventoryDAO extends InventoryDAO
 
     public static final String SELECT_QUERY = "SELECT `itemUniqueId`, `itemId`, `itemCount`, `isEquiped`, `slot` FROM `inventory` WHERE `itemOwner`=?";
 
-    /* (non-Javadoc)
-     * @see com.aionemu.gameserver.dao.InventoryDAO#load(int)
-     */
     @Override
     public Inventory load(Player player)
     {
@@ -81,23 +74,23 @@ public class MySQL5InventoryDAO extends InventoryDAO
         return inventory;
     }
 
-    /* (non-Javadoc)
-     * @see com.aionemu.gameserver.dao.InventoryDAO#store(com.aionemu.gameserver.model.gameobjects.player.Inventory)
-     */
     @Override
-    public void store(Inventory inventory)
+    public boolean store(Inventory inventory)
     {
         int playerId = inventory.getOwner().getObjectId();
         List<Item> inventoryItems = inventory.getAllItems();
-
+        
+        boolean resultSuccess = true;
         for(Item item : inventoryItems)
         {
-            store(item, playerId);      
+        	resultSuccess = store(item, playerId);      
         } 
+        return resultSuccess;
     }
 
     /**
      * @param item
+     * @param playerId
      * @return
      */
     public boolean store(final Item item, final int playerId)
@@ -120,9 +113,6 @@ public class MySQL5InventoryDAO extends InventoryDAO
                 });
     }
 
-    /* (non-Javadoc)
-     * @see com.aionemu.gameserver.dao.InventoryDAO#delete(com.aionemu.gameserver.model.gameobjects.Item)
-     */
     @Override
     public void delete(Item item) 
     {
@@ -138,9 +128,6 @@ public class MySQL5InventoryDAO extends InventoryDAO
         DB.executeUpdateAndClose(statement);
     }
 
-    /* (non-Javadoc)
-     * @see com.aionemu.gameserver.dao.IDFactoryAwareDAO#getUsedIDs()
-     */
     @Override
     public int[] getUsedIDs() 
     {

@@ -18,6 +18,7 @@
 package com.aionemu.gameserver.dao;
 
 import com.aionemu.commons.database.dao.DAO;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 
 
@@ -26,6 +27,7 @@ import com.aionemu.gameserver.model.gameobjects.player.SkillList;
  * Edited On:  13.09.2009 19:48:00
  *
  * @author IceReaper, orfeo087, Avol, AEJTester
+ * 
  */
 public abstract class PlayerSkillListDAO implements DAO
 {
@@ -46,14 +48,6 @@ public abstract class PlayerSkillListDAO implements DAO
 	 * @return a list of skilllist for player
 	 */
 	public abstract SkillList loadSkillList(int playerId);
-
-	public abstract void deleteSkills(int playerId);
-
-	/**
-	 * Add a skill information into database
-	 * @param playerId player object id
-	 */
-	public abstract void addSkill(int playerId, int skillId, int skillLevel);
 	
 	/**
 	 *  Updates skill with new information
@@ -62,6 +56,6 @@ public abstract class PlayerSkillListDAO implements DAO
 	 * @param skillId
 	 * @param skillLevel
 	 */
-	public abstract void updateSkill(int playerId, int skillId, int skillLevel);
+	public abstract boolean storeSkills(Player player);
 
 }

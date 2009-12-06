@@ -34,7 +34,7 @@ public abstract class InventoryDAO implements IDFactoryAwareDAO
 	/**
 	 * @param inventory
 	 */
-	public abstract void store(Inventory inventory);
+	public abstract boolean store(Inventory inventory);
 	
 	/**
 	 * @param item

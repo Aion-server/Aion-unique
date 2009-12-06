@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.skillengine;
 
-import java.util.Collections;
-
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -69,17 +67,7 @@ public class SkillLearnService
 			{
 				//TODO message should be SM_SKILL_LIST.YOU_LEARNED
 				PacketSendUtility.sendPacket(player,
-					new SM_SKILL_LIST(Collections.singletonMap(template.getSkillId(), template.getSkillLevel()),
-						0));
-			}
-			
-			if(template.getSkillLevel() == 1)
-			{
-				DAOManager.getDAO(PlayerSkillListDAO.class).addSkill(player.getObjectId(), template.getSkillId(), template.getSkillLevel());
-			}
-			else
-			{
-				DAOManager.getDAO(PlayerSkillListDAO.class).updateSkill(player.getObjectId(), template.getSkillId(), template.getSkillLevel());
+					new SM_SKILL_LIST(player.getSkillList().getSkillEntry(template.getSkillId())));
 			}
 		}
 	}

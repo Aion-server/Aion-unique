@@ -17,9 +17,9 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.util.Map;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -34,7 +34,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_SKILL_LIST extends AionServerPacket
 {
 
-	private Map<Integer, Integer> skillList;
+	private SkillListEntry[] skillList;
 	private int messageId;
 	public static final int YOU_LEARNED_SKILL = 1300050;
 
@@ -46,7 +46,13 @@ public class SM_SKILL_LIST extends AionServerPacket
 
 	public SM_SKILL_LIST(Player player)
  	{
-		this.skillList = player.getSkillList().getSkillList();
+		this.skillList = player.getSkillList().getAllSkills();
+		this.messageId = 0;
+ 	}
+	
+	public SM_SKILL_LIST(SkillListEntry skillListEntry)
+ 	{
+		this.skillList = new SkillListEntry[]{skillListEntry};
 		this.messageId = 0;
  	}
 	
@@ -55,7 +61,7 @@ public class SM_SKILL_LIST extends AionServerPacket
 	 *  
 	 * @param skillList
 	 */
-	public SM_SKILL_LIST(Map<Integer, Integer> skillList, int messageId)
+	public SM_SKILL_LIST(SkillListEntry[] skillList, int messageId)
 	{
 		this.skillList = skillList;
 		this.messageId = messageId;
@@ -68,15 +74,15 @@ public class SM_SKILL_LIST extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 
-		final int size = skillList.size();
+		final int size = skillList.length;
 		writeH(buf, size);//skills list size
 		
 		if (size > 0)
 		{
-			for (Map.Entry<Integer, Integer> entry : skillList.entrySet())
+			for (SkillListEntry entry : skillList)
 			{
-				writeH(buf, entry.getKey());//id
-				writeD(buf, entry.getValue());//lvl
+				writeH(buf, entry.getSkillId());//id
+				writeD(buf, entry.getSkillLevel());//lvl
 				writeD(buf, 0);//use time? [s]
 				writeC(buf, 0);//unk
 			}
