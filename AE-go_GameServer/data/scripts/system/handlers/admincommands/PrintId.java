@@ -61,7 +61,7 @@ public class PrintId extends AdminCommand
 		}
 		else if (parameter == 1 && admin.getTarget() != null)
 		{	 
-			PacketSendUtility.sendMessage(admin, "Your target id is : " + admin.getTarget().getObjectId());
+			PacketSendUtility.sendMessage(admin, "Your target id is : " + admin.getTarget().getObjectId()+"\nX="+admin.getTarget().getX()+" Y="+admin.getTarget().getY()+" Z="+admin.getTarget().getZ()+"\nHeading="+admin.getTarget().getHeading());
 		}
 	}
 }

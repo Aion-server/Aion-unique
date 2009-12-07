@@ -66,47 +66,38 @@ public class CM_EMOTION extends AionClientPacket
 	protected void readImpl()
 	{
 		unknown = readC();
-		if(unknown == 0x01)
-		{
-			// jump
-		}
-		else if(unknown == 0x4)
-		{
-			//Sit (Nothing to do)
-		}
-		else if(unknown == 0x5)
-		{
-			//standing (Nothing to do)
-		}
-		else if(unknown == 0x11)
-		{
-			// Nothing here
-		}
-		else if(unknown == 0x10)
-		{
-			emotion = readH();
-		} 
-		else if(unknown == 0x13)
-		{
-			//emotion = readH();
-		} 
-		else if(unknown == 0x8)
-		{
-			// fly up
-		} 
-		else if(unknown == 0x9)
-		{
-			// land
-		} 
-		else if(unknown == 0x14)
-		{
-			// duel end
-		}
-		else
-		{
+		switch(unknown){
+        case 0x0:
+        //select target
+        case 0x01:
+		// jump
+		case 0x4:
+		//Sit (Nothing to do)
+		case 0x5:
+		//standing (Nothing to do)
+        case 0x8:
+		// fly up
+		case 0x9:
+		// land
+		case 0x11:
+		// Nothing here
+        case 0x13:
+		//emotion = readH();
+        case 0x14:
+		// duel end
+        case 0x21:
+        //get equip weapon
+        case 0x22:
+        //remove equip weapon
+		break;
+		case 0x10:
+		emotion = readH();
+		break;
+		default:
 			log.info("Unknown emotion type? 0x" + Integer.toHexString(unknown).toUpperCase());
 		}
-	}
+        }
+
 
 	/**
 	 * Send emotion packet
