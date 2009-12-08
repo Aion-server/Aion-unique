@@ -30,6 +30,8 @@ import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.dao.PlayerDAO;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
@@ -199,7 +201,18 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				float z = resultSet.getFloat("z");
 				byte heading = resultSet.getByte("heading");
 				int worldId = resultSet.getInt("world_id");
-
+				
+				if(z < -1000)
+				{
+					//unstuck unlucky characters :)
+					LocationData ld = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(cd.getRace());
+					x = ld.getX();
+					y = ld.getY();
+					z = ld.getZ();
+					heading = ld.getHeading();
+					worldId = ld.getMapId();
+				}		
+				
 				WorldPosition position = world.createPosition(worldId, x, y, z, heading);
 				cd.setPosition(position);
 			}
