@@ -64,10 +64,9 @@ public enum MovementType
 	MOVEMENT_STAYIN_ELEVATOR(24),
 	MOVEMENT_JUMPIN_ELEVATOR(-48), //sometimes not jump
 	MOVEMENT_VALIDATEIN_ELEVATOR(-112), //unk
-	MOVEMEMNT_MOVIN_ELEVATOR(16);
-
-	//TODO
-	//UNKNOWN5(-28);
+	MOVEMEMNT_MOVIN_ELEVATOR(16),
+	
+	UNKNOWN(1);
 
 	private int	typeId;
 
@@ -102,6 +101,7 @@ public enum MovementType
 			if(mt.typeId == id)
 				return mt;
 		}
-		throw new IllegalArgumentException("Unsupported movement type: " + id);
+		return UNKNOWN;
+		//throw new IllegalArgumentException("Unsupported movement type: " + id);
 	}
 }

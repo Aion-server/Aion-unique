@@ -65,7 +65,8 @@ public class CM_MOVE extends AionClientPacket
 		z = readF();
 
 		byte heading = (byte) readC();
-		MovementType type = MovementType.getMovementTypeById((byte)readC());
+		byte movementType = (byte) readC();
+		MovementType type = MovementType.getMovementTypeById(movementType);
 
 		switch(type)
 		{
@@ -85,6 +86,15 @@ public class CM_MOVE extends AionClientPacket
 			case MOVEMENT_STOP:
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);
 				world.updatePosition(player, x, y, z, heading);
+				break;
+			case UNKNOWN:
+				StringBuilder sb = new StringBuilder();
+				sb.append("Unknown movement type: ").append(movementType);
+				sb.append("Coordinates: X=").append(x);
+				sb.append(" Y=").append(y);
+				sb.append(" Z=").append(z);
+				sb.append(" player=").append(player.getName());
+				log.warn(sb.toString());
 				break;
 			default:
 				break;
