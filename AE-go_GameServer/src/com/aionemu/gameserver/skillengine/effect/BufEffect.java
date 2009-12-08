@@ -25,13 +25,14 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.AddModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.PercentModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.ReplaceModifier;
 import com.aionemu.gameserver.skillengine.change.Change;
-import com.aionemu.gameserver.skillengine.condition.TargetAttribute;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.Env;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
@@ -43,6 +44,8 @@ import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 @XmlType(name = "BufEffect")
 public class BufEffect extends EffectTemplate
 {
+	private static final Logger log = Logger.getLogger(BufEffect.class);
+	
 	@XmlElements({
         @XmlElement(name = "change", type = Change.class)
     })
@@ -86,6 +89,12 @@ public class BufEffect extends EffectTemplate
 		CreatureGameStats<? extends Creature> cgs = effected.getGameStats();
 		for(Change change : changes)
 		{
+			if(change.getStat() == null)
+			{
+				log.warn("Skill stat has wrong name for skillid: " + skillId);
+				continue;
+			}
+			
 			int valueWithDelta = change.getValue() + change.getDelta() * skillLvl;
 			
 			switch(change.getFunc())
