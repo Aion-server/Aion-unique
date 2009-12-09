@@ -16,9 +16,9 @@
 
 	<tradelist_template npc_id="203530" name="Kirhen" count="1" listId0="32"/>
 
-	<tradelist_template npc_id="203542" name="Denma" count="1" listId0="264"/>
+	<tradelist_template npc_id="203542" name="Denma" count="1" listId0="132"/>
 
-	<tradelist_template npc_id="798038" name="Crizpinerk" count="1" listId0="264"/>
+	<tradelist_template npc_id="798038" name="Crizpinerk" count="1" listId0="132"/>
 
 
 	<!-- Altgard -->
@@ -120,7 +120,18 @@
 
 	<tradelist_template npc_id="204059" name="Freyr" count="2" listId0="45" listId1="46"/>
 
+	<tradelist_template npc_id="204105" name="Mima" count="3" listId0="88" listId1="94" listId2="479"/>
 
+	<tradelist_template npc_id="204203" name="Njomi" count="1" listId0="290"/>
+	
+	<tradelist_template npc_id="204173" name="Jeckrow" count="1" listId0="349"/>
+	
+	<tradelist_template npc_id="204062" name="Groa" count="1" listId0="118"/>
+	
+	<tradelist_template npc_id="204117" name="Olda" count="4" listId0="295" listId1="296" listId2="297" listId3="475"/>
+	
+	<tradelist_template npc_id="204262" name="Skan" count="2" listId0="359" listId1="360"/>
+	
 	<!-- Poeta -->
 	<!-- Akarios Village -->
 	<tradelist_template npc_id="203061" name="Uno" count="1" listId0="265"/>
@@ -139,7 +150,7 @@
 
 	<tradelist_template npc_id="203090" name="Kagas" count="1" listId0="32"/>
 
-	<tradelist_template npc_id="798007" name="Minalinerk" count="1" listId0="264"/>
+	<tradelist_template npc_id="798007" name="Minalinerk" count="1" listId0="132"/>
 
 
 	<!-- Verteron -->
@@ -197,7 +208,7 @@
 
 	<tradelist_template npc_id="203709" name="Clymene" count="1" listId0="119"/>
 
-	<tradelist_template npc_id="798013" name="Chiwurinerk" count="1" listId0="60"/>
+	<tradelist_template npc_id="798013" name="Chiwurinerk" count="3" listId0="60" listId1="66" listId2="478"/>
 
 	<tradelist_template npc_id="203787" name="Darius" count="2" listId0="67" listId1="61"/>
 
@@ -277,13 +288,52 @@
 
 	<tradelist_template npc_id="204535" name="Maximus" count="3" listId0="118" listId1="197" listId2="155"/>
 
+	<tradelist_template npc_id="798097" name="Tabrinerk" count="2" listId0="220" listId1="444"/>
 
 
 	<!-- Brusthonin -->
 	<tradelist_template npc_id="205120" name="Blume" count="2" listId0="118" listId1="353"/>
 
+	<tradelist_template npc_id="205121" name="Jarnsaxa" count="1" listId0="471"/>
 
+	<tradelist_template npc_id="205218" name="Jadorunerk" count="1" listId0="477"/>
+	
+	<tradelist_template npc_id="205146" name="Banes" count="2" listId0="118" listId1="469"/>
+	
+	<tradelist_template npc_id="205221" name="Hjuki" count="4" listId0="389" listId1="390" listId2="391" listId3="392"/>
+	
+	<tradelist_template npc_id="205147" name="Sandvika" count="1" listId0="471"/>
+	
+	<tradelist_template npc_id="205220" name="Suttung" count="4" listId0="493" listId1="494" listId2="495" listId3="496"/>
+	
+	
 	<!-- Morheim -->
 	<tradelist_template npc_id="790011" name="Grammati" count="2" listId0="118" listId1="318"/>
 
+	<tradelist_template npc_id="790012" name="Valumcus" count="1" listId0="471"/>
+	
+	<tradelist_template npc_id="204335" name="Aprily" count="2" listId0="118" listId1="318"/>
+	
+	<tradelist_template npc_id="204321" name="Arnkell" count="4" listId0="310" listId1="311" listId2="312" listId3="313"/>
+	
+	<tradelist_template npc_id="205179" name="Bubu Lin" count="2" listId0="118" listId1="477"/>
+	
+	<tradelist_template npc_id="204375" name="Otis" count="1" listId0="471"/>
+	
+	<tradelist_template npc_id="204322" name="Verbern" count="5" listId0="365" listId1="366" listId2="367" listId3="368" listId4="369"/>
+	
+	
+	<!-- Beluslan -->
+	<tradelist_template npc_id="204731" name="Aurvandil" count="1" listId0="471"/>
+	
+	<tradelist_template npc_id="204737" name="Furiga" count="1" listId0="471"/>
+	
+	<tradelist_template npc_id="204727" name="Kari" count="5" listId0="365" listId1="366" listId2="367" listId3="368" listId4="369"/>
+	
+	<tradelist_template npc_id="204728" name="Lapion" count="2" listId0="118" listId1="401"/>
+	
+	<tradelist_template npc_id="204730" name="Mundilfari" count="1" listId0="373"/>
+	
+	<tradelist_template npc_id="204726" name="Sturluson" count="4" listId0="321" listId1="322" listId2="323" listId3="324"/>
+	
 </npc_trade_list>
