@@ -103,7 +103,10 @@ public enum StatEnum
 	SPIN_RESISTANCE("arspin"),
 	STAGGER_RESISTANCE("arstagger"),
 	STUMBLE_RESISTANCE("arstumble"),
-	STUN_RESISTANCE("arstun");
+	STUN_RESISTANCE("arstun"),
+	
+	REGEN_MP("mpregen"),
+	REGEN_HP("hpregen");
 	
 	private String name;
 	private boolean replace;

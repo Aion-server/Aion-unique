@@ -5810,7 +5810,7 @@
             <buf duration="180000">
                 <change stat="PVP_DEFEND_RATIO" duration="180000" func="ADD" delta="0" value="100"/>
                 <change stat="MAXHP" duration="180000" func="PERCENT" delta="0" value="50"/>
-                <change stat="HPREGEN" duration="180000" func="ADD" delta="0" value="50"/>
+                <change stat="REGEN_HP" duration="180000" func="ADD" delta="0" value="50"/>
             </buf>
         </effects>
         <actions>
@@ -7340,7 +7340,7 @@
         </useconditions>
         <effects>
             <buf duration="300000">
-                <change stat="HPREGEN" duration="300000" func="ADD" delta="0" value="50"/>
+                <change stat="REGEN_HP" duration="300000" func="ADD" delta="0" value="50"/>
             </buf>
         </effects>
         <actions>
@@ -7362,7 +7362,7 @@
         </useconditions>
         <effects>
             <buf duration="300000">
-                <change stat="HPREGEN" duration="300000" func="ADD" delta="0" value="65"/>
+                <change stat="REGEN_HP" duration="300000" func="ADD" delta="0" value="65"/>
             </buf>
         </effects>
         <actions>
@@ -8468,7 +8468,7 @@
         </useconditions>
         <effects>
             <buf duration="300000">
-                <change stat="HPREGEN" duration="300000" func="ADD" delta="0" value="80"/>
+                <change stat="REGEN_HP" duration="300000" func="ADD" delta="0" value="80"/>
             </buf>
         </effects>
         <actions>
@@ -16332,7 +16332,7 @@
         <effects>
             <buf duration="300000">
                 <change stat="MAXHP" duration="300000" func="PERCENT" delta="0" value="20"/>
-                <change stat="HPREGEN" duration="300000" func="PERCENT" delta="0" value="20"/>
+                <change stat="REGEN_HP" duration="300000" func="PERCENT" delta="0" value="20"/>
             </buf>
         </effects>
         <actions>
@@ -20140,7 +20140,7 @@
         </setproperties>
         <effects>
             <buf duration="1800000">
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="21"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="21"/>
                 <change stat="FIRE_RESISTANCE" duration="1800000" func="ADD" delta="0" value="20"/>
                 <change stat="WATER_RESISTANCE" duration="1800000" func="ADD" delta="0" value="20"/>
             </buf>
@@ -20161,7 +20161,7 @@
         </setproperties>
         <effects>
             <buf duration="1800000">
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="33"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="33"/>
                 <change stat="FIRE_RESISTANCE" duration="1800000" func="ADD" delta="0" value="25"/>
                 <change stat="WATER_RESISTANCE" duration="1800000" func="ADD" delta="0" value="25"/>
             </buf>
@@ -20182,7 +20182,7 @@
         </setproperties>
         <effects>
             <buf duration="1800000">
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="45"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="45"/>
                 <change stat="FIRE_RESISTANCE" duration="1800000" func="ADD" delta="0" value="30"/>
                 <change stat="WATER_RESISTANCE" duration="1800000" func="ADD" delta="0" value="30"/>
             </buf>
@@ -20484,7 +20484,7 @@
         </setproperties>
         <effects>
             <buf duration="1800000">
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="56"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="56"/>
                 <change stat="FIRE_RESISTANCE" duration="1800000" func="ADD" delta="0" value="35"/>
                 <change stat="WATER_RESISTANCE" duration="1800000" func="ADD" delta="0" value="35"/>
             </buf>
@@ -25567,7 +25567,7 @@
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="8233" name="STR_SYSTEM_SKILL_CH_AuraStatUpAreaHPRegenEffect" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8233" name="STR_SYSTEM_SKILL_CH_AuraStatUpAreaREGEN_HPEffect" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="TARGET"/>
             <targetrange value="ONLYONE"/>
@@ -25578,7 +25578,7 @@
         </useconditions>
         <effects>
             <buf duration="6500">
-                <change stat="HPREGEN" duration="6500" func="ADD" delta="0" value="12"/>
+                <change stat="REGEN_HP" duration="6500" func="ADD" delta="0" value="12"/>
             </buf>
         </effects>
         <actions>
@@ -25706,7 +25706,7 @@
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="8241" name="STR_SYSTEM_SKILL_CH_AuraStatUpAreaMPRegenEffect" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8241" name="STR_SYSTEM_SKILL_CH_AuraStatUpAreaREGEN_MPEffect" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="TARGET"/>
             <targetrange value="ONLYONE"/>
@@ -30222,7 +30222,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="78000"/>
-                <change stat="MPREGEN" duration="1200000" func="ADD" delta="0" value="400"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="400"/>
             </buf>
         </effects>
         <actions>
@@ -30241,7 +30241,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="93600"/>
-                <change stat="MPREGEN" duration="1200000" func="ADD" delta="0" value="480"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="480"/>
             </buf>
         </effects>
         <actions>
@@ -30260,7 +30260,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="109200"/>
-                <change stat="MPREGEN" duration="1200000" func="ADD" delta="0" value="560"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="560"/>
             </buf>
         </effects>
         <actions>
@@ -30279,7 +30279,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="124800"/>
-                <change stat="MPREGEN" duration="1200000" func="ADD" delta="0" value="640"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="640"/>
             </buf>
         </effects>
         <actions>
@@ -30298,7 +30298,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="156000"/>
-                <change stat="MPREGEN" duration="1200000" func="ADD" delta="0" value="800"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="800"/>
             </buf>
         </effects>
         <actions>
@@ -30317,7 +30317,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="78000"/>
-                <change stat="MPREGEN" duration="1200000" func="ADD" delta="0" value="400"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="400"/>
             </buf>
         </effects>
         <actions>
@@ -30336,7 +30336,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="93600"/>
-                <change stat="MPREGEN" duration="1200000" func="ADD" delta="0" value="480"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="480"/>
             </buf>
         </effects>
         <actions>
@@ -30355,7 +30355,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="109200"/>
-                <change stat="MPREGEN" duration="1200000" func="ADD" delta="0" value="560"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="560"/>
             </buf>
         </effects>
         <actions>
@@ -30374,7 +30374,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="124800"/>
-                <change stat="MPREGEN" duration="1200000" func="ADD" delta="0" value="640"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="640"/>
             </buf>
         </effects>
         <actions>
@@ -30393,7 +30393,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="156000"/>
-                <change stat="MPREGEN" duration="1200000" func="ADD" delta="0" value="800"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="800"/>
             </buf>
         </effects>
         <actions>
@@ -31783,7 +31783,7 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="HPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -31801,7 +31801,7 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -31972,7 +31972,7 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="HPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="0" value="0"/>
                 <change stat="POWER" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
@@ -31991,7 +31991,7 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="0"/>
                 <change stat="KNOWLEDGE" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
@@ -32791,8 +32791,8 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="HPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -32810,8 +32810,8 @@
         </useconditions>
         <effects>
             <buf duration="600000">
-                <change stat="HPREGEN" duration="600000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="600000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -33121,7 +33121,7 @@
         </useconditions>
         <effects>
             <buf duration="900000">
-                <change stat="HPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -33139,7 +33139,7 @@
         </useconditions>
         <effects>
             <buf duration="900000">
-                <change stat="MPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -33310,7 +33310,7 @@
         </useconditions>
         <effects>
             <buf duration="900000">
-                <change stat="HPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="0" value="0"/>
                 <change stat="POWER" duration="900000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
@@ -33329,7 +33329,7 @@
         </useconditions>
         <effects>
             <buf duration="900000">
-                <change stat="MPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="0" value="0"/>
                 <change stat="KNOWLEDGE" duration="900000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
@@ -33348,8 +33348,8 @@
         </useconditions>
         <effects>
             <buf duration="900000">
-                <change stat="HPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -33367,7 +33367,7 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="HPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -33385,7 +33385,7 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="MPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -33556,7 +33556,7 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="HPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="0" value="0"/>
                 <change stat="POWER" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
@@ -33575,7 +33575,7 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="MPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="0" value="0"/>
                 <change stat="KNOWLEDGE" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
@@ -33594,8 +33594,8 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="HPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -33613,7 +33613,7 @@
         </useconditions>
         <effects>
             <buf duration="900000">
-                <change stat="HPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -33631,7 +33631,7 @@
         </useconditions>
         <effects>
             <buf duration="900000">
-                <change stat="MPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -33856,8 +33856,8 @@
         </useconditions>
         <effects>
             <buf duration="900000">
-                <change stat="HPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -33875,7 +33875,7 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="HPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -33893,7 +33893,7 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -34118,8 +34118,8 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="HPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -34137,7 +34137,7 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="HPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -34155,7 +34155,7 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="MPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -34380,8 +34380,8 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="HPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -34414,7 +34414,7 @@
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="8919" name="STR_FOOD_HPREGEN" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="8919" name="STR_FOOD_REGEN_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -34425,14 +34425,14 @@
         </useconditions>
         <effects>
             <buf duration="900000">
-                <change stat="HPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="8920" name="STR_FOOD_MPREGEN" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="8920" name="STR_FOOD_REGEN_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -34443,7 +34443,7 @@
         </useconditions>
         <effects>
             <buf duration="900000">
-                <change stat="MPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -34594,7 +34594,7 @@
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="8929" name="STR_FOOD_HPREGEN_MPREGEN" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="8929" name="STR_FOOD_REGEN_HP_REGEN_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -34605,8 +34605,8 @@
         </useconditions>
         <effects>
             <buf duration="900000">
-                <change stat="HPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -34746,7 +34746,7 @@
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="8937" name="STR_FOOD_HPREGEN" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="8937" name="STR_FOOD_REGEN_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -34757,14 +34757,14 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="HPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="8938" name="STR_FOOD_MPREGEN" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="8938" name="STR_FOOD_REGEN_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -34775,7 +34775,7 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -34926,7 +34926,7 @@
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="8947" name="STR_FOOD_HPREGEN_MPREGEN" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="8947" name="STR_FOOD_REGEN_HP_REGEN_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -34937,8 +34937,8 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="HPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -35358,7 +35358,7 @@
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="8969" name="STR_FOOD_HPREGEN" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="8969" name="STR_FOOD_REGEN_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -35369,14 +35369,14 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="HPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="8970" name="STR_FOOD_MPREGEN" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="8970" name="STR_FOOD_REGEN_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -35387,7 +35387,7 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="MPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -35538,7 +35538,7 @@
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="8979" name="STR_FOOD_HPREGEN_MPREGEN" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="8979" name="STR_FOOD_REGEN_HP_REGEN_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -35549,8 +35549,8 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="HPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -37055,8 +37055,8 @@
         </useconditions>
         <effects>
             <buf duration="600000">
-                <change stat="HPREGEN" duration="600000" func="ADD" delta="0" value="8"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="12"/>
+                <change stat="REGEN_HP" duration="600000" func="ADD" delta="0" value="8"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="12"/>
             </buf>
         </effects>
         <actions>
@@ -37131,8 +37131,8 @@
         </useconditions>
         <effects>
             <buf duration="600000">
-                <change stat="HPREGEN" duration="600000" func="ADD" delta="0" value="8"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="12"/>
+                <change stat="REGEN_HP" duration="600000" func="ADD" delta="0" value="8"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="12"/>
             </buf>
         </effects>
         <actions>
@@ -37736,7 +37736,7 @@
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="9111" name="STR_FOOD_HPREGEN_MPREGEN_TROUBLE" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="9111" name="STR_FOOD_REGEN_HP_REGEN_MP_TROUBLE" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -37747,15 +37747,15 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="HPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="9112" name="STR_COMBO_FOOD_HPREGEN_MPREGEN_TROUBLE" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="9112" name="STR_COMBO_FOOD_REGEN_HP_REGEN_MP_TROUBLE" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -37766,8 +37766,8 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
-                <change stat="HPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
-                <change stat="MPREGEN" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="0" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="0" value="0"/>
             </buf>
         </effects>
         <actions>
@@ -40869,7 +40869,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="78000"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="400"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="400"/>
             </buf>
         </effects>
         <actions>
@@ -40888,7 +40888,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="93600"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="480"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="480"/>
             </buf>
         </effects>
         <actions>
@@ -40907,7 +40907,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="109200"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="560"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="560"/>
             </buf>
         </effects>
         <actions>
@@ -40926,7 +40926,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="124800"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="640"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="640"/>
             </buf>
         </effects>
         <actions>
@@ -40945,7 +40945,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="156000"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="800"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="800"/>
             </buf>
         </effects>
         <actions>
@@ -40964,7 +40964,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="78000"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="400"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="400"/>
             </buf>
         </effects>
         <actions>
@@ -40983,7 +40983,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="93600"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="480"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="480"/>
             </buf>
         </effects>
         <actions>
@@ -41002,7 +41002,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="109200"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="560"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="560"/>
             </buf>
         </effects>
         <actions>
@@ -41021,7 +41021,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="124800"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="640"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="640"/>
             </buf>
         </effects>
         <actions>
@@ -41040,7 +41040,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="156000"/>
-                <change stat="MPREGEN" duration="600000" func="ADD" delta="0" value="800"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="800"/>
             </buf>
         </effects>
         <actions>
@@ -41731,7 +41731,7 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="HPREGEN" duration="1800000" func="PERCENT" delta="0" value="10"/>
+                <change stat="REGEN_HP" duration="1800000" func="PERCENT" delta="0" value="10"/>
             </buf>
         </effects>
         <actions>
@@ -41774,7 +41774,7 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
-                <change stat="MPREGEN" duration="1800000" func="PERCENT" delta="0" value="10"/>
+                <change stat="REGEN_MP" duration="1800000" func="PERCENT" delta="0" value="10"/>
             </buf>
         </effects>
         <actions>

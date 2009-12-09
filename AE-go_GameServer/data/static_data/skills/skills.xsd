@@ -380,8 +380,8 @@
 	
 	<xs:simpleType name="StatEnum">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="HPREGEN" />
-			<xs:enumeration value="MPREGEN" />
+			<xs:enumeration value="REGEN_HP" />
+			<xs:enumeration value="REGEN_MP" />
 			<xs:enumeration value="MAXHP" />
 			<xs:enumeration value="MAXDP" />
 			<xs:enumeration value="MAXHP" />
