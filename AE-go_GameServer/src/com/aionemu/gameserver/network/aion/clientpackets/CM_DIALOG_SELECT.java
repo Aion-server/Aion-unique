@@ -116,7 +116,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				break;
 			case 27:
 				//Consign trade?? npc karinerk, koorunerk
-				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 13));
 				break;
 			case 29:
 				//soul healing
