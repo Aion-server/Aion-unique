@@ -31,6 +31,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.QuestEngineException;
 import com.aionemu.gameserver.questEngine.events.QuestEvent;
 import com.aionemu.gameserver.services.DecayService;
@@ -71,7 +72,7 @@ public class MonsterController extends NpcController
 
 			PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Long.toString(xpReward)));
 
-			for (QuestEvent questEvent : getOwner().getTemplate().getNpcQuestData().getOnKillEvent())
+			for (QuestEvent questEvent : QuestEngine.getInstance().getNpcQuestData(getOwner().getNpcId()).getOnKillEvent())
 			{
 				try
 				{

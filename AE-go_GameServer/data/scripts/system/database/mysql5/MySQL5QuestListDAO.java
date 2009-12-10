@@ -42,7 +42,8 @@ public class MySQL5QuestListDAO extends QuestListDAO
 {
     private static final Logger log = Logger.getLogger(MySQL5QuestListDAO.class);
 
-    public static final String SELECT_QUERY = "SELECT `player_id`, `quest_id`, `status`, `quest_vars` FROM player_quests WHERE `player_id`=?";
+    public static final String SELECT_QUERY = "SELECT `player_id`, `quest_id`, `status`, `quest_vars`, `complite_count` FROM player_quests WHERE `player_id`=?";
+
 
     @Override
     public QuestStateList load(final Player player)
@@ -67,8 +68,9 @@ public class MySQL5QuestListDAO extends QuestListDAO
 						int questId = rset.getInt("quest_id");
 						Quest quest = QuestEngine.getInstance().getQuest(questId);
 	                    int questVars = rset.getInt("quest_vars");
+	                    int compliteCount = rset.getInt("complite_count");
 	                    QuestStatus status = QuestStatus.valueOf(rset.getString("status"));
-	                    QuestState questState = new QuestState(quest, status, questVars);
+	                    QuestState questState = new QuestState(quest, status, questVars, compliteCount);
 	                    questStateList.addQuest(questId, questState);
 					}
 					catch(QuestEngineException e)
@@ -95,8 +97,8 @@ public class MySQL5QuestListDAO extends QuestListDAO
     {   
         //TODO decide on performance
         return DB.insertUpdate("REPLACE INTO player_quests ("
-                + "`player_id`, `quest_id`, `status`, `quest_vars`)" + " VALUES "
-                + "(?, ?, ?, ?" + ")", new IUStH() {
+                + "`player_id`, `quest_id`, `status`, `quest_vars`, `complite_count`)" + " VALUES "
+                + "(?, ?, ?, ?, ?" + ")", new IUStH() {
                     @Override
                     public void handleInsertUpdate(PreparedStatement ps) throws SQLException
                     {
@@ -104,6 +106,7 @@ public class MySQL5QuestListDAO extends QuestListDAO
                         ps.setInt(2, questState.getQuestId());
                         ps.setString(3, questState.getStatus().toString());
                         ps.setInt(4, questState.getQuestVars().getQuestVars());
+                        ps.setInt(5, questState.getCompliteCount());
                         ps.execute();
                     }
                 });

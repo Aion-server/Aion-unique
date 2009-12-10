@@ -36,6 +36,7 @@ import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.questEngine.Quest;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.QuestEngineException;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -367,7 +368,7 @@ public class Player extends Creature
 		{
 			if (obj instanceof Npc)
 			{
-				for (Quest quest : ((Npc)obj).getTemplate().getNpcQuestData().getOnQuestStart())
+				for (Quest quest : QuestEngine.getInstance().getNpcQuestData(((Npc)obj).getNpcId()).getOnQuestStart())
 				{
 					try
 					{

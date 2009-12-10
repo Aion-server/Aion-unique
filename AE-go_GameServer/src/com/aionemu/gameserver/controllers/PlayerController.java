@@ -42,6 +42,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.Quest;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.QuestEngineException;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.Skill;
@@ -76,8 +77,9 @@ public class PlayerController extends CreatureController<Player>
 		else if(object instanceof Npc)
 		{
 			boolean update = false;
-			PacketSendUtility.sendPacket(getOwner(), new SM_NPC_INFO((Npc) object));
-			for (Quest quest : ((Npc)object).getTemplate().getNpcQuestData().getOnQuestStart())
+			Npc npc = ((Npc)object);
+			PacketSendUtility.sendPacket(getOwner(), new SM_NPC_INFO(npc));
+			for (Quest quest : QuestEngine.getInstance().getNpcQuestData(npc.getNpcId()).getOnQuestStart())
 			{
 				try
 				{
@@ -115,7 +117,7 @@ public class PlayerController extends CreatureController<Player>
 		if (object instanceof Npc)
 		{
 			boolean update = false;
-			for (Quest quest : ((Npc)object).getTemplate().getNpcQuestData().getOnQuestStart())
+			for (Quest quest : QuestEngine.getInstance().getNpcQuestData(((Npc)object).getNpcId()).getOnQuestStart())
 			{
 				try
 				{

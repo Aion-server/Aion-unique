@@ -185,6 +185,7 @@ CREATE TABLE `player_quests` (
 `quest_id` int(10) unsigned NOT NULL default '0',
 `status` varchar(10) NOT NULL default 'NONE',
 `quest_vars` int(10) unsigned NOT NULL default '0',
+`complite_count` int(3) unsigned NOT NULL default '0',
 PRIMARY KEY (`player_id`,`quest_id`),
 FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

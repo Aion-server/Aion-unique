@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.questEngine;
 
 import static com.aionemu.gameserver.configs.Config.QUEST_XP_RATE;
+import static com.aionemu.gameserver.configs.Config.QUEST_KINAH_RATE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,9 +58,9 @@ public class Quest
 		this.id = id;
 		this.baseConditions = new ConditionSet();
 		if (startNpcId > 0)
-			DataManager.NPC_DATA.getNpcTemplate(startNpcId).getNpcQuestData().addOnQuestStart(this);
+			QuestEngine.getInstance().setNpcQuestData(startNpcId).addOnQuestStart(this);
 		if (endNpcId > 0)
-			DataManager.NPC_DATA.getNpcTemplate(endNpcId).getNpcQuestData().addOnQuestEnd(this);
+			QuestEngine.getInstance().setNpcQuestData(endNpcId).addOnQuestEnd(this);
 	}
 
 	public int getId()
@@ -127,8 +128,20 @@ public class Quest
 		}
 
     	PacketSendUtility.sendPacket(player, new SM_QUEST_ACCEPTED(id, 3, 0));
-		QuestState state = new QuestState(this, QuestStatus.START, 0);
-		player.getQuestStateList().addQuest(getId(), state);
+		QuestState qs = player.getQuestStateList().getQuestState(getId());
+		if (qs == null)
+		{
+			qs = new QuestState(this, QuestStatus.START, 0, 0);
+			player.getQuestStateList().addQuest(getId(), qs);
+		}
+		else
+		{
+			if (questTemplate.getMaxRepeatCount() >= qs.getCompliteCount())
+			{
+				qs.setStatus(QuestStatus.START);
+				qs.getQuestVars().setQuestVar(0);
+			}
+		}
     	player.updateNearbyQuests();
 		return true;
 	}
@@ -143,7 +156,7 @@ public class Quest
 		Rewards rewards = questTemplate.getRewards().get(0);
 		if (rewards.getGold()!= null)
 		{
-			inventory.increaseKinah(rewards.getGold());
+			inventory.increaseKinah(QUEST_KINAH_RATE*rewards.getGold());
 			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
 		}
 		if (rewards.getExp() != null)
@@ -156,6 +169,7 @@ public class Quest
 
 		qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0)+1);
 		qs.setStatus(QuestStatus.COMPLITE);
+		qs.setCompliteCount(qs.getCompliteCount()+1);
 		PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus() , qs.getQuestVars().getQuestVars()));
 		player.updateNearbyQuests();
 		return true;

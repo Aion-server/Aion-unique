@@ -42,7 +42,7 @@ public class SM_QUEST_LIST extends AionServerPacket
 		{
 			if (qs.getStatus() == QuestStatus.COMPLITE)
 				compliteQuestList.add(qs);
-			else
+			else if (qs.getStatus() != QuestStatus.NONE)
 				startedQuestList.add(qs);
 		}
 	}

@@ -91,7 +91,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 			return;
 		}
 
-		if (QuestEngine.getInstance().doDialog(targetObjectId, questId, dialogId, player))
+		if (QuestEngine.getInstance().onDialog(targetObjectId, questId, dialogId, player))
 			return;
 
 		switch (dialogId)

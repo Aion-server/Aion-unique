@@ -42,7 +42,7 @@ public final class DataManager
 	 * 
 	 * @see NpcData
 	 */
-	public static NpcData				NPC_DATA;
+	public final NpcData				NPC_DATA;
 	
 	/**
 	 * Gatherable data is keeping information about all gatherables.

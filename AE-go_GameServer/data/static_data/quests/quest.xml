@@ -46,9 +46,9 @@
 	<quest id="1111" start_npc_id="203075" end_npc_id = "203075" />
 
 	<quest id="1112" start_npc_id="203072" end_npc_id="203072">
-		<quest_event type="on_kill" ids="210259, 210260">
+		<quest_event type="on_kill" ids="210259, 210260, 210672">
 			<condition operate="AND">
-				<quest_var op="LESSER" var_id="0" value="4" />
+				<quest_var op="LESSER" var_id="0" value="5" />
 			</condition>
 			<operations>
 				<incrase_quest_var var_id="0" value="1" />
@@ -57,10 +57,22 @@
 
 		<quest_event type="on_kill" ids="210065, 210066">
 			<condition operate="AND">
-				<quest_var op="LESSER" var_id="0" value="4" />
+				<quest_var op="LESSER" var_id="1" value="5" />
 			</condition>
 			<operations>
 				<incrase_quest_var var_id="1" value="1" />
+			</operations>
+		</quest_event>
+
+		<quest_event type="on_talk" ids="203072">
+			<condition operate="AND">
+				<dialog_id op="EQUAL" value="25" />
+				<quest_var op="GREATER_EQUAL" var_id="0" value="5" />
+				<quest_var op="GREATER_EQUAL" var_id="1" value="5" />
+				<quest_status op="EQUAL" value="START" />
+			</condition>
+			<operations>
+				<npc_dialog id="1352" />
 			</operations>
 		</quest_event>
 	</quest>

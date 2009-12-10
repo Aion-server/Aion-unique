@@ -31,11 +31,7 @@ public class QuestVars
 
 	public QuestVars(int var)
 	{
-		for(int i = 0; i < 5; i++)
-		{
-			questVars[i] = (var & 0x3F);
-			var >>= 0x06;
-		}
+		setQuestVar(var);
 	}
 
 	/**
@@ -69,5 +65,14 @@ public class QuestVars
 			var |= questVars[i];
 		}
 		return var;
+	}
+	
+	public void setQuestVar(int var)
+	{
+		for(int i = 0; i < 5; i++)
+		{
+			questVars[i] = (var & 0x3F);
+			var >>= 0x06;
+		}
 	}
 }

@@ -23,7 +23,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -71,14 +70,6 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 		
 		if(targetObject == null || player == null)
 				return;
-
-		//TODO this is temporal check and should be removed after both races can fight to each other
-		if(targetObject instanceof Npc)
-		{
-			//TODO [ATracer] refactor to onDialogRequest
-			if (QuestEngine.getInstance().doDialog(targetObjectId, 0, 10, player))
-				return;
-		}
 
 		//TODO this is not needed for all dialog requests
 		sendPacket(new SM_LOOKATOBJECT(targetObjectId, player.getObjectId(), Math.abs(128 - player.getHeading())));

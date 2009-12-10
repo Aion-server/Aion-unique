@@ -123,6 +123,12 @@ public class Config
 	public static int				QUEST_XP_RATE;
 	
 	/*
+	 * Quest Kinah Rate
+	 */
+	@Property(key = "gameserver.rate.quest.kinah",defaultValue = "1")
+	public static int				QUEST_KINAH_RATE;
+
+	/*
 	 * Drop Rate
 	 */
 	@Property(key = "gameserver.rate.drop",defaultValue = "1")

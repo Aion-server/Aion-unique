@@ -24,6 +24,7 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.questEngine.events.QuestEvent;
 import com.aionemu.gameserver.questEngine.types.QuestStatus;
@@ -40,13 +41,15 @@ public class QuestEngine
 
 	private static QuestEngine	instance;
 	private FastMap<Integer, Quest> _quests;
+	private FastMap<Integer, NpcQuestData> _npcQuestData;
 
 	private QuestEngine()
 	{
 		_quests = new FastMap<Integer, Quest>();
+		_npcQuestData = new FastMap<Integer, NpcQuestData>();
 	}
 
-	public boolean doDialog(int targetObjectId, int questId, int dialogId, Player player)
+	public boolean onDialog(int targetObjectId, int questId, int dialogId, Player player)
 	{
 		Quest quest = null;
 
@@ -67,7 +70,7 @@ public class QuestEngine
 			Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
 			if(npc != null)
 			{
-				for(QuestEvent questEvent : npc.getTemplate().getNpcQuestData().getOnTalkEvent())
+				for(QuestEvent questEvent : getNpcQuestData(npc.getNpcId()).getOnTalkEvent())
 					if(questEvent.getQuestId() == questId)
 						if(questEvent.operate(player, dialogId))
 							return true;
@@ -90,7 +93,7 @@ public class QuestEngine
 		{
 			case 10:
 				Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
-				for (Quest endQuest : npc.getTemplate().getNpcQuestData().getOnQuestEnd())
+				for (Quest endQuest : getNpcQuestData(npc.getNpcId()).getOnQuestEnd())
 				{
 					QuestState qs = player.getQuestStateList().getQuestState(endQuest.getId());
 					if (qs == null)
@@ -255,7 +258,7 @@ public class QuestEngine
 
 	public boolean deleteQuest(Player player, int questId)
 	{
-		if (DataManager.QUEST_DATA.getQuestById(questId).getCannotGiveup() == null)
+		if (DataManager.QUEST_DATA.getQuestById(questId).isCannotGiveup())
 			return false;
 
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
@@ -265,6 +268,25 @@ public class QuestEngine
 		qs.setStatus(QuestStatus.NONE);
 		return true;
 	}
+
+	public NpcQuestData getNpcQuestData(int npcTemplateId)
+	{
+		if (_npcQuestData.containsKey(npcTemplateId))
+		{
+			return _npcQuestData.get(npcTemplateId);
+		}
+		return new NpcQuestData();
+	}
+
+	public NpcQuestData setNpcQuestData(int npcTemplateId)
+	{
+		if (!_npcQuestData.containsKey(npcTemplateId))
+		{
+			_npcQuestData.put(npcTemplateId, new NpcQuestData());
+		}
+		return _npcQuestData.get(npcTemplateId);
+	}
+
 	public void log()
 	{
 		log.info("Loaded "+size()+" quests.");
@@ -278,6 +300,7 @@ public class QuestEngine
 	public void clear()
 	{
 		_quests.clear();
+		_npcQuestData.clear();
 	}
 
 	public static QuestEngine getInstance()

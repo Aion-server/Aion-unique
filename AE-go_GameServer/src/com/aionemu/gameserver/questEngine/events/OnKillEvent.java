@@ -20,8 +20,8 @@ import java.util.StringTokenizer;
 
 import org.w3c.dom.NamedNodeMap;
 
-import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.questEngine.Quest;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 
 /**
  * @author MrPoke
@@ -40,7 +40,7 @@ public class OnKillEvent extends QuestEvent
 		for (int i=0; i<tokenCount; i++)
 		{
 			Integer value = Integer.decode(st.nextToken().trim());
-			DataManager.NPC_DATA.getNpcTemplate(value).getNpcQuestData().addOnKillEvent(this);
+			QuestEngine.getInstance().setNpcQuestData(value).addOnKillEvent(this);
 		}
     }
 

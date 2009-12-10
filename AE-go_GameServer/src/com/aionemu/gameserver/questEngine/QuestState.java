@@ -26,18 +26,21 @@ public class QuestState
        private final int questId;
        private QuestVars questVars;
        private QuestStatus status;
+       private int compliteCount;
        public QuestState(Quest quest)
        {
                this.questId = quest.getId();
                status = QuestStatus.START;
                questVars = new QuestVars();
+               compliteCount = 0;
        }
 
-       public QuestState(Quest quest, QuestStatus status, int questVars)
+       public QuestState(Quest quest, QuestStatus status, int questVars, int compliteCount)
        {
                this.questId = quest.getId();
                this.status = status;
                this.questVars = new QuestVars(questVars);
+               this.compliteCount = compliteCount;
        }
 
        public QuestVars getQuestVars()
@@ -58,5 +61,15 @@ public class QuestState
        public int getQuestId()
        {
     	   return questId;
+       }
+
+       public void setCompliteCount(int compliteCount)
+       {
+    	   this.compliteCount = compliteCount;
+       }
+
+       public int getCompliteCount()
+       {
+    	   return compliteCount;
        }
 }

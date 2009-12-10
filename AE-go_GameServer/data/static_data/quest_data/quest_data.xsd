@@ -12,7 +12,6 @@
 
 	<xs:complexType name="QuestTemplate">
 		<xs:sequence>
-			<xs:element name="drops" type="QuestDrop" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="collect_items" type="CollectItems" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="rewards" type="Rewards" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="finished_quest_conds" type="FinishedQuestConds" minOccurs="0" maxOccurs="unbounded" />
@@ -21,16 +20,10 @@
 		<xs:attribute name="name" type="xs:string"/>
 		<xs:attribute name="minlevel_permitted" type="xs:int"/>
 		<xs:attribute name="max_repeat_count" type="xs:int"/>
-		<xs:attribute name="cannot_share" type="xs:int"/>
-		<xs:attribute name="cannot_giveup" type="xs:int"/>
+		<xs:attribute name="cannot_share" type="xs:boolean" default="false"/>
+		<xs:attribute name="cannot_giveup" type="xs:boolean" default="false"/>
 		<xs:attribute name="f_mission" type="xs:int"/>
 		<xs:attribute name="race_permitted" type="xs:string"/>
-	</xs:complexType>
-	
-	<xs:complexType name="QuestDrop">
-		<xs:sequence>
-			<xs:element name="drop" type="Drop" minOccurs="0" maxOccurs="unbounded" />
-		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="CollectItems">
@@ -46,13 +39,6 @@
 			<xs:attribute name="exp" type="xs:int"/>
 			<xs:attribute name="reward_abyss_point" type="xs:int"/>
 			<xs:attribute name="title" type="xs:string"/>
-	</xs:complexType>
-
-	<xs:complexType name="Drop" >
-		<xs:sequence/>
-			<xs:attribute name="npc_id" type="xs:int"/>
-			<xs:attribute name="item_id" type="xs:int"/>
-			<xs:attribute name="chance" type="xs:int"/>
 	</xs:complexType>
 	
 	<xs:complexType name="CollectItem" >
