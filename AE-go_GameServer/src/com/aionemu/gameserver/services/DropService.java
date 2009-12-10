@@ -88,14 +88,15 @@ public class DropService
 			Set<DropItem> droppedItems = new HashSet<DropItem>();
 			
 			/** Add kinah with 100% chance and level-based amount **/
-			DropItem kinahItem = new DropItem(kinahDrops.get(level), 0);
+			DropItem kinahItem = new DropItem(kinahDrops.get(level));
+			kinahItem.setIndex(0);
 			kinahItem.calculateCount();
 			droppedItems.add(kinahItem);
 			
 			int index = 1;
 			for(DropTemplate dropTemplate : templates)
 			{
-				DropItem dropItem = new DropItem(dropTemplate, index++);
+				DropItem dropItem = new DropItem(dropTemplate);
 				int questId = dropItem.getDropTemplate().getQuest();
 				if (questId != 0)
 				{
@@ -109,6 +110,7 @@ public class DropService
 
 				if(dropItem.getCount() > 0)
 				{
+					dropItem.setIndex(index++);
 					droppedItems.add(dropItem);
 				}		
 			}

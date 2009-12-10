@@ -32,10 +32,9 @@ public class DropItem
 	
 	private DropTemplate dropTemplate;
 	
-	public DropItem(DropTemplate dropTemplate, int index)
+	public DropItem(DropTemplate dropTemplate)
 	{
 		this.dropTemplate = dropTemplate;
-		this.index = index;
 	}
 	
 	/**
@@ -57,6 +56,14 @@ public class DropItem
 	public int getIndex()
 	{
 		return index;
+	}
+
+	/**
+	 * @param index the index to set
+	 */
+	public void setIndex(int index)
+	{
+		this.index = index;
 	}
 
 	/**
