@@ -35,6 +35,7 @@ import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
 import com.aionemu.gameserver.dao.PlayerSettingsDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
+import com.aionemu.gameserver.dao.PlayerTitleListDAO;
 import com.aionemu.gameserver.dao.QuestListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
@@ -50,8 +51,10 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
+import com.aionemu.gameserver.model.gameobjects.player.TitleList;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.TitleChangeListener;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
@@ -128,7 +131,8 @@ public class PlayerService
 		return DAOManager.getDAO(PlayerDAO.class).saveNewPlayer(player.getCommonData(), accountId, accountName) 
 		&& DAOManager.getDAO(PlayerAppearanceDAO.class).store(player)
 		&& DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player)
-		&& DAOManager.getDAO(InventoryDAO.class).store(player.getInventory());
+		&& DAOManager.getDAO(InventoryDAO.class).store(player.getInventory())
+		&& DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
 	}
 
 	/**
@@ -142,6 +146,7 @@ public class PlayerService
 		DAOManager.getDAO(InventoryDAO.class).store(player.getInventory());
 		DAOManager.getDAO(PlayerSettingsDAO.class).saveSettings(player);
 		DAOManager.getDAO(QuestListDAO.class).store(player.getObjectId(), player.getQuestStateList());
+		DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
 	}
 
 	/**
@@ -167,6 +172,7 @@ public class PlayerService
 		player.setKnownlist(new KnownList(player));
 		player.setFriendList(DAOManager.getDAO(FriendListDAO.class).load(player, world));
 		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player,world));
+		player.setTitleList(DAOManager.getDAO(PlayerTitleListDAO.class).loadTitleList(playerObjId));
 		
 		DAOManager.getDAO(PlayerSettingsDAO.class).loadSettings(player);
 
@@ -180,6 +186,10 @@ public class PlayerService
 		
 		player.setQuestStateList(DAOManager.getDAO(QuestListDAO.class).load(player));
 		player.setInventory(DAOManager.getDAO(InventoryDAO.class).load(player));
+		if (player.getCommonData().getTitleId()>0)
+		{
+			TitleChangeListener.onTitleChange(player, player.getCommonData().getTitleId(), true);
+		}
 
 		if(CacheConfig.CACHE_PLAYERS)
 			playerCache.put(playerObjId, player);	

@@ -89,6 +89,8 @@ public final class DataManager
 	public static PlayerStatsData		PLAYER_STATS_DATA;
 
 	public static ItemData				ITEM_DATA;
+	
+	public static TitleData				TITLE_DATA;
 
 	/**
 	 * Player initial data table.<br />
@@ -132,6 +134,7 @@ public final class DataManager
 		//spawn data use NPC_DATA and GATHERABLE_DATA
 		SPAWN_DATA = new SpawnData(NPC_DATA, GATHERABLE_DATA);
 		
+		TITLE_DATA = data.titleData;
 		TRADE_LIST_DATA = data.tradeListData;
 		TELEPORTER_DATA = data.teleporterData;
 		

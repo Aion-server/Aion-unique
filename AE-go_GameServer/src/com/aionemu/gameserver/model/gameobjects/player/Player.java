@@ -59,19 +59,18 @@ public class Player extends Creature
 	private FriendList			friendList;
 	private BlockList			blockList;
 	private ResponseRequester	requester;
-	private boolean 			lookingForGroup = false;
+	private boolean				lookingForGroup	= false;
 	private Inventory			inventory;
 	private PlayerStore			store;
 	private ExchangeList		exchangeList;
-	private PlayerStatsTemplate playerStatsTemplate;
-	private PlayerGameStats		playerStatsBonus;
+	private PlayerStatsTemplate	playerStatsTemplate;
+	private TitleList			titleList;
 	private byte[]				uiSettings;
 	private byte[]				shortcuts;
 
-	private QuestStateList 	questStateList;
-	private List<Integer> nearbyQuestList = new ArrayList<Integer>();
-	
-	
+	private QuestStateList		questStateList;
+	private List<Integer>		nearbyQuestList	= new ArrayList<Integer>();
+
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
 
@@ -86,9 +85,10 @@ public class Player extends Creature
 
 		this.playerCommonData = plCommonData;
 		this.playerAppearance = appereance;
-		
+
 		this.requester = new ResponseRequester(this);
 		this.questStateList = new QuestStateList();
+		this.titleList = new TitleList();
 		controller.setOwner(this);
 
 	}
@@ -170,34 +170,38 @@ public class Player extends Creature
 
 	/**
 	 * Gets this players Friend List
+	 * 
 	 * @return
 	 */
 	public FriendList getFriendList()
 	{
 		return friendList;
 	}
-	
+
 	/**
 	 * Is this player looking for a group
+	 * 
 	 * @return
 	 */
 	public boolean isLookingForGroup()
 	{
 		return lookingForGroup;
 	}
-	
+
 	/**
 	 * Sets whether or not this player is looking for a group
+	 * 
 	 * @param lookingForGroup
 	 */
 	public void setLookingForGroup(boolean lookingForGroup)
 	{
 		this.lookingForGroup = lookingForGroup;
 	}
-	
+
 	/**
 	 * Sets this players friend list. <br />
 	 * Remember to send the player the <tt>SM_FRIEND_LIST</tt> packet.
+	 * 
 	 * @param list
 	 */
 	public void setFriendList(FriendList list)
@@ -214,12 +218,12 @@ public class Player extends Creature
 	{
 		this.exchangeList = list;
 	}
-	
+
 	public BlockList getBlockList()
 	{
 		return blockList;
 	}
-	
+
 	public void setBlockList(BlockList list)
 	{
 		this.blockList = list;
@@ -234,7 +238,8 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @param lifeStats the lifeStats to set
+	 * @param lifeStats
+	 *            the lifeStats to set
 	 */
 	public void setLifeStats(PlayerLifeStats lifeStats)
 	{
@@ -250,43 +255,44 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @param gameStats the gameStats to set
+	 * @param gameStats
+	 *            the gameStats to set
 	 */
 	public void setGameStats(PlayerGameStats gameStats)
 	{
 		super.setGameStats(gameStats);
-		this.playerStatsBonus = new PlayerGameStats (this);
 	}
 
 	/**
 	 * Gets the ResponseRequester for this player
+	 * 
 	 * @return
 	 */
 	public ResponseRequester getResponseRequester()
 	{
 		return requester;
 	}
-	
+
 	public boolean isOnline()
 	{
 		return getClientConnection() != null;
 	}
-	
+
 	public int getCubeSize()
 	{
 		return this.playerCommonData.getCubeSize();
 	}
-	
+
 	public PlayerClass getPlayerClass()
 	{
 		return playerCommonData.getPlayerClass();
 	}
-	
+
 	public Gender getGender()
 	{
 		return playerCommonData.getGender();
 	}
-	
+
 	/**
 	 * Return PlayerController of this Player Object.
 	 * 
@@ -301,7 +307,7 @@ public class Player extends Creature
 	@Override
 	public byte getLevel()
 	{
-		return (byte)playerCommonData.getLevel();
+		return (byte) playerCommonData.getLevel();
 	}
 
 	/**
@@ -319,7 +325,7 @@ public class Player extends Creature
 	{
 		return store;
 	}
-	
+
 	/**
 	 * @return the player private store
 	 */
@@ -328,7 +334,7 @@ public class Player extends Creature
 		this.store = store;
 		store.setOwner(this);
 	}
-	
+
 	/**
 	 * @return the questStatesList
 	 */
@@ -338,7 +344,8 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @param QuestStateList the QuestStateList to set
+	 * @param QuestStateList
+	 *            the QuestStateList to set
 	 */
 	public void setQuestStateList(QuestStateList questStateList)
 	{
@@ -354,7 +361,8 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @param playerStatsTemplate the playerStatsTemplate to set
+	 * @param playerStatsTemplate
+	 *            the playerStatsTemplate to set
 	 */
 	public void setPlayerStatsTemplate(PlayerStatsTemplate playerStatsTemplate)
 	{
@@ -364,21 +372,21 @@ public class Player extends Creature
 	public void updateNearbyQuests()
 	{
 		nearbyQuestList.clear();
-		for (VisibleObject obj : getKnownList() )
+		for(VisibleObject obj : getKnownList())
 		{
-			if (obj instanceof Npc)
+			if(obj instanceof Npc)
 			{
 				for (Quest quest : QuestEngine.getInstance().getNpcQuestData(((Npc)obj).getNpcId()).getOnQuestStart())
 				{
 					try
 					{
-						if (quest.checkStartCondition(this))
+						if(quest.checkStartCondition(this))
 						{
 							int questId = quest.getId();
-						    if (!nearbyQuestList.contains(questId))
-						    {
-						    	nearbyQuestList.add(questId);
-						    }
+							if(!nearbyQuestList.contains(questId))
+							{
+								nearbyQuestList.add(questId);
+							}
 						}
 					}
 					catch(QuestEngineException e)
@@ -388,16 +396,17 @@ public class Player extends Creature
 				}
 			}
 		}
-		PacketSendUtility.sendPacket( this, new SM_NEARBY_QUESTS(nearbyQuestList));
+		PacketSendUtility.sendPacket(this, new SM_NEARBY_QUESTS(nearbyQuestList));
 	}
 
 	public List<Integer> getNearbyQuests()
 	{
 		return nearbyQuestList;
 	}
+
 	/**
-	 * @param inventory the inventory to set
-	 * Inventory should be set right after player object is created
+	 * @param inventory
+	 *            the inventory to set Inventory should be set right after player object is created
 	 */
 	public void setInventory(Inventory inventory)
 	{
@@ -406,8 +415,8 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @param CubeUpgrade int
-	 * Sets the cubesize
+	 * @param CubeUpgrade
+	 *            int Sets the cubesize
 	 */
 	public void setCubesize(int cubesize)
 	{
@@ -423,13 +432,14 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @param shortcuts the shortcuts to set
+	 * @param shortcuts
+	 *            the shortcuts to set
 	 */
 	public void setShortcuts(byte[] shortcuts)
 	{
 		this.shortcuts = shortcuts;
 	}
-	
+
 	/**
 	 * @return the uiSettings
 	 */
@@ -439,18 +449,30 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @param uiSettings the uiSettings to set
+	 * @param uiSettings
+	 *            the uiSettings to set
 	 */
 	public void setUiSettings(byte[] uiSettings)
 	{
 		this.uiSettings = uiSettings;
-	}	
+	}
+
+	public TitleList getTitleList()
+	{
+		return titleList;
+	}
 	
+	public void setTitleList(TitleList titleList)
+	{
+		this.titleList = titleList;
+		titleList.setOwner(this);
+	}
+
 	@Override
 	public void initializeAi()
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/**

@@ -74,10 +74,14 @@ public class StaticData
 	@XmlElement(name = "cube_expander")
 	public CubeExpandData			cubeExpandData;
 	
+	@XmlElement(name = "player_titles")
+	public TitleData				titleData;
+	
 	@XmlElement(name = "gatherable_templates")
 	public GatherableData			gatherableData;
 	
 	// JAXB callback
+	@SuppressWarnings("unused")
 	private void afterUnmarshal(Unmarshaller unmarshaller, Object parent)
 	{
 		DataManager.log.info("Loaded world maps data: " + worldMapsData.size() + " maps");
@@ -94,6 +98,7 @@ public class StaticData
 		DataManager.log.info("Loaded " + cubeExpandData.size() + " cube expand entries");
 		DataManager.log.info("Loaded " + bindPointData.size() + " bind point entries");
 		DataManager.log.info("Loaded " + questData.size() + " quest data entries");	
-		DataManager.log.info("Loaded " + gatherableData.size() + " gatherable entries");	
+		DataManager.log.info("Loaded " + gatherableData.size() + " gatherable entries");
+		DataManager.log.info("Loaded " + titleData.size() + " title entries");
 	}
 }

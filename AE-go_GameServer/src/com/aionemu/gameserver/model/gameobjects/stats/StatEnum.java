@@ -33,6 +33,7 @@ public enum StatEnum
 	MAXDP("maxdp"),
 	MAXHP("maxhp"),
 	MAXMP("maxmp"),
+	
 	AGILITY("agility",true),
 	BLOCK("block"),
 	EVASION("dodge"),
@@ -142,7 +143,7 @@ public enum StatEnum
 	{
 		for(StatEnum sEnum : values())
 		{
-			if(sEnum.getName().equals(name))
+			if(sEnum.getName().toLowerCase().equals(name.toLowerCase()))
 			{
 				return sEnum;
 			}

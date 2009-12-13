@@ -19,6 +19,7 @@
 	<xs:include schemaLocation="cube_expander/cube_expander.xsd" />
 	<xs:include schemaLocation="gatherables/gatherable_templates.xsd" />
 	<xs:include schemaLocation="quest_data/quest_data.xsd" />
+	<xs:include schemaLocation="player_titles.xsd" />
 	
 	<xs:element name="ae_static_data">
 		<xs:complexType>
@@ -31,6 +32,7 @@
 				<xs:element ref="player_experience_table" minOccurs="0" />
 				<xs:element ref="player_initial_data" minOccurs="0" />
 				<xs:element ref="item_templates" minOccurs="0" />
+				<xs:element ref="player_titles" minOccurs="0" />
 				<xs:element ref="stats_templates" minOccurs="0" />
 				<xs:element ref="npc_templates" minOccurs="0" />
 				<xs:element ref="skill_data" minOccurs="0" />

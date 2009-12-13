@@ -18,19 +18,27 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.Title;
+import com.aionemu.gameserver.model.gameobjects.player.TitleList;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
  * 
  * @author Nemiroff
- * Date: 01.12.2009
- *
+ * @author Xavier Date: 01.12.2009
+ * 
  */
 public class SM_TITLE_LIST extends AionServerPacket
 {
-    int TitleList[] = { 1, 2, 3, 4, 5 }; //Temporary plug. Following is taken from the Base
-    //TODO Make List from DataBase
+	private TitleList	titleList;
+
+	// TODO Make List from DataBase
+	public SM_TITLE_LIST(Player player)
+	{
+		this.titleList = player.getTitleList();
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -38,11 +46,12 @@ public class SM_TITLE_LIST extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeC(buf, 0); //unk
-		writeH(buf, TitleList.length);
-        for (int i= 0; i < TitleList.length; i++) {
-            writeD(buf, TitleList[i]);
-            writeD(buf, 0);
-        }
+		writeC(buf, 0); // unk
+		writeH(buf, titleList.size());
+		for(Title title : titleList.getTitles())
+		{
+			writeD(buf, title.getTemplate().getTitleId());
+			writeD(buf, 0);
+		}
 	}
 }

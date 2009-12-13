@@ -28,9 +28,8 @@ import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
-import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
-import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.TitleChangeListener;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
@@ -66,7 +65,7 @@ public class PlayerCommonData
 	private WorldPosition	position;
 	private int 			cubeSize = 0;
 	private int			    bindPoint;
-   private int             titleId;
+   private int             titleId = -1;
 	
 
 	public PlayerCommonData(int objId)

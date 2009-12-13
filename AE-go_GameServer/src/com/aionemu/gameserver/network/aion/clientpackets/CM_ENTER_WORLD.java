@@ -195,7 +195,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 
 
 			sendPacket(new SM_GAME_TIME());
-			sendPacket(new SM_TITLE_LIST());
+			sendPacket(new SM_TITLE_LIST(player));
 			sendPacket(SM_SYSTEM_MESSAGE.REMAINING_PLAYING_TIME(12043));
 
 			/**

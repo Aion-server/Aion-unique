@@ -18,7 +18,9 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.TitleChangeListener;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_SET;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_UPDATE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -64,6 +66,12 @@ public class CM_TITLE_SET extends AionClientPacket {
         Player player = getConnection().getActivePlayer();
         sendPacket(new SM_TITLE_SET(titleId));
         PacketSendUtility.broadcastPacket(player, (new SM_TITLE_UPDATE(player, titleId)));
+        if (player.getCommonData().getTitleId()>0)
+        {
+        	TitleChangeListener.onTitleChange(player, player.getCommonData().getTitleId(), false);
+        }
         player.getCommonData().setTitleId(titleId);
+        TitleChangeListener.onTitleChange(player, titleId, true);
+        PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 	}
 }
