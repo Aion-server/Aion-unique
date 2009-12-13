@@ -23,14 +23,12 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.AddModifier;
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.PercentModifier;
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.PowerModifier;
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.ReplaceModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SetModifier;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
-import com.aionemu.gameserver.model.templates.item.ItemStat;
 
 /**
  * @author xavier
@@ -39,80 +37,81 @@ public class ItemEquipmentListener
 {
 	private static final Logger	log	= Logger.getLogger(ItemEquipmentListener.class);
 
+	public static void onItemEquipment(ItemTemplate template, int slotId, CreatureGameStats<?> cgs)
+	{
+		StatEffect effect = template.getEffect();
+		if (effect==null)
+		{
+			if (cgs instanceof PlayerGameStats)
+			{
+				log.debug("No effect was found for item "+template.getItemId());
+			}
+			return;
+		}
+		
+		List<ItemSlot> slots = ItemSlot.getSlotsFor(slotId);
+		StatEffect slotEffect = effect.getEffectForSlot(slots.get(0));
+		if (cgs instanceof PlayerGameStats)
+		{
+			log.debug("Adding "+slotEffect+" for slot "+slots.get(0));
+		}
+		cgs.addEffect(slotEffect);
+		
+		// TODO Convert theses attributes to <stat ...> elements
+		if(template.getAttackType() != null)
+		{
+			SetModifier sm = new SetModifier(StatEnum.IS_MAGICAL_ATTACK, (template.getAttackType().contains("magic")) ? 1
+				: 0);
+			sm.setEffectId(effect.getUniqueId());
+			cgs.addModifier(sm);
+		}
+	}
+	
+	public static void onItemUnequipment(ItemTemplate template, CreatureGameStats<?> cgs)
+	{
+		if (template.getEffect()!=null)
+		{
+			cgs.endEffect(template.getEffect().getUniqueId());
+		}
+		else
+		{
+			log.debug("No effect was found for item "+template.getItemId());
+		}
+	}
+	
 	public static void onItemEquipmentChange(Inventory inventory, Item item, int slotId)
 	{
 		ItemTemplate it = item.getItemTemplate();
+
 		if(inventory.getOwner() == null)
 		{
 			log.debug("No owner set for inventory, not changing stats");
 			return;
 		}
+
 		PlayerGameStats pgs = inventory.getOwner().getGameStats();
 		if(pgs == null)
 		{
 			log.debug("No GameStats set for inventory owner, skipping stats change");
 			return;
 		}
+
 		if((!it.isArmor()) && (!it.isWeapon()))
 		{
 			log.debug("Item #" + item.getObjectId() + " isn't an equipment, not changing stats");
 			return;
 		}
+
 		log.debug("changing game stats " + pgs + " for equipment change of player #"
 			+ inventory.getOwner().getObjectId());
 
 		if(!item.isEquipped())
 		{
-			pgs.endEffect(item.getObjectId());
-			log.debug("Changed stats after equipment change of item " + item + " to player #"
-				+ inventory.getOwner().getObjectId() + ":" + pgs);
-			return;
-		}
-
-		if(it.getItemStats() == null)
-		{
-			log.debug("cannot get item stats from item");
+			onItemUnequipment(it, pgs);
 		}
 		else
 		{
-			List<ItemSlot> slots = ItemSlot.getSlotsFor(slotId);
-			for(ItemStat stat : it.getItemStats().getStat())
-			{
-				StatEnum statToModify = stat.getStatEnum().getMainOrSubHandStat(slots.get(0));
-				if(stat.getValue().contains("%"))
-				{
-					pgs.addModifierOnStat(statToModify, new PercentModifier(item.getObjectId(), stat.isBonus(), stat.getValue(), statToModify.getSign()));
-				}
-				else
-				{
-					if(statToModify.isReplace())
-					{
-						pgs.addModifierOnStat(statToModify, new ReplaceModifier(item.getObjectId(), Integer.parseInt(stat.getValue())));
-					}
-					else
-					{
-						if ((statToModify==StatEnum.MAX_DAMAGES)||(statToModify==StatEnum.MIN_DAMAGES)) 
-						{
-							pgs.addModifierOnStat(statToModify, new AddModifier(item.getObjectId(), stat.isBonus(), Integer.parseInt(stat.getValue()), statToModify.getSign()));
-							log.debug("testing damages : max:"+pgs.getBaseStat(StatEnum.MAX_DAMAGES)+",min:"+pgs.getBaseStat(StatEnum.MIN_DAMAGES));
-							if ((pgs.getBaseStat(StatEnum.MAX_DAMAGES)!=0)&&(pgs.getBaseStat(StatEnum.MIN_DAMAGES)!=0)) 
-							{
-								pgs.addModifierOnStat(StatEnum.MAIN_HAND_POWER, new PowerModifier (item.getObjectId(), pgs.getBaseStat(StatEnum.MIN_DAMAGES), pgs.getBaseStat(StatEnum.MAX_DAMAGES)));
-							}
-						} else {
-							pgs.addModifierOnStat(statToModify, new AddModifier(item.getObjectId(), stat.isBonus(), Integer.parseInt(stat.getValue()), statToModify.getSign()));
-						}
-					}
-				}
-			}
-			
-		}
-
-		// TODO Convert theses attributes to <stat ...> elements
-		if(it.getAttackType() != null)
-		{
-			pgs.addModifierOnStat(StatEnum.IS_MAGICAL_ATTACK, new ReplaceModifier(item.getObjectId(), (it.getAttackType()
-				.contains("magic")) ?  1 : 0));
+			onItemEquipment(it, slotId, pgs);
 		}
 
 		log.debug("Changed stats after equipment change of item " + item + " to player #"

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:complexType name="Modifiers">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="add" type="SimpleModifier" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element name="sub" type="SimpleModifier" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element name="rate" type="SimpleModifier" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element name="set" type="SimpleModifier" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element name="mean" type="MeanModifier" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Modifier">
+		<xs:attribute name="name" type="modifiersenum" />
+		<xs:attribute name="bonus" type="xs:boolean" default="false" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="SimpleModifier">
+		<xs:complexContent>
+			<xs:extension base="Modifier">
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="MeanModifier">
+		<xs:complexContent>
+			<xs:extension base="Modifier">
+				<xs:attribute name="min" type="xs:int" />
+				<xs:attribute name="max" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:simpleType name="modifiersenum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MAXDP" />
+			<xs:enumeration value="MAXHP" />
+			<xs:enumeration value="MAXMP" />
+			<xs:enumeration value="REGEN_HP" />
+			<xs:enumeration value="REGEN_MP" />
+			<xs:enumeration value="AGILITY" />
+			<xs:enumeration value="BLOCK" />
+			<xs:enumeration value="EVASION" />
+			<xs:enumeration value="CONCENTRATION" />
+			<xs:enumeration value="WILL" />
+			<xs:enumeration value="HEALTH" />
+			<xs:enumeration value="ACCURACY" />
+			<xs:enumeration value="KNOWLEDGE" />
+			<xs:enumeration value="PARRY" />
+			<xs:enumeration value="POWER" />
+			<xs:enumeration value="SPEED" />
+			<xs:enumeration value="HIT_COUNT" />
+			<xs:enumeration value="ATTACK_RANGE" />
+			<xs:enumeration value="ATTACK_SPEED" />
+			<xs:enumeration value="PHYSICAL_ATTACK" />
+			<xs:enumeration value="PHYSICAL_ACCURACY" />
+			<xs:enumeration value="PHYSICAL_CRITICAL" />
+			<xs:enumeration value="PHYSICAL_DEFENSE" />
+			<xs:enumeration value="MAIN_HAND_ACCURACY" />
+			<xs:enumeration value="MAIN_HAND_CRITICAL" />
+			<xs:enumeration value="MAIN_HAND_POWER" />
+			<xs:enumeration value="OFF_HAND_ACCURACY" />
+			<xs:enumeration value="OFF_HAND_CRITICAL" />
+			<xs:enumeration value="OFF_HAND_POWER" />
+			<xs:enumeration value="MAGICAL_ATTACK" />
+			<xs:enumeration value="MAGICAL_ACCURACY" />
+			<xs:enumeration value="MAGICAL_CRITICAL" />
+			<xs:enumeration value="MAGICAL_RESIST" />
+			<xs:enumeration value="MAX_DAMAGES" />
+			<xs:enumeration value="MIN_DAMAGES" />
+			<xs:enumeration value="IS_MAGICAL_ATTACK" />
+			<xs:enumeration value="EARTH_RESISTANCE" />
+			<xs:enumeration value="FIRE_RESISTANCE" />
+			<xs:enumeration value="WIND_RESISTANCE" />
+			<xs:enumeration value="WATER_RESISTANCE" />
+			<xs:enumeration value="BOOST_MAGICAL_SKILL" />
+			<xs:enumeration value="BOOST_CASTING_TIME" />
+			<xs:enumeration value="BOOST_HATE" />
+			<xs:enumeration value="FLY_TIME" />
+			<xs:enumeration value="FLY_SPEED" />
+			<xs:enumeration value="PVP_ATTACK_RATIO" />
+			<xs:enumeration value="PVP_DEFEND_RATIO" />
+			<xs:enumeration value="DAMAGE_REDUCE" />
+			<xs:enumeration value="BLEED_RESISTANCE" />
+			<xs:enumeration value="BLIND_RESISTANCE" />
+			<xs:enumeration value="CHARM_RESISTANCE" />
+			<xs:enumeration value="CONFUSE_RESISTANCE" />
+			<xs:enumeration value="CURSE_RESISTANCE" />
+			<xs:enumeration value="DISEASE_RESISTANCE" />
+			<xs:enumeration value="FEAR_RESISTANCE" />
+			<xs:enumeration value="OPENAREIAL_RESISTANCE" />
+			<xs:enumeration value="PARALYZE_RESISTANCE" />
+			<xs:enumeration value="PERIFICATION_RESISTANCE" />
+			<xs:enumeration value="POISON_RESISTANCE" />
+			<xs:enumeration value="ROOT_RESISTANCE" />
+			<xs:enumeration value="SILENCE_RESISTANCE" />
+			<xs:enumeration value="SLEEP_RESISTANCE" />
+			<xs:enumeration value="SLOW_RESISTANCE" />
+			<xs:enumeration value="SNARE_RESISTANCE" />
+			<xs:enumeration value="SPIN_RESISTANCE" />
+			<xs:enumeration value="STAGGER_RESISTANCE" />
+			<xs:enumeration value="STUMBLE_RESISTANCE" />
+			<xs:enumeration value="STUN_RESISTANCE" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

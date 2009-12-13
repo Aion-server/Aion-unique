@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+	<xs:include schemaLocation="../modifiers.xsd" />
+	
 	<xs:element name="item_templates">
 	   <xs:complexType>
 		  <xs:sequence>
@@ -11,7 +13,7 @@
 
 	<xs:complexType name="itemTemplate">
 		<xs:sequence>
-			<xs:element name="stats" type="ItemStats" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="modifiers" type="Modifiers" minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 		<xs:attribute name="equipment_type" type="equipType" />
 		<xs:attribute name="equipment_slots" type="xs:int" />
@@ -61,18 +63,6 @@
 		<xs:attribute name="id" type="itemId" use="required" />
 		
 	</xs:complexType>
-	
-	<xs:complexType name="ItemStats">
-	  <xs:sequence>
-		<xs:element name="stat" type="ItemStat" minOccurs="1" maxOccurs="unbounded"/>
-	  </xs:sequence>
-	</xs:complexType>
-	
-	<xs:complexType name="ItemStat">
-	  	<xs:attribute name="name" type="xs:string"/>
-		<xs:attribute name="value" type="xs:string"/>
-		<xs:attribute name="bonus" type="xs:boolean"/>
-	</xs:complexType>
 
 	<xs:simpleType name="itemSlot">
 		<xs:restriction base="xs:string">
@@ -100,7 +90,7 @@
 			<xs:enumeration value="TORSO_GLOVE_FOOT_SHOULDER_LEG" />
 		</xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:simpleType name="equipType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ARMOR" />

@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+
 
 /**
  * @author xavier
@@ -28,24 +30,19 @@ public class AddModifier extends StatModifier
 	 * @param modifiedStat
 	 * @param isBonus
 	 */
-	public AddModifier(int ownerId, boolean isBonus, int value, int sign)
+	public AddModifier(StatEnum stat, int value, boolean isBonus)
 	{
-		super(ownerId,StatModifierPriority.MEDIUM, StatModifierSign.get(sign), isBonus);
+		super(stat,StatModifierPriority.MEDIUM, isBonus);
 		this.value = value;
 	}
 	
-	public AddModifier(int ownerId, boolean isBonus, int value)
-	{
-		this(ownerId, isBonus, value, 1);
-	}
-
 	@Override
 	public int apply(int stat)
 	{
 		if (isBonus()) {
-			return Math.round(getSign()*value);
+			return Math.round(value);
 		} else {
-			return Math.round(stat + getSign()*value);
+			return Math.round(stat + value);
 		}
 	}
 	
@@ -55,5 +52,12 @@ public class AddModifier extends StatModifier
 		sb.append(super.toString());
 		sb.append(",value:"+value);
 		return sb.toString();
+	}
+
+	@Override
+	public StatModifier clone()
+	{
+		AddModifier copy = new AddModifier (getStat(),value,isBonus());
+		return copy;
 	}
 }

@@ -20,6 +20,9 @@ import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
+import com.aionemu.gameserver.model.items.NpcEquippedGear;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
@@ -57,6 +60,14 @@ public class Npc extends Creature
 		this.template = (NpcTemplate) spawnTemplate.getObjectTemplate();
 		NpcStatsTemplate nst = template.getStatsTemplate();
 		super.setGameStats(new NpcGameStats(this,nst));
+		NpcEquippedGear gear = template.getEquipment();
+		if (gear!=null) 
+		{
+			for (ItemTemplate it : gear)
+			{
+				ItemEquipmentListener.onItemEquipment(it, it.getItemSlot(), getGameStats());
+			}
+		}
 	}
 
 	public NpcTemplate getTemplate()

@@ -16,86 +16,79 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.TreeSet;
+import java.util.UUID;
 
-import org.apache.log4j.Logger;
-
-import com.aionemu.gameserver.model.gameobjects.AionObject;
+import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifierContainer;
 
 /**
  * @author xavier
  * 
  */
-public class StatEffect
+public class StatEffect extends StatModifierContainer
 {
-	private static final Logger		log	= Logger.getLogger(StatEffect.class);
-
-	private TreeSet<StatModifier>	modifiers;
-	int								baseValue;
+	private int	id;
 
 	public StatEffect()
 	{
-		this.modifiers = new TreeSet<StatModifier>();
+		super();
+		this.id = UUID.randomUUID().hashCode();
 	}
 
+	public int getUniqueId()
+	{
+		return id;
+	}
+	
+	private void setUniqueId(int id)
+	{
+		this.id = id;
+	}
+
+	@Override
 	public void add(StatModifier modifier)
 	{
-		if(!modifiers.add(modifier))
-		{
-			log.error("Cannot add modifier " + modifier + " !");
-		}
+		super.add(modifier);
+		modifier.setEffectId(id);
 	}
 
+	@Override
 	public void addAll(Collection<? extends StatModifier> modifiers)
 	{
-		if(!this.modifiers.addAll(modifiers))
-		{
-			log.error("Cannot add " + modifiers.size() + " modifiers !");
-		}
-	}
-
-	public TreeSet<StatModifier> getModifiers()
-	{
-		return modifiers;
-	}
-
-	public void endEffects(int ownerId)
-	{
-		ArrayList<StatModifier> toRemove = new ArrayList<StatModifier>();
 		for(StatModifier modifier : modifiers)
 		{
-			if(modifier.getOwnerId() == ownerId)
-			{
-				toRemove.add(modifier);
-			}
-		}
-
-		if(toRemove.size() > 0)
-		{
-			if(!modifiers.removeAll(toRemove))
-			{
-				log.error("Cannot remove " + toRemove.size() + "modifiers from " + ownerId);
-			}
+			add(modifier);
 		}
 	}
 
 	@Override
 	public String toString()
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append("{count:" + modifiers.size());
-		int index = 0;
-		for(StatModifier modifier : modifiers)
+		String str = "effect#" + id + ":" + super.toString();
+		return str;
+	}
+
+	public StatEffect getEffectForSlot(ItemSlot slot)
+	{
+		StatEffect statEffect = new StatEffect ();
+		statEffect.setUniqueId(id);
+		for (StatModifier modifier : getModifiers())
 		{
-			sb.append(',');
-			sb.append("[" + index + "]:");
-			sb.append(modifier.toString());
-			index++;
+			StatEnum statToModify = modifier.getStat().getMainOrSubHandStat(slot);
+			if (statToModify!=modifier.getStat())
+			{
+				StatModifier newModifier = modifier.clone();
+				newModifier.setStat(statToModify);
+				statEffect.add(newModifier);
+			}
+			else
+			{
+				statEffect.add(modifier);
+			}
 		}
-		sb.append("}");
-		return sb.toString();
+				
+		return statEffect;
 	}
 }

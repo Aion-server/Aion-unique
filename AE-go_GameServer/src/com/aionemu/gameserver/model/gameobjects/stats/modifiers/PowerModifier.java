@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+
 
 /**
  * @author xavier
@@ -25,10 +27,16 @@ public class PowerModifier extends StatModifier
 {
 	private int value;
 	
-	public PowerModifier (int ownerId, int minDamages, int maxDamages) 
+	public PowerModifier (int minDamages, int maxDamages) 
 	{
-		super(ownerId, StatModifierPriority.HIGH, StatModifierSign.PLUS, false);
+		super(StatEnum.MAIN_HAND_POWER, StatModifierPriority.HIGH, false);
 		this.value = Math.round((minDamages+maxDamages)/2f);
+	}
+	
+	private PowerModifier (int value)
+	{
+		super(StatEnum.MAIN_HAND_POWER, StatModifierPriority.HIGH, false);
+		this.value = value;
 	}
 
 	@Override
@@ -46,5 +54,12 @@ public class PowerModifier extends StatModifier
 		sb.append(super.toString());
 		sb.append(",value:"+value);
 		return sb.toString();
+	}
+	
+	@Override
+	public StatModifier clone()
+	{
+		PowerModifier copy = new PowerModifier (value);
+		return copy;
 	}
 }

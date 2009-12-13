@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.model.templates;
 
-import java.lang.reflect.Field;
-
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -26,158 +24,158 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.apache.log4j.Logger;
-
+import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 import com.aionemu.gameserver.model.items.ItemQuality;
 import com.aionemu.gameserver.model.templates.item.EquipType;
-import com.aionemu.gameserver.model.templates.item.ItemBonus;
-import com.aionemu.gameserver.model.templates.item.ItemStats;
+import com.aionemu.gameserver.model.templates.modifier.ModifiersTemplate;
 
 /**
- * @author Luno
- * modified by ATracer
+ * @author Luno modified by ATracer
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlRootElement(name = "item_templates")
 public class ItemTemplate
 {
-	
-	private int			itemId;
-	
-	@XmlElement(name = "stats", required = false)
-    protected ItemStats itemStats;
+	@XmlAttribute(name = "id", required = true)
+	@XmlID
+	private String				id;
+
+	@XmlElement(name = "modifiers", required = false)
+	protected ModifiersTemplate	modifiers;
 
 	@XmlAttribute(name = "equipment_slots")
-	private int itemSlot; 
-	
+	private int					itemSlot;
+
 	@XmlAttribute(name = "equipment_type")
-	private EquipType equipmentType; 
-	
+	private EquipType			equipmentType;
+
 	@XmlAttribute(name = "cash_item")
-	private int cashItem;
-	
+	private int					cashItem;
+
 	@XmlAttribute(name = "dmg_decal")
-	private int dmgDecal;
-	
+	private int					dmgDecal;
+
 	@XmlAttribute(name = "price")
-	private int price;
-	
+	private int					price;
+
 	@XmlAttribute(name = "max_stack_count")
-	private int maxStackCount;
-	
+	private int					maxStackCount;
+
 	@XmlAttribute(name = "level")
-	private int level;
-	
+	private int					level;
+
 	@XmlAttribute(name = "quality")
-	private ItemQuality itemQuality;
-	
+	private ItemQuality			itemQuality;
+
 	@XmlAttribute(name = "item_type")
-	private String itemType;//TODO enum
-	
+	private String				itemType;						// TODO enum
+
 	@XmlAttribute(name = "weapon_type")
-	private String weaponType; //TODO enum
-	
+	private String				weaponType;					// TODO enum
+
 	@XmlAttribute(name = "armor_type")
-	private String armorType; //TODO enum
-	
+	private String				armorType;						// TODO enum
+
 	@XmlAttribute(name = "attack_type")
-	private String attackType; //TODO enum
-	
+	private String				attackType;					// TODO enum
+
 	@XmlAttribute(name = "attack_gap")
-	private float attackGap; //TODO enum
-	
+	private float				attackGap;						// TODO enum
+
 	@XmlAttribute(name = "lore")
-	private boolean lore;
-	
+	private boolean				lore;
+
 	@XmlAttribute(name = "desc")
-	private String description; //TODO string or int
-	
+	private String				description;					// TODO string or int
+
 	@XmlAttribute(name = "can_exchange")
-	private boolean canExchange;
-	
+	private boolean				canExchange;
+
 	@XmlAttribute(name = "can_sell_to_npc")
-	private boolean canSellToNpc;
-	
+	private boolean				canSellToNpc;
+
 	@XmlAttribute(name = "can_deposit_to_character_warehouse")
-	private boolean canDepositToCharacterWarehouse;
-	
+	private boolean				canDepositToCharacterWarehouse;
+
 	@XmlAttribute(name = "can_deposit_to_account_warehouse")
-	private boolean canDepositToAccountWarehouse;
-	
+	private boolean				canDepositToAccountWarehouse;
+
 	@XmlAttribute(name = "can_deposit_to_guild_warehouse")
-	private boolean canDepositToGuildWarehouse;
-	
+	private boolean				canDepositToGuildWarehouse;
+
 	@XmlAttribute(name = "breakable")
-	private boolean breakable;
-	
+	private boolean				breakable;
+
 	@XmlAttribute(name = "soul_bind")
-	private boolean soulBind;
-	
+	private boolean				soulBind;
+
 	@XmlAttribute(name = "remove_when_logout")
-	private boolean removeWhenLogout;
-	
+	private boolean				removeWhenLogout;
+
 	@XmlAttribute(name = "gender_permitted")
-	private String genderPermitted; //enum
-	
+	private String				genderPermitted;				// enum
+
 	@XmlAttribute(name = "warrior")
-	private int warrior;
-	
+	private int					warrior;
+
 	@XmlAttribute(name = "scout")
-	private int scout;
-	
+	private int					scout;
+
 	@XmlAttribute(name = "mage")
-	private int mage;
-	
+	private int					mage;
+
 	@XmlAttribute(name = "cleric")
-	private int cleric;
-	
+	private int					cleric;
+
 	@XmlAttribute(name = "fighter")
-	private int fighter;
-	
+	private int					fighter;
+
 	@XmlAttribute(name = "knight")
-	private int knight;
-	
+	private int					knight;
+
 	@XmlAttribute(name = "assassin")
-	private int assassin;
-	
+	private int					assassin;
+
 	@XmlAttribute(name = "ranger")
-	private int ranger;
-	
+	private int					ranger;
+
 	@XmlAttribute(name = "wizard")
-	private int wizard;
-	
+	private int					wizard;
+
 	@XmlAttribute(name = "elementalist")
-	private int elementalist;
-	
+	private int					elementalist;
+
 	@XmlAttribute(name = "chanter")
-	private int chanter;
-	
+	private int					chanter;
+
 	@XmlAttribute(name = "priest")
-	private int priest;
-	
+	private int					priest;
+
 	@XmlAttribute(name = "option_slot_bonus")
-	private int optionSlotBonus;
-	
+	private int					optionSlotBonus;
+
 	@XmlAttribute(name = "bonus_apply")
-	private String bonusApply; //enum
-	
+	private String				bonusApply;					// enum
+
 	@XmlAttribute(name = "no_enchant")
-	private boolean noEnchant;
-	
+	private boolean				noEnchant;
+
 	@XmlAttribute(name = "can_proc_enchant")
-	private boolean canProcEnchant;
-	
+	private boolean				canProcEnchant;
+
 	@XmlAttribute(name = "cannot_changeskin")
-	private int cannotChangeSkin; //TODO check if needed
-	
+	private int					cannotChangeSkin;				// TODO check if needed
+
 	@XmlAttribute(name = "can_split")
-	private boolean canSplit;
-	
+	private boolean				canSplit;
+
 	@XmlAttribute(name = "item_drop_permitted")
-	private boolean itemDropPermitted;
-	
+	private boolean				itemDropPermitted;
+
 	@XmlAttribute(name = "race_permitted")
-	private String racePermitted;
+	private String				racePermitted;
+
+	private int					itemId;
 
 	public int getItemId()
 	{
@@ -188,30 +186,24 @@ public class ItemTemplate
 	{
 		return itemSlot;
 	}
-	
-	@SuppressWarnings("unused")
-	@XmlID
-	@XmlAttribute(name = "id", required = true)
-	private void setXmlUid(String uid)
-	{
-		/*
-		 * This method is used only by JAXB unmarshaller.
-		 * I couldn't set annotations at field, because
-		 * ID must be a string. 
-		 */
-		itemId = Integer.parseInt(uid);
-	}
-	
+
 	/**
-	 * @return the itemStats
+	 * @return the modifiers
 	 */
-	public ItemStats getItemStats()
+	public StatEffect getEffect()
 	{
-		return itemStats;
+		if (modifiers!=null)
+		{
+			return modifiers.getEffect();
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	/**
-	 *  
+	 * 
 	 * @return the equipmentType
 	 */
 	public EquipType getEquipmentType()
@@ -554,15 +546,15 @@ public class ItemTemplate
 	{
 		return racePermitted;
 	}
-	
+
 	/**
 	 * @return
 	 */
 	public boolean isWeapon()
 	{
-		return  equipmentType == EquipType.WEAPON;
+		return equipmentType == EquipType.WEAPON;
 	}
-	
+
 	/**
 	 * @return
 	 */
@@ -570,11 +562,12 @@ public class ItemTemplate
 	{
 		return equipmentType == EquipType.ARMOR;
 	}
+	
+	void afterUnmarshal (Unmarshaller u, Object parent)
+	{
+		setItemId(Integer.parseInt(id));
+	}
 
-	/** For testcase only
-	 * 
-	 * @param itemId the itemId to set
-	 */
 	public void setItemId(int itemId)
 	{
 		this.itemId = itemId;

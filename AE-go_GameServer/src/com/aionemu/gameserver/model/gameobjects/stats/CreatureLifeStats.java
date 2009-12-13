@@ -24,7 +24,6 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_MP;
 import com.aionemu.gameserver.services.LifeStatsRestoreService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -34,6 +33,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public abstract class CreatureLifeStats<T extends Creature>
 {
+	@SuppressWarnings("unused")
 	private static final Logger log = Logger.getLogger(CreatureLifeStats.class);
 
 	protected int currentHp;

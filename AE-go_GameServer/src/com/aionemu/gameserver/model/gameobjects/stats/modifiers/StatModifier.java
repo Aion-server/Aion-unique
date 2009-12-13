@@ -16,7 +16,7 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
-import com.aionemu.gameserver.model.gameobjects.AionObject;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 
 /**
  * @author xavier
@@ -24,59 +24,64 @@ import com.aionemu.gameserver.model.gameobjects.AionObject;
  */
 public abstract class StatModifier implements Comparable<StatModifier>
 {
-	private static int				MODIFIER_ID	= 1;
+	private static int				MODIFIER_ID = 0;
+	private StatEnum				stat;
 	private StatModifierPriority	priority;
-	private StatModifierSign		sign;
+	private int						effectId;
 	private boolean					isBonus;
-	private int						ownerId;
 	private int						id;
 
-	protected StatModifier(int ownerId, StatModifierPriority priority, StatModifierSign sign, boolean isBonus)
+	protected StatModifier(StatEnum stat, StatModifierPriority priority, boolean isBonus)
 	{
 		this.priority = priority;
 		this.isBonus = isBonus;
-		this.sign = sign;
-		this.ownerId = ownerId;
-		this.id = MODIFIER_ID++;
+		this.stat = stat;
+		this.effectId = -1;
+		MODIFIER_ID = (MODIFIER_ID+1)%Integer.MAX_VALUE;
+		this.id = MODIFIER_ID;
 	}
 
-	protected StatModifier(int ownerId)
+	public int getEffectId()
 	{
-		this(ownerId, StatModifierPriority.LOW, StatModifierSign.PLUS, false);
+		return effectId;
 	}
 
-	public int getOwnerId()
+	public void setEffectId(int effectId)
 	{
-		return ownerId;
+		if ((this.effectId!=-1)&&(effectId!=this.effectId))
+		{
+			throw new IllegalStateException("effect id already set to "+this.effectId+" but you tried to set it to "+effectId);
+		}
+		this.effectId = effectId;
 	}
-
+	
 	public boolean isBonus()
 	{
 		return isBonus;
-	}
-
-	protected int getSign()
-	{
-		return sign.get();
-	}
-
-	protected int getId()
-	{
-		return id;
 	}
 
 	public StatModifierPriority getPriority()
 	{
 		return priority;
 	}
+	
+	public StatEnum getStat()
+	{
+		return stat;
+	}
 
+	private int getId()
+	{
+		return id;
+	}
+	
 	@Override
 	public int compareTo(StatModifier other)
 	{
 		int result = (other.getPriority().getValue() - this.priority.getValue());
 		if(result == 0)
 		{
-			result = this.getId()-other.getId();
+			result = id-other.getId();
 		}
 		return result;
 	}
@@ -87,7 +92,7 @@ public abstract class StatModifier implements Comparable<StatModifier>
 		boolean result;
 		result = (o!=null);
 		result = (result)&&(o instanceof StatModifier);
-		result = (result)&&(((StatModifier)o).getId()==this.getId());
+		result = (result)&&(((StatModifier)o).getId()==id);
 		return result;
 	}
 
@@ -95,13 +100,21 @@ public abstract class StatModifier implements Comparable<StatModifier>
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append("type:" + this.getClass().getSimpleName() + ",");
+		sb.append("type:" + getClass().getSimpleName() + ",");
+		sb.append("stat:" + stat + ",");
+		sb.append("effect:"+effectId+",");
 		sb.append("id:" + id + ",");
 		sb.append("priority:" + priority + ",");
-		sb.append("bonus:" + isBonus + ",");
-		sb.append("sign:" + sign);
+		sb.append("bonus:" + isBonus);
 		return sb.toString();
 	}
 
+	public abstract StatModifier clone();
+	
 	public abstract int apply(int stat);
+
+	public void setStat(StatEnum stat)
+	{
+		this.stat = stat;
+	}
 }

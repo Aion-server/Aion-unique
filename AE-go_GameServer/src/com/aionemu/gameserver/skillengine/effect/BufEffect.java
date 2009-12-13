@@ -29,9 +29,10 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.AddModifier;
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.PercentModifier;
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.ReplaceModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.RateModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SetModifier;
 import com.aionemu.gameserver.skillengine.change.Change;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.Env;
@@ -45,6 +46,7 @@ import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 public class BufEffect extends EffectTemplate
 {
 	private static final Logger log = Logger.getLogger(BufEffect.class);
+	private int effectId;
 	
 	@XmlElements({
         @XmlElement(name = "change", type = Change.class)
@@ -77,7 +79,7 @@ public class BufEffect extends EffectTemplate
 	@Override
 	public void endEffect(Creature effected, int skillId)
 	{
-		effected.getGameStats().endEffect(skillId);
+		effected.getGameStats().endEffect(effectId);
 	}
 
 	@Override
@@ -97,18 +99,23 @@ public class BufEffect extends EffectTemplate
 			
 			int valueWithDelta = change.getValue() + change.getDelta() * skillLvl;
 			
+			StatEffect effect = new StatEffect();
+			effectId = effect.getUniqueId();
+			
 			switch(change.getFunc())
 			{
 				case ADD:
-					cgs.addModifierOnStat(change.getStat(), new AddModifier(skillId, true, valueWithDelta));
+					effect.add(new AddModifier(change.getStat(),valueWithDelta,true));
 					break;
 				case PERCENT:
-					cgs.addModifierOnStat(change.getStat(), new PercentModifier(skillId, true, String.valueOf(valueWithDelta) + "%"));
+					effect.add(new RateModifier(change.getStat(),valueWithDelta,true));
 					break;
 				case REPLACE:
-					cgs.addModifierOnStat(change.getStat(), new ReplaceModifier(skillId, valueWithDelta));
+					effect.add(new SetModifier(change.getStat(),valueWithDelta));
 					break;
 			}
+			
+			cgs.addEffect(effect);
 		}
 	}
 	

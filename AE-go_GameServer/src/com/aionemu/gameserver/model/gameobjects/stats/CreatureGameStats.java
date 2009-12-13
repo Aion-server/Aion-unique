@@ -25,6 +25,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifierContainer;
 
 /**
  * @author xavier
@@ -32,18 +33,18 @@ import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
  */
 public class CreatureGameStats<T extends Creature>
 {
-	protected static final Logger			log					= Logger.getLogger(CreatureGameStats.class);
+	protected static final Logger						log					= Logger.getLogger(CreatureGameStats.class);
 
-	private static final int				ATTACK_MAX_COUNTER	= Integer.MAX_VALUE;
+	private static final int							ATTACK_MAX_COUNTER	= Integer.MAX_VALUE;
 
-	private FastMap<StatEnum, Integer>		defaultStats;
-	private FastMap<StatEnum, Integer>		baseStats;
-	private FastMap<StatEnum, Integer>		bonusStats;
-	private FastMap<StatEnum, StatEffect>	effects;
+	private FastMap<StatEnum, Integer>					defaultStats;
+	private FastMap<StatEnum, Integer>					baseStats;
+	private FastMap<StatEnum, Integer>					bonusStats;
+	private FastMap<StatEnum, StatModifierContainer>	statsModifiers;
 
-	private int								attackCounter		= 0;
-	private boolean							initialized			= false;
-	private T								owner				= null;
+	private int											attackCounter		= 0;
+	private boolean										initialized			= false;
+	private T											owner				= null;
 
 	protected CreatureGameStats(T owner)
 	{
@@ -51,7 +52,7 @@ public class CreatureGameStats<T extends Creature>
 		this.defaultStats = new FastMap<StatEnum, Integer>();
 		this.baseStats = new FastMap<StatEnum, Integer>();
 		this.bonusStats = new FastMap<StatEnum, Integer>();
-		this.effects = new FastMap<StatEnum, StatEffect>();
+		this.statsModifiers = new FastMap<StatEnum, StatModifierContainer>();
 	}
 
 	protected void initStats(int maxHp, int maxMp, int power, int health, int agility, int accuracy, int knowledge,
@@ -214,7 +215,7 @@ public class CreatureGameStats<T extends Creature>
 
 	protected void recomputeStats()
 	{
-		for(StatEnum stat : baseStats.keySet())
+		for(StatEnum stat : statsModifiers.keySet())
 		{
 			recomputeStat(stat);
 		}
@@ -222,12 +223,12 @@ public class CreatureGameStats<T extends Creature>
 
 	protected void recomputeStat(StatEnum stat)
 	{
-		StatEffect effect = effects.get(stat);
-		if (effect==null)
+		StatModifierContainer modifiers = statsModifiers.get(stat);
+		if(modifiers == null)
 			return;
-		
-		defaultStats.put(stat,getCurrentStat(stat));
-		for(StatModifier modifier : effect.getModifiers())
+
+		defaultStats.put(stat, getCurrentStat(stat));
+		for(StatModifier modifier : modifiers.getModifiers())
 		{
 			int newValue = modifier.apply(getCurrentStat(stat));
 			if(modifier.isBonus())
@@ -243,57 +244,47 @@ public class CreatureGameStats<T extends Creature>
 
 	public void processEffects(StatEnum stat)
 	{
-		setStat(stat, defaultStats.containsKey(stat)?defaultStats.get(stat):0);
+		setStat(stat, defaultStats.containsKey(stat) ? defaultStats.get(stat) : 0);
 		setStat(stat, 0, true);
 		recomputeStat(stat);
 	}
 
-	public void addModifierOnStat(StatEnum stat, StatModifier modifier)
+	public void addModifier(StatModifier modifier)
 	{
-		synchronized(effects)
+		synchronized(statsModifiers)
 		{
-			if(effects.containsKey(stat))
+			if(statsModifiers.containsKey(modifier.getStat()))
 			{
-				effects.get(stat).add(modifier);
+				statsModifiers.get(modifier.getStat()).add(modifier);
 			}
 			else
 			{
-				StatEffect effect = new StatEffect();
-				defaultStats.put(stat, getCurrentStat(stat));
-				effect.add(modifier);
-				effects.put(stat, effect);
+				StatModifierContainer container = new StatModifierContainer();
+				defaultStats.put(modifier.getStat(), getCurrentStat(modifier.getStat()));
+				container.add(modifier);
+				statsModifiers.put(modifier.getStat(), container);
 			}
 		}
 
-		processEffects(stat);
+		processEffects(modifier.getStat());
 	}
 
-	public void addEffectOnStat(StatEnum stat, StatEffect effect)
+	public void addEffect(StatEffect effect)
 	{
-		synchronized(effects)
+		for(StatModifier modifier : effect.getModifiers())
 		{
-			if(effects.containsKey(stat))
-			{
-				effects.get(stat).addAll(effect.getModifiers());
-			}
-			else
-			{
-				defaultStats.put(stat, getCurrentStat(stat));
-				effects.put(stat, effect);
-			}
+			addModifier(modifier);
 		}
-
-		processEffects(stat);
 	}
 
-	public void endEffect(int ownerId)
+	public void endEffect(int effectId)
 	{
-		synchronized(effects)
+		synchronized(statsModifiers)
 		{
-			for(Entry<StatEnum, StatEffect> entry : effects.entrySet())
+			for (Entry<StatEnum,StatModifierContainer> statModifiers : statsModifiers.entrySet())
 			{
-				entry.getValue().endEffects(ownerId);
-				processEffects(entry.getKey());
+				statModifiers.getValue().removeModifiersOfEffect(effectId);
+				processEffects(statModifiers.getKey());
 			}
 		}
 	}

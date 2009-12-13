@@ -155,6 +155,7 @@ public enum StatEnum
 			return this;
 		switch (this) {
 			case PHYSICAL_ATTACK:
+			case POWER:
 				switch (slot) {
 					case SUB_HAND:
 						return OFF_HAND_POWER;
