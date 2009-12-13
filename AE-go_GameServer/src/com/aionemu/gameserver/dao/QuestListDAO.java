@@ -19,7 +19,7 @@ package com.aionemu.gameserver.dao;
 import com.aionemu.commons.database.dao.DAO;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.QuestStateList;
-import com.aionemu.gameserver.questEngine.QuestState;
+import com.aionemu.gameserver.questEngine.model.QuestState;
 
 /**
  * @author MrPoke

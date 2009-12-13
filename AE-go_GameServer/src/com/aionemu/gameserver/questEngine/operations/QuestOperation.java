@@ -16,34 +16,30 @@
  */
 package com.aionemu.gameserver.questEngine.operations;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
+
 
 /**
- * @author Blackmouse
+ * @author MrPoke
+ *
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "QuestOperation")
+@XmlSeeAlso({
+    TakeItemOperation.class,
+    GiveExpOperation.class,
+    StartQuestOperation.class,
+    NpcDialogOperation.class,
+    GiveItemOperation.class,
+    SetQuestStatusOperation.class,
+    IncraseQuestVarOperation.class
+})
 public abstract class QuestOperation
 {
-	private final Quest quest;
-	protected QuestOperation(NamedNodeMap attr, Quest quest)
-	{
-		this.quest = quest;
-	}
-
-	public void operate(Player player) throws QuestEngineException
-	{
-		doOperate(player);
-	}
-
-	protected abstract void doOperate(Player player) throws QuestEngineException;
-
-	public abstract String getName();
-	
-	public Quest getQuest()
-	{
-		return quest;
-	}
+	public abstract void doOperate(QuestEnv env);
 }

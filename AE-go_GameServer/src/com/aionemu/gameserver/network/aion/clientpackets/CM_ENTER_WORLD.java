@@ -51,6 +51,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKDC;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -130,7 +131,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 */
 			client.sendPacket(new SM_ENTER_WORLD_CHECK());
 			client.sendPacket(new SM_QUEST_LIST(player));
-			QuestEngine.getInstance().onEnterWorld(player);
+			QuestEngine.getInstance().onEnterWorld(new QuestEnv(null, player, 0, 0));
 			player.updateNearbyQuests();
 
 			byte[] uiSettings = player.getUiSettings();

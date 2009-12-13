@@ -17,12 +17,16 @@
 
 package com.aionemu.gameserver.model;
 
+import javax.xml.bind.annotation.XmlEnum;
+
 /**
  * Basic enum with races.<br>
  * I believe that NPCs will have their own rances, so it's quite comfortable to have it in the same place
  * 
  * @author SoulKeeper
  */
+
+@XmlEnum
 public enum Race
 {
 	/**

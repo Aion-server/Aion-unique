@@ -18,9 +18,8 @@ package com.aionemu.gameserver.questEngine.operations;
 
 import org.w3c.dom.NamedNodeMap;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
 /**
  * @author Poke
@@ -34,20 +33,13 @@ public class TimerOperation extends QuestOperation
 
 	public TimerOperation(NamedNodeMap attr, Quest quest)
 	{
-		super(attr, quest);
 		time = Integer.parseInt(attr.getNamedItem("time").getNodeValue());
 		id = Integer.parseInt(attr.getNamedItem("id").getNodeValue());
 	}
 
 	@Override
-	protected void doOperate(Player player) throws QuestEngineException
+	public void doOperate(QuestEnv env)
 	{
 		
-	}
-
-	@Override
-	public String getName()
-	{
-		return NAME;
 	}
 }

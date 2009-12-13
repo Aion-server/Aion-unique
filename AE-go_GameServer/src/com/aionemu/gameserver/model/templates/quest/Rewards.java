@@ -8,39 +8,28 @@
 
 package com.aionemu.gameserver.model.templates.quest;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for Rewards complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="Rewards">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *       &lt;/sequence>
- *       &lt;attribute name="reward_id" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="gold" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="exp" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="reward_abyss_point" type="{http://www.w3.org/2001/XMLSchema}int" />
- *       &lt;attribute name="title" type="{http://www.w3.org/2001/XMLSchema}string" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
+ * @author MrPoke
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Rewards")
+@XmlType(name = "Rewards", propOrder = {
+    "rewardItem"
+})
 public class Rewards {
 
+    @XmlElement(name = "reward_item")
+    protected List<RewardItem> rewardItem;
     @XmlAttribute(name = "reward_id")
     protected Integer rewardId;
     @XmlAttribute
@@ -52,6 +41,12 @@ public class Rewards {
     @XmlAttribute
     protected String title;
 
+    public List<RewardItem> getRewardItem() {
+        if (rewardItem == null) {
+            rewardItem = new ArrayList<RewardItem>();
+        }
+        return this.rewardItem;
+    }
     /**
      * Gets the value of the rewardId property.
      * 

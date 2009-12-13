@@ -16,37 +16,33 @@
  */
 package com.aionemu.gameserver.questEngine.events;
 
-import java.util.StringTokenizer;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
-import org.w3c.dom.NamedNodeMap;
-
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
 /**
  * @author MrPoke
+ *
  */
-public class OnKillEvent extends QuestEvent
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "OnKillEvent")
+public class OnKillEvent
+    extends QuestEvent
 {
-    private static final String NAME = "on_kill";
 
-    public OnKillEvent(Quest quest, NamedNodeMap attr)
-    {
-        super(quest);
-		StringTokenizer st = new StringTokenizer(attr.getNamedItem("ids").getNodeValue(), ",");
-		if (st == null)
-			return;
-		int tokenCount = st.countTokens();
-		for (int i=0; i<tokenCount; i++)
-		{
-			Integer value = Integer.decode(st.nextToken().trim());
-			QuestEngine.getInstance().setNpcQuestData(value).addOnKillEvent(this);
-		}
-    }
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.questEngine.events.QuestEvent#operate(com.aionemu.gameserver.questEngine.model.QuestEnv)
+	 */
+	@Override
+	public boolean operate(QuestEnv env)
+	{
+		Npc npc = (Npc)env.getVisibleObject();
+		if (!getIds().contains(npc.getNpcId()))
+			return false;
+		return super.operate(env);
+	}
 
-    @Override
-    public String getName()
-    {
-        return NAME;
-    }
 }

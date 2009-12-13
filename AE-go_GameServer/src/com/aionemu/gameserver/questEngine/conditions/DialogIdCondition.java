@@ -1,56 +1,51 @@
 /*
  * This file is part of aion-unique <aion-unique.com>.
  *
- * aion-unique is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ *  aion-unique is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  *
- * aion-unique is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *  aion-unique is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+ *  You should have received a copy of the GNU General Public License
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.questEngine.conditions;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
 /**
  * @author MrPoke
+ *
  */
-public class DialogIdCondition extends QuestCondition
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "DialogIdCondition")
+public class DialogIdCondition
+    extends QuestCondition
 {
-	private static final String NAME = "dialog_id";
-	private final int dialogId;
 
-	public DialogIdCondition(NamedNodeMap attr, Quest quest)
-	{
-		super(attr, quest);
-		this.dialogId = Integer.parseInt(attr.getNamedItem("value").getNodeValue());
-	}
+    @XmlAttribute(required = true)
+    protected int value;
 
 	@Override
-	public String getName()
+	public boolean doCheck(QuestEnv env)
 	{
-		return NAME;
-	}
-	
-	@Override
-	protected boolean doCheck(Player player, int data) throws QuestEngineException
-	{
+		int data = env.getDialogId();
 		switch (getOp())
 		{
 			case EQUAL:
-				return data == dialogId;
+				return data == value;
 			case NOT_EQUAL:
-				return data != dialogId;
+				return data != value;
 			default:
 				return false;
 		}

@@ -1,49 +1,49 @@
 /*
  * This file is part of aion-unique <aion-unique.com>.
  *
- * aion-unique is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ *  aion-unique is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  *
- * aion-unique is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *  aion-unique is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+ *  You should have received a copy of the GNU General Public License
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.questEngine.conditions;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
 /**
- * @author Blackmouse
+ * @author MrPoke
+ *
  */
-
-public class PcInventoryCondition extends QuestCondition
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "PcInventoryCondition")
+public class PcInventoryCondition
+    extends QuestCondition
 {
-	private static final String NAME = "pc_inventory";
-	private final int itemId;
-	private final int itemCount;
 
-	public PcInventoryCondition(NamedNodeMap attr, Quest quest)
-	{
-		super(attr, quest);
-		itemId = Integer.parseInt(attr.getNamedItem("item_id").getNodeValue());
-		itemCount = Integer.parseInt(attr.getNamedItem("count").getNodeValue());
-		
-	}
+    @XmlAttribute(name = "item_id", required = true)
+    protected int itemId;
+    @XmlAttribute(required = true)
+    protected int count;
 
 	@Override
-	protected boolean doCheck(Player player, int data) throws QuestEngineException
+	public boolean doCheck(QuestEnv env)
 	{
+		Player player = env.getPlayer();
 		Item item = player.getInventory().getItemByItemId(itemId);
 		int _count = 0;
 		if (item != null)
@@ -52,25 +52,19 @@ public class PcInventoryCondition extends QuestCondition
 		switch (getOp())
 		{
 			case EQUAL:
-				return _count == itemCount;
+				return _count == count;
 			case GREATER:
-				return _count > itemCount;
+				return _count > count;
 			case GREATER_EQUAL:
-				return _count >= itemCount;
+				return _count >= count;
 			case LESSER:
-				return _count < itemCount;
+				return _count < count;
 			case LESSER_EQUAL:
-				return _count <= itemCount;
+				return _count <= count;
 			case NOT_EQUAL:
-				return _count != itemCount;
+				return _count != count;
 			default:
 				return false;
 		}
-	}
-
-	@Override
-	public String getName()
-	{
-		return NAME;
 	}
 }

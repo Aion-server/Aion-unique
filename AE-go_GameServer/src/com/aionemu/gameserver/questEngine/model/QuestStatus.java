@@ -14,19 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.questEngine.types;
+package com.aionemu.gameserver.questEngine.model;
 
 /**
  * @author Blackmouse
  */
-public enum ConditionOperation
+public enum QuestStatus
 {
-       EQUAL, // equal
-       GREATER_EQUAL, // greater or equal
-       GREATER, // greater then
-       NOT_EQUAL, // not equal
-       LESSER_EQUAL, // lesser or equal
-       LESSER,
-       IN,
-       NOT_IN; // lesser then
+	NONE(0),
+	START(3),
+	REWARD(4),
+	COMPLITE(5);
+       
+    private int id;
+   	
+   	private QuestStatus(int id)
+   	{
+   		this.id = id;
+   	}
+   	
+   	public int value()
+   	{
+   		return id;
+   	}
 }

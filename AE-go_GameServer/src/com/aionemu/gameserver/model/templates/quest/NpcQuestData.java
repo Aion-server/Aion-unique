@@ -19,68 +19,65 @@ package com.aionemu.gameserver.model.templates.quest;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.events.QuestEvent;
-
 /**
  * @author MrPoke
  *
  */
 public class NpcQuestData
 {
-	private List<Quest> onQuestStart = new ArrayList<Quest>();
-	private List<Quest> onQuestEnd = new ArrayList<Quest>();
-	private List<QuestEvent> onKillEvent = new ArrayList<QuestEvent>();
-	private List<QuestEvent> onTalkEvent = new ArrayList<QuestEvent>();
+	private List<Integer> onQuestStart = new ArrayList<Integer>();
+	private List<Integer> onQuestEnd = new ArrayList<Integer>();
+	private List<Integer> onKillEvent = new ArrayList<Integer>();
+	private List<Integer> onTalkEvent = new ArrayList<Integer>();
 	
 	public NpcQuestData()
 	{
 	}
 
-	public void addOnQuestStart(Quest quest)
+	public void addOnQuestStart(int questId)
 	{
-		if (!onQuestStart.contains(quest))
+		if (!onQuestStart.contains(questId))
 		{
-			onQuestStart.add(quest);
+			onQuestStart.add(questId);
 		}
 	}
-	public List<Quest> getOnQuestStart()
+	public List<Integer> getOnQuestStart()
 	{
 		return onQuestStart;
 	}
 
-	public void addOnQuestEnd(Quest quest)
+	public void addOnQuestEnd(int questId)
 	{
-		if (!onQuestEnd.contains(quest))
+		if (!onQuestEnd.contains(questId))
 		{
-			onQuestEnd.add(quest);
+			onQuestEnd.add(questId);
 		}
 	}
-	public List<Quest> getOnQuestEnd()
+	public List<Integer> getOnQuestEnd()
 	{
 		return onQuestEnd;
 	}
 
-	public void addOnKillEvent(QuestEvent event)
+	public void addOnKillEvent(int questId)
 	{
-		if (!onKillEvent.contains(event))
+		if (!onKillEvent.contains(questId))
 		{
-			onKillEvent.add(event);
+			onKillEvent.add(questId);
 		}
 	}
-	public List<QuestEvent> getOnKillEvent()
+	public List<Integer> getOnKillEvent()
 	{
 		return onKillEvent;
 	}
 
-	public void addOnTalkEvent(QuestEvent event)
+	public void addOnTalkEvent(int questId)
 	{
-		if (!onTalkEvent.contains(event))
+		if (!onTalkEvent.contains(questId))
 		{
-			onTalkEvent.add(event);
+			onTalkEvent.add(questId);
 		}
 	}
-	public List<QuestEvent> getOnTalkEvent()
+	public List<Integer> getOnTalkEvent()
 	{
 		return onTalkEvent;
 	}

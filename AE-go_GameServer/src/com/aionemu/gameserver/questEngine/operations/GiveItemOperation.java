@@ -16,84 +16,28 @@
  */
 package com.aionemu.gameserver.questEngine.operations;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.items.ItemId;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
-import com.aionemu.gameserver.services.ItemService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.google.inject.Inject;
+import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
-/**
- * @author Blackmouse
- */
-public class GiveItemOperation extends QuestOperation
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "GiveItemOperation")
+public class GiveItemOperation
+    extends QuestOperation
 {
-	@Inject
-	private ItemService itemService;
-
-	private static final String NAME = "give_item";
-	private final int itemCount;
-	private final int itemId;
-
-	public GiveItemOperation(NamedNodeMap attr, Quest quest)
-	{
-		super(attr, quest);
-		itemId = Integer.parseInt(attr.getNamedItem("item_id").getNodeValue());
-		itemCount = Integer.parseInt(attr.getNamedItem("count").getNodeValue());
-	}
+	
+    @XmlAttribute(name = "item_id", required = true)
+    protected int itemId;
+    @XmlAttribute(required = true)
+    protected int count;
 
 	@Override
-	protected void doOperate(Player player) throws QuestEngineException
+	public void doOperate(QuestEnv env)
 	{
-		Inventory inventory = player.getInventory();
-		if (itemId == ItemId.KINAH.value())
-		{
-			inventory.increaseKinah(itemCount);
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
-		}
-		else
-		{
-			int currentItemCount = itemCount;
-			while (currentItemCount > 0)
-			{
-				Item newItem = itemService.newItem(itemId, currentItemCount);
-				
-				Item existingItem = inventory.getItemByItemId(itemId);
-				
-				//item already in cube
-				if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
-				{
-					int oldItemCount = existingItem.getItemCount();
-					Item addedItem = inventory.addToBag(newItem);
-					if(addedItem != null)
-					{
-						currentItemCount -= addedItem.getItemCount() - oldItemCount;
-						PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
-					}
-				}
-				// new item and inventory is not full
-				else if (!inventory.isFull())
-				{
-					Item addedItem = inventory.addToBag(newItem);
-					if(addedItem != null)
-					{
-						currentItemCount -= addedItem.getItemCount();
-						PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
-					}
-				}
-			}
-		}
-	}
-
-	@Override
-	public String getName()
-	{
-		return NAME;
+		QuestEngine.getInstance().getQuest(env).addItem(itemId, count);
 	}
 }

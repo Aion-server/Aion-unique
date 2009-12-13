@@ -14,32 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.questEngine;
+package com.aionemu.gameserver.questEngine.model;
 
 /**
  * @author Blackmouse
  */
-@SuppressWarnings("serial")
-public class QuestEngineException extends Exception
+public enum ConditionUnionType
 {
-
-       public QuestEngineException(Throwable cause)
-       {
-               super(cause);
-       }
-
-       public QuestEngineException(String message, Throwable cause)
-       {
-               super(message, cause);
-       }
-
-       public QuestEngineException(String message)
-       {
-               super(message);
-       }
-
-       public QuestEngineException()
-       {
-       }
-
+	AND,
+	OR;
 }

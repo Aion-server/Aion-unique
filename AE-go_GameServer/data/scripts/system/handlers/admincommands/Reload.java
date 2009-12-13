@@ -18,7 +18,6 @@ package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.questEngine.QuestEngine;
-import com.aionemu.gameserver.questEngine.qparser.QuestParser;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
@@ -49,7 +48,6 @@ public class Reload extends AdminCommand
 			try
 			{
 				QuestEngine.getInstance().clear();
-				QuestParser.getInstance().reload();
 			}
 			catch (Exception ex)
 			{

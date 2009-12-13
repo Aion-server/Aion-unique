@@ -20,7 +20,7 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.questEngine.Quest;
 import com.aionemu.gameserver.questEngine.QuestEngine;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
@@ -78,19 +78,15 @@ public class QuestCommand extends AdminCommand
 			}
 
 			Quest quest;
-			try
-			{
-				quest = QuestEngine.getInstance().getQuest(id);
-			}
-			catch(QuestEngineException e)
+			QuestEnv env = new QuestEnv(null, target, id, 0);
+			quest = QuestEngine.getInstance().getQuest(env);
+			if (quest == null)
 			{
 				PacketSendUtility.sendMessage(admin, "Incorrect quest Id.");
 				return;
 			}
 
-			try
-			{
-				if (quest.startQuest(target, 0))
+				if (quest.startQuest())
 				{
 					PacketSendUtility.sendMessage(admin, "Quest started.");
 				}
@@ -98,11 +94,6 @@ public class QuestCommand extends AdminCommand
 				{
 					PacketSendUtility.sendMessage(admin, "Quest not started.");
 				}
-			}
-			catch(QuestEngineException e)
-			{
-				PacketSendUtility.sendMessage(admin, "Quest start error..");
-			}
 		}
 		else 
 			PacketSendUtility.sendMessage(admin, "syntax //quest <start|delete|step|info|vars>");

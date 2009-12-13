@@ -16,21 +16,21 @@
  */
 package com.aionemu.gameserver.questEngine;
 
-import static com.aionemu.gameserver.configs.Config.QUEST_XP_RATE;
 import static com.aionemu.gameserver.configs.Config.QUEST_KINAH_RATE;
+import static com.aionemu.gameserver.configs.Config.QUEST_XP_RATE;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.CollectItem;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
-import com.aionemu.gameserver.model.templates.quest.FinishedQuestConds;
+import com.aionemu.gameserver.model.templates.quest.RewardItem;
 import com.aionemu.gameserver.model.templates.quest.Rewards;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
@@ -38,105 +38,87 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
-import com.aionemu.gameserver.questEngine.events.QuestEvent;
-import com.aionemu.gameserver.questEngine.types.ConditionSet;
-import com.aionemu.gameserver.questEngine.types.QuestStatus;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.questEngine.model.QuestState;
+import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author Blakmouse, MrPoke
+ * @author MrPoke
  */
 public class Quest
 {
-	private ConditionSet baseConditions;
-	private final int id;
+	private ItemService itemService;
 
-	private List<QuestEvent> events = new ArrayList<QuestEvent>();
+	QuestTemplate template;
+	QuestEnv env;
 
-	public Quest(int id, int startNpcId, int endNpcId)
+	public Quest(QuestTemplate template, QuestEnv env)
 	{
-		this.id = id;
-		this.baseConditions = new ConditionSet();
-		if (startNpcId > 0)
-			QuestEngine.getInstance().setNpcQuestData(startNpcId).addOnQuestStart(this);
-		if (endNpcId > 0)
-			QuestEngine.getInstance().setNpcQuestData(endNpcId).addOnQuestEnd(this);
+		super();
+		this.template = template;
+		this.env = env;
 	}
 
-	public int getId()
+	public boolean checkStartCondition ()
 	{
-		return id;
-	}
-
-	public void setQuestConditions(ConditionSet conditions)
-	{
-		this.baseConditions = conditions;
-	}
-
-	public boolean checkStartCondition (Player player) throws QuestEngineException
-	{
-		QuestTemplate questTemplate = DataManager.QUEST_DATA.getQuestById(id);
-		if (player.getLevel() < questTemplate.getMinlevelPermitted())
+		Player player = env.getPlayer();
+		if (player.getLevel() < template.getMinlevelPermitted())
 		{
 			return false;
 		}
-		if (Race.valueOf(questTemplate.getRacePermitted()) != null)
+
+		if (template.getRacePermitted() != null)
 		{
-			if (Race.valueOf(questTemplate.getRacePermitted()) != player.getCommonData().getRace())
+			if (Race.valueOf(template.getRacePermitted()) != player.getCommonData().getRace())
 				return false;
 		}
-		FinishedQuestConds fqc = questTemplate.getFinishedQuestConds();
-		if (fqc != null)
+
+		if (template.getClassPermitted().size() != 0)
 		{
-			for (int questId : fqc.getFinishedQuestCond())
-			{
-				QuestState qs = player.getQuestStateList().getQuestState(questId);
-				if (qs == null || qs.getStatus() != QuestStatus.COMPLITE)
-					return false;
-			}
+			if (!template.getClassPermitted().contains(player.getCommonData().getPlayerClass()))
+				return false;
 		}
 
-		QuestState qs = player.getQuestStateList().getQuestState(id);
+		if (template.getGenderPermitted() != null)
+		{
+			if (template.getGenderPermitted() != player.getGender())
+				return false;
+		}
+
+		for (int questId : template.getFinishedQuestConds())
+		{
+			QuestState qs = player.getQuestStateList().getQuestState(questId);
+			if (qs == null || qs.getStatus() != QuestStatus.COMPLITE)
+				return false;
+		}
+
+		QuestState qs = player.getQuestStateList().getQuestState(template.getId());
 		if (qs != null && qs.getStatus().value() > 0)
 			return false;
-
-		return baseConditions.checkConditionOfSet(player, -1);
-	}
-	public boolean startQuest(Player player, int npcId) throws QuestEngineException
-	{
-		QuestTemplate questTemplate = DataManager.QUEST_DATA.getQuestById(id);
-		if (player.getLevel() < questTemplate.getMinlevelPermitted())
-		{
-			//TODO: System message need???
-			return false;
-		}
-		if (Race.valueOf(questTemplate.getRacePermitted()) != null)
-		{
-			if (Race.valueOf(questTemplate.getRacePermitted()) != player.getCommonData().getRace())
-				return false;
-		}
 		
-		FinishedQuestConds fqc = questTemplate.getFinishedQuestConds();
-		if (fqc != null)
-		{
-			for (int questId : fqc.getFinishedQuestCond())
-			{
-				QuestState qs = player.getQuestStateList().getQuestState(questId);
-				if (qs == null || qs.getStatus() != QuestStatus.COMPLITE)
-					return false;
-			}
-		}
+		return (template.getConditions()== null? true : template.getConditions().checkConditionOfSet(env));
+	}
+
+	public boolean startQuest()
+	{
+		if (!checkStartCondition ())
+			return false;
+
+		Player player = env.getPlayer();
+		int id = env.getQuestId();
 
     	PacketSendUtility.sendPacket(player, new SM_QUEST_ACCEPTED(id, 3, 0));
-		QuestState qs = player.getQuestStateList().getQuestState(getId());
+		QuestState qs = player.getQuestStateList().getQuestState(id);
 		if (qs == null)
 		{
-			qs = new QuestState(this, QuestStatus.START, 0, 0);
-			player.getQuestStateList().addQuest(getId(), qs);
+			qs = new QuestState(template.getId(), QuestStatus.START, 0, 0);
+			player.getQuestStateList().addQuest(id, qs);
 		}
 		else
 		{
-			if (questTemplate.getMaxRepeatCount() >= qs.getCompliteCount())
+			if (template.getMaxRepeatCount() >= qs.getCompliteCount())
 			{
 				qs.setStatus(QuestStatus.START);
 				qs.getQuestVars().setQuestVar(0);
@@ -146,14 +128,16 @@ public class Quest
 		return true;
 	}
 
-	public boolean questFinish(Player player)
+	public boolean questFinish()
 	{
+		Player player = env.getPlayer();
+		int id = env.getQuestId();
 		QuestState qs = player.getQuestStateList().getQuestState(id);
 		if (qs == null || qs.getStatus() != QuestStatus.REWARD)
 			return false;
-		QuestTemplate questTemplate = DataManager.QUEST_DATA.getQuestById(id);
+
 		Inventory inventory = player.getInventory();
-		Rewards rewards = questTemplate.getRewards().get(0);
+		Rewards rewards = template.getRewards().get(0);
 		if (rewards.getGold()!= null)
 		{
 			inventory.increaseKinah(QUEST_KINAH_RATE*rewards.getGold());
@@ -166,7 +150,16 @@ public class Quest
 			player.getCommonData().setExp(currentExp + rewardExp);
 			PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Integer.toString(rewardExp)));
 		}
-
+		int dialogId = env.getDialogId();
+		if (dialogId != 17 && dialogId != 0)
+		{
+			//TODO: Need support other reward qroup.
+			RewardItem rewardItem = rewards.getRewardItem().get(dialogId-8);
+			if (rewardItem != null)
+			{
+				addItem(rewardItem.getItemId(), rewardItem.getCount());
+			}
+		}
 		qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0)+1);
 		qs.setStatus(QuestStatus.COMPLITE);
 		qs.setCompliteCount(qs.getCompliteCount()+1);
@@ -175,8 +168,10 @@ public class Quest
 		return true;
 	}
 
-	public boolean questComplite(Player player)
+	public boolean questComplite()
 	{
+		Player player = env.getPlayer();
+		int id = env.getQuestId();
 		QuestState qs = player.getQuestStateList().getQuestState(id);
 		if (qs == null || qs.getStatus() != QuestStatus.START)
 			return false;
@@ -188,12 +183,14 @@ public class Quest
 		return true;
 	}
 
-	public boolean collectItemCheck(Player player)
+	public boolean collectItemCheck()
 	{
+		Player player = env.getPlayer();
+		int id = env.getQuestId();
 		QuestState qs = player.getQuestStateList().getQuestState(id);
 		if (qs == null)
 			return false;
-		CollectItems collectItems = DataManager.QUEST_DATA.getQuestById(id).getCollectItems();
+		CollectItems collectItems = template.getCollectItems();
 		if (collectItems == null)
 			return true;
 		for (CollectItem collectItem : collectItems.getCollectItem())
@@ -227,19 +224,46 @@ public class Quest
 		return true;
 	}
 
-	public void addEvent(QuestEvent qe)
+	public void addItem(int itemId, int count)
 	{
-		events.add(qe);
-	}
-
-	public boolean getEventsByType(String type, Player player, int data) throws QuestEngineException
-	{
-		for (QuestEvent event : events)
+		Player player = env.getPlayer();
+		Inventory inventory = player.getInventory();
+		if (itemId == ItemId.KINAH.value())
 		{
-			if (event.getName().equals(type))
-				if (event.operate(player, data))
-					return true;
+			inventory.increaseKinah(count);
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
 		}
-		return false;
+		else
+		{
+			int currentItemCount = count;
+			while (currentItemCount > 0)
+			{
+				Item newItem = itemService.newItem(itemId, currentItemCount);
+				
+				Item existingItem = inventory.getItemByItemId(itemId);
+				
+				//item already in cube
+				if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
+				{
+					int oldItemCount = existingItem.getItemCount();
+					Item addedItem = inventory.addToBag(newItem);
+					if(addedItem != null)
+					{
+						currentItemCount -= addedItem.getItemCount() - oldItemCount;
+						PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
+					}
+				}
+				// new item and inventory is not full
+				else if (!inventory.isFull())
+				{
+					Item addedItem = inventory.addToBag(newItem);
+					if(addedItem != null)
+					{
+						currentItemCount -= addedItem.getItemCount();
+						PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
+					}
+				}
+			}
+		}
 	}
 }

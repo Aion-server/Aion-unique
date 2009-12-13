@@ -16,46 +16,43 @@
  */
 package com.aionemu.gameserver.questEngine.operations;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
-/**
- * @author Blackmouse
- */
-public class TakeItemOperation extends QuestOperation
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "TakeItemOperation")
+public class TakeItemOperation
+    extends QuestOperation
 {
 
-	private static final String NAME = "take_item";
-	private final int itemCount;
-	private final int itemId;
-	
-	public TakeItemOperation(NamedNodeMap attr, Quest quest)
-	{
-		super(attr, quest);
-		itemId = Integer.parseInt(attr.getNamedItem("item_id").getNodeValue());
-		itemCount = Integer.parseInt(attr.getNamedItem("count").getNodeValue());
-	}
+    @XmlAttribute(name = "item_id", required = true)
+    protected int itemId;
+    @XmlAttribute(required = true)
+    protected int count;
 
 	@Override
-	protected void doOperate(Player player) throws QuestEngineException
+	public void doOperate(QuestEnv env)
 	{
-		int count = itemCount;
+		int itemCount = count;
+		Player player = env.getPlayer();
 		Inventory inventory = player.getInventory();
-		if (itemCount < 0)
+		if (count < 0)
 		{
 			Item tmp = inventory.getItemByItemId(itemId);
 			if (tmp != null)
-				count = tmp.getItemCount();
+				itemCount = tmp.getItemCount();
 		}
-		Item item = inventory.removeFromBag(itemId, count);
+		Item item = inventory.removeFromBag(itemId, itemCount);
 		if(item == null)
 		{
 			return;
@@ -68,11 +65,5 @@ public class TakeItemOperation extends QuestOperation
 		{
 			PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(item.getObjectId()));
 		}
-	}
-
-	@Override
-	public String getName()
-	{
-		return NAME;
 	}
 }

@@ -16,37 +16,32 @@
  */
 package com.aionemu.gameserver.questEngine.events;
 
-import java.util.StringTokenizer;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
-import org.w3c.dom.NamedNodeMap;
-
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
 /**
  * @author MrPoke
+ *
  */
-public class OnTalkEvent extends QuestEvent
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "OnTalkEvent")
+public class OnTalkEvent
+    extends QuestEvent
 {
-    private static final String NAME = "on_talk";
 
-    public OnTalkEvent(Quest quest, NamedNodeMap attr)
-    {
-        super(quest);
-		StringTokenizer st = new StringTokenizer(attr.getNamedItem("ids").getNodeValue(), ",");
-		if (st == null)
-			return;
-		int tokenCount = st.countTokens();
-		for (int i=0; i<tokenCount; i++)
-		{
-			Integer value = Integer.decode(st.nextToken().trim());
-			QuestEngine.getInstance().setNpcQuestData(value).addOnTalkEvent(this);
-		}
-    }
-
-    @Override
-    public String getName()
-    {
-        return NAME;
-    }
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.questEngine.events.QuestEvent#operate(com.aionemu.gameserver.questEngine.model.QuestEnv)
+	 */
+	@Override
+	public boolean operate(QuestEnv env)
+	{
+		Npc npc = (Npc)env.getVisibleObject();
+		if (!getIds().contains(npc.getNpcId()))
+			return false;
+		return super.operate(env);
+	}
 }

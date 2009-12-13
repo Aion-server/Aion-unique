@@ -32,8 +32,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
-import com.aionemu.gameserver.questEngine.events.QuestEvent;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.DecayService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -72,17 +71,7 @@ public class MonsterController extends NpcController
 
 			PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Long.toString(xpReward)));
 
-			for (QuestEvent questEvent : QuestEngine.getInstance().getNpcQuestData(getOwner().getNpcId()).getOnKillEvent())
-			{
-				try
-				{
-					questEvent.operate(player, getOwner().getNpcId());
-				}
-				catch(QuestEngineException e)
-				{
-					// TODO [ATracer] i want to get rid of questengine exceptions
-				}
-			}
+			QuestEngine.getInstance().onKill(new QuestEnv(getOwner(), player, 0 , 0));
 		}
 	}
 	

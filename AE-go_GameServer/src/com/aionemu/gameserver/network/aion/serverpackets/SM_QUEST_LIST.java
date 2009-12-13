@@ -23,8 +23,8 @@ import java.util.List;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.questEngine.QuestState;
-import com.aionemu.gameserver.questEngine.types.QuestStatus;
+import com.aionemu.gameserver.questEngine.model.QuestState;
+import com.aionemu.gameserver.questEngine.model.QuestStatus;
 
 /**
  * @author MrPoke

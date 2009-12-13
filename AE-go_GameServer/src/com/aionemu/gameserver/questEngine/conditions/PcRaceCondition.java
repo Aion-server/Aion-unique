@@ -16,42 +16,38 @@
  */
 package com.aionemu.gameserver.questEngine.conditions;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
 /**
- * @author Blackmouse
+ * @author MrPoke
+ *
  */
-public class PcRaceCondition extends QuestCondition
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "PcRaceCondition")
+public class PcRaceCondition
+    extends QuestCondition
 {
-	private static final String NAME = "pc_race";
-	private final Race race;
 
-	public PcRaceCondition(NamedNodeMap attr, Quest quest)
-	{
-		super(attr, quest);
-		race = Race.valueOf(attr.getNamedItem("value").getNodeValue());
-	}
+    @XmlAttribute(required = true)
+    protected Race value;
 
 	@Override
-	public String getName()
+	public boolean doCheck(QuestEnv env)
 	{
-		return NAME;
-	}
-	
-	@Override
-	protected boolean doCheck(Player player, int data) throws QuestEngineException
-	{
+		Player player = env.getPlayer();
 		switch (getOp())
 		{
 			case EQUAL:
-				return player.getCommonData().getRace() == race;
+				return player.getCommonData().getRace() == value;
 			case NOT_EQUAL:
-				return player.getCommonData().getRace() != race;
+				return player.getCommonData().getRace() != value;
 			default:
 				return false;
 		}

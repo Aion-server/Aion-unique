@@ -16,55 +16,55 @@
  */
 package com.aionemu.gameserver.questEngine.events;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
-import com.aionemu.gameserver.questEngine.operations.QuestOperation;
-import com.aionemu.gameserver.questEngine.types.ConditionSet;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+
+import com.aionemu.gameserver.questEngine.conditions.QuestConditions;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.questEngine.operations.QuestOperations;
 
 /**
  * @author MrPoke
+ *
  */
-public abstract class QuestEvent
-{
-	private final int questId;
-	private ConditionSet conditions = new ConditionSet();
-	private Set<QuestOperation> operations = new HashSet<QuestOperation>(); 
-	protected QuestEvent(Quest quest)
-	{
-		this.questId = quest.getId();
-	}
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "QuestEvent", propOrder = {
+    "conditions",
+    "operations"
+})
+@XmlSeeAlso({
+    OnKillEvent.class,
+    OnTalkEvent.class
+})
+public abstract class QuestEvent {
 
-	public boolean operate(Player player, int data) throws QuestEngineException
+    protected QuestConditions conditions;
+    protected QuestOperations operations;
+    @XmlAttribute
+    protected List<Integer> ids;
+
+
+    public List<Integer> getIds() {
+        if (ids == null) {
+            ids = new ArrayList<Integer>();
+        }
+        return this.ids;
+    }
+
+	public boolean operate(QuestEnv env)
 	{
-		if (conditions.checkConditionOfSet(player, data))
+		if (conditions.checkConditionOfSet(env))
 		{
-			for (QuestOperation oper : operations)
-			{
-				oper.operate(player);
-			}
+			operations.operate(env);
 			return true;
 		}
 		return false;
 	}
 
-	public void setConditions(ConditionSet cond)
-	{
-		conditions = cond;
-	}
-
-	public void addOperation(QuestOperation oper)
-	{
-		operations.add(oper);
-	}
-
-	public abstract String getName();
-	
-	public int getQuestId()
-	{
-		return questId;
-	}
 }

@@ -28,11 +28,8 @@ import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.dao.QuestListDAO;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.QuestStateList;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngine;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
-import com.aionemu.gameserver.questEngine.QuestState;
-import com.aionemu.gameserver.questEngine.types.QuestStatus;
+import com.aionemu.gameserver.questEngine.model.QuestState;
+import com.aionemu.gameserver.questEngine.model.QuestStatus;
 
 /**
  * @author MrPoke
@@ -63,20 +60,12 @@ public class MySQL5QuestListDAO extends QuestListDAO
             {
                 while(rset.next())
                 {
-					try
-					{
-						int questId = rset.getInt("quest_id");
-						Quest quest = QuestEngine.getInstance().getQuest(questId);
-	                    int questVars = rset.getInt("quest_vars");
-	                    int compliteCount = rset.getInt("complite_count");
-	                    QuestStatus status = QuestStatus.valueOf(rset.getString("status"));
-	                    QuestState questState = new QuestState(quest, status, questVars, compliteCount);
-	                    questStateList.addQuest(questId, questState);
-					}
-					catch(QuestEngineException e)
-					{
-						e.printStackTrace();
-					}
+					int questId = rset.getInt("quest_id");
+	                int questVars = rset.getInt("quest_vars");
+	                int compliteCount = rset.getInt("complite_count");
+	                QuestStatus status = QuestStatus.valueOf(rset.getString("status"));
+	                QuestState questState = new QuestState(questId, status, questVars, compliteCount);
+	                questStateList.addQuest(questId, questState);
                 }
             }
         });

@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.questEngine;
+package com.aionemu.gameserver.questEngine.model;
 
-import com.aionemu.gameserver.questEngine.types.QuestStatus;
+import com.aionemu.gameserver.questEngine.model.QuestStatus;
 
 /**
  * @author MrPoke
@@ -27,17 +27,17 @@ public class QuestState
        private QuestVars questVars;
        private QuestStatus status;
        private int compliteCount;
-       public QuestState(Quest quest)
+       public QuestState(int questId)
        {
-               this.questId = quest.getId();
+               this.questId = questId;
                status = QuestStatus.START;
                questVars = new QuestVars();
                compliteCount = 0;
        }
 
-       public QuestState(Quest quest, QuestStatus status, int questVars, int compliteCount)
+       public QuestState(int questId, QuestStatus status, int questVars, int compliteCount)
        {
-               this.questId = quest.getId();
+               this.questId = questId;
                this.status = status;
                this.questVars = new QuestVars(questVars);
                this.compliteCount = compliteCount;

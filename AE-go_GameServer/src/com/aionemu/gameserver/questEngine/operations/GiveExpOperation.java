@@ -18,40 +18,36 @@ package com.aionemu.gameserver.questEngine.operations;
 
 import static com.aionemu.gameserver.configs.Config.QUEST_XP_RATE;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author MrPoke
+ *
  */
-public class GiveExpOperation extends QuestOperation
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "GiveExpOperation")
+public class GiveExpOperation
+    extends QuestOperation
 {
-	private static final String NAME = "give_exp";
-	private final int count;
 
-	public GiveExpOperation(NamedNodeMap attr, Quest quest)
-	{
-		super(attr, quest);
-		count = Integer.parseInt(attr.getNamedItem("value").getNodeValue());
-	}
+    @XmlAttribute(required = true)
+    protected int value;
 
 	@Override
-	protected void doOperate(Player player) throws QuestEngineException
+	public void doOperate(QuestEnv env)
 	{
-		int reward=(QUEST_XP_RATE * count);
+		Player player = env.getPlayer();
+		int reward=(QUEST_XP_RATE * value);
 		long currentExp = player.getCommonData().getExp();
 		player.getCommonData().setExp(currentExp + reward);
 		PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Integer.toString(reward)));
-	}
-
-	@Override
-	public String getName()
-	{
-		return NAME;
 	}
 }

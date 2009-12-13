@@ -24,10 +24,14 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.questEngine.events.QuestEvent;
-import com.aionemu.gameserver.questEngine.types.QuestStatus;
+import com.aionemu.gameserver.questEngine.events.OnKillEvent;
+import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.questEngine.model.QuestState;
+import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
@@ -40,135 +44,115 @@ public class QuestEngine
 	private static final Logger	log			= Logger.getLogger(QuestEngine.class);
 
 	private static QuestEngine	instance;
-	private FastMap<Integer, Quest> _quests;
 	private FastMap<Integer, NpcQuestData> _npcQuestData;
 
 	private QuestEngine()
 	{
-		_quests = new FastMap<Integer, Quest>();
 		_npcQuestData = new FastMap<Integer, NpcQuestData>();
 	}
 
-	public boolean onDialog(int targetObjectId, int questId, int dialogId, Player player)
+	public boolean onDialog(QuestEnv env)
 	{
 		Quest quest = null;
-
-		try
+		Player player = env.getPlayer();
+		Npc npc = (Npc)env.getVisibleObject();
+		int questId = env.getQuestId();
+		int dialogId = env.getDialogId();
+		if (questId > 0)
 		{
-			if (questId > 0)
-			{
-				quest = getQuest(questId);
-			}
-		}
-		catch(QuestEngineException e)
-		{
-			log.error("Quest event error: ", e);
+			quest = getQuest(env);
 		}
 
-		try
+		if(npc != null)
 		{
-			Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
-			if(npc != null)
-			{
-				for(QuestEvent questEvent : getNpcQuestData(npc.getNpcId()).getOnTalkEvent())
-					if(questEvent.getQuestId() == questId)
-						if(questEvent.operate(player, dialogId))
+			for(int id : getNpcQuestData(npc.getNpcId()).getOnTalkEvent())
+				if(id == questId)
+					for (OnTalkEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnTalkEvent())
+						if (event.operate(env))
 							return true;
-			}
-			else
-			{
-				if(quest != null)
-				{
-					if(quest.getEventsByType("on_talk", player, dialogId))
-						return true;
-				}
-			}
-		}
-		catch(QuestEngineException e)
-		{
-			log.error("Quest event error: ", e);
 		}
 
 		switch(dialogId)
 		{
+			case 8:
+			case 9:
 			case 10:
-				Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
-				for (Quest endQuest : getNpcQuestData(npc.getNpcId()).getOnQuestEnd())
+				if (questId == 0)
 				{
-					QuestState qs = player.getQuestStateList().getQuestState(endQuest.getId());
-					if (qs == null)
-						continue;
-					if (qs.getStatus() != QuestStatus.REWARD)
-						continue;
-	
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(player.getTarget().getObjectId(), 5, qs.getQuestId()));
-					return true;
-					
+					for (int endQuestId : getNpcQuestData(npc.getNpcId()).getOnQuestEnd())
+					{
+						QuestState qs = player.getQuestStateList().getQuestState(endQuestId);
+						if (qs == null)
+							continue;
+						if (qs.getStatus() != QuestStatus.REWARD)
+							continue;
+		
+						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), 5, qs.getQuestId()));
+						return true;
+						
+					}
+					break;
 				}
-				break;
+			case 11:
+			case 12:
+			case 13:
+			case 14:
+			case 15:
+			case 16:
 			case 17:
 				if (quest == null)
 					break;
-				quest.questFinish(player);
-				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(player.getTarget().getObjectId(), 10));
+				quest.questFinish();
+				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), 10));
 				return true;
 			case 25:
 				QuestState qs = player.getQuestStateList().getQuestState(questId);
 				if(qs == null || qs.getStatus() == QuestStatus.NONE)
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(player.getTarget().getObjectId(), 1011,
+					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), 1011,
 						questId));
 				else
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(player.getTarget().getObjectId(), 2375,
+					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), 2375,
 						questId));
 				return true;
 			case 33:
 				if (quest == null)
 					break;
-				if(quest.collectItemCheck(player))
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(player.getTarget().getObjectId(), 5,
+				if(quest.collectItemCheck())
+					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), 5,
 						questId));
 				else
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(player.getTarget().getObjectId(), 2716,
+					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), 2716,
 						questId));
 				return true;
 			case 1002:
 				if (quest == null)
 					break;
-				try
+				if(quest.startQuest())
 				{
-					if(quest.startQuest(player, ((Npc) player.getActiveRegion().getWorld().findAionObject(
-						targetObjectId)).getNpcId()))
-					{
-						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(player.getTarget().getObjectId(), 1003, questId));
-						return true;
-					}
-					else
-					{
-						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(targetObjectId, dialogId));
-						return true;
-					}
+					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), 1003, questId));
+					return true;
 				}
-				catch(QuestEngineException e)
+				else
 				{
-					log.error("Quest error: ", e);
-					break;
+					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), dialogId));
+					return true;
 				}
 			case 0:	
 			case 1003:
 			case 1004:
 			case 1005:
 			case 1006:
-				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(player.getTarget().getObjectId(), dialogId+1, questId));
+				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), dialogId+1, questId));
 				return true;
 			case 1007:
-				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(player.getTarget().getObjectId(), 4, questId));
+				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), 4, questId));
 				return true;
 			case 1009:
 				if (quest == null)
 					break;
-				if(quest.questComplite(player))
+				if(quest.questComplite())
 				{
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(player.getTarget().getObjectId(), 5, questId));
+					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), 5, questId));
 					return true;
 				}
 				break;
@@ -178,27 +162,35 @@ public class QuestEngine
 		return false;
 	}
 
-	public void onEnterWorld(final Player player)
+	public void onEnterWorld(final QuestEnv env)
 	{
 		ThreadPoolManager.getInstance().schedule(new Runnable() 
 		{
 			public void run() 
 			{
-				try
-				{
-					playerInitQuest(player);
-				}
-				catch(QuestEngineException e)
-				{
-					log.error("Quest error: ", e);
-				}
+				playerInitQuest(env);
 			}   
 		}, 10000);
 	}
 
-	public void playerInitQuest(final Player player) throws QuestEngineException
+	public boolean onKill (QuestEnv env)
 	{
-		final int id;
+		Npc npc = (Npc)env.getVisibleObject();
+		for (int questId : getNpcQuestData(npc.getNpcId()).getOnKillEvent())
+		{
+			for (OnKillEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnKillEvent())
+			{
+				env.setQuestId(questId);
+				if (event.operate(env))
+					return true;
+			}
+		}
+		return false;
+	}
+	public void playerInitQuest(final QuestEnv env)
+	{
+		int id;
+		Player player = env.getPlayer();
 		if (player.getCommonData().getRace() == Race.ELYOS)
 		{
 			id = 1000;
@@ -207,10 +199,10 @@ public class QuestEngine
 		{
 			id = 2000;
 		}
-
+		env.setQuestId(id);
 		if (player.getQuestStateList().getQuestState(id) == null)
 		{
-			getQuest(id).startQuest(player, 0);
+			getQuest(env).startQuest();
 		}
 		QuestState qs = player.getQuestStateList().getQuestState(id);
 		if (qs != null)
@@ -222,37 +214,26 @@ public class QuestEngine
 			{
 				public void run() 
 				{
-					try
-					{
-						getQuest(id).questFinish(player);
-					}
-					catch(QuestEngineException e)
-					{
-						log.error("Quest error: ", e);
-					}
+					getQuest(env).questFinish();
 				}   
 			}, 5000);
 		}
 	}
 
-	public Quest getQuest(int id) throws QuestEngineException
+	public Quest getQuest(QuestEnv env)
 	{
-		if (!_quests.containsKey(id))
+		QuestTemplate template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
+		if (template == null)
 		{
-			throw new QuestEngineException("Quest (id = " + id + ") not found.");
+			log.warn("Missing QUEST_DATA questId: "+env.getQuestId());
+			return null;
 		}
-
-		return _quests.get(id);
-	}
-
-	public Quest newQuest(int id, int startNpcId, int endNpcId) throws QuestEngineException
-	{
-		if (_quests.containsKey(id))
+		Quest quest = new Quest(template , env);
+		if (quest == null)
 		{
-			throw new QuestEngineException("Duplicate Quest (id = " + id + ").");
+			log.warn("Error init quest questId: "+env.getQuestId());
+			return null;
 		}
-		Quest quest = new Quest(id, startNpcId, endNpcId);
-		_quests.put(id, quest);
 		return quest;
 	}
 
@@ -287,19 +268,8 @@ public class QuestEngine
 		return _npcQuestData.get(npcTemplateId);
 	}
 
-	public void log()
-	{
-		log.info("Loaded "+size()+" quests.");
-	}
-
-	public int size()
-	{
-		return _quests.size();
-	}
-
 	public void clear()
 	{
-		_quests.clear();
 		_npcQuestData.clear();
 	}
 

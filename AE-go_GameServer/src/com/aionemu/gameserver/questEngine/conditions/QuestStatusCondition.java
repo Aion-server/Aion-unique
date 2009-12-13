@@ -16,64 +16,57 @@
  */
 package com.aionemu.gameserver.questEngine.conditions;
 
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
-import com.aionemu.gameserver.questEngine.QuestState;
-import com.aionemu.gameserver.questEngine.types.QuestStatus;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.questEngine.model.QuestState;
+import com.aionemu.gameserver.questEngine.model.QuestStatus;
 
 /**
  * @author MrPoke
+ *
  */
-public class QuestStatusCondition extends QuestCondition
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "QuestStatusCondition")
+public class QuestStatusCondition
+    extends QuestCondition
 {
-	private static final String NAME = "quest_status";
-	private final int value ;
-	private final int questId;
 
-	public QuestStatusCondition(NamedNodeMap attr, Quest quest)
-	{
-		super(attr, quest);
-		Node tmp = attr.getNamedItem("quest_id");
-		if (tmp == null)
-			questId = quest.getId();
-		else
-			questId = Integer.parseInt(attr.getNamedItem("quest_id").getNodeValue());
-		
-		value = QuestStatus.valueOf(attr.getNamedItem("value").getNodeValue()).value();
-	}
+    @XmlAttribute(required = true)
+    protected QuestStatus value;
+    @XmlAttribute(name = "quest_id")
+    protected Integer questId;
 
 	@Override
-	public String getName()
+	public boolean doCheck(QuestEnv env)
 	{
-		return NAME;
-	}
-	
-	@Override
-	protected boolean doCheck(Player player, int data) throws QuestEngineException
-	{
+		Player player = env.getPlayer();
 		int qstatus = 0;
-		QuestState qs = player.getQuestStateList().getQuestState(questId);
+		int id = env.getQuestId();
+		if (questId != null)
+			id = questId;
+		QuestState qs = player.getQuestStateList().getQuestState(id);
 		if (qs != null)
 			qstatus = qs.getStatus().value();
 			
 		switch (getOp())
 		{
 			case EQUAL:
-				return qstatus == value;
+				return qstatus == value.value();
 			case GREATER:
-				return qstatus > value;
+				return qstatus > value.value();
 			case GREATER_EQUAL:
-				return qstatus >= value;
+				return qstatus >= value.value();
 			case LESSER:
-				return qstatus < value;
+				return qstatus < value.value();
 			case LESSER_EQUAL:
-				return qstatus <= value;
+				return qstatus <= value.value();
 			case NOT_EQUAL:
-				return qstatus != value;
+				return qstatus != value.value();
 			default:
 				return false;
 		}

@@ -16,46 +16,42 @@
  */
 package com.aionemu.gameserver.questEngine.operations;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
-import com.aionemu.gameserver.questEngine.QuestState;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author MrPoke
+ *
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "IncraseQuestVarOperation")
 public class IncraseQuestVarOperation extends QuestOperation
 {
 
-	private static final String NAME = "incrase_quest_var";
-	private final int value;
-	private final int varId;
-
-	public IncraseQuestVarOperation(NamedNodeMap attr, Quest quest)
-	{
-		super(attr, quest);
-		this.value = Integer.parseInt(attr.getNamedItem("value").getNodeValue());
-		this.varId = Integer.parseInt(attr.getNamedItem("var_id").getNodeValue());
-	}
+	@XmlAttribute(name = "var_id", required = true)
+	protected int	varId;
+	@XmlAttribute(required = true)
+	protected int	value;
 
 	@Override
-	public String getName()
+	public void doOperate(QuestEnv env)
 	{
-		return NAME;
-	}
-
-	@Override
-	protected void doOperate(Player player) throws QuestEngineException
-	{
-		QuestState qs = player.getQuestStateList().getQuestState(getQuest().getId());
-		if (qs != null)
+		Player player = env.getPlayer();
+		int questId = env.getQuestId();
+		QuestState qs = player.getQuestStateList().getQuestState(questId);
+		if(qs != null)
 		{
-			qs.getQuestVars().setQuestVarById(varId, qs.getQuestVars().getQuestVarById(varId)+value);
-			PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(getQuest().getId(), qs.getStatus() , qs.getQuestVars().getQuestVars()));
+			qs.getQuestVars().setQuestVarById(varId, qs.getQuestVars().getQuestVarById(varId) + value);
+			PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(questId, qs.getStatus(), qs.getQuestVars()
+				.getQuestVars()));
 		}
 	}
 }

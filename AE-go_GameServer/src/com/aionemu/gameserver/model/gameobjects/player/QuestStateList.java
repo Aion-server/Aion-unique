@@ -22,7 +22,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.questEngine.QuestState;
+import com.aionemu.gameserver.questEngine.model.QuestState;
 
 /**
  * @author MrPoke

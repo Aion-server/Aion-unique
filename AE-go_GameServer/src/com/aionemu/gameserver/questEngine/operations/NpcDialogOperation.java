@@ -16,45 +16,37 @@
  */
 package com.aionemu.gameserver.questEngine.operations;
 
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
-/**
- * @author Blackmouse
- */
-public class NpcDialogOperation extends QuestOperation
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "NpcDialogOperation")
+public class NpcDialogOperation
+    extends QuestOperation
 {
-    private static final String NAME = "npc_dialog";
-	private final int dialogId;
-	private final int questId;
 
-    public NpcDialogOperation(NamedNodeMap attr, Quest quest)
-    {
-        super(attr, quest);
-        dialogId = Integer.parseInt(attr.getNamedItem("id").getNodeValue());
-		Node tmp = attr.getNamedItem("quest_id");
-		if (tmp == null)
-			questId = quest.getId();
-		else
-			questId = Integer.parseInt(attr.getNamedItem("quest_id").getNodeValue());
-        
-    }
+    @XmlAttribute(required = true)
+    protected int id;
+    @XmlAttribute(name = "quest_id")
+    protected Integer questId;
 
     @Override
-    protected void doOperate(Player player) throws QuestEngineException 
+	public void doOperate(QuestEnv env)
     {
-    	PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(player.getTarget().getObjectId(), dialogId, questId));
-    }
-
-    @Override
-    public String getName()
-    {
-        return NAME;
+    	Player player = env.getPlayer();
+    	VisibleObject obj = env.getVisibleObject();
+    	int qId = env.getQuestId();
+    	if (questId != null)
+    		qId = questId;
+    	PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(obj.getObjectId(), id, qId));
     }
 }

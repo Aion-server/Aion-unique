@@ -16,43 +16,47 @@
  */
 package com.aionemu.gameserver.questEngine.conditions;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
-import com.aionemu.gameserver.questEngine.types.ConditionOperation;
+import com.aionemu.gameserver.questEngine.model.ConditionOperation;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
 /**
- * @author Blackmouse
+ * @author MrPoke
+ *
  */
-public abstract class QuestCondition
-{
-	private final ConditionOperation op;
-	private final int questId;
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "QuestCondition")
+@XmlSeeAlso({
+    PcRaceCondition.class,
+    PcLevelCondition.class,
+    NpcIdCondition.class,
+    DialogIdCondition.class,
+    PcInventoryCondition.class,
+    QuestVarCondition.class,
+    QuestStatusCondition.class
+})
+public abstract class QuestCondition {
 
-	protected QuestCondition(NamedNodeMap attr, Quest quest)
-	{
-		this.op = ConditionOperation.valueOf(attr.getNamedItem("op").getNodeValue());
-		this.questId = quest.getId();
-	}
+    @XmlAttribute(required = true)
+    protected ConditionOperation op;
 
-	protected ConditionOperation getOp()
-	{
-		return op;
-	}
+    /**
+     * Gets the value of the op property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ConditionOp }
+     *     
+     */
+    public ConditionOperation getOp() {
+        return op;
+    }
 
-	public abstract String getName();
+    public abstract boolean doCheck(QuestEnv env);
 
-	protected abstract boolean doCheck(Player player, int data) throws QuestEngineException;
-
-	public boolean check(Player player, int data) throws QuestEngineException
-	{
-		return doCheck(player, data);
-	}
-
-	public int getQuestId()
-	{
-		return questId;
-	}
 }

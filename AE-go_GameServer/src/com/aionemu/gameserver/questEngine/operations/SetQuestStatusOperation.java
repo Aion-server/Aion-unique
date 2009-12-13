@@ -16,47 +16,43 @@
  */
 package com.aionemu.gameserver.questEngine.operations;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.QuestListDAO;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
-import com.aionemu.gameserver.questEngine.QuestState;
-import com.aionemu.gameserver.questEngine.types.QuestStatus;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.questEngine.model.QuestState;
+import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author MrPoke
+ *
  */
-public class SetQuestStatusOperation extends QuestOperation
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "SetQuestStatusOperation")
+public class SetQuestStatusOperation
+    extends QuestOperation
 {
 
-	private static final String NAME = "set_quest_status";
-	private final QuestStatus value;
-
-	public SetQuestStatusOperation(NamedNodeMap attr, Quest quest)
-	{
-		super(attr, quest);
-		this.value = QuestStatus.valueOf(attr.getNamedItem("status").getNodeValue());
-	}
+    @XmlAttribute(required = true)
+    protected QuestStatus status;
 
 	@Override
-	public String getName()
+	public void doOperate(QuestEnv env)
 	{
-		return NAME;
-	}
-
-	@Override
-	protected void doOperate(Player player) throws QuestEngineException
-	{
-		QuestState qs = player.getQuestStateList().getQuestState(getQuest().getId());
+		Player player = env.getPlayer();
+		int questId = env.getQuestId();
+		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if (qs != null)
 		{
-			qs.setStatus(value);
-			PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(getQuest().getId(), value , qs.getQuestVars().getQuestVars()));
+			qs.setStatus(status);
+			PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(questId, status , qs.getQuestVars().getQuestVars()));
 			player.updateNearbyQuests();
 	    	DAOManager.getDAO(QuestListDAO.class).store(player.getObjectId(), qs);
 		}

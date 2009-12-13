@@ -32,6 +32,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
 import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 /**
  * 
@@ -90,8 +91,9 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 			// ? sendPacket(new SM_LOOKATOBJECT(player.getObjectId(), 0, unk1));
 			return;
 		}
+		Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
 
-		if (QuestEngine.getInstance().onDialog(targetObjectId, questId, dialogId, player))
+		if (QuestEngine.getInstance().onDialog(new QuestEnv(npc, player, questId, dialogId)))
 			return;
 
 		switch (dialogId)
@@ -148,7 +150,6 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				break;
 			case 41:
 				//expand cube
-				Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
 				clist = DataManager.CUBEEXPANDER_DATA.getCubeExpandListTemplate(npc.getNpcId());
 				if ((clist != null)&&(clist.getNpcId()!=0)){
 					if(player.getCubeSize()==0){

@@ -27,7 +27,6 @@ import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
-import com.aionemu.gameserver.questEngine.qparser.QuestParser;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -84,9 +83,6 @@ public class GameServer
 		//Set all players is offline
 		DAOManager.getDAO(PlayerDAO.class).setPlayersOffline(false);
 		gs.spawnMonsters();
-		
-		// Loading quests
-		QuestParser.getInstance();
 		
 		SkillEngine.getInstance().setWorld(gs.injector.getInstance(World.class));
 		

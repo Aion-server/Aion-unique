@@ -16,49 +16,45 @@
  */
 package com.aionemu.gameserver.questEngine.conditions;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
 /**
- * @author Blackmouse
+ * @author MrPoke
+ *
  */
-public class PcLevelCondition extends QuestCondition
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "PcLevelCondition")
+public class PcLevelCondition
+    extends QuestCondition
 {
-	private static final String NAME = "pc_level";
-	private final int level;
 
-	public PcLevelCondition(NamedNodeMap attr, Quest quest)
-	{
-		super(attr, quest);
-		level = Integer.parseInt(attr.getNamedItem("value").getNodeValue());
-	}
+    @XmlAttribute(required = true)
+    protected int value;
 
 	@Override
-	public String getName()
+	public boolean doCheck(QuestEnv env)
 	{
-		return NAME;
-	}
-
-	@Override
-	protected boolean doCheck(Player player, int data) throws QuestEngineException
-	{
+		Player player = env.getPlayer();
 		switch (getOp())
 		{
 			case EQUAL:
-				return player.getLevel() == level;
+				return player.getLevel() == value;
 			case GREATER:
-				return player.getLevel() > level;
+				return player.getLevel() > value;
 			case GREATER_EQUAL:
-				return player.getLevel() >= level;
+				return player.getLevel() >= value;
 			case LESSER:
-				return player.getLevel() < level;
+				return player.getLevel() < value;
 			case LESSER_EQUAL:
-				return player.getLevel() <= level;
+				return player.getLevel() <= value;
 			case NOT_EQUAL:
-				return player.getLevel() != level;
+				return player.getLevel() != value;
 			default:
 				return false;
 		}

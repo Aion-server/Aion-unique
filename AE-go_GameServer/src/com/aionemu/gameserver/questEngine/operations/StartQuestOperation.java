@@ -16,44 +16,43 @@
  */
 package com.aionemu.gameserver.questEngine.operations;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.QuestListDAO;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
-import com.aionemu.gameserver.questEngine.QuestState;
+import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author MrPoke
+ *
  */
-public class StartQuestOperation extends QuestOperation
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "StartQuestOperation")
+public class StartQuestOperation
+    extends QuestOperation
 {
-    private static final String NAME = "start_quest";
-	private final int var;
 
-    public StartQuestOperation(NamedNodeMap attr, Quest quest)
-    {
-        super(attr, quest);
-        var = Integer.parseInt(attr.getNamedItem("var").getNodeValue());
-    }
+    @XmlAttribute(required = true)
+    protected int id;
 
     @Override
-    protected void doOperate(Player player) throws QuestEngineException 
+	public void doOperate(QuestEnv env)
     {
-    	getQuest().startQuest(player, var);
-    	PacketSendUtility.sendPacket(player, new SM_QUEST_ACCEPTED(getQuest().getId(), 3, var));
+    	Player player = env.getPlayer();
+    	int questId = env.getQuestId();
+    	QuestEngine.getInstance().getQuest(env).startQuest();
+    	PacketSendUtility.sendPacket(player, new SM_QUEST_ACCEPTED(questId, 3, id));
     	player.updateNearbyQuests();
-    	QuestState qs = player.getQuestStateList().getQuestState(getQuest().getId());
+    	QuestState qs = player.getQuestStateList().getQuestState(questId);
     	DAOManager.getDAO(QuestListDAO.class).store(player.getObjectId(), qs);
     }
-
-    @Override
-    public String getName()
-    {
-        return NAME;
-    }
+    
 }

@@ -41,9 +41,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.questEngine.Quest;
 import com.aionemu.gameserver.questEngine.QuestEngine;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -79,23 +78,15 @@ public class PlayerController extends CreatureController<Player>
 			boolean update = false;
 			Npc npc = ((Npc)object);
 			PacketSendUtility.sendPacket(getOwner(), new SM_NPC_INFO(npc));
-			for (Quest quest : QuestEngine.getInstance().getNpcQuestData(npc.getNpcId()).getOnQuestStart())
+			for (int questId : QuestEngine.getInstance().getNpcQuestData(npc.getNpcId()).getOnQuestStart())
 			{
-				try
+				if (QuestEngine.getInstance().getQuest(new QuestEnv(object, getOwner(), questId, 0)).checkStartCondition())
 				{
-					if (quest.checkStartCondition(getOwner()))
+					if (!getOwner().getNearbyQuests().contains(questId))
 					{
-						int questId = quest.getId();
-					    if (!getOwner().getNearbyQuests().contains(questId))
-					    {
-					    	update = true;
-					    	getOwner().getNearbyQuests().add(questId);
-					    }
+					    update = true;
+					    getOwner().getNearbyQuests().add(questId);
 					}
-				}
-				catch(QuestEngineException e)
-				{
-					continue;
 				}
 			}
 			if (update)
@@ -117,23 +108,16 @@ public class PlayerController extends CreatureController<Player>
 		if (object instanceof Npc)
 		{
 			boolean update = false;
-			for (Quest quest : QuestEngine.getInstance().getNpcQuestData(((Npc)object).getNpcId()).getOnQuestStart())
+			for (int questId : QuestEngine.getInstance().getNpcQuestData(((Npc)object).getNpcId()).getOnQuestStart())
 			{
-				try
+				QuestEnv env = new QuestEnv(object, getOwner(), questId, 0);
+				if (QuestEngine.getInstance().getQuest(env).checkStartCondition())
 				{
-					if (quest.checkStartCondition(getOwner()))
+					if (getOwner().getNearbyQuests().contains(questId))
 					{
-						int questId = quest.getId();
-					    if (getOwner().getNearbyQuests().contains(questId))
-					    {
-					    	update = true;
-					    	getOwner().getNearbyQuests().remove(getOwner().getNearbyQuests().indexOf(questId));
-					    }
+					    update = true;
+					    getOwner().getNearbyQuests().remove(getOwner().getNearbyQuests().indexOf(questId));
 					}
-				}
-				catch(QuestEngineException e)
-				{
-					continue;
 				}
 			}
 			if (update)

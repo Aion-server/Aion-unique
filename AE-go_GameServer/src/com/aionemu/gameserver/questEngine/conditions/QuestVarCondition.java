@@ -16,39 +16,48 @@
  */
 package com.aionemu.gameserver.questEngine.conditions;
 
-import org.w3c.dom.NamedNodeMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngineException;
-import com.aionemu.gameserver.questEngine.QuestState;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.questEngine.model.QuestState;
+
 
 /**
- * @author MrPoke
+ * <p>Java class for QuestVarCondition complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType name="QuestVarCondition">
+ *   &lt;complexContent>
+ *     &lt;extension base="{}Condition">
+ *       &lt;attribute name="value" use="required" type="{http://www.w3.org/2001/XMLSchema}int" />
+ *       &lt;attribute name="var_id" use="required" type="{http://www.w3.org/2001/XMLSchema}int" />
+ *     &lt;/extension>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
  */
-public class QuestVarCondition extends QuestCondition
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "QuestVarCondition")
+public class QuestVarCondition
+    extends QuestCondition
 {
-	private static final String NAME = "quest_var";
-	private final int varId;
-	private final int value;
 
-	public QuestVarCondition(NamedNodeMap attr, Quest quest)
-	{
-		super(attr, quest);
-		value = Integer.parseInt(attr.getNamedItem("value").getNodeValue());
-		varId = Integer.parseInt(attr.getNamedItem("var_id").getNodeValue());
-	}
+    @XmlAttribute(required = true)
+    protected int value;
+    @XmlAttribute(name = "var_id", required = true)
+    protected int varId;
 
 	@Override
-	public String getName()
+	public boolean doCheck(QuestEnv env)
 	{
-		return NAME;
-	}
-
-	@Override
-	protected boolean doCheck(Player player, int data) throws QuestEngineException
-	{
-		QuestState qs = player.getQuestStateList().getQuestState(getQuestId());
+		QuestState qs = env.getPlayer().getQuestStateList().getQuestState(env.getQuestId());
 		if (qs == null)
 		{
 			return false;
