@@ -16,210 +16,218 @@
  */
 package com.aionemu.gameserver.network.aion.serverpackets;
 
-import java.nio.ByteBuffer;
-import java.util.List;
-
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
+import java.nio.ByteBuffer;
+import java.util.List;
+
 /**
  * This packet is displaying visible players.
- * 
+ *
  * @author -Nemesiss-, Avol, srx47
- * 
  */
-public class SM_PLAYER_INFO extends AionServerPacket
-{
-	/**
-	 * Visible player
-	 */
-	private final Player	player;
-	private final boolean	self;
+public class SM_PLAYER_INFO extends AionServerPacket {
 
-	/**
-	 * Constructs new <tt>SM_CI </tt> packet
-	 * 
-	 * @param player
-	 *            actual player.
-	 */
-	public SM_PLAYER_INFO(Player player, boolean self)
-	{
-		this.player = player;
-		this.self = self;
-	}
+    /**
+     * Visible player
+     */
+    private final Player player;
+    private final boolean self;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void writeImpl(AionConnection con, ByteBuffer buf)
-	{
-		PlayerCommonData pcd = player.getCommonData();
-		
-		final int raceId = pcd.getRace().getRaceId();
-		final int genderId = pcd.getGender().getGenderId();
-		final PlayerAppearance playerAppearance = player.getPlayerAppearance();
+    /**
+     * Constructs new <tt>SM_PLAYER_INFO </tt> packet
+     *
+     * @param player actual player.
+     * @param self   send packet yourself ?
+     */
+    public SM_PLAYER_INFO(Player player, boolean self) {
+        this.player = player;
+        this.self = self;
+    }
 
-		writeF(buf, player.getX());// x
-		writeF(buf, player.getY());// y
-		writeF(buf, player.getZ());// z
-		writeD(buf, player.getObjectId());
-		/**
-		 * A3 famale asamodian A2 male asamodian A1 famale elyos A0 male elyos
-		 */
-		int raceSex = 100000 + raceId * 2 + genderId; // wtf ?
-		writeD(buf, raceSex);
-		writeD(buf, raceSex);
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void writeImpl(AionConnection con, ByteBuffer buf) {
+        PlayerCommonData pcd = player.getCommonData();
 
-		writeC(buf, 0x26); // unk 0x00 - name in red
-		writeC(buf, raceId); //race
-		writeC(buf, pcd.getPlayerClass().getClassId());
-		writeC(buf, genderId); //sex
+        final int raceId = pcd.getRace().getRaceId();
+        final int genderId = pcd.getGender().getGenderId();
+        final PlayerAppearance playerAppearance = player.getPlayerAppearance();
 
-		byte[] unk = new byte[] { (byte) 0x01, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
-			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
-		writeB(buf, unk);
+        writeF(buf, player.getX());// x
+        writeF(buf, player.getY());// y
+        writeF(buf, player.getZ());// z
+        writeD(buf, player.getObjectId());
+        /**
+         * A3 female asmodian A2 male asmodian A1 female elyos A0 male elyos
+         */
+        int modelId = 100000 + raceId * 2 + genderId;
+        writeD(buf, modelId);
+        writeD(buf, modelId);
 
-		writeC(buf, player.getHeading());
+        writeC(buf, 0x26); // unk 0x00 - name in red
+        writeC(buf, raceId); //race
+        writeC(buf, pcd.getPlayerClass().getClassId());
+        writeC(buf, genderId); //sex
 
-		writeS(buf, player.getName());
+        byte[] unk = new byte[]{(byte) 0x01, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
+                (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00
+        };
+        writeB(buf, unk);
 
-		writeD(buf, pcd.getTitleId());
+        writeC(buf, player.getHeading());
 
-        unk = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00,
-			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
-			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
-		writeB(buf, unk);
+        writeS(buf, player.getName());
 
-		writeC(buf, 100);// %hp
-		writeC(buf, 0x00);// unk (0x00)
-		writeC(buf, 0x00);// unk (0x00)
-		writeC(buf, 0x00);// unk (0x00)
+        writeD(buf, pcd.getTitleId());
+        writeH(buf, 0x0);//if set 0x1 can jump and fly..
+        writeC(buf, 0);
+        writeH(buf, 0); //LegionId
+        writeH(buf, 0);
+        writeC(buf, 0);
+        writeH(buf, 0);
+        writeH(buf, 0);
+        writeC(buf, 0);
+        writeS(buf, ""); //LegionName
 
-		List<Item> items = player.getInventory().getEquippedItems();
-		short mask = 0;
-		for(Item item : items)
-		{
-			mask |= item.getEquipmentSlot();
-			
-		}
-		
-		writeH(buf, mask);
 
-		for(Item item : items)
-		{		
-			if(item.getEquipmentSlot() < Short.MAX_VALUE * 2)
-			{
-				writeD(buf, item.getItemTemplate().getItemId());
-				writeD(buf, 0); //unk
-				writeD(buf, 0); //color code
-			}	
-		}
-			
-		writeD(buf, playerAppearance.getSkinRGB());
-		writeD(buf, playerAppearance.getHairRGB());
-		writeD(buf, playerAppearance.getEyeRGB());
-		writeD(buf, playerAppearance.getLipRGB());
-		writeC(buf, playerAppearance.getFace());
-		writeC(buf, playerAppearance.getHair());
-		writeC(buf, playerAppearance.getDeco());
-		writeC(buf, playerAppearance.getTattoo());
+        writeC(buf, 100);// %hp
+        writeC(buf, 0x00);// unk (0x00)
+        writeC(buf, 0x00);// unk (0x00)
+        writeC(buf, 0x00);// unk (0x00)
 
-		writeC(buf, 4);// always 4 o0
+        List<Item> items = player.getInventory().getEquippedItems();
+        short mask = 0;
+        for (Item item : items)
+        {
+            mask |= item.getEquipmentSlot();
 
-		writeC(buf, playerAppearance.getFaceShape());
-		writeC(buf, playerAppearance.getForehead());
+        }
 
-		writeC(buf, playerAppearance.getEyeHeight());
-		writeC(buf, playerAppearance.getEyeSpace());
-		writeC(buf, playerAppearance.getEyeWidth());
-		writeC(buf, playerAppearance.getEyeSize());
-		writeC(buf, playerAppearance.getEyeShape());
-		writeC(buf, playerAppearance.getEyeAngle());
+        writeH(buf, mask);
 
-		writeC(buf, playerAppearance.getBrowHeight());
-		writeC(buf, playerAppearance.getBrowAngle());
-		writeC(buf, playerAppearance.getBrowShape());
+        for (Item item : items)
+        {
+            if (item.getEquipmentSlot() < Short.MAX_VALUE * 2)
+            {
+                writeD(buf, item.getItemTemplate().getItemId());
+                writeD(buf, 0); //unk
+                writeD(buf, 0); //color code
+            }
+        }
 
-		writeC(buf, playerAppearance.getNose());
-		writeC(buf, playerAppearance.getNoseBridge());
-		writeC(buf, playerAppearance.getNoseWidth());
-		writeC(buf, playerAppearance.getNoseTip());
+        writeD(buf, playerAppearance.getSkinRGB());
+        writeD(buf, playerAppearance.getHairRGB());
+        writeD(buf, playerAppearance.getEyeRGB());
+        writeD(buf, playerAppearance.getLipRGB());
+        writeC(buf, playerAppearance.getFace());
+        writeC(buf, playerAppearance.getHair());
+        writeC(buf, playerAppearance.getDeco());
+        writeC(buf, playerAppearance.getTattoo());
 
-		writeC(buf, playerAppearance.getCheek());
-		writeC(buf, playerAppearance.getLipHeight());
-		writeC(buf, playerAppearance.getMouthSize());
-		writeC(buf, playerAppearance.getLipSize());
-		writeC(buf, playerAppearance.getSmile());
-		writeC(buf, playerAppearance.getLipShape());
-		writeC(buf, playerAppearance.getJawHeigh());
-		writeC(buf, playerAppearance.getChinJut());
-		writeC(buf, playerAppearance.getEarShape());
-		writeC(buf, playerAppearance.getHeadSize());
-		// 1.5.x 0x00, shoulderSize, armLength, legLength (BYTE) after HeadSize
+        writeC(buf, 5);// always 5 o0
 
-		writeC(buf, playerAppearance.getNeck());
-		writeC(buf, playerAppearance.getNeckLength());
-		writeC(buf, playerAppearance.getShoulderSize());
-		
+        writeC(buf, playerAppearance.getFaceShape());
+        writeC(buf, playerAppearance.getForehead());
 
-		writeC(buf, playerAppearance.getTorso());
-		writeC(buf, playerAppearance.getChest()); // only woman
-		writeC(buf, playerAppearance.getWaist());
+        writeC(buf, playerAppearance.getEyeHeight());
+        writeC(buf, playerAppearance.getEyeSpace());
+        writeC(buf, playerAppearance.getEyeWidth());
+        writeC(buf, playerAppearance.getEyeSize());
+        writeC(buf, playerAppearance.getEyeShape());
+        writeC(buf, playerAppearance.getEyeAngle());
 
-		writeC(buf, playerAppearance.getHips());
-		writeC(buf, playerAppearance.getArmThickness());
-		writeC(buf, playerAppearance.getHandSize());
-		writeC(buf, playerAppearance.getLegThicnkess());
+        writeC(buf, playerAppearance.getBrowHeight());
+        writeC(buf, playerAppearance.getBrowAngle());
+        writeC(buf, playerAppearance.getBrowShape());
 
-		writeC(buf, playerAppearance.getFootSize());
-		writeC(buf, playerAppearance.getFacialRate());
-		
-		writeC(buf, 0x00); // always 0
-		writeC(buf, playerAppearance.getArmLength());
-		writeC(buf, playerAppearance.getLegLength());
-		writeC(buf, playerAppearance.getShoulders());
-		writeC(buf, 0x00); // always 0
-		writeC(buf, 0x00); // 0x00
-		
-		writeC(buf, playerAppearance.getVoice()); 
+        writeC(buf, playerAppearance.getNose());
+        writeC(buf, playerAppearance.getNoseBridge());
+        writeC(buf, playerAppearance.getNoseWidth());
+        writeC(buf, playerAppearance.getNoseTip());
 
-		writeF(buf, playerAppearance.getHeight());
+        writeC(buf, playerAppearance.getCheek());
+        writeC(buf, playerAppearance.getLipHeight());
+        writeC(buf, playerAppearance.getMouthSize());
+        writeC(buf, playerAppearance.getLipSize());
+        writeC(buf, playerAppearance.getSmile());
+        writeC(buf, playerAppearance.getLipShape());
+        writeC(buf, playerAppearance.getJawHeigh());
+        writeC(buf, playerAppearance.getChinJut());
+        writeC(buf, playerAppearance.getEarShape());
+        writeC(buf, playerAppearance.getHeadSize());
+        // 1.5.x 0x00, shoulderSize, armLength, legLength (BYTE) after HeadSize
 
-		unk = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x80, (byte) 0x3E, (byte) 0x00, (byte) 0x00, (byte) 0x00,
-			(byte) 0x40};
-		writeB(buf, unk);
-			
-		writeF(buf, 6); // move speed
-		
-		unk = new byte[] {(byte) 0xDC, (byte) 0x05, (byte) 0xDC,
-			(byte) 0x05, (byte) 0x02 };
-		writeB(buf, unk);
+        writeC(buf, playerAppearance.getNeck());
+        writeC(buf, playerAppearance.getNeckLength());
+        writeC(buf, playerAppearance.getShoulderSize());
 
-		writeS(buf, "");// private shop?
-		unk = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
-			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
-		writeB(buf, unk);
 
-		/**
-		 * Movement
-		 */
-		writeF(buf, player.getX());// x
-		writeF(buf, player.getY());// y
-		writeF(buf, player.getZ());// z
-		writeC(buf, 0x00); // move type
+        writeC(buf, playerAppearance.getTorso());
+        writeC(buf, playerAppearance.getChest()); // only woman
+        writeC(buf, playerAppearance.getWaist());
 
-		writeC(buf, self ? 0x40 : 0x00); // unk - 0x40, 0x00
-		writeC(buf, 0x00); // unk, Putting 0x01 here makes your chatacter run in red armor, dunno what it means
-		writeC(buf, 0x00); // unk
+        writeC(buf, playerAppearance.getHips());
+        writeC(buf, playerAppearance.getArmThickness());
+        writeC(buf, playerAppearance.getHandSize());
+        writeC(buf, playerAppearance.getLegThicnkess());
 
-		writeD(buf, player.getLevel()); // unk - 0x01, 0x02, 0x03 etc [lvl?]
-		writeC(buf, 0x00); // unk - 0x00
-		writeD(buf, 0x01); // unk - 0x00
-	}
+        writeC(buf, playerAppearance.getFootSize());
+        writeC(buf, playerAppearance.getFacialRate());
+
+        writeC(buf, 0x00); // always 0
+        writeC(buf, playerAppearance.getArmLength());
+        writeC(buf, playerAppearance.getLegLength());
+        writeC(buf, playerAppearance.getShoulders());
+        writeC(buf, 0x00); // always 0
+        writeC(buf, 0x00); // 0x00
+
+        writeC(buf, playerAppearance.getVoice());
+
+        writeF(buf, playerAppearance.getHeight());
+
+        unk = new byte[]{(byte) 0x00, (byte) 0x00, (byte) 0x80, (byte) 0x3E, (byte) 0x00, (byte) 0x00, (byte) 0x00,
+                (byte) 0x40
+        };
+        writeB(buf, unk);
+
+        writeF(buf, 6); // move speed
+
+        writeH(buf, 2800);
+        writeH(buf, 2800);
+        writeC(buf, 0);
+
+        writeS(buf, "");// private shop?
+        unk = new byte[]{(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
+                (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00
+        };
+        writeB(buf, unk);
+
+        /**
+         * Movement
+         */
+        writeF(buf, player.getX());// x
+        writeF(buf, player.getY());// y
+        writeF(buf, player.getZ());// z
+        writeC(buf, 0x00); // move type
+
+        writeC(buf, self ? 0x40 : 0x00); // unk - 0x40, 0x00
+        writeS(buf, player.getCommonData().getNote());     //note show in right down windows if your target on player
+
+        writeD(buf, player.getLevel()); // unk - 0x01, 0x02, 0x03 etc [lvl?]
+        writeC(buf, 0x00); // unk - 0x00
+        writeD(buf, 0x01); // unk - 0x00
+        /* writeC(buf, 0);
+       writeC(buf, 0);
+       writeC(buf, 0);
+       writeH(buf, 0);*/
+
+    }
 }
