@@ -25,61 +25,70 @@ import com.google.inject.Inject;
 
 /**
  * @author xavier
- *
+ * 
  */
 public class AddTitle extends AdminCommand
 {
 	@Inject
-	private World world;
-	
+	private World	world;
+
 	protected AddTitle()
 	{
 		super("addtitle");
 	}
-	
+
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
-		if ((params.length<1)||(params.length>2))
+		if((params.length < 1) || (params.length > 2))
 		{
 			PacketSendUtility.sendMessage(admin, "syntax //addtitle title_id [playerName]");
 			return;
 		}
-		
+
 		int titleId = Integer.parseInt(params[0]);
-		if ((titleId>50)||(titleId<1))
+		if((titleId > 50) || (titleId < 1))
 		{
-			PacketSendUtility.sendMessage(admin, "title id "+titleId+" is invalid (must be between 1 and 50)");
+			PacketSendUtility.sendMessage(admin, "title id " + titleId + " is invalid (must be between 1 and 50)");
 			return;
 		}
-		
+
 		Player target = null;
-		if (params.length==2)
+		if(params.length == 2)
 		{
 			target = world.findPlayer(params[1]);
-			if (target==null) {
-				PacketSendUtility.sendMessage(admin, "player "+params[1]+" was not found");
+			if(target == null)
+			{
+				PacketSendUtility.sendMessage(admin, "player " + params[1] + " was not found");
 				return;
 			}
 		}
 		else
 		{
 			VisibleObject o = admin.getTarget();
-			if ((!(o instanceof Player))||(o == null))
+			if((!(o instanceof Player)) || (o == null))
 			{
 				target = admin;
 			}
 		}
-		
-		titleId = target.getCommonData().getRace().getRaceId()*50+titleId;
-		if (!target.getTitleList().addTitle(titleId)) {
-			PacketSendUtility.sendMessage(admin, "you can't add title #"+titleId+" to "+(target.equals(admin)?"yourself":target.getName()));
+
+		titleId = target.getCommonData().getRace().getRaceId() * 50 + titleId;
+		if(!target.getTitleList().addTitle(titleId))
+		{
+			PacketSendUtility.sendMessage(admin, "you can't add title #" + titleId + " to "
+				+ (target.equals(admin) ? "yourself" : target.getName()));
 		}
-		if (target.equals(admin)) {
-			PacketSendUtility.sendMessage(admin, "you added to yourself title #"+titleId);
-		} else {
-			PacketSendUtility.sendMessage(admin, "you added to "+target.getName()+" title #"+titleId);
-			PacketSendUtility.sendMessage(target, admin.getName()+" gave you title #"+titleId);
+		else
+		{
+			if(target.equals(admin))
+			{
+				PacketSendUtility.sendMessage(admin, "you added to yourself title #" + titleId);
+			}
+			else
+			{
+				PacketSendUtility.sendMessage(admin, "you added to " + target.getName() + " title #" + titleId);
+				PacketSendUtility.sendMessage(target, admin.getName() + " gave you title #" + titleId);
+			}
 		}
 	}
 
