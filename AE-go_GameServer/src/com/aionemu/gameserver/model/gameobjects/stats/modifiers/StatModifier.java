@@ -1,21 +1,22 @@
 /*
- * This file is part of aion-emu <aion-emu.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
- *  aion-emu is free software: you can redistribute it and/or modify
+ *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-emu is distributed in the hope that it will be useful,
+ *  aion-unique is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
+import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 
 /**
@@ -27,7 +28,7 @@ public abstract class StatModifier implements Comparable<StatModifier>
 	private static int				MODIFIER_ID = 0;
 	private StatEnum				stat;
 	private StatModifierPriority	priority;
-	private int						effectId;
+	private StatEffect				owner;
 	private boolean					isBonus;
 	private int						id;
 
@@ -36,23 +37,18 @@ public abstract class StatModifier implements Comparable<StatModifier>
 		this.priority = priority;
 		this.isBonus = isBonus;
 		this.stat = stat;
-		this.effectId = -1;
 		MODIFIER_ID = (MODIFIER_ID+1)%Integer.MAX_VALUE;
 		this.id = MODIFIER_ID;
 	}
 
-	public int getEffectId()
+	public StatEffect getOwner()
 	{
-		return effectId;
+		return owner;
 	}
 
-	public void setEffectId(int effectId)
+	public void setOwner(StatEffect owner)
 	{
-		if ((this.effectId!=-1)&&(effectId!=this.effectId))
-		{
-			throw new IllegalStateException("effect id already set to "+this.effectId+" but you tried to set it to "+effectId);
-		}
-		this.effectId = effectId;
+		this.owner = owner;
 	}
 	
 	public boolean isBonus()
@@ -102,7 +98,10 @@ public abstract class StatModifier implements Comparable<StatModifier>
 		StringBuilder sb = new StringBuilder();
 		sb.append("type:" + getClass().getSimpleName() + ",");
 		sb.append("stat:" + stat + ",");
-		sb.append("effect:"+effectId+",");
+		if (owner!=null)
+		{
+			sb.append("effect:"+owner.getUniqueId()+",");
+		}
 		sb.append("id:" + id + ",");
 		sb.append("priority:" + priority + ",");
 		sb.append("bonus:" + isBonus);

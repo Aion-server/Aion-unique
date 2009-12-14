@@ -18,6 +18,7 @@ package com.aionemu.gameserver.skillengine.model;
 
 import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
@@ -36,6 +37,8 @@ public class Effect
 	private EffectController controller;
 	private EffectTemplate effectTemplate;
 	private Creature effectedObject;
+	
+	private StatEffect statEffect;
 
 	public Effect(int effectorId, int skillId, int skillLevel,
 		int duration, EffectTemplate effectTemplate)
@@ -90,7 +93,7 @@ public class Effect
 
 	public void startEffect()
 	{	
-		effectTemplate.startEffect(effectedObject, skillId, skillLevel);
+		statEffect = effectTemplate.startEffect(effectedObject, skillId, skillLevel);
 		endTime = (int) System.currentTimeMillis() + duration;
 
 		ThreadPoolManager.getInstance().scheduleEffect((new Runnable()
@@ -107,7 +110,7 @@ public class Effect
 
 	public void endEffect()
 	{
-		effectTemplate.endEffect(effectedObject, skillId);
+		effectTemplate.endEffect(effectedObject, statEffect, skillId);
 		controller.removeEffect(this);
 	}
 

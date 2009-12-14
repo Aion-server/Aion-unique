@@ -46,16 +46,15 @@ import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 public class BufEffect extends EffectTemplate
 {
 	private static final Logger log = Logger.getLogger(BufEffect.class);
-	private int effectId;
-	
+
 	@XmlElements({
-        @XmlElement(name = "change", type = Change.class)
-    })
+		@XmlElement(name = "change", type = Change.class)
+	})
 	protected List<Change> changes;
-	
+
 	@XmlAttribute(required = true)
 	protected int duration;
-	
+
 	/**
 	 * @return the changes
 	 */
@@ -70,25 +69,29 @@ public class BufEffect extends EffectTemplate
 		Creature effected = env.getEffected();
 
 		SkillTemplate template = env.getSkillTemplate();
-		
+
 		Effect effect = new Effect(env.getEffector().getObjectId(), template.getSkillId(),
 			env.getSkillLevel(), duration, this);
 		effected.getEffectController().addEffect(effect);
 	}
 
 	@Override
-	public void endEffect(Creature effected, int skillId)
+	public void endEffect(Creature effected, StatEffect effect, int skillId)
 	{
-		effected.getGameStats().endEffect(effectId);
+		if (effect!=null)
+		{
+			effected.getGameStats().endEffect(effect);
+		}
 	}
 
 	@Override
-	public void startEffect(Creature effected, int skillId, int skillLvl)
+	public StatEffect startEffect(Creature effected, int skillId, int skillLvl)
 	{
 		if(changes == null)
-			return;
-		
+			return null;
+
 		CreatureGameStats<? extends Creature> cgs = effected.getGameStats();
+		StatEffect effect = new StatEffect();
 		for(Change change : changes)
 		{
 			if(change.getStat() == null)
@@ -96,12 +99,9 @@ public class BufEffect extends EffectTemplate
 				log.warn("Skill stat has wrong name for skillid: " + skillId);
 				continue;
 			}
-			
+
 			int valueWithDelta = change.getValue() + change.getDelta() * skillLvl;
-			
-			StatEffect effect = new StatEffect();
-			effectId = effect.getUniqueId();
-			
+
 			switch(change.getFunc())
 			{
 				case ADD:
@@ -114,10 +114,16 @@ public class BufEffect extends EffectTemplate
 					effect.add(new SetModifier(change.getStat(),valueWithDelta));
 					break;
 			}
-			
-			cgs.addEffect(effect);
 		}
+
+		if (effect.getModifiers().size()>0)
+		{
+			cgs.addEffect(effect);
+			return effect;
+		}
+
+		return null;
 	}
-	
-	
+
+
 }

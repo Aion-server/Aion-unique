@@ -1,24 +1,26 @@
 /*
- * This file is part of aion-emu <aion-emu.com>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
- *  aion-emu is free software: you can redistribute it and/or modify
+ *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-emu is distributed in the hope that it will be useful,
+ *  aion-unique is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.TreeSet;
+
+import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 
 /**
  * @author xavier
@@ -48,13 +50,13 @@ public class StatModifierContainer
 		return modifiers;
 	}
 	
-	public void removeModifiersOfEffect(int effectId)
+	public void removeModifiersOfEffect(StatEffect effect)
 	{
 		ArrayList<StatModifier> modifiersToRemove = new ArrayList<StatModifier>();
 		
 		for(StatModifier modifier : modifiers)
 		{
-			if (modifier.getEffectId()==effectId)
+			if (modifier.getOwner().equals(effect))
 			{
 				modifiersToRemove.add(modifier);
 			}

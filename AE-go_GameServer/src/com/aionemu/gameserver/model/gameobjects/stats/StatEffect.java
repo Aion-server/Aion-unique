@@ -41,8 +41,8 @@ public class StatEffect extends StatModifierContainer
 	{
 		return id;
 	}
-	
-	private void setUniqueId(int id)
+
+	protected void setUniqueId(int id)
 	{
 		this.id = id;
 	}
@@ -51,7 +51,7 @@ public class StatEffect extends StatModifierContainer
 	public void add(StatModifier modifier)
 	{
 		super.add(modifier);
-		modifier.setEffectId(id);
+		modifier.setOwner(this);
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class StatEffect extends StatModifierContainer
 
 	public StatEffect getEffectForSlot(ItemSlot slot)
 	{
-		StatEffect statEffect = new StatEffect ();
+		StatEffect statEffect = new StatEffect();
 		statEffect.setUniqueId(id);
 		for (StatModifier modifier : getModifiers())
 		{
@@ -88,7 +88,20 @@ public class StatEffect extends StatModifierContainer
 				statEffect.add(modifier);
 			}
 		}
-				
+
 		return statEffect;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		boolean result = true;
+		result = result&&(o instanceof StatEffect);
+		if (result)
+		{
+			StatEffect other = (StatEffect)o;
+			result = result&&(other.getUniqueId()==id);
+		}
+		return result;
 	}
 }

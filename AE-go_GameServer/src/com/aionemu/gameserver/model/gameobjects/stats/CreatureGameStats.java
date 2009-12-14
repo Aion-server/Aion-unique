@@ -277,13 +277,13 @@ public class CreatureGameStats<T extends Creature>
 		}
 	}
 
-	public void endEffect(int effectId)
+	public void endEffect(StatEffect effect)
 	{
 		synchronized(statsModifiers)
 		{
 			for (Entry<StatEnum,StatModifierContainer> statModifiers : statsModifiers.entrySet())
 			{
-				statModifiers.getValue().removeModifiersOfEffect(effectId);
+				statModifiers.getValue().removeModifiersOfEffect(effect);
 				processEffects(statModifiers.getKey());
 			}
 		}
