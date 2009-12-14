@@ -163,9 +163,6 @@ public class ItemTemplate
 	@XmlAttribute(name = "can_proc_enchant")
 	private boolean				canProcEnchant;
 
-	@XmlAttribute(name = "cannot_changeskin")
-	private int					cannotChangeSkin;				// TODO check if needed
-
 	@XmlAttribute(name = "can_split")
 	private boolean				canSplit;
 
@@ -513,14 +510,6 @@ public class ItemTemplate
 	public boolean isCanProcEnchant()
 	{
 		return canProcEnchant;
-	}
-
-	/**
-	 * @return the cannotChangeSkin
-	 */
-	public int getCannotChangeSkin()
-	{
-		return cannotChangeSkin;
 	}
 
 	/**
