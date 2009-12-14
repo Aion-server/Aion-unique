@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.model.gameobjects.stats;
 
 import com.aionemu.gameserver.model.ItemSlot;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 
 /**
  * @author xavier
@@ -35,6 +36,29 @@ public class ItemEffect extends StatEffect
 	public ItemSlot getEquippedSlot()
 	{
 		return equippedSlot;
+	}
+	
+	@Override
+	public StatEffect getEffectForSlot(ItemSlot slot)
+	{
+		StatEffect statEffect = new ItemEffect(slot);
+		statEffect.setUniqueId(getUniqueId());
+		for (StatModifier modifier : getModifiers())
+		{
+			StatEnum statToModify = modifier.getStat().getMainOrSubHandStat(slot);
+			if (statToModify!=modifier.getStat())
+			{
+				StatModifier newModifier = modifier.clone();
+				newModifier.setStat(statToModify);
+				statEffect.add(newModifier);
+			}
+			else
+			{
+				statEffect.add(modifier);
+			}
+		}
+				
+		return statEffect;
 	}
 	
 	@Override
