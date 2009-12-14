@@ -72,7 +72,7 @@ public class StatEffect extends StatModifierContainer
 
 	public StatEffect getEffectForSlot(ItemSlot slot)
 	{
-		StatEffect statEffect = new StatEffect();
+		StatEffect statEffect = new ItemEffect(slot);
 		statEffect.setUniqueId(id);
 		for (StatModifier modifier : getModifiers())
 		{
