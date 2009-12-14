@@ -23,7 +23,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
  * @author xavier
- *
+ * Influence ratio
  */
 public class SM_UNKF4 extends AionServerPacket
 {
@@ -34,6 +34,8 @@ public class SM_UNKF4 extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		// TODO
+		writeC(buf, 99); //Price %
+        writeC(buf, 110); //unk
+        writeC(buf, 107); //Tax = -100 + C %
 	}
 }

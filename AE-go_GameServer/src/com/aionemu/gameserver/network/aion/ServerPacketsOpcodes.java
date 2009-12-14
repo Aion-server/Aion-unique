@@ -47,6 +47,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_KINAH;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_CONFIRMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_REQUEST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_LIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_NOTIFY;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_RESPONSE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
@@ -187,7 +188,8 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_EMOTION.class, 0x1F, idSet);
 		addPacketOpcode(SM_ENTER_WORLD_CHECK.class, 0x27, idSet);
 		addPacketOpcode(SM_FRIEND_LIST.class, 0x7C, idSet);
-		addPacketOpcode(SM_FRIEND_RESPONSE.class, 0xD6, idSet);
+		addPacketOpcode(SM_FRIEND_NOTIFY.class, 0xD7, idSet);
+        addPacketOpcode(SM_FRIEND_RESPONSE.class, 0xD6, idSet);
 		addPacketOpcode(SM_FRIEND_UPDATE.class, 0x09, idSet);
 		addPacketOpcode(SM_GAME_TIME.class, 0x1E, idSet);
 		addPacketOpcode(SM_GATHER_STATUS.class, 0x1A, idSet);

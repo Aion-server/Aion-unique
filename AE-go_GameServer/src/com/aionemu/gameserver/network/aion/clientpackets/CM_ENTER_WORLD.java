@@ -50,6 +50,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKDC;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK6C;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF4;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.PlayerService;
@@ -217,7 +219,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 */
 			sendPacket(new SM_UNKF5(player));
 			sendPacket(new SM_EMOTION_LIST());
-			// sendPacket(new SM_UNK32());
+			sendPacket(new SM_UNK6C());
+            sendPacket(new SM_UNKF4());
+            // sendPacket(new SM_UNK32());
 			// sendPacket(new SM_UNK15());
 			// sendPacket(new SM_UNKC6());
 			// sendPacket(new SM_UNK66());
