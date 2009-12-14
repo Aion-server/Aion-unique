@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 
 /**
@@ -36,5 +36,5 @@ public abstract class Action
 	 *  
 	 * @param env
 	 */
-	public abstract void act(Env env);
+	public abstract void act(Skill skill);
 }

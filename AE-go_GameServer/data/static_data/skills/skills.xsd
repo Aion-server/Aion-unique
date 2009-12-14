@@ -46,8 +46,6 @@
 				maxOccurs="1" />
 			<xs:element name="buf" type="BufEffect" minOccurs="0"
 				maxOccurs="1" />
-			<xs:element name="debuf" type="DebufEffect" minOccurs="0"
-				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -188,20 +186,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
-	<xs:complexType name="DebufEffect">
-		<xs:complexContent>
-			<xs:extension base="Effect">
-				<xs:sequence>
-					<xs:element name="change" type="Change" minOccurs="1"
-						maxOccurs="unbounded" />
-				</xs:sequence>
-				<xs:attribute name="duration" type="xs:int" use="required"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	
-	
 
 	<!-- CONDITIONS -->
 
@@ -262,6 +246,8 @@
 	<xs:complexType name="TargetRangeProperty">
 		<xs:complexContent>
 			<xs:extension base="Property">
+				<xs:attribute name="maxcount" type="xs:int"/>
+				<xs:attribute name="distance" type="xs:int"/>
 				<xs:attribute name="value" type="TargetRangeAttribute"
 					use="required" />
 			</xs:extension>

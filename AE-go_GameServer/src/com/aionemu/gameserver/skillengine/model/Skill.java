@@ -16,11 +16,17 @@
  */
 package com.aionemu.gameserver.skillengine.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
 import com.aionemu.gameserver.skillengine.action.Action;
 import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.Condition;
+import com.aionemu.gameserver.skillengine.condition.ConditionChangeListener;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
 import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
 import com.aionemu.gameserver.skillengine.effect.Effects;
@@ -28,6 +34,7 @@ import com.aionemu.gameserver.skillengine.properties.Properties;
 import com.aionemu.gameserver.skillengine.properties.Property;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.world.World;
 
 /**
  * @author ATracer
@@ -35,7 +42,18 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  */
 public class Skill
 {
-	private Env env;
+	private List<Creature> effectedList;
+	
+	private Creature firstTarget;
+	
+	private Player effector;
+	
+	private World world;
+	
+	private int skillLevel;
+	
+	private ConditionChangeListener conditionChangeListener;
+	
 	private SkillTemplate skillTemplate;
 	
 	/**
@@ -43,19 +61,15 @@ public class Skill
 	 *  
 	 * @param env
 	 */
-	public Skill(Env env)
+	public Skill(SkillTemplate skillTemplate, Player effector, World world)
 	{
-		super();
-		this.env = env;
-		this.skillTemplate = env.getSkillTemplate();
-	}
-	
-	/**
-	 * @return the skillTemplate
-	 */
-	public SkillTemplate getSkillTemplate()
-	{
-		return skillTemplate;
+		this.effectedList = new ArrayList<Creature>();
+		this.conditionChangeListener = new ConditionChangeListener();
+		this.firstTarget = effector.getTarget() instanceof Creature ? (Creature) effector.getTarget() : null;
+		this.skillLevel = effector.getSkillList().getSkillLevel(skillTemplate.getSkillId());
+		this.skillTemplate = skillTemplate;
+		this.effector = effector;
+		this.world = world;
 	}
 
 	/**
@@ -75,7 +89,7 @@ public class Skill
 		setProperties(skillTemplate.getSetproperties());
 		
 		startCast();
-		env.getEffector().getController().attach(env.getConditionChangeListener());
+		effector.getController().attach(conditionChangeListener);
 		
 		if(skillTemplate.getDuration() > 0)
 		{
@@ -92,12 +106,10 @@ public class Skill
 	 */
 	private void startCast()
 	{
-
-		Player effector = (Player) env.getEffector();
-		int targetObjId = env.getEffected() !=  null ? env.getEffected().getObjectId() : 0;
+		int targetObjId = firstTarget !=  null ? firstTarget.getObjectId() : 0;
 		final int unk = 0;
 		PacketSendUtility.broadcastPacket(effector, 
-			new SM_CASTSPELL(effector.getObjectId(), skillTemplate.getSkillId(), env.getSkillLevel(),
+			new SM_CASTSPELL(effector.getObjectId(), skillTemplate.getSkillId(), skillLevel,
 				unk, targetObjId, skillTemplate.getDuration()), true);
 	}
 	
@@ -114,7 +126,7 @@ public class Skill
 		{
 			for(EffectTemplate effect : skillEffects.getEffects())
 			{
-				effect.apply(env);
+				effect.apply(this);
 			}
 		}
 		
@@ -124,7 +136,7 @@ public class Skill
 			for(Action action : skillActions.getActions())
 			{
 				
-				action.act(env);
+				action.act(this);
 			}
 		}
 	}
@@ -167,7 +179,7 @@ public class Skill
 		{
 			for(Condition condition : conditions.getConditions())
 			{
-				if(!condition.verify(env))
+				if(!condition.verify(this))
 				{
 					return false;
 				}
@@ -182,7 +194,7 @@ public class Skill
 		{
 			for(Property property : properties.getProperties())
 			{
-				if(!property.set(env))
+				if(!property.set(this))
 				{
 					return false;
 				}
@@ -190,4 +202,69 @@ public class Skill
 		}
 		return true;
 	}
+
+	/**
+	 * @return the effectedList
+	 */
+	public List<Creature> getEffectedList()
+	{
+		return effectedList;
+	}
+
+	/**
+	 * @return the effector
+	 */
+	public Player getEffector()
+	{
+		return effector;
+	}
+
+	/**
+	 * @return the world
+	 */
+	public World getWorld()
+	{
+		return world;
+	}
+
+	/**
+	 * @return the skillLevel
+	 */
+	public int getSkillLevel()
+	{
+		return skillLevel;
+	}
+
+	/**
+	 * @return the conditionChangeListener
+	 */
+	public ConditionChangeListener getConditionChangeListener()
+	{
+		return conditionChangeListener;
+	}
+
+	/**
+	 * @return the skillTemplate
+	 */
+	public SkillTemplate getSkillTemplate()
+	{
+		return skillTemplate;
+	}
+
+	/**
+	 * @return the firstTarget
+	 */
+	public Creature getFirstTarget()
+	{
+		return firstTarget;
+	}
+
+	/**
+	 * @param firstTarget the firstTarget to set
+	 */
+	public void setFirstTarget(Creature firstTarget)
+	{
+		this.firstTarget = firstTarget;
+	}
+	
 }

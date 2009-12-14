@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 
 /**
@@ -36,5 +36,5 @@ public abstract class Property
 	 * @param env
 	 * @return
 	 */
-	public abstract boolean set(Env env);
+	public abstract boolean set(Skill skill);
 }

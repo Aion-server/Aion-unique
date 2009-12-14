@@ -20,10 +20,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -36,26 +35,18 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class DummyAction extends Action
 {
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.action.Action#act(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	@Override
-	public void act(Env env)
+	public void act(Skill skill)
 	{
-		Player effector = (Player) env.getEffector();
-		Creature effected = env.getEffected();
-		if(effected == null)
-		{
-			effected = effector;
-		}
+		Player effector = skill.getEffector();
 		
-		SkillTemplate template = env.getSkillTemplate();
+		SkillTemplate template = skill.getSkillTemplate();
 		
 		int unk = 0;
 		
 		PacketSendUtility.broadcastPacket(effector,
-			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), env.getSkillLevel(),
-				unk, effected.getObjectId(), 0, template.getCooldown()), true);
+			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), skill.getSkillLevel(),
+				unk, skill.getFirstTarget().getObjectId(), 0, template.getCooldown()), true);
 	}
 
 }

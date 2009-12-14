@@ -61,7 +61,15 @@ public class PlayerController extends CreatureController<Player>
 
 	// TEMP till player AI introduced
 	private Creature		lastAttacker;
-	
+
+	/**
+	 * @return the lastAttacker
+	 */
+	public Creature getLastAttacker()
+	{
+		return lastAttacker;
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */

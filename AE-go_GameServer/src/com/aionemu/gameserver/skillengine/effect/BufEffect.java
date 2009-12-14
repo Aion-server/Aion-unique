@@ -35,7 +35,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.modifiers.RateModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SetModifier;
 import com.aionemu.gameserver.skillengine.change.Change;
 import com.aionemu.gameserver.skillengine.model.Effect;
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 
 /**
@@ -64,17 +64,22 @@ public class BufEffect extends EffectTemplate
 	}
 
 	@Override
-	public void apply(Env env)
+	public void apply(Skill skill)
 	{
-		Creature effected = env.getEffected();
+		List<Creature> effectedList = skill.getEffectedList();
+		SkillTemplate template = skill.getSkillTemplate();
+		Effect effect = new Effect(skill.getEffector().getObjectId(), template.getSkillId(),
+			skill.getSkillLevel(), duration, this);
 
-		SkillTemplate template = env.getSkillTemplate();
-
-		Effect effect = new Effect(env.getEffector().getObjectId(), template.getSkillId(),
-			env.getSkillLevel(), duration, this);
-		effected.getEffectController().addEffect(effect);
+		for(Creature effected : effectedList)
+		{
+			effected.getEffectController().addEffect(effect);
+		}
 	}
 
+	/**
+	 * Will be called from effect controller when effect ends
+	 */
 	@Override
 	public void endEffect(Creature effected, StatEffect effect, int skillId)
 	{
@@ -83,7 +88,9 @@ public class BufEffect extends EffectTemplate
 			effected.getGameStats().endEffect(effect);
 		}
 	}
-
+	/**
+	 * Will be called from effect controller when effect starts
+	 */
 	@Override
 	public StatEffect startEffect(Creature effected, int skillId, int skillLvl)
 	{

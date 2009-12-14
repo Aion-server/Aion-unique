@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 
 /**
@@ -35,7 +35,7 @@ public class AddWeaponRangeProperty
 {
 
 	@Override
-	public boolean set(Env env)
+	public boolean set(Skill skill)
 	{
 		// TODO Auto-generated method stub
 		return false;

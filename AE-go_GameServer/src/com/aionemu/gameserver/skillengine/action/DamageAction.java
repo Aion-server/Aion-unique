@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.skillengine.action;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -23,9 +25,10 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
@@ -51,37 +54,46 @@ public class DamageAction
     protected DamageType damageType;
 
 	@Override
-	public void act(Env env)
+	public void act(Skill skill)
 	{
-		Player effector = (Player) env.getEffector();
-		Creature effected = env.getEffected();
-		SkillTemplate template = env.getSkillTemplate();
-		int damage = 0;
+		Player effector = skill.getEffector();
+		VisibleObject firstTarget = skill.getFirstTarget();
+		SkillTemplate template = skill.getSkillTemplate();
 		
-		int valueWithDelta = value + delta * env.getSkillLevel();
+		int valueWithDelta = value + delta * skill.getSkillLevel();
 		
 		if(damageType == null)
-			damageType = DamageType.valueOf(env.getSkillTemplate().getType().name());
+			damageType = DamageType.valueOf(skill.getSkillTemplate().getType().name());
 		
-		switch(damageType)
+		//TODO this is probably incorrect
+		int sumDamage = 0;
+		
+		for(Creature effected : skill.getEffectedList())
 		{
-			case PHYSICAL:
-				damage = StatFunctions.calculatePhysicDamageToTarget(effector, effected, valueWithDelta);
-				break;
-			case MAGICAL:
-				damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, valueWithDelta, SkillElement.NONE);
-				break;
-			default:
-				damage = StatFunctions.calculateBaseDamageToTarget(effector, effected);
+			if(effected == null)
+				continue;
+			
+			int damage = 0;
+			switch(damageType)
+			{
+				case PHYSICAL:
+					damage = StatFunctions.calculatePhysicDamageToTarget(effector, effected, valueWithDelta);
+					break;
+				case MAGICAL:
+					damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, valueWithDelta, SkillElement.NONE);
+					break;
+				default:
+					damage = StatFunctions.calculateBaseDamageToTarget(effector, effected);
+			}
+			sumDamage += damage;
+			effected.getLifeStats().reduceHp(damage);
+			effected.getController().onAttack(effector);
 		}
 		
 		int unk = 0;
-		
 		PacketSendUtility.broadcastPacket(effector,
-			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), env.getSkillLevel(),
-				unk, effected.getObjectId(), damage, template.getCooldown()), true);
+			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), skill.getSkillLevel(),
+				unk, firstTarget.getObjectId(), sumDamage, template.getCooldown()), true);	
 		
-		effected.getLifeStats().reduceHp(damage);
-		effected.getController().onAttack(effector);
 	}
 }

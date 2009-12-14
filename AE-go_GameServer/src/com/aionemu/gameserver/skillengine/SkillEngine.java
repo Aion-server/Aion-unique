@@ -22,8 +22,6 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.skillengine.condition.ConditionChangeListener;
-import com.aionemu.gameserver.skillengine.model.Env;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.world.World;
@@ -64,9 +62,8 @@ public class SkillEngine
 		//player doesn't have such skill
 		if(!player.getSkillList().isSkillPresent(skillId))
 			return null;
-		
-		Env env = new Env(player, template, new ConditionChangeListener(), world);
-		return new Skill(env);
+
+		return new Skill(template, player, world);
 	}
 
 	public static SkillEngine getInstance()

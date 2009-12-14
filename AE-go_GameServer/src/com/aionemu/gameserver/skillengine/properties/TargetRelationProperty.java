@@ -16,12 +16,17 @@
  */
 package com.aionemu.gameserver.skillengine.properties;
 
+import java.util.Iterator;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 
 /**
@@ -49,9 +54,35 @@ public class TargetRelationProperty
     }
     
     @Override
-	public boolean set(Env env)
+	public boolean set(Skill skill)
 	{
-		// TODO Auto-generated method stub
-		return false;
+    	List<Creature> effectedList = skill.getEffectedList();
+    	
+    	
+		switch(value)
+		{
+			case ALL:
+				break;
+			case ENEMY:
+				Creature lastAttacker = skill.getEffector().getController().getLastAttacker();		
+				for(Iterator<Creature> iter = effectedList.iterator(); iter.hasNext();)
+				{
+					Creature nextEffected = iter.next();
+					
+					if(nextEffected instanceof Monster)
+						continue;
+					
+					if(lastAttacker != null && lastAttacker.getObjectId() == nextEffected.getObjectId())
+						continue;
+
+					iter.remove();
+					//need to implement in a more robust way
+					//TODO duel
+					//TODO different race				
+				}
+			
+			//TODO other enum values
+		}
+		return true;
 	}
 }

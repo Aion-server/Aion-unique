@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
  * @author ATracer
@@ -34,11 +34,8 @@ public class HpUseAction extends Action
 	@XmlAttribute(required = true)
     protected int value;
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.action.Action#act(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	@Override
-	public void act(Env env)
+	public void act(Skill skill)
 	{
 		// TODO Auto-generated method stub
 

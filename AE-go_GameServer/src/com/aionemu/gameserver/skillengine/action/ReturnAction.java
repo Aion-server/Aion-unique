@@ -20,16 +20,17 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.templates.BindPointTemplate;
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import org.apache.log4j.Logger;
 
 /**
  * @author ATracer
@@ -42,31 +43,29 @@ extends Action
 {
 	private static final Logger	log	= Logger.getLogger(ReturnAction.class);
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.action.Action#act(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	@Override
-	public void act(Env env)
+	public void act(Skill skill)
 	{
 		float x,y,z;
 		int worldId;
 		BindPointTemplate bplist;
 
-		Player player = (Player) env.getEffector();
-		SkillTemplate template = env.getSkillTemplate();
+		Player player = skill.getEffector();
+		SkillTemplate template = skill.getSkillTemplate();
 
 		//TODO investigate unk
 		int unk = 0;
 
 		PacketSendUtility.broadcastPacket(player,
-			new SM_CASTSPELL_END(player.getObjectId(), template.getSkillId(), env.getSkillLevel(), unk, 0, 0, template.getCooldown()), true);
+			new SM_CASTSPELL_END(player.getObjectId(), template.getSkillId(), skill.getSkillLevel(), unk, 0, 0, template.getCooldown()), true);
 
-		env.getWorld().despawn(player);
+		skill.getWorld().despawn(player);
 		LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
 
 		int bindPointId = player.getCommonData().getBindPoint();
 
-		if (bindPointId != 0) {
+		if (bindPointId != 0) 
+		{
 			bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate2(bindPointId);
 			worldId = bplist.getZoneId();
 			x = bplist.getX();
@@ -82,11 +81,10 @@ extends Action
 			z = locationData.getZ();
 		}
 		
-		env.getWorld().setPosition(player, worldId, x, y, z, player.getHeading());
+		skill.getWorld().setPosition(player, worldId, x, y, z, player.getHeading());
 
 		player.setProtectionActive(true);
 		PacketSendUtility.sendPacket(player, new SM_UNKF5(player));
-
 
 	}
 }

@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.skillengine.effect;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -25,7 +27,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -56,22 +58,24 @@ public class HealEffect
     }
 
 	@Override
-	public void apply(Env env)
+	public void apply(Skill skill)
 	{
-		//TODO calculate heal value
-		Player effector = (Player) env.getEffector();
-		Creature effected = env.getEffected();
-		SkillTemplate template = env.getSkillTemplate();
+		Player effector = skill.getEffector();
+		SkillTemplate template = skill.getSkillTemplate();
+
+		int valueWithDelta = value + delta * skill.getSkillLevel();
 		
 		int unk = 0;
-		
-		int valueWithDelta = value + delta * env.getSkillLevel();
-		
 		PacketSendUtility.broadcastPacket(effector,
-			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), env.getSkillLevel(),
-				unk, effected.getObjectId(), -valueWithDelta, template.getCooldown()), true);
+			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), skill.getSkillLevel(),
+				unk, skill.getFirstTarget().getObjectId(), -valueWithDelta, template.getCooldown()), true);
 		
-		effected.getLifeStats().increaseHp(valueWithDelta);
+		List<Creature> effectedList = skill.getEffectedList();
+		for(Creature effected : effectedList)
+		{
+			effected.getLifeStats().increaseHp(valueWithDelta);
+		}
+		
 	}
 
 	@Override

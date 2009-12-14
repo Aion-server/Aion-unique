@@ -21,8 +21,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
  * @author ATracer
@@ -39,14 +39,11 @@ public class MpUseAction extends Action
 	@XmlAttribute
 	protected int delta;
 	
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.action.Action#act(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	@Override
-	public void act(Env env)
+	public void act(Skill skill)
 	{
-		Creature effector = env.getEffector();
-		int valueWithDelta = value + delta * env.getSkillLevel();
+		Player effector = skill.getEffector();
+		int valueWithDelta = value + delta * skill.getSkillLevel();
 		
 		effector.getLifeStats().reduceMp(valueWithDelta);
 	}

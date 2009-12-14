@@ -21,8 +21,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
-import com.aionemu.gameserver.skillengine.model.Env;
 
 
 /**
@@ -38,7 +38,7 @@ public abstract class EffectTemplate
 	 *  
 	 *  @param env
 	 */
-	public abstract void apply(Env env);
+	public abstract void apply(Skill skill);
 	
 	
 	public abstract StatEffect startEffect(Creature effected, int skillId, int skillLvl);

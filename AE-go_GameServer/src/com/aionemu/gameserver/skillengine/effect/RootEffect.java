@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.skillengine.effect;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -24,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 import com.aionemu.gameserver.skillengine.model.Effect;
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 
 /**
@@ -40,14 +42,19 @@ public class RootEffect extends EffectTemplate
     protected int duration;
 	
 	@Override
-	public void apply(Env env)
-	{
-		Creature effected = env.getEffected();
-		SkillTemplate template = env.getSkillTemplate();
+	public void apply(Skill skill)
+	{		
+		SkillTemplate template = skill.getSkillTemplate();
 
-		Effect effect = new Effect(env.getEffector().getObjectId(), template.getSkillId(),
-			env.getSkillLevel(), duration, this);
-		effected.getEffectController().addEffect(effect);
+		Effect effect = new Effect(skill.getEffector().getObjectId(), template.getSkillId(),
+			skill.getSkillLevel(), duration, this);
+		
+		List<Creature> effectedList = skill.getEffectedList();
+		for(Creature effected : effectedList)
+		{
+			effected.getEffectController().addEffect(effect);
+		}
+		
 	}
 
 	@Override

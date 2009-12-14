@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 
 /**
@@ -31,8 +31,8 @@ public class PlayerMovedCondition
     }
 
 	@Override
-	public boolean verify(Env env)
+	public boolean verify(Skill skill)
 	{
-		return allow == env.getConditionChangeListener().isEffectorMoved();
+		return allow == skill.getConditionChangeListener().isEffectorMoved();
 	}
 }

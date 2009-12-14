@@ -21,11 +21,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
-import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 
 /**
@@ -54,18 +52,18 @@ public class TargetCondition
     }
 
 	@Override
-	public boolean verify(Env env)
+	public boolean verify(Skill skill)
 	{
-		if(value != TargetAttribute.NONE && env.getEffected() == null)
+		if(value != TargetAttribute.NONE && skill.getFirstTarget() == null)
 		{
 			return false;
 		}
 		switch(value)
 		{
 			case NPC:
-				return env.getEffected() instanceof Monster;
+				return skill.getFirstTarget() instanceof Monster;
 			case PC:
-				return env.getEffected() instanceof Player;
+				return skill.getFirstTarget() instanceof Player;
 			default:
 				return false;
 		}

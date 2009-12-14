@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 
 /**
@@ -49,13 +49,10 @@ public class MpCondition
         return value;
     }
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.condition.Condition#verify(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	@Override
-	public boolean verify(Env env)
+	public boolean verify(Skill skill)
 	{
-		int valueWithDelta = value + delta * env.getSkillLevel();
-		return env.getEffector().getLifeStats().getCurrentMp() > valueWithDelta;
+		int valueWithDelta = value + delta * skill.getSkillLevel();
+		return skill.getEffector().getLifeStats().getCurrentMp() > valueWithDelta;
 	}
 }

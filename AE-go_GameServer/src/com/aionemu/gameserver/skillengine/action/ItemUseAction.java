@@ -26,7 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
-import com.aionemu.gameserver.skillengine.model.Env;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -43,13 +43,10 @@ public class ItemUseAction extends Action
 	@XmlAttribute(required = true)
     protected int count;
 	
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.action.Action#act(com.aionemu.gameserver.skillengine.model.Env)
-	 */
 	@Override
-	public void act(Env env)
+	public void act(Skill skill)
 	{
-		Player player = (Player) env.getEffector();
+		Player player = skill.getEffector();
 		Inventory inventory = player.getInventory();
 		Item item = inventory.removeFromBag(itemid, count);
 		if(item == null)
