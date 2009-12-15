@@ -18,10 +18,11 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.itemengine.ItemEngine;
+import com.aionemu.gameserver.itemengine.actions.AbstractItemAction;
+import com.aionemu.gameserver.itemengine.actions.ItemActions;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 /**
  * 
  * @author Avol
@@ -55,10 +56,14 @@ public class CM_USE_ITEM extends AionClientPacket
 	{
 		Player player = getConnection().getActivePlayer();
 		
-		ItemEngine itemEngine = new ItemEngine();
-		itemEngine.setItem(uniqueItemId, player);
-		itemEngine.useItem();
-
-		sendPacket(SM_SYSTEM_MESSAGE.USE_ITEM(itemEngine.getItemName()));
+		Item item = player.getInventory().getItemByObjId(uniqueItemId);
+		ItemActions itemActions = item.getItemTemplate().getActions();
+		if(itemActions != null)
+		{
+			for(AbstractItemAction itemAction : itemActions.getItemActions())
+			{
+				itemAction.act(player, item);
+			}
+		}
 	}
 }

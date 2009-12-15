@@ -21,6 +21,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+
 /**
  * @author ATracer
  *
@@ -30,21 +33,28 @@ import javax.xml.bind.annotation.XmlType;
 public class SkillUseAction extends AbstractItemAction
 {
 	@XmlAttribute
-	protected Integer skillid;
+	protected int skillid;
 	@XmlAttribute
-	protected Integer level;
+	protected int level;
 
 	/**
 	 * Gets the value of the skillid property.
 	 */
-	public Integer getSkillid() {
+	public int getSkillid() {
 		return skillid;
 	}
 
 	/**
 	 * Gets the value of the level property.   
 	 */
-	public Integer getLevel() {
+	public int getLevel() {
 		return level;
 	}
+
+	@Override
+	public void act(Player player, Item parentItem)
+	{
+		//TODO
+	}
+
 }

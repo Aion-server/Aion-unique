@@ -18,7 +18,6 @@ package com.aionemu.gameserver.itemengine;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.itemengine.handlers.HpItem;
-import com.aionemu.gameserver.itemengine.loader.ItemTemplateLoader;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -43,7 +42,7 @@ public class ItemActionSelecter
 	*   HP_POTION(1)
 	*/
 
-	private static final Logger log = Logger.getLogger(ItemTemplateLoader.class);
+	private static final Logger log = Logger.getLogger(ItemActionSelecter.class);
 
 	/**
 	* set type, value, value2, timerEnd, timerInterval

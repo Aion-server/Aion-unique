@@ -20,6 +20,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+
 /**
  * @author ATracer
  *
@@ -28,5 +31,5 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "AbstractItemAction")
 public abstract class AbstractItemAction {
 
-
+	public abstract void act(Player player, Item parentItem);
 }

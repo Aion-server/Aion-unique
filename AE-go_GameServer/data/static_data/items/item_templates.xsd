@@ -2,6 +2,7 @@
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 	<xs:include schemaLocation="../modifiers.xsd" />
+	<xs:include schemaLocation="../skill_tree/skill_tree.xsd" />
 	
 	<xs:element name="item_templates">
 	   <xs:complexType>
@@ -103,6 +104,9 @@
 	<xs:complexType name="SkillLearnAction">
 		<xs:complexContent>
 			<xs:extension base="AbstractItemAction">
+				<xs:attribute name="race" type="skillRace"/>
+				<xs:attribute name="level" type="xs:int"/>
+				<xs:attribute name="class" type="skillPlayerClass"/>
 				<xs:attribute name="skillid" type="xs:int"/>
 			</xs:extension>
 		</xs:complexContent>

@@ -21,6 +21,18 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
+import com.aionemu.gameserver.model.templates.ItemTemplate;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.skillengine.model.learn.SkillClass;
+import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+
 /**
  * @author ATracer
  *
@@ -30,13 +42,43 @@ import javax.xml.bind.annotation.XmlType;
 public class SkillLearnAction extends AbstractItemAction
 {
 	@XmlAttribute
-	protected Integer skillid;
+	protected int skillid;
+	@XmlAttribute
+	protected int level;
+	@XmlAttribute(name = "class")
+	protected SkillClass playerClass;
+	@XmlAttribute
+	protected SkillRace race;
 
-	/**
-	 * Gets the value of the skillid property.
-	 */
-	public Integer getSkillid() {
-		return skillid;
+	@Override
+	public void act(Player player, Item parentItem)
+	{
+		//1. check player level
+		if(player.getCommonData().getLevel() < level)
+			return;
+		//2. check player class and SkillClass.ALL
+		if(player.getCommonData().getPlayerClass().ordinal() != playerClass.ordinal()
+			&& playerClass != SkillClass.ALL)
+			return;
+		//3. check player race and SkillRace.ALL
+		if(player.getCommonData().getRace().ordinal() != race.ordinal() 
+			&& race != SkillRace.ALL)
+			return;
+		//4. check whether this skill is already learned
+		if(player.getSkillList().isSkillPresent(skillid))
+			return;
+		
+		//item animation and message
+		ItemTemplate itemTemplate = parentItem.getItemTemplate();
+		//PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.USE_ITEM(itemTemplate.getDescription()));
+		PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(),
+			parentItem.getObjectId(), itemTemplate.getItemId()), true);	
+		//add skill
+		player.getSkillList().addSkill(skillid, 1);
+		PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(new SkillListEntry(skillid, 1, null)));
+		//remove book from inventory (assuming its not stackable)
+		Item item = player.getInventory().getItemByObjId(parentItem.getObjectId());
+		player.getInventory().removeFromBag(item);
+		PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(parentItem.getObjectId()));	
 	}
-
 }

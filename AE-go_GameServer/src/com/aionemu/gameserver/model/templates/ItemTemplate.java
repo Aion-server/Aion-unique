@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.aionemu.gameserver.itemengine.actions.ItemActions;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 import com.aionemu.gameserver.model.items.ItemQuality;
 import com.aionemu.gameserver.model.templates.item.EquipType;
@@ -42,6 +43,9 @@ public class ItemTemplate
 
 	@XmlElement(name = "modifiers", required = false)
 	protected ModifiersTemplate	modifiers;
+	
+	@XmlElement(name = "actions", required = false)
+	protected ItemActions actions;
 
 	@XmlAttribute(name = "equipment_slots")
 	private int					itemSlot;
@@ -197,6 +201,14 @@ public class ItemTemplate
 		{
 			return null;
 		}
+	}
+
+	/**
+	 * @return the actions
+	 */
+	public ItemActions getActions()
+	{
+		return actions;
 	}
 
 	/**

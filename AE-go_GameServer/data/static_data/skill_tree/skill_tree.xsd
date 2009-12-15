@@ -25,6 +25,7 @@
 		<xs:attribute name="type" type="skillUsageType" use="required"/>
 	</xs:complexType>
 	
+	<!-- skillRace is used in item templates also-->
 	<xs:simpleType name="skillRace">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="PC_LIGHT" />
@@ -42,7 +43,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
-	
+	<!-- skillPlayerClass is used in item templates also-->
 	<xs:simpleType name="skillPlayerClass">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="WARRIOR" />
