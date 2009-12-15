@@ -59,8 +59,7 @@ public class SkillLearnService
 		
 		for(SkillLearnTemplate template : skillTemplates)
 		{
-			//prevent learning of new skills with SKILL_AUTOLEARN=false
-			if(!playerSkillList.isSkillPresent(template.getSkillId()) && !Config.SKILL_AUTOLEARN)
+			if(!checkLearnIsPossible(playerSkillList, template))
 				continue;
 			
  			boolean success = playerSkillList.addSkill(template.getSkillId(), template.getSkillLevel());
@@ -75,5 +74,25 @@ public class SkillLearnService
 					new SM_SKILL_LIST(player.getSkillList().getSkillEntry(template.getSkillId())));
 			}
 		}
+	}
+	
+	/**
+	 *  Check SKILL_AUTOLEARN property
+	 *  Check skill already leanred
+	 *  Check skill template autolearn attribute
+	 *  
+	 * @param playerSkillList
+	 * @param template
+	 * @return
+	 */
+	private static boolean checkLearnIsPossible(SkillList playerSkillList, SkillLearnTemplate template)
+	{
+		if(Config.SKILL_AUTOLEARN && playerSkillList.isSkillPresent(template.getSkillId()))
+			return true;
+		
+		if(template.isAutolearn())
+			return true;
+		
+		return false;
 	}
 }
