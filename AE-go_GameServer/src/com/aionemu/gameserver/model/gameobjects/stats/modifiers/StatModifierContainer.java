@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.TreeSet;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 
 /**
@@ -28,6 +30,8 @@ import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
  */
 public class StatModifierContainer
 {
+	private static Logger log = Logger.getLogger(StatModifierContainer.class);
+	
 	private TreeSet<StatModifier> modifiers;
 	
 	public StatModifierContainer ()
@@ -37,7 +41,18 @@ public class StatModifierContainer
 	
 	public void add(StatModifier modifier)
 	{
-		modifiers.add(modifier);
+		if (modifiers.contains(modifier)) {
+			log.error("!!! Modifier "+modifier+" already present");
+			for (StatModifier other : modifiers) {
+				log.debug("=== Testing contained modifier "+other);
+				log.debug(">>> modifier.equals(other):"+modifier.equals(other));
+				log.debug(">>> modifier.compareTo(other):"+modifier.compareTo(other));
+				log.debug(">>> other.equals(modifier):"+other.equals(modifier));
+				log.debug(">>> other.compareTo(modifier):"+other.compareTo(modifier));
+			}
+		} else {
+			modifiers.add(modifier);
+		}
 	}
 
 	public void addAll(Collection<? extends StatModifier> modifiers)

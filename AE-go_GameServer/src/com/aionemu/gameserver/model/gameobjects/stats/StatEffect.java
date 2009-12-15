@@ -27,13 +27,15 @@ import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifierCont
  * @author xavier
  * 
  */
-public class StatEffect extends StatModifierContainer
+public class StatEffect extends StatModifierContainer implements Comparable<StatEffect>
 {
 	private int	id;
-
+	private static int EFFECT_ID = 0;
+	
 	public StatEffect()
 	{
 		super();
+		EFFECT_ID = (EFFECT_ID+1)%Integer.MAX_VALUE;
 		this.id = UUID.randomUUID().hashCode();
 	}
 
@@ -70,25 +72,16 @@ public class StatEffect extends StatModifierContainer
 		return str;
 	}
 
-	public StatEffect getEffectForSlot(ItemSlot slot)
+	public ItemEffect getEffectForSlot(ItemSlot slot)
 	{
-		StatEffect statEffect = new StatEffect();
-		statEffect.setUniqueId(id);
+		ItemEffect statEffect = new ItemEffect(slot);
 		for (StatModifier modifier : getModifiers())
 		{
 			StatEnum statToModify = modifier.getStat().getMainOrSubHandStat(slot);
-			if (statToModify!=modifier.getStat())
-			{
-				StatModifier newModifier = modifier.clone();
-				newModifier.setStat(statToModify);
-				statEffect.add(newModifier);
-			}
-			else
-			{
-				statEffect.add(modifier);
-			}
+			StatModifier newModifier = modifier.clone();
+			newModifier.setStat(statToModify);
+			statEffect.add(newModifier);
 		}
-
 		return statEffect;
 	}
 
@@ -97,10 +90,18 @@ public class StatEffect extends StatModifierContainer
 	{
 		boolean result = true;
 		result = result&&(o instanceof StatEffect);
-		if (result)
-		{
-			StatEffect other = (StatEffect)o;
-			result = result&&(other.getUniqueId()==id);
+		result = result&&(((StatEffect)o).getUniqueId()==id);
+		return result;
+	}
+	
+	@Override
+	public int compareTo(StatEffect o)
+	{
+		int result;
+		if (o==null) {
+			result = id;
+		} else {
+			result = id-o.getUniqueId();
 		}
 		return result;
 	}

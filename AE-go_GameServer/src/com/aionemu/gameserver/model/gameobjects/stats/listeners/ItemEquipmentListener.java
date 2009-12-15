@@ -22,8 +22,8 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.ItemEffect;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
@@ -37,84 +37,50 @@ public class ItemEquipmentListener
 {
 	private static final Logger	log	= Logger.getLogger(ItemEquipmentListener.class);
 
-	public static void onItemEquipment(ItemTemplate template, int slotId, CreatureGameStats<?> cgs)
+	public static ItemEffect onItemEquipment(ItemTemplate itemTemplate, int slot, CreatureGameStats<?> cgs)
 	{
-		StatEffect effect = template.getEffect();
+		StatEffect effect = itemTemplate.getEffect();
 		if (effect==null)
 		{
 			if (cgs instanceof PlayerGameStats)
 			{
-				log.debug("No effect was found for item "+template.getItemId());
+				log.debug("No effect was found for item "+itemTemplate.getItemId());
 			}
-			return;
+			return null;
 		}
 		
-		List<ItemSlot> slots = ItemSlot.getSlotsFor(slotId);
-		StatEffect slotEffect = effect.getEffectForSlot(slots.get(0));
+		List<ItemSlot> slots = ItemSlot.getSlotsFor(slot);
+		ItemEffect slotEffect = effect.getEffectForSlot(slots.get(0));
+		
+		// TODO Convert theses attributes to <stat ...> elements
+		if(itemTemplate.getAttackType() != null)
+		{
+			SetModifier sm = new SetModifier(StatEnum.IS_MAGICAL_ATTACK, (itemTemplate.getAttackType().contains("magic")) ? 1
+				: 0);
+			slotEffect.add(sm);
+		}
+		
 		if (cgs instanceof PlayerGameStats)
 		{
 			log.debug("Adding "+slotEffect+" for slot "+slots.get(0));
 		}
+		
 		cgs.addEffect(slotEffect);
 		
-		// TODO Convert theses attributes to <stat ...> elements
-		if(template.getAttackType() != null)
-		{
-			SetModifier sm = new SetModifier(StatEnum.IS_MAGICAL_ATTACK, (template.getAttackType().contains("magic")) ? 1
-				: 0);
-			sm.setOwner(effect);
-			cgs.addModifier(sm);
-		}
+		return slotEffect;
 	}
 	
-	public static void onItemUnequipment(ItemTemplate template, CreatureGameStats<?> cgs)
+	public static void onItemEquipment(Item item, CreatureGameStats<?> cgs)
 	{
-		if (template.getEffect()!=null)
-		{
-			cgs.endEffect(template.getEffect());
-		}
-		else
-		{
-			log.debug("No effect was found for item "+template.getItemId());
-		}
+		ItemTemplate itemTemplate = item.getItemTemplate();
+		item.setEffect(onItemEquipment(itemTemplate,item.getEquipmentSlot(),cgs));
 	}
 	
-	public static void onItemEquipmentChange(Inventory inventory, Item item, int slotId)
+	public static void onItemUnequipment(Item item, CreatureGameStats<?> cgs)
 	{
-		ItemTemplate it = item.getItemTemplate();
-
-		if(inventory.getOwner() == null)
+		if (item.getEffect()!=null)
 		{
-			log.debug("No owner set for inventory, not changing stats");
-			return;
+			cgs.endEffect(item.getEffect());
 		}
-
-		PlayerGameStats pgs = inventory.getOwner().getGameStats();
-		if(pgs == null)
-		{
-			log.debug("No GameStats set for inventory owner, skipping stats change");
-			return;
-		}
-
-		if((!it.isArmor()) && (!it.isWeapon()))
-		{
-			log.debug("Item #" + item.getObjectId() + " isn't an equipment, not changing stats");
-			return;
-		}
-
-		log.debug("changing game stats " + pgs + " for equipment change of player #"
-			+ inventory.getOwner().getObjectId());
-
-		if(!item.isEquipped())
-		{
-			onItemUnequipment(it, pgs);
-		}
-		else
-		{
-			onItemEquipment(it, slotId, pgs);
-		}
-
-		log.debug("Changed stats after equipment change of item " + item + " to player #"
-			+ inventory.getOwner().getObjectId() + ":" + pgs);
 	}
 }

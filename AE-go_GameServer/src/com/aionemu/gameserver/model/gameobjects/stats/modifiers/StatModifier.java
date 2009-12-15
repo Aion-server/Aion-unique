@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
+import com.aionemu.gameserver.model.gameobjects.stats.ItemEffect;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 
@@ -75,9 +76,13 @@ public abstract class StatModifier implements Comparable<StatModifier>
 	public int compareTo(StatModifier other)
 	{
 		int result = (other.getPriority().getValue() - this.priority.getValue());
-		if(result == 0)
-		{
-			result = id-other.getId();
+		if (result==0) {
+			result += id-other.getId();
+			if (result==0) {
+				if (owner!=null) {
+					result += owner.compareTo(other.getOwner());
+				}
+			}
 		}
 		return result;
 	}
@@ -89,6 +94,7 @@ public abstract class StatModifier implements Comparable<StatModifier>
 		result = (o!=null);
 		result = (result)&&(o instanceof StatModifier);
 		result = (result)&&(((StatModifier)o).getId()==id);
+		result = (result)&&(((StatModifier)o).getOwner().equals(owner));
 		return result;
 	}
 
@@ -101,6 +107,10 @@ public abstract class StatModifier implements Comparable<StatModifier>
 		if (owner!=null)
 		{
 			sb.append("effect:"+owner.getUniqueId()+",");
+			if (owner instanceof ItemEffect)
+			{
+				sb.append("slot:"+((ItemEffect)owner).getEquippedSlot()+",");
+			}
 		}
 		sb.append("id:" + id + ",");
 		sb.append("priority:" + priority + ",");

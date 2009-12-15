@@ -132,7 +132,10 @@ public class Inventory
 		if(item.isEquipped())
 		{
 			equipment.put(item.getEquipmentSlot(), item);
-			ItemEquipmentListener.onItemEquipmentChange(this, item, item.getEquipmentSlot());
+			if (owner.getGameStats() != null)
+			{
+				ItemEquipmentListener.onItemEquipment(item, owner.getGameStats());
+			}
 			if(owner.getLifeStats() != null)//TODO why onLoadHandler called 2 times on load ?
 			{
 				owner.getLifeStats().synchronizeWithMaxStats();
@@ -317,7 +320,10 @@ public class Inventory
 	{
 		equipment.put(slot, item);
 		item.setEquipmentSlot(slot);
-		ItemEquipmentListener.onItemEquipmentChange(this, item, slot);
+		if (owner.getGameStats()!=null)
+		{
+			ItemEquipmentListener.onItemEquipment(item, owner.getGameStats());
+		}
 		owner.getLifeStats().updateCurrentStats();
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
 	}
@@ -362,7 +368,10 @@ public class Inventory
 	{
 		equipment.remove(itemToUnequip.getEquipmentSlot());
 		itemToUnequip.setEquipped(false);
-		ItemEquipmentListener.onItemEquipmentChange(this, itemToUnequip, 0);
+		if (owner.getGameStats()!=null)
+		{
+			ItemEquipmentListener.onItemUnequipment(itemToUnequip, owner.getGameStats());
+		}
 		owner.getLifeStats().updateCurrentStats();
 		defaultItemBag.addItemToStorage(itemToUnequip);
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip));

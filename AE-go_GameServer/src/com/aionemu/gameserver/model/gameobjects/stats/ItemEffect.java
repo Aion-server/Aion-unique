@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.model.gameobjects.stats;
 
 import com.aionemu.gameserver.model.ItemSlot;
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 
 /**
  * @author xavier
@@ -39,37 +38,27 @@ public class ItemEffect extends StatEffect
 	}
 	
 	@Override
-	public StatEffect getEffectForSlot(ItemSlot slot)
-	{
-		StatEffect statEffect = new ItemEffect(slot);
-		statEffect.setUniqueId(getUniqueId());
-		for (StatModifier modifier : getModifiers())
-		{
-			StatEnum statToModify = modifier.getStat().getMainOrSubHandStat(slot);
-			if (statToModify!=modifier.getStat())
-			{
-				StatModifier newModifier = modifier.clone();
-				newModifier.setStat(statToModify);
-				statEffect.add(newModifier);
-			}
-			else
-			{
-				statEffect.add(modifier);
-			}
-		}
-				
-		return statEffect;
-	}
-	
-	@Override
 	public boolean equals(Object o)
 	{
 		boolean result = super.equals(o);
-		if (result)
-		{
-			result = (((ItemEffect)o).getEquippedSlot().equals(equippedSlot));
+		result = result&&(o instanceof ItemEffect);
+		result = result&&(((ItemEffect)o).getEquippedSlot().equals(equippedSlot));
+		return result;
+	}
+	
+	@Override
+	public int compareTo(StatEffect o)
+	{
+		int result = super.compareTo(o);
+		if (result==0) {
+			if (o==null) {
+				result += equippedSlot.ordinal();
+			} else {
+				if (o instanceof ItemEffect) {
+					result += equippedSlot.ordinal()-((ItemEffect)o).equippedSlot.ordinal();
+				}
+			}
 		}
 		return result;
 	}
-
 }
