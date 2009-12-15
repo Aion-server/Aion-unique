@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <skill_tree>
-    <skill minLevel="1" skillId="30001" skillLevel="1" name="Gathering I" race="ALL" classId="ALL" type="ACTIVE"/>
+    <skill minLevel="1" autolearn="true" skillId="30001" skillLevel="1" name="Collection" race="ALL" classId="ALL" type="ACTIVE"/>
+    <skill minLevel="10" autolearn="true" skillId="30002" skillLevel="1" name="Extract Vitality" race="ALL" classId="ALL" type="ACTIVE"/>
+    <skill minLevel="10" autolearn="true" skillId="30003" skillLevel="1" name="Extract Aether" race="ALL" classId="ALL" type="ACTIVE"/>
 </skill_tree>
