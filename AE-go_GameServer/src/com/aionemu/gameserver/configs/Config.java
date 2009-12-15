@@ -146,6 +146,11 @@ public class Config
 	@Property(key = "gameserver.factions.speaking.mode",defaultValue = "0")
 	public static int				FACTIONS_SPEAKING_MODE;
 	
+	/*
+	 * Skill autolearn
+	 */
+	@Property(key = "gameserver.skill.autolearn",defaultValue = "true")
+	public static boolean			SKILL_AUTOLEARN;
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
 	 */

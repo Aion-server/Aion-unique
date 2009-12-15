@@ -90,8 +90,6 @@ public class SkillList
 
 	/**
 	 * Add Skill to the collection.
-	 * @param skillPosition Skill order.
-	 * @param skillXML Skill Xml contents.
 	 * @return <tt>true</tt> if Skill addition was successful, and it can be stored into database.
 	 *      Otherwise <tt>false</tt>.
 	 */

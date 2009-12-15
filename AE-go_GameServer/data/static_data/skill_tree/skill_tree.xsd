@@ -19,6 +19,7 @@
 		<xs:attribute name="skillId" type="xs:int" use="required"/>
 		<xs:attribute name="skillLevel" type="xs:int" use="required"/>
 		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="autolearn" type="xs:boolean"/>
 		<xs:attribute name="race" type="skillRace" use="required"/>
 		<xs:attribute name="minLevel" type="xs:int" use="required"/>
 		<xs:attribute name="type" type="skillUsageType" use="required"/>

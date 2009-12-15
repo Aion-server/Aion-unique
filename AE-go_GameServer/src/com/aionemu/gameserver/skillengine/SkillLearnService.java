@@ -18,8 +18,7 @@ package com.aionemu.gameserver.skillengine;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.dao.PlayerSkillListDAO;
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
@@ -56,9 +55,15 @@ public class SkillLearnService
 			player.setSkillList(new SkillList());
 		}
 		
+		SkillList playerSkillList = player.getSkillList();
+		
 		for(SkillLearnTemplate template : skillTemplates)
 		{
- 			boolean success = player.getSkillList().addSkill(template.getSkillId(), template.getSkillLevel());
+			//prevent learning of new skills with SKILL_AUTOLEARN=false
+			if(!playerSkillList.isSkillPresent(template.getSkillId()) && !Config.SKILL_AUTOLEARN)
+				continue;
+			
+ 			boolean success = playerSkillList.addSkill(template.getSkillId(), template.getSkillLevel());
   			
  			if(!success)
  				continue;

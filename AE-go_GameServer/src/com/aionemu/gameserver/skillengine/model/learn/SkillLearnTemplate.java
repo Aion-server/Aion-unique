@@ -44,6 +44,8 @@ public class SkillLearnTemplate
 	private SkillRace race;
 	@XmlAttribute(name = "minLevel", required = true)
 	private int minLevel;
+	@XmlAttribute
+	private boolean autolearn;
 	
 	/**
 	 * @return the classId
@@ -93,5 +95,12 @@ public class SkillLearnTemplate
 	public SkillRace getRace()
 	{
 		return race;
+	}
+	/**
+	 * @return the autolearn
+	 */
+	public boolean isAutolearn()
+	{
+		return autolearn;
 	}
 }
