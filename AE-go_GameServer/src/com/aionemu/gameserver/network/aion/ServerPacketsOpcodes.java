@@ -57,6 +57,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHER_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GUILD_DETAILS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GUILD_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GUILD_MEMBERS;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INFLUENCE_RATIO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
@@ -80,6 +81,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SEARCH;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PONG;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PRICES;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_DELETE;
@@ -123,7 +125,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK42;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK55;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK68;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK6C;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK6D;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK73;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
@@ -145,7 +146,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEB;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEC;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEE;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF1;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF4;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF7;
 
@@ -256,7 +256,6 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNK55.class, 0x55, idSet);
 		addPacketOpcode(SM_UNK5E.class, 0x61, idSet);
 		addPacketOpcode(SM_UNK68.class, 0x6B, idSet);
-		addPacketOpcode(SM_UNK6C.class, 0x6F, idSet);
 		addPacketOpcode(SM_UNK6D.class, 0x6C, idSet);
 		addPacketOpcode(SM_UNK73.class, 0x72, idSet);
 		addPacketOpcode(SM_UNK7B.class, 0x7A, idSet);
@@ -277,8 +276,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNKEB.class, 0xEB, idSet);
 		addPacketOpcode(SM_UNKEC.class, 0xEF, idSet);
 		addPacketOpcode(SM_UNKEE.class, 0xEE, idSet);
-		addPacketOpcode(SM_UNKF1.class, 0xF0, idSet);
-		addPacketOpcode(SM_UNKF4.class, 0xF4, idSet);
+		addPacketOpcode(SM_UNKF1.class, 0xF0, idSet);	
 		addPacketOpcode(SM_UNKF5.class, 0x29, idSet);
 		addPacketOpcode(SM_UNKF7.class, 0xF6, idSet);
 		addPacketOpcode(SM_UPDATE_ITEM.class, 0x17, idSet);
@@ -294,7 +292,8 @@ public class ServerPacketsOpcodes
 
 		addPacketOpcode(SM_QUEST_STEP.class, 0x77, idSet);
 		addPacketOpcode(SM_NEARBY_QUESTS.class, 0x79, idSet);
-
+		addPacketOpcode(SM_INFLUENCE_RATIO.class, 0x6F, idSet);
+		addPacketOpcode(SM_PRICES.class, 0xF4, idSet);
 		//Unrecognized Opcodes from 1.5.0:
 		//addPacketOpcode(SM_VIRTUAL_AUTH.class, 0xE4, idSet);
 		//addPacketOpcode(SM_WAITING_LIST.class, 0x18, idSet);		

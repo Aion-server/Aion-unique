@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets.unk;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
@@ -25,7 +25,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author Nemiroff
  * Total Influence Ratio
  */
-public class SM_UNK6C extends AionServerPacket
+public class SM_INFLUENCE_RATIO extends AionServerPacket
 {
 
 	/**

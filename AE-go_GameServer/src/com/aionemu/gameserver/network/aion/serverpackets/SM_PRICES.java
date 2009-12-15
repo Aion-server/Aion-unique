@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets.unk;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
@@ -23,9 +23,9 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
  * @author xavier
- * Influence ratio
+ * Price/tax in Influence ration dialog
  */
-public class SM_UNKF4 extends AionServerPacket
+public class SM_PRICES extends AionServerPacket
 {
 
 	/**
@@ -34,8 +34,8 @@ public class SM_UNKF4 extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeC(buf, 99); //Price %
+		writeC(buf, 100); //Price %
         writeC(buf, 110); //unk
-        writeC(buf, 107); //Tax = -100 + C %
+        writeC(buf, 100); //Tax = -100 + C %
 	}
 }
