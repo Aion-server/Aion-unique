@@ -58,8 +58,6 @@ public class MonsterAi extends NpcAi
 				Monster owner = (Monster) getOwner();
 				setAiState(AIState.ATTACKING);
 				PacketSendUtility.broadcastPacket(owner,
-					new SM_DIALOG_WINDOW(owner.getObjectId(), event.getOriginator().getObjectId()));
-				PacketSendUtility.broadcastPacket(owner,
 					new SM_EMOTION(owner.getObjectId(), 30, event.getOriginator().getObjectId()));
 				PacketSendUtility.broadcastPacket(owner,
 					new SM_EMOTION(owner.getObjectId(), 19, event.getOriginator().getObjectId()));
