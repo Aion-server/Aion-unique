@@ -21,6 +21,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
@@ -76,6 +78,8 @@ public class SkillLearnAction extends AbstractItemAction
 		//add skill
 		player.getSkillList().addSkill(skillid, 1);
 		PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(new SkillListEntry(skillid, 1, null)));
+		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
+		
 		//remove book from inventory (assuming its not stackable)
 		Item item = player.getInventory().getItemByObjId(parentItem.getObjectId());
 		player.getInventory().removeFromBag(item);
