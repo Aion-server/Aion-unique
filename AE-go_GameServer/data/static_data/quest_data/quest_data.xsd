@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-	<xs:include schemaLocation="../import.xsd" />
 	<xs:include schemaLocation="../global_types.xsd" />
 
 	<xs:element name="quests" type="Quests" />
@@ -32,7 +31,7 @@
 		<xs:attribute name="cannot_share" type="xs:boolean" default="false"/>
 		<xs:attribute name="cannot_giveup" type="xs:boolean" default="false"/>
 		<xs:attribute name="f_mission" type="xs:int"/>
-		<xs:attribute name="race_permitted" type="xs:string"/>
+		<xs:attribute name="race_permitted" type="Race"/>
 	</xs:complexType>
 
 	<xs:complexType name="QuestCondition" abstract="true" >
@@ -233,13 +232,6 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="Race">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="ELYOS" />
-			<xs:enumeration value="ASMODIAN" />
-		</xs:restriction>
-	</xs:simpleType>
-
 	<xs:complexType name="CollectItems">
 		<xs:sequence>
 			<xs:element name="collect_item" type="CollectItem" minOccurs="0" maxOccurs="unbounded"/>
@@ -248,6 +240,7 @@
 
 	<xs:complexType name="Rewards" >
 		<xs:sequence>
+			<xs:element name="selectable_reward_item" type="SelectableRewardItem" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="reward_item" type="RewardItem" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 			<xs:attribute name="reward_id" type="xs:int"/>
@@ -262,8 +255,13 @@
 			<xs:attribute name="count" type="xs:int"/>
 	</xs:complexType>
 
-	<xs:complexType name="RewardItem" >
+	<xs:complexType name="SelectableRewardItem" >
 			<xs:attribute name="id" type="xs:int"/>
+			<xs:attribute name="item_id" type="xs:int"/>
+			<xs:attribute name="count" type="xs:int"/>
+	</xs:complexType>
+	
+	<xs:complexType name="RewardItem" >
 			<xs:attribute name="item_id" type="xs:int"/>
 			<xs:attribute name="count" type="xs:int"/>
 	</xs:complexType>

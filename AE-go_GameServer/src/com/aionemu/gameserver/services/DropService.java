@@ -103,7 +103,7 @@ public class DropService
 					if (player == null)
 						continue;
 					QuestState qs = player.getQuestStateList().getQuestState(questId);
-					if (qs != null && qs.getStatus() != QuestStatus.START)
+					if (qs == null || qs.getStatus() != QuestStatus.START)
 						continue;
 				}
 				dropItem.calculateCount();

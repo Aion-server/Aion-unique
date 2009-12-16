@@ -16,6 +16,19 @@
  */
 package admincommands;
 
+import java.io.File;
+
+import javax.xml.XMLConstants;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+
+import org.xml.sax.SAXException;
+
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.QuestsData;
+import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -45,11 +58,20 @@ public class Reload extends AdminCommand
 		}
 		if(params[0].equals("quest"))
 		{
+			
+			
+			
+			File xml = new File("./data/static_data/quest_data/quest_data.xml");
 			try
 			{
 				QuestEngine.getInstance().clear();
+				JAXBContext jc = JAXBContext.newInstance(StaticData.class);
+				Unmarshaller un = jc.createUnmarshaller();
+				un.setSchema(getSchema("./data/static_data/static_data.xsd"));
+
+				DataManager.QUEST_DATA =  (QuestsData) un.unmarshal(xml);
 			}
-			catch (Exception ex)
+			catch(Exception e)
 			{
 				PacketSendUtility.sendMessage(admin, "Quest reload failed!");
 			}
@@ -61,5 +83,22 @@ public class Reload extends AdminCommand
 		else 
 			PacketSendUtility.sendMessage(admin, "syntax //reload <quest>");
 
+	}
+
+	private Schema getSchema(String xml_schema)
+	{
+		Schema schema = null;
+		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+
+		try
+		{
+			schema = sf.newSchema(new File(xml_schema));
+		}
+		catch(SAXException saxe)
+		{
+			throw new Error("Error while getting schema", saxe);
+		}
+
+		return schema;
 	}
 }

@@ -22,16 +22,15 @@ import static com.aionemu.gameserver.configs.Config.QUEST_XP_RATE;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.CollectItem;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
 import com.aionemu.gameserver.model.templates.quest.RewardItem;
 import com.aionemu.gameserver.model.templates.quest.Rewards;
+import com.aionemu.gameserver.model.templates.quest.SelectableRewardItem;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
@@ -41,7 +40,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
-import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -49,10 +47,9 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class Quest
 {
-	private ItemService itemService;
 
-	QuestTemplate template;
-	QuestEnv env;
+	private QuestTemplate template;
+	private QuestEnv env;
 
 	public Quest(QuestTemplate template, QuestEnv env)
 	{
@@ -64,15 +61,16 @@ public class Quest
 	public boolean checkStartCondition ()
 	{
 		Player player = env.getPlayer();
-		if (player.getLevel() < template.getMinlevelPermitted())
-		{
-			return false;
-		}
 
 		if (template.getRacePermitted() != null)
 		{
-			if (Race.valueOf(template.getRacePermitted()) != player.getCommonData().getRace())
+			if (template.getRacePermitted() != player.getCommonData().getRace())
 				return false;
+		}
+
+		if (player.getLevel() < template.getMinlevelPermitted())
+		{
+			return false;
 		}
 
 		if (template.getClassPermitted().size() != 0)
@@ -109,6 +107,12 @@ public class Quest
 		Player player = env.getPlayer();
 		int id = env.getQuestId();
 
+		if (player.getLevel() < template.getMinlevelPermitted())
+		{
+			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(0x13D866, template.getMinlevelPermitted()));
+			return false;
+		}
+
     	PacketSendUtility.sendPacket(player, new SM_QUEST_ACCEPTED(id, 3, 0));
 		QuestState qs = player.getQuestStateList().getQuestState(id);
 		if (qs == null)
@@ -136,6 +140,12 @@ public class Quest
 		if (qs == null || qs.getStatus() != QuestStatus.REWARD)
 			return false;
 
+		qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0)+1);
+		qs.setStatus(QuestStatus.COMPLITE);
+		qs.setCompliteCount(qs.getCompliteCount()+1);
+		PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus() , qs.getQuestVars().getQuestVars()));
+		player.updateNearbyQuests();
+
 		Inventory inventory = player.getInventory();
 		Rewards rewards = template.getRewards().get(0);
 		if (rewards.getGold()!= null)
@@ -150,21 +160,22 @@ public class Quest
 			player.getCommonData().setExp(currentExp + rewardExp);
 			PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Integer.toString(rewardExp)));
 		}
+
+		for (RewardItem item : rewards.getRewardItem())
+		{
+			QuestEngine.getInstance().addItem(player, item.getItemId(), item.getCount());
+		}
+
 		int dialogId = env.getDialogId();
 		if (dialogId != 17 && dialogId != 0)
 		{
 			//TODO: Need support other reward qroup.
-			RewardItem rewardItem = rewards.getRewardItem().get(dialogId-8);
-			if (rewardItem != null)
+			SelectableRewardItem selectebleRewardItem = rewards.getSelectableRewardItem().get(dialogId-8);
+			if (selectebleRewardItem != null)
 			{
-				addItem(rewardItem.getItemId(), rewardItem.getCount());
+				QuestEngine.getInstance().addItem(player, selectebleRewardItem.getItemId(), selectebleRewardItem.getCount());
 			}
 		}
-		qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0)+1);
-		qs.setStatus(QuestStatus.COMPLITE);
-		qs.setCompliteCount(qs.getCompliteCount()+1);
-		PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus() , qs.getQuestVars().getQuestVars()));
-		player.updateNearbyQuests();
 		return true;
 	}
 
@@ -222,48 +233,5 @@ public class Quest
 			PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus() , qs.getQuestVars().getQuestVars()));
 		}
 		return true;
-	}
-
-	public void addItem(int itemId, int count)
-	{
-		Player player = env.getPlayer();
-		Inventory inventory = player.getInventory();
-		if (itemId == ItemId.KINAH.value())
-		{
-			inventory.increaseKinah(count);
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
-		}
-		else
-		{
-			int currentItemCount = count;
-			while (currentItemCount > 0)
-			{
-				Item newItem = itemService.newItem(itemId, currentItemCount);
-				
-				Item existingItem = inventory.getItemByItemId(itemId);
-				
-				//item already in cube
-				if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
-				{
-					int oldItemCount = existingItem.getItemCount();
-					Item addedItem = inventory.addToBag(newItem);
-					if(addedItem != null)
-					{
-						currentItemCount -= addedItem.getItemCount() - oldItemCount;
-						PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
-					}
-				}
-				// new item and inventory is not full
-				else if (!inventory.isFull())
-				{
-					Item addedItem = inventory.addToBag(newItem);
-					if(addedItem != null)
-					{
-						currentItemCount -= addedItem.getItemCount();
-						PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
-					}
-				}
-			}
-		}
 	}
 }

@@ -16,22 +16,31 @@
  */
 package com.aionemu.gameserver.questEngine;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.Race;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.questEngine.events.OnKillEvent;
 import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
@@ -45,6 +54,8 @@ public class QuestEngine
 
 	private static QuestEngine	instance;
 	private FastMap<Integer, NpcQuestData> _npcQuestData;
+	
+	private ItemService itemService;
 
 	private QuestEngine()
 	{
@@ -266,6 +277,55 @@ public class QuestEngine
 			_npcQuestData.put(npcTemplateId, new NpcQuestData());
 		}
 		return _npcQuestData.get(npcTemplateId);
+	}
+
+	public void setItemService(ItemService itemService)
+	{
+		this.itemService = itemService;
+	}
+
+	public void addItem(Player player, int itemId, int count)
+	{
+		Inventory inventory = player.getInventory();
+		if (itemId == ItemId.KINAH.value())
+		{
+			inventory.increaseKinah(count);
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
+		}
+		else
+		{
+			List<Item> items = new ArrayList<Item>();
+			int currentItemCount = count;
+			while (currentItemCount > 0)
+			{
+				Item newItem = itemService.newItem(itemId, currentItemCount);
+				
+				Item existingItem = inventory.getItemByItemId(itemId);
+				
+				//item already in cube
+				if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
+				{
+					int oldItemCount = existingItem.getItemCount();
+					Item addedItem = inventory.addToBag(newItem);
+					if(addedItem != null)
+					{
+						currentItemCount -= addedItem.getItemCount() - oldItemCount;
+						PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
+					}
+				}
+				// new item and inventory is not full
+				else if (!inventory.isFull())
+				{
+					Item addedItem = inventory.addToBag(newItem);
+					if(addedItem != null)
+					{
+						currentItemCount -= addedItem.getItemCount();
+						items.add(addedItem);
+					}
+				}
+				PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(items));
+			}
+		}
 	}
 
 	public void clear()

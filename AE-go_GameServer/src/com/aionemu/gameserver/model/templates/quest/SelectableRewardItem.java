@@ -27,13 +27,27 @@ import javax.xml.bind.annotation.XmlType;
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CollectItem")
-public class CollectItem {
+@XmlType(name = "SelectableRewardItem")
+public class SelectableRewardItem {
 
+    @XmlAttribute
+    protected Integer id;
     @XmlAttribute(name = "item_id")
     protected Integer itemId;
     @XmlAttribute
     protected Integer count;
+
+    /**
+     * Gets the value of the id property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
+     */
+    public Integer getId() {
+        return id;
+    }
 
     /**
      * Gets the value of the itemId property.

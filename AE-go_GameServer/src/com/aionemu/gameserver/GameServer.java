@@ -27,6 +27,8 @@ import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
+import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -85,6 +87,8 @@ public class GameServer
 		gs.spawnMonsters();
 		
 		SkillEngine.getInstance().setWorld(gs.injector.getInstance(World.class));
+		
+		QuestEngine.getInstance().setItemService(gs.injector.getInstance(ItemService.class));
 		
 		Util.printMemoryUsage(log);
 		log.info("###########################################################################");

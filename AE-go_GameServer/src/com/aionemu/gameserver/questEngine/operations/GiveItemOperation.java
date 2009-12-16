@@ -38,6 +38,6 @@ public class GiveItemOperation
 	@Override
 	public void doOperate(QuestEnv env)
 	{
-		QuestEngine.getInstance().getQuest(env).addItem(itemId, count);
+		QuestEngine.getInstance().addItem(env.getPlayer(), itemId, count);
 	}
 }
