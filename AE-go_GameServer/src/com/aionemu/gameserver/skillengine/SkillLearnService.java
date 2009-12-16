@@ -87,7 +87,7 @@ public class SkillLearnService
 	 */
 	private static boolean checkLearnIsPossible(SkillList playerSkillList, SkillLearnTemplate template)
 	{
-		if(Config.SKILL_AUTOLEARN && playerSkillList.isSkillPresent(template.getSkillId()))
+		if(Config.SKILL_AUTOLEARN || playerSkillList.isSkillPresent(template.getSkillId()))
 			return true;
 		
 		if(template.isAutolearn())
