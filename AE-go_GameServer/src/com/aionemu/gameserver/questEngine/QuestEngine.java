@@ -67,20 +67,20 @@ public class QuestEngine
 		Quest quest = null;
 		Player player = env.getPlayer();
 		Npc npc = (Npc)env.getVisibleObject();
-		int questId = env.getQuestId();
 		int dialogId = env.getDialogId();
-		if (questId > 0)
-		{
-			quest = getQuest(env);
-		}
 
 		if(npc != null)
 		{
 			for(int id : getNpcQuestData(npc.getNpcId()).getOnTalkEvent())
-				if(id == questId)
-					for (OnTalkEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnTalkEvent())
-						if (event.operate(env))
-							return true;
+				for (OnTalkEvent event : DataManager.QUEST_DATA.getQuestById(id).getOnTalkEvent())
+					if (event.operate(new QuestEnv(npc, player, id, dialogId)))
+						return true;
+		}
+
+		int questId = env.getQuestId();
+		if (questId > 0)
+		{
+			quest = getQuest(env);
 		}
 
 		switch(dialogId)

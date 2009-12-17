@@ -585,7 +585,7 @@
         </rewards>
         <finished_quest_conds>1098</finished_quest_conds>
     </quest>
-    <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Kalio's Call" id="1100">
+    <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Kalio's Call" end_npc_id="203067" id="1100">
         <rewards exp="10" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="1" name="Sleeping on the Job" end_npc_id="203057" start_npc_id="203049" id="1101">
@@ -617,6 +617,12 @@
             <collect_item count="4" item_id="182200201"/>
         </collect_items>
         <rewards exp="380" gold="80" reward_id="1"/>
+        <on_talk_event ids="700105">
+            <conditions operate="AND">
+                <dialog_id value="10" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+        </on_talk_event>
         <finished_quest_conds>1102</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Report to Polina" end_npc_id="203059" start_npc_id="203057" id="1104">
@@ -647,6 +653,12 @@
             <collect_item count="5" item_id="182200205"/>
         </collect_items>
         <rewards exp="750" gold="200" reward_id="1"/>
+        <on_talk_event ids="700106">
+            <conditions operate="AND">
+                <dialog_id value="10" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+        </on_talk_event>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="4" name="A Book for Namus" end_npc_id="730008" start_npc_id="203065" id="1110">
         <rewards exp="450" gold="50" reward_id="1"/>

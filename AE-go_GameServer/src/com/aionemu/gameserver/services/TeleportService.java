@@ -115,7 +115,7 @@ public class TeleportService
 		if(!checkKinahForTransportation(location, player))
 			return;
 		
-		PacketSendUtility.sendPacket(player, new SM_EMOTION(player.getObjectId(), 6, location.getTeleportId()));
+		PacketSendUtility.sendPacket(player, new SM_EMOTION(player.getObjectId(), 6, location.getTeleportId(), 0));
 	}
 	
 	/**

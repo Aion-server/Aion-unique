@@ -61,7 +61,8 @@ public abstract class QuestEvent {
 	{
 		if (conditions.checkConditionOfSet(env))
 		{
-			operations.operate(env);
+			if (operations != null)
+				operations.operate(env);
 			return true;
 		}
 		return false;

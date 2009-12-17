@@ -58,9 +58,9 @@ public class MonsterAi extends NpcAi
 				Monster owner = (Monster) getOwner();
 				setAiState(AIState.ATTACKING);
 				PacketSendUtility.broadcastPacket(owner,
-					new SM_EMOTION(owner.getObjectId(), 30, event.getOriginator().getObjectId()));
+					new SM_EMOTION(owner.getObjectId(), 30, 0, event.getOriginator() == null ? 0:event.getOriginator().getObjectId()));
 				PacketSendUtility.broadcastPacket(owner,
-					new SM_EMOTION(owner.getObjectId(), 19, event.getOriginator().getObjectId()));
+					new SM_EMOTION(owner.getObjectId(), 19, 0, event.getOriginator() == null ? 0:event.getOriginator().getObjectId()));
 				desireQueue.addDesire(new AttackDesire(event.getOriginator(), AIState.ATTACKING.getPriority()));
 				desireQueue.addDesire(new MoveToTargetDesire(event.getOriginator(), owner, AIState.ATTACKING.getPriority()));
 			}
@@ -172,9 +172,9 @@ public class MonsterAi extends NpcAi
 					desireQueue.clear();//TODO remove based on filter
 					stopAttackTask();
 					PacketSendUtility.broadcastPacket(getOwner(),
-						new SM_EMOTION(getOwner().getObjectId(), 30, getOwner().getObjectId()));
+						new SM_EMOTION(getOwner().getObjectId(), 30, 0,  getOwner().getTarget() == null ? 0:getOwner().getTarget().getObjectId()));
 					PacketSendUtility.broadcastPacket(getOwner(),
-						new SM_EMOTION(getOwner().getObjectId(), 20, getOwner().getObjectId()));
+						new SM_EMOTION(getOwner().getObjectId(), 20, 0, getOwner().getTarget() == null ? 0:getOwner().getTarget().getObjectId()));
 					PacketSendUtility.broadcastPacket(getOwner(),
 						new SM_DIALOG_WINDOW(getOwner().getObjectId(), 0));
 					desireQueue.addDesire(new MoveToHomeDesire(getOwner().getSpawn(),

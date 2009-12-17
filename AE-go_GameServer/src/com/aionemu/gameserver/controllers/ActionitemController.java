@@ -17,7 +17,14 @@
 package com.aionemu.gameserver.controllers;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_USE_OBJECT;
+import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.services.DecayService;
+import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
@@ -36,23 +43,55 @@ public class ActionitemController extends NpcController
 	@Override
 	public void onDialogRequest(final Player player)
 	{
-		// TODO for now just hardcoded action without any logic
-		
+		if (!QuestEngine.getInstance().onDialog(new QuestEnv(getOwner(), player, 0 , 10)))
+			return;
 		final int defaultUseTime = 3000;
-		
 		PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), 
 			getOwner().getObjectId(), defaultUseTime, 1));
-		
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 37, 0, getOwner().getObjectId()), true);
 		ThreadPoolManager.getInstance().schedule(new Runnable(){
 			@Override
 			public void run()
 			{
 				PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), 
 					getOwner().getObjectId(), defaultUseTime, 0));
+				getOwner().setTarget(player);
+				onDie();
 			}
 		}, defaultUseTime);
-		
 	}
 
+	@Override
+	public void onDie()
+	{
+		super.onDie();
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(getOwner().getObjectId(), 13 , getOwner().getObjectId(), 0));
+		Player target = (Player) getOwner().getTarget();
+		this.doDrop(target);
+		if(decayTask == null)
+		{
+			RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
+			decayTask = DecayService.getInstance().scheduleDecayTask(this.getOwner());
+		}	
+		
+		//deselect target at the end
+		getOwner().setTarget(null);
+	}
 
+	@Override
+	public void doDrop(Player player)
+	{
+		super.doDrop(player);
+		dropService.registerDrop(getOwner() , player);
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
+		dropService.requestDropList(player , getOwner().getObjectId());
+	}
+
+	@Override
+	public void onRespawn()
+	{
+		this.decayTask = null;
+		dropService.unregisterDrop(getOwner());
+		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
+	}
 }

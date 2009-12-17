@@ -107,6 +107,6 @@ public class CM_EMOTION extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), unknown, emotion), true);
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), unknown, emotion, player.getTarget()== null?0:player.getTarget().getObjectId()), true);
 	}
 }

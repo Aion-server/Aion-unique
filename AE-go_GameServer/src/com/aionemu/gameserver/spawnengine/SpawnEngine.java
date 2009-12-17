@@ -116,7 +116,9 @@ public class SpawnEngine
 					npc = new Npc(aionObjectsIDFactory.nextId(), bindPointController, spawn);
 					break;
 				case USEITEM:
-					npc = new Npc(aionObjectsIDFactory.nextId(), new ActionitemController(), spawn);
+					ActionitemController  actionitemController = new ActionitemController();
+					actionitemController.setDropService(dropService);
+					npc = new Npc(aionObjectsIDFactory.nextId(), actionitemController, spawn);
 					break;
 				default: 
 					npc = new Npc(aionObjectsIDFactory.nextId(), new NpcController(), spawn);
