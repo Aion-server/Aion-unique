@@ -42,7 +42,9 @@ public class Actions
         @XmlElement(name = "itemuse", type = ItemUseAction.class),
         @XmlElement(name = "mpuse", type = MpUseAction.class),
         @XmlElement(name = "hpuse", type = HpUseAction.class),
-        @XmlElement(name = "dummy", type = DummyAction.class)
+        @XmlElement(name = "dummy", type = DummyAction.class),
+        @XmlElement(name = "itemheal", type = ItemHealAction.class),
+        @XmlElement(name = "itemhealmp", type = ItemHealMpAction.class)
     })
     protected List<Action> actions;
 
@@ -70,6 +72,8 @@ public class Actions
      * {@link MpUseAction }
      * {@link HpUseAction }
      * {@link DummyAction }
+     * {@link ItemHealAction }
+     * {@link ItemHealMpAction }
      * 
      */
     public List<Action> getActions() 

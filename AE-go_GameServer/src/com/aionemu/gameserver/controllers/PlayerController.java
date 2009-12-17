@@ -45,6 +45,7 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.skillengine.model.Skill.SkillType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
@@ -224,7 +225,7 @@ public class PlayerController extends CreatureController<Player>
 		Skill skill = SkillEngine.getInstance().getSkillFor(getOwner(), skillId);
 		if(skill != null)
 		{
-			skill.useSkill();
+			skill.useSkill(SkillType.CAST);
 		}
 	}
 

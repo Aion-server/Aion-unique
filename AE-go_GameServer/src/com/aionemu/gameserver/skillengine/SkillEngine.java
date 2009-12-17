@@ -52,6 +52,13 @@ public class SkillEngine
 		this.world = world;
 	}
 	
+	/**
+	 *  This method is used for skills that were learned by player
+	 *  
+	 * @param player
+	 * @param skillId
+	 * @return
+	 */
 	public Skill getSkillFor(Player player, int skillId)
 	{
 		SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(skillId);
@@ -64,6 +71,24 @@ public class SkillEngine
 			return null;
 
 		return new Skill(template, player, world);
+	}
+	
+	/**
+	 *  This method is used for not learned skills (item skills etc)
+	 *  
+	 * @param player
+	 * @param skillId
+	 * @param skillLevel
+	 * @return
+	 */
+	public Skill getSkill(Player player, int skillId, int skillLevel)
+	{
+		SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(skillId);
+		
+		if(template == null)
+			return null;
+
+		return new Skill(template, player, world, skillLevel);
 	}
 
 	public static SkillEngine getInstance()

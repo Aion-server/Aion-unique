@@ -23,6 +23,13 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
+import com.aionemu.gameserver.skillengine.SkillEngine;
+import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.skillengine.model.Skill.SkillType;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
@@ -54,7 +61,25 @@ public class SkillUseAction extends AbstractItemAction
 	@Override
 	public void act(Player player, Item parentItem)
 	{
-		//TODO
+		Skill skill = SkillEngine.getInstance().getSkill(player, skillid, level);
+		if(skill != null)
+		{
+			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(),
+				parentItem.getObjectId(), parentItem.getItemTemplate().getItemId()), true);
+			skill.useSkill(SkillType.ITEM);
+			
+			Item item = player.getInventory().getItemByObjId(parentItem.getObjectId());
+			if (item.getItemCount() > 1)
+			{
+				parentItem.decreaseItemCount(1);
+				PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
+			}
+			else
+			{
+				player.getInventory().removeFromBag(item);
+				PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(parentItem.getObjectId()));
+			}
+		}
 	}
 
 }

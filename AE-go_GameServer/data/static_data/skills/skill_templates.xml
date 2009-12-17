@@ -26575,7 +26575,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="55" delta="5"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8273" name="STR_SKILL_KN_Aura_AntiMagic_G1_Effect" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -26839,7 +26839,7 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="150" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8289" name="STR_SKILL_CH_Chant_LifeTouch_G2_Effect_Proc" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -26858,7 +26858,7 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="200" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8290" name="STR_SKILL_CH_Chant_LifeTouch_G3_Effect" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -28630,7 +28630,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="19" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8410" name="STR_SYSTEM_SKILL_KN_Saint_G1_Proc" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -28643,7 +28643,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="201" delta="3"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8411" name="STR_SYSTEM_SKILL_KN_Astray_G1_Proc" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -29091,7 +29091,7 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="200" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8438" name="STR_SYSTEM_SKILL_KN_ArcGuardian_G2_Proc" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -29109,7 +29109,7 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="200" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8439" name="STR_SYSTEM_SKILL_KN_DarkFact_G1_Proc" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -29752,7 +29752,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="91" delta="10"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8480" name="STR_SKILL_AS_DivineAssault_G2_Penalty" skilltype="MAGICAL" skillsubtype="HEAL" activation="PROVOKED" cooldown="0" duration="0">
@@ -29765,7 +29765,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="217" delta="13"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8481" name="STR_SKILL_AS_DivineAssault_G3_Penalty" skilltype="MAGICAL" skillsubtype="HEAL" activation="PROVOKED" cooldown="0" duration="0">
@@ -29778,7 +29778,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="387" delta="17"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8482" name="STR_SKILL_AS_DrainBurst_G1_AddEffect" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -30162,7 +30162,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="513" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8506" name="STR_SKILL_EL_Unsummon_G1_Buff" skilltype="MAGICAL" skillsubtype="HEAL" activation="PROVOKED" cooldown="0" duration="0">
@@ -30410,7 +30410,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="582" delta="21"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8522" name="STR_SKILL_EL_Unsummon_G2_Buff" skilltype="MAGICAL" skillsubtype="HEAL" activation="PROVOKED" cooldown="0" duration="0">
@@ -30528,7 +30528,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="1159" delta="12"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8530" name="STR_SKILL_PR_HolyPrecept_G1_Buff" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="0">
@@ -30541,7 +30541,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="50" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8531" name="STR_SKILL_PR_SecretPrecept_G1_Buff" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="0">
@@ -30554,7 +30554,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="50" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8532" name="STR_SKILL_CH_Chant_Improveddefend_G4_Effect" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -30848,7 +30848,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="78000" delta="0"/>
+            <itemhealmp value="78000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8553" name="STR_SKILL_Dark_Avatar_G2_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -30866,7 +30867,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="93600" delta="0"/>
+            <itemhealmp value="93600" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8554" name="STR_SKILL_Dark_Avatar_G3_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -30884,7 +30886,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="109200" delta="0"/>
+            <itemhealmp value="109200" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8555" name="STR_SKILL_Dark_Avatar_G4_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -30902,7 +30905,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="124800" delta="0"/>
+            <itemhealmp value="124800" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8556" name="STR_SKILL_Dark_Avatar_G5_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -30920,7 +30924,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="156000" delta="0"/>
+            <itemhealmp value="156000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8557" name="STR_SKILL_Light_Avatar_G1_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -30938,7 +30943,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="78000" delta="0"/>
+            <itemhealmp value="78000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8558" name="STR_SKILL_Light_Avatar_G2_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -30956,7 +30962,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="93600" delta="0"/>
+            <itemhealmp value="93600" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8559" name="STR_SKILL_Light_Avatar_G3_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -30974,7 +30981,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="109200" delta="0"/>
+            <itemhealmp value="109200" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8560" name="STR_SKILL_Light_Avatar_G4_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -30992,7 +31000,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="124800" delta="0"/>
+            <itemhealmp value="124800" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8561" name="STR_SKILL_Light_Avatar_G5_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -31010,7 +31019,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="156000" delta="0"/>
+            <itemhealmp value="156000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8562" name="STR_ITEM_SKILL_PROC_FIRE_DAMAGE" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -32168,7 +32178,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="0" delta="200"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8732" name="STR_ITEM_E3_POTION_HP_SMALL" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32180,7 +32190,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="0" delta="400"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8733" name="STR_ITEM_E3_POTION_MP_SMALL" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32192,7 +32202,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="0" delta="400"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8734" name="STR_ITEM_E3_POTION_HP_LARGE" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32204,7 +32214,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="0" delta="2000"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8735" name="STR_ITEM_E3_POTION_MP_LARGE" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32216,7 +32226,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="0" delta="1000"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8736" name="STR_ITEM_E3_HERB_ANGELICA" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32228,7 +32238,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="0" delta="200"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8737" name="STR_ITEM_E3_HERB_TARRAGON" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32240,7 +32250,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="0" delta="200"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8738" name="STR_ITEM_E3_HERB_GINSENG" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32252,7 +32262,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="0" delta="200"/>
+            <itemhealmp value="0" delta="100"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8739" name="STR_ITEM_TEST_FLYMAXTIME_01" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32641,7 +32652,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="270" delta="0"/>
+            <itemhealmp value="470" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8765" name="STR_ITEM_REMEDY_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32654,7 +32666,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="37" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8767" name="STR_ITEM_REMEDY_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32667,7 +32679,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="67" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8769" name="STR_ITEM_REMEDY_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32680,7 +32692,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="97" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8771" name="STR_ITEM_REMEDY_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32693,7 +32705,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="127" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8773" name="STR_ITEM_REMEDY_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32706,7 +32718,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="154" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8775" name="STR_ITEM_REMEDY_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32719,7 +32731,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="59" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8777" name="STR_ITEM_REMEDY_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32732,7 +32744,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="98" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8779" name="STR_ITEM_REMEDY_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32745,7 +32757,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="128" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8781" name="STR_ITEM_REMEDY_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32758,7 +32770,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="148" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8783" name="STR_ITEM_REMEDY_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32771,7 +32783,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="160" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8784" name="STR_ITEM_POTION_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32784,7 +32796,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="340" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8785" name="STR_ITEM_POTION_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32797,7 +32809,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="610" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8786" name="STR_ITEM_POTION_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32810,7 +32822,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="890" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8787" name="STR_ITEM_POTION_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32823,7 +32835,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="1160" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8788" name="STR_ITEM_POTION_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32836,7 +32848,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="1410" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8789" name="STR_ITEM_POTION_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32849,7 +32861,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="540" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8790" name="STR_ITEM_POTION_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32862,7 +32874,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="900" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8791" name="STR_ITEM_POTION_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32875,7 +32887,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="1170" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8792" name="STR_ITEM_POTION_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32888,7 +32900,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="1360" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8793" name="STR_ITEM_POTION_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -32901,7 +32913,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="1470" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8794" name="STR_ITEM_POTION_CURE_PHYSICAL" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -33310,7 +33322,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="1000000" delta="0"/>
+            <itemhealmp value="1000000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8820" name="STR_ITEM_SOULSTONE_SHAPECHANGE_ZAIF_01" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -33377,7 +33390,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="80" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8824" name="STR_ITEM_SCROLL_SEARCH" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37625,7 +37638,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="37" delta="0"/>
+            <itemhealmp value="59" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9067" name="STR_REMEDY_HP_MP_20" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37638,7 +37652,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="67" delta="0"/>
+            <itemhealmp value="98" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9068" name="STR_REMEDY_HP_MP_30" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37651,7 +37666,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="97" delta="0"/>
+            <itemhealmp value="128" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9069" name="STR_REMEDY_HP_MP_40" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37664,7 +37680,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="127" delta="0"/>
+            <itemhealmp value="148" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9070" name="STR_REMEDY_HP_MP_50" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37677,7 +37694,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="154" delta="0"/>
+            <itemhealmp value="160" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9071" name="STR_POTION_HP_MP_10" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37690,7 +37708,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="340" delta="0"/>
+            <itemhealmp value="540" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9072" name="STR_POTION_HP_MP_20" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37703,7 +37722,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="610" delta="0"/>
+            <itemhealmp value="900" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9073" name="STR_POTION_HP_MP_30" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37716,7 +37736,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="890" delta="0"/>
+            <itemhealmp value="1170" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9074" name="STR_POTION_HP_MP_40" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37729,7 +37750,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="1160" delta="0"/>
+            <itemhealmp value="1360" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9075" name="STR_POTION_HP_MP_50" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37742,7 +37764,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="1410" delta="0"/>
+            <itemhealmp value="1470" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9076" name="STR_ITEM_POTION_A_HP_10" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37755,7 +37778,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="540" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9077" name="STR_ITEM_POTION_A_HP_20" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37768,7 +37791,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="970" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9078" name="STR_ITEM_POTION_A_HP_30" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37781,7 +37804,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="1430" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9079" name="STR_ITEM_POTION_A_HP_40" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37794,7 +37817,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="1860" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9080" name="STR_ITEM_POTION_A_HP_50" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37807,7 +37830,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="2250" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9081" name="STR_ITEM_POTION_A_MP_10" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37820,7 +37843,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="870" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9082" name="STR_ITEM_POTION_A_MP_20" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37833,7 +37856,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="1440" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9083" name="STR_ITEM_POTION_A_MP_30" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37846,7 +37869,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="1870" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9084" name="STR_ITEM_POTION_A_MP_40" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37859,7 +37882,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="2170" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9085" name="STR_ITEM_POTION_A_MP_50" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37872,7 +37895,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="2350" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9086" name="STR_ITEM_POTION_A_FLYTIME" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37898,7 +37921,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="31" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9088" name="STR_ITEM_REMEDY_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37911,7 +37934,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="56" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9089" name="STR_ITEM_REMEDY_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37924,7 +37947,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="81" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9090" name="STR_ITEM_REMEDY_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37937,7 +37960,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="106" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9091" name="STR_ITEM_REMEDY_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37950,7 +37973,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="128" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9092" name="STR_ITEM_REMEDY_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37963,7 +37986,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="50" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9093" name="STR_ITEM_REMEDY_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37976,7 +37999,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="82" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9094" name="STR_ITEM_REMEDY_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -37989,7 +38012,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="107" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9095" name="STR_ITEM_REMEDY_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -38002,7 +38025,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="124" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9096" name="STR_ITEM_REMEDY_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -38015,7 +38038,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="134" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9097" name="STR_ITEM_SHAPECHANGE_XMASEVENT_RUDOLPH_99_N" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -38274,7 +38297,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="5000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9116" name="STR_HARVEST_POTION_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -38287,7 +38310,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealmp value="5000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9117" name="STR_HARVEST_POTION_HP_MP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -38300,7 +38323,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="5000" delta="0"/>
+            <itemhealmp value="5000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9118" name="STR_POTION_CURE_HP" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -38384,7 +38408,8 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemheal value="1700" delta="0"/>
+            <itemhealmp value="2000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9124" name="STR_FOOD_SHAPE_IDSHIP_SHULACKFI_41_AE" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -41367,7 +41392,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="78000" delta="0"/>
+            <itemhealmp value="78000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9760" name="STR_SKILL_Dark_Avatar_G2_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -41385,7 +41411,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="93600" delta="0"/>
+            <itemhealmp value="93600" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9761" name="STR_SKILL_Dark_Avatar_G3_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -41403,7 +41430,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="109200" delta="0"/>
+            <itemhealmp value="109200" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9762" name="STR_SKILL_Dark_Avatar_G4_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -41421,7 +41449,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="124800" delta="0"/>
+            <itemhealmp value="124800" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9763" name="STR_SKILL_Dark_Avatar_G5_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -41439,7 +41468,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="156000" delta="0"/>
+            <itemhealmp value="156000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9764" name="STR_SKILL_Light_Avatar_G1_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -41457,7 +41487,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="78000" delta="0"/>
+            <itemhealmp value="78000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9765" name="STR_SKILL_Light_Avatar_G2_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -41475,7 +41506,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="93600" delta="0"/>
+            <itemhealmp value="93600" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9766" name="STR_SKILL_Light_Avatar_G3_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -41493,7 +41525,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="109200" delta="0"/>
+            <itemhealmp value="109200" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9767" name="STR_SKILL_Light_Avatar_G4_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -41511,7 +41544,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="124800" delta="0"/>
+            <itemhealmp value="124800" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9768" name="STR_SKILL_Light_Avatar_G5_L" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -41529,7 +41563,8 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemheal value="156000" delta="0"/>
+            <itemhealmp value="156000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9881" name="STR_SKILL_Abyss_Def_Light_50L_100_FireDMG_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="PROVOKED" cooldown="0" duration="0">

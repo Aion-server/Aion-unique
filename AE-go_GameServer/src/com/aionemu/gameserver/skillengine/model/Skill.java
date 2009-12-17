@@ -56,17 +56,38 @@ public class Skill
 	
 	private SkillTemplate skillTemplate;
 	
+	public enum SkillType
+	{
+		CAST,
+		ITEM
+	}
+	
 	/**
 	 *  Each skill is a separate object upon invocation
+	 *  Skill level will be populated from player SkillList
 	 *  
-	 * @param env
+	 * @param skillTemplate
+	 * @param effector
+	 * @param world
 	 */
 	public Skill(SkillTemplate skillTemplate, Player effector, World world)
+	{
+		this(skillTemplate, effector, world, 
+			effector.getSkillList().getSkillLevel(skillTemplate.getSkillId()));
+	}
+	
+	/**
+	 * 
+	 * @param skillTemplate
+	 * @param effector
+	 * @param world
+	 */
+	public Skill(SkillTemplate skillTemplate, Player effector, World world, int skillLvl)
 	{
 		this.effectedList = new ArrayList<Creature>();
 		this.conditionChangeListener = new ConditionChangeListener();
 		this.firstTarget = effector.getTarget() instanceof Creature ? (Creature) effector.getTarget() : null;
-		this.skillLevel = effector.getSkillList().getSkillLevel(skillTemplate.getSkillId());
+		this.skillLevel = skillLvl;
 		this.skillTemplate = skillTemplate;
 		this.effector = effector;
 		this.world = world;
@@ -75,7 +96,7 @@ public class Skill
 	/**
 	 *  Skill entry point
 	 */
-	public void useSkill()
+	public void useSkill(SkillType skillType)
 	{
 		//TODO OOP
 		if(skillTemplate.getActivationAttribute() != ActivationAttribute.ACTIVE)
@@ -88,7 +109,12 @@ public class Skill
 		
 		setProperties(skillTemplate.getSetproperties());
 		
-		startCast();
+		//temporary hook till i find permanent solution
+		if(skillType == SkillType.CAST)
+		{
+			startCast();
+		}
+
 		effector.getController().attach(conditionChangeListener);
 		
 		if(skillTemplate.getDuration() > 0)

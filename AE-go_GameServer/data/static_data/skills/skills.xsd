@@ -89,6 +89,10 @@
 				maxOccurs="1" />
 			<xs:element name="dummy" type="DummyAction" minOccurs="0"
 				maxOccurs="1" />
+			<xs:element name="itemheal" type="ItemHealAction" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="itemhealmp" type="ItemHealMpAction" minOccurs="0"
+				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -152,6 +156,24 @@
 	<xs:complexType name="DummyAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="ItemHealAction">
+		<xs:complexContent>
+			<xs:extension base="Action">
+				<xs:attribute name="value" type="xs:int" use="required"/>
+				<xs:attribute name="delta" type="xs:int" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="ItemHealMpAction">
+		<xs:complexContent>
+			<xs:extension base="Action">
+				<xs:attribute name="value" type="xs:int" use="required"/>
+				<xs:attribute name="delta" type="xs:int" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
