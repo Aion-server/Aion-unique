@@ -95,6 +95,7 @@ public class CM_EMOTION extends AionClientPacket
 		break;
 		default:
 			log.info("Unknown emotion type? 0x" + Integer.toHexString(unknown).toUpperCase());
+         break;
 		}
         }
 

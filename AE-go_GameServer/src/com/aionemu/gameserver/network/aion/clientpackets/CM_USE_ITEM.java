@@ -16,6 +16,9 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.itemengine.actions.AbstractItemAction;
@@ -23,47 +26,53 @@ import com.aionemu.gameserver.itemengine.actions.ItemActions;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+
 /**
- * 
  * @author Avol
- * 
  */
-public class CM_USE_ITEM extends AionClientPacket
-{
-	public int uniqueItemId;
+public class CM_USE_ITEM extends AionClientPacket {
 
-	private static final Logger log = Logger.getLogger(CM_USE_ITEM.class);
+    public int uniqueItemId;
+    public int type, targetItemId;
 
-	public CM_USE_ITEM(int opcode)
-	{
-		super(opcode);
-	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void readImpl()
-	{
-		uniqueItemId = readD();
-	}
+    private static final Logger log = Logger.getLogger(CM_USE_ITEM.class);
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void runImpl()
-	{
-		Player player = getConnection().getActivePlayer();
-		
-		Item item = player.getInventory().getItemByObjId(uniqueItemId);
-		ItemActions itemActions = item.getItemTemplate().getActions();
-		if(itemActions != null)
-		{
-			for(AbstractItemAction itemAction : itemActions.getItemActions())
-			{
-				itemAction.act(player, item);
-			}
-		}
-	}
+    public CM_USE_ITEM(int opcode) {
+        super(opcode);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void readImpl() {
+        uniqueItemId = readD();
+        type = readC();
+        if (type == 2)
+        {
+            targetItemId = readD();
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void runImpl() {
+
+
+            Player player = getConnection().getActivePlayer();
+            Item item = player.getInventory().getItemByObjId(uniqueItemId);
+            Item targetItem = player.getInventory().getItemByObjId(targetItemId);
+            ItemActions itemActions = item.getItemTemplate().getActions();
+        
+            if (itemActions != null)
+            {
+                for (AbstractItemAction itemAction : itemActions.getItemActions())
+                {
+                    itemAction.act(player, item);
+                }
+            }
+    }
 }

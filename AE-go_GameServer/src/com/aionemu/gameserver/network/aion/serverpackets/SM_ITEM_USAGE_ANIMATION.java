@@ -33,14 +33,29 @@ public class SM_ITEM_USAGE_ANIMATION extends AionServerPacket
 	private int playerObjId;
 	private int itemObjId;
 	private int itemId;
+    private int time;
+    private int end;
+    private int unk;
 
 	public SM_ITEM_USAGE_ANIMATION(int playerObjId, int itemObjId, int itemId)
 	{
 		this.playerObjId = playerObjId;
 		this.itemObjId = itemObjId;
 		this.itemId = itemId;
+        this.time = 0;
+        this.end = 1;
+        this.unk = 1;
 	}
 
+    public SM_ITEM_USAGE_ANIMATION(int playerObjId, int itemObjId, int itemId, int time, int end, int unk)
+	{
+		this.playerObjId = playerObjId;
+		this.itemObjId = itemObjId;
+		this.itemId = itemId;
+        this.time = time;
+        this.end = end;
+        this.unk = unk;
+	}
 
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
@@ -51,12 +66,10 @@ public class SM_ITEM_USAGE_ANIMATION extends AionServerPacket
 		writeD(buf, itemObjId); // itemObjId
 		writeD(buf, itemId); // item id
 		
-		writeD(buf, 0); // unk
+		writeD(buf, time); // unk
+		writeC(buf, end); // unk
 		writeC(buf, 1); // unk
-		writeC(buf, 1); // unk
-		writeC(buf, 0); // unk
-		writeC(buf, 1); // unk
-		writeH(buf, 0); // unk
-		writeC(buf, 0); // unk
+        writeC(buf, 0);
+        writeD(buf, unk);
 	}
 }
