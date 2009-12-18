@@ -87,7 +87,8 @@ public class StatFunctions
 			int min = ags.getCurrentStat(StatEnum.MIN_DAMAGES);
 			int max = ags.getCurrentStat(StatEnum.MAX_DAMAGES);
 			int base = Rnd.get(min,max);
-			baseDamages += base;
+			float multiplier = Math.round((ags.getBaseStat(StatEnum.MAIN_HAND_POWER)+ags.getBaseStat(StatEnum.OFF_HAND_POWER))/100f);
+			baseDamages += Math.round(base * multiplier) + ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + ags.getStatBonus(StatEnum.OFF_HAND_POWER);
 		}
 		else
 		{
