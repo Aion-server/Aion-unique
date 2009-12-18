@@ -156,7 +156,7 @@ public class PlayerController extends CreatureController<Player>
 			((Player)lastAttacker).getController().wonDuelWith(player);
 		} else { // PvE
 			PacketSendUtility.broadcastPacket(this.getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13,
-				lastAttacker.getObjectId(), 0), true);
+				0, lastAttacker.getObjectId()), true);
 			PacketSendUtility.sendPacket(player, new SM_DIE());
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
 		}

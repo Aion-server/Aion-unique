@@ -8,10 +8,10 @@
 
 package com.aionemu.gameserver.questEngine.operations;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
@@ -34,19 +34,35 @@ public class QuestOperations {
         @XmlElement(name = "set_quest_status", type = SetQuestStatusOperation.class)
     })
     protected List<QuestOperation> questOperations;
+    @XmlAttribute
+    protected Boolean override;
 
-    public List<QuestOperation> getQuestOperations() {
-        if (questOperations == null) {
-        	questOperations = new ArrayList<QuestOperation>();
+    /**
+     * Gets the value of the override property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public boolean isOverride() {
+        if (override == null) {
+            return true;
+        } else {
+            return override;
         }
-        return this.questOperations;
     }
 
-	public void operate(QuestEnv env)
+	public boolean operate(QuestEnv env)
 	{
-		for (QuestOperation oper : questOperations)
+		if (questOperations != null)
 		{
-				oper.doOperate(env);
+			for (QuestOperation oper : questOperations)
+			{
+					oper.doOperate(env);
+			}
 		}
+		return isOverride();
 	}
+	
 }

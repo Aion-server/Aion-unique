@@ -16,13 +16,10 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-
-import java.util.Random;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 import org.apache.log4j.Logger;
 /**
@@ -66,9 +63,10 @@ public class CM_CLOSE_LOOT extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
+		Player player = getConnection().getActivePlayer();
 		//TODO this is incorrect - cause this packet called on each equip action
 		//Is called when item is dragged to cube
-//		sendPacket(new SM_EMOTION(targetObjectId,36,0));
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(),36,0,0));
 //		sendPacket(new SM_LOOT_STATUS(targetObjectId,3));
 	}
 }

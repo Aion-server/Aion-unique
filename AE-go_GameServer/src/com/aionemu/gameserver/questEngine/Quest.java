@@ -28,9 +28,8 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.CollectItem;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
-import com.aionemu.gameserver.model.templates.quest.RewardItem;
+import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.model.templates.quest.Rewards;
-import com.aionemu.gameserver.model.templates.quest.SelectableRewardItem;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
@@ -128,6 +127,7 @@ public class Quest
 				qs.getQuestVars().setQuestVar(0);
 			}
 		}
+
     	player.updateNearbyQuests();
 		return true;
 	}
@@ -161,7 +161,7 @@ public class Quest
 			PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Integer.toString(rewardExp)));
 		}
 
-		for (RewardItem item : rewards.getRewardItem())
+		for (QuestItems item : rewards.getRewardItem())
 		{
 			QuestEngine.getInstance().addItem(player, item.getItemId(), item.getCount());
 		}
@@ -170,7 +170,7 @@ public class Quest
 		if (dialogId != 17 && dialogId != 0)
 		{
 			//TODO: Need support other reward qroup.
-			SelectableRewardItem selectebleRewardItem = rewards.getSelectableRewardItem().get(dialogId-8);
+			QuestItems selectebleRewardItem = rewards.getSelectableRewardItem().get(dialogId-8);
 			if (selectebleRewardItem != null)
 			{
 				QuestEngine.getInstance().addItem(player, selectebleRewardItem.getItemId(), selectebleRewardItem.getCount());

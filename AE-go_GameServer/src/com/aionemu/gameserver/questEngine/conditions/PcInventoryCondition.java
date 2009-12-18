@@ -47,7 +47,7 @@ public class PcInventoryCondition
 		Item item = player.getInventory().getItemByItemId(itemId);
 		int _count = 0;
 		if (item != null)
-			_count = player.getInventory().getItemByItemId(itemId).getItemCount();
+			_count = item.getItemCount();
 		System.out.println("Item count: "+_count);
 		switch (getOp())
 		{

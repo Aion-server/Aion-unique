@@ -88,7 +88,7 @@ public class SM_EMOTION extends AionServerPacket
 				writeD(buf, 0x07); // unknown
 				writeC(buf, 0xC0); // unknown
 				writeC(buf, 0x40); // unknown
-				writeD(buf, emotionId);
+				writeD(buf, targetObjectId);
 				break;
 			case 6:
 				// fly

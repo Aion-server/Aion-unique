@@ -47,6 +47,9 @@ public class NpcDialogOperation
     	int qId = env.getQuestId();
     	if (questId != null)
     		qId = questId;
-    	PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(obj.getObjectId(), id, qId));
+    	if (qId == 0)
+    		PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(obj.getObjectId(), id));
+    	else
+    		PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(obj.getObjectId(), id, qId));
     }
 }

@@ -24,9 +24,9 @@ import javax.xml.bind.annotation.XmlType;
 public class Rewards {
 
     @XmlElement(name = "selectable_reward_item")
-    protected List<SelectableRewardItem> selectableRewardItem;
+    protected List<QuestItems> selectableRewardItem;
     @XmlElement(name = "reward_item")
-    protected List<RewardItem> rewardItem;
+    protected List<QuestItems> rewardItem;
     @XmlAttribute(name = "reward_id")
     protected Integer rewardId;
     @XmlAttribute
@@ -56,13 +56,13 @@ public class Rewards {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link SelectableRewardItem }
+     * {@link QuestItems }
      * 
      * 
      */
-    public List<SelectableRewardItem> getSelectableRewardItem() {
+    public List<QuestItems> getSelectableRewardItem() {
         if (selectableRewardItem == null) {
-            selectableRewardItem = new ArrayList<SelectableRewardItem>();
+            selectableRewardItem = new ArrayList<QuestItems>();
         }
         return this.selectableRewardItem;
     }
@@ -85,13 +85,13 @@ public class Rewards {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link RewardItem }
+     * {@link QuestItems }
      * 
      * 
      */
-    public List<RewardItem> getRewardItem() {
+    public List<QuestItems> getRewardItem() {
         if (rewardItem == null) {
-            rewardItem = new ArrayList<RewardItem>();
+            rewardItem = new ArrayList<QuestItems>();
         }
         return this.rewardItem;
     }

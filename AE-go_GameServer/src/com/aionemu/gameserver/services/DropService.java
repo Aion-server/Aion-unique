@@ -37,6 +37,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
@@ -148,7 +149,7 @@ public class DropService
 		PacketSendUtility.sendPacket(player, new SM_LOOT_ITEMLIST(npcId, dropItems));
 		//PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, size > 0 ? size - 1 : size));
 		PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 2));
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 35, 0, npcId), true);
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 35, 0, 0), true);
 	}
 
 	public void requestDropItem(Player player, int npcId, int itemIndex)
@@ -213,7 +214,7 @@ public class DropService
 				if(addedItem != null)
 				{
 					currentDropItemCount -= addedItem.getItemCount() - oldItemCount;
-					PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
+					PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), player.getCubeSize()));
 				}
 			}
 			// new item and inventory is not full
@@ -249,7 +250,7 @@ public class DropService
 		else
 		{
 			PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 3));
-
+			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 36, 0, 0), true);
 			Creature creature = (Creature) world.findAionObject(npcId);
 			if(creature != null)
 			{

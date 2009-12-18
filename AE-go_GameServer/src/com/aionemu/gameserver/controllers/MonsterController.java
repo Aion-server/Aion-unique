@@ -139,10 +139,11 @@ public class MonsterController extends NpcController
 		MonsterAi monsterAi = getOwner().getAi();
 		monsterAi.setAiState(AIState.NONE);
 		
-		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13 , getOwner().getObjectId(), 0));
-
 		//TODO change - now reward is given to target only
 		Player target = (Player) this.getOwner().getTarget();
+
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13, 0, target == null?0:target.getObjectId()));
+
 		this.doReward(target);
 		this.doDrop(target);
 		

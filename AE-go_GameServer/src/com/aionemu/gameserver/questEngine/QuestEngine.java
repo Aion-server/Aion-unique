@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.questEngine;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javolution.util.FastMap;
@@ -33,6 +34,7 @@ import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.questEngine.events.OnKillEvent;
@@ -98,7 +100,7 @@ public class QuestEngine
 						if (qs.getStatus() != QuestStatus.REWARD)
 							continue;
 		
-						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), 5, qs.getQuestId()));
+						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npc.getObjectId(), 5, endQuestId));
 						return true;
 						
 					}
@@ -310,7 +312,7 @@ public class QuestEngine
 					if(addedItem != null)
 					{
 						currentItemCount -= addedItem.getItemCount() - oldItemCount;
-						PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
+						PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), player.getCubeSize()));
 					}
 				}
 				// new item and inventory is not full
@@ -323,8 +325,9 @@ public class QuestEngine
 						items.add(addedItem);
 					}
 				}
-				PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(items));
 			}
+			if (!items.isEmpty())
+				PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(items));
 		}
 	}
 

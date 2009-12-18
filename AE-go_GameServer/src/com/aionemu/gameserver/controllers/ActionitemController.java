@@ -65,8 +65,8 @@ public class ActionitemController extends NpcController
 	public void onDie()
 	{
 		super.onDie();
-		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(getOwner().getObjectId(), 13 , getOwner().getObjectId(), 0));
 		Player target = (Player) getOwner().getTarget();
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(getOwner().getObjectId(), 13, 0, target == null?0:target.getObjectId()));
 		this.doDrop(target);
 		if(decayTask == null)
 		{

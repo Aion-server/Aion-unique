@@ -30,6 +30,7 @@ import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
+import com.aionemu.gameserver.model.templates.quest.QuestWorkItems;
 import com.aionemu.gameserver.model.templates.quest.Rewards;
 import com.aionemu.gameserver.questEngine.conditions.QuestConditions;
 import com.aionemu.gameserver.questEngine.events.OnKillEvent;
@@ -48,7 +49,8 @@ import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
     "onTalkEvent",
     "finishedQuestConds",
     "classPermitted",
-    "genderPermitted"
+    "genderPermitted",
+    "questWorkItems"
 })
 public class QuestTemplate {
 
@@ -68,6 +70,8 @@ public class QuestTemplate {
     protected List<PlayerClass> classPermitted;
     @XmlElement(name = "gender_permitted")
     protected Gender genderPermitted;
+    @XmlElement(name = "quest_work_items")
+    protected QuestWorkItems questWorkItems;
     @XmlAttribute(required = true)
     protected int id;
     @XmlAttribute(name = "start_npc_id")
@@ -114,6 +118,28 @@ public class QuestTemplate {
         return collectItems;
     }
 
+    /**
+     * Gets the value of the rewards property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the rewards property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getRewards().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Rewards }
+     * 
+     * 
+     */
     public List<Rewards> getRewards() {
         if (rewards == null) {
             rewards = new ArrayList<Rewards>();
@@ -249,6 +275,18 @@ public class QuestTemplate {
     }
 
     /**
+     * Gets the value of the questWorkItems property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link QuestWorkItems }
+     *     
+     */
+    public QuestWorkItems getQuestWorkItems() {
+        return questWorkItems;
+    }
+
+    /**
      * Gets the value of the id property.
      * 
      */
@@ -365,7 +403,7 @@ public class QuestTemplate {
      * 
      * @return
      *     possible object is
-     *     {@link PlayerRace }
+     *     {@link Race }
      *     
      */
     public Race getRacePermitted() {
