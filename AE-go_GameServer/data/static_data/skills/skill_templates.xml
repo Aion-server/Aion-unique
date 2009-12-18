@@ -7113,6 +7113,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
+            <itemuse itemid="169300008" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7123,6 +7124,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7133,6 +7135,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
+            <itemuse itemid="169300008" count="7"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7143,6 +7146,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
+            <itemuse itemid="169300008" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7153,6 +7157,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7163,6 +7168,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
+            <itemuse itemid="169300008" count="7"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7592,6 +7598,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="1"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7605,6 +7612,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7618,6 +7626,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7652,6 +7661,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7665,6 +7675,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="1"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7678,6 +7689,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7691,6 +7703,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7901,6 +7914,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="1"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7914,6 +7928,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7927,6 +7942,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7962,6 +7978,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7975,6 +7992,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="1"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7988,6 +8006,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8001,6 +8020,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8149,6 +8169,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8181,6 +8202,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8297,6 +8319,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8310,6 +8333,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8323,6 +8347,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8336,6 +8361,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8349,6 +8375,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="11"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8362,6 +8389,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="11"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8403,6 +8431,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300015" count="12"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8416,6 +8445,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300015" count="12"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8597,6 +8627,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="7"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8610,6 +8641,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="7"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8687,6 +8719,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="9"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8700,6 +8733,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300009" count="9"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9231,6 +9265,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9244,6 +9279,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9257,6 +9293,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="1"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9270,6 +9307,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9283,6 +9321,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9296,6 +9335,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="1"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9309,6 +9349,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9322,6 +9363,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300008" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -10193,6 +10235,7 @@
         </setproperties>
         <actions>
             <mpuse value="38" delta="0"/>
+            <itemuse itemid="169300010" count="1"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -10207,6 +10250,7 @@
         </setproperties>
         <actions>
             <mpuse value="52" delta="0"/>
+            <itemuse itemid="169300010" count="2"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -10221,6 +10265,7 @@
         </setproperties>
         <actions>
             <mpuse value="61" delta="0"/>
+            <itemuse itemid="169300010" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -10393,6 +10438,7 @@
         </setproperties>
         <actions>
             <mpuse value="206" delta="0"/>
+            <itemuse itemid="169300010" count="5"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -10764,6 +10810,7 @@
         </setproperties>
         <actions>
             <mpuse value="12" delta="0"/>
+            <itemuse itemid="169300010" count="4"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -11570,6 +11617,7 @@
         </setproperties>
         <actions>
             <mpuse value="52" delta="0"/>
+            <itemuse itemid="169300010" count="2"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -21019,6 +21067,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300011" count="1"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -24213,6 +24262,9 @@
         <effects>
             <heal value="262" delta="9"/>
         </effects>
+        <actions>
+            <itemuse itemid="169300003" count="1"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="1805" name="STR_SKILL_Mending_G3" skilltype="PHYSICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="16" duration="4000">
         <setproperties>
@@ -24226,6 +24278,9 @@
         <effects>
             <heal value="366" delta="9"/>
         </effects>
+        <actions>
+            <itemuse itemid="169300004" count="1"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="1806" name="STR_SKILL_Angel_FI_DP_DeathBlow" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="6" duration="3900">
         <setproperties>
@@ -24464,6 +24519,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300003" count="2"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -24477,6 +24533,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300004" count="2"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -24492,6 +24549,9 @@
         <effects>
             <heal value="485" delta="9"/>
         </effects>
+        <actions>
+            <itemuse itemid="169300005" count="1"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="1826" name="STR_SKILL_Aromatherapy_G3" skilltype="PHYSICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="16" duration="4000">
         <setproperties>
@@ -24503,6 +24563,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300005" count="2"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -24518,6 +24579,9 @@
         <effects>
             <heal value="613" delta="9"/>
         </effects>
+        <actions>
+            <itemuse itemid="169300006" count="1"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="1828" name="STR_SKILL_Aromatherapy_G4" skilltype="PHYSICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="16" duration="4000">
         <setproperties>
@@ -24529,6 +24593,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300006" count="2"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -40090,6 +40155,7 @@
         </useconditions>
         <actions>
             <mpuse value="130" delta="0"/>
+            <itemuse itemid="169300009" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -40107,6 +40173,7 @@
         </useconditions>
         <actions>
             <mpuse value="130" delta="0"/>
+            <itemuse itemid="169300009" count="3"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -41066,6 +41133,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300012" count="6"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -41079,6 +41147,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300012" count="7"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -41092,6 +41161,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300012" count="8"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -41105,6 +41175,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300012" count="9"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -41118,6 +41189,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300012" count="10"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -41131,6 +41203,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300012" count="6"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -41144,6 +41217,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300012" count="7"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -41157,6 +41231,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300012" count="8"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -41170,6 +41245,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300012" count="9"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -41183,6 +41259,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <itemuse itemid="169300012" count="10"/>
             <dummy/>
         </actions>
     </skill_template>
