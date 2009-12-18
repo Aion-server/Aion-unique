@@ -18,6 +18,7 @@ package com.aionemu.gameserver.utils.stats;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -83,7 +84,10 @@ public class StatFunctions
 		int baseDamages = skillDamages; 
 		if (attacker instanceof Player)
 		{
-			baseDamages += ags.getCurrentStat(StatEnum.MAIN_HAND_POWER)+ags.getCurrentStat(StatEnum.OFF_HAND_POWER);
+			int min = ags.getCurrentStat(StatEnum.MIN_DAMAGES);
+			int max = ags.getCurrentStat(StatEnum.MAX_DAMAGES);
+			int base = Rnd.get(min,max);
+			baseDamages += base;
 		}
 		else
 		{
