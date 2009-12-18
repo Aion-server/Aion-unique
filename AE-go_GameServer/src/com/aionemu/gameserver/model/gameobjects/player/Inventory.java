@@ -169,6 +169,25 @@ public class Inventory
 		}
 		return resultItem;
 	}
+	
+	/**
+	 *  Used to put item into storage cube at first avaialble slot (no check for existing item)
+	 * 
+	 *  Every put operation is persisted immediately now
+	 *  
+	 * @param item
+	 * @return
+	 */
+	public Item putToBag(Item item)
+	{
+		
+		Item resultItem = defaultItemBag.putToNextAvailableSlot(item);
+		if(resultItem != null)
+		{
+			DAOManager.getDAO(InventoryDAO.class).store(resultItem, getOwner().getObjectId());
+		}
+		return resultItem;
+	}
 
 	/**
 	 *  Every remove operation is persisted immediately now

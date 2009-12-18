@@ -85,6 +85,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_USE_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERIFY_LOCATION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VIEW_PLAYER_DETAILS;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_SPLIT_ITEM;
 import com.google.inject.Injector;
 
 /**
@@ -170,7 +171,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_UI_SETTINGS(0xFD), State.IN_GAME);
 		
 		addPacket(new CM_SET_GUILD_DESCR(0xA0), State.IN_GAME);
-		
+		addPacket(new CM_SPLIT_ITEM(0x10), State.IN_GAME);
 		addPacket(new CM_FRIEND_DEL(0x63), State.IN_GAME);
 		addPacket(new CM_EXCHANGE_REQUEST(0xB2), State.IN_GAME);
 		addPacket(new CM_EXCHANGE_LOCK(0xA6), State.IN_GAME);
