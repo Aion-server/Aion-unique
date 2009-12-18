@@ -180,7 +180,7 @@ public class ItemStorage
 	/**
 	 *  Add item logic:
 	 *  - If there is already existing item - try to increase stack count
-	 *  - If stack is full - place into next available slot
+	 *  - If stack is full - put to next available slot
 	 *  
 	 *  - Return null if item was not added
 	 *  - Return Item as the result of successful operation
@@ -200,6 +200,19 @@ public class ItemStorage
 			
 			return existingItem;
 		}
+		return putToNextAvailableSlot(item);
+	}
+	
+	/**
+	 * Put item logic:
+	 *  - If there is available slot - put item there and return it back
+	 *  - If no slot available - return null
+	 *  
+	 * @param item
+	 * @return
+	 */
+	public Item putToNextAvailableSlot(Item item)
+	{
 		int availableSlot = getNextAvailableSlot();
 		if(availableSlot != -1)
 		{

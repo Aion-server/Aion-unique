@@ -147,7 +147,7 @@ public class Inventory
 		}
 		else
 		{
-			defaultItemBag.addItemToStorage(item);
+			defaultItemBag.putToNextAvailableSlot(item);
 		}	
 	}
 
