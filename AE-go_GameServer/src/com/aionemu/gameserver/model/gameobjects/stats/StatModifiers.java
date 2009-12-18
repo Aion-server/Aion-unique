@@ -14,39 +14,41 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.templates.modifier;
+package com.aionemu.gameserver.model.gameobjects.stats;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
-
-import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
+
+import javolution.util.FastList;
+import javolution.util.FastMap;
 
 /**
  * @author xavier
  *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Modifier")
-public abstract class ModifierTemplate
+public class StatModifiers
 {
-	@XmlAttribute
-	private StatEnum name;
+	private FastMap<StatModifierPriority,FastList<StatModifier>> modifiers;
 	
-	@XmlAttribute
-	private boolean bonus;
-	
-	public StatEnum getStat ()
+	public StatModifiers()
 	{
-		return this.name;
+		modifiers = new FastMap<StatModifierPriority,FastList<StatModifier>>();
 	}
 	
-	public boolean isBonus ()
+	public boolean add(StatModifier modifier)
 	{
-		return bonus;
+		if (!modifiers.containsKey(modifier.getPriority()))
+		{
+			modifiers.put(modifier.getPriority(), new FastList<StatModifier>());
+		}
+		return modifiers.get(modifier.getPriority()).add(modifier);
 	}
 	
-	public abstract StatModifier getModifier ();
+	public FastList<StatModifier> getModifiers(StatModifierPriority priority)
+	{
+		if (!modifiers.containsKey(priority))
+		{
+			modifiers.put(priority, new FastList<StatModifier>());
+		}
+		return modifiers.get(priority);
+	}
 }

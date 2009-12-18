@@ -17,10 +17,9 @@
 package com.aionemu.gameserver.model.gameobjects.stats.listeners;
 
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.ItemSlot;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
-import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
+import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEffectId;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEffectType;
 import com.aionemu.gameserver.model.templates.TitleTemplate;
 
 /**
@@ -29,30 +28,21 @@ import com.aionemu.gameserver.model.templates.TitleTemplate;
  */
 public class TitleChangeListener
 {
-	public static void onTitleChange(Player player, int titleId, boolean isSet)
+	public static void onTitleChange(CreatureGameStats<?> cgs, int titleId, boolean isSet)
 	{
 		TitleTemplate tt = DataManager.TITLE_DATA.getTitleTemplate(titleId);
 		if(tt == null)
 		{
 			return;
 		}
-		if(player.getGameStats() == null)
-		{
-			return;
-		}
-		if(tt.getStatEffect() == null)
-		{
-			return;
-		}
-		PlayerGameStats pgs = player.getGameStats();
+		StatEffectId eid = StatEffectId.getInstance(tt.getTitleId(), StatEffectType.TITLE_EFFECT);
 		if(!isSet)
 		{
-			pgs.endEffect(tt.getStatEffect());
+			cgs.endEffect(eid);
 		}
 		else
 		{
-			StatEffect slotEffect = tt.getStatEffect().getEffectForSlot(ItemSlot.MAIN_HAND);
-			pgs.addEffect(slotEffect);
+			cgs.addModifiers(eid, tt.getModifiers());
 		}
 	}
 }

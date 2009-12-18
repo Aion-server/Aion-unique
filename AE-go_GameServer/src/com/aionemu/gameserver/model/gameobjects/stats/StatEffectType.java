@@ -14,26 +14,26 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.templates.modifier;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
-
+package com.aionemu.gameserver.model.gameobjects.stats;
 
 /**
  * @author xavier
  *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SimpleModifier")
-public abstract class SimpleModifierTemplate extends ModifierTemplate
+public enum StatEffectType
 {
-	@XmlAttribute
+	SKILL_EFFECT(1),
+	ITEM_EFFECT(2),
+	TITLE_EFFECT(3);
+	
 	private int value;
 	
-	public int getValue ()
+	private StatEffectType(int value)
+	{
+		this.value = value;
+	}
+	
+	public int getValue()
 	{
 		return value;
 	}

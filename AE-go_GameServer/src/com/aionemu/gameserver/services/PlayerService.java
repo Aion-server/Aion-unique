@@ -188,7 +188,7 @@ public class PlayerService
 		player.setInventory(DAOManager.getDAO(InventoryDAO.class).load(player));
 		if (player.getCommonData().getTitleId()>0)
 		{
-			TitleChangeListener.onTitleChange(player, player.getCommonData().getTitleId(), true);
+			TitleChangeListener.onTitleChange(player.getGameStats(), player.getCommonData().getTitleId(), true);
 		}
 
 		if(CacheConfig.CACHE_PLAYERS)

@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
+package com.aionemu.gameserver.model.gameobjects.stats;
 
 /**
  * @author xavier
@@ -22,9 +22,9 @@ package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
  */
 public enum StatModifierPriority
 {
-	LOW(0),
+	HIGH(0),
 	MEDIUM(1),
-	HIGH(2);
+	LOW(2);
 	
 	private int value;
 	

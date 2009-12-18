@@ -29,7 +29,6 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 	public PlayerGameStats(Player owner)
 	{
 		super(owner);
-		this.setInitialized(true);
 	}
 
 	public PlayerGameStats(PlayerStatsData playerStatsData, Player owner)
@@ -47,14 +46,14 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 			.getAccuracy(), pst.getKnowledge(), pst.getWill(), pst.getMainHandAttack(), pst.getMainHandCritRate(), Math
 			.round(pst.getAttackSpeed() * 1000), 1500);
 		setAttackCounter(1);
-		setStat(StatEnum.PARRY, pst.getParry());
-		setStat(StatEnum.BLOCK, pst.getBlock());
-		setStat(StatEnum.EVASION, pst.getEvasion());
-		setStat(StatEnum.MAGICAL_ACCURACY, pst.getMagicAccuracy());
-		setStat(StatEnum.FLY_SPEED, Math.round(pst.getFlySpeed()*1000f));
-		setStat(StatEnum.MAIN_HAND_ACCURACY, pst.getMainHandAccuracy());
+		initStat(StatEnum.PARRY, pst.getParry());
+		initStat(StatEnum.BLOCK, pst.getBlock());
+		initStat(StatEnum.EVASION, pst.getEvasion());
+		initStat(StatEnum.MAGICAL_ACCURACY, pst.getMagicAccuracy());
+		initStat(StatEnum.FLY_SPEED, Math.round(pst.getFlySpeed()*1000f));
+		initStat(StatEnum.MAIN_HAND_ACCURACY, pst.getMainHandAccuracy());
 		// TODO find good values for fly time
-		setStat(StatEnum.FLY_TIME, 60);
+		initStat(StatEnum.FLY_TIME, 60);
 	}
 
 	public void doLevelUpgrade (PlayerStatsData playerStatsData, int level) {

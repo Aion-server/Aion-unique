@@ -1,129 +1,116 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-emu <aion-emu.com>.
  *
- *  aion-unique is free software: you can redistribute it and/or modify
+ *  aion-emu is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-unique is distributed in the hope that it will be useful,
+ *  aion-emu is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
-import com.aionemu.gameserver.model.gameobjects.stats.ItemEffect;
-import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+import com.aionemu.gameserver.model.gameobjects.stats.StatModifierPriority;
 
 /**
  * @author xavier
- * 
+ *
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Modifier")
 public abstract class StatModifier implements Comparable<StatModifier>
 {
-	private static int				MODIFIER_ID = 0;
-	private StatEnum				stat;
-	private StatModifierPriority	priority;
-	private StatEffect				owner;
-	private boolean					isBonus;
-	private int						id;
-
-	protected StatModifier(StatEnum stat, StatModifierPriority priority, boolean isBonus)
+	@XmlAttribute
+	private StatEnum name;
+	
+	@XmlAttribute
+	private boolean bonus;
+	
+	protected static int MODIFIER_ID = 0;
+	
+	protected int id;
+	
+	public StatModifier()
 	{
-		this.priority = priority;
-		this.isBonus = isBonus;
-		this.stat = stat;
-		MODIFIER_ID = (MODIFIER_ID+1)%Integer.MAX_VALUE;
-		this.id = MODIFIER_ID;
-	}
-
-	public StatEffect getOwner()
-	{
-		return owner;
-	}
-
-	public void setOwner(StatEffect owner)
-	{
-		this.owner = owner;
+		nextId();
 	}
 	
-	public boolean isBonus()
+	protected void setStat(StatEnum stat)
 	{
-		return isBonus;
-	}
-
-	public StatModifierPriority getPriority()
-	{
-		return priority;
+		this.name = stat;
 	}
 	
-	public StatEnum getStat()
+	protected void setBonus(boolean bonus)
 	{
-		return stat;
+		this.bonus = bonus;
 	}
-
-	private int getId()
+	
+	protected void nextId()
+	{
+		MODIFIER_ID = (MODIFIER_ID + 1) % Integer.MAX_VALUE;
+		id = MODIFIER_ID;
+	}
+	
+	public StatEnum getStat ()
+	{
+		return name;
+	}
+	
+	public boolean isBonus ()
+	{
+		return bonus;
+	}
+	
+	@Override
+	public int compareTo(StatModifier o)
+	{
+		int result = getPriority().getValue() - o.getPriority().getValue();
+		if (result==0)
+		{
+			result = id - o.id;
+		}
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		boolean result = (o!=null);
+		result = (result)&&(o instanceof StatModifier);
+		result = (result)&&(((StatModifier)o).id==id);
+		return result;
+	}
+	
+	@Override
+	public int hashCode()
 	{
 		return id;
 	}
 	
 	@Override
-	public int compareTo(StatModifier other)
-	{
-		int result = (other.getPriority().getValue() - this.priority.getValue());
-		if (result==0) {
-			result += id-other.getId();
-			if (result==0) {
-				if (owner!=null) {
-					result += owner.compareTo(other.getOwner());
-				}
-			}
-		}
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object o)
-	{
-		boolean result;
-		result = (o!=null);
-		result = (result)&&(o instanceof StatModifier);
-		result = (result)&&(((StatModifier)o).getId()==id);
-		result = (result)&&(((StatModifier)o).getOwner().equals(owner));
-		return result;
-	}
-
-	@Override
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append("type:" + getClass().getSimpleName() + ",");
-		sb.append("stat:" + stat + ",");
-		if (owner!=null)
-		{
-			sb.append("effect:"+owner.getUniqueId()+",");
-			if (owner instanceof ItemEffect)
-			{
-				sb.append("slot:"+((ItemEffect)owner).getEquippedSlot()+",");
-			}
-		}
-		sb.append("id:" + id + ",");
-		sb.append("priority:" + priority + ",");
-		sb.append("bonus:" + isBonus);
+		sb.append(this.getClass().getSimpleName()+",");
+		sb.append("i:"+id+",");
+		sb.append("s:"+name+",");
+		sb.append("b:"+bonus);
 		return sb.toString();
 	}
-
-	public abstract StatModifier clone();
 	
-	public abstract int apply(int stat);
-
-	public void setStat(StatEnum stat)
-	{
-		this.stat = stat;
-	}
+	public abstract int apply (int value);
+	
+	public abstract StatModifierPriority getPriority();
 }

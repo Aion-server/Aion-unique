@@ -17,7 +17,9 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.Map.Entry;
 
+import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.items.NpcEquippedGear;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
@@ -92,9 +94,9 @@ public class SM_NPC_INFO extends AionServerPacket
 		else
 		{
 			writeH(buf, gear.getItemsMask());
-			for(ItemTemplate item: gear) // getting it from template ( later if we make sure that npcs actually use items, we'll make Item from it )
+			for(Entry<ItemSlot,ItemTemplate> item: gear) // getting it from template ( later if we make sure that npcs actually use items, we'll make Item from it )
 			{
-				writeD(buf, item.getItemId());
+				writeD(buf, item.getValue().getItemId());
 				writeD(buf, 0x00);
 				writeD(buf, 0x00);
 			}

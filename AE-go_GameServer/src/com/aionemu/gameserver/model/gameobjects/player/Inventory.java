@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
@@ -424,6 +425,28 @@ public class Inventory
 	public ItemStorage getItemBag(){
 		return this.defaultItemBag;
 	}
+
+	public boolean isMainHandEquipped()
+	{
+		for (Item item : equipment.values())
+		{
+			if (ItemSlot.getSlotsFor(item.getEquipmentSlot()).contains(ItemSlot.MAIN_HAND))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 	
-	
+	public boolean isSubHandEquipped()
+	{
+		for (Item item : equipment.values())
+		{
+			if (ItemSlot.getSlotsFor(item.getEquipmentSlot()).contains(ItemSlot.SUB_HAND))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

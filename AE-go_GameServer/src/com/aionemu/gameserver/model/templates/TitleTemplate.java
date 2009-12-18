@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.model.templates;
 
+import java.util.TreeSet;
+
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -24,8 +26,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
-import com.aionemu.gameserver.model.templates.modifier.ModifiersTemplate;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
+import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
 
 /**
  * @author xavier
@@ -57,11 +59,11 @@ public class TitleTemplate
 		return race;
 	}
 
-	public StatEffect getStatEffect()
+	public TreeSet<StatModifier> getModifiers()
 	{
 		if (modifiers!=null)
 		{
-			return modifiers.getEffect();
+			return modifiers.getModifiers();
 		}
 		else
 		{

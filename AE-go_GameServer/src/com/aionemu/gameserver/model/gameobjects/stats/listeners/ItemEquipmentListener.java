@@ -16,18 +16,15 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.listeners;
 
-import java.util.List;
+import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
-import com.aionemu.gameserver.model.gameobjects.stats.ItemEffect;
+import com.aionemu.gameserver.model.gameobjects.stats.ItemStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
-import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
-import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SetModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 
 /**
@@ -37,50 +34,28 @@ public class ItemEquipmentListener
 {
 	private static final Logger	log	= Logger.getLogger(ItemEquipmentListener.class);
 
-	public static ItemEffect onItemEquipment(ItemTemplate itemTemplate, int slot, CreatureGameStats<?> cgs)
+	public static void onItemEquipment(ItemTemplate itemTemplate, int slot, CreatureGameStats<?> cgs)
 	{
-		StatEffect effect = itemTemplate.getEffect();
-		if (effect==null)
+		TreeSet<StatModifier> modifiers = itemTemplate.getModifiers();
+		if (modifiers==null)
 		{
 			if (cgs instanceof PlayerGameStats)
 			{
 				log.debug("No effect was found for item "+itemTemplate.getItemId());
 			}
-			return null;
 		}
 		
-		List<ItemSlot> slots = ItemSlot.getSlotsFor(slot);
-		ItemEffect slotEffect = effect.getEffectForSlot(slots.get(0));
-		
-		// TODO Convert theses attributes to <stat ...> elements
-		if(itemTemplate.getAttackType() != null)
-		{
-			SetModifier sm = new SetModifier(StatEnum.IS_MAGICAL_ATTACK, (itemTemplate.getAttackType().contains("magic")) ? 1
-				: 0);
-			slotEffect.add(sm);
-		}
-		
-		if (cgs instanceof PlayerGameStats)
-		{
-			log.debug("Adding "+slotEffect+" for slot "+slots.get(0));
-		}
-		
-		cgs.addEffect(slotEffect);
-		
-		return slotEffect;
+		cgs.addModifiers(ItemStatEffectId.getInstance(itemTemplate.getItemId(), slot), modifiers);
 	}
 	
 	public static void onItemEquipment(Item item, CreatureGameStats<?> cgs)
 	{
 		ItemTemplate itemTemplate = item.getItemTemplate();
-		item.setEffect(onItemEquipment(itemTemplate,item.getEquipmentSlot(),cgs));
+		onItemEquipment(itemTemplate,item.getEquipmentSlot(),cgs);
 	}
 	
 	public static void onItemUnequipment(Item item, CreatureGameStats<?> cgs)
 	{
-		if (item.getEffect()!=null)
-		{
-			cgs.endEffect(item.getEffect());
-		}
+		cgs.endEffect(ItemStatEffectId.getInstance(item.getItemTemplate().getItemId(), item.getEquipmentSlot()));
 	}
 }

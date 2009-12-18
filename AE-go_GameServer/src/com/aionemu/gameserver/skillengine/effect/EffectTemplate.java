@@ -22,8 +22,6 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.model.Skill;
-import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
-
 
 /**
  * @author ATracer
@@ -41,8 +39,8 @@ public abstract class EffectTemplate
 	public abstract void apply(Skill skill);
 	
 	
-	public abstract StatEffect startEffect(Creature effected, int skillId, int skillLvl);
+	public abstract void startEffect(Creature effected, int skillId, int skillLvl);
 	
-	public abstract void endEffect(Creature effected, StatEffect effect, int skillId);
+	public abstract void endEffect(Creature effected, int skillId);
 
 }

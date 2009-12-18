@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.model.templates;
 
+import java.util.TreeSet;
+
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -25,10 +27,10 @@ import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.aionemu.gameserver.itemengine.actions.ItemActions;
-import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.items.ItemQuality;
 import com.aionemu.gameserver.model.templates.item.EquipType;
-import com.aionemu.gameserver.model.templates.modifier.ModifiersTemplate;
+import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
 
 /**
  * @author Luno modified by ATracer
@@ -191,11 +193,11 @@ public class ItemTemplate
 	/**
 	 * @return the modifiers
 	 */
-	public StatEffect getEffect()
+	public TreeSet<StatModifier> getModifiers()
 	{
 		if (modifiers!=null)
 		{
-			return modifiers.getEffect();
+			return modifiers.getModifiers();
 		}
 		else
 		{

@@ -79,7 +79,12 @@ public class StatFunctions
 		log.debug("Calculating base damages (skill base damages: "+skillDamages+") ...");
 		log.debug("| Attacker: "+ags);
 		log.debug("| Target  : "+tgs);
-		int baseDamages = ags.getCurrentStat(StatEnum.MAIN_HAND_POWER) + skillDamages;
+		
+		int baseDamages = skillDamages;
+		if (baseDamages==0)
+		{
+			baseDamages = ags.getCurrentStat(StatEnum.MAIN_HAND_POWER)*2;
+		}
 		int pDef = tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE);
 		int damages = baseDamages; // + Math.round(baseDamages*0.60f);
 		damages -= Math.round(pDef * 0.10f);

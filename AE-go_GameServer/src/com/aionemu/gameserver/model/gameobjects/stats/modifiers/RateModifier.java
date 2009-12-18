@@ -1,72 +1,57 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-emu <aion-emu.com>.
  *
- *  aion-unique is free software: you can redistribute it and/or modify
+ *  aion-emu is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-unique is distributed in the hope that it will be useful,
+ *  aion-emu is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
-
+import com.aionemu.gameserver.model.gameobjects.stats.StatModifierPriority;
 
 /**
  * @author xavier
- *
+ * 
  */
-public class RateModifier extends StatModifier
-{
-	private float value;
-	/**
-	 * @param modifiedStat
-	 * @param isBonus
-	 */
-	public RateModifier(StatEnum stat, int percent, boolean isBonus)
-	{
-		super(stat, StatModifierPriority.LOW, isBonus);
-		this.value = percent/100f;
-	}
-	
-	private RateModifier(StatEnum stat, float value, boolean isBonus)
-	{
-		super(stat, StatModifierPriority.LOW, isBonus);
-		this.value = value;
-	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier#apply()
-	 */
+public class RateModifier extends SimpleModifier
+{
 	@Override
 	public int apply(int stat)
 	{
-		if (isBonus()) {
-			return Math.round(value*stat);
-		} else {
-			return Math.round(stat * (1 + value));
+		if(isBonus())
+		{
+			return Math.round(value * stat / 100f);
+		}
+		else
+		{
+			return Math.round(stat * (1 + value / 100f));
 		}
 	}
-	
+
 	@Override
-	public String toString () {
-		StringBuilder sb = new StringBuilder();
-		sb.append(super.toString());
-		sb.append(",value:"+value);
-		return sb.toString();
+	public StatModifierPriority getPriority()
+	{
+		return StatModifierPriority.LOW;
 	}
 	
-	@Override
-	public StatModifier clone()
+	public static RateModifier newInstance (StatEnum stat, int value, boolean isBonus)
 	{
-		RateModifier copy = new RateModifier (getStat(),value,isBonus());
-		return copy;
+		RateModifier m = new RateModifier();
+		m.setStat(stat);
+		m.setValue(value);
+		m.setBonus(isBonus);
+		m.nextId();
+		return m;
 	}
 }

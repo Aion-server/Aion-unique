@@ -25,7 +25,6 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.stats.StatEffect;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
@@ -79,15 +78,15 @@ public class HealEffect
 	}
 
 	@Override
-	public StatEffect startEffect(Creature effected, int skillId, int skillLvl)
+	public void startEffect(Creature effected, int skillId, int skillLvl)
 	{
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
 
 	@Override
-	public void endEffect(Creature effected, StatEffect effect, int skillId)
+	public void endEffect(Creature effected, int skillId)
 	{
 		// TODO Auto-generated method stub
 		

@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.utils.Rnd;
@@ -188,17 +190,23 @@ public class PlayerController extends CreatureController<Player>
 		
 		// TODO fix last attack - cause mob is already dead
 		int damage;
-		if (gameStats.getBaseStat(StatEnum.IS_MAGICAL_ATTACK)==1) {
-			int baseDamage = gameStats.getBaseStat(StatEnum.MIN_DAMAGES);
-			baseDamage += Rnd.get(gameStats.getBaseStat(StatEnum.MIN_DAMAGES), gameStats.getBaseStat(StatEnum.MAX_DAMAGES));
-			damage = StatFunctions.calculateMagicDamageToTarget(player, target, baseDamage, SkillElement.NONE);
-		} else {
-			damage = StatFunctions.calculateBaseDamageToTarget(player, target);
-		}
-		boolean attackSuccess = doAttack(player,target,gameStats,time,attackType,damage);
-		for (int i=1; (i<gameStats.getBaseStat(StatEnum.HIT_COUNT))&&attackSuccess; i++) {
-			damage = Rnd.get(damage/10);
-			attackSuccess = doAttack(player,target,gameStats,time,attackType,damage);
+		int baseDamage = gameStats.getBaseStat(StatEnum.MIN_DAMAGES);
+		baseDamage += Rnd.get(gameStats.getBaseStat(StatEnum.MIN_DAMAGES), gameStats.getBaseStat(StatEnum.MAX_DAMAGES));
+		damage = StatFunctions.calculatePhysicDamageToTarget(player, target, baseDamage);
+		int hitCount = gameStats.getCurrentStat(StatEnum.MAIN_HAND_HITS) + gameStats.getCurrentStat(StatEnum.OFF_HAND_HITS);
+		boolean attackSuccess = true;
+		for (int i=0; (i<hitCount)&&attackSuccess; i++) {
+			int damages;
+			if (i==0)
+			{
+				damages = Math.round(damage*0.75f);
+			}
+			else
+			{
+				damages = Math.round(damage/((float)hitCount-1f));
+			}
+			attackSuccess = doAttack(player,target,gameStats,time,attackType,damages);
+			damage -= damages;
 		}
 	}
 

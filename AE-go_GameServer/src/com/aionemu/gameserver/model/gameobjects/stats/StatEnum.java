@@ -45,17 +45,19 @@ public enum StatEnum
 	PARRY("parry"),
 	POWER("strength",true),
 	SPEED("speed",true),
-	
 	HIT_COUNT("hitcount",true),
+	
 	ATTACK_RANGE("attackrange",true),
 	ATTACK_SPEED("attackdelay",-1,true),
 	PHYSICAL_ATTACK("phyattack"),
 	PHYSICAL_ACCURACY("hitaccuracy"),
 	PHYSICAL_CRITICAL("critical"),
 	PHYSICAL_DEFENSE("physicaldefend"),
+	MAIN_HAND_HITS("mainhandhits"),
 	MAIN_HAND_ACCURACY("mainhandaccuracy"),
 	MAIN_HAND_CRITICAL("mainhandcritical"),
 	MAIN_HAND_POWER("mainhandpower"),
+	OFF_HAND_HITS("offhandhits"),
 	OFF_HAND_ACCURACY("offhandaccuracy"),
 	OFF_HAND_CRITICAL("offhandcritical"),
 	OFF_HAND_POWER("offhandpower"),
@@ -176,6 +178,13 @@ public enum StatEnum
 						return OFF_HAND_CRITICAL;
 					default:
 						return MAIN_HAND_CRITICAL;
+				}
+			case HIT_COUNT:
+				switch (slot) {
+					case SUB_HAND:
+						return OFF_HAND_HITS;
+					default:
+						return MAIN_HAND_HITS;
 				}
 			default:
 				return this;

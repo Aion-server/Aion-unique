@@ -21,7 +21,6 @@ import java.lang.reflect.Field;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.gameobjects.stats.ItemEffect;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 
 /**
@@ -38,8 +37,6 @@ public class Item extends AionObject
 	private boolean isEquipped = false;
 	
 	private int equipmentSlot = 0;
-	
-	private ItemEffect effect;
 	
 	/**
 	 * @param objId
@@ -206,18 +203,5 @@ public class Item extends AionObject
 		}
 		sb.append('}');
 		return sb.toString();
-	}
-
-	/**
-	 * @return the StatEffect of the Item
-	 */
-	public ItemEffect getEffect()
-	{
-		return effect;
-	}
-	
-	public void setEffect(ItemEffect effect)
-	{
-		this.effect = effect;
 	}
 }

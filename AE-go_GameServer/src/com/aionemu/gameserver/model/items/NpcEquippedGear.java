@@ -20,6 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.Map.Entry;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -33,7 +34,7 @@ import com.aionemu.gameserver.model.templates.ItemTemplate;
  * 
  */
 @XmlJavaTypeAdapter(NpcEquippedGearAdapter.class)
-public class NpcEquippedGear implements Iterable<ItemTemplate>
+public class NpcEquippedGear implements Iterable<Entry<ItemSlot,ItemTemplate>>
 {
 	private Map<ItemSlot, ItemTemplate>	items;
 	private short						mask;
@@ -54,10 +55,10 @@ public class NpcEquippedGear implements Iterable<ItemTemplate>
 	}
 	
 	@Override
-	public Iterator<ItemTemplate> iterator()
+	public Iterator<Entry<ItemSlot, ItemTemplate>> iterator()
 	{
 		if(items == null) init();
-		return items.values().iterator();
+		return items.entrySet().iterator();
 	}
 
 	/**

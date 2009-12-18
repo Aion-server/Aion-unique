@@ -28,12 +28,11 @@ public class NpcGameStats extends CreatureGameStats<Npc>
 	public NpcGameStats(Npc owner, NpcStatsTemplate nst) {
 		super(owner);
 		// TODO set other stats
-		setInitialized(true);
-		setStat(StatEnum.MAXHP, nst.getMaxHp());
-		setStat(StatEnum.MAXMP, nst.getMaxMp());
-		setStat(StatEnum.ATTACK_SPEED, Math.round(nst.getAttackSpeed()*1000));
-		setStat(StatEnum.PHYSICAL_DEFENSE, Math.round(nst.getPdef()));
-		setStat(StatEnum.MAGICAL_RESIST, Math.round(nst.getMdef()));
-		setStat(StatEnum.MAIN_HAND_POWER, nst.getPower());
+		initStat(StatEnum.MAXHP, nst.getMaxHp());
+		initStat(StatEnum.MAXMP, nst.getMaxMp());
+		initStat(StatEnum.ATTACK_SPEED, Math.round(nst.getAttackSpeed()*1000));
+		initStat(StatEnum.PHYSICAL_DEFENSE, Math.round(nst.getPdef()));
+		initStat(StatEnum.MAGICAL_RESIST, Math.round(nst.getMdef()));
+		initStat(StatEnum.MAIN_HAND_POWER, nst.getPower());
 	}
 }

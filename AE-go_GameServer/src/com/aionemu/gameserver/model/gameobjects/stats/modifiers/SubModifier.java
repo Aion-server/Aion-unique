@@ -1,41 +1,29 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-emu <aion-emu.com>.
  *
- *  aion-unique is free software: you can redistribute it and/or modify
+ *  aion-emu is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-unique is distributed in the hope that it will be useful,
+ *  aion-emu is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
-import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+import com.aionemu.gameserver.model.gameobjects.stats.StatModifierPriority;
 
 /**
  * @author xavier
- * 
+ *
  */
-public class SubModifier extends StatModifier
+public class SubModifier extends SimpleModifier
 {
-	private int	value;
-
-	/**
-	 * @param modifiedStat
-	 * @param isBonus
-	 */
-	public SubModifier(StatEnum stat, int value, boolean isBonus)
-	{
-		super(stat, StatModifierPriority.MEDIUM, isBonus);
-		this.value = value;
-	}
-
 	@Override
 	public int apply(int stat)
 	{
@@ -48,20 +36,10 @@ public class SubModifier extends StatModifier
 			return Math.round(stat - value);
 		}
 	}
-
-	@Override
-	public String toString()
-	{
-		StringBuilder sb = new StringBuilder();
-		sb.append(super.toString());
-		sb.append(",value:" + value);
-		return sb.toString();
-	}
 	
 	@Override
-	public StatModifier clone()
+	public StatModifierPriority getPriority()
 	{
-		SubModifier copy = new SubModifier (getStat(),value,isBonus());
-		return copy;
+		return StatModifierPriority.MEDIUM;
 	}
 }

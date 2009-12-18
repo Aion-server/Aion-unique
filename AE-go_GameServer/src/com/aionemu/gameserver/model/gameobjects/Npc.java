@@ -16,8 +16,10 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
-import com.aionemu.gameserver.ai.npcai.NpcAi;
+import java.util.Map.Entry;
+
 import com.aionemu.gameserver.controllers.NpcController;
+import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
@@ -63,9 +65,9 @@ public class Npc extends Creature
 		NpcEquippedGear gear = template.getEquipment();
 		if (gear!=null) 
 		{
-			for (ItemTemplate it : gear)
+			for (Entry<ItemSlot,ItemTemplate> it : gear)
 			{
-				ItemEquipmentListener.onItemEquipment(it, it.getItemSlot(), getGameStats());
+				ItemEquipmentListener.onItemEquipment(it.getValue(), it.getKey().getSlotIdMask(), getGameStats());
 			}
 		}
 	}

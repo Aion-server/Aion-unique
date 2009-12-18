@@ -14,25 +14,33 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.templates.modifier;
+package com.aionemu.gameserver.model.gameobjects.stats.modifiers;
 
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.AddModifier;
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author xavier
  *
  */
-public class AddModifierTemplate extends SimpleModifierTemplate
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "SimpleModifier")
+public abstract class SimpleModifier extends StatModifier
 {
-
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.modifier.ModifierTemplate#getModifier()
-	 */
-	@Override
-	public StatModifier getModifier()
+	@XmlAttribute
+	protected int value;
+	
+	protected void setValue(int value)
 	{
-		return new AddModifier(getStat(),getValue(),isBonus());
+		this.value = value;
 	}
-
+	
+	@Override
+	public String toString()
+	{
+		final String s = super.toString()+",v:"+value;
+		return s;
+	}
 }
