@@ -189,10 +189,7 @@ public class PlayerController extends CreatureController<Player>
 			return;
 		
 		// TODO fix last attack - cause mob is already dead
-		int damage;
-		int baseDamage = gameStats.getBaseStat(StatEnum.MIN_DAMAGES);
-		baseDamage += Rnd.get(gameStats.getBaseStat(StatEnum.MIN_DAMAGES), gameStats.getBaseStat(StatEnum.MAX_DAMAGES));
-		damage = StatFunctions.calculatePhysicDamageToTarget(player, target, baseDamage);
+		int damage = StatFunctions.calculateBaseDamageToTarget(player, target);
 		int hitCount = gameStats.getCurrentStat(StatEnum.MAIN_HAND_HITS) + gameStats.getCurrentStat(StatEnum.OFF_HAND_HITS);
 		boolean attackSuccess = true;
 		for (int i=0; (i<hitCount)&&attackSuccess; i++) {
