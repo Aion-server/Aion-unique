@@ -2350,7 +2350,6 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <heal value="20" delta="0"/>
             <buf duration="120000">
                 <change stat="MAXHP" duration="120000" func="PERCENT" delta="0" value="20"/>
                 <change stat="BLOCK" duration="120000" func="ADD" delta="0" value="150"/>
@@ -2359,6 +2358,7 @@
         </effects>
         <actions>
             <mpuse value="72" delta="0"/>
+            <heal value="20" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="270" name="STR_SKILL_FI_PotentialHealth_G2" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="180" duration="0">
@@ -2371,7 +2371,6 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <heal value="30" delta="0"/>
             <buf duration="120000">
                 <change stat="MAXHP" duration="120000" func="PERCENT" delta="0" value="30"/>
                 <change stat="BLOCK" duration="120000" func="ADD" delta="0" value="150"/>
@@ -2380,6 +2379,7 @@
         </effects>
         <actions>
             <mpuse value="150" delta="0"/>
+            <heal value="30" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="271" name="STR_SKILL_FI_RaisingImpact_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="180" duration="0">
@@ -2995,7 +2995,6 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <heal value="35" delta="0"/>
             <buf duration="120000">
                 <change stat="MAXHP" duration="120000" func="PERCENT" delta="0" value="35"/>
                 <change stat="BLOCK" duration="120000" func="ADD" delta="0" value="150"/>
@@ -3004,6 +3003,7 @@
         </effects>
         <actions>
             <mpuse value="170" delta="0"/>
+            <heal value="35" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="307" name="STR_SKILL_FI_BashingMode_G2" skilltype="PHYSICAL" skillsubtype="BUFF" activation="TOGGLE" cooldown="1" duration="0">
@@ -3193,13 +3193,13 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <heal value="1060" delta="0"/>
             <buf duration="120000">
                 <change stat="MAXHP" duration="120000" func="ADD" delta="0" value="1060"/>
             </buf>
         </effects>
         <actions>
             <mpuse value="50" delta="0"/>
+            <heal value="1060" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="319" name="STR_SKILL_FI_SlughterRoar_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="30" duration="0">
@@ -4508,11 +4508,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="2181" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="206" delta="0"/>
+            <heal value="2181" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="410" name="STR_SKILL_KN_BreakPower_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="16" duration="0">
@@ -4829,9 +4827,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="430" delta="20"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="429" name="STR_SKILL_KN_LayHand_G2" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="60" duration="0">
         <setproperties>
@@ -4839,9 +4837,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="880" delta="20"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="430" name="STR_SKILL_KN_LayHand_G3" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="60" duration="0">
         <setproperties>
@@ -4849,9 +4847,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="1584" delta="30"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="431" name="STR_SKILL_KN_MassiveProvoke_G1" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="30" duration="0">
         <initproperties>
@@ -5217,9 +5215,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="514" delta="15"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="453" name="STR_SKILL_KN_RobustBurst_G4" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="16" duration="0">
         <initproperties>
@@ -5247,9 +5245,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="2398" delta="38"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="455" name="STR_SKILL_KN_Guardian_G4" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="0">
         <startconditions>
@@ -5558,11 +5556,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="2301" delta="39"/>
-        </effects>
         <actions>
             <mpuse value="9" delta="0"/>
+            <heal value="2301" delta="39"/>
         </actions>
     </skill_template>
     <skill_template skill_id="474" name="STR_SKILL_KN_DrainSword_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="60" duration="0">
@@ -5948,7 +5944,6 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <heal value="25" delta="0"/>
             <buf duration="180000">
                 <change stat="PVP_DEFEND_RATIO" duration="180000" func="ADD" delta="0" value="100"/>
                 <change stat="MAXHP" duration="180000" func="PERCENT" delta="0" value="50"/>
@@ -5956,6 +5951,7 @@
         </effects>
         <actions>
             <mpuse value="113" delta="0"/>
+            <heal value="25" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="507" name="STR_SKILL_KN_AvengingBash_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="24" duration="0">
@@ -6121,9 +6117,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="100" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="517" name="STR_SKILL_KN_WeaponBreak_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="12" duration="0">
         <initproperties>
@@ -12178,11 +12174,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="11" delta="1"/>
-        </effects>
         <actions>
             <mpuse value="16" delta="1"/>
+            <heal value="11" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="959" name="STR_SKILL_CL_ConversionEnergy_G2" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="5" duration="0">
@@ -12194,11 +12188,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="144" delta="6"/>
-        </effects>
         <actions>
             <mpuse value="48" delta="1"/>
+            <heal value="144" delta="6"/>
         </actions>
     </skill_template>
     <skill_template skill_id="960" name="STR_SKILL_CL_ConversionEnergy_G3" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="5" duration="0">
@@ -12210,11 +12202,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="250" delta="6"/>
-        </effects>
         <actions>
             <mpuse value="72" delta="2"/>
+            <heal value="250" delta="6"/>
         </actions>
     </skill_template>
     <skill_template skill_id="961" name="STR_SKILL_CL_ConversionEnergy_G4" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="5" duration="0">
@@ -12226,11 +12216,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="352" delta="6"/>
-        </effects>
         <actions>
             <mpuse value="91" delta="2"/>
+            <heal value="352" delta="6"/>
         </actions>
     </skill_template>
     <skill_template skill_id="962" name="STR_SKILL_CL_HallowSwing_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="8" duration="0">
@@ -12296,11 +12284,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="93" delta="17"/>
-        </effects>
         <actions>
             <mpuse value="11" delta="2"/>
+            <heal value="93" delta="17"/>
         </actions>
     </skill_template>
     <skill_template skill_id="966" name="STR_SKILL_CL_Heal_G2" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="2000">
@@ -12315,11 +12301,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="248" delta="21"/>
-        </effects>
         <actions>
             <mpuse value="38" delta="2"/>
+            <heal value="248" delta="21"/>
         </actions>
     </skill_template>
     <skill_template skill_id="967" name="STR_SKILL_CL_Heal_G3" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="2000">
@@ -12334,11 +12318,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="506" delta="22"/>
-        </effects>
         <actions>
             <mpuse value="67" delta="2"/>
+            <heal value="506" delta="22"/>
         </actions>
     </skill_template>
     <skill_template skill_id="968" name="STR_SKILL_CL_Heal_G4" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="2000">
@@ -12353,11 +12335,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="778" delta="21"/>
-        </effects>
         <actions>
             <mpuse value="90" delta="1"/>
+            <heal value="778" delta="21"/>
         </actions>
     </skill_template>
     <skill_template skill_id="969" name="STR_SKILL_CL_ImbueWind_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="10" duration="0">
@@ -12648,11 +12628,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="990" delta="18"/>
-        </effects>
         <actions>
             <mpuse value="90" delta="1"/>
+            <heal value="990" delta="18"/>
         </actions>
     </skill_template>
     <skill_template skill_id="988" name="STR_SKILL_CL_Smite_G5" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="2" duration="2000">
@@ -12732,11 +12710,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="578" delta="8"/>
-        </effects>
         <actions>
             <mpuse value="132" delta="1"/>
+            <heal value="578" delta="8"/>
         </actions>
     </skill_template>
     <skill_template skill_id="993" name="STR_SKILL_CL_SonicEruption_G5" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="16" duration="0">
@@ -12834,13 +12810,13 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <heal value="315" delta="5"/>
             <buf duration="21000">
                 <change stat="PHYSICAL_DEFENSE" duration="21000" func="ADD" delta="0" value="200"/>
             </buf>
         </effects>
         <actions>
             <mpuse value="287" delta="3"/>
+            <heal value="315" delta="5"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1039" name="STR_SKILL_PR_MemoryBlur_G1" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="120" duration="0">
@@ -13028,11 +13004,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="1382" delta="21"/>
-        </effects>
         <actions>
             <mpuse value="492" delta="6"/>
+            <heal value="1382" delta="21"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1050" name="STR_SKILL_PR_Stigma_AbysalSanctuary_G1" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="180" duration="3000">
@@ -13048,11 +13022,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="1382" delta="21"/>
-        </effects>
         <actions>
             <mpuse value="492" delta="6"/>
+            <heal value="1382" delta="21"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1051" name="STR_SKILL_PR_AreaResurrection_G1" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="10000">
@@ -13449,11 +13421,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="711" delta="21"/>
-        </effects>
         <actions>
             <mpuse value="119" delta="2"/>
+            <heal value="711" delta="21"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1077" name="STR_SKILL_PR_Enfeeblement_G1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="12" duration="0">
@@ -13504,11 +13474,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="925" delta="61"/>
-        </effects>
         <actions>
             <mpuse value="117" delta="4"/>
+            <heal value="925" delta="61"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1080" name="STR_SKILL_PR_GreatHeal_G2" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="6" duration="3000">
@@ -13523,11 +13491,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="1668" delta="61"/>
-        </effects>
         <actions>
             <mpuse value="174" delta="4"/>
+            <heal value="1668" delta="61"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1081" name="STR_SKILL_PR_JudgementShine_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="8" duration="1000">
@@ -13663,11 +13629,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="2041" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="360" delta="0"/>
+            <heal value="2041" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1090" name="STR_SKILL_PR_MassHeal_G1" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="6" duration="3500">
@@ -13682,11 +13646,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="759" delta="34"/>
-        </effects>
         <actions>
             <mpuse value="234" delta="7"/>
+            <heal value="759" delta="34"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1091" name="STR_SKILL_PR_MassHeal_G2" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="6" duration="3500">
@@ -13701,11 +13663,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="1167" delta="31"/>
-        </effects>
         <actions>
             <mpuse value="317" delta="6"/>
+            <heal value="1167" delta="31"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1092" name="STR_SKILL_PR_MassHeal_G3" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="6" duration="3500">
@@ -13720,11 +13680,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="1515" delta="27"/>
-        </effects>
         <actions>
             <mpuse value="382" delta="5"/>
+            <heal value="1515" delta="27"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1093" name="STR_SKILL_PR_Meditation_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="180" duration="0">
@@ -14072,11 +14030,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="970" delta="19"/>
-        </effects>
         <actions>
             <mpuse value="148" delta="2"/>
+            <heal value="970" delta="19"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1114" name="STR_SKILL_PR_GreatHeal_G3" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="6" duration="3000">
@@ -14091,11 +14047,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="2396" delta="54"/>
-        </effects>
         <actions>
             <mpuse value="223" delta="3"/>
+            <heal value="2396" delta="54"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1115" name="STR_SKILL_PR_DivineTouch_G3" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="16" duration="0">
@@ -14339,11 +14293,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="1962" delta="32"/>
-        </effects>
         <actions>
             <mpuse value="1148" delta="31"/>
+            <heal value="1962" delta="32"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1130" name="STR_SKILL_PR_EmergencyShield_G4" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="30" duration="0">
@@ -14394,9 +14346,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="2249" delta="43"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="1134" name="STR_SKILL_PR_RevengeHealing_G1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="16" duration="0">
         <startconditions>
@@ -14516,9 +14468,10 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="100" delta="0"/>
-        </effects>
+            <healmp value="100" delta="0"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="1142" name="STR_SKILL_PR_DemonicBlessing_G1" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="1800" duration="3000">
         <setproperties>
@@ -14704,9 +14657,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="1000" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="1156" name="STR_SKILL_PR_EQUIP_Mace_G2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -14761,11 +14714,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="1194" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="166" delta="0"/>
+            <heal value="1194" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1161" name="STR_SKILL_PR_FirstAid_G2" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="30" duration="0">
@@ -14777,11 +14728,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="1465" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="191" delta="0"/>
+            <heal value="1465" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1162" name="STR_SKILL_PR_FirstAid_G3" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="30" duration="0">
@@ -14793,11 +14742,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="1728" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="215" delta="0"/>
+            <heal value="1728" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1163" name="STR_SKILL_PR_GraceofGod_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="180" duration="0">
@@ -14817,11 +14764,13 @@
             <targetrelation value="MYPARTY"/>
         </setproperties>
         <effects>
-            <heal value="30" delta="0"/>
             <buf duration="60000">
                 <change stat="MAXHP" duration="60000" func="PERCENT" delta="0" value="30"/>
             </buf>
         </effects>
+        <actions>
+            <heal value="30" delta="0"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="1165" name="STR_SKILL_PR_HolyGrail_G1" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="1800" duration="0">
         <setproperties>
@@ -14840,7 +14789,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <healmp value="50" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1167" name="STR_SKILL_PR_HugeHeal_G1" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="8" duration="4000">
@@ -14855,11 +14804,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="2101" delta="43"/>
-        </effects>
         <actions>
             <mpuse value="379" delta="8"/>
+            <heal value="2101" delta="43"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1168" name="STR_SKILL_PR_HugeHeal_G2" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="8" duration="4000">
@@ -14874,11 +14821,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="2630" delta="43"/>
-        </effects>
         <actions>
             <mpuse value="528" delta="8"/>
+            <heal value="2630" delta="43"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1169" name="STR_SKILL_PR_Rebirth_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="1800" duration="2000">
@@ -14919,7 +14864,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <healmp value="50" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1172" name="STR_SKILL_P_StatBoostKDKBSP_G2" skilltype="MAGICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
@@ -15013,11 +14958,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="1978" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="236" delta="0"/>
+            <heal value="1978" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1180" name="STR_SKILL_PR_MassDispel_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="10" duration="2000">
@@ -15063,11 +15006,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="2306" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="393" delta="0"/>
+            <heal value="2306" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1183" name="STR_SKILL_PR_CircleOfWings_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="180" duration="0">
@@ -15097,11 +15038,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="1159" delta="12"/>
-        </effects>
         <actions>
             <mpuse value="106" delta="1"/>
+            <heal value="1159" delta="12"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1185" name="STR_SKILL_PR_FirstAid_G5" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="30" duration="0">
@@ -15113,11 +15052,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="2210" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="257" delta="0"/>
+            <heal value="2210" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1186" name="STR_SKILL_PR_SummerCircle_G3" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="1" duration="1000">
@@ -15183,11 +15120,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="1152" delta="2"/>
-        </effects>
         <actions>
             <mpuse value="346" delta="5"/>
+            <heal value="1152" delta="2"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1189" name="STR_SKILL_PR_AbysalCircle_G1" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="180" duration="3000">
@@ -15203,11 +15138,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="1152" delta="2"/>
-        </effects>
         <actions>
             <mpuse value="346" delta="5"/>
+            <heal value="1152" delta="2"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1190" name="STR_SKILL_PR_CureCondition_G2" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -15251,11 +15184,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="1152" delta="2"/>
-        </effects>
         <actions>
             <mpuse value="346" delta="5"/>
+            <heal value="1152" delta="2"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1193" name="STR_SKILL_PR_Stigma_AbysalCircle_G1" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="180" duration="3000">
@@ -15271,11 +15202,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="1152" delta="2"/>
-        </effects>
         <actions>
             <mpuse value="346" delta="5"/>
+            <heal value="1152" delta="2"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1196" name="STR_SKILL_CH_Stigma_RecoverWord_G1" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="10" duration="1500">
@@ -15290,11 +15219,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="771" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="287" delta="3"/>
+            <heal value="771" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1197" name="STR_SKILL_CH_Stigma_AngelicWall_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="600" duration="0">
@@ -15519,11 +15446,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="2222" delta="40"/>
-        </effects>
         <actions>
             <mpuse value="206" delta="2"/>
+            <heal value="2222" delta="40"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1214" name="STR_SKILL_CH_Chant_ImprovedMove_G1" skilltype="MAGICAL" skillsubtype="CHANT" activation="TOGGLE" cooldown="0" duration="0">
@@ -15587,7 +15512,7 @@
         </useconditions>
         <actions>
             <mpuse value="100" delta="0"/>
-            <dummy/>
+            <healmp value="1500" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1219" name="STR_SKILL_CH_HealingTank_G1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="120" duration="0">
@@ -16386,7 +16311,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <healmp value="645" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1262" name="STR_SKILL_CH_ParryFocus_G3" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="30" duration="1000">
@@ -17056,11 +16981,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="21" delta="1"/>
-        </effects>
         <actions>
             <mpuse value="50" delta="2"/>
+            <heal value="21" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1307" name="STR_SKILL_CH_Rejuvenation_G2" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="5" duration="0">
@@ -17072,11 +16995,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="40" delta="1"/>
-        </effects>
         <actions>
             <mpuse value="80" delta="2"/>
+            <heal value="40" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1308" name="STR_SKILL_CH_Rejuvenation_G3" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="5" duration="0">
@@ -17088,11 +17009,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="59" delta="1"/>
-        </effects>
         <actions>
             <mpuse value="105" delta="1"/>
+            <heal value="59" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1309" name="STR_SKILL_CH_Chant_Improveddefend_G1" skilltype="MAGICAL" skillsubtype="CHANT" activation="TOGGLE" cooldown="0" duration="0">
@@ -17505,11 +17424,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="73" delta="1"/>
-        </effects>
         <actions>
             <mpuse value="123" delta="1"/>
+            <heal value="73" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1340" name="STR_SKILL_CH_HeroicStrike_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="60" duration="0">
@@ -17959,7 +17876,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <healmp value="172" delta="6"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1371" name="STR_SKILL_MA_RefreshMind_G2" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="60" duration="0">
@@ -17969,7 +17886,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <healmp value="326" delta="6"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1372" name="STR_SKILL_MA_RefreshMind_G3" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="60" duration="0">
@@ -17979,7 +17896,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <healmp value="469" delta="6"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1373" name="STR_SKILL_MA_Root_G1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="60" duration="0">
@@ -18190,7 +18107,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <healmp value="589" delta="6"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1386" name="STR_SKILL_MA_IgnicBurn_G5" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="30" duration="0">
@@ -18940,7 +18857,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <healmp value="210" delta="2"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1473" name="STR_SKILL_WI_HydroBurst_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="16" duration="2000">
@@ -19551,7 +19468,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <healmp value="300" delta="2"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1510" name="STR_SKILL_WI_CursedTree_G2" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="30" duration="1500">
@@ -22232,9 +22149,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="418" delta="34"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="1677" name="STR_SKILL_EL_Pet_RecoverHealth_G2" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="10" duration="0">
         <setproperties>
@@ -22242,9 +22159,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="850" delta="46"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="1678" name="STR_SKILL_EL_Pet_RecoverHealth_G3" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="10" duration="0">
         <setproperties>
@@ -22252,9 +22169,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="1416" delta="56"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="1679" name="STR_SKILL_EL_Pet_Shield_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="12" duration="0">
         <startconditions>
@@ -22691,9 +22608,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="1600" delta="60"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="1706" name="STR_SKILL_EL_Light_Slave_WindServent_G4" skilltype="MAGICAL" skillsubtype="SUMMONHOMING" activation="ACTIVE" cooldown="10" duration="2000">
         <startconditions>
@@ -23749,9 +23666,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="-20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="1772" name="STR_SKILL_EL_AreaCage_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="10" duration="1500">
         <startconditions>
@@ -23955,11 +23872,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
-            <heal value="100" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="169" delta="0"/>
+            <heal value="100" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1786" name="STR_SKILL_EL_EtherInfusion_G4" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="30" duration="1000">
@@ -24013,9 +23928,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="-20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="1789" name="STR_SKILL_EL_DecayingWing_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="60" duration="1000">
         <startconditions>
@@ -24243,11 +24158,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="178" delta="9"/>
-        </effects>
         <actions>
             <itemuse itemid="169300002" count="1"/>
+            <heal value="178" delta="9"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1804" name="STR_SKILL_Mending_G2" skilltype="PHYSICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="16" duration="4000">
@@ -24259,11 +24172,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="262" delta="9"/>
-        </effects>
         <actions>
             <itemuse itemid="169300003" count="1"/>
+            <heal value="262" delta="9"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1805" name="STR_SKILL_Mending_G3" skilltype="PHYSICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="16" duration="4000">
@@ -24275,11 +24186,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="366" delta="9"/>
-        </effects>
         <actions>
             <itemuse itemid="169300004" count="1"/>
+            <heal value="366" delta="9"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1806" name="STR_SKILL_Angel_FI_DP_DeathBlow" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="6" duration="3900">
@@ -24520,7 +24429,7 @@
         </useconditions>
         <actions>
             <itemuse itemid="169300003" count="2"/>
-            <dummy/>
+            <healmp value="103" delta="6"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1824" name="STR_SKILL_Aromatherapy_G2" skilltype="PHYSICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="16" duration="4000">
@@ -24534,7 +24443,7 @@
         </useconditions>
         <actions>
             <itemuse itemid="169300004" count="2"/>
-            <dummy/>
+            <healmp value="185" delta="6"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1825" name="STR_SKILL_Mending_G4" skilltype="PHYSICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="16" duration="4000">
@@ -24546,11 +24455,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="485" delta="9"/>
-        </effects>
         <actions>
             <itemuse itemid="169300005" count="1"/>
+            <heal value="485" delta="9"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1826" name="STR_SKILL_Aromatherapy_G3" skilltype="PHYSICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="16" duration="4000">
@@ -24564,7 +24471,7 @@
         </useconditions>
         <actions>
             <itemuse itemid="169300005" count="2"/>
-            <dummy/>
+            <healmp value="274" delta="8"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1827" name="STR_SKILL_Mending_G5" skilltype="PHYSICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="16" duration="4000">
@@ -24576,11 +24483,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="613" delta="9"/>
-        </effects>
         <actions>
             <itemuse itemid="169300006" count="1"/>
+            <heal value="613" delta="9"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1828" name="STR_SKILL_Aromatherapy_G4" skilltype="PHYSICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="16" duration="4000">
@@ -24594,7 +24499,7 @@
         </useconditions>
         <actions>
             <itemuse itemid="169300006" count="2"/>
-            <dummy/>
+            <healmp value="369" delta="8"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1851" name="STR_QUEST_SKILL_Q_OkaruTree_Poison" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="1" duration="0">
@@ -24660,9 +24565,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="10" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="1856" name="STR_SKILL_Q_SpeedUp" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="1" duration="0">
         <setproperties>
@@ -38911,11 +38816,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="52" delta="34"/>
-        </effects>
         <actions>
             <mpuse value="17" delta="16"/>
+            <heal value="52" delta="34"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9238" name="STR_SKILL_Stigma_Reflect" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="10" duration="3000">
@@ -39134,11 +39037,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="201" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="46" delta="4"/>
+            <heal value="201" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9252" name="STR_SKILL_Stigma_FlameBolt" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="1" duration="1800">
@@ -39170,11 +39071,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="411" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="97" delta="10"/>
+            <heal value="411" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9254" name="STR_SKILL_Stigma_FlameCage_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="8" duration="0">
@@ -39296,11 +39195,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="201" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="46" delta="4"/>
+            <heal value="201" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9261" name="STR_SKILL_Stigma_StunningHand_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="120" duration="0">
@@ -39536,11 +39433,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="694" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="191" delta="10"/>
+            <heal value="694" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9275" name="STR_SKILL_Stigma_Guardian_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="0">
@@ -39751,11 +39646,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="694" delta="0"/>
-        </effects>
         <actions>
             <mpuse value="462" delta="0"/>
+            <heal value="694" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9287" name="STR_SKILL_Stigma_FlameBolt_G3" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="30" duration="5400">
@@ -39802,13 +39695,13 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <heal value="35" delta="0"/>
             <buf duration="300000">
                 <change stat="MAXHP" duration="300000" func="PERCENT" delta="0" value="25"/>
             </buf>
         </effects>
         <actions>
             <mpuse value="110" delta="0"/>
+            <heal value="35" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9290" name="STR_SKILL_Stigma_CripplingCut_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="16" duration="0">
@@ -39994,9 +39887,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="50" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="9302" name="STR_SKILL_StigmaI_DivineSlash_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="10" duration="0">
         <initproperties>
@@ -40433,11 +40326,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
-            <heal value="959" delta="15"/>
-        </effects>
         <actions>
             <mpuse value="292" delta="10"/>
+            <heal value="959" delta="15"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9328" name="STR_SKILL_StigmaI_BlessedShield_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="0">
@@ -43050,9 +42941,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16402" name="STR_NGR_SDownSlow_Self" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -43087,11 +42978,13 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <heal value="10" delta="0"/>
             <buf duration="10000">
                 <change stat="PHYSICAL_DEFENSE" duration="10000" func="ADD" delta="0" value="35"/>
             </buf>
         </effects>
+        <actions>
+            <heal value="10" delta="0"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="16405" name="STR_NFI_SUdef_Self" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -43167,9 +43060,9 @@
             <targetrange value="AREA" distance="7" maxcount="8"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="5" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16411" name="STR_GNAS_ShieldHide_Self" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -43212,12 +43105,14 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <heal value="20" delta="0"/>
             <buf duration="20000">
                 <change stat="PHYSICAL_DEFENSE" duration="20000" func="PERCENT" delta="0" value="20"/>
                 <change stat="MAGICAL_RESIST" duration="20000" func="PERCENT" delta="0" value="20"/>
             </buf>
         </effects>
+        <actions>
+            <heal value="20" delta="0"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="16414" name="STR_NGR_SDDefShort_Self" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -43692,9 +43587,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16447" name="STR_SKILL_Quest_StatupDefense" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="700">
         <setproperties>
@@ -43827,9 +43722,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16456" name="STR_SKILL_NFI_StatUpPhysicalDefense_Trickdie" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="100">
         <setproperties>
@@ -44021,9 +43916,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16469" name="STR_SKILL_NWI_BurstChain_LycanWI" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <startconditions>
@@ -44594,9 +44489,10 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="60" delta="0"/>
-        </effects>
+            <healmp value="10" delta="10"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="16508" name="STR_SKILL_Tab_NPR_SleepArea" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="1500">
         <setproperties>
@@ -44633,9 +44529,10 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="90" delta="0"/>
-        </effects>
+            <healmp value="30" delta="10"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="16511" name="STR_SKILL_Tab_NPR_BlowArea" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="1500">
         <setproperties>
@@ -45045,9 +44942,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="25" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16539" name="STR_NKN_HealShort_Nr" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -45058,9 +44955,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="25" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16540" name="STR_NSC_Satk_Nr" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -45413,9 +45310,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="25" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16564" name="STR_NPR_Blind_Nr" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <startconditions>
@@ -45442,9 +45339,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="25" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16566" name="STR_NPR_DispelDebuff_Nr" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -45830,9 +45727,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="25" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16589" name="STR_NPEL_SpellEL_Fire" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -46281,9 +46178,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="25" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16619" name="STR_GNSC_SatkBack_Nr" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
@@ -46338,9 +46235,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="25" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16623" name="STR_GNAS_Bleed_Nr" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <startconditions>
@@ -46469,9 +46366,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="25" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16632" name="STR_GNPR_SpellStun_Nr" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -46511,9 +46408,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="15" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16635" name="STR_GNPR_DispelDebuff_Nr" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -47060,11 +46957,13 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <heal value="15" delta="0"/>
             <buf duration="10000">
                 <change stat="PHYSICAL_ATTACK" duration="10000" func="PERCENT" delta="0" value="35"/>
             </buf>
         </effects>
+        <actions>
+            <heal value="15" delta="0"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="16671" name="STR_NKN_SKnockBackSA" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="3500">
         <setproperties>
@@ -47271,9 +47170,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="30" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16686" name="STR_NCH_SUpPMAttack_Nr" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -47700,11 +47599,13 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <heal value="20" delta="0"/>
             <buf duration="10000">
                 <change stat="PHYSICAL_ATTACK" duration="10000" func="PERCENT" delta="0" value="35"/>
             </buf>
         </effects>
+        <actions>
+            <heal value="20" delta="0"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="16714" name="STR_NEL_Fear_Scream" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
         <startconditions>
@@ -48114,11 +48015,13 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <heal value="15" delta="0"/>
             <buf duration="10000">
                 <change stat="PHYSICAL_DEFENSE" duration="10000" func="PERCENT" delta="0" value="35"/>
             </buf>
         </effects>
+        <actions>
+            <heal value="15" delta="0"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="16742" name="STR_GNKN_SKnockBackSA" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="3500">
         <setproperties>
@@ -49297,9 +49200,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16824" name="STR_NPR_SUpPydefST_Po" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -49482,9 +49385,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16837" name="STR_NCH_Satk_chain1TA_Po" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -50341,9 +50244,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="25" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="16895" name="STR_NRA_SatkLong_Nr_LC" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2500">
         <startconditions>
@@ -50611,11 +50514,13 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <heal value="15" delta="0"/>
             <buf duration="10000">
                 <change stat="PHYSICAL_ATTACK" duration="10000" func="PERCENT" delta="0" value="35"/>
             </buf>
         </effects>
+        <actions>
+            <heal value="15" delta="0"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="16913" name="STR_GNPR_BlindKDHTA_Po" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -52589,12 +52494,14 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <heal value="20" delta="0"/>
             <buf duration="10000">
                 <change stat="PHYSICAL_DEFENSE" duration="10000" func="PERCENT" delta="0" value="-50"/>
                 <change stat="MAGICAL_RESIST" duration="10000" func="PERCENT" delta="0" value="-50"/>
             </buf>
         </effects>
+        <actions>
+            <heal value="20" delta="0"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="17055" name="STR_GNWI_MpattackStun_StillSleep" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="3000">
         <startconditions>
@@ -53632,9 +53539,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="15" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17126" name="STR_GPR_Heal_Mid" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -53645,9 +53552,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17127" name="STR_GPR_Heal_Big" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="4000">
         <setproperties>
@@ -53658,9 +53565,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="30" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17128" name="STR_GPR_HealTA_Nr" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -53671,9 +53578,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="15" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17129" name="STR_GPR_HealTA_Mid" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="3500">
         <setproperties>
@@ -53684,9 +53591,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17130" name="STR_GPR_HealTA_Big" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="4500">
         <setproperties>
@@ -53697,9 +53604,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="30" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17131" name="STR_GPR_Root_Nr" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -53843,9 +53750,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="10" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17141" name="STR_GWI_FrostPillarTA_NPC" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -54832,9 +54739,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="15" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17212" name="STR_GPR_HealOther_Mid" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -54845,9 +54752,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17213" name="STR_GPR_HealOther_Big" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="4000">
         <setproperties>
@@ -54858,9 +54765,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="30" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17214" name="STR_GPR_HealOtherTA_Nr" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -54871,9 +54778,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="15" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17215" name="STR_GPR_HealOtherTA_Mid" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="3500">
         <setproperties>
@@ -54884,9 +54791,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17216" name="STR_GPR_HealOtherTA_Big" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="4500">
         <setproperties>
@@ -54897,9 +54804,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="30" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17217" name="STR_GPR_CureMental_Nr" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -56983,9 +56890,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="15" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17362" name="STR_DGPR_Heal_Mid" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -56996,9 +56903,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17363" name="STR_DGPR_Heal_Big" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="4000">
         <setproperties>
@@ -57009,9 +56916,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="30" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17364" name="STR_DGPR_Heal_TA" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -57022,9 +56929,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="15" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17365" name="STR_DGPR_HealMid_TA" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="3500">
         <setproperties>
@@ -57035,9 +56942,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17366" name="STR_DGPR_HealBig_TA" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="4500">
         <setproperties>
@@ -57048,9 +56955,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="30" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17367" name="STR_DGPR_Stun_TA" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -57601,9 +57508,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="25" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17405" name="STR_SKILL_NPR_Root" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -58017,9 +57924,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="145" delta="11"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17433" name="STR_NPC_Order_Decaying_G1_Fire" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -59927,9 +59834,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="300" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17561" name="STR_AGC_Satk_Nr" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
@@ -60479,9 +60386,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="285" delta="14"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17598" name="STR_NPC_Order_Decaying_G3_Fire" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -60952,9 +60859,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="467" delta="18"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17626" name="STR_NPC_SKILL_Order_ElementalField_G4_Fire" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <startconditions>
@@ -61033,9 +60940,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="467" delta="18"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17630" name="STR_NPC_SKILL_Order_ElementalField_G1_Tempest" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <startconditions>
@@ -61074,11 +60981,13 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <heal value="760" delta="20"/>
             <buf duration="30000">
                 <change stat="PHYSICAL_ATTACK" duration="30000" func="PERCENT" delta="0" value="16"/>
             </buf>
         </effects>
+        <actions>
+            <heal value="760" delta="20"/>
+        </actions>
     </skill_template>
     <skill_template skill_id="17632" name="STR_NPC_SKILL_Order_Assail_G3_Fire" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -61775,9 +61684,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="54" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17679" name="STR_NPC_SKILL_PEL_Earth_G2" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -61788,9 +61697,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="107" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17680" name="STR_NPC_SKILL_PEL_Earth_G3" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -61801,9 +61710,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="177" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17681" name="STR_NPC_SKILL_PEL_Earth_G4" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -61814,9 +61723,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="249" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17682" name="STR_DGRA_H_SpellStun_Nr" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -62286,9 +62195,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="10" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17714" name="STR_NFI_SATKKDTA_mortal_ADDleh" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -65512,9 +65421,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="35" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="17940" name="STR_NEL_ConDeform_UnFarm" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
         <startconditions>
@@ -66497,9 +66406,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="224" delta="25"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="18008" name="STR_NPC_SKILL_Abyss_Siege_Pet_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="10000">
         <setproperties>
@@ -68363,9 +68272,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="300" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="18143" name="STR_ACH_StatupAr_Lr_Nr_OfficerF" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
@@ -68394,9 +68303,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="300" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="18145" name="STR_ACH_StatupAr_Lr_Nr_QuarterMaster" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
@@ -68649,9 +68558,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="15" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="18162" name="STR_NEL_FearDeformQuC3TA_Nr" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
         <startconditions>
@@ -69456,9 +69365,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <effects>
+        <actions>
             <heal value="10" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="18217" name="STR_BNWI_StakLrKDTA40_ArA" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -70774,9 +70683,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="100" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="18318" name="STR_GKN_SatkKDTA_Command" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -71101,9 +71010,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="20" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="18341" name="STR_GEL_SpellFireDownPM_CPet" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="1500">
         <setproperties>
@@ -72031,9 +71940,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="325" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="18409" name="STR_HPSpring_Regeneration" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
@@ -72044,9 +71953,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="350" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="18410" name="STR_DGFI_OneShotOneKill_WarpDr_G2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
@@ -74468,9 +74377,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <actions>
             <heal value="10" delta="0"/>
-        </effects>
+        </actions>
     </skill_template>
     <skill_template skill_id="18587" name="STR_NWI_Silence_TA" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="1500">
         <setproperties>

@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
+package com.aionemu.gameserver.skillengine.action;
 
 import java.util.List;
 
@@ -36,9 +36,9 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "HealEffect")
-public class HealEffect
-    extends EffectTemplate
+@XmlType(name = "HealAction")
+public class HealAction
+    extends Action
 {
 
     @XmlAttribute(required = true)
@@ -56,8 +56,9 @@ public class HealEffect
         return value;
     }
 
+    
 	@Override
-	public void apply(Skill skill)
+	public void act(Skill skill)
 	{
 		Player effector = skill.getEffector();
 		SkillTemplate template = skill.getSkillTemplate();
@@ -74,21 +75,6 @@ public class HealEffect
 		{
 			effected.getLifeStats().increaseHp(valueWithDelta);
 		}
-		
-	}
-
-	@Override
-	public void startEffect(Creature effected, int skillId, int skillLvl)
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-
-	@Override
-	public void endEffect(Creature effected, int skillId)
-	{
-		// TODO Auto-generated method stub
 		
 	}
 }

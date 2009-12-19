@@ -40,8 +40,6 @@
 
 	<xs:complexType name="Effects">
 		<xs:sequence>
-			<xs:element name="heal" type="HealEffect" minOccurs="0"
-				maxOccurs="1" />
 			<xs:element name="root" type="RootEffect" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="buf" type="BufEffect" minOccurs="0"
@@ -92,6 +90,10 @@
 			<xs:element name="itemheal" type="ItemHealAction" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="itemhealmp" type="ItemHealMpAction" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="heal" type="HealAction" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="healmp" type="HealMpAction" minOccurs="0"
 				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
@@ -177,17 +179,26 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
-	<!-- EFFECTS -->
-
-	<xs:complexType name="HealEffect">
+	
+	<xs:complexType name="HealAction">
 		<xs:complexContent>
-			<xs:extension base="Effect">
+			<xs:extension base="Action">
 				<xs:attribute name="value" type="xs:int" use="required"/>
 				<xs:attribute name="delta" type="xs:int" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:complexType name="HealMpAction">
+		<xs:complexContent>
+			<xs:extension base="Action">
+				<xs:attribute name="value" type="xs:int" use="required"/>
+				<xs:attribute name="delta" type="xs:int" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- EFFECTS -->
 
 	<xs:complexType name="RootEffect">
 		<xs:complexContent>
