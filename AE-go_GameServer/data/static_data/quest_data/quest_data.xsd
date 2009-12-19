@@ -82,6 +82,7 @@
 			<xs:element name="set_quest_status" type="SetQuestStatusOperation" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="start_quest" type="StartQuestOperation" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="take_item" type="TakeItemOperation" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="play_movie" type="PlayMovieOperation" minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 		<xs:attribute name="override" type="xs:boolean" default="true" />
 	</xs:complexType>
@@ -201,6 +202,15 @@
 			<xs:extension base="QuestOperation">
 				<xs:attribute name="item_id" type="xs:int" use="required" />
 				<xs:attribute name="count" type="xs:int" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="PlayMovieOperation">
+		<xs:complexContent>
+			<xs:extension base="QuestOperation">
+				<xs:attribute name="movie_id" type="xs:int" use="required" />
+				<xs:attribute name="movie_type" type="xs:int"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
