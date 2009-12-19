@@ -50,6 +50,13 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 	private int									npcCounter		= 0;
 	/** Counter counting number of gatherable spawns */
 	private int									gatherableCounter		= 0;
+	
+	/** 
+	 * Map contains correspondence of first templateid to its spawntemplate (for easy finding)
+	 * It is assumed here that specific spawntemplate can be located only in one map.
+	 * Probably there is better solution that need to be find out
+	 */
+	private Map<Integer, SpawnTemplate> spawnsByTemplateIdMap = new HashMap<Integer, SpawnTemplate>();
 
 	/**
 	 * SpawnData constructor, should be called only from {@link DataManager} class.
@@ -125,6 +132,9 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 
 		SpawnTemplate spawnTemplate = new SpawnTemplate(template, worldId, x, y, z, heading);
 		addSpawn(spawnTemplate);
+		
+		if(!spawnsByTemplateIdMap.containsKey(objectId))
+			spawnsByTemplateIdMap.put(objectId, spawnTemplate);
 
 		return spawnTemplate;
 	}
@@ -199,6 +209,18 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 			spawns.put(spawn.getWorldId(), worldSpawns);
 		}
 		worldSpawns.add(spawn);
+	}
+	
+	/**
+	 *  Will return one of possible spawns for this npcid
+	 *  Used in quick location of objects
+	 *  
+	 * @param npcId
+	 * @return
+	 */
+	public SpawnTemplate getFirstSpawnByNpcId(int npcId)
+	{
+		return spawnsByTemplateIdMap.get(npcId);
 	}
 
 	/**

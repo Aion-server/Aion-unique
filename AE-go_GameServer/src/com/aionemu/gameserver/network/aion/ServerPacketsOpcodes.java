@@ -148,6 +148,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEE;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF1;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF7;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SHOW_NPC_ON_MAP;
 
 /**
  * This class is holding opcodes for all server packets. It's used only to have all opcodes in one place
@@ -294,6 +295,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_NEARBY_QUESTS.class, 0x79, idSet);
 		addPacketOpcode(SM_INFLUENCE_RATIO.class, 0x6F, idSet);
 		addPacketOpcode(SM_PRICES.class, 0xF4, idSet);
+		addPacketOpcode(SM_SHOW_NPC_ON_MAP.class, 0x53, idSet);		
 		//Unrecognized Opcodes from 1.5.0:
 		//addPacketOpcode(SM_VIRTUAL_AUTH.class, 0xE4, idSet);
 		//addPacketOpcode(SM_WAITING_LIST.class, 0x18, idSet);		
