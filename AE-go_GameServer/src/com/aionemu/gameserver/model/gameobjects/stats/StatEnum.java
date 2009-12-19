@@ -30,117 +30,158 @@ import com.aionemu.gameserver.model.ItemSlot;
 @XmlEnum
 public enum StatEnum
 {
-	MAXDP("maxdp"),
-	MAXHP("maxhp"),
-	MAXMP("maxmp"),
-	
-	AGILITY("agility",true),
-	BLOCK("block"),
-	EVASION("dodge"),
-	CONCENTRATION("concentration"),
-	WILL("will",true),
-	HEALTH("health",true),
-	ACCURACY("accuracy",true),
-	KNOWLEDGE("knowledge",true),
-	PARRY("parry"),
-	POWER("strength",true),
-	SPEED("speed",true),
-	HIT_COUNT("hitcount",true),
-	
-	ATTACK_RANGE("attackrange",true),
-	ATTACK_SPEED("attackdelay",-1,true),
-	PHYSICAL_ATTACK("phyattack"),
-	PHYSICAL_ACCURACY("hitaccuracy"),
-	PHYSICAL_CRITICAL("critical"),
-	PHYSICAL_DEFENSE("physicaldefend"),
-	MAIN_HAND_HITS("mainhandhits"),
-	MAIN_HAND_ACCURACY("mainhandaccuracy"),
-	MAIN_HAND_CRITICAL("mainhandcritical"),
-	MAIN_HAND_POWER("mainhandpower"),
-	OFF_HAND_HITS("offhandhits"),
-	OFF_HAND_ACCURACY("offhandaccuracy"),
-	OFF_HAND_CRITICAL("offhandcritical"),
-	OFF_HAND_POWER("offhandpower"),
-	
-	MAGICAL_ATTACK("magicalattack"),
-	MAGICAL_ACCURACY("magicalhitaccuracy"),
-	MAGICAL_CRITICAL("magicalcritical"),
-	MAGICAL_RESIST("magicalresist"),
-	MAX_DAMAGES("maxdamages"),
-	MIN_DAMAGES("mindamages"),
-	IS_MAGICAL_ATTACK("ismagicalattack",true),
-	
-	EARTH_RESISTANCE("elementaldefendearth"),
-	FIRE_RESISTANCE("elementaldefendfire"),
-	WIND_RESISTANCE("elementaldefendair"),
-	WATER_RESISTANCE("elementaldefendwater"),
-	
-	BOOST_MAGICAL_SKILL("magicalskillboost"),
-	BOOST_CASTING_TIME("boostcastingtime",-1),
-	BOOST_HATE("boosthate"),
-	
-	FLY_TIME("maxfp"),
-	FLY_SPEED("flyspeed"),
-	
-	PVP_ATTACK_RATIO("pvpattackratio"),
-	PVP_DEFEND_RATIO("pvpdefendratio"),
-	
-	DAMAGE_REDUCE("damagereduce"),
-	
-	BLEED_RESISTANCE("arbleed"),
-	BLIND_RESISTANCE("arblind"),
-	CHARM_RESISTANCE("archarm"),
-	CONFUSE_RESISTANCE("arconfuse"),
-	CURSE_RESISTANCE("arcurse"),
-	DISEASE_RESISTANCE("ardisease"),
-	FEAR_RESISTANCE("arfear"),
-	OPENAREIAL_RESISTANCE("aropenareial"),
-	PARALYZE_RESISTANCE("arparalyze"),
-	PERIFICATION_RESISTANCE("arperification"),
-	POISON_RESISTANCE("arpoison"),
-	ROOT_RESISTANCE("arroot"),
-	SILENCE_RESISTANCE("arsilence"),
-	SLEEP_RESISTANCE("arsleep"),
-	SLOW_RESISTANCE("arslow"),
-	SNARE_RESISTANCE("arsnare"),
-	SPIN_RESISTANCE("arspin"),
-	STAGGER_RESISTANCE("arstagger"),
-	STUMBLE_RESISTANCE("arstumble"),
-	STUN_RESISTANCE("arstun"),
-	
-	REGEN_MP("mpregen"),
-	REGEN_HP("hpregen");
-	
+//	None = 0,
+//	FireResistance = 15,
+//	HP = 18,
+//	MP = 20,
+//	FlightTime = 23,
+//	Attack = 25,
+//	PhysicalDefense = 26,
+//	MagicalAttack = 27,
+//	MagicalRes = 28,
+//	AttackSpeed = 29, //%
+//	Accuracy = 30,
+//	Evasion = 31,
+//	Parry = 32,
+//	Block = 33,
+//	PhysicalCrit = 34,
+//	Speed = 36, // %
+//	FlightSpeed = 37, // %
+//	MagicalCrit = 40,
+//	Concentration = 41,
+//	MagicPower = 104,
+//	MagicalAccuracy = 105,
+//	Knowledge = 106,
+//	Agility = 107,
+//	Hate = 109
+	MAXDP(0, "maxdp"),
+	MAXHP(18, "maxhp"),
+	MAXMP(20, "maxmp"),
+
+	AGILITY(107, "agility",true),
+	BLOCK(33, "block"),
+	EVASION(31, "dodge"),
+	CONCENTRATION(41, "concentration"),
+	WILL(0, "will",true),
+	HEALTH(0, "health",true),
+	ACCURACY(0, "accuracy",true),
+	KNOWLEDGE(106, "knowledge",true),
+	PARRY(32, "parry"),
+	POWER(0, "strength",true),
+	SPEED(36, "speed",true),
+	HIT_COUNT(0, "hitcount",true),
+
+	ATTACK_RANGE(0, "attackrange",true),
+	ATTACK_SPEED(29, "attackdelay",-1,true),
+	PHYSICAL_ATTACK(25, "phyattack"),
+	PHYSICAL_ACCURACY(30, "hitaccuracy"),
+	PHYSICAL_CRITICAL(34, "critical"),
+	PHYSICAL_DEFENSE(26, "physicaldefend"),
+	MAIN_HAND_HITS(0, "mainhandhits"),
+	MAIN_HAND_ACCURACY(0, "mainhandaccuracy"),
+	MAIN_HAND_CRITICAL(0, "mainhandcritical"),
+	MAIN_HAND_POWER(0, "mainhandpower"),
+	OFF_HAND_HITS(0, "offhandhits"),
+	OFF_HAND_ACCURACY(0, "offhandaccuracy"),
+	OFF_HAND_CRITICAL(0, "offhandcritical"),
+	OFF_HAND_POWER(0, "offhandpower"),
+
+	MAGICAL_ATTACK(27, "magicalattack"),
+	MAGICAL_ACCURACY(105, "magicalhitaccuracy"),
+	MAGICAL_CRITICAL(40, "magicalcritical"),
+	MAGICAL_RESIST(28, "magicalresist"),
+	MAX_DAMAGES(0, "maxdamages"),
+	MIN_DAMAGES(0, "mindamages"),
+	IS_MAGICAL_ATTACK(0, "ismagicalattack",true),
+
+	EARTH_RESISTANCE(0, "elementaldefendearth"),
+	FIRE_RESISTANCE(15, "elementaldefendfire"),
+	WIND_RESISTANCE(0, "elementaldefendair"),
+	WATER_RESISTANCE(0, "elementaldefendwater"),
+
+	BOOST_MAGICAL_SKILL(104, "magicalskillboost"),
+	BOOST_CASTING_TIME(0, "boostcastingtime",-1),
+	BOOST_HATE(109, "boosthate"),
+
+	FLY_TIME(23, "maxfp"),
+	FLY_SPEED(37, "flyspeed"),
+
+	PVP_ATTACK_RATIO(0, "pvpattackratio"),
+	PVP_DEFEND_RATIO(0, "pvpdefendratio"),
+
+	DAMAGE_REDUCE(0, "damagereduce"),
+
+	BLEED_RESISTANCE(0, "arbleed"),
+	BLIND_RESISTANCE(0, "arblind"),
+	CHARM_RESISTANCE(0, "archarm"),
+	CONFUSE_RESISTANCE(0, "arconfuse"),
+	CURSE_RESISTANCE(0, "arcurse"),
+	DISEASE_RESISTANCE(0, "ardisease"),
+	FEAR_RESISTANCE(0, "arfear"),
+	OPENAREIAL_RESISTANCE(0, "aropenareial"),
+	PARALYZE_RESISTANCE(0, "arparalyze"),
+	PERIFICATION_RESISTANCE(0, "arperification"),
+	POISON_RESISTANCE(0, "arpoison"),
+	ROOT_RESISTANCE(0, "arroot"),
+	SILENCE_RESISTANCE(0, "arsilence"),
+	SLEEP_RESISTANCE(0, "arsleep"),
+	SLOW_RESISTANCE(0, "arslow"),
+	SNARE_RESISTANCE(0, "arsnare"),
+	SPIN_RESISTANCE(0, "arspin"),
+	STAGGER_RESISTANCE(0, "arstagger"),
+	STUMBLE_RESISTANCE(0, "arstumble"),
+	STUN_RESISTANCE(0, "arstun"),
+
+	REGEN_MP(0, "mpregen"),
+	REGEN_HP(0, "hpregen");
+
 	private String name;
 	private boolean replace;
 	private int sign;
 	
-	private StatEnum (String name) {
-		this(name,1,false);
+	private int itemStoneMask;
+
+	private StatEnum (int stoneMask, String name) 
+	{
+		this(stoneMask, name,1,false);
 	}
-	
-	private StatEnum (String name, boolean replace) {
-		this(name,1,replace);
+
+	private StatEnum (int stoneMask, String name, boolean replace) 
+	{
+		this(stoneMask,name,1,replace);
 	}
-	
-	private StatEnum (String name, int sign) {
-		this(name,sign,false);
+
+	private StatEnum (int stoneMask, String name, int sign) 
+	{
+		this(stoneMask, name,sign,false);
 	}
-	
-	private StatEnum (String name, int sign, boolean replace) {
+
+	private StatEnum (int stoneMask, String name, int sign, boolean replace) 
+	{
+		this.itemStoneMask = stoneMask;
 		this.name = name;
 		this.replace = replace;
 		this.sign = sign;
 	}
-	
-	public String getName () {
+
+	public String getName () 
+	{
 		return name;
 	}
-	
-	public int getSign () {
+
+	public int getSign () 
+	{
 		return sign;
 	}
-	
+
+	/**
+	 * @return the itemStoneMask
+	 */
+	public int getItemStoneMask()
+	{
+		return itemStoneMask;
+	}
+
 	public static StatEnum find(String name)
 	{
 		for(StatEnum sEnum : values())
@@ -153,7 +194,26 @@ public enum StatEnum
 		throw new IllegalArgumentException("Cannot find StatEnum for: " + name);
 	}
 	
-	public StatEnum getMainOrSubHandStat (ItemSlot slot) {
+	/**
+	 *  Used to find specific StatEnum by its item stone mask
+	 *   
+	 * @param mask
+	 * @return
+	 */
+	public static StatEnum findByItemStoneMask(int mask)
+	{
+		for(StatEnum sEnum : values())
+		{
+			if(sEnum.getItemStoneMask() == mask)
+			{
+				return sEnum;
+			}
+		}
+		throw new IllegalArgumentException("Cannot find StatEnum for stone mask: " + mask);
+	}
+
+	public StatEnum getMainOrSubHandStat (ItemSlot slot) 
+	{
 		if (slot==null)
 			return this;
 		switch (this) {
@@ -190,7 +250,7 @@ public enum StatEnum
 				return this;
 		}
 	}
-	
+
 	public boolean isReplace () {
 		return replace;
 	}

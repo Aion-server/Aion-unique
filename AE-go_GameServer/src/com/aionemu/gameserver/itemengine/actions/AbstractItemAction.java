@@ -31,5 +31,5 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 @XmlType(name = "AbstractItemAction")
 public abstract class AbstractItemAction {
 
-	public abstract void act(Player player, Item parentItem);
+	public abstract void act(Player player, Item parentItem, Item targetItem);
 }

@@ -17,20 +17,22 @@
 
 package com.aionemu.gameserver.itemengine.actions;
 
-import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
-import com.aionemu.gameserver.model.templates.ItemTemplate;
-import com.aionemu.gameserver.network.aion.serverpackets.*;
-import com.aionemu.gameserver.skillengine.model.learn.SkillClass;
-import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
-import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
+
+import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.dao.ItemStoneListDAO;
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author Nemiroff
@@ -39,19 +41,20 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EnchantItemAction")
 public class EnchantItemAction extends AbstractItemAction {
-
+	
     @Override
-    public void act(final Player player, final Item parentItem) {
+    public void act(final Player player, final Item parentItem, final Item targetItem) {
 
         PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem.getObjectId(), parentItem.getItemTemplate().getItemId(), 5000, 0, 0));
         ThreadPoolManager.getInstance().schedule(new Runnable() {
             @Override
-            public void run() {
+            public void run() 
+            {
                 PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem.getObjectId(), parentItem.getItemTemplate().getItemId(), 0, 1, 0));
-
                 PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300462));
-                //TODO send SM_UPDATE_ITEM(targetItem);
-
+             
+                targetItem.addItemStone(parentItem.getItemTemplate().getItemId());              
+                PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(targetItem));
             }
         }, 5000);
         if (parentItem.getItemCount() > 1)
@@ -61,8 +64,9 @@ public class EnchantItemAction extends AbstractItemAction {
         else
         {
             player.getInventory().removeFromBag(parentItem);
+            PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(parentItem.getObjectId()));
         }
-        PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(parentItem.getObjectId()));
+        
         PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(parentItem));
     }
 

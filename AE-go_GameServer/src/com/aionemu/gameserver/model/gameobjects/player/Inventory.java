@@ -22,7 +22,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
@@ -410,10 +409,47 @@ public class Inventory
 		//TODO switch items
 		return false;
 	}
-
+	
+	/**
+	 *  Will look item in default item bag
+	 *  
+	 * @param value
+	 * @return
+	 */
 	public Item getItemByObjId(int value)
 	{
 		return defaultItemBag.getItemFromStorageByItemUniqueId(value);
+	}
+	
+	/**
+	 *  Will look item in equipment item set
+	 *  
+	 * @param value
+	 * @return
+	 */
+	public Item getEquippedItemByObjId(int value)
+	{
+		for(Item item : equipment.values())
+		{
+			if(item.getObjectId() == value)
+				return item;
+		}
+		return null;
+	}
+	
+	/**
+	 *  Will look for item in both equipment and cube
+	 *  
+	 * @param value
+	 * @return
+	 */
+	public Item findItemByObjId(int value)
+	{
+		Item item = getItemByObjId(value);
+		if(item == null)
+			item = getEquippedItemByObjId(value);
+		
+		return item;
 	}
 	
 	public Item getItemByItemId(int value)

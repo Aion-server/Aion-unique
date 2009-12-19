@@ -20,7 +20,7 @@ public class QuestStartAction extends AbstractItemAction {
     @XmlAttribute
 	protected int questid;
 
-    public void act(Player player, Item parentItem)
+    public void act(Player player, Item parentItem, Item targetItem)
 	{
 		
 	}

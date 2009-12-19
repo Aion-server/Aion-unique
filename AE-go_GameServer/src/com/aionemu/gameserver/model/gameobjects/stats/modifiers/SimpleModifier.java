@@ -31,7 +31,15 @@ public abstract class SimpleModifier extends StatModifier
 {
 	@XmlAttribute
 	protected int value;
-	
+
+	/**
+	 * @return the value
+	 */
+	public int getValue()
+	{
+		return value;
+	}
+
 	protected void setValue(int value)
 	{
 		this.value = value;

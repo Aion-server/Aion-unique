@@ -187,6 +187,18 @@ CREATE TABLE `inventory` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- item_stones
+-- ----------------------------
+
+CREATE TABLE `item_stones` (
+  `itemUniqueId` int(11) NOT NULL,
+  `itemId` int(11) NOT NULL,
+  `slot` int(2) NOT NULL,
+  PRIMARY KEY (`itemUniqueId`, `slot`),
+  FOREIGN KEY (`itemUniqueId`) references inventory (`itemUniqueId`) ON DELETE CASCADE
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- player_quests
 -- ----------------------------
 

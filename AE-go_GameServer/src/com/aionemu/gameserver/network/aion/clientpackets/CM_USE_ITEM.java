@@ -64,14 +64,14 @@ public class CM_USE_ITEM extends AionClientPacket {
 
             Player player = getConnection().getActivePlayer();
             Item item = player.getInventory().getItemByObjId(uniqueItemId);
-            Item targetItem = player.getInventory().getItemByObjId(targetItemId);
+            Item targetItem = player.getInventory().findItemByObjId(targetItemId);
             ItemActions itemActions = item.getItemTemplate().getActions();
         
             if (itemActions != null)
             {
                 for (AbstractItemAction itemAction : itemActions.getItemActions())
                 {
-                    itemAction.act(player, item);
+                    itemAction.act(player, item, targetItem);
                 }
             }
     }

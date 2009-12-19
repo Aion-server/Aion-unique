@@ -17,10 +17,15 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 
 /**
@@ -37,6 +42,9 @@ public class Item extends AionObject
 	private boolean isEquipped = false;
 	
 	private int equipmentSlot = 0;
+	
+	//TODO move to ItemStoneList ?
+	private List<ItemStone> itemStones;
 	
 	/**
 	 * @param objId
@@ -185,7 +193,37 @@ public class Item extends AionObject
 	{
 		this.equipmentSlot = equipmentSlot;
 	}
-	
+
+	/**
+	 * @return the itemStones
+	 */
+	public List<ItemStone> getItemStones()
+	{
+		return itemStones;
+	}
+
+	/**
+	 * @param itemStones the itemStones to set
+	 */
+	public void setItemStones(List<ItemStone> itemStones)
+	{
+		this.itemStones = itemStones;
+	}
+	/**
+	 * 
+	 * @param itemStone
+	 */
+	public void addItemStone(int itemId)
+	{
+		int nextSlot = itemStones == null ? 0 : itemStones.size();
+		if(itemStones == null)
+			itemStones = new ArrayList<ItemStone>();
+		
+		this.itemStones.add(new ItemStone(getObjectId(), itemId,
+			nextSlot, PersistentState.NEW));
+		DAOManager.getDAO(ItemStoneListDAO.class).save(itemStones);
+	}
+
 	@Override
 	public String toString () {
 		StringBuilder sb = new StringBuilder();

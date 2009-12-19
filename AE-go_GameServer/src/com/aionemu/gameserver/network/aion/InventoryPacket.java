@@ -17,11 +17,15 @@
 package com.aionemu.gameserver.network.aion;
 
 import java.nio.ByteBuffer;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SimpleModifier;
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
+import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 
 /**
@@ -107,13 +111,14 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeC(buf, 0x0B); //? some details separator
 		writeH(buf, 0);
 		writeD(buf, item.getItemTemplate().getItemId());
+		writeC(buf, 0);
+		
+		writeItemStones(buf, item);
+		
+		writeC(buf, 0);
 		writeD(buf, 0);
 		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
+
 		writeC(buf, 0x3E);
 		writeC(buf, 0x0A);
 		writeD(buf, item.getItemCount());
@@ -124,6 +129,55 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeC(buf, 0);
 		writeH(buf, item.isEquipped() ? 255 : item.getEquipmentSlot()); // FF FF equipment
 		writeC(buf,  0);//item.isEquipped() ? 1 : 0
+	}
+	
+	/**
+	 *  Writes manastones : 6C - statenum mask, 6H - value
+	 * @param buf
+	 * @param item
+	 */
+	private void writeItemStones(ByteBuffer buf, Item item)
+	{
+		int count = 0;
+		List<ItemStone> itemStones = item.getItemStones();
+		
+		if(itemStones != null)
+		{
+			for(ItemStone itemStone : itemStones)
+			{
+				if(count == 6)
+					break;
+				
+				StatModifier modifier = itemStone.getModifier();
+				if(modifier != null)
+				{
+					count++;
+					writeC(buf, modifier.getStat().getItemStoneMask());
+				}
+			}
+			writeB(buf, new byte[(6-count)]);
+			count = 0;
+			for(ItemStone itemStone : itemStones)
+			{
+				if(count == 6)
+					break;
+				
+				StatModifier modifier = itemStone.getModifier();
+				if(modifier != null)
+				{
+					count++;
+					writeH(buf, ((SimpleModifier)modifier).getValue());
+				}
+			}
+			writeB(buf, new byte[(6-count)*2]);
+		}
+		else
+		{
+			writeB(buf, new byte[18]);
+		}
+		
+		//for now max 6 stones - write some junk
+		
 	}
 	
 	/**
@@ -144,13 +198,15 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeC(buf, 0x0B); //? some details separator
 		writeH(buf, 0);
 		writeD(buf, item.getItemTemplate().getItemId());
+		
+		writeC(buf, 0);
+		
+		writeItemStones(buf, item);
+		
+		writeC(buf, 0);
 		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
+		writeD(buf, 0);	
+		
 		writeC(buf, 0x3E);
 		writeC(buf, 0x02);
 		writeD(buf, item.getItemCount());

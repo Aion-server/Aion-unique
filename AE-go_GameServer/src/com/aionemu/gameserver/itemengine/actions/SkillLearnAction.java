@@ -53,7 +53,7 @@ public class SkillLearnAction extends AbstractItemAction
 	protected SkillRace race;
 
 	@Override
-	public void act(Player player, Item parentItem)
+	public void act(Player player, Item parentItem, Item targetItem)
 	{
 		//1. check player level
 		if(player.getCommonData().getLevel() < level)
