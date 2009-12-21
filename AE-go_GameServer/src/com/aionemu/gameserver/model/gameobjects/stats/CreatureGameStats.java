@@ -28,6 +28,7 @@ import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
+import com.aionemu.gameserver.world.zone.ZoneManager;
 
 /**
  * @author xavier
@@ -43,6 +44,7 @@ public class CreatureGameStats<T extends Creature>
 	private FastMap<StatEffectId, TreeSet<StatModifier>>			statsModifiers;
 
 	private int											attackCounter		= 0;
+	private int											moveCounter			= 0;
 	private T											owner				= null;
 
 	protected CreatureGameStats(T owner)
@@ -130,6 +132,14 @@ public class CreatureGameStats<T extends Creature>
 	}
 
 	/**
+	 * @return the moveCounter
+	 */
+	public int getMoveCounter()
+	{
+		return moveCounter;
+	}
+
+	/**
 	 * @param atcount
 	 *            the atcount to set
 	 */
@@ -155,6 +165,11 @@ public class CreatureGameStats<T extends Creature>
 		{
 			this.attackCounter++;
 		}
+	}
+	
+	public void increaseMoveCounter()
+	{
+		this.moveCounter++;
 	}
 
 	public int getBaseStat(StatEnum stat)

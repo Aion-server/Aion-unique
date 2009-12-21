@@ -80,6 +80,9 @@ public class StaticData
 	@XmlElement(name = "gatherable_templates")
 	public GatherableData			gatherableData;
 	
+	@XmlElement(name = "zones")
+	public ZoneData					zoneData;
+	
 	// JAXB callback
 	@SuppressWarnings("unused")
 	private void afterUnmarshal(Unmarshaller unmarshaller, Object parent)
@@ -100,5 +103,6 @@ public class StaticData
 		DataManager.log.info("Loaded " + questData.size() + " quest data entries");	
 		DataManager.log.info("Loaded " + gatherableData.size() + " gatherable entries");
 		DataManager.log.info("Loaded " + titleData.size() + " title entries");
+		DataManager.log.info("Loaded " + zoneData.size() + " zone entries");
 	}
 }

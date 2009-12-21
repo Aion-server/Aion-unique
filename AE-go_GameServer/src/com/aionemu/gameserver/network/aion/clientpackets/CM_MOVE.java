@@ -62,8 +62,8 @@ public class CM_MOVE extends AionClientPacket
 		float x, y, z, x2 = 0, y2 = 0, z2 = 0;
 		x = readF();
 		y = readF();
-		z = readF();
-
+		z = readF();	
+		
 		byte heading = (byte) readC();
 		byte movementType = (byte) readC();
 		MovementType type = MovementType.getMovementTypeById(movementType);
@@ -76,11 +76,12 @@ public class CM_MOVE extends AionClientPacket
 				y2 = readF();
 				z2 = readF();
 				world.updatePosition(player, x, y, z, heading);
-				player.getController().onMove();
+				player.getController().onStartMove();
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);
 				break;
 			case VALIDATE_MOUSE:
 			case VALIDATE_KEYBOARD:
+				player.getController().onMove();
 				world.updatePosition(player, x, y, z, heading);
 				break;
 			case MOVEMENT_STOP:

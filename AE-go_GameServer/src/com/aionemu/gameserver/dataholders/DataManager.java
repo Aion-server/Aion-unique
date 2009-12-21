@@ -104,6 +104,8 @@ public final class DataManager
 	public static SkillData				SKILL_DATA;
 	
 	public static SkillTreeData			SKILL_TREE_DATA;
+	
+	public static ZoneData				ZONE_DATA;
 
 	/**
 	 * Constructor creating <tt>DataManager</tt> instance.<br>
@@ -111,7 +113,7 @@ public final class DataManager
 	 */
 	public DataManager()
 	{
-		log.info("####################   STATIC DATA [section beginning] ####################");
+		log.info("##### STATIC DATA [section beginning] #####");
 
 		
 
@@ -129,28 +131,25 @@ public final class DataManager
 		GATHERABLE_DATA = data.gatherableData;
 		PLAYER_INITIAL_DATA = data.playerInitialData;
 		SKILL_DATA = data.skillData;
-		SKILL_TREE_DATA = data.skillTreeData;
-		
+		SKILL_TREE_DATA = data.skillTreeData;	
 		//spawn data use NPC_DATA and GATHERABLE_DATA
 		SPAWN_DATA = new SpawnData(NPC_DATA, GATHERABLE_DATA);
-		
 		TITLE_DATA = data.titleData;
 		TRADE_LIST_DATA = data.tradeListData;
-		TELEPORTER_DATA = data.teleporterData;
-		
-		TELELOCATION_DATA = data.teleLocationData;
-		
+		TELEPORTER_DATA = data.teleporterData;	
+		TELELOCATION_DATA = data.teleLocationData;	
 		CUBEEXPANDER_DATA = data.cubeExpandData;
 		BIND_POINT_DATA = data.bindPointData;
-		QUEST_DATA     = data.questData;
+		QUEST_DATA = data.questData;
+		ZONE_DATA = data.zoneData;
 		
 		// some sexy time message
 		long seconds = time / 1000;
 
 		String timeMsg = seconds > 0 ? seconds + " seconds" : time + " miliseconds";
 
-		log.info("###### [load time: " + timeMsg + "] ######");
-		log.info("####################      STATIC DATA [section end]    ####################");
+		log.info("##### [load time: " + timeMsg + "] #####");
+		log.info("##### STATIC DATA [section end] #####");
 	
 		
 	}

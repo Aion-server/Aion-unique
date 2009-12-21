@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones>
+    <zone mapid="210010000" name="DEFORESTED_AREA">
+        <points>
+            <point y="1952.01" x="524.18"/>
+            <point y="1999.3176" x="712.12494"/>
+            <point y="1854.4056" x="781.7768"/>
+            <point y="1714.8282" x="635.2249"/>
+            <point y="1630.5468" x="410.50754"/>
+            <point y="1768.0094" x="322.11926"/>
+        </points>
+        <link>DAMINU_FOREST</link>
+        <link>KABARAH_STRIP_MINE</link>
+        <link>AGARIC_SPORE_ROAD</link>
+    </zone>
+    <zone mapid="210010000" name="WORG_RUN">
+        <points>
+            <point y="1784.7971" x="612.0576"/>
+            <point y="1828.6158" x="579.0574"/>
+            <point y="1834.1295" x="551.25696"/>
+            <point y="1870.2069" x="549.46985"/>
+            <point y="1888.4882" x="583.1578"/>
+            <point y="1942.6616" x="617.33044"/>
+            <point y="1928.0735" x="706.34235"/>
+            <point y="1855.0566" x="753.09753"/>
+            <point y="1782.0183" x="669.7578"/>
+        </points>
+        <link>DAMINU_FOREST</link>
+        <link>AGARIC_SPORE_ROAD</link>
+        <link>KABARAH_STRIP_MINE</link>
+    </zone>
+    <zone mapid="210010000" name="DAMINU_FOREST">
+        <points>
+            <point y="1713.8632" x="616.4644"/>
+            <point y="1664.408" x="717.4304"/>
+            <point y="1532.7997" x="733.87384"/>
+            <point y="1308.039" x="656.4153"/>
+            <point y="1266.5165" x="507.55545"/>
+            <point y="1362.6011" x="416.8027"/>
+            <point y="1514.9602" x="405.40143"/>
+            <point y="1642.3264" x="426.1966"/>
+        </points>
+        <link>CLIONA_LAKE</link>
+        <link>DEFORESTED_AREA</link>
+    </zone>
+    <zone mapid="210010000" name="MELPONEHS_CAMPSITE">
+        <points>
+            <point y="1725.1455" x="430.75284"/>
+            <point y="1728.1011" x="448.86868"/>
+            <point y="1752.4191" x="454.7948"/>
+            <point y="1771.6398" x="445.12064"/>
+            <point y="1772.4678" x="429.0501"/>
+            <point y="1766.3628" x="410.34616"/>
+            <point y="1738.5012" x="411.03653"/>
+        </points>
+        <link>DAMINU_FOREST</link>
+        <link>KABARAH_STRIP_MINE</link>
+        <link>AGARIC_SPORE_ROAD</link>
+    </zone>
+    <zone mapid="210010000" name="AGERS_FARM">
+        <points>
+            <point y="954.69" x="738.92"/>
+            <point y="990.57983" x="727.00574"/>
+            <point y="1007.0539" x="711.56134"/>
+            <point y="1004.70044" x="674.3477"/>
+            <point y="958.3676" x="647.0959"/>
+            <point y="890.4233" x="558.069"/>
+            <point y="832.9113" x="568.9536"/>
+            <point y="823.89874" x="629.5889"/>
+            <point y="800.1817" x="653.2932"/>
+            <point y="806.1542" x="699.5885"/>
+            <point y="878.6693" x="739.1555"/>
+            <point y="933.3154" x="707.11536"/>
+        </points>
+        <link>CLIONA_LAKE</link>
+        <link>DAMINU_FOREST</link>
+    </zone>
+    <zone mapid="210010000" name="AKARIOS_VILLAGE">
+        <points>
+            <point y="1199.361" x="815.3019"/>
+            <point y="1188.6573" x="810.34625"/>
+            <point y="1176.4808" x="815.9429"/>
+            <point y="1171.239" x="827.6632"/>
+            <point y="1173.8066" x="844.9101"/>
+            <point y="1169.2723" x="859.64636"/>
+            <point y="1171.7307" x="872.595"/>
+            <point y="1190.6105" x="885.7041"/>
+            <point y="1206.2065" x="883.9563"/>
+            <point y="1213.8701" x="893.9055"/>
+            <point y="1256.1763" x="891.7936"/>
+            <point y="1291.8833" x="846.1906"/>
+            <point y="1301.2319" x="812.456"/>
+            <point y="1280.4952" x="789.1583"/>
+            <point y="1258.6533" x="787.33746"/>
+            <point y="1228.1123" x="794.3882"/>
+            <point y="1207.6547" x="803.88654"/>
+        </points>
+        <link>AKARIOS_PLAINS</link>
+        <link>CLIONA_LAKE</link>
+        <link>DAMINU_FOREST</link>
+    </zone>
+    <zone mapid="210010000" name="TIMOLIA_MINE">
+        <points>
+            <point y="1319.3798" x="31.513777"/>
+            <point y="1238.577" x="335.83643"/>
+            <point y="718.0803" x="443.9235"/>
+            <point y="714.9321" x="36.760735"/>
+        </points>
+        <link>AGARIC_SPORE_ROAD</link>
+        <link>DEFORESTED_AREA</link>
+        <link>KABARAH_STRIP_MINE</link>
+    </zone>
+    <zone mapid="210010000" name="KABARAH_STRIP_MINE">
+        <points>
+            <point y="2013.67" x="487.61"/>
+            <point y="2141.4343" x="376.37753"/>
+            <point y="2165.455" x="232.59515"/>
+            <point y="2035.845" x="166.68939"/>
+            <point y="1750.1194" x="143.55234"/>
+            <point y="1688.7827" x="203.60223"/>
+            <point y="1760.2285" x="320.7978"/>
+            <point y="1838.154" x="413.36066"/>
+            <point y="1889.7427" x="453.5626"/>
+        </points>
+        <link>DEFORESTED_AREA</link>
+        <link>AGARIC_SPORE_ROAD</link>
+    </zone>
+    <zone mapid="210010000" name="FEIRAS_DOCK">
+        <points>
+            <point y="1081.4148" x="567.9952"/>
+            <point y="1098.4375" x="558.43854"/>
+            <point y="1117.8496" x="559.6331"/>
+            <point y="1135.1556" x="578.56793"/>
+            <point y="1125.6764" x="607.2574"/>
+            <point y="1097.0038" x="617.09216"/>
+            <point y="1073.3739" x="601.51794"/>
+        </points>
+		<link>CLIONA_LAKE</link>
+    </zone>
+    <zone mapid="210010000" name="AKARIOS_PLAINS">
+        <points>
+            <point y="902.6603" x="1086.124"/>
+            <point y="1016.56586" x="1269.9868"/>
+            <point y="1138.3992" x="1286.4476"/>
+            <point y="1268.354" x="1197.1454"/>
+            <point y="1310.0892" x="930.6278"/>
+            <point y="1306.2527" x="829.56305"/>
+            <point y="1281.7052" x="806.05664"/>
+            <point y="1036.612" x="844.96094"/>
+            <point y="958.6137" x="1005.4755"/>
+            <point y="909.8229" x="1029.0189"/>
+        </points>
+        <link>AKARIOS_VILLAGE</link>
+		<link>KALESS_FARM</link>
+    </zone>
+    <zone mapid="210010000" name="KALESS_FARM">
+        <points>
+            <point y="1046.26" x="922.05"/>
+            <point y="1046.4326" x="960.8951"/>
+            <point y="1114.6028" x="988.24915"/>
+            <point y="1138.6249" x="986.2069"/>
+            <point y="1143.6997" x="956.9407"/>
+            <point y="1136.3232" x="943.16925"/>
+            <point y="1140.2362" x="917.13983"/>
+            <point y="1086.6588" x="881.1332"/>
+        </points>
+		<link>AKARIOS_PLAINS</link>
+    </zone>
+    <zone mapid="210010000" name="CLIONA_LAKE">
+        <points>
+            <point y="1286.6475" x="808.16797"/>
+            <point y="1037.8456" x="846.9823"/>
+            <point y="759.27423" x="679.50305"/>
+            <point y="828.1706" x="530.10815"/>
+            <point y="1062.208" x="442.80664"/>
+            <point y="1145.166" x="461.15332"/>
+            <point y="1215.7269" x="486.06772"/>
+            <point y="1231.545" x="430.60077"/>
+            <point y="1268.3289" x="430.00208"/>
+            <point y="1273.543" x="484.06937"/>
+            <point y="1253.9336" x="501.41168"/>
+            <point y="1269.7329" x="507.36386"/>
+            <point y="1308.474" x="651.935"/>
+        </points>
+        <link>AKARIOS_VILLAGE</link>
+		<link>AGERS_FARM</link>
+		<link>FEIRAS_DOCK</link>
+        <link>DAMINU_FOREST</link>
+    </zone>
+    <zone mapid="210010000" name="NYMPHS_POND">
+        <points>
+            <point y="1572.85" x="488.71"/>
+            <point y="1582.3063" x="467.57928"/>
+            <point y="1570.0212" x="453.77087"/>
+            <point y="1552.5544" x="445.1242"/>
+            <point y="1530.6934" x="456.41522"/>
+            <point y="1526.939" x="476.59488"/>
+            <point y="1533.3918" x="491.495"/>
+            <point y="1543.0123" x="496.07062"/>
+            <point y="1562.6334" x="503.65622"/>
+        </points>
+        <link>CLIONA_LAKE</link>
+        <link>DEFORESTED_AREA</link>
+    </zone>
+    <zone mapid="210010000" name="AGARIC_SPORE_ROAD">
+        <points>
+            <point y="1767.9928" x="327.70764"/>
+            <point y="1669.589" x="397.49014"/>
+            <point y="1539.4612" x="258.95447"/>
+            <point y="1396.4698" x="373.6011"/>
+            <point y="1297.5234" x="412.53174"/>
+            <point y="1279.721" x="441.48053"/>
+            <point y="1221.8549" x="436.24182"/>
+            <point y="1223.7169" x="394.43127"/>
+            <point y="1286.1857" x="141.02927"/>
+            <point y="1492.7302" x="72.49347"/>
+            <point y="1617.7998" x="65.89319"/>
+            <point y="1677.5032" x="154.312"/>
+        </points>
+        <link>TIMOLIA_MINE</link>
+        <link>DEFORESTED_AREA</link>
+        <link>KABARAH_STRIP_MINE</link>
+    </zone>
+</zones>

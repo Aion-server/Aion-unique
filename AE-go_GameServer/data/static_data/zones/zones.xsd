@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:jxb="http://java.sun.com/xml/ns/jaxb" jxb:version="2.1">
+
+	<xs:element name="zones">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="zone" type="Zone"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="Zone">
+		<xs:sequence>
+			<xs:element name="points" type="Points"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="link" type="ZoneName"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="name" type="ZoneName" />
+		<xs:attribute name="mapid" type="xs:int" />
+	</xs:complexType>
+
+	<xs:complexType name="Points">
+		<xs:sequence>
+			<xs:element name="point" type="Point2D" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="top" type="xs:float" />
+		<xs:attribute name="bottom" type="xs:float" />
+		<xs:attribute name="type" type="xs:string" />
+	</xs:complexType>
+	
+	<xs:complexType name="Point2D">
+		<xs:attribute name="y" type="xs:float" />
+		<xs:attribute name="x" type="xs:float" />	
+	</xs:complexType>
+	
+	<xs:simpleType name="ZoneName">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DEFORESTED_AREA"/>
+			<xs:enumeration value="WORG_RUN"/>
+			<xs:enumeration value="DAMINU_FOREST"/>
+			<xs:enumeration value="MELPONEHS_CAMPSITE"/>
+			<xs:enumeration value="AGERS_FARM"/>
+			<xs:enumeration value="AKARIOS_VILLAGE"/>
+			<xs:enumeration value="TIMOLIA_MINE"/>
+			<xs:enumeration value="KABARAH_STRIP_MINE"/>
+			<xs:enumeration value="FEIRAS_DOCK"/>
+			<xs:enumeration value="AKARIOS_PLAINS"/>
+			<xs:enumeration value="KALESS_FARM"/>
+			<xs:enumeration value="CLIONA_LAKE"/>
+			<xs:enumeration value="NYMPHS_POND"/>
+			<xs:enumeration value="AGARIC_SPORE_ROAD"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

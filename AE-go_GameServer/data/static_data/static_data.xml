@@ -104,5 +104,9 @@
 	<quests>
 		<import file="quest_data" skipRoot="true"/>
 	</quests>
+	
+	<zones>
+		<import file="zones" skipRoot="true"/>
+	</zones>
 
 </ae_static_data>

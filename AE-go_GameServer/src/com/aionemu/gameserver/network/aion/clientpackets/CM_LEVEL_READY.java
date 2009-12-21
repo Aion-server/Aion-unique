@@ -21,6 +21,7 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.world.zone.ZoneManager;
 import com.google.inject.Inject;
 
 /**
@@ -67,5 +68,9 @@ public class CM_LEVEL_READY extends AionClientPacket
 		 * Spawn player into the world.
 		 */
 		world.spawn(activePlayer);
+		/**
+		 * Find zone in current map
+		 */
+		ZoneManager.getInstance().findZoneInCurrentMap(activePlayer);
 	}
 }

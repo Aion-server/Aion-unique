@@ -46,11 +46,19 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	}
 
 	/**
-	 *  Perform tasks on Creature move
+	 *  Perform tasks on Creature starting to move
+	 */
+	public void onStartMove()
+	{
+		notifyMoveObservers();
+	}
+	
+	/**
+	 *  Perform tasks on Creature move in progress
 	 */
 	public void onMove()
 	{
-		notifyMoveObservers();
+
 	}
 	
 	/**

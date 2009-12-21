@@ -36,6 +36,7 @@ import com.aionemu.gameserver.utils.ThreadUncaughtExceptionHandler;
 import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.world.zone.ZoneManager;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
@@ -87,8 +88,8 @@ public class GameServer
 		gs.spawnMonsters();
 		
 		SkillEngine.getInstance().setWorld(gs.injector.getInstance(World.class));
-		
 		QuestEngine.getInstance().setItemService(gs.injector.getInstance(ItemService.class));
+		ZoneManager.getInstance().initializeZones();
 		
 		Util.printMemoryUsage(log);
 		log.info("###########################################################################");

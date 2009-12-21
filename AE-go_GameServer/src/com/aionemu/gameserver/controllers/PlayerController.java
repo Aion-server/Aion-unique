@@ -16,13 +16,9 @@
  */
 package com.aionemu.gameserver.controllers;
 
-import java.util.ArrayList;
-
 import org.apache.log4j.Logger;
 
-import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.model.DuelResult;
-import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -51,6 +47,8 @@ import com.aionemu.gameserver.skillengine.model.Skill.SkillType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.world.zone.ZoneInstance;
+import com.aionemu.gameserver.world.zone.ZoneManager;
 
 /**
  * This class is for controlling players.
@@ -137,6 +135,25 @@ public class PlayerController extends CreatureController<Player>
 
 		PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object));
 	}
+	
+	/**
+	 *  Will be called by ZoneManager when player enters specific zone
+	 *  
+	 * @param zoneInstance
+	 */
+	public void onEnterZone(ZoneInstance zoneInstance)
+	{
+		
+	}
+	
+	/**
+	 *  Will be called by ZoneManager when player leaves specific zone
+	 * @param zoneInstance
+	 */
+	public void onLeaveZone(ZoneInstance zoneInstance)
+	{
+		
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -207,11 +224,6 @@ public class PlayerController extends CreatureController<Player>
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see
-	 * com.aionemu.gameserver.controllers.CreatureController#onAttack(com.aionemu.gameserver.model.gameobjects.Creature)
-	 */
 	@Override
 	public boolean onAttack(Creature creature)
 	{
@@ -234,10 +246,6 @@ public class PlayerController extends CreatureController<Player>
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see com.aionemu.gameserver.controllers.CreatureController#doDrop()
-	 */
 	@Override
 	public void doDrop(Player player)
 	{
@@ -245,13 +253,21 @@ public class PlayerController extends CreatureController<Player>
 		super.doDrop(player);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.controllers.CreatureController#onMove()
-	 */
 	@Override
 	public void onMove()
 	{
-		super.onMove();
+		PlayerGameStats pgs = getOwner().getGameStats();
+		pgs.increaseMoveCounter();
+		if(pgs.getMoveCounter() % 5 == 0)
+		{
+			ZoneManager.getInstance().checkZone(getOwner());
+		}
+	}
+	
+	@Override
+	public void onStartMove()
+	{
+		super.onStartMove();
 	}
 
 	/**
