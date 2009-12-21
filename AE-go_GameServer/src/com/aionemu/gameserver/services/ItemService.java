@@ -134,5 +134,19 @@ public class ItemService
 			DAOManager.getDAO(InventoryDAO.class).store(itemToSplit, player.getObjectId());
 			PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(itemsToUpdate));
 		}		
+		else
+		{
+			releaseItemId(newItem);
+		}
+	}
+	
+	/**
+	 *  Releases item id if item was not used by caller
+	 *  
+	 * @param item
+	 */
+	public void releaseItemId(Item item)
+	{
+		aionObjectsIDFactory.releaseId(item.getObjectId());
 	}
 }

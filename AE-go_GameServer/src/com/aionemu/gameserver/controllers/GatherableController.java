@@ -204,6 +204,11 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 				//TODO modify SM_INVENTORY_UPDATE for update count - not all item count
 				PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(Collections.singletonList(addedItem)));
 			}
+			else
+			{
+				itemService.releaseItemId(item);
+			}
+			
 		}
 	}
 	
