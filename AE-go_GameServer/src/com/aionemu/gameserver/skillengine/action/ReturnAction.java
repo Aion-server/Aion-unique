@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -27,7 +28,6 @@ import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -84,7 +84,7 @@ extends Action
 		skill.getWorld().setPosition(player, worldId, x, y, z, player.getHeading());
 
 		player.setProtectionActive(true);
-		PacketSendUtility.sendPacket(player, new SM_UNKF5(player));
+		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
 
 	}
 }

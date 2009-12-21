@@ -37,6 +37,7 @@ public abstract class PartType
     public static final PartType s = new StringPartType("s",stringType.s);
     public static final PartType b = new RawPartType("b");
     public static final PartType x = new RawPartType("x");
+    public static final PartType Ss = new StringPartType("Ss",stringType.Ss);
     public static final PartType forBlock = new BlockPartType("forblock", blockType.forblock);
     public static final PartType swicthBlock = new BlockPartType("switchblock", blockType.switchblock);
     public static final PartType block = new BlockPartType("block", blockType.block);

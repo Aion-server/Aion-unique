@@ -16,6 +16,7 @@ public class StringPartType extends PartType
 {
     public enum stringType
     {
+        Ss,
         S,
         s
     }

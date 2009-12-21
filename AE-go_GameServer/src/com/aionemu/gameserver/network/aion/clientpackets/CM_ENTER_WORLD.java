@@ -41,6 +41,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_ID;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRICES;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
@@ -51,7 +52,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_UI_SETTINGS;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKDC;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.PlayerService;
@@ -217,18 +218,17 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			/*
 			 * Needed
 			 */
-			sendPacket(new SM_UNKF5(player));
+			sendPacket(new SM_PLAYER_SPAWN(player));
 			sendPacket(new SM_EMOTION_LIST());
 			sendPacket(new SM_INFLUENCE_RATIO());
             sendPacket(new SM_PRICES());
-            // sendPacket(new SM_UNK32());
+            sendPacket(new SM_PLAYER_ID(player));
 			// sendPacket(new SM_UNK15());
 			// sendPacket(new SM_UNKC6());
 			// sendPacket(new SM_UNK66());
 			// sendPacket(new SM_UNKCB());
 			// sendPacket(new SM_UNK64());
 			// sendPacket(new SM_UNKE7());
-			// sendPacket(new SM_UNK0A());
 			// sendPacket(new SM_UNK97());
 			// sendPacket(new SM_UNK8D());
 

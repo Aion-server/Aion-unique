@@ -18,11 +18,9 @@
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
-import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.world.WorldMap;
 import com.google.inject.Inject;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
@@ -73,7 +71,7 @@ public class MoveToMe extends AdminCommand
 		}
 
 		world.setPosition(playerToMove, admin.getWorldId(), admin.getX(), admin.getY(), admin.getZ(), admin.getHeading());
-		PacketSendUtility.sendPacket(playerToMove, new SM_UNKF5(playerToMove));
+		PacketSendUtility.sendPacket(playerToMove, new SM_PLAYER_SPAWN(playerToMove));
 
 		PacketSendUtility.sendMessage(admin, "Teleported player " + playerToMove.getName() + " to your location.");
 		PacketSendUtility.sendMessage(playerToMove, "You have been teleported by " + admin.getName() + ".");

@@ -14,10 +14,11 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets.unk;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -25,15 +26,25 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author xavier
  *
  */
-public class SM_UNKA7 extends AionServerPacket
+public class SM_PLAYER_ID extends AionServerPacket
 {
+    public Player player;
 
-	/**
+    public SM_PLAYER_ID(Player player) {
+        this.player = player;
+    }
+
+    /**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		// TODO
+		writeH(buf, 0x2);
+        writeD(buf, 0x0);
+        writeH(buf, 0x1);
+        writeD(buf, player.getCommonData().getPlayerObjId());
+        writeH(buf, 0x0);
+        writeS(buf, player.getName());
 	}
 }

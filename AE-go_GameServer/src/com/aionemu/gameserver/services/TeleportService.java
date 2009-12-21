@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.services;
 
+import com.aionemu.gameserver.network.aion.serverpackets.*;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -25,11 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.teleport.TelelocationTemplate;
 import com.aionemu.gameserver.model.templates.teleport.TeleportLocation;
 import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_LOC;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
@@ -67,7 +64,7 @@ public class TeleportService
 				world.despawn(activePlayer);
 				world.setPosition(activePlayer, mapid, x, y, z, activePlayer.getHeading());
 				activePlayer.setProtectionActive(true);
-				PacketSendUtility.sendPacket(activePlayer, new SM_UNKF5(activePlayer));
+				PacketSendUtility.sendPacket(activePlayer, new SM_PLAYER_SPAWN(activePlayer));
 				
 			}
 		}, TELEPORT_DEFAULT_DELAY);

@@ -131,7 +131,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK80;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK89;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK98;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKA7;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_ID;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKAE;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKB4;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKC8;
@@ -146,7 +146,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEB;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEC;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKEE;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF1;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF7;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SHOW_NPC_ON_MAP;
 
@@ -263,7 +263,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNK80.class, 0x80, idSet);
 		addPacketOpcode(SM_UNK89.class, 0x89, idSet);
 		addPacketOpcode(SM_UNK98.class, 0x9B, idSet);
-		addPacketOpcode(SM_UNKA7.class, 0xA7, idSet);
+		addPacketOpcode(SM_PLAYER_ID.class, 0xA7, idSet);
 		addPacketOpcode(SM_UNKAE.class, 0xB1, idSet);
 		addPacketOpcode(SM_UNKB4.class, 0xB7, idSet);
 		addPacketOpcode(SM_UNKC8.class, 0xCA, idSet);
@@ -278,7 +278,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNKEC.class, 0xEF, idSet);
 		addPacketOpcode(SM_UNKEE.class, 0xEE, idSet);
 		addPacketOpcode(SM_UNKF1.class, 0xF0, idSet);	
-		addPacketOpcode(SM_UNKF5.class, 0x29, idSet);
+		addPacketOpcode(SM_PLAYER_SPAWN.class, 0x29, idSet);
 		addPacketOpcode(SM_UNKF7.class, 0xF6, idSet);
 		addPacketOpcode(SM_UPDATE_ITEM.class, 0x17, idSet);
 		addPacketOpcode(SM_UPDATE_NOTE.class, 0x60, idSet);

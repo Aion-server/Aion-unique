@@ -18,7 +18,7 @@
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
@@ -78,7 +78,7 @@ public class MoveTo extends AdminCommand
 		// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but something else
 		world.setPosition(admin, worldId, x, y, z, admin.getHeading());
 		admin.setProtectionActive(true);
-		PacketSendUtility.sendPacket(admin, new SM_UNKF5(admin));
+		PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
 		PacketSendUtility.sendMessage(admin, "Teleported to " + x + " " + y + " " + z + " [" + worldId + "]");
 	}
 }

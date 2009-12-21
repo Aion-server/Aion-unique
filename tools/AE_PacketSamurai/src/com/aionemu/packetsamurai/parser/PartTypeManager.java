@@ -55,6 +55,7 @@ public class PartTypeManager
         PartTypeManager.getInstance().registerPartType(PartType.df);
         PartTypeManager.getInstance().registerPartType(PartType.Q);
         PartTypeManager.getInstance().registerPartType(PartType.S);
+        PartTypeManager.getInstance().registerPartType(PartType.Ss);
         PartTypeManager.getInstance().registerPartType(PartType.s);
         PartTypeManager.getInstance().registerPartType(PartType.b);
         PartTypeManager.getInstance().registerPartType(PartType.x);
@@ -72,6 +73,7 @@ public class PartTypeManager
         IconsTable.getInstance().registerIcon(PartType.df, IconsTable.ICON_DF);
         IconsTable.getInstance().registerIcon(PartType.Q, IconsTable.ICON_Q);
         IconsTable.getInstance().registerIcon(PartType.S, IconsTable.ICON_S);
+        IconsTable.getInstance().registerIcon(PartType.Ss, IconsTable.ICON_S);
         IconsTable.getInstance().registerIcon(PartType.s, IconsTable.ICON_S_SMALL);
         IconsTable.getInstance().registerIcon(PartType.b, IconsTable.ICON_B);
         IconsTable.getInstance().registerIcon(PartType.x, IconsTable.ICON_X);

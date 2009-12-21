@@ -18,11 +18,9 @@
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
-import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.world.WorldMap;
 import com.google.inject.Inject;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
@@ -73,7 +71,7 @@ public class MoveToPlayer extends AdminCommand
 		}
 
 		world.setPosition(admin, player.getWorldId(), player.getX(), player.getY(), player.getZ(), player.getHeading());
-		PacketSendUtility.sendPacket(admin, new SM_UNKF5(admin));
+		PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
 
 		PacketSendUtility.sendMessage(admin, "Teleported to player " + player.getName() + ".");
 	}

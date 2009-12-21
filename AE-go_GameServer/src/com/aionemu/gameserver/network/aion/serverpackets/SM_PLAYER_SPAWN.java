@@ -14,23 +14,51 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets.unk;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
-public class SM_UNK0A extends AionServerPacket
+/**
+ * This packet is notify client what map should be loaded.
+ * 
+ * @author -Nemesiss-
+ * 
+ */
+public class SM_PLAYER_SPAWN extends AionServerPacket
 {
 	/**
+	 * Player that is entering game.
+	 */
+	private final Player	player;
+
+	/**
+	 * Constructor.
+	 * 
+	 * @param player
+	 */
+	public SM_PLAYER_SPAWN(Player player)
+	{
+		super();
+		this.player = player;
+	}
+
+    /**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeC(buf, 0x66);
-		writeC(buf, 0x6E);
-		writeC(buf, 0x6E);
+		writeD(buf, player.getWorldId());
+		writeD(buf, player.getWorldId());//world + chnl
+		writeD(buf, 0x00);// unk
+		writeC(buf, 0x00);// unk
+		writeF(buf, player.getX());// x
+		writeF(buf, player.getY());// y
+		writeF(buf, player.getZ());// z
+		writeC(buf, player.getHeading());// heading
 	}
 }

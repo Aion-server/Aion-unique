@@ -51,6 +51,16 @@ public class StringValuePart extends ValuePart
                 _string = sb2.toString();
                 size = sb2.length()*2+2;
                 break;
+            case Ss:
+                StringBuffer sb3 = new StringBuffer();
+				char ch1;
+				while ((ch1 = buf.getChar()) != 0)
+				{
+					sb3.append(ch1);
+				}
+				_string = sb3.toString();
+				size = getBSize();
+				break;
         }
         // sets the raw bytes
         _bytes = new byte[size];
@@ -91,6 +101,12 @@ public class StringValuePart extends ValuePart
                     stream.write((byte)0x00);
                 }
                 break;
+           case Ss:
+				for (int i = 0; i < (_string.getBytes().length /2); i++)
+				{
+					stream.writeChar(_string.charAt(i));
+				}
+				break;
         }
     }
     

@@ -19,11 +19,8 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKF5;
+import com.aionemu.gameserver.network.aion.serverpackets.*;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -113,7 +110,7 @@ public class CM_REVIVE extends AionClientPacket
 		activePlayer.setProtectionActive(true);
 		//world.spawn(activePlayer);
 		
-		sendPacket(new SM_UNKF5(activePlayer));
+		sendPacket(new SM_PLAYER_SPAWN(activePlayer));
 		
 		/**
 		 * Set recoverable exp to player.
