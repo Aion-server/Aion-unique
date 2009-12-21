@@ -823,7 +823,7 @@
 		<packet id="0xE3" name="SM_CREATE_CHARACTER">
 			<part name="responseCode" type="d" />
 			<part name="objectId" type="d" />
-			<part name="characterName" type="b" size="44" />
+			<part name="characterName" type="Ss" size="44" />
 			<part name="gender(0=female,1=male)" type="d" />
 			<part name="race(0=asmo,1=elys)" type="d" />
 			<part name="classId" type="d" />
@@ -1002,7 +1002,7 @@
 			<part id="0" name="characters" type="c" />
 			<for id="0">
 				<part name="objectId" type="d" />
-				<part name="characterName" type="b" size="44" />
+				<part name="characterName" type="Ss" size="44" />
 				<part name="gender(0=female,1=male)" type="d" />
 				<part name="race(0=asmo,1=elys)" type="d" />
 				<part name="classId" type="d" />
@@ -1191,7 +1191,7 @@
 				<part name="genderId" type="c" />
 				<part name="level" type="c" />
 				<part name="lookForGroup" type="c" />
-				<part name="playerName" type="b" size="44" />
+				<part name="playerName" type="Ss" size="44" />
 			</for>
 		</packet>
 		<packet id="0x42" name="SM_UNK42">
@@ -1415,7 +1415,7 @@
 		<packet id="0x7A" name="CM_CREATE_CHARACTER">
 			<part name="playOk2" type="d" />
 			<part name="account" type="S" />
-			<part name="nick" type="b" size="44" />
+			<part name="nick" type="Ss" size="44" />
 			<part name="sex(0=male,1=female)" type="d" />
 			<part name="race(0=asmo,1=elys)" type="d" />
 			<part name="classId" type="d" />
@@ -1626,7 +1626,7 @@
 			<part name="playerName" type="S" />
 		</packet>
 		<packet id="0x12" name="CM_PLAYER_SEARCH">
-			<part name="playerName" type="b" size="44" />
+			<part name="playerName" type="Ss" size="44" />
 			<part name="regionId" type="d" />
 			<part name="classMask" type="d" />
 			<part name="minLevel" type="c" />
