@@ -112,6 +112,9 @@ public class ZoneManager
 			return;
 		
 		List<ZoneInstance> zones = zoneByMapIdMap.get(mapRegion.getMapId());
+		if(zones == null)
+			return;
+		
 		for(ZoneInstance zone : zones)
 		{
 			if(checkPointInZone(zone, player.getPosition()))
