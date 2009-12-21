@@ -288,47 +288,7 @@ public class QuestEngine
 
 	public void addItem(Player player, int itemId, int count)
 	{
-		Inventory inventory = player.getInventory();
-		if (itemId == ItemId.KINAH.value())
-		{
-			inventory.increaseKinah(count);
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
-		}
-		else
-		{
-			List<Item> items = new ArrayList<Item>();
-			int currentItemCount = count;
-			while (currentItemCount > 0)
-			{
-				Item newItem = itemService.newItem(itemId, currentItemCount);
-				
-				Item existingItem = inventory.getItemByItemId(itemId);
-				
-				//item already in cube
-				if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
-				{
-					int oldItemCount = existingItem.getItemCount();
-					Item addedItem = inventory.addToBag(newItem);
-					if(addedItem != null)
-					{
-						currentItemCount -= addedItem.getItemCount() - oldItemCount;
-						PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), player.getCubeSize()));
-					}
-				}
-				// new item and inventory is not full
-				else if (!inventory.isFull())
-				{
-					Item addedItem = inventory.addToBag(newItem);
-					if(addedItem != null)
-					{
-						currentItemCount -= addedItem.getItemCount();
-						items.add(addedItem);
-					}
-				}
-			}
-			if (!items.isEmpty())
-				PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(items));
-		}
+		itemService.addItem(player, itemId, count);
 	}
 
 	public void clear()

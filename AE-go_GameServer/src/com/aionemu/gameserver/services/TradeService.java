@@ -70,7 +70,17 @@ public class TradeService
 			if(item != null)
 			{
 				Item resultItem = inventory.addToBag(item);
-				addedItems.add(resultItem);
+				if(resultItem != null)
+				{
+					if(resultItem.getObjectId() != item.getObjectId())
+						itemService.releaseItemId(item);
+					addedItems.add(resultItem);
+				}
+				else
+				{
+					itemService.releaseItemId(item);
+				}
+
 			}
 		}
 		kinahItem.decreaseItemCount(tradeListPrice);
@@ -90,20 +100,16 @@ public class TradeService
 	{
 		Inventory inventory = player.getInventory();
 		
-		List<Item> removedItems = new ArrayList<Item>();
+		int kinahReward = 0;		
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
 			Item item = inventory.getItemByObjId(tradeItem.getItemId());
 			// 1) don't allow to sell fake items;
 			if(item == null)
 				return false;
-			removedItems.add(item);
-		}
-		
-		int kinahReward = 0;
-		for(Item item : removedItems)
-		{
+			
 			inventory.removeFromBag(item);
+			itemService.releaseItemId(item);
 			kinahReward += item.getItemTemplate().getPrice() * item.getItemCount();
 			//TODO check retail packet here
 			PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(item.getObjectId()));

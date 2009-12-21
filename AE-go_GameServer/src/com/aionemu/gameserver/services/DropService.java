@@ -213,8 +213,16 @@ public class DropService
 				Item addedItem = inventory.addToBag(newItem);
 				if(addedItem != null)
 				{
+					//release id if item was put to stack
+					if(addedItem.getObjectId() != newItem.getObjectId())
+						itemService.releaseItemId(newItem);
+					
 					currentDropItemCount -= addedItem.getItemCount() - oldItemCount;
 					PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), player.getCubeSize()));
+				}
+				else
+				{
+					itemService.releaseItemId(newItem);
 				}
 			}
 			// new item and inventory is not full
@@ -225,6 +233,10 @@ public class DropService
 				{
 					currentDropItemCount -= addedItem.getItemCount();
 					PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(Collections.singletonList(addedItem)));
+				}
+				else
+				{
+					itemService.releaseItemId(newItem);
 				}
 			}
 			

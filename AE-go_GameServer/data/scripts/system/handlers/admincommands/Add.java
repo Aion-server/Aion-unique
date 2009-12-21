@@ -91,6 +91,7 @@ public class Add extends AdminCommand
 		{
 			addedItem = inventory.getKinahItem();
 			addedItem.increaseItemCount(itemCount);
+			itemService.releaseItemId(item);
 		}
 		else
 		{
@@ -104,6 +105,7 @@ public class Add extends AdminCommand
 		}
 		else
 		{
+			itemService.releaseItemId(item);
 			PacketSendUtility.sendMessage(admin, "Item couldn't be added");
 		}
 	}

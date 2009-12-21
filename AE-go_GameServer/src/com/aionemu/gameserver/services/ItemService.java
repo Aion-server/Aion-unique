@@ -17,18 +17,24 @@
 package com.aionemu.gameserver.services;
 
 import org.apache.log4j.Logger;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.InventoryDAO;
+import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
@@ -102,6 +108,25 @@ public class ItemService
 
 		return new Item(itemUniqueId, itemTemplate, count, isEquipped, slot);
 	}       
+	
+	/**
+	 *  Loads item stones from DB for each item in a list if item is ARMOR or WEAPON
+	 *  
+	 * @param itemList
+	 */
+	public void loadItemStones(List<Item> itemList)
+	{
+		if(itemList == null)
+			return;
+		
+		for(Item item : itemList)
+		{
+			if(item.getItemTemplate().isArmor() || item.getItemTemplate().isWeapon())
+			{
+				item.setItemStones(DAOManager.getDAO(ItemStoneListDAO.class).load(item.getObjectId()));
+			}
+		}
+	}
 
 	/**
 	 *  Used to split item into 2 items
@@ -137,6 +162,78 @@ public class ItemService
 		else
 		{
 			releaseItemId(newItem);
+		}
+	}
+	
+	/**
+	 *  Adds item count to player inventory
+	 *  I moved this method to service cause right implementation of it is critical to server
+	 *  operation and could cause starvation of object ids.
+	 *  
+	 *  This packet will send necessary packets to client (initialize used only from quest engine
+	 *  
+	 * @param player
+	 * @param itemId
+	 * @param count
+	 */
+	public void addItem(Player player, int itemId, int count)
+	{
+		Inventory inventory = player.getInventory();
+		if (itemId == ItemId.KINAH.value())
+		{
+			inventory.increaseKinah(count);
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
+		}
+		else
+		{
+			List<Item> items = new ArrayList<Item>();
+			int currentItemCount = count;
+			while (currentItemCount > 0)
+			{
+				Item newItem = newItem(itemId, currentItemCount);
+				
+				Item existingItem = inventory.getItemByItemId(itemId);
+				
+				//item already in cube
+				if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
+				{
+					int oldItemCount = existingItem.getItemCount();
+					Item addedItem = inventory.addToBag(newItem);
+					if(addedItem != null)
+					{
+						if(addedItem.getObjectId() != newItem.getObjectId())
+							releaseItemId(newItem);
+							
+						currentItemCount -= addedItem.getItemCount() - oldItemCount;
+						PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), player.getCubeSize()));
+					}
+					else
+					{
+						releaseItemId(newItem);
+						currentItemCount = 0;
+					}
+				}
+				// new item and inventory is not full
+				else if (!inventory.isFull())
+				{
+					Item addedItem = inventory.addToBag(newItem);
+					if(addedItem != null)
+					{
+						if(addedItem.getObjectId() != newItem.getObjectId())
+							releaseItemId(newItem);
+						
+						currentItemCount -= addedItem.getItemCount();
+						items.add(addedItem);
+					}
+					else
+					{
+						releaseItemId(newItem);
+						currentItemCount = 0;
+					}
+				}
+			}
+			if (!items.isEmpty())
+				PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(items));
 		}
 	}
 	

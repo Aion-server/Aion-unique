@@ -30,6 +30,7 @@ import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.dao.BlockListDAO;
 import com.aionemu.gameserver.dao.FriendListDAO;
 import com.aionemu.gameserver.dao.InventoryDAO;
+import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
@@ -55,6 +56,7 @@ import com.aionemu.gameserver.model.gameobjects.player.TitleList;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.TitleChangeListener;
+import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
@@ -186,6 +188,8 @@ public class PlayerService
 		
 		player.setQuestStateList(DAOManager.getDAO(QuestListDAO.class).load(player));
 		player.setInventory(DAOManager.getDAO(InventoryDAO.class).load(player));
+		itemService.loadItemStones(player.getInventory().getAllItems());
+		
 		if (player.getCommonData().getTitleId()>0)
 		{
 			TitleChangeListener.onTitleChange(player.getGameStats(), player.getCommonData().getTitleId(), true);
