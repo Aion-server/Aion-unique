@@ -31,6 +31,7 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
+import com.aionemu.gameserver.utils.DeadlockDetector;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.ThreadUncaughtExceptionHandler;
 import com.aionemu.gameserver.utils.Util;
@@ -86,6 +87,9 @@ public class GameServer
 		//Set all players is offline
 		DAOManager.getDAO(PlayerDAO.class).setPlayersOffline(false);
 		gs.spawnMonsters();
+		
+		log.info("Starting deadlock detector");
+		new Thread(new DeadlockDetector(300)).start();
 		
 		SkillEngine.getInstance().setWorld(gs.injector.getInstance(World.class));
 		QuestEngine.getInstance().setItemService(gs.injector.getInstance(ItemService.class));
