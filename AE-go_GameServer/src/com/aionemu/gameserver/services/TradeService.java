@@ -109,7 +109,7 @@ public class TradeService
 				return false;
 			
 			inventory.removeFromBag(item);
-			itemService.releaseItemId(item);
+			
 			kinahReward += item.getItemTemplate().getPrice() * item.getItemCount();
 			//TODO check retail packet here
 			PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(item.getObjectId()));

@@ -31,51 +31,56 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
  */
 public class CM_USE_ITEM extends AionClientPacket {
 
-    public int uniqueItemId;
-    public int type, targetItemId;
+	public int uniqueItemId;
+	public int type, targetItemId;
 
 
-    private static final Logger log = Logger.getLogger(CM_USE_ITEM.class);
+	private static final Logger log = Logger.getLogger(CM_USE_ITEM.class);
 
-    public CM_USE_ITEM(int opcode) {
-        super(opcode);
-    }
+	public CM_USE_ITEM(int opcode) {
+		super(opcode);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void readImpl() {
-        uniqueItemId = readD();
-        type = readC();
-        if (type == 2)
-        {
-            targetItemId = readD();
-        }
-    }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void readImpl() {
+		uniqueItemId = readD();
+		type = readC();
+		if (type == 2)
+		{
+			targetItemId = readD();
+		}
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void runImpl() {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void runImpl() {
 
 
-            Player player = getConnection().getActivePlayer();
-            Item item = player.getInventory().getItemByObjId(uniqueItemId);
-            
-            if (QuestEngine.getInstance().onItemUseUp(new QuestEnv(null, player, 0, 0), item.getItemTemplate().getItemId()))
-            	return;
+		Player player = getConnection().getActivePlayer();
+		Item item = player.getInventory().getItemByObjId(uniqueItemId);
+		if(item == null)
+		{
+			log.warn(String.format("CHECKPOINT: null item use action: %d %d", player.getObjectId(), uniqueItemId));
+			return;
+		}
 
-            Item targetItem = player.getInventory().findItemByObjId(targetItemId);
-            ItemActions itemActions = item.getItemTemplate().getActions();
-        
-            if (itemActions != null)
-            {
-                for (AbstractItemAction itemAction : itemActions.getItemActions())
-                {
-                    itemAction.act(player, item, targetItem);
-                }
-            }
-    }
+		if (QuestEngine.getInstance().onItemUseUp(new QuestEnv(null, player, 0, 0), item.getItemTemplate().getItemId()))
+			return;
+
+		Item targetItem = player.getInventory().findItemByObjId(targetItemId);
+		ItemActions itemActions = item.getItemTemplate().getActions();
+
+		if (itemActions != null)
+		{
+			for (AbstractItemAction itemAction : itemActions.getItemActions())
+			{
+				itemAction.act(player, item, targetItem);
+			}
+		}
+	}
 }

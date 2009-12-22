@@ -139,6 +139,12 @@ public class ItemService
 		Inventory inventory = player.getInventory();
 
 		Item itemToSplit = inventory.getItemByObjId(itemObjId);
+		if(itemToSplit == null)
+		{
+			log.warn(String.format("CHECKPOINT: attempt to split null item %d %d %d", itemObjId, splitAmount, slotNum));
+			return;
+		}
+		
 		int oldItemCount = itemToSplit.getItemCount() - splitAmount;
 
 		if(itemToSplit.getItemCount()<splitAmount || oldItemCount == 0)

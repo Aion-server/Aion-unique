@@ -112,7 +112,6 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 				if (resultItem != null) 
 				{
 					bag.removeFromBag(resultItem);
-					itemService.releaseItemId(resultItem);
 					PacketSendUtility.sendPacket(targetPlayer, new SM_DELETE_ITEM(itemObjId));
 				}
 
@@ -164,7 +163,6 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 				if (resultItem != null) 
 				{
 					bag.removeFromBag(resultItem);
-					itemService.releaseItemId(resultItem);
 					PacketSendUtility.sendPacket(activePlayer, new SM_DELETE_ITEM(itemObjId));
 				}
 

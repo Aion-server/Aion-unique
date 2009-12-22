@@ -20,6 +20,9 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
@@ -32,6 +35,8 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_PLAYER_SEARCH extends AionServerPacket
 {
+	private static final Logger log = Logger.getLogger(SM_PLAYER_SEARCH.class);
+	
 	private List<Player> players;
 	
 	/**
@@ -53,6 +58,11 @@ public class SM_PLAYER_SEARCH extends AionServerPacket
 		writeH(buf, players.size());
 		for (Player player : players)
 		{
+			if(player.getActiveRegion() == null)
+			{
+				log.warn("CHECKPOINT: null active region for " + player.getObjectId() 
+					+ "-" + player.getX() + "-" + player.getY() + "-" + player.getZ());
+			}
 			writeD(buf, player.getActiveRegion().getMapId());
 			writeF(buf, player.getPosition().getX());
 			writeF(buf, player.getPosition().getY());
