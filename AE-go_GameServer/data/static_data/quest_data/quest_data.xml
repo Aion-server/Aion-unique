@@ -136,7 +136,7 @@
         <collect_items>
             <collect_item count="6" item_id="182200003"/>
         </collect_items>
-        <rewards title="light_title04" exp="2830" reward_id="1">
+        <rewards title="4" exp="2830" reward_id="1">
             <selectable_reward_item count="1" item_id="100200613"/>
             <selectable_reward_item count="1" item_id="100000651"/>
             <selectable_reward_item count="1" item_id="100100505"/>
@@ -161,7 +161,7 @@
         </rewards>
     </quest>
     <quest race_permitted="ELYOS" f_mission="1" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="4" name="Barring the Gate" id="1005">
-        <rewards title="light_title01" exp="11500" reward_id="1">
+        <rewards title="1" exp="11500" reward_id="1">
             <selectable_reward_item count="1" item_id="110100869"/>
             <selectable_reward_item count="1" item_id="110300824"/>
             <selectable_reward_item count="1" item_id="110500794"/>
@@ -255,7 +255,7 @@
         <collect_items>
             <collect_item count="50" item_id="182200020"/>
         </collect_items>
-        <rewards title="light_title05" exp="120500" reward_id="1">
+        <rewards title="5" exp="120500" reward_id="1">
             <selectable_reward_item count="1" item_id="110100870"/>
             <selectable_reward_item count="1" item_id="110300825"/>
             <selectable_reward_item count="1" item_id="110500795"/>
@@ -274,7 +274,7 @@
         <collect_items>
             <collect_item count="1" item_id="182200024"/>
         </collect_items>
-        <rewards title="light_title02" exp="208500" reward_id="1">
+        <rewards title="2" exp="208500" reward_id="1">
             <selectable_reward_item count="1" item_id="122000886"/>
             <selectable_reward_item count="1" item_id="122000887"/>
         </rewards>
@@ -363,7 +363,7 @@
         <collect_items>
             <collect_item count="1" item_id="182201003"/>
         </collect_items>
-        <rewards title="light_title10" exp="233800" reward_id="1">
+        <rewards title="10" exp="233800" reward_id="1">
             <selectable_reward_item count="1" item_id="123000880"/>
             <selectable_reward_item count="1" item_id="123000881"/>
         </rewards>
@@ -411,7 +411,7 @@
         <finished_quest_conds>1036</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="33" name="A Dangerous Artifact" id="1041">
-        <rewards title="light_title11" exp="1496700" reward_id="1">
+        <rewards title="11" exp="1496700" reward_id="1">
             <selectable_reward_item count="1" item_id="113100785"/>
             <selectable_reward_item count="1" item_id="113300803"/>
             <selectable_reward_item count="1" item_id="113500774"/>
@@ -429,7 +429,7 @@
         <finished_quest_conds>1040</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" f_mission="1" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="35" name="Balaur Conspiracy" id="1043">
-        <rewards title="light_title12" exp="2467700" reward_id="1">
+        <rewards title="12" exp="2467700" reward_id="1">
             <selectable_reward_item count="1" item_id="110100874"/>
             <selectable_reward_item count="1" item_id="110300829"/>
             <selectable_reward_item count="1" item_id="110500799"/>
@@ -482,7 +482,7 @@
         <collect_items>
             <collect_item count="50" item_id="182201608"/>
         </collect_items>
-        <rewards title="light_title23" exp="987100" reward_id="1">
+        <rewards title="23" exp="987100" reward_id="1">
             <selectable_reward_item count="1" item_id="110100873"/>
             <selectable_reward_item count="1" item_id="110300828"/>
             <selectable_reward_item count="1" item_id="110500798"/>
@@ -518,7 +518,7 @@
         <collect_items>
             <collect_item count="1" item_id="182201616"/>
         </collect_items>
-        <rewards title="light_title24" exp="2897900" reward_id="1">
+        <rewards title="24" exp="2897900" reward_id="1">
             <selectable_reward_item count="1" item_id="112100739"/>
             <selectable_reward_item count="1" item_id="112300736"/>
             <selectable_reward_item count="1" item_id="112500724"/>
@@ -562,7 +562,7 @@
         </rewards>
     </quest>
     <quest race_permitted="ELYOS" f_mission="1" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="41" name="Brigadier Indratu" id="1063">
-        <rewards title="light_title25" exp="5621300" reward_id="1">
+        <rewards title="25" exp="5621300" reward_id="1">
             <selectable_reward_item count="1" item_id="100200620"/>
             <selectable_reward_item count="1" item_id="100000662"/>
             <selectable_reward_item count="1" item_id="100100514"/>
@@ -595,7 +595,7 @@
         <rewards gold="1070" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="25" name="Speaking Balaur" id="1071">
-        <rewards title="light_title30" reward_abyss_point="800" exp="291400" reward_id="1"/>
+        <rewards title="30" reward_abyss_point="800" exp="291400" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="25" name="Abyss Training" id="1072">
         <rewards reward_abyss_point="500" exp="15000" reward_id="1">
@@ -630,7 +630,7 @@
         <finished_quest_conds>1074 1038</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" f_mission="1" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="35" name="Fragment of Memory 3" id="1077">
-        <rewards title="light_title46" reward_abyss_point="3000" exp="3693300" reward_id="1">
+        <rewards title="46" reward_abyss_point="3000" exp="3693300" reward_id="1">
             <selectable_reward_item count="1" item_id="121000779"/>
             <selectable_reward_item count="1" item_id="121000780"/>
         </rewards>
@@ -668,7 +668,7 @@
             <collect_item count="1" item_id="182208020"/>
             <collect_item count="1" item_id="182208021"/>
         </collect_items>
-        <rewards title="light_title47" exp="7303500" reward_id="1">
+        <rewards title="47" exp="7303500" reward_id="1">
             <reward_item count="1" item_id="187000006"/>
         </rewards>
         <finished_quest_conds>1093 1071</finished_quest_conds>
@@ -700,11 +700,11 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" f_mission="1" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="50" name="An Important Choice" id="1099">
-        <rewards title="light_title49" exp="7303500" reward_id="1">
+        <rewards title="49" exp="7303500" reward_id="1">
             <selectable_reward_item count="1" item_id="121000842"/>
             <selectable_reward_item count="1" item_id="121000843"/>
         </rewards>
-        <rewards title="light_title49" exp="7303500" reward_id="2">
+        <rewards title="49" exp="7303500" reward_id="2">
             <selectable_reward_item count="1" item_id="121000842"/>
             <selectable_reward_item count="1" item_id="121000843"/>
         </rewards>
@@ -997,7 +997,7 @@
         <collect_items>
             <collect_item count="5" item_id="182200210"/>
         </collect_items>
-        <rewards title="light_title07" exp="6050" gold="600" reward_id="1">
+        <rewards title="7" exp="6050" gold="600" reward_id="1">
             <reward_item count="4" item_id="162000012"/>
         </rewards>
         <finished_quest_conds>1123</finished_quest_conds>
@@ -1104,7 +1104,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="11" name="Nola's Request" id="1143">
-        <rewards title="light_title06" exp="19500" gold="1800" reward_id="1"/>
+        <rewards title="6" exp="19500" gold="1800" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="11" name="Pumpkin Season" id="1144">
         <collect_items>
@@ -1290,7 +1290,7 @@
         <rewards exp="8240" gold="820" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="14" name="Lightningfoot Tuka" id="1169">
-        <rewards title="light_title03" exp="9980" reward_id="1">
+        <rewards title="3" exp="9980" reward_id="1">
             <reward_item count="5" item_id="164000074"/>
         </rewards>
         <finished_quest_conds>1158</finished_quest_conds>
@@ -1714,7 +1714,7 @@
         <finished_quest_conds>1317</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="19" name="Prorite's Money" id="1319">
-        <rewards title="light_title09" exp="20000" reward_id="1"/>
+        <rewards title="9" exp="20000" reward_id="1"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182201370"/>
         </quest_work_items>
@@ -1878,7 +1878,7 @@
         <finished_quest_conds>1347</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="30" name="The Klaws' Secret" id="1349">
-        <rewards title="light_title13" exp="136160" gold="12000" reward_id="1">
+        <rewards title="13" exp="136160" gold="12000" reward_id="1">
             <reward_item count="2" item_id="166000031"/>
         </rewards>
         <finished_quest_conds>1348</finished_quest_conds>
@@ -1908,7 +1908,7 @@
         <rewards exp="75800" gold="10200" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="30" name="Practical Aerobatics" id="1354">
-        <rewards title="light_title14" exp="100000" reward_id="1"/>
+        <rewards title="14" exp="100000" reward_id="1"/>
         <finished_quest_conds>1423</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="30" name="The Fire Temple Key" id="1355">
@@ -2014,7 +2014,7 @@
             <collect_item count="1" item_id="169400115"/>
             <collect_item count="1" item_id="169400116"/>
         </collect_items>
-        <rewards title="light_title15" exp="323600" reward_id="1">
+        <rewards title="15" exp="323600" reward_id="1">
             <reward_item count="1" item_id="152201407"/>
         </rewards>
         <finished_quest_conds>1367</finished_quest_conds>
@@ -2029,7 +2029,7 @@
         <collect_items>
             <collect_item count="5" item_id="152000601"/>
         </collect_items>
-        <rewards title="light_title16" exp="222400" reward_id="1">
+        <rewards title="16" exp="222400" reward_id="1">
             <selectable_reward_item count="1" item_id="111100776"/>
             <selectable_reward_item count="1" item_id="111300780"/>
             <selectable_reward_item count="1" item_id="111500763"/>
@@ -2621,7 +2621,7 @@
         </rewards>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="26" name="[Spy] Respect For Deltras" id="1466">
-        <rewards title="light_title17" reward_abyss_point="100" exp="280000" reward_id="1">
+        <rewards title="17" reward_abyss_point="100" exp="280000" reward_id="1">
             <selectable_reward_item count="1" item_id="125001887"/>
             <selectable_reward_item count="1" item_id="125001888"/>
             <selectable_reward_item count="1" item_id="125001889"/>
@@ -2663,7 +2663,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="32" name="[Spy/Group] Hannet's Vengeance" id="1470">
-        <rewards title="light_title18" reward_abyss_point="100" exp="780600" reward_id="1">
+        <rewards title="18" reward_abyss_point="100" exp="780600" reward_id="1">
             <selectable_reward_item count="1" item_id="100200617"/>
             <selectable_reward_item count="1" item_id="100000658"/>
             <selectable_reward_item count="1" item_id="100100511"/>
@@ -2794,7 +2794,7 @@
         <rewards exp="31000" gold="4500" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="24" name="Three Kurin Brothers" id="1488">
-        <rewards title="light_title20" exp="80000" gold="10500" reward_id="1"/>
+        <rewards title="20" exp="80000" gold="10500" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="24" name="Marfonda of Darkness" id="1489"/>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="24" name="A Lepharist Box" id="1490">
@@ -2846,7 +2846,7 @@
             <collect_item count="1" item_id="182201414"/>
             <collect_item count="200" item_id="186000028"/>
         </collect_items>
-        <rewards title="light_title42" exp="843450" reward_id="1">
+        <rewards title="42" exp="843450" reward_id="1">
             <selectable_reward_item count="1" item_id="110100876"/>
             <selectable_reward_item count="1" item_id="110300831"/>
             <selectable_reward_item count="1" item_id="110500801"/>
@@ -3240,7 +3240,7 @@
         <collect_items>
             <collect_item count="1" item_id="182201797"/>
         </collect_items>
-        <rewards title="light_title28" reward_abyss_point="150" exp="2215980" reward_id="1">
+        <rewards title="28" reward_abyss_point="150" exp="2215980" reward_id="1">
             <selectable_reward_item count="1" item_id="120000852"/>
             <selectable_reward_item count="1" item_id="120000853"/>
         </rewards>
@@ -3648,7 +3648,7 @@
         <collect_items>
             <collect_item count="10" item_id="182201802"/>
         </collect_items>
-        <rewards title="light_title44" exp="2111460" reward_id="1">
+        <rewards title="44" exp="2111460" reward_id="1">
             <selectable_reward_item count="1" item_id="100200621"/>
             <selectable_reward_item count="1" item_id="100000663"/>
             <selectable_reward_item count="1" item_id="100100515"/>
@@ -3661,7 +3661,7 @@
         <finished_quest_conds>1937</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="35" name="Start Spreading the News" id="1620">
-        <rewards title="light_title26" exp="350940" gold="13000" reward_id="1">
+        <rewards title="26" exp="350940" gold="13000" reward_id="1">
             <reward_item count="3" item_id="166000039"/>
         </rewards>
         <finished_quest_conds>1614</finished_quest_conds>
@@ -3832,7 +3832,7 @@
         <rewards exp="333000" gold="15500" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="42" name="Dressing Up For Bollvig" id="1647">
-        <rewards title="light_title27" exp="1931100" reward_id="1">
+        <rewards title="27" exp="1931100" reward_id="1">
             <reward_item count="2" item_id="167000497"/>
         </rewards>
         <finished_quest_conds>1059</finished_quest_conds>
@@ -4035,7 +4035,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="43" name="A Cube for Michalis" id="1686">
-        <rewards title="light_title29" reward_abyss_point="200" exp="738660" reward_id="1">
+        <rewards title="29" reward_abyss_point="200" exp="738660" reward_id="1">
             <selectable_reward_item count="1" item_id="121000781"/>
             <selectable_reward_item count="1" item_id="121000782"/>
         </rewards>
@@ -4113,7 +4113,7 @@
         <rewards reward_abyss_point="300" exp="15000" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="25" name="Defeat 9th Rank Asmodian Soldiers" id="1702">
-        <rewards title="light_title31" reward_abyss_point="100" exp="311700" reward_id="1">
+        <rewards title="31" reward_abyss_point="100" exp="311700" reward_id="1">
             <reward_item count="5" item_id="162000049"/>
         </rewards>
     </quest>
@@ -4175,7 +4175,7 @@
         <finished_quest_conds>1708</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="25" name="Defeat 1st Rank Asmodian Soldiers" id="1710">
-        <rewards title="light_title32" reward_abyss_point="900" exp="1266900" reward_id="1">
+        <rewards title="32" reward_abyss_point="900" exp="1266900" reward_id="1">
             <reward_item count="3" item_id="166000060"/>
         </rewards>
         <finished_quest_conds>1709</finished_quest_conds>
@@ -4206,7 +4206,7 @@
         <rewards exp="1000" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="255" minlevel_permitted="25" name="Trading Down" id="1718">
-        <rewards title="light_title45" reward_abyss_point="50" exp="90000" reward_id="1">
+        <rewards title="45" reward_abyss_point="50" exp="90000" reward_id="1">
             <reward_item count="1" item_id="182005204"/>
         </rewards>
         <quest_work_items>
@@ -4217,7 +4217,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="40" name="[Group] Confront Asmodian Officers" id="1719">
-        <rewards title="light_title33" reward_abyss_point="1000" exp="2108600" reward_id="1">
+        <rewards title="33" reward_abyss_point="1000" exp="2108600" reward_id="1">
             <selectable_reward_item count="1" item_id="168000059"/>
             <selectable_reward_item count="1" item_id="168000060"/>
             <selectable_reward_item count="1" item_id="168000061"/>
@@ -4229,7 +4229,7 @@
         <finished_quest_conds>1710</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="40" name="[Group] Confront Asmodian Generals" id="1720">
-        <rewards title="light_title34" reward_abyss_point="2500" exp="3693300" reward_id="1">
+        <rewards title="34" reward_abyss_point="2500" exp="3693300" reward_id="1">
             <selectable_reward_item count="1" item_id="168000051"/>
             <selectable_reward_item count="1" item_id="168000052"/>
             <selectable_reward_item count="1" item_id="168000053"/>
@@ -4341,7 +4341,7 @@
         <finished_quest_conds>1736</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="47" name="[Alliance] Defeat Upper Gatekeepers" id="1738">
-        <rewards title="light_title43" reward_abyss_point="450" exp="1289080" gold="50000" reward_id="1"/>
+        <rewards title="43" reward_abyss_point="450" exp="1289080" gold="50000" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="255" minlevel_permitted="47" name="[Alliance] Defeat Upper Generals" id="1739">
         <rewards reward_abyss_point="500" exp="2921400" reward_id="1"/>
@@ -4670,7 +4670,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="38" name="Jakurerk's Shot at the Big Time" id="1798">
-        <rewards title="light_title41" reward_abyss_point="1000" exp="1265200" reward_id="1">
+        <rewards title="41" reward_abyss_point="1000" exp="1265200" reward_id="1">
             <selectable_reward_item count="1" item_id="112100737"/>
             <selectable_reward_item count="1" item_id="112300734"/>
             <selectable_reward_item count="1" item_id="112500722"/>
@@ -5140,7 +5140,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="Krallic Language Potion" id="1901">
-        <rewards title="light_title08" exp="19800" reward_id="1"/>
+        <rewards title="8" exp="19800" reward_id="1"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182206000"/>
         </quest_work_items>
@@ -5360,7 +5360,7 @@
         <finished_quest_conds>1471</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="36" name="[Spy] Going out of Business" id="1939">
-        <rewards title="light_title19" reward_abyss_point="320" exp="1082300" reward_id="1">
+        <rewards title="19" reward_abyss_point="320" exp="1082300" reward_id="1">
             <reward_item count="1" item_id="122000893"/>
         </rewards>
         <finished_quest_conds>1938</finished_quest_conds>
@@ -5886,7 +5886,7 @@
         <finished_quest_conds>2005</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" f_mission="1" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="4" name="Where's Rae This Time?" id="2007">
-        <rewards title="dark_title01" exp="11500" reward_id="1">
+        <rewards title="51" exp="11500" reward_id="1">
             <selectable_reward_item count="1" item_id="110100859"/>
             <selectable_reward_item count="1" item_id="110300814"/>
             <selectable_reward_item count="1" item_id="110500784"/>
@@ -6017,7 +6017,7 @@
         </rewards>
     </quest>
     <quest race_permitted="ASMODIAN" f_mission="1" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="12" name="Crushing the Conspiracy" id="2022">
-        <rewards title="dark_title07" exp="167200" reward_id="1">
+        <rewards title="57" exp="167200" reward_id="1">
             <selectable_reward_item count="1" item_id="125001765"/>
             <selectable_reward_item count="1" item_id="125001766"/>
             <selectable_reward_item count="1" item_id="125001767"/>
@@ -6075,7 +6075,7 @@
         <collect_items>
             <collect_item count="3" item_id="182204006"/>
         </collect_items>
-        <rewards title="dark_title09" exp="180100" reward_id="1">
+        <rewards title="59" exp="180100" reward_id="1">
             <selectable_reward_item count="1" item_id="111100766"/>
             <selectable_reward_item count="1" item_id="111300771"/>
             <selectable_reward_item count="1" item_id="111500754"/>
@@ -6083,7 +6083,7 @@
         </rewards>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="25" name="The Hand Behind the Ice Claw" id="2034">
-        <rewards title="dark_title08" exp="291400" reward_id="1">
+        <rewards title="58" exp="291400" reward_id="1">
             <selectable_reward_item count="1" item_id="125001769"/>
             <selectable_reward_item count="1" item_id="125001770"/>
             <selectable_reward_item count="1" item_id="125001771"/>
@@ -6144,7 +6144,7 @@
         <finished_quest_conds>2039</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" f_mission="1" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="34" name="[Group] Hold The Front Line" id="2041">
-        <rewards title="dark_title10" exp="2108600" reward_id="1">
+        <rewards title="60" exp="2108600" reward_id="1">
             <selectable_reward_item count="1" item_id="100200609"/>
             <selectable_reward_item count="1" item_id="100000645"/>
             <selectable_reward_item count="1" item_id="100100501"/>
@@ -6205,7 +6205,7 @@
         <collect_items>
             <collect_item count="1" item_id="182204312"/>
         </collect_items>
-        <rewards title="dark_title23" exp="3218600" reward_id="1">
+        <rewards title="73" exp="3218600" reward_id="1">
             <reward_item count="1" item_id="121000760"/>
         </rewards>
         <finished_quest_conds>2054</finished_quest_conds>
@@ -6257,7 +6257,7 @@
         </rewards>
     </quest>
     <quest race_permitted="ASMODIAN" f_mission="1" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="39" name="Suppressing the Bakarma Legion" id="2061">
-        <rewards title="dark_title24" exp="5621300" reward_id="1">
+        <rewards title="74" exp="5621300" reward_id="1">
             <selectable_reward_item count="1" item_id="100200610"/>
             <selectable_reward_item count="1" item_id="100000648"/>
             <selectable_reward_item count="1" item_id="100100502"/>
@@ -6296,7 +6296,7 @@
         <rewards gold="2070" reward_id="1"/>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="25" name="Speaking Balaur" id="2071">
-        <rewards title="dark_title30" reward_abyss_point="800" exp="180100" reward_id="1"/>
+        <rewards title="80" reward_abyss_point="800" exp="180100" reward_id="1"/>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="25" name="Abyss Battle Training" id="2072">
         <rewards reward_abyss_point="500" exp="15000" reward_id="1">
@@ -6322,7 +6322,7 @@
         <finished_quest_conds>2072</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" f_mission="1" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="33" name="The Shadow Summons" id="2076">
-        <rewards title="dark_title46" reward_abyss_point="2500" exp="3693300" reward_id="1">
+        <rewards title="96" reward_abyss_point="2500" exp="3693300" reward_id="1">
             <reward_item count="5" item_id="162000050"/>
             <reward_item count="10" item_id="164000070"/>
             <reward_item count="5" item_id="164000071"/>
@@ -6373,7 +6373,7 @@
         <collect_items>
             <collect_item count="3" item_id="182209013"/>
         </collect_items>
-        <rewards title="dark_title47" exp="7303500" reward_id="1">
+        <rewards title="97" exp="7303500" reward_id="1">
             <reward_item count="1" item_id="187000007"/>
         </rewards>
         <finished_quest_conds>2093 2054</finished_quest_conds>
@@ -6405,11 +6405,11 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIAN" f_mission="1" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="50" name="Taken by the Krall" id="2099">
-        <rewards title="dark_title49" exp="7303500" reward_id="1">
+        <rewards title="99" exp="7303500" reward_id="1">
             <selectable_reward_item count="1" item_id="121000844"/>
             <selectable_reward_item count="1" item_id="121000845"/>
         </rewards>
-        <rewards title="dark_title49" exp="7303500" reward_id="2">
+        <rewards title="99" exp="7303500" reward_id="2">
             <selectable_reward_item count="1" item_id="121000844"/>
             <selectable_reward_item count="1" item_id="121000845"/>
         </rewards>
@@ -6592,7 +6592,7 @@
         <collect_items>
             <collect_item count="1" item_id="182203117"/>
         </collect_items>
-        <rewards title="dark_title02" exp="2300" reward_id="1">
+        <rewards title="52" exp="2300" reward_id="1">
             <reward_item count="1" item_id="121000749"/>
         </rewards>
         <finished_quest_conds>2116</finished_quest_conds>
@@ -6777,7 +6777,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="Mau in Ten Minutes a Day" id="2208">
-        <rewards title="dark_title04" exp="4650" reward_id="1"/>
+        <rewards title="54" exp="4650" reward_id="1"/>
         <finished_quest_conds>2207</finished_quest_conds>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203205"/>
@@ -6913,7 +6913,7 @@
         <collect_items>
             <collect_item count="10" item_id="182203223"/>
         </collect_items>
-        <rewards title="dark_title03" exp="24800" reward_id="1">
+        <rewards title="53" exp="24800" reward_id="1">
             <reward_item count="1" item_id="125001764"/>
         </rewards>
         <finished_quest_conds>2288</finished_quest_conds>
@@ -7242,7 +7242,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="16" name="Escaping Asmodae" id="2284">
-        <rewards title="dark_title05" exp="24500" reward_id="1">
+        <rewards title="55" exp="24500" reward_id="1">
             <reward_item count="1" item_id="122000871"/>
         </rewards>
         <finished_quest_conds>2247</finished_quest_conds>
@@ -7272,7 +7272,7 @@
         <collect_items>
             <collect_item count="1" item_id="182203016"/>
         </collect_items>
-        <rewards title="dark_title06" exp="28900" gold="3000" reward_id="1"/>
+        <rewards title="56" exp="28900" gold="3000" reward_id="1"/>
         <finished_quest_conds>2288</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="12" name="Groken's Escape" id="2290">
@@ -7564,7 +7564,7 @@
             <collect_item count="2" item_id="169400117"/>
             <collect_item count="5" item_id="169400114"/>
         </collect_items>
-        <rewards title="dark_title11" exp="117000" reward_id="1">
+        <rewards title="61" exp="117000" reward_id="1">
             <reward_item count="1" item_id="100100499"/>
             <reward_item count="1" item_id="152206412"/>
         </rewards>
@@ -7611,7 +7611,7 @@
         </rewards>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="Ancient Ginseng" id="2343">
-        <rewards title="dark_title12" exp="182700" reward_id="1">
+        <rewards title="62" exp="182700" reward_id="1">
             <reward_item count="1" item_id="123000867"/>
         </rewards>
         <quest_work_items>
@@ -7745,7 +7745,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="150" minlevel_permitted="27" name="A Quota of Creatures" id="2368">
-        <rewards title="dark_title27" exp="20060" gold="9200" reward_id="1"/>
+        <rewards title="77" exp="20060" gold="9200" reward_id="1"/>
         <finished_quest_conds>2357 2358 2359 2360</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="35" name="[Group] Barosunerk's Grand Plan" id="2369">
@@ -7810,7 +7810,7 @@
         <finished_quest_conds>2375</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Group] A Curse-Breaking Clue" id="2377">
-        <rewards title="dark_title13" exp="272300" gold="15000" reward_id="1">
+        <rewards title="63" exp="272300" gold="15000" reward_id="1">
             <reward_item count="5" item_id="162000009"/>
         </rewards>
         <finished_quest_conds>2376</finished_quest_conds>
@@ -7934,7 +7934,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="36" name="A Dying Wish" id="2394">
-        <rewards title="dark_title14" exp="598680" gold="11600" reward_id="1"/>
+        <rewards title="64" exp="598680" gold="11600" reward_id="1"/>
         <finished_quest_conds>2393</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="34" name="Report to the Observatory" id="2395">
@@ -8174,7 +8174,7 @@
         <finished_quest_conds>2039</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="37" name="[Group] Revenge is Sweet" id="2434">
-        <rewards title="dark_title16" exp="898020" reward_id="1">
+        <rewards title="66" exp="898020" reward_id="1">
             <selectable_reward_item count="1" item_id="114100801"/>
             <selectable_reward_item count="1" item_id="114300811"/>
             <selectable_reward_item count="1" item_id="114500773"/>
@@ -8195,7 +8195,7 @@
         <finished_quest_conds>2435</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="36" name="Father's Revenge" id="2437">
-        <rewards title="dark_title15" exp="286500" reward_id="1"/>
+        <rewards title="65" exp="286500" reward_id="1"/>
         <finished_quest_conds>2436</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="36" name="Quieting the Karnifs" id="2438">
@@ -8477,7 +8477,7 @@
             <collect_item count="3" item_id="182204199"/>
             <collect_item count="3" item_id="182204200"/>
         </collect_items>
-        <rewards title="dark_title19" reward_abyss_point="100" exp="387500" reward_id="1">
+        <rewards title="69" reward_abyss_point="100" exp="387500" reward_id="1">
             <selectable_reward_item count="1" item_id="111100790"/>
             <selectable_reward_item count="1" item_id="111300794"/>
             <selectable_reward_item count="1" item_id="111500777"/>
@@ -8490,7 +8490,7 @@
         <finished_quest_conds>2310</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="21" name="[Spy] Elim of Elysea" id="2480">
-        <rewards title="dark_title17" reward_abyss_point="100" exp="98000" reward_id="1">
+        <rewards title="67" reward_abyss_point="100" exp="98000" reward_id="1">
             <selectable_reward_item count="1" item_id="110100861"/>
             <selectable_reward_item count="1" item_id="110300816"/>
             <selectable_reward_item count="1" item_id="110500786"/>
@@ -8535,7 +8535,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="37" name="[Spy/Group] Killing Mabangtah" id="2485">
-        <rewards title="dark_title18" reward_abyss_point="200" exp="72400" reward_id="1">
+        <rewards title="68" reward_abyss_point="200" exp="72400" reward_id="1">
             <selectable_reward_item count="1" item_id="110100865"/>
             <selectable_reward_item count="1" item_id="110300820"/>
             <selectable_reward_item count="1" item_id="110500790"/>
@@ -8588,7 +8588,7 @@
             <collect_item count="1" item_id="182204241"/>
             <collect_item count="200" item_id="186000029"/>
         </collect_items>
-        <rewards title="dark_title44" exp="843450" reward_id="1">
+        <rewards title="94" exp="843450" reward_id="1">
             <selectable_reward_item count="1" item_id="110100867"/>
             <selectable_reward_item count="1" item_id="110300822"/>
             <selectable_reward_item count="1" item_id="110500792"/>
@@ -8604,7 +8604,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="20" name="Bringing up Tayga" id="2493">
-        <rewards title="dark_title20" exp="30000" gold="1100" reward_id="1"/>
+        <rewards title="70" exp="30000" gold="1100" reward_id="1"/>
     </quest>
     <quest cannot_share="true" max_repeat_count="1" minlevel_permitted="23" name="Three Treasures" id="2494">
         <collect_items>
@@ -8717,7 +8717,7 @@
             <collect_item count="1" item_id="182204409"/>
             <collect_item count="1" item_id="182204410"/>
         </collect_items>
-        <rewards title="dark_title25" exp="302400" gold="20200" reward_id="1"/>
+        <rewards title="75" exp="302400" gold="20200" reward_id="1"/>
         <finished_quest_conds>2528</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="35" name="Food for Remote Places" id="2512">
@@ -9111,7 +9111,7 @@
         <rewards exp="348400" gold="32200" reward_id="1"/>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="35" name="Delivering Medical Supplies" id="2571">
-        <rewards title="dark_title26" exp="322480" gold="5400" reward_id="1"/>
+        <rewards title="76" exp="322480" gold="5400" reward_id="1"/>
         <finished_quest_conds>2534</finished_quest_conds>
         <quest_work_items>
             <quest_work_item count="1" item_id="182204448"/>
@@ -9585,7 +9585,7 @@
         <finished_quest_conds>2654</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="43" name="[Spy] Letter to a Friend" id="2656">
-        <rewards title="dark_title29" reward_abyss_point="100" exp="2215980" reward_id="1">
+        <rewards title="79" reward_abyss_point="100" exp="2215980" reward_id="1">
             <selectable_reward_item count="1" item_id="100200634"/>
             <selectable_reward_item count="1" item_id="100000649"/>
             <selectable_reward_item count="1" item_id="100100503"/>
@@ -9912,7 +9912,7 @@
         <collect_items>
             <collect_item count="1" item_id="182204514"/>
         </collect_items>
-        <rewards title="dark_title28" exp="1015600" reward_id="1">
+        <rewards title="78" exp="1015600" reward_id="1">
             <selectable_reward_item count="1" item_id="100200611"/>
             <selectable_reward_item count="1" item_id="100900493"/>
             <selectable_reward_item count="1" item_id="101700524"/>
@@ -9928,7 +9928,7 @@
         <rewards reward_abyss_point="300" exp="15000" reward_id="1"/>
     </quest>
     <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="25" name="Defeat 9th Rank Elyos Soldiers" id="2702">
-        <rewards title="dark_title31" reward_abyss_point="100" exp="311700" reward_id="1">
+        <rewards title="81" reward_abyss_point="100" exp="311700" reward_id="1">
             <reward_item count="5" item_id="162000049"/>
         </rewards>
     </quest>
@@ -9990,7 +9990,7 @@
         <finished_quest_conds>2708</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="25" name="Defeat 1st Rank Elyos Soldiers" id="2710">
-        <rewards title="dark_title32" reward_abyss_point="900" exp="1266900" reward_id="1">
+        <rewards title="82" reward_abyss_point="900" exp="1266900" reward_id="1">
             <reward_item count="3" item_id="166000060"/>
         </rewards>
         <finished_quest_conds>2709</finished_quest_conds>
@@ -10021,7 +10021,7 @@
         <rewards exp="1000" reward_id="1"/>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="255" minlevel_permitted="25" name="Trading Down" id="2718">
-        <rewards title="dark_title45" reward_abyss_point="50" exp="188000" reward_id="1">
+        <rewards title="95" reward_abyss_point="50" exp="188000" reward_id="1">
             <reward_item count="1" item_id="182005204"/>
         </rewards>
         <quest_work_items>
@@ -10032,7 +10032,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="40" name="[Group] Challenge Elyos Officers" id="2719">
-        <rewards title="dark_title33" reward_abyss_point="1000" exp="2108600" reward_id="1">
+        <rewards title="83" reward_abyss_point="1000" exp="2108600" reward_id="1">
             <selectable_reward_item count="1" item_id="168000066"/>
             <selectable_reward_item count="1" item_id="168000067"/>
             <selectable_reward_item count="1" item_id="168000068"/>
@@ -10044,7 +10044,7 @@
         <finished_quest_conds>2710</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="40" name="[Group] Challenge Elyos Generals" id="2720">
-        <rewards title="dark_title34" reward_abyss_point="2500" exp="3693300" reward_id="1">
+        <rewards title="84" reward_abyss_point="2500" exp="3693300" reward_id="1">
             <selectable_reward_item count="1" item_id="168000055"/>
             <selectable_reward_item count="1" item_id="168000056"/>
             <selectable_reward_item count="1" item_id="168000057"/>
@@ -10140,7 +10140,7 @@
         <finished_quest_conds>2736</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="47" name="[Alliance] Top Gatekeepers" id="2738">
-        <rewards title="dark_title43" reward_abyss_point="450" exp="1289080" gold="50000" reward_id="1"/>
+        <rewards title="93" reward_abyss_point="450" exp="1289080" gold="50000" reward_id="1"/>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="255" minlevel_permitted="47" name="[Alliance] Reshanta's Hero" id="2739">
         <rewards reward_abyss_point="500" exp="2921400" reward_id="1"/>
@@ -10478,7 +10478,7 @@
         <rewards reward_abyss_point="150" exp="59800" gold="11100" reward_id="1"/>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="38" name="Sign on the Dotted Line" id="2798">
-        <rewards title="dark_title41" reward_abyss_point="1000" exp="1265200" reward_id="1">
+        <rewards title="91" reward_abyss_point="1000" exp="1265200" reward_id="1">
             <selectable_reward_item count="1" item_id="112100728"/>
             <selectable_reward_item count="1" item_id="112300725"/>
             <selectable_reward_item count="1" item_id="112500713"/>
@@ -11134,7 +11134,7 @@
         <finished_quest_conds>2926</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="45" name="Power of Love" id="2928">
-        <rewards title="dark_title42" exp="55400" reward_id="1">
+        <rewards title="92" exp="55400" reward_id="1">
             <reward_item count="1" item_id="122000881"/>
         </rewards>
         <finished_quest_conds>2927</finished_quest_conds>
@@ -11726,7 +11726,7 @@
         <collect_items>
             <collect_item count="1" item_id="182208005"/>
         </collect_items>
-        <rewards title="light_title22" exp="60000" reward_id="1">
+        <rewards title="22" exp="60000" reward_id="1">
             <selectable_reward_item count="1" item_id="113100783"/>
             <selectable_reward_item count="1" item_id="113300801"/>
             <selectable_reward_item count="1" item_id="113500772"/>
@@ -11769,7 +11769,7 @@
         <rewards exp="24600" gold="8100" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="23" name="[Group] Eliminating a Suspect" id="3016">
-        <rewards title="light_title21" exp="19100" reward_id="1">
+        <rewards title="21" exp="19100" reward_id="1">
             <selectable_reward_item count="1" item_id="100200616"/>
             <selectable_reward_item count="1" item_id="100000655"/>
             <selectable_reward_item count="1" item_id="100100509"/>
@@ -12006,7 +12006,7 @@
         <rewards exp="2655400" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="49" name="Cursed Zirius" id="3057">
-        <rewards title="light_title48" exp="1460700" reward_id="1"/>
+        <rewards title="48" exp="1460700" reward_id="1"/>
         <finished_quest_conds>3056</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="49" name="Stone of Mabolo" id="3058">
@@ -12458,7 +12458,7 @@
         <finished_quest_conds>3204</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="43" name="[Group] Against the Steel Rake" id="3211">
-        <rewards title="light_title35" exp="1581300" reward_id="1">
+        <rewards title="35" exp="1581300" reward_id="1">
             <reward_item count="2" item_id="166000053"/>
         </rewards>
         <finished_quest_conds>3210</finished_quest_conds>
@@ -12589,7 +12589,7 @@
         <finished_quest_conds>3311</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="50" name="Nereus Needs You!" id="3502">
-        <rewards title="light_title50" exp="4382100" gold="100000" reward_id="1">
+        <rewards title="50" exp="4382100" gold="100000" reward_id="1">
             <reward_item count="1" item_id="152201590"/>
         </rewards>
         <finished_quest_conds>3705</finished_quest_conds>
@@ -12740,7 +12740,7 @@
         <collect_items>
             <collect_item count="1" item_id="182206057"/>
         </collect_items>
-        <rewards title="light_title40" exp="2925200" reward_id="1"/>
+        <rewards title="40" exp="2925200" reward_id="1"/>
         <finished_quest_conds>3907</finished_quest_conds>
         <quest_work_items>
             <quest_work_item count="1" item_id="182206056"/>
@@ -12821,35 +12821,35 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="34" name="The Gladiator Preceptor's Task" id="3922">
-        <rewards title="light_title38" exp="506700" reward_id="1"/>
+        <rewards title="38" exp="506700" reward_id="1"/>
         <class_permitted>WARRIOR GLADIATOR</class_permitted>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="34" name="The Templar Preceptor's Task" id="3923">
-        <rewards title="light_title38" exp="506700" reward_id="1"/>
+        <rewards title="38" exp="506700" reward_id="1"/>
         <class_permitted>WARRIOR TEMPLAR</class_permitted>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="34" name="The Ranger Preceptor's Task" id="3924">
-        <rewards title="light_title38" exp="506700" reward_id="1"/>
+        <rewards title="38" exp="506700" reward_id="1"/>
         <class_permitted>SCOUT RANGER</class_permitted>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="34" name="The Assassin Preceptor's Task" id="3925">
-        <rewards title="light_title38" exp="506700" reward_id="1"/>
+        <rewards title="38" exp="506700" reward_id="1"/>
         <class_permitted>SCOUT ASSASSIN</class_permitted>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="34" name="The Sorcerer Preceptor's Task" id="3926">
-        <rewards title="light_title38" exp="506700" reward_id="1"/>
+        <rewards title="38" exp="506700" reward_id="1"/>
         <class_permitted>MAGE SORCERER</class_permitted>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="34" name="The Spiritmaster Preceptor's Task" id="3927">
-        <rewards title="light_title38" exp="506700" reward_id="1"/>
+        <rewards title="38" exp="506700" reward_id="1"/>
         <class_permitted>MAGE SPIRIT_MASTER</class_permitted>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="34" name="The Cleric Preceptor's Task" id="3928">
-        <rewards title="light_title38" exp="506700" reward_id="1"/>
+        <rewards title="38" exp="506700" reward_id="1"/>
         <class_permitted>PRIEST CLERIC</class_permitted>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="34" name="The Chanter Preceptor's Task" id="3929">
-        <rewards title="light_title38" exp="506700" reward_id="1"/>
+        <rewards title="38" exp="506700" reward_id="1"/>
         <class_permitted>PRIEST CHANTER</class_permitted>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="45" name="[Group] Secret of the Shattered Stigma" id="3930">
@@ -12984,7 +12984,7 @@
         <collect_items>
             <collect_item count="600" item_id="182206100"/>
         </collect_items>
-        <rewards title="light_title37" exp="2921400" reward_id="1"/>
+        <rewards title="37" exp="2921400" reward_id="1"/>
         <finished_quest_conds>3939</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Passion for Weaponsmithing" id="3941">
@@ -13002,7 +13002,7 @@
         <finished_quest_conds>3941</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Weaponsmithing Expert" id="3943">
-        <rewards title="light_title36" exp="15000" reward_id="1">
+        <rewards title="36" exp="15000" reward_id="1">
             <reward_item count="1" item_id="152200130"/>
         </rewards>
         <finished_quest_conds>3942</finished_quest_conds>
@@ -13025,7 +13025,7 @@
         <finished_quest_conds>3944</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Armorsmithing Expert" id="3946">
-        <rewards title="light_title36" exp="25000" reward_id="1">
+        <rewards title="36" exp="25000" reward_id="1">
             <reward_item count="1" item_id="152200370"/>
         </rewards>
         <finished_quest_conds>3945</finished_quest_conds>
@@ -13048,7 +13048,7 @@
         <finished_quest_conds>3947</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Handicrafting Expert" id="3949">
-        <rewards title="light_title36" exp="25000" reward_id="1">
+        <rewards title="36" exp="25000" reward_id="1">
             <reward_item count="1" item_id="152201148"/>
         </rewards>
         <finished_quest_conds>3948</finished_quest_conds>
@@ -13077,7 +13077,7 @@
         <finished_quest_conds>3950</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Cooking Expert" id="3952">
-        <rewards title="light_title36" exp="25000" reward_id="1">
+        <rewards title="36" exp="25000" reward_id="1">
             <reward_item count="1" item_id="152201433"/>
         </rewards>
         <finished_quest_conds>3951</finished_quest_conds>
@@ -13100,7 +13100,7 @@
         <finished_quest_conds>3953</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Alchemy Expert" id="3955">
-        <rewards title="light_title36" exp="25000" reward_id="1">
+        <rewards title="36" exp="25000" reward_id="1">
             <reward_item count="1" item_id="152201292"/>
         </rewards>
         <finished_quest_conds>3954</finished_quest_conds>
@@ -13123,7 +13123,7 @@
         <finished_quest_conds>3956</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Tailoring Expert" id="3958">
-        <rewards title="light_title36" exp="25000" reward_id="1">
+        <rewards title="36" exp="25000" reward_id="1">
             <reward_item count="1" item_id="152200660"/>
         </rewards>
         <finished_quest_conds>3957</finished_quest_conds>
@@ -13246,7 +13246,7 @@
         </rewards>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="23" name="[Group] The Lingering Ghost" id="4014">
-        <rewards title="dark_title21" exp="38400" reward_id="1">
+        <rewards title="71" exp="38400" reward_id="1">
             <selectable_reward_item count="1" item_id="111100765"/>
             <selectable_reward_item count="1" item_id="111300770"/>
             <selectable_reward_item count="1" item_id="111500753"/>
@@ -13267,7 +13267,7 @@
         <finished_quest_conds>4015</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="24" name="The Ikelus Manhunt" id="4017">
-        <rewards title="dark_title22" exp="19100" reward_id="1">
+        <rewards title="72" exp="19100" reward_id="1">
             <selectable_reward_item count="1" item_id="100200607"/>
             <selectable_reward_item count="1" item_id="100900489"/>
             <selectable_reward_item count="1" item_id="101500500"/>
@@ -13483,7 +13483,7 @@
         <collect_items>
             <collect_item count="1" item_id="182209034"/>
         </collect_items>
-        <rewards title="dark_title48" exp="2248520" reward_id="1">
+        <rewards title="98" exp="2248520" reward_id="1">
             <selectable_reward_item count="1" item_id="122000927"/>
             <selectable_reward_item count="1" item_id="122000928"/>
         </rewards>
@@ -13955,7 +13955,7 @@
         <finished_quest_conds>4204</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="43" name="[Group] Steel Rake Slaughter" id="4211">
-        <rewards title="dark_title35" exp="1581800" gold="40200" reward_id="1">
+        <rewards title="85" exp="1581800" gold="40200" reward_id="1">
             <reward_item count="2" item_id="166000053"/>
         </rewards>
         <finished_quest_conds>4210</finished_quest_conds>
@@ -14117,7 +14117,7 @@
         <collect_items>
             <collect_item count="1" item_id="182204534"/>
         </collect_items>
-        <rewards title="dark_title50" exp="4382100" gold="100000" reward_id="1">
+        <rewards title="100" exp="4382100" gold="100000" reward_id="1">
             <reward_item count="1" item_id="152206592"/>
         </rewards>
         <finished_quest_conds>4705</finished_quest_conds>
@@ -14305,7 +14305,7 @@
         <collect_items>
             <collect_item count="1" item_id="182207084"/>
         </collect_items>
-        <rewards title="dark_title40" exp="2925200" reward_id="1"/>
+        <rewards title="90" exp="2925200" reward_id="1"/>
         <finished_quest_conds>4911</finished_quest_conds>
         <quest_work_items>
             <quest_work_item count="1" item_id="182207083"/>
@@ -14368,35 +14368,35 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="34" name="The Gladiator Preceptor's Test" id="4922">
-        <rewards title="dark_title38" exp="506700" reward_id="1"/>
+        <rewards title="88" exp="506700" reward_id="1"/>
         <class_permitted>WARRIOR GLADIATOR</class_permitted>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="34" name="The Templar Preceptor's Test" id="4923">
-        <rewards title="dark_title38" exp="506700" reward_id="1"/>
+        <rewards title="88" exp="506700" reward_id="1"/>
         <class_permitted>WARRIOR TEMPLAR</class_permitted>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="34" name="The Ranger Preceptor's Test" id="4924">
-        <rewards title="dark_title38" exp="506700" reward_id="1"/>
+        <rewards title="88" exp="506700" reward_id="1"/>
         <class_permitted>SCOUT RANGER</class_permitted>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="34" name="The Assassin Preceptor's Test" id="4925">
-        <rewards title="dark_title38" exp="506700" reward_id="1"/>
+        <rewards title="88" exp="506700" reward_id="1"/>
         <class_permitted>SCOUT ASSASSIN</class_permitted>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="34" name="The Sorcerer Preceptor's Test" id="4926">
-        <rewards title="dark_title38" exp="506700" reward_id="1"/>
+        <rewards title="88" exp="506700" reward_id="1"/>
         <class_permitted>MAGE SORCERER</class_permitted>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="34" name="The Spiritmaster Preceptor's Test" id="4927">
-        <rewards title="dark_title38" exp="506700" reward_id="1"/>
+        <rewards title="88" exp="506700" reward_id="1"/>
         <class_permitted>MAGE SPIRIT_MASTER</class_permitted>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="34" name="The Cleric Preceptor's Test" id="4928">
-        <rewards title="dark_title38" exp="506700" reward_id="1"/>
+        <rewards title="88" exp="506700" reward_id="1"/>
         <class_permitted>PRIEST CLERIC</class_permitted>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="34" name="The Chanter Preceptor's Test" id="4929">
-        <rewards title="dark_title38" exp="506700" reward_id="1"/>
+        <rewards title="88" exp="506700" reward_id="1"/>
         <class_permitted>PRIEST CHANTER</class_permitted>
     </quest>
     <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="17" name="Advice of Destiny" id="4930">
@@ -14549,7 +14549,7 @@
         <collect_items>
             <collect_item count="600" item_id="182207126"/>
         </collect_items>
-        <rewards title="dark_title37" exp="2921400" reward_id="1"/>
+        <rewards title="87" exp="2921400" reward_id="1"/>
         <finished_quest_conds>4943</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Weaponsmithing Expertise" id="4945">
@@ -14567,7 +14567,7 @@
         <finished_quest_conds>4945</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Weaponsmithing Expert" id="4947">
-        <rewards title="dark_title36" exp="42300" reward_id="1">
+        <rewards title="86" exp="42300" reward_id="1">
             <reward_item count="1" item_id="152205130"/>
         </rewards>
         <finished_quest_conds>4946</finished_quest_conds>
@@ -14590,7 +14590,7 @@
         <finished_quest_conds>4948</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Armorsmithing Expert" id="4950">
-        <rewards title="dark_title36" exp="42300" reward_id="1">
+        <rewards title="86" exp="42300" reward_id="1">
             <reward_item count="1" item_id="152205367"/>
         </rewards>
         <finished_quest_conds>4949</finished_quest_conds>
@@ -14613,7 +14613,7 @@
         <finished_quest_conds>4951</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Handicrafting Expert" id="4953">
-        <rewards title="dark_title36" exp="42300" reward_id="1">
+        <rewards title="86" exp="42300" reward_id="1">
             <reward_item count="1" item_id="152206154"/>
         </rewards>
         <finished_quest_conds>4952</finished_quest_conds>
@@ -14642,7 +14642,7 @@
         <finished_quest_conds>4954</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Cooking Expert" id="4956">
-        <rewards title="dark_title36" exp="42300" reward_id="1">
+        <rewards title="86" exp="42300" reward_id="1">
             <reward_item count="1" item_id="152206438"/>
         </rewards>
         <finished_quest_conds>4955</finished_quest_conds>
@@ -14665,7 +14665,7 @@
         <finished_quest_conds>4957</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Alchemy Expert" id="4959">
-        <rewards title="dark_title36" exp="42300" reward_id="1">
+        <rewards title="86" exp="42300" reward_id="1">
             <reward_item count="1" item_id="152206298"/>
         </rewards>
         <finished_quest_conds>4958</finished_quest_conds>
@@ -14688,7 +14688,7 @@
         <finished_quest_conds>4960</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="29" name="[Top Expert] Tailoring Expert" id="4962">
-        <rewards title="dark_title36" exp="42300" reward_id="1">
+        <rewards title="86" exp="42300" reward_id="1">
             <reward_item count="1" item_id="152205661"/>
         </rewards>
         <finished_quest_conds>4961</finished_quest_conds>

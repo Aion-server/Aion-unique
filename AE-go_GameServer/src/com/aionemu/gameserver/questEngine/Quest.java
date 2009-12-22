@@ -160,10 +160,12 @@ public class Quest
 			player.getCommonData().setExp(currentExp + rewardExp);
 			PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Integer.toString(rewardExp)));
 		}
+
 		if (rewards.getTitle() != null)
 		{
-			
+			player.getTitleList().addTitle(rewards.getTitle());
 		}
+
 		for (QuestItems item : rewards.getRewardItem())
 		{
 			QuestEngine.getInstance().addItem(player, item.getItemId(), item.getCount());

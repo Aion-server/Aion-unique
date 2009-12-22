@@ -36,7 +36,7 @@ public class Rewards {
     @XmlAttribute(name = "reward_abyss_point")
     protected Integer rewardAbyssPoint;
     @XmlAttribute
-    protected String title;
+    protected Integer title;
 
     /**
      * Gets the value of the selectableRewardItem property.
@@ -149,10 +149,10 @@ public class Rewards {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Integer }
      *     
      */
-    public String getTitle() {
+    public Integer getTitle() {
         return title;
     }
 

@@ -280,7 +280,7 @@
 			<xs:attribute name="gold" type="xs:int"/>
 			<xs:attribute name="exp" type="xs:int"/>
 			<xs:attribute name="reward_abyss_point" type="xs:int"/>
-			<xs:attribute name="title" type="xs:string"/>
+			<xs:attribute name="title" type="xs:int"/>
 	</xs:complexType>
 	
 	<xs:complexType name="CollectItem" >
