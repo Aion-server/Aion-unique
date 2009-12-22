@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="import.xsd" />
+
+	<xs:element name="npc_walker" type="Wlk" />
+
+	<xs:complexType name="Wlk">
+		<xs:sequence>
+			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="walker_template" type="Wlk_Template" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Wlk_Template">
+		<xs:sequence>
+			<xs:element name="routes" type="Routes" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="route_id" type="xs:int" use="required" />
+	</xs:complexType>
+	
+	<xs:complexType name="Routes" >
+		<xs:sequence>
+			<xs:element name="routestep" type="RouteStep" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="RouteStep" >
+		<xs:attribute name="step" type="xs:int" use="required" />
+		<xs:attribute name="loc_x" type="xs:float" use="required" />
+		<xs:attribute name="loc_y" type="xs:float" use="required" />
+		<xs:attribute name="loc_z" type="xs:float" use="required" />
+		<xs:attribute name="rest_time" type="xs:int" use="required" />
+	</xs:complexType>
+
+</xs:schema>

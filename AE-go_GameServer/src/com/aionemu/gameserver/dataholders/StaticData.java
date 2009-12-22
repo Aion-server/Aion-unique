@@ -80,6 +80,9 @@ public class StaticData
 	@XmlElement(name = "gatherable_templates")
 	public GatherableData			gatherableData;
 	
+	@XmlElement(name = "npc_walker")
+	public WalkerData				walkerData;
+	
 	@XmlElement(name = "zones")
 	public ZoneData					zoneData;
 	
@@ -103,6 +106,7 @@ public class StaticData
 		DataManager.log.info("Loaded " + questData.size() + " quest data entries");	
 		DataManager.log.info("Loaded " + gatherableData.size() + " gatherable entries");
 		DataManager.log.info("Loaded " + titleData.size() + " title entries");
+		DataManager.log.info("Loaded " + walkerData.size() + " walker routes");
 		DataManager.log.info("Loaded " + zoneData.size() + " zone entries");
 	}
 }

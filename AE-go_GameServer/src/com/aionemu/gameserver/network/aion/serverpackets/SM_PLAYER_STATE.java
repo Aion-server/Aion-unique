@@ -30,14 +30,22 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * 
  * @author Luno
  * 
+ * states:
+ * 0 - normal char
+ * 1- crounched invisible char
+ * 64 - standing blinking char
+ * 128- char is invisible
+ * 
  */
 public class SM_PLAYER_STATE extends AionServerPacket
 {
 	private int	playerObjId;
+	private int _state;
 
-	public SM_PLAYER_STATE(Player player)
+	public SM_PLAYER_STATE(Player player, int state)
 	{
 		playerObjId = player.getObjectId();
+		_state = state;
 	}
 
 	/**
@@ -47,11 +55,9 @@ public class SM_PLAYER_STATE extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeD(buf, playerObjId);
+		writeC(buf, _state);
 		writeC(buf, 0x00);
 		writeC(buf, 0x00);
-		writeC(buf, 0x00);
-		// When we write in all these C's 1 instead of 0 we got semitransparent char in crounch position. dunno what is
-		// that
 	}
 
 }

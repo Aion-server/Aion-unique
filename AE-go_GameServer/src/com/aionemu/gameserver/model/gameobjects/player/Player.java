@@ -146,7 +146,7 @@ public class Player extends Creature
 	{
 		this.protectionActive = protectionActive;
 		if(!protectionActive)
-			PacketSendUtility.sendPacket(this, new SM_PLAYER_STATE(this));
+			PacketSendUtility.sendPacket(this, new SM_PLAYER_STATE(this, 0));
 	}
 
 	public MacroList getMacroList()

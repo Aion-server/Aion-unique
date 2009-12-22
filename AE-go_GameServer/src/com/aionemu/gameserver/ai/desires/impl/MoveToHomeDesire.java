@@ -72,7 +72,11 @@ public class MoveToHomeDesire extends AbstractDesire implements MoveDesire
 		{
 			owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(), owner.getHeading());
 			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0, (byte) 0, MovementType.MOVEMENT_STOP));
-			ai.setAiState(AIState.NONE); //TODO regeneration desire;
+			if (owner.hasWalkRoutes())
+				ai.setAiState(AIState.ACTIVE);
+			else
+				ai.setAiState(AIState.NONE);
+			//TODO regeneration desire;
 		}
 	}
 }

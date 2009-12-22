@@ -163,6 +163,10 @@ public class MonsterController extends NpcController
 		this.decayTask = null;
 		dropService.unregisterDrop(getOwner());
 		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
+		if (this.getOwner().hasWalkRoutes())
+		{
+			this.getOwner().getAi().setAiState(AIState.ACTIVE);
+		}
 	}
 
 	@Override

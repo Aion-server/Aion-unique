@@ -22,6 +22,8 @@ package com.aionemu.gameserver.ai;
  */
 public enum AIState
 {
+	TALK(4),
+	ACTIVE(3),
 	ATTACKING(2),
 	IDLE(1),
 	NONE(0);

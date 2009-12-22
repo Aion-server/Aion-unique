@@ -28,6 +28,7 @@ import com.aionemu.gameserver.ai.desires.impl.MoveDesireFilter;
 import com.aionemu.gameserver.ai.desires.impl.MoveToHomeDesire;
 import com.aionemu.gameserver.ai.desires.impl.MoveToTargetDesire;
 import com.aionemu.gameserver.ai.desires.impl.SimpleDesireIteratorHandler;
+import com.aionemu.gameserver.ai.desires.impl.WalkDesire;
 import com.aionemu.gameserver.ai.events.AttackEvent;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
@@ -55,14 +56,13 @@ public class MonsterAi extends NpcAi
 		try{
 			if(aiState != AIState.ATTACKING)
 			{
-				Monster owner = (Monster) getOwner();
 				setAiState(AIState.ATTACKING);
-				PacketSendUtility.broadcastPacket(owner,
-					new SM_EMOTION(owner.getObjectId(), 30, 0, event.getOriginator() == null ? 0:event.getOriginator().getObjectId()));
-				PacketSendUtility.broadcastPacket(owner,
-					new SM_EMOTION(owner.getObjectId(), 19, 0, event.getOriginator() == null ? 0:event.getOriginator().getObjectId()));
+				PacketSendUtility.broadcastPacket(getOwner(),
+					new SM_EMOTION(getOwner().getObjectId(), 30, 0, event.getOriginator() == null ? 0:event.getOriginator().getObjectId()));
+				PacketSendUtility.broadcastPacket(getOwner(),
+					new SM_EMOTION(getOwner().getObjectId(), 19, 0, event.getOriginator() == null ? 0:event.getOriginator().getObjectId()));
 				desireQueue.addDesire(new AttackDesire(event.getOriginator(), AIState.ATTACKING.getPriority()));
-				desireQueue.addDesire(new MoveToTargetDesire(event.getOriginator(), owner, AIState.ATTACKING.getPriority()));
+				desireQueue.addDesire(new MoveToTargetDesire(event.getOriginator(), getOwner(), AIState.ATTACKING.getPriority()));
 			}
 		}finally
 		{
@@ -86,6 +86,13 @@ public class MonsterAi extends NpcAi
 	{
 
 	}
+	
+	@Override
+	public Monster getOwner()
+	{
+		return (Monster)owner;
+	}
+	
 
 	@Override
 	public void run()
@@ -188,6 +195,12 @@ public class MonsterAi extends NpcAi
 					desireQueue.clear();
 					schedule();
 					break;
+				case ACTIVE:
+					desireQueue.clear();
+					if (getOwner().hasWalkRoutes())
+						desireQueue.addDesire(new WalkDesire(getOwner(), AIState.ACTIVE.getPriority()));
+					schedule();
+					break;
 			}
 		}finally
 		{
@@ -195,7 +208,4 @@ public class MonsterAi extends NpcAi
 		}
 
 	}
-
-
-
 }

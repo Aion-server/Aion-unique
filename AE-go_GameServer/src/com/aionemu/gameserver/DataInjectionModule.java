@@ -29,6 +29,7 @@ import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.dataholders.TeleLocationData;
+import com.aionemu.gameserver.dataholders.WalkerData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.services.AccountService;
 import com.aionemu.gameserver.services.DropService;
@@ -152,5 +153,10 @@ public class DataInjectionModule extends AbstractModule
 	BindPointData provideBindPointData(DataManager datamanager)
 	{
 		return datamanager.BIND_POINT_DATA;
+	}
+	@Provides
+	WalkerData provideWalkerData(DataManager datamanager)
+	{
+		return datamanager.WALKER_DATA;
 	}
 }

@@ -105,6 +105,11 @@ public final class DataManager
 	
 	public static SkillTreeData			SKILL_TREE_DATA;
 	
+	/**
+	 * 
+	 */
+	public static WalkerData			WALKER_DATA;
+	
 	public static ZoneData				ZONE_DATA;
 
 	/**
@@ -142,6 +147,8 @@ public final class DataManager
 		BIND_POINT_DATA = data.bindPointData;
 		QUEST_DATA = data.questData;
 		ZONE_DATA = data.zoneData;
+		
+		WALKER_DATA = data.walkerData;
 		
 		// some sexy time message
 		long seconds = time / 1000;

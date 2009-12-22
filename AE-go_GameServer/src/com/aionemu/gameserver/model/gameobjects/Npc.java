@@ -18,8 +18,10 @@ package com.aionemu.gameserver.model.gameobjects;
 
 import java.util.Map.Entry;
 
+import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.ItemSlot;
+import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
@@ -108,6 +110,12 @@ public class Npc extends Creature
 	{
 		return (NpcGameStats) super.getGameStats();
 	}
+	
+	@Override
+	public NpcAi getAi()
+	{
+		return (NpcAi) super.getAi();
+	}
 
 	@Override
 	public void initializeAi()
@@ -116,4 +124,8 @@ public class Npc extends Creature
 		
 	}
 	
+	public boolean hasWalkRoutes()
+	{
+		return getSpawn().getWalkerId() > 0;
+	}
 }

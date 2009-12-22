@@ -29,8 +29,10 @@ public class SpawnTemplate
 	private float		y;
 	private float		z;
 	private byte		heading;
+	private int			walkerId;
+	private int			randomWalk;
 
-	public SpawnTemplate(VisibleObjectTemplate objectTemplate, int worldId, float x, float y, float z, byte heading)
+	public SpawnTemplate(VisibleObjectTemplate objectTemplate, int worldId, float x, float y, float z, byte heading, int walkerid, int randomwalk)
 	{
 		super();
 		this.objectTemplate = objectTemplate;
@@ -39,6 +41,8 @@ public class SpawnTemplate
 		this.y = y;
 		this.z = z;
 		this.heading = heading;
+		this.walkerId = walkerid;
+		this.randomWalk = randomwalk;
 	}
 
 	public VisibleObjectTemplate getObjectTemplate()
@@ -69,6 +73,16 @@ public class SpawnTemplate
 	public byte getHeading()
 	{
 		return heading;
+	}
+	
+	public int getWalkerId()
+	{
+		return walkerId;
+	}
+	
+	public boolean hasRandomWalk()
+	{
+		return randomWalk > 0;
 	}
 
 	/*

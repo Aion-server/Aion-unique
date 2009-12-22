@@ -73,7 +73,7 @@ public class SpawnNpc extends AdminCommand
 		byte heading = admin.getHeading();
 		int worldId = admin.getWorldId();
 
-		SpawnTemplate spawn = spawnData.addNewSpawn(worldId, templateId, x, y, z, heading);
+		SpawnTemplate spawn = spawnData.addNewSpawn(worldId, templateId, x, y, z, heading, 0, 0);
 
 		if(spawn == null)
 		{

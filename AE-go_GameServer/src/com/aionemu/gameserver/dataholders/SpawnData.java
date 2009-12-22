@@ -110,9 +110,10 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 	 * @param y
 	 * @param z
 	 * @param heading
+	 * @param walkerid
 	 * @return SpawnTemplate object representing new spawn or null when there is no template for npcId
 	 */
-	public SpawnTemplate addNewSpawn(int worldId, int objectId, float x, float y, float z, byte heading)
+	public SpawnTemplate addNewSpawn(int worldId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk)
 	{
 		VisibleObjectTemplate template = null;
 		if(objectId > 400000 && objectId < 499999)// gatherable
@@ -130,7 +131,7 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 			npcCounter++;
 		}
 
-		SpawnTemplate spawnTemplate = new SpawnTemplate(template, worldId, x, y, z, heading);
+		SpawnTemplate spawnTemplate = new SpawnTemplate(template, worldId, x, y, z, heading, walkerid, randomwalk);
 		addSpawn(spawnTemplate);
 		
 		if(!spawnsByTemplateIdMap.containsKey(objectId))
@@ -156,7 +157,7 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 
 	/**
 	 * Parses the string containing info about spawn entry.<br>
-	 * After parsing a row {@link #addNewSpawn(int, int, float, float, float, byte)} method is being called.
+	 * After parsing a row {@link #addNewSpawn(int, int, float, float, float, byte, int, int)} method is being called.
 	 */
 	@Override
 	protected void parse(String params)
@@ -175,8 +176,16 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 		byte heading = 0;
 		if(splt.length >= 6)
 			heading = Byte.parseByte(splt[5]);
+		
+		int walkerId = 0;
+		if(splt.length >= 7)
+			walkerId = Integer.parseInt(splt[6]);
+		
+		int randomwalk = 0;
+		if(splt.length >= 8)
+			randomwalk = Integer.parseInt(splt[7]);
 
-		if(addNewSpawn(worldId, npcId, x, y, z, heading) == null)
+		if(addNewSpawn(worldId, npcId, x, y, z, heading, walkerId, randomwalk) == null)
 			log.warn("No npc template for id " + npcId);
 	}
 
