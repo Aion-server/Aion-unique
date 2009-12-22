@@ -44,9 +44,9 @@ public class CM_EMOTION extends AionClientPacket
 	 * Emotion number
 	 */
 	int emotion;
-	
+
 	int ObjID;
-	
+
 	private int monsterToAttackId;
 
 
@@ -67,37 +67,39 @@ public class CM_EMOTION extends AionClientPacket
 	{
 		unknown = readC();
 		switch(unknown){
-        case 0x0:
-        //select target
-        case 0x01:
-		// jump
-		case 0x4:
-		//Sit (Nothing to do)
-		case 0x5:
-		//standing (Nothing to do)
-        case 0x8:
-		// fly up
-		case 0x9:
-		// land
-		case 0x11:
-		// Nothing here
-        case 0x13:
-		//emotion = readH();
-        case 0x14:
-		// duel end
-        case 0x21:
-        //get equip weapon
-        case 0x22:
-        //remove equip weapon
-		break;
-		case 0x10:
-		emotion = readH();
-		break;
-		default:
-			log.info("Unknown emotion type? 0x" + Integer.toHexString(unknown).toUpperCase());
-         break;
+			case 0x0:
+				//select target
+			case 0x01:
+				// jump
+			case 0x4:
+				//Sit (Nothing to do)
+			case 0x5:
+				//standing (Nothing to do)
+			case 0x8:
+				// fly up
+			case 0x9:
+				// land
+			case 0x11:
+				// Nothing here
+			case 0x13:
+				//emotion = readH();
+			case 0x14:
+				// duel end
+			case 0x21:
+				//get equip weapon
+			case 0x22:
+				//remove equip weapon
+			case 0x1F:
+				//powershard 
+				break;
+			case 0x10:
+				emotion = readH();
+				break;
+			default:
+				log.info("Unknown emotion type? 0x" + Integer.toHexString(unknown).toUpperCase());
+				break;
 		}
-        }
+	}
 
 
 	/**

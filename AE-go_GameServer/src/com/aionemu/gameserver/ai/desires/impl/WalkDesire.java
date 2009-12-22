@@ -111,6 +111,10 @@ public class WalkDesire extends AbstractDesire implements MoveDesire
 
 			
 			byte heading2 = (byte) (Math.toDegrees(Math.atan2(y2, x2))/3) ;
+			
+			//TODO [ATracer] probably we don't need to send SM_EMOTION each 0.5 sec - just when
+			// new player sees it (onSee in controller) - this needs implementation of current stats
+			// like attacking - send corresponding emotion etc
 			PacketSendUtility.broadcastPacket(_npc, new SM_EMOTION(_npc.getObjectId(),0x15,0,0));
 			PacketSendUtility.broadcastPacket(_npc, new SM_MOVE(_npc, _npc.getX(), _npc.getY(), _npc.getZ(),(float) (x2 / 0.5) , (float) (y2 / 0.5) , 0, heading2, MovementType.MOVEMENT_START_KEYBOARD));
 			_npc.getActiveRegion().getWorld().updatePosition(_npc, _npc.getX() + x2, _npc.getY() + y2, _npc.getZ() + z2, heading2);

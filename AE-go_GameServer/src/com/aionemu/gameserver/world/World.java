@@ -205,6 +205,12 @@ public class World
 		object.getPosition().setXYZH(newX, newY, newZ, newHeading);
 
 		MapRegion oldRegion = object.getActiveRegion();
+		if(oldRegion.getParent() == null)
+		{
+			log.warn(String.format("CHECKPOINT: parent mapinstance of oldregion is null %d", oldRegion.getMapId()));
+			log.warn(String.format("CHECKPOINT: object coordinates - %d %d %d", object.getX(), object.getY(), object.getY()));
+			return;
+		}
 		MapRegion newRegion = oldRegion.getParent().getRegion(object);
 
 		if(newRegion != oldRegion)
