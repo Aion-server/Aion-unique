@@ -192,8 +192,15 @@ public class ItemService
 		{
 			List<Item> items = new ArrayList<Item>();
 			int currentItemCount = count;
+			int iterations = 0;
 			while (currentItemCount > 0)
 			{
+				if(iterations++ > 10)
+				{
+					log.warn("CHECKPOINT: > 10 iterations" + itemId + "-" + currentItemCount);
+					break;
+				}
+				
 				Item newItem = newItem(itemId, currentItemCount);
 				
 				Item existingItem = inventory.getItemByItemId(itemId);
