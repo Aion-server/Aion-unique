@@ -88,8 +88,7 @@ public class GameServer
 		DAOManager.getDAO(PlayerDAO.class).setPlayersOffline(false);
 		gs.spawnMonsters();
 		
-		log.info("Starting deadlock detector");
-		new Thread(new DeadlockDetector(300)).start();
+		
 		
 		SkillEngine.getInstance().setWorld(gs.injector.getInstance(World.class));
 		QuestEngine.getInstance().setItemService(gs.injector.getInstance(ItemService.class));
@@ -102,6 +101,13 @@ public class GameServer
 		
 		gs.startServers();
 		GameTimeManager.startClock();
+		
+		if(Config.DEADLOCK_DETECTOR_ENABLED)
+		{
+			log.info("Starting deadlock detector");
+			new Thread(new DeadlockDetector(Config.DEADLOCK_DETECTOR_INTERVAL)).start();
+		}
+		
 		
 		Runtime.getRuntime().addShutdownHook(new Thread(new ShutdownHook(gs.injector)));
 
