@@ -180,71 +180,80 @@ public class ItemService
 	 * @param itemId
 	 * @param count
 	 */
-	public void addItem(Player player, int itemId, int count)
+	public boolean addItem(Player player, int itemId, int count)
 	{
 		Inventory inventory = player.getInventory();
+		
+		ItemTemplate itemTemplate =  DataManager.ITEM_DATA.getItemTemplate(itemId);
+		if(itemTemplate == null)
+			return false;
+		
+		int maxStackCount = itemTemplate.getMaxStackCount();
+
 		if (itemId == ItemId.KINAH.value())
 		{
 			inventory.increaseKinah(count);
 			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
+			return true;
 		}
 		else
 		{
-			List<Item> items = new ArrayList<Item>();
+			List<Item> itemsToUpdate = new ArrayList<Item>();
 			int currentItemCount = count;
-			int iterations = 0;
-			while (currentItemCount > 0)
+				
+			/**
+			 * Increase count of existing items
+			 */
+			List<Item> existingItems = inventory.getItemsByItemId(itemId);
+			for(Item existingItem : existingItems)
 			{
-				if(iterations++ > 10)
+				int freeCount = maxStackCount - existingItem.getItemCount();
+				currentItemCount -= freeCount;
+				
+				if(freeCount == 0)
+					continue;
+				
+				if(currentItemCount >= 0)
 				{
-					log.warn("CHECKPOINT: > 10 iterations" + itemId + "-" + currentItemCount);
-					break;
+					existingItem.increaseItemCount(freeCount);
 				}
-				
-				Item newItem = newItem(itemId, currentItemCount);
-				
-				Item existingItem = inventory.getItemByItemId(itemId);
-				
-				//item already in cube
-				if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
+				else
 				{
-					int oldItemCount = existingItem.getItemCount();
-					Item addedItem = inventory.addToBag(newItem);
-					if(addedItem != null)
-					{
-						if(addedItem.getObjectId() != newItem.getObjectId())
-							releaseItemId(newItem);
-							
-						currentItemCount -= addedItem.getItemCount() - oldItemCount;
-						PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
-					}
-					else
-					{
-						releaseItemId(newItem);
-						currentItemCount = 0;
-					}
+					//currentItemCount is negative value which means freeCount
+					//is greater than requried
+					existingItem.increaseItemCount(freeCount + currentItemCount);
+				}	
+				itemsToUpdate.add(existingItem);
+			}
+			
+			/**
+			 * Create new stacks
+			 */
+
+			while(!inventory.isFull() && currentItemCount > 0)
+			{
+				// item count still more than maxStack value
+				if(currentItemCount > maxStackCount)
+				{
+					Item item = newItem(itemId, maxStackCount);
+					currentItemCount -= maxStackCount;
+					inventory.putToBag(item);
+					itemsToUpdate.add(item);
 				}
-				// new item and inventory is not full
-				else if (!inventory.isFull())
+				else
 				{
-					Item addedItem = inventory.addToBag(newItem);
-					if(addedItem != null)
-					{
-						if(addedItem.getObjectId() != newItem.getObjectId())
-							releaseItemId(newItem);
-						
-						currentItemCount -= addedItem.getItemCount();
-						items.add(addedItem);
-					}
-					else
-					{
-						releaseItemId(newItem);
-						currentItemCount = 0;
-					}
+					Item item = newItem(itemId, currentItemCount);
+					inventory.putToBag(item);
+					itemsToUpdate.add(item);
+					currentItemCount = 0;
 				}
 			}
-			if (!items.isEmpty())
-				PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(items));
+			
+			//TODO 10 items check
+			if (!itemsToUpdate.isEmpty())
+				PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(itemsToUpdate));
+			
+			return currentItemCount == 0 ? true : false;
 		}
 	}
 	

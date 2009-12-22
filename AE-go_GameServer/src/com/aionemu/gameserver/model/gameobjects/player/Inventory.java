@@ -451,10 +451,26 @@ public class Inventory
 		
 		return item;
 	}
-	
+	/**
+	 *  
+	 * @param value
+	 * @return
+	 * 
+	 * @deprecated DONT USE IT 
+	 */
 	public Item getItemByItemId(int value)
 	{
 		return defaultItemBag.getItemFromStorageByItemId(value);
+	}
+	
+	/**
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public List<Item> getItemsByItemId(int value)
+	{
+		return defaultItemBag.getItemsFromStorageByItemId(value);
 	}
 	
 	/**

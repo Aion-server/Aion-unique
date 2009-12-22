@@ -78,6 +78,8 @@ public class ItemStorage
 	/**
 	 * @param itemId
 	 * @return Item by itemId or null if there is no such item
+	 * 
+	 *  @deprecated DON'T USE IT ANYMORE
 	 */
 	public Item getItemFromStorageByItemId(int itemId)
 	{
@@ -95,6 +97,30 @@ public class ItemStorage
 		}
 
 		return null;
+	}
+	
+	/**
+	 * 
+	 * @param itemId
+	 * @return list of items with specified itemId
+	 */
+	public List<Item> getItemsFromStorageByItemId(int itemId)
+	{
+		List<Item> itemList = new ArrayList<Item>();
+		
+		for(Item item : storageItems)
+		{
+			if(item != null)
+			{
+				ItemTemplate itemTemplate = item.getItemTemplate();
+				if(itemTemplate.getItemId() == itemId)
+				{
+					itemList.add(item);
+				}
+			}
+		}
+
+		return itemList;
 	}
 	
 	/**
