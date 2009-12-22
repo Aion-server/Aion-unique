@@ -33,8 +33,12 @@ import com.aionemu.gameserver.model.templates.quest.CollectItems;
 import com.aionemu.gameserver.model.templates.quest.QuestWorkItems;
 import com.aionemu.gameserver.model.templates.quest.Rewards;
 import com.aionemu.gameserver.questEngine.conditions.QuestConditions;
+import com.aionemu.gameserver.questEngine.events.OnEnterZoneEvent;
+import com.aionemu.gameserver.questEngine.events.OnItemUseEvent;
 import com.aionemu.gameserver.questEngine.events.OnKillEvent;
+import com.aionemu.gameserver.questEngine.events.OnLvlUpEvent;
 import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
+
 
 /**
  * @author MrPoke
@@ -47,6 +51,9 @@ import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
     "rewards",
     "onKillEvent",
     "onTalkEvent",
+    "onLvlUpEvent",
+    "onItemUseEvent",
+    "onEnterZoneEvent",
     "finishedQuestConds",
     "classPermitted",
     "genderPermitted",
@@ -62,6 +69,12 @@ public class QuestTemplate {
     protected List<OnKillEvent> onKillEvent;
     @XmlElement(name = "on_talk_event")
     protected List<OnTalkEvent> onTalkEvent;
+    @XmlElement(name = "on_lvl_up_event")
+    protected List<OnLvlUpEvent> onLvlUpEvent;
+    @XmlElement(name = "on_item_use_event")
+    protected List<OnItemUseEvent> onItemUseEvent;
+    @XmlElement(name = "on_enter_zone_event")
+    protected List<OnEnterZoneEvent> onEnterZoneEvent;
     @XmlList
     @XmlElement(name = "finished_quest_conds", type = Integer.class)
     protected List<Integer> finishedQuestConds;
@@ -202,6 +215,92 @@ public class QuestTemplate {
             onTalkEvent = new ArrayList<OnTalkEvent>();
         }
         return this.onTalkEvent;
+    }
+    /**
+     * Gets the value of the onLvlUpEvent property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the onLvlUpEvent property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getOnLvlUpEvent().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link OnLvlUpEvent }
+     * 
+     * 
+     */
+    public List<OnLvlUpEvent> getOnLvlUpEvent() {
+        if (onLvlUpEvent == null) {
+            onLvlUpEvent = new ArrayList<OnLvlUpEvent>();
+        }
+        return this.onLvlUpEvent;
+    }
+
+    /**
+     * Gets the value of the onItemUseEvent property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the onItemUseEvent property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getOnItemUseEvent().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link OnItemUseEvent }
+     * 
+     * 
+     */
+    public List<OnItemUseEvent> getOnItemUseEvent() {
+        if (onItemUseEvent == null) {
+            onItemUseEvent = new ArrayList<OnItemUseEvent>();
+        }
+        return this.onItemUseEvent;
+    }
+
+    /**
+     * Gets the value of the onEnterZoneEvent property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the onEnterZoneEvent property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getOnEnterZoneEvent().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link OnEnterZoneEvent }
+     * 
+     * 
+     */
+    public List<OnEnterZoneEvent> getOnEnterZoneEvent() {
+        if (onEnterZoneEvent == null) {
+            onEnterZoneEvent = new ArrayList<OnEnterZoneEvent>();
+        }
+        return this.onEnterZoneEvent;
     }
 
     /**

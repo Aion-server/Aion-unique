@@ -27,7 +27,10 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
-
+/**
+ * @author MrPoke
+ *
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "NpcDialogOperation")
 public class NpcDialogOperation
@@ -48,8 +51,8 @@ public class NpcDialogOperation
     	if (questId != null)
     		qId = questId;
     	if (qId == 0)
-    		PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(obj.getObjectId(), id));
+    		PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(obj == null ? 0:obj.getObjectId(), id));
     	else
-    		PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(obj.getObjectId(), id, qId));
+    		PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(obj == null ? 0:obj.getObjectId(), id, qId));
     }
 }

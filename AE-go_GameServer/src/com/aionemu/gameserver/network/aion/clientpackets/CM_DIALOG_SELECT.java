@@ -85,12 +85,6 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 		if(player == null)
 			return;
 
-		if(targetObjectId == 0)
-		{
-			//TODO find appropriate packet to send as response
-			// ? sendPacket(new SM_LOOKATOBJECT(player.getObjectId(), 0, unk1));
-			return;
-		}
 		Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
 
 		if (QuestEngine.getInstance().onDialog(new QuestEnv(npc, player, questId, dialogId)))

@@ -40,6 +40,8 @@ import com.aionemu.gameserver.questEngine.operations.QuestOperations;
 })
 @XmlSeeAlso({
     OnKillEvent.class,
+    OnItemUseEvent.class,
+    OnLvlUpEvent.class,
     OnTalkEvent.class
 })
 public abstract class QuestEvent {

@@ -48,7 +48,6 @@ public class PcInventoryCondition
 		int _count = 0;
 		if (item != null)
 			_count = item.getItemCount();
-		System.out.println("Item count: "+_count);
 		switch (getOp())
 		{
 			case EQUAL:

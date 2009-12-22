@@ -37,7 +37,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
@@ -218,7 +217,7 @@ public class DropService
 						itemService.releaseItemId(newItem);
 					
 					currentDropItemCount -= addedItem.getItemCount() - oldItemCount;
-					PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), player.getCubeSize()));
+					PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
 				}
 				else
 				{

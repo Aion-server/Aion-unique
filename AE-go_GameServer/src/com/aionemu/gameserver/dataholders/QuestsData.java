@@ -29,7 +29,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.questEngine.events.OnEnterZoneEvent;
 import com.aionemu.gameserver.questEngine.events.QuestEvent;
+import com.aionemu.gameserver.world.zone.ZoneName;
 
 /**
  * @author MrPoke
@@ -67,6 +69,29 @@ public class QuestsData
 					QuestEngine.getInstance().setNpcQuestData(id).addOnTalkEvent(quest.getId());
 				}
 			}
+			
+			for(QuestEvent event : quest.getOnItemUseEvent())
+			{
+				for(int id : event.getIds())
+				{
+					QuestEngine.getInstance().setQuestItemIds(id).add(quest.getId());
+				}
+			}
+			
+			if(!quest.getOnLvlUpEvent().isEmpty())
+			{
+
+				QuestEngine.getInstance().addQuestLvlUp(quest.getId());
+			}
+			
+			for(OnEnterZoneEvent event : quest.getOnEnterZoneEvent())
+			{
+				for(ZoneName zoneName : event.getNames())
+				{
+					QuestEngine.getInstance().setQuestEnterZone(zoneName).add(quest.getId());
+				}
+			}
+
 			questData.put(quest.getId(), quest);
 		}
 		questsData.clear();

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-	<xs:include schemaLocation="../global_types.xsd" />
-
 	<xs:element name="quests" type="Quests" />
 	
 	<xs:complexType name="Quests">
@@ -18,6 +16,9 @@
 			<xs:element name="rewards" type="Rewards" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="on_kill_event" type="OnKillEvent" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="on_talk_event" type="OnTalkEvent" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="on_lvl_up_event" type="OnLvlUpEvent" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="on_item_use_event" type="OnItemUseEvent" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="on_enter_zone_event" type="OnEnterZoneEvent" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="finished_quest_conds" type="NumberListType" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="class_permitted" type="ClassListType"  minOccurs="0" maxOccurs="1" />
 			<xs:element name="gender_permitted" type="Gender"  minOccurs="0" maxOccurs="1" />
@@ -58,6 +59,26 @@
 	<xs:complexType name="OnTalkEvent">
 		<xs:complexContent>
 			<xs:extension base="QuestEvent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="OnItemUseEvent">
+		<xs:complexContent>
+			<xs:extension base="QuestEvent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="OnLvlUpEvent">
+		<xs:complexContent>
+			<xs:extension base="QuestEvent"/>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="OnEnterZoneEvent">
+		<xs:complexContent>
+			<xs:extension base="QuestEvent">
+				<xs:attribute name="names" type="ZoneNameListType" />
+			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 
@@ -280,6 +301,10 @@
 
 	<xs:simpleType name="NumberListType">
   		<xs:list itemType="xs:int"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="ZoneNameListType">
+  		<xs:list itemType="ZoneName"/>
 	</xs:simpleType>
 
 	<xs:simpleType name="Gender">

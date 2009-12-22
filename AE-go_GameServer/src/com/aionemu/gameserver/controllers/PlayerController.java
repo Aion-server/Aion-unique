@@ -143,7 +143,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void onEnterZone(ZoneInstance zoneInstance)
 	{
-		
+		QuestEngine.getInstance().onEnterZone(new QuestEnv(null, this.getOwner(), 0, 0), zoneInstance.getTemplate().getName());
 	}
 	
 	/**

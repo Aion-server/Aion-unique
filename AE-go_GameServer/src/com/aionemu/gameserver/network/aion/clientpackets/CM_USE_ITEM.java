@@ -16,9 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
-import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.itemengine.actions.AbstractItemAction;
@@ -26,6 +23,8 @@ import com.aionemu.gameserver.itemengine.actions.ItemActions;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
 /**
  * @author Avol
@@ -64,6 +63,10 @@ public class CM_USE_ITEM extends AionClientPacket {
 
             Player player = getConnection().getActivePlayer();
             Item item = player.getInventory().getItemByObjId(uniqueItemId);
+            
+            if (QuestEngine.getInstance().onItemUseUp(new QuestEnv(null, player, 0, 0), item.getItemTemplate().getItemId()))
+            	return;
+
             Item targetItem = player.getInventory().findItemByObjId(targetItemId);
             ItemActions itemActions = item.getItemTemplate().getActions();
         

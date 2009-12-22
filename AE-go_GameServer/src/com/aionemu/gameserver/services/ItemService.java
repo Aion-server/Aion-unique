@@ -18,12 +18,10 @@ package com.aionemu.gameserver.services;
 
 import org.apache.log4j.Logger;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.commons.database.dao.DAOManager;
@@ -205,7 +203,7 @@ public class ItemService
 							releaseItemId(newItem);
 							
 						currentItemCount -= addedItem.getItemCount() - oldItemCount;
-						PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(Collections.singletonList(addedItem), player.getCubeSize()));
+						PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
 					}
 					else
 					{

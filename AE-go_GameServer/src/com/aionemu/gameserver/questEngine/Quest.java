@@ -160,7 +160,10 @@ public class Quest
 			player.getCommonData().setExp(currentExp + rewardExp);
 			PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Integer.toString(rewardExp)));
 		}
-
+		if (rewards.getTitle() != null)
+		{
+			
+		}
 		for (QuestItems item : rewards.getRewardItem())
 		{
 			QuestEngine.getInstance().addItem(player, item.getItemId(), item.getCount());
@@ -176,6 +179,8 @@ public class Quest
 				QuestEngine.getInstance().addItem(player, selectebleRewardItem.getItemId(), selectebleRewardItem.getCount());
 			}
 		}
+		
+		QuestEngine.getInstance().onLvlUp(env);
 		return true;
 	}
 
@@ -214,7 +219,7 @@ public class Quest
 		for (CollectItem collectItem : collectItems.getCollectItem())
 		{
 			List<Item> addedItems = new ArrayList<Item>();
-			Item item = player.getInventory().getItemByItemId(collectItem.getItemId());
+			Item item = player.getInventory().removeFromBag(collectItem.getItemId(), collectItem.getCount());
 			player.getInventory().removeFromBag(item);
 			if(item.getItemCount() > 0)
 			{

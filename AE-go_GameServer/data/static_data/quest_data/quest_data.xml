@@ -6,7 +6,7 @@
     <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Prologue" id="1000">
         <rewards exp="1" reward_id="1"/>
     </quest>
-    <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="The Kerub Threat" id="1001">
+    <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="The Kerub Threat" end_npc_id="203067" id="1001">
         <collect_items>
             <collect_item count="5" item_id="182200001"/>
         </collect_items>
@@ -15,6 +15,122 @@
             <selectable_reward_item count="1" item_id="114300816"/>
             <selectable_reward_item count="1" item_id="114500778"/>
         </rewards>
+        <on_kill_event ids="210670">
+            <conditions operate="AND">
+                <quest_var var_id="0" value="6" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203071">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+                <quest_var var_id="0" value="0" op="EQUAL"/>
+                <dialog_id value="25" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1011"/>
+            </operations>
+        </on_talk_event>
+        <on_talk_event ids="203071">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+                <quest_var var_id="0" value="0" op="EQUAL"/>
+                <dialog_id value="1013" op="EQUAL"/>
+            </conditions>
+            <operations override="false">
+                <play_movie movie_type="2" movie_id="15"/>
+            </operations>
+        </on_talk_event>
+        <on_talk_event ids="203071">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+                <quest_var var_id="0" value="0" op="EQUAL"/>
+                <dialog_id value="10000" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+                <npc_dialog quest_id="0" id="10"/>
+            </operations>
+        </on_talk_event>
+        <on_talk_event ids="203071">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+                <quest_var var_id="0" value="6" op="EQUAL"/>
+                <dialog_id value="25" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
+        <on_talk_event ids="203071">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+                <quest_var var_id="0" value="6" op="EQUAL"/>
+                <dialog_id value="10001" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+                <npc_dialog quest_id="0" id="10"/>
+            </operations>
+        </on_talk_event>
+        <on_talk_event ids="203071">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+                <quest_var var_id="0" value="7" op="EQUAL"/>
+                <dialog_id value="25" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1693"/>
+            </operations>
+        </on_talk_event>
+        <on_talk_event ids="203071">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+                <quest_var var_id="0" value="7" op="EQUAL"/>
+                <pc_inventory count="5" item_id="182200001" op="GREATER_EQUAL"/>
+                <dialog_id value="33" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1694"/>
+            </operations>
+        </on_talk_event>
+        <on_talk_event ids="203071">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+                <quest_var var_id="0" value="7" op="EQUAL"/>
+                <pc_inventory count="5" item_id="182200001" op="LESSER"/>
+                <dialog_id value="33" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1779"/>
+            </operations>
+        </on_talk_event>
+        <on_talk_event ids="203071">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+                <quest_var var_id="0" value="7" op="EQUAL"/>
+                <pc_inventory count="5" item_id="182200001" op="GREATER_EQUAL"/>
+                <dialog_id value="10002" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <take_item count="-1" item_id="182200001"/>
+                <incrase_quest_var value="1" var_id="0"/>
+                <set_quest_status status="REWARD"/>
+                <npc_dialog quest_id="0" id="10"/>
+            </operations>
+        </on_talk_event>
+        <on_lvl_up_event ids="3">
+            <conditions operate="AND">
+                <quest_status value="START" op="LESSER"/>
+                <quest_status quest_id="1100" value="COMPLITE" op="EQUAL"/>
+                <pc_level value="3" op="GREATER_EQUAL"/>
+            </conditions>
+            <operations>
+                <start_quest id="1001"/>
+            </operations>
+        </on_lvl_up_event>
     </quest>
     <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Request of the Elim" id="1002">
         <collect_items>
@@ -600,6 +716,23 @@
     </quest>
     <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Kalio's Call" end_npc_id="203067" id="1100">
         <rewards exp="10" reward_id="1"/>
+        <on_talk_event ids="203067">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1011"/>
+            </operations>
+        </on_talk_event>
+        <on_enter_zone_event names="AKARIOS_VILLAGE">
+            <conditions operate="AND">
+                <quest_status value="START" op="LESSER"/>
+            </conditions>
+            <operations>
+                <start_quest id="1100"/>
+            </operations>
+        </on_enter_zone_event>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="1" name="Sleeping on the Job" end_npc_id="203057" start_npc_id="203049" id="1101">
         <rewards exp="50" gold="30" reward_id="1"/>
@@ -656,8 +789,16 @@
             <quest_work_item count="1" item_id="182200203"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="3" name="The Lost Axe" id="1107">
+    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="3" name="The Lost Axe" end_npc_id="203075" id="1107">
         <rewards exp="420" gold="400" reward_id="1"/>
+        <on_item_use_event ids="182200501">
+            <conditions operate="AND">
+                <quest_status value="START" op="NOT_EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="4"/>
+            </operations>
+        </on_item_use_event>
         <quest_work_items>
             <quest_work_item count="1" item_id="182200501"/>
         </quest_work_items>
@@ -748,6 +889,25 @@
         <rewards exp="1580" reward_id="1">
             <reward_item count="3" item_id="160003001"/>
         </rewards>
+        <on_kill_event ids="210675 210262">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+                <quest_var var_id="0" value="8" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203076">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_var var_id="0" value="8" op="GREATER_EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="4" name="The Nymph's Gown" id="1114">
         <rewards exp="3970" gold="500" reward_id="1"/>
@@ -780,13 +940,13 @@
             </operations>
         </on_talk_event>
     </quest>
-    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="5" name="Pernos's Robe" id="1116">
+    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="5" name="Pernos's Robe" end_npc_id="203060" start_npc_id="203060" id="1116">
         <collect_items>
             <collect_item count="5" item_id="182200207"/>
         </collect_items>
         <rewards exp="2740" gold="550" reward_id="1"/>
     </quest>
-    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="5" name="Light up the Night" id="1117">
+    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="5" name="Light up the Night" end_npc_id="203074" start_npc_id="203074" id="1117">
         <collect_items>
             <collect_item count="6" item_id="182200208"/>
         </collect_items>
@@ -798,7 +958,7 @@
             <quest_work_item count="1" item_id="182200224"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="6" name="A Taste of Namus's Medicine" id="1119">
+    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="6" name="A Taste of Namus's Medicine" end_npc_id="203075" id="1119">
         <rewards exp="1680" gold="150" reward_id="1"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182200225"/>
@@ -848,7 +1008,7 @@
         </collect_items>
         <rewards exp="5540" gold="1090" reward_id="1"/>
     </quest>
-    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="7" name="Mushroom Research" id="1126">
+    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="7" name="Mushroom Research" end_npc_id="203079" start_npc_id="203079" id="1126">
         <collect_items>
             <collect_item count="5" item_id="182200212"/>
         </collect_items>
@@ -6259,7 +6419,7 @@
             <quest_work_item count="1" item_id="182207094"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Order of the Captain" id="2100">
+    <quest race_permitted="ASMODIAN" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Order of the Captain" end_npc_id="203516" id="2100">
         <rewards exp="10" reward_id="1"/>
     </quest>
     <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="1" name="On Your Feet!" end_npc_id="203504" start_npc_id="203500" id="2101">
@@ -6344,7 +6504,7 @@
             <quest_work_item count="1" item_id="182203107"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="2" name="The Shinier the Better" id="2108">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="2" name="The Shinier the Better" end_npc_id="798037" start_npc_id="798037" id="2108">
         <collect_items>
             <collect_item count="5" item_id="182203108"/>
         </collect_items>
@@ -6352,13 +6512,20 @@
             <reward_item count="1" item_id="162000002"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="3" name="Love in Bloom" id="2109">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="3" name="Love in Bloom" end_npc_id="203532" start_npc_id="203532" id="2109">
         <collect_items>
             <collect_item count="6" item_id="182203109"/>
         </collect_items>
         <rewards exp="470" reward_id="1"/>
+        <on_talk_event ids="700125">
+            <conditions operate="AND">
+                <dialog_id value="10" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations/>
+        </on_talk_event>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="3" name="Idle Hands" id="2110">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="3" name="Idle Hands" end_npc_id="203533" start_npc_id="203522" id="2110">
         <rewards exp="1920" reward_id="1">
             <reward_item count="1" item_id="160003503"/>
         </rewards>
@@ -6372,7 +6539,7 @@
             <quest_work_item count="1" item_id="182203111"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="3" name="Urd's Request" id="2112">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="3" name="Urd's Request" end_npc_id="790003" start_npc_id="790003" id="2112">
         <collect_items>
             <collect_item count="6" item_id="182203112"/>
         </collect_items>
