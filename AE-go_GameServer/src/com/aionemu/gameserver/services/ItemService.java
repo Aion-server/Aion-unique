@@ -16,24 +16,23 @@
  */
 package com.aionemu.gameserver.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
-import java.util.List;
-import java.util.ArrayList;
-
-import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.ItemStoneListDAO;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
-
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.World;
@@ -106,7 +105,7 @@ public class ItemService
 
 		return new Item(itemUniqueId, itemTemplate, count, isEquipped, slot);
 	}       
-	
+
 	/**
 	 *  Loads item stones from DB for each item in a list if item is ARMOR or WEAPON
 	 *  
@@ -116,7 +115,7 @@ public class ItemService
 	{
 		if(itemList == null)
 			return;
-		
+
 		for(Item item : itemList)
 		{
 			if(item.getItemTemplate().isArmor() || item.getItemTemplate().isWeapon())
@@ -144,24 +143,25 @@ public class ItemService
 			log.warn(String.format("CHECKPOINT: attempt to split null item %d %d %d", itemObjId, splitAmount, slotNum));
 			return;
 		}
-		
+
 		int oldItemCount = itemToSplit.getItemCount() - splitAmount;
 
 		if(itemToSplit.getItemCount()<splitAmount || oldItemCount == 0)
 			return;
 
-		itemToSplit.decreaseItemCount(splitAmount);
+
 
 		Item newItem = this.newItem(itemToSplit.getItemTemplate().getItemId(), splitAmount);
 
 		if(inventory.putToBag(newItem) != null)
 		{
+			itemToSplit.decreaseItemCount(splitAmount);
+
 			List<Item> itemsToUpdate = new ArrayList<Item>();
 			itemsToUpdate.add(newItem);
-			itemsToUpdate.add(itemToSplit);
 
-			DAOManager.getDAO(InventoryDAO.class).store(itemToSplit, player.getObjectId());
 			PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(itemsToUpdate));
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(itemToSplit));
 		}		
 		else
 		{
@@ -169,6 +169,48 @@ public class ItemService
 		}
 	}
 	
+	/**
+	 *  Used to merge 2 items in inventory
+	 *  
+	 * @param player
+	 * @param sourceItemObjId
+	 * @param itemAmount
+	 * @param destinationObjId
+	 */
+	public void mergeItems (Player player, int sourceItemObjId, int itemAmount, int destinationObjId)
+	{
+		if(itemAmount == 0)
+			return;
+
+		Inventory inventory = player.getInventory();
+
+		Item sourceItem = inventory.getItemByObjId(sourceItemObjId);
+		Item destinationItem = inventory.getItemByObjId(destinationObjId);
+
+		int chksum = (sourceItem.getItemCount() - itemAmount) + (destinationItem.getItemCount() + itemAmount); //total sum of operation.
+		if(chksum != sourceItem.getItemCount() + destinationItem.getItemCount()) //total sum of operating objects count must be same with operation sum.
+			return; //cheat, fake itemAmount.
+
+
+		if(sourceItem.getItemCount() == itemAmount)
+		{
+			destinationItem.increaseItemCount(sourceItem.getItemCount());
+			inventory.removeFromBag(sourceItem);
+
+			PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(sourceItem.getObjectId()));
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(destinationItem));
+		}
+		else if(sourceItem.getItemCount() > itemAmount)
+		{
+			sourceItem.decreaseItemCount(itemAmount);
+			destinationItem.increaseItemCount(itemAmount);
+
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(sourceItem));
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(destinationItem));
+		}
+		else return; // cant happen in theory, but...
+	}
+
 	/**
 	 *  Adds item count to player inventory
 	 *  I moved this method to service cause right implementation of it is critical to server
@@ -183,11 +225,11 @@ public class ItemService
 	public boolean addItem(Player player, int itemId, int count)
 	{
 		Inventory inventory = player.getInventory();
-		
+
 		ItemTemplate itemTemplate =  DataManager.ITEM_DATA.getItemTemplate(itemId);
 		if(itemTemplate == null)
 			return false;
-		
+
 		int maxStackCount = itemTemplate.getMaxStackCount();
 
 		if (itemId == ItemId.KINAH.value())
@@ -200,7 +242,7 @@ public class ItemService
 		{
 			List<Item> itemsToUpdate = new ArrayList<Item>();
 			int currentItemCount = count;
-				
+
 			/**
 			 * Increase count of existing items
 			 */
@@ -209,10 +251,10 @@ public class ItemService
 			{
 				int freeCount = maxStackCount - existingItem.getItemCount();
 				currentItemCount -= freeCount;
-				
+
 				if(freeCount == 0)
 					continue;
-				
+
 				if(currentItemCount >= 0)
 				{
 					existingItem.increaseItemCount(freeCount);
@@ -225,7 +267,7 @@ public class ItemService
 				}	
 				itemsToUpdate.add(existingItem);
 			}
-			
+
 			/**
 			 * Create new stacks
 			 */
@@ -248,15 +290,15 @@ public class ItemService
 					currentItemCount = 0;
 				}
 			}
-			
+
 			//TODO 10 items check
 			if (!itemsToUpdate.isEmpty())
 				PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(itemsToUpdate));
-			
+
 			return currentItemCount == 0 ? true : false;
 		}
 	}
-	
+
 	/**
 	 *  Releases item id if item was not used by caller
 	 *  

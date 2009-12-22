@@ -18,9 +18,10 @@ public class CM_SPLIT_ITEM extends AionClientPacket
 	@Inject
 	private ItemService itemService;
 
-	int itemObjId;
-	int splitAmount;
-	int slotNum; // destination slot?
+	int sourceItemObjId;
+	int itemAmount;
+	int destinationItemObjId;
+	int slotNum; // destination slot.
 
 	public CM_SPLIT_ITEM(int opcode)
 	{
@@ -30,16 +31,22 @@ public class CM_SPLIT_ITEM extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		itemObjId = readD();
-		splitAmount = readD();
-		byte[] zeros = readB(10);
-		slotNum = readH();        //Not needed right now, Items adding only to next available slot.
+		sourceItemObjId = readD();      // drag item unique ID. If merging and itemCount becoming null, this item must be deleted.
+		itemAmount = readD();           // Items count to be moved.
+		byte[] zeros = readB(5);        // Nothing
+		destinationItemObjId = readD(); // Destination item unique ID if merging. Null if spliting.
+		zeros = readB(1);               // Nothing
+		slotNum = readH();              // Destination slot. Not needed right now, Items adding only to next available slot. Not needed at all when merge.
 	}
 
 	@Override
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
-		itemService.splitItem(player, itemObjId, splitAmount, slotNum);
+
+		if(destinationItemObjId == 0)
+			itemService.splitItem(player, sourceItemObjId, itemAmount, slotNum);
+		else
+			itemService.mergeItems(player, sourceItemObjId, itemAmount, destinationItemObjId);
 	}
 }
