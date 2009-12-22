@@ -115,7 +115,7 @@ public class DeadlockDetector implements Runnable
 		}
 		if (ti.isSuspended())
 		{
-			sb.append(" (suspended)" + "\n�");
+			sb.append(" (suspended)" + "\n");
 		}
 		if (ti.isInNative()) 
 		{
