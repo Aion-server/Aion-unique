@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.GameServerError;
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CUSTOM_PACKET;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CUSTOM_PACKET.PacketElementType;
@@ -89,6 +90,12 @@ public class AdvSendFakeServerPacket extends AdminCommand
 	@Override
 	public void executeCommand(final Player admin, String[] params)
 	{
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_ADVSENDFAKESERVERPACKET)
+		{
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
 		if (params.length != 1)
 		{
 			PacketSendUtility.sendMessage(admin, "Example: //send [file] ");

@@ -17,6 +17,7 @@
 
 package admincommands;
 
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -48,8 +49,14 @@ public class Revoke extends AdminCommand
 	 */
 
 	@Override
-	public void executeCommand(Player admin, String... params)
+	public void executeCommand(Player admin, String[] params)
 	{
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_REVOKE)
+		{
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
 		if (params == null || params.length < 1)
 		{
 			PacketSendUtility.sendMessage(admin, "syntax //revoke characterName");
@@ -63,7 +70,7 @@ public class Revoke extends AdminCommand
 			return;
 		}
 
-		player.getCommonData().setAdmin(false);
+		player.getCommonData().setAdminRole(0);
 		PacketSendUtility.sendMessage(admin, player.getName() + " Administrator status has been revoked");
 		PacketSendUtility.sendMessage(player, "Your Administrator status has been revoked.");
 	}

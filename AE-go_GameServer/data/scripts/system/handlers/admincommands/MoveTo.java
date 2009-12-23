@@ -17,6 +17,7 @@
 
 package admincommands;
 
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -52,6 +53,12 @@ public class MoveTo extends AdminCommand
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_MOVETO)
+		{
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
 		if(params == null || params.length < 4)
 		{
 			PacketSendUtility.sendMessage(admin, "syntax //moveto worldId X Y Z");

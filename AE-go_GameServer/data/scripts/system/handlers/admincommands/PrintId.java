@@ -16,9 +16,8 @@
  */
 package admincommands;
 
-import com.aionemu.gameserver.model.ChatType;
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
@@ -30,14 +29,15 @@ public class PrintId extends AdminCommand
 		super("printid");
 	}
 
-	/*
-	*  (non-Javadoc)
-	* @see com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.gameobjects.Player, java.lang.String[])
-	*/
-
 	@Override
-	public void executeCommand(Player admin, String... params)
+	public void executeCommand(Player admin, String[] params)
 	{
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_PRINTID)
+		{
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
 		if(params == null || params.length < 1)
 		{
 			PacketSendUtility.sendMessage(admin, "syntax //printid 0 (self) 1 (selected target)");

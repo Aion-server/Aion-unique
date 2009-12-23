@@ -16,6 +16,7 @@
  */
 package admincommands;
 
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CUSTOM_PACKET;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CUSTOM_PACKET.PacketElementType;
@@ -46,13 +47,15 @@ public class SendRawPacket extends AdminCommand
 		super("raw");
 	}
 
-	/* (non-Javadoc)
-	 * @see super#executeCommand(com.aionemu.gameserver.model.gameobjects.player.Player, java.lang.String[])
-	 */
-
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_SENDRAWPACKET)
+		{
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
 		if (params.length != 1)
 		{
 			PacketSendUtility.sendMessage(admin, "Usage: //raw [name]");

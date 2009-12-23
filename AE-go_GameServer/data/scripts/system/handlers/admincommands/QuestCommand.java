@@ -16,6 +16,7 @@
  */
 package admincommands;
 
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.questEngine.Quest;
@@ -33,14 +34,15 @@ public class QuestCommand extends AdminCommand
 		super("quest");
 	}
 
-	/*
-	*  (non-Javadoc)
-	* @see com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.gameobjects.Player, java.lang.String[])
-	*/
-
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_QUESTCOMMAND)
+		{
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
 		if(params == null || params.length < 1)
 		{
 			PacketSendUtility.sendMessage(admin, "syntax //quest <start|delete|step|info|vars>");

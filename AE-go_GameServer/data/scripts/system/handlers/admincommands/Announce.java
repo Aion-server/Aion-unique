@@ -19,6 +19,7 @@ package admincommands;
  
 import java.util.Iterator;
 
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
@@ -35,13 +36,15 @@ public class Announce extends AdminCommand
 		super("announce");
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.model.gameobjects.player.Player, java.lang.String[])
-	 */
-
 	@Override
-	public void executeCommand(Player admin, String... params)
+	public void executeCommand(Player admin, String[] params)
 	{
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_ANNOUNCE)
+		{
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
 		if (params.length == 0)
 		{
 			PacketSendUtility.sendMessage(admin, "//syntax announce <message>");

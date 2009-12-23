@@ -18,11 +18,13 @@ package admincommands;
 
 import java.util.Iterator;
 
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.google.inject.Inject;
 
@@ -50,16 +52,15 @@ public class UnloadSpawn extends AdminCommand
 		this.spawnData = spawnData;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see
-	 * com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.model
-	 * .gameobjects.Player, java.lang.String[])
-	 */
-
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_UNLOADSPAWN)
+		{
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
 		spawnData.clearSpawns();
 		Iterator<AionObject> it = world.getObjectsIterator();
 		while(it.hasNext())

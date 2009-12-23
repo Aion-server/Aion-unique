@@ -16,8 +16,8 @@
  */
 package admincommands;
 
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.dataholders.SpawnData;
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -41,15 +41,15 @@ public class DeleteSpawn extends AdminCommand
 		this.spawnData = spawnData;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @seecom.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.
-	 * gameobjects.Player, java.lang.String[])
-	 */
-
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_DELETESPAWN)
+		{
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
 		VisibleObject cre = admin.getTarget();
 		if(!(cre instanceof Npc))
 		{

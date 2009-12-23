@@ -16,6 +16,7 @@
  */
 package admincommands;
 
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -42,15 +43,15 @@ public class SaveSpawnData extends AdminCommand
 		this.spawnData = spawnData;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @seecom.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.
-	 * gameobjects.Player, java.lang.String[])
-	 */
-
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_SAVESPAWNDATA)
+		{
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
 		if(spawnData.saveData())
 		{
 			PacketSendUtility.sendMessage(admin, "new_spawndata.txt saved");

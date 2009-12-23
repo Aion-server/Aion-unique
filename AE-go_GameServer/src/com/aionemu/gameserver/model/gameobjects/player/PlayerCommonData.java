@@ -59,7 +59,7 @@ public class PlayerCommonData
 	private int				level = 0;
 	private long			exp = 0;
 	private long			expLoss = 0;
-	private boolean			admin;
+	private int				adminRole;
 	private Gender			gender;
 	private Timestamp		lastOnline;
 	private boolean 		online;
@@ -67,7 +67,7 @@ public class PlayerCommonData
 	private WorldPosition	position;
 	private int 			cubeSize = 0;
 	private int			    bindPoint;
-   private int             titleId = -1;
+	private int             titleId = -1;
 	
 
 	public PlayerCommonData(int objId)
@@ -274,14 +274,14 @@ public class PlayerCommonData
 		this.playerClass = playerClass;
 	}
 
-	public boolean isAdmin()
+	public int getAdminRole()
 	{
-		return admin;
+		return adminRole;
 	}
 
-	public void setAdmin(boolean admin)
+	public void setAdminRole(int adminRole)
 	{
-		this.admin = admin;
+		this.adminRole = adminRole;
 	}
 
 	public boolean isOnline() 

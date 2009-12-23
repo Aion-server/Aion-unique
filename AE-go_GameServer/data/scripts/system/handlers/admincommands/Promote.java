@@ -17,6 +17,7 @@
 
 package admincommands;
 
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -42,16 +43,35 @@ public class Promote extends AdminCommand
 		super("promote");
 	}
 
-	/**
-	 *  {@inheritDoc}
-	 */
-
 	@Override
-	public void executeCommand(Player admin, String... params)
+	public void executeCommand(Player admin, String[] params)
 	{
-		if (params == null || params.length < 1)
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_PROMOTE)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //promote <characterName>");
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
+		if (params == null || params.length < 2)
+		{
+			PacketSendUtility.sendMessage(admin, "syntax //promote <characterName> <rolemask>");
+			return;
+		}
+		
+		int mask = 0;
+		try
+		{
+			mask = Integer.parseInt(params[1]);
+		}
+		catch (NumberFormatException e)
+		{
+			PacketSendUtility.sendMessage(admin, "rolemask should be number");
+			return;
+		}
+		
+		if(mask > 3)
+		{
+			PacketSendUtility.sendMessage(admin, "rolemask can be 1, 2 or 3");
 			return;
 		}
 
@@ -61,9 +81,9 @@ public class Promote extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "The specified player is not online.");
 			return;
 		}
-
-		player.getCommonData().setAdmin(true);
-		PacketSendUtility.sendMessage(admin, player.getName() + " has been promoted Administrator");
-		PacketSendUtility.sendMessage(player, "You have been promoted Administrator.");
+		
+		player.getCommonData().setAdminRole(mask);
+		PacketSendUtility.sendMessage(admin, player.getName() + " has been promoted Administrator with role " + mask);
+		PacketSendUtility.sendMessage(player, "You have been promoted Administrator with role " + mask);
 	}
 }

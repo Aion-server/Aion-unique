@@ -70,12 +70,6 @@ public class AdminCommandChatHandler implements ChatHandler
 		}
 		else
 		{
-			if(!sender.getCommonData().isAdmin())
-			{
-				PacketSendUtility.sendMessage(sender, "<You do not have permission to use admin commands>");
-				return ChatHandlerResponse.BLOCKED_MESSAGE;
-			}
-
 			String[] commandAndParams = message.split(" ", 2);
 
 			String command = commandAndParams[0].substring(2);

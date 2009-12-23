@@ -94,7 +94,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
 				log.debug("[DAO: MySQL5PlayerDAO] storing player "+player.getObjectId()+" "+player.getName());
-				
+
 				stmt.setString(1, player.getName());
 				stmt.setLong(2, player.getCommonData().getExp());
 				stmt.setFloat(3, player.getX());
@@ -105,11 +105,11 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				stmt.setString(8, player.getCommonData().getPlayerClass().toString());
 				stmt.setTimestamp(9, player.getCommonData().getLastOnline());
 				stmt.setInt(10, player.getCubeSize());
-				stmt.setBoolean(11, player.getCommonData().isAdmin());
+				stmt.setInt(11, player.getCommonData().getAdminRole());
 				stmt.setString(12,player.getCommonData().getNote());
 				stmt.setInt(13, player.getCommonData().getBindPoint());
 				stmt.setInt(14, player.getCommonData().getTitleId());
-               stmt.setInt(15, player.getObjectId());
+				stmt.setInt(15, player.getObjectId());
 				stmt.execute();
 			}
 		});
@@ -121,31 +121,31 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	public boolean saveNewPlayer(final PlayerCommonData pcd, final int accountId, final String accountName)
 	{
 		boolean success = DB.insertUpdate(
-				"INSERT INTO players(id, `name`, account_id, account_name, x, y, z, heading, world_id, gender, race, player_class , cube_size, admin, online) " +
-				"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)",
-				new IUStH(){
-					@Override
-					public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
-					{
-						log.debug("[DAO: MySQL5PlayerDAO] saving new player: "+pcd.getPlayerObjId()+" "+pcd.getName());
-						
-						preparedStatement.setInt(1, pcd.getPlayerObjId());
-						preparedStatement.setString(2, pcd.getName());
-						preparedStatement.setInt(3, accountId);
-						preparedStatement.setString(4, accountName);
-						preparedStatement.setFloat(5, pcd.getPosition().getX());
-						preparedStatement.setFloat(6, pcd.getPosition().getY());
-						preparedStatement.setFloat(7, pcd.getPosition().getZ());
-						preparedStatement.setInt(8, pcd.getPosition().getHeading());
-						preparedStatement.setInt(9, pcd.getPosition().getMapId());
-						preparedStatement.setString(10, pcd.getGender().toString());
-						preparedStatement.setString(11, pcd.getRace().toString());
-						preparedStatement.setString(12, pcd.getPlayerClass().toString());
-						preparedStatement.setInt(13, pcd.getCubeSize());
-						preparedStatement.setBoolean(14, pcd.isAdmin());
-						preparedStatement.execute();
-					}
-				});
+			"INSERT INTO players(id, `name`, account_id, account_name, x, y, z, heading, world_id, gender, race, player_class , cube_size, admin, online) " +
+			"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)",
+			new IUStH(){
+				@Override
+				public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
+				{
+					log.debug("[DAO: MySQL5PlayerDAO] saving new player: "+pcd.getPlayerObjId()+" "+pcd.getName());
+
+					preparedStatement.setInt(1, pcd.getPlayerObjId());
+					preparedStatement.setString(2, pcd.getName());
+					preparedStatement.setInt(3, accountId);
+					preparedStatement.setString(4, accountName);
+					preparedStatement.setFloat(5, pcd.getPosition().getX());
+					preparedStatement.setFloat(6, pcd.getPosition().getY());
+					preparedStatement.setFloat(7, pcd.getPosition().getZ());
+					preparedStatement.setInt(8, pcd.getPosition().getHeading());
+					preparedStatement.setInt(9, pcd.getPosition().getMapId());
+					preparedStatement.setString(10, pcd.getGender().toString());
+					preparedStatement.setString(11, pcd.getRace().toString());
+					preparedStatement.setString(12, pcd.getPlayerClass().toString());
+					preparedStatement.setInt(13, pcd.getCubeSize());
+					preparedStatement.setInt(14, pcd.getAdminRole());
+					preparedStatement.execute();
+				}
+			});
 		if(success)
 		{
 			playerCommonData.put(pcd.getPlayerObjId(), pcd);
@@ -181,27 +181,27 @@ public class MySQL5PlayerDAO extends PlayerDAO
 			public void handleRead(ResultSet resultSet) throws SQLException
 			{
 				log.debug("[DAO: MySQL5PlayerDAO] loading from db "+playerObjId);
-				
+
 				resultSet.next();
-				
+
 				cd.setName(resultSet.getString("name"));
 				cd.setExp(resultSet.getLong("exp"));
 				cd.setRace(Race.valueOf(resultSet.getString("race")));
 				cd.setGender(Gender.valueOf(resultSet.getString("gender")));
 				cd.setPlayerClass(PlayerClass.valueOf(resultSet.getString("player_class")));
-				cd.setAdmin(resultSet.getBoolean("admin"));
+				cd.setAdminRole(resultSet.getInt("admin"));
 				cd.setLastOnline(resultSet.getTimestamp("last_online"));
 				cd.setNote(resultSet.getString("note"));
 				cd.setCubesize(resultSet.getInt("cube_size"));
 				cd.setBindPoint(resultSet.getInt("bind_point"));
-               cd.setTitleId(resultSet.getInt("title_id"));
+				cd.setTitleId(resultSet.getInt("title_id"));
 
 				float x = resultSet.getFloat("x");
 				float y = resultSet.getFloat("y");
 				float z = resultSet.getFloat("z");
 				byte heading = resultSet.getByte("heading");
 				int worldId = resultSet.getInt("world_id");
-				
+
 				if(z < -1000)
 				{
 					//unstuck unlucky characters :)
@@ -212,7 +212,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 					heading = ld.getHeading();
 					worldId = ld.getMapId();
 				}		
-				
+
 				WorldPosition position = world.createPosition(worldId, x, y, z, heading);
 				cd.setPosition(position);
 			}
@@ -298,7 +298,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 			public void handleRead(ResultSet rset) throws SQLException
 			{
 				rset.next();
-				
+
 				acData.setDeletionDate(rset.getTimestamp("deletion_date"));
 				acData.setCreationDate(rset.getTimestamp("creation_date"));
 			}
@@ -338,7 +338,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 			}
 		});
 	}
-	
+
 	@Override
 	public void storeLastOnlineTime(final int objectId, final Timestamp lastOnline)
 	{
@@ -398,7 +398,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
 				log.debug("[DAO: MySQL5PlayerDAO] online status "+player.getObjectId()+" "+player.getName());
-				
+
 				stmt.setBoolean(1, online);
 				stmt.setInt(2, player.getObjectId());
 				stmt.execute();

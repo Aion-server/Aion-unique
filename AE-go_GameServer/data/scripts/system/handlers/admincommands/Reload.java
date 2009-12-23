@@ -26,6 +26,7 @@ import javax.xml.validation.SchemaFactory;
 
 import org.xml.sax.SAXException;
 
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.dataholders.StaticData;
@@ -43,14 +44,15 @@ public class Reload extends AdminCommand
 		super("reload");
 	}
 
-	/*
-	*  (non-Javadoc)
-	* @see com.aionemu.gameserver.utils.chathandlers.admincommands.AdminCommand#executeCommand(com.aionemu.gameserver.gameobjects.Player, java.lang.String[])
-	*/
-
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_RELOAD)
+		{
+			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+			return;
+		}
+		
 		if(params == null || params.length != 1)
 		{
 			PacketSendUtility.sendMessage(admin, "syntax //reload <quest>");
