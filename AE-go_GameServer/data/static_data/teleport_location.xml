@@ -43,23 +43,22 @@
 	<teleloc_template loc_id="85" mapid="210060000" name="Jamanok Inn"/>
 	
 	<!-- ASMODIANS -->
-	<teleloc_template loc_id="17" mapid="220010000" name="Aldelle Village"/>
-	<teleloc_template loc_id="18" mapid="220010000" name="Anturoon Crossing"/>
-	
-	<teleloc_template loc_id="19" mapid="220030000" name="Altgard Fortress"/>
-	<teleloc_template loc_id="20" mapid="220030000" name="Traders Airship Dock of Call"/>
-	<teleloc_template loc_id="32" mapid="220030000" name="Basfelt Village"/>
+	<teleloc_template loc_id="18" mapid="220010000" name="Aldelle Village"/>
+	<teleloc_template loc_id="17" mapid="220010000" name="Anturoon Sentry Post"/>
 	
 	<teleloc_template loc_id="63" mapid="220020000" name="Morheim Ice Fortress"/>
 	<teleloc_template loc_id="64" mapid="220020000" name="Salintus Observation Post"/>
 	<teleloc_template loc_id="65" mapid="220020000" name="Alsig Village"/>
 	
+	<teleloc_template loc_id="19" mapid="220030000" name="Altgard Fortress"/>
+	<teleloc_template loc_id="20" mapid="220030000" name="Trader's Airship Dock of Call"/>
+	<teleloc_template loc_id="32" mapid="220030000" name="Basfelt Village"/>
+
 	<teleloc_template loc_id="78" mapid="220040000" name="Beluslan Fortress"/>
 	<teleloc_template loc_id="79" mapid="220040000" name="Besfer Refugee Camp"/>
 	<teleloc_template loc_id="80" mapid="220040000" name="Red Mane Cavern"/>
 	
-	<teleloc_template loc_id="86" mapid="220050000" name="Settlers Campsite"/>
+	<teleloc_template loc_id="86" mapid="220050000" name="Settler's Camp Site"/>	
 	<teleloc_template loc_id="87" mapid="220050000" name="Baltasar Hill Village"/>
-	<teleloc_template loc_id="88" mapid="220050000" name="Bubu Village"/>
-	
+	<teleloc_template loc_id="88" mapid="220050000" name="BuBu Village"/>
 </teleport_location>
