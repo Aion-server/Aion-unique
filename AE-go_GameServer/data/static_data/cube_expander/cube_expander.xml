@@ -5,9 +5,9 @@
 	<!-- Ishalgen -->
 	<cube_npc id="798037" name="Bacorerk" min_level="0" max_level="1" price01="1000" />
 	<!-- Pandaemonium -->
-	<cube_npc id="798058" name="Ondarinerk" min_level="1" max_level="9" price01="12100" price02="60500" price03="181000" price04="0" price05="0" price06="0" price07="0" price08="0" price09="0" />
-	<cube_npc id="798059" name="Nekorunerk" min_level="1" max_level="9" price01="12100" price02="60500" price03="181000" price04="0" price05="0" price06="0" price07="0" price08="0" price09="0" />
+	<cube_npc id="798058" name="Ondarinerk" min_level="1" max_level="3" price01="12000" price02="80000" price03="180000" />
+	<cube_npc id="798059" name="Nekorunerk" min_level="1" max_level="3" price01="12000" price02="80000" price03="180000" />
 	<!-- Sanctum -->
-	<cube_npc id="798011" name="Heerunerk" min_level="1" max_level="9" price01="12100" price02="60500" price03="181000" price04="0" price05="0" price06="0" price07="0" price08="0" price09="0" />
-	<cube_npc id="798012" name="Yiehmonerk" min_level="1" max_level="9" price01="12100" price02="60500" price03="181000" price04="0" price05="0" price06="0" price07="0" price08="0" price09="0" />
+	<cube_npc id="798011" name="Heerunerk" min_level="1" max_level="3" price01="12000" price02="80000" price03="180000" />
+	<cube_npc id="798012" name="Yiehmonerk" min_level="1" max_level="3" price01="12000" price02="80000" price03="180000" />
 </cube_expander>
