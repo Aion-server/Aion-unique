@@ -58,7 +58,7 @@ public class DeadlockDetector implements Runnable
 					noDeadLocks = false;
 
 					ThreadInfo[] infos = bean.getThreadInfo(threadIds);
-
+					sb.append("\nTHREAD LOCK INFO: \n");
 					for (ThreadInfo threadInfo : infos) 
 					{
 						printThreadInfo(threadInfo);
@@ -72,7 +72,7 @@ public class DeadlockDetector implements Runnable
 					sb.append("\nTHREAD DUMPS: \n");
 					for (ThreadInfo ti : bean.dumpAllThreads(true, true)) 
 					{  
-						sb.append(ti.toString() + "\n");  
+						printThread(ti); 
 					}
 					log.error(sb.toString());
 				}
@@ -107,7 +107,8 @@ public class DeadlockDetector implements Runnable
 
 	private void printThread(ThreadInfo ti) 
 	{
-		StringBuilder sb = new StringBuilder("\"" + ti.getThreadName() + "\"" + " Id="
+		sb.append("\nPrintThread\n");
+		sb.append("\"" + ti.getThreadName() + "\"" + " Id="
 				+ ti.getThreadId() + " in " + ti.getThreadState() + "\n");
 		if (ti.getLockName() != null) 
 		{
@@ -121,7 +122,6 @@ public class DeadlockDetector implements Runnable
 		{
 			sb.append(" (running in native)" + "\n");
 		}
-		sb.append(sb.toString());
 		if (ti.getLockOwnerName() != null) 
 		{
 			sb.append(INDENT + " owned by " + ti.getLockOwnerName() + " Id="
