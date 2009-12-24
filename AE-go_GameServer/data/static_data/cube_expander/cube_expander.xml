@@ -10,4 +10,6 @@
 	<!-- Sanctum -->
 	<cube_npc id="798011" name="Heerunerk" min_level="1" max_level="3" price01="12000" price02="80000" price03="180000" />
 	<cube_npc id="798012" name="Yiehmonerk" min_level="1" max_level="3" price01="12000" price02="80000" price03="180000" />
+	<!-- Abyss, Tigraki Island -->
+	<cube_npc id="279022" name="Jarumonerk" min_level="3" max_level="4" price01="356103" />
 </cube_expander>
