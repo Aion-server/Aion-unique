@@ -79,13 +79,15 @@ public class CM_CHAT_MESSAGE_WHISPER extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		log.info(String.format("Whisper To: %s, Message: %s", name, message));
+		String formatname = name.substring(0,1).toUpperCase() + name.toLowerCase().substring(1);
+		
+		log.info(String.format("Whisper To: %s, Message: %s", formatname, message));
 		Player sender = getConnection().getActivePlayer();
-		Player receiver = world.findPlayer(name);
+		Player receiver = world.findPlayer(formatname);
 
 		if(receiver == null)
 		{
-			sendPacket(SM_SYSTEM_MESSAGE.PLAYER_IS_OFFLINE(name));
+			sendPacket(SM_SYSTEM_MESSAGE.PLAYER_IS_OFFLINE(formatname));
 		}
 		else if (receiver.getBlockList().contains(sender.getObjectId()))
 		{
