@@ -176,73 +176,19 @@ public class DropService
 				}
 			}
 		}
-		
-		Inventory inventory = player.getInventory();
-		
+
 		if(requestedItem != null)
 		{
 			int currentDropItemCount = requestedItem.getCount();
 			int itemId = requestedItem.getDropTemplate().getItemId();
+			int questId = requestedItem.getDropTemplate().getQuest();
 			
-			if(itemId == ItemId.KINAH.value())
-			{
-				inventory.increaseKinah(currentDropItemCount);
-				PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
-				dropItems.remove(requestedItem);
-				resendDropList(player, npcId, dropItems);
-				return;
-			}
+			currentDropItemCount = itemService.addItem(player, itemId, currentDropItemCount, questId > 0);
 			
-			Item newItem = itemService.newItem(itemId, currentDropItemCount);
-			//dropped item have incorrect templateid
-			if(newItem == null)
-			{
-				dropItems.remove(requestedItem);
-				resendDropList(player, npcId, dropItems);
-				return;
-			}
-				
-			
-			Item existingItem = inventory.getItemByItemId(itemId);
-			
-			//item already in cube
-			if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
-			{
-				int oldItemCount = existingItem.getItemCount();
-				Item addedItem = inventory.addToBag(newItem);
-				if(addedItem != null)
-				{
-					//release id if item was put to stack
-					if(addedItem.getObjectId() != newItem.getObjectId())
-						itemService.releaseItemId(newItem);
-					
-					currentDropItemCount -= addedItem.getItemCount() - oldItemCount;
-					PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
-				}
-				else
-				{
-					itemService.releaseItemId(newItem);
-				}
-			}
-			// new item and inventory is not full
-			else if (!inventory.isFull())
-			{
-				Item addedItem = inventory.addToBag(newItem);
-				if(addedItem != null)
-				{
-					currentDropItemCount -= addedItem.getItemCount();
-					PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(Collections.singletonList(addedItem)));
-				}
-				else
-				{
-					itemService.releaseItemId(newItem);
-				}
-			}
-			
-			//item fully pickuped
 			if(currentDropItemCount == 0)
 			{
 				dropItems.remove(requestedItem);
+
 			}
 			
 			//show updated droplist

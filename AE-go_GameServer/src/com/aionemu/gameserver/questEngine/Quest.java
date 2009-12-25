@@ -213,27 +213,14 @@ public class Quest
 			return true;
 		for (CollectItem collectItem : collectItems.getCollectItem())
 		{
-			Item item = player.getInventory().getItemByItemId(collectItem.getItemId());
-			if (item == null || collectItem.getCount() > item.getItemCount())
+			int count = player.getInventory().getItemCountByItemId(collectItem.getItemId());
+			if (collectItem.getCount() > count)
 				return false;
 		}
 		
 		for (CollectItem collectItem : collectItems.getCollectItem())
 		{
-			List<Item> addedItems = new ArrayList<Item>();
-			Item item = player.getInventory().removeFromBag(collectItem.getItemId(), collectItem.getCount());
-			player.getInventory().removeFromBag(item);
-			if(item.getItemCount() > 0)
-			{
-				addedItems.add(item);
-			}
-			else
-			{
-				PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(item.getObjectId()));
-			}
-			
-			if (addedItems.size()> 0)
-				PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(addedItems));
+			player.getInventory().removeFromBagByItemId(collectItem.getItemId(), collectItem.getCount());
 			
 			qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0)+1);
 			qs.setStatus(QuestStatus.REWARD);

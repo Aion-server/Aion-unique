@@ -78,8 +78,6 @@ public class ItemStorage
 	/**
 	 * @param itemId
 	 * @return Item by itemId or null if there is no such item
-	 * 
-	 *  @deprecated DON'T USE IT ANYMORE
 	 */
 	public Item getItemFromStorageByItemId(int itemId)
 	{
@@ -124,14 +122,14 @@ public class ItemStorage
 	}
 	
 	/**
-	 * @param itemUniqueId
+	 * @param itemObjId
 	 * @return
 	 */
-	public Item getItemFromStorageByItemUniqueId(int itemUniqueId)
+	public Item getItemFromStorageByItemObjId(int itemObjId)
 	{
 		for(Item item : storageItems)
 		{
-			if(item != null && item.getObjectId() == itemUniqueId)
+			if(item != null && item.getObjectId() == itemObjId)
 			{
 				return item;
 			}
@@ -198,7 +196,7 @@ public class ItemStorage
 		return -1;
 	}
 
-	protected boolean isSlotEmpty(int slot)
+	public boolean isSlotEmpty(int slot)
 	{
 		return slot <= limit && storageItems[slot] == null;
 	}
@@ -247,6 +245,28 @@ public class ItemStorage
 			return item;
 		}
 		return null;
+	}
+	
+	/**
+	 *  This method will try  to put item to its predefined slot
+	 *  (usefull while loading from db)
+	 *  If this slot already busy - will try to put to next available one
+	 *  
+	 * @param item
+	 * @return item or null in case all slots are busy
+	 */
+	public Item putToDefinedOrNextAvaiableSlot(Item item)
+	{
+		int itemSlot = item.getEquipmentSlot();
+		if(isSlotEmpty(itemSlot))
+		{
+			storageItems[itemSlot] = item;
+			return item;
+		}
+		else
+		{
+			return putToNextAvailableSlot(item);
+		}
 	}
 	
 	/**

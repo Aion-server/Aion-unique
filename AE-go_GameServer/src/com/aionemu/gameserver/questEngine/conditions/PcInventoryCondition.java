@@ -44,10 +44,8 @@ public class PcInventoryCondition
 	public boolean doCheck(QuestEnv env)
 	{
 		Player player = env.getPlayer();
-		Item item = player.getInventory().getItemByItemId(itemId);
-		int _count = 0;
-		if (item != null)
-			_count = item.getItemCount();
+		int _count = player.getInventory().getItemCountByItemId(itemId);
+
 		switch (getOp())
 		{
 			case EQUAL:

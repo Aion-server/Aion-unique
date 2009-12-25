@@ -43,16 +43,10 @@ public class Item extends AionObject
 	
 	private int equipmentSlot = 0;
 	
+	private PersistentState persistentState;
+	
 	//TODO move to ItemStoneList ?
 	private List<ItemStone> itemStones;
-	
-	/**
-	 * @param objId
-	 */
-	public Item(int objId)
-	{
-		super(objId);
-	}
 	
 	/**
 	 * @param objId
@@ -72,6 +66,7 @@ public class Item extends AionObject
 		this.itemCount = itemCount;
 		this.isEquipped = isEquipped;
 		this.equipmentSlot = equipmentSlot;
+		this.persistentState = PersistentState.NEW;
 	}
 	
 	/**
@@ -80,6 +75,8 @@ public class Item extends AionObject
 	 * @param itemCount
 	 * @param isEquipped
 	 * @param equipmentSlot
+	 * 
+	 * This constructor should be called only from DAO while loading from DB
 	 */
 	public Item(int objId, int itemId, int itemCount, boolean isEquipped, int equipmentSlot)
 	{
@@ -130,6 +127,7 @@ public class Item extends AionObject
 	public void setItemCount(int itemCount)
 	{
 		this.itemCount = itemCount;
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 	
 	/**
@@ -142,6 +140,7 @@ public class Item extends AionObject
 	{
 		//TODO overflow check
 		this.itemCount += addCount;
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 
 	/**
@@ -155,6 +154,14 @@ public class Item extends AionObject
 		if( this.itemCount - remCount >= 0 )
 		{
 			this.itemCount -= remCount;
+			if(itemCount == 0)
+			{
+				setPersistentState(PersistentState.DELETED);
+			}
+			else
+			{
+				setPersistentState(PersistentState.UPDATE_REQUIRED);
+			}
 			return true;
 		}
 
@@ -175,6 +182,7 @@ public class Item extends AionObject
 	public void setEquipped(boolean isEquipped)
 	{
 		this.isEquipped = isEquipped;
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 
 	/**
@@ -192,6 +200,7 @@ public class Item extends AionObject
 	public void setEquipmentSlot(int equipmentSlot)
 	{
 		this.equipmentSlot = equipmentSlot;
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 
 	/**
@@ -222,6 +231,40 @@ public class Item extends AionObject
 		this.itemStones.add(new ItemStone(getObjectId(), itemId,
 			nextSlot, PersistentState.NEW));
 		DAOManager.getDAO(ItemStoneListDAO.class).save(itemStones);
+	}
+
+	/**
+	 * @return the persistentState
+	 */
+	public PersistentState getPersistentState()
+	{
+		return persistentState;
+	}
+
+	/**
+	 *  Possible changes:
+	 *  NEW -> UPDATED
+	 *  NEW -> UPDATE_REQURIED
+	 *  UPDATE_REQUIRED -> DELETED
+	 *  UPDATE_REQUIRED -> UPDATED
+	 *  UPDATED -> DELETED
+	 *  UPDATED -> UPDATE_REQUIRED
+	 * @param persistentState the persistentState to set
+	 */
+	public void setPersistentState(PersistentState persistentState)
+	{
+		switch(persistentState)
+		{
+			case DELETED:
+				if(this.persistentState == PersistentState.NEW)
+					throw new IllegalArgumentException("Cannot change state to DELETED from NEW");
+			case UPDATE_REQUIRED:
+				if(this.persistentState == PersistentState.NEW)
+					break;
+			default:
+				this.persistentState = persistentState;
+		}
+		
 	}
 
 	@Override

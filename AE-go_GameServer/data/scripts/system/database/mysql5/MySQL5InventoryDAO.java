@@ -28,6 +28,7 @@ import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 
@@ -40,6 +41,9 @@ public class MySQL5InventoryDAO extends InventoryDAO
     private static final Logger log = Logger.getLogger(MySQL5InventoryDAO.class);
 
     public static final String SELECT_QUERY = "SELECT `itemUniqueId`, `itemId`, `itemCount`, `isEquiped`, `slot` FROM `inventory` WHERE `itemOwner`=?";
+    public static final String INSERT_QUERY = "INSERT INTO `inventory` (`itemUniqueId`, `itemId`, `itemCount`, `itemOwner`, `isEquiped`, `slot`) VALUES(?,?,?,?,?,?)";
+    public static final String UPDATE_QUERY = "UPDATE inventory SET  itemCount=?, isEquiped=?, slot=? WHERE itemUniqueId=?";
+    public static final String DELETE_QUERY = "DELETE FROM inventory WHERE itemUniqueId=?";
 
     @Override
     public Inventory load(Player player)
@@ -67,6 +71,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
                     int isEquiped = rset.getInt("isEquiped");
                     int slot = rset.getInt("slot");
                     Item item = new Item(itemUniqueId, itemId, itemCount, isEquiped == 1, slot);
+                    item.setPersistentState(PersistentState.UPDATED);
                     inventory.onLoadHandler(item);
                 }
             }
@@ -82,12 +87,12 @@ public class MySQL5InventoryDAO extends InventoryDAO
         
         boolean resultSuccess = true;
         for(Item item : inventoryItems)
-        {
+        {   	
         	resultSuccess = store(item, playerId);      
         } 
         return resultSuccess;
     }
-
+    
     /**
      * @param item
      * @param playerId
@@ -95,37 +100,79 @@ public class MySQL5InventoryDAO extends InventoryDAO
      */
     public boolean store(final Item item, final int playerId)
     {   
-        //TODO decide on performance
-        return DB.insertUpdate("REPLACE INTO inventory ("
-                + "itemUniqueId, itemId, itemCount, itemOwner, isEquiped, slot)" + " VALUES "
-                + "(?, ?, ?, ?, ?, ?" + ")", new IUStH() {
-                    @Override
-                    public void handleInsertUpdate(PreparedStatement ps) throws SQLException
-                    {
-                        ps.setInt(1, item.getObjectId());
-                        ps.setInt(2, item.getItemTemplate().getItemId());
-                        ps.setInt(3, item.getItemCount());
-                        ps.setInt(4, playerId);
-                        ps.setInt(5, item.isEquipped() ? 1 : 0);
-                        ps.setInt(6, item.getEquipmentSlot());
-                        ps.execute();
-                    }
-                });
+    	boolean result = false;
+    	
+    	switch(item.getPersistentState())
+    	{
+    		case NEW:
+    			result = insertItem(item, playerId);
+    			break;
+    		case UPDATE_REQUIRED:
+    			result = updateItem(item);
+    			break;
+    		case DELETED:
+    			result = deleteItem(item);
+    			break;
+    	}
+    	item.setPersistentState(PersistentState.UPDATED);
+    	return result;
+    }
+    
+    /**
+     * @param item
+     * @param playerId
+     * @return
+     */
+    private boolean insertItem(final Item item, final int playerId)
+    {
+    	return DB.insertUpdate(INSERT_QUERY, new IUStH() {
+			@Override
+			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, item.getObjectId());
+				stmt.setInt(2, item.getItemTemplate().getItemId());
+				stmt.setInt(3, item.getItemCount());
+				stmt.setInt(4, playerId);
+				stmt.setBoolean(5, item.isEquipped());
+				stmt.setInt(6, item.getEquipmentSlot());
+				stmt.execute();
+			}
+		});
+    }
+    
+    /**
+     * @param item
+     * @return
+     */
+    private boolean updateItem(final Item item)
+    {
+    	return DB.insertUpdate(UPDATE_QUERY, new IUStH() {
+			@Override
+			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, item.getItemCount());
+				stmt.setBoolean(2, item.isEquipped());
+				stmt.setInt(3, item.getEquipmentSlot());
+				stmt.setInt(4, item.getObjectId());
+				stmt.execute();
+			}
+		});
     }
 
-    @Override
-    public void delete(Item item) 
+    /**
+     * 
+     * @param item
+     */
+    private boolean deleteItem(final Item item) 
     {
-        PreparedStatement statement = DB.prepareStatement("DELETE FROM inventory WHERE itemUniqueId = ?");
-        try
-        {
-            statement.setInt(1, item.getObjectId());
-        }
-        catch(SQLException e)
-        {
-            log.error("Can't set int parameter to PreparedStatement", e);
-        }
-        DB.executeUpdateAndClose(statement);
+    	return DB.insertUpdate(DELETE_QUERY, new IUStH() {
+			@Override
+			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, item.getObjectId());
+				stmt.execute();
+			}
+		});
     }
 
     @Override

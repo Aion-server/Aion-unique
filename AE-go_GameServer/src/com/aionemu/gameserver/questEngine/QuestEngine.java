@@ -374,7 +374,7 @@ public class QuestEngine
 
 	public void addItem(Player player, int itemId, int count)
 	{
-		itemService.addItem(player, itemId, count);
+		itemService.addItem(player, itemId, count, false);
 	}
 
 	public void clear()

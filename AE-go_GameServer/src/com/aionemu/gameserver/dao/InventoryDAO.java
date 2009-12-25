@@ -41,14 +41,6 @@ public abstract class InventoryDAO implements IDFactoryAwareDAO
 	 */
 	public abstract boolean store(Item item, int playerId);
 	
-	/**
-	 * @param item
-	 */
-	public abstract void delete(Item item);
-	
-	/* (non-Javadoc)
-	 * @see com.aionemu.commons.database.dao.DAO#getClassName()
-	 */
 	@Override
 	public String getClassName()
 	{

@@ -29,9 +29,11 @@ import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.items.ItemStorage;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -41,7 +43,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class Inventory
 {
-	
+
 	private static final Logger log = Logger.getLogger(Inventory.class);
 
 	private Player owner;
@@ -49,7 +51,7 @@ public class Inventory
 	private ItemStorage defaultItemBag;
 
 	private SortedMap<Integer, Item> equipment = Collections.synchronizedSortedMap(new TreeMap<Integer, Item>());
-	
+
 	private Item kinahItem;
 
 	/**
@@ -59,7 +61,7 @@ public class Inventory
 	{
 		defaultItemBag = new ItemStorage(108);
 	}
-	
+
 	/**
 	 * @param owner
 	 */
@@ -100,7 +102,6 @@ public class Inventory
 	public void increaseKinah(int amount)
 	{
 		kinahItem.increaseItemCount(amount);
-		DAOManager.getDAO(InventoryDAO.class).store(kinahItem, getOwner().getObjectId());
 	}
 	/**
 	 *  Decreasing kinah amount is persisted immediately
@@ -147,13 +148,14 @@ public class Inventory
 		}
 		else
 		{
-			defaultItemBag.putToNextAvailableSlot(item);
+			defaultItemBag.putToDefinedOrNextAvaiableSlot(item);
 		}	
 	}
 
 	/**
 	 * 	Return is the result of add operation. It can be null if item was not stored, it can be existing 
 	 *  item reference if stack count was increased or new item in bag
+	 *  
 	 *  
 	 *  Every add operation is persisted immediately now
 	 *  
@@ -168,7 +170,7 @@ public class Inventory
 		}
 		return resultItem;
 	}
-	
+
 	/**
 	 *  Used to put item into storage cube at first avaialble slot (no check for existing item)
 	 * 
@@ -179,7 +181,7 @@ public class Inventory
 	 */
 	public Item putToBag(Item item)
 	{
-		
+
 		Item resultItem = defaultItemBag.putToNextAvailableSlot(item);
 		if(resultItem != null)
 		{
@@ -189,6 +191,7 @@ public class Inventory
 	}
 
 	/**
+	 *  Removes item completely from inventory.
 	 *  Every remove operation is persisted immediately now
 	 *  
 	 * @param item
@@ -198,39 +201,91 @@ public class Inventory
 		boolean operationResult = defaultItemBag.removeItemFromStorage(item);
 		if(operationResult)
 		{
-			DAOManager.getDAO(InventoryDAO.class).delete(item);
+			item.setPersistentState(PersistentState.DELETED);
+			DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
 		}
 	}
-	
+
 	/**
-	 *  Used to reduce item count in bag or completely remove
+	 *  Used to reduce item count in bag or completely remove by ITEMID
+	 *  This method operates in iterative manner overl all items with specified ITEMID.
 	 *  Return value can be the following:
-	 *  - null (item doesn't exist in inventory)
-	 *  - item with same count value (if decrease operation failed)
-	 *  - item with less count value (normal operation)
-	 *  - item with 0 as a count value (item stack is empty)
+	 *  - true - item removal was successfull
+	 *  - false - not enough amount of items to reduce 
+	 *  or item is not present
+	 *  
 	 * @param itemId
 	 * @param count
 	 * @return
 	 */
-	public Item removeFromBag(int itemId, int count)
+	public boolean removeFromBagByItemId(int itemId, int count)
 	{
-		Item item = defaultItemBag.getItemFromStorageByItemId(itemId);
-		if(item == null || !item.decreaseItemCount(count))
+		if(count < 1)
+			return false;
+
+		List<Item> items = defaultItemBag.getItemsFromStorageByItemId(itemId);
+
+		for(Item item : items)
 		{
-			return item;
+			count = decreaseItemCount(item, count);
+
+			if(count == 0)
+				break;
 		}
-		if(item.getItemCount() == 0)
+
+		return count >= 0;
+	}
+
+	/**
+	 *  Used to reduce item count in bag or completely remove by OBJECTID
+	 *  Return value can be the following:
+	 *  - true - item removal was successfull
+	 *  - false - not enough amount of items to reduce 
+	 *  or item is not present
+	 *  
+	 * @param itemObjId
+	 * @param count
+	 * @return
+	 */
+	public boolean removeFromBagByObjectId(int itemObjId, int count)
+	{
+		if(count < 1)
+			return false;
+
+		Item item = defaultItemBag.getItemFromStorageByItemObjId(itemObjId);
+		return decreaseItemCount(item, count) >= 0;
+	}
+
+	/**
+	 *   This method decreases inventory's item by count and sends
+	 *   appropriate packets to owner.
+	 *   Item will be saved in database after update or deleted if count=0
+	 * 
+	 * @param count should be > 0
+	 * @param item
+	 * @return
+	 */
+	private int decreaseItemCount(Item item, int count)
+	{
+		if(item.getItemCount() >= count)
 		{
-			removeFromBag(item);
+			item.decreaseItemCount(count);
+			count = 0;
 		}
 		else
 		{
-			DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
+			item.decreaseItemCount(item.getItemCount());
+			count -= item.getItemCount();
 		}
-		return item;
+		if(item.getItemCount() == 0)
+		{
+			PacketSendUtility.sendPacket(getOwner(), new SM_DELETE_ITEM(item.getObjectId()));
+		}
+		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
+		DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
+		return count;
 	}
-	
+
 	/**
 	 *  Method primarily used when saving to DB
 	 *  //TODO getAllItems(compartment)
@@ -244,7 +299,7 @@ public class Inventory
 		allItems.addAll(equipment.values());
 		return allItems;
 	}
-	
+
 	/**
 	 * 	Only equipped items
 	 * 
@@ -267,7 +322,7 @@ public class Inventory
 
 		return equippedItems;
 	}
-	
+
 	/**
 	 *	Items from all boxes + kinah item
 	 * 
@@ -291,7 +346,7 @@ public class Inventory
 	{
 		synchronized(this)
 		{
-			Item item = defaultItemBag.getItemFromStorageByItemUniqueId(itemUniqueId);
+			Item item = defaultItemBag.getItemFromStorageByItemObjId(itemUniqueId);
 
 			if(item == null)
 			{
@@ -321,15 +376,15 @@ public class Inventory
 			{
 				itemSlotToEquip = possibleSlots.get(0).getSlotIdMask();
 			}
-			
+
 			Item equippedItem = equipment.get(itemSlotToEquip);
 			if(equippedItem != null)
 			{
 				unEquip(equippedItem);
 			}
-			
+
 			item.setEquipped(true);
-			
+
 			equip(itemSlotToEquip, item);
 		}
 		return true;
@@ -346,7 +401,7 @@ public class Inventory
 		owner.getLifeStats().updateCurrentStats();
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
 	}
-	
+
 	/**
 	 *	Called when CM_EQUIP_ITEM packet arrives with action 1
 	 * 
@@ -395,7 +450,7 @@ public class Inventory
 		defaultItemBag.addItemToStorage(itemToUnequip);
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip));
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -409,7 +464,7 @@ public class Inventory
 		//TODO switch items
 		return false;
 	}
-	
+
 	/**
 	 *  Will look item in default item bag
 	 *  
@@ -418,9 +473,9 @@ public class Inventory
 	 */
 	public Item getItemByObjId(int value)
 	{
-		return defaultItemBag.getItemFromStorageByItemUniqueId(value);
+		return defaultItemBag.getItemFromStorageByItemObjId(value);
 	}
-	
+
 	/**
 	 *  Will look item in equipment item set
 	 *  
@@ -436,7 +491,7 @@ public class Inventory
 		}
 		return null;
 	}
-	
+
 	/**
 	 *  Will look for item in both equipment and cube
 	 *  
@@ -448,21 +503,10 @@ public class Inventory
 		Item item = getItemByObjId(value);
 		if(item == null)
 			item = getEquippedItemByObjId(value);
-		
+
 		return item;
 	}
-	/**
-	 *  
-	 * @param value
-	 * @return
-	 * 
-	 * @deprecated DONT USE IT 
-	 */
-	public Item getItemByItemId(int value)
-	{
-		return defaultItemBag.getItemFromStorageByItemId(value);
-	}
-	
+
 	/**
 	 * 
 	 * @param value
@@ -472,7 +516,23 @@ public class Inventory
 	{
 		return defaultItemBag.getItemsFromStorageByItemId(value);
 	}
-	
+
+	/**
+	 *  
+	 * @param itemId
+	 * @return number of items using search by itemid
+	 */
+	public int getItemCountByItemId(int itemId)
+	{
+		List<Item> items = getItemsByItemId(itemId);
+		int count = 0;
+		for(Item item : items)
+		{
+			count += item.getItemCount();
+		}
+		return count;
+	}
+
 	/**
 	 *  Checks whether default cube is full
 	 *  
@@ -508,7 +568,7 @@ public class Inventory
 		}
 		return false;
 	}
-	
+
 	public boolean isSubHandEquipped()
 	{
 		for (Item item : equipment.values())

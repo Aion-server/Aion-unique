@@ -84,7 +84,12 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 		Player player = getConnection().getActivePlayer();
 		if(player == null)
 			return;
-
+		
+		if(targetObjectId == 0)
+		{
+			//FIXME client sends unk1=1, targetObjectId=0, dialogId=2 (trader) => we miss some packet to close window 
+			return;
+		}
 		Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
 
 		if (QuestEngine.getInstance().onDialog(new QuestEnv(npc, player, questId, dialogId)))

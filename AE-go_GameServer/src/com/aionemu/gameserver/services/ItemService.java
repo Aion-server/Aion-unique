@@ -17,6 +17,8 @@
 package com.aionemu.gameserver.services;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -37,6 +39,7 @@ import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
+import com.mysql.jdbc.UpdatableResultSet;
 
 /**
  * @author ATracer
@@ -220,15 +223,15 @@ public class ItemService
 	 *  
 	 * @param player
 	 * @param itemId
-	 * @param count
+	 * @param count - amount of item that were not added to player's inventory
 	 */
-	public boolean addItem(Player player, int itemId, int count)
+	public int addItem(Player player, int itemId, int count, boolean isQuestItem)
 	{
 		Inventory inventory = player.getInventory();
 
 		ItemTemplate itemTemplate =  DataManager.ITEM_DATA.getItemTemplate(itemId);
 		if(itemTemplate == null)
-			return false;
+			return count;
 
 		int maxStackCount = itemTemplate.getMaxStackCount();
 
@@ -236,66 +239,70 @@ public class ItemService
 		{
 			inventory.increaseKinah(count);
 			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
-			return true;
+			return 0;
 		}
 		else
 		{
-			List<Item> itemsToUpdate = new ArrayList<Item>();
-			int currentItemCount = count;
-
 			/**
 			 * Increase count of existing items
 			 */
 			List<Item> existingItems = inventory.getItemsByItemId(itemId);
 			for(Item existingItem : existingItems)
 			{
+				if(count == 0)
+					break;
+				
 				int freeCount = maxStackCount - existingItem.getItemCount();
-				currentItemCount -= freeCount;
-
-				if(freeCount == 0)
-					continue;
-
-				if(currentItemCount >= 0)
+				if(count <= freeCount)
 				{
-					existingItem.increaseItemCount(freeCount);
+					existingItem.increaseItemCount(count);
+					count = 0;
 				}
 				else
 				{
-					//currentItemCount is negative value which means freeCount
-					//is greater than requried
-					existingItem.increaseItemCount(freeCount + currentItemCount);
-				}	
-				itemsToUpdate.add(existingItem);
+					existingItem.increaseItemCount(freeCount);
+					count -= freeCount;
+				}
+				
+				udpateItem(player, existingItem, isQuestItem);
 			}
 
 			/**
 			 * Create new stacks
 			 */
 
-			while(!inventory.isFull() && currentItemCount > 0)
+			while(!inventory.isFull() && count > 0)
 			{
 				// item count still more than maxStack value
-				if(currentItemCount > maxStackCount)
+				if(count > maxStackCount)
 				{
 					Item item = newItem(itemId, maxStackCount);
-					currentItemCount -= maxStackCount;
+					count -= maxStackCount;
 					inventory.putToBag(item);
-					itemsToUpdate.add(item);
+					udpateItem(player, item, true);
 				}
 				else
 				{
-					Item item = newItem(itemId, currentItemCount);
+					Item item = newItem(itemId, count);
 					inventory.putToBag(item);
-					itemsToUpdate.add(item);
-					currentItemCount = 0;
+					udpateItem(player, item, true);
+					count = 0;
 				}
 			}
 
-			//TODO 10 items check
-			if (!itemsToUpdate.isEmpty())
-				PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(itemsToUpdate));
-
-			return currentItemCount == 0 ? true : false;
+			return count;
+		}
+	}
+	
+	private void udpateItem(Player player, Item item, boolean useUpdateInventory)
+	{
+		if(useUpdateInventory)
+		{
+			PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(Collections.singletonList(item)));
+		}
+		else
+		{
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
 		}
 	}
 

@@ -72,7 +72,7 @@ public class ItemStorageTest
 			storage.addItemToStorage(item);
 			if(item.getObjectId() < 27)
 			{
-				Assert.assertEquals(storage.getItemFromStorageByItemUniqueId(item.getObjectId()), item);	
+				Assert.assertEquals(storage.getItemFromStorageByItemObjId(item.getObjectId()), item);	
 			}		
 		}
 	}

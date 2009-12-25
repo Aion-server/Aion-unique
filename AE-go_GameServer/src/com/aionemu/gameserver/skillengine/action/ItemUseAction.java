@@ -48,18 +48,10 @@ public class ItemUseAction extends Action
 	{
 		Player player = skill.getEffector();
 		Inventory inventory = player.getInventory();
-		Item item = inventory.removeFromBag(itemid, count);
-		if(item == null)
+
+		if(!inventory.removeFromBagByItemId(itemid, count))
 		{
 			return;
-		}
-		if(item.getItemCount() > 0)
-		{
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
-		}
-		else
-		{
-			PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(item.getObjectId()));
 		}
 	}
 

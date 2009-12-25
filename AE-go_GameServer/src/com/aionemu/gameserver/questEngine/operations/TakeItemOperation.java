@@ -21,13 +21,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TakeItemOperation")
@@ -46,24 +42,6 @@ public class TakeItemOperation
 		int itemCount = count;
 		Player player = env.getPlayer();
 		Inventory inventory = player.getInventory();
-		if (count < 0)
-		{
-			Item tmp = inventory.getItemByItemId(itemId);
-			if (tmp != null)
-				itemCount = tmp.getItemCount();
-		}
-		Item item = inventory.removeFromBag(itemId, itemCount);
-		if(item == null)
-		{
-			return;
-		}
-		if(item.getItemCount() > 0)
-		{
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
-		}
-		else
-		{
-			PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(item.getObjectId()));
-		}
+		inventory.removeFromBagByItemId(itemId, itemCount);
 	}
 }
