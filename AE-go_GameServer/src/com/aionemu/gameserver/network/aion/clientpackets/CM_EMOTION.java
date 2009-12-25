@@ -22,7 +22,9 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.zone.ZoneManager;
 
 /**
  * @author SoulKeeper
@@ -36,19 +38,14 @@ public class CM_EMOTION extends AionClientPacket
 	private static final Logger	log	= Logger.getLogger(CM_EMOTION.class);
 
 	/**
-	 * Can 0x11 or 0x10
+	 * Emotion number
 	 */
-	int unknown;
+	int emotionType;
 
 	/**
 	 * Emotion number
 	 */
 	int emotion;
-
-	int ObjID;
-
-	private int monsterToAttackId;
-
 
 	/**
 	 * Constructs new client packet instance.
@@ -65,38 +62,28 @@ public class CM_EMOTION extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		unknown = readC();
-		switch(unknown){
-			case 0x0:
-				//select target
-			case 0x01:
-				// jump
-			case 0x4:
-				//Sit (Nothing to do)
-			case 0x5:
-				//standing (Nothing to do)
-			case 0x8:
-				// fly up
-			case 0x9:
-				// land
-			case 0x11:
-				// Nothing here
-			case 0x13:
-				//emotion = readH();
-			case 0x14:
-				// duel end
-			case 0x21:
-				//get equip weapon
-			case 0x22:
-				//remove equip weapon
-			case 0x1F:
-				//powershard 
+		emotionType = readC();
+		switch(emotionType)
+		{
+			case 0x0://select target
+			case 0x01:// jump
+			case 0x4://Sit (Nothing to do)
+			case 0x5://standing (Nothing to do)
+			case 0x7: //fly land
+			case 0x8:// fly up
+			case 0x9:// land
+			case 0x11:// Nothing here
+			case 0x13://emotion = readH();
+			case 0x14:// duel end
+			case 0x21://get equip weapon
+			case 0x22://remove equip weapon
+			case 0x1F://powershard
 				break;
 			case 0x10:
 				emotion = readH();
 				break;
 			default:
-				log.info("Unknown emotion type? 0x" + Integer.toHexString(unknown).toUpperCase());
+				log.info("Unknown emotion type? 0x" + Integer.toHexString(emotionType).toUpperCase());
 				break;
 		}
 	}
@@ -109,6 +96,14 @@ public class CM_EMOTION extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), unknown, emotion, player.getTarget()== null?0:player.getTarget().getObjectId()), true);
+
+		switch(emotionType)
+		{
+			case 0x7:
+				PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
+				ZoneManager.getInstance().findZoneInCurrentMap(player);
+				break;
+		}
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), emotionType, emotion, player.getTarget()== null?0:player.getTarget().getObjectId()), true);
 	}
 }
