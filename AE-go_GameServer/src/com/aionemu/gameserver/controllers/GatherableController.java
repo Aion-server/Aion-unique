@@ -221,23 +221,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	 */
 	private void addItem(Material material, Player player)
 	{
-		Item item = itemService.newItem(material.getItemid(), 1);//TODO count always 1 ?
-		if(item != null)
-		{
-			Item addedItem = player.getInventory().addToBag(item);
-			if(addedItem != null)
-			{
-				if(addedItem.getObjectId() != item.getObjectId())
-					itemService.releaseItemId(item);
-				
-				//TODO modify SM_INVENTORY_UPDATE for update count - not all item count
-				PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(addedItem));
-			}
-			else
-			{
-				itemService.releaseItemId(item);
-			}		
-		}
+		itemService.addItem(player, material.getItemid(), 1, false);
 	}
 	
 	/**
