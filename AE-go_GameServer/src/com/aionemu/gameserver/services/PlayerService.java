@@ -56,6 +56,7 @@ import com.aionemu.gameserver.model.gameobjects.player.TitleList;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.TitleChangeListener;
+import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -286,6 +287,12 @@ public class PlayerService
 		player.getController().delete();
 		player.setClientConnection(null);
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);
+		
+		//TODO this is a temprorary solution till GroupService will be introduced
+		PlayerGroup playerGroup = player.getPlayerGroup();
+		if(playerGroup != null)
+			playerGroup.removePlayerFromGroup(player);
+		
 		storePlayer(player);
 	}
 

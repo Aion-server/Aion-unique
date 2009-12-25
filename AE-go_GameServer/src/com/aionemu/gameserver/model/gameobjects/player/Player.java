@@ -28,9 +28,9 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
-import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
@@ -71,6 +71,7 @@ public class Player extends Creature
 	private QuestStateList		questStateList;
 	private List<Integer>		nearbyQuestList	= new ArrayList<Integer>();
 	private ZoneInstance		zoneInstance;
+	private PlayerGroup			playerGroup;
 
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -476,6 +477,22 @@ public class Player extends Creature
 	{
 		this.titleList = titleList;
 		titleList.setOwner(this);
+	}
+
+	/**
+	 * @return the playerGroup
+	 */
+	public PlayerGroup getPlayerGroup()
+	{
+		return playerGroup;
+	}
+
+	/**
+	 * @param playerGroup the playerGroup to set
+	 */
+	public void setPlayerGroup(PlayerGroup playerGroup)
+	{
+		this.playerGroup = playerGroup;
 	}
 
 	@Override

@@ -144,7 +144,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 			}
 			this.currentHp = newHp;
 
-			sendHpPacketUpdate();
+			onReduceHp();
 
 			if(alreadyDead)
 			{
@@ -155,8 +155,6 @@ public abstract class CreatureLifeStats<T extends Creature>
 		{
 			hpLock.unlock();
 		}
-
-		onReduceHp();
 
 		return currentHp;
 	}
@@ -192,7 +190,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 * Informs about HP change
 	 */
-	private void sendHpPacketUpdate()
+	protected void sendHpPacketUpdate()
 	{
 		if(owner == null)
 		{
@@ -229,14 +227,12 @@ public abstract class CreatureLifeStats<T extends Creature>
 				newHp = getMaxHp();
 			}
 			this.currentHp = newHp;		
+			onIncreaseHp();
 		}
 		finally
 		{
 			hpLock.unlock();
 		}		
-
-		sendHpPacketUpdate();
-
 		return currentHp;
 	}
 
@@ -353,6 +349,8 @@ public abstract class CreatureLifeStats<T extends Creature>
 	protected abstract void onIncreaseMp();
 	
 	protected abstract void onReduceMp();
+	
+	protected abstract void onIncreaseHp();
 	
 	protected abstract void onReduceHp();
 }

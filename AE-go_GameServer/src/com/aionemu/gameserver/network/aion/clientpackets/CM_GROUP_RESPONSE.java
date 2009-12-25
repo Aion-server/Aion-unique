@@ -1,4 +1,4 @@
-/*
+/**
  * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
@@ -14,46 +14,43 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects.stats;
+package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.model.gameobjects.Npc;
+
+import org.apache.log4j.Logger;
+
+import com.aionemu.gameserver.network.aion.AionClientPacket;
 
 /**
- * @author ATracer
- *
+ * @author Lyahim
  */
-public class NpcLifeStats extends CreatureLifeStats<Npc>
-{
-
-	public NpcLifeStats(Npc owner)
+public class CM_GROUP_RESPONSE extends AionClientPacket
+{	
+	private static Logger log = Logger.getLogger(CM_GROUP_RESPONSE.class);
+	
+	private int unk1,unk2;
+	
+	public CM_GROUP_RESPONSE(int opcode)
 	{
-		super(owner,0,0);
-		this.currentHp = owner.getGameStats().getCurrentStat(StatEnum.MAXHP);
-		this.currentMp = owner.getGameStats().getCurrentStat(StatEnum.MAXMP);	
+		super(opcode);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	protected void onReduceHp()
+	protected void readImpl()
 	{
-		sendHpPacketUpdate();	
+		unk1 = readD();
+		unk2 = readC(); //channel?
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	protected void onReduceMp()
+	protected void runImpl()
 	{
-		// TODO Auto-generated method stub	
+		log.debug(String.valueOf(unk1) + "," + String.valueOf(unk2));
 	}
-
-	@Override
-	protected void onIncreaseMp()
-	{
-		// TODO Auto-generated method stub	
-	}
-
-	@Override
-	protected void onIncreaseHp()
-	{
-		sendHpPacketUpdate();
-	}
-
 }

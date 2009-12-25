@@ -19,7 +19,8 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_WEATHER;
+import com.aionemu.gameserver.services.WeatherService;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.zone.ZoneManager;
 import com.google.inject.Inject;
@@ -72,5 +73,9 @@ public class CM_LEVEL_READY extends AionClientPacket
 		 * Find zone in current map
 		 */
 		ZoneManager.getInstance().findZoneInCurrentMap(activePlayer);
+		
+		//reandome weather
+		int weatherMaskId = WeatherService.getRandomWeather();
+		sendPacket(new SM_WEATHER(weatherMaskId));
 	}
 }

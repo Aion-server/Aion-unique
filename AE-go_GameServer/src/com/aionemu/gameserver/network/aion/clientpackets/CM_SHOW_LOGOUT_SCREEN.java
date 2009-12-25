@@ -1,4 +1,4 @@
-/*
+/**
  * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
@@ -14,46 +14,36 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects.stats;
+package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.model.gameobjects.Npc;
+
+import com.aionemu.gameserver.network.aion.AionClientPacket;
 
 /**
- * @author ATracer
- *
+ * @author Lyahim
  */
-public class NpcLifeStats extends CreatureLifeStats<Npc>
+public class CM_SHOW_LOGOUT_SCREEN extends AionClientPacket
 {
-
-	public NpcLifeStats(Npc owner)
+		
+	public CM_SHOW_LOGOUT_SCREEN(int opcode)
 	{
-		super(owner,0,0);
-		this.currentHp = owner.getGameStats().getCurrentStat(StatEnum.MAXHP);
-		this.currentMp = owner.getGameStats().getCurrentStat(StatEnum.MAXMP);	
+		super(opcode);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	protected void onReduceHp()
+	protected void readImpl()
 	{
-		sendHpPacketUpdate();	
+		//empty
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	protected void onReduceMp()
+	protected void runImpl()
 	{
-		// TODO Auto-generated method stub	
 	}
-
-	@Override
-	protected void onIncreaseMp()
-	{
-		// TODO Auto-generated method stub	
-	}
-
-	@Override
-	protected void onIncreaseHp()
-	{
-		sendHpPacketUpdate();
-	}
-
 }

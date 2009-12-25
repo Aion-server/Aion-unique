@@ -37,6 +37,7 @@ public class SM_QUESTION_WINDOW extends AionServerPacket
 	public static final int STR_DUEL_DO_YOU_CONFIRM_DUEL = 0xc36e;
 	public static final int STR_DUEL_DO_YOU_ACCEPT_DUEL = 0xc36c;
 	public static final int STR_BIND_TO_LOCATION = 160012;
+	public static final int	STR_REQUEST_GROUP_INVITE = 60000;
 	
 	int code;
 	String[] params;

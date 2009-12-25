@@ -16,7 +16,9 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.group.GroupEvent;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_MP;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -32,32 +34,35 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 		super(owner,currentHp,currentMp);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats#onReduceHp()
-	 */
 	@Override
 	protected void onReduceHp()
 	{
+		sendHpPacketUpdate();
 		triggerRestoreTask();
+		sendGroupPacketUpdate();	
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats#onReduceMp()
-	 */
 	@Override
 	protected void onReduceMp()
 	{
 		sendMpPacketUpdate();		
 		triggerRestoreTask();
+		sendGroupPacketUpdate();
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats#onIncreaseMp()
-	 */
 	@Override
 	protected void onIncreaseMp()
 	{
 		sendMpPacketUpdate();
+		sendGroupPacketUpdate();
+	}
+	
+	
+	@Override
+	protected void onIncreaseHp()
+	{
+		sendHpPacketUpdate();
+		sendGroupPacketUpdate();
 	}
 
 	/**
@@ -70,4 +75,20 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 
 		PacketSendUtility.sendPacket((Player) owner, new SM_STATUPDATE_MP(currentMp, getMaxMp()));
 	}
+	
+	private void sendGroupPacketUpdate()
+	{
+		Player owner = getOwner();
+		if(owner.getPlayerGroup() != null)
+		{
+			owner.getPlayerGroup().broadcastMemberStatus(owner, GroupEvent.UNK);
+		}
+	}
+
+	@Override
+	public Player getOwner()
+	{
+		return (Player) super.getOwner();
+	}
+
 }

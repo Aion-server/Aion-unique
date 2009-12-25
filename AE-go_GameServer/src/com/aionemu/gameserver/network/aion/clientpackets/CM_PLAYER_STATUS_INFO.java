@@ -1,5 +1,5 @@
 /**
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+ * This file is part of aion-emu <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,32 +14,32 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
-import com.aionemu.gameserver.services.WeatherService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.commons.services.LoggingService;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_WEATHER;
+import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
-import java.io.*;
 
+/**
+ * Called when entering the world and during group menanement
+ * 
+ * @author Lyahim
+ * @author ATracer
+ */
 
-public class CM_TERRITORY extends AionClientPacket
+public class CM_PLAYER_STATUS_INFO extends AionClientPacket
 {
-	private static final Logger	log	= Logger.getLogger(CM_TERRITORY.class);
+	private static final Logger	log	= Logger.getLogger(CM_PLAYER_STATUS_INFO.class);
 	@Inject	
 	private World			world;
-	private int			territoryId;
 
-	public CM_TERRITORY(int opcode)
+	private int status;
+	private int playerObjId;
+
+	public CM_PLAYER_STATUS_INFO(int opcode)
 	{
 		super(opcode);
 	}
@@ -47,15 +47,38 @@ public class CM_TERRITORY extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		territoryId = readD();
+		status = readC();
+		playerObjId = readD();
 	}
 
 
 	@Override
 	protected void runImpl()
 	{	
-		int weatherMaskId = WeatherService.getRandomWeather();
-		sendPacket(new SM_WEATHER(weatherMaskId));
-		//sendPacket(SM_UNKF54unk(1, territoryId)); 179372032
+		Player player = null;
+		
+		if(playerObjId == 0)
+			player = getConnection().getActivePlayer();
+		else
+			player = world.findPlayer(playerObjId);
+		
+		if(player == null || player.getPlayerGroup() == null)
+			return;
+
+		
+		switch(status)
+		{
+			case 2:
+				player.getPlayerGroup().removePlayerFromGroup(player);
+				break;
+			case 3:
+				player.getPlayerGroup().setGroupLeader(player);
+				break;
+			case 6:
+				player.getPlayerGroup().removePlayerFromGroup(player);	
+				break;
+		}
+
+		log.debug(String.valueOf(status));
 	}
 }

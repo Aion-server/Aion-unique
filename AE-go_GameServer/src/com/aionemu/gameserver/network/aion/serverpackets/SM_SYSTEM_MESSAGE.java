@@ -267,6 +267,73 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300091,partner);
 	}
 	
+	/**
+	 * Group System Messages
+	 */
+	public static SM_SYSTEM_MESSAGE REQUEST_GROUP_INVITE(String player) {
+		return new SM_SYSTEM_MESSAGE(1300173,player);
+	}
+	
+	public static SM_SYSTEM_MESSAGE REJECT_GROUP_INVITE(String player) {
+		return new SM_SYSTEM_MESSAGE(1300161,player);
+	}
+	
+	public static SM_SYSTEM_MESSAGE PLAYER_IN_ANOTHER_GROUP(String player) {
+		return new SM_SYSTEM_MESSAGE(1300169,player);
+	}
+	
+	public static SM_SYSTEM_MESSAGE INVITED_PLAYER_OFFLINE() {
+		return new SM_SYSTEM_MESSAGE(1300159);
+	}
+
+	public static SM_SYSTEM_MESSAGE MEMBER_LEFT_GROUP(String player) {
+		return new SM_SYSTEM_MESSAGE(1300168,player);
+	}
+	
+	public static SM_SYSTEM_MESSAGE DISBAND_GROUP() {
+		return new SM_SYSTEM_MESSAGE(1300167);
+	}
+	
+	public static SM_SYSTEM_MESSAGE YOU_LEFT_GROUP() {
+		return new SM_SYSTEM_MESSAGE(1300043);
+	}
+	
+	public static SM_SYSTEM_MESSAGE SELECTED_TARGET_DEAD() {
+		return new SM_SYSTEM_MESSAGE(1300044);
+	}
+	
+	public static SM_SYSTEM_MESSAGE DURING_FLYING_PATH_NOT_LEFT_GROUP() {
+		return new SM_SYSTEM_MESSAGE(1300047);
+	}
+	
+	public static SM_SYSTEM_MESSAGE FULL_GROUP() {
+		return new SM_SYSTEM_MESSAGE(1300152);
+	}
+	
+	public static SM_SYSTEM_MESSAGE CHANGE_GROUP_LEADER() {
+		return new SM_SYSTEM_MESSAGE(1300155);
+	}
+	
+	public static SM_SYSTEM_MESSAGE ONLY_GROUP_LEADER_CAN_INVITE() {
+		return new SM_SYSTEM_MESSAGE(1300160);
+	}	
+	
+	public static SM_SYSTEM_MESSAGE CANNOT_INVITE_YOURSELF() {
+		return new SM_SYSTEM_MESSAGE(1300162);
+	}
+	
+	public static SM_SYSTEM_MESSAGE CANNOT_INVITE_BECAUSE_YOU_DEAD() {
+		return new SM_SYSTEM_MESSAGE(1300163);
+	}	
+	
+	public static SM_SYSTEM_MESSAGE INVITED_ANOTHER_GROUP_MEMBER(String player) {
+		return new SM_SYSTEM_MESSAGE(1300169);
+	}	
+	
+	public static SM_SYSTEM_MESSAGE INVITED_YOUR_GROUP_MEMBER(String player) {
+		return new SM_SYSTEM_MESSAGE(1300170);
+	}	
+	
 	private final int		code;
 	private final Object[]	params;
 
