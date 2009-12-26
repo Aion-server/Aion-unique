@@ -81,7 +81,24 @@ public class SM_VERSION_CHECK extends AionServerPacket
 		}
 		else
 		{
-			writeH(buf, 0x0C00);// unk
+			writeC(buf, 0x00);
+			writeC(buf, Config.GAMESERVER_ID);
+			writeD(buf, 0x15FFA);// unk
+			writeD(buf, 0x15FFA);// unk
+			writeD(buf, 0x00);
+			writeD(buf, 0x15FFA);// unk
+			writeD(buf, 0x4A4CEC02);// unk
+			writeC(buf, 0x00);
+			writeC(buf, Config.SERVER_COUNTRY_CODE); // Server country code (cc)
+			writeC(buf, 0x00);
+			writeC(buf, Config.SERVER_MODE); // Server mode : 0x00 = one race / 0x01 = free race / 0x22 = Character Reservation
+			writeD(buf, (int) (System.currentTimeMillis() / 1000));// ServerTime in seconds
+			writeD(buf, 0x0001015E);
+			writeD(buf, 0x9C7FCE00);
+			writeC(buf, 0xB0);
+			writeH(buf, 0x2801);			
+		}
+/*			writeH(buf, 0x0C00);// unk
 			writeD(buf, 0x15FFA);// unk
 			writeD(buf, 0x15FFA);// unk
 			writeD(buf, 0x00);// unk
@@ -105,7 +122,7 @@ public class SM_VERSION_CHECK extends AionServerPacket
 			writeD(buf, 0x9C7FCE00);
 			writeC(buf, 0xB0);
 			writeH(buf, 0x2801);
-		} // of if(Config.SERVER_MODE ==0)
+		} // of if(Config.SERVER_MODE ==0)*/
 	}
 
 	private void writeCountryCode_2(AionConnection con, ByteBuffer buf)

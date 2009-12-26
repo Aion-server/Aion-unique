@@ -36,7 +36,7 @@ public class CM_PLAYER_SEARCH extends AionClientPacket
 	/**
 	 * The max number of players to return as results
 	 */
-	public static final int MAX_RESULTS = 128;
+	public static final int MAX_RESULTS = 125;
 	
 	@Inject
 	private World				world;
@@ -46,7 +46,7 @@ public class CM_PLAYER_SEARCH extends AionClientPacket
 	private int					classMask;
 	private int					minLevel;
 	private int					maxLevel;
-	private boolean				lfgOnly;
+	private int					lfgOnly;
 	
 	public CM_PLAYER_SEARCH(int opcode)
 	{
@@ -60,12 +60,12 @@ public class CM_PLAYER_SEARCH extends AionClientPacket
 	protected void readImpl()
 	{
 		name = readS();
-		readB(44 - (name.length()*2 +2));
+		readB(44 - (name.length()*2 + 2));
 		region = readD();	
 		classMask = readD();
 		minLevel = readC();
 		maxLevel = readC();
-		lfgOnly = readC() == 1 ? true : false;
+		lfgOnly = readC();
 		readC(); // 0x00 in search pane 0x30 in /who?
 	}
 
@@ -83,7 +83,7 @@ public class CM_PLAYER_SEARCH extends AionClientPacket
 			Player player = it.next();
 			if (player.getFriendList().getStatus() == Status.OFFLINE)
 				continue;
-			else if (lfgOnly && !player.isLookingForGroup())
+			else if (lfgOnly == 1 && !player.isLookingForGroup())
 				continue;
 			else if (!name.isEmpty() && !player.getName().toLowerCase().contains(name.toLowerCase()))
 				continue;
