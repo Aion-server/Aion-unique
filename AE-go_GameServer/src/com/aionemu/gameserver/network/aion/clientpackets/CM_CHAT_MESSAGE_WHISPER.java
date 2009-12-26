@@ -25,6 +25,7 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -79,7 +80,7 @@ public class CM_CHAT_MESSAGE_WHISPER extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		String formatname = name.substring(0,1).toUpperCase() + name.toLowerCase().substring(1);
+		String formatname = Util.convertName(name);
 		
 		log.info(String.format("Whisper To: %s, Message: %s", formatname, message));
 		Player sender = getConnection().getActivePlayer();

@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cube_expander xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cube_expander.xsd">
+
+	<!-- Instructions 
+		min_level and max_level reflects current cube expansion level. By default it is 0 (not yet expanded)
+		price01 - is the price to expand to level 1 from level 0
+		..
+		price09 - is the price to expand to level 9 from level 8
+		
+		The difference (max_level - min_level + 1) should be equal to number of prices specified
+	-->
+	
 	<!-- Poeta -->
-	<cube_npc id="798008" name="Baevrunerk" min_level="0" max_level="1" price01="1000" />
+	<cube_npc id="798008" name="Baevrunerk" min_level="0" max_level="0" price01="1000" />
 	<!-- Ishalgen -->
-	<cube_npc id="798037" name="Bacorerk" min_level="0" max_level="1" price01="1000" />
+	<cube_npc id="798037" name="Bacorerk" min_level="0" max_level="0" price01="1000" />
 	<!-- Pandaemonium -->
-	<cube_npc id="798058" name="Ondarinerk" min_level="1" max_level="3" price01="12000" price02="80000" price03="180000" />
-	<cube_npc id="798059" name="Nekorunerk" min_level="1" max_level="3" price01="12000" price02="80000" price03="180000" />
+	<cube_npc id="798058" name="Ondarinerk" min_level="1" max_level="3" price02="12000" price03="80000" price04="180000" />
+	<cube_npc id="798059" name="Nekorunerk" min_level="1" max_level="3" price02="12000" price03="80000" price04="180000" />
 	<!-- Sanctum -->
-	<cube_npc id="798011" name="Heerunerk" min_level="1" max_level="3" price01="12000" price02="80000" price03="180000" />
-	<cube_npc id="798012" name="Yiehmonerk" min_level="1" max_level="3" price01="12000" price02="80000" price03="180000" />
+	<cube_npc id="798011" name="Heerunerk" min_level="1" max_level="3" price02="12000" price03="80000" price04="180000" />
+	<cube_npc id="798012" name="Yiehmonerk" min_level="1" max_level="3" price02="12000" price03="80000" price04="180000" />
 	<!-- Abyss, Tigraki Island -->
-	<cube_npc id="279022" name="Jarumonerk" min_level="3" max_level="4" price01="356103" />
+	<cube_npc id="279022" name="Jarumonerk" min_level="3" max_level="3" price04="356103" />
 </cube_expander>

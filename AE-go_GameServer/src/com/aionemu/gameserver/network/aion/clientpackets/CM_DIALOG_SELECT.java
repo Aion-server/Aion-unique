@@ -18,22 +18,20 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.CubeExpandTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.google.inject.Inject;
 /**
  * 
  * @author KKnD , orz, avol
@@ -52,7 +50,8 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	@SuppressWarnings("unused")
 	private int					lastPage;
 	private int					questId;
-	private CubeExpandTemplate 	clist;
+	@Inject
+	private CubeExpandService cubeExpandService;
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
 	 * @param opcode
@@ -149,33 +148,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				break;
 			case 41:
 				//expand cube
-				clist = DataManager.CUBEEXPANDER_DATA.getCubeExpandListTemplate(npc.getNpcId());
-				if ((clist != null)&&(clist.getNpcId()!=0)){
-					if(player.getCubeSize()==0){
-						if(clist.getMinLevel()==0){
-							sendPacket(new SM_MESSAGE(0, null, "Cube Upgraded to level 1.", null, ChatType.ANNOUNCEMENTS));
-							sendPacket(new SM_SYSTEM_MESSAGE(1300431, "9"));// 9 Slots added 
-							player.setCubesize(1);
-							player.getInventory().setLimit(36);
-							sendPacket(new SM_INVENTORY_INFO(player.getInventory().getAllItems(), player.getCubeSize()));
-						}else{
-							sendPacket(new SM_SYSTEM_MESSAGE(1300436, clist.getName(), clist.getMinLevel()));
-						}
-					}else{
-						if(player.getCubeSize()>=clist.getMaxLevel()){
-							if(player.getCubeSize()!=9)
-								sendPacket(new SM_SYSTEM_MESSAGE(1300437, clist.getName(), clist.getMaxLevel()));
-							else
-								sendPacket(new SM_SYSTEM_MESSAGE(1300430));//Cannot upgrade anymore.
-						}else{
-							sendPacket(new SM_MESSAGE(0, null, "Cube Upgraded to Level "+(player.getCubeSize()+1)+".", null, ChatType.ANNOUNCEMENTS));
-							sendPacket(new SM_SYSTEM_MESSAGE(1300431, "9"));// 9 Slots added
-							player.setCubesize(player.getCubeSize()+1);
-							player.getInventory().setLimit(player.getInventory().getLimit()+9);
-							sendPacket(new SM_INVENTORY_INFO(player.getInventory().getAllItems(), player.getCubeSize()));
-						}
-					}
-				}else{sendPacket(new SM_MESSAGE(0, null, "NPC Template for this cube Expander is missing.", null, ChatType.ANNOUNCEMENTS));}
+				cubeExpandService.expandCube(player, npc);
 				break;
 			case 50:
 				// WTF??? Quest dialog packet

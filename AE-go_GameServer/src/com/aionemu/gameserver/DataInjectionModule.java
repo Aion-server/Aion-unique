@@ -32,6 +32,7 @@ import com.aionemu.gameserver.dataholders.TeleLocationData;
 import com.aionemu.gameserver.dataholders.WalkerData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.services.AccountService;
+import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.services.DropService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.PlayerService;
@@ -75,6 +76,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(ItemService.class).in(Scopes.SINGLETON);
 		bind(TradeService.class).in(Scopes.SINGLETON);
 		bind(DropService.class).asEagerSingleton();
+		bind(CubeExpandService.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides
