@@ -16,13 +16,18 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import javolution.util.FastMap;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AIState;
 import com.aionemu.gameserver.ai.events.AttackEvent;
 import com.aionemu.gameserver.ai.npcai.MonsterAi;
+import com.aionemu.gameserver.model.AttackList;
+import com.aionemu.gameserver.model.AttackType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
@@ -36,6 +41,7 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.DecayService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
 
@@ -46,6 +52,27 @@ import com.aionemu.gameserver.world.World;
 public class MonsterController extends NpcController
 {
 	private static Logger log = Logger.getLogger(MonsterController.class);
+	
+	private FastMap<Integer,AttackList> _attacklist = new FastMap<Integer,AttackList>();
+	
+	public final class AggroInfo
+	{
+		protected Creature _attacker;
+		protected int _hate;
+		protected int _damage;
+		
+		AggroInfo(Creature pAttacker)
+		{
+			_attacker = pAttacker;
+		}
+	}
+	
+	private FastMap<Creature, AggroInfo> _aggroList = new FastMap<Creature, AggroInfo>().setShared(true);
+
+	public final FastMap<Creature, AggroInfo> getAggroList()
+	{
+		return _aggroList;
+	}
 	
 	@Override
 	public void doDrop(Player player)
@@ -97,8 +124,13 @@ public class MonsterController extends NpcController
 	public void attackTarget(int targetObjectId)
 	{
 		Monster monster = getOwner();
+		
+		if (monster == null || monster.getLifeStats().isAlreadyDead())
+			return;
+		
 		MonsterAi monsterAi = monster.getAi();
 		CreatureGameStats<? extends Creature> npcGameStats = monster.getGameStats();
+		_attacklist.clear();
 
 		int attackType = 0; //TODO investigate attack types	(0 or 1)
 
@@ -118,11 +150,13 @@ public class MonsterController extends NpcController
 		if(attackSuccess)
 		{
 			player.getLifeStats().reduceHp(damage);
+			AttackList atk = new AttackList(damage,AttackType.NORMALHIT);
+			_attacklist.put(_attacklist.size(), atk);
 			
 			//wtf is 274 - invetigate
 			PacketSendUtility.broadcastPacket(player,
 				new SM_ATTACK(monster.getObjectId(), player.getObjectId(),
-					npcGameStats.getAttackCounter(), 274, attackType, damage), true);
+					npcGameStats.getAttackCounter(), 274, attackType, _attacklist), true);
 			npcGameStats.increaseAttackCounter();
 		}
 		if(player.getLifeStats().isAlreadyDead())
@@ -162,8 +196,9 @@ public class MonsterController extends NpcController
 	{
 		this.decayTask = null;
 		dropService.unregisterDrop(getOwner());
+		getAggroList().clear();
 		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
-		if (this.getOwner().hasWalkRoutes())
+		if (this.getOwner().hasWalkRoutes() || this.getOwner().isAggressive())
 		{
 			this.getOwner().getAi().setAiState(AIState.ACTIVE);
 		}
@@ -179,5 +214,65 @@ public class MonsterController extends NpcController
 	public boolean isAttackable()
 	{
 		return true;
+	}
+	
+	public void addDamageHate(Creature attacker, int damage, int aggro)
+	{
+		if (attacker == null)
+			return;
+		
+		AggroInfo ai = getAggroList().get(attacker);
+		if (ai == null)
+		{
+			ai = new AggroInfo(attacker);
+			getAggroList().put(attacker, ai);
+
+			ai._damage = 0;
+			ai._hate = 0;
+		}
+		ai._damage += damage;
+		
+		if (aggro == 0)
+			ai._hate++;
+		else
+			ai._hate += aggro;
+	}
+	
+	public Creature getMostHated()
+	{
+		if (getAggroList().isEmpty() || getOwner().getLifeStats().isAlreadyDead()) return null;
+		
+		Creature mostHated = null;
+		int maxHate = 0;
+		
+		synchronized (getAggroList())
+		{
+			for (AggroInfo ai : getAggroList().values())
+			{
+				if (ai == null)
+					continue;
+
+				if
+				(
+					ai._attacker.getLifeStats().isAlreadyDead()
+				)
+					ai._hate = 0;
+
+				if (ai._hate > maxHate)
+				{
+					mostHated = ai._attacker;
+					maxHate = ai._hate;
+				}
+			}
+		}
+		return mostHated;
+	}
+	
+	@Override
+	public void notSee(VisibleObject object)
+	{
+		super.notSee(object);
+		if (object instanceof Creature)
+			getAggroList().remove((Creature)object);
 	}
 }

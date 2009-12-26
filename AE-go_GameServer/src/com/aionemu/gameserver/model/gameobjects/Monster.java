@@ -16,16 +16,13 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
-import javolution.util.FastMap;
-import java.util.Map;
-
 import com.aionemu.gameserver.ai.AIState;
 import com.aionemu.gameserver.ai.npcai.MonsterAi;
 import com.aionemu.gameserver.controllers.MonsterController;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 
 public class Monster extends Npc
-{
+{	
 	/**
 	 * @param template
 	 */
@@ -51,7 +48,7 @@ public class Monster extends Npc
 	{
 		this.ai = new MonsterAi();
 		ai.setOwner(this);
-		if (this.hasWalkRoutes())
+		if (this.hasWalkRoutes() || this.isAggressive())
 		{
 			this.getAi().setAiState(AIState.ACTIVE);
 		}

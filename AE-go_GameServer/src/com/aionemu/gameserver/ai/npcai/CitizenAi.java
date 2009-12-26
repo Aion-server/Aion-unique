@@ -50,7 +50,7 @@ public class CitizenAi extends NpcAi
 		stop();
 		
 		final SimpleDesireIteratorHandler handler = new SimpleDesireIteratorHandler(this);
-		final MoveDesireFilter moveDesireFilter = new MoveDesireFilter();
+		final MoveDesireFilter moveDesireFilter = new MoveDesireFilter(getOwner());
 
 		moveTask = ThreadPoolManager.getInstance().scheduleAiAtFixedRate(new Runnable(){
 

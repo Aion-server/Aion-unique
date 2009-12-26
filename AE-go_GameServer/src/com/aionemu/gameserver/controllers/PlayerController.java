@@ -16,13 +16,19 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import javolution.util.FastMap;
+
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.utils.Rnd;
+import com.aionemu.gameserver.model.AttackList;
+import com.aionemu.gameserver.model.AttackType;
 import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
@@ -62,6 +68,8 @@ public class PlayerController extends CreatureController<Player>
 
 	// TEMP till player AI introduced
 	private Creature		lastAttacker;
+	
+	private FastMap<Integer,AttackList> _attacklist = new FastMap<Integer,AttackList>();
 
 	/**
 	 * @return the lastAttacker
@@ -179,16 +187,20 @@ public class PlayerController extends CreatureController<Player>
 		}
 	}
 
-	private boolean doAttack (Player player, Creature target, PlayerGameStats pgs, long time, int attackType, int damage) 
+	private boolean doAttack (Player player, Creature target, PlayerGameStats pgs, long time, int attackType, int damage, FastMap<Integer,AttackList> attacklist) 
 	{
 		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), target.getObjectId(), pgs
-			.getAttackCounter(), (int) time, attackType, damage), true);
+			.getAttackCounter(), (int) time, attackType, attacklist), true);
 		boolean attackSuccess = target.getController().onAttack(player);
 
 		if(attackSuccess)
 		{
 			target.getLifeStats().reduceHp(damage);
 			pgs.increaseAttackCounter();
+			if (target instanceof Monster)
+			{
+				((Monster)target).getController().addDamageHate(player, damage, 0);
+			}
 		}
 		return attackSuccess;
 	}
@@ -199,6 +211,7 @@ public class PlayerController extends CreatureController<Player>
 		PlayerGameStats gameStats = player.getGameStats();
 		long time = System.currentTimeMillis();
 		int attackType = 0; // TODO investigate attack types
+		_attacklist.clear();
 
 		World world = player.getActiveRegion().getWorld();
 		Creature target = (Creature) world.findAionObject(targetObjectId);
@@ -207,21 +220,27 @@ public class PlayerController extends CreatureController<Player>
 		
 		// TODO fix last attack - cause mob is already dead
 		int damage = StatFunctions.calculateBaseDamageToTarget(player, target);
-		int hitCount = gameStats.getCurrentStat(StatEnum.MAIN_HAND_HITS) + gameStats.getCurrentStat(StatEnum.OFF_HAND_HITS);
-		boolean attackSuccess = true;
-		for (int i=0; (i<hitCount)&&attackSuccess; i++) {
+		int hitCount = Rnd.get(1,gameStats.getCurrentStat(StatEnum.MAIN_HAND_HITS) + gameStats.getCurrentStat(StatEnum.OFF_HAND_HITS));
+		AttackList atk;
+		int finaldamage=0;
+		for (int i=0; (i<hitCount); i++) {
 			int damages;
 			if (i==0)
 			{
 				damages = Math.round(damage*0.75f);
+				atk = new AttackList(damages,AttackType.NORMALHIT);
 			}
 			else
 			{
 				damages = Math.round(damage/((float)hitCount-1f));
+				atk = new AttackList(damages,AttackType.NORMALHIT);
 			}
-			attackSuccess = doAttack(player,target,gameStats,time,attackType,damages);
+			//attackSuccess = doAttack(player,target,gameStats,time,attackType,damages);
+			_attacklist.put(_attacklist.size(), atk);
 			damage -= damages;
+			finaldamage += damages;
 		}
+		doAttack(player,target,gameStats,time,attackType,finaldamage, _attacklist);
 	}
 
 	@Override
@@ -398,5 +417,4 @@ public class PlayerController extends CreatureController<Player>
 	{
 		return true;
 	}
-
 }

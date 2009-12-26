@@ -59,6 +59,8 @@ public class NpcTemplate implements VisibleObjectTemplate
 	private int					ammoSpeed		= 0;
 	@XmlAttribute(name = "rank")
 	private NpcRank				rank;
+	@XmlAttribute(name = "aggro_range")
+	private int					aggrorange;
 
 	public int getTemplateId()
 	{
@@ -148,6 +150,11 @@ public class NpcTemplate implements VisibleObjectTemplate
 	public NpcRank getRank()
 	{
 		return rank;
+	}
+	
+	public int getAggroRange()
+	{
+		return aggrorange;
 	}
 
 }

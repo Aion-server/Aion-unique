@@ -99,6 +99,7 @@ public class SpawnEngine
 			
 			switch(npcType)
 			{
+				case AGGRESSIVE:
 				case ATTACKABLE:
 					MonsterController mosnterController = new MonsterController();
 					mosnterController.setDropService(dropService);

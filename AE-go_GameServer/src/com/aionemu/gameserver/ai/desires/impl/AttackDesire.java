@@ -19,7 +19,9 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.desires.AbstractDesire;
+import com.aionemu.gameserver.ai.npcai.MonsterAi;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.utils.MathUtil;
 
 /**
@@ -35,20 +37,20 @@ public final class AttackDesire extends AbstractDesire
 	/**
 	 * Target of this desire
 	 */
-	protected final Creature	target;
+	protected Creature	target;
 
 	/**
 	 * Creates new attack desire, target can't be changed
 	 * 
-	 * @param target
+	 * @param crt
 	 *            whom to attack
 	 * @param desirePower
 	 *            initial attack power
 	 */
-	public AttackDesire(Creature target, int desirePower)
+	public AttackDesire(Monster npc, int desirePower)
 	{
 		super(desirePower);
-		this.target = target;
+		this.target = npc.getController().getMostHated();
 	}
 
 	/**
@@ -57,7 +59,11 @@ public final class AttackDesire extends AbstractDesire
 	@Override
 	public void handleDesire(AI<?> ai)
 	{
-		Creature owner = ai.getOwner();
+		Monster owner = ((MonsterAi)ai).getOwner();
+		target = owner.getController().getMostHated();
+		
+		if(target == null || target.getLifeStats().isAlreadyDead())
+			return;
 
 		if(owner.getTarget() == null)
 		{

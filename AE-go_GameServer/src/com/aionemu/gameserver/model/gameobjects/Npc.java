@@ -128,4 +128,14 @@ public class Npc extends Creature
 	{
 		return getSpawn().getWalkerId() > 0;
 	}
+	
+	public boolean isAggressive()
+	{
+			return ((NpcTemplate)this.getSpawn().getObjectTemplate()).getNpcType() == NpcType.AGGRESSIVE;
+	}
+	
+	public int getAggroRange()
+	{
+			return ((NpcTemplate)this.getSpawn().getObjectTemplate()).getAggroRange();
+	}
 }

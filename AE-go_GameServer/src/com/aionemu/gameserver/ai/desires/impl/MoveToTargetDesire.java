@@ -22,7 +22,7 @@ import com.aionemu.gameserver.ai.desires.AbstractDesire;
 import com.aionemu.gameserver.ai.desires.MoveDesire;
 import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -33,23 +33,19 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class MoveToTargetDesire extends AbstractDesire implements MoveDesire
 {
-	/**
-	 * Target to which creature should move
-	 */
 	private Creature target;
-	
 	private float spawnX;
 	private float spawnY;
 	private float spawnZ;
 
 	/**
-	 * @param target 
+	 * @param crt 
 	 * @param desirePower
 	 */
-	public MoveToTargetDesire(Creature target, Npc npc, int desirePower)
+	public MoveToTargetDesire(Monster npc, int desirePower)
 	{
 		super(desirePower);
-		this.target = target;
+		target = npc.getController().getMostHated();
 		spawnX = npc.getSpawn().getX();
 		spawnY = npc.getSpawn().getY();
 		spawnZ = npc.getSpawn().getZ();
@@ -58,7 +54,13 @@ public class MoveToTargetDesire extends AbstractDesire implements MoveDesire
 	@Override
 	public void handleDesire(AI ai)
 	{
-		Npc owner = (Npc) ai.getOwner();
+		Monster owner = (Monster) ai.getOwner();
+		target = ((Monster)owner).getController().getMostHated();
+		if (owner == null || owner.getLifeStats().isAlreadyDead())
+			return;
+		if(target == null || target.getLifeStats().isAlreadyDead())
+			return;
+		
 		float fightRunSpeed = owner.getTemplate().getStatsTemplate().getRunSpeedFight();
 		double dist = MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), target.getX(), target.getY(), target.getZ())  ;
 		if(dist > 3)

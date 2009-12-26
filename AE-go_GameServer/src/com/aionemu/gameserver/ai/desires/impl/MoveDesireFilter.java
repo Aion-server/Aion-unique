@@ -18,6 +18,10 @@ package com.aionemu.gameserver.ai.desires.impl;
 import com.aionemu.gameserver.ai.desires.Desire;
 import com.aionemu.gameserver.ai.desires.DesireIteratorFilter;
 import com.aionemu.gameserver.ai.desires.MoveDesire;
+import com.aionemu.gameserver.controllers.movement.MovementType;
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
@@ -25,6 +29,11 @@ import com.aionemu.gameserver.ai.desires.MoveDesire;
  */
 public class MoveDesireFilter implements DesireIteratorFilter
 {
+	private Creature npc;
+	public MoveDesireFilter(Creature _npc)
+	{
+		npc = _npc;
+	}
 
 	/* (non-Javadoc)
 	 * @see com.aionemu.gameserver.ai.desires.DesireIteratorFilter#isOk(com.aionemu.gameserver.ai.desires.Desire)
@@ -32,6 +41,13 @@ public class MoveDesireFilter implements DesireIteratorFilter
 	@Override
 	public boolean isOk(Desire desire)
 	{
+		if (npc == null) return false;
+		
+		if (!npc.canPerformMove()) 
+		{
+			PacketSendUtility.broadcastPacket(npc, new SM_MOVE(npc, npc.getX(), npc.getY(), npc.getZ(), 0, 0, 0, (byte) 0, MovementType.MOVEMENT_STOP));
+			return false;
+		}
 		return desire instanceof MoveDesire;
 	}
 }

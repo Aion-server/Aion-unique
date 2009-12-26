@@ -115,9 +115,9 @@ public class SM_NPC_INFO extends AionServerPacket
 		/**
 		 * Movement
 		 */
-		writeF(buf, /* npc.getX() */0);// x
-		writeF(buf, /* npc.getY() */0);// y
-		writeF(buf, /* npc.getZ() */0);// z
+		writeF(buf, npc.getX());// x
+		writeF(buf, npc.getY());// y
+		writeF(buf, npc.getZ());// z
 		writeC(buf, 0x00); // move type
 
 		writeC(buf, 0);

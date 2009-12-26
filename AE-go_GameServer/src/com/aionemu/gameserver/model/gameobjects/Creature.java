@@ -43,6 +43,10 @@ public abstract class Creature extends VisibleObject
 	private CreatureGameStats<? extends Creature> gameStats;
 	
 	private EffectController effectController;
+	
+	private boolean isRooted = false;
+	
+	private boolean isSleep = false;
 
 	public Creature(int objId, CreatureController<? extends Creature> controller,
 		SpawnTemplate spawnTemplate, WorldPosition position)
@@ -137,4 +141,28 @@ public abstract class Creature extends VisibleObject
 		this.ai = ai;
 	}
 	
+	public void setIsRooted(boolean isRooted)
+	{
+		this.isRooted = isRooted;
+	}
+	
+	public boolean isRooted()
+	{
+		return isRooted;
+	}
+	
+	public void setSleep(boolean isSleep)
+	{
+		this.isSleep = isSleep;
+	}
+	
+	public boolean isSleep()
+	{
+		return isSleep;
+	}
+	
+	public boolean canPerformMove()
+	{
+		return !(isRooted || isSleep);
+	}
 }

@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
@@ -88,6 +89,10 @@ public class DamageAction
 			sumDamage += damage;
 			effected.getLifeStats().reduceHp(damage);
 			effected.getController().onAttack(effector);
+			if (effected instanceof Monster)
+			{
+				((Monster)effected).getController().addDamageHate(effector, damage, 0);
+			}
 		}
 		
 		int unk = 0;

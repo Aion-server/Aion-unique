@@ -53,6 +53,10 @@ public class MoveToHomeDesire extends AbstractDesire implements MoveDesire
 	public void handleDesire(AI ai)
 	{
 		Npc owner = (Npc) ai.getOwner();
+		
+		if (owner == null || owner.getLifeStats().isAlreadyDead())
+			return;
+		
 		float walkSpeed = owner.getTemplate().getStatsTemplate().getRunSpeedFight();
 		double dist = MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), x, y, z)  ;
 		if(dist > 2)
@@ -72,7 +76,7 @@ public class MoveToHomeDesire extends AbstractDesire implements MoveDesire
 		{
 			owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(), owner.getHeading());
 			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0, (byte) 0, MovementType.MOVEMENT_STOP));
-			if (owner.hasWalkRoutes())
+			if (owner.hasWalkRoutes() || owner.isAggressive())
 				ai.setAiState(AIState.ACTIVE);
 			else
 				ai.setAiState(AIState.NONE);
