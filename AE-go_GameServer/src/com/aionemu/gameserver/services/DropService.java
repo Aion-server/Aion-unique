@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.log4j.Logger;
 
@@ -57,6 +58,7 @@ public class DropService
 	private DropList dropList;
 
 	private Map<Integer, Set<DropItem>> currentDropMap = Collections.synchronizedMap(new HashMap<Integer, Set<DropItem>>());
+	private Map<Integer, Integer> dropRegistrationMap = new ConcurrentHashMap<Integer, Integer>();
 	private Map<Integer, DropTemplate> kinahDrops = new HashMap<Integer, DropTemplate>();
 	private ItemService itemService;
 
@@ -116,6 +118,7 @@ public class DropService
 			}
 
 			currentDropMap.put(npcUniqueId, droppedItems);
+			dropRegistrationMap.put(npcUniqueId, player.getObjectId());
 		}		
 	}
 
@@ -128,6 +131,7 @@ public class DropService
 	{
 		int npcUniqueId = npc.getObjectId();
 		currentDropMap.remove(npcUniqueId);
+		dropRegistrationMap.remove(npcUniqueId);
 	}
 
 	/**
@@ -138,6 +142,10 @@ public class DropService
 	 */
 	public void requestDropList(Player player, int npcId)
 	{
+		//prevent stealing drop 
+		if(dropRegistrationMap.get(npcId) != player.getObjectId())
+			return;
+		
 		Set<DropItem> dropItems = currentDropMap.get(npcId);
 
 		if(dropItems == null)
@@ -161,7 +169,7 @@ public class DropService
 			return;
 		}
 		
-		//TODO prevent stealing drop 
+		//TODO prevent possible exploits
 		
 		DropItem requestedItem = null;
 
