@@ -38,6 +38,7 @@
 	
 	<xs:simpleType name="ZoneName">
 		<xs:restriction base="xs:string">
+			<!-- poeta -->
 			<xs:enumeration value="DEFORESTED_AREA"/>
 			<xs:enumeration value="WORG_RUN"/>
 			<xs:enumeration value="DAMINU_FOREST"/>
@@ -52,6 +53,27 @@
 			<xs:enumeration value="CLIONA_LAKE"/>
 			<xs:enumeration value="NYMPHS_POND"/>
 			<xs:enumeration value="AGARIC_SPORE_ROAD"/>
+			<!-- ishalgen -->
+			<xs:enumeration value="DUBARO_VINE_CANYON"/>
+			<xs:enumeration value="ANTUROON_SENTRY_POST"/>
+			<xs:enumeration value="SAP_FARM"/>
+			<xs:enumeration value="ISHALGEN_PRISON_CAMP"/>
+			<xs:enumeration value="ODELLA_PLANTATION"/>
+			<xs:enumeration value="ALDELLE_HILL"/>
+			<xs:enumeration value="MUNIHELE_FOREST"/>
+			<xs:enumeration value="NEGIS_DOCK"/>
+			<xs:enumeration value="THE_FORSAKEN_HOLLOW"/>
+			<xs:enumeration value="ANTUROON_COAST"/>
+			<xs:enumeration value="ISHALGEN_SENTRY_POST"/>
+			<xs:enumeration value="LAKE_TUNAPRE"/>
+			<xs:enumeration value="ALDELLE_VILLAGE"/>
+			<xs:enumeration value="EYVINDR_ANCHORAGE"/>
+			<xs:enumeration value="KARDS_CAMPSITE"/>
+			<xs:enumeration value="ALDELLE_BASIN"/>
+			<xs:enumeration value="GUHEITUNS_TENT"/>
+			<xs:enumeration value="ANTUROON_CROSSING"/>
+			<xs:enumeration value="DARU_SPRING"/>
+			<xs:enumeration value="HATATAS_HIDEOUT"/>
 		</xs:restriction>
 	</xs:simpleType>
 
