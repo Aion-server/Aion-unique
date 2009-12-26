@@ -107,7 +107,7 @@ public class SM_MESSAGE extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		boolean canRead = true;
-
+		
 		if(race != null)
 		{
 			canRead = race.equals(con.getActivePlayer().getCommonData().getRace()) 
@@ -136,6 +136,10 @@ public class SM_MESSAGE extends AionServerPacket
 				writeD(buf, 0x00); // unknwon
 				writeD(buf, 0x00); // unknown
 				writeD(buf, 0x00); // unknown
+				break;
+			case GROUP:
+				writeS(buf, this.senderName);
+				writeS(buf, this.message);
 				break;
 			case WHISPER:
 				writeS(buf, senderName);

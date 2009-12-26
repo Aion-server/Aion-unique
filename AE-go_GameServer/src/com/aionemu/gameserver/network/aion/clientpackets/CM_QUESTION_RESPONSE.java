@@ -27,8 +27,9 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
  */
 public class CM_QUESTION_RESPONSE extends AionClientPacket
 {
-    private int 			code;
+    private int 			questionid;
     private int 			response;
+    private int 			senderid;
     
 	public CM_QUESTION_RESPONSE(int opcode) {
 		super(opcode);
@@ -39,10 +40,12 @@ public class CM_QUESTION_RESPONSE extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		code = readD();
-		response = readC();
-		// 13 unknown bytes follow...
-		
+		questionid = readD();
+		response = readH();
+		readH();
+		senderid = readD();
+		readD();
+		readH();
 	}
 
 	/**
@@ -52,7 +55,7 @@ public class CM_QUESTION_RESPONSE extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
-		player.getResponseRequester().respond(code, response);
+		player.getResponseRequester().respond(questionid, response);
 	}
 
 }

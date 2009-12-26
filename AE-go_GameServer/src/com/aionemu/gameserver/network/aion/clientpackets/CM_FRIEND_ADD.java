@@ -16,11 +16,9 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.model.gameobjects.player.FriendList;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_RESPONSE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -138,7 +136,7 @@ public class CM_FRIEND_ADD extends AionClientPacket
 			{
 				//Send question packet to buddy
 				targetPlayer.getClientConnection()
-					.sendPacket(new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_BUDDYLIST_ADD_BUDDY_REQUETS, activePlayer.getName()));
+					.sendPacket(new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_BUDDYLIST_ADD_BUDDY_REQUETS, activePlayer.getObjectId(), activePlayer.getName()));
 			}
 		}
 	}

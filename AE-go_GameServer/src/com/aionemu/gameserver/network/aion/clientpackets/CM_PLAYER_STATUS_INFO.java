@@ -75,10 +75,10 @@ public class CM_PLAYER_STATUS_INFO extends AionClientPacket
 				player.getPlayerGroup().setGroupLeader(player);
 				break;
 			case 6:
-				player.getPlayerGroup().removePlayerFromGroup(player);	
+				player.getPlayerGroup().removePlayerFromGroup(player);
 				break;
 		}
 
-		log.debug(String.valueOf(status));
+		log.info(String.valueOf(status));
 	}
 }

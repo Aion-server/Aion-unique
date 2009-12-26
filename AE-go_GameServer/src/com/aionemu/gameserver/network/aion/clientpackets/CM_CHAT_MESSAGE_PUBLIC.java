@@ -48,14 +48,6 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 	private static final Logger	log	= Logger.getLogger(CM_CHAT_MESSAGE_PUBLIC.class);
 
 	/**
-	 * Without legion client doesn't allow to send message
-	 */
-	// public static final int TYPE_LEGION = ?;
-	/**
-	 * Without group client doen't allow to send message
-	 */
-	// public static final int TYPE_GROUP = ?;
-	/**
 	 * Chat type
 	 */
 	private ChatType			type;
@@ -96,7 +88,7 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 		log.info(String.format("Public Message: %s, Type: %s", message, type));
 
 		final Player player = getConnection().getActivePlayer();
-		
+
 		for(ChatHandler chatHandler : chatHandlers)
 		{
 			ChatHandlerResponse response = chatHandler.handleChatMessage(type, message, player);
@@ -105,9 +97,24 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 
 			message = response.getMessage();
 		}
-		
-		//Send packet to everyone not blocked
-		
+
+		switch(this.type)
+		{
+			case GROUP:
+				broadcastToGroupMembers(player);								
+				break;
+			default:
+				broadcastToNonBlockedPlayers(player);				
+		}
+	}
+	
+	/**
+	 * 	Sends message to all players that are not in blocklist
+	 *  
+	 * @param player
+	 */
+	private void broadcastToNonBlockedPlayers(final Player player)
+	{
 		PacketSendUtility.broadcastPacket(player, new SM_MESSAGE(player, message, type), true, new ObjectFilter<Player>(){
 
 			@Override
@@ -115,7 +122,23 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 			{
 				return !object.getBlockList().contains(player.getObjectId());
 			}
-			
+		});
+	}
+	
+	/**
+	 *  Sends message to all group members
+	 *  
+	 * @param player
+	 */
+	private void broadcastToGroupMembers(final Player player)
+	{
+		PacketSendUtility.broadcastPacket(player, new SM_MESSAGE(player, message, type), true, new ObjectFilter<Player>(){
+
+			@Override
+			public boolean acceptObject(Player object)
+			{
+				return object.getPlayerGroup().equals(player.getPlayerGroup());
+			}
 		});
 	}
 }

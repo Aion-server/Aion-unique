@@ -25,6 +25,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_GROUP_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
@@ -44,7 +45,7 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 	@IDFactoryAionObject
 	private IDFactory aionObjectsIDFactory;		
 	
-	private String playername;
+	private String name;
 
 	public CM_INVITE_TO_GROUP(int opcode)
 	{
@@ -58,7 +59,7 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 	protected void readImpl()
 	{
 		readC();//unk
-		playername = readS();
+		name = readS();		
 	}
 
 	/**
@@ -67,64 +68,54 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		final Player inviter = getConnection().getActivePlayer();
-		final Player invited = world.findPlayer(this.playername);
-
-		if(invited == null)
-		{
-			sendPacket(SM_SYSTEM_MESSAGE.INVITED_PLAYER_OFFLINE());
-			return;
-		}
-
-		PlayerGroup group = inviter.getPlayerGroup();
-
-		if(group == null)
-		{
-			group = new PlayerGroup(aionObjectsIDFactory, inviter);
-		}
+		final String playerName = Util.convertName(name);
 		
-		if(group.isFull())
+		final Player inviter = getConnection().getActivePlayer();
+		final Player invited = world.findPlayer(playerName);
+		final PlayerGroup group = inviter.getPlayerGroup();
+
+		if(group != null && group.isFull())
 			sendPacket(SM_SYSTEM_MESSAGE.FULL_GROUP());
+		else if(group != null && inviter.getObjectId() != group.getGroupLeader().getObjectId())
+			sendPacket(SM_SYSTEM_MESSAGE.ONLY_GROUP_LEADER_CAN_INVITE());
+		else if(invited == null)
+			sendPacket(SM_SYSTEM_MESSAGE.INVITED_PLAYER_OFFLINE());
+		else if(invited.getObjectId() == inviter.getObjectId())
+			sendPacket(SM_SYSTEM_MESSAGE.CANNOT_INVITE_YOURSELF());
 		else if(invited.getLifeStats().isAlreadyDead())
 			sendPacket(SM_SYSTEM_MESSAGE.SELECTED_TARGET_DEAD());
 		else if(inviter.getLifeStats().isAlreadyDead())
 			sendPacket(SM_SYSTEM_MESSAGE.CANNOT_INVITE_BECAUSE_YOU_DEAD());
-		else if(invited.getObjectId() == inviter.getObjectId())
-			sendPacket(SM_SYSTEM_MESSAGE.CANNOT_INVITE_YOURSELF());
 		else if(invited.getPlayerGroup() != null)
-			sendPacket(SM_SYSTEM_MESSAGE.PLAYER_IN_ANOTHER_GROUP(playername));
-		else if(inviter.getObjectId() != group.getGroupLeader().getObjectId())
-			sendPacket(SM_SYSTEM_MESSAGE.ONLY_GROUP_LEADER_CAN_INVITE());
+			sendPacket(SM_SYSTEM_MESSAGE.PLAYER_IN_ANOTHER_GROUP(playerName));
 		else
 		{
-			sendPacket(SM_SYSTEM_MESSAGE.REQUEST_GROUP_INVITE(playername));
-
-			RequestResponseHandler responseHandler = new RequestResponseHandler(inviter) {
-
+			RequestResponseHandler responseHandler = new RequestResponseHandler(inviter) 
+			{				
 				@Override
 				public void acceptRequest(Player requester, Player responder)
 				{
-					inviter.getPlayerGroup().addPlayerToGroup(invited);
+					sendPacket(SM_SYSTEM_MESSAGE.REQUEST_GROUP_INVITE(playerName));
+					if(group != null)
+						inviter.getPlayerGroup().addPlayerToGroup(invited);
+					else
+					{
+						new PlayerGroup(aionObjectsIDFactory, inviter);
+						inviter.getPlayerGroup().addPlayerToGroup(invited);
+					}
 				}
-
+	
 				@Override
 				public void denyRequest(Player requester, Player responder)
 				{
 					sendPacket(SM_SYSTEM_MESSAGE.REJECT_GROUP_INVITE(responder.getName()));
-					if(requester.getPlayerGroup().size() == 1)
-						inviter.getPlayerGroup().removePlayerFromGroup(inviter);
 				}
 			};
 
 			boolean result = invited.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_REQUEST_GROUP_INVITE,responseHandler);
 			if(result)
 			{
-				PacketSendUtility.sendPacket(invited, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_REQUEST_GROUP_INVITE, this.playername));
-			}
-			else
-			{
-				if(inviter.getPlayerGroup().size() == 1)
-					inviter.getPlayerGroup().removePlayerFromGroup(inviter);
+				PacketSendUtility.sendPacket(invited, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_REQUEST_GROUP_INVITE, inviter.getObjectId(), inviter.getName()));
 			}
 		}
 	}

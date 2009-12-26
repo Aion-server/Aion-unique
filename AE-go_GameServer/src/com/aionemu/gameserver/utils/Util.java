@@ -104,4 +104,15 @@ public class Util
 		log.info("Heap Memory Usage: " + (hm.getUsed() / 1048576) + "/" + (hm.getMax() / 1048576) + " MB");
 		log.info("NonHeap Memory Usage: " + (nhm.getUsed() / 1048576) + "/" + (nhm.getMax() / 1048576) + " MB");
 	}
+	
+	/**
+	 *  Converts name to valid pattern
+	 *  For example : "atracer" -> "Atracer"
+	 * @param name
+	 * @return
+	 */
+	public static String convertName(String name)
+	{
+		return name.substring(0,1).toUpperCase() + name.toLowerCase().substring(1);
+	}
 }

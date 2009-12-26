@@ -40,6 +40,11 @@ public enum ChatType
 	 * whisper chat
 	 */
 	WHISPER(0x04),
+	
+	/**
+	 * Group chat
+	 */
+	GROUP(0x05),
 
 	/**
 	 * Unknown, seded by official server

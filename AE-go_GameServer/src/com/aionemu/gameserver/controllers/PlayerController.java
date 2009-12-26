@@ -294,7 +294,7 @@ public class PlayerController extends CreatureController<Player>
 		};
 		this.getOwner().getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_ACCEPT_DUEL, rrh);
 		PacketSendUtility.sendPacket(this.getOwner(), new SM_QUESTION_WINDOW(
-			SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_ACCEPT_DUEL, requester.getName()));
+			SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_ACCEPT_DUEL, requester.getObjectId(), requester.getName()));
 		PacketSendUtility.sendPacket(this.getOwner(), SM_SYSTEM_MESSAGE.DUEL_ASKED_BY(requester.getName()));
 	}
 
@@ -321,7 +321,7 @@ public class PlayerController extends CreatureController<Player>
 		};
 		this.getOwner().getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_CONFIRM_DUEL, rrh);
 		PacketSendUtility.sendPacket(this.getOwner(), new SM_QUESTION_WINDOW(
-			SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_CONFIRM_DUEL, target.getName()));
+			SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_CONFIRM_DUEL, target.getObjectId(), target.getName()));
 		PacketSendUtility.sendPacket(this.getOwner(), SM_SYSTEM_MESSAGE.DUEL_ASKED_TO(target.getName()));
 	}
 

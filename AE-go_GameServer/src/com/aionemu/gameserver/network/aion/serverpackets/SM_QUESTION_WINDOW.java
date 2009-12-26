@@ -17,20 +17,24 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-
+import org.apache.log4j.Logger;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 
 /** 
  * Opens a yes/no question window on the client.
  * Question based on the code given, defined in client_strings.xml
  * 
- * @author Ben, avol
+ * @author Ben, avol, Lyahim
  *
  */
 public class SM_QUESTION_WINDOW extends AionServerPacket
 {
-
+	private static final Logger	log	= Logger.getLogger(SM_QUESTION_WINDOW.class);
+	
 	public static final int STR_BUDDYLIST_ADD_BUDDY_REQUETS = 0x0DBEE9;
 	public static final int STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE = 0x15f91;
 	public static final int STR_EXCHANGE_HE_REJECTED_EXCHANGE = 0x13D782;// TODO: make it a simple box, not a question.
@@ -39,17 +43,22 @@ public class SM_QUESTION_WINDOW extends AionServerPacket
 	public static final int STR_BIND_TO_LOCATION = 160012;
 	public static final int	STR_REQUEST_GROUP_INVITE = 60000;
 	
-	int code;
-	String[] params;
+	private int code;
+	private int senderId;
+	private String[] params;
+
 	/**
 	 * Creates a new <tt>SM_QUESTION_WINDOW<tt> packet
-	 * @param code The string code to display, found in client_strings.xml
-	 * @param params The parameters for the string, if any
+	 * @param code code The string code to display, found in client_strings.xml
+	 * @param senderId sender Object id
+	 * @param params params The parameters for the string, if any
 	 */
-	public SM_QUESTION_WINDOW(int code, String... params) {
+	public SM_QUESTION_WINDOW(int code, int senderId, String... params) {
 		this.code = code;
+		this.senderId = senderId;
 		this.params = params;
 	}
+	
 	
 	/**
 	 * {@inheritDoc}
@@ -57,10 +66,16 @@ public class SM_QUESTION_WINDOW extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		
 		writeD(buf, code);
+		
 		for (String string : params) 
 			writeS(buf, string);
+		
+		writeD(buf, 0x00);//unk
+		writeH(buf, 0x00);//unk
+		writeC(buf, 0x01);//unk
+		writeD(buf, senderId);
+		writeD(buf, 0x06); //group 6, unk
 	}
 
 }

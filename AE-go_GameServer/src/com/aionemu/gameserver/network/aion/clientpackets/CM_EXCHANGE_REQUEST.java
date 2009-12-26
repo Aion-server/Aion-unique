@@ -107,7 +107,8 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 
 					public void denyRequest(Player requester, Player responder)
 					{
-						PacketSendUtility.sendPacket(activePlayer, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_EXCHANGE_HE_REJECTED_EXCHANGE, targetPlayer.getName()));
+						//TODO check whether need SM_QUESTION_WINDOW here
+						PacketSendUtility.sendPacket(activePlayer, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_EXCHANGE_HE_REJECTED_EXCHANGE, targetPlayer.getObjectId(), targetPlayer.getName()));
 						PacketSendUtility.sendPacket(activePlayer, new SM_SYSTEM_MESSAGE(SystemMessageId.EXCHANGE_HE_REJECTED_EXCHANGE, targetPlayer.getName()));
 					}
 				};
@@ -117,7 +118,7 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 					//cannot exchange
 				}
 				else {
-					PacketSendUtility.sendPacket(targetPlayer, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE, activePlayer.getName()));
+					PacketSendUtility.sendPacket(targetPlayer, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE, targetPlayer.getObjectId(), activePlayer.getName()));
 				}
 			}
 		} 

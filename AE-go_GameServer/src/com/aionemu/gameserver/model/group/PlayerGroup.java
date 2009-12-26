@@ -61,7 +61,6 @@ public class PlayerGroup
 		this.groupMembers.put(groupleader.getObjectId(), groupleader);
 		this.setGroupLeader(groupleader);
 		groupleader.setPlayerGroup(this);
-		PacketSendUtility.sendPacket(groupleader, new SM_GROUP_INFO(this));
 	}
 
 	/**
@@ -106,44 +105,73 @@ public class PlayerGroup
 	/**
 	 * Update the Client user interface with the newer data
 	 */
-	private void updateGroupUIToEvent(Player subjective, GroupEvent groupEvent)
+	public void updateGroupUIToEvent(Player subjective, GroupEvent groupEvent)
 	{
-		for(Player member : groupMembers.values())
-		{
 			switch(groupEvent)
 			{
 				case CHANGELEADER:
-					PacketSendUtility.sendPacket(member, new SM_GROUP_INFO(this));
-					PacketSendUtility.sendPacket(member, SM_SYSTEM_MESSAGE.CHANGE_GROUP_LEADER());
-					broadcastMemberStatus(member, groupEvent);
-					break;
+				{
+					for(Player member : groupMembers.values())
+					{
+						PacketSendUtility.sendPacket(member, new SM_GROUP_INFO(this));
+						if(subjective.equals(member))
+							PacketSendUtility.sendPacket(member, SM_SYSTEM_MESSAGE.CHANGE_GROUP_LEADER());
+						PacketSendUtility.sendPacket(member, new SM_GROUP_MEMBER_INFO(this, subjective, groupEvent));
+					}
+				}break;
 				case LEAVE:
-					broadcastMemberStatus(member, groupEvent);
-					if(!member.equals(subjective))
-						PacketSendUtility.sendPacket(member, SM_SYSTEM_MESSAGE.MEMBER_LEFT_GROUP(subjective.getName()));
+				{
+					boolean changeleader = false;
+					if(subjective == this.groupLeader)//change group leader
+					{
+						this.groupLeader = this.groupMembers.values().iterator().next();
+						changeleader = true;
+					}
+					for(Player member : groupMembers.values())
+					{
+						if(changeleader)
+						{
+							PacketSendUtility.sendPacket(member, new SM_GROUP_INFO(this));
+							PacketSendUtility.sendPacket(member, SM_SYSTEM_MESSAGE.CHANGE_GROUP_LEADER());
+						}
+						if(!subjective.equals(member))
+							PacketSendUtility.sendPacket(member, new SM_GROUP_MEMBER_INFO(this, subjective, groupEvent));						
+						if(this.size() > 1) PacketSendUtility.sendPacket(member, SM_SYSTEM_MESSAGE.MEMBER_LEFT_GROUP(subjective.getName()));
+					}
+					eventToSubjective(subjective, GroupEvent.LEAVE);
+					
+					if(this.size() == 1) this.disbandGroup();
+
+				}break;
+				case ENTER:
+				{
+					eventToSubjective(subjective, GroupEvent.ENTER);
+					for(Player member : groupMembers.values())
+					{
+						if(!subjective.equals(member))
+							PacketSendUtility.sendPacket(member, new SM_GROUP_MEMBER_INFO(this, subjective, groupEvent));						
+					}
+				}break;
 				default:
-					broadcastMemberStatus(member, groupEvent);
-					break;
-			}	
-		}
+				{
+					for(Player member : groupMembers.values())
+					{
+						if(!subjective.equals(member))					
+							PacketSendUtility.sendPacket(member, new SM_GROUP_MEMBER_INFO(this, subjective, groupEvent));						
+					}					
+				}break;
+			}
 	}
-	
-	/**
-	 * 
-	 * @param player
-	 * @param event
-	 */
-	public void broadcastMemberStatus(Player player, GroupEvent event)
+	private void eventToSubjective(Player subjective, GroupEvent groupEvent)
 	{
 		for(Player member : groupMembers.values())
 		{
-			if(member.getObjectId() != player.getObjectId())
-			{
-				PacketSendUtility.sendPacket(member, new SM_GROUP_MEMBER_INFO(this, player, event));
-			}
+				PacketSendUtility.sendPacket(subjective, new SM_GROUP_MEMBER_INFO(this, member, groupEvent));
 		}
+		if(groupEvent == GroupEvent.LEAVE)
+			PacketSendUtility.sendPacket(subjective, SM_SYSTEM_MESSAGE.YOU_LEFT_GROUP());
+		log.info(subjective.getName());
 	}
-	
 	/**
 	 *  Removes player from group
 	 *  
@@ -151,38 +179,9 @@ public class PlayerGroup
 	 */
 	public void removePlayerFromGroup(Player player)
 	{
-		if(player.equals(this.groupLeader))//if groupleader leave changeing the leader
-		{
-			if(size() == 1)
-			{
-				disbandGroup(player, false);
-			}			
-			else if(size() == 2) //last 2 member, if one leave, the group disband
-			{
-				this.updateGroupUIToEvent(player, GroupEvent.LEAVE);
-				this.groupMembers.remove(player.getObjectId());
-				player.setPlayerGroup(null);
-				this.disbandGroup(this.groupLeader, true);
-				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.YOU_LEFT_GROUP());					
-			}
-			else
-			{
-				this.updateGroupUIToEvent(player, GroupEvent.LEAVE);
-				this.setGroupLeader(this.groupMembers.values().iterator().next());
-				this.groupMembers.remove(player.getObjectId());
-				player.setPlayerGroup(null);			
-				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.YOU_LEFT_GROUP());					
-			}
-		}
-		else
-		{
-			this.updateGroupUIToEvent(player, GroupEvent.LEAVE);
-			this.groupMembers.remove(player.getObjectId());
-			player.setPlayerGroup(null);
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.YOU_LEFT_GROUP());					
-			if(size() == 1)
-				this.disbandGroup(this.groupLeader, true);
-		}
+		this.groupMembers.remove(player.getObjectId());
+		player.setPlayerGroup(null);
+		updateGroupUIToEvent(player, GroupEvent.LEAVE);
 		
 		PacketSendUtility.broadcastPacket(player, new SM_LEAVE_GROUP_MEMBER(),true,	new ObjectFilter<Player>(){		
 			@Override
@@ -193,16 +192,11 @@ public class PlayerGroup
 		});
 	}
 	
-	private void disbandGroup(Player groupleader, boolean showmess)
+	private void disbandGroup()
 	{
 		this.aionObjectsIDFactory.releaseId(groupId);
-		for(Player player : groupMembers.values())
-		{
-			player.setPlayerGroup(null);
-			if(showmess)
-				PacketSendUtility.sendPacket(groupleader, SM_SYSTEM_MESSAGE.DISBAND_GROUP());
-		}
-		
+		this.groupLeader.setPlayerGroup(null);
+		PacketSendUtility.sendPacket(this.groupLeader, SM_SYSTEM_MESSAGE.DISBAND_GROUP());
 	}
 	/**
 	 *  Checks whether group is full
