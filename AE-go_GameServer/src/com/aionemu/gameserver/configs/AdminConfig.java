@@ -107,5 +107,8 @@ public class AdminConfig
 	
 	@Property(key = "gameserver.administration.command.unloadspawn", defaultValue = "3")
 	public static int			COMMAND_UNLOADSPAWN;
+	
+	@Property(key = "gameserver.administration.command.addskill", defaultValue = "3")
+	public static int			COMMAND_ADDSKILL;
 
 }
