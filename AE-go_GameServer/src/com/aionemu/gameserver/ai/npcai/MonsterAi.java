@@ -80,9 +80,6 @@ public class MonsterAi extends NpcAi
 		}	
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.ai.AI#handleDesire(com.aionemu.gameserver.ai.desires.Desire)
-	 */
 	@Override
 	public void handleDesire(Desire desire)
 	{
@@ -96,13 +93,13 @@ public class MonsterAi extends NpcAi
 	{
 
 	}
-	
+
 	@Override
 	public Monster getOwner()
 	{
 		return (Monster)owner;
 	}
-	
+
 
 	@Override
 	public void run()
@@ -115,7 +112,7 @@ public class MonsterAi extends NpcAi
 	{
 		//stop all previous tasks
 		stop();
-		
+
 		//schedule new tasks
 		final SimpleDesireIteratorHandler handler = new SimpleDesireIteratorHandler(this);
 		final MoveDesireFilter moveDesireFilter = new MoveDesireFilter(getOwner());
@@ -139,7 +136,7 @@ public class MonsterAi extends NpcAi
 				desireQueue.iterateDesires(handler, attackDesireFilter);
 			}
 		}, 1000, 2000);	//TODO attack speed
-		
+
 		aggressionTask = ThreadPoolManager.getInstance().scheduleAiAtFixedRate(new Runnable(){
 
 			@Override
@@ -150,9 +147,6 @@ public class MonsterAi extends NpcAi
 		}, 1000, 1000);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.ai.AI#stop()
-	 */
 	@Override
 	public void stop()
 	{
@@ -178,7 +172,7 @@ public class MonsterAi extends NpcAi
 			attackTask = null;
 		}	
 	}
-	
+
 	private void stopAggressionTask()
 	{
 		if(aggressionTask != null && !aggressionTask.isCancelled())
@@ -188,9 +182,6 @@ public class MonsterAi extends NpcAi
 		}	
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.ai.AI#isScheduled()
-	 */
 	@Override
 	public boolean isScheduled()
 	{
@@ -200,49 +191,41 @@ public class MonsterAi extends NpcAi
 	@Override
 	protected void analyzeState(AIState aiState)
 	{
-		aiLock.lock();
-		try
+		switch(aiState)
 		{
-			switch(aiState)
-			{
-				case IDLE:
-					desireQueue.clear();//TODO remove based on filter
-					stopAttackTask();
-					getOwner().getController().getAggroList().clear();
-					PacketSendUtility.broadcastPacket(getOwner(),
-						new SM_EMOTION(getOwner().getObjectId(), 30, 0,  getOwner().getTarget() == null ? 0:getOwner().getTarget().getObjectId()));
-					PacketSendUtility.broadcastPacket(getOwner(),
-						new SM_EMOTION(getOwner().getObjectId(), 20, 0, getOwner().getTarget() == null ? 0:getOwner().getTarget().getObjectId()));
-					PacketSendUtility.broadcastPacket(getOwner(),
-						new SM_DIALOG_WINDOW(getOwner().getObjectId(), 0));
-					desireQueue.addDesire(new MoveToHomeDesire(getOwner().getSpawn(),
-						AIState.IDLE.getPriority()));
-					break;
-				case NONE:
-					desireQueue.clear();
-					getOwner().getController().getAggroList().clear();
-					stop();
-					break;
-				case ATTACKING:
-					desireQueue.clear();
-					schedule();
-					break;
-				case ACTIVE:
-					desireQueue.clear();
-					if (getOwner().hasWalkRoutes())
-						desireQueue.addDesire(new WalkDesire(getOwner(), AIState.ACTIVE.getPriority()));
-					if (getOwner().isAggressive())
-						desireQueue.addDesire(new AggressionDesire(getOwner(), AIState.ACTIVE.getPriority()));
-					schedule();
-					break;
-			}
-		}finally
-		{
-			aiLock.unlock();
+			case IDLE:
+				desireQueue.clear();//TODO remove based on filter
+				stopAttackTask();
+				getOwner().getController().getAggroList().clear();
+				PacketSendUtility.broadcastPacket(getOwner(),
+					new SM_EMOTION(getOwner().getObjectId(), 30, 0,  getOwner().getTarget() == null ? 0:getOwner().getTarget().getObjectId()));
+				PacketSendUtility.broadcastPacket(getOwner(),
+					new SM_EMOTION(getOwner().getObjectId(), 20, 0, getOwner().getTarget() == null ? 0:getOwner().getTarget().getObjectId()));
+				PacketSendUtility.broadcastPacket(getOwner(),
+					new SM_DIALOG_WINDOW(getOwner().getObjectId(), 0));
+				desireQueue.addDesire(new MoveToHomeDesire(getOwner().getSpawn(),
+					AIState.IDLE.getPriority()));
+				break;
+			case NONE:
+				desireQueue.clear();
+				getOwner().getController().getAggroList().clear();
+				stop();
+				break;
+			case ATTACKING:
+				desireQueue.clear();
+				schedule();
+				break;
+			case ACTIVE:
+				desireQueue.clear();
+				if (getOwner().hasWalkRoutes())
+					desireQueue.addDesire(new WalkDesire(getOwner(), AIState.ACTIVE.getPriority()));
+				if (getOwner().isAggressive())
+					desireQueue.addDesire(new AggressionDesire(getOwner(), AIState.ACTIVE.getPriority()));
+				schedule();
+				break;
 		}
-
 	}
-	
+
 	public void hanndleAggroTask(Creature target)
 	{
 		crt = target;

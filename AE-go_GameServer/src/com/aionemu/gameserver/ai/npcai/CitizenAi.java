@@ -34,21 +34,21 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 public class CitizenAi extends NpcAi
 {
 	private static Logger log = Logger.getLogger(CitizenAi.class);
-	
+
 	private Future<?> moveTask;
 	private Future<?> walkerTask;
 	private WalkDesire walk = null;
-	
+
 	@Override
 	public void run()
 	{
 		desireQueue.iterateDesires(new SimpleDesireIteratorHandler(this));
 	}
-	
+
 	public void schedule()
 	{
 		stop();
-		
+
 		final SimpleDesireIteratorHandler handler = new SimpleDesireIteratorHandler(this);
 		final MoveDesireFilter moveDesireFilter = new MoveDesireFilter(getOwner());
 
@@ -67,7 +67,7 @@ public class CitizenAi extends NpcAi
 	{
 		stopMoveTask();
 	}
-	
+
 	@Override
 	public Citizen getOwner()
 	{
@@ -92,42 +92,35 @@ public class CitizenAi extends NpcAi
 	@Override
 	protected void analyzeState(AIState aiState)
 	{
-		aiLock.lock();
-		try
+		switch(aiState)
 		{
-			switch(aiState)
-			{
-				case NONE:
-					desireQueue.clear();
-					stop();
-					break;
-				case ACTIVE:
-					desireQueue.clear();
-					if (walk == null)
-						walk = new WalkDesire(getOwner(), AIState.ACTIVE.getPriority());
-					desireQueue.addDesire(walk);
-					schedule();
-					break;
-				case TALK:
-					desireQueue.clear();
-					stop();
-					if (walk != null)
-						walk.stop();
-					if (walkerTask != null)
-						walkerTask.cancel(true);
-					walkerTask = ThreadPoolManager.getInstance().schedule(new Runnable(){
+			case NONE:
+				desireQueue.clear();
+				stop();
+				break;
+			case ACTIVE:
+				desireQueue.clear();
+				if (walk == null)
+					walk = new WalkDesire(getOwner(), AIState.ACTIVE.getPriority());
+				desireQueue.addDesire(walk);
+				schedule();
+				break;
+			case TALK:
+				desireQueue.clear();
+				stop();
+				if (walk != null)
+					walk.stop();
+				if (walkerTask != null)
+					walkerTask.cancel(true);
+				walkerTask = ThreadPoolManager.getInstance().schedule(new Runnable(){
 
-						@Override
-						public void run()
-						{
-							getOwner().getAi().setAiState(AIState.ACTIVE);
-						}
-					}, 60000);
-					break;
-			}
-		}finally
-		{
-			aiLock.unlock();
+					@Override
+					public void run()
+					{
+						getOwner().getAi().setAiState(AIState.ACTIVE);
+					}
+				}, 60000);
+				break;
 		}
 
 	}

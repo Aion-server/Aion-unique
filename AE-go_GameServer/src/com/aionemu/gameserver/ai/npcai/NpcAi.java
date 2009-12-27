@@ -27,9 +27,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 public class NpcAi extends AI<Npc>
 {
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.ai.AI#analyzeState(com.aionemu.gameserver.ai.AIState)
-	 */
 	@Override
 	protected void analyzeState(AIState aiState)
 	{
@@ -37,9 +34,6 @@ public class NpcAi extends AI<Npc>
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.ai.AI#isScheduled()
-	 */
 	@Override
 	public boolean isScheduled()
 	{
@@ -47,9 +41,6 @@ public class NpcAi extends AI<Npc>
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.ai.AI#schedule()
-	 */
 	@Override
 	public void schedule()
 	{
@@ -57,9 +48,6 @@ public class NpcAi extends AI<Npc>
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.ai.AI#stop()
-	 */
 	@Override
 	public void stop()
 	{
@@ -67,9 +55,6 @@ public class NpcAi extends AI<Npc>
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Runnable#run()
-	 */
 	@Override
 	public void run()
 	{
