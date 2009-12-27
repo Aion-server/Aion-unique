@@ -124,8 +124,9 @@ public class SM_EMOTION extends AionServerPacket
 			case 0x10:
 				writeD(buf, 1);
 				writeC(buf, 0xC0);
-				writeH(buf, 0xC0);
-				writeC(buf, 0xC0);
+				//initially put for some group emotion but disables other emotions
+//				writeH(buf, 0xC0);
+//				writeC(buf, 0xC0);
 				writeC(buf, 0x40);
 				writeD(buf, targetObjectId);
 				writeH(buf, emotionId);
