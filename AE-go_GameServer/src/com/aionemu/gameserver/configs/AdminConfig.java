@@ -36,6 +36,9 @@ public class AdminConfig
 	@Property(key = "gameserver.administration.command.announce", defaultValue = "3")
 	public static int			COMMAND_ANNOUNCE;
 	
+	@Property(key = "gameserver.administration.command.configure", defaultValue = "3")
+	public static int			COMMAND_CONFIGURE;
+	
 	@Property(key = "gameserver.administration.command.deletespawn", defaultValue = "3")
 	public static int			COMMAND_DELETESPAWN;
 	
