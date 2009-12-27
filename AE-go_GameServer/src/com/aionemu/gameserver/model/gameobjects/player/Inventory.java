@@ -504,8 +504,13 @@ public class Inventory
 	 */
 	private boolean validateEquippedArmor(Item item, Item itemInMainHand)
 	{
+		//allow wearing of jewelry etc stuff
+		ArmorType armorType = item.getItemTemplate().getArmorType();
+		if(armorType == null)
+			return true;
+		
 		// check present skill
-		int[] requiredSkills = item.getItemTemplate().getArmorType().getRequiredSkills();
+		int[] requiredSkills = armorType.getRequiredSkills();
 		if(!checkAvaialbeEquipSkills(requiredSkills))
 			return false;
 
