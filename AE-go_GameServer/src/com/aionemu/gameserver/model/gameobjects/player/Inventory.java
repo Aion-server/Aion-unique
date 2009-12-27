@@ -484,6 +484,11 @@ public class Inventory
 	private boolean checkAvaialbeEquipSkills(int[] requiredSkills)
 	{
 		boolean isSkillPresent = false;		
+		
+		//if no skills required - validate as true
+		if(requiredSkills.length == 0)
+			return true;
+		
 		for(int skill : requiredSkills)
 		{
 			if(getOwner().getSkillList().isSkillPresent(skill))
