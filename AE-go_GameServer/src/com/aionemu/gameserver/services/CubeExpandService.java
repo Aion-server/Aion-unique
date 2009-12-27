@@ -16,6 +16,9 @@
  */
 package com.aionemu.gameserver.services;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -29,6 +32,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -65,6 +69,7 @@ public class CubeExpandService
 				{
 					expand(requester, expandTemplate);
 					kinahItem.decreaseItemCount(price);
+					PacketSendUtility.sendPacket(requester, new SM_UPDATE_ITEM(kinahItem));
 					DAOManager.getDAO(InventoryDAO.class).store(kinahItem, requester.getObjectId());
 				}
 
@@ -112,7 +117,7 @@ public class CubeExpandService
 		PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300431, "9"));// 9 Slots added
 		player.setCubesize(player.getCubeSize()+1);
 		player.getInventory().setLimit(player.getInventory().getLimit()+9);
-		PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(player.getInventory().getAllItems(), player.getCubeSize()));
+		PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(new ArrayList<Item>(), player.getCubeSize()));
 
 	}
 
