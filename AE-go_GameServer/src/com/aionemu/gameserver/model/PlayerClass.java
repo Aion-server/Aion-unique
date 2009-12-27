@@ -100,6 +100,32 @@ public enum PlayerClass
 		return startingClass;
 	}
 	
+	/**
+	 * 
+	 * @param pc
+	 * @return starting class for second class
+	 */
+	public static PlayerClass getStartingClassFor(PlayerClass pc)
+	{
+		switch(pc)
+		{
+			case ASSASSIN:
+			case RANGER:
+				return SCOUT;
+			case GLADIATOR:
+			case TEMPLAR:
+				return WARRIOR;
+			case CHANTER:
+			case CLERIC:
+				return PRIEST;
+			case SORCERER:
+			case SPIRIT_MASTER:
+				return MAGE;
+			default:
+				throw new IllegalArgumentException("Given player class is starting class: " + pc);
+		}
+	}
+	
 	public int getMask()
 	{
 		return idMask;

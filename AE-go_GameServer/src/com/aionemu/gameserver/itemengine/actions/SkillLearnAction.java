@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
+import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
@@ -30,7 +31,6 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.skillengine.model.learn.SkillClass;
 import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -55,19 +55,7 @@ public class SkillLearnAction extends AbstractItemAction
 	@Override
 	public void act(Player player, Item parentItem, Item targetItem)
 	{
-		//1. check player level
-		if(player.getCommonData().getLevel() < level)
-			return;
-		//2. check player class and SkillClass.ALL
-		if(player.getCommonData().getPlayerClass().ordinal() != playerClass.ordinal()
-			&& playerClass != SkillClass.ALL)
-			return;
-		//3. check player race and SkillRace.ALL
-		if(player.getCommonData().getRace().ordinal() != race.ordinal() 
-			&& race != SkillRace.ALL)
-			return;
-		//4. check whether this skill is already learned
-		if(player.getSkillList().isSkillPresent(skillid))
+		if(!validateConditions(player))
 			return;
 		
 		//item animation and message
@@ -84,5 +72,41 @@ public class SkillLearnAction extends AbstractItemAction
 		Item item = player.getInventory().getItemByObjId(parentItem.getObjectId());
 		player.getInventory().removeFromBag(item);
 		PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(parentItem.getObjectId()));	
+	}
+
+	private boolean validateConditions(Player player)
+	{
+		//1. check player level
+		if(player.getCommonData().getLevel() < level)
+			return false;
+		
+		PlayerClass pc = player.getCommonData().getPlayerClass();
+		
+		if(!validateClass(pc))
+			return false;
+		
+		//4. check player race and SkillRace.ALL
+		if(player.getCommonData().getRace().ordinal() != race.ordinal() 
+			&& race != SkillRace.ALL)
+			return false;
+		//5. check whether this skill is already learned
+		if(player.getSkillList().isSkillPresent(skillid))
+			return false;
+		
+		return true;
+	}
+
+	private boolean validateClass(PlayerClass pc)
+	{
+		boolean result = false;
+		//2. check if current class is second class and book is for starting class
+		if(!pc.isStartingClass() && PlayerClass.getStartingClassFor(pc).ordinal() == playerClass.ordinal())
+			result = true;
+		//3. check player class and SkillClass.ALL
+		if(pc.ordinal() == playerClass.ordinal()
+			|| playerClass == SkillClass.ALL)
+			result = true;
+		
+		return result;
 	}
 }
