@@ -110,5 +110,8 @@ public class AdminConfig
 	
 	@Property(key = "gameserver.administration.command.addskill", defaultValue = "3")
 	public static int			COMMAND_ADDSKILL;
+	
+	@Property(key = "gameserver.administration.command.speed", defaultValue = "3")
+	public static int			COMMAND_SPEED;
 
 }

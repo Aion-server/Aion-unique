@@ -49,6 +49,7 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 		initStat(StatEnum.PARRY, pst.getParry());
 		initStat(StatEnum.BLOCK, pst.getBlock());
 		initStat(StatEnum.EVASION, pst.getEvasion());
+		initStat(StatEnum.SPEED, 6);
 		initStat(StatEnum.MAGICAL_ACCURACY, pst.getMagicAccuracy());
 		initStat(StatEnum.FLY_SPEED, Math.round(pst.getFlySpeed()*1000f));
 		initStat(StatEnum.MAIN_HAND_ACCURACY, pst.getMainHandAccuracy());

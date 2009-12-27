@@ -20,6 +20,7 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -198,7 +199,7 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         };
         writeB(buf, unk);
 
-        writeF(buf, 6); // move speed
+        writeF(buf, player.getGameStats().getCurrentStat(StatEnum.SPEED)); // move speed
 
         writeH(buf, 2800);
         writeH(buf, 2800);
