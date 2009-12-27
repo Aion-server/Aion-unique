@@ -424,11 +424,10 @@ public class Inventory
 	private boolean validateEquippedWeapon(Item item, Item itemInMainHand, Item itemInSubHand)
 	{
 		// check present skill
-		int requiredSkill1 = item.getItemTemplate().getWeaponType().getRequiredSkill();
-		if(requiredSkill1 != 0 && !getOwner().getSkillList().isSkillPresent(requiredSkill1))
-		{
+		int[] requiredSkills = item.getItemTemplate().getWeaponType().getRequiredSkills();
+		
+		if(!checkAvaialbeEquipSkills(requiredSkills))
 			return false;
-		}
 
 		switch(item.getItemTemplate().getWeaponType().getRequiredSlots())
 		{
@@ -476,6 +475,25 @@ public class Inventory
 		}
 		return true;
 	}
+	
+	/**
+	 * 
+	 * @param requiredSkills
+	 * @return
+	 */
+	private boolean checkAvaialbeEquipSkills(int[] requiredSkills)
+	{
+		boolean isSkillPresent = false;		
+		for(int skill : requiredSkills)
+		{
+			if(getOwner().getSkillList().isSkillPresent(skill))
+			{
+				isSkillPresent = true;
+				break;
+			}
+		}	
+		return isSkillPresent;
+	}
 
 	/**
 	 *  Used during equip process and analyzes equipped slots
@@ -487,11 +505,9 @@ public class Inventory
 	private boolean validateEquippedArmor(Item item, Item itemInMainHand)
 	{
 		// check present skill
-		int requiredSkill = item.getItemTemplate().getArmorType().getRequiredSkill();
-		if(requiredSkill != 0 && !getOwner().getSkillList().isSkillPresent(requiredSkill))
-		{
+		int[] requiredSkills = item.getItemTemplate().getArmorType().getRequiredSkills();
+		if(!checkAvaialbeEquipSkills(requiredSkills))
 			return false;
-		}					
 
 		switch(item.getItemTemplate().getArmorType())
 		{

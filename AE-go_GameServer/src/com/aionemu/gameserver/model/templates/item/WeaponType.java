@@ -27,29 +27,29 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum WeaponType
 {
-	DAGGER_1H(30, 1),
-	MACE_1H(3, 1),
-	SWORD_1H(1, 1),
-	TOOLHOE_1H(0, 1),
-	BOOK_2H(64, 2),
-	ORB_2H(64, 2),
-	POLEARM_2H(16, 2),
-	STAFF_2H(53, 2),
-	SWORD_2H(1, 2),
-	TOOLPICK_2H(0, 2),
-	TOOLROD_2H(0, 2),
-	BOW(17, 2);
+	DAGGER_1H(new int[]{30, 9}, 1),
+	MACE_1H(new int[]{3, 10}, 1),
+	SWORD_1H(new int[]{1, 8}, 1),
+	TOOLHOE_1H(new int[]{}, 1),
+	BOOK_2H(new int[]{64}, 2),
+	ORB_2H(new int[]{64}, 2),
+	POLEARM_2H(new int[]{16}, 2),
+	STAFF_2H(new int[]{53}, 2),
+	SWORD_2H(new int[]{1, 15}, 2),
+	TOOLPICK_2H(new int[]{}, 2),
+	TOOLROD_2H(new int[]{}, 2),
+	BOW(new int[]{17}, 2);
 
-	private int requiredSkill;
+	private int[] requiredSkill;
 	private int slots;
 
-	private WeaponType(int requiredSkill, int slots)
+	private WeaponType(int[] requiredSkills, int slots)
 	{
-		this.requiredSkill = requiredSkill;
+		this.requiredSkill = requiredSkills;
 		this.slots = slots;
 	}
 
-	public int getRequiredSkill()
+	public int[] getRequiredSkills()
 	{
 		return requiredSkill;
 	}
