@@ -58,7 +58,7 @@ public class ResourceBundleControl extends ResourceBundle.Control
 	/**
 	 * Encoding which will be used to read resource bundle, by defaults it's 8859_1
 	 */
-	private String	encoding	= "8859_1";
+	private String	encoding	= "UTF-8";
 
 	/**
 	 * Just empty default constructor
