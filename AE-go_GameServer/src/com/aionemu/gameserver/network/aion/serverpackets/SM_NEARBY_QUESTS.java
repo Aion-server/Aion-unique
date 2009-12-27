@@ -28,12 +28,12 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 public class SM_NEARBY_QUESTS extends AionServerPacket
 {
-	private List<Integer> questIds;
+	private Integer[] questIds;
 	private int size;
 	
 	public SM_NEARBY_QUESTS(List<Integer> questIds)
 	{
-		this.questIds = questIds;
+		this.questIds = questIds.toArray(new Integer[questIds.size()]);
 		this.size = questIds.size();
 	}
 
