@@ -16,7 +16,7 @@
  */
 package com.aionemu.gameserver.model.trade;
 
-import com.aionemu.gameserver.model.templates.ItemTemplate;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
  * @author ATracer

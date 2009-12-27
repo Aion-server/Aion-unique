@@ -26,7 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SimpleModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.items.ItemStone;
-import com.aionemu.gameserver.model.templates.ItemTemplate;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
  * @author ATracer

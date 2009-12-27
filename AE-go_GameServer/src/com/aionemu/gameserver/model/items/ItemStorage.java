@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.templates.ItemTemplate;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
  * @author ATracer
@@ -285,6 +285,14 @@ public class ItemStorage
 			return true;
 		}	
 		return false;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getNumberOfFreeSlots()
+	{
+		return limit - getStorageItems().size(); //TODO optimize here
 	}
 
 }

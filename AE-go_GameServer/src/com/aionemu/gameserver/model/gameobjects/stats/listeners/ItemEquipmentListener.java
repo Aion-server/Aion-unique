@@ -25,7 +25,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.ItemStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
-import com.aionemu.gameserver.model.templates.ItemTemplate;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
  * @author xavier

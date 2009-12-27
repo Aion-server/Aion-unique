@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,17 +14,37 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.items;
+package com.aionemu.gameserver.model.templates.item;
+
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author ATracer
  *
  */
-public enum ItemQuality
+@XmlType(name = "armor_type")
+@XmlEnum
+public enum ArmorType
 {
-	COMMON,
-	RARE,
-	UNIQUE,
-	LEGEND,
-	MYTHIC
+	CHAIN(6),
+	CLOTHES(4),
+	LEATHER(5),
+	PLATE(18),
+	ROBE(67),
+	SHARD(0),
+	SHIELD(7),
+	ARROW(0);
+	
+	private int requiredSkill;
+	
+	private ArmorType(int requiredSkill)
+	{
+		this.requiredSkill = requiredSkill;
+	}
+	
+	public int getRequiredSkill()
+	{
+		return requiredSkill;
+	}
 }

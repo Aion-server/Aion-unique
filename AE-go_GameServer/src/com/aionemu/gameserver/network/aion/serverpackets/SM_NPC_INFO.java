@@ -22,8 +22,8 @@ import java.util.Map.Entry;
 import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.items.NpcEquippedGear;
-import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 

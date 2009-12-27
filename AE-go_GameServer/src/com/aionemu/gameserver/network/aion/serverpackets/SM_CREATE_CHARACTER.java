@@ -28,7 +28,7 @@ import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.I
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
-import com.aionemu.gameserver.model.templates.ItemTemplate;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.PlayerInfo;
 import com.aionemu.gameserver.services.PlayerService;

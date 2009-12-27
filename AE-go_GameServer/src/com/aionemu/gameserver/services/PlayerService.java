@@ -58,7 +58,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.TitleChangeListener;
 import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.model.items.ItemStone;
-import com.aionemu.gameserver.model.templates.ItemTemplate;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;

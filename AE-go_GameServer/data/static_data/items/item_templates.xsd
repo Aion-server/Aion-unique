@@ -3,22 +3,25 @@
 
 	<xs:include schemaLocation="../modifiers.xsd" />
 	<xs:include schemaLocation="../skill_tree/skill_tree.xsd" />
-	
+
 	<xs:element name="item_templates">
-	   <xs:complexType>
-		  <xs:sequence>
-			<xs:element name="item_template" type="itemTemplate" minOccurs="1" maxOccurs="unbounded"/>
-		  </xs:sequence>
-	   </xs:complexType>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="item_template" type="itemTemplate"
+					minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
 	</xs:element>
 
 	<xs:complexType name="itemTemplate">
 		<xs:sequence>
-			<xs:element name="modifiers" type="Modifiers" minOccurs="0" maxOccurs="unbounded" />
-			<xs:element name="actions" type="ItemActions" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="modifiers" type="Modifiers" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element name="actions" type="ItemActions" minOccurs="0"
+				maxOccurs="unbounded" />
 		</xs:sequence>
 		<xs:attribute name="equipment_type" type="equipType" />
-		<xs:attribute name="equipment_slots" type="xs:int" />
+		<xs:attribute name="slot" type="xs:int" />
 		<xs:attribute name="cash_item" type="xs:int" />
 		<xs:attribute name="dmg_decal" type="xs:int" />
 		<xs:attribute name="attack_type" type="xs:string" />
@@ -27,42 +30,29 @@
 		<xs:attribute name="desc" type="xs:int" />
 		<xs:attribute name="can_exchange" type="xs:boolean" />
 		<xs:attribute name="can_sell_to_npc" type="xs:boolean" />
-		<xs:attribute name="can_deposit_to_character_warehouse" type="xs:boolean" />
-		<xs:attribute name="can_deposit_to_account_warehouse" type="xs:boolean" />
-		<xs:attribute name="can_deposit_to_guild_warehouse" type="xs:boolean" />
+		<xs:attribute name="cdcw" type="xs:boolean" />
+		<xs:attribute name="cdaw" type="xs:boolean" />
+		<xs:attribute name="cdgw" type="xs:boolean" />
 		<xs:attribute name="breakable" type="xs:boolean" />
 		<xs:attribute name="soul_bind" type="xs:boolean" />
 		<xs:attribute name="remove_when_logout" type="xs:boolean" />
-		<xs:attribute name="gender_permitted" type="xs:string" />
-		<xs:attribute name="warrior" type="xs:int" />
-		<xs:attribute name="scout" type="xs:int" />
-		<xs:attribute name="mage" type="xs:int" />
-		<xs:attribute name="cleric" type="xs:int" />
-		<xs:attribute name="fighter" type="xs:int" />
-		<xs:attribute name="knight" type="xs:int" />
-		<xs:attribute name="assassin" type="xs:int" />
-		<xs:attribute name="ranger" type="xs:int" />
-		<xs:attribute name="wizard" type="xs:int" />
-		<xs:attribute name="elementalist" type="xs:int" />
-		<xs:attribute name="chanter" type="xs:int" />
-		<xs:attribute name="priest" type="xs:int" />
+		<xs:attribute name="gender" type="xs:string" />
 		<xs:attribute name="option_slot_bonus" type="xs:int" />
 		<xs:attribute name="bonus_apply" type="xs:string" />
 		<xs:attribute name="no_enchant" type="xs:boolean" />
 		<xs:attribute name="can_proc_enchant" type="xs:boolean" />
 		<xs:attribute name="can_split" type="xs:boolean" />
-		<xs:attribute name="item_drop_permitted" type="xs:boolean" />
-		<xs:attribute name="race_permitted" type="xs:string" />
+		<xs:attribute name="drop" type="xs:boolean" />
+		<xs:attribute name="race" type="xs:string" />
 		<xs:attribute name="price" type="xs:int" />
-		<xs:attribute name="quality" type="xs:string" />
+		<xs:attribute name="quality" type="itemQuality" />
 		<xs:attribute name="item_type" type="xs:string" />
 		<xs:attribute name="max_stack_count" type="xs:int" />
-		<xs:attribute name="armor_type" type="xs:string" />
-		<xs:attribute name="weapon_type" type="xs:string" />		
+		<xs:attribute name="armor_type" type="armorType" />
+		<xs:attribute name="weapon_type" type="weaponType" />
 		<xs:attribute name="level" type="xs:int" />
-		<xs:attribute name="name" type="xs:string" use="required" />
 		<xs:attribute name="id" type="itemId" use="required" />
-		
+
 	</xs:complexType>
 
 	<xs:simpleType name="itemSlot">
@@ -91,38 +81,42 @@
 			<xs:enumeration value="TORSO_GLOVE_FOOT_SHOULDER_LEG" />
 		</xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:complexType name="AbstractItemAction" abstract="true" />
-	
+
 	<xs:complexType name="ItemActions">
-	  <xs:sequence minOccurs="0" maxOccurs="unbounded">
-	  	<xs:element name="skilllearn" type="SkillLearnAction" minOccurs="0" maxOccurs="1"/>
-		<xs:element name="skilluse" type="SkillUseAction" minOccurs="0" maxOccurs="1"/>
-		<xs:element name="enchant" type="EnchantItemAction" minOccurs="0" maxOccurs="1"/>
-		<xs:element name="queststart" type="QuestStartAction" minOccurs="0" maxOccurs="1"/>
-	  </xs:sequence>
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="skilllearn" type="SkillLearnAction"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="skilluse" type="SkillUseAction"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="enchant" type="EnchantItemAction"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="queststart" type="QuestStartAction"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:complexType name="SkillLearnAction">
 		<xs:complexContent>
 			<xs:extension base="AbstractItemAction">
-				<xs:attribute name="race" type="skillRace"/>
-				<xs:attribute name="level" type="xs:int"/>
-				<xs:attribute name="class" type="skillPlayerClass"/>
-				<xs:attribute name="skillid" type="xs:int"/>
+				<xs:attribute name="race" type="skillRace" />
+				<xs:attribute name="level" type="xs:int" />
+				<xs:attribute name="class" type="skillPlayerClass" />
+				<xs:attribute name="skillid" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="SkillUseAction">
 		<xs:complexContent>
 			<xs:extension base="AbstractItemAction">
-				<xs:attribute name="skillid" type="xs:int"/>
-				<xs:attribute name="level" type="xs:int"/>
+				<xs:attribute name="skillid" type="xs:int" />
+				<xs:attribute name="level" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="EnchantItemAction">
 		<xs:complexContent>
 			<xs:extension base="AbstractItemAction">
@@ -130,11 +124,11 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="QuestStartAction">
 		<xs:complexContent>
 			<xs:extension base="AbstractItemAction">
-				<xs:attribute name="questid" type="xs:int"/>
+				<xs:attribute name="questid" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -149,10 +143,51 @@
 
 	<xs:simpleType name="itemId">
 		<xs:restriction base="xs:int">
-			<xs:minInclusive value="100000000"/>
-			<xs:maxInclusive value="200000000"/>
+			<xs:minInclusive value="100000000" />
+			<xs:maxInclusive value="200000000" />
 		</xs:restriction>
 	</xs:simpleType>
-	
+
+	<xs:simpleType name="armorType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CHAIN" />
+			<xs:enumeration value="CLOTHES" />
+			<xs:enumeration value="LEATHER" />
+			<xs:enumeration value="PLATE" />
+			<xs:enumeration value="ROBE" />
+			<xs:enumeration value="SHARD" /> <!-- todo to category -->
+			<xs:enumeration value="ARROW" />
+			<xs:enumeration value="SHIELD" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="weaponType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DAGGER_1H" />
+			<xs:enumeration value="MACE_1H" />
+			<xs:enumeration value="SWORD_1H" />
+			<xs:enumeration value="TOOLHOE_1H" />
+			<xs:enumeration value="BOOK_2H" />
+			<xs:enumeration value="ORB_2H" />
+			<xs:enumeration value="POLEARM_2H" />
+			<xs:enumeration value="STAFF_2H" />
+			<xs:enumeration value="SWORD_2H" />
+			<xs:enumeration value="TOOLPICK_2H" />
+			<xs:enumeration value="TOOLROD_2H" />
+			<xs:enumeration value="BOW" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="itemQuality">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="COMMON" />
+			<xs:enumeration value="RARE" />
+			<xs:enumeration value="LEGEND" />
+			<xs:enumeration value="UNIQUE" />
+			<xs:enumeration value="EPIC" />
+			<xs:enumeration value="MYTHIC" />
+			<xs:enumeration value="JUNK" />
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
 

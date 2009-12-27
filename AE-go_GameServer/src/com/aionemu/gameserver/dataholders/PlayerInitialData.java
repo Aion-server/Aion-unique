@@ -2,7 +2,7 @@ package com.aionemu.gameserver.dataholders;
 
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
-import com.aionemu.gameserver.model.templates.ItemTemplate;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.Unmarshaller;

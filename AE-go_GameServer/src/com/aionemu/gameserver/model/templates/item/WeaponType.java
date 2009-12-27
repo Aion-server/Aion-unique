@@ -19,25 +19,43 @@ package com.aionemu.gameserver.model.templates.item;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * @author ATracer
- * 
+ *
  */
-@XmlType(name = "equipType")
+@XmlType(name = "weapon_type")
 @XmlEnum
-public enum EquipType {
+public enum WeaponType
+{
+	DAGGER_1H(30, 1),
+	MACE_1H(3, 1),
+	SWORD_1H(1, 1),
+	TOOLHOE_1H(0, 1),
+	BOOK_2H(64, 2),
+	ORB_2H(64, 2),
+	POLEARM_2H(16, 2),
+	STAFF_2H(53, 2),
+	SWORD_2H(1, 2),
+	TOOLPICK_2H(0, 2),
+	TOOLROD_2H(0, 2),
+	BOW(17, 2);
 
-    ARMOR,
-    WEAPON,
-    NONE;
+	private int requiredSkill;
+	private int slots;
 
-    public String value() {
-        return name();
-    }
+	private WeaponType(int requiredSkill, int slots)
+	{
+		this.requiredSkill = requiredSkill;
+		this.slots = slots;
+	}
 
-    public static EquipType fromValue(String v) {
-        return valueOf(v);
-    }
-
+	public int getRequiredSkill()
+	{
+		return requiredSkill;
+	}
+	
+	public int getRequiredSlots()
+	{
+		return slots;
+	}
 }

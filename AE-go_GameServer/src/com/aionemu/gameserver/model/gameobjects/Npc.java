@@ -26,9 +26,9 @@ import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.items.NpcEquippedGear;
-import com.aionemu.gameserver.model.templates.ItemTemplate;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
 import com.aionemu.gameserver.world.WorldPosition;
 

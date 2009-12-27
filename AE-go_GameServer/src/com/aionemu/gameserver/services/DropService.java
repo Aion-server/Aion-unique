@@ -118,7 +118,13 @@ public class DropService
 			}
 
 			currentDropMap.put(npcUniqueId, droppedItems);
-			dropRegistrationMap.put(npcUniqueId, player.getObjectId());
+			
+			//TODO player should not be null
+			if(player != null)
+			{
+				dropRegistrationMap.put(npcUniqueId, player.getObjectId());
+			}
+			
 		}		
 	}
 
@@ -143,7 +149,9 @@ public class DropService
 	public void requestDropList(Player player, int npcId)
 	{
 		//prevent stealing drop 
-		if(dropRegistrationMap.get(npcId) != player.getObjectId())
+		if(player != null 
+			&& dropRegistrationMap.get(npcId) != player.getObjectId()
+			&& dropRegistrationMap.get(npcId) != null)
 			return;
 		
 		Set<DropItem> dropItems = currentDropMap.get(npcId);

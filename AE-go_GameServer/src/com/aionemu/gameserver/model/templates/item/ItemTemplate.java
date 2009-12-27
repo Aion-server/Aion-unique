@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.templates;
+package com.aionemu.gameserver.model.templates.item;
 
 import java.util.TreeSet;
 
@@ -28,8 +28,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.aionemu.gameserver.itemengine.actions.ItemActions;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
-import com.aionemu.gameserver.model.items.ItemQuality;
-import com.aionemu.gameserver.model.templates.item.EquipType;
 import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
 
 /**
@@ -49,7 +47,7 @@ public class ItemTemplate
 	@XmlElement(name = "actions", required = false)
 	protected ItemActions actions;
 
-	@XmlAttribute(name = "equipment_slots")
+	@XmlAttribute(name = "slot")
 	private int					itemSlot;
 
 	@XmlAttribute(name = "equipment_type")
@@ -77,10 +75,10 @@ public class ItemTemplate
 	private String				itemType;						// TODO enum
 
 	@XmlAttribute(name = "weapon_type")
-	private String				weaponType;					// TODO enum
+	private WeaponType				weaponType;
 
 	@XmlAttribute(name = "armor_type")
-	private String				armorType;						// TODO enum
+	private ArmorType				armorType;
 
 	@XmlAttribute(name = "attack_type")
 	private String				attackType;					// TODO enum
@@ -100,13 +98,13 @@ public class ItemTemplate
 	@XmlAttribute(name = "can_sell_to_npc")
 	private boolean				canSellToNpc;
 
-	@XmlAttribute(name = "can_deposit_to_character_warehouse")
+	@XmlAttribute(name = "cdcw")
 	private boolean				canDepositToCharacterWarehouse;
 
-	@XmlAttribute(name = "can_deposit_to_account_warehouse")
+	@XmlAttribute(name = "cdaw")
 	private boolean				canDepositToAccountWarehouse;
 
-	@XmlAttribute(name = "can_deposit_to_guild_warehouse")
+	@XmlAttribute(name = "cdgw")
 	private boolean				canDepositToGuildWarehouse;
 
 	@XmlAttribute(name = "breakable")
@@ -118,44 +116,8 @@ public class ItemTemplate
 	@XmlAttribute(name = "remove_when_logout")
 	private boolean				removeWhenLogout;
 
-	@XmlAttribute(name = "gender_permitted")
+	@XmlAttribute(name = "gender")
 	private String				genderPermitted;				// enum
-
-	@XmlAttribute(name = "warrior")
-	private int					warrior;
-
-	@XmlAttribute(name = "scout")
-	private int					scout;
-
-	@XmlAttribute(name = "mage")
-	private int					mage;
-
-	@XmlAttribute(name = "cleric")
-	private int					cleric;
-
-	@XmlAttribute(name = "fighter")
-	private int					fighter;
-
-	@XmlAttribute(name = "knight")
-	private int					knight;
-
-	@XmlAttribute(name = "assassin")
-	private int					assassin;
-
-	@XmlAttribute(name = "ranger")
-	private int					ranger;
-
-	@XmlAttribute(name = "wizard")
-	private int					wizard;
-
-	@XmlAttribute(name = "elementalist")
-	private int					elementalist;
-
-	@XmlAttribute(name = "chanter")
-	private int					chanter;
-
-	@XmlAttribute(name = "priest")
-	private int					priest;
 
 	@XmlAttribute(name = "option_slot_bonus")
 	private int					optionSlotBonus;
@@ -172,10 +134,10 @@ public class ItemTemplate
 	@XmlAttribute(name = "can_split")
 	private boolean				canSplit;
 
-	@XmlAttribute(name = "item_drop_permitted")
+	@XmlAttribute(name = "drop")
 	private boolean				itemDropPermitted;
 
-	@XmlAttribute(name = "race_permitted")
+	@XmlAttribute(name = "race")
 	private String				racePermitted;
 
 	private int					itemId;
@@ -257,7 +219,7 @@ public class ItemTemplate
 	/**
 	 * @return the weaponType
 	 */
-	public String getWeaponType()
+	public WeaponType getWeaponType()
 	{
 		return weaponType;
 	}
@@ -265,7 +227,7 @@ public class ItemTemplate
 	/**
 	 * @return the armorType
 	 */
-	protected String getArmorType()
+	public ArmorType getArmorType()
 	{
 		return armorType;
 	}
@@ -396,102 +358,6 @@ public class ItemTemplate
 	public String getGenderPermitted()
 	{
 		return genderPermitted;
-	}
-
-	/**
-	 * @return the warrior
-	 */
-	public int getWarrior()
-	{
-		return warrior;
-	}
-
-	/**
-	 * @return the scout
-	 */
-	public int getScout()
-	{
-		return scout;
-	}
-
-	/**
-	 * @return the mage
-	 */
-	public int getMage()
-	{
-		return mage;
-	}
-
-	/**
-	 * @return the cleric
-	 */
-	public int getCleric()
-	{
-		return cleric;
-	}
-
-	/**
-	 * @return the fighter
-	 */
-	public int getFighter()
-	{
-		return fighter;
-	}
-
-	/**
-	 * @return the knight
-	 */
-	public int getKnight()
-	{
-		return knight;
-	}
-
-	/**
-	 * @return the assassin
-	 */
-	public int getAssassin()
-	{
-		return assassin;
-	}
-
-	/**
-	 * @return the ranger
-	 */
-	public int getRanger()
-	{
-		return ranger;
-	}
-
-	/**
-	 * @return the wizard
-	 */
-	public int getWizard()
-	{
-		return wizard;
-	}
-
-	/**
-	 * @return the elementalist
-	 */
-	public int getElementalist()
-	{
-		return elementalist;
-	}
-
-	/**
-	 * @return the chanter
-	 */
-	public int getChanter()
-	{
-		return chanter;
-	}
-
-	/**
-	 * @return the priest
-	 */
-	public int getPriest()
-	{
-		return priest;
 	}
 
 	/**

@@ -33,6 +33,8 @@ import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.items.ItemStorage;
+import com.aionemu.gameserver.model.templates.item.ArmorType;
+import com.aionemu.gameserver.model.templates.item.WeaponType;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -357,11 +359,29 @@ public class Inventory
 			{
 				return false;
 			}
+
+			int itemSlotToEquip = 0;
+
+			Item itemInMainHand = equipment.get(ItemSlot.MAIN_HAND.getSlotIdMask());
+			Item itemInSubHand = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
+
+			switch(item.getItemTemplate().getEquipmentType())
+			{
+				case ARMOR:
+					if(!validateEquippedArmor(item, itemInMainHand))
+						return false;
+					break;				
+				case WEAPON:
+					if(!validateEquippedWeapon(item, itemInMainHand, itemInSubHand))
+						return false;
+					break;
+			}
+
 			//remove item first from inventory to have at least one slot free
 			defaultItemBag.removeItemFromStorage(item);
 			//check whether there is already item in specified slot
 			int itemSlotMask = item.getItemTemplate().getItemSlot();
-			int itemSlotToEquip = 0;
+
 			List<ItemSlot> possibleSlots = ItemSlot.getSlotsFor(itemSlotMask);
 			for(ItemSlot possibleSlot : possibleSlots)
 			{
@@ -383,9 +403,114 @@ public class Inventory
 				unEquip(equippedItem);
 			}
 
+			if(itemSlotToEquip == 0)
+				return false;
+
 			item.setEquipped(true);
 
 			equip(itemSlotToEquip, item);
+		}
+		return true;
+	}
+	
+	/**
+	 *  Used during equip process and analyzes equipped slots
+	 *  
+	 * @param item
+	 * @param itemInMainHand
+	 * @param itemInSubHand
+	 * @return
+	 */
+	private boolean validateEquippedWeapon(Item item, Item itemInMainHand, Item itemInSubHand)
+	{
+		// check present skill
+		int requiredSkill1 = item.getItemTemplate().getWeaponType().getRequiredSkill();
+		if(requiredSkill1 != 0 && !getOwner().getSkillList().isSkillPresent(requiredSkill1))
+		{
+			return false;
+		}
+
+		switch(item.getItemTemplate().getWeaponType().getRequiredSlots())
+		{
+			case 2:
+				switch(item.getItemTemplate().getWeaponType())
+				{
+					//if bow and arrows are equipped + new item is bow - dont uneqiup arrows								
+					case BOW:
+						if(itemInSubHand != null &&
+							itemInSubHand.getItemTemplate().getArmorType() != ArmorType.ARROW)
+						{
+							//TODO more wise check here is needed
+							if(getNumberOfFreeSlots() < 1)
+								return false;
+							unEquip(itemInSubHand);
+						}
+						break;
+					//if new item is not bow - unequip arrows
+					default:
+						if(itemInSubHand != null)
+						{
+							//TODO more wise check here is needed
+							if(getNumberOfFreeSlots() < 1)
+								return false;
+							//remove 2H weapon
+							unEquip(itemInSubHand);
+						}	
+				}//no break						
+			case 1:
+				//check dual skill
+				if(itemInMainHand != null && !getOwner().getSkillList().isSkillPresent(19))
+				{
+					unEquip(itemInMainHand);
+				}
+				//unequipe arrows if bow+arrows were equipeed
+				Item possibleArrows = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
+				if(possibleArrows != null && possibleArrows.getItemTemplate().getArmorType() == ArmorType.ARROW)
+				{
+					//TODO more wise check here is needed
+					if(getNumberOfFreeSlots() < 1)
+						return false;
+					unEquip(possibleArrows);
+				}
+			break;
+		}
+		return true;
+	}
+
+	/**
+	 *  Used during equip process and analyzes equipped slots
+	 *  
+	 * @param item
+	 * @param itemInMainHand
+	 * @return
+	 */
+	private boolean validateEquippedArmor(Item item, Item itemInMainHand)
+	{
+		// check present skill
+		int requiredSkill = item.getItemTemplate().getArmorType().getRequiredSkill();
+		if(requiredSkill != 0 && !getOwner().getSkillList().isSkillPresent(requiredSkill))
+		{
+			return false;
+		}					
+
+		switch(item.getItemTemplate().getArmorType())
+		{
+			case ARROW:
+				if(itemInMainHand == null
+					|| itemInMainHand.getItemTemplate().getWeaponType() != WeaponType.BOW)
+					return false;
+				break;
+			case SHIELD:
+				if(itemInMainHand != null 
+					&& itemInMainHand.getItemTemplate().getWeaponType().getRequiredSlots() == 2)
+				{		
+					//TODO more wise check here is needed
+					if(isFull())
+						return false;
+					//remove 2H weapon
+					unEquip(itemInMainHand);
+				}	
+				break;
 		}
 		return true;
 	}
@@ -431,6 +556,19 @@ public class Inventory
 			if(itemToUnequip == null || !itemToUnequip.isEquipped())
 			{
 				return false;
+			}
+			
+			//if unequip bow - unequip arrows also
+			if(itemToUnequip.getItemTemplate().getWeaponType() == WeaponType.BOW)
+			{
+				Item possibleArrows = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
+				if(possibleArrows != null && possibleArrows.getItemTemplate().getArmorType() == ArmorType.ARROW)
+				{
+					//TODO more wise check here is needed
+					if(getNumberOfFreeSlots() < 1)
+						return false;
+					unEquip(possibleArrows);
+				}
 			}
 			unEquip(itemToUnequip);
 		}
@@ -542,6 +680,11 @@ public class Inventory
 	{
 		return defaultItemBag.getNextAvailableSlot() == -1;
 	}
+
+	public int getNumberOfFreeSlots()
+	{
+		return defaultItemBag.getNumberOfFreeSlots();
+	}
 	/**
 	 *  Sets the Inventory Limit from Cube Size
 	 *  
@@ -552,32 +695,5 @@ public class Inventory
 	}
 	public int getLimit(){
 		return this.defaultItemBag.getLimit();
-	}
-	public ItemStorage getItemBag(){
-		return this.defaultItemBag;
-	}
-
-	public boolean isMainHandEquipped()
-	{
-		for (Item item : equipment.values())
-		{
-			if (ItemSlot.getSlotsFor(item.getEquipmentSlot()).contains(ItemSlot.MAIN_HAND))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public boolean isSubHandEquipped()
-	{
-		for (Item item : equipment.values())
-		{
-			if (ItemSlot.getSlotsFor(item.getEquipmentSlot()).contains(ItemSlot.SUB_HAND))
-			{
-				return true;
-			}
-		}
-		return false;
 	}
 }
