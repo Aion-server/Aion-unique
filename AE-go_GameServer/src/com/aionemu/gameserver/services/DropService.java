@@ -137,7 +137,10 @@ public class DropService
 	{
 		int npcUniqueId = npc.getObjectId();
 		currentDropMap.remove(npcUniqueId);
-		dropRegistrationMap.remove(npcUniqueId);
+		if(dropRegistrationMap.containsKey(npcUniqueId))
+		{
+			dropRegistrationMap.remove(npcUniqueId);
+		}	
 	}
 
 	/**
@@ -150,8 +153,8 @@ public class DropService
 	{
 		//prevent stealing drop 
 		if(player != null 
-			&& dropRegistrationMap.get(npcId) != player.getObjectId()
-			&& dropRegistrationMap.get(npcId) != null)
+			&& dropRegistrationMap.containsKey(npcId)
+			&& dropRegistrationMap.get(npcId) != player.getObjectId())
 			return;
 		
 		Set<DropItem> dropItems = currentDropMap.get(npcId);
