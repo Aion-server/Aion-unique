@@ -72,7 +72,7 @@ public class DeadlockDetector implements Runnable
 					sb.append("\nTHREAD DUMPS: \n");
 					for (ThreadInfo ti : bean.dumpAllThreads(true, true)) 
 					{  
-						printThread(ti); 
+						printThreadInfo(ti); 
 					}
 					log.error(sb.toString());
 				}
