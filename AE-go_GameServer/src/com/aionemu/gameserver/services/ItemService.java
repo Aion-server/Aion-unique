@@ -238,7 +238,6 @@ public class ItemService
 		if (itemId == ItemId.KINAH.value())
 		{
 			inventory.increaseKinah(count);
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
 			return 0;
 		}
 		else

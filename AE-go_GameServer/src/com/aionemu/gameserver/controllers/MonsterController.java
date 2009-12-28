@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.controllers;
 
 import javolution.util.FastMap;
+import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
@@ -44,6 +45,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.model.group.PlayerGroup;
 
 /**
  * @author ATracer
@@ -78,7 +80,14 @@ public class MonsterController extends NpcController
 	public void doDrop(Player player)
 	{
 		super.doDrop(player);
-		dropService.registerDrop((Monster) getOwner() , player);
+/*		PlayerGroup pg = player.getPlayerGroup();
+		if(pg != null)
+		{
+			Player winner = pg.lootDistributionService(player);
+			dropService.registerDrop((Monster) getOwner() , winner);
+		}
+		else*/
+		dropService.registerDrop((Monster) getOwner() , player);			
 		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
 	}
 
@@ -91,13 +100,30 @@ public class MonsterController extends NpcController
 		{
 			Player player = (Player) creature;
 			//TODO may be introduce increaseExpBy method in PlayerCommonData
-			long currentExp = player.getCommonData().getExp();
+			if(player.getPlayerGroup() == null) //solo
+			{
+				long currentExp = player.getCommonData().getExp();
 
-			long xpReward = StatFunctions.calculateSoloExperienceReward(player, getOwner());
-			player.getCommonData().setExp(currentExp + xpReward);
+				long xpReward = StatFunctions.calculateSoloExperienceReward(player, getOwner());
+				player.getCommonData().setExp(currentExp + xpReward);
 
-			PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Long.toString(xpReward)));
+				PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Long.toString(xpReward)));
+			}
+			else
+			{
+				Iterator pgit = player.getPlayerGroup().getGroupMemberIterator();
+				while(pgit.hasNext())
+				{
+					Player member = (Player)pgit.next();
+					long currentExp = member.getCommonData().getExp();
 
+					long xpReward = StatFunctions.calculateGroupExperienceReward(member, getOwner());
+					member.getCommonData().setExp(currentExp + xpReward);
+
+					PacketSendUtility.sendPacket(member,SM_SYSTEM_MESSAGE.EXP(Long.toString(xpReward)));				
+				}
+			}
+			//TODO group quest, and group member's quests
 			QuestEngine.getInstance().onKill(new QuestEnv(getOwner(), player, 0 , 0));
 		}
 	}

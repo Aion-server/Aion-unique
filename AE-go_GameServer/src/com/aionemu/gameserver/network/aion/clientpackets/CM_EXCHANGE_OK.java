@@ -198,8 +198,6 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 			int newKinah = kinahCount - currentKinahActive.getKinahItem().getItemCount();
 			currentKinahActive.increaseKinah(newKinah);
 
-			PacketSendUtility.sendPacket(activePlayer, new SM_UPDATE_ITEM(currentKinahActive.getKinahItem()));
-
 			/*
 			 * set kinah targetPlayer
 			 */
@@ -209,7 +207,6 @@ public class CM_EXCHANGE_OK extends AionClientPacket
 
 			newKinah = kinahCount - currentKinahTarget.getKinahItem().getItemCount();
 			currentKinahTarget.increaseKinah(newKinah);
-			PacketSendUtility.sendPacket(targetPlayer, new SM_UPDATE_ITEM(currentKinahTarget.getKinahItem()));	
 		}
 	}
 }

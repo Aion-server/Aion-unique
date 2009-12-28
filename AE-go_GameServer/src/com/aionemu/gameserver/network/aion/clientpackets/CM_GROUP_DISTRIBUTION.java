@@ -16,18 +16,25 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import java.util.Iterator;
+
+import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.group.LootGroupRules;
 import com.aionemu.gameserver.model.group.PlayerGroup;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+
 /**
  * @author Lyahim
  */
 public class CM_GROUP_DISTRIBUTION extends AionClientPacket
 {
 	private int amount;
+	
+	private static final Logger	log	= Logger.getLogger(PlayerGroup.class);
 	
 	public CM_GROUP_DISTRIBUTION(int opcode)
 	{
@@ -41,7 +48,7 @@ public class CM_GROUP_DISTRIBUTION extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-
+		amount = readD();
 	}
 
 	/**
@@ -50,6 +57,30 @@ public class CM_GROUP_DISTRIBUTION extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
+		Player player = getConnection().getActivePlayer();
+		PlayerGroup pg = null;
 		
+		if(player != null)
+			pg = player.getPlayerGroup();
+		if(pg != null)
+		{
+			int rewardcount = pg.size() - 1;
+		
+			if(rewardcount <= amount)
+			{
+				int reward = amount/rewardcount;
+				
+				Iterator it = pg.getGroupMemberIterator();
+				while(it.hasNext())
+				{
+					Player member = (Player)it.next();
+					
+					if(member.equals(player))
+						member.getInventory().decreaseKinah(amount);
+					else
+						member.getInventory().increaseKinah(reward);
+				}
+			}			
+		}
 	}
 }

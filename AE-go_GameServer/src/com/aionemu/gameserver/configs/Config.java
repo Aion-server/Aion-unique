@@ -129,6 +129,12 @@ public class Config
 	public static int				XP_RATE;
 	
 	/*
+	 * Group Xp Rate
+	 */
+	@Property(key = "gameserver.rate.groupxp",defaultValue = "1")
+	public static int				GROUPXP_RATE;
+
+	/*
 	 * Quest Xp Rate
 	 */
 	@Property(key = "gameserver.rate.quest.xp",defaultValue = "1")

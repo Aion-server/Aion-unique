@@ -19,6 +19,7 @@ package com.aionemu.gameserver.model.group;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
@@ -30,6 +31,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_LEAVE_GROUP_MEMBER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
+import com.aionemu.commons.utils.Rnd;
 
 /**
  * @author ATracer, Lyahim
@@ -229,5 +231,24 @@ public class PlayerGroup
 		this.lootGroupRules = lgr;
 		for(Player member : groupMembers.values())
 			PacketSendUtility.sendPacket(member, new SM_GROUP_INFO(this));	
+	}
+	
+	public Iterator<Player> getGroupMemberIterator()
+	{
+		return this.groupMembers.values().iterator();
+	}
+	
+	public Player lootDistributionService(Player costumer)
+	{
+		switch(this.lootGroupRules.getLootRule())
+		{
+			case FREEFORALL:
+				return costumer;
+			case ROUNDROBIN:
+				return this.groupMembers.get(Rnd.nextInt()%this.size());
+			case LEADER:
+				return this.groupLeader;
+		}
+		return null;
 	}
 }

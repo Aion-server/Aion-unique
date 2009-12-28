@@ -174,7 +174,6 @@ public class TeleportService
 			PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "You don't have enough Kinah", null, ChatType.ANNOUNCEMENTS));
 			return false;
 		}
-		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
 		return true;
 	}
 

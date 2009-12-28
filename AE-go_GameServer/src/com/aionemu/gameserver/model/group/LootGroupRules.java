@@ -22,7 +22,7 @@ package com.aionemu.gameserver.model.group;
  */
 public class LootGroupRules
 {
-	private int lootRule;
+	private LootRuleType lootRule;
 	private int autodistribution;
 	private int common_item_above;
 	private int superior_item_above;
@@ -34,10 +34,18 @@ public class LootGroupRules
 	
 	public LootGroupRules()
 	{
-		
+		this.lootRule = LootRuleType.FREEFORALL;
+		this.autodistribution = 0;
+		common_item_above = 0;
+		superior_item_above = 0;
+		heroic_item_above = 0;
+		fabled_item_above = 0;
+		ethernal_item_above = 0;
+		over_ethernal = 0;
+		over_over_ethernal = 0;		
 	}
 	
-	public LootGroupRules(int lootRule, int autodistribution, int commonItemAbove, int superiorItemAbove,
+	public LootGroupRules(LootRuleType lootRule, int autodistribution, int commonItemAbove, int superiorItemAbove,
 		int heroicItemAbove, int fabledItemAbove, int ethernalItemAbove, int overEthernal, int overOverEthernal)
 	{
 		super();
@@ -55,7 +63,7 @@ public class LootGroupRules
 	/**
 	 * @return the lootRule
 	 */
-	public int getLootRule()
+	public LootRuleType getLootRule()
 	{
 		return lootRule;
 	}

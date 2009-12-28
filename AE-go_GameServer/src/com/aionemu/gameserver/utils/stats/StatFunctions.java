@@ -42,7 +42,6 @@ public class StatFunctions
 	 */
 	public static long calculateSoloExperienceReward(Player player, Creature target)
 	{
-		
 		int playerLevel = player.getCommonData().getLevel();
 		int targetLevel = target.getLevel();
 		
@@ -52,6 +51,19 @@ public class StatFunctions
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
 		
 		return (int) Math.floor(baseXP * xpPercentage * Config.XP_RATE / 100);
+	}
+	
+	public static long calculateGroupExperienceReward(Player player, Creature target)
+	{
+		int playerLevel = player.getCommonData().getLevel();
+		int targetLevel = target.getLevel();
+		
+		//TODO take baseXP from target object (additional attribute in stats template is needed)
+		int baseXP = targetLevel * 90; //promotion the group
+		
+		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
+		
+		return (int) Math.floor(baseXP * xpPercentage * Config.GROUPXP_RATE / 100);
 	}
 	
 	/**

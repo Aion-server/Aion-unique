@@ -93,6 +93,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_USE_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERIFY_LOCATION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VIEW_PLAYER_DETAILS;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_GROUP_DISTRIBUTION;
 import com.google.inject.Injector;
 
 /**
@@ -194,6 +195,8 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_SHOW_LOGOUT_SCREEN(0xE7), State.IN_GAME);
 		addPacket(new CM_DISTRIBUTION_SETTINGS(0x2C), State.IN_GAME);
 		addPacket(new CM_DISCONNECT(0xE5), State.IN_GAME);
+		addPacket(new CM_GROUP_DISTRIBUTION(0x5F), State.IN_GAME);
+		
 		//addPacket(new CM_REQUEST_DUEL(0x5C ), State.IN_GAME);
 
 		

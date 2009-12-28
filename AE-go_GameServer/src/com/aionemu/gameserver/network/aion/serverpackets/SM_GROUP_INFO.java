@@ -20,6 +20,7 @@ import java.nio.ByteBuffer;
 
 import com.aionemu.gameserver.model.group.LootGroupRules;
 import com.aionemu.gameserver.model.group.PlayerGroup;
+import com.aionemu.gameserver.model.group.LootRuleType;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -33,7 +34,7 @@ public class SM_GROUP_INFO extends AionServerPacket
 {
 	private int groupid;
 	private int leaderid;
-	private int lootrules; //0-free-for-all, 1-round-robin 2-leader
+	private LootRuleType lootruletype; //0-free-for-all, 1-round-robin 2-leader
 	private int autodistribution;
 	//rare item distribution
 	//0-normal, 2-Roll-dice,3-bid
@@ -51,7 +52,7 @@ public class SM_GROUP_INFO extends AionServerPacket
 		this.leaderid = group.getGroupLeader().getObjectId();
 		
 		LootGroupRules lootRules = group.getLootGroupRules();
-		this.lootrules = lootRules.getLootRule();
+		this.lootruletype = lootRules.getLootRule();
 		this.autodistribution = lootRules.getAutodistribution();
 		this.common_item_above = lootRules.getCommon_item_above();
 		this.superior_item_above = lootRules.getSuperior_item_above();
@@ -67,7 +68,7 @@ public class SM_GROUP_INFO extends AionServerPacket
 	{
 		writeD(buf, this.groupid);
 		writeD(buf, this.leaderid);
-		writeD(buf, this.lootrules);
+		writeD(buf, this.lootruletype.getId());
 		writeD(buf, this.common_item_above);
 		writeD(buf, this.superior_item_above);
 		writeD(buf, this.heroic_item_above);

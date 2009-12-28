@@ -104,6 +104,8 @@ public class Inventory
 	public void increaseKinah(int amount)
 	{
 		kinahItem.increaseItemCount(amount);
+		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(kinahItem));
+		DAOManager.getDAO(InventoryDAO.class).store(kinahItem, getOwner().getObjectId());
 	}
 	/**
 	 *  Decreasing kinah amount is persisted immediately
@@ -115,6 +117,7 @@ public class Inventory
 		boolean operationResult = kinahItem.decreaseItemCount(amount);
 		if(operationResult)
 		{
+			PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(kinahItem));
 			DAOManager.getDAO(InventoryDAO.class).store(kinahItem, getOwner().getObjectId());
 		}
 		return operationResult;

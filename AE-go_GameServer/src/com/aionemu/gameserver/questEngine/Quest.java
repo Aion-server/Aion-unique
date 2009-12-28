@@ -151,7 +151,6 @@ public class Quest
 		if (rewards.getGold()!= null)
 		{
 			inventory.increaseKinah(QUEST_KINAH_RATE*rewards.getGold());
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(inventory.getKinahItem()));
 		}
 		if (rewards.getExp() != null)
 		{

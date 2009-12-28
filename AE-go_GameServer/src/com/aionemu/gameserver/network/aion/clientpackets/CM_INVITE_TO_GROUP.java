@@ -73,13 +73,15 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 		final Player inviter = getConnection().getActivePlayer();
 		final Player invited = world.findPlayer(playerName);
 		final PlayerGroup group = inviter.getPlayerGroup();
-
+		
 		if(group != null && group.isFull())
 			sendPacket(SM_SYSTEM_MESSAGE.FULL_GROUP());
 		else if(group != null && inviter.getObjectId() != group.getGroupLeader().getObjectId())
 			sendPacket(SM_SYSTEM_MESSAGE.ONLY_GROUP_LEADER_CAN_INVITE());
 		else if(invited == null)
 			sendPacket(SM_SYSTEM_MESSAGE.INVITED_PLAYER_OFFLINE());
+		else if(invited.getCommonData().getRace() != inviter.getCommonData().getRace())
+			sendPacket(SM_SYSTEM_MESSAGE.REJECT_GROUP_INVITE(invited.getName()));
 		else if(invited.getObjectId() == inviter.getObjectId())
 			sendPacket(SM_SYSTEM_MESSAGE.CANNOT_INVITE_YOURSELF());
 		else if(invited.getLifeStats().isAlreadyDead())
