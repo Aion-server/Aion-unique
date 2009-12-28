@@ -47,7 +47,7 @@
     	<delete dir="${build}"/>
 	</target>
 	
-    <target name="init"
+    <target name="init" depends="clean"
         description="Create the output directories.">
         <mkdir dir="${build}"/>
         <mkdir dir="${build.classes}"/>
