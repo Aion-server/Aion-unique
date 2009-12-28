@@ -202,15 +202,19 @@ public class World
 	 */
 	public void updatePosition(VisibleObject object, float newX, float newY, float newZ, byte newHeading)
 	{
+		//prevent updating object position in despawned state
+		if(!object.isSpawned())
+			return;
+		
 		object.getPosition().setXYZH(newX, newY, newZ, newHeading);
 
 		MapRegion oldRegion = object.getActiveRegion();
-		if(oldRegion.getParent() == null)
+		if(oldRegion == null)
 		{
-			log.warn(String.format("CHECKPOINT: parent mapinstance of oldregion is null %d", oldRegion.getMapId()));
-			log.warn(String.format("CHECKPOINT: object coordinates - %d %d %d", object.getX(), object.getY(), object.getY()));
+			log.warn(String.format("CHECKPOINT: oldregion is null, object coordinates - %d %d %d", object.getX(), object.getY(), object.getY()));
 			return;
 		}
+		
 		MapRegion newRegion = oldRegion.getParent().getRegion(object);
 
 		if(newRegion != oldRegion)
