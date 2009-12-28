@@ -45,7 +45,10 @@ public class AdminConfig
 	@Property(key = "gameserver.administration.command.goto", defaultValue = "3")
 	public static int			COMMAND_GOTO;
 	
-	@Property(key = "gameserver.administration.command.kick", defaultValue = "3")
+	@Property(key = "gameserver.administration.command.info", defaultValue = "3")
+	public static int			COMMAND_INFO;
+
+    @Property(key = "gameserver.administration.command.kick", defaultValue = "3")
 	public static int			COMMAND_KICK;
 	
 	@Property(key = "gameserver.administration.command.kill", defaultValue = "3")
@@ -65,10 +68,7 @@ public class AdminConfig
 	
 	@Property(key = "gameserver.administration.command.notice", defaultValue = "3")
 	public static int			COMMAND_NOTICE;
-	
-	@Property(key = "gameserver.administration.command.printid", defaultValue = "3")
-	public static int			COMMAND_PRINTID;
-	
+
 	@Property(key = "gameserver.administration.command.promote", defaultValue = "3")
 	public static int			COMMAND_PROMOTE;
 	
