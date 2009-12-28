@@ -333,6 +333,9 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public static SM_SYSTEM_MESSAGE INVITED_YOUR_GROUP_MEMBER(String player) {
 		return new SM_SYSTEM_MESSAGE(1300170);
 	}	
+	public static SM_SYSTEM_MESSAGE CANT_INVITE_OTHER_RACE() {
+		return new SM_SYSTEM_MESSAGE(1300188);
+	}	
 	
 	private final int		code;
 	private final Object[]	params;
