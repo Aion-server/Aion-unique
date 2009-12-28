@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.world;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -156,12 +157,10 @@ public class KnownList implements Iterable<VisibleObject>
 		while(neighboursIt.hasNext())
 		{
 			MapRegion r = neighboursIt.next();
-			Iterator<VisibleObject> objectsIt = r.getObjectsIterator();
+			Collection<VisibleObject> objects = r.getObjects();
 
-			while(objectsIt.hasNext())
+			for(VisibleObject newObject : objects)
 			{
-				VisibleObject newObject = objectsIt.next();
-
 				if(newObject == owner)
 					continue;
 

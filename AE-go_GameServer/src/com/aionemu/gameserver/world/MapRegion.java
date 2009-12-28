@@ -17,10 +17,11 @@
 package com.aionemu.gameserver.world;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 
@@ -47,7 +48,7 @@ public class MapRegion
 	/**
 	 * Objects on this map region.
 	 */
-	private final Set<VisibleObject>	objects		= new HashSet<VisibleObject>();
+	private final FastMap<Integer, VisibleObject> 	objects	= new FastMap<Integer, VisibleObject>();
 
 	/**
 	 * Constructor.
@@ -112,9 +113,9 @@ public class MapRegion
 	 * 
 	 * @return objects iterator
 	 */
-	public Iterator<VisibleObject> getObjectsIterator()
+	public Collection<VisibleObject> getObjects()
 	{
-		return objects.iterator();
+		return objects.values();
 	}
 
 	/**
@@ -134,7 +135,7 @@ public class MapRegion
 	 */
 	void add(VisibleObject object)
 	{
-		objects.add(object);
+		objects.put(object.getObjectId(), object);
 	}
 
 	/**
@@ -144,6 +145,6 @@ public class MapRegion
 	 */
 	void remove(VisibleObject object)
 	{
-		objects.remove(object);
+		objects.remove(object.getObjectId());
 	}
 }
