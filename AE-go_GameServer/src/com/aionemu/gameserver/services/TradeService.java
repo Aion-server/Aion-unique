@@ -19,6 +19,8 @@ package com.aionemu.gameserver.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -36,6 +38,8 @@ import com.google.inject.Inject;
  */
 public class TradeService
 {
+	private static final Logger log = Logger.getLogger(TradeService.class);
+	
 	@Inject
 	private ItemService itemService;
 
@@ -54,7 +58,6 @@ public class TradeService
 		//1. check kinah
 		int kinahCount = kinahItem.getItemCount();
 		int tradeListPrice = tradeList.calculateBuyListPrice() * 2;
-
 		if(kinahCount < tradeListPrice)
 			return false; //ban :)
 
@@ -65,23 +68,14 @@ public class TradeService
 		List<Item> addedItems = new ArrayList<Item>();
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
-			Item item = itemService.newItem(tradeItem.getItemId(), tradeItem.getCount());
-
-			if(item != null)
+			int count = itemService.addItem(player, tradeItem.getItemTemplate().getItemId(), tradeItem.getCount(), false); // addToBag is old and have alot of bugs with item adding, suggest to remove it.
+			if(count != 0)
 			{
-				Item resultItem = inventory.addToBag(item);
-				if(resultItem != null)
-				{
-					if(resultItem.getObjectId() != item.getObjectId())
-						itemService.releaseItemId(item);
-					addedItems.add(resultItem);
-				}
-				else
-				{
-					itemService.releaseItemId(item);
-				}
-
-			}
+				log.warn(String.format("CHECKPOINT: itemservice couldnt add all items on buy: %d %d %d %d", player.getObjectId(), 
+					tradeItem.getItemTemplate().getItemId(), tradeItem.getCount(), count));
+				kinahItem.decreaseItemCount(tradeListPrice);
+				return false;
+			}		
 		}
 		kinahItem.decreaseItemCount(tradeListPrice);
 		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(kinahItem));

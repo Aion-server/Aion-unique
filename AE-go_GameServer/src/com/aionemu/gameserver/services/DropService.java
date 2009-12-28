@@ -31,17 +31,13 @@ import com.aionemu.gameserver.model.drop.DropItem;
 import com.aionemu.gameserver.model.drop.DropList;
 import com.aionemu.gameserver.model.drop.DropTemplate;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -83,18 +79,18 @@ public class DropService
 		int npcUniqueId = npc.getObjectId();
 		int npcTemplateId = npc.getTemplate().getTemplateId();
 		int level = npc.getLevel();
-		
+
 		Set<DropTemplate> templates = dropList.getDropsFor(npcTemplateId);
 		if(templates != null)
 		{
 			Set<DropItem> droppedItems = new HashSet<DropItem>();
-			
+
 			/** Add kinah with 100% chance and level-based amount **/
 			DropItem kinahItem = new DropItem(kinahDrops.get(level));
 			kinahItem.setIndex(0);
 			kinahItem.calculateCount();
 			droppedItems.add(kinahItem);
-			
+
 			int index = 1;
 			for(DropTemplate dropTemplate : templates)
 			{
@@ -118,13 +114,13 @@ public class DropService
 			}
 
 			currentDropMap.put(npcUniqueId, droppedItems);
-			
+
 			//TODO player should not be null
 			if(player != null)
 			{
 				dropRegistrationMap.put(npcUniqueId, player.getObjectId());
 			}
-			
+
 		}		
 	}
 
@@ -156,7 +152,7 @@ public class DropService
 			&& dropRegistrationMap.containsKey(npcId)
 			&& dropRegistrationMap.get(npcId) != player.getObjectId())
 			return;
-		
+
 		Set<DropItem> dropItems = currentDropMap.get(npcId);
 
 		if(dropItems == null)
@@ -173,15 +169,15 @@ public class DropService
 	public void requestDropItem(Player player, int npcId, int itemIndex)
 	{
 		Set<DropItem> dropItems = currentDropMap.get(npcId);
-		
+
 		//drop was unregistered
 		if(dropItems == null)
 		{
 			return;
 		}
-		
+
 		//TODO prevent possible exploits
-		
+
 		DropItem requestedItem = null;
 
 		synchronized(dropItems)
@@ -201,15 +197,19 @@ public class DropService
 			int currentDropItemCount = requestedItem.getCount();
 			int itemId = requestedItem.getDropTemplate().getItemId();
 			int questId = requestedItem.getDropTemplate().getQuest();
-			
+
 			currentDropItemCount = itemService.addItem(player, itemId, currentDropItemCount, questId > 0);
-			
+
 			if(currentDropItemCount == 0)
 			{
 				dropItems.remove(requestedItem);
-
 			}
-			
+			else
+			{
+				// If player didnt got all item stack
+				requestedItem.setCount(currentDropItemCount);
+			}
+
 			//show updated droplist
 			resendDropList(player, npcId, dropItems);
 		}	
@@ -239,7 +239,7 @@ public class DropService
 			//7B 54 38 00 00 0E 00 00 00 00 00 00
 		}
 	}
-	
+
 	private void addKinahCalculatedTemplates()
 	{	
 		for(int i = 1; i < 51; i++)

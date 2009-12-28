@@ -246,7 +246,7 @@ public class ItemService
 			/**
 			 * Increase count of existing items
 			 */
-			List<Item> existingItems = inventory.getItemsByItemId(itemId);
+			List<Item> existingItems = inventory.getAllItemsByItemId(itemId); // look for existing in equipment. need for power shards.
 			for(Item existingItem : existingItems)
 			{
 				if(count == 0)

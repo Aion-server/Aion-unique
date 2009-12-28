@@ -161,9 +161,11 @@ public class Inventory
 	 *  
 	 *  Every add operation is persisted immediately now
 	 *  
+	 *  DEPRECATED
+	 *  
 	 * @param item
 	 */
-	public Item addToBag(Item item)
+	public Item addToBag(Item item)  // addToBag is old and have alot of bugs with item adding, suggest to remove it.
 	{
 		Item resultItem = defaultItemBag.addItemToStorage(item);
 		if(resultItem != null)
@@ -303,6 +305,29 @@ public class Inventory
 	}
 
 	/**
+	 *  Searches for item with specified itemId in equipment and cube
+	 *  
+	 * @param itemId
+	 * @return
+	 */
+	public List<Item> getAllItemsByItemId(int itemId)
+	{
+		List<Item> allItemsByItemId = new ArrayList<Item>();
+
+		for(Item item : equipment.values())
+		{
+			if(item.getItemTemplate().getItemId() == itemId)
+				allItemsByItemId.add(item);
+		}
+		for (Item item : defaultItemBag.getStorageItems())
+		{
+			if(item.getItemTemplate().getItemId() == itemId)
+				allItemsByItemId.add(item);
+		}
+		return allItemsByItemId;
+	}
+
+	/**
 	 * 	Only equipped items
 	 * 
 	 * @return
@@ -412,7 +437,7 @@ public class Inventory
 		}
 		return true;
 	}
-	
+
 	/**
 	 *  Used during equip process and analyzes equipped slots
 	 *  
@@ -425,7 +450,7 @@ public class Inventory
 	{
 		// check present skill
 		int[] requiredSkills = item.getItemTemplate().getWeaponType().getRequiredSkills();
-		
+
 		if(!checkAvaialbeEquipSkills(requiredSkills))
 			return false;
 
@@ -445,7 +470,7 @@ public class Inventory
 							unEquip(itemInSubHand);
 						}
 						break;
-					//if new item is not bow - unequip arrows
+						//if new item is not bow - unequip arrows
 					default:
 						if(itemInSubHand != null)
 						{
@@ -471,11 +496,11 @@ public class Inventory
 						return false;
 					unEquip(possibleArrows);
 				}
-			break;
+				break;
 		}
 		return true;
 	}
-	
+
 	/**
 	 * 
 	 * @param requiredSkills
@@ -484,11 +509,11 @@ public class Inventory
 	private boolean checkAvaialbeEquipSkills(int[] requiredSkills)
 	{
 		boolean isSkillPresent = false;		
-		
+
 		//if no skills required - validate as true
 		if(requiredSkills.length == 0)
 			return true;
-		
+
 		for(int skill : requiredSkills)
 		{
 			if(getOwner().getSkillList().isSkillPresent(skill))
@@ -513,7 +538,7 @@ public class Inventory
 		ArmorType armorType = item.getItemTemplate().getArmorType();
 		if(armorType == null)
 			return true;
-		
+
 		// check present skill
 		int[] requiredSkills = armorType.getRequiredSkills();
 		if(!checkAvaialbeEquipSkills(requiredSkills))
@@ -583,7 +608,7 @@ public class Inventory
 			{
 				return false;
 			}
-			
+
 			//if unequip bow - unequip arrows also
 			if(itemToUnequip.getItemTemplate().getWeaponType() == WeaponType.BOW)
 			{
@@ -611,7 +636,7 @@ public class Inventory
 			ItemEquipmentListener.onItemUnequipment(itemToUnequip, owner.getGameStats());
 		}
 		owner.getLifeStats().updateCurrentStats();
-		defaultItemBag.addItemToStorage(itemToUnequip);
+		itemToUnequip = putToBag(itemToUnequip);
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip));
 	}
 

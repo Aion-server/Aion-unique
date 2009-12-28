@@ -25,18 +25,18 @@ import com.aionemu.gameserver.configs.Config;
  */
 public class DropItem
 {
-	
+
 	private int index = 0;
-	
+
 	private int count = 0;
-	
+
 	private DropTemplate dropTemplate;
-	
+
 	public DropItem(DropTemplate dropTemplate)
 	{
 		this.dropTemplate = dropTemplate;
 	}
-	
+
 	/**
 	 *  Regenerates item count upon each call
 	 *  // TODO input parameters - based on attacker stats
@@ -72,6 +72,14 @@ public class DropItem
 	public int getCount()
 	{
 		return count;
+	}
+
+	/**
+	 * @param count
+	 */
+	public void setCount(int count)
+	{
+		this.count = count;
 	}
 
 	/**

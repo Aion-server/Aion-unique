@@ -35,7 +35,7 @@ public class SM_PRICES extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeC(buf, 100); //Price %
-        writeC(buf, 110); //unk
+        writeC(buf, 100); //unk
         writeC(buf, 100); //Tax = -100 + C %
 	}
 }
