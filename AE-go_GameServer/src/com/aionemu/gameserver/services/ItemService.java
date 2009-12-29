@@ -189,15 +189,19 @@ public class ItemService
 
 		Item sourceItem = inventory.getItemByObjId(sourceItemObjId);
 		Item destinationItem = inventory.getItemByObjId(destinationObjId);
-
-		int chksum = (sourceItem.getItemCount() - itemAmount) + (destinationItem.getItemCount() + itemAmount); //total sum of operation.
-		if(chksum != sourceItem.getItemCount() + destinationItem.getItemCount()) //total sum of operating objects count must be same with operation sum.
-			return; //cheat, fake itemAmount.
-
+		
+		if(sourceItem == null || destinationItem == null)
+			return; //Invalid object id provided
+		
+		if(sourceItem.getItemTemplate().getItemId() != destinationItem.getItemTemplate().getItemId())
+			return; //Invalid item type
+		
+		if(sourceItem.getItemCount() < itemAmount)
+			return; //Invalid item amount
 
 		if(sourceItem.getItemCount() == itemAmount)
 		{
-			destinationItem.increaseItemCount(sourceItem.getItemCount());
+			destinationItem.increaseItemCount(itemAmount);
 			inventory.removeFromBag(sourceItem);
 
 			PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(sourceItem.getObjectId()));

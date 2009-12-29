@@ -64,8 +64,7 @@ public class BindpointController extends NpcController
 					if (requester.getInventory().getKinahItem().getItemCount()>= bindPointTemplate.getPrice())
 					{
 						PacketSendUtility.sendPacket(requester, new SM_MESSAGE(0, null, "You have successfully binded to this location.", null, ChatType.ANNOUNCEMENTS));
-						requester.getInventory().getKinahItem().decreaseItemCount(bindPointTemplate.getPrice());
-						PacketSendUtility.sendPacket(requester, new SM_UPDATE_ITEM(requester.getInventory().getKinahItem()));
+						requester.getInventory().decreaseKinah(bindPointTemplate.getPrice());
 						requester.getCommonData().setBindPoint(bindPointTemplate.getBindId());
 					}
 					else
