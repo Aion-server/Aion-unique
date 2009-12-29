@@ -169,6 +169,12 @@ public class Config
 	 */
 	@Property(key = "gameserver.skill.autolearn",defaultValue = "true")
 	public static boolean			SKILL_AUTOLEARN;
+	
+	/*
+	 * Disable monsters aggressive behave
+	 */
+	@Property(key = "gameserver.disable.mob.aggro",defaultValue = "false")
+	public static boolean			DISSABLE_MOB_AGGRO;
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
 	 */

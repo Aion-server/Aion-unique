@@ -34,6 +34,7 @@ import com.aionemu.gameserver.ai.desires.impl.MoveToTargetDesire;
 import com.aionemu.gameserver.ai.desires.impl.SimpleDesireIteratorHandler;
 import com.aionemu.gameserver.ai.desires.impl.WalkDesire;
 import com.aionemu.gameserver.ai.events.AttackEvent;
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.AttackList;
 import com.aionemu.gameserver.model.AttackType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -219,7 +220,7 @@ public class MonsterAi extends NpcAi
 				desireQueue.clear();
 				if (getOwner().hasWalkRoutes())
 					desireQueue.addDesire(new WalkDesire(getOwner(), AIState.ACTIVE.getPriority()));
-				if (getOwner().isAggressive())
+				if (getOwner().isAggressive() && !Config.DISSABLE_MOB_AGGRO)
 					desireQueue.addDesire(new AggressionDesire(getOwner(), AIState.ACTIVE.getPriority()));
 				schedule();
 				break;
