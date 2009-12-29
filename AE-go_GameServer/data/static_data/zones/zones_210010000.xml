@@ -12,6 +12,8 @@
         <link>DAMINU_FOREST</link>
         <link>KABARAH_STRIP_MINE</link>
         <link>AGARIC_SPORE_ROAD</link>
+		<link>MELPONEHS_CAMPSITE</link>
+		<link>WORG_RUN</link>
     </zone>
     <zone mapid="210010000" name="WORG_RUN">
         <points>
@@ -25,9 +27,7 @@
             <point y="1855.0566" x="753.09753"/>
             <point y="1782.0183" x="669.7578"/>
         </points>
-        <link>DAMINU_FOREST</link>
-        <link>AGARIC_SPORE_ROAD</link>
-        <link>KABARAH_STRIP_MINE</link>
+        <link>DEFORESTED_AREA</link>
     </zone>
     <zone mapid="210010000" name="DAMINU_FOREST">
         <points>
@@ -42,6 +42,7 @@
         </points>
         <link>CLIONA_LAKE</link>
         <link>DEFORESTED_AREA</link>
+		<link>NYMPHS_POND</link>
     </zone>
     <zone mapid="210010000" name="MELPONEHS_CAMPSITE">
         <points>
@@ -53,9 +54,7 @@
             <point y="1766.3628" x="410.34616"/>
             <point y="1738.5012" x="411.03653"/>
         </points>
-        <link>DAMINU_FOREST</link>
-        <link>KABARAH_STRIP_MINE</link>
-        <link>AGARIC_SPORE_ROAD</link>
+        <link>DEFORESTED_AREA</link>
     </zone>
     <zone mapid="210010000" name="AGERS_FARM">
         <points>
@@ -73,7 +72,6 @@
             <point y="933.3154" x="707.11536"/>
         </points>
         <link>CLIONA_LAKE</link>
-        <link>DAMINU_FOREST</link>
     </zone>
     <zone mapid="210010000" name="AKARIOS_VILLAGE">
         <points>
@@ -97,7 +95,6 @@
         </points>
         <link>AKARIOS_PLAINS</link>
         <link>CLIONA_LAKE</link>
-        <link>DAMINU_FOREST</link>
     </zone>
     <zone mapid="210010000" name="TIMOLIA_MINE">
         <points>
@@ -107,8 +104,6 @@
             <point y="714.9321" x="36.760735"/>
         </points>
         <link>AGARIC_SPORE_ROAD</link>
-        <link>DEFORESTED_AREA</link>
-        <link>KABARAH_STRIP_MINE</link>
     </zone>
     <zone mapid="210010000" name="KABARAH_STRIP_MINE">
         <points>
@@ -199,8 +194,7 @@
             <point y="1543.0123" x="496.07062"/>
             <point y="1562.6334" x="503.65622"/>
         </points>
-        <link>CLIONA_LAKE</link>
-        <link>DEFORESTED_AREA</link>
+        <link>DAMINU_FOREST</link>
     </zone>
     <zone mapid="210010000" name="AGARIC_SPORE_ROAD">
         <points>
