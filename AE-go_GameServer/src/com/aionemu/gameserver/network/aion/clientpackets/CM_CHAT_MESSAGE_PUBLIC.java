@@ -26,6 +26,7 @@ import com.aionemu.commons.objects.filter.ObjectFilter;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -132,13 +133,13 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 	 */
 	private void broadcastToGroupMembers(final Player player)
 	{
-		PacketSendUtility.broadcastPacket(player, new SM_MESSAGE(player, message, type), true, new ObjectFilter<Player>(){
-
-			@Override
-			public boolean acceptObject(Player object)
+		PlayerGroup group = player.getPlayerGroup();
+		if(group != null)
+		{
+			for(Player groupPlayer : group.getMembers())
 			{
-				return object.getPlayerGroup().equals(player.getPlayerGroup());
+				PacketSendUtility.sendPacket(groupPlayer, new SM_MESSAGE(player, message, type));
 			}
-		});
+		}	
 	}
 }

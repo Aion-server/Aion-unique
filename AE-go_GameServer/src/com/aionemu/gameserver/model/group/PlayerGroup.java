@@ -16,10 +16,10 @@
  */
 package com.aionemu.gameserver.model.group;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collection;
 import java.util.Iterator;
+
+import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
@@ -49,7 +49,7 @@ public class PlayerGroup
 	
 	private Player groupLeader;
 	
-	private Map<Integer, Player> groupMembers = Collections.synchronizedMap(new HashMap<Integer, Player>());
+	private FastMap<Integer, Player> groupMembers = new FastMap<Integer, Player>().setShared(true);
 
 	/**
 	 *  Instantiates new player group with unique groupId
@@ -208,6 +208,11 @@ public class PlayerGroup
 	public boolean isFull()
 	{
 		return groupMembers.size() == 6;
+	}
+	
+	public Collection<Player> getMembers()
+	{
+		return groupMembers.values();
 	}
 	
 	/**
