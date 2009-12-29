@@ -38,6 +38,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ENTER_WORLD_CHECK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INFLUENCE_RATIO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_FLY_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
@@ -223,7 +224,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			sendPacket(new SM_INFLUENCE_RATIO());
             sendPacket(new SM_PRICES());
             sendPacket(new SM_PLAYER_ID(player));
-			// sendPacket(new SM_UNK15());
+			sendPacket(new SM_FLY_TIME());
+            // sendPacket(new SM_UNK15());
 			// sendPacket(new SM_UNKC6());
 			// sendPacket(new SM_UNK66());
 			// sendPacket(new SM_UNKCB());

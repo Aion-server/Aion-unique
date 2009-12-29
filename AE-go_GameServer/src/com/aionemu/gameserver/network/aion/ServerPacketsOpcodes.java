@@ -123,7 +123,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK02;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK04;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK05;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK07;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK0D;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_FLY_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK32;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK33;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK42;
@@ -252,7 +252,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNK04.class, 0x07, idSet);
 		addPacketOpcode(SM_UNK05.class, 0x04, idSet);
 		addPacketOpcode(SM_UNK07.class, 0x06, idSet);
-		addPacketOpcode(SM_UNK0D.class, 0x0C, idSet);
+		addPacketOpcode(SM_FLY_TIME.class, 0x0C, idSet);
 		addPacketOpcode(SM_UNK32.class, 0x32, idSet);
 		addPacketOpcode(SM_UNK33.class, 0x33, idSet);
 		addPacketOpcode(SM_UNK42.class, 0x42, idSet);
