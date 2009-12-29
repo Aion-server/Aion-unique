@@ -25,7 +25,7 @@ public class Set extends AdminCommand {
 	public void executeCommand(Player admin, String[] params) 
 	{
 
-		if (params == null || params.length < 1)
+		if (params == null || params.length < 2)
 		{
 			PacketSendUtility.sendMessage(admin, "syntax //set <class|exp|level|title>");
 			return;
