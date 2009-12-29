@@ -490,6 +490,12 @@ public class Inventory
 				{
 					unEquip(itemInMainHand);
 				}
+				//check 2h weapon in main hand
+				if(itemInMainHand != null && itemInMainHand.getItemTemplate().getWeaponType().getRequiredSlots() == 2)
+				{
+					unEquip(itemInMainHand);
+				}
+				
 				//unequipe arrows if bow+arrows were equipeed
 				Item possibleArrows = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
 				if(possibleArrows != null && possibleArrows.getItemTemplate().getArmorType() == ArmorType.ARROW)

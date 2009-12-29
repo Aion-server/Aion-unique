@@ -82,11 +82,22 @@ public class EffectController
 	/**
 	 *  Broadcasts current effects to all visible objects
 	 */
-	private void broadCastEffects()
+	public void broadCastEffects()
 	{	
 		PacketSendUtility.broadcastPacket(getOwner(),
 			new SM_ABNORMAL_EFFECT(getOwner().getObjectId(),
 				effectMap.values().toArray(new Effect[effectMap.size()])));	
+	}
+	
+	/**
+	 *  Used when player see new player
+	 *  
+	 * @param player
+	 */
+	public void sendEffectIconsTo(Player player)
+	{
+		PacketSendUtility.sendPacket(player, new SM_ABNORMAL_EFFECT(getOwner().getObjectId(),
+				effectMap.values().toArray(new Effect[effectMap.size()])));
 	}
 	
 	/**

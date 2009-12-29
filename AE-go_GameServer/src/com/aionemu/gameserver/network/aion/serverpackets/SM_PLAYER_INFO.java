@@ -98,8 +98,9 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeC(buf, 0);
         writeS(buf, ""); //LegionName
 
-
-        writeC(buf, 100);// %hp
+        int maxHp = player.getGameStats().getCurrentStat(StatEnum.MAXHP);
+        int currHp = player.getLifeStats().getCurrentHp();
+        writeC(buf, 100 * currHp/maxHp);// %hp
         writeC(buf, 0x00);// unk (0x00)
         writeC(buf, 0x00);// unk (0x00)
         writeC(buf, 0x00);// unk (0x00)

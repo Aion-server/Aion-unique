@@ -62,7 +62,6 @@ public class CM_LEVEL_READY extends AionClientPacket
 	{
 		
 		Player activePlayer = getConnection().getActivePlayer();
-		activePlayer.getEffectController().updatePlayerEffectIcons();
 		sendPacket(new SM_PLAYER_INFO(activePlayer, true));
 
 		/**
@@ -74,8 +73,10 @@ public class CM_LEVEL_READY extends AionClientPacket
 		 */
 		ZoneManager.getInstance().findZoneInCurrentMap(activePlayer);
 		
-		//reandome weather
+		//random weather
 		int weatherMaskId = WeatherService.getRandomWeather();
 		sendPacket(new SM_WEATHER(weatherMaskId));
+		
+		activePlayer.getEffectController().updatePlayerEffectIcons();
 	}
 }

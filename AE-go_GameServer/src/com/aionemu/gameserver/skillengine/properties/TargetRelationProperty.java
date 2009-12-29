@@ -24,8 +24,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.gameobjects.Citizen;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
 
@@ -58,13 +61,13 @@ public class TargetRelationProperty
 	{
     	List<Creature> effectedList = skill.getEffectedList();
     	
+    	Creature lastAttacker = skill.getEffector().getController().getLastAttacker();
     	
 		switch(value)
 		{
 			case ALL:
 				break;
-			case ENEMY:
-				Creature lastAttacker = skill.getEffector().getController().getLastAttacker();		
+			case ENEMY:			
 				for(Iterator<Creature> iter = effectedList.iterator(); iter.hasNext();)
 				{
 					Creature nextEffected = iter.next();
@@ -80,6 +83,32 @@ public class TargetRelationProperty
 					//TODO duel
 					//TODO different race				
 				}
+				break;
+			case FRIEND:		
+				for(Iterator<Creature> iter = effectedList.iterator(); iter.hasNext();)
+				{
+					Creature nextEffected = iter.next();
+					
+					if(nextEffected instanceof Player 
+						&& ((Player)nextEffected).getCommonData().getRace() == skill.getEffector().getCommonData().getRace())
+						continue;
+					
+					if(lastAttacker != null && lastAttacker.getObjectId() != nextEffected.getObjectId())
+						continue;
+					
+					if(nextEffected instanceof Citizen)
+						continue;
+					
+					iter.remove();			
+				}
+				
+				if(effectedList.size() == 0)
+				{
+					skill.setFirstTarget(skill.getEffector());
+					effectedList.add(skill.getEffector());
+				}
+					
+				break;
 			
 			//TODO other enum values
 		}

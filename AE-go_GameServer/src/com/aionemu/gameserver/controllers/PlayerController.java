@@ -89,6 +89,7 @@ public class PlayerController extends CreatureController<Player>
 		if(object instanceof Player)
 		{
 			PacketSendUtility.sendPacket(getOwner(), new SM_PLAYER_INFO((Player) object, false));
+			getOwner().getEffectController().sendEffectIconsTo((Player) object);
 		}
 		else if(object instanceof Npc)
 		{
