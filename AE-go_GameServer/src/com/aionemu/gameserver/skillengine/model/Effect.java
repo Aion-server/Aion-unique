@@ -16,9 +16,12 @@
  */
 package com.aionemu.gameserver.skillengine.model;
 
+import java.util.concurrent.Future;
+
 import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
+import com.aionemu.gameserver.skillengine.effect.Effects;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
@@ -34,17 +37,20 @@ public class Effect
 	private int endTime;
 
 	private EffectController controller;
-	private EffectTemplate effectTemplate;
-	private Creature effectedObject;
+	private Effects effects;
+	private Creature effected;
+	private Creature effector;
+	private Future<?> task = null;
 
-	public Effect(int effectorId, int skillId, int skillLevel,
-		int duration, EffectTemplate effectTemplate)
+	public Effect(Creature effector, int skillId, int skillLevel,
+		int duration, Effects effects)
 	{
-		this.effectorId = effectorId;
+		this.effector = effector;
+		this.effectorId = effector.getObjectId();
 		this.skillId = skillId;
 		this.skillLevel = skillLevel;
 		this.duration = duration;
-		this.effectTemplate = effectTemplate;
+		this.effects = effects;
 	}
 	
 	/**
@@ -80,17 +86,45 @@ public class Effect
 	}
 
 	/**
+	 * @return the effected
+	 */
+	public Creature getEffected()
+	{
+		return effected;
+	}
+
+	/**
+	 * @return the effector
+	 */
+	public Creature getEffector()
+	{
+		return effector;
+	}
+
+	/**
+	 * @param task the task to set
+	 */
+	public void setTask(Future<?> task)
+	{
+		this.task = task;
+	}
+
+	/**
 	 * @param controller the controller to set
 	 */
 	public void setController(EffectController controller)
 	{
 		this.controller = controller;
-		this.effectedObject = controller.getOwner();
+		this.effected = controller.getOwner();
 	}
 
 	public void startEffect()
 	{	
-		effectTemplate.startEffect(effectedObject, skillId, skillLevel);
+		for(EffectTemplate template : effects.getEffects())
+		{
+			template.startEffect(this);
+		}
+
 		endTime = (int) System.currentTimeMillis() + duration;
 
 		ThreadPoolManager.getInstance().scheduleEffect((new Runnable()
@@ -107,8 +141,20 @@ public class Effect
 
 	public void endEffect()
 	{
-		effectTemplate.endEffect(effectedObject, skillId);
+		for(EffectTemplate template : effects.getEffects())
+		{
+			template.endEffect(this);
+		}
 		controller.removeEffect(this);
+	}
+	
+	public void stopTask()
+	{
+		if(task != null)
+		{
+			task.cancel(false);
+			task = null;
+		}
 	}
 
 	public int getElapsedTime()

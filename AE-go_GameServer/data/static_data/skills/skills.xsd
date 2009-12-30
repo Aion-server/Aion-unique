@@ -100,7 +100,9 @@
 
 	<xs:complexType name="Condition" abstract="true" />
 	<xs:complexType name="Action" abstract="true" />
-	<xs:complexType name="Effect" abstract="true" />
+	<xs:complexType name="Effect" abstract="true">
+		<xs:attribute name="duration" type="xs:int" use="required"/>
+	</xs:complexType>
 	<xs:complexType name="Property" abstract="true" />
 
 	<!-- ACTIONS -->
@@ -203,7 +205,6 @@
 	<xs:complexType name="RootEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
-				<xs:attribute name="duration" type="xs:int" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -215,7 +216,6 @@
 					<xs:element name="change" type="Change" minOccurs="1"
 						maxOccurs="unbounded" />
 				</xs:sequence>
-				<xs:attribute name="duration" type="xs:int" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

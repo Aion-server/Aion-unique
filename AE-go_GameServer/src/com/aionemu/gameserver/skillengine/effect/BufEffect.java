@@ -21,7 +21,6 @@ import java.util.TreeSet;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
@@ -38,8 +37,6 @@ import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SetModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.skillengine.change.Change;
 import com.aionemu.gameserver.skillengine.model.Effect;
-import com.aionemu.gameserver.skillengine.model.Skill;
-import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 
 /**
  * @author ATracer
@@ -55,9 +52,6 @@ public class BufEffect extends EffectTemplate
 	})
 	protected List<Change> changes;
 
-	@XmlAttribute(required = true)
-	protected int duration;
-
 	/**
 	 * @return the changes
 	 */
@@ -66,37 +60,28 @@ public class BufEffect extends EffectTemplate
 		return changes;
 	}
 
-	@Override
-	public void apply(Skill skill)
-	{
-		List<Creature> effectedList = skill.getEffectedList();
-		SkillTemplate template = skill.getSkillTemplate();
-		Effect effect = new Effect(skill.getEffector().getObjectId(), template.getSkillId(),
-			skill.getSkillLevel(), duration, this);
-
-		for(Creature effected : effectedList)
-		{
-			effected.getEffectController().addEffect(effect);
-		}
-	}
-
 	/**
 	 * Will be called from effect controller when effect ends
 	 */
 	@Override
-	public void endEffect(Creature effected, int skillId)
+	public void endEffect(Effect effect)
 	{
+		Creature effected = effect.getEffected();
+		int skillId = effect.getSkillId();
 		effected.getGameStats().endEffect(StatEffectId.getInstance(skillId, StatEffectType.SKILL_EFFECT));
 	}
 	/**
 	 * Will be called from effect controller when effect starts
 	 */
 	@Override
-	public void startEffect(Creature effected, int skillId, int skillLvl)
+	public void startEffect(Effect effect)
 	{
 		if(changes == null)
 			return;
-
+		Creature effected = effect.getEffected();
+		int skillId = effect.getSkillId();
+		int skillLvl = effect.getSkillLevel();
+		
 		CreatureGameStats<? extends Creature> cgs = effected.getGameStats();
 		TreeSet<StatModifier> modifiers = new TreeSet<StatModifier> ();
 		
@@ -130,5 +115,10 @@ public class BufEffect extends EffectTemplate
 		}
 	}
 
-
+	@Override
+	public void onPeriodicAction(Effect effect)
+	{
+		// TODO Auto-generated method stub
+		
+	}
 }

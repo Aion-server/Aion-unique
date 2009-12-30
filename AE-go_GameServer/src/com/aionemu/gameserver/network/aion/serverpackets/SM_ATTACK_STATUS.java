@@ -18,24 +18,29 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import java.util.Random;
 
 /**
  * 
  * @author alexa026
+ * @author ATracer
  * 
  */
 public class SM_ATTACK_STATUS extends AionServerPacket
 {
 	private int	targetObjectId;
     private int remainHp;
+    private int abnormals;
+    private int skillId;
 	
-	public SM_ATTACK_STATUS(int targetObjectId, int remainHp)
+	public SM_ATTACK_STATUS(Creature creature, int skillId)
 	{
-		this.targetObjectId = targetObjectId;
-		this.remainHp = remainHp;
+		this.targetObjectId = creature.getObjectId();
+		this.remainHp = creature.getLifeStats().getHpPercentage();
+		this.abnormals = creature.getEffectController().getAbnormals();
+		this.skillId = skillId;
 	}
 
 	/**
@@ -46,10 +51,10 @@ public class SM_ATTACK_STATUS extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{		
 		writeD(buf, targetObjectId);
-		writeD(buf, 0);
-		writeC(buf, 5); // unknown?? type 5
-		writeH(buf, remainHp); // unknown remain hp??
-		writeC(buf, 0); // unknown
-		writeC(buf, 0x94); // unknown   
+		writeD(buf, abnormals);
+		writeC(buf, 5); // unknown?? type 5, 3, 7
+		writeC(buf, remainHp); //  remain hp
+		writeH(buf, skillId);
+		writeC(buf, 0x94); // unknown   0x98 or 0x01
 	}	
 }

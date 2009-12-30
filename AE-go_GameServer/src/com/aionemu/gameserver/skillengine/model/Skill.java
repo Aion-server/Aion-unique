@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
 import com.aionemu.gameserver.skillengine.action.Action;
@@ -29,7 +28,6 @@ import com.aionemu.gameserver.skillengine.condition.Condition;
 import com.aionemu.gameserver.skillengine.condition.ConditionChangeListener;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
 import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
-import com.aionemu.gameserver.skillengine.effect.Effects;
 import com.aionemu.gameserver.skillengine.properties.Properties;
 import com.aionemu.gameserver.skillengine.properties.Property;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -147,14 +145,24 @@ public class Skill
 		if(!preUsageCheck())
 			return;
 		
-		Effects skillEffects = skillTemplate.getEffects();
-		if(skillEffects != null)
+		int duration = 0;
+		
+		if(skillTemplate.getEffects() != null)
 		{
-			for(EffectTemplate effect : skillEffects.getEffects())
+			for(EffectTemplate template : skillTemplate.getEffects().getEffects())
 			{
-				effect.apply(this);
+				duration = duration > template.getDuration() ? duration : template.getDuration();
+			}
+			
+			Effect effect = new Effect(effector, skillTemplate.getSkillId(),
+				skillLevel, duration, skillTemplate.getEffects());	
+			
+			for(Creature creature : effectedList)
+			{
+				creature.getEffectController().addEffect(effect);
 			}
 		}
+		
 		
 		Actions skillActions = skillTemplate.getActions();
 		if(skillActions != null)

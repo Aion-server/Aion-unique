@@ -196,11 +196,10 @@ public abstract class CreatureLifeStats<T extends Creature>
 		{
 			return;
 		}
-		int hpPercentage = Math.round(100 *  currentHp / getMaxHp());
-		PacketSendUtility.broadcastPacket(owner, new SM_ATTACK_STATUS(getOwner().getObjectId(), hpPercentage));
+		PacketSendUtility.broadcastPacket(owner, new SM_ATTACK_STATUS(owner, 0));
 		if(owner instanceof Player)
 		{
-			PacketSendUtility.sendPacket((Player) owner, new SM_ATTACK_STATUS(getOwner().getObjectId(), hpPercentage));
+			PacketSendUtility.sendPacket((Player) owner, new SM_ATTACK_STATUS(owner, 0));
 		}
 	}
 
@@ -344,6 +343,24 @@ public abstract class CreatureLifeStats<T extends Creature>
 		
 		if(!isFullyRestored())
 			triggerRestoreTask();
+	}
+	
+	/**
+	 * 
+	 * @return HP percentage 0 - 100
+	 */
+	public int getHpPercentage()
+	{
+		return 100 * currentHp / getMaxHp();
+	}
+	
+	/**
+	 * 
+	 * @return MP percentage 0 - 100
+	 */
+	public int getMpPercentage()
+	{
+		return 100 * currentMp / getMaxMp();
 	}
 	
 	protected abstract void onIncreaseMp();

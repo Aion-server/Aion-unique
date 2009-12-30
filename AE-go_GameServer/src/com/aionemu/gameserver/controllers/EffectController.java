@@ -23,7 +23,6 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_EFFECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -38,6 +37,8 @@ public class EffectController
 	private Creature owner;
 	
 	private ConcurrentMap<Integer, Effect> effectMap;
+	
+	private int abnormals;
 	
 	public EffectController(Creature owner)
 	{
@@ -133,6 +134,25 @@ public class EffectController
 		{
 			updatePlayerEffectIcons();
 		}
+	}
+	
+	/**
+	 *  ABNORMAL EFFECTS
+	 */
+	
+	public void setAbnormal(int mask)
+	{
+		abnormals |= mask;
+	}
+	
+	public void unsetAbnormal(int mask)
+	{
+		abnormals &= ~mask;
+	}
+	
+	public int getAbnormals()
+	{
+		return abnormals;
 	}
 
 }

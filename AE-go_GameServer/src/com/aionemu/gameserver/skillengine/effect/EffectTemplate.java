@@ -18,10 +18,10 @@ package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * @author ATracer
@@ -31,16 +31,21 @@ import com.aionemu.gameserver.skillengine.model.Skill;
 @XmlType(name = "Effect")
 public abstract class EffectTemplate 
 {
+	@XmlAttribute(required = true)
+	protected int duration;
+	
 	/**
-	 *  Applies effect specified in template
-	 *  
-	 *  @param env
+	 * @return the duration
 	 */
-	public abstract void apply(Skill skill);
+	public int getDuration()
+	{
+		return duration;
+	}
+
+	public abstract void onPeriodicAction(Effect effect);
 	
+	public abstract void startEffect(Effect effect);
 	
-	public abstract void startEffect(Creature effected, int skillId, int skillLvl);
-	
-	public abstract void endEffect(Creature effected, int skillId);
+	public abstract void endEffect(Effect effect);
 
 }
