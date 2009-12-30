@@ -83,7 +83,9 @@ public class MovePlayerToPlayer extends AdminCommand
 			return;
 		}
 
+		world.despawn(playerToMove);
 		world.setPosition(playerToMove, playerDestination.getWorldId(), playerDestination.getX(), playerDestination.getY(), playerDestination.getZ(), playerDestination.getHeading());
+		playerToMove.setProtectionActive(true);
 		PacketSendUtility.sendPacket(playerToMove, new SM_PLAYER_SPAWN(playerToMove));
 
 		PacketSendUtility.sendMessage(admin, "Teleported player " + playerToMove.getName() + " to the location of player " + playerDestination.getName() + ".");

@@ -77,7 +77,9 @@ public class MoveToMe extends AdminCommand
 			return;
 		}
 
+		world.despawn(playerToMove);
 		world.setPosition(playerToMove, admin.getWorldId(), admin.getX(), admin.getY(), admin.getZ(), admin.getHeading());
+		playerToMove.setProtectionActive(true);
 		PacketSendUtility.sendPacket(playerToMove, new SM_PLAYER_SPAWN(playerToMove));
 
 		PacketSendUtility.sendMessage(admin, "Teleported player " + playerToMove.getName() + " to your location.");

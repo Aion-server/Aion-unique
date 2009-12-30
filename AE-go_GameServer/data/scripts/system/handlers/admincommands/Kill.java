@@ -54,7 +54,7 @@ public class Kill extends AdminCommand
 		{
 			Creature creature = (Creature) target;
 			creature.getController().onAttack(admin);
-			creature.getLifeStats().reduceHp(1000000); //hope it is enough to kill every life :)	
+			creature.getLifeStats().reduceHp(creature.getLifeStats().getMaxHp() + 1);
 		}
 		
 	}

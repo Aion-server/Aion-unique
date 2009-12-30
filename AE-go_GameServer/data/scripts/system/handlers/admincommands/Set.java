@@ -174,7 +174,7 @@ public class Set extends AdminCommand {
 			PacketSendUtility.sendMessage(player, "You can switch class after your level reach 9");
 			return;
 		}
-		if (Arrays.asList(new int[]{1, 2, 4, 5, 7, 8, 10, 11}).contains(oldClass.ordinal()))
+		if (Arrays.asList(1, 2, 4, 5, 7, 8, 10, 11).contains(oldClass.ordinal()))
 		{
 			PacketSendUtility.sendMessage(player, "You already switched class");
 			return;
