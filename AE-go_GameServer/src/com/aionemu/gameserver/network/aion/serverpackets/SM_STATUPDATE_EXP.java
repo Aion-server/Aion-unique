@@ -56,6 +56,8 @@ public class SM_STATUPDATE_EXP extends AionServerPacket
 		writeQ(buf, currentExp);
 		writeQ(buf, recoverableExp);
 		writeQ(buf, maxExp);
+		writeQ(buf, 0x00);
+		writeQ(buf, 0x00);
 	}
 
 }

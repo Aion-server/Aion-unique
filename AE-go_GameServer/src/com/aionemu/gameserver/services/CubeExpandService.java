@@ -26,6 +26,7 @@ import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.templates.CubeExpandTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
@@ -62,19 +63,19 @@ public class CubeExpandService
 				return;
 			}
 			
-			RequestResponseHandler responseHandler = new RequestResponseHandler(player) 
+			RequestResponseHandler responseHandler = new RequestResponseHandler(npc) 
 			{				
 				@Override
-				public void acceptRequest(Player requester, Player responder)
+				public void acceptRequest(Creature requester, Player responder)
 				{
-					expand(requester, expandTemplate);
+					expand(responder, expandTemplate);
 					kinahItem.decreaseItemCount(price);
-					PacketSendUtility.sendPacket(requester, new SM_UPDATE_ITEM(kinahItem));
-					DAOManager.getDAO(InventoryDAO.class).store(kinahItem, requester.getObjectId());
+					PacketSendUtility.sendPacket((Player)requester, new SM_UPDATE_ITEM(kinahItem));
+					DAOManager.getDAO(InventoryDAO.class).store(kinahItem, responder.getObjectId());
 				}
 
 				@Override
-				public void denyRequest(Player requester, Player responder)
+				public void denyRequest(Creature requester, Player responder)
 				{
 					//nothing to do
 				}

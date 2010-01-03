@@ -20,16 +20,16 @@ import java.nio.ByteBuffer;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-
 /**
  * @author orz
  *
  */
 public class SM_DIE extends AionServerPacket
 {
+	
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
-	{		
+	{
 		writeD(buf, 0x00);
 		writeH(buf, 0x00);
 	}

@@ -21,16 +21,21 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.google.inject.Inject;
 /**
  * 
@@ -80,7 +85,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		Player player = getConnection().getActivePlayer();
+		final Player player = getConnection().getActivePlayer();
 		if(player == null)
 			return;
 		
@@ -120,7 +125,38 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				break;
 			case 29:
 				//soul healing
-				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
+				RequestResponseHandler responseHandler = new RequestResponseHandler(npc) 
+				{				
+					@Override
+					public void acceptRequest(Creature requester, Player responder)
+					{
+						Long lossexp = responder.getCommonData().getExpRecoverable();
+						if(player.getInventory().getKinahItem().getItemCount() > lossexp)
+						{
+							sendPacket(SM_SYSTEM_MESSAGE.EXP_RECOVEREBLED_BY_COUNT(String.valueOf(lossexp.intValue())));//TODO check SM_SYSTEM_MESSAGE
+							sendPacket(SM_SYSTEM_MESSAGE.SOUL_HEALED());
+							player.getCommonData().resetRecoverableExp();
+							player.getInventory().decreaseKinah(lossexp.intValue());
+						}
+						//TODO not enought kinah message
+					}
+		
+					@Override
+					public void denyRequest(Creature requester, Player responder)
+					{
+						//no message
+					}
+				};
+				if(player.getCommonData().getExpRecoverable() > 0)
+				{
+					boolean result = player.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_SOUL_HEALING,responseHandler);
+					if(result)
+					{
+						PacketSendUtility.sendPacket(player, 
+							new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_SOUL_HEALING, 0, String.valueOf(player.getCommonData().getExpRecoverable())));
+					}
+				}
+				else sendPacket(SM_SYSTEM_MESSAGE.DONT_HAVE_RECOVERED_EXP());
 				break;
 			case 35:
 				//Godstone socketing

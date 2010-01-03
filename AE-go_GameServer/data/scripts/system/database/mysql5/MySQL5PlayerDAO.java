@@ -89,7 +89,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	@Override
 	public void storePlayer(final Player player)
 	{
-		DB.insertUpdate("UPDATE players SET name=?, exp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, cube_size=?, admin=?, note=?, bind_point=?, title_id=? WHERE id=?", new IUStH(){
+		DB.insertUpdate("UPDATE players SET name=?, exp=?, recoverexp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, cube_size=?, admin=?, note=?, bind_point=?, title_id=? WHERE id=?", new IUStH(){
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
@@ -97,19 +97,20 @@ public class MySQL5PlayerDAO extends PlayerDAO
 
 				stmt.setString(1, player.getName());
 				stmt.setLong(2, player.getCommonData().getExp());
-				stmt.setFloat(3, player.getX());
-				stmt.setFloat(4, player.getY());
-				stmt.setFloat(5, player.getZ());
-				stmt.setInt(6, player.getHeading());
-				stmt.setInt(7, player.getWorldId());
-				stmt.setString(8, player.getCommonData().getPlayerClass().toString());
-				stmt.setTimestamp(9, player.getCommonData().getLastOnline());
-				stmt.setInt(10, player.getCubeSize());
-				stmt.setInt(11, player.getCommonData().getAdminRole());
-				stmt.setString(12,player.getCommonData().getNote());
-				stmt.setInt(13, player.getCommonData().getBindPoint());
-				stmt.setInt(14, player.getCommonData().getTitleId());
-				stmt.setInt(15, player.getObjectId());
+				stmt.setLong(3, player.getCommonData().getExpRecoverable());
+				stmt.setFloat(4, player.getX());
+				stmt.setFloat(5, player.getY());
+				stmt.setFloat(6, player.getZ());
+				stmt.setInt(7, player.getHeading());
+				stmt.setInt(8, player.getWorldId());
+				stmt.setString(9, player.getCommonData().getPlayerClass().toString());
+				stmt.setTimestamp(10, player.getCommonData().getLastOnline());
+				stmt.setInt(11, player.getCubeSize());
+				stmt.setInt(12, player.getCommonData().getAdminRole());
+				stmt.setString(13,player.getCommonData().getNote());
+				stmt.setInt(14, player.getCommonData().getBindPoint());
+				stmt.setInt(15, player.getCommonData().getTitleId());
+				stmt.setInt(16, player.getObjectId());
 				stmt.execute();
 			}
 		});
@@ -186,6 +187,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 
 				cd.setName(resultSet.getString("name"));
 				cd.setExp(resultSet.getLong("exp"));
+				cd.setRecoverableExp(resultSet.getLong("recoverexp"));
 				cd.setRace(Race.valueOf(resultSet.getString("race")));
 				cd.setGender(Gender.valueOf(resultSet.getString("gender")));
 				cd.setPlayerClass(PlayerClass.valueOf(resultSet.getString("player_class")));

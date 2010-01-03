@@ -17,18 +17,18 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_GROUP_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.Util;
-import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
+import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
@@ -95,7 +95,7 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 			RequestResponseHandler responseHandler = new RequestResponseHandler(inviter) 
 			{				
 				@Override
-				public void acceptRequest(Player requester, Player responder)
+				public void acceptRequest(Creature requester, Player responder)
 				{
 					sendPacket(SM_SYSTEM_MESSAGE.REQUEST_GROUP_INVITE(playerName));
 					if(group != null)
@@ -108,7 +108,7 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 				}
 	
 				@Override
-				public void denyRequest(Player requester, Player responder)
+				public void denyRequest(Creature requester, Player responder)
 				{
 					sendPacket(SM_SYSTEM_MESSAGE.REJECT_GROUP_INVITE(responder.getName()));
 				}

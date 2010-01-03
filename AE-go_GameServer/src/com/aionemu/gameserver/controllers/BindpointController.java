@@ -20,6 +20,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
@@ -54,31 +55,31 @@ public class BindpointController extends NpcController
 			return;
 		}
 		
-		RequestResponseHandler responseHandler = new RequestResponseHandler(player)
+		RequestResponseHandler responseHandler = new RequestResponseHandler(getOwner())
 		{
 			@Override
-			public void acceptRequest(Player requester, Player responder)
+			public void acceptRequest(Creature requester, Player responder)
 			{
-				if (requester.getCommonData().getBindPoint() != bindPointTemplate.getBindId()) 
+				if (responder.getCommonData().getBindPoint() != bindPointTemplate.getBindId()) 
 				{
-					if (requester.getInventory().getKinahItem().getItemCount()>= bindPointTemplate.getPrice())
+					if (responder.getInventory().getKinahItem().getItemCount()>= bindPointTemplate.getPrice())
 					{
-						PacketSendUtility.sendPacket(requester, new SM_MESSAGE(0, null, "You have successfully binded to this location.", null, ChatType.ANNOUNCEMENTS));
-						requester.getInventory().decreaseKinah(bindPointTemplate.getPrice());
-						requester.getCommonData().setBindPoint(bindPointTemplate.getBindId());
+						PacketSendUtility.sendPacket(responder, new SM_MESSAGE(0, null, "You have successfully binded to this location.", null, ChatType.ANNOUNCEMENTS));
+						responder.getInventory().decreaseKinah(bindPointTemplate.getPrice());
+						responder.getCommonData().setBindPoint(bindPointTemplate.getBindId());
 					}
 					else
 					{
-						PacketSendUtility.sendPacket(requester, new SM_MESSAGE(0, null, "You don't have enough Kinah.", null, ChatType.ANNOUNCEMENTS));
+						PacketSendUtility.sendPacket(responder, new SM_MESSAGE(0, null, "You don't have enough Kinah.", null, ChatType.ANNOUNCEMENTS));
 					}
 				}
 				else
 				{
-					PacketSendUtility.sendPacket(requester, new SM_MESSAGE(0, null, "You are already binded to this location.", null, ChatType.ANNOUNCEMENTS));
+					PacketSendUtility.sendPacket(responder, new SM_MESSAGE(0, null, "You are already binded to this location.", null, ChatType.ANNOUNCEMENTS));
 				}
 			}
 			@Override
-			public void denyRequest(Player requester, Player responder)
+			public void denyRequest(Creature requester, Player responder)
 			{
 				//do nothing
 			}

@@ -58,7 +58,7 @@ public class PlayerCommonData
 	/** Should be changed right after character creation **/
 	private int				level = 0;
 	private long			exp = 0;
-	private long			expLoss = 0;
+	private long			expRecoverable = 0;
 	private int				adminRole;
 	private Gender			gender;
 	private Timestamp		lastOnline;
@@ -102,106 +102,83 @@ public class PlayerCommonData
 		if (this.level == DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel())
 		{
 			return 0;
-		}
-		return DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level+1) - 
-			DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level);
+		}			
+		return DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level + 1) - DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level);
+	}
+	/**
+	 * calculate the lost experience
+	 * must be called before setexp
+	 */
+	public void calculateExpLoss()
+	{
+		int recoverable = Math.round(this.getExpNeed() / 100 * 3);//TODO check the formulas
+		int unrecoverable = Math.round(this.getExpNeed() / 100);
+		long allexploss = recoverable + this.expRecoverable;
+		
+		if(this.getExpShown() > unrecoverable)
+			this.exp = this.exp - unrecoverable;
+		else this.exp = this.exp - this.getExpShown();
+		
+		if(this.getExpShown() > allexploss)
+			this.expRecoverable = allexploss;
+		else this.expRecoverable = this.expRecoverable + this.getExpShown();
+		
+		PacketSendUtility.sendPacket(this.getPlayer(),
+				new SM_STATUPDATE_EXP(this.getExpShown(), this.getExpRecoverable(), this.getExpNeed()));	
 	}
 
-	public void setExpLoss()
+	public void setRecoverableExp(long expRecoverable)
 	{
-		int calculatedExpLoss = Math.round(getExpNeed() / 100 * 3);
-		expLoss = expLoss + calculatedExpLoss;
-		if (getExpShown() < expLoss) {
-			this.expLoss = getExpShown();
-		}
-		PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATS_INFO(this.getPlayer()));
+		this.expRecoverable = expRecoverable;
 	}
-
-	public void restoreRecoverableExp(long exp)
+	
+	public void resetRecoverableExp()
 	{
-		this.expLoss = expLoss - exp;
+		long el = this.expRecoverable;
+		this.expRecoverable = 0;
+		this.setExp(this.exp + el);
 	}
 
 	public long getExpRecoverable()
 	{
-		return expLoss;
+		return this.expRecoverable;
 	}
 	
 	//TODO need to test before use
 	public void addExp(long value)
 	{
-		long newExp = this.exp + value;
-		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
-		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
-
-		if (newExp > maxExp)
-		{
-			newExp = maxExp;
-		}
-		
-		this.exp = newExp;
-		
-		if(this.level != maxLevel)
-		{
-			long nextLevelExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level + 1);
-			if(nextLevelExp < newExp)
-			{
-				
-				this.level += 1;
-				upgradePlayer();
-			}
-			else
-			{			
-				if(this.getPlayer()!=null)
-				{
-					PacketSendUtility.sendPacket(this.getPlayer(),
-						new SM_STATUPDATE_EXP(this.getExpShown(), this.getExpRecoverable(), this.getExpNeed()));
-				}
-			}
-		}
+		this.setExp(this.exp + value);
 	}
-
+	
+	/**
+	 * sets the exp value
+	 * @param admin: enable decrease level 
+	 */
 	public void setExp(long exp)
 	{
 		//maxLevel is 51 but in game 50 should be shown with full XP bar
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
 		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
-
+		int level = 1;
+		
 		if (exp > maxExp)
 		{
 			exp = maxExp;
 		}
-
-		int level = 1;
-		long totalExp = 0;
-		long leakExp = 0;
-		
-		//make sure level is never larget than maxLevel-1
-		while ((level + 1) != maxLevel && exp>= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level+1))
+				
+		//make sure level is never larger than maxLevel-1
+		while ((level + 1) != maxLevel && exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level + 1))
 		{
 			level++;
-			//totalExp = leakExp + DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);
 		}
-		//TODO fix leakExp
 		
-//		if (level>1) {
-//			leakExp = exp - totalExp - DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level-1);
-//		} 
-//		else {
-//			leakExp = exp - totalExp;
-//		}
-
-		if (level > this.level)
+		if (level != this.level)
 		{
 			this.level = level;
-			Player player = getPlayer();
-			if(player == null)
+			this.exp = exp;
+			
+			if(this.getPlayer() != null)
 			{
-				this.exp = exp;
-			}
-			else
-			{
-				this.exp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level);// + leakExp;
 				upgradePlayer();
 			}	
 		}
@@ -209,14 +186,17 @@ public class PlayerCommonData
 		{
 			this.exp = exp;
 			
-			if(this.getPlayer()!=null)
+			if(this.getPlayer() != null)
 			{
 				PacketSendUtility.sendPacket(this.getPlayer(),
 					new SM_STATUPDATE_EXP(this.getExpShown(), this.getExpRecoverable(), this.getExpNeed()));
 			}
 		}
 	}
-
+	
+	/**
+	 * Do necessary player upgrades on level up
+	 */
 	public void upgradePlayer()
 	{
 		Player player = this.getPlayer();
@@ -229,8 +209,8 @@ public class PlayerCommonData
 			player.setLifeStats(new PlayerLifeStats(player, statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));		
 			player.getLifeStats().synchronizeWithMaxStats();
 			
-			PacketSendUtility.sendPacket(player,
-				new SM_LEVEL_UPDATE(player.getObjectId(), this.level));
+			PacketSendUtility.broadcastPacket(player,
+				new SM_LEVEL_UPDATE(player.getObjectId(), this.level),true);
 			
 			QuestEngine.getInstance().onLvlUp(new QuestEnv(null, player, 0, 0));
 			

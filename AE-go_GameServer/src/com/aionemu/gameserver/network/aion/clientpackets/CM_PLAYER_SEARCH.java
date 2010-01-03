@@ -23,6 +23,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.FriendList.Status;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SEARCH;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -75,9 +76,17 @@ public class CM_PLAYER_SEARCH extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
+		Player activeplayer = getConnection().getActivePlayer();
+		
 		Iterator<Player> it = world.getPlayersIterator();
 		
 		List<Player> matches = new ArrayList<Player>(MAX_RESULTS);
+		
+		if(activeplayer != null && activeplayer.getLevel() < 10)
+		{
+			sendPacket(SM_SYSTEM_MESSAGE.LEVEL_NOT_ENOUGH_FOR_SEARCH());
+			return;
+		}
 		while (it.hasNext() && matches.size() < MAX_RESULTS)
 		{
 			Player player = it.next();

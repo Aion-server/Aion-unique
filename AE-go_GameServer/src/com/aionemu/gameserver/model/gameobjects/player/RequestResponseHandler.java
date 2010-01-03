@@ -16,18 +16,21 @@
  */
 package com.aionemu.gameserver.model.gameobjects.player;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
+
 /**
  * Implemented by handlers of <tt>CM_QUESTION_RESPONSE</tt> responses
  * 
  * @author Ben
+ * @modified Lyahim
  *
  */
 public abstract class RequestResponseHandler
 {
 	
-	private Player requester;
+	private Creature requester;
 	
-	public RequestResponseHandler(Player requester)
+	public RequestResponseHandler(Creature requester)
 	{
 		this.requester = requester;
 	}
@@ -48,17 +51,17 @@ public abstract class RequestResponseHandler
 	
 	/**
 	 * Called when the player accepts a request
-	 * @param requester Player whom requested this response
+	 * @param requester Creature whom requested this response
 	 * @param responder Player whom responded to this request
 	 */
-	public abstract void acceptRequest(Player requester, Player responder);
+	public abstract void acceptRequest(Creature requester, Player responder);
 	
 	/**
 	 * Called when the player denies a request
-	 * @param requester Player whom requested this response
+	 * @param requester Creature whom requested this response
 	 * @param responder Player whom responded to this request
 	 */
-	public abstract void denyRequest(Player requester, Player responder);
+	public abstract void denyRequest(Creature requester, Player responder);
 	
 	
 

@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_RESPONSE;
@@ -99,7 +100,7 @@ public class CM_FRIEND_ADD extends AionClientPacket
 			RequestResponseHandler responseHandler = new RequestResponseHandler(activePlayer) {
 				
 				@Override
-				public void acceptRequest(Player requester, Player responder)
+				public void acceptRequest(Creature requester, Player responder)
 				{
 					if (!targetPlayer.getCommonData().isOnline())
 					{
@@ -113,13 +114,13 @@ public class CM_FRIEND_ADD extends AionClientPacket
 						
 					else
 					{
-						socialService.makeFriends(requester, responder);
+						socialService.makeFriends((Player)requester, responder);
 					}
 					
 				}
 
 				@Override
-				public void denyRequest(Player requester, Player responder)
+				public void denyRequest(Creature requester, Player responder)
 				{
 					sendPacket(new SM_FRIEND_RESPONSE(targetName, SM_FRIEND_RESPONSE.TARGET_DENIED));
 					

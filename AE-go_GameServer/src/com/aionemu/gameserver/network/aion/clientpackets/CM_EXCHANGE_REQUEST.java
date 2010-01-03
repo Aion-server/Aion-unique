@@ -1,12 +1,12 @@
 /**
- * This file is part of aion-emu <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
- *  aion-emu is free software: you can redistribute it and/or modify
+ *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-emu is distributed in the hope that it will be useful,
+ *  aion-unique is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
@@ -21,6 +21,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.SystemMessageId;
@@ -63,34 +64,30 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 		final Player activePlayer = getConnection().getActivePlayer();
 		final Player targetPlayer = world.findPlayer(targetObjectId);
 
-		/*
-		* check if not trading with yourself.
-		*/
-
+		/**
+		 * check if not trading with yourself.
+		 */
 		if (activePlayer != targetPlayer) {
-			
-			/*
-			* check if trade partner exists or is he/she a player.
-			*/
 
+			/**
+			 * check if trade partner exists or is he/she a player.
+			 */
 			if (targetPlayer!=null) {
 				sendPacket(SM_SYSTEM_MESSAGE.REQUEST_TRADE(targetPlayer.getName()));
-	
+
 				RequestResponseHandler responseHandler = new RequestResponseHandler(activePlayer){
 					@Override
-					public void acceptRequest(Player requester, Player responder)
+					public void acceptRequest(Creature requester, Player responder)
 					{
-						/*
-						* set exchange partners
-						*/
-
+						/**
+						 * set exchange partners
+						 */
 						activePlayer.getExchangeList().setExchangePartner(targetPlayer.getObjectId());
 						targetPlayer.getExchangeList().setExchangePartner(activePlayer.getObjectId());
-					
-						/*
-						* prepare for a new trade
-						*/
 
+						/**
+						 * prepare for a new trade
+						 */
 						activePlayer.getExchangeList().setExchangeItemList();
 						targetPlayer.getExchangeList().setExchangeItemList();
 						activePlayer.getExchangeList().setConfirm(false);
@@ -105,19 +102,16 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 
 					}
 
-					public void denyRequest(Player requester, Player responder)
+					public void denyRequest(Creature requester, Player responder)
 					{
 						//TODO check whether need SM_QUESTION_WINDOW here
 						PacketSendUtility.sendPacket(activePlayer, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_EXCHANGE_HE_REJECTED_EXCHANGE, targetPlayer.getObjectId(), targetPlayer.getName()));
 						PacketSendUtility.sendPacket(activePlayer, new SM_SYSTEM_MESSAGE(SystemMessageId.EXCHANGE_HE_REJECTED_EXCHANGE, targetPlayer.getName()));
 					}
 				};
-		
+
 				boolean requested = targetPlayer.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE,responseHandler);
-				if (!requested){
-					//cannot exchange
-				}
-				else {
+				if (requested){
 					PacketSendUtility.sendPacket(targetPlayer, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE, targetPlayer.getObjectId(), activePlayer.getName()));
 				}
 			}

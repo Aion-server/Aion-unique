@@ -74,7 +74,7 @@ public class CM_REVIVE extends AionClientPacket
 		
 		sendPacket(SM_SYSTEM_MESSAGE.REVIVE);	
 		sendPacket(new SM_QUEST_LIST(activePlayer));
-		sendPacket(new SM_STATS_INFO(activePlayer));			
+		sendPacket(new SM_STATS_INFO(activePlayer));
 		sendPacket(new SM_PLAYER_INFO(activePlayer, true));	
 		
 		/**
@@ -111,11 +111,5 @@ public class CM_REVIVE extends AionClientPacket
 		//world.spawn(activePlayer);
 		
 		sendPacket(new SM_PLAYER_SPAWN(activePlayer));
-		
-		/**
-		 * Set recoverable exp to player.
-		 */
-
-		activePlayer.getCommonData().setExpLoss();
 	}
 }

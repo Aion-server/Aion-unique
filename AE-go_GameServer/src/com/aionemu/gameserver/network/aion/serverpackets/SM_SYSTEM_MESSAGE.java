@@ -334,8 +334,29 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300170);
 	}	
 	public static SM_SYSTEM_MESSAGE CANT_INVITE_OTHER_RACE() {
-		return new SM_SYSTEM_MESSAGE(1300188);
-	}	
+		return new SM_SYSTEM_MESSAGE(1300188);	
+	}
+	
+	public static SM_SYSTEM_MESSAGE LEVEL_NOT_ENOUGH_FOR_SEARCH() {
+		return new SM_SYSTEM_MESSAGE(1400341);
+	}
+	
+	public static SM_SYSTEM_MESSAGE LEVEL_NOT_ENOUGH_FOR_WHISPER(String level) {
+		return new SM_SYSTEM_MESSAGE(1310004);
+	}
+	
+	public static SM_SYSTEM_MESSAGE EXP_RECOVEREBLED_BY_COUNT(String count) {
+		return new SM_SYSTEM_MESSAGE(1370002);
+	}
+	
+	public static SM_SYSTEM_MESSAGE SOUL_HEALED() {
+		return new SM_SYSTEM_MESSAGE(1300674);
+	}
+	
+	public static SM_SYSTEM_MESSAGE DONT_HAVE_RECOVERED_EXP() {
+		return new SM_SYSTEM_MESSAGE(1300682);
+	}
+	
 	
 	private final int		code;
 	private final Object[]	params;
@@ -373,5 +394,6 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		{
 			writeS(buf, String.valueOf(param));
 		}
+		writeC(buf, 0x00);
 	}
 }

@@ -181,7 +181,14 @@ public class PlayerController extends CreatureController<Player>
 			this.lostDuelWith((Player)lastAttacker);
 			((Player)lastAttacker).getController().wonDuelWith(player);
 		} else { // PvE
-			PacketSendUtility.broadcastPacket(this.getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13,
+			
+			/**
+			 * Set recoverable exp to player.
+			 */
+			if(player.getLevel() > 4) //only over level 5
+				player.getCommonData().calculateExpLoss();	
+			
+			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 13,
 				0, lastAttacker.getObjectId()), true);
 			PacketSendUtility.sendPacket(player, new SM_DIE());
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
@@ -300,16 +307,16 @@ public class PlayerController extends CreatureController<Player>
 		log.debug("[PvP] Player " + this.getOwner().getName() + " has been requested for a duel by "
 			+ requester.getName());
 		RequestResponseHandler rrh = new RequestResponseHandler(requester){
-			public void denyRequest(Player requester, Player responder)
+			public void denyRequest(Creature requester, Player responder)
 			{
-				responder.getController().rejectDuelRequest(requester);
+				responder.getController().rejectDuelRequest((Player)requester);
 			}
 
 			@Override
-			public void acceptRequest(Player requester, Player responder)
+			public void acceptRequest(Creature requester, Player responder)
 			{
-				responder.getController().startDuelWith(requester);
-				requester.getController().startDuelWith(responder);
+				responder.getController().startDuelWith((Player)requester);
+				((Player)requester).getController().startDuelWith(responder);
 			}
 		};
 		this.getOwner().getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_ACCEPT_DUEL, rrh);
@@ -328,15 +335,15 @@ public class PlayerController extends CreatureController<Player>
 		log.debug("[PvP] Player " + this.getOwner().getName() + " has to confirm his duel with " + target.getName());
 		RequestResponseHandler rrh = new RequestResponseHandler(target){
 			@Override
-			public void denyRequest(Player requester, Player responder)
+			public void denyRequest(Creature requester, Player responder)
 			{
 				log.debug("PvP] Player "+ responder.getName() + " confirmed his duel with "+requester.getName());
 			}
 
 			@Override
-			public void acceptRequest(Player requester, Player responder)
+			public void acceptRequest(Creature requester, Player responder)
 			{
-				responder.getController().cancelDuelRequest(requester);
+				responder.getController().cancelDuelRequest((Player)requester);
 			}
 		};
 		this.getOwner().getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_CONFIRM_DUEL, rrh);
