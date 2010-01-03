@@ -14,49 +14,19 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.questEngine.conditions;
+package com.aionemu.gameserver.questEngine.events;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-
-import com.aionemu.gameserver.questEngine.model.ConditionOperation;
-import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
 /**
  * @author MrPoke
- *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "QuestCondition")
-@XmlSeeAlso({
-    PcRaceCondition.class,
-    NpcIdCondition.class,
-    DialogIdCondition.class,
-    PcInventoryCondition.class,
-    QuestVarCondition.class,
-    PcLevelCondition.class,
-    QuestStatusCondition.class
-})
-public abstract class QuestCondition {
-
-    @XmlAttribute(required = true)
-    protected ConditionOperation op;
-
-    /**
-     * Gets the value of the op property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ConditionOp }
-     *     
-     */
-    public ConditionOperation getOp() {
-        return op;
-    }
-
-    public abstract boolean doCheck(QuestEnv env);
+@XmlType(name = "OnMovieEndEvent")
+public class OnMovieEndEvent extends QuestEvent
+{
 
 }

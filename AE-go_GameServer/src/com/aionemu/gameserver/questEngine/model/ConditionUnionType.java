@@ -16,9 +16,13 @@
  */
 package com.aionemu.gameserver.questEngine.model;
 
+import javax.xml.bind.annotation.XmlEnum;
+
 /**
  * @author Blackmouse
  */
+
+@XmlEnum
 public enum ConditionUnionType
 {
 	AND,

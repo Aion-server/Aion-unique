@@ -5,6 +5,25 @@
     </quest>
     <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Prologue" id="1000">
         <rewards exp="1" reward_id="1"/>
+        <on_lvl_up_event ids="1">
+            <conditions operate="AND">
+                <pc_race value="ELYOS" op="EQUAL"/>
+                <quest_status value="NONE" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <start_quest id="1000"/>
+                <play_movie movie_type="1" movie_id="1"/>
+            </operations>
+        </on_lvl_up_event>
+        <on_movie_end_event ids="1">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <set_quest_status status="COMPLITE"/>
+                <give_exp value="1"/>
+            </operations>
+        </on_movie_end_event>
     </quest>
     <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="The Kerub Threat" end_npc_id="203067" id="1001">
         <collect_items>
@@ -952,28 +971,47 @@
         </collect_items>
         <rewards exp="2250" gold="450" reward_id="1"/>
     </quest>
-    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="6" name="Polinia's Ointment" id="1118">
+    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="6" name="Polinia's Ointment" start_npc_id="203059" id="1118">
         <rewards exp="1970" gold="100" reward_id="1"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182200224"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="6" name="A Taste of Namus's Medicine" end_npc_id="203075" id="1119">
+    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="6" name="A Taste of Namus's Medicine" end_npc_id="203080" start_npc_id="203075" id="1119">
         <rewards exp="1680" gold="150" reward_id="1"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182200225"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="6" name="Thinning out Worgs" id="1120">
+    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="6" name="Thinning out Worgs" end_npc_id="203082" start_npc_id="203082" id="1120">
         <rewards exp="4050" gold="800" reward_id="1"/>
+        <on_kill_event ids="210142 210143">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+                <quest_var var_id="0" value="9" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203082">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_var var_id="0" value="8" op="GREATER_EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
     </quest>
-    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="6" name="Oz's Prayer Beads" id="1121">
+    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="6" name="Oz's Prayer Beads" end_npc_id="203081" start_npc_id="203081" id="1121">
         <collect_items>
             <collect_item count="3" item_id="182200209"/>
         </collect_items>
         <rewards exp="3350" gold="630" reward_id="1"/>
     </quest>
-    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="7" name="Delivering Pernos's Robe" id="1122">
+    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="7" name="Delivering Pernos's Robe" start_npc_id="203060" id="1122">
         <rewards exp="5420" reward_id="1">
             <reward_item count="1" item_id="123000878"/>
         </rewards>
@@ -983,17 +1021,28 @@
         <rewards exp="3950" reward_id="3">
             <reward_item count="1" item_id="182000352"/>
         </rewards>
+        <on_talk_event ids="790001">
+            <conditions operate="AND">
+                <dialog_id value="10000" op="EQUAL"/>
+                <quest_var var_id="0" value="0" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+                <npc_dialog quest_id="0" id="10"/>
+            </operations>
+        </on_talk_event>
         <finished_quest_conds>1116</finished_quest_conds>
         <quest_work_items>
             <quest_work_item count="1" item_id="182200216"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="7" name="Where's Tutty?" id="1123">
+    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="7" name="Where's Tutty?" end_npc_id="790001" start_npc_id="790001" id="1123">
         <rewards exp="4150" reward_id="1">
             <reward_item count="2" item_id="162000017"/>
         </rewards>
     </quest>
-    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="7" name="Avenging Tutty" id="1124">
+    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="7" name="Avenging Tutty" end_npc_id="790001" start_npc_id="790001" id="1124">
         <collect_items>
             <collect_item count="5" item_id="182200210"/>
         </collect_items>
@@ -1002,11 +1051,18 @@
         </rewards>
         <finished_quest_conds>1123</finished_quest_conds>
     </quest>
-    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="7" name="Suspicious Ore" id="1125">
+    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="7" name="Suspicious Ore" start_npc_id="203085" id="1125">
         <collect_items>
             <collect_item count="6" item_id="182200211"/>
         </collect_items>
         <rewards exp="5540" gold="1090" reward_id="1"/>
+        <on_talk_event ids="700107">
+            <conditions operate="AND">
+                <dialog_id value="10" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations/>
+        </on_talk_event>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="7" name="Mushroom Research" end_npc_id="203079" start_npc_id="203079" id="1126">
         <collect_items>
@@ -1014,7 +1070,7 @@
         </collect_items>
         <rewards exp="4950" gold="890" reward_id="1"/>
     </quest>
-    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="6" name="Ancient Cube" id="1127">
+    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="6" name="Ancient Cube" end_npc_id="798008" start_npc_id="798008" id="1127">
         <collect_items>
             <collect_item count="1" item_id="182200215"/>
         </collect_items>
@@ -1024,7 +1080,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="99" name="The Amazing Escape" id="1128"/>
-    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="8" name="Scouting Timolia Mine" id="1129">
+    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="8" name="Scouting Timolia Mine" end_npc_id="203085" start_npc_id="203085" id="1129">
         <collect_items>
             <collect_item count="5" item_id="182200213"/>
         </collect_items>
@@ -1032,7 +1088,7 @@
             <reward_item count="1" item_id="125001836"/>
         </rewards>
     </quest>
-    <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="Summons to the Citadel" id="1130">
+    <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="Summons to the Citadel" end_npc_id="203098" id="1130">
         <rewards exp="1500" reward_id="1"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="Undelivered Armor" id="1131">
@@ -1042,7 +1098,7 @@
             <quest_work_item count="1" item_id="182200506"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="An Honest Merchant" id="1132">
+    <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="An Honest Merchant" end_npc_id="203097" start_npc_id="203101" id="1132">
         <collect_items>
             <collect_item count="6" item_id="182200508"/>
             <collect_item count="5" item_id="182200509"/>
@@ -1052,20 +1108,54 @@
         </rewards>
         <finished_quest_conds>1131</finished_quest_conds>
     </quest>
-    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="10" name="Lobnite Hunt" id="1133">
+    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="10" name="Lobnite Hunt" end_npc_id="203096" start_npc_id="203096" id="1133">
         <rewards exp="11600" gold="1000" reward_id="1">
             <reward_item count="2" item_id="162000007"/>
         </rewards>
+        <on_kill_event ids="210264">
+            <conditions operate="AND">
+                <quest_var var_id="0" value="11" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203096">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="10" name="Polluted Fountainhead" id="1134">
         <rewards exp="15890" gold="1500" reward_id="1">
             <reward_item count="50" item_id="169000004"/>
         </rewards>
     </quest>
-    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="10" name="Guardian Tog" id="1135">
+    <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="10" name="Guardian Tog" end_npc_id="203190" start_npc_id="203190" id="1135">
         <rewards exp="9500" gold="500" reward_id="1">
             <reward_item count="2" item_id="162000002"/>
         </rewards>
+        <on_kill_event ids="210268">
+            <conditions operate="AND">
+                <quest_var var_id="0" value="9" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203190">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="10" name="Decorative Weapons" id="1136">
         <collect_items>
@@ -5824,6 +5914,25 @@
     </quest>
     <quest race_permitted="ASMODIAN" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Prologue" id="2000">
         <rewards exp="1" reward_id="1"/>
+        <on_lvl_up_event ids="1">
+            <conditions operate="AND">
+                <pc_race value="ASMODIAN" op="EQUAL"/>
+                <quest_status value="NONE" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <start_quest id="2000"/>
+                <play_movie movie_type="1" movie_id="2"/>
+            </operations>
+        </on_lvl_up_event>
+        <on_movie_end_event ids="2">
+            <conditions operate="AND">
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <set_quest_status status="COMPLITE"/>
+                <give_exp value="1"/>
+            </operations>
+        </on_movie_end_event>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Thinking Ahead" id="2001">
         <collect_items>
@@ -5927,7 +6036,7 @@
             <reward_item count="3" item_id="162000012"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="A Dangerous Crop" id="2013">
+    <quest race_permitted="ASMODIAN" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="A Dangerous Crop" end_npc_id="203605" start_npc_id="203605" id="2013">
         <collect_items>
             <collect_item count="5" item_id="182203013"/>
             <collect_item count="3" item_id="182203014"/>
@@ -6498,7 +6607,7 @@
             <quest_work_item count="1" item_id="182203106"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="3" name="Return to Sender" id="2107">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="3" name="Return to Sender" end_npc_id="203512" id="2107">
         <rewards exp="750" gold="130" reward_id="1"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203107"/>
@@ -6545,7 +6654,7 @@
         </collect_items>
         <rewards exp="1750" gold="770" reward_id="1"/>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="4" name="Token of a Lost Love" id="2113">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="4" name="Token of a Lost Love" end_npc_id="203534" start_npc_id="203534" id="2113">
         <collect_items>
             <collect_item count="1" item_id="182203113"/>
         </collect_items>
@@ -6553,34 +6662,86 @@
             <reward_item count="2" item_id="162000007"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="4" name="The Insect Problem" id="2114">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="4" name="The Insect Problem" end_npc_id="203533" start_npc_id="203533" id="2114">
         <rewards exp="1950" gold="200" reward_id="1">
             <reward_item count="3" item_id="160003504"/>
         </rewards>
         <rewards exp="2010" gold="100" reward_id="2">
             <reward_item count="1" item_id="160003504"/>
         </rewards>
+        <on_kill_event ids="210734">
+            <conditions operate="AND">
+                <quest_var var_id="0" value="10" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_kill_event ids="210380 210381">
+            <conditions operate="AND">
+                <quest_var var_id="1" value="10" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="1"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203533">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_var var_id="0" value="10" op="GREATER_EQUAL"/>
+                <quest_var var_id="1" value="10" op="GREATER_EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
         <finished_quest_conds>2110</finished_quest_conds>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="5" name="Sap for Leather" id="2115">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="5" name="Sap for Leather" end_npc_id="203515" start_npc_id="203534" id="2115">
         <rewards exp="1230" gold="360" reward_id="1"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203114"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="5" name="A Treasure Map" id="2116">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="5" name="A Treasure Map" end_npc_id="203541" start_npc_id="203541" id="2116">
         <collect_items>
             <collect_item count="1" item_id="182203115"/>
         </collect_items>
         <rewards exp="2050" gold="550" reward_id="1"/>
+        <on_talk_event ids="700139">
+            <conditions operate="AND">
+                <dialog_id value="10" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations/>
+        </on_talk_event>
         <finished_quest_conds>2137</finished_quest_conds>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="5" name="Food Bandits" id="2117">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="5" name="Food Bandits" end_npc_id="203540" start_npc_id="203540" id="2117">
         <rewards exp="1550" reward_id="1">
             <reward_item count="4" item_id="160003501"/>
         </rewards>
+        <on_kill_event ids="210389">
+            <conditions operate="AND">
+                <quest_var var_id="0" value="9" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203540">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_var var_id="0" value="9" op="GREATER_EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="5" name="Up to no Good" id="2118">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="5" name="Up to no Good" end_npc_id="203539" start_npc_id="203539" id="2118">
         <collect_items>
             <collect_item count="1" item_id="182203116"/>
         </collect_items>
@@ -6588,22 +6749,29 @@
             <reward_item count="4" item_id="160003002"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="5" name="Black Opal" id="2119">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="5" name="Black Opal" end_npc_id="203541" start_npc_id="203541" id="2119">
         <collect_items>
             <collect_item count="1" item_id="182203117"/>
         </collect_items>
         <rewards title="52" exp="2300" reward_id="1">
             <reward_item count="1" item_id="121000749"/>
         </rewards>
+        <on_talk_event ids="700127">
+            <conditions operate="AND">
+                <dialog_id value="10" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations/>
+        </on_talk_event>
         <finished_quest_conds>2116</finished_quest_conds>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="5" name="A Brax Skin Rug" id="2120">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="5" name="A Brax Skin Rug" end_npc_id="203542" start_npc_id="203542" id="2120">
         <collect_items>
             <collect_item count="8" item_id="182203118"/>
         </collect_items>
         <rewards exp="1450" gold="990" reward_id="1"/>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="6" name="Checking on a Friend" id="2121">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="6" name="Checking on a Friend" end_npc_id="203540" start_npc_id="278581" id="2121">
         <rewards exp="980" gold="200" reward_id="1"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203119"/>
@@ -6620,7 +6788,7 @@
             <quest_work_item count="1" item_id="182203120"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="7" name="The Imprisoned Gourmet" id="2123">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="7" name="The Imprisoned Gourmet" end_npc_id="203550" start_npc_id="203550" id="2123">
         <rewards exp="3550" reward_id="1">
             <reward_item count="1" item_id="125001757"/>
         </rewards>
@@ -6629,31 +6797,38 @@
         </rewards>
         <rewards exp="3430" gold="500" reward_id="3"/>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="7" name="The Captain's Secret" id="2124">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="7" name="The Captain's Secret" end_npc_id="203548" start_npc_id="203548" id="2124">
         <collect_items>
             <collect_item count="5" item_id="182203124"/>
             <collect_item count="3" item_id="182203125"/>
         </collect_items>
         <rewards exp="2870" gold="840" reward_id="1"/>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="8" name="The Robbery Plot" id="2125">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="8" name="The Robbery Plot" end_npc_id="203543" start_npc_id="203540" id="2125">
         <rewards exp="3150" gold="1000" reward_id="1">
             <reward_item count="4" item_id="162000002"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="7" name="As Much as You Can Carry" id="2126">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="7" name="As Much as You Can Carry" end_npc_id="203544" start_npc_id="203544" id="2126">
         <collect_items>
             <collect_item count="7" item_id="182203126"/>
         </collect_items>
         <rewards exp="4090" gold="1300" reward_id="1"/>
+        <on_talk_event ids="700129">
+            <conditions operate="AND">
+                <dialog_id value="10" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations/>
+        </on_talk_event>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="8" name="Pearls Before Swine" id="2127">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="8" name="Pearls Before Swine" end_npc_id="203544" start_npc_id="203544" id="2127">
         <collect_items>
             <collect_item count="8" item_id="182203127"/>
         </collect_items>
         <rewards exp="5050" gold="1200" reward_id="1"/>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="8" name="A Good Tonic" id="2128">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="8" name="A Good Tonic" end_npc_id="203543" start_npc_id="203543" id="2128">
         <collect_items>
             <collect_item count="8" item_id="182203128"/>
         </collect_items>
@@ -6690,7 +6865,7 @@
             <reward_item count="3" item_id="162000002"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="7" name="Alfrigh's Request" id="2134">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="7" name="Alfrigh's Request" end_npc_id="203543" start_npc_id="203543" id="2134">
         <collect_items>
             <collect_item count="5" item_id="152000201"/>
         </collect_items>
@@ -6701,7 +6876,7 @@
             <selectable_reward_item count="1" item_id="100600048"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="3" name="For Love of Negi" id="2135">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="3" name="For Love of Negi" end_npc_id="203532" start_npc_id="203532" id="2135">
         <rewards exp="120" gold="140" reward_id="1"/>
         <finished_quest_conds>2109</finished_quest_conds>
         <quest_work_items>
@@ -6718,7 +6893,7 @@
             <reward_item count="1" item_id="182000558"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="5" name="A Cursed Opal" id="2137">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="5" name="A Cursed Opal" end_npc_id="203541" start_npc_id="203539" id="2137">
         <rewards exp="430" gold="100" reward_id="1"/>
         <finished_quest_conds>2118</finished_quest_conds>
         <quest_work_items>
@@ -6731,24 +6906,67 @@
     <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="99" name="Temporary" id="2141"/>
     <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="99" name="Temporary" id="2142"/>
     <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="99" name="Temporary" id="2143"/>
-    <quest race_permitted="ASMODIAN" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="Altgard Duties" id="2200">
+    <quest race_permitted="ASMODIAN" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="Altgard Duties" start_npc_id="203984" id="2200">
         <rewards exp="1500" reward_id="1"/>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="The Crasaur Threat" id="2201">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="The Crasaur Threat" end_npc_id="203563" start_npc_id="203563" id="2201">
         <rewards exp="9800" gold="2400" reward_id="1"/>
+        <on_kill_event ids="210414 210415">
+            <conditions operate="AND">
+                <quest_var var_id="0" value="10" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203563">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_var var_id="0" value="9" op="GREATER_EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="The Lobnite Problem" id="2202">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="The Lobnite Problem" end_npc_id="203560" start_npc_id="203560" id="2202">
         <rewards exp="8790" gold="900" reward_id="1">
             <reward_item count="4" item_id="162000007"/>
         </rewards>
+        <on_kill_event ids="210413">
+            <conditions operate="AND">
+                <quest_var var_id="0" value="10" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203560">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_var var_id="0" value="9" op="GREATER_EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="Ice Lake Crystals" id="2203">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="Ice Lake Crystals" end_npc_id="203556" start_npc_id="203556" id="2203">
         <collect_items>
             <collect_item count="6" item_id="182203201"/>
         </collect_items>
         <rewards exp="3810" gold="1200" reward_id="1"/>
+        <on_talk_event ids="700055">
+            <conditions operate="AND">
+                <dialog_id value="10" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations/>
+        </on_talk_event>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="Sparkie Sap Polish" id="2204">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="Sparkie Sap Polish" end_npc_id="203576" start_npc_id="203576" id="2204">
         <collect_items>
             <collect_item count="5" item_id="182203202"/>
         </collect_items>
@@ -6756,13 +6974,13 @@
             <reward_item count="4" item_id="162000002"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="The Way to His Heart" id="2205">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="The Way to His Heart" end_npc_id="203582" start_npc_id="203582" id="2205">
         <collect_items>
             <collect_item count="5" item_id="182203203"/>
         </collect_items>
         <rewards exp="6210" gold="1700" reward_id="1"/>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="Slinking About" id="2206">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="10" name="Slinking About" end_npc_id="203562" start_npc_id="203562" id="2206">
         <collect_items>
             <collect_item count="5" item_id="182203204"/>
         </collect_items>
@@ -6770,53 +6988,88 @@
             <reward_item count="5" item_id="164000067"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="Conversing With a Skurv" id="2207">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="Conversing With a Skurv" start_npc_id="203590" id="2207">
         <rewards exp="3820" reward_id="1"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203257"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="Mau in Ten Minutes a Day" id="2208">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="Mau in Ten Minutes a Day" end_npc_id="203591" start_npc_id="203591" id="2208">
         <rewards title="54" exp="4650" reward_id="1"/>
         <finished_quest_conds>2207</finished_quest_conds>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203205"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="The Scribbler" id="2209">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" name="The Scribbler" end_npc_id="203555" start_npc_id="203555" id="2209">
         <rewards exp="6520" gold="500" reward_id="1"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203206"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="11" name="Retrieving the Report" id="2210">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="11" name="Retrieving the Report" end_npc_id="203605" start_npc_id="203603" id="2210">
         <rewards exp="3020" gold="450" reward_id="1"/>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="11" name="Karnif Threat" id="2211">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="11" name="Karnif Threat" end_npc_id="203606" start_npc_id="203606" id="2211">
         <rewards exp="11300" gold="2000" reward_id="1">
             <reward_item count="30" item_id="169300003"/>
         </rewards>
+        <on_kill_event ids="210421 210422">
+            <conditions operate="AND">
+                <quest_var var_id="0" value="10" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203606">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_var var_id="0" value="9" op="GREATER_EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="A Better Trap" id="2212">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="A Better Trap" end_npc_id="203606" start_npc_id="203606" id="2212">
         <collect_items>
             <collect_item count="6" item_id="182203207"/>
         </collect_items>
         <rewards exp="7930" gold="2300" reward_id="1"/>
         <finished_quest_conds>2211</finished_quest_conds>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="Poison Root, Potent Fruit" id="2213">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="Poison Root, Potent Fruit" end_npc_id="203604" start_npc_id="203604" id="2213">
         <rewards exp="4890" gold="600" reward_id="1"/>
+        <on_talk_event ids="700057">
+            <conditions operate="AND">
+                <dialog_id value="10" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations/>
+        </on_talk_event>
+        <on_talk_event ids="203604">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_var var_id="0" value="9" op="GREATER_EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203208"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="11" name="No-Frills Quills" id="2214">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="11" name="No-Frills Quills" end_npc_id="203605" start_npc_id="203605" id="2214">
         <collect_items>
             <collect_item count="5" item_id="182203209"/>
         </collect_items>
         <rewards exp="6890" gold="1600" reward_id="1"/>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="A Long-Lost Friend" id="2215">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="A Long-Lost Friend" end_npc_id="203607" start_npc_id="203606" id="2215">
         <rewards exp="5570" gold="700" reward_id="1"/>
         <finished_quest_conds>2212</finished_quest_conds>
     </quest>
@@ -6826,49 +7079,63 @@
             <quest_work_item count="1" item_id="182203210"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="Gleaning the Meaning" id="2217">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="Gleaning the Meaning" end_npc_id="203616" start_npc_id="203606" id="2217">
         <rewards exp="5980" gold="1200" reward_id="1"/>
         <finished_quest_conds>2216</finished_quest_conds>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203211"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="Frightcorn Seeds" id="2218">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="Frightcorn Seeds" end_npc_id="203604" start_npc_id="203604" id="2218">
         <collect_items>
             <collect_item count="5" item_id="182203212"/>
         </collect_items>
         <rewards exp="10500" reward_id="1"/>
         <finished_quest_conds>2213</finished_quest_conds>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="Ripened Frightcorn" id="2219">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="Ripened Frightcorn" start_npc_id="203604" id="2219">
         <collect_items>
             <collect_item count="3" item_id="182203214"/>
         </collect_items>
         <rewards exp="7070" reward_id="1">
             <reward_item count="3" item_id="164000036"/>
         </rewards>
+        <on_talk_event ids="700052">
+            <conditions operate="AND">
+                <dialog_id value="10" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations/>
+        </on_talk_event>
         <finished_quest_conds>2218</finished_quest_conds>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="Picking off Frightcorn" id="2220">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="11" name="Picking off Frightcorn" end_npc_id="203604" start_npc_id="203604" id="2220">
         <rewards exp="6560" reward_id="1">
             <reward_item count="1" item_id="121000750"/>
         </rewards>
         <finished_quest_conds>2219</finished_quest_conds>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="12" name="Manir's Uncle" id="2221">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="12" name="Manir's Uncle" start_npc_id="203607" id="2221">
         <collect_items>
             <collect_item count="1" item_id="182203215"/>
         </collect_items>
         <rewards exp="5940" reward_id="1"/>
+        <on_talk_event ids="700214">
+            <conditions operate="AND">
+                <dialog_id value="10" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations/>
+        </on_talk_event>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203215"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="12" name="Manir's Message" id="2222">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="12" name="Manir's Message" end_npc_id="203609" start_npc_id="203607" id="2222">
         <rewards exp="8720" gold="950" reward_id="1"/>
         <finished_quest_conds>2290</finished_quest_conds>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="13" name="A Mythical Monster" id="2223">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="13" name="A Mythical Monster" end_npc_id="203616" start_npc_id="203616" id="2223">
         <rewards exp="15500" gold="1000" reward_id="1">
             <reward_item count="3" item_id="162000013"/>
         </rewards>
@@ -6876,7 +7143,7 @@
             <quest_work_item count="1" item_id="182203217"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="13" name="Lamir's New Clothes" id="2224">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="13" name="Lamir's New Clothes" end_npc_id="203620" start_npc_id="203620" id="2224">
         <collect_items>
             <collect_item count="6" item_id="182203218"/>
         </collect_items>
@@ -6884,16 +7151,33 @@
             <reward_item count="2" item_id="152011021"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="13" name="No-Good Slime" id="2225">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="13" name="No-Good Slime" end_npc_id="203633" start_npc_id="203633" id="2225">
         <rewards exp="13300" gold="2400" reward_id="1"/>
+        <on_kill_event ids="210435">
+            <conditions operate="AND">
+                <quest_var var_id="0" value="5" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203633">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="13" name="A Cure for Crazy" id="2226">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="13" name="A Cure for Crazy" end_npc_id="203639" start_npc_id="203617" id="2226">
         <rewards exp="3890" reward_id="1"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203219"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="13" name="A Crazy Request" id="2227">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="13" name="A Crazy Request" end_npc_id="203639" start_npc_id="203639" id="2227">
         <collect_items>
             <collect_item count="3" item_id="182203220"/>
         </collect_items>
@@ -6909,7 +7193,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="99" name="A Questionable Carriage" id="2229"/>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="14" name="A Friendly Wager" id="2230">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="14" name="A Friendly Wager" end_npc_id="203621" start_npc_id="203621" id="2230">
         <collect_items>
             <collect_item count="10" item_id="182203223"/>
         </collect_items>
@@ -6918,10 +7202,10 @@
         </rewards>
         <finished_quest_conds>2288</finished_quest_conds>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="14" name="Sibling Rivalry" id="2231">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="14" name="Sibling Rivalry" end_npc_id="203610" start_npc_id="203620" id="2231">
         <rewards exp="20300" gold="1000" reward_id="1"/>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="14" name="The Broken Honey Jar" id="2232">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="14" name="The Broken Honey Jar" end_npc_id="203613" start_npc_id="203613" id="2232">
         <collect_items>
             <collect_item count="9" item_id="182203224"/>
         </collect_items>
@@ -6929,7 +7213,7 @@
             <reward_item count="3" item_id="164000064"/>
         </rewards>
     </quest>
-    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="14" name="Mantigar's Request" id="2233">
+    <quest race_permitted="ASMODIAN" max_repeat_count="1" minlevel_permitted="14" name="Mantigar's Request" end_npc_id="203611" start_npc_id="203611" id="2233">
         <rewards exp="5340" gold="1100" reward_id="1"/>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="14" name="An Irritating Problem" id="2234">
@@ -7265,8 +7549,34 @@
             <quest_work_item count="1" item_id="182203260"/>
         </quest_work_items>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="13" name="Put Your Money Where Your Mouth Is" id="2288">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="13" name="Put Your Money Where Your Mouth Is" end_npc_id="203621" start_npc_id="203621" id="2288">
         <rewards exp="15800" gold="2600" reward_id="1"/>
+        <on_kill_event ids="210435">
+            <conditions operate="AND">
+                <quest_var var_id="0" value="5" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_kill_event ids="210440 210441 210441 210503 210563 210564 210566 210581 210584">
+            <conditions operate="AND">
+                <quest_var var_id="0" value="4" op="LESSER"/>
+            </conditions>
+            <operations>
+                <incrase_quest_var value="1" var_id="0"/>
+            </operations>
+        </on_kill_event>
+        <on_talk_event ids="203621">
+            <conditions operate="AND">
+                <dialog_id value="25" op="EQUAL"/>
+                <quest_var var_id="0" value="9" op="GREATER_EQUAL"/>
+                <quest_status value="START" op="EQUAL"/>
+            </conditions>
+            <operations>
+                <npc_dialog id="1352"/>
+            </operations>
+        </on_talk_event>
     </quest>
     <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="13" name="Rampaging Mosbears" id="2289">
         <collect_items>
@@ -7279,7 +7589,7 @@
         <rewards exp="14200" gold="850" reward_id="1"/>
         <finished_quest_conds>2221</finished_quest_conds>
     </quest>
-    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="12" name="Report to Garuntat" id="2291">
+    <quest race_permitted="ASMODIAN" cannot_share="true" max_repeat_count="1" minlevel_permitted="12" name="Report to Garuntat" end_npc_id="203617" start_npc_id="203639" id="2291">
         <rewards exp="6010" gold="320" reward_id="1"/>
         <finished_quest_conds>2227</finished_quest_conds>
     </quest>

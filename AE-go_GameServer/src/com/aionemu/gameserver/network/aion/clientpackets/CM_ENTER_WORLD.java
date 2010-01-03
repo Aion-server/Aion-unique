@@ -1,18 +1,18 @@
-/**
- * This file is part of aion-emu <aion-emu.com>.
+/*
+ * This file is part of aion-unique <aion-unique.org>.
  *
- *  aion-emu is free software: you can redistribute it and/or modify
+ *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-emu is distributed in the hope that it will be useful,
+ *  aion-unique is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 package com.aionemu.gameserver.network.aion.clientpackets;
@@ -23,8 +23,6 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.configs.Config;
-import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
@@ -41,7 +39,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FLY_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_ID;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRICES;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
@@ -147,12 +144,6 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			if(shortcuts != null)
 				client.sendPacket(new SM_UI_SETTINGS(shortcuts, 1));
 
-			LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
-			if((player.getPosition().getX() == locationData.getX())&&(player.getPosition().getY() == locationData.getY()))
-			{
-				client.sendPacket(new SM_PLAY_MOVIE(player));
-
-			}
 			// sendPacket(new SM_UNK60());
 			// sendPacket(new SM_UNK17());
 			sendPacket(new SM_UNK5E());

@@ -1,18 +1,18 @@
 /*
- * This file is part of aion-emu <aion-emu.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
- *  aion-emu is free software: you can redistribute it and/or modify
+ *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-emu is distributed in the hope that it will be useful,
+ *  aion-unique is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 package com.aionemu.gameserver.dataholders;
@@ -69,7 +69,7 @@ public class QuestsData
 					QuestEngine.getInstance().setNpcQuestData(id).addOnTalkEvent(quest.getId());
 				}
 			}
-			
+
 			for(QuestEvent event : quest.getOnItemUseEvent())
 			{
 				for(int id : event.getIds())
@@ -77,13 +77,12 @@ public class QuestsData
 					QuestEngine.getInstance().setQuestItemIds(id).add(quest.getId());
 				}
 			}
-			
+
 			if(!quest.getOnLvlUpEvent().isEmpty())
 			{
-
 				QuestEngine.getInstance().addQuestLvlUp(quest.getId());
 			}
-			
+
 			for(OnEnterZoneEvent event : quest.getOnEnterZoneEvent())
 			{
 				for(ZoneName zoneName : event.getNames())
@@ -92,6 +91,13 @@ public class QuestsData
 				}
 			}
 
+			for(QuestEvent event : quest.getOnMovieEndEvent())
+			{
+				for(int id : event.getIds())
+				{
+					QuestEngine.getInstance().setQuestMovieEndIds(id).add(quest.getId());
+				}
+			}
 			questData.put(quest.getId(), quest);
 		}
 		questsData.clear();

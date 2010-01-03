@@ -48,7 +48,7 @@ public class QuestState
     	   return questVars;
        }
 
-       public final QuestStatus getStatus()
+       public QuestStatus getStatus()
        {
     	   return status;
        }

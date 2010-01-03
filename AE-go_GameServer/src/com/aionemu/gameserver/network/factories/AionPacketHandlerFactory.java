@@ -70,6 +70,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_PING;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_PING_REQUEST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_PLAYER_SEARCH;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_PLAYER_STATUS_INFO;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_PLAY_MOVIE_END;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUESTION_RESPONSE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_RECONNECT_AUTH;
@@ -198,7 +199,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_GROUP_DISTRIBUTION(0x5F), State.IN_GAME);
 		
 		//addPacket(new CM_REQUEST_DUEL(0x5C ), State.IN_GAME);
-
+		addPacket(new CM_PLAY_MOVIE_END(0xB4), State.IN_GAME);
 		
 	}
 

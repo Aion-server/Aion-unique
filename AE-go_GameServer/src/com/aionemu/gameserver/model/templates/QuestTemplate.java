@@ -1,18 +1,18 @@
 /*
- * This file is part of aion-emu <aion-emu.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
- *  aion-emu is free software: you can redistribute it and/or modify
+ *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-emu is distributed in the hope that it will be useful,
+ *  aion-unique is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.model.templates;
 
@@ -37,6 +37,7 @@ import com.aionemu.gameserver.questEngine.events.OnEnterZoneEvent;
 import com.aionemu.gameserver.questEngine.events.OnItemUseEvent;
 import com.aionemu.gameserver.questEngine.events.OnKillEvent;
 import com.aionemu.gameserver.questEngine.events.OnLvlUpEvent;
+import com.aionemu.gameserver.questEngine.events.OnMovieEndEvent;
 import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
 
 
@@ -54,6 +55,7 @@ import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
     "onLvlUpEvent",
     "onItemUseEvent",
     "onEnterZoneEvent",
+    "onMovieEndEvent",
     "finishedQuestConds",
     "classPermitted",
     "genderPermitted",
@@ -75,6 +77,8 @@ public class QuestTemplate {
     protected List<OnItemUseEvent> onItemUseEvent;
     @XmlElement(name = "on_enter_zone_event")
     protected List<OnEnterZoneEvent> onEnterZoneEvent;
+    @XmlElement(name = "on_movie_end_event")
+    protected List<OnMovieEndEvent> onMovieEndEvent;
     @XmlList
     @XmlElement(name = "finished_quest_conds", type = Integer.class)
     protected List<Integer> finishedQuestConds;
@@ -301,6 +305,35 @@ public class QuestTemplate {
             onEnterZoneEvent = new ArrayList<OnEnterZoneEvent>();
         }
         return this.onEnterZoneEvent;
+    }
+
+    /**
+     * Gets the value of the onMovieEndEvent property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the onMovieEndEvent property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getOnMovieEndEvent().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link OnMovieEndEvent }
+     * 
+     * 
+     */
+    public List<OnMovieEndEvent> getOnMovieEndEvent() {
+        if (onMovieEndEvent == null) {
+            onMovieEndEvent = new ArrayList<OnMovieEndEvent>();
+        }
+        return this.onMovieEndEvent;
     }
 
     /**

@@ -24,7 +24,6 @@ import javolution.util.FastMap;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
@@ -34,13 +33,13 @@ import com.aionemu.gameserver.questEngine.events.OnEnterZoneEvent;
 import com.aionemu.gameserver.questEngine.events.OnItemUseEvent;
 import com.aionemu.gameserver.questEngine.events.OnKillEvent;
 import com.aionemu.gameserver.questEngine.events.OnLvlUpEvent;
+import com.aionemu.gameserver.questEngine.events.OnMovieEndEvent;
 import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.zone.ZoneName;
 
 /**
@@ -56,7 +55,7 @@ public class QuestEngine
 	private FastMap<Integer, List<Integer>>		_questItemIds;
 	private List<Integer>						_questLvlUp;
 	private FastMap<ZoneName, List<Integer>>	_questEnterZone;
-
+	private FastMap<Integer, List<Integer>>		_questMovieEndIds;
 	private ItemService							itemService;
 
 	private QuestEngine()
@@ -65,6 +64,7 @@ public class QuestEngine
 		_questItemIds = new FastMap<Integer, List<Integer>>();
 		_questLvlUp = new ArrayList<Integer>();
 		_questEnterZone = new FastMap<ZoneName, List<Integer>>();
+		_questMovieEndIds = new FastMap<Integer, List<Integer>>();
 	}
 
 	public boolean onDialog(QuestEnv env)
@@ -176,14 +176,8 @@ public class QuestEngine
 		return false;
 	}
 
-	public void onEnterWorld(final QuestEnv env)
+	public void onEnterWorld(QuestEnv env)
 	{
-		ThreadPoolManager.getInstance().schedule(new Runnable(){
-			public void run()
-			{
-				playerInitQuest(env);
-			}
-		}, 10000);
 		onLvlUp(env);
 	}
 
@@ -244,38 +238,18 @@ public class QuestEngine
 		return false;
 	}
 
-	public void playerInitQuest(final QuestEnv env)
+	public boolean onMovieEnd(QuestEnv env, int movieId)
 	{
-		int id;
-		Player player = env.getPlayer();
-		if(player.getCommonData().getRace() == Race.ELYOS)
+		for(int questId : getQuestMovieEndIds(movieId))
 		{
-			id = 1000;
+			for(OnMovieEndEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnMovieEndEvent())
+			{
+				env.setQuestId(questId);
+				if(event.operate(env))
+					return true;
+			}
 		}
-		else
-		{
-			id = 2000;
-		}
-		env.setQuestId(id);
-
-		if(player.getQuestStateList().getQuestState(id) == null)
-		{
-			getQuest(env).startQuest();
-		}
-
-		QuestState qs = player.getQuestStateList().getQuestState(id);
-		if(qs != null)
-		{
-			if(qs.getStatus() == QuestStatus.COMPLITE)
-				return;
-			qs.setStatus(QuestStatus.REWARD);
-			ThreadPoolManager.getInstance().schedule(new Runnable(){
-				public void run()
-				{
-					getQuest(env).questFinish();
-				}
-			}, 5000);
-		}
+		return false;
 	}
 
 	public Quest getQuest(QuestEnv env)
@@ -367,6 +341,24 @@ public class QuestEngine
 		return _questEnterZone.get(zoneName);
 	}
 
+	public List<Integer> getQuestMovieEndIds(int moveId)
+	{
+		if(_questMovieEndIds.containsKey(moveId))
+		{
+			return _questMovieEndIds.get(moveId);
+		}
+		return new ArrayList<Integer>();
+	}
+
+	public List<Integer> setQuestMovieEndIds(int moveId)
+	{
+		if(!_questMovieEndIds.containsKey(moveId))
+		{
+			_questMovieEndIds.put(moveId, new ArrayList<Integer>());
+		}
+		return _questMovieEndIds.get(moveId);
+	}
+
 	public void setItemService(ItemService itemService)
 	{
 		this.itemService = itemService;
@@ -380,6 +372,10 @@ public class QuestEngine
 	public void clear()
 	{
 		_npcQuestData.clear();
+		_questItemIds.clear();
+		_questLvlUp.clear();
+		_questEnterZone.clear();
+		_questMovieEndIds.clear();
 	}
 
 	public static QuestEngine getInstance()

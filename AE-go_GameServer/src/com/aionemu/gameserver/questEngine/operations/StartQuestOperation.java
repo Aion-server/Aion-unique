@@ -35,11 +35,13 @@ public class StartQuestOperation
 {
 
     @XmlAttribute(required = true)
-    protected int id;
+    protected Integer id;
 
     @Override
 	public void doOperate(QuestEnv env)
     {
+    	if (id != null)
+    		env.setQuestId(id);
     	QuestEngine.getInstance().getQuest(env).startQuest();
     }
     

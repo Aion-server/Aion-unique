@@ -23,7 +23,6 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 
-
 /**
  * @author MrPoke
  *
@@ -34,6 +33,7 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
     TakeItemOperation.class,
     GiveExpOperation.class,
     StartQuestOperation.class,
+    PlayMovieOperation.class,
     NpcDialogOperation.class,
     GiveItemOperation.class,
     SetQuestStatusOperation.class,

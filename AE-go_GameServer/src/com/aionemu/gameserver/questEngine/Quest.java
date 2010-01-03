@@ -19,10 +19,6 @@ package com.aionemu.gameserver.questEngine;
 import static com.aionemu.gameserver.configs.Config.QUEST_KINAH_RATE;
 import static com.aionemu.gameserver.configs.Config.QUEST_XP_RATE;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
@@ -30,12 +26,9 @@ import com.aionemu.gameserver.model.templates.quest.CollectItem;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
 import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.model.templates.quest.Rewards;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
