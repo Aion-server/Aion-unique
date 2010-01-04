@@ -27,11 +27,15 @@ public class SM_TARGET_SELECTED extends AionServerPacket
 	
 	private int	targetObjectId;
 	private int level;
+	private int maxhp;
+	private int curhp;
 	
-	public SM_TARGET_SELECTED(int targetObjectId, int level)
+	public SM_TARGET_SELECTED(int targetObjectId, int level, int maxhp, int curhp)
 	{
 		this.targetObjectId = targetObjectId;
 		this.level = level;
+		this.maxhp = maxhp;
+		this.curhp = curhp;
 	}
 
 	/**
@@ -43,8 +47,7 @@ public class SM_TARGET_SELECTED extends AionServerPacket
 	{		
 		writeD(buf, targetObjectId);
 		writeH(buf, level);
-		writeD(buf, 9426);
-		writeD(buf, 9426); // unk 9426 mobs above npc level
-
+		writeD(buf, maxhp);// Max HP
+		writeD(buf, curhp); // Current HP
 	}	
 }

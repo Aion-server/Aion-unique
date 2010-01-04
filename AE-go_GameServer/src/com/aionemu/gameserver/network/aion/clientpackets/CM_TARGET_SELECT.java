@@ -103,7 +103,7 @@ public class CM_TARGET_SELECT extends AionClientPacket
 				if (obj instanceof Creature)
 				{
 					Creature c = (Creature)obj;
-					sendPacket(new SM_TARGET_SELECTED(targetObjectId, c.getLevel()));
+					sendPacket(new SM_TARGET_SELECTED(targetObjectId, c.getLevel(), c.getLifeStats().getMaxHp(), c.getLifeStats().getCurrentHp()));
 				}
 			}
 
