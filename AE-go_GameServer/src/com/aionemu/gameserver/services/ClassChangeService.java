@@ -38,7 +38,7 @@ public class ClassChangeService
 	 */
 	public static void showClassChangeDialog(Player player)
 	{
-		if (!Config.DISABLE_SIMPLE_2NDCLASS)
+		if (Config.ENABLE_SIMPLE_2NDCLASS)
 		{
 			PlayerClass playerClass = player.getPlayerClass();
 			Race playerRace = player.getCommonData().getRace();
@@ -91,7 +91,7 @@ public class ClassChangeService
 	 */
 	public static void changeClassToSelection(final Player player, final int dialogId)
 	{
-		if (!Config.DISABLE_SIMPLE_2NDCLASS)
+		if (Config.ENABLE_SIMPLE_2NDCLASS)
 		{
 			Race playerRace = player.getCommonData().getRace();
 			if (playerRace.ordinal() == 0)
