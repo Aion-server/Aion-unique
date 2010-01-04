@@ -110,17 +110,25 @@ public class PlayerCommonData
 	 */
 	public void calculateExpLoss()
 	{
-		int recoverable = Math.round(this.getExpNeed() / 100 * 3);//TODO check the formulas
-		int unrecoverable = Math.round(this.getExpNeed() / 100);
-		long allexploss = recoverable + this.expRecoverable;
+		int unrecoverable = Math.round(this.getExpNeed() / 100 * 3);//TODO check the formula
 		
 		if(this.getExpShown() > unrecoverable)
 			this.exp = this.exp - unrecoverable;
 		else this.exp = this.exp - this.getExpShown();
 		
+		int recoverable = unrecoverable;//here will be some formula
+		long allexploss = recoverable + this.expRecoverable;
+		
 		if(this.getExpShown() > allexploss)
+		{
 			this.expRecoverable = allexploss;
-		else this.expRecoverable = this.expRecoverable + this.getExpShown();
+			this.exp = this.exp - recoverable;
+		}
+		else
+		{
+			this.expRecoverable = this.expRecoverable + this.getExpShown();
+			this.exp = this.exp - this.getExpShown();
+		}	
 		
 		PacketSendUtility.sendPacket(this.getPlayer(),
 				new SM_STATUPDATE_EXP(this.getExpShown(), this.getExpRecoverable(), this.getExpNeed()));	
