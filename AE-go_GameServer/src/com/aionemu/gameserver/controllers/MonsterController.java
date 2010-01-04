@@ -16,16 +16,18 @@
  */
 package com.aionemu.gameserver.controllers;
 
-import javolution.util.FastMap;
 import java.util.Iterator;
+import java.util.List;
+
+import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AIState;
 import com.aionemu.gameserver.ai.events.AttackEvent;
 import com.aionemu.gameserver.ai.npcai.MonsterAi;
-import com.aionemu.gameserver.model.AttackList;
-import com.aionemu.gameserver.model.AttackType;
+import com.aionemu.gameserver.controllers.attack.AttackResult;
+import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -42,10 +44,8 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.DecayService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
-import com.aionemu.gameserver.model.group.PlayerGroup;
 
 /**
  * @author ATracer
@@ -54,33 +54,31 @@ import com.aionemu.gameserver.model.group.PlayerGroup;
 public class MonsterController extends NpcController
 {
 	private static Logger log = Logger.getLogger(MonsterController.class);
-	
-	private FastMap<Integer,AttackList> _attacklist = new FastMap<Integer,AttackList>();
-	
+
 	public final class AggroInfo
 	{
 		protected Creature _attacker;
 		protected int _hate;
 		protected int _damage;
-		
+
 		AggroInfo(Creature pAttacker)
 		{
 			_attacker = pAttacker;
 		}
 	}
-	
+
 	private FastMap<Creature, AggroInfo> _aggroList = new FastMap<Creature, AggroInfo>().setShared(true);
 
 	public final FastMap<Creature, AggroInfo> getAggroList()
 	{
 		return _aggroList;
 	}
-	
+
 	@Override
 	public void doDrop(Player player)
 	{
 		super.doDrop(player);
-/*		PlayerGroup pg = player.getPlayerGroup();
+		/*		PlayerGroup pg = player.getPlayerGroup();
 		if(pg != null)
 		{
 			Player winner = pg.lootDistributionService(player);
@@ -127,12 +125,12 @@ public class MonsterController extends NpcController
 			QuestEngine.getInstance().onKill(new QuestEnv(getOwner(), player, 0 , 0));
 		}
 	}
-	
+
 	@Override
 	public boolean onAttack(Creature creature)
 	{
 		super.onAttack(creature);
-		
+
 		Monster monster = getOwner();
 		CreatureLifeStats<? extends Creature> lifeStats = monster.getLifeStats();
 
@@ -140,23 +138,22 @@ public class MonsterController extends NpcController
 		{
 			return false;
 		}
-		
+
 		MonsterAi monsterAi = monster.getAi();
 		monsterAi.handleEvent(new AttackEvent(creature));
-		
+
 		return true;
 	}
-	
+
 	public void attackTarget(int targetObjectId)
 	{
 		Monster monster = getOwner();
-		
+
 		if (monster == null || monster.getLifeStats().isAlreadyDead())
 			return;
-		
+
 		MonsterAi monsterAi = monster.getAi();
 		CreatureGameStats<? extends Creature> npcGameStats = monster.getGameStats();
-		_attacklist.clear();
 
 		int attackType = 0; //TODO investigate attack types	(0 or 1)
 
@@ -168,23 +165,28 @@ public class MonsterController extends NpcController
 		{
 			monsterAi.setAiState(AIState.IDLE);
 		}
-		//TODO fix last attack - cause mob is already dead
-		int damage = StatFunctions.calculateBaseDamageToTarget(monster, player);
 
 		boolean attackSuccess = player.getController().onAttack(monster);
 
 		if(attackSuccess)
 		{
-			player.getLifeStats().reduceHp(damage);
-			AttackList atk = new AttackList(damage,AttackType.NORMALHIT);
-			_attacklist.put(_attacklist.size(), atk);
+			List<AttackResult> attackList = AttackUtil.calculateAttackResult(monster, player);
+
+			int damage = 0;
+			for(AttackResult result : attackList)
+			{
+				damage += result.getDamage();
+			}
 			
 			//wtf is 274 - invetigate
 			PacketSendUtility.broadcastPacket(player,
 				new SM_ATTACK(monster.getObjectId(), player.getObjectId(),
-					npcGameStats.getAttackCounter(), 274, attackType, _attacklist), true);
+					npcGameStats.getAttackCounter(), 274, attackType, attackList), true);
+			
+			player.getLifeStats().reduceHp(damage);
 			npcGameStats.increaseAttackCounter();
 		}
+		
 		if(player.getLifeStats().isAlreadyDead())
 		{
 			monsterAi.setAiState(AIState.IDLE);
@@ -195,10 +197,10 @@ public class MonsterController extends NpcController
 	public void onDie()
 	{
 		super.onDie();
-		
+
 		MonsterAi monsterAi = getOwner().getAi();
 		monsterAi.setAiState(AIState.NONE);
-		
+
 		//TODO change - now reward is given to target only
 		Player target = (Player) this.getOwner().getTarget();
 
@@ -206,13 +208,13 @@ public class MonsterController extends NpcController
 
 		this.doReward(target);
 		this.doDrop(target);
-		
+
 		if(decayTask == null)
 		{
 			RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
 			decayTask = DecayService.getInstance().scheduleDecayTask(this.getOwner());
 		}	
-		
+
 		//deselect target at the end
 		getOwner().setTarget(null);
 	}
@@ -235,18 +237,18 @@ public class MonsterController extends NpcController
 	{
 		return (Monster) super.getOwner();
 	}
-	
+
 	@Override
 	public boolean isAttackable()
 	{
 		return true;
 	}
-	
+
 	public void addDamageHate(Creature attacker, int damage, int aggro)
 	{
 		if (attacker == null)
 			return;
-		
+
 		AggroInfo ai = getAggroList().get(attacker);
 		if (ai == null)
 		{
@@ -257,20 +259,20 @@ public class MonsterController extends NpcController
 			ai._hate = 0;
 		}
 		ai._damage += damage;
-		
+
 		if (aggro == 0)
 			ai._hate++;
 		else
 			ai._hate += aggro;
 	}
-	
+
 	public Creature getMostHated()
 	{
 		if (getAggroList().isEmpty() || getOwner().getLifeStats().isAlreadyDead()) return null;
-		
+
 		Creature mostHated = null;
 		int maxHate = 0;
-		
+
 		synchronized (getAggroList())
 		{
 			for (AggroInfo ai : getAggroList().values())
@@ -293,7 +295,7 @@ public class MonsterController extends NpcController
 		}
 		return mostHated;
 	}
-	
+
 	@Override
 	public void notSee(VisibleObject object)
 	{

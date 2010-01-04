@@ -1,5 +1,5 @@
-/*  
- *  This file is part of aion-unique <aion-unique.com>.
+/*
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,20 +14,37 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model;
+package com.aionemu.gameserver.controllers.attack;
 
 /**
- * @author KKnD
+ * @author ATracer
  *
  */
-public class AttackList
+public class AttackResult
 {
-	public int damage;
-	public AttackType attacktype;
+	private int damage;
 	
-	public AttackList(int dmg, AttackType atktype)
+	private AttackStatus attackStatus;
+	
+	public AttackResult(int damage, AttackStatus attackStatus)
 	{
-		damage = dmg;
-		attacktype = atktype;
+		this.damage = damage;
+		this.attackStatus = attackStatus;
+	}
+
+	/**
+	 * @return the damage
+	 */
+	public int getDamage()
+	{
+		return damage;
+	}
+
+	/**
+	 * @return the attackStatus
+	 */
+	public AttackStatus getAttackStatus()
+	{
+		return attackStatus;
 	}
 }

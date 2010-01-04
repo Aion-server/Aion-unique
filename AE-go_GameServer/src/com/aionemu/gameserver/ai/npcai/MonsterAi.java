@@ -16,9 +16,8 @@
  */
 package com.aionemu.gameserver.ai.npcai;
 
+import java.util.Collections;
 import java.util.concurrent.Future;
-
-import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
@@ -35,8 +34,8 @@ import com.aionemu.gameserver.ai.desires.impl.SimpleDesireIteratorHandler;
 import com.aionemu.gameserver.ai.desires.impl.WalkDesire;
 import com.aionemu.gameserver.ai.events.AttackEvent;
 import com.aionemu.gameserver.configs.Config;
-import com.aionemu.gameserver.model.AttackList;
-import com.aionemu.gameserver.model.AttackType;
+import com.aionemu.gameserver.controllers.attack.AttackResult;
+import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
@@ -56,8 +55,6 @@ public class MonsterAi extends NpcAi
 	private Future<?> moveTask;
 	private Future<?> attackTask;
 	private Future<?> aggressionTask;
-	protected Creature crt;
-
 	/**
 	 * @param event
 	 */
@@ -227,21 +224,20 @@ public class MonsterAi extends NpcAi
 		}
 	}
 
-	public void hanndleAggroTask(Creature target)
+	public void hanndleAggroTask(final Creature target)
 	{
-		crt = target;
-		FastMap<Integer,AttackList> _attacklist = new FastMap<Integer,AttackList>();
-		AttackList atk = new AttackList(0,AttackType.NORMALHIT);
-		_attacklist.put(_attacklist.size(), atk);
 		//ToDO proper aggro emotion on aggro range enter
-		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK(getOwner().getObjectId() , target.getObjectId(), 0, 633, 0, _attacklist));
-		ThreadPoolManager.getInstance().schedule(new Runnable(){
-
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK(getOwner().getObjectId(),
+			target.getObjectId(), 0, 633, 0, 
+			Collections.singletonList(new AttackResult(0, AttackStatus.NORMALHIT))));
+		
+		ThreadPoolManager.getInstance().schedule(new Runnable()
+		{
 			@Override
 			public void run()
 			{
-				getOwner().getController().addDamageHate(crt, 0, 0);
-				getOwner().getAi().handleEvent(new AttackEvent(crt));
+				getOwner().getController().addDamageHate(target, 0, 0);
+				getOwner().getAi().handleEvent(new AttackEvent(target));
 			}
 		},2000);
 	}

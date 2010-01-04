@@ -1,5 +1,5 @@
-/*  
- *  This file is part of aion-unique <aion-unique.com>.
+/*
+ * This file is part of aion-emu <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,27 +14,25 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model;
+package com.aionemu.gameserver.controllers.attack;
 
 /**
- * @author KKnD
+ * @author ATracer
  *
  */
-public enum AttackType
+public enum AttackStatus
 {
 	DODGE(0),
 	PARRY(2),
+	BLOCK(4),
+	RESIST(6),
+	BUF(8),// ??
 	NORMALHIT(10),
-	CRITICALHIT(202),
-	CRITICALHIT2(219), //stronger critical??
-	DODGE2(400),//??
-	BLOCKREFLECT(500),//target blocked and refleted
-	BLOCKREFLECT2(522);//target blocked attack thansk to shield effect skill
-	
+	CRITICAL(12);
 	
 	private int _type;
 	
-	private AttackType(int type)
+	private AttackStatus(int type)
 	{
 		this._type = type;
 	}
@@ -43,5 +41,4 @@ public enum AttackType
 	{
 		return _type;
 	}
-
 }

@@ -16,10 +16,10 @@
  */
 package com.aionemu.gameserver.network.aion.serverpackets;
 
-import javolution.util.FastMap;
 import java.nio.ByteBuffer;
+import java.util.List;
 
-import com.aionemu.gameserver.model.AttackList;
+import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -35,16 +35,16 @@ public class SM_ATTACK extends AionServerPacket
 	private int	attackno;
 	private int	time;
 	private int	type;
-	private FastMap<Integer,AttackList> _attacklist = new FastMap<Integer,AttackList>();
+	private List<AttackResult> attackList;
 	
-	public SM_ATTACK(int attackerobjectid ,int targetObjectId, int attackno, int time, int type, FastMap<Integer,AttackList> atk)
+	public SM_ATTACK(int attackerobjectid ,int targetObjectId, int attackno, int time, int type, List<AttackResult> attackList)
 	{
 		this.attackerobjectid = attackerobjectid;
 		this.targetObjectId = targetObjectId;
 		this.attackno = attackno;// empty
 		this.time = time ;// empty
 		this.type = type;// empty
-		this._attacklist = atk;
+		this.attackList = attackList;
 	}
 
 	/**
@@ -65,11 +65,11 @@ public class SM_ATTACK extends AionServerPacket
 		writeH(buf, 84); // unknown
 		writeC(buf, 0); // unknown
 		
-		writeC(buf, _attacklist.size());
-		for (AttackList atk : _attacklist.values())
+		writeC(buf, attackList.size());
+		for (AttackResult attack : attackList)
 		{
-			writeD(buf, atk.damage); // damage
-			writeH(buf, atk.attacktype.getId()); // unknown
+			writeD(buf, attack.getDamage()); // damage
+			writeH(buf, attack.getAttackStatus().getId()); // attack status
 		}
 		
 		writeC(buf, 0);

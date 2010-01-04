@@ -16,24 +16,22 @@
  */
 package com.aionemu.gameserver.controllers;
 
-import javolution.util.FastMap;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.commons.utils.Rnd;
-import com.aionemu.gameserver.model.AttackList;
-import com.aionemu.gameserver.model.AttackType;
+import com.aionemu.gameserver.controllers.attack.AttackResult;
+import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
-import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
-import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
@@ -51,7 +49,6 @@ import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.Skill.SkillType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneManager;
@@ -68,8 +65,6 @@ public class PlayerController extends CreatureController<Player>
 
 	// TEMP till player AI introduced
 	private Creature		lastAttacker;
-	
-	private FastMap<Integer,AttackList> _attacklist = new FastMap<Integer,AttackList>();
 
 	/**
 	 * @return the lastAttacker
@@ -102,8 +97,8 @@ public class PlayerController extends CreatureController<Player>
 				{
 					if (!getOwner().getNearbyQuests().contains(questId))
 					{
-					    update = true;
-					    getOwner().getNearbyQuests().add(questId);
+						update = true;
+						getOwner().getNearbyQuests().add(questId);
 					}
 				}
 			}
@@ -133,8 +128,8 @@ public class PlayerController extends CreatureController<Player>
 				{
 					if (getOwner().getNearbyQuests().contains(questId))
 					{
-					    update = true;
-					    getOwner().getNearbyQuests().remove(getOwner().getNearbyQuests().indexOf(questId));
+						update = true;
+						getOwner().getNearbyQuests().remove(getOwner().getNearbyQuests().indexOf(questId));
 					}
 				}
 			}
@@ -144,7 +139,7 @@ public class PlayerController extends CreatureController<Player>
 
 		PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object));
 	}
-	
+
 	/**
 	 *  Will be called by ZoneManager when player enters specific zone
 	 *  
@@ -154,14 +149,14 @@ public class PlayerController extends CreatureController<Player>
 	{
 		QuestEngine.getInstance().onEnterZone(new QuestEnv(null, this.getOwner(), 0, 0), zoneInstance.getTemplate().getName());
 	}
-	
+
 	/**
 	 *  Will be called by ZoneManager when player leaves specific zone
 	 * @param zoneInstance
 	 */
 	public void onLeaveZone(ZoneInstance zoneInstance)
 	{
-		
+
 	}
 
 	/**
@@ -181,13 +176,13 @@ public class PlayerController extends CreatureController<Player>
 			this.lostDuelWith((Player)lastAttacker);
 			((Player)lastAttacker).getController().wonDuelWith(player);
 		} else { // PvE
-			
+
 			/**
 			 * Set recoverable exp to player.
 			 */
 			if(player.getLevel() > 4) //only over level 5
 				player.getCommonData().calculateExpLoss();	
-			
+
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 13,
 				0, lastAttacker.getObjectId()), true);
 			PacketSendUtility.sendPacket(player, new SM_DIE());
@@ -195,60 +190,44 @@ public class PlayerController extends CreatureController<Player>
 		}
 	}
 
-	private boolean doAttack (Player player, Creature target, PlayerGameStats pgs, long time, int attackType, int damage, FastMap<Integer,AttackList> attacklist) 
-	{
-		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), target.getObjectId(), pgs
-			.getAttackCounter(), (int) time, attackType, attacklist), true);
-		boolean attackSuccess = target.getController().onAttack(player);
-
-		if(attackSuccess)
-		{
-			target.getLifeStats().reduceHp(damage);
-			pgs.increaseAttackCounter();
-			if (target instanceof Monster)
-			{
-				((Monster)target).getController().addDamageHate(player, damage, 0);
-			}
-		}
-		return attackSuccess;
-	}
-	
 	public void attackTarget(int targetObjectId)
 	{
 		Player player = getOwner();
 		PlayerGameStats gameStats = player.getGameStats();
 		long time = System.currentTimeMillis();
 		int attackType = 0; // TODO investigate attack types
-		_attacklist.clear();
+
+
 
 		World world = player.getActiveRegion().getWorld();
 		Creature target = (Creature) world.findAionObject(targetObjectId);
 		if(target == null || !target.getController().isAttackable())
 			return;
-		
-		// TODO fix last attack - cause mob is already dead
-		int damage = StatFunctions.calculateBaseDamageToTarget(player, target);
-		int hitCount = Rnd.get(1,gameStats.getCurrentStat(StatEnum.MAIN_HAND_HITS) + gameStats.getCurrentStat(StatEnum.OFF_HAND_HITS));
-		AttackList atk;
-		int finaldamage=0;
-		for (int i=0; (i<hitCount); i++) {
-			int damages;
-			if (i==0)
+
+		boolean attackPossible = target.getController().onAttack(player);
+
+		if(attackPossible)
+		{
+
+			List<AttackResult> attackResult = AttackUtil.calculateAttackResult(player, target);
+
+			int damage = 0;
+			for(AttackResult result : attackResult)
 			{
-				damages = Math.round(damage*0.75f);
-				atk = new AttackList(damages,AttackType.NORMALHIT);
+				damage += result.getDamage();
 			}
-			else
+
+			PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), target.getObjectId(),
+				gameStats.getAttackCounter(), (int) time, attackType, attackResult), true);
+
+
+			target.getLifeStats().reduceHp(damage);
+			gameStats.increaseAttackCounter();
+			if (target instanceof Monster)
 			{
-				damages = Math.round(damage/((float)hitCount-1f));
-				atk = new AttackList(damages,AttackType.NORMALHIT);
+				((Monster)target).getController().addDamageHate(player, damage, 0);
 			}
-			//attackSuccess = doAttack(player,target,gameStats,time,attackType,damages);
-			_attacklist.put(_attacklist.size(), atk);
-			damage -= damages;
-			finaldamage += damages;
 		}
-		doAttack(player,target,gameStats,time,attackType,finaldamage, _attacklist);
 	}
 
 	@Override
@@ -290,7 +269,7 @@ public class PlayerController extends CreatureController<Player>
 			ZoneManager.getInstance().checkZone(getOwner());
 		}
 	}
-	
+
 	@Override
 	public void onStartMove()
 	{
@@ -398,7 +377,7 @@ public class PlayerController extends CreatureController<Player>
 		log.debug("[PvP] Player " + attacker.getName() + " won duel against " + this.getOwner().getName());
 		PacketSendUtility.sendPacket(getOwner(), SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_WON,attacker.getName()));
 	}
-	
+
 	/**
 	 * Lost the duel
 	 * 
