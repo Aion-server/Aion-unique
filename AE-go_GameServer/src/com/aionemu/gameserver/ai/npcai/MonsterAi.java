@@ -220,7 +220,7 @@ public class MonsterAi extends NpcAi
 				desireQueue.clear();
 				if (getOwner().hasWalkRoutes())
 					desireQueue.addDesire(new WalkDesire(getOwner(), AIState.ACTIVE.getPriority()));
-				if (getOwner().isAggressive() && !Config.DISSABLE_MOB_AGGRO)
+				if (getOwner().isAggressive() && !Config.DISABLE_MOB_AGGRO)
 					desireQueue.addDesire(new AggressionDesire(getOwner(), AIState.ACTIVE.getPriority()));
 				schedule();
 				break;

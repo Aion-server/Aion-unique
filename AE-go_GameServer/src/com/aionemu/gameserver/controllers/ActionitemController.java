@@ -81,7 +81,6 @@ public class ActionitemController extends NpcController
 	@Override
 	public void doDrop(Player player)
 	{
-		super.doDrop(player);
 		dropService.registerDrop(getOwner() , player);
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
 		dropService.requestDropList(player , getOwner().getObjectId());

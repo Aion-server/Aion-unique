@@ -174,7 +174,13 @@ public class Config
 	 * Disable monsters aggressive behave
 	 */
 	@Property(key = "gameserver.disable.mob.aggro",defaultValue = "false")
-	public static boolean			DISSABLE_MOB_AGGRO;
+	public static boolean			DISABLE_MOB_AGGRO;
+	
+	/*
+	 * Disable 2nd class change simple mode
+	 */
+	@Property(key = "gameserver.disable.simple.2ndclass",defaultValue = "false")
+	public static boolean			DISABLE_SIMPLE_2NDCLASS;
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
 	 */
