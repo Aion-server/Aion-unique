@@ -30,7 +30,7 @@
 	<xs:simpleType name="Race">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ELYOS" />
-			<xs:enumeration value="ASMODIAN" />
+			<xs:enumeration value="ASMODIANS" />
 		</xs:restriction>
 	</xs:simpleType>
 	

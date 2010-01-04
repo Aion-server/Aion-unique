@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aionunique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  * aion-unique is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@ package com.aionemu.gameserver.questEngine.model;
 import javax.xml.bind.annotation.XmlEnum;
 
 /**
- * @author Blackmouse
+ * @author MrPoke
  */
 
 @XmlEnum
@@ -28,7 +28,8 @@ public enum QuestStatus
 	NONE(0),
 	START(3),
 	REWARD(4),
-	COMPLITE(5);
+	COMPLITE(5),
+	LOCKED(6);
        
     private int id;
    	

@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aionunique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  * aion-unique is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -91,32 +91,34 @@ public class Quest
 		return (template.getConditions()== null? true : template.getConditions().checkConditionOfSet(env));
 	}
 
-	public boolean startQuest()
+	public boolean startQuest(QuestStatus questStatus)
 	{
-		if (!checkStartCondition ())
-			return false;
-
 		Player player = env.getPlayer();
 		int id = env.getQuestId();
-
-		if (player.getLevel() < template.getMinlevelPermitted())
+		
+		if (questStatus != QuestStatus.LOCKED)
 		{
-			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(0x13D866, template.getMinlevelPermitted()));
-			return false;
-		}
+			if (!checkStartCondition ())
+				return false;
 
-    	PacketSendUtility.sendPacket(player, new SM_QUEST_ACCEPTED(id, 3, 0));
+			if (player.getLevel() < template.getMinlevelPermitted())
+			{
+				PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(0x13D866, template.getMinlevelPermitted()));
+				return false;
+			}
+		}
+    	PacketSendUtility.sendPacket(player, new SM_QUEST_ACCEPTED(id, questStatus.value(), 0));
 		QuestState qs = player.getQuestStateList().getQuestState(id);
 		if (qs == null)
 		{
-			qs = new QuestState(template.getId(), QuestStatus.START, 0, 0);
+			qs = new QuestState(template.getId(), questStatus, 0, 0);
 			player.getQuestStateList().addQuest(id, qs);
 		}
 		else
 		{
 			if (template.getMaxRepeatCount() >= qs.getCompliteCount())
 			{
-				qs.setStatus(QuestStatus.START);
+				qs.setStatus(questStatus);
 				qs.getQuestVars().setQuestVar(0);
 			}
 		}
