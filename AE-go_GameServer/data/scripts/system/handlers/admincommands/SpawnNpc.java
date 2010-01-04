@@ -28,71 +28,91 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.google.inject.Inject;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  * @author Luno
- * 
  */
 
-public class SpawnNpc extends AdminCommand
-{
-	private final SpawnData		spawnData;
+public class SpawnNpc extends AdminCommand {
 
-	private final SpawnEngine	spawnService;
+    private final SpawnData spawnData;
 
-	/**
-	 * @param spawnData
-	 * @param spawnService
-	 */
+    private final SpawnEngine spawnService;
 
-	@Inject
-	public SpawnNpc(SpawnData spawnData, SpawnEngine spawnService)
-	{
-		super("spawn");
-		this.spawnData = spawnData;
-		this.spawnService = spawnService;
-	}
+    /**
+     * @param spawnData
+     * @param spawnService
+     */
 
-	@Override
-	public void executeCommand(Player admin, String[] params)
-	{
-		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_SPAWNNPC)
-		{
-			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
-			return;
-		}
-		
-		if(params.length < 1)
-		{
-			PacketSendUtility.sendMessage(admin, "syntax //spawn <template_id>");
-			return;
-		}
+    @Inject
+    public SpawnNpc(SpawnData spawnData, SpawnEngine spawnService) {
+        super("spawn");
+        this.spawnData = spawnData;
+        this.spawnService = spawnService;
+    }
 
-		int templateId = Integer.parseInt(params[0]);
-		float x = admin.getX();
-		float y = admin.getY();
-		float z = admin.getZ();
-		byte heading = admin.getHeading();
-		int worldId = admin.getWorldId();
+    @Override
+    public void executeCommand(Player admin, String[] params) {
+        if (admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_SPAWNNPC)
+        {
+            PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+            return;
+        }
 
-		SpawnTemplate spawn = spawnData.addNewSpawn(worldId, templateId, x, y, z, heading, 0, 0);
+        if (params.length < 1)
+        {
+            PacketSendUtility.sendMessage(admin, "syntax //spawn <template_id>");
+            return;
+        }
 
-		if(spawn == null)
-		{
-			PacketSendUtility.sendMessage(admin, "There is no template with id " + templateId);
-			return;
-		}
+        int templateId = Integer.parseInt(params[0]);
+        float x = admin.getX();
+        float y = admin.getY();
+        float z = admin.getZ();
+        byte heading = admin.getHeading();
+        int worldId = admin.getWorldId();
 
-		VisibleObject visibleObject = spawnService.spawnObject(spawn);
-		String objectName = "";
-		if(visibleObject instanceof Npc)
-		{
-			objectName = ((Npc) visibleObject).getTemplate().getName();
-		}else if(visibleObject instanceof Gatherable)
-		{
-			objectName = ((Gatherable) visibleObject).getTemplate().getName();
-		}
+        SpawnTemplate spawn = spawnData.addNewSpawn(worldId, templateId, x, y, z, heading, 0, 0);
 
-		PacketSendUtility.sendMessage(admin, objectName
-		+ " spawned. //save_spawn   command will save whole spawndata to file");
-	}
+        if (spawn == null)
+        {
+            PacketSendUtility.sendMessage(admin, "There is no template with id " + templateId);
+            return;
+        }
+
+        VisibleObject visibleObject = spawnService.spawnObject(spawn);
+        String objectName = "";
+        if (visibleObject instanceof Npc)
+        {
+            objectName = ((Npc) visibleObject).getTemplate().getName();
+        }
+        else if (visibleObject instanceof Gatherable)
+        {
+            objectName = ((Gatherable) visibleObject).getTemplate().getName();
+        }
+
+        String file = "data/static_data/spawns/new/" + worldId + ".txt";
+        try
+        {
+            BufferedWriter out = new BufferedWriter(new FileWriter(file, true));
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("#").append(objectName).append(" (spawned from game)\n");
+            sb.append(worldId).append(" ");
+            sb.append(templateId).append(" ");
+            sb.append(x).append(" ").append(y).append(" ").append(z).append(" ").append(heading).append("0\n");
+            out.write(sb.toString());
+            out.close();
+        }
+        catch (IOException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        PacketSendUtility.sendMessage(admin, objectName + " spawned and save spawndata to file");
+    }
 }
