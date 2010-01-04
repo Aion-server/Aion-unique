@@ -44,14 +44,14 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 	{
 		super.initStats(pst.getMaxHp(), pst.getMaxMp(), pst.getPower(), pst.getHealth(), pst.getAgility(), pst
 			.getAccuracy(), pst.getKnowledge(), pst.getWill(), pst.getMainHandAttack(), pst.getMainHandCritRate(), Math
-			.round(pst.getAttackSpeed() * 1000), 1500);
+			.round(pst.getAttackSpeed() * 1000), 1500, Math.round(pst.getRunSpeed() * 1000), Math.round(pst.getFlySpeed() * 1000));
 		setAttackCounter(1);
 		initStat(StatEnum.PARRY, pst.getParry());
 		initStat(StatEnum.BLOCK, pst.getBlock());
 		initStat(StatEnum.EVASION, pst.getEvasion());
-		initStat(StatEnum.SPEED, 6);
+		initStat(StatEnum.SPEED, Math.round(pst.getRunSpeed() * 1000));
 		initStat(StatEnum.MAGICAL_ACCURACY, pst.getMagicAccuracy());
-		initStat(StatEnum.FLY_SPEED, Math.round(pst.getFlySpeed()*1000f));
+		initStat(StatEnum.FLY_SPEED, Math.round(pst.getFlySpeed() * 1000));
 		initStat(StatEnum.MAIN_HAND_ACCURACY, pst.getMainHandAccuracy());
 		// TODO find good values for fly time
 		initStat(StatEnum.FLY_TIME, 60);

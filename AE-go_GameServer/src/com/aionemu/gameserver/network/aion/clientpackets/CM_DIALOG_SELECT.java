@@ -173,6 +173,11 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				break;
 			case 38:
 				//flight and teleport
+//				if (player.getCommonData().isFlying() == true)
+//				{
+//					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300696));
+//					return;
+//				}
 				sendPacket(new SM_TELEPORT_MAP(player, targetObjectId));
 				break;
 			case 39:

@@ -182,7 +182,7 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeH(buf, 0); // [unk]
 
-		writeD(buf, 1086324736);// [unk]
+		writeF(buf, pgs.getBaseStat(StatEnum.SPEED) / 1000f);// [speed]
 
 		writeH(buf, pgs.getBaseStat(StatEnum.EVASION)); // [base evasion]
 

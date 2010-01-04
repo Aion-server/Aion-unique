@@ -55,7 +55,7 @@ public class CreatureGameStats<T extends Creature>
 	}
 
 	protected void initStats(int maxHp, int maxMp, int power, int health, int agility, int accuracy, int knowledge,
-		int will, int mainHandAttack, int mainHandCritRate, int attackSpeed, int attackRange)
+		int will, int mainHandAttack, int mainHandCritRate, int attackSpeed, int attackRange, int runSpeed, int flySpeed)
 	{
 		stats.clear();
 		initStat(StatEnum.MAXHP, maxHp);
@@ -80,6 +80,8 @@ public class CreatureGameStats<T extends Creature>
 		initStat(StatEnum.OFF_HAND_ACCURACY, 0);
 		initStat(StatEnum.MAGICAL_RESIST, Math.round(knowledge / 3.1f));
 		initStat(StatEnum.MAGICAL_ACCURACY, Math.round(will * 0.75f));
+		initStat(StatEnum.SPEED, runSpeed);
+		initStat(StatEnum.FLY_SPEED, flySpeed);
 	}
 
 	@Override

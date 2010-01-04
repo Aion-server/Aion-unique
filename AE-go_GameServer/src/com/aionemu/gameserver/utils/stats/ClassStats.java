@@ -25,6 +25,7 @@ import com.aionemu.gameserver.utils.stats.enums.BLOCK;
 import com.aionemu.gameserver.utils.stats.enums.EARTH_RESIST;
 import com.aionemu.gameserver.utils.stats.enums.EVASION;
 import com.aionemu.gameserver.utils.stats.enums.FIRE_RESIST;
+import com.aionemu.gameserver.utils.stats.enums.FLY_SPEED;
 import com.aionemu.gameserver.utils.stats.enums.HEALTH;
 import com.aionemu.gameserver.utils.stats.enums.KNOWLEDGE;
 import com.aionemu.gameserver.utils.stats.enums.MAGIC_ACCURACY;
@@ -34,6 +35,7 @@ import com.aionemu.gameserver.utils.stats.enums.MAIN_HAND_CRITRATE;
 import com.aionemu.gameserver.utils.stats.enums.MAXHP;
 import com.aionemu.gameserver.utils.stats.enums.PARRY;
 import com.aionemu.gameserver.utils.stats.enums.POWER;
+import com.aionemu.gameserver.utils.stats.enums.SPEED;
 import com.aionemu.gameserver.utils.stats.enums.WATER_RESIST;
 import com.aionemu.gameserver.utils.stats.enums.WILL;
 import com.aionemu.gameserver.utils.stats.enums.WIND_RESIST;
@@ -225,45 +227,22 @@ public class ClassStats
 	{
 		return ATTACK_SPEED.valueOf(playerClass.toString()).getValue();
 	}
+	
+	/**
+	 * @param playerClass
+	 * @return
+	 */
+	public static int getFlySpeedFor(PlayerClass playerClass)
+	{
+		return FLY_SPEED.valueOf(playerClass.toString()).getValue();
+	}
+	
+	/**
+	 * @param playerClass
+	 * @return
+	 */
+	public static int getSpeedFor(PlayerClass playerClass)
+	{
+		return SPEED.valueOf(playerClass.toString()).getValue();
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

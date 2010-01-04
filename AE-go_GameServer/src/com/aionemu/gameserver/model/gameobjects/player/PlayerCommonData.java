@@ -68,7 +68,6 @@ public class PlayerCommonData
 	private int 			cubeSize = 0;
 	private int			    bindPoint;
 	private int             titleId = -1;
-	
 
 	public PlayerCommonData(int objId)
 	{

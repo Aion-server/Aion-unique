@@ -103,7 +103,17 @@ public class CM_EMOTION extends AionClientPacket
 				PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
 				ZoneManager.getInstance().findZoneInCurrentMap(player);
 				break;
+			case 0x8:
+				//player.getCommonData().setFlying(true);
+				break;
+			case 0x9:
+				//player.getCommonData().setFlying(false);
+				break;
+			case 21:
+			case 22:
+//				if (player.getCommonData().isFlying() == true)
+//					return;
 		}
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), emotionType, emotion, player.getTarget()== null?0:player.getTarget().getObjectId()), true);
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, emotionType, emotion, player.getTarget()== null?0:player.getTarget().getObjectId()), true);
 	}
 }

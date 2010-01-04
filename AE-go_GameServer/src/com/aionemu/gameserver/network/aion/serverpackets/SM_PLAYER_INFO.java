@@ -200,7 +200,7 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         };
         writeB(buf, unk);
 
-        writeF(buf, player.getGameStats().getCurrentStat(StatEnum.SPEED)); // move speed
+        writeF(buf, player.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000f); // move speed
 
         writeH(buf, 2800);
         writeH(buf, 2800);

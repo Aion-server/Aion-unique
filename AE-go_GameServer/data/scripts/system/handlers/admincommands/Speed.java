@@ -19,7 +19,6 @@ package admincommands;
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
@@ -47,7 +46,7 @@ public class Speed extends AdminCommand
 		
 		if(params == null || params.length < 1)
 		{
-			PacketSendUtility.sendMessage(admin, "Syntax //speed <speed>");
+			PacketSendUtility.sendMessage(admin, "Syntax //speed <percent>");
 			return;
 		}
 
@@ -62,14 +61,16 @@ public class Speed extends AdminCommand
 			return;
 		}
 		
-		if(parameter < 0 || parameter > 30)
+		if(parameter < 0 || parameter > 200)
 		{
-			PacketSendUtility.sendMessage(admin, "Valid values are in 0-30 range");
+			PacketSendUtility.sendMessage(admin, "Valid values are in 0-200 range");
 			return;
 		}
-		
-		admin.getGameStats().setStat(StatEnum.SPEED, parameter);
-		PacketSendUtility.sendPacket(admin, new SM_PLAYER_INFO(admin, true));
-		admin.setProtectionActive(true);
+
+		int speed = 6000;
+		int flyspeed = 9000;
+
+		admin.getGameStats().setStat(StatEnum.SPEED, (speed + (speed * parameter) / 100));
+		admin.getGameStats().setStat(StatEnum.FLY_SPEED, (flyspeed + (flyspeed * parameter) / 100));
 	}
 }

@@ -33,176 +33,119 @@ public class CalculatedPlayerStatsTemplate extends PlayerStatsTemplate
 		this.playerClass = playerClass;
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate#getAccuracy()
-	 */
 	@Override
 	public int getAccuracy()
 	{
 		return ClassStats.getAccuracyFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate#getAgility()
-	 */
 	@Override
 	public int getAgility()
 	{
 		return ClassStats.getAgilityFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate#getHealth()
-	 */
 	@Override
 	public int getHealth()
 	{
 		return ClassStats.getHealthFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate#getKnowledge()
-	 */
 	@Override
 	public int getKnowledge()
 	{
 		return ClassStats.getKnowledgeFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate#getPower()
-	 */
 	@Override
 	public int getPower()
 	{
 		return ClassStats.getPowerFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate#getWill()
-	 */
 	@Override
 	public int getWill()
 	{
 		return ClassStats.getWillFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getAttackSpeed()
-	 */
 	@Override
 	public float getAttackSpeed()
 	{
 		return ClassStats.getAttackSpeedFor(playerClass) / 1000f;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getBlock()
-	 */
 	@Override
 	public int getBlock()
 	{
 		return ClassStats.getBlockFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getEvasion()
-	 */
 	@Override
 	public int getEvasion()
 	{
 		return ClassStats.getEvasionFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getFlySpeed()
-	 */
 	@Override
 	public float getFlySpeed()
 	{
 		// TODO Auto-generated method stub
-		return super.getFlySpeed();
+		return ClassStats.getFlySpeedFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getMagicAccuracy()
-	 */
 	@Override
 	public int getMagicAccuracy()
 	{
 		return ClassStats.getMagicAccuracyFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getMainHandAccuracy()
-	 */
 	@Override
 	public int getMainHandAccuracy()
 	{
 		return ClassStats.getMainHandAccuracyFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getMainHandAttack()
-	 */
 	@Override
 	public int getMainHandAttack()
 	{
 		return ClassStats.getMainHandAttackFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getMainHandCritRate()
-	 */
 	@Override
 	public int getMainHandCritRate()
 	{
 		return ClassStats.getMainHandCritRateFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getMaxHp()
-	 */
 	@Override
 	public int getMaxHp()
 	{
 		return ClassStats.getMaxHpFor(playerClass, 10); // level is hardcoded
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getMaxMp()
-	 */
 	@Override
 	public int getMaxMp()
 	{
 		return 1000;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getParry()
-	 */
 	@Override
 	public int getParry()
 	{
 		return ClassStats.getParryFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getRunSpeed()
-	 */
 	@Override
 	public float getRunSpeed()
 	{
-		return 1.0f;
+		return ClassStats.getSpeedFor(playerClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.templates.stats.StatsTemplate#getWalkSpeed()
-	 */
 	@Override
 	public float getWalkSpeed()
 	{
-		return 1.0f;
+		return 1.5f;
 	}
 
 }
