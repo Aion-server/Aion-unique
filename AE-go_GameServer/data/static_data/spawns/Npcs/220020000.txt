@@ -1,6 +1,8 @@
-# mapid npcid x z y heading
+# mapid npcid x y z heading
 # Npc spawns by KID
-# Fix by Lamo2k123 + Alias
+# Fix by Lamo2k123
+
+# Morheim
 
 # Chicorerk
 220020000 798106 2672.0 2501.0 142.85892 0
@@ -378,7 +380,6 @@
 220020000 700238 308.09127 347.96268 430.9 0
 # Fire Temple Entrance
 220020000 730047 1591.4 970.94 141 0
-220020000 730047 1349.9841 361.0598 527.0662 0
 # Fishing Tool Box
 220020000 700321 1084.81 2008.28 213.12 0
 220020000 700321 1128.03 2071.57 213.12 0
