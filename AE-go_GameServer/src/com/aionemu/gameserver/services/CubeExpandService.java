@@ -70,7 +70,7 @@ public class CubeExpandService
 				{
 					expand(responder, expandTemplate);
 					kinahItem.decreaseItemCount(price);
-					PacketSendUtility.sendPacket((Player)requester, new SM_UPDATE_ITEM(kinahItem));
+					PacketSendUtility.sendPacket(responder, new SM_UPDATE_ITEM(kinahItem));
 					DAOManager.getDAO(InventoryDAO.class).store(kinahItem, responder.getObjectId());
 				}
 
