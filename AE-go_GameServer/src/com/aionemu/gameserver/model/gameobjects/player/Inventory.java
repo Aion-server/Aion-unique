@@ -180,21 +180,32 @@ public class Inventory
 
 	/**
 	 *  Used to put item into storage cube at first avaialble slot (no check for existing item)
-	 * 
-	 *  Every put operation is persisted immediately now
+	 *  During unequip/equip process persistImmediately should be false
 	 *  
+	 * @param item
+	 * @param persistImmediately
+	 * @return
+	 */
+	public Item putToBag(Item item, boolean persistImmediately)
+	{
+
+		Item resultItem = defaultItemBag.putToNextAvailableSlot(item);
+		if(resultItem != null && persistImmediately)
+		{
+			DAOManager.getDAO(InventoryDAO.class).store(resultItem, getOwner().getObjectId());
+		}
+		return resultItem;
+	}
+	
+	/**
+	 * Every put operation using this method is persisted immediately
+	 * 
 	 * @param item
 	 * @return
 	 */
 	public Item putToBag(Item item)
 	{
-
-		Item resultItem = defaultItemBag.putToNextAvailableSlot(item);
-		if(resultItem != null)
-		{
-			DAOManager.getDAO(InventoryDAO.class).store(resultItem, getOwner().getObjectId());
-		}
-		return resultItem;
+		return putToBag(item, true);
 	}
 
 	/**
@@ -645,7 +656,7 @@ public class Inventory
 			ItemEquipmentListener.onItemUnequipment(itemToUnequip, owner.getGameStats());
 		}
 		owner.getLifeStats().updateCurrentStats();
-		itemToUnequip = putToBag(itemToUnequip);
+		itemToUnequip = putToBag(itemToUnequip, false);
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(itemToUnequip));
 	}
 
