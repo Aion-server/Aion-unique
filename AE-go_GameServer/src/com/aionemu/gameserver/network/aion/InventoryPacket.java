@@ -21,10 +21,10 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SimpleModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
+import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 

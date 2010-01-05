@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.aionemu.gameserver.dataholders.loadingutils.adapters.NpcEquipmentList;
 import com.aionemu.gameserver.dataholders.loadingutils.adapters.NpcEquippedGearAdapter;
-import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**

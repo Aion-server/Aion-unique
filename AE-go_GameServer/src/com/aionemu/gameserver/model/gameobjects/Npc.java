@@ -20,11 +20,11 @@ import java.util.Map.Entry;
 
 import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.controllers.NpcController;
-import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
+import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.NpcEquippedGear;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
@@ -64,14 +64,16 @@ public class Npc extends Creature
 		this.template = (NpcTemplate) spawnTemplate.getObjectTemplate();
 		NpcStatsTemplate nst = template.getStatsTemplate();
 		super.setGameStats(new NpcGameStats(this,nst));
-		NpcEquippedGear gear = template.getEquipment();
-		if (gear!=null) 
-		{
-			for (Entry<ItemSlot,ItemTemplate> it : gear)
-			{
-				ItemEquipmentListener.onItemEquipment(it.getValue(), it.getKey().getSlotIdMask(), getGameStats());
-			}
-		}
+		
+		//TODO probably its not simple addition of equipment stats
+//		NpcEquippedGear gear = template.getEquipment();
+//		if (gear!=null) 
+//		{
+//			for (Entry<ItemSlot,ItemTemplate> it : gear)
+//			{
+//				ItemEquipmentListener.onItemEquipment(it.getValue(), it.getKey().getSlotIdMask(), getGameStats());
+//			}
+//		}
 	}
 
 	public NpcTemplate getTemplate()

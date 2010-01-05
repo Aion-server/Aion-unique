@@ -104,7 +104,7 @@ public class StatFunctions
 		}
 		else
 		{
-			baseDamages += ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
+			baseDamages += ags.getCurrentStat(StatEnum.MAIN_HAND_POWER) * 2;
 		}
 		
 		int pDef = tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE);

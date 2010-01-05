@@ -24,10 +24,10 @@ import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
+import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.world.zone.ZoneManager;
 
 /**

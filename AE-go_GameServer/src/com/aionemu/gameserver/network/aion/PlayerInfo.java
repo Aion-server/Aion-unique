@@ -21,11 +21,11 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.model.ItemSlot;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
+import com.aionemu.gameserver.model.items.ItemSlot;
 
 /**
  * 
