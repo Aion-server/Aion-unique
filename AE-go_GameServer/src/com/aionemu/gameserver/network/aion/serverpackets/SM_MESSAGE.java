@@ -141,6 +141,10 @@ public class SM_MESSAGE extends AionServerPacket
 				writeS(buf, this.senderName);
 				writeS(buf, this.message);
 				break;
+			case GROUP_LEADER:
+				writeS(buf, this.senderName);
+				writeS(buf, this.message);
+				break;
 			case WHISPER:
 				writeS(buf, senderName);
 				writeS(buf, message);

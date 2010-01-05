@@ -102,7 +102,10 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 		switch(this.type)
 		{
 			case GROUP:
-				broadcastToGroupMembers(player);								
+				broadcastToGroupMembers(player);
+				break;
+			case GROUP_LEADER:
+				broadcastToGroupMembers(player);
 				break;
 			default:
 				broadcastToNonBlockedPlayers(player);				

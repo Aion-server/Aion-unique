@@ -45,6 +45,11 @@ public enum ChatType
 	 * Group chat
 	 */
 	GROUP(0x05),
+	
+	/**
+	 * Group Leader chat
+	 */
+	GROUP_LEADER(0x07),
 
 	/**
 	 * Unknown, seded by official server
