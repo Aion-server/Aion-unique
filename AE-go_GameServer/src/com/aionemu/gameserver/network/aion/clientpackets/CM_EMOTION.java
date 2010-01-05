@@ -20,6 +20,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.PlayerState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
@@ -102,6 +103,12 @@ public class CM_EMOTION extends AionClientPacket
 		Player player = getConnection().getActivePlayer();
 		switch(emotionType)
 		{
+			case 0x2:
+				player.setState(PlayerState.RESTING);
+				break;
+			case 0x3:
+				player.setState(PlayerState.STANDING);
+				break;
 			case 0x7:
 				PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
 				ZoneManager.getInstance().findZoneInCurrentMap(player);

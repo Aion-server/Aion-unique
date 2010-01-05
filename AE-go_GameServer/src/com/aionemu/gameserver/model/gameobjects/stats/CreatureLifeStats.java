@@ -46,9 +46,6 @@ public abstract class CreatureLifeStats<T extends Creature>
 	private final ReentrantLock hpLock = new ReentrantLock();
 	private final ReentrantLock mpLock = new ReentrantLock();
 	
-	private int HP_RESTORE_TICK = 5;
-	private int MP_RESTORE_TICK = 5;
-	
 	private Future<?> lifeRestoreTask;
 
 	public CreatureLifeStats(Creature owner, int currentHp, int currentMp)
@@ -275,7 +272,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	 */
 	public void restoreHp()
 	{
-		increaseHp(HP_RESTORE_TICK);
+		increaseHp(getOwner().getGameStats().getCurrentStat(StatEnum.REGEN_HP));
 	}
 	
 	/**
@@ -283,7 +280,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	 */
 	public void restoreMp()
 	{
-		increaseMp(MP_RESTORE_TICK);
+		increaseMp(getOwner().getGameStats().getCurrentStat(StatEnum.REGEN_MP));
 	}
 
 	/**
