@@ -87,6 +87,7 @@ public class CM_MOVE extends AionClientPacket
 			case MOVEMENT_STOP:
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);
 				world.updatePosition(player, x, y, z, heading);
+				player.getController().onStopMove();
 				break;
 			case UNKNOWN:
 				StringBuilder sb = new StringBuilder();

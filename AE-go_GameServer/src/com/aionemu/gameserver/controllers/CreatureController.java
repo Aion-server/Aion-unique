@@ -34,6 +34,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 {
 	
 	protected Queue<MoveObserver> moveObservers = new ConcurrentLinkedQueue<MoveObserver>();
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -59,6 +60,14 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	public void onMove()
 	{
 
+	}
+	
+	/**
+	 *  Perform tasks on Creature stop move
+	 */
+	public void onStopMove()
+	{
+			
 	}
 	
 	/**

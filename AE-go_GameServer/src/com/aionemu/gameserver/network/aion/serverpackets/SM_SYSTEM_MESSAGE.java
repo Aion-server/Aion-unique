@@ -357,7 +357,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300682);
 	}
 	
-	
+	/**
+	 * You cannot fly in this area.
+	 */
+	public static SM_SYSTEM_MESSAGE STR_FLYING_FORBIDDEN_HERE = new SM_SYSTEM_MESSAGE(1300960);
+
 	private final int		code;
 	private final Object[]	params;
 

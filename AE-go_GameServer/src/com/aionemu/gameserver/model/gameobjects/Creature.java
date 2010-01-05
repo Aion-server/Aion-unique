@@ -19,6 +19,7 @@ package com.aionemu.gameserver.model.gameobjects;
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.EffectController;
+import com.aionemu.gameserver.model.gameobjects.player.PlayerState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;

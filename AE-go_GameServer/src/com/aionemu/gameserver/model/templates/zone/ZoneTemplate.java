@@ -39,6 +39,10 @@ public class ZoneTemplate
 	protected Points points;
 	protected List<ZoneName> link;
 	@XmlAttribute
+	protected int priority;
+	@XmlAttribute(name="fly")
+	protected boolean flightAllowed;
+	@XmlAttribute
 	protected ZoneName name;
 	@XmlAttribute
 	protected int mapid;
@@ -58,6 +62,22 @@ public class ZoneTemplate
 			link = new ArrayList<ZoneName>();
 		}
 		return this.link;
+	}
+
+	/**
+	 * @return the priority
+	 */
+	public int getPriority()
+	{
+		return priority;
+	}
+
+	/**
+	 * @return the flightAllowed
+	 */
+	public boolean isFlightAllowed()
+	{
+		return flightAllowed;
 	}
 
 	/**

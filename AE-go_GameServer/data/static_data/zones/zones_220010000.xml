@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <zones>
-    <zone mapid="220010000" name="DUBARO_VINE_CANYON">
+    <zone mapid="220010000" name="DUBARO_VINE_CANYON" priority="15">
         <points>
             <point x="597.59" y="732.62"/>
             <point x="509.45367" y="833.911"/>
@@ -12,7 +12,7 @@
         <link>ODELLA_PLANTATION</link>
 		<link>HATATAS_HIDEOUT</link>
     </zone>
-    <zone mapid="220010000" name="ANTUROON_SENTRY_POST">
+    <zone mapid="220010000" name="ANTUROON_SENTRY_POST" priority="14">
         <points>
             <point x="952.5838" y="1669.3107"/>
             <point x="963.8284" y="1690.4136"/>
@@ -25,7 +25,7 @@
         </points>
 		<link>ANTUROON_CROSSING</link>
     </zone>
-    <zone mapid="220010000" name="SAP_FARM">
+    <zone mapid="220010000" name="SAP_FARM" priority="15">
         <points>
             <point x="842.30707" y="2217.92"/>
             <point x="848.66364" y="2234.7012"/>
@@ -36,7 +36,7 @@
         </points>
         <link>MUNIHELE_FOREST</link>
     </zone>
-    <zone mapid="220010000" name="ISHALGEN_PRISON_CAMP">
+    <zone mapid="220010000" name="ISHALGEN_PRISON_CAMP" priority="14">
         <points>
             <point x="733.7" y="1648.14"/>
             <point x="761.01825" y="1700.5374"/>
@@ -54,7 +54,7 @@
 		<link>ODELLA_PLANTATION</link>
 		<link>ISHALGEN_SENTRY_POST</link>
     </zone>
-    <zone mapid="220010000" name="ODELLA_PLANTATION">
+    <zone mapid="220010000" name="ODELLA_PLANTATION" priority="16">
         <points>
             <point x="862.18" y="1505.1147"/>
             <point x="786.0796" y="1247.1328"/>
@@ -73,7 +73,7 @@
         <link>ANTUROON_CROSSING</link>
 		<link>ISHALGEN_PRISON_CAMP</link>
     </zone>
-    <zone mapid="220010000" name="ALDELLE_HILL">
+    <zone mapid="220010000" name="ALDELLE_HILL" priority="16">
         <points>
             <point x="622.58" y="2499.35"/>
             <point x="667.37756" y="2550.1506"/>
@@ -94,7 +94,7 @@
         <link>ALDELLE_BASIN</link>
         <link>GUHEITUNS_TENT</link>
     </zone>
-    <zone mapid="220010000" name="MUNIHELE_FOREST">
+    <zone mapid="220010000" name="MUNIHELE_FOREST" priority="16">
         <points>
             <point x="788.35" y="2086.35"/>
             <point x="762.13245" y="2118.2495"/>
@@ -117,7 +117,7 @@
         <link>KARDS_CAMPSITE</link>
         <link>SAP_FARM</link>
     </zone>
-    <zone mapid="220010000" name="NEGIS_DOCK">
+    <zone mapid="220010000" name="NEGIS_DOCK" priority="13">
         <points>
             <point x="482.78" y="2307.6"/>
             <point x="511.3817" y="2323.9438"/>
@@ -127,7 +127,7 @@
         </points>
         <link>LAKE_TUNAPRE</link>
     </zone>
-    <zone mapid="220010000" name="THE_FORSAKEN_HOLLOW">
+    <zone mapid="220010000" name="THE_FORSAKEN_HOLLOW" priority="12">
         <points>
             <point x="375.25818" y="1855.11"/>
             <point x="351.11575" y="1872.1367"/>
@@ -140,7 +140,7 @@
         </points>
 		<link>ISHALGEN_PRISON_CAMP</link>
     </zone>
-    <zone mapid="220010000" name="ANTUROON_COAST">
+    <zone mapid="220010000" name="ANTUROON_COAST" priority="14">
         <points>
             <point x="1058.8289" y="1872.4465"/>
             <point x="1079.8212" y="1892.845"/>
@@ -166,7 +166,7 @@
         </points>
         <link>ANTUROON_CROSSING</link>
     </zone>
-    <zone mapid="220010000" name="ISHALGEN_SENTRY_POST">
+    <zone mapid="220010000" name="ISHALGEN_SENTRY_POST" priority="13">
         <points>
             <point x="523.6727" y="1881.6066"/>
             <point x="512.1981" y="1884.5234"/>
@@ -177,7 +177,7 @@
         </points>
         <link>ISHALGEN_PRISON_CAMP</link>
     </zone>
-    <zone mapid="220010000" name="LAKE_TUNAPRE">
+    <zone mapid="220010000" name="LAKE_TUNAPRE" priority="15">
         <points>
             <point x="575.32" y="2362.33"/>
             <point x="711.7371" y="2370.4792"/>
@@ -205,7 +205,7 @@
         <link>ALDELLE_VILLAGE</link>
         <link>MUNIHELE_FOREST</link>
     </zone>
-    <zone mapid="220010000" name="ALDELLE_VILLAGE">
+    <zone mapid="220010000" name="ALDELLE_VILLAGE" priority="13">
         <points>
             <point x="582.0569" y="2507.825"/>
             <point x="621.35187" y="2501.1648"/>
@@ -222,7 +222,7 @@
         <link>ALDELLE_HILL</link>
         <link>LAKE_TUNAPRE</link>
     </zone>
-    <zone mapid="220010000" name="EYVINDR_ANCHORAGE">
+    <zone mapid="220010000" name="EYVINDR_ANCHORAGE" priority="12">
         <points>
             <point x="1213.5924" y="1855.5853"/>
             <point x="1170.8463" y="1849.3516"/>
@@ -233,7 +233,7 @@
         </points>
 		<link>ANTUROON_CROSSING</link>
     </zone>
-    <zone mapid="220010000" name="KARDS_CAMPSITE">
+    <zone mapid="220010000" name="KARDS_CAMPSITE" priority="15">
         <points>
             <point x="1062.6934" y="2031.1786"/>
             <point x="1082.2245" y="2046.3899"/>
@@ -243,7 +243,7 @@
         </points>
 		<link>MUNIHELE_FOREST</link>
     </zone>
-    <zone mapid="220010000" name="ALDELLE_BASIN">
+    <zone mapid="220010000" name="ALDELLE_BASIN" priority="15">
         <points>
             <point x="623.5147" y="2716.0735"/>
             <point x="562.69794" y="2764.8044"/>
@@ -255,7 +255,7 @@
         </points>
         <link>ALDELLE_HILL</link>
     </zone>
-    <zone mapid="220010000" name="GUHEITUNS_TENT">
+    <zone mapid="220010000" name="GUHEITUNS_TENT" priority="10">
         <points>
             <point x="223.32971" y="2656.0686"/>
             <point x="247.49666" y="2661.004"/>
@@ -268,7 +268,7 @@
         </points>
         <link>ALDELLE_VILLAGE</link>
     </zone>
-    <zone mapid="220010000" name="ANTUROON_CROSSING">
+    <zone mapid="220010000" name="ANTUROON_CROSSING" priority="15">
         <points>
             <point x="1002.911" y="1979.6873"/>
             <point x="1072.2114" y="1950.6683"/>
@@ -295,7 +295,7 @@
         <link>ANTUROON_SENTRY_POST</link>
 		<link>EYVINDR_ANCHORAGE</link>
     </zone>
-    <zone mapid="220010000" name="DARU_SPRING">
+    <zone mapid="220010000" name="DARU_SPRING" priority="15">
         <points>
             <point x="1075.9462" y="2331.053"/>
             <point x="1128.3969" y="2346.0706"/>
@@ -306,7 +306,7 @@
         </points>
         <link>MUNIHELE_FOREST</link>
     </zone>
-    <zone mapid="220010000" name="HATATAS_HIDEOUT">
+    <zone mapid="220010000" name="HATATAS_HIDEOUT" priority="14">
         <points>
             <point x="623.2" y="815.58496"/>
             <point x="595.8328" y="879.2434"/>

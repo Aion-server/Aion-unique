@@ -29,6 +29,7 @@ import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.PlayerState;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
@@ -255,19 +256,28 @@ public class PlayerController extends CreatureController<Player>
 	@Override
 	public void doDrop(Player player)
 	{
-		// TODO Auto-generated method stub
 		super.doDrop(player);
 	}
 
 	@Override
 	public void onMove()
 	{
+		super.onMove();
+		getOwner().setState(PlayerState.MOVING);
+		
 		PlayerGameStats pgs = getOwner().getGameStats();
 		pgs.increaseMoveCounter();
 		if(pgs.getMoveCounter() % 5 == 0)
 		{
 			ZoneManager.getInstance().checkZone(getOwner());
 		}
+	}
+	
+	@Override
+	public void onStopMove()
+	{
+		super.onStopMove();
+		getOwner().setState(PlayerState.STANDING);
 	}
 
 	@Override

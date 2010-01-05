@@ -23,7 +23,9 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneManager;
 
 /**
@@ -67,8 +69,10 @@ public class CM_EMOTION extends AionClientPacket
 		{
 			case 0x0://select target
 			case 0x01:// jump
-			case 0x4://Sit (Nothing to do)
-			case 0x5://standing (Nothing to do)
+			case 0x02:// resting
+			case 0x03:// end resting
+			case 0x4://Sit (Nothing to do) ?? check
+			case 0x5://standing (Nothing to do) ?? check
 			case 0x7: //fly land
 			case 0x8:// fly up
 			case 0x9:// land
@@ -96,7 +100,6 @@ public class CM_EMOTION extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
-
 		switch(emotionType)
 		{
 			case 0x7:
@@ -104,6 +107,17 @@ public class CM_EMOTION extends AionClientPacket
 				ZoneManager.getInstance().findZoneInCurrentMap(player);
 				break;
 			case 0x8:
+				//TODO move to player controller? but after states working
+				ZoneInstance currentZone = player.getZoneInstance();
+				if(currentZone != null)
+				{
+					boolean flightAllowed = currentZone.getTemplate().isFlightAllowed();
+					if(!flightAllowed)
+					{
+						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_FLYING_FORBIDDEN_HERE);
+						return;
+					}
+				}
 				//player.getCommonData().setFlying(true);
 				break;
 			case 0x9:

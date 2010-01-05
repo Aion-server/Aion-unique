@@ -72,6 +72,7 @@ public class Player extends Creature
 	private List<Integer>		nearbyQuestList	= new ArrayList<Integer>();
 	private ZoneInstance		zoneInstance;
 	private PlayerGroup			playerGroup;
+	private PlayerState 		state =  PlayerState.STANDING;
 
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -500,6 +501,22 @@ public class Player extends Creature
 	{
 		// TODO Auto-generated method stub
 
+	}
+	
+	/**
+	 * @return the state
+	 */
+	public PlayerState getState()
+	{
+		return state;
+	}
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(PlayerState state)
+	{
+		this.state = state;
 	}
 
 	/**

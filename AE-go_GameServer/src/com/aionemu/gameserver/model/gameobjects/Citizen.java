@@ -27,16 +27,16 @@ public class Citizen extends Npc
 {
 
 	/**
-	 * @param template
+	 * 
+	 * @param objId
+	 * @param controller
+	 * @param spawn
 	 */
 	public Citizen(int objId, CitizenController controller, SpawnTemplate spawn)
 	{
 		super(objId, controller, spawn);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.model.gameobjects.Npc#getController()
-	 */
 	@Override
 	public CitizenController getController()
 	{

@@ -18,6 +18,8 @@
 			<xs:element name="link" type="ZoneName"
 				minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
+		<xs:attribute name="priority" type="xs:int" />
+		<xs:attribute name="fly" type="xs:boolean" />
 		<xs:attribute name="name" type="ZoneName" />
 		<xs:attribute name="mapid" type="xs:int" />
 	</xs:complexType>
@@ -74,6 +76,150 @@
 			<xs:enumeration value="ANTUROON_CROSSING"/>
 			<xs:enumeration value="DARU_SPRING"/>
 			<xs:enumeration value="HATATAS_HIDEOUT"/>
+			<!-- sanctum -->
+			<xs:enumeration value="COLISEUM"/>
+			<xs:enumeration value="OUTER_DOCK"/>
+			<xs:enumeration value="DIONYSIA_TAVERN"/>
+			<xs:enumeration value="COLISEUM"/>
+			<xs:enumeration value="LIBRARY_OF_THE_SAGES"/>
+			<xs:enumeration value="SANCTUM_GATE"/>
+			<xs:enumeration value="LYCEUM"/>
+			<xs:enumeration value="HALL_OF_PROSPERITY"/>
+			<xs:enumeration value="DIVINE_ROAD"/>
+			<xs:enumeration value="PROTECTORS_HALL"/>
+			<xs:enumeration value="AIRSHIP_DOCK"/>
+			<xs:enumeration value="ELYOS_SQUARE"/>
+			<xs:enumeration value="STR_SZ_LC1_SUB_H"/>
+			<xs:enumeration value="ARTISANS_HALL"/>
+			<xs:enumeration value="SKY_GARDEN"/>
+			<xs:enumeration value="TEMPEST_SHIPYARD"/>
+			<xs:enumeration value="SKY_CANAL"/>
+			<xs:enumeration value="EXALTED_PATH"/>
+			<!-- verteron -->
+			<xs:enumeration value="ZUMION_CANYON"/>
+			<xs:enumeration value="VERTERON_CITADEL"/>
+			<xs:enumeration value="CANTAS_COAST"/>
+			<xs:enumeration value="GEOLUS_CAMPSITE"/>
+			<xs:enumeration value="TURSIN_OUTPOST"/>
+			<xs:enumeration value="TURSIN_TOTEM_POLE"/>
+			<xs:enumeration value="KRAKAS_DEN"/>
+			<xs:enumeration value="BELBUAS_FARM"/>
+			<xs:enumeration value="ODIUM_REFINING_CAULDRON"/>
+			<xs:enumeration value="TALUNS_NEST"/>
+			<xs:enumeration value="ALTAMIA_RIDGE"/>
+			<xs:enumeration value="TURSIN_OUTPOST_ENTRANCE"/>
+			<xs:enumeration value="FRILLNECK_WOODS"/>
+			<xs:enumeration value="PILGRIMS_RESPITE"/>
+			<xs:enumeration value="ALTAR_OF_THE_CRIMSON_DRAGON"/>
+			<xs:enumeration value="MIRAJUS_HOLY_GROUND"/>
+			<xs:enumeration value="NORTHERN_TOLBAS_FOREST"/>
+			<xs:enumeration value="ZUMION_RUINS"/>
+			<xs:enumeration value="TOLBAS_VILLAGE"/>
+			<xs:enumeration value="ARDUS_SHRINE"/>
+			<xs:enumeration value="ROAD_TO_ELTNEN"/>
+			<xs:enumeration value="DUKAKI_SETTLEMENT"/>
+			<xs:enumeration value="CONTAMINATED_SWAMP"/>
+			<xs:enumeration value="DUKAKI_MINE"/>
+			<xs:enumeration value="ELLUN_RIVER_MOUTH"/>
+			<xs:enumeration value="VERTERON_OBSERVATORY"/>
+			<xs:enumeration value="MYSTERIOUS_SHIPWRECK"/>
+			<xs:enumeration value="VERTERON_SWAMP"/>
+			<xs:enumeration value="SOUTHERN_TOLBAS_FOREST"/>
+			<xs:enumeration value="TURSIN_GARRISON"/>
+			<!-- eltnen -->
+			<xs:enumeration value="PUTRID_MIRE"/>
+			<xs:enumeration value="DRAKE_HABITAT"/>
+			<xs:enumeration value="ELTNEN_OBSERVATORY"/>
+			<xs:enumeration value="ERACUS_TEMPLE_CAVERN"/>
+			<xs:enumeration value="EASTERN_ERACUS_DESERT"/>
+			<xs:enumeration value="MYSTIC_SPRING_OF_LAQUEPIN"/>
+			<xs:enumeration value="KAIDAN_MINE"/>
+			<xs:enumeration value="MABANGTAHS_HIDEOUT"/>
+			<xs:enumeration value="PRELLUS_WASTELAND"/>
+			<xs:enumeration value="REFUGEE_CAMP"/>
+			<xs:enumeration value="KURIULLU_PASS"/>
+			<xs:enumeration value="KYOLA_TEMPLE"/>
+			<xs:enumeration value="MANDURI_VILLAGE"/>
+			<xs:enumeration value="GEROCH_CALDERA"/>
+			<xs:enumeration value="TIGRIC_VILLAGE"/>
+			<xs:enumeration value="ELTNEN_FORTRESS"/>
+			<xs:enumeration value="MYSTIC_SPRING_OF_ANATHE"/>
+			<xs:enumeration value="SATALOCAS_TOMB"/>
+			<xs:enumeration value="MANDURI_FOREST"/>
+			<xs:enumeration value="MANDURI_STORES"/>
+			<xs:enumeration value="ROAD_TO_HEIRON"/>
+			<xs:enumeration value="LEPHARIST_CITADEL"/>
+			<xs:enumeration value="RUBEREIN_WASTES"/>
+			<xs:enumeration value="ERACUS_TEMPLE_CAVERN_ENTRANCE"/>
+			<xs:enumeration value="LANKUSIS_PLATEAU"/>
+			<xs:enumeration value="OUTPOST_RUINS"/>
+			<xs:enumeration value="KURIULLU_MOUNTAIN_OUTPOST"/>
+			<xs:enumeration value="WESTERN_ERACUS_DESERT"/>
+			<xs:enumeration value="KLAW_NEST"/>
+			<xs:enumeration value="GOLDEN_BOUGH_GARRISON"/>
+			<xs:enumeration value="KYOLA_TEMPLE_ENTRANCE"/>
+			<xs:enumeration value="KAIDAN_HEADQUARTERS"/>
+			<xs:enumeration value="CALDERA_OUTPOST"/>
+			<xs:enumeration value="DESERT_SCOUT_CAMP"/>
+			<xs:enumeration value="ELTNEN_FORTRESS_ENTRANCE"/>
+			<xs:enumeration value="AGAIRON_VILLAGE"/>
+			<xs:enumeration value="MYSTIC_SPRING_OF_AGAIRON"/>
+			<xs:enumeration value="KURIULLU_MOUNTAIN"/>
+			<xs:enumeration value="ROAD_TO_VERTERON"/>
+			<xs:enumeration value="EIRON_DESERT"/>
+			<xs:enumeration value="KLAW_DEN"/>
+			<!-- heiron -->
+			<xs:enumeration value="INDRATU_BARRACKS" /> 
+			<xs:enumeration value="MANOR_CEMETERY" /> 
+			<xs:enumeration value="NUTE_WARRENS" /> 
+			<xs:enumeration value="BERONES_RUINED_HOUSE" /> 
+			<xs:enumeration value="NEW_HEIRON_GATE" /> 
+			<xs:enumeration value="POISON_EXTRACTION_LAB" /> 
+			<xs:enumeration value="PRETOR_EXPERIMENT_LAB" /> 
+			<xs:enumeration value="KISHAR_VILLAGE" /> 
+			<xs:enumeration value="PATEMA_GEYSER" /> 
+			<xs:enumeration value="JEIAPARAN_VILLAGE" /> 
+			<xs:enumeration value="KISHAR_OBSERVATION_POST" /> 
+			<xs:enumeration value="STENON_BAY" /> 
+			<xs:enumeration value="TIGRIC_VILLAGE_HEIRON" /> <!-- TIGRIC_VILLAGE -->
+			<xs:enumeration value="DRAGONS_BLOOD_CANYON" /> 
+			<xs:enumeration value="ORTON_FARM" /> 
+			<xs:enumeration value="DRAKE_FARM" /> 
+			<xs:enumeration value="CURSED_ANCIENT_TEMPLE" /> 
+			<xs:enumeration value="PATEMA_RUINS" /> 
+			<xs:enumeration value="LEPHARIST_RESEARCH_CENTER" /> 
+			<xs:enumeration value="PUITONEN_BOGS" /> 
+			<xs:enumeration value="RESEARCH_CENTER_OVERWATCH" /> 
+			<xs:enumeration value="HEIRON_PASS" /> 
+			<xs:enumeration value="KLAWTANS_WALLOW" /> 
+			<xs:enumeration value="GLOOMY_MIRE" /> 
+			<xs:enumeration value="ISLAND_OF_ETERNITY" /> 
+			<xs:enumeration value="CONTESTED_EXPANSE" /> 
+			<xs:enumeration value="MEDEUS_ALTAR" /> 
+			<xs:enumeration value="BLACK_TEARS_SWAMP" /> 
+			<xs:enumeration value="DEATHSONG_FOREST" /> 
+			<xs:enumeration value="VAIZELS_PEAK" /> 
+			<xs:enumeration value="DESTROYED_GUARD_TOWER" /> 
+			<xs:enumeration value="ROTRON_EXPERIMENT_LAB" /> 
+			<xs:enumeration value="ARBOLUS_HAVEN" /> 
+			<xs:enumeration value="MEDEUS_MANOR_WEST" /> 
+			<xs:enumeration value="MEDEUS_MANOR_EAST" /> 
+			<xs:enumeration value="ROAD_TO_ELTNEN_HEIRON" /> <!-- ROAD_TO_ELTNEN --> 
+			<xs:enumeration value="NOLANTIS_RUINS" /> 
+			<xs:enumeration value="MANDURI_VALLEY" /> 
+			<xs:enumeration value="THE_STORM_CIRCLE" /> 
+			<xs:enumeration value="KAKUNAS_NEST" /> 
+			<xs:enumeration value="CHANGARNERKS_CAMPSITE" /> 
+			<xs:enumeration value="MUDTHORN_EXPERIMENT_LAB" /> 
+			<xs:enumeration value="DECAYED_GROVE" /> 
+			<xs:enumeration value="RUINED_DRAKE_TEMPLE" /> 
+			<xs:enumeration value="POYA_JUNGLE" /> 
+			<xs:enumeration value="HEIRONOPOLIS" /> 
+			<xs:enumeration value="MONITOR_FARM" /> 
+			<xs:enumeration value="HEIRON_OBSERVATORY" /> 
+			<xs:enumeration value="KUNPAPA_OUTPOST" /> 
+			<xs:enumeration value="SENEAS_CAMPSITE" /> 
+			<xs:enumeration value="GRAY_FOG_MARSHES" /> 
 		</xs:restriction>
 	</xs:simpleType>
 
