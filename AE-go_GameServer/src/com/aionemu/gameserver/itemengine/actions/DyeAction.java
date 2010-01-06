@@ -16,21 +16,38 @@
  */
 package com.aionemu.gameserver.itemengine.actions;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author ATracer
+ * @author IceReaper
  *
  */
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "DyeAction")
+
 public class DyeAction extends AbstractItemAction
 {
+	
+	@XmlAttribute(name = "color")
+	protected String color;
 
 	@Override
 	public void act(Player player, Item parentItem, Item targetItem)
 	{
-		// TODO Auto-generated method stub
-
+		if (targetItem.getItemTemplate().isItemDyePermitted())
+		{
+			targetItem.setItemColor(Integer.parseInt(color, 16));
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_PLAYER_APPEARANCE(player.getObjectId(), player.getInventory().getEquippedItems()));
+			player.getInventory().removeFromBagByObjectId(parentItem.getObjectId(), 1);
+		}
 	}
-
 }

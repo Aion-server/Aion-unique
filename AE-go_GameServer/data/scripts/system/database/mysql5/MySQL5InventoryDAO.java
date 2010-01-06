@@ -40,9 +40,9 @@ public class MySQL5InventoryDAO extends InventoryDAO
 {
     private static final Logger log = Logger.getLogger(MySQL5InventoryDAO.class);
 
-    public static final String SELECT_QUERY = "SELECT `itemUniqueId`, `itemId`, `itemCount`, `isEquiped`, `slot` FROM `inventory` WHERE `itemOwner`=?";
-    public static final String INSERT_QUERY = "INSERT INTO `inventory` (`itemUniqueId`, `itemId`, `itemCount`, `itemOwner`, `isEquiped`, `slot`) VALUES(?,?,?,?,?,?)";
-    public static final String UPDATE_QUERY = "UPDATE inventory SET  itemCount=?, isEquiped=?, slot=? WHERE itemUniqueId=?";
+    public static final String SELECT_QUERY = "SELECT `itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `isEquiped`, `slot` FROM `inventory` WHERE `itemOwner`=?";
+    public static final String INSERT_QUERY = "INSERT INTO `inventory` (`itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `itemOwner`, `isEquiped`, `slot`) VALUES(?,?,?,?,?,?,?)";
+    public static final String UPDATE_QUERY = "UPDATE inventory SET  itemCount=?, itemColor=?, isEquiped=?, slot=? WHERE itemUniqueId=?";
     public static final String DELETE_QUERY = "DELETE FROM inventory WHERE itemUniqueId=?";
 
     @Override
@@ -68,9 +68,10 @@ public class MySQL5InventoryDAO extends InventoryDAO
                     int itemUniqueId = rset.getInt("itemUniqueId");
                     int itemId = rset.getInt("itemId");
                     int itemCount = rset.getInt("itemCount");
+                    int itemColor = rset.getInt("itemColor");
                     int isEquiped = rset.getInt("isEquiped");
                     int slot = rset.getInt("slot");
-                    Item item = new Item(itemUniqueId, itemId, itemCount, isEquiped == 1, slot);
+                    Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, isEquiped == 1, slot);
                     item.setPersistentState(PersistentState.UPDATED);
                     inventory.onLoadHandler(item);
                 }
@@ -132,9 +133,10 @@ public class MySQL5InventoryDAO extends InventoryDAO
 				stmt.setInt(1, item.getObjectId());
 				stmt.setInt(2, item.getItemTemplate().getItemId());
 				stmt.setInt(3, item.getItemCount());
-				stmt.setInt(4, playerId);
-				stmt.setBoolean(5, item.isEquipped());
-				stmt.setInt(6, item.getEquipmentSlot());
+				stmt.setInt(4, item.getItemColor());
+				stmt.setInt(5, playerId);
+				stmt.setBoolean(6, item.isEquipped());
+				stmt.setInt(7, item.getEquipmentSlot());
 				stmt.execute();
 			}
 		});
@@ -151,9 +153,10 @@ public class MySQL5InventoryDAO extends InventoryDAO
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
 				stmt.setInt(1, item.getItemCount());
-				stmt.setBoolean(2, item.isEquipped());
-				stmt.setInt(3, item.getEquipmentSlot());
-				stmt.setInt(4, item.getObjectId());
+				stmt.setInt(2, item.getItemColor());
+				stmt.setBoolean(3, item.isEquipped());
+				stmt.setInt(4, item.getEquipmentSlot());
+				stmt.setInt(5, item.getObjectId());
 				stmt.execute();
 			}
 		});

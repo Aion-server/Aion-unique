@@ -121,7 +121,7 @@ public class SM_PLAYER_INFO extends AionServerPacket {
             {
                 writeD(buf, item.getItemTemplate().getItemId());
                 writeD(buf, 0); //unk
-                writeD(buf, 0); //color code
+                writeD(buf, item.getItemColor());
             }
         }
 

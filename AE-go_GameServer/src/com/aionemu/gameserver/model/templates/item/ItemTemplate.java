@@ -136,6 +136,9 @@ public class ItemTemplate
 
 	@XmlAttribute(name = "drop")
 	private boolean				itemDropPermitted;
+	
+	@XmlAttribute(name = "dye")
+	private boolean				itemDyePermitted;
 
 	@XmlAttribute(name = "race")
 	private String				racePermitted;
@@ -398,6 +401,14 @@ public class ItemTemplate
 	public boolean isCanSplit()
 	{
 		return canSplit;
+	}
+
+	/**
+	 * @return the dyePermitted
+	 */
+	public boolean isItemDyePermitted()
+	{
+		return itemDyePermitted;
 	}
 
 	/**

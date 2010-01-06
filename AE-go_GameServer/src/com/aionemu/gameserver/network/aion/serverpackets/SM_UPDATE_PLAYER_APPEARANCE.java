@@ -63,7 +63,7 @@ public class SM_UPDATE_PLAYER_APPEARANCE extends AionServerPacket
 		{		
 			writeD(buf, item.getItemTemplate().getItemId());
 			writeD(buf, 0); //unk
-			writeD(buf, 0); //color code
+			writeD(buf, item.getItemColor());
 		}
 		
 		writeH(buf, 0); //unk

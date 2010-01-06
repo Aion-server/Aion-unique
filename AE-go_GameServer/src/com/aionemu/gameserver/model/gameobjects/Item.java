@@ -37,6 +37,8 @@ public class Item extends AionObject
 	
 	private int itemCount = 1;
 	
+	private int itemColor = 0;
+	
 	private ItemTemplate itemTemplate;
 	
 	private boolean isEquipped = false;
@@ -78,12 +80,13 @@ public class Item extends AionObject
 	 * 
 	 * This constructor should be called only from DAO while loading from DB
 	 */
-	public Item(int objId, int itemId, int itemCount, boolean isEquipped, int equipmentSlot)
+	public Item(int objId, int itemId, int itemCount, int itemColor, boolean isEquipped, int equipmentSlot)
 	{
 		super(objId);
 		
 		this.itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
 		this.itemCount = itemCount;
+		this.itemColor = itemColor;
 		this.isEquipped = isEquipped;
 		this.equipmentSlot = equipmentSlot;
 	}
@@ -102,6 +105,23 @@ public class Item extends AionObject
 	public ItemTemplate getItemTemplate()
 	{
 		return itemTemplate;
+	}
+
+	/**
+	 *@return the itemColor
+     */
+	public int getItemColor()
+	{
+		return itemColor;
+	}
+
+	/**
+	 * @param itemColor the itemColor to set
+	 */
+	public void setItemColor(int itemColor)
+	{
+		this.itemColor = itemColor;
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 
 	/**

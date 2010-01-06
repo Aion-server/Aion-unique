@@ -180,6 +180,7 @@ CREATE TABLE `inventory` (
   `itemUniqueId` int(11) NOT NULL,
   `itemId` int(11) NOT NULL,
   `itemCount` int(11) NOT NULL DEFAULT '0',
+  `itemColor` int(11) NOT NULL DEFAULT '0',
   `itemOwner` int(11) NOT NULL,
   `isEquiped` TINYINT(1) NOT NULL DEFAULT '0',
   `slot` INT NOT NULL DEFAULT '0',
