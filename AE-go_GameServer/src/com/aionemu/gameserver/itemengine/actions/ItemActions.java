@@ -37,7 +37,8 @@ public class ItemActions {
         @XmlElement(name = "skilllearn", type = SkillLearnAction.class),
         @XmlElement(name = "skilluse", type = SkillUseAction.class),
         @XmlElement(name = "enchant", type = EnchantItemAction.class),
-        @XmlElement(name = "queststart", type = QuestStartAction.class)
+        @XmlElement(name = "queststart", type = QuestStartAction.class),
+        @XmlElement(name = "dye", type = DyeAction.class)
 
     })
     protected List<AbstractItemAction> itemActions;

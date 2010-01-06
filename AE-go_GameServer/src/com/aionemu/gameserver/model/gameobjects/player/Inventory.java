@@ -499,15 +499,19 @@ public class Inventory
 				//check dual skill
 				if(itemInMainHand != null && !getOwner().getSkillList().isSkillPresent(19))
 				{
+					if(getNumberOfFreeSlots() < 1)
+						return false;
 					unEquip(itemInMainHand);
 				}
 				//check 2h weapon in main hand
 				if(itemInMainHand != null && itemInMainHand.getItemTemplate().getWeaponType().getRequiredSlots() == 2)
 				{
+					if(getNumberOfFreeSlots() < 1)
+						return false;
 					unEquip(itemInMainHand);
 				}
 				
-				//unequipe arrows if bow+arrows were equipeed
+				//unequip arrows if bow+arrows were equipeed
 				Item possibleArrows = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
 				if(possibleArrows != null && possibleArrows.getItemTemplate().getArmorType() == ArmorType.ARROW)
 				{

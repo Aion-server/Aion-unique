@@ -43,6 +43,7 @@
 		<xs:attribute name="can_proc_enchant" type="xs:boolean" />
 		<xs:attribute name="can_split" type="xs:boolean" />
 		<xs:attribute name="drop" type="xs:boolean" />
+		<xs:attribute name="dye" type="xs:boolean" />
 		<xs:attribute name="race" type="xs:string" />
 		<xs:attribute name="price" type="xs:int" />
 		<xs:attribute name="quality" type="itemQuality" />
@@ -94,6 +95,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="queststart" type="QuestStartAction"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="dye" type="DyeAction"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -121,6 +124,14 @@
 		<xs:complexContent>
 			<xs:extension base="AbstractItemAction">
 
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="DyeAction">
+		<xs:complexContent>
+			<xs:extension base="AbstractItemAction">
+				<xs:attribute name="color" type="xs:string" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
