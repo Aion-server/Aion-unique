@@ -25,7 +25,7 @@
             </operations>
         </on_movie_end_event>
     </quest>
-    <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="The Kerub Threat" end_npc_id="203067" id="1001">
+    <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="The Kerub Threat" id="1001">
         <collect_items>
             <collect_item count="5" item_id="182200001"/>
         </collect_items>
@@ -34,122 +34,6 @@
             <selectable_reward_item count="1" item_id="114300816"/>
             <selectable_reward_item count="1" item_id="114500778"/>
         </rewards>
-        <on_kill_event ids="210670">
-            <conditions operate="AND">
-                <quest_var var_id="0" value="6" op="LESSER"/>
-            </conditions>
-            <operations>
-                <incrase_quest_var value="1" var_id="0"/>
-            </operations>
-        </on_kill_event>
-        <on_talk_event ids="203071">
-            <conditions operate="AND">
-                <quest_status value="START" op="EQUAL"/>
-                <quest_var var_id="0" value="0" op="EQUAL"/>
-                <dialog_id value="25" op="EQUAL"/>
-            </conditions>
-            <operations>
-                <npc_dialog id="1011"/>
-            </operations>
-        </on_talk_event>
-        <on_talk_event ids="203071">
-            <conditions operate="AND">
-                <quest_status value="START" op="EQUAL"/>
-                <quest_var var_id="0" value="0" op="EQUAL"/>
-                <dialog_id value="1013" op="EQUAL"/>
-            </conditions>
-            <operations override="false">
-                <play_movie movie_type="2" movie_id="15"/>
-            </operations>
-        </on_talk_event>
-        <on_talk_event ids="203071">
-            <conditions operate="AND">
-                <quest_status value="START" op="EQUAL"/>
-                <quest_var var_id="0" value="0" op="EQUAL"/>
-                <dialog_id value="10000" op="EQUAL"/>
-            </conditions>
-            <operations>
-                <incrase_quest_var value="1" var_id="0"/>
-                <npc_dialog quest_id="0" id="10"/>
-            </operations>
-        </on_talk_event>
-        <on_talk_event ids="203071">
-            <conditions operate="AND">
-                <quest_status value="START" op="EQUAL"/>
-                <quest_var var_id="0" value="6" op="EQUAL"/>
-                <dialog_id value="25" op="EQUAL"/>
-            </conditions>
-            <operations>
-                <npc_dialog id="1352"/>
-            </operations>
-        </on_talk_event>
-        <on_talk_event ids="203071">
-            <conditions operate="AND">
-                <quest_status value="START" op="EQUAL"/>
-                <quest_var var_id="0" value="6" op="EQUAL"/>
-                <dialog_id value="10001" op="EQUAL"/>
-            </conditions>
-            <operations>
-                <incrase_quest_var value="1" var_id="0"/>
-                <npc_dialog quest_id="0" id="10"/>
-            </operations>
-        </on_talk_event>
-        <on_talk_event ids="203071">
-            <conditions operate="AND">
-                <quest_status value="START" op="EQUAL"/>
-                <quest_var var_id="0" value="7" op="EQUAL"/>
-                <dialog_id value="25" op="EQUAL"/>
-            </conditions>
-            <operations>
-                <npc_dialog id="1693"/>
-            </operations>
-        </on_talk_event>
-        <on_talk_event ids="203071">
-            <conditions operate="AND">
-                <quest_status value="START" op="EQUAL"/>
-                <quest_var var_id="0" value="7" op="EQUAL"/>
-                <pc_inventory count="5" item_id="182200001" op="GREATER_EQUAL"/>
-                <dialog_id value="33" op="EQUAL"/>
-            </conditions>
-            <operations>
-                <npc_dialog id="1694"/>
-            </operations>
-        </on_talk_event>
-        <on_talk_event ids="203071">
-            <conditions operate="AND">
-                <quest_status value="START" op="EQUAL"/>
-                <quest_var var_id="0" value="7" op="EQUAL"/>
-                <pc_inventory count="5" item_id="182200001" op="LESSER"/>
-                <dialog_id value="33" op="EQUAL"/>
-            </conditions>
-            <operations>
-                <npc_dialog id="1779"/>
-            </operations>
-        </on_talk_event>
-        <on_talk_event ids="203071">
-            <conditions operate="AND">
-                <quest_status value="START" op="EQUAL"/>
-                <quest_var var_id="0" value="7" op="EQUAL"/>
-                <pc_inventory count="5" item_id="182200001" op="GREATER_EQUAL"/>
-                <dialog_id value="10002" op="EQUAL"/>
-            </conditions>
-            <operations>
-                <take_item count="-1" item_id="182200001"/>
-                <incrase_quest_var value="1" var_id="0"/>
-                <set_quest_status status="REWARD"/>
-                <npc_dialog quest_id="0" id="10"/>
-            </operations>
-        </on_talk_event>
-        <on_lvl_up_event ids="3">
-            <conditions operate="AND">
-                <quest_status value="LOCKED" op="EQUAL"/>
-                <quest_status quest_id="1100" value="COMPLITE" op="EQUAL"/>
-                <pc_level value="3" op="GREATER_EQUAL"/>
-            </conditions>
-            <operations>
-                <set_quest_status status="START"/>
-            </operations>
-        </on_lvl_up_event>
     </quest>
     <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="1" name="Request of the Elim" id="1002">
         <collect_items>

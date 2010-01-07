@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aionunique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  * aion-unique is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,11 +32,15 @@ import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
+import com.aionemu.gameserver.questEngine.handlers.QuestHandlersManager;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
-
-
+/**
+ * @author MrPoke
+ *
+ */
 public class Reload extends AdminCommand
 {
 	public Reload()
@@ -60,18 +64,18 @@ public class Reload extends AdminCommand
 		}
 		if(params[0].equals("quest"))
 		{
-			
-			
-			
 			File xml = new File("./data/static_data/quest_data/quest_data.xml");
 			try
 			{
 				QuestEngine.getInstance().clear();
+				QuestHandlers.clearQuestHandlers();
 				JAXBContext jc = JAXBContext.newInstance(StaticData.class);
 				Unmarshaller un = jc.createUnmarshaller();
 				un.setSchema(getSchema("./data/static_data/static_data.xsd"));
 
 				DataManager.QUEST_DATA =  (QuestsData) un.unmarshal(xml);
+				QuestHandlersManager.shutdown();
+				QuestHandlersManager.init();
 			}
 			catch(Exception e)
 			{

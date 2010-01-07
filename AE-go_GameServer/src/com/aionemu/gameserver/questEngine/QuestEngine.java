@@ -35,6 +35,10 @@ import com.aionemu.gameserver.questEngine.events.OnKillEvent;
 import com.aionemu.gameserver.questEngine.events.OnLvlUpEvent;
 import com.aionemu.gameserver.questEngine.events.OnMovieEndEvent;
 import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
+import com.aionemu.gameserver.questEngine.events.QuestEvent;
+import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
+import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
+
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
@@ -77,10 +81,18 @@ public class QuestEngine
 			npcObjId = npc.getObjectId();
 		int dialogId = env.getDialogId();
 
-		for(int id : getNpcQuestData(npc == null ? 0 : npc.getNpcId()).getOnTalkEvent())
-			for(OnTalkEvent event : DataManager.QUEST_DATA.getQuestById(id).getOnTalkEvent())
-				if(event.operate(new QuestEnv(npc, player, id, dialogId)))
+		for(int questId : getNpcQuestData(npc == null ? 0 : npc.getNpcId()).getOnTalkEvent())
+		{
+			if (questHandle(new QuestEnv(npc, player, questId, dialogId), new OnTalkEvent()))
+				return true;
+			for(OnTalkEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnTalkEvent())
+			{
+				if (questHandle(new QuestEnv(npc, player, questId, dialogId), event))
 					return true;
+				if(event.operate(new QuestEnv(npc, player, questId, dialogId)))
+					return true;
+			}
+		}
 
 		int questId = env.getQuestId();
 		if(questId > 0)
@@ -186,9 +198,11 @@ public class QuestEngine
 		Npc npc = (Npc) env.getVisibleObject();
 		for(int questId : getNpcQuestData(npc.getNpcId()).getOnKillEvent())
 		{
+			env.setQuestId(questId);
+			if (questHandle(env, new OnKillEvent()))
+				return true;
 			for(OnKillEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnKillEvent())
 			{
-				env.setQuestId(questId);
 				if(event.operate(env))
 					return true;
 			}
@@ -200,9 +214,11 @@ public class QuestEngine
 	{
 		for(int questId : _questLvlUp)
 		{
+			env.setQuestId(questId);
+			if (questHandle(env, new OnLvlUpEvent()))
+				return true;
 			for(OnLvlUpEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnLvlUpEvent())
 			{
-				env.setQuestId(questId);
 				if(event.operate(env))
 					return true;
 			}
@@ -214,9 +230,11 @@ public class QuestEngine
 	{
 		for(int questId : getQuestItemIds(itemId))
 		{
+			env.setQuestId(questId);
+			if (questHandle(env, new OnItemUseEvent()))
+				return true;
 			for(OnItemUseEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnItemUseEvent())
 			{
-				env.setQuestId(questId);
 				if(event.operate(env))
 					return true;
 			}
@@ -228,9 +246,11 @@ public class QuestEngine
 	{
 		for(int questId : getQuestEnterZone(zoneName))
 		{
+			env.setQuestId(questId);
+			if (questHandle(env, new OnEnterZoneEvent()))
+				return true;
 			for(OnEnterZoneEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnEnterZoneEvent())
 			{
-				env.setQuestId(questId);
 				if(event.operate(env))
 					return true;
 			}
@@ -242,9 +262,11 @@ public class QuestEngine
 	{
 		for(int questId : getQuestMovieEndIds(movieId))
 		{
+			env.setQuestId(questId);
+			if (questHandle(env, new OnMovieEndEvent()))
+				return true;
 			for(OnMovieEndEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnMovieEndEvent())
 			{
-				env.setQuestId(questId);
 				if(event.operate(env))
 					return true;
 			}
@@ -320,7 +342,8 @@ public class QuestEngine
 
 	public void addQuestLvlUp(int questId)
 	{
-		_questLvlUp.add(questId);
+		if (!_questLvlUp.contains(questId))
+			_questLvlUp.add(questId);
 	}
 
 	public List<Integer> getQuestEnterZone(ZoneName zoneName)
@@ -359,6 +382,13 @@ public class QuestEngine
 		return _questMovieEndIds.get(moveId);
 	}
 
+	private boolean questHandle (QuestEnv env, QuestEvent event)
+	{
+		QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(env.getQuestId());
+		if (questHandler == null)
+			return false;
+		return questHandler.onEvent(env, event);
+	}
 	public void setItemService(ItemService itemService)
 	{
 		this.itemService = itemService;

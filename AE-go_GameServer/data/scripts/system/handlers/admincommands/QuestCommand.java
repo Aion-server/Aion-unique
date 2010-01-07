@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aionunique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  * aion-unique is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,15 +19,19 @@ package admincommands;
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
 import com.aionemu.gameserver.questEngine.Quest;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
-
-
+/**
+ * @author MrPoke
+ *
+ */
 public class QuestCommand extends AdminCommand
 {
 	public QuestCommand()
@@ -46,7 +50,7 @@ public class QuestCommand extends AdminCommand
 		
 		if(params == null || params.length < 1)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //quest <start|delete|step|info|vars>");
+			PacketSendUtility.sendMessage(admin, "syntax //quest <start|set>");
 			return;
 		}
 		Player target = null;
@@ -98,8 +102,33 @@ public class QuestCommand extends AdminCommand
 					PacketSendUtility.sendMessage(admin, "Quest not started.");
 				}
 		}
+		else if(params[0].equals("set"))
+		{
+			int questId,var;
+			QuestStatus questStatus;
+			try
+			{
+				questId = Integer.valueOf(params[1]);
+				questStatus = QuestStatus.valueOf(params[2]);
+				var = Integer.valueOf(params[3]);
+			}
+			catch (NumberFormatException e)
+			{
+				PacketSendUtility.sendMessage(admin, "syntax //quest set <questId status var>");
+				return;
+			}
+			QuestState qs = target.getQuestStateList().getQuestState(questId);
+			if (qs == null)
+			{
+				PacketSendUtility.sendMessage(admin, "syntax //quest set <questId status var>");
+				return;
+			}
+			qs.setStatus(questStatus);
+			qs.getQuestVars().setQuestVar(var);
+			PacketSendUtility.sendPacket(target, new SM_QUEST_STEP(questId, qs.getStatus(), qs.getQuestVars().getQuestVars()));
+		}
 		else 
-			PacketSendUtility.sendMessage(admin, "syntax //quest <start|delete|step|info|vars>");
+			PacketSendUtility.sendMessage(admin, "syntax //quest <start|set>");
 		return;
 
 	}
