@@ -133,8 +133,9 @@ public class StatFunctions
 		log.debug("| Target  : "+tgs);
 		int elementaryDefense = tgs.getMagicalDefenseFor(element);
 		int magicalResistance = tgs.getCurrentStat(StatEnum.MAGICAL_RESIST);
-		int magicBoost = sgs.getCurrentStat(StatEnum.MAGICAL_ATTACK);
-		int damages = baseDamages+Math.round(magicBoost*0.60f);
+		int magicBoost = sgs.getCurrentStat(StatEnum.MAGICAL_ATTACK) 
+			+ sgs.getCurrentStat(StatEnum.BOOST_MAGICAL_SKILL);
+		int damages = baseDamages+Math.round(magicBoost*0.50f); //TODO was 0.6
 		damages -= Math.round((elementaryDefense+magicalResistance)*0.60f);
 		if (damages<=0) {
 			damages=1;
