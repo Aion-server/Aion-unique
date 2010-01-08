@@ -1,8 +1,8 @@
 package com.aionemu.gameserver.dataholders;
 
-import java.util.HashMap;
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -25,7 +25,7 @@ public class TeleLocationData
 	private List<TelelocationTemplate> tlist;
 	
 	/** A map containing all teleport location templates */
-	private Map<Integer, TelelocationTemplate>	loctlistData	= new HashMap<Integer, TelelocationTemplate>();
+	private TIntObjectHashMap<TelelocationTemplate>	loctlistData	= new TIntObjectHashMap<TelelocationTemplate>();
 
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{

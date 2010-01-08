@@ -16,9 +16,9 @@
  */
 package com.aionemu.gameserver.dataholders;
 
-import java.util.HashMap;
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -39,7 +39,7 @@ public class CubeExpandData
 {
 	@XmlElement(name = "cube_npc")
 	private List<CubeExpandTemplate> clist;
-	private Map<Integer, CubeExpandTemplate>	npctlistData	= new HashMap<Integer, CubeExpandTemplate>();
+	private TIntObjectHashMap<CubeExpandTemplate>	npctlistData	= new TIntObjectHashMap<CubeExpandTemplate>();
 	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{

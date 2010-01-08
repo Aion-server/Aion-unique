@@ -16,10 +16,10 @@
  */
 package com.aionemu.gameserver.dataholders;
 
-import java.util.HashMap;
+import gnu.trove.THashMap;
+
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -43,7 +43,7 @@ public class ZoneData implements Iterable<ZoneTemplate>
 	@XmlElement(name = "zone")
 	protected List<ZoneTemplate> zoneList;
 	
-	private Map<ZoneName, ZoneTemplate> zoneNameMap = new HashMap<ZoneName, ZoneTemplate>();
+	private THashMap<ZoneName, ZoneTemplate> zoneNameMap = new THashMap<ZoneName, ZoneTemplate>();
 	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{

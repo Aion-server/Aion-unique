@@ -17,10 +17,10 @@
 package com.aionemu.gameserver.dataholders;
 
 
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -46,7 +46,7 @@ public class PlayerStatsData
 	@XmlElement(name = "player_stats", required = true)
 	private List<PlayerStatsType> templatesList = new ArrayList<PlayerStatsType>();
 
-	private final Map<Integer, PlayerStatsTemplate> templates = new HashMap<Integer, PlayerStatsTemplate>();
+	private final TIntObjectHashMap<PlayerStatsTemplate> templates = new TIntObjectHashMap<PlayerStatsTemplate>();
 
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{

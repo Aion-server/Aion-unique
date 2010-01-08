@@ -4,12 +4,12 @@ import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
+import gnu.trove.THashMap;
+
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.Unmarshaller;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
 import java.util.Collections;
 
 /**
@@ -31,7 +31,7 @@ public class PlayerInitialData
 	@XmlElement(name="asmodian_spawn_location", required = true)
 	private LocationData asmodianSpawnLocation;
 
-	private Map<PlayerClass, PlayerCreationData> data = new HashMap<PlayerClass, PlayerCreationData>();
+	private THashMap<PlayerClass, PlayerCreationData> data = new THashMap<PlayerClass, PlayerCreationData>();
 
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{

@@ -16,9 +16,9 @@
  */
 package com.aionemu.gameserver.dataholders;
 
-import java.util.HashMap;
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -38,6 +38,7 @@ import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SkillData
 {
+	@SuppressWarnings("unused")
 	private static final Logger log = Logger.getLogger(SkillData.class);
 	
 	@XmlElement(name = "skill_template")
@@ -45,7 +46,7 @@ public class SkillData
 	/**
 	 *  Map that contains skillId - SkillTemplate key-value pair
 	 */
-	private Map<Integer, SkillTemplate>	skillData	= new HashMap<Integer, SkillTemplate>();
+	private TIntObjectHashMap<SkillTemplate>	skillData	= new TIntObjectHashMap<SkillTemplate>();
 	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{

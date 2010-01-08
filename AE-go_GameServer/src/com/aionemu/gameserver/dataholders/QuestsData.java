@@ -17,9 +17,9 @@
 
 package com.aionemu.gameserver.dataholders;
 
-import java.util.HashMap;
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -44,7 +44,7 @@ public class QuestsData
 
 	@XmlElement(name = "quest", required = true)
 	protected List<QuestTemplate>		questsData;
-	private Map<Integer, QuestTemplate>	questData	= new HashMap<Integer, QuestTemplate>();
+	private TIntObjectHashMap<QuestTemplate>	questData	= new TIntObjectHashMap<QuestTemplate>();
 
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{

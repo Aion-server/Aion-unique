@@ -1,8 +1,8 @@
 package com.aionemu.gameserver.dataholders;
 
-import java.util.HashMap;
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -24,8 +24,8 @@ public class BindPointData
 	private List<BindPointTemplate> bplist;
 	
 	/** A map containing all bind point location templates */
-	private Map<Integer, BindPointTemplate>	bindplistData	= new HashMap<Integer, BindPointTemplate>();
-	private Map<Integer, BindPointTemplate>	bindplistData2	= new HashMap<Integer, BindPointTemplate>();
+	private TIntObjectHashMap<BindPointTemplate>	bindplistData	= new TIntObjectHashMap<BindPointTemplate>();
+	private TIntObjectHashMap<BindPointTemplate>	bindplistData2	= new TIntObjectHashMap<BindPointTemplate>();
 
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{

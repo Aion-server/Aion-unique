@@ -16,10 +16,10 @@
  */
 package com.aionemu.gameserver.dataholders;
 
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -43,12 +43,13 @@ import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SkillTreeData
 {
+	@SuppressWarnings("unused")
 	private static final Logger log = Logger.getLogger(SkillTreeData.class);
 	
 	@XmlElement(name = "skill")
 	private List<SkillLearnTemplate> skillTemplates;
 	
-	private final Map<Integer, ArrayList<SkillLearnTemplate>> templates = new HashMap<Integer, ArrayList<SkillLearnTemplate>>();
+	private final TIntObjectHashMap<ArrayList<SkillLearnTemplate>> templates = new TIntObjectHashMap<ArrayList<SkillLearnTemplate>>();
 	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
@@ -79,7 +80,7 @@ public class SkillTreeData
 	/**
 	 * @return the templates
 	 */
-	public Map<Integer, ArrayList<SkillLearnTemplate>> getTemplates()
+	public TIntObjectHashMap<ArrayList<SkillLearnTemplate>> getTemplates()
 	{
 		return templates;
 	}
@@ -119,7 +120,7 @@ public class SkillTreeData
 	public int size()
 	{
 		int size = 0;
-		for(Integer key : templates.keySet())
+		for(Integer key : templates.keys())
 			size += templates.get(key).size();
 		return size;
 	}

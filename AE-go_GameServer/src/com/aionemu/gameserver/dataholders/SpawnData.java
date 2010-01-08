@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.dataholders;
 
+import gnu.trove.TIntObjectHashMap;
+
 import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,7 +25,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.utils.collections.IteratorIterator;
@@ -56,7 +57,7 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 	 * It is assumed here that specific spawntemplate can be located only in one map.
 	 * Probably there is better solution that need to be find out
 	 */
-	private Map<Integer, SpawnTemplate> spawnsByTemplateIdMap = new HashMap<Integer, SpawnTemplate>();
+	private TIntObjectHashMap<SpawnTemplate> spawnsByTemplateIdMap = new TIntObjectHashMap<SpawnTemplate>();
 
 	/**
 	 * SpawnData constructor, should be called only from {@link DataManager} class.

@@ -1,8 +1,8 @@
 package com.aionemu.gameserver.dataholders;
 
-import java.util.HashMap;
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -22,7 +22,7 @@ public class WalkerData
 	@XmlElement(name = "walker_template")
 	private List<WalkerTemplate> walkerlist;
 	
-	private Map<Integer, WalkerTemplate>	walkerlistData	= new HashMap<Integer, WalkerTemplate>();
+	private TIntObjectHashMap<WalkerTemplate>	walkerlistData	= new TIntObjectHashMap<WalkerTemplate>();
 
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{

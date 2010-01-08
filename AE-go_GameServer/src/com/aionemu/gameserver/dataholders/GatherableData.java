@@ -16,9 +16,9 @@
  */
 package com.aionemu.gameserver.dataholders;
 
-import java.util.HashMap;
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -39,7 +39,7 @@ public class GatherableData
 	private List<GatherableTemplate> gatherables;
 	
 	/** A map containing all npc templates */
-	private Map<Integer, GatherableTemplate> gatherableData	= new HashMap<Integer, GatherableTemplate>();
+	private TIntObjectHashMap<GatherableTemplate> gatherableData	= new TIntObjectHashMap<GatherableTemplate>();
 
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{

@@ -16,9 +16,9 @@
  */
 package com.aionemu.gameserver.dataholders;
 
-import java.util.HashMap;
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -39,11 +39,11 @@ public class ItemData
 	@XmlElement(name="item_template")
 	private List<ItemTemplate> its;
 	
-	private Map<Integer, ItemTemplate> items;
+	private TIntObjectHashMap<ItemTemplate> items;
 	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
-		items = new HashMap<Integer, ItemTemplate>();
+		items = new TIntObjectHashMap<ItemTemplate>();
 		for(ItemTemplate it: its)
 		{
 			items.put(it.getItemId(), it);
