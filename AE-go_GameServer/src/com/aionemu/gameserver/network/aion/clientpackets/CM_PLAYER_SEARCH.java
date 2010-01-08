@@ -110,7 +110,7 @@ public class CM_PLAYER_SEARCH extends AionClientPacket
 			}
 		}
 		
-		sendPacket(new SM_PLAYER_SEARCH(matches));
+		sendPacket(new SM_PLAYER_SEARCH(matches, region));
 
 	}
 

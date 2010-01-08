@@ -38,15 +38,19 @@ public class SM_PLAYER_SEARCH extends AionServerPacket
 	private static final Logger log = Logger.getLogger(SM_PLAYER_SEARCH.class);
 	
 	private List<Player> players;
+	private int region;
 	
 	/**
 	 * Constructs a new packet that will send these players
-	 * @param players
-	 * 			List of players to show
+	 * @param players List of players to show
+	 * @param region of search - should be passed as parameter
+	 * to prevent null in player.getActiveRegion()
+	 * 
 	 */
-	public SM_PLAYER_SEARCH(List<Player> players)
+	public SM_PLAYER_SEARCH(List<Player> players, int region)
 	{
 		this.players = new ArrayList<Player>(players);
+		this.region = region;
 	}
 	
 	/**
@@ -63,7 +67,7 @@ public class SM_PLAYER_SEARCH extends AionServerPacket
 				log.warn("CHECKPOINT: null active region for " + player.getObjectId() 
 					+ "-" + player.getX() + "-" + player.getY() + "-" + player.getZ());
 			}
-			writeD(buf, player.getActiveRegion().getMapId());
+			writeD(buf, player.getActiveRegion() == null ? region : player.getActiveRegion().getMapId());
 			writeF(buf, player.getPosition().getX());
 			writeF(buf, player.getPosition().getY());
 			writeF(buf, player.getPosition().getZ());
