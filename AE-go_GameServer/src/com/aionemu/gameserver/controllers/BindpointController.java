@@ -18,13 +18,18 @@ package com.aionemu.gameserver.controllers;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.model.ChatType;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
+//import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.templates.BindPointTemplate;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
+//import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SET_BIND_POINT;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -54,7 +59,13 @@ public class BindpointController extends NpcController
 			log.info("There is no bind point template for npc: " + getOwner().getNpcId());
 			return;
 		}
-		
+
+		if (player.getCommonData().getBindPoint() == bindPointTemplate.getBindId())
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_ALREADY_REGISTER_THIS_RESURRECT_POINT());
+			return;
+		}
+
 		RequestResponseHandler responseHandler = new RequestResponseHandler(getOwner())
 		{
 			@Override
@@ -64,18 +75,35 @@ public class BindpointController extends NpcController
 				{
 					if (responder.getInventory().getKinahItem().getItemCount()>= bindPointTemplate.getPrice())
 					{
-						PacketSendUtility.sendPacket(responder, new SM_MESSAGE(0, null, "You have successfully binded to this location.", null, ChatType.ANNOUNCEMENTS));
+						int worldId;
+						float x,y,z;
+						if (responder.getCommonData().getBindPoint() != 0)
+						{
+							BindPointTemplate bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate2(bindPointTemplate.getBindId());
+							worldId = bplist.getZoneId();
+							x = bplist.getX();
+							y = bplist.getY();
+							z = bplist.getZ();
+						}
+						else
+						{
+							LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(responder.getCommonData().getRace());
+							worldId = locationData.getMapId();
+							x = locationData.getX();
+							y = locationData.getY();
+							z = locationData.getZ();
+						}
 						responder.getInventory().decreaseKinah(bindPointTemplate.getPrice());
 						responder.getCommonData().setBindPoint(bindPointTemplate.getBindId());
+						PacketSendUtility.sendPacket(responder, new SM_SET_BIND_POINT(worldId, x, y, z));
+						PacketSendUtility.broadcastPacket(responder, new SM_LEVEL_UPDATE(responder.getObjectId(), 2, responder.getCommonData().getLevel()), true);
+						PacketSendUtility.sendPacket(responder, SM_SYSTEM_MESSAGE.STR_DEATH_REGISTER_RESURRECT_POINT());
 					}
 					else
 					{
-						PacketSendUtility.sendPacket(responder, new SM_MESSAGE(0, null, "You don't have enough Kinah.", null, ChatType.ANNOUNCEMENTS));
+						PacketSendUtility.sendPacket(responder, SM_SYSTEM_MESSAGE.STR_CANNOT_REGISTER_RESURRECT_POINT_NOT_ENOUGH_FEE());
+						return;
 					}
-				}
-				else
-				{
-					PacketSendUtility.sendPacket(responder, new SM_MESSAGE(0, null, "You are already binded to this location.", null, ChatType.ANNOUNCEMENTS));
 				}
 			}
 			@Override
@@ -92,5 +120,4 @@ public class BindpointController extends NpcController
 			PacketSendUtility.sendPacket(player, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_BIND_TO_LOCATION, 0, price));
 		}
 	}
-
 }

@@ -22,12 +22,15 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION_LIST;
@@ -43,6 +46,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRICES;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SET_BIND_POINT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -187,6 +191,26 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 */
 			client.sendPacket(new SM_STATS_INFO(player));
 			sendPacket(new SM_UNK7B());
+
+			int worldId;
+			float x,y,z;
+			if (player.getCommonData().getBindPoint() != 0)
+			{
+				BindPointTemplate bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate2(player.getCommonData().getBindPoint());
+				worldId = bplist.getZoneId();
+				x = bplist.getX();
+				y = bplist.getY();
+				z = bplist.getZ();
+			}
+			else
+			{
+				LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
+				worldId = locationData.getMapId();
+				x = locationData.getX();
+				y = locationData.getY();
+				z = locationData.getZ();
+			}
+			sendPacket(new SM_SET_BIND_POINT(worldId, x, y, z));
 			// sendPacket(new SM_UNKE1());
 			sendPacket(new SM_MACRO_LIST(player));
 

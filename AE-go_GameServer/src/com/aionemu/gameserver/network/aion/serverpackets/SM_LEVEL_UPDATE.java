@@ -29,11 +29,13 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_LEVEL_UPDATE extends AionServerPacket
 {
 	private int	targetObjectId;
-	private int	level ;
+	private int	effect;
+	private int	level;
 	
-	public SM_LEVEL_UPDATE(int targetObjectId, int level)
+	public SM_LEVEL_UPDATE(int targetObjectId, int effect, int level)
 	{
 		this.targetObjectId = targetObjectId;
+		this.effect = effect;	
 		this.level = level;	
 	}
 
@@ -45,7 +47,7 @@ public class SM_LEVEL_UPDATE extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{	
 		writeD(buf, targetObjectId);
-		writeH(buf, 0x00); //unk
+		writeH(buf, effect); //unk
 		writeH(buf, level); 
 		writeH(buf, 0x00); //unk
 	}	

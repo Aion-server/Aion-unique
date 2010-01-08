@@ -74,7 +74,6 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	/**
 	 * You used item
 	 */
-
 	public static SM_SYSTEM_MESSAGE USE_ITEM(String itemName)
 	{
 		return new SM_SYSTEM_MESSAGE(1300423, itemName);
@@ -119,6 +118,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1330058, _value);
 	}
+
 	/**
 	 * Your Requested player to trade
 	 */
@@ -148,6 +148,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	 * @return
 	 */
 	public static SM_SYSTEM_MESSAGE			BLOCKLIST_NO_BUDDY			= new SM_SYSTEM_MESSAGE(1300891);
+
 	/**
 	 * Character already in block list
 	 */
@@ -207,7 +208,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300097, player);
 	}
-	
+
 	/**
 	 * You won the duel against %0.
 	 */
@@ -215,7 +216,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300098, player);
 	}
-	
+
 	/**
 	 * You lost the duel against %0.
 	 */
@@ -227,7 +228,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public static SM_SYSTEM_MESSAGE DUEL_START = new SM_SYSTEM_MESSAGE(1300770);
 	
 	public static SM_SYSTEM_MESSAGE DUEL_END = new SM_SYSTEM_MESSAGE(1300771);
-	
+
 	/**
 	 * Starting the duel with %0.
 	 */
@@ -235,7 +236,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300777,player);
 	}
-	
+
 	/**
 	 * You declined %0's challenge for a duel.
 	 */
@@ -243,7 +244,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1301064,player);
 	}
-	
+
 	/**
 	 * %0 has withdrawn the challenge for a duel.
 	 */
@@ -251,7 +252,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300134,player);
 	}
-	
+
 	/**
 	 * You have withdrawn the challenge to %0 for a duel.
 	 */
@@ -259,108 +260,144 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300135,player);
 	}
-	
+
 	/**
 	 * You cannot duel with %0.
 	 */
-	public static SM_SYSTEM_MESSAGE DUEL_PARTNER_INVALID(String partner) {
+	public static SM_SYSTEM_MESSAGE DUEL_PARTNER_INVALID(String partner)
+	{
 		return new SM_SYSTEM_MESSAGE(1300091,partner);
 	}
-	
+
 	/**
 	 * Group System Messages
 	 */
-	public static SM_SYSTEM_MESSAGE REQUEST_GROUP_INVITE(String player) {
+	public static SM_SYSTEM_MESSAGE REQUEST_GROUP_INVITE(String player)
+	{
 		return new SM_SYSTEM_MESSAGE(1300173,player);
 	}
-	
-	public static SM_SYSTEM_MESSAGE REJECT_GROUP_INVITE(String player) {
+
+	public static SM_SYSTEM_MESSAGE REJECT_GROUP_INVITE(String player)
+	{
 		return new SM_SYSTEM_MESSAGE(1300161,player);
 	}
-	
-	public static SM_SYSTEM_MESSAGE PLAYER_IN_ANOTHER_GROUP(String player) {
+
+	public static SM_SYSTEM_MESSAGE PLAYER_IN_ANOTHER_GROUP(String player)
+	{
 		return new SM_SYSTEM_MESSAGE(1300169,player);
 	}
-	
-	public static SM_SYSTEM_MESSAGE INVITED_PLAYER_OFFLINE() {
+
+	public static SM_SYSTEM_MESSAGE INVITED_PLAYER_OFFLINE()
+	{
 		return new SM_SYSTEM_MESSAGE(1300159);
 	}
 
-	public static SM_SYSTEM_MESSAGE MEMBER_LEFT_GROUP(String player) {
+	public static SM_SYSTEM_MESSAGE MEMBER_LEFT_GROUP(String player)
+	{
 		return new SM_SYSTEM_MESSAGE(1300168,player);
 	}
-	
-	public static SM_SYSTEM_MESSAGE DISBAND_GROUP() {
+
+	public static SM_SYSTEM_MESSAGE DISBAND_GROUP()
+	{
 		return new SM_SYSTEM_MESSAGE(1300167);
 	}
-	
-	public static SM_SYSTEM_MESSAGE YOU_LEFT_GROUP() {
+
+	public static SM_SYSTEM_MESSAGE YOU_LEFT_GROUP()
+	{
 		return new SM_SYSTEM_MESSAGE(1300043);
 	}
-	
-	public static SM_SYSTEM_MESSAGE SELECTED_TARGET_DEAD() {
+
+	public static SM_SYSTEM_MESSAGE SELECTED_TARGET_DEAD()
+	{
 		return new SM_SYSTEM_MESSAGE(1300044);
 	}
-	
-	public static SM_SYSTEM_MESSAGE DURING_FLYING_PATH_NOT_LEFT_GROUP() {
+
+	public static SM_SYSTEM_MESSAGE DURING_FLYING_PATH_NOT_LEFT_GROUP()
+	{
 		return new SM_SYSTEM_MESSAGE(1300047);
 	}
-	
-	public static SM_SYSTEM_MESSAGE FULL_GROUP() {
+
+	public static SM_SYSTEM_MESSAGE FULL_GROUP()
+	{
 		return new SM_SYSTEM_MESSAGE(1300152);
 	}
-	
-	public static SM_SYSTEM_MESSAGE CHANGE_GROUP_LEADER() {
+
+	public static SM_SYSTEM_MESSAGE CHANGE_GROUP_LEADER()
+	{
 		return new SM_SYSTEM_MESSAGE(1300155);
 	}
-	
-	public static SM_SYSTEM_MESSAGE ONLY_GROUP_LEADER_CAN_INVITE() {
+
+	public static SM_SYSTEM_MESSAGE ONLY_GROUP_LEADER_CAN_INVITE()
+	{
 		return new SM_SYSTEM_MESSAGE(1300160);
 	}	
-	
-	public static SM_SYSTEM_MESSAGE CANNOT_INVITE_YOURSELF() {
+
+	public static SM_SYSTEM_MESSAGE CANNOT_INVITE_YOURSELF()
+	{
 		return new SM_SYSTEM_MESSAGE(1300162);
 	}
 	
-	public static SM_SYSTEM_MESSAGE CANNOT_INVITE_BECAUSE_YOU_DEAD() {
+	public static SM_SYSTEM_MESSAGE CANNOT_INVITE_BECAUSE_YOU_DEAD()
+	{
 		return new SM_SYSTEM_MESSAGE(1300163);
-	}	
-	
-	public static SM_SYSTEM_MESSAGE INVITED_ANOTHER_GROUP_MEMBER(String player) {
+	}
+
+	public static SM_SYSTEM_MESSAGE INVITED_ANOTHER_GROUP_MEMBER(String player)
+	{
 		return new SM_SYSTEM_MESSAGE(1300169);
-	}	
-	
-	public static SM_SYSTEM_MESSAGE INVITED_YOUR_GROUP_MEMBER(String player) {
+	}
+
+	public static SM_SYSTEM_MESSAGE INVITED_YOUR_GROUP_MEMBER(String player)
+	{
 		return new SM_SYSTEM_MESSAGE(1300170);
-	}	
+	}
+
 	public static SM_SYSTEM_MESSAGE CANT_INVITE_OTHER_RACE() {
 		return new SM_SYSTEM_MESSAGE(1300188);	
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE LEVEL_NOT_ENOUGH_FOR_SEARCH() {
 		return new SM_SYSTEM_MESSAGE(1400341);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE LEVEL_NOT_ENOUGH_FOR_WHISPER(String level) {
 		return new SM_SYSTEM_MESSAGE(1310004);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE EXP_RECOVEREBLED_BY_COUNT(String count) {
 		return new SM_SYSTEM_MESSAGE(1370002);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE SOUL_HEALED() {
 		return new SM_SYSTEM_MESSAGE(1300674);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE DONT_HAVE_RECOVERED_EXP() {
 		return new SM_SYSTEM_MESSAGE(1300682);
 	}
-	
+
 	/**
 	 * You cannot fly in this area.
 	 */
 	public static SM_SYSTEM_MESSAGE STR_FLYING_FORBIDDEN_HERE = new SM_SYSTEM_MESSAGE(1300960);
+
+	/**
+	 * Binding Point Messages
+	 */
+	public static SM_SYSTEM_MESSAGE STR_CANNOT_REGISTER_RESURRECT_POINT_NOT_ENOUGH_FEE()
+	{
+		return new SM_SYSTEM_MESSAGE(1300686);
+	}
+
+	public static SM_SYSTEM_MESSAGE STR_ALREADY_REGISTER_THIS_RESURRECT_POINT()
+	{
+		return new SM_SYSTEM_MESSAGE(1300688);
+	}
+
+	public static SM_SYSTEM_MESSAGE STR_DEATH_REGISTER_RESURRECT_POINT()
+	{
+		return new SM_SYSTEM_MESSAGE(1300670);
+	}
 
 	private final int		code;
 	private final Object[]	params;

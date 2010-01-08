@@ -217,7 +217,7 @@ public class PlayerCommonData
 			player.getLifeStats().synchronizeWithMaxStats();
 			
 			PacketSendUtility.broadcastPacket(player,
-				new SM_LEVEL_UPDATE(player.getObjectId(), this.level),true);
+				new SM_LEVEL_UPDATE(player.getObjectId(), 0, this.level),true);
 			
 			//Temporal
 			ClassChangeService.showClassChangeDialog(player);
