@@ -55,6 +55,7 @@
 			<xs:enumeration value="CLIONA_LAKE"/>
 			<xs:enumeration value="NYMPHS_POND"/>
 			<xs:enumeration value="AGARIC_SPORE_ROAD"/>
+			<xs:enumeration value="ITEMUSE_Q1006"/>
 			<!-- ishalgen -->
 			<xs:enumeration value="DUBARO_VINE_CANYON"/>
 			<xs:enumeration value="ANTUROON_SENTRY_POST"/>

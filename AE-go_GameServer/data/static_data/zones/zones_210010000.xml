@@ -215,4 +215,17 @@
         <link>DEFORESTED_AREA</link>
         <link>KABARAH_STRIP_MINE</link>
     </zone>
+    
+    <!--  ITEM ZONES -->
+    <zone mapid="210010000" name="ITEMUSE_Q1006" priority="18">
+        <points>
+            <point y="1031.335083" x="659.150024"/>
+            <point y="1059.877197" x="667.807800"/>
+            <point y="1089.561035" x="655.820068"/>
+            <point y="1087.530396" x="621.265564"/>
+            <point y="1060.510376" x="605.091675"/>
+            <point y="1032.348755" x="614.034851"/>
+            <point y="1023.518860" x="638.559387"/>
+        </points>
+    </zone>
 </zones>

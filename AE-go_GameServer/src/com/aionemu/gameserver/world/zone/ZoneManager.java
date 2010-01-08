@@ -124,6 +124,22 @@ public class ZoneManager
 			}
 		}
 	}
+	
+	/**
+	 *  Checks whether player is inside specific zone
+	 *  
+	 * @param player
+	 * @param zoneName
+	 * @return true if player is inside specified zone
+	 */
+	public boolean isInsideZone(Player player, ZoneName zoneName)
+	{
+		ZoneInstance zoneInstance = zoneMap.get(zoneName);
+		if(zoneInstance == null)
+			return false;
+		
+		return checkPointInZone(zoneInstance, player.getPosition());
+	}
 
 	/**
 	 *  Main algorithm that analyzes point-in-polygon
