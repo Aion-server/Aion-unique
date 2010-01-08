@@ -86,7 +86,6 @@ public class CM_CHAT_MESSAGE_WHISPER extends AionClientPacket
 		Player sender = getConnection().getActivePlayer();
 		Player receiver = world.findPlayer(formatname);
 
-		//TODO under level 10 not work the whisper
 		if(receiver == null)
 		{
 			sendPacket(SM_SYSTEM_MESSAGE.PLAYER_IS_OFFLINE(formatname));

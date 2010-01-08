@@ -27,22 +27,22 @@ public enum ChatType
 {
 
 	/**
-	 * Just normal chat
+	 * Normal chat (white)
 	 */
 	NORMAL(0x00),
 
 	/**
-	 * Shout chat
+	 * Shout chat (orange)
 	 */
 	SHOUT(0x03),
 
 	/**
-	 * whisper chat
+	 * Whisper chat (green)
 	 */
 	WHISPER(0x04),
 	
 	/**
-	 * Group chat
+	 * Group chat (blue)
 	 */
 	GROUP(0x05),
 	
@@ -52,20 +52,18 @@ public enum ChatType
 	GROUP_LEADER(0x07),
 
 	/**
-	 * Unknown, seded by official server
+	 * Unknown
 	 */
 	UNKNOWN_0x18(0x18),
 
 	/**
-	 * Golden chat
+	 * Announce chat (yellow)
 	 */
 	ANNOUNCEMENTS(0x19),
 
 	/**
-	 * Unknown
-	UNKNOWN_0x1D(0x1D);
+	 * Notice chat (yellow with box over players head)
 	*/
-	
 	SYSTEM_NOTICE(0x21);
 
 	/**

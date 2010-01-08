@@ -125,7 +125,7 @@ public class Set extends AdminCommand {
 				Player player = (Player) target;
 				if (level <= 51)
 					player.getCommonData().setLevel(level);
-				PacketSendUtility.sendMessage(admin, "Set target level to " + level);
+				PacketSendUtility.sendMessage(admin, "Set " + player.getCommonData().getName() + " level to " + level);
 			}
 		}
 		else if (params[0].equals("title"))
@@ -153,7 +153,7 @@ public class Set extends AdminCommand {
 				Player player = (Player) target;
 				if (titleId <= 106)
 					setTitle(player, titleId);
-				PacketSendUtility.sendMessage(admin, "Set title to " + titleId);
+				PacketSendUtility.sendMessage(admin, "Set " + player.getCommonData().getName() + " title to " + titleId);
 			}
 		}
 	}
@@ -171,7 +171,7 @@ public class Set extends AdminCommand {
 		int level = player.getLevel();
 		if (level < 9)
 		{
-			PacketSendUtility.sendMessage(player, "You can switch class after your level reach 9");
+			PacketSendUtility.sendMessage(player, "You can only switch class after reach level 9");
 			return;
 		}
 		if (Arrays.asList(1, 2, 4, 5, 7, 8, 10, 11).contains(oldClass.ordinal()))
@@ -200,6 +200,6 @@ public class Set extends AdminCommand {
 		}
 		player.getCommonData().setPlayerClass(playerClass);
 		player.getCommonData().upgradePlayer();
-		PacketSendUtility.sendMessage(player, "You have success switch class");
+		PacketSendUtility.sendMessage(player, "You have successfuly switched class");
 	}
 }
