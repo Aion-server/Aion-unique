@@ -147,7 +147,7 @@ public class Inventory
 				owner.getLifeStats().synchronizeWithMaxStats();
 			}			
 		}
-		else if(item.getItemTemplate().getItemId() == ItemId.KINAH.value())
+		else if(item.getItemTemplate().isKinah())
 		{
 			kinahItem = item;
 		}

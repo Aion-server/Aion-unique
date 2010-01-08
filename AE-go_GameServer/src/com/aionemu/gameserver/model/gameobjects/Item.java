@@ -174,7 +174,7 @@ public class Item extends AionObject
 		if( this.itemCount - remCount >= 0 )
 		{
 			this.itemCount -= remCount;
-			if(itemCount == 0)
+			if(itemCount == 0 && !this.itemTemplate.isKinah())
 			{
 				setPersistentState(PersistentState.DELETED);
 			}
