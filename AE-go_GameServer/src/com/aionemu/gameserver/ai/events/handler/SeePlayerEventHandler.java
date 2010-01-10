@@ -1,5 +1,5 @@
-/*  
- *  This file is part of aion-unique <aion-unique.com>.
+/*
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,48 +14,31 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.events;
+package com.aionemu.gameserver.ai.events.handler;
 
 import com.aionemu.gameserver.ai.AI;
-import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.ai.events.Event;
+import com.aionemu.gameserver.ai.state.AIState;
 
 /**
  * @author ATracer
  *
  */
-public class AttackEvent implements AIEvent
+public class SeePlayerEventHandler extends EventHandler
 {
 
-	private Creature originator;
-
-	public AttackEvent(Creature originator)
+	@Override
+	public Event getEvent()
 	{
-		super();
-		this.originator = originator;
+		return Event.SEE_PLAYER;
 	}
 
 	@Override
-	public void handleEvent(AI<?> ai)
+	public void handleEvent(Event event, AI<?> ai)
 	{
-		ai.handleEvent(this);
+		ai.setAiState(AIState.ACTIVE);
+		if(!ai.isScheduled())
+			ai.analyzeState();
 	}
 
-	/**
-	 * @return the originator
-	 */
-	public Creature getOriginator()
-	{
-		return originator;
-	}
-
-	/**
-	 * @param originator the originator to set
-	 */
-	public void setOriginator(Creature originator)
-	{
-		this.originator = originator;
-	}
-	
-	
-	
 }

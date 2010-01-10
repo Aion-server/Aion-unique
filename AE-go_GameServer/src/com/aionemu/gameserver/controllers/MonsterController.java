@@ -19,13 +19,11 @@ package com.aionemu.gameserver.controllers;
 import java.util.Iterator;
 import java.util.List;
 
-import javolution.util.FastMap;
-
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.ai.AIState;
-import com.aionemu.gameserver.ai.events.AttackEvent;
+import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.npcai.MonsterAi;
+import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -33,9 +31,9 @@ import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
-import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -54,25 +52,6 @@ import com.aionemu.gameserver.world.World;
 public class MonsterController extends NpcController
 {
 	private static Logger log = Logger.getLogger(MonsterController.class);
-
-	public final class AggroInfo
-	{
-		protected Creature _attacker;
-		protected int _hate;
-		protected int _damage;
-
-		AggroInfo(Creature pAttacker)
-		{
-			_attacker = pAttacker;
-		}
-	}
-
-	private FastMap<Creature, AggroInfo> _aggroList = new FastMap<Creature, AggroInfo>().setShared(true);
-
-	public final FastMap<Creature, AggroInfo> getAggroList()
-	{
-		return _aggroList;
-	}
 
 	@Override
 	public void doDrop(Player player)
@@ -127,22 +106,14 @@ public class MonsterController extends NpcController
 	}
 
 	@Override
-	public boolean onAttack(Creature creature)
+	public void onAttack(Creature creature, int skillId,  int damage)
 	{
-		super.onAttack(creature);
-
 		Monster monster = getOwner();
-		CreatureLifeStats<? extends Creature> lifeStats = monster.getLifeStats();
-
-		if(lifeStats.isAlreadyDead())
-		{
-			return false;
-		}
-
+		monster.getAggroList().addDamageHate(creature, damage, 0);
+		monster.getLifeStats().reduceHp(damage);
 		MonsterAi monsterAi = monster.getAi();
-		monsterAi.handleEvent(new AttackEvent(creature));
-
-		return true;
+		monsterAi.handleEvent(Event.ATTACKED);
+		PacketSendUtility.broadcastPacket(monster, new SM_ATTACK_STATUS(monster, skillId));
 	}
 
 	public void attackTarget(int targetObjectId)
@@ -161,36 +132,27 @@ public class MonsterController extends NpcController
 		//TODO refactor to possibility npc-npc fight
 		Player player = (Player) world.findAionObject(targetObjectId);
 		//if player disconnected - IDLE state
-		if(player == null)
+		if(player == null || player.getLifeStats().isAlreadyDead())
 		{
-			monsterAi.setAiState(AIState.IDLE);
+			monsterAi.setAiState(AIState.THINKING);
 		}
 
-		boolean attackSuccess = player.getController().onAttack(monster);
+		List<AttackResult> attackList = AttackUtil.calculateAttackResult(monster, player);
 
-		if(attackSuccess)
+		int damage = 0;
+		for(AttackResult result : attackList)
 		{
-			List<AttackResult> attackList = AttackUtil.calculateAttackResult(monster, player);
+			damage += result.getDamage();
+		}
 
-			int damage = 0;
-			for(AttackResult result : attackList)
-			{
-				damage += result.getDamage();
-			}
-			
-			//wtf is 274 - invetigate
-			PacketSendUtility.broadcastPacket(player,
-				new SM_ATTACK(monster.getObjectId(), player.getObjectId(),
-					npcGameStats.getAttackCounter(), 274, attackType, attackList), true);
-			
-			player.getLifeStats().reduceHp(damage);
-			npcGameStats.increaseAttackCounter();
-		}
-		
-		if(player.getLifeStats().isAlreadyDead())
-		{
-			monsterAi.setAiState(AIState.IDLE);
-		}
+		//wtf is 274 - invetigate
+		PacketSendUtility.broadcastPacket(player,
+			new SM_ATTACK(monster.getObjectId(), player.getObjectId(),
+				npcGameStats.getAttackCounter(), 274, attackType, attackList), true);
+
+		player.getController().onAttack(monster, 0, damage);
+		npcGameStats.increaseAttackCounter();
+
 	}
 
 	@Override
@@ -224,12 +186,9 @@ public class MonsterController extends NpcController
 	{
 		this.decayTask = null;
 		dropService.unregisterDrop(getOwner());
-		getAggroList().clear();
+		getOwner().getAggroList().clear();
 		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
-		if (this.getOwner().hasWalkRoutes() || this.getOwner().isAggressive())
-		{
-			this.getOwner().getAi().setAiState(AIState.ACTIVE);
-		}
+		this.getOwner().getAi().handleEvent(Event.RESPAWNED);
 	}
 
 	@Override
@@ -244,63 +203,23 @@ public class MonsterController extends NpcController
 		return true;
 	}
 
-	public void addDamageHate(Creature attacker, int damage, int aggro)
-	{
-		if (attacker == null)
-			return;
-
-		AggroInfo ai = getAggroList().get(attacker);
-		if (ai == null)
-		{
-			ai = new AggroInfo(attacker);
-			getAggroList().put(attacker, ai);
-
-			ai._damage = 0;
-			ai._hate = 0;
-		}
-		ai._damage += damage;
-
-		if (aggro == 0)
-			ai._hate++;
-		else
-			ai._hate += aggro;
-	}
-
-	public Creature getMostHated()
-	{
-		if (getAggroList().isEmpty() || getOwner().getLifeStats().isAlreadyDead()) return null;
-
-		Creature mostHated = null;
-		int maxHate = 0;
-
-		synchronized (getAggroList())
-		{
-			for (AggroInfo ai : getAggroList().values())
-			{
-				if (ai == null)
-					continue;
-
-				if
-				(
-					ai._attacker.getLifeStats().isAlreadyDead()
-				)
-					ai._hate = 0;
-
-				if (ai._hate > maxHate)
-				{
-					mostHated = ai._attacker;
-					maxHate = ai._hate;
-				}
-			}
-		}
-		return mostHated;
-	}
-
 	@Override
 	public void notSee(VisibleObject object)
 	{
 		super.notSee(object);
 		if (object instanceof Creature)
-			getAggroList().remove((Creature)object);
+			getOwner().getAggroList().remove((Creature)object);
+		if(object instanceof Player)
+			getOwner().getAi().handleEvent(Event.NOT_SEE_PLAYER);
 	}
+
+	@Override
+	public void see(VisibleObject object)
+	{
+		super.see(object);
+		if(object instanceof Player)
+			getOwner().getAi().handleEvent(Event.SEE_PLAYER);
+	}
+	
+	
 }

@@ -27,6 +27,9 @@ public class AdminConfig
 	@Property(key = "gameserver.administration.command.add", defaultValue = "3")
 	public static int			COMMAND_ADD;
 	
+	@Property(key = "gameserver.administration.command.ai", defaultValue = "3")
+	public static int			COMMAND_AI;
+	
 	@Property(key = "gameserver.administration.command.addtitle", defaultValue = "3")
 	public static int			COMMAND_ADDTITLE;
 	

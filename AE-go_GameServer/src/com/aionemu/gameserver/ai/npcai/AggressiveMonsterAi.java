@@ -20,18 +20,18 @@ import com.aionemu.gameserver.ai.events.EventHandlers;
 import com.aionemu.gameserver.ai.state.StateHandlers;
 
 /**
- * @author KKnD
- * @modified ATracer
+ * @author ATracer
  *
  */
-public class CitizenAi extends NpcAi
+public class AggressiveMonsterAi extends MonsterAi
 {
-	public CitizenAi()
+	public AggressiveMonsterAi()
 	{
 		super();
-		this.addEventHandler(EventHandlers.TALK_EH.getHandler());
+		this.addEventHandler(EventHandlers.SEEPLAYER_EH.getHandler());
+		this.addEventHandler(EventHandlers.NOTSEEPLAYER_EH.getHandler());
 		
-		this.addStateHandler(StateHandlers.NONE_CITIZEN_SH.getHandler());
-		this.addStateHandler(StateHandlers.TALKING_SH.getHandler());
+		this.addStateHandler(StateHandlers.ACTIVE_AGGRO_SH.getHandler());
+		this.addStateHandler(StateHandlers.THINKING_AGGRO_SH.getHandler());
 	}
 }

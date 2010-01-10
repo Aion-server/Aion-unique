@@ -17,27 +17,39 @@
 
 package com.aionemu.gameserver.ai;
 
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.Future;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.desires.Desire;
 import com.aionemu.gameserver.ai.desires.DesireQueue;
-import com.aionemu.gameserver.ai.events.AIEvent;
+import com.aionemu.gameserver.ai.desires.impl.CounterBasedDesireFilter;
+import com.aionemu.gameserver.ai.desires.impl.GeneralDesireIteratorHandler;
+import com.aionemu.gameserver.ai.events.Event;
+import com.aionemu.gameserver.ai.events.handler.EventHandler;
+import com.aionemu.gameserver.ai.state.AIState;
+import com.aionemu.gameserver.ai.state.handler.StateHandler;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 public abstract class AI<T extends Creature> implements Runnable
 {
 	private static Logger log = Logger.getLogger(AI.class);
 	
+	protected Map<Event, EventHandler> eventHandlers = new HashMap<Event, EventHandler>();
+	protected Map<AIState, StateHandler> stateHandlers = new HashMap<AIState, StateHandler>();
+	
 	protected DesireQueue desireQueue = new DesireQueue();
 
 	protected Creature owner;
-	
-	protected ReentrantLock aiLock = new ReentrantLock();
-	
+
 	protected AIState aiState = AIState.NONE;
 	
+	protected boolean isStateChanged = false;
+	
+	private Future<?> aiTask;	
 	
 	/**
 	 * @param desire
@@ -48,11 +60,14 @@ public abstract class AI<T extends Creature> implements Runnable
 	}
 	
 	/**
+	 * 
 	 * @param event
 	 */
-	public void handleEvent(AIEvent event)
+	public void handleEvent(Event event)
 	{
-		event.handleEvent(this);
+		EventHandler eventHandler = eventHandlers.get(event);
+		if(eventHandler != null)
+			eventHandler.handleEvent(event, this);
 	}
 	
 	/**
@@ -78,21 +93,90 @@ public abstract class AI<T extends Creature> implements Runnable
 	{
 		return aiState;
 	}
+	
+	/**
+	 * 
+	 * @param eventHandler
+	 */
+	protected void addEventHandler(EventHandler eventHandler)
+	{
+		this.eventHandlers.put(eventHandler.getEvent(), eventHandler);
+	}
+	
+	/**
+	 * 
+	 * @param stateHandler
+	 */
+	protected void addStateHandler(StateHandler stateHandler)
+	{
+		this.stateHandlers.put(stateHandler.getState(), stateHandler);
+	}
 
 	/**
 	 * @param aiState the aiState to set
 	 */
 	public void setAiState(AIState aiState)
 	{
-		analyzeState(aiState);
-		this.aiState = aiState;
+		if(this.aiState != aiState)
+		{
+			this.aiState = aiState;
+			isStateChanged = true;
+		}
 	}
 
-	protected abstract void analyzeState(AIState aiState);
+	public void analyzeState()
+	{
+		isStateChanged = false;
+		StateHandler stateHandler = stateHandlers.get(aiState);
+		if(stateHandler != null)
+			stateHandler.handleState(aiState, this);
+	}
+	
+	@Override
+	public void run()
+	{
+		desireQueue.iterateDesires(new GeneralDesireIteratorHandler(this), new CounterBasedDesireFilter());
+		//todo move to home
+		if(desireQueue.isEmpty() || isStateChanged)
+		{
+			analyzeState();
+		}
+	}
 
-	public abstract void schedule();
+	public void schedule()
+	{
+		if(!isScheduled())
+		{
+			aiTask = ThreadPoolManager.getInstance().scheduleAiAtFixedRate(this, 1000, 500);
+		}	
+	}
+
+	public void stop()
+	{
+		if(aiTask != null && !aiTask.isCancelled())
+		{
+			aiTask.cancel(true);
+			aiTask = null;
+		}
+	}
+
+	public boolean isScheduled()
+	{
+		return aiTask != null && !aiTask.isCancelled();
+	}
 	
-	public abstract void stop();
+	public void clearDesires()
+	{
+		this.desireQueue.clear();
+	}
 	
-	public abstract boolean isScheduled();
+	public void addDesire(Desire desire)
+	{
+		this.desireQueue.addDesire(desire);
+	}
+	
+	public int desireQueueSize()
+	{
+		return desireQueue.isEmpty() ? 0 : desireQueue.size();
+	}
 }

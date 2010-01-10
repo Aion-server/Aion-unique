@@ -14,24 +14,37 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.npcai;
+package com.aionemu.gameserver.ai.events.handler;
 
-import com.aionemu.gameserver.ai.events.EventHandlers;
-import com.aionemu.gameserver.ai.state.StateHandlers;
+import com.aionemu.gameserver.ai.AI;
+import com.aionemu.gameserver.ai.events.Event;
+import com.aionemu.gameserver.ai.state.AIState;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
- * @author KKnD
- * @modified ATracer
+ * @author ATracer
  *
  */
-public class CitizenAi extends NpcAi
+public class NotSeePlayerEventHandler extends EventHandler
 {
-	public CitizenAi()
+
+	@Override
+	public Event getEvent()
 	{
-		super();
-		this.addEventHandler(EventHandlers.TALK_EH.getHandler());
-		
-		this.addStateHandler(StateHandlers.NONE_CITIZEN_SH.getHandler());
-		this.addStateHandler(StateHandlers.TALKING_SH.getHandler());
+		return Event.NOT_SEE_PLAYER;
+	}
+
+	@Override
+	public void handleEvent(Event event, AI<?> ai)
+	{
+		int playerCount = 0;
+		for(VisibleObject visibleObject : ai.getOwner().getKnownList())
+		{
+			if (visibleObject instanceof Player)
+				playerCount++;
+		}
+		if(playerCount == 0)
+			ai.setAiState(AIState.THINKING);
 	}
 }

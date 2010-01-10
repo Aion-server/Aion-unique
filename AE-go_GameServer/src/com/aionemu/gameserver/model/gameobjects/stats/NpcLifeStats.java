@@ -32,28 +32,32 @@ public class NpcLifeStats extends CreatureLifeStats<Npc>
 		this.currentMp = owner.getGameStats().getCurrentStat(StatEnum.MAXMP);	
 	}
 
-	@Override
-	protected void onReduceHp()
-	{
-		sendHpPacketUpdate();	
-	}
-
-	@Override
-	protected void onReduceMp()
-	{
-		// TODO Auto-generated method stub	
-	}
-
-	@Override
-	protected void onIncreaseMp()
-	{
-		// TODO Auto-generated method stub	
-	}
 
 	@Override
 	protected void onIncreaseHp()
 	{
 		sendHpPacketUpdate();
+	}
+
+	@Override
+	protected void onIncreaseMp()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void onReduceHp()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void onReduceMp()
+	{
+		// TODO Auto-generated method stub
+		
 	}
 
 }

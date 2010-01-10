@@ -1,5 +1,5 @@
-/*  
- *  This file is part of aion-unique <aion-unique.com>.
+/*
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,32 +14,31 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.desires.impl;
-
-import java.util.Iterator;
+package com.aionemu.gameserver.ai.events.handler;
 
 import com.aionemu.gameserver.ai.AI;
-import com.aionemu.gameserver.ai.desires.Desire;
-import com.aionemu.gameserver.ai.desires.DesireIteratorHandler;
+import com.aionemu.gameserver.ai.events.Event;
+import com.aionemu.gameserver.ai.state.AIState;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 
 /**
  * @author ATracer
+ *
  */
-public class SimpleDesireIteratorHandler implements DesireIteratorHandler
+public class TalkEventHandler extends EventHandler
 {
-	private AI ai;
-	/**
-	 * @param ai
-	 */
-	public SimpleDesireIteratorHandler(AI ai)
+
+	@Override
+	public Event getEvent()
 	{
-		super();
-		this.ai = ai;
+		return Event.TALK;
 	}
 
 	@Override
-	public void next(Desire desire, Iterator<Desire> iterator)
+	public void handleEvent(Event event, AI<?> ai)
 	{
-		desire.handleDesire(ai);
+		if(((Npc)ai.getOwner()).hasWalkRoutes())
+			ai.setAiState(AIState.TALKING);
 	}
+
 }

@@ -14,24 +14,36 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.npcai;
+package com.aionemu.gameserver.ai.desires.impl;
 
-import com.aionemu.gameserver.ai.events.EventHandlers;
-import com.aionemu.gameserver.ai.state.StateHandlers;
+import java.util.Iterator;
+
+import com.aionemu.gameserver.ai.AI;
+import com.aionemu.gameserver.ai.desires.Desire;
+import com.aionemu.gameserver.ai.desires.DesireIteratorHandler;
 
 /**
- * @author KKnD
- * @modified ATracer
- *
+ * @author ATracer
  */
-public class CitizenAi extends NpcAi
+public class GeneralDesireIteratorHandler implements DesireIteratorHandler
 {
-	public CitizenAi()
+	private AI ai;
+	/**
+	 * @param ai
+	 */
+	public GeneralDesireIteratorHandler(AI ai)
 	{
 		super();
-		this.addEventHandler(EventHandlers.TALK_EH.getHandler());
-		
-		this.addStateHandler(StateHandlers.NONE_CITIZEN_SH.getHandler());
-		this.addStateHandler(StateHandlers.TALKING_SH.getHandler());
+		this.ai = ai;
+	}
+
+	@Override
+	public void next(Desire desire, Iterator<Desire> iterator)
+	{
+		boolean isOk = desire.handleDesire(ai);
+		if(!isOk)
+		{
+			iterator.remove();
+		}
 	}
 }

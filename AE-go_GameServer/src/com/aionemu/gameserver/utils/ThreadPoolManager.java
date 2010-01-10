@@ -65,7 +65,7 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 			Thread.NORM_PRIORITY));
 		// scheduledThreadPool.setRemoveOnCancelPolicy(true);
 		
-		effectsScheduledThreadPool = new ScheduledThreadPoolExecutorAE(4, new PriorityThreadFactory("EffectsScheduledThreadPool",
+		effectsScheduledThreadPool = new ScheduledThreadPoolExecutorAE(6, new PriorityThreadFactory("EffectsScheduledThreadPool",
 			Thread.NORM_PRIORITY));
 		
 		aiScheduledThreadPool = new ScheduledThreadPoolExecutorAE(10, new PriorityThreadFactory("AiScheduledThreadPool",

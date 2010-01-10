@@ -1,5 +1,5 @@
-/*  
- *  This file is part of aion-unique <aion-unique.com>.
+/*
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@ import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.desires.AbstractDesire;
 import com.aionemu.gameserver.ai.desires.MoveDesire;
+import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -59,19 +60,20 @@ public class WalkDesire extends AbstractDesire implements MoveDesire
 	}
 	
 	@Override
-	public void handleDesire(AI ai)
+	public boolean handleDesire(AI ai)
 	{
 		
 		if (_npc == null)
-			return;
+			return false;
 		
 		if (_route == null)
-			return;
+			return false;
 		
 		if (isWalkingToNextPoint())
 			checkArrived();
 		
 		walkToLocation();
+		return true;
 	}
 	
 	private void checkArrived()
@@ -137,11 +139,6 @@ public class WalkDesire extends AbstractDesire implements MoveDesire
 		_walkingToNextPoint = value;
 	}
 	
-	public void stop()
-	{
-		PacketSendUtility.broadcastPacket(_npc, new SM_MOVE(_npc, _npc.getX(), _npc.getY(), _npc.getZ(), 0, 0, 0, (byte) 0, MovementType.MOVEMENT_STOP));
-	}
-	
 	public void restartRoutes()
 	{
 		_currentPos = 0;
@@ -173,5 +170,17 @@ public class WalkDesire extends AbstractDesire implements MoveDesire
 		{
 			_nextMoveTime = System.currentTimeMillis() + _route.getRouteSteps().get(_currentPos).getRestTime()*1000;
 		}
+	}
+
+	@Override
+	public int getExecutionInterval()
+	{
+		return 1;
+	}
+
+	@Override
+	public void onClear()
+	{
+		PacketSendUtility.broadcastPacket(_npc, new SM_MOVE(_npc, _npc.getX(), _npc.getY(), _npc.getZ(), 0, 0, 0, (byte) 0, MovementType.MOVEMENT_STOP));
 	}
 }

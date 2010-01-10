@@ -16,20 +16,15 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
-import java.util.Map.Entry;
-
 import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
-import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
-import com.aionemu.gameserver.model.items.ItemSlot;
-import com.aionemu.gameserver.model.items.NpcEquippedGear;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
-import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
+import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -118,13 +113,6 @@ public class Npc extends Creature
 	{
 		return (NpcAi) super.getAi();
 	}
-
-	@Override
-	public void initializeAi()
-	{
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public boolean hasWalkRoutes()
 	{
@@ -133,11 +121,28 @@ public class Npc extends Creature
 	
 	public boolean isAggressive()
 	{
-			return ((NpcTemplate)this.getSpawn().getObjectTemplate()).getNpcType() == NpcType.AGGRESSIVE;
+		return ((NpcTemplate)this.getSpawn().getObjectTemplate()).getNpcType() == NpcType.AGGRESSIVE;
 	}
 	
 	public int getAggroRange()
 	{
-			return ((NpcTemplate)this.getSpawn().getObjectTemplate()).getAggroRange();
+		return ((NpcTemplate)this.getSpawn().getObjectTemplate()).getAggroRange();
+	}
+	
+	@Override
+	public void initializeAi()
+	{
+
+	}
+
+	/**
+	 *  Check whether npc located at initial spawn location
+	 *  
+	 * @return
+	 */
+	public boolean isAtSpawnLocation()
+	{
+		return MathUtil.getDistance(getSpawn().getX(), getSpawn().getY(), getSpawn().getZ(),
+			getX(), getY(), getZ()) < 3 ;
 	}
 }

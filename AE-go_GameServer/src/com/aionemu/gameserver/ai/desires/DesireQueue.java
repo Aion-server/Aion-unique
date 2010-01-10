@@ -213,7 +213,9 @@ public class DesireQueue
 	{
 		if(queue != null)
 		{
-			queue.clear();
+			Desire desire = null;
+			while((desire = queue.poll()) != null)
+				desire.onClear();
 		}
 	}
 

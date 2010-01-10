@@ -16,13 +16,18 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
-import com.aionemu.gameserver.ai.AIState;
+import com.aionemu.gameserver.ai.npcai.AggressiveMonsterAi;
 import com.aionemu.gameserver.ai.npcai.MonsterAi;
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.controllers.MonsterController;
+import com.aionemu.gameserver.controllers.attack.AggroList;
+import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 
 public class Monster extends Npc
 {	
+	private AggroList aggroList = new AggroList();
+	
 	/**
 	 * @param template
 	 */
@@ -46,11 +51,19 @@ public class Monster extends Npc
 	@Override
 	public void initializeAi()
 	{
-		this.ai = new MonsterAi();
-		ai.setOwner(this);
-		if (this.hasWalkRoutes() || this.isAggressive())
-		{
-			this.getAi().setAiState(AIState.ACTIVE);
-		}
+		if(isAggressive() && !Config.DISABLE_MOB_AGGRO)
+			this.ai = new AggressiveMonsterAi();
+		else
+			this.ai = new MonsterAi();
+		
+		ai.setOwner(this);	
+	}
+
+	/**
+	 * @return the aggroList
+	 */
+	public AggroList getAggroList()
+	{
+		return aggroList;
 	}
 }

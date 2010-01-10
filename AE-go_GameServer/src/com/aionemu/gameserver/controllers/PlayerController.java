@@ -34,6 +34,7 @@ import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL;
@@ -202,46 +203,33 @@ public class PlayerController extends CreatureController<Player>
 
 		World world = player.getActiveRegion().getWorld();
 		Creature target = (Creature) world.findAionObject(targetObjectId);
-		if(target == null || !target.getController().isAttackable())
+		if(target == null 
+			|| !target.getController().isAttackable()
+			|| target.getLifeStats().isAlreadyDead())
 			return;
+		
+		List<AttackResult> attackResult = AttackUtil.calculateAttackResult(player, target);
 
-		boolean attackPossible = target.getController().onAttack(player);
-
-		if(attackPossible)
+		int damage = 0;
+		for(AttackResult result : attackResult)
 		{
-
-			List<AttackResult> attackResult = AttackUtil.calculateAttackResult(player, target);
-
-			int damage = 0;
-			for(AttackResult result : attackResult)
-			{
-				damage += result.getDamage();
-			}
-
-			PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), target.getObjectId(),
-				gameStats.getAttackCounter(), (int) time, attackType, attackResult), true);
-
-
-			target.getLifeStats().reduceHp(damage);
-			gameStats.increaseAttackCounter();
-			if (target instanceof Monster)
-			{
-				((Monster)target).getController().addDamageHate(player, damage, 0);
-			}
+			damage += result.getDamage();
 		}
+
+		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), target.getObjectId(),
+			gameStats.getAttackCounter(), (int) time, attackType, attackResult), true);
+
+		target.getController().onAttack(player, 0, damage);
+
+		gameStats.increaseAttackCounter();
 	}
 
 	@Override
-	public boolean onAttack(Creature creature)
+	public void onAttack(Creature creature, int skillId, int damage)
 	{
-		super.onAttack(creature);
+		getOwner().getLifeStats().reduceHp(damage);
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), skillId), true);
 		lastAttacker = creature;
-
-		Player player = getOwner();
-		PlayerLifeStats lifeStats = player.getLifeStats();
-
-		return !lifeStats.isAlreadyDead();
-
 	}
 
 	public void useSkill(int skillId)
@@ -264,7 +252,7 @@ public class PlayerController extends CreatureController<Player>
 	{
 		super.onMove();
 		getOwner().setState(PlayerState.MOVING);
-		
+
 		PlayerGameStats pgs = getOwner().getGameStats();
 		pgs.increaseMoveCounter();
 		if(pgs.getMoveCounter() % 5 == 0)
@@ -272,7 +260,7 @@ public class PlayerController extends CreatureController<Player>
 			ZoneManager.getInstance().checkZone(getOwner());
 		}
 	}
-	
+
 	@Override
 	public void onStopMove()
 	{

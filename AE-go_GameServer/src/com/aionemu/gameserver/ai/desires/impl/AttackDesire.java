@@ -1,4 +1,5 @@
-/* This file is part of aion-unique <aion-unique.com>.
+/*
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -15,29 +16,33 @@
  */
 package com.aionemu.gameserver.ai.desires.impl;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.desires.AbstractDesire;
-import com.aionemu.gameserver.ai.npcai.MonsterAi;
+import com.aionemu.gameserver.ai.events.Event;
+import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.utils.MathUtil;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * This class indicates that character wants to attack somebody
  * 
  * @author SoulKeeper
  * @author Pinguin
+ * @author ATracer
  */
 public final class AttackDesire extends AbstractDesire
 {
-	private static Logger log = Logger.getLogger(AttackDesire.class);
-
+	private int attackNotPossibleCounter;
+	
 	/**
 	 * Target of this desire
 	 */
 	protected Creature	target;
+	
+	protected Monster owner;
 
 	/**
 	 * Creates new attack desire, target can't be changed
@@ -47,23 +52,26 @@ public final class AttackDesire extends AbstractDesire
 	 * @param desirePower
 	 *            initial attack power
 	 */
-	public AttackDesire(Monster npc, int desirePower)
+	public AttackDesire(Monster owner, Creature target, int desirePower)
 	{
 		super(desirePower);
-		this.target = npc.getController().getMostHated();
+		this.target = target;
+		this.owner = owner;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void handleDesire(AI<?> ai)
+	public boolean handleDesire(AI<?> ai)
 	{
-		Monster owner = ((MonsterAi)ai).getOwner();
-		target = owner.getController().getMostHated();
 		
 		if(target == null || target.getLifeStats().isAlreadyDead())
-			return;
+		{
+			owner.getAggroList().stopHating(target);
+			owner.getAi().handleEvent(Event.TIRED_ATTACKING_TARGET);
+			return false;
+		}
 
 		if(owner.getTarget() == null)
 		{
@@ -71,11 +79,31 @@ public final class AttackDesire extends AbstractDesire
 		}
 		
 		double distance = MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), target.getX(), target.getY(), target.getZ()) ;
-
+		
+		if(distance > 50)
+		{
+			owner.getAggroList().stopHating(target);
+			owner.getAi().handleEvent(Event.TIRED_ATTACKING_TARGET);
+			return false;
+		}
+		
 		if(distance <= 3)
 		{
 			owner.getController().attackTarget(target.getObjectId());
+			attackNotPossibleCounter = 0;
 		}
+		else
+		{
+			attackNotPossibleCounter++;
+		}
+		
+		if(attackNotPossibleCounter > 10)
+		{
+			owner.getAggroList().stopHating(target);
+			owner.getAi().handleEvent(Event.TIRED_ATTACKING_TARGET);
+			return false;
+		}	
+		return true;
 	}
 
 	/**
@@ -113,4 +141,16 @@ public final class AttackDesire extends AbstractDesire
 		return target;
 	}
 
+	@Override
+	public int getExecutionInterval()
+	{
+		return 4;
+	}
+
+	@Override
+	public void onClear()
+	{
+		
+	}
+	
 }

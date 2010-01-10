@@ -1,5 +1,5 @@
-/*
- * This file is part of aion-unique <aion-unique.org>.
+/*  
+ *  This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,24 +14,33 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.npcai;
-
-import com.aionemu.gameserver.ai.events.EventHandlers;
-import com.aionemu.gameserver.ai.state.StateHandlers;
+package com.aionemu.gameserver.ai.state;
 
 /**
- * @author KKnD
- * @modified ATracer
+ * @author ATracer
  *
  */
-public class CitizenAi extends NpcAi
+public enum AIState
 {
-	public CitizenAi()
+	THINKING(5),
+	TALKING(4),
+	AGGRO(3),
+	ACTIVE(3),
+	ATTACKING(2),
+	RESTING(1),
+	MOVINGTOHOME(1),
+	NONE(0);
+	
+	private int priority;
+	
+	private AIState(int priority)
 	{
-		super();
-		this.addEventHandler(EventHandlers.TALK_EH.getHandler());
-		
-		this.addStateHandler(StateHandlers.NONE_CITIZEN_SH.getHandler());
-		this.addStateHandler(StateHandlers.TALKING_SH.getHandler());
+		this.priority = priority;
 	}
+	
+	public int getPriority()
+	{
+		return priority;
+	}
+
 }

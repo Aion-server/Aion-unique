@@ -14,32 +14,49 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.npcai;
+package com.aionemu.gameserver.ai.state.handler;
 
 import com.aionemu.gameserver.ai.AI;
-import com.aionemu.gameserver.ai.events.EventHandlers;
-import com.aionemu.gameserver.ai.state.StateHandlers;
-import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.ai.state.AIState;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 
 /**
  * @author ATracer
  *
  */
-public class NpcAi extends AI<Npc>
+public class ThinkingAggroStateHandler extends StateHandler
 {
 
-	public NpcAi()
+	@Override
+	public AIState getState()
 	{
-		/**
-		 * Event Handlers
-		 */
-		this.addEventHandler(EventHandlers.NOTHINGTODO_EH.getHandler());
-		this.addEventHandler(EventHandlers.RESPAWNED_EH.getHandler());
+		return AIState.THINKING;
+	}
+
+	/**
+	 * State THINKING
+	 * AI AggressiveMonsterAi
+	 */
+	@Override
+	public void handleState(AIState state, AI<?> ai)
+	{
+		ai.clearDesires();
 		
-		/**
-		 * State Handlers
-		 */
-		this.addStateHandler(StateHandlers.ACTIVE_NPC_SH.getHandler());
+		Monster owner = (Monster) ai.getOwner();
+		
+		if(owner.getAggroList().getMostHated() != null)
+		{
+			ai.setAiState(AIState.ATTACKING);
+			return;
+		}
+
+		if(!owner.isAtSpawnLocation())
+		{
+			ai.setAiState(AIState.MOVINGTOHOME);
+			return;
+		}
+		
+		ai.setAiState(AIState.ACTIVE);
 	}
 
 }

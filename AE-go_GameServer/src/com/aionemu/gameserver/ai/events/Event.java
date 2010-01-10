@@ -14,24 +14,52 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.npcai;
-
-import com.aionemu.gameserver.ai.events.EventHandlers;
-import com.aionemu.gameserver.ai.state.StateHandlers;
+package com.aionemu.gameserver.ai.events;
 
 /**
- * @author KKnD
- * @modified ATracer
+ * @author ATracer
  *
  */
-public class CitizenAi extends NpcAi
+public enum Event
 {
-	public CitizenAi()
-	{
-		super();
-		this.addEventHandler(EventHandlers.TALK_EH.getHandler());
-		
-		this.addStateHandler(StateHandlers.NONE_CITIZEN_SH.getHandler());
-		this.addStateHandler(StateHandlers.TALKING_SH.getHandler());
-	}
+	/**
+	 * This event is received on each enemy attack
+	 */
+	ATTACKED,
+	/**
+	 * Target is too far or long time passed since last attak
+	 */
+	TIRED_ATTACKING_TARGET,
+	/**
+	 * In active state there is nothing to do
+	 */
+	NOTHING_TODO,
+	/**
+	 * Npc is far from spawn point
+	 */
+	FAR_FROM_HOME,
+	/**
+	 * Npc returned to spawn point
+	 */
+	BACK_HOME,
+	/**
+	 * Npc restored health fully (after returning to home)
+	 */
+	RESTORED_HEALTH,
+	/**
+	 * Npc sees another player
+	 */
+	SEE_PLAYER,
+	/**
+	 * Player removed from known list
+	 */
+	NOT_SEE_PLAYER,
+	/**
+	 * Talk request
+	 */
+	TALK,
+	/**
+	 * Npc is respawned
+	 */
+	RESPAWNED
 }

@@ -1,5 +1,5 @@
-/*  
- *  This file is part of aion-unique <aion-unique.com>.
+/*
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,9 +17,9 @@
 package com.aionemu.gameserver.ai.desires.impl;
 
 import com.aionemu.gameserver.ai.AI;
-import com.aionemu.gameserver.ai.AIState;
 import com.aionemu.gameserver.ai.desires.AbstractDesire;
 import com.aionemu.gameserver.ai.desires.MoveDesire;
+import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
@@ -34,28 +34,26 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class MoveToHomeDesire extends AbstractDesire implements MoveDesire
 {
 
+	private Npc owner;
 	private float x;
 	private float y;
 	private float z;
 	
-	public MoveToHomeDesire(SpawnTemplate spawnTemplate, int desirePower)
+	public MoveToHomeDesire(Npc owner, int desirePower)
 	{
 		super(desirePower);
-		x = spawnTemplate.getX();
-		y = spawnTemplate.getY();
-		z = spawnTemplate.getZ();
+		this.owner = owner;
+		SpawnTemplate template = owner.getSpawn();
+		x = template.getX();
+		y = template.getY();
+		z = template.getZ();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.aionemu.gameserver.ai.desires.Desire#handleDesire(com.aionemu.gameserver.ai.AI)
-	 */
 	@Override
-	public void handleDesire(AI ai)
+	public boolean handleDesire(AI ai)
 	{
-		Npc owner = (Npc) ai.getOwner();
-		
 		if (owner == null || owner.getLifeStats().isAlreadyDead())
-			return;
+			return false;
 		
 		float walkSpeed = owner.getTemplate().getStatsTemplate().getRunSpeedFight();
 		double dist = MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), x, y, z)  ;
@@ -76,11 +74,22 @@ public class MoveToHomeDesire extends AbstractDesire implements MoveDesire
 		{
 			owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(), owner.getHeading());
 			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0, (byte) 0, MovementType.MOVEMENT_STOP));
-			if (owner.hasWalkRoutes() || owner.isAggressive())
-				ai.setAiState(AIState.ACTIVE);
-			else
-				ai.setAiState(AIState.NONE);
-			//TODO regeneration desire;
+			ai.handleEvent(Event.BACK_HOME);
+			return false;
 		}
+		return true;
 	}
+
+	@Override
+	public int getExecutionInterval()
+	{
+		return 1;
+	}
+
+	@Override
+	public void onClear()
+	{
+		PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0, (byte) 0, MovementType.MOVEMENT_STOP));
+	}	
+	
 }

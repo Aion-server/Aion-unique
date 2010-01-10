@@ -16,8 +16,9 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
-import com.aionemu.gameserver.ai.AIState;
+import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.npcai.CitizenAi;
+import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.controllers.CitizenController;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 /**
@@ -54,9 +55,6 @@ public class Citizen extends Npc
 	{
 		this.ai = new CitizenAi();
 		ai.setOwner(this);
-		if (this.hasWalkRoutes())
-		{
-			this.getAi().setAiState(AIState.ACTIVE);
-		}
+		ai.handleEvent(Event.RESPAWNED);
 	}
 }

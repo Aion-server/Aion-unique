@@ -1,5 +1,5 @@
-/*  
- *  This file is part of aion-unique <aion-unique.com>.
+/*
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,30 +14,35 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai;
+package com.aionemu.gameserver.ai.state.handler;
+
+import com.aionemu.gameserver.ai.AI;
+import com.aionemu.gameserver.ai.state.AIState;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 
 /**
  * @author ATracer
  *
  */
-public enum AIState
+public class NoneMonsterStateHandler extends StateHandler
 {
-	TALK(4),
-	ACTIVE(3),
-	ATTACKING(2),
-	IDLE(1),
-	NONE(0);
-	
-	private int priority;
-	
-	private AIState(int priority)
+
+	@Override
+	public AIState getState()
 	{
-		this.priority = priority;
+		return AIState.NONE;
 	}
-	
-	public int getPriority()
+
+	/**
+	 * State NONE
+	 * AI MonsterAi
+	 */
+	@Override
+	public void handleState(AIState state, AI<?> ai)
 	{
-		return priority;
+		ai.clearDesires();
+		((Monster) ai.getOwner()).getAggroList().clear();
+		ai.stop();
 	}
 
 }

@@ -65,6 +65,7 @@ public class DamageOverTimeEffect extends EffectTemplate
 		
 		final Creature effector = effect.getEffector();
 		final Creature effected = effect.getEffected();
+		final int skillId = effect.getSkillId();
 		effected.getEffectController().setAbnormal(EffectId.DAMAGE_OT.getEffectId());
 
 		Future<?> task = ThreadPoolManager.getInstance().scheduleEffectAtFixedRate(new Runnable(){
@@ -73,16 +74,9 @@ public class DamageOverTimeEffect extends EffectTemplate
 			public void run()
 			{
 				int damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, valueWithDelta, SkillElement.NONE);
-				//TODO refactor to single entry point here - damage
-				effected.getLifeStats().reduceHp(damage);
-				effected.getController().onAttack(effector);
+				effected.getController().onAttack(effector, skillId, damage);
 				
 				//TODO SM_ATTACK_STATUS
-				
-				if (effected instanceof Monster)
-				{
-					((Monster)effected).getController().addDamageHate(effector, damage, 0);
-				}
 			}
 		}, checktime, checktime);
 		

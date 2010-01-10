@@ -1,4 +1,5 @@
-/* This file is part of aion-unique <aion-unique.com>.
+/*
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -15,49 +16,86 @@
  */
 package com.aionemu.gameserver.ai.desires.impl;
 
+import java.util.Collections;
+
 import com.aionemu.gameserver.ai.AI;
-import com.aionemu.gameserver.ai.AIState;
 import com.aionemu.gameserver.ai.desires.AbstractDesire;
+import com.aionemu.gameserver.ai.events.Event;
+import com.aionemu.gameserver.ai.state.AIState;
+import com.aionemu.gameserver.controllers.attack.AttackResult;
+import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.model.gameobjects.Monster;
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.utils.MathUtil;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author KKnD
  */
 public final class AggressionDesire extends AbstractDesire
 {
-	protected  Monster	_npc;
-	protected  Creature	_pc;
+	protected  Monster	monster;
 	
-	public AggressionDesire(Monster npc, int desirePower)
+	public AggressionDesire(Monster monster, int desirePower)
 	{
 		super(desirePower);
-		this._npc = npc;
+		this.monster = monster;
 	}
 	
 	@Override
-	public void handleDesire(AI<?> ai)
+	public boolean handleDesire(AI<?> ai)
 	{
-		if (_npc == null) return;
+		if (monster == null) return false;
 		
-		for(VisibleObject pcs : _npc.getKnownList())
+		for(VisibleObject visibleObject : monster.getKnownList())
 		{
-			if (pcs == null)
+			if (visibleObject == null)
 				continue;
 			
-			if (pcs instanceof Player)
+			if (visibleObject instanceof Player)
 			{
-				Player pc = (Player)pcs;
-				if (!pc.getLifeStats().isAlreadyDead() && MathUtil.isInRange(_npc, pc, _npc.getAggroRange()) && (Math.abs(pc.getZ() - _npc.getZ()) < 30))
+				final Player player = (Player) visibleObject;
+				
+				if (!player.getLifeStats().isAlreadyDead() 
+					&& MathUtil.isInRange(monster, player, monster.getAggroRange()) 
+					&& (Math.abs(player.getZ() - monster.getZ()) < 30))
 				{
-					_npc.getAi().setAiState(AIState.NONE);
-					_npc.getAi().hanndleAggroTask(pc);
+					monster.getAi().setAiState(AIState.NONE);//TODO
+					//ToDO proper aggro emotion on aggro range enter
+					PacketSendUtility.broadcastPacket(monster, new SM_ATTACK(monster.getObjectId(),
+						player.getObjectId(), 0, 633, 0, 
+						Collections.singletonList(new AttackResult(0, AttackStatus.NORMALHIT))));
+					
+					ThreadPoolManager.getInstance().schedule(new Runnable()
+					{
+						@Override
+						public void run()
+						{
+							monster.getAggroList().addDamageHate(player, 0, 0);
+							monster.getAi().handleEvent(Event.ATTACKED);
+						}
+					}, 1000);
 					break;
 				}
 			}
 		}
+		return true;
 	}
+
+	@Override
+	public int getExecutionInterval()
+	{
+		return 2;
+	}
+
+	@Override
+	public void onClear()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }

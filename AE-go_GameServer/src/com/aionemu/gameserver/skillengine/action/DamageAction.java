@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.skillengine.action;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -25,7 +23,6 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
@@ -87,12 +84,8 @@ public class DamageAction
 					damage = StatFunctions.calculateBaseDamageToTarget(effector, effected);
 			}
 			sumDamage += damage;
-			effected.getLifeStats().reduceHp(damage);
-			effected.getController().onAttack(effector);
-			if (effected instanceof Monster)
-			{
-				((Monster)effected).getController().addDamageHate(effector, damage, 0);
-			}
+			
+			effected.getController().onAttack(effector, skill.getSkillTemplate().getSkillId(), damage);
 		}
 		
 		int unk = 0;

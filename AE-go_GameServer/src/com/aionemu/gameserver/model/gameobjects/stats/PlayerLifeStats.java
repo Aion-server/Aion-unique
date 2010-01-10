@@ -38,7 +38,6 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	@Override
 	protected void onReduceHp()
 	{
-		sendHpPacketUpdate();
 		triggerRestoreTask();
 		sendGroupPacketUpdate();	
 	}

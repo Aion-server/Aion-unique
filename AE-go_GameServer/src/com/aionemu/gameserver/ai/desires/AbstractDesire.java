@@ -17,6 +17,8 @@
 
 package com.aionemu.gameserver.ai.desires;
 
+import com.aionemu.gameserver.ai.AI;
+
 /**
  * This class implements basic functionality common for each desire
  * 
@@ -28,7 +30,10 @@ package com.aionemu.gameserver.ai.desires;
  */
 public abstract class AbstractDesire implements Desire
 {
-
+	/**
+	 * Current execution counter
+	 */
+	protected int executionCounter;
 	/**
 	 * Desire power. It's used to calculate what npc whants to do most of all.
 	 */
@@ -75,6 +80,22 @@ public abstract class AbstractDesire implements Desire
 	public synchronized void increaseDesirePower(int desirePower)
 	{
 		this.desirePower = this.desirePower + desirePower;
+	}
+
+	@Override
+	public boolean handleDesire(AI<?> ai)
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public abstract int getExecutionInterval();
+	
+	public boolean isReadyToRun()
+	{
+		boolean isReady =  executionCounter % getExecutionInterval() == 0;
+		executionCounter++;
+		return isReady;
 	}
 
 	/**

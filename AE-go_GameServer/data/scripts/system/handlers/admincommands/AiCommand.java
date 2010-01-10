@@ -17,43 +17,52 @@
 package admincommands;
 
 import com.aionemu.gameserver.configs.AdminConfig;
-import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
-
 /**
  * @author ATracer
  *
  */
-public class Kill extends AdminCommand
-{
-	public Kill()
+public class AiCommand extends AdminCommand
+{	
+	public AiCommand()
 	{
-		super("kill");
+		super("ai");
 	}
-	
+
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
-		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_KILL)
+		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_AI)
 		{
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;
 		}
 		
-		VisibleObject target = admin.getTarget();
-		if(target == null)
+		if (params == null || params.length < 1)
 		{
-			PacketSendUtility.sendMessage(admin, "No target selected");
+			PacketSendUtility.sendMessage(admin, "syntax //ai <info|event|state>");
 			return;
 		}
-		if(target instanceof Creature)
-		{
-			Creature creature = (Creature) target;
-			creature.getController().onAttack(admin, 0, creature.getLifeStats().getMaxHp() + 1);
-		}		
+		
+		VisibleObject target = admin.getTarget();
+
+        if (target == null || !(target instanceof Npc))
+        {
+            PacketSendUtility.sendMessage(admin, "Select target first (Npc only)");
+        }
+        
+        Npc npc = (Npc) target;
+        
+        if(params[0].equals("info"))
+        {
+        	PacketSendUtility.sendMessage(admin, "Ai state: " + npc.getAi().getAiState());
+        	PacketSendUtility.sendMessage(admin, "Ai desires size: " + npc.getAi().desireQueueSize());
+        }
 	}
+
 }

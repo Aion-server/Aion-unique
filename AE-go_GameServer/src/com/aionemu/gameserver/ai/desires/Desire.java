@@ -25,6 +25,7 @@ import com.aionemu.gameserver.ai.AI;
  * AI can override {@link com.aionemu.gameserver.ai.AI#handleDesire(Desire)} to implement custom behaviour of desire.<br>
  * 
  * @author SoulKeeper
+ * @modified ATracer
  * @see com.aionemu.gameserver.ai.AI
  * @see com.aionemu.gameserver.ai.AI#handleDesire(Desire)
  * @see com.aionemu.gameserver.ai.desires.AbstractDesire
@@ -38,7 +39,7 @@ public interface Desire extends Comparable<Desire>
 	 * @param ai
 	 *            actor that is doing this desire
 	 */
-	void handleDesire(AI<?> ai);
+	boolean handleDesire(AI<?> ai);
 
 	/**
 	 * Returns hashcode for this object, must be overrided by child
@@ -86,4 +87,16 @@ public interface Desire extends Comparable<Desire>
 	 * @see DesireQueue#addDesire(Desire)
 	 */
 	void reduceDesirePower(int desirePower);
+	
+	/**
+	 *  Used in desire filters
+	 *  
+	 * @return
+	 */
+	boolean isReadyToRun();
+	
+	/**
+	 * Will be called by ai when clearing desire queue.
+	 */
+	void onClear();
 }
