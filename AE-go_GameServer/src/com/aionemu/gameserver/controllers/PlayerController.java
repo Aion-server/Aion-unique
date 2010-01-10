@@ -227,9 +227,9 @@ public class PlayerController extends CreatureController<Player>
 	@Override
 	public void onAttack(Creature creature, int skillId, int damage)
 	{
-		getOwner().getLifeStats().reduceHp(damage);
-		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), skillId), true);
 		lastAttacker = creature;
+		getOwner().getLifeStats().reduceHp(damage);
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), skillId), true);	
 	}
 
 	public void useSkill(int skillId)

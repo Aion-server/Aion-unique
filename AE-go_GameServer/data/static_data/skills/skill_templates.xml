@@ -5947,6 +5947,7 @@
             <buf duration="180000">
                 <change stat="PVP_DEFEND_RATIO" duration="180000" func="ADD" delta="0" value="100"/>
                 <change stat="MAXHP" duration="180000" func="PERCENT" delta="0" value="50"/>
+                <change stat="REGEN_HP" duration="180000" func="ADD" delta="0" value="50"/>
             </buf>
         </effects>
         <actions>
@@ -7498,6 +7499,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="300000">
+                <change stat="REGEN_HP" duration="300000" func="ADD" delta="0" value="50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="114" delta="0"/>
             <dummy/>
@@ -7515,6 +7521,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="300000">
+                <change stat="REGEN_HP" duration="300000" func="ADD" delta="0" value="65"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="122" delta="0"/>
             <dummy/>
@@ -8653,6 +8664,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="300000">
+                <change stat="REGEN_HP" duration="300000" func="ADD" delta="0" value="80"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="125" delta="0"/>
             <dummy/>
@@ -16605,6 +16621,7 @@
         <effects>
             <buf duration="300000">
                 <change stat="MAXHP" duration="300000" func="PERCENT" delta="0" value="20"/>
+                <change stat="REGEN_HP" duration="300000" func="PERCENT" delta="0" value="20"/>
             </buf>
         </effects>
         <actions>
@@ -20469,6 +20486,7 @@
         </setproperties>
         <effects>
             <buf duration="1800000">
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="21"/>
                 <change stat="FIRE_RESISTANCE" duration="1800000" func="ADD" delta="0" value="20"/>
                 <change stat="WATER_RESISTANCE" duration="1800000" func="ADD" delta="0" value="20"/>
             </buf>
@@ -20489,6 +20507,7 @@
         </setproperties>
         <effects>
             <buf duration="1800000">
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="33"/>
                 <change stat="FIRE_RESISTANCE" duration="1800000" func="ADD" delta="0" value="25"/>
                 <change stat="WATER_RESISTANCE" duration="1800000" func="ADD" delta="0" value="25"/>
             </buf>
@@ -20509,6 +20528,7 @@
         </setproperties>
         <effects>
             <buf duration="1800000">
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="45"/>
                 <change stat="FIRE_RESISTANCE" duration="1800000" func="ADD" delta="0" value="30"/>
                 <change stat="WATER_RESISTANCE" duration="1800000" func="ADD" delta="0" value="30"/>
             </buf>
@@ -20815,6 +20835,7 @@
         </setproperties>
         <effects>
             <buf duration="1800000">
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="0" value="56"/>
                 <change stat="FIRE_RESISTANCE" duration="1800000" func="ADD" delta="0" value="35"/>
                 <change stat="WATER_RESISTANCE" duration="1800000" func="ADD" delta="0" value="35"/>
             </buf>
@@ -25958,6 +25979,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="6500">
+                <change stat="REGEN_HP" duration="6500" func="ADD" delta="3" value="12"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30815,6 +30841,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="78000"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="400"/>
             </buf>
         </effects>
         <actions>
@@ -30834,6 +30861,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="93600"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="480"/>
             </buf>
         </effects>
         <actions>
@@ -30853,6 +30881,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="109200"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="560"/>
             </buf>
         </effects>
         <actions>
@@ -30872,6 +30901,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="124800"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="640"/>
             </buf>
         </effects>
         <actions>
@@ -30891,6 +30921,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="156000"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="800"/>
             </buf>
         </effects>
         <actions>
@@ -30910,6 +30941,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="78000"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="400"/>
             </buf>
         </effects>
         <actions>
@@ -30929,6 +30961,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="93600"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="480"/>
             </buf>
         </effects>
         <actions>
@@ -30948,6 +30981,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="109200"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="560"/>
             </buf>
         </effects>
         <actions>
@@ -30967,6 +31001,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="124800"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="640"/>
             </buf>
         </effects>
         <actions>
@@ -30986,6 +31021,7 @@
         <effects>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="156000"/>
+                <change stat="REGEN_MP" duration="1200000" func="ADD" delta="0" value="800"/>
             </buf>
         </effects>
         <actions>
@@ -31723,6 +31759,7 @@
         <effects>
             <buf duration="900000">
                 <change stat="PHYSICAL_ACCURACY" duration="900000" func="ADD" delta="10" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="0" value="-1"/>
             </buf>
         </effects>
         <actions>
@@ -31741,6 +31778,7 @@
         <effects>
             <buf duration="900000">
                 <change stat="MAGICAL_ACCURACY" duration="900000" func="ADD" delta="5" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="0" value="-1"/>
             </buf>
         </effects>
         <actions>
@@ -31759,6 +31797,7 @@
         <effects>
             <buf duration="900000">
                 <change stat="EVASION" duration="900000" func="ADD" delta="5" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="0" value="-1"/>
             </buf>
         </effects>
         <actions>
@@ -32406,6 +32445,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="4" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -32419,6 +32463,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="4" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -32587,6 +32636,7 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="4" value="0"/>
                 <change stat="POWER" duration="1800000" func="ADD" delta="5" value="0"/>
             </buf>
         </effects>
@@ -32605,6 +32655,7 @@
         </useconditions>
         <effects>
             <buf duration="1800000">
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="4" value="0"/>
                 <change stat="KNOWLEDGE" duration="1800000" func="ADD" delta="5" value="0"/>
             </buf>
         </effects>
@@ -33404,6 +33455,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="4" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="4" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -33417,6 +33474,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="600000">
+                <change stat="REGEN_HP" duration="600000" func="ADD" delta="8" value="0"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="8" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -33722,6 +33785,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="900000">
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="4" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -33735,6 +33803,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="900000">
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="4" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -33903,6 +33976,7 @@
         </useconditions>
         <effects>
             <buf duration="900000">
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="4" value="0"/>
                 <change stat="POWER" duration="900000" func="ADD" delta="5" value="0"/>
             </buf>
         </effects>
@@ -33921,6 +33995,7 @@
         </useconditions>
         <effects>
             <buf duration="900000">
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="4" value="0"/>
                 <change stat="KNOWLEDGE" duration="900000" func="ADD" delta="5" value="0"/>
             </buf>
         </effects>
@@ -33937,6 +34012,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="900000">
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="4" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="4" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -33950,6 +34031,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2700000">
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="4" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -33963,6 +34049,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2700000">
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="4" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34131,6 +34222,7 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="4" value="0"/>
                 <change stat="POWER" duration="2700000" func="ADD" delta="5" value="0"/>
             </buf>
         </effects>
@@ -34149,6 +34241,7 @@
         </useconditions>
         <effects>
             <buf duration="2700000">
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="4" value="0"/>
                 <change stat="KNOWLEDGE" duration="2700000" func="ADD" delta="5" value="0"/>
             </buf>
         </effects>
@@ -34165,6 +34258,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2700000">
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="4" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="4" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34178,6 +34277,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="900000">
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="1" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34191,6 +34295,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="900000">
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="1" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34411,6 +34520,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="900000">
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="1" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="1" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34424,6 +34539,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="1" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34437,6 +34557,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="1" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34657,6 +34782,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="1" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="1" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34670,6 +34801,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2700000">
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="1" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34683,6 +34819,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2700000">
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="1" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34903,6 +35044,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2700000">
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="1" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="1" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34942,6 +35089,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="900000">
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="2" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34955,6 +35107,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="900000">
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="3" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -35112,6 +35269,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="900000">
+                <change stat="REGEN_HP" duration="900000" func="ADD" delta="2" value="0"/>
+                <change stat="REGEN_MP" duration="900000" func="ADD" delta="3" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -35258,6 +35421,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="2" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -35271,6 +35439,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="3" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -35428,6 +35601,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="2" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="3" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -35854,6 +36033,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2700000">
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="2" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -35867,6 +36051,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2700000">
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="3" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -36024,6 +36213,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2700000">
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="2" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="3" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -37524,6 +37719,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="600000">
+                <change stat="REGEN_HP" duration="600000" func="ADD" delta="0" value="8"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="12"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -37594,6 +37795,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="600000">
+                <change stat="REGEN_HP" duration="600000" func="ADD" delta="0" value="8"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="12"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -38214,6 +38421,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_HP" duration="1800000" func="ADD" delta="2" value="0"/>
+                <change stat="REGEN_MP" duration="1800000" func="ADD" delta="3" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -38227,6 +38440,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2700000">
+                <change stat="REGEN_HP" duration="2700000" func="ADD" delta="2" value="0"/>
+                <change stat="REGEN_MP" duration="2700000" func="ADD" delta="3" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -41357,6 +41576,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="78000"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="400"/>
             </buf>
         </effects>
         <actions>
@@ -41376,6 +41596,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="93600"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="480"/>
             </buf>
         </effects>
         <actions>
@@ -41395,6 +41616,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="109200"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="560"/>
             </buf>
         </effects>
         <actions>
@@ -41414,6 +41636,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="124800"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="640"/>
             </buf>
         </effects>
         <actions>
@@ -41433,6 +41656,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="156000"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="800"/>
             </buf>
         </effects>
         <actions>
@@ -41452,6 +41676,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="78000"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="400"/>
             </buf>
         </effects>
         <actions>
@@ -41471,6 +41696,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="93600"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="480"/>
             </buf>
         </effects>
         <actions>
@@ -41490,6 +41716,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="109200"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="560"/>
             </buf>
         </effects>
         <actions>
@@ -41509,6 +41736,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="124800"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="640"/>
             </buf>
         </effects>
         <actions>
@@ -41528,6 +41756,7 @@
         <effects>
             <buf duration="600000">
                 <change stat="MAXHP" duration="600000" func="ADD" delta="0" value="156000"/>
+                <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="800"/>
             </buf>
         </effects>
         <actions>
@@ -42217,6 +42446,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_HP" duration="1800000" func="PERCENT" delta="0" value="10"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -42255,6 +42489,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1800000">
+                <change stat="REGEN_MP" duration="1800000" func="PERCENT" delta="0" value="10"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
