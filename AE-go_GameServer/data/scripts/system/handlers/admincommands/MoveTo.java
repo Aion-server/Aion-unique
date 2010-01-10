@@ -23,6 +23,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.world.WorldMapType;
 import com.google.inject.Inject;
 
 /**
@@ -80,12 +81,20 @@ public class MoveTo extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "All the parameters should be numbers");
 			return;
 		}
-		world.despawn(admin);
-		// TODO! this should go to PlayerController.teleportTo(...)
-		// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but something else
-		world.setPosition(admin, worldId, x, y, z, admin.getHeading());
-		admin.setProtectionActive(true);
-		PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
-		PacketSendUtility.sendMessage(admin, "Teleported to " + x + " " + y + " " + z + " [" + worldId + "]");
+		
+		if( WorldMapType.getWorld(worldId) == null)
+		{
+			PacketSendUtility.sendMessage(admin, "Illegal WorldId %d " + worldId );
+		}
+		else
+		{
+			world.despawn(admin);
+			// TODO! this should go to PlayerController.teleportTo(...)
+			// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but something else
+			world.setPosition(admin, worldId, x, y, z, admin.getHeading());
+			admin.setProtectionActive(true);
+			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			PacketSendUtility.sendMessage(admin, "Teleported to " + x + " " + y + " " + z + " [" + worldId + "]");
+		}
 	}
 }
