@@ -115,6 +115,7 @@ public class MonsterController extends NpcController
 		Monster monster = getOwner();
 		monster.getAggroList().addDamageHate(creature, damage, 0);
 		monster.getLifeStats().reduceHp(damage);
+
 		MonsterAi monsterAi = monster.getAi();
 		monsterAi.handleEvent(Event.ATTACKED);
 		PacketSendUtility.broadcastPacket(monster, new SM_ATTACK_STATUS(monster, skillId));
@@ -164,14 +165,16 @@ public class MonsterController extends NpcController
 	{
 		super.onDie();
 
-		MonsterAi monsterAi = getOwner().getAi();
-		monsterAi.setAiState(AIState.NONE);
+		getOwner().getAi().handleEvent(Event.DIED);
 
 		//TODO change - now reward is given to target only
 		Player target = (Player) this.getOwner().getTarget();
 
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13, 0, target == null?0:target.getObjectId()));
-
+		
+		if(target == null)
+			target = (Player) getOwner().getAggroList().getMostHated();//TODO based on damage;
+		
 		this.doReward(target);
 		this.doDrop(target);
 

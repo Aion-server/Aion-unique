@@ -26,6 +26,8 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.utils.MathUtil;
 
@@ -60,15 +62,17 @@ extends Property
 	public boolean set(Skill skill)
 	{
 		List<Creature> effectedList = skill.getEffectedList();
+		int counter = 0;
 		switch(value)
 		{
 			case ONLYONE:
 				skill.getEffectedList().add(skill.getFirstTarget());
 				break;			
 			case AREA:	
-				Creature firstTarget = skill.getFirstTarget();
+				Creature firstTarget = skill.getFirstTarget();			
+				effectedList.add(firstTarget);
+			
 				Iterator<VisibleObject> iterator = firstTarget.getKnownList().iterator();
-				int counter = 0;
 				while(iterator.hasNext() && counter < maxcount)
 				{
 					VisibleObject nextCreature = iterator.next();
@@ -82,6 +86,19 @@ extends Property
 				}
 				break;
 			case PARTY:
+				PlayerGroup group = skill.getEffector().getPlayerGroup();
+				if(group == null)
+					return false;
+				//TODO distance
+				Iterator<Player> it = group.getGroupMemberIterator();
+				while(it.hasNext() && counter < maxcount)
+				{
+					Player player = it.next();
+					
+					effectedList.add(player);
+					counter++;
+				}
+				break;
 			case NONE:
 				break;
 			

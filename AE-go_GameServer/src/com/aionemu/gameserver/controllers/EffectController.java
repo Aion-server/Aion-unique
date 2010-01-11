@@ -137,6 +137,18 @@ public class EffectController
 	}
 	
 	/**
+	 * Removes all effects from controllers and ends them appropriately
+	 */
+	public void removeAllEffects()
+	{
+		for(Effect effect : effectMap.values())
+		{
+			effect.endEffect();
+		}
+		effectMap.clear();
+	}
+	
+	/**
 	 *  ABNORMAL EFFECTS
 	 */
 	

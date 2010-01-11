@@ -93,7 +93,9 @@ public class TargetRelationProperty
 						&& ((Player)nextEffected).getCommonData().getRace() == skill.getEffector().getCommonData().getRace())
 						continue;
 					
-					if(lastAttacker != null && lastAttacker.getObjectId() != nextEffected.getObjectId())
+					if(nextEffected instanceof Player
+						&& lastAttacker != null 
+						&& lastAttacker.getObjectId() != nextEffected.getObjectId())
 						continue;
 					
 					if(nextEffected instanceof Citizen)

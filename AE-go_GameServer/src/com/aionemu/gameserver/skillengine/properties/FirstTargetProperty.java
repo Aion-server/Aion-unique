@@ -62,6 +62,16 @@ public class FirstTargetProperty
 				if(skill.getFirstTarget() == null)
 					skill.setFirstTarget(skill.getEffector());
 				break;
+			case TARGET:
+				if(skill.getFirstTarget() == null)
+					return false;
+				break;
+			case MYPET:
+				//after pet implementation
+				break;
+			case PASSIVE:
+				skill.setFirstTarget(skill.getEffector());
+				break;
 			//TODO other enum values
 		}
 		return true;

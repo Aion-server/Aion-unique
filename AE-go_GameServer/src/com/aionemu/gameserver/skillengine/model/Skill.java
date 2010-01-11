@@ -100,12 +100,14 @@ public class Skill
 		if(skillTemplate.getActivationAttribute() != ActivationAttribute.ACTIVE)
 			return;
 		
-		setProperties(skillTemplate.getInitproperties());
+		if(!setProperties(skillTemplate.getInitproperties()))
+			return;
 		
 		if(!preCastCheck())
 			return;
 		
-		setProperties(skillTemplate.getSetproperties());
+		if(!setProperties(skillTemplate.getSetproperties()))
+			return;
 		
 		//temporary hook till i find permanent solution
 		if(skillType == SkillType.CAST)
@@ -153,12 +155,12 @@ public class Skill
 			{
 				duration = duration > template.getDuration() ? duration : template.getDuration();
 			}
-			
-			Effect effect = new Effect(effector, skillTemplate.getSkillId(),
-				skillLevel, duration, skillTemplate.getEffects());	
-			
+
 			for(Creature creature : effectedList)
 			{
+				Effect effect = new Effect(effector, skillTemplate.getSkillId(),
+					skillLevel, duration, skillTemplate.getEffects());	
+				
 				creature.getEffectController().addEffect(effect);
 			}
 		}

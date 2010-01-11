@@ -127,7 +127,7 @@ public class Effect
 
 		endTime = (int) System.currentTimeMillis() + duration;
 
-		ThreadPoolManager.getInstance().scheduleEffect((new Runnable()
+		task = ThreadPoolManager.getInstance().scheduleEffect((new Runnable()
 		{
 			@Override
 			public void run()
@@ -146,6 +146,7 @@ public class Effect
 			template.endEffect(this);
 		}
 		controller.removeEffect(this);
+		stopTask();
 	}
 	
 	public void stopTask()

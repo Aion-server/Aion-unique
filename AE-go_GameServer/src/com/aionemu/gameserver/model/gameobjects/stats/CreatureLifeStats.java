@@ -133,7 +133,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 
 			if(newHp < 0)
 			{
-				this.currentHp = 0;
+				newHp = 0;
 				if(!alreadyDead)
 				{
 					alreadyDead = true;

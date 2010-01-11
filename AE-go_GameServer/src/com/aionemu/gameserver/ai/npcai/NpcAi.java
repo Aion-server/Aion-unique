@@ -35,6 +35,7 @@ public class NpcAi extends AI<Npc>
 		 */
 		this.addEventHandler(EventHandlers.NOTHINGTODO_EH.getHandler());
 		this.addEventHandler(EventHandlers.RESPAWNED_EH.getHandler());
+		this.addEventHandler(EventHandlers.DIED_EH.getHandler());
 		
 		/**
 		 * State Handlers
