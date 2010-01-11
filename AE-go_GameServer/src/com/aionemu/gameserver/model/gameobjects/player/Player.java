@@ -347,7 +347,7 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @param QuestStateList
+	 * @param questStateList
 	 *            the QuestStateList to set
 	 */
 	public void setQuestStateList(QuestStateList questStateList)

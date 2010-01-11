@@ -24,6 +24,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.aionemu.gameserver.configs.CacheConfig;
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.DB;
@@ -147,7 +148,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 					preparedStatement.execute();
 				}
 			});
-		if(success)
+		if(CacheConfig.CACHE_COMMONDATA && success)
 		{
 			playerCommonData.put(pcd.getPlayerObjId(), pcd);
 		}
@@ -224,14 +225,12 @@ public class MySQL5PlayerDAO extends PlayerDAO
 		{
 			synchronized(pcdLock)
 			{
-				cached = playerCommonData.get(playerObjId);
-				if(cached != null)
-					return cached;
-				else
-				{
+				if (CacheConfig.CACHE_COMMONDATA)
+                {
 					playerCommonData.put(playerObjId, cd);
+                }
 					return cd;
-				}
+
 			}
 		}
 		else

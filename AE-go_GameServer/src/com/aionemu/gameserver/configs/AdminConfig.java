@@ -123,4 +123,6 @@ public class AdminConfig
 	@Property(key = "gameserver.administration.command.system", defaultValue = "3")
 	public static int			COMMAND_SYSTEM;
 
+    @Property(key = "gameserver.administration.command.unstuck", defaultValue = "3")
+    public static int           COMMAND_UNSTUCK;
 }

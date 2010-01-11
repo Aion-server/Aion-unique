@@ -39,6 +39,12 @@ public class CacheConfig
 	 */
 	@Property(key = "gameserver.cache.players", defaultValue = "false")
 	public static boolean			CACHE_PLAYERS	= false;
+
+    /**
+	 * If true then whole {@link PlayerCommonData} objects are cached as long as there is memory for them
+	 */
+	@Property(key = "gameserver.cache.pcd", defaultValue = "false")
+	public static boolean			CACHE_COMMONDATA	= false;
 	
 	/**
 	 * If true then whole {@link Account} objects are cached as long as there is memory for them
