@@ -72,11 +72,6 @@ public final class AttackDesire extends AbstractDesire
 			owner.getAi().handleEvent(Event.TIRED_ATTACKING_TARGET);
 			return false;
 		}
-
-		if(owner.getTarget() == null)
-		{
-			owner.setTarget(target);
-		}
 		
 		double distance = MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), target.getX(), target.getY(), target.getZ()) ;
 		

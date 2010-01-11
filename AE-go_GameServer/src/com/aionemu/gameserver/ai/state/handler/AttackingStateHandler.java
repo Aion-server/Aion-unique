@@ -52,6 +52,7 @@ public class AttackingStateHandler extends StateHandler
 			return;
 		
 		Monster owner = (Monster) ai.getOwner();
+		owner.setTarget(target);
 		
 		PacketSendUtility.broadcastPacket(owner,
 			new SM_EMOTION(owner.getObjectId(), 30, 0, target.getObjectId()));
