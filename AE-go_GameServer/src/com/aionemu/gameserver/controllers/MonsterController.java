@@ -108,6 +108,10 @@ public class MonsterController extends NpcController
 	@Override
 	public void onAttack(Creature creature, int skillId,  int damage)
 	{
+		//temp fix for XP farming from dead mobs
+		if(getOwner().getLifeStats().isAlreadyDead())
+			return;
+		
 		Monster monster = getOwner();
 		monster.getAggroList().addDamageHate(creature, damage, 0);
 		monster.getLifeStats().reduceHp(damage);
