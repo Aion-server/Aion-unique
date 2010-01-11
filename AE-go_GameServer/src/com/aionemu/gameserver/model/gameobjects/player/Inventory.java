@@ -297,6 +297,7 @@ public class Inventory
 		}
 		if(item.getItemCount() == 0)
 		{
+			defaultItemBag.removeItemFromStorage(item);
 			PacketSendUtility.sendPacket(getOwner(), new SM_DELETE_ITEM(item.getObjectId()));
 		}
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
