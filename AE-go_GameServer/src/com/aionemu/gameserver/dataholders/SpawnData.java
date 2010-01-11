@@ -175,8 +175,13 @@ public class SpawnData extends DataLoader implements Iterable<SpawnTemplate>
 		float z = Float.parseFloat(splt[4]);
 
 		byte heading = 0;
-		if(splt.length >= 6)
-			heading = Byte.parseByte(splt[5]);
+		if(splt.length >= 6) {
+			try {
+			  heading = Byte.parseByte(splt[5]);
+			}
+			catch (NumberFormatException numberFormatException) {
+			}
+		}
 		
 		int walkerId = 0;
 		if(splt.length >= 7)
