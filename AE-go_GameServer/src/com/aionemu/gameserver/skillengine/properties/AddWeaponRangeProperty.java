@@ -38,6 +38,6 @@ public class AddWeaponRangeProperty
 	public boolean set(Skill skill)
 	{
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 }
