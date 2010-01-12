@@ -1378,7 +1378,7 @@
         <link>RESEARCH_CENTER_OVERWATCH</link>
         <link>SENEAS_CAMPSITE</link>
     </zone>
-    <zone mapid="210040000" name="THE_STORM_CIRCLE" priority="17">
+    <zone mapid="210040000" name="THE_STORM_CIRCLE" priority="17" fly="true">
         <points>
             <point x="821.75" y="2624.65"/>
             <point x="920.4564" y="2580.1296"/>

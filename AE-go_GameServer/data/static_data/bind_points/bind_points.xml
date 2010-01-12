@@ -56,7 +56,7 @@
 	<bind_point name="Camp Kistenian" npcid="700301" bindid="37" mapid="220040000" posX="1903.4" posY="500.6" posZ="412.1" price="10780"/>
 	<bind_point name="Hoarfrost Shelter" npcid="730072" bindid="38" mapid="220040000" posX="2466.6" posY="2072.4" posZ="577.2" price="13860"/>
 	<!-- Brusthonin -->
-	<bind_point name="Settlers Campsite" npcid="700258" bindid="39" mapid="220050000" posX="2926.2" posY="2430.3" posZ="16.4" price="2970"/>
+	<bind_point name="Settlers Campsite" npcid="700258" bindid="39" mapid="220050000" posX="2926.2" posY="2430.3" posZ="17.0" price="2970"/>
 	<bind_point name="Baltasar Hill Village" npcid="700259" bindid="40" mapid="220050000" posX="1387.0" posY="2021.7" posZ="51.5" price="22000"/>
 	<bind_point name="BuBu Village" npcid="700260" bindid="41" mapid="220050000" posX="446.8" posY="853.8" posZ="75.0" price="24750"/>
 </bind_points>

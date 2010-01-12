@@ -24,6 +24,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -41,6 +43,8 @@ public class TargetRangeProperty
 extends Property
 {
 
+	private static final Logger log = Logger.getLogger(TargetRangeProperty.class);
+	
 	@XmlAttribute(required = true)
 	protected TargetRangeAttribute value;
 
@@ -69,7 +73,12 @@ extends Property
 				skill.getEffectedList().add(skill.getFirstTarget());
 				break;			
 			case AREA:	
-				Creature firstTarget = skill.getFirstTarget();			
+				Creature firstTarget = skill.getFirstTarget();
+				if(firstTarget == null)
+				{
+					log.warn("CHECKPOINT: first target is null for skillid " + skill.getSkillTemplate().getSkillId());
+					return false;
+				}
 				effectedList.add(firstTarget);
 			
 				Iterator<VisibleObject> iterator = firstTarget.getKnownList().iterator();
