@@ -44,6 +44,8 @@
 				maxOccurs="1" />
 			<xs:element name="buf" type="BufEffect" minOccurs="0"
 				maxOccurs="1" />
+			<xs:element name="dot" type="DamageOverTimeEffect" minOccurs="0"
+				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -205,6 +207,16 @@
 	<xs:complexType name="RootEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="DamageOverTimeEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="checktime" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" use="required" />
+				<xs:attribute name="damage" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

@@ -3177,6 +3177,7 @@
         </setproperties>
         <effects>
             <root duration="27000"/>
+            <dot damage="106" delta="2" checktime="3000" duration="27000"/>
         </effects>
         <actions>
             <mpuse value="63" delta="0"/>
@@ -5475,6 +5476,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="304" delta="9" checktime="6000" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="44" delta="9"/>
             <damage value="762" delta="21"/>
@@ -12757,6 +12761,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="207" delta="5" checktime="3000" duration="9000"/>
+        </effects>
         <actions>
             <mpuse value="116" delta="4"/>
             <damage value="207" delta="5"/>
@@ -12774,6 +12781,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="241" delta="4" checktime="3000" duration="9000"/>
+        </effects>
         <actions>
             <mpuse value="146" delta="3"/>
             <damage value="241" delta="4"/>
@@ -12791,6 +12801,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="264" delta="5" checktime="3000" duration="9000"/>
+        </effects>
         <actions>
             <mpuse value="167" delta="3"/>
             <damage value="264" delta="5"/>
@@ -12808,6 +12821,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="297" delta="5" checktime="3000" duration="9000"/>
+        </effects>
         <actions>
             <mpuse value="188" delta="3"/>
             <damage value="297" delta="5"/>
@@ -12866,6 +12882,7 @@
             <buf duration="120000">
                 <change stat="MAGICAL_RESIST" duration="120000" func="ADD" delta="0" value="-400"/>
             </buf>
+            <dot damage="499" delta="8" checktime="12000" duration="120000"/>
         </effects>
         <actions>
             <mpuse value="311" delta="6"/>
@@ -14619,6 +14636,7 @@
             <buf duration="24000">
                 <change stat="PHYSICAL_ATTACK" duration="24000" func="PERCENT" delta="0" value="-100"/>
             </buf>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <damage value="50" delta="0"/>
@@ -14637,6 +14655,7 @@
             <buf duration="24000">
                 <change stat="PHYSICAL_ATTACK" duration="24000" func="PERCENT" delta="0" value="-100"/>
             </buf>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <damage value="50" delta="0"/>
@@ -14868,6 +14887,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="136" delta="4" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="81" delta="1"/>
             <damage value="136" delta="4"/>
@@ -14933,6 +14955,9 @@
             <targetrange value="AREA" distance="20" maxcount="12"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="655" delta="8" checktime="3000" duration="57000"/>
+        </effects>
         <actions>
             <damage value="655" delta="8"/>
         </actions>
@@ -15005,6 +15030,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="178" delta="4" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="104" delta="1"/>
             <damage value="178" delta="4"/>
@@ -17695,6 +17723,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="30" delta="3" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="37" delta="1"/>
             <damage value="30" delta="3"/>
@@ -17709,6 +17740,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="114" delta="3" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="55" delta="2"/>
             <damage value="114" delta="3"/>
@@ -17723,6 +17757,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="151" delta="3" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="78" delta="3"/>
             <damage value="151" delta="3"/>
@@ -17737,6 +17774,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="193" delta="3" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="113" delta="2"/>
             <damage value="193" delta="3"/>
@@ -18189,6 +18229,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="229" delta="3" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="138" delta="2"/>
             <damage value="229" delta="3"/>
@@ -18752,6 +18795,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="69" delta="2" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="47" delta="1"/>
             <damage value="69" delta="2"/>
@@ -18766,6 +18812,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="99" delta="3" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="58" delta="1"/>
             <damage value="99" delta="3"/>
@@ -18780,6 +18829,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="135" delta="3" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="74" delta="1"/>
             <damage value="135" delta="3"/>
@@ -19785,6 +19837,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="907" delta="10" checktime="2000" duration="8000"/>
+        </effects>
         <actions>
             <mpuse value="562" delta="9"/>
             <damage value="907" delta="10"/>
@@ -19874,6 +19929,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="1000" delta="10" checktime="6000" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="1036" delta="0"/>
             <damage value="5000" delta="10"/>
@@ -19891,6 +19949,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="1000" delta="10" checktime="6000" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="1036" delta="0"/>
             <damage value="5000" delta="10"/>
@@ -20953,6 +21014,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="311" delta="0" checktime="2000" duration="8000"/>
+        </effects>
         <actions>
             <mpuse value="242" delta="4"/>
             <damage value="311" delta="0"/>
@@ -21425,6 +21489,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="25" delta="1" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="68" delta="1"/>
             <damage value="25" delta="1"/>
@@ -21439,6 +21506,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="35" delta="1" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="92" delta="3"/>
             <damage value="35" delta="1"/>
@@ -21453,6 +21523,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="46" delta="1" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="127" delta="3"/>
             <damage value="46" delta="1"/>
@@ -21971,6 +22044,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="100" delta="0" checktime="6000" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="252" delta="5"/>
             <dummy/>
@@ -22005,6 +22081,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="445" delta="0" checktime="3000" duration="12000"/>
+        </effects>
         <actions>
             <mpuse value="473" delta="9"/>
             <damage value="445" delta="0"/>
@@ -22801,6 +22880,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="55" delta="1" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="164" delta="2"/>
             <damage value="55" delta="1"/>
@@ -23100,6 +23182,7 @@
         </useconditions>
         <effects>
             <root duration="24000"/>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <damage value="50" delta="0"/>
@@ -23116,6 +23199,7 @@
         </useconditions>
         <effects>
             <root duration="24000"/>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <damage value="50" delta="0"/>
@@ -23703,6 +23787,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="78" delta="2" checktime="3000" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="141" delta="5"/>
             <damage value="78" delta="2"/>
@@ -23720,6 +23807,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="102" delta="2" checktime="3000" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="195" delta="5"/>
             <damage value="102" delta="2"/>
@@ -23734,6 +23824,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="648" delta="8" checktime="6000" duration="54000"/>
+        </effects>
         <actions>
             <damage value="648" delta="8"/>
         </actions>
@@ -24057,6 +24150,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="126" delta="2" checktime="3000" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="259" delta="3"/>
             <damage value="126" delta="2"/>
@@ -25412,6 +25508,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ALL"/>
         </setproperties>
+        <effects>
+            <dot damage="100" delta="0" checktime="3000" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -25631,6 +25730,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="100" delta="0" checktime="3000" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -26317,6 +26419,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="0" delta="10" checktime="10000" duration="7200000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -28052,6 +28157,7 @@
             <buf duration="25000">
                 <change stat="FIRE_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="15" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28070,6 +28176,7 @@
             <buf duration="25000">
                 <change stat="WATER_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="23" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28088,6 +28195,7 @@
             <buf duration="25000">
                 <change stat="WIND_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="18" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28106,6 +28214,7 @@
             <buf duration="25000">
                 <change stat="EARTH_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="21" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28124,6 +28233,7 @@
             <buf duration="25000">
                 <change stat="FIRE_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="25" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28142,6 +28252,7 @@
             <buf duration="25000">
                 <change stat="WATER_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="39" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28160,6 +28271,7 @@
             <buf duration="25000">
                 <change stat="WIND_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="30" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28178,6 +28290,7 @@
             <buf duration="25000">
                 <change stat="EARTH_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="34" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28664,6 +28777,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="0" delta="7" checktime="6000" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -28694,6 +28810,7 @@
             <buf duration="25000">
                 <change stat="FIRE_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="44" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28712,6 +28829,7 @@
             <buf duration="25000">
                 <change stat="WATER_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="97" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28730,6 +28848,7 @@
             <buf duration="25000">
                 <change stat="WIND_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="49" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28748,6 +28867,7 @@
             <buf duration="25000">
                 <change stat="EARTH_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="54" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28766,6 +28886,7 @@
             <buf duration="25000">
                 <change stat="FIRE_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28784,6 +28905,7 @@
             <buf duration="25000">
                 <change stat="WATER_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28802,6 +28924,7 @@
             <buf duration="25000">
                 <change stat="WIND_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28820,6 +28943,7 @@
             <buf duration="25000">
                 <change stat="EARTH_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28838,6 +28962,7 @@
             <buf duration="25000">
                 <change stat="WATER_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -28856,6 +28981,7 @@
             <buf duration="25000">
                 <change stat="FIRE_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -31267,6 +31393,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="500" delta="0" checktime="3000" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -39090,6 +39219,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="40" delta="24" checktime="2000" duration="7000"/>
+        </effects>
         <actions>
             <mpuse value="50" delta="13"/>
             <damage value="20" delta="12"/>
@@ -39222,6 +39354,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="1" delta="1" checktime="3000" duration="7000"/>
+        </effects>
         <actions>
             <mpuse value="28" delta="0"/>
             <damage value="19" delta="2"/>
@@ -39308,6 +39443,7 @@
             <buf duration="25000">
                 <change stat="SPEED" duration="25000" func="PERCENT" delta="0" value="10"/>
             </buf>
+            <dot damage="193" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <mpuse value="187" delta="8"/>
@@ -39363,6 +39499,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="2" delta="0" checktime="3000" duration="6000"/>
+        </effects>
         <actions>
             <mpuse value="28" delta="0"/>
             <damage value="21" delta="0"/>
@@ -39618,6 +39757,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="144" delta="4" checktime="3000" duration="31000"/>
+        </effects>
         <actions>
             <mpuse value="305" delta="10"/>
             <damage value="144" delta="4"/>
@@ -39742,6 +39884,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="21" delta="0" checktime="3000" duration="6000"/>
+        </effects>
         <actions>
             <mpuse value="47" delta="0"/>
             <damage value="59" delta="0"/>
@@ -40511,6 +40656,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="132" delta="3" checktime="6000" duration="12000"/>
+        </effects>
         <actions>
             <mpuse value="165" delta="2"/>
             <damage value="132" delta="3"/>
@@ -41961,6 +42109,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="800" delta="0" checktime="4000" duration="12000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -42012,6 +42163,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="120" delta="0" checktime="2000" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -42049,6 +42203,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="50" delta="0" checktime="5000" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -42542,6 +42699,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="1000" delta="0" checktime="4000" duration="12000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -42574,6 +42734,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="150" delta="0" checktime="2000" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -42702,6 +42865,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="50" delta="0" checktime="5000" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -42935,6 +43101,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="6000" duration="18100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -42964,6 +43133,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="1000" duration="3100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -43594,6 +43766,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="59" delta="59" checktime="1000" duration="1100"/>
+        </effects>
         <actions>
             <damage value="0" delta="10"/>
         </actions>
@@ -45481,6 +45656,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45717,6 +45895,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="130" delta="0"/>
         </actions>
@@ -45733,6 +45914,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="20" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="130" delta="0"/>
         </actions>
@@ -45751,6 +45935,7 @@
         </useconditions>
         <effects>
             <root duration="4100"/>
+            <dot damage="15" delta="1" checktime="2000" duration="4100"/>
         </effects>
         <actions>
             <dummy/>
@@ -45768,6 +45953,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="4100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -45841,6 +46029,7 @@
         </useconditions>
         <effects>
             <root duration="4100"/>
+            <dot damage="15" delta="1" checktime="2000" duration="4100"/>
         </effects>
         <actions>
             <dummy/>
@@ -45979,6 +46168,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="154" delta="0"/>
         </actions>
@@ -46027,6 +46219,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -46104,6 +46299,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="154" delta="0"/>
         </actions>
@@ -46744,6 +46942,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="130" delta="0"/>
         </actions>
@@ -46760,6 +46961,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="130" delta="0"/>
         </actions>
@@ -46795,6 +46999,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -47084,6 +47291,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="130" delta="0"/>
         </actions>
@@ -47529,6 +47739,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -47558,6 +47771,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -47574,6 +47790,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -47786,6 +48005,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="77" delta="0"/>
         </actions>
@@ -48613,6 +48835,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -48812,6 +49037,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -48844,6 +49072,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -49081,6 +49312,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -49543,6 +49777,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="75" delta="0"/>
         </actions>
@@ -49876,6 +50113,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -50054,6 +50294,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -50665,6 +50908,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="75" delta="0"/>
         </actions>
@@ -50713,6 +50959,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="130" delta="0"/>
         </actions>
@@ -50848,6 +51097,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="122" delta="0"/>
         </actions>
@@ -50864,6 +51116,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -50909,6 +51164,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -50925,6 +51183,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="75" delta="0"/>
         </actions>
@@ -51047,6 +51308,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="3100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -51060,6 +51324,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="3100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -51120,6 +51387,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="107" delta="0"/>
         </actions>
@@ -51133,6 +51403,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="154" delta="0"/>
         </actions>
@@ -51162,6 +51435,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -51284,6 +51560,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="122" delta="0"/>
         </actions>
@@ -51310,6 +51589,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="107" delta="0"/>
         </actions>
@@ -51323,6 +51605,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -51422,6 +51707,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="27" delta="2" checktime="2000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="90" delta="0"/>
         </actions>
@@ -51815,6 +52103,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -51917,6 +52208,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="53" delta="0"/>
         </actions>
@@ -52101,6 +52395,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -52143,6 +52440,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="154" delta="0"/>
         </actions>
@@ -52156,6 +52456,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="114" delta="0"/>
         </actions>
@@ -52166,6 +52469,9 @@
             <targetrange value="AREA" distance="20" maxcount="24"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="30100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -52221,6 +52527,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="114" delta="0"/>
         </actions>
@@ -52356,6 +52665,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="30000"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -52450,6 +52762,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -52592,6 +52907,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -53216,6 +53534,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="4000" duration="16100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -53323,6 +53644,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -53352,6 +53676,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -53368,6 +53695,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -53554,6 +53884,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="122" delta="0"/>
         </actions>
@@ -53567,6 +53900,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="25" delta="0" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -53580,6 +53916,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="25" delta="0" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -55158,6 +55497,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -55187,6 +55529,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="138" delta="0"/>
         </actions>
@@ -55200,6 +55545,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="250" delta="0"/>
         </actions>
@@ -55216,6 +55564,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="114" delta="0"/>
         </actions>
@@ -55232,6 +55583,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="250" delta="0"/>
         </actions>
@@ -55500,6 +55854,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="122" delta="0"/>
         </actions>
@@ -55529,6 +55886,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="122" delta="0"/>
         </actions>
@@ -56750,6 +57110,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="25" delta="1" checktime="2000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="122" delta="0"/>
         </actions>
@@ -58180,6 +58543,7 @@
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="69" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -58198,6 +58562,7 @@
             <buf duration="30000">
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="102" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -58216,6 +58581,7 @@
             <buf duration="30000">
                 <change stat="WIND_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="88" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -58234,6 +58600,7 @@
             <buf duration="30000">
                 <change stat="EARTH_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="94" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -58252,6 +58619,7 @@
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="119" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -58270,6 +58638,7 @@
             <buf duration="30000">
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="162" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -58288,6 +58657,7 @@
             <buf duration="30000">
                 <change stat="WIND_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="151" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -58306,6 +58676,7 @@
             <buf duration="30000">
                 <change stat="EARTH_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="154" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -58521,6 +58892,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -58851,6 +59225,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="107" delta="0"/>
         </actions>
@@ -59131,6 +59508,7 @@
                 <change stat="PHYSICAL_DEFENSE" duration="10000" func="PERCENT" delta="0" value="-30"/>
                 <change stat="MAGICAL_RESIST" duration="10000" func="PERCENT" delta="0" value="-30"/>
             </buf>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
         </effects>
         <actions>
             <damage value="49" delta="0"/>
@@ -59274,6 +59652,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="42" delta="1" checktime="6000" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -59525,6 +59906,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="122" delta="0"/>
         </actions>
@@ -59557,6 +59941,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -59622,6 +60009,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="122" delta="0"/>
         </actions>
@@ -60642,6 +61032,7 @@
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="180" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -60660,6 +61051,7 @@
             <buf duration="30000">
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="215" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -60678,6 +61070,7 @@
             <buf duration="30000">
                 <change stat="WIND_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="208" delta="6" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -60696,6 +61089,7 @@
             <buf duration="30000">
                 <change stat="EARTH_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="216" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -60826,6 +61220,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="80" delta="4" checktime="6000" duration="12000"/>
+        </effects>
         <actions>
             <damage value="80" delta="4"/>
         </actions>
@@ -60839,6 +61236,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="80" delta="3" checktime="6000" duration="12000"/>
+        </effects>
         <actions>
             <damage value="80" delta="3"/>
         </actions>
@@ -60924,6 +61324,7 @@
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="235" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -60942,6 +61343,7 @@
             <buf duration="30000">
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="215" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -60960,6 +61362,7 @@
             <buf duration="30000">
                 <change stat="WIND_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="268" delta="6" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -60978,6 +61381,7 @@
             <buf duration="30000">
                 <change stat="EARTH_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <dot damage="216" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -60997,6 +61401,7 @@
                 <change stat="WIND_RESISTANCE" duration="30000" func="ADD" delta="0" value="-300"/>
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-300"/>
             </buf>
+            <dot damage="329" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -61016,6 +61421,7 @@
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-300"/>
                 <change stat="EARTH_RESISTANCE" duration="30000" func="ADD" delta="0" value="-300"/>
             </buf>
+            <dot damage="344" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -61663,6 +62069,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="137" delta="4" checktime="6000" duration="12000"/>
+        </effects>
         <actions>
             <damage value="137" delta="4"/>
         </actions>
@@ -61676,6 +62085,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="131" delta="3" checktime="6000" duration="12000"/>
+        </effects>
         <actions>
             <damage value="131" delta="3"/>
         </actions>
@@ -61715,6 +62127,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="190" delta="5" checktime="6000" duration="12000"/>
+        </effects>
         <actions>
             <damage value="190" delta="5"/>
         </actions>
@@ -61728,6 +62143,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="184" delta="4" checktime="6000" duration="12000"/>
+        </effects>
         <actions>
             <damage value="184" delta="4"/>
         </actions>
@@ -61767,6 +62185,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="243" delta="5" checktime="6000" duration="12000"/>
+        </effects>
         <actions>
             <damage value="243" delta="5"/>
         </actions>
@@ -61780,6 +62201,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="184" delta="4" checktime="6000" duration="12000"/>
+        </effects>
         <actions>
             <damage value="184" delta="4"/>
         </actions>
@@ -62653,6 +63077,9 @@
             <targetrange value="AREA" distance="5" maxcount="8"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="107" delta="0"/>
         </actions>
@@ -63796,6 +64223,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="1060" delta="19" checktime="6000" duration="30000"/>
+        </effects>
         <actions>
             <damage value="1891" delta="35"/>
         </actions>
@@ -63809,6 +64239,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="1060" delta="19" checktime="6000" duration="30000"/>
+        </effects>
         <actions>
             <damage value="1891" delta="35"/>
         </actions>
@@ -63822,6 +64255,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="50" delta="0" checktime="6000" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -64070,6 +64506,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="60100"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -64080,6 +64519,9 @@
             <targetrange value="AREA" distance="27" maxcount="24"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <dot damage="5" delta="0" checktime="10000" duration="120000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -64131,6 +64573,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="70" delta="0" checktime="2000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -64403,6 +64848,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="53" delta="0"/>
         </actions>
@@ -64452,6 +64900,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="60100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -64465,6 +64916,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -65043,6 +65497,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="99" delta="0"/>
         </actions>
@@ -65350,6 +65807,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -65389,6 +65849,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -65972,6 +66435,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="75" delta="0"/>
         </actions>
@@ -66105,6 +66571,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="5" delta="1" checktime="2000" duration="30100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -66697,6 +67166,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="600" delta="0" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="600" delta="0"/>
         </actions>
@@ -66777,6 +67249,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="20" delta="1" checktime="4000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -66825,6 +67300,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="90" delta="0" checktime="4000" duration="4100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -67067,6 +67545,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="107" delta="0"/>
         </actions>
@@ -68006,6 +68487,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="65000" delta="0" checktime="6000" duration="6000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -68098,6 +68582,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="88" delta="0" checktime="2000" duration="8000"/>
+        </effects>
         <actions>
             <damage value="88" delta="0"/>
         </actions>
@@ -68247,6 +68734,9 @@
             <targetrange value="AREA" distance="5" maxcount="6"/>
             <targetrelation value="ALL"/>
         </setproperties>
+        <effects>
+            <dot damage="50" delta="1" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="66" delta="0"/>
         </actions>
@@ -68441,6 +68931,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="500" delta="0" checktime="3000" duration="9000"/>
+        </effects>
         <actions>
             <damage value="215" delta="0"/>
         </actions>
@@ -68681,6 +69174,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="500" delta="0" checktime="3000" duration="6000"/>
+        </effects>
         <actions>
             <damage value="1000" delta="0"/>
         </actions>
@@ -69011,6 +69507,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="94" checktime="6000" duration="6100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -69024,6 +69523,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="2" checktime="2000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="130" delta="0"/>
         </actions>
@@ -69374,6 +69876,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="750" delta="0" checktime="3000" duration="9000"/>
+        </effects>
         <actions>
             <damage value="1000" delta="0"/>
         </actions>
@@ -69666,6 +70171,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="500" delta="0" checktime="2000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="90" delta="0"/>
         </actions>
@@ -69933,6 +70441,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="4100"/>
+        </effects>
         <actions>
             <damage value="53" delta="0"/>
         </actions>
@@ -71118,6 +71629,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="10" delta="1" checktime="3000" duration="12000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -71757,6 +72271,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="12000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -71799,6 +72316,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="8000"/>
+        </effects>
         <actions>
             <damage value="154" delta="0"/>
         </actions>
@@ -71932,6 +72452,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="35" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="107" delta="0"/>
         </actions>
@@ -71945,6 +72468,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="75" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="115" delta="0"/>
         </actions>
@@ -71971,6 +72497,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="15" delta="1" checktime="2000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="23" delta="0"/>
         </actions>
@@ -71984,6 +72513,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="2" delta="1" checktime="2000" duration="30000"/>
+        </effects>
         <actions>
             <damage value="25" delta="0"/>
         </actions>
@@ -72608,6 +73140,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="350" delta="0" checktime="2000" duration="110000"/>
+        </effects>
         <actions>
             <damage value="200" delta="0"/>
         </actions>
@@ -72675,6 +73210,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="350" delta="0" checktime="2000" duration="8100"/>
+        </effects>
         <actions>
             <damage value="150" delta="0"/>
         </actions>
@@ -72886,6 +73424,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="65000" delta="0" checktime="6000" duration="6000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -72902,6 +73443,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="300" delta="0" checktime="3000" duration="60000"/>
+        </effects>
         <actions>
             <damage value="1000" delta="0"/>
         </actions>
@@ -72962,6 +73506,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="50" delta="0" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="500" delta="0"/>
         </actions>
@@ -73148,6 +73695,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="500" delta="0" checktime="3000" duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -73202,6 +73752,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="750" delta="0" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="750" delta="0"/>
         </actions>
@@ -73302,6 +73855,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="500" delta="0" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="115" delta="0"/>
         </actions>
@@ -73370,6 +73926,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="500" delta="0" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="25" delta="0"/>
         </actions>
@@ -73527,6 +74086,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="114" delta="6" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="287" delta="14"/>
         </actions>
@@ -73540,6 +74102,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="197" delta="6" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="493" delta="15"/>
         </actions>
@@ -73553,6 +74118,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="271" delta="7" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="677" delta="19"/>
         </actions>
@@ -73566,6 +74134,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="348" delta="8" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="871" delta="20"/>
         </actions>
@@ -73722,6 +74293,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="428" delta="7" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="1071" delta="18"/>
         </actions>
@@ -74491,6 +75065,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="750" delta="0" checktime="3000" duration="6000"/>
+        </effects>
         <actions>
             <damage value="2000" delta="0"/>
         </actions>

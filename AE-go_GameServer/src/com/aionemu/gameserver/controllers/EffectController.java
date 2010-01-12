@@ -161,7 +161,7 @@ public class EffectController
 	{
 		abnormals &= ~mask;
 	}
-	
+
 	public int getAbnormals()
 	{
 		return abnormals;

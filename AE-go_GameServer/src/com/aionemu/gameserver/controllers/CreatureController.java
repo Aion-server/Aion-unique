@@ -23,6 +23,7 @@ import com.aionemu.gameserver.controllers.movement.MoveObserver;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 
 /**
  * This class is for controlling Creatures [npc's, players etc]
@@ -88,10 +89,19 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	
 	/**
 	 *  Perform tasks when Creature was attacked
+	 *  //TODO may be pass only Skill object - but need to add properties in it
 	 */
-	public void onAttack(Creature creature, int skillId,  int damage)
+	public void onAttack(Creature creature, int skillId, TYPE type, int damage)
 	{
 
+	}
+	
+	/**
+	 *  Perform tasks when Creature was attacked
+	 */
+	public void onAttack(Creature creature, int damage)
+	{
+		this.onAttack(creature, 0, TYPE.REGULAR, damage);
 	}
 	
 	/**

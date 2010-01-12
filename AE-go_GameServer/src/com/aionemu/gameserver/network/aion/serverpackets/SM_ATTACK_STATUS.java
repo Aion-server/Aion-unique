@@ -30,17 +30,45 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_ATTACK_STATUS extends AionServerPacket
 {
-	private int	targetObjectId;
-    private int remainHp;
-    private int abnormals;
+    private Creature creature;
+    private TYPE type;
     private int skillId;
+    private int value;
+ 
+    
+    public static enum TYPE
+    {
+    	REGULAR(5),
+    	DAMAGE(7),
+    	HP(9),
+    	MP(19);
+    	
+    	private int value;
+    	
+    	private TYPE(int value)
+    	{
+    		this.value = value;
+    	}
+    	
+    	public int getValue()
+    	{
+    		return this.value;
+    	}
+    }
 	
-	public SM_ATTACK_STATUS(Creature creature, int skillId)
+	public SM_ATTACK_STATUS(Creature creature, TYPE type, int skillId, int value)
 	{
-		this.targetObjectId = creature.getObjectId();
-		this.remainHp = creature.getLifeStats().getHpPercentage();
-		this.abnormals = creature.getEffectController().getAbnormals();
+		this.creature = creature;
+		this.type = type;
 		this.skillId = skillId;
+		this.value = value;
+	}
+	
+	public SM_ATTACK_STATUS(Creature creature, int value)
+	{
+		this.creature = creature;
+		this.type = TYPE.REGULAR;
+		this.skillId = 0;
 	}
 
 	/**
@@ -50,10 +78,17 @@ public class SM_ATTACK_STATUS extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{		
-		writeD(buf, targetObjectId);
-		writeD(buf, abnormals);
-		writeC(buf, 5); // unknown?? type 5, 3, 7
-		writeC(buf, remainHp); //  remain hp
+		writeD(buf, creature.getObjectId());
+		switch(type)
+		{
+			case DAMAGE:
+				writeD(buf, -value);
+				break;
+			default:
+				writeD(buf, value);
+		}		
+		writeC(buf, type.getValue());
+		writeC(buf, creature.getLifeStats().getHpPercentage());
 		writeH(buf, skillId);
 		writeC(buf, 0x94); // unknown   0x98 or 0x01
 	}	

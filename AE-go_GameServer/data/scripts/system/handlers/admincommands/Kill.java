@@ -53,7 +53,7 @@ public class Kill extends AdminCommand
 		if(target instanceof Creature)
 		{
 			Creature creature = (Creature) target;
-			creature.getController().onAttack(admin, 0, creature.getLifeStats().getMaxHp() + 1);
+			creature.getController().onAttack(admin, creature.getLifeStats().getMaxHp() + 1);
 		}		
 	}
 }

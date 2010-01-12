@@ -37,6 +37,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.DecayService;
@@ -106,7 +107,7 @@ public class MonsterController extends NpcController
 	}
 
 	@Override
-	public void onAttack(Creature creature, int skillId,  int damage)
+	public void onAttack(Creature creature, int skillId, TYPE type,  int damage)
 	{
 		//temp fix for XP farming from dead mobs
 		if(getOwner().getLifeStats().isAlreadyDead())
@@ -118,7 +119,7 @@ public class MonsterController extends NpcController
 
 		MonsterAi monsterAi = monster.getAi();
 		monsterAi.handleEvent(Event.ATTACKED);
-		PacketSendUtility.broadcastPacket(monster, new SM_ATTACK_STATUS(monster, skillId));
+		PacketSendUtility.broadcastPacket(monster, new SM_ATTACK_STATUS(monster, type, skillId, damage));
 	}
 
 	public void attackTarget(int targetObjectId)
@@ -155,7 +156,7 @@ public class MonsterController extends NpcController
 			new SM_ATTACK(monster.getObjectId(), player.getObjectId(),
 				npcGameStats.getAttackCounter(), 274, attackType, attackList), true);
 
-		player.getController().onAttack(monster, 0, damage);
+		player.getController().onAttack(monster, damage);
 		npcGameStats.increaseAttackCounter();
 
 	}

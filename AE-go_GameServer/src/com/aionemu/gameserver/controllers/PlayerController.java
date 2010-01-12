@@ -25,7 +25,6 @@ import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
-import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -45,6 +44,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.skillengine.SkillEngine;
@@ -219,17 +219,17 @@ public class PlayerController extends CreatureController<Player>
 		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), target.getObjectId(),
 			gameStats.getAttackCounter(), (int) time, attackType, attackResult), true);
 
-		target.getController().onAttack(player, 0, damage);
+		target.getController().onAttack(player, damage);
 
 		gameStats.increaseAttackCounter();
 	}
 
 	@Override
-	public void onAttack(Creature creature, int skillId, int damage)
+	public void onAttack(Creature creature, int skillId, TYPE type,  int damage)
 	{
 		lastAttacker = creature;
 		getOwner().getLifeStats().reduceHp(damage);
-		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), skillId), true);	
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), type, skillId, damage), true);	
 	}
 
 	public void useSkill(int skillId)

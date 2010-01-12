@@ -41,6 +41,7 @@ public class Effect
 	private Creature effected;
 	private Creature effector;
 	private Future<?> task = null;
+	private Future<?> periodicTask = null;
 
 	public Effect(Creature effector, int skillId, int skillLevel,
 		int duration, Effects effects)
@@ -110,6 +111,22 @@ public class Effect
 	}
 
 	/**
+	 * @return the periodicTask
+	 */
+	public Future<?> getPeriodicTask()
+	{
+		return periodicTask;
+	}
+
+	/**
+	 * @param periodicTask the periodicTask to set
+	 */
+	public void setPeriodicTask(Future<?> periodicTask)
+	{
+		this.periodicTask = periodicTask;
+	}
+
+	/**
 	 * @param controller the controller to set
 	 */
 	public void setController(EffectController controller)
@@ -146,15 +163,21 @@ public class Effect
 			template.endEffect(this);
 		}
 		controller.removeEffect(this);
-		stopTask();
+		stopTasks();
 	}
 	
-	public void stopTask()
+	public void stopTasks()
 	{
 		if(task != null)
 		{
 			task.cancel(false);
 			task = null;
+		}
+		
+		if(periodicTask != null)
+		{
+			periodicTask.cancel(false);
+			periodicTask = null;
 		}
 	}
 

@@ -26,6 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -85,7 +86,7 @@ public class DamageAction
 			}
 			sumDamage += damage;
 			
-			effected.getController().onAttack(effector, skill.getSkillTemplate().getSkillId(), damage);
+			effected.getController().onAttack(effector, skill.getSkillTemplate().getSkillId(), TYPE.DAMAGE, damage);
 		}
 		
 		int unk = 0;
