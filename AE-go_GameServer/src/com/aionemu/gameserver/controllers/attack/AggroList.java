@@ -19,6 +19,7 @@ package com.aionemu.gameserver.controllers.attack;
 import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 
 /**
  * @author ATracer, KKnD
@@ -26,6 +27,15 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
  */
 public class AggroList
 {
+	//TODO later for upper objects also
+	private Monster owner;
+	
+	public AggroList(Monster owner)
+	{
+		super();
+		this.owner = owner;
+	}
+
 	public final class AggroInfo
 	{
 		protected Creature attacker;
@@ -39,7 +49,23 @@ public class AggroList
 	}
 	
 	private FastMap<Creature, AggroInfo> aggroList = new FastMap<Creature, AggroInfo>().setShared(true);
-	
+
+	/**
+	 * @return the owner
+	 */
+	public Monster getOwner()
+	{
+		return owner;
+	}
+
+	/**
+	 * @param owner the owner to set
+	 */
+	public void setOwner(Monster owner)
+	{
+		this.owner = owner;
+	}
+
 	/**
 	 * 
 	 * @param attacker
@@ -85,7 +111,8 @@ public class AggroList
 			if (ai == null)
 				continue;
 
-			if(ai.attacker.getLifeStats().isAlreadyDead())
+			if(ai.attacker.getLifeStats().isAlreadyDead()
+				|| !owner.getKnownList().knowns(ai.attacker))
 				ai.hate = 0;
 
 			if (ai.hate > maxHate)

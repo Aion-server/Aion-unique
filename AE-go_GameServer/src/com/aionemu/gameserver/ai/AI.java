@@ -65,6 +65,11 @@ public abstract class AI<T extends Creature> implements Runnable
 	 */
 	public void handleEvent(Event event)
 	{
+		//allow only handling event Event.DIED in dead stats
+		//probably i need to define rules for which events could be handled in which state
+		if(event != Event.DIED && owner.getLifeStats().isAlreadyDead())
+			return;
+		
 		EventHandler eventHandler = eventHandlers.get(event);
 		if(eventHandler != null)
 			eventHandler.handleEvent(event, this);

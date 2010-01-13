@@ -153,6 +153,7 @@ public class MonsterController extends NpcController
 		if(player == null || player.getLifeStats().isAlreadyDead())
 		{
 			monsterAi.setAiState(AIState.THINKING);
+			return;
 		}
 
 		List<AttackResult> attackList = AttackUtil.calculateAttackResult(monster, player);
@@ -177,9 +178,7 @@ public class MonsterController extends NpcController
 	public void onDie()
 	{
 		super.onDie();
-
-		getOwner().getAi().handleEvent(Event.DIED);
-
+		
 		//TODO change - now reward is given to target only
 		Player target = (Player) this.getOwner().getTarget();
 
@@ -190,7 +189,8 @@ public class MonsterController extends NpcController
 
 		this.doReward(target);
 		this.doDrop(target);
-
+		this.getOwner().getAi().handleEvent(Event.DIED);
+		
 		if(decayTask == null)
 		{
 			RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
@@ -204,10 +204,9 @@ public class MonsterController extends NpcController
 	@Override
 	public void onRespawn()
 	{
-		this.decayTask = null;
+		super.onRespawn();
 		dropService.unregisterDrop(getOwner());
 		getOwner().getAggroList().clear();
-		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
 		this.getOwner().getAi().handleEvent(Event.RESPAWNED);
 	}
 

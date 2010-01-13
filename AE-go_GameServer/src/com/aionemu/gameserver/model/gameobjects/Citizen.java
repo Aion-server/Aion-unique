@@ -55,6 +55,5 @@ public class Citizen extends Npc
 	{
 		this.ai = new CitizenAi();
 		ai.setOwner(this);
-		ai.handleEvent(Event.RESPAWNED);
 	}
 }

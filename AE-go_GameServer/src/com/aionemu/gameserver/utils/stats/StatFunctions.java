@@ -329,8 +329,8 @@ public class StatFunctions
 	{
 		double criticalRate = 75d * Math.sin( ( ( 900 - attacker.getGameStats().getCurrentStat(StatEnum.PHYSICAL_CRITICAL) ) / 1800 ) * Math.PI );
 		//minimal critical rate
-		if(criticalRate < 0.30d) {
-			criticalRate = 0.30d;
+		if(criticalRate < 0.1d) {
+			criticalRate = 0.1d;
 		}
 		return criticalRate * 100d;
 	}

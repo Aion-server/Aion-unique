@@ -40,4 +40,12 @@ public class CitizenController extends NpcController
 		//TODO need check here
 		PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getOwner().getObjectId(), 10));
 	}
+
+	@Override
+	public void onRespawn()
+	{
+		super.onRespawn();
+		this.getOwner().getAi().handleEvent(Event.RESPAWNED);
+	}
+
 }

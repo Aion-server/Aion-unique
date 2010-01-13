@@ -54,6 +54,7 @@ public class AiCommand extends AdminCommand
         if (target == null || !(target instanceof Npc))
         {
             PacketSendUtility.sendMessage(admin, "Select target first (Npc only)");
+            return;
         }
         
         Npc npc = (Npc) target;
