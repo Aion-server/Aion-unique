@@ -88,7 +88,7 @@ public class ItemCollecting extends QuestHandler
 						{
 							for (CollectItem collectItem : collectItems.getCollectItem())
 							{
-								player.getInventory().removeFromBagByItemId(collectItem.getItemId(), player.getInventory().getItemCountByItemId(collectItem.getItemId()));
+								player.getInventory().removeFromBagByItemId(collectItem.getItemId(), collectItem.getCount());
 							}
 						}
 						qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);

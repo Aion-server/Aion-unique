@@ -47,6 +47,8 @@ public class _2132ANewSkill extends QuestHandler
 	public boolean onLvlUpEvent(QuestEnv env)
 	{
 		Player player = env.getPlayer();
+		if (player.getCommonData().getLevel() < 3)
+			return false;
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs != null)
 			return false;
