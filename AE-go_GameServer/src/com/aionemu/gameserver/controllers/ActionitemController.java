@@ -43,7 +43,7 @@ public class ActionitemController extends NpcController
 	@Override
 	public void onDialogRequest(final Player player)
 	{
-		if (!QuestEngine.getInstance().onDialog(new QuestEnv(getOwner(), player, 0 , 10)))
+		if (!QuestEngine.getInstance().onDialog(new QuestEnv(getOwner(), player, 0 , -1)))
 			return;
 		final int defaultUseTime = 3000;
 		PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), 

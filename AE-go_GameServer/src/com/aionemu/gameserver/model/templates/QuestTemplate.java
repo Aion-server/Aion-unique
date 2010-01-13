@@ -32,13 +32,6 @@ import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
 import com.aionemu.gameserver.model.templates.quest.QuestWorkItems;
 import com.aionemu.gameserver.model.templates.quest.Rewards;
-import com.aionemu.gameserver.questEngine.conditions.QuestConditions;
-import com.aionemu.gameserver.questEngine.events.OnEnterZoneEvent;
-import com.aionemu.gameserver.questEngine.events.OnItemUseEvent;
-import com.aionemu.gameserver.questEngine.events.OnKillEvent;
-import com.aionemu.gameserver.questEngine.events.OnLvlUpEvent;
-import com.aionemu.gameserver.questEngine.events.OnMovieEndEvent;
-import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
 
 
 /**
@@ -47,15 +40,8 @@ import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Quest", propOrder = {
-    "conditions",
     "collectItems",
     "rewards",
-    "onKillEvent",
-    "onTalkEvent",
-    "onLvlUpEvent",
-    "onItemUseEvent",
-    "onEnterZoneEvent",
-    "onMovieEndEvent",
     "finishedQuestConds",
     "classPermitted",
     "genderPermitted",
@@ -63,22 +49,9 @@ import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
 })
 public class QuestTemplate {
 
-    protected QuestConditions conditions;
     @XmlElement(name = "collect_items")
     protected CollectItems collectItems;
     protected List<Rewards> rewards;
-    @XmlElement(name = "on_kill_event")
-    protected List<OnKillEvent> onKillEvent;
-    @XmlElement(name = "on_talk_event")
-    protected List<OnTalkEvent> onTalkEvent;
-    @XmlElement(name = "on_lvl_up_event")
-    protected List<OnLvlUpEvent> onLvlUpEvent;
-    @XmlElement(name = "on_item_use_event")
-    protected List<OnItemUseEvent> onItemUseEvent;
-    @XmlElement(name = "on_enter_zone_event")
-    protected List<OnEnterZoneEvent> onEnterZoneEvent;
-    @XmlElement(name = "on_movie_end_event")
-    protected List<OnMovieEndEvent> onMovieEndEvent;
     @XmlList
     @XmlElement(name = "finished_quest_conds", type = Integer.class)
     protected List<Integer> finishedQuestConds;
@@ -91,10 +64,6 @@ public class QuestTemplate {
     protected QuestWorkItems questWorkItems;
     @XmlAttribute(required = true)
     protected int id;
-    @XmlAttribute(name = "start_npc_id")
-    protected Integer startNpcId;
-    @XmlAttribute(name = "end_npc_id")
-    protected Integer endNpcId;
     @XmlAttribute
     protected String name;
     @XmlAttribute(name = "minlevel_permitted")
@@ -109,19 +78,6 @@ public class QuestTemplate {
     protected Integer fMission;
     @XmlAttribute(name = "race_permitted")
     protected Race racePermitted;
-
-    
-    /**
-     * Gets the value of the conditions property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link QuestConditions }
-     *     
-     */
-    public QuestConditions getConditions() {
-        return conditions;
-    }
 
     /**
      * Gets the value of the collectItems property.
@@ -162,178 +118,6 @@ public class QuestTemplate {
             rewards = new ArrayList<Rewards>();
         }
         return this.rewards;
-    }
-    /**
-     * Gets the value of the onKillEvent property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the onKillEvent property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getOnKillEvent().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link OnKillEvent }
-     * 
-     * 
-     */
-    public List<OnKillEvent> getOnKillEvent() {
-        if (onKillEvent == null) {
-            onKillEvent = new ArrayList<OnKillEvent>();
-        }
-        return this.onKillEvent;
-    }
-
-    /**
-     * Gets the value of the onTalkEvent property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the onTalkEvent property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getOnTalkEvent().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link OnTalkEvent }
-     * 
-     * 
-     */
-    public List<OnTalkEvent> getOnTalkEvent() {
-        if (onTalkEvent == null) {
-            onTalkEvent = new ArrayList<OnTalkEvent>();
-        }
-        return this.onTalkEvent;
-    }
-    /**
-     * Gets the value of the onLvlUpEvent property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the onLvlUpEvent property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getOnLvlUpEvent().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link OnLvlUpEvent }
-     * 
-     * 
-     */
-    public List<OnLvlUpEvent> getOnLvlUpEvent() {
-        if (onLvlUpEvent == null) {
-            onLvlUpEvent = new ArrayList<OnLvlUpEvent>();
-        }
-        return this.onLvlUpEvent;
-    }
-
-    /**
-     * Gets the value of the onItemUseEvent property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the onItemUseEvent property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getOnItemUseEvent().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link OnItemUseEvent }
-     * 
-     * 
-     */
-    public List<OnItemUseEvent> getOnItemUseEvent() {
-        if (onItemUseEvent == null) {
-            onItemUseEvent = new ArrayList<OnItemUseEvent>();
-        }
-        return this.onItemUseEvent;
-    }
-
-    /**
-     * Gets the value of the onEnterZoneEvent property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the onEnterZoneEvent property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getOnEnterZoneEvent().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link OnEnterZoneEvent }
-     * 
-     * 
-     */
-    public List<OnEnterZoneEvent> getOnEnterZoneEvent() {
-        if (onEnterZoneEvent == null) {
-            onEnterZoneEvent = new ArrayList<OnEnterZoneEvent>();
-        }
-        return this.onEnterZoneEvent;
-    }
-
-    /**
-     * Gets the value of the onMovieEndEvent property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the onMovieEndEvent property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getOnMovieEndEvent().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link OnMovieEndEvent }
-     * 
-     * 
-     */
-    public List<OnMovieEndEvent> getOnMovieEndEvent() {
-        if (onMovieEndEvent == null) {
-            onMovieEndEvent = new ArrayList<OnMovieEndEvent>();
-        }
-        return this.onMovieEndEvent;
     }
 
     /**
@@ -424,30 +208,6 @@ public class QuestTemplate {
      */
     public int getId() {
         return id;
-    }
-
-    /**
-     * Gets the value of the startNpcId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getStartNpcId() {
-        return startNpcId;
-    }
-
-    /**
-     * Gets the value of the endNpcId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getEndNpcId() {
-        return endNpcId;
     }
 
     /**

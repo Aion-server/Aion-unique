@@ -69,7 +69,7 @@ public class CM_USE_ITEM extends AionClientPacket {
 			return;
 		}
 
-		if (QuestEngine.getInstance().onItemUseUp(new QuestEnv(null, player, 0, 0), item.getItemTemplate().getItemId()))
+		if (QuestEngine.getInstance().onItemUseEvent(new QuestEnv(null, player, 0, 0), item))
 			return;
 
 		Item targetItem = player.getInventory().findItemByObjId(targetItemId);

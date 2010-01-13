@@ -1,0 +1,57 @@
+<quest_scripts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="quest_script_data.xsd">
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<!-- http://www.aionarmory.com/search.aspx?browse=4.3.5#quests:0+2+1 -->
+
+	<!-- A Bloody Task -->
+	<monster_hunt id="2102" start_npc_id="203504">
+		<monster_infos npc_id="210364"  var_id="0" max_kill="4"/>
+		<monster_infos npc_id="210363"  var_id="0" max_kill="4"/>
+	</monster_hunt>
+	
+	<!-- On Your Feet! -->
+	<report_to id="2101" start_npc_id="203500" endNpc="203504"/>
+	
+	<!-- Order of the Captain handled by script -->
+	
+	<!-- Prologue handled by script -->
+	
+	<!-- Meeting the Fruit Quota -->
+	<item_collecting id="2104" start_npc_id="203502" action_item_id="700124" item_id="182203104"/>
+	
+	<!-- Sparkle and Shine -->
+	<item_collecting id="2105" start_npc_id="203502" item_id="182203105"/>
+	
+	<!-- The Sprigg Report -->
+	<report_to id="2103" start_npc_id="203504" endNpc="203501"/>
+	
+	<!-- A New Skill handled by script -->
+	
+	<!-- Azpha For Health And Well-being -->
+	<item_collecting id="2133" start_npc_id="203519" item_id="152000451"/>
+	
+	<!-- For Love of Negi  handled by script -->
+	
+	<!-- Love in Bloom -->
+	<item_collecting id="2109" start_npc_id="203532" item_id="182203109" action_item_id="700125"/>
+	
+	<!-- Return to Sender handled by scrip -->
+	
+	<!-- The Shinier the Better -->
+	<item_collecting id="2108" start_npc_id="798037" item_id="182203108"/>
+</quest_scripts>

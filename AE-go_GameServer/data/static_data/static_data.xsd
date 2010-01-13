@@ -20,6 +20,7 @@
 	<xs:include schemaLocation="cube_expander/cube_expander.xsd" />
 	<xs:include schemaLocation="gatherables/gatherable_templates.xsd" />
 	<xs:include schemaLocation="quest_data/quest_data.xsd" />
+	<xs:include schemaLocation="quest_script_data/quest_script_data.xsd" />
 	<xs:include schemaLocation="zones/zones.xsd" />
 	<xs:include schemaLocation="player_titles.xsd" />
 	
@@ -44,6 +45,7 @@
 				<xs:element ref="cube_expander" minOccurs="0" />
 				<xs:element ref="gatherable_templates" minOccurs="0" />
 				<xs:element ref="quests" minOccurs="0" />
+				<xs:element ref="quest_scripts" minOccurs="0" />
 				<xs:element ref="zones" minOccurs="0" />
 			</xs:sequence>
 		</xs:complexType>

@@ -16,7 +16,14 @@
  */
 package admincommands;
 
+import static org.apache.commons.io.filefilter.FileFilterUtils.andFileFilter;
+import static org.apache.commons.io.filefilter.FileFilterUtils.makeSVNAware;
+import static org.apache.commons.io.filefilter.FileFilterUtils.notFileFilter;
+import static org.apache.commons.io.filefilter.FileFilterUtils.prefixFileFilter;
+import static org.apache.commons.io.filefilter.FileFilterUtils.suffixFileFilter;
+
 import java.io.File;
+import java.util.Collection;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
@@ -24,6 +31,10 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.HiddenFileFilter;
+import org.apache.commons.io.filefilter.IOFileFilter;
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import com.aionemu.gameserver.configs.AdminConfig;
@@ -32,17 +43,18 @@ import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.questEngine.QuestEngine;
-import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandlersManager;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
 /**
  * @author MrPoke
- *
+ * 
  */
 public class Reload extends AdminCommand
 {
+	private static final Logger	log	= Logger.getLogger(Reload.class);
+
 	public Reload()
 	{
 		super("reload");
@@ -56,7 +68,7 @@ public class Reload extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;
 		}
-		
+
 		if(params == null || params.length != 1)
 		{
 			PacketSendUtility.sendMessage(admin, "syntax //reload <quest>");
@@ -65,28 +77,30 @@ public class Reload extends AdminCommand
 		if(params[0].equals("quest"))
 		{
 			File xml = new File("./data/static_data/quest_data/quest_data.xml");
+			File dir = new File("./data/static_data/quest_script_data");
 			try
 			{
 				QuestEngine.getInstance().clear();
-				QuestHandlers.clearQuestHandlers();
+				QuestHandlersManager.shutdown();
 				JAXBContext jc = JAXBContext.newInstance(StaticData.class);
 				Unmarshaller un = jc.createUnmarshaller();
 				un.setSchema(getSchema("./data/static_data/static_data.xsd"));
-
-				DataManager.QUEST_DATA =  (QuestsData) un.unmarshal(xml);
-				QuestHandlersManager.shutdown();
+				DataManager.QUEST_DATA = (QuestsData) un.unmarshal(xml);
+				for(File file : listFiles(dir, true))
+					un.unmarshal(file);
 				QuestHandlersManager.init();
 			}
 			catch(Exception e)
 			{
 				PacketSendUtility.sendMessage(admin, "Quest reload failed!");
+				log.error(e);
 			}
 			finally
 			{
 				PacketSendUtility.sendMessage(admin, "Quest reload Success!");
 			}
 		}
-		else 
+		else
 			PacketSendUtility.sendMessage(admin, "syntax //reload <quest>");
 
 	}
@@ -106,5 +120,14 @@ public class Reload extends AdminCommand
 		}
 
 		return schema;
+	}
+
+	@SuppressWarnings("unchecked")
+	private Collection<File> listFiles(File root, boolean recursive)
+	{
+		IOFileFilter dirFilter = recursive ? makeSVNAware(HiddenFileFilter.VISIBLE) : null;
+
+		return FileUtils.listFiles(root, andFileFilter(andFileFilter(notFileFilter(prefixFileFilter("new")),
+			suffixFileFilter(".xml")), HiddenFileFilter.VISIBLE), dirFilter);
 	}
 }

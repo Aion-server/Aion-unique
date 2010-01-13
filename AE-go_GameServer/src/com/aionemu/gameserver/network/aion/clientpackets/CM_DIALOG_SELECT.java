@@ -91,6 +91,8 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 		
 		if(targetObjectId == 0)
 		{
+			if (QuestEngine.getInstance().onDialog(new QuestEnv(null, player, questId, dialogId)))
+				return;
 			//FIXME client sends unk1=1, targetObjectId=0, dialogId=2 (trader) => we miss some packet to close window 
 			ClassChangeService.changeClassToSelection(player, dialogId);
 			return;

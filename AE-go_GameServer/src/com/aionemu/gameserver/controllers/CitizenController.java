@@ -35,7 +35,7 @@ public class CitizenController extends NpcController
 	{
 		getOwner().getAi().handleEvent(Event.TALK);
 		
-		if (QuestEngine.getInstance().onDialog(new QuestEnv(getOwner(), player, 0 , 10)))
+		if (QuestEngine.getInstance().onDialog(new QuestEnv(getOwner(), player, 0 , -1)))
 			return;
 		//TODO need check here
 		PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getOwner().getObjectId(), 10));

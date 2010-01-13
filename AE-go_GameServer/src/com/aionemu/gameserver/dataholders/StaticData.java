@@ -50,6 +50,9 @@ public class StaticData
 	@XmlElement(name = "quests")
 	public QuestsData			questData;
 	
+	@XmlElement(name = "quest_scripts")
+	public QuestScriptsData			questsScriptData;
+	
 	@XmlElement(name = "player_experience_table")
 	public PlayerExperienceTable	playerExperienceTable;
 

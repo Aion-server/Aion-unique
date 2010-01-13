@@ -1,0 +1,111 @@
+<quest_scripts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="quest_script_data.xsd">
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<!-- Start Poeta http://www.aionarmory.com/search.aspx?browse=4.3.1#quests:0+2+1 -->
+	
+	<!-- Kalio's Call handled by script -->
+	<!-- Kerubar Hunt -->
+	<monster_hunt id="1102" start_npc_id="203057">
+		<monster_infos npc_id="210133"  var_id="0" max_kill="3"/>
+		<monster_infos npc_id="210134"  var_id="0" max_kill="3"/>
+		<monster_infos npc_id="210705"  var_id="0" max_kill="3"/>
+	</monster_hunt>
+
+	<!-- Prologue handled by script -->
+
+	<!-- Sleeping on the Job -->
+	<report_to id="1101" start_npc_id="203049" endNpc="203057"/>
+
+	<!-- Collecting Aria -->
+	<item_collecting id="1206" start_npc_id="203059" item_id="152000401"/>
+
+	<!-- Grain Thieves -->
+	<item_collecting id="1103" start_npc_id="203057" action_item_id="700105" item_id="182200201"/>
+	
+	<!-- Report to Polina -->
+	<report_to id="1104" start_npc_id="203057" endNpc="203059"/>
+	
+	<!-- The Snuffler Headache -->
+	<item_collecting id="1105" start_npc_id="203050" item_id="182200202"/>
+	
+	<!-- A New Skill handled by script-->
+	
+	<!-- Abandoned Goods -->
+	<item_collecting id="1109" start_npc_id="798007" action_item_id="700106" item_id="182200205"/>
+
+	<!-- Helping Kales -->
+	<report_to id="1106" start_npc_id="203050" endNpc="203061" item_id="182200203"/>
+	
+	<!-- The Kerub Threat handled by script -->
+
+	<!-- The Lost Axe handled by script -->
+
+	<!-- Unos Ingredients -->
+	<item_collecting id="1108" start_npc_id="203061" item_id="182200204"/>
+	
+	<!-- A Book for Namus -->
+	<report_to id="1110" start_npc_id="203065" endNpc="203075" item_id="182200206"/>
+	
+	<!-- Insomnia Medicine handled by script -->
+	
+	<!-- Mushroom Thieves -->
+	<monster_hunt id="1113" start_npc_id="203076">
+		<monster_infos npc_id="210262"  var_id="0" max_kill="8"/>
+		<monster_infos npc_id="210675"  var_id="0" max_kill="8"/>
+	</monster_hunt>
+	
+	<!-- To Fish in Peace -->
+	<monster_hunt id="1112" start_npc_id="203072">
+		<monster_infos npc_id="210259"  var_id="0" max_kill="5"/>
+		<monster_infos npc_id="210672"  var_id="0" max_kill="5"/>
+		<monster_infos npc_id="210065"  var_id="1" max_kill="5"/>
+		<monster_infos npc_id="210066"  var_id="1" max_kill="5"/>
+	</monster_hunt>
+	
+	<!-- Request of the Elim handled by script -->
+	
+	<!-- The Elim's Message  handled by script-->
+	
+	<!-- 
+		The Nymph's Gown http://www.aionarmory.com/quest.aspx?id=1114
+		TODO: Leater... this is hard quest.... :D
+	-->
+	<!-- A Taste of Namus's Medicine -->
+	<report_to id="1119" start_npc_id="203075" endNpc="203080" item_id="182200225"/>
+	
+	<!-- Light up the Night -->
+	<item_collecting id="1117" start_npc_id="203074" item_id="182200208"/>
+	
+	<!-- Pernos's Robe -->
+	<item_collecting id="1116" start_npc_id="203060" item_id="182200207"/>
+	
+	<!-- Polinia's Ointment -->
+	<report_to id="1118" start_npc_id="203059" endNpc="203079" item_id="0"/>
+	
+	<!-- Thinning out Worgs -->
+	<monster_hunt id="1120" start_npc_id="203082">
+		<monster_infos npc_id="210143"  var_id="0" max_kill="9"/>
+		<monster_infos npc_id="210142"  var_id="0" max_kill="5"/>
+	</monster_hunt>
+	
+	<!-- Ancient Cube -->
+	<item_collecting id="1127" start_npc_id="798008" action_item_id="700001" item_id="182200215"/>
+	
+	<!-- Avenging Tutty -->
+	<item_collecting id="1124" start_npc_id="790001" item_id="182200210"/>
+</quest_scripts>

@@ -24,18 +24,11 @@ import javolution.util.FastMap;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.questEngine.events.OnEnterZoneEvent;
-import com.aionemu.gameserver.questEngine.events.OnItemUseEvent;
-import com.aionemu.gameserver.questEngine.events.OnKillEvent;
-import com.aionemu.gameserver.questEngine.events.OnLvlUpEvent;
-import com.aionemu.gameserver.questEngine.events.OnMovieEndEvent;
-import com.aionemu.gameserver.questEngine.events.OnTalkEvent;
-import com.aionemu.gameserver.questEngine.events.QuestEvent;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
 
@@ -43,7 +36,6 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.services.ItemService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.zone.ZoneName;
 
 /**
@@ -73,117 +65,24 @@ public class QuestEngine
 
 	public boolean onDialog(QuestEnv env)
 	{
-		Quest quest = null;
-		Player player = env.getPlayer();
-		Npc npc = (Npc) env.getVisibleObject();
-		int npcObjId = 0;
-		if(npc != null)
-			npcObjId = npc.getObjectId();
-		int dialogId = env.getDialogId();
-
-		for(int questId : getNpcQuestData(npc == null ? 0 : npc.getNpcId()).getOnTalkEvent())
+		QuestHandler questHandler = null;
+		if(env.getQuestId() != 0)
 		{
-			if (questHandle(new QuestEnv(npc, player, questId, dialogId), new OnTalkEvent()))
-				return true;
-			for(OnTalkEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnTalkEvent())
+			questHandler = QuestHandlers.getQuestHandlerByQuestId(env.getQuestId());
+			if(questHandler != null)
+				if(questHandler.onDialogEvent(env))
+					return true;
+		}
+		else
+		{
+			Npc npc = (Npc) env.getVisibleObject();
+			for(int questId : getNpcQuestData(npc == null ? 0 : npc.getNpcId()).getOnTalkEvent())
 			{
-				if (questHandle(new QuestEnv(npc, player, questId, dialogId), event))
-					return true;
-				if(event.operate(new QuestEnv(npc, player, questId, dialogId)))
-					return true;
-			}
-		}
-
-		int questId = env.getQuestId();
-		if(questId > 0)
-		{
-			quest = getQuest(env);
-		}
-
-		switch(dialogId)
-		{
-			case 8:
-			case 9:
-			case 10:
-				if(questId == 0)
-				{
-					for(int endQuestId : getNpcQuestData(npc.getNpcId()).getOnQuestEnd())
-					{
-						QuestState qs = player.getQuestStateList().getQuestState(endQuestId);
-						if(qs == null)
-							continue;
-						if(qs.getStatus() != QuestStatus.REWARD)
-							continue;
-
-						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcObjId, 5, endQuestId));
+				questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+				if(questHandler != null)
+					if(questHandler.onDialogEvent(env))
 						return true;
-
-					}
-					break;
-				}
-			case 11:
-			case 12:
-			case 13:
-			case 14:
-			case 15:
-			case 16:
-			case 17:
-				if(quest == null)
-					break;
-				quest.questFinish();
-				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcObjId, 10));
-				return true;
-			case 25:
-				QuestState qs = player.getQuestStateList().getQuestState(questId);
-				if(qs == null || qs.getStatus() == QuestStatus.NONE)
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcObjId, 1011, questId));
-				else
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcObjId, 2375, questId));
-				return true;
-			case 33:
-				if(quest == null)
-					break;
-				if(quest.collectItemCheck())
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcObjId, 5, questId));
-				else
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcObjId, 2716, questId));
-				return true;
-			case 1002:
-				if(quest == null)
-					break;
-				if(quest.startQuest(QuestStatus.START))
-				{
-					if (npc != null)
-						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcObjId, 1003, questId));
-					return true;
-				}
-				else
-				{
-					if (npc != null)
-						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcObjId, dialogId));
-					return true;
-				}
-			case 0:
-			case 1003:
-			case 1004:
-			case 1005:
-			case 1006:
-				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcObjId, dialogId + 1, questId));
-				return true;
-			case 1007:
-				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcObjId, 4, questId));
-				return true;
-			case 1009:
-				if(quest == null)
-					break;
-				if(quest.questComplite())
-				{
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcObjId, 5, questId));
-					return true;
-				}
-				break;
-			default:
-				return false;
+			}
 		}
 		return false;
 	}
@@ -198,14 +97,10 @@ public class QuestEngine
 		Npc npc = (Npc) env.getVisibleObject();
 		for(int questId : getNpcQuestData(npc.getNpcId()).getOnKillEvent())
 		{
-			env.setQuestId(questId);
-			if (questHandle(env, new OnKillEvent()))
-				return true;
-			for(OnKillEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnKillEvent())
-			{
-				if(event.operate(env))
+			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			if(questHandler != null)
+				if(questHandler.onKillEvent(env))
 					return true;
-			}
 		}
 		return false;
 	}
@@ -214,30 +109,22 @@ public class QuestEngine
 	{
 		for(int questId : _questLvlUp)
 		{
-			env.setQuestId(questId);
-			if (questHandle(env, new OnLvlUpEvent()))
-				return true;
-			for(OnLvlUpEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnLvlUpEvent())
-			{
-				if(event.operate(env))
+			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			if(questHandler != null)
+				if(questHandler.onLvlUpEvent(env))
 					return true;
-			}
 		}
 		return false;
 	}
 
-	public boolean onItemUseUp(QuestEnv env, int itemId)
+	public boolean onItemUseEvent(QuestEnv env, Item item)
 	{
-		for(int questId : getQuestItemIds(itemId))
+		for(int questId : getQuestItemIds(item.getItemTemplate().getItemId()))
 		{
-			env.setQuestId(questId);
-			if (questHandle(env, new OnItemUseEvent()))
-				return true;
-			for(OnItemUseEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnItemUseEvent())
-			{
-				if(event.operate(env))
+			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			if(questHandler != null)
+				if(questHandler.onItemUseEvent(env, item))
 					return true;
-			}
 		}
 		return false;
 	}
@@ -246,14 +133,10 @@ public class QuestEngine
 	{
 		for(int questId : getQuestEnterZone(zoneName))
 		{
-			env.setQuestId(questId);
-			if (questHandle(env, new OnEnterZoneEvent()))
-				return true;
-			for(OnEnterZoneEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnEnterZoneEvent())
-			{
-				if(event.operate(env))
+			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			if(questHandler != null)
+				if(questHandler.onEnterZoneEvent(env, zoneName))
 					return true;
-			}
 		}
 		return false;
 	}
@@ -263,13 +146,10 @@ public class QuestEngine
 		for(int questId : getQuestMovieEndIds(movieId))
 		{
 			env.setQuestId(questId);
-			if (questHandle(env, new OnMovieEndEvent()))
-				return true;
-			for(OnMovieEndEvent event : DataManager.QUEST_DATA.getQuestById(questId).getOnMovieEndEvent())
-			{
-				if(event.operate(env))
+			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(env.getQuestId());
+			if(questHandler != null)
+				if(questHandler.onMovieEndEvent(env, movieId))
 					return true;
-			}
 		}
 		return false;
 	}
@@ -342,7 +222,7 @@ public class QuestEngine
 
 	public void addQuestLvlUp(int questId)
 	{
-		if (!_questLvlUp.contains(questId))
+		if(!_questLvlUp.contains(questId))
 			_questLvlUp.add(questId);
 	}
 
@@ -382,13 +262,6 @@ public class QuestEngine
 		return _questMovieEndIds.get(moveId);
 	}
 
-	private boolean questHandle (QuestEnv env, QuestEvent event)
-	{
-		QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(env.getQuestId());
-		if (questHandler == null)
-			return false;
-		return questHandler.onEvent(env, event);
-	}
 	public void setItemService(ItemService itemService)
 	{
 		this.itemService = itemService;

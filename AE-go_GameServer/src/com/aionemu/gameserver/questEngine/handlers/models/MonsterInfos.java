@@ -14,51 +14,53 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
+package com.aionemu.gameserver.questEngine.handlers.models;
 
-package com.aionemu.gameserver.dataholders;
-
-import gnu.trove.TIntObjectHashMap;
-
-import java.util.List;
-
-import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-import com.aionemu.gameserver.model.templates.QuestTemplate;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author MrPoke
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "quests")
-public class QuestsData
+@XmlType(name = "MonsterInfos")
+public class MonsterInfos
 {
 
-	@XmlElement(name = "quest", required = true)
-	protected List<QuestTemplate>		questsData;
-	private TIntObjectHashMap<QuestTemplate>	questData	= new TIntObjectHashMap<QuestTemplate>();
+	@XmlAttribute(name = "var_id", required = true)
+	protected int	varId;
+	@XmlAttribute(name = "max_kill", required = true)
+	protected int	maxKill;
+	@XmlAttribute(name = "npc_id", required = true)
+	protected int	npcId;
 
-	void afterUnmarshal(Unmarshaller u, Object parent)
+	/**
+	 * Gets the value of the varId property.
+	 * 
+	 */
+	public int getVarId()
 	{
-		for(QuestTemplate quest : questsData)
-		{
-			questData.put(quest.getId(), quest);
-		}
-		questsData.clear();
-		questsData = null;
+		return varId;
 	}
 
-	public QuestTemplate getQuestById(int id)
+	/**
+	 * Gets the value of the maxKill property.
+	 * 
+	 */
+	public int getMaxKill()
 	{
-		return questData.get(id);
+		return maxKill;
 	}
 
-	public int size()
+	/**
+	 * Gets the value of the npcId property.
+	 * 
+	 */
+	public int getNpcId()
 	{
-		return questData.size();
+		return npcId;
 	}
 }

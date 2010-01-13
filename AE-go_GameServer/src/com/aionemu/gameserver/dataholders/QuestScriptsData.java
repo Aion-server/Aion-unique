@@ -14,10 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.dataholders;
-
-import gnu.trove.TIntObjectHashMap;
 
 import java.util.List;
 
@@ -25,40 +22,30 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.aionemu.gameserver.model.templates.QuestTemplate;
+import com.aionemu.gameserver.questEngine.handlers.models.ItemCollectingData;
+import com.aionemu.gameserver.questEngine.handlers.models.MonsterHuntData;
+import com.aionemu.gameserver.questEngine.handlers.models.QuestScriptData;
+import com.aionemu.gameserver.questEngine.handlers.models.ReportToData;
 
 /**
  * @author MrPoke
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "quests")
-public class QuestsData
+@XmlRootElement(name = "quest_scripts")
+public class QuestScriptsData
 {
-
-	@XmlElement(name = "quest", required = true)
-	protected List<QuestTemplate>		questsData;
-	private TIntObjectHashMap<QuestTemplate>	questData	= new TIntObjectHashMap<QuestTemplate>();
+	@XmlElements( { @XmlElement(name = "report_to", type = ReportToData.class),
+		@XmlElement(name = "monster_hunt", type = MonsterHuntData.class),
+		@XmlElement(name = "item_collecting", type = ItemCollectingData.class) })
+	protected List<QuestScriptData>	data;
 
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
-		for(QuestTemplate quest : questsData)
-		{
-			questData.put(quest.getId(), quest);
-		}
-		questsData.clear();
-		questsData = null;
-	}
-
-	public QuestTemplate getQuestById(int id)
-	{
-		return questData.get(id);
-	}
-
-	public int size()
-	{
-		return questData.size();
+		for(QuestScriptData qsdata : data)
+			qsdata.register();
 	}
 }

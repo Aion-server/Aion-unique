@@ -14,51 +14,35 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
+package com.aionemu.gameserver.questEngine.handlers.models;
 
-package com.aionemu.gameserver.dataholders;
-
-import gnu.trove.TIntObjectHashMap;
-
-import java.util.List;
-
-import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.templates.QuestTemplate;
+import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
+import com.aionemu.gameserver.questEngine.handlers.template.ReportTo;
 
 /**
  * @author MrPoke
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "quests")
-public class QuestsData
+@XmlType(name = "ReportToData")
+public class ReportToData extends QuestScriptData
 {
+	@XmlAttribute(name = "start_npc_id")
+	protected int	startNpcId;
+	@XmlAttribute
+	protected int	endNpc;
+	@XmlAttribute(name = "item_id", required = true)
+	protected int	itemId;
 
-	@XmlElement(name = "quest", required = true)
-	protected List<QuestTemplate>		questsData;
-	private TIntObjectHashMap<QuestTemplate>	questData	= new TIntObjectHashMap<QuestTemplate>();
-
-	void afterUnmarshal(Unmarshaller u, Object parent)
+	@Override
+	public void register()
 	{
-		for(QuestTemplate quest : questsData)
-		{
-			questData.put(quest.getId(), quest);
-		}
-		questsData.clear();
-		questsData = null;
-	}
-
-	public QuestTemplate getQuestById(int id)
-	{
-		return questData.get(id);
-	}
-
-	public int size()
-	{
-		return questData.size();
+		ReportTo template = new ReportTo(id, startNpcId, endNpc, itemId);
+		QuestHandlers.addQuestHandler(template);
 	}
 }

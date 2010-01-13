@@ -106,6 +106,10 @@
 		<import file="quest_data" skipRoot="true"/>
 	</quests>
 	
+	<quest_scripts>
+		<import file="quest_script_data" skipRoot="true"/>
+	</quest_scripts>
+	
 	<zones>
 		<import file="zones" skipRoot="true"/>
 	</zones>
