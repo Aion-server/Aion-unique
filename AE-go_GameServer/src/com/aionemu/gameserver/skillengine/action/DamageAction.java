@@ -86,7 +86,7 @@ public class DamageAction
 			}
 			sumDamage += damage;
 			
-			effected.getController().onAttack(effector, skill.getSkillTemplate().getSkillId(), TYPE.DAMAGE, damage);
+			effected.getController().onAttack(effector, skill.getSkillTemplate().getSkillId(), TYPE.REGULAR, damage);
 		}
 		
 		int unk = 0;

@@ -62,6 +62,7 @@ public class AiCommand extends AdminCommand
         {
         	PacketSendUtility.sendMessage(admin, "Ai state: " + npc.getAi().getAiState());
         	PacketSendUtility.sendMessage(admin, "Ai desires size: " + npc.getAi().desireQueueSize());
+        	PacketSendUtility.sendMessage(admin, "Ai task scheduled: " + npc.getAi().isScheduled());
         }
 	}
 
