@@ -50,7 +50,10 @@ public class _2000Prologue extends QuestHandler
 			return false;
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null)
+		{
+			env.setQuestId(questId);
 			QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+		}
 		qs = player.getQuestStateList().getQuestState(questId);
 		if(qs.getStatus() == QuestStatus.START)
 		{

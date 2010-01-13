@@ -16,9 +16,12 @@
  */
 package com.aionemu.gameserver.questEngine.handlers.template;
 
-import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.QuestTemplate;
+import com.aionemu.gameserver.model.templates.quest.CollectItem;
+import com.aionemu.gameserver.model.templates.quest.CollectItems;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
@@ -35,22 +38,19 @@ public class ItemCollecting extends QuestHandler
 	private final int	questId;
 	private final int	startNpcId;
 	private final int	actionItemId;
-	private final int	itemId;
 
 	/**
 	 * @param questId
 	 * @param startNpcId
 	 * @param endNpcId
 	 * @param actionItemId
-	 * @param itemId
 	 */
-	public ItemCollecting(int questId, int startNpcId, int actionItemId, int itemId)
+	public ItemCollecting(int questId, int startNpcId, int actionItemId)
 	{
 		super(questId);
 		this.questId = questId;
 		this.startNpcId = startNpcId;
 		this.actionItemId = actionItemId;
-		this.itemId = itemId;
 		QuestEngine.getInstance().setNpcQuestData(startNpcId).addOnQuestStart(questId);
 		QuestEngine.getInstance().setNpcQuestData(startNpcId).addOnTalkEvent(questId);
 		if(actionItemId != 0)
@@ -82,8 +82,15 @@ public class ItemCollecting extends QuestHandler
 				{
 					if(QuestEngine.getInstance().getQuest(env).collectItemCheck())
 					{
-						for(Item item : player.getInventory().getAllItemsByItemId(itemId))
-							item.decreaseItemCount(item.getItemCount());
+						QuestTemplate template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
+						CollectItems collectItems = template.getCollectItems();
+						if (collectItems != null)
+						{
+							for (CollectItem collectItem : collectItems.getCollectItem())
+							{
+								player.getInventory().removeFromBagByItemId(collectItem.getItemId(), player.getInventory().getItemCountByItemId(collectItem.getItemId()));
+							}
+						}
 						qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
 						qs.setStatus(QuestStatus.REWARD);
 						updateQuestStatus(player, qs);

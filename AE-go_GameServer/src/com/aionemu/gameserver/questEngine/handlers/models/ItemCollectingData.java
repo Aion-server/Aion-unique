@@ -33,17 +33,15 @@ import com.aionemu.gameserver.questEngine.handlers.template.ItemCollecting;
 public class ItemCollectingData extends QuestScriptData
 {
 
-	@XmlAttribute(name = "start_npc_id")
+	@XmlAttribute(name = "start_npc_id", required = true)
 	protected int	startNpcId;
 	@XmlAttribute(name = "action_item_id")
 	protected int	actionItemId;
-	@XmlAttribute(name = "item_id", required = true)
-	protected int	itemId;
 
 	@Override
 	public void register()
 	{
-		ItemCollecting template = new ItemCollecting(id, startNpcId, actionItemId, itemId);
+		ItemCollecting template = new ItemCollecting(id, startNpcId, actionItemId);
 		QuestHandlers.addQuestHandler(template);
 	}
 

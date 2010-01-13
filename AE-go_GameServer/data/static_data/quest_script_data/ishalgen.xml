@@ -32,10 +32,10 @@
 	<!-- Prologue handled by script -->
 	
 	<!-- Meeting the Fruit Quota -->
-	<item_collecting id="2104" start_npc_id="203502" action_item_id="700124" item_id="182203104"/>
+	<item_collecting id="2104" start_npc_id="203502" action_item_id="700124"/>
 	
 	<!-- Sparkle and Shine -->
-	<item_collecting id="2105" start_npc_id="203502" item_id="182203105"/>
+	<item_collecting id="2105" start_npc_id="203502" />
 	
 	<!-- The Sprigg Report -->
 	<report_to id="2103" start_npc_id="203504" end_npc_id="203501"/>
@@ -43,15 +43,45 @@
 	<!-- A New Skill handled by script -->
 	
 	<!-- Azpha For Health And Well-being -->
-	<item_collecting id="2133" start_npc_id="203519" item_id="152000451"/>
+	<item_collecting id="2133" start_npc_id="203519" />
 	
 	<!-- For Love of Negi  handled by script -->
 	
 	<!-- Love in Bloom -->
-	<item_collecting id="2109" start_npc_id="203532" item_id="182203109" action_item_id="700125"/>
+	<item_collecting id="2109" start_npc_id="203532" action_item_id="700125"/>
 	
-	<!-- Return to Sender handled by scrip -->
+	<!-- Return to Sender handled by script -->
 	
 	<!-- The Shinier the Better -->
-	<item_collecting id="2108" start_npc_id="798037" item_id="182203108"/>
+	<item_collecting id="2108" start_npc_id="798037" />
+	
+	<!-- TODO: Thinking Ahead -->
+	
+	<!-- Vanar's Flattery -->
+	<report_to start_npc_id="203502" end_npc_id="203517" item_id="182203106" id="2106"/>
+	
+	<!-- Idle Hands -->
+	<report_to start_npc_id="203522" end_npc_id="203533" id="2110"/>
+	
+	<!-- Token of a Lost Love -->
+	<item_collecting start_npc_id="203534" id="2113"/>
+	
+	<!-- Urd's Request -->
+	<item_collecting start_npc_id="790003" id="2112"/>
+	
+	<!-- A Delivery of Leather -->
+	<report_to start_npc_id="203515" end_npc_id="203542" id="2131"/>
+	
+	<!-- Sap for Leather -->
+	<report_to start_npc_id="203534" end_npc_id="203515" id="2115"/>
+	
+	<!-- The Insect Problem -->
+	<monster_hunt id="2114" start_npc_id="203533">
+		<monster_infos npc_id="210380"  var_id="0" max_kill="10"/>
+		<monster_infos npc_id="210381"  var_id="0" max_kill="10"/>
+	</monster_hunt>
+	
+	<!-- TODO: The Lost Axe -->
+	
+	<!-- TODO: Where's Rae? -->
 </quest_scripts>

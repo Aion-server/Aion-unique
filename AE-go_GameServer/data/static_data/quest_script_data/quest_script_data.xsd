@@ -17,9 +17,8 @@
 	<xs:complexType name="ItemCollectingData">
 		<xs:complexContent>
 			<xs:extension base="QuestScriptData">
-				<xs:attribute name="start_npc_id" type="xs:int" default="0"/>
+				<xs:attribute name="start_npc_id" type="xs:int" use="required"/>
 				<xs:attribute name="action_item_id" type="xs:int" default="0"/>
-				<xs:attribute name="item_id" type="xs:int" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
