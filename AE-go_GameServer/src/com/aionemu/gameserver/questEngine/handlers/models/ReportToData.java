@@ -34,7 +34,7 @@ public class ReportToData extends QuestScriptData
 {
 	@XmlAttribute(name = "start_npc_id")
 	protected int	startNpcId;
-	@XmlAttribute
+	@XmlAttribute(name = "end_npc_id")
 	protected int	endNpc;
 	@XmlAttribute(name = "item_id", required = true)
 	protected int	itemId;

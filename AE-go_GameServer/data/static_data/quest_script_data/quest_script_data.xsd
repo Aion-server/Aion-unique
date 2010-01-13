@@ -28,7 +28,7 @@
 		<xs:complexContent>
 			<xs:extension base="QuestScriptData">
 				<xs:attribute name="start_npc_id" type="xs:int" use="required"/>
-				<xs:attribute name="endNpc" type="xs:int" use="required"/>
+				<xs:attribute name="end_npc_id" type="xs:int" use="required"/>
 				<xs:attribute name="item_id" type="xs:int" default="0"/>
 			</xs:extension>
 		</xs:complexContent>

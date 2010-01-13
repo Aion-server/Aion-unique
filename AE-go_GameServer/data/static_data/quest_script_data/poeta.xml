@@ -29,7 +29,7 @@
 	<!-- Prologue handled by script -->
 
 	<!-- Sleeping on the Job -->
-	<report_to id="1101" start_npc_id="203049" endNpc="203057"/>
+	<report_to id="1101" start_npc_id="203049" end_npc_id="203057"/>
 
 	<!-- Collecting Aria -->
 	<item_collecting id="1206" start_npc_id="203059" item_id="152000401"/>
@@ -38,7 +38,7 @@
 	<item_collecting id="1103" start_npc_id="203057" action_item_id="700105" item_id="182200201"/>
 	
 	<!-- Report to Polina -->
-	<report_to id="1104" start_npc_id="203057" endNpc="203059"/>
+	<report_to id="1104" start_npc_id="203057" end_npc_id="203059"/>
 	
 	<!-- The Snuffler Headache -->
 	<item_collecting id="1105" start_npc_id="203050" item_id="182200202"/>
@@ -49,7 +49,7 @@
 	<item_collecting id="1109" start_npc_id="798007" action_item_id="700106" item_id="182200205"/>
 
 	<!-- Helping Kales -->
-	<report_to id="1106" start_npc_id="203050" endNpc="203061" item_id="182200203"/>
+	<report_to id="1106" start_npc_id="203050" end_npc_id="203061" item_id="182200203"/>
 	
 	<!-- The Kerub Threat handled by script -->
 
@@ -59,7 +59,7 @@
 	<item_collecting id="1108" start_npc_id="203061" item_id="182200204"/>
 	
 	<!-- A Book for Namus -->
-	<report_to id="1110" start_npc_id="203065" endNpc="203075" item_id="182200206"/>
+	<report_to id="1110" start_npc_id="203065" end_npc_id="203075" item_id="182200206"/>
 	
 	<!-- Insomnia Medicine handled by script -->
 	
@@ -86,7 +86,7 @@
 		TODO: Leater... this is hard quest.... :D
 	-->
 	<!-- A Taste of Namus's Medicine -->
-	<report_to id="1119" start_npc_id="203075" endNpc="203080" item_id="182200225"/>
+	<report_to id="1119" start_npc_id="203075" end_npc_id="203080" item_id="182200225"/>
 	
 	<!-- Light up the Night -->
 	<item_collecting id="1117" start_npc_id="203074" item_id="182200208"/>
@@ -95,7 +95,7 @@
 	<item_collecting id="1116" start_npc_id="203060" item_id="182200207"/>
 	
 	<!-- Polinia's Ointment -->
-	<report_to id="1118" start_npc_id="203059" endNpc="203079" item_id="0"/>
+	<report_to id="1118" start_npc_id="203059" end_npc_id="203079" item_id="0"/>
 	
 	<!-- Thinning out Worgs -->
 	<monster_hunt id="1120" start_npc_id="203082">

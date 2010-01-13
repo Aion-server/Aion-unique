@@ -25,7 +25,7 @@
 	</monster_hunt>
 	
 	<!-- On Your Feet! -->
-	<report_to id="2101" start_npc_id="203500" endNpc="203504"/>
+	<report_to id="2101" start_npc_id="203500" end_npc_id="203504"/>
 	
 	<!-- Order of the Captain handled by script -->
 	
@@ -38,7 +38,7 @@
 	<item_collecting id="2105" start_npc_id="203502" item_id="182203105"/>
 	
 	<!-- The Sprigg Report -->
-	<report_to id="2103" start_npc_id="203504" endNpc="203501"/>
+	<report_to id="2103" start_npc_id="203504" end_npc_id="203501"/>
 	
 	<!-- A New Skill handled by script -->
 	
