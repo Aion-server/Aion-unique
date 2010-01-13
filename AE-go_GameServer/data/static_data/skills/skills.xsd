@@ -3,7 +3,7 @@
 
 	<xs:include schemaLocation="../import.xsd" />
 	<xs:include schemaLocation="../modifiers.xsd" />
-	
+
 	<xs:element name="skill_data" type="skillData" />
 
 	<xs:complexType name="skillData">
@@ -32,10 +32,13 @@
 		<xs:attribute name="skill_id" type="skillId" use="required" />
 		<xs:attribute name="name" type="xs:string" use="required" />
 		<xs:attribute name="skilltype" type="skillType" use="required" />
-		<xs:attribute name="skillsubtype" type="skillSubType" use="required" />
-		<xs:attribute name="activation" type="activationAttribute" use="required" />
+		<xs:attribute name="skillsubtype" type="skillSubType"
+			use="required" />
+		<xs:attribute name="activation" type="activationAttribute"
+			use="required" />
 		<xs:attribute name="duration" type="xs:int" use="required" />
-		<xs:attribute name="cooldown" type="xs:int" use="optional" default="0" />
+		<xs:attribute name="cooldown" type="xs:int" use="optional"
+			default="0" />
 	</xs:complexType>
 
 	<xs:complexType name="Effects">
@@ -44,8 +47,10 @@
 				maxOccurs="1" />
 			<xs:element name="buf" type="BufEffect" minOccurs="0"
 				maxOccurs="1" />
-			<xs:element name="dot" type="DamageOverTimeEffect" minOccurs="0"
-				maxOccurs="1" />
+			<xs:element name="dot" type="DamageOverTimeEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="hot" type="HealOverTimeEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -61,11 +66,11 @@
 				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:complexType name="Properties">
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
-			<xs:element name="addweaponrange" type="AddWeaponRangeProperty" minOccurs="0"
-				maxOccurs="1" />
+			<xs:element name="addweaponrange" type="AddWeaponRangeProperty"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="firsttarget" type="FirstTargetProperty"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="targetrange" type="TargetRangeProperty"
@@ -89,10 +94,10 @@
 				maxOccurs="1" />
 			<xs:element name="dummy" type="DummyAction" minOccurs="0"
 				maxOccurs="1" />
-			<xs:element name="itemheal" type="ItemHealAction" minOccurs="0"
-				maxOccurs="1" />
-			<xs:element name="itemhealmp" type="ItemHealMpAction" minOccurs="0"
-				maxOccurs="1" />
+			<xs:element name="itemheal" type="ItemHealAction"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="itemhealmp" type="ItemHealMpAction"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="heal" type="HealAction" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="healmp" type="HealMpAction" minOccurs="0"
@@ -103,7 +108,7 @@
 	<xs:complexType name="Condition" abstract="true" />
 	<xs:complexType name="Action" abstract="true" />
 	<xs:complexType name="Effect" abstract="true">
-		<xs:attribute name="duration" type="xs:int" use="required"/>
+		<xs:attribute name="duration" type="xs:int" use="required" />
 	</xs:complexType>
 	<xs:complexType name="Property" abstract="true" />
 
@@ -112,13 +117,13 @@
 	<xs:complexType name="DamageAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
-				<xs:attribute name="type" type="DamageType"/>
+				<xs:attribute name="type" type="DamageType" />
 				<xs:attribute name="value" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int"/>
+				<xs:attribute name="delta" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:simpleType name="DamageType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="PHYSICAL" />
@@ -141,7 +146,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="MpUseAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
@@ -150,7 +155,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="HpUseAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
@@ -158,46 +163,46 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="DummyAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="ItemHealAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required"/>
-				<xs:attribute name="delta" type="xs:int" use="required"/>
+				<xs:attribute name="value" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="ItemHealMpAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required"/>
-				<xs:attribute name="delta" type="xs:int" use="required"/>
+				<xs:attribute name="value" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="HealAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required"/>
-				<xs:attribute name="delta" type="xs:int" use="required"/>
+				<xs:attribute name="value" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="HealMpAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required"/>
-				<xs:attribute name="delta" type="xs:int" use="required"/>
+				<xs:attribute name="value" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -210,7 +215,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="DamageOverTimeEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
@@ -220,7 +225,19 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
+	<xs:complexType name="HealOverTimeEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="type" type="HopType" use="required" />
+				<xs:attribute name="checktime" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
 	<xs:complexType name="BufEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
@@ -237,8 +254,8 @@
 	<xs:complexType name="MpCondition">
 		<xs:complexContent>
 			<xs:extension base="Condition">
-				<xs:attribute name="value" type="xs:int" use="required"/>
-				<xs:attribute name="delta" type="xs:int"/>
+				<xs:attribute name="value" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -246,7 +263,7 @@
 	<xs:complexType name="PlayerMovedCondition">
 		<xs:complexContent>
 			<xs:extension base="Condition">
-				<xs:attribute name="allow" type="xs:boolean" use="required"/>
+				<xs:attribute name="allow" type="xs:boolean" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -254,31 +271,31 @@
 	<xs:complexType name="TargetCondition">
 		<xs:complexContent>
 			<xs:extension base="Condition">
-				<xs:attribute name="value" type="TargetAttribute" use="required"/>
+				<xs:attribute name="value" type="TargetAttribute" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="ArrowCheckCondition">
 		<xs:complexContent>
 			<xs:extension base="Condition">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<!-- PROPERTIES -->
-	
+
 	<!-- init properties -->
-	
+
 	<xs:complexType name="AddWeaponRangeProperty">
 		<xs:complexContent>
 			<xs:extension base="Property">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<!-- set properties -->
-	
+
 	<xs:complexType name="FirstTargetProperty">
 		<xs:complexContent>
 			<xs:extension base="Property">
@@ -287,18 +304,18 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="TargetRangeProperty">
 		<xs:complexContent>
 			<xs:extension base="Property">
-				<xs:attribute name="maxcount" type="xs:int"/>
-				<xs:attribute name="distance" type="xs:int"/>
+				<xs:attribute name="maxcount" type="xs:int" />
+				<xs:attribute name="distance" type="xs:int" />
 				<xs:attribute name="value" type="TargetRangeAttribute"
 					use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="TargetRelationProperty">
 		<xs:complexContent>
 			<xs:extension base="Property">
@@ -307,9 +324,9 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<!-- MISC -->
-	
+
 	<xs:simpleType name="TargetAttribute">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NPC" />
@@ -319,15 +336,15 @@
 			<xs:enumeration value="SELF" />
 		</xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:complexType name="Change">
-		<xs:attribute name="stat" type="modifiersenum" use="required"/>
-		<xs:attribute name="func" type="StatFunc" use="required"/>
-		<xs:attribute name="duration" type="xs:int"/>
-		<xs:attribute name="value" type="xs:string" use="required"/>
-		<xs:attribute name="delta" type="xs:int"/>
+		<xs:attribute name="stat" type="modifiersenum" use="required" />
+		<xs:attribute name="func" type="StatFunc" use="required" />
+		<xs:attribute name="duration" type="xs:int" />
+		<xs:attribute name="value" type="xs:string" use="required" />
+		<xs:attribute name="delta" type="xs:int" />
 	</xs:complexType>
-	
+
 	<xs:simpleType name="skillType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NONE" />
@@ -335,7 +352,7 @@
 			<xs:enumeration value="MAGICAL" />
 		</xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:simpleType name="skillSubType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NONE" />
@@ -349,7 +366,7 @@
 			<xs:enumeration value="SUMMONTRAP" />
 		</xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:simpleType name="activationAttribute">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NONE" />
@@ -360,7 +377,7 @@
 			<xs:enumeration value="PASSIVE" />
 		</xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:simpleType name="FirstTargetAttribute">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NONE" />
@@ -384,7 +401,7 @@
 			<xs:enumeration value="POINT" />
 		</xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:simpleType name="TargetRelationAttribute">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="NONE" />
@@ -401,7 +418,16 @@
 			<xs:maxInclusive value="60000" />
 		</xs:restriction>
 	</xs:simpleType>
-	
+
+	<xs:simpleType name="HopType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HP" />
+			<xs:enumeration value="MP" />
+			<xs:enumeration value="FP" />
+			<xs:enumeration value="DP" />
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:simpleType name="StatFunc">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ADD" />

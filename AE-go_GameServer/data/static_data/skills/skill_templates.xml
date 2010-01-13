@@ -2721,6 +2721,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="198" delta="2" checktime="6000" type="HP" duration="60000"/>
+        </effects>
         <actions>
             <mpuse value="114" delta="0"/>
             <dummy/>
@@ -2925,6 +2928,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="212" delta="7" checktime="6000" type="HP" duration="60000"/>
+        </effects>
         <actions>
             <mpuse value="60" delta="0"/>
             <dummy/>
@@ -6341,6 +6347,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="80" delta="0" checktime="6000" type="HP" duration="60000"/>
+        </effects>
         <actions>
             <mpuse value="87" delta="0"/>
             <dummy/>
@@ -6535,6 +6544,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="89" delta="0" checktime="6000" type="HP" duration="60000"/>
+        </effects>
         <actions>
             <mpuse value="93" delta="0"/>
             <dummy/>
@@ -12194,6 +12206,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="11" delta="1" checktime="2000" type="HP" duration="8000"/>
+        </effects>
         <actions>
             <mpuse value="16" delta="1"/>
             <heal value="11" delta="1"/>
@@ -12208,6 +12223,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="144" delta="6" checktime="2000" type="HP" duration="8000"/>
+        </effects>
         <actions>
             <mpuse value="48" delta="1"/>
             <heal value="144" delta="6"/>
@@ -12222,6 +12240,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="250" delta="6" checktime="2000" type="HP" duration="8000"/>
+        </effects>
         <actions>
             <mpuse value="72" delta="2"/>
             <heal value="250" delta="6"/>
@@ -12236,6 +12257,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="352" delta="6" checktime="2000" type="HP" duration="8000"/>
+        </effects>
         <actions>
             <mpuse value="91" delta="2"/>
             <heal value="352" delta="6"/>
@@ -12596,6 +12620,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="150" delta="0" checktime="3000" type="HP" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -12730,6 +12757,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="813" delta="9" checktime="2000" type="HP" duration="8000"/>
+        </effects>
         <actions>
             <mpuse value="132" delta="1"/>
             <heal value="578" delta="8"/>
@@ -12845,6 +12875,7 @@
             <buf duration="21000">
                 <change stat="PHYSICAL_DEFENSE" duration="21000" func="ADD" delta="0" value="200"/>
             </buf>
+            <hot value="315" delta="5" checktime="3000" type="HP" duration="21000"/>
         </effects>
         <actions>
             <mpuse value="287" delta="3"/>
@@ -12919,6 +12950,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="3650" delta="56" checktime="1000" type="HP" duration="1000"/>
+        </effects>
         <actions>
             <mpuse value="739" delta="9"/>
             <dummy/>
@@ -13037,6 +13071,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="276" delta="4" checktime="2000" type="HP" duration="10000"/>
+        </effects>
         <actions>
             <mpuse value="492" delta="6"/>
             <heal value="1382" delta="21"/>
@@ -13724,6 +13761,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="82" delta="2" checktime="3000" type="MP" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -13734,6 +13774,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="127" delta="2" checktime="3000" type="MP" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -13747,6 +13790,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="14" delta="1" checktime="2000" type="HP" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="26" delta="1"/>
             <dummy/>
@@ -13761,6 +13807,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="30" delta="1" checktime="2000" type="HP" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="47" delta="1"/>
             <dummy/>
@@ -13775,6 +13824,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="46" delta="1" checktime="2000" type="HP" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="63" delta="1"/>
             <dummy/>
@@ -13985,6 +14037,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="169" delta="2" checktime="3000" type="MP" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -14142,6 +14197,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="60" delta="1" checktime="2000" type="HP" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="76" delta="1"/>
             <dummy/>
@@ -14515,6 +14573,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="100" delta="0" checktime="6000" type="MP" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -14813,6 +14874,9 @@
             <targetrange value="PARTY" distance="25" maxcount="6"/>
             <targetrelation value="MYPARTY"/>
         </setproperties>
+        <effects>
+            <hot value="20" delta="0" checktime="2000" type="HP" duration="10000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -15164,6 +15228,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="230" delta="1" checktime="2000" type="HP" duration="10000"/>
+        </effects>
         <actions>
             <mpuse value="346" delta="5"/>
             <heal value="1152" delta="2"/>
@@ -15228,6 +15295,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="230" delta="1" checktime="2000" type="HP" duration="10000"/>
+        </effects>
         <actions>
             <mpuse value="346" delta="5"/>
             <heal value="1152" delta="2"/>
@@ -15263,6 +15333,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="771" delta="0" checktime="2000" type="HP" duration="6000"/>
+        </effects>
         <actions>
             <mpuse value="287" delta="3"/>
             <heal value="771" delta="0"/>
@@ -15277,6 +15350,9 @@
             <targetrange value="AREA" distance="20" maxcount="6"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="442" delta="6" checktime="3000" type="HP" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="615" delta="7"/>
             <dummy/>
@@ -15305,6 +15381,9 @@
             <targetrange value="AREA" distance="20" maxcount="6"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="327" delta="4" checktime="3000" type="HP" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="500" delta="0"/>
             <dummy/>
@@ -17026,6 +17105,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="21" delta="1" checktime="2000" type="HP" duration="38000"/>
+        </effects>
         <actions>
             <mpuse value="50" delta="2"/>
             <heal value="21" delta="1"/>
@@ -17040,6 +17122,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="40" delta="1" checktime="2000" type="HP" duration="38000"/>
+        </effects>
         <actions>
             <mpuse value="80" delta="2"/>
             <heal value="40" delta="1"/>
@@ -17054,6 +17139,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="59" delta="1" checktime="2000" type="HP" duration="38000"/>
+        </effects>
         <actions>
             <mpuse value="105" delta="1"/>
             <heal value="59" delta="1"/>
@@ -17246,6 +17334,9 @@
             <targetrange value="PARTY" distance="20" maxcount="6"/>
             <targetrelation value="MYPARTY"/>
         </setproperties>
+        <effects>
+            <hot value="290" delta="5" checktime="2000" type="HP" duration="10000"/>
+        </effects>
         <actions>
             <mpuse value="278" delta="0"/>
             <dummy/>
@@ -17260,6 +17351,9 @@
             <targetrange value="PARTY" distance="20" maxcount="6"/>
             <targetrelation value="MYPARTY"/>
         </setproperties>
+        <effects>
+            <hot value="337" delta="5" checktime="2000" type="HP" duration="10000"/>
+        </effects>
         <actions>
             <mpuse value="299" delta="0"/>
             <dummy/>
@@ -17469,6 +17563,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="73" delta="1" checktime="2000" type="HP" duration="38000"/>
+        </effects>
         <actions>
             <mpuse value="123" delta="1"/>
             <heal value="73" delta="1"/>
@@ -17541,6 +17638,9 @@
             <targetrange value="AREA" distance="20" maxcount="6"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="327" delta="4" checktime="3000" type="HP" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="500" delta="0"/>
             <dummy/>
@@ -17569,6 +17669,9 @@
             <targetrange value="PARTY" distance="20" maxcount="6"/>
             <targetrelation value="MYPARTY"/>
         </setproperties>
+        <effects>
+            <hot value="382" delta="5" checktime="2000" type="HP" duration="10000"/>
+        </effects>
         <actions>
             <mpuse value="322" delta="0"/>
             <dummy/>
@@ -18925,6 +19028,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="210" delta="2" checktime="1000" type="MP" duration="5000"/>
+        </effects>
         <actions>
             <healmp value="210" delta="2"/>
         </actions>
@@ -19234,6 +19340,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="38" delta="1" checktime="6000" type="MP" duration="300000"/>
+        </effects>
         <actions>
             <mpuse value="122" delta="0"/>
             <dummy/>
@@ -19251,6 +19360,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="50" delta="1" checktime="6000" type="MP" duration="300000"/>
+        </effects>
         <actions>
             <mpuse value="162" delta="0"/>
             <dummy/>
@@ -19536,6 +19648,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="300" delta="2" checktime="1000" type="MP" duration="5000"/>
+        </effects>
         <actions>
             <healmp value="300" delta="2"/>
         </actions>
@@ -19753,6 +19868,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="74" delta="2" checktime="6000" type="MP" duration="300000"/>
+        </effects>
         <actions>
             <mpuse value="273" delta="0"/>
             <dummy/>
@@ -23567,6 +23685,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="70"/>
                 <change stat="MAGICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="70"/>
             </buf>
+            <hot value="50" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -23588,6 +23707,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="75"/>
                 <change stat="MAGICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="75"/>
             </buf>
+            <hot value="70" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -23609,6 +23729,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="80"/>
                 <change stat="MAGICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="80"/>
             </buf>
+            <hot value="90" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -23681,6 +23802,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="70"/>
                 <change stat="MAGICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="70"/>
             </buf>
+            <hot value="50" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -23702,6 +23824,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="75"/>
                 <change stat="MAGICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="75"/>
             </buf>
+            <hot value="70" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -23723,6 +23846,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="80"/>
                 <change stat="MAGICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="80"/>
             </buf>
+            <hot value="90" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -24007,6 +24131,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="85"/>
                 <change stat="MAGICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="85"/>
             </buf>
+            <hot value="110" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -24028,6 +24153,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="85"/>
                 <change stat="MAGICAL_ATTACK" duration="600000" func="PERCENT" delta="0" value="85"/>
             </buf>
+            <hot value="110" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -24544,6 +24670,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="29" delta="2" checktime="3000" type="MP" duration="10000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300003" count="2"/>
             <healmp value="103" delta="6"/>
@@ -24558,6 +24687,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="37" delta="2" checktime="3000" type="MP" duration="10000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300004" count="2"/>
             <healmp value="185" delta="6"/>
@@ -24586,6 +24718,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="45" delta="2" checktime="3000" type="MP" duration="10000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300005" count="2"/>
             <healmp value="274" delta="8"/>
@@ -24614,6 +24749,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="51" delta="2" checktime="3000" type="MP" duration="10000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300006" count="2"/>
             <healmp value="369" delta="8"/>
@@ -24883,6 +25021,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="1" delta="0" checktime="1800000" type="HP" duration="1800000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -26220,6 +26361,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="17" delta="0" checktime="3000" type="MP" duration="6500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -26755,6 +26899,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="24" delta="0" checktime="3000" type="MP" duration="6500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -26907,6 +27054,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="55" delta="5" checktime="3000" type="HP" duration="6500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -26920,6 +27070,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="55" delta="5" checktime="3000" type="HP" duration="6500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -26976,6 +27129,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="6500" func="ADD" value="-10"/>
                 <change stat="MAGICAL_ATTACK" duration="6500" func="PERCENT" value="-30"/>
             </buf>
+            <hot value="55" delta="5" checktime="1000" type="HP" duration="1500"/>
         </effects>
         <actions>
             <dummy/>
@@ -27387,6 +27541,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="130" delta="0" checktime="5000" type="HP" duration="61000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -28585,6 +28742,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="32" delta="0" checktime="3000" type="MP" duration="6500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30058,6 +30218,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="32" delta="0" checktime="3000" type="HP" duration="6500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30071,6 +30234,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="55" delta="0" checktime="3000" type="HP" duration="6500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30084,6 +30250,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="57" delta="1" checktime="1000" type="MP" duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30097,6 +30266,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="70" delta="1" checktime="1000" type="MP" duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30167,6 +30339,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="5" delta="0" checktime="3000" type="HP" duration="6500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30180,6 +30355,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="10" delta="0" checktime="3000" type="HP" duration="6500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30296,6 +30474,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="25" delta="0" checktime="1000" type="MP" duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30469,6 +30650,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="84" delta="0" checktime="3000" type="HP" duration="6500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30482,6 +30666,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="90" delta="1" checktime="1000" type="MP" duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30544,6 +30731,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="30" delta="0" checktime="1000" type="MP" duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -31409,6 +31599,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="500" delta="0" checktime="1000" type="MP" duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -31519,6 +31712,7 @@
                 <change stat="PHYSICAL_DEFENSE" duration="6500" func="ADD" delta="0" value="35"/>
                 <change stat="BOOST_MAGICAL_SKILL" duration="6500" func="ADD" delta="0" value="150"/>
             </buf>
+            <hot value="32" delta="0" checktime="3000" type="MP" duration="6500"/>
         </effects>
         <actions>
             <dummy/>
@@ -31941,6 +32135,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="0" delta="20" checktime="6000" type="HP" duration="300000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -31953,6 +32150,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="0" delta="20" checktime="6000" type="HP" duration="300000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -31965,6 +32165,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="0" delta="20" checktime="6000" type="MP" duration="300000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -31977,6 +32180,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="0" delta="20" checktime="6000" type="MP" duration="300000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -32815,6 +33021,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="37" delta="0" checktime="2000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="37" delta="0"/>
         </actions>
@@ -32828,6 +33037,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="67" delta="0" checktime="2000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="67" delta="0"/>
         </actions>
@@ -32841,6 +33053,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="97" delta="0" checktime="2000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="97" delta="0"/>
         </actions>
@@ -32854,6 +33069,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="127" delta="0" checktime="2000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="127" delta="0"/>
         </actions>
@@ -32867,6 +33085,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="154" delta="0" checktime="2000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="154" delta="0"/>
         </actions>
@@ -32880,6 +33101,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="59" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemhealmp value="59" delta="0"/>
         </actions>
@@ -32893,6 +33117,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="98" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemhealmp value="98" delta="0"/>
         </actions>
@@ -32906,6 +33133,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="128" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemhealmp value="128" delta="0"/>
         </actions>
@@ -32919,6 +33149,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="148" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemhealmp value="148" delta="0"/>
         </actions>
@@ -32932,6 +33165,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="160" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemhealmp value="160" delta="0"/>
         </actions>
@@ -37943,6 +38179,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="59" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="37" delta="0"/>
             <itemhealmp value="59" delta="0"/>
@@ -37957,6 +38196,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="98" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="67" delta="0"/>
             <itemhealmp value="98" delta="0"/>
@@ -37971,6 +38213,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="128" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="97" delta="0"/>
             <itemhealmp value="128" delta="0"/>
@@ -37985,6 +38230,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="148" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="127" delta="0"/>
             <itemhealmp value="148" delta="0"/>
@@ -37999,6 +38247,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="160" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="154" delta="0"/>
             <itemhealmp value="160" delta="0"/>
@@ -38226,6 +38477,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="31" delta="0" checktime="2000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="31" delta="0"/>
         </actions>
@@ -38239,6 +38493,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="56" delta="0" checktime="2000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="56" delta="0"/>
         </actions>
@@ -38252,6 +38509,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="81" delta="0" checktime="2000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="81" delta="0"/>
         </actions>
@@ -38265,6 +38525,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="106" delta="0" checktime="2000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="106" delta="0"/>
         </actions>
@@ -38278,6 +38541,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="128" delta="0" checktime="2000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <itemheal value="128" delta="0"/>
         </actions>
@@ -38291,6 +38557,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="50" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemhealmp value="50" delta="0"/>
         </actions>
@@ -38304,6 +38573,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="82" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemhealmp value="82" delta="0"/>
         </actions>
@@ -38317,6 +38589,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="107" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemhealmp value="107" delta="0"/>
         </actions>
@@ -38330,6 +38605,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="124" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemhealmp value="124" delta="0"/>
         </actions>
@@ -38343,6 +38621,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="134" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <itemhealmp value="134" delta="0"/>
         </actions>
@@ -38654,6 +38935,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="97" delta="0" checktime="2000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -38667,6 +38951,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="128" delta="0" checktime="2000" type="MP" duration="20000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -39729,6 +40016,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="39" delta="1" checktime="6000" type="MP" duration="300000"/>
+        </effects>
         <actions>
             <mpuse value="163" delta="0"/>
             <dummy/>
@@ -40643,6 +40933,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="41" delta="0" checktime="3000" type="MP" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40960,6 +41253,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="155" delta="2" checktime="2000" type="MP" duration="10000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -42389,6 +42685,7 @@
             <buf duration="300000">
                 <change stat="MAXHP" duration="300000" func="ADD" delta="0" value="5000"/>
             </buf>
+            <hot value="300" delta="0" checktime="10000" type="HP" duration="300000"/>
         </effects>
         <actions>
             <dummy/>
@@ -42939,6 +43236,7 @@
             <buf duration="300000">
                 <change stat="MAXHP" duration="300000" func="ADD" delta="0" value="6000"/>
             </buf>
+            <hot value="300" delta="0" checktime="10000" type="HP" duration="300000"/>
         </effects>
         <actions>
             <dummy/>
@@ -43087,6 +43385,7 @@
             <buf duration="5100">
                 <change stat="PHYSICAL_DEFENSE" duration="5100" func="PERCENT" delta="0" value="20"/>
             </buf>
+            <hot value="10" delta="0" checktime="4000" type="HP" duration="5100"/>
         </effects>
         <actions>
             <dummy/>
@@ -47572,6 +47871,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="7" delta="0" checktime="4000" type="HP" duration="16100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -48674,6 +48976,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="40" delta="10" checktime="5000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -51419,6 +51724,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="7" delta="0" checktime="4000" type="HP" duration="16100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -60463,6 +60771,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="300" delta="0" checktime="3000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <heal value="300" delta="0"/>
         </actions>
@@ -69004,6 +69315,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="300" delta="0" checktime="3000" type="HP" duration="180000"/>
+        </effects>
         <actions>
             <heal value="300" delta="0"/>
         </actions>
@@ -69035,6 +69349,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="300" delta="0" checktime="3000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <heal value="300" delta="0"/>
         </actions>
@@ -72711,6 +73028,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="325" delta="0" checktime="3000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <heal value="325" delta="0"/>
         </actions>
@@ -72724,6 +73044,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <hot value="350" delta="0" checktime="3000" type="HP" duration="20000"/>
+        </effects>
         <actions>
             <heal value="350" delta="0"/>
         </actions>
@@ -74894,6 +75217,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="100" delta="0" checktime="3000" type="HP" duration="1800000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -74944,6 +75270,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="100" delta="0" checktime="3000" type="HP" duration="1800000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>

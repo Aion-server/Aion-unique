@@ -24,6 +24,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
+import com.aionemu.gameserver.skillengine.model.HopType;
 
 /**
  * This class is for controlling Creatures [npc's, players etc]
@@ -102,6 +103,19 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	public void onAttack(Creature creature, int damage)
 	{
 		this.onAttack(creature, 0, TYPE.REGULAR, damage);
+	}
+	
+	public void onRestore(HopType hopType, int value)
+	{
+		switch(hopType)
+		{
+			case HP:
+				getOwner().getLifeStats().increaseHp(value);
+				break;
+			case MP:
+				getOwner().getLifeStats().increaseMp(value);
+				break;
+		}
 	}
 	
 	/**
