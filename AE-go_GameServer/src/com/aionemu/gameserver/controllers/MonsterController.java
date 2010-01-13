@@ -68,7 +68,7 @@ public class MonsterController extends NpcController
 		dropService.registerDrop((Monster) getOwner() , player);			
 		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
 	}
-
+	
 	@Override
 	public void doReward(Creature creature)
 	{
@@ -82,10 +82,16 @@ public class MonsterController extends NpcController
 			{
 				long currentExp = player.getCommonData().getExp();
 
-				long xpReward = StatFunctions.calculateSoloExperienceReward(player, getOwner());
-				player.getCommonData().setExp(currentExp + xpReward);
+				long xpReward = StatFunctions.calculateSoloExperienceReward(player, getOwner());				
+				player.getCommonData().setExp(currentExp + xpReward);				
 
 				PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Long.toString(xpReward)));
+
+				//DPreward
+				int currentDp = player.getCommonData().getDp();
+				int dpReward = StatFunctions.calculateSoloDPReward(player, getOwner());
+				player.getCommonData().setDp(dpReward + currentDp);
+
 			}
 			else
 			{
@@ -98,7 +104,13 @@ public class MonsterController extends NpcController
 					long xpReward = StatFunctions.calculateGroupExperienceReward(member, getOwner());
 					member.getCommonData().setExp(currentExp + xpReward);
 
-					PacketSendUtility.sendPacket(member,SM_SYSTEM_MESSAGE.EXP(Long.toString(xpReward)));				
+					PacketSendUtility.sendPacket(member,SM_SYSTEM_MESSAGE.EXP(Long.toString(xpReward)));
+
+					//DPreward
+					int currentDp = member.getCommonData().getDp();
+					int dpReward = StatFunctions.calculateGroupDPReward(member, getOwner());
+					member.getCommonData().setDp(dpReward + currentDp);
+
 				}
 			}
 			//TODO group quest, and group member's quests
@@ -112,7 +124,7 @@ public class MonsterController extends NpcController
 		//temp fix for XP farming from dead mobs
 		if(getOwner().getLifeStats().isAlreadyDead())
 			return;
-		
+
 		Monster monster = getOwner();
 		monster.getAggroList().addDamageHate(creature, damage, 0);
 		monster.getLifeStats().reduceHp(damage);
@@ -172,10 +184,10 @@ public class MonsterController extends NpcController
 		Player target = (Player) this.getOwner().getTarget();
 
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13, 0, target == null?0:target.getObjectId()));
-		
+
 		if(target == null)
 			target = (Player) getOwner().getAggroList().getMostHated();//TODO based on damage;
-		
+
 		this.doReward(target);
 		this.doDrop(target);
 
@@ -228,6 +240,6 @@ public class MonsterController extends NpcController
 		if(object instanceof Player)
 			getOwner().getAi().handleEvent(Event.SEE_PLAYER);
 	}
-	
-	
+
+
 }

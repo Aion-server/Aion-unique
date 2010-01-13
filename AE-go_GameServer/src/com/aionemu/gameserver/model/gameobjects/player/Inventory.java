@@ -196,7 +196,7 @@ public class Inventory
 		}
 		return resultItem;
 	}
-	
+
 	/**
 	 * Every put operation using this method is persisted immediately
 	 * 
@@ -511,7 +511,7 @@ public class Inventory
 						return false;
 					unEquip(itemInMainHand);
 				}
-				
+
 				//unequip arrows if bow+arrows were equipeed
 				Item possibleArrows = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
 				if(possibleArrows != null && possibleArrows.getItemTemplate().getArmorType() == ArmorType.ARROW)
@@ -771,5 +771,14 @@ public class Inventory
 	}
 	public int getLimit(){
 		return this.defaultItemBag.getLimit();
+	}
+
+	/**
+	 * @return
+	 */
+	public boolean isShieldEquipped()
+	{
+		Item subHandItem = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
+		return subHandItem != null && subHandItem.getItemTemplate().getArmorType() == ArmorType.SHIELD;
 	}
 }

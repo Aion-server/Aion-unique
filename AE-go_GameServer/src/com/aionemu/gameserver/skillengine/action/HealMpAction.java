@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.skillengine.action;
 
 import java.util.List;
+import java.util.Collections;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -29,6 +30,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
+import com.aionemu.gameserver.controllers.attack.AttackStatus;
 
 
 /**
@@ -68,7 +71,7 @@ public class HealMpAction
 		int unk = 0;
 		PacketSendUtility.broadcastPacket(effector,
 			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), skill.getSkillLevel(),
-				unk, skill.getFirstTarget().getObjectId(), -valueWithDelta, template.getCooldown()), true);
+				unk, skill.getFirstTarget().getObjectId(), Collections.singletonList(new SkillAttackResult(skill.getFirstTarget(), -valueWithDelta, AttackStatus.NORMALHIT)), template.getCooldown()), true);
 		
 		List<Creature> effectedList = skill.getEffectedList();
 		for(Creature effected : effectedList)

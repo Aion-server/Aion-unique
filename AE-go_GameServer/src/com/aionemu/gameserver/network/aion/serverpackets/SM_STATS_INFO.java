@@ -94,7 +94,7 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeD(buf, pls.getCurrentMp());// [current mana]
 
 		writeH(buf, pgs.getCurrentStat(StatEnum.MAXDP));// [max dp]
-		writeH(buf, 0);// [current dp]
+		writeH(buf, pcd.getDp());// [current dp]
 
 		writeD(buf, 0);// [unk]
 

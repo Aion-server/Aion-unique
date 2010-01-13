@@ -32,6 +32,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_DP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
@@ -50,7 +51,7 @@ public class PlayerCommonData
 {
 	/** Logger used by this class and {@link StaticData} class */
 	static Logger			log	= Logger.getLogger(PlayerCommonData.class);
-	
+
 	private final int		playerObjId;
 	private Race			race;
 	private String			name;
@@ -68,6 +69,7 @@ public class PlayerCommonData
 	private int 			cubeSize = 0;
 	private int			    bindPoint;
 	private int             titleId = -1;
+	private int				dp = 0;
 
 	public PlayerCommonData(int objId)
 	{
@@ -78,7 +80,7 @@ public class PlayerCommonData
 	{
 		return playerObjId;
 	}
-	
+
 	public long getExp()
 	{
 		return this.exp;
@@ -95,7 +97,7 @@ public class PlayerCommonData
 	{
 		return this.exp - DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level);
 	}
-	
+
 	public long getExpNeed()
 	{
 		if (this.level == DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel())
@@ -111,14 +113,14 @@ public class PlayerCommonData
 	public void calculateExpLoss()
 	{
 		int unrecoverable = Math.round(this.getExpNeed() / 100 * 3);//TODO check the formula
-		
+
 		if(this.getExpShown() > unrecoverable)
 			this.exp = this.exp - unrecoverable;
 		else this.exp = this.exp - this.getExpShown();
-		
+
 		int recoverable = unrecoverable;//here will be some formula
 		long allexploss = recoverable + this.expRecoverable;
-		
+
 		if(this.getExpShown() > allexploss)
 		{
 			this.expRecoverable = allexploss;
@@ -129,16 +131,16 @@ public class PlayerCommonData
 			this.expRecoverable = this.expRecoverable + this.getExpShown();
 			this.exp = this.exp - this.getExpShown();
 		}	
-		
+
 		PacketSendUtility.sendPacket(this.getPlayer(),
-				new SM_STATUPDATE_EXP(this.getExpShown(), this.getExpRecoverable(), this.getExpNeed()));	
+			new SM_STATUPDATE_EXP(this.getExpShown(), this.getExpRecoverable(), this.getExpNeed()));	
 	}
 
 	public void setRecoverableExp(long expRecoverable)
 	{
 		this.expRecoverable = expRecoverable;
 	}
-	
+
 	public void resetRecoverableExp()
 	{
 		long el = this.expRecoverable;
@@ -150,13 +152,13 @@ public class PlayerCommonData
 	{
 		return this.expRecoverable;
 	}
-	
+
 	//TODO need to test before use
 	public void addExp(long value)
 	{
 		this.setExp(this.exp + value);
 	}
-	
+
 	/**
 	 * sets the exp value
 	 * @param admin: enable decrease level 
@@ -167,23 +169,23 @@ public class PlayerCommonData
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
 		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
 		int level = 1;
-		
+
 		if (exp > maxExp)
 		{
 			exp = maxExp;
 		}
-				
+
 		//make sure level is never larger than maxLevel-1
 		while ((level + 1) != maxLevel && exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level + 1))
 		{
 			level++;
 		}
-		
+
 		if (level != this.level)
 		{
 			this.level = level;
 			this.exp = exp;
-			
+
 			if(this.getPlayer() != null)
 			{
 				upgradePlayer();
@@ -192,7 +194,7 @@ public class PlayerCommonData
 		else
 		{
 			this.exp = exp;
-			
+
 			if(this.getPlayer() != null)
 			{
 				PacketSendUtility.sendPacket(this.getPlayer(),
@@ -200,7 +202,7 @@ public class PlayerCommonData
 			}
 		}
 	}
-	
+
 	/**
 	 * Do necessary player upgrades on level up
 	 */
@@ -210,25 +212,25 @@ public class PlayerCommonData
 		if(player != null)
 		{
 			PlayerStatsTemplate statsTemplate = DataManager.PLAYER_STATS_DATA.getTemplate(player);
-			
+
 			player.getGameStats().doLevelUpgrade(DataManager.PLAYER_STATS_DATA, level);
 			player.setPlayerStatsTemplate(statsTemplate);
 			player.setLifeStats(new PlayerLifeStats(player, statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));		
 			player.getLifeStats().synchronizeWithMaxStats();
-			
+
 			PacketSendUtility.broadcastPacket(player,
 				new SM_LEVEL_UPDATE(player.getObjectId(), 0, this.level),true);
-			
+
 			//Temporal
 			ClassChangeService.showClassChangeDialog(player);
-			
+
 			QuestEngine.getInstance().onLvlUp(new QuestEnv(null, player, 0, 0));
-			
+
 			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 			//add new skills
 			SkillLearnService.addNewSkills(player, false);
 			DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
-			
+
 			//save player at this point
 			DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
 		}
@@ -297,7 +299,7 @@ public class PlayerCommonData
 	{
 		return position;
 	}
-	
+
 	public Timestamp getLastOnline()
 	{
 		return lastOnline;
@@ -307,22 +309,22 @@ public class PlayerCommonData
 	{
 		this.bindPoint = bindId;
 	}
-	
+
 	public int getBindPoint()
 	{
 		return bindPoint;
 	}
-	
+
 	public void setLastOnline(Timestamp timestamp)
 	{
 		lastOnline = timestamp;
 	}
-	
+
 	public int getLevel()
 	{
 		return level;
 	}
-	
+
 	public void setLevel(int level)
 	{
 		if (level <= DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel())
@@ -330,26 +332,26 @@ public class PlayerCommonData
 			this.setExp(DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level));
 		}
 	}
-	
+
 	public String getNote()
 	{
 		return note;
 	}
-	
+
 	public void setNote(String note)
 	{
 		this.note = note;
 	}
 
-    public int getTitleId()
-    {
-        return titleId;
-    }
+	public int getTitleId()
+	{
+		return titleId;
+	}
 
-    public void setTitleId(int titleId)
-    {
-        this.titleId = titleId;
-    }
+	public void setTitleId(int titleId)
+	{
+		this.titleId = titleId;
+	}
 	/**
 	 * This method should be called exactly once after creating object of this class
 	 * @param position
@@ -362,7 +364,7 @@ public class PlayerCommonData
 		}
 		this.position = position;
 	}
-	
+
 	/**
 	 * Gets the cooresponding Player for this common data.
 	 * Returns null if the player is not online
@@ -375,5 +377,24 @@ public class PlayerCommonData
 			return getPosition().getWorld().findPlayer(playerObjId);
 		}
 		return null;
+	}
+
+	/**
+	 *  //TODO move to lifestats -> db save?
+	 *  
+	 * @param dp
+	 */
+	public void setDp(int dp)
+	{
+		this.dp = dp > 4000 ? 4000 : dp;
+		if(this.getPlayer() != null)
+		{
+			PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATUPDATE_DP(this.dp));
+		}
+	}
+
+	public int getDp()
+	{
+		return this.dp;
 	}
 }

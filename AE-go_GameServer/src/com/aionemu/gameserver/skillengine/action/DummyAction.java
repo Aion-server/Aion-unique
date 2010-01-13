@@ -20,11 +20,15 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import java.util.Collections;
+
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
+import com.aionemu.gameserver.controllers.attack.AttackStatus;
 
 /**
  * @author ATracer
@@ -46,7 +50,7 @@ public class DummyAction extends Action
 		
 		PacketSendUtility.broadcastPacket(effector,
 			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), skill.getSkillLevel(),
-				unk, skill.getFirstTarget().getObjectId(), 0, template.getCooldown()), true);
+				unk, skill.getFirstTarget().getObjectId(), Collections.singletonList(new SkillAttackResult(skill.getFirstTarget(), 0, AttackStatus.NORMALHIT)), template.getCooldown()), true);
 	}
 
 }

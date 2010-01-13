@@ -21,6 +21,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -30,7 +33,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.stats.StatFunctions;
+import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
+import com.aionemu.gameserver.controllers.attack.AttackUtil;
 
 
 /**
@@ -63,36 +67,39 @@ public class DamageAction
 		
 		if(damageType == null)
 			damageType = DamageType.valueOf(skill.getSkillTemplate().getType().name());
-		
-		//TODO this is probably incorrect
-		int sumDamage = 0;
-		
+
+       List<SkillAttackResult> skillAttackList = new ArrayList<SkillAttackResult>();
+
 		for(Creature effected : skill.getEffectedList())
 		{
 			if(effected == null)
 				continue;
 			
-			int damage = 0;
 			switch(damageType)
 			{
 				case PHYSICAL:
-					damage = StatFunctions.calculatePhysicDamageToTarget(effector, effected, valueWithDelta);
+					skillAttackList.add(AttackUtil.calculatePhysicalSkillAttackResult(effector, effected, valueWithDelta));
 					break;
 				case MAGICAL:
-					damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, valueWithDelta, SkillElement.NONE);
+					skillAttackList.add(AttackUtil.calculateMagicalSkillAttackResult(effector, effected, valueWithDelta, SkillElement.NONE));
 					break;
 				default:
-					damage = StatFunctions.calculateBaseDamageToTarget(effector, effected);
+					skillAttackList.add(AttackUtil.calculatePhysicalSkillAttackResult(effector, effected, 0));
 			}
-			sumDamage += damage;
-			
-			effected.getController().onAttack(effector, skill.getSkillTemplate().getSkillId(), TYPE.REGULAR, damage);
+
 		}
 		
 		int unk = 0;
 		PacketSendUtility.broadcastPacket(effector,
 			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), skill.getSkillLevel(),
-				unk, firstTarget.getObjectId(), sumDamage, template.getCooldown()), true);	
+				unk, firstTarget.getObjectId(), skillAttackList, template.getCooldown()), true);
+
+       // Castspell_end packet must go first
+
+       for (SkillAttackResult skillAttack : skillAttackList)
+       {
+            skillAttack.getCreature().getController().onAttack(effector, skill.getSkillTemplate().getSkillId(), TYPE.REGULAR, skillAttack.getDamage());
+       }
 		
 	}
 }

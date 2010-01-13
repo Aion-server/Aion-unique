@@ -19,7 +19,6 @@ package com.aionemu.gameserver.model.gameobjects;
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.EffectController;
-import com.aionemu.gameserver.model.gameobjects.player.PlayerState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
@@ -33,20 +32,20 @@ import com.aionemu.gameserver.world.WorldPosition;
  */
 public abstract class Creature extends VisibleObject
 {
-	
+
 	/**
 	 * Reference to AI
 	 */
 	protected AI<? extends Creature> ai;
-	
+
 	private CreatureLifeStats<? extends Creature> lifeStats;
-	
+
 	private CreatureGameStats<? extends Creature> gameStats;
-	
+
 	private EffectController effectController;
-	
+
 	private boolean isRooted = false;
-	
+
 	private boolean isSleep = false;
 
 	public Creature(int objId, CreatureController<? extends Creature> controller,
@@ -67,7 +66,7 @@ public abstract class Creature extends VisibleObject
 	{
 		return (CreatureController) super.getController();
 	}
-	
+
 	/**
 	 * @return the lifeStats
 	 */
@@ -75,7 +74,7 @@ public abstract class Creature extends VisibleObject
 	{
 		return  lifeStats;
 	}
-	
+
 	/**
 	 * @param lifeStats the lifeStats to set
 	 */
@@ -97,7 +96,7 @@ public abstract class Creature extends VisibleObject
 	{
 		return gameStats;
 	}
-	
+
 	/**
 	 * @param gameStats the gameStats to set
 	 */
@@ -107,7 +106,7 @@ public abstract class Creature extends VisibleObject
 	}
 
 	public abstract byte getLevel();
-	
+
 	public abstract void initializeAi();
 
 	/**
@@ -125,7 +124,7 @@ public abstract class Creature extends VisibleObject
 	{
 		this.effectController = effectController;
 	}
-	
+
 	/**
 	 * @return the npcAi
 	 */
@@ -141,27 +140,27 @@ public abstract class Creature extends VisibleObject
 	{
 		this.ai = ai;
 	}
-	
+
 	public void setIsRooted(boolean isRooted)
 	{
 		this.isRooted = isRooted;
 	}
-	
+
 	public boolean isRooted()
 	{
 		return isRooted;
 	}
-	
+
 	public void setSleep(boolean isSleep)
 	{
 		this.isSleep = isSleep;
 	}
-	
+
 	public boolean isSleep()
 	{
 		return isSleep;
 	}
-	
+
 	public boolean canPerformMove()
 	{
 		return !(isRooted || isSleep);

@@ -17,10 +17,12 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import java.util.Random;
+import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
 
 /**
  * 
@@ -34,17 +36,17 @@ public class SM_CASTSPELL_END extends AionServerPacket
 	private int	spellid;
 	private int	level;
 	private int	unk; //can cast?? 
-	private int damage;
 	private int cooldown;
+   List<SkillAttackResult> skillAttackList = new ArrayList<SkillAttackResult>();
 	
-	public SM_CASTSPELL_END(int attackerobjectid ,int spellid,int level,int unk, int targetObjectId, int damage, int cooldown)
+	public SM_CASTSPELL_END(int attackerobjectid ,int spellid,int level,int unk, int targetObjectId, List<SkillAttackResult> skillAttackList, int cooldown)
 	{
 		this.attackerobjectid = attackerobjectid;
 		this.targetObjectId = targetObjectId;
 		this.spellid = spellid ;// empty
 		this.level = level ;
 		this.unk = unk ;
-		this.damage = damage;
+       this.skillAttackList = skillAttackList;
 		this.cooldown = cooldown * 10;
 	}
 
@@ -65,15 +67,19 @@ public class SM_CASTSPELL_END extends AionServerPacket
 		writeC(buf, 1); //unk??
 		writeD(buf, 8192); //chain 2
 
-		writeH(buf, 1); 
-		writeD(buf, targetObjectId); 
-		writeH(buf, 3072); // unk?? abnormal eff id ??
-		writeH(buf, 100); // unk??
-		writeH(buf, 16); // unk??
+		writeH(buf, skillAttackList.size());
+       for (SkillAttackResult skillAttack : skillAttackList)
+       {
+           writeD(buf, skillAttack.getCreature().getObjectId());
+           writeH(buf, 3072); // unk?? abnormal eff id ??
+           writeH(buf, 100); // unk??
+           writeH(buf, 16); // unk??
 		
-		writeH(buf, 1); // unk??
-		writeD(buf, damage); // damage
-		writeH(buf, 10);
+           writeH(buf, 1); // unk??
+           writeD(buf, skillAttack.getDamage()); // damage
+           writeC(buf, skillAttack.getAttackStatus().getId());
+           writeC(buf, 0);
+        }
 
 	}	
 }

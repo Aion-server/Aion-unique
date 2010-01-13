@@ -76,6 +76,7 @@ public class CreatureGameStats<T extends Creature>
 		initStat(StatEnum.PARRY, Math.round(agility / 3.1f));
 		initStat(StatEnum.EVASION, Math.round(agility / 3.1f));
 		initStat(StatEnum.BLOCK, Math.round(agility / 3.1f));
+		initStat(StatEnum.DAMAGE_REDUCE, 0);
 		initStat(StatEnum.MAIN_HAND_ACCURACY, Math.round(accuracy * 1.25f));
 		initStat(StatEnum.OFF_HAND_ACCURACY, 0);
 		initStat(StatEnum.MAGICAL_RESIST, Math.round(knowledge / 3.1f));
@@ -97,7 +98,7 @@ public class CreatureGameStats<T extends Creature>
 		sb.append('}');
 		return sb.toString();
 	}
-	
+
 	public void initStat(StatEnum stat, int value)
 	{
 		if (!stats.containsKey(stat))
@@ -110,7 +111,7 @@ public class CreatureGameStats<T extends Creature>
 			stats.get(stat).set(value,false);
 		}
 	}
-	
+
 	public void setStat(StatEnum stat, int value, boolean bonus)
 	{
 		if (!stats.containsKey(stat))
@@ -119,12 +120,12 @@ public class CreatureGameStats<T extends Creature>
 		}
 		stats.get(stat).set(value,bonus);
 	}
-	
+
 	public void setStat(StatEnum stat, int value)
 	{
 		setStat(stat,value,false);
 	}
-	
+
 	/**
 	 * @return the atcount
 	 */
@@ -168,7 +169,7 @@ public class CreatureGameStats<T extends Creature>
 			this.attackCounter++;
 		}
 	}
-	
+
 	public void increaseMoveCounter()
 	{
 		this.moveCounter++;
@@ -203,7 +204,7 @@ public class CreatureGameStats<T extends Creature>
 	public int getCurrentStat(StatEnum stat)
 	{
 		int value = 0;
-		
+
 		synchronized(stats)
 		{
 			if (stats.containsKey(stat))
@@ -211,7 +212,7 @@ public class CreatureGameStats<T extends Creature>
 				value = stats.get(stat).getCurrent();
 			}
 		}
-		
+
 		return value;
 	}
 
@@ -225,7 +226,7 @@ public class CreatureGameStats<T extends Creature>
 			}
 		}
 	}
-	
+
 	protected void applyModifiers(StatEnum stat, StatModifiers modifiers)
 	{
 		if(modifiers == null)
@@ -238,7 +239,7 @@ public class CreatureGameStats<T extends Creature>
 			initStat(stat, 0);
 		}
 		Stat oStat = stats.get(stat);
-		
+
 		for(StatModifierPriority priority : StatModifierPriority.values())
 		{
 			for(StatModifier modifier : modifiers.getModifiers(priority))
@@ -252,19 +253,19 @@ public class CreatureGameStats<T extends Creature>
 			}
 		}
 	}
-	
+
 	public void addModifiers(StatEffectId id, TreeSet<StatModifier> modifiers)
 	{
 		if (modifiers==null)
 		{
 			return;
 		}
-		
+
 		if (statsModifiers.containsKey(id))
 		{
 			throw new IllegalArgumentException("Effect "+id+" already active");
 		}
-		
+
 		if ((this instanceof PlayerGameStats)&&(log.isDebugEnabled()))
 		{
 			log.debug("Adding effect "+id);
@@ -273,18 +274,18 @@ public class CreatureGameStats<T extends Creature>
 				log.debug("Adding modifier "+modifier);
 			}
 		}
-		
+
 		statsModifiers.put(id, modifiers);
-		
+
 		recomputeStats();
 	}
-	
+
 	protected void recomputeStats()
 	{
 		resetStats();
-		
+
 		FastMap<StatEnum,StatModifiers> orderedModifiers = new FastMap<StatEnum,StatModifiers>();
-		
+
 		for (Entry<StatEffectId,TreeSet<StatModifier>> modifiers : statsModifiers.entrySet())
 		{
 			StatEffectId eid = modifiers.getKey();
@@ -294,7 +295,7 @@ public class CreatureGameStats<T extends Creature>
 				slots = ((ItemStatEffectId)eid).getSlot();
 			}
 			List<ItemSlot> oSlots = ItemSlot.getSlotsFor(slots);
-			
+
 			for (StatModifier modifier : modifiers.getValue())
 			{	
 				for (ItemSlot slot : oSlots)
@@ -308,7 +309,7 @@ public class CreatureGameStats<T extends Creature>
 				}
 			}
 		}
-		
+
 		for (Entry<StatEnum,StatModifiers> entry : orderedModifiers.entrySet())
 		{
 			applyModifiers(entry.getKey(),entry.getValue());

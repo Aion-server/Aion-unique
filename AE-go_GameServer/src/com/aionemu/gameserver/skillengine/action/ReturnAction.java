@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import org.apache.log4j.Logger;
+import java.util.Collections;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
@@ -31,6 +32,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
+import com.aionemu.gameserver.controllers.attack.AttackStatus;
 
 /**
  * @author ATracer
@@ -57,7 +60,7 @@ extends Action
 		int unk = 0;
 
 		PacketSendUtility.broadcastPacket(player,
-			new SM_CASTSPELL_END(player.getObjectId(), template.getSkillId(), skill.getSkillLevel(), unk, 0, 0, template.getCooldown()), true);
+			new SM_CASTSPELL_END(player.getObjectId(), template.getSkillId(), skill.getSkillLevel(), unk, 0, Collections.singletonList(new SkillAttackResult(skill.getFirstTarget(), 0, AttackStatus.NORMALHIT)), template.getCooldown()), true);
 
 		skill.getWorld().despawn(player);
 		LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());

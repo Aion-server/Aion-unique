@@ -20,7 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aionemu.commons.utils.Rnd;
+import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
@@ -50,7 +52,7 @@ public class AttackUtil
 		int hitCount = Rnd.get(1,gameStats.getCurrentStat(StatEnum.MAIN_HAND_HITS) + gameStats.getCurrentStat(StatEnum.OFF_HAND_HITS));
 
 		List<AttackResult> attackList = new ArrayList<AttackResult>();
-		
+
 		for (int i=0; (i<hitCount); i++) 
 		{
 			int damages;
@@ -64,13 +66,15 @@ public class AttackUtil
 			}
 			damage -= damages;
 
-			AttackStatus status = calculateStatus();
+			AttackStatus status = calculatePhysicalStatus(attacker, attacked);
 			//TODO this is very basic calcs, for initial testing only
 			switch(status)
 			{
 				case BLOCK:
+					int shieldDamageReduce = ((Player)attacked).getGameStats().getCurrentStat(StatEnum.DAMAGE_REDUCE);
+					damages -= Math.round((damages * shieldDamageReduce) / 100);
+					break;
 				case DODGE:
-				case RESIST:
 					damages = 0;
 					break;
 				case CRITICAL:
@@ -79,27 +83,103 @@ public class AttackUtil
 				case PARRY:
 					damages *= 0.5;
 					break;
+				default:
+					break;
 			}
 			attackList.add(new AttackResult(damages, status));
 		}
 		return attackList;
 	}
 
+	public static SkillAttackResult calculatePhysicalSkillAttackResult(Creature attacker, Creature attacked, int skillDamage)
+	{
+		int damage = StatFunctions.calculatePhysicDamageToTarget(attacker, attacked, skillDamage);
+
+		AttackStatus status = calculatePhysicalStatus(attacker, attacked);
+
+		switch(status)
+		{
+			case BLOCK:
+				int shieldDamageReduce = ((Player)attacked).getGameStats().getCurrentStat(StatEnum.DAMAGE_REDUCE);
+				damage -= Math.round((damage * shieldDamageReduce) / 100);
+				break;
+			case DODGE:
+				damage = 0;
+				break;
+			case CRITICAL:
+				damage *= 2;
+				break;
+			case PARRY:
+				damage *= 0.5;
+				break;
+			default:
+				break;
+		}
+		SkillAttackResult skillAttackResult = new SkillAttackResult(attacked, damage, status);
+
+		return skillAttackResult;
+	}
+
+
+	public static SkillAttackResult calculateMagicalSkillAttackResult(Creature attacker, Creature attacked, int skillDamage, SkillElement element)
+	{
+		int damage = StatFunctions.calculateMagicDamageToTarget(attacker, attacked, skillDamage, element);  //TODO SkillElement
+
+		AttackStatus status = calculateMagicalStatus(attacker, attacked);
+
+		switch(status)
+		{
+			case RESIST:
+				damage = 0;
+				break;
+			default:
+				break;
+		}
+
+		SkillAttackResult skillAttackResult = new SkillAttackResult(attacked, damage, status);
+
+		return skillAttackResult;
+	}
+
 	/**
-	 *  DUMMY for simplicity now
-	 *  
+	 * Manage attack status rate
+	 * @see http://www.aionsource.com/forum/mechanic-analysis/42597-character-stats-xp-dp-origin-gerbator-team-july-2009-a.html
 	 * @return
 	 */
-	public static AttackStatus calculateStatus()
+	public static AttackStatus calculatePhysicalStatus(Creature attacker, Creature attacked)
+	{		
+		if( Rnd.get( 0, 100 ) < StatFunctions.calculatePhysicalDodgeRate(attacker, attacked) ) 
+		{
+			return AttackStatus.DODGE;
+		}
+
+		if( Rnd.get( 0, 100 ) < StatFunctions.calculatePhysicalParryRate(attacker, attacked) ) {
+			return AttackStatus.PARRY;
+		}
+
+		if( ( attacked instanceof Player && ((Player) attacked).getInventory().isShieldEquipped() ) ) 
+		{
+			if( Rnd.get( 0, 100 ) < StatFunctions.calculatePhysicalBlockRate(attacker, attacked) )
+			{
+				return AttackStatus.BLOCK;
+			}
+		}
+
+		if( Rnd.get( 0, 100 ) < StatFunctions.calculatePhysicalCriticalRate(attacker) ) 
+		{
+			return AttackStatus.CRITICAL;
+		}
+
+		return AttackStatus.NORMALHIT;
+	}
+
+
+	public static AttackStatus calculateMagicalStatus(Creature attacker, Creature attacked)
 	{
-		if(Rnd.get(0, 10) > 8)
-		{
-			return AttackStatus.values()[Rnd.get(0, 6)];
-		}
-		else
-		{
-			return AttackStatus.NORMALHIT;
-		}
+		if(Rnd.get( 0, 100 ) < StatFunctions.calculateMagicalResistRate(attacker, attacked))
+			return AttackStatus.RESIST;
+
+		return AttackStatus.NORMALHIT;
 	}
 }
 
