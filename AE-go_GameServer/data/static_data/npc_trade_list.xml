@@ -1,339 +1,285 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<npc_trade_list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="npc_trade_list.xsd">
-	<!-- Ishalgen -->
-	<!-- Aldelle Village -->
-	<tradelist_template npc_id="203514" name="Hephe" count="2" listId0="259" listId1="260"/>
-
-	<tradelist_template npc_id="203515" name="Dalor" count="4" listId0="261" listId1="262" listId2="263" listId3="454"/>
-
-	<tradelist_template npc_id="203526" name="Ungfu" count="1" listId0="265"/>
-
-	<tradelist_template npc_id="203527" name="Minu" count="1" listId0="29"/>
-
-	<tradelist_template npc_id="203528" name="Wiokan" count="1" listId0="31"/>
-
-	<tradelist_template npc_id="203529" name="Jurwen" count="1" listId0="30"/>
-
-	<tradelist_template npc_id="203530" name="Kirhen" count="1" listId0="32"/>
-
-	<tradelist_template npc_id="203542" name="Denma" count="1" listId0="132"/>
-
-	<tradelist_template npc_id="798038" name="Crizpinerk" count="1" listId0="132"/>
-
-
-	<!-- Altgard -->
-	<tradelist_template npc_id="203577" name="Dortos" count="4" listId0="270" listId1="271" listId2="272" listId3="273"/>
-
-	<tradelist_template npc_id="203578" name="Lunber" count="4" listId0="266" listId1="267" listId2="268" listId3="269"/>
-
-	<tradelist_template npc_id="203579" name="Donabe" count="1" listId0="398"/>
-
-	<tradelist_template npc_id="203657" name="Sarad" count="1" listId0="276"/>
-
-	<tradelist_template npc_id="798123" name="Lakurunerk" count="1" listId0="318"/>
-
-	<tradelist_template npc_id="203576" name="Nirmirn" count="1" listId0="143"/>
-
-	<tradelist_template npc_id="203615" name="bergard" count="3" listId0="118" listId1="142" listId2="143"/>
-
-	<tradelist_template npc_id="203579" name="Donade" count="2" listId0="399" listId1="118"/>
-
-	<tradelist_template npc_id="204129" name="Dorein" count="1" listId0="350"/>
-
-	<tradelist_template npc_id="203613" name="Gilungk" count="1" listId0="348"/>
-
-	<tradelist_template npc_id="203619" name="Nornes" count="2" listId0="404" listId1="277"/>
-
-	<tradelist_template npc_id="798030" name="Japayerk" count="2" listId0="142" listId1="143"/>
-
-
-	<!-- Pandaemonium -->
-	<tradelist_template npc_id="204177" name="Malfaisante" count="1" listId0="349"/>
-
-	<tradelist_template npc_id="204184" name="Igsrun" count="4" listId0="270" listId1="271" listId2="272" listId3="273" />
-
-	<tradelist_template npc_id="204205" name="Mareke" count="1" listId0="291"/>
-
-	<tradelist_template npc_id="204204" name="Haink" count="1" listId0="286"/>
-
-	<tradelist_template npc_id="798068" name="Maochinicherk" count="1" listId0="155"/>
-
-	<tradelist_template npc_id="204183" name="Isdal" count="4" listId0="278" listId1="279" listId2="280" listId3="281" />
-
-	<tradelist_template npc_id="204274" name="Huron" count="1" listId0="426"/>
-
-	<tradelist_template npc_id="204099" name="Areke" count="1" listId0="430"/>
-
-	<tradelist_template npc_id="204101" name="Daraia" count="3" listId0="93" listId1="99" listId2="479"/>
-
-	<tradelist_template npc_id="204107" name="Grupaks" count="3" listId0="89" listId1="64" listId2="479"/>
-
-	<tradelist_template npc_id="204204" name="Haink" count="1" listId0="286"/>
-
-	<tradelist_template npc_id="204103" name="Grad" count="2" listId0="92" listId1="98"/>
-
-	<tradelist_template npc_id="204202" name="Nekai" count="1" listId0="398"/>
-
-	<tradelist_template npc_id="798060" name="Obirunerk" count="3" listId0="91" listId1="97" listId2="479"/>
-
-	<tradelist_template npc_id="204111" name="Kaiot" count="3" listId0="96" listId1="90" listId2="479"/>
-
-	<tradelist_template npc_id="204097" name="Relir" count="1" listId0="429"/>
-
-	<tradelist_template npc_id="204084" name="Vidarini" count="1" listId0="118"/>
-
-	<tradelist_template npc_id="798153" name="Lyeikunerk" count="2" listId0="431" listId1="441"/>
-
-	<tradelist_template npc_id="204125" name="Niz" count="4" listId0="302" listId1="303" listId2="304" listId3="305"/>
-
-	<tradelist_template npc_id="204126" name="Merar" count="1" listId0="306"/>
-
-	<tradelist_template npc_id="204124" name="Hoki" count="4" listId0="302" listId1="303" listId2="304" listId3="305"/>
-
-	<tradelist_template npc_id="204122" name="Yuret" count="4" listId0="298" listId1="299" listId2="300" listId3="301"/>
-
-	<tradelist_template npc_id="204118" name="Gerad" count="3" listId0="308" listId1="309" listId2="475"/>
-
-	<tradelist_template npc_id="204123" name="Kroia" count="4" listId0="298" listId1="299" listId2="300" listId3="301"/>
-
-	<tradelist_template npc_id="204120" name="Lark" count="3" listId0="352" listId1="462" listId2="472"/>
-
-	<tradelist_template npc_id="204121" name="Kinot" count="1" listId0="293"/>
-
-	<tradelist_template npc_id="204128" name="Kitanya" count="1" listId0="350"/>
-
-	<tradelist_template npc_id="204051" name="Vergelmir" count="1" listId0="294"/>
-
-	<tradelist_template npc_id="204083" name="Lyfjaberga" count="2" listId0="37" listId1="38"/>
-
-	<tradelist_template npc_id="204081" name="Thialfi" count="2" listId0="35" listId1="36"/>
-
-	<tradelist_template npc_id="204082" name="Ve" count="2" listId0="39" listId1="40"/>
-
-	<tradelist_template npc_id="204080" name="Kalsten" count="2" listId0="33" listId1="34"/>
-
-	<tradelist_template npc_id="204056" name="Traufnir" count="2" listId0="41" listId1="42"/>
-
-	<tradelist_template npc_id="204058" name="Sif" count="2" listId0="47" listId1="48"/>
-
-	<tradelist_template npc_id="204057" name="Sigyn" count="2" listId0="43" listId1="44"/>
-
-	<tradelist_template npc_id="204059" name="Freyr" count="2" listId0="45" listId1="46"/>
-
-	<tradelist_template npc_id="204105" name="Mima" count="3" listId0="88" listId1="94" listId2="479"/>
-
-	<tradelist_template npc_id="204203" name="Njomi" count="1" listId0="290"/>
-	
-	<tradelist_template npc_id="204173" name="Jeckrow" count="1" listId0="349"/>
-	
-	<tradelist_template npc_id="204062" name="Groa" count="1" listId0="118"/>
-	
-	<tradelist_template npc_id="204117" name="Olda" count="4" listId0="295" listId1="296" listId2="297" listId3="475"/>
-	
-	<tradelist_template npc_id="204262" name="Skan" count="2" listId0="359" listId1="360"/>
-	
-	<!-- Poeta -->
-	<!-- Akarios Village -->
-	<tradelist_template npc_id="203061" name="Uno" count="1" listId0="265"/>
-
-	<tradelist_template npc_id="203063" name="Amus" count="2" listId0="259" listId1="260"/>
-
-	<tradelist_template npc_id="203060" name="Mune" count="4" listId0="261" listId1="262" listId2="263" listId3="454"/>
-
-	<tradelist_template npc_id="203080" name="Lonian" count="1" listId0="264"/>
-
-	<tradelist_template npc_id="203087" name="Kunandes" count="1" listId0="29"/>
-
-	<tradelist_template npc_id="203089" name="Esera" count="1" listId0="30"/>
-
-	<tradelist_template npc_id="203088" name="Gilden" count="1" listId0="31"/>
-
-	<tradelist_template npc_id="203090" name="Kagas" count="1" listId0="32"/>
-
-	<tradelist_template npc_id="798007" name="Minalinerk" count="1" listId0="132"/>
-
-
-	<!-- Verteron -->
-    <tradelist_template npc_id="203094" name="Drasia" count="1" listId0="133"/>
-
-	<tradelist_template npc_id="203100" name="Ivis" count="4" listId0="134" listId1="135" listId2="136" listId3="137" />
-
-	<tradelist_template npc_id="203101" name="Nadaelo" count="4" listId0="138" listId1="139" listId2="140" listId3="141" />
-
-	<tradelist_template npc_id="203107" name="Irian" count="2" listId0="118" listId1="395"/>
-
-	<tradelist_template npc_id="203108" name="Ispio" count="1" listId0="143"/>
-
-	<tradelist_template npc_id="203130" name="Eradis" count="1" listId0="188"/>
-
-	<tradelist_template npc_id="203158" name="Ibion" count="2" listId0="142" listId1="143"/>
-
-	<tradelist_template npc_id="203131" name="Maniparas" count="3" listId0="142" listId1="143" listId2="239"/>
-
-	<tradelist_template npc_id="798124" name="Feimerk" count="1" listId0="142"/>
-
-
-	<!-- Sanctum -->
-	<tradelist_template npc_id="203735" name="Himusus" count="1" listId0="394"/>
-
-	<tradelist_template npc_id="203728" name="Evestina" count="4" listId0="149" listId1="150" listId2="151" listId3="152" />
-
-	<tradelist_template npc_id="203733" name="Pulo" count="1" listId0="452"/>
-
-	<tradelist_template npc_id="203734" name="Brantes" count="1" listId0="158"/>
-
-	<tradelist_template npc_id="203736" name="Servillia" count="1" listId0="155"/>
-
-	<tradelist_template npc_id="203727" name="Tunotos" count="4" listId0="145" listId1="146" listId2="147" listId3="148" />
-
- 	<tradelist_template npc_id="203761" name="Hygea" count="2" listId0="10" listId1="9"/>
-
-	<tradelist_template npc_id="203758" name="Macus" count="2" listId0="5" listId1="6"/>
-
-	<tradelist_template npc_id="203760" name="Bellia" count="2" listId0="11" listId1="12"/>
-
-	<tradelist_template npc_id="203759" name="Eumelos" count="2" listId0="7" listId1="8"/>
-
-	<tradelist_template npc_id="203892" name="Elephenor" count="1" listId0="118"/>
-
- 	<tradelist_template npc_id="203707" name="Thrasymedes" count="2" listId0="17" listId1="18"/>
-
-	<tradelist_template npc_id="203706" name="Charna" count="2" listId0="19" listId1="20"/>
-
-	<tradelist_template npc_id="203705" name="Jumentis" count="2" listId0="15" listId1="16"/>
-
-	<tradelist_template npc_id="203704" name="Boreas" count="2" listId0="13" listId1="14"/>
-
-	<tradelist_template npc_id="203891" name="Karon" count="1" listId0="118"/>
-
-	<tradelist_template npc_id="203709" name="Clymene" count="1" listId0="119"/>
-
-	<tradelist_template npc_id="798013" name="Chiwurinerk" count="3" listId0="60" listId1="66" listId2="478"/>
-
-	<tradelist_template npc_id="203787" name="Darius" count="2" listId0="67" listId1="61"/>
-
-	<tradelist_template npc_id="203791" name="Menomes" count="2" listId0="63" listId1="58"/>
-
-	<tradelist_template npc_id="203789" name="Nakia" count="2" listId0="63" listId1="79"/>
-
-	<tradelist_template npc_id="203794" name="Proserpina" count="2" listId0="65" listId1="59"/>
-
-	<tradelist_template npc_id="203785" name="Luelas" count="2" listId0="68" listId1="62"/>
-
-	<tradelist_template npc_id="203781" name="Sabotes" count="1" listId0="427"/>
-
-	<tradelist_template npc_id="203783" name="Maire" count="1" listId0="428"/>
-
-	<tradelist_template npc_id="203724" name="Gwenspena" count="2" listId0="357" listId1="358"/>
-
-	<tradelist_template npc_id="203809" name="Perena" count="3" listId0="162" listId1="163" listId2="164"/>
-
-	<tradelist_template npc_id="203808" name="Ophenes" count="2" listId0="175" listId1="176"/>
-
-	<tradelist_template npc_id="203814" name="Euchenor" count="4" listId0="165" listId1="166" listId2="167" listId3="168"/>
-
-	<tradelist_template npc_id="203813" name="Esca" count="4" listId0="165" listId1="166" listId2="167" listId3="168"/>
-
-	<tradelist_template npc_id="203816" name="Hesione" count="4" listId0="169" listId1="170" listId2="171" listId3="172"/>
-
-	<tradelist_template npc_id="203815" name="Soana" count="4" listId0="169" listId1="170" listId2="171" listId3="172"/>
-
-	<tradelist_template npc_id="203811" name="Arcinia" count="2" listId0="351" listId1="460"/>
-
-	<tradelist_template npc_id="203812" name="Jooma" count="1" listId0="160"/>
-
-	<tradelist_template npc_id="203819" name="Aktus" count="1" listId0="174"/>
-
-	<tradelist_template npc_id="203732" name="Judisina" count="1" listId0="157"/>
-
-	<tradelist_template npc_id="203817" name="Aegist" count="1" listId0="173"/>
-
-	<tradelist_template npc_id="203879" name="Idomeneus" count="1" listId0="425"/>
-
-	<tradelist_template npc_id="203884" name="Atifure" count="1" listId0="174"/>
-
-	<tradelist_template npc_id="203884" name="Tures" count="1" listId0="174"/>
-
-	<tradelist_template npc_id="798013" name="Chiwurinerk" count="3" listId0="60" listId1="66" listId2="478"/>
-
-	<tradelist_template npc_id="798152" name="Ayurinrinerk" count="2" listId0="431" listId1="436"/>
-
-
-	<!-- Elthen -->
-	<tradelist_template npc_id="203922" name="Hibrion" count="4" listId0="177" listId1="178" listId2="179" listId3="180" />
-
-	<tradelist_template npc_id="203923" name="Krato" count="4" listId0="181" listId1="182" listId2="183" listId3="184" />
-
-	<tradelist_template npc_id="790004" name="Hannet" count="2" listId0="185" listId1="239"/>
-
-	<tradelist_template npc_id="203925" name="Octavia" count="1" listId0="174"/>
-
-
-	<!-- Theobomos -->
-	<tradelist_template npc_id="798220" name="Prokinu" count="4" listId0="485" listId1="486" listId2="487" listId3="488"/>
-
-	<tradelist_template npc_id="798219" name="Terusas" count="4" listId0="481" listId1="482" listId2="483" listId3="484"/>
-
-
-	<!-- Heiron -->
-	<tradelist_template npc_id="204523" name="Jukabe" count="4" listId0="189" listId1="190" listId2="191" listId3="192"/>
-
-	<tradelist_template npc_id="204524" name="Kelber" count="5" listId0="193" listId1="194" listId2="195" listId3="196" listId4="453"/>
-
-	<tradelist_template npc_id="204528" name="Orhes" count="1" listId0="234"/>
-
-	<tradelist_template npc_id="204525" name="Resha" count="1" listId0="174"/>
-
-	<tradelist_template npc_id="204633" name="Roina" count="2" listId0="234" listId1="318"/>
-
-	<tradelist_template npc_id="204535" name="Maximus" count="3" listId0="118" listId1="197" listId2="155"/>
-
-	<tradelist_template npc_id="798097" name="Tabrinerk" count="2" listId0="220" listId1="444"/>
-
-
-	<!-- Brusthonin -->
-	<tradelist_template npc_id="205120" name="Blume" count="2" listId0="118" listId1="353"/>
-
-	<tradelist_template npc_id="205121" name="Jarnsaxa" count="1" listId0="471"/>
-
-	<tradelist_template npc_id="205218" name="Jadorunerk" count="1" listId0="477"/>
-	
-	<tradelist_template npc_id="205146" name="Banes" count="2" listId0="118" listId1="469"/>
-	
-	<tradelist_template npc_id="205221" name="Hjuki" count="4" listId0="389" listId1="390" listId2="391" listId3="392"/>
-	
-	<tradelist_template npc_id="205147" name="Sandvika" count="1" listId0="471"/>
-	
-	<tradelist_template npc_id="205220" name="Suttung" count="4" listId0="493" listId1="494" listId2="495" listId3="496"/>
-	
-	
-	<!-- Morheim -->
-	<tradelist_template npc_id="790011" name="Grammati" count="2" listId0="118" listId1="318"/>
-
-	<tradelist_template npc_id="790012" name="Valumcus" count="1" listId0="471"/>
-	
-	<tradelist_template npc_id="204335" name="Aprily" count="2" listId0="118" listId1="318"/>
-	
-	<tradelist_template npc_id="204321" name="Arnkell" count="4" listId0="310" listId1="311" listId2="312" listId3="313"/>
-	
-	<tradelist_template npc_id="205179" name="Bubu Lin" count="2" listId0="118" listId1="477"/>
-	
-	<tradelist_template npc_id="204375" name="Otis" count="1" listId0="471"/>
-	
-	<tradelist_template npc_id="204322" name="Verbern" count="5" listId0="365" listId1="366" listId2="367" listId3="368" listId4="369"/>
-	
-	
-	<!-- Beluslan -->
-	<tradelist_template npc_id="204731" name="Aurvandil" count="1" listId0="471"/>
-	
-	<tradelist_template npc_id="204737" name="Furiga" count="1" listId0="471"/>
-	
-	<tradelist_template npc_id="204727" name="Kari" count="5" listId0="365" listId1="366" listId2="367" listId3="368" listId4="369"/>
-	
-	<tradelist_template npc_id="204728" name="Lapion" count="2" listId0="118" listId1="401"/>
-	
-	<tradelist_template npc_id="204730" name="Mundilfari" count="1" listId0="373"/>
-	
-	<tradelist_template npc_id="204726" name="Sturluson" count="4" listId0="321" listId1="322" listId2="323" listId3="324"/>
-	
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc_trade_list>
+    <tradelist_template npc_id="203060" name="mune" count="4" listId0="129" listId1="130" listId2="131" listId3="450"/>
+    <tradelist_template npc_id="203061" name="uno" count="1" listId0="133"/>
+    <tradelist_template npc_id="203063" name="amus" count="2" listId0="127" listId1="128"/>
+    <tradelist_template npc_id="203080" name="lonian" count="1" listId0="132"/>
+    <tradelist_template npc_id="203081" name="oz" count="1" listId0="132"/>
+    <tradelist_template npc_id="203082" name="tula" count="1" listId0="132"/>
+    <tradelist_template npc_id="203087" name="kunandes" count="1" listId0="1"/>
+    <tradelist_template npc_id="203088" name="gilden" count="1" listId0="3"/>
+    <tradelist_template npc_id="203089" name="esera" count="1" listId0="2"/>
+    <tradelist_template npc_id="203090" name="kagas" count="1" listId0="4"/>
+    <tradelist_template npc_id="203094" name="drasia" count="2" listId0="144" listId1="69"/>
+    <tradelist_template npc_id="203100" name="ivis" count="4" listId0="134" listId1="135" listId2="136" listId3="137"/>
+    <tradelist_template npc_id="203101" name="nadaelo" count="5" listId0="138" listId1="139" listId2="140" listId3="141" listId4="451"/>
+    <tradelist_template npc_id="203107" name="irian" count="2" listId0="395" listId1="239"/>
+    <tradelist_template npc_id="203108" name="ispio" count="1" listId0="143"/>
+    <tradelist_template npc_id="203130" name="eradis" count="1" listId0="188"/>
+    <tradelist_template npc_id="203131" name="maniparas" count="3" listId0="142" listId1="143" listId2="239"/>
+    <tradelist_template npc_id="203158" name="ibion" count="2" listId0="142" listId1="143"/>
+    <tradelist_template npc_id="203161" name="eninte" count="1" listId0="156"/>
+    <tradelist_template npc_id="203200" name="weapon emporium" count="1" listId0="240"/>
+    <tradelist_template npc_id="203224" name="&quot;cloth, leather emporium&quot;" count="1" listId0="241"/>
+    <tradelist_template npc_id="203225" name="&quot;chain, plate emporium&quot;" count="1" listId0="242"/>
+    <tradelist_template npc_id="203226" name="weapon emporium" count="1" listId0="331"/>
+    <tradelist_template npc_id="203227" name="&quot;cloth, leather emporium&quot;" count="1" listId0="332"/>
+    <tradelist_template npc_id="203228" name="&quot;chain, plate emporium&quot;" count="1" listId0="333"/>
+    <tradelist_template npc_id="203234" name="collecting material emporium" count="3" listId0="119" listId1="120" listId2="442"/>
+    <tradelist_template npc_id="203235" name="crafting parts emporium" count="2" listId0="123" listId1="125"/>
+    <tradelist_template npc_id="203236" name="collecting material emporium" count="3" listId0="121" listId1="122" listId2="443"/>
+    <tradelist_template npc_id="203237" name="crafting parts emporium" count="2" listId0="124" listId1="126"/>
+    <tradelist_template npc_id="203248" name="test asmodian weaponsmithing merchant" count="2" listId0="94" listId1="88"/>
+    <tradelist_template npc_id="203249" name="test asmodian armorsmithing merchant" count="2" listId0="95" listId1="89"/>
+    <tradelist_template npc_id="203250" name="test asmodian alchemy merchant" count="2" listId0="98" listId1="92"/>
+    <tradelist_template npc_id="203251" name="test asmodian handicrafting merchant" count="2" listId0="97" listId1="91"/>
+    <tradelist_template npc_id="203252" name="test asmodian tailoring merchant" count="2" listId0="96" listId1="90"/>
+    <tradelist_template npc_id="203253" name="test asmodian cooking merchant" count="2" listId0="99" listId1="93"/>
+    <tradelist_template npc_id="203254" name="test elyos monster drop weapon common" count="1" listId0="245"/>
+    <tradelist_template npc_id="203255" name="test elyos monster drop weapon superior" count="2" listId0="246" listId1="405"/>
+    <tradelist_template npc_id="203256" name="test elyos monster drop cloth common" count="1" listId0="248"/>
+    <tradelist_template npc_id="203257" name="test elyos monster drop cloth superior" count="2" listId0="249" listId1="406"/>
+    <tradelist_template npc_id="203258" name="test elyos monster drop leather common" count="1" listId0="250"/>
+    <tradelist_template npc_id="203259" name="test elyos monster drop leather superior" count="2" listId0="251" listId1="407"/>
+    <tradelist_template npc_id="203260" name="test elyos monster drop chain common" count="1" listId0="252"/>
+    <tradelist_template npc_id="203261" name="test elyos monster drop chain superior" count="2" listId0="253" listId1="408"/>
+    <tradelist_template npc_id="203262" name="test elyos monster drop plate common" count="1" listId0="254"/>
+    <tradelist_template npc_id="203263" name="test elyos monster drop plate superior" count="2" listId0="255" listId1="409"/>
+    <tradelist_template npc_id="203264" name="test elyos monster drop shield" count="3" listId0="247" listId1="258" listId2="414"/>
+    <tradelist_template npc_id="203265" name="test elyos monster drop accessory" count="1" listId0="256"/>
+    <tradelist_template npc_id="203266" name="test asmodian monster drop weapon common" count="1" listId0="335"/>
+    <tradelist_template npc_id="203267" name="test asmodian monster drop weapon superior" count="2" listId0="336" listId1="405"/>
+    <tradelist_template npc_id="203268" name="test asmodian monster drop cloth common" count="1" listId0="338"/>
+    <tradelist_template npc_id="203269" name="test asmodian monster drop cloth superior" count="2" listId0="339" listId1="410"/>
+    <tradelist_template npc_id="203270" name="test asmodian monster drop leather common" count="1" listId0="340"/>
+    <tradelist_template npc_id="203271" name="test asmodian monster drop leather superior" count="2" listId0="341" listId1="411"/>
+    <tradelist_template npc_id="203272" name="test asmodian monster drop chain common" count="1" listId0="342"/>
+    <tradelist_template npc_id="203273" name="test asmodian monster drop chain superior" count="2" listId0="343" listId1="412"/>
+    <tradelist_template npc_id="203274" name="test asmodian monster drop plate common" count="1" listId0="344"/>
+    <tradelist_template npc_id="203275" name="test asmodian monster drop plate superior" count="2" listId0="345" listId1="413"/>
+    <tradelist_template npc_id="203276" name="test elyos monster drop shield" count="3" listId0="337" listId1="347" listId2="414"/>
+    <tradelist_template npc_id="203277" name="test asmodian monster drop accessory" count="1" listId0="346"/>
+    <tradelist_template npc_id="203288" name="gladiator skill book merchant (elyos)" count="1" listId0="21"/>
+    <tradelist_template npc_id="203289" name="templar skill book merchant (elyos)" count="1" listId0="22"/>
+    <tradelist_template npc_id="203290" name="ranger skill book merchant (elyos)" count="1" listId0="23"/>
+    <tradelist_template npc_id="203291" name="assassin skill book merchant (elyos)" count="1" listId0="24"/>
+    <tradelist_template npc_id="203292" name="sorcerer skill book merchant (elyos)" count="1" listId0="27"/>
+    <tradelist_template npc_id="203293" name="spiritmaster skill book merchant (elyos)" count="1" listId0="28"/>
+    <tradelist_template npc_id="203294" name="cleric skill book merchant (elyos)" count="1" listId0="25"/>
+    <tradelist_template npc_id="203295" name="chanter skill book merchant (elyos)" count="1" listId0="26"/>
+    <tradelist_template npc_id="203296" name="gladiator skill book merchant (asmodian)" count="1" listId0="49"/>
+    <tradelist_template npc_id="203297" name="templar skill book merchant (asmodian)" count="1" listId0="50"/>
+    <tradelist_template npc_id="203298" name="ranger skill book merchant (asmodian)" count="1" listId0="51"/>
+    <tradelist_template npc_id="203299" name="assassin skill book merchant (asmodian)" count="1" listId0="52"/>
+    <tradelist_template npc_id="203300" name="sorcerer skill book merchant (asmodian)" count="1" listId0="55"/>
+    <tradelist_template npc_id="203301" name="spiritmaster skill book merchant (asmodian)" count="1" listId0="56"/>
+    <tradelist_template npc_id="203302" name="cleric skill book merchant (asmodian)" count="1" listId0="53"/>
+    <tradelist_template npc_id="203303" name="chanter skill book merchant (asmodian)" count="1" listId0="54"/>
+    <tradelist_template npc_id="203304" name="cooking skill merchant (elyos)" count="2" listId0="86" listId1="87"/>
+    <tradelist_template npc_id="203305" name="weaponsmithing skill merchant (elyos)" count="2" listId0="79" listId1="87"/>
+    <tradelist_template npc_id="203306" name="armorsmithing skill merchant (elyos)" count="3" listId0="80" listId1="81" listId2="87"/>
+    <tradelist_template npc_id="203307" name="handicrafting skill merchant (elyos)" count="2" listId0="84" listId1="87"/>
+    <tradelist_template npc_id="203308" name="alchemy skill merchant (elyos)" count="2" listId0="85" listId1="87"/>
+    <tradelist_template npc_id="203309" name="tailoring skill merchant (elyos)" count="3" listId0="82" listId1="83" listId2="87"/>
+    <tradelist_template npc_id="203310" name="cooking skill merchant (asmodian)" count="2" listId0="116" listId1="117"/>
+    <tradelist_template npc_id="203311" name="weaponsmithing skill merchant (asmodian)" count="2" listId0="109" listId1="117"/>
+    <tradelist_template npc_id="203312" name="armorsmithing skill merchant (asmodian)" count="3" listId0="110" listId1="111" listId2="117"/>
+    <tradelist_template npc_id="203313" name="handicrafting skill merchant (asmodian)" count="2" listId0="114" listId1="117"/>
+    <tradelist_template npc_id="203314" name="alchemy skill merchant (asmodian)" count="2" listId0="115" listId1="117"/>
+    <tradelist_template npc_id="203315" name="tailoring skill merchant (asmodian)" count="3" listId0="112" listId1="113" listId2="117"/>
+    <tradelist_template npc_id="203339" name="lv10 average equipment" count="1" listId0="415"/>
+    <tradelist_template npc_id="203340" name="lv20 average equipment" count="1" listId0="416"/>
+    <tradelist_template npc_id="203341" name="lv30 average equipment" count="1" listId0="417"/>
+    <tradelist_template npc_id="203342" name="lv40 average equipment" count="1" listId0="418"/>
+    <tradelist_template npc_id="203343" name="lv50 average equipment" count="1" listId0="419"/>
+    <tradelist_template npc_id="203344" name="lv10 average equipment" count="1" listId0="420"/>
+    <tradelist_template npc_id="203345" name="lv20 average equipment" count="1" listId0="421"/>
+    <tradelist_template npc_id="203346" name="lv30 average equipment" count="1" listId0="422"/>
+    <tradelist_template npc_id="203347" name="lv40 average equipment" count="1" listId0="423"/>
+    <tradelist_template npc_id="203348" name="lv50 average equipment" count="1" listId0="424"/>
+    <tradelist_template npc_id="203514" name="hephe" count="2" listId0="259" listId1="260"/>
+    <tradelist_template npc_id="203515" name="dalor" count="4" listId0="261" listId1="262" listId2="263" listId3="454"/>
+    <tradelist_template npc_id="203526" name="ungfu" count="1" listId0="265"/>
+    <tradelist_template npc_id="203527" name="minu" count="1" listId0="29"/>
+    <tradelist_template npc_id="203528" name="wiokan" count="1" listId0="31"/>
+    <tradelist_template npc_id="203529" name="jurwen" count="1" listId0="30"/>
+    <tradelist_template npc_id="203530" name="kirhen" count="1" listId0="32"/>
+    <tradelist_template npc_id="203542" name="denma" count="1" listId0="264"/>
+    <tradelist_template npc_id="203576" name="nirmirn" count="1" listId0="275"/>
+    <tradelist_template npc_id="203577" name="dortos" count="5" listId0="270" listId1="271" listId2="272" listId3="273" listId4="455"/>
+    <tradelist_template npc_id="203578" name="lunber" count="4" listId0="266" listId1="267" listId2="268" listId3="269"/>
+    <tradelist_template npc_id="203579" name="donabe" count="2" listId0="399" listId1="118"/>
+    <tradelist_template npc_id="203605" name="loriniah" count="1" listId0="276"/>
+    <tradelist_template npc_id="203613" name="gilungk" count="1" listId0="348"/>
+    <tradelist_template npc_id="203615" name="bergard" count="3" listId0="274" listId1="275" listId2="118"/>
+    <tradelist_template npc_id="203619" name="nornes" count="2" listId0="277" listId1="404"/>
+    <tradelist_template npc_id="203657" name="sarad" count="1" listId0="276"/>
+    <tradelist_template npc_id="203704" name="boreas" count="2" listId0="13" listId1="14"/>
+    <tradelist_template npc_id="203705" name="jumentis" count="2" listId0="15" listId1="16"/>
+    <tradelist_template npc_id="203706" name="charna" count="2" listId0="19" listId1="20"/>
+    <tradelist_template npc_id="203707" name="thrasymedes" count="2" listId0="17" listId1="18"/>
+    <tradelist_template npc_id="203709" name="clymene" count="1" listId0="161"/>
+    <tradelist_template npc_id="203724" name="gwenspena" count="2" listId0="357" listId1="358"/>
+    <tradelist_template npc_id="203727" name="tunotos" count="4" listId0="145" listId1="146" listId2="147" listId3="148"/>
+    <tradelist_template npc_id="203728" name="evestina" count="4" listId0="149" listId1="150" listId2="151" listId3="152"/>
+    <tradelist_template npc_id="203732" name="judisina" count="1" listId0="157"/>
+    <tradelist_template npc_id="203733" name="pulo" count="1" listId0="153"/>
+    <tradelist_template npc_id="203734" name="brantes" count="2" listId0="158" listId1="159"/>
+    <tradelist_template npc_id="203735" name="himusus" count="1" listId0="394"/>
+    <tradelist_template npc_id="203736" name="servillia" count="1" listId0="155"/>
+    <tradelist_template npc_id="203758" name="macus" count="2" listId0="5" listId1="6"/>
+    <tradelist_template npc_id="203759" name="eumelos" count="2" listId0="7" listId1="8"/>
+    <tradelist_template npc_id="203760" name="bellia" count="2" listId0="11" listId1="12"/>
+    <tradelist_template npc_id="203761" name="hygea" count="2" listId0="9" listId1="10"/>
+    <tradelist_template npc_id="203781" name="sabotes" count="1" listId0="427"/>
+    <tradelist_template npc_id="203783" name="maire" count="1" listId0="428"/>
+    <tradelist_template npc_id="203785" name="luelas" count="3" listId0="68" listId1="62" listId2="478"/>
+    <tradelist_template npc_id="203787" name="darius" count="3" listId0="67" listId1="61" listId2="478"/>
+    <tradelist_template npc_id="203789" name="nakia" count="3" listId0="63" listId1="57" listId2="478"/>
+    <tradelist_template npc_id="203791" name="menomes" count="3" listId0="64" listId1="58" listId2="478"/>
+    <tradelist_template npc_id="203794" name="proserpina" count="3" listId0="65" listId1="59" listId2="478"/>
+    <tradelist_template npc_id="203808" name="ophenes" count="3" listId0="175" listId1="176" listId2="474"/>
+    <tradelist_template npc_id="203809" name="perena" count="4" listId0="162" listId1="163" listId2="164" listId3="474"/>
+    <tradelist_template npc_id="203811" name="arcinia" count="3" listId0="351" listId1="460" listId2="472"/>
+    <tradelist_template npc_id="203812" name="jooma" count="1" listId0="160"/>
+    <tradelist_template npc_id="203813" name="esca" count="4" listId0="165" listId1="166" listId2="167" listId3="168"/>
+    <tradelist_template npc_id="203814" name="euchenor" count="4" listId0="165" listId1="166" listId2="167" listId3="168"/>
+    <tradelist_template npc_id="203815" name="soana" count="4" listId0="169" listId1="170" listId2="171" listId3="172"/>
+    <tradelist_template npc_id="203816" name="hesione" count="4" listId0="169" listId1="170" listId2="171" listId3="172"/>
+    <tradelist_template npc_id="203817" name="aegist" count="1" listId0="173"/>
+    <tradelist_template npc_id="203819" name="aktus" count="1" listId0="174"/>
+    <tradelist_template npc_id="203879" name="idomeneus" count="1" listId0="425"/>
+    <tradelist_template npc_id="203884" name="atifure" count="1" listId0="156"/>
+    <tradelist_template npc_id="203885" name="tures" count="1" listId0="156"/>
+    <tradelist_template npc_id="203888" name="tigares" count="2" listId0="553" listId1="555"/>
+    <tradelist_template npc_id="203891" name="karon" count="1" listId0="239"/>
+    <tradelist_template npc_id="203892" name="elephenor" count="1" listId0="239"/>
+    <tradelist_template npc_id="203922" name="hibrion" count="4" listId0="177" listId1="178" listId2="179" listId3="180"/>
+    <tradelist_template npc_id="203923" name="krato" count="5" listId0="181" listId1="182" listId2="183" listId3="184" listId4="452"/>
+    <tradelist_template npc_id="203925" name="octavia" count="1" listId0="174"/>
+    <tradelist_template npc_id="204051" name="vergelmir" count="1" listId0="294"/>
+    <tradelist_template npc_id="204056" name="traufnir" count="2" listId0="41" listId1="42"/>
+    <tradelist_template npc_id="204057" name="sigyn" count="2" listId0="43" listId1="44"/>
+    <tradelist_template npc_id="204058" name="sif" count="2" listId0="47" listId1="48"/>
+    <tradelist_template npc_id="204059" name="freyr" count="2" listId0="45" listId1="46"/>
+    <tradelist_template npc_id="204062" name="groa" count="1" listId0="118"/>
+    <tradelist_template npc_id="204080" name="kalsten" count="2" listId0="33" listId1="34"/>
+    <tradelist_template npc_id="204081" name="thialfi" count="2" listId0="35" listId1="36"/>
+    <tradelist_template npc_id="204082" name="ve" count="2" listId0="39" listId1="40"/>
+    <tradelist_template npc_id="204083" name="lyfjaberga" count="2" listId0="37" listId1="38"/>
+    <tradelist_template npc_id="204084" name="vidarini" count="1" listId0="118"/>
+    <tradelist_template npc_id="204097" name="relir" count="1" listId0="429"/>
+    <tradelist_template npc_id="204099" name="areke" count="1" listId0="430"/>
+    <tradelist_template npc_id="204101" name="daraia" count="3" listId0="99" listId1="93" listId2="479"/>
+    <tradelist_template npc_id="204103" name="grad" count="3" listId0="98" listId1="92" listId2="479"/>
+    <tradelist_template npc_id="204105" name="mima" count="3" listId0="94" listId1="88" listId2="479"/>
+    <tradelist_template npc_id="204107" name="grupaks" count="3" listId0="95" listId1="89" listId2="479"/>
+    <tradelist_template npc_id="204111" name="kaiot" count="3" listId0="96" listId1="90" listId2="479"/>
+    <tradelist_template npc_id="204117" name="olda" count="4" listId0="295" listId1="296" listId2="297" listId3="475"/>
+    <tradelist_template npc_id="204118" name="gerad" count="3" listId0="308" listId1="309" listId2="475"/>
+    <tradelist_template npc_id="204120" name="lark" count="3" listId0="352" listId1="462" listId2="473"/>
+    <tradelist_template npc_id="204121" name="kinot" count="1" listId0="160"/>
+    <tradelist_template npc_id="204122" name="yuret" count="4" listId0="298" listId1="299" listId2="300" listId3="301"/>
+    <tradelist_template npc_id="204123" name="kroia" count="4" listId0="298" listId1="299" listId2="300" listId3="301"/>
+    <tradelist_template npc_id="204124" name="hoki" count="4" listId0="302" listId1="303" listId2="304" listId3="305"/>
+    <tradelist_template npc_id="204125" name="niz" count="4" listId0="302" listId1="303" listId2="304" listId3="305"/>
+    <tradelist_template npc_id="204126" name="merar" count="1" listId0="306"/>
+    <tradelist_template npc_id="204128" name="kitanya" count="1" listId0="350"/>
+    <tradelist_template npc_id="204129" name="dorein" count="1" listId0="350"/>
+    <tradelist_template npc_id="204173" name="jeckrow" count="1" listId0="349"/>
+    <tradelist_template npc_id="204177" name="malfaisante" count="1" listId0="349"/>
+    <tradelist_template npc_id="204183" name="isdal" count="4" listId0="278" listId1="279" listId2="280" listId3="281"/>
+    <tradelist_template npc_id="204184" name="igsrun" count="4" listId0="282" listId1="283" listId2="284" listId3="285"/>
+    <tradelist_template npc_id="204202" name="nekai" count="1" listId0="398"/>
+    <tradelist_template npc_id="204203" name="njomi" count="1" listId0="290"/>
+    <tradelist_template npc_id="204204" name="haink" count="1" listId0="286"/>
+    <tradelist_template npc_id="204205" name="mareke" count="2" listId0="291" listId1="292"/>
+    <tradelist_template npc_id="204262" name="skan" count="2" listId0="359" listId1="360"/>
+    <tradelist_template npc_id="204274" name="huron" count="1" listId0="426"/>
+    <tradelist_template npc_id="204279" name="sjalfi" count="2" listId0="554" listId1="556"/>
+    <tradelist_template npc_id="204321" name="arnkell" count="4" listId0="310" listId1="311" listId2="312" listId3="313"/>
+    <tradelist_template npc_id="204322" name="verbern" count="5" listId0="314" listId1="315" listId2="316" listId3="317" listId4="456"/>
+    <tradelist_template npc_id="204335" name="aprily" count="2" listId0="319" listId1="118"/>
+    <tradelist_template npc_id="204375" name="otis" count="1" listId0="307"/>
+    <tradelist_template npc_id="204523" name="jukabe" count="4" listId0="189" listId1="190" listId2="191" listId3="192"/>
+    <tradelist_template npc_id="204524" name="kelber" count="5" listId0="193" listId1="194" listId2="195" listId3="196" listId4="453"/>
+    <tradelist_template npc_id="204525" name="resha" count="1" listId0="174"/>
+    <tradelist_template npc_id="204528" name="orhes" count="1" listId0="155"/>
+    <tradelist_template npc_id="204534" name="senir" count="1" listId0="174"/>
+    <tradelist_template npc_id="204535" name="maximus" count="3" listId0="197" listId1="155" listId2="239"/>
+    <tradelist_template npc_id="204633" name="roina" count="2" listId0="185" listId1="155"/>
+    <tradelist_template npc_id="204634" name="lepharist revolutionary" count="2" listId0="185" listId1="155"/>
+    <tradelist_template npc_id="204726" name="sturluson" count="4" listId0="321" listId1="322" listId2="323" listId3="324"/>
+    <tradelist_template npc_id="204727" name="kari" count="5" listId0="325" listId1="326" listId2="327" listId3="328" listId4="457"/>
+    <tradelist_template npc_id="204728" name="lapion" count="2" listId0="401" listId1="118"/>
+    <tradelist_template npc_id="204730" name="mundilfari" count="1" listId0="155"/>
+    <tradelist_template npc_id="204731" name="aurvandil" count="1" listId0="289"/>
+    <tradelist_template npc_id="204737" name="furiga" count="1" listId0="289"/>
+    <tradelist_template npc_id="204791" name="baba kun" count="1" listId0="289"/>
+    <tradelist_template npc_id="204792" name="baba hun" count="2" listId0="329" listId1="118"/>
+    <tradelist_template npc_id="205120" name="blume" count="3" listId0="318" listId1="288" listId2="118"/>
+    <tradelist_template npc_id="205121" name="jarnsaxa" count="1" listId0="289"/>
+    <tradelist_template npc_id="205146" name="banes" count="2" listId0="469" listId1="118"/>
+    <tradelist_template npc_id="205147" name="sandvika" count="1" listId0="471"/>
+    <tradelist_template npc_id="205179" name="bubu lin" count="2" listId0="477" listId1="118"/>
+    <tradelist_template npc_id="205180" name="bubu paan" count="1" listId0="471"/>
+    <tradelist_template npc_id="205218" name="jadorunerk" count="1" listId0="498"/>
+    <tradelist_template npc_id="205220" name="suttung" count="4" listId0="493" listId1="494" listId2="495" listId3="496"/>
+    <tradelist_template npc_id="205221" name="hjuki" count="4" listId0="489" listId1="490" listId2="491" listId3="492"/>
+    <tradelist_template npc_id="205224" name="macaronerk" count="2" listId0="498" listId1="500"/>
+    <tradelist_template npc_id="790004" name="hannet" count="2" listId0="185" listId1="239"/>
+    <tradelist_template npc_id="790011" name="grammati" count="2" listId0="319" listId1="118"/>
+    <tradelist_template npc_id="790012" name="valumcus" count="1" listId0="307"/>
+    <tradelist_template npc_id="798007" name="minalinerk" count="1" listId0="132"/>
+    <tradelist_template npc_id="798008" name="baevrunerk" count="1" listId0="132"/>
+    <tradelist_template npc_id="798013" name="chiwurinerk" count="3" listId0="66" listId1="60" listId2="478"/>
+    <tradelist_template npc_id="798030" name="japayerk" count="2" listId0="274" listId1="275"/>
+    <tradelist_template npc_id="798037" name="bacorerk" count="2" listId0="274" listId1="275"/>
+    <tradelist_template npc_id="798038" name="crizpinerk" count="1" listId0="264"/>
+    <tradelist_template npc_id="798047" name="ramorunerk" count="2" listId0="219" listId1="444"/>
+    <tradelist_template npc_id="798048" name="chicorinerk" count="2" listId0="218" listId1="445"/>
+    <tradelist_template npc_id="798049" name="shaoranyerk" count="2" listId0="396" listId1="239"/>
+    <tradelist_template npc_id="798050" name="girrinerk" count="1" listId0="155"/>
+    <tradelist_template npc_id="798053" name="gyabrunerk" count="4" listId0="185" listId1="155" listId2="156" listId3="239"/>
+    <tradelist_template npc_id="798056" name="paepaerunerk" count="1" listId0="354"/>
+    <tradelist_template npc_id="798060" name="obirunerk" count="3" listId0="97" listId1="91" listId2="479"/>
+    <tradelist_template npc_id="798068" name="maochinicherk" count="1" listId0="155"/>
+    <tradelist_template npc_id="798071" name="dokurunerk" count="1" listId0="174"/>
+    <tradelist_template npc_id="798072" name="nagirinerk" count="3" listId0="154" listId1="155" listId2="239"/>
+    <tradelist_template npc_id="798073" name="aririnirerk" count="2" listId0="397" listId1="239"/>
+    <tradelist_template npc_id="798076" name="shoranarerk" count="1" listId0="155"/>
+    <tradelist_template npc_id="798080" name="sarinerk" count="1" listId0="354"/>
+    <tradelist_template npc_id="798081" name="pararinirerk" count="2" listId0="400" listId1="118"/>
+    <tradelist_template npc_id="798082" name="bicorunerk" count="1" listId0="155"/>
+    <tradelist_template npc_id="798090" name="reyrinirerk" count="2" listId0="329" listId1="118"/>
+    <tradelist_template npc_id="798094" name="kamochinicherk" count="2" listId0="329" listId1="118"/>
+    <tradelist_template npc_id="798095" name="cheerinrinerk" count="2" listId0="220" listId1="445"/>
+    <tradelist_template npc_id="798097" name="tabrinerk" count="2" listId0="220" listId1="444"/>
+    <tradelist_template npc_id="798106" name="chicorerk" count="2" listId0="354" listId1="448"/>
+    <tradelist_template npc_id="798107" name="hyuirinerk" count="2" listId0="353" listId1="449"/>
+    <tradelist_template npc_id="798109" name="liurerk" count="1" listId0="319"/>
+    <tradelist_template npc_id="798110" name="choirinererk" count="2" listId0="319" listId1="447"/>
+    <tradelist_template npc_id="798123" name="lakurunerk" count="1" listId0="274"/>
+    <tradelist_template npc_id="798124" name="feimerk" count="1" listId0="142"/>
+    <tradelist_template npc_id="798125" name="garurunerk" count="1" listId0="319"/>
+    <tradelist_template npc_id="798126" name="harumonerk" count="1" listId0="186"/>
+    <tradelist_template npc_id="798127" name="chiyorinrinerk" count="1" listId0="186"/>
+    <tradelist_template npc_id="798129" name="special administration officer" count="1" listId0="186"/>
+    <tradelist_template npc_id="798130" name="special administration officer" count="1" listId0="186"/>
+    <tradelist_template npc_id="798137" name="kuomonerk" count="3" listId0="185" listId1="155" listId2="239"/>
+    <tradelist_template npc_id="798138" name="gojirunerk" count="1" listId0="174"/>
+    <tradelist_template npc_id="798152" name="ayurinrinerk" count="2" listId0="431" listId1="436"/>
+    <tradelist_template npc_id="798153" name="lyeikunerk" count="2" listId0="431" listId1="441"/>
+    <tradelist_template npc_id="798168" name="caochenrinerk" count="2" listId0="468" listId1="239"/>
+    <tradelist_template npc_id="798169" name="cheorunerk" count="1" listId0="470"/>
+    <tradelist_template npc_id="798185" name="bororinerk" count="2" listId0="476" listId1="239"/>
+    <tradelist_template npc_id="798186" name="tanimonerk" count="2" listId0="470" listId1="480"/>
+    <tradelist_template npc_id="798217" name="boburunerk" count="1" listId0="497"/>
+    <tradelist_template npc_id="798219" name="terusas" count="4" listId0="481" listId1="482" listId2="483" listId3="484"/>
+    <tradelist_template npc_id="798220" name="prokinu" count="4" listId0="485" listId1="486" listId2="487" listId3="488"/>
+    <tradelist_template npc_id="798223" name="mikurinrinerk" count="2" listId0="497" listId1="499"/>
+    <tradelist_template npc_id="798303" name="andreas" count="1" listId0="458"/>
+    <tradelist_template npc_id="798304" name="seriphim" count="1" listId0="459"/>
+    <tradelist_template npc_id="798375" name="sommelikinerk" count="2" listId0="549" listId1="550"/>
+    <tradelist_template npc_id="798376" name="pegureronerk" count="4" listId0="548" listId1="519" listId2="520" listId3="521"/>
 </npc_trade_list>
