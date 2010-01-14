@@ -45,8 +45,9 @@ public class RespawnService
 			public void run()
 			{
 				world.setPosition(visibleObject, visibleObject.getSpawn().getWorldId(), visibleObject.getSpawn().getX(), visibleObject.getSpawn().getY(), visibleObject.getSpawn().getZ(), visibleObject.getSpawn().getHeading());
-				world.spawn(visibleObject);	
+				//call onRespawn before actual spawning
 				visibleObject.getController().onRespawn();
+				world.spawn(visibleObject);			
 			}
 		}, RESPAWN_DEFAULT_DELAY);
 

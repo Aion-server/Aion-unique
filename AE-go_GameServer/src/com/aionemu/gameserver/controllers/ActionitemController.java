@@ -89,8 +89,7 @@ public class ActionitemController extends NpcController
 	@Override
 	public void onRespawn()
 	{
-		this.decayTask = null;
+		super.onRespawn();
 		dropService.unregisterDrop(getOwner());
-		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
 	}
 }
