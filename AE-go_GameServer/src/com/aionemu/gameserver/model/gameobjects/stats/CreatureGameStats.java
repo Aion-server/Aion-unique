@@ -244,7 +244,7 @@ public class CreatureGameStats<T extends Creature>
 		{
 			for(StatModifier modifier : modifiers.getModifiers(priority))
 			{
-				int newValue = modifier.apply(oStat.getCurrent());
+				int newValue = modifier.apply(oStat.getBase());
 				if((this instanceof PlayerGameStats) && (log.isDebugEnabled()))
 				{
 					log.debug("Applying modifier " + modifier + " on stat " + oStat	+ "), result:" + newValue);
