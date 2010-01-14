@@ -29,8 +29,8 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
-import com.aionemu.gameserver.model.gameobjects.stats.StatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEffectType;
+import com.aionemu.gameserver.model.gameobjects.stats.id.StatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.AddModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.RateModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SetModifier;

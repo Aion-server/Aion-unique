@@ -35,7 +35,7 @@ public class ItemStone
 	
 	private int slot;
 	
-	private StatModifier modifier;
+	private TreeSet<StatModifier> modifiers;
 	
 	private PersistentState persistentState;
 
@@ -57,7 +57,7 @@ public class ItemStone
 		ItemTemplate stoneTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
 		if(stoneTemplate != null && stoneTemplate.getModifiers() != null)
 		{
-			this.modifier = stoneTemplate.getModifiers().first();
+			this.modifiers = stoneTemplate.getModifiers();
 		}	
 	}
 
@@ -86,11 +86,16 @@ public class ItemStone
 	}
 
 	/**
-	 * @return the modifier
+	 * @return modifiers
 	 */
-	public StatModifier getModifier()
+	public TreeSet<StatModifier> getModifiers()
 	{
-		return modifier;
+		return modifiers;
+	}
+	
+	public StatModifier getFirstModifier()
+	{
+		return modifiers != null ? modifiers.first() : null;
 	}
 
 	/**

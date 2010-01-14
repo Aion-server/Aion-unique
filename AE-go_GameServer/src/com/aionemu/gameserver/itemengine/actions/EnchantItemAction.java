@@ -23,7 +23,10 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
+import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -48,7 +51,12 @@ public class EnchantItemAction extends AbstractItemAction {
 				PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem.getObjectId(), parentItem.getItemTemplate().getItemId(), 0, 1, 0));
 				PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300462));
 
-				targetItem.addItemStone(parentItem.getItemTemplate().getItemId());              
+				ItemStone itemStone = targetItem.addItemStone(parentItem.getItemTemplate().getItemId());      
+				if(targetItem.isEquipped())
+				{
+					ItemEquipmentListener.addStoneStats(itemStone, player.getGameStats());
+					PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+				}
 				PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(targetItem));
 			}
 		}, 5000);

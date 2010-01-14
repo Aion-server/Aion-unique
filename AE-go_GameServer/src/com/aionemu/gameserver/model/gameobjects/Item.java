@@ -242,15 +242,17 @@ public class Item extends AionObject
 	 * 
 	 * @param itemStone
 	 */
-	public void addItemStone(int itemId)
+	public ItemStone addItemStone(int itemId)
 	{
 		int nextSlot = itemStones == null ? 0 : itemStones.size();
 		if(itemStones == null)
 			itemStones = new ArrayList<ItemStone>();
 		
-		this.itemStones.add(new ItemStone(getObjectId(), itemId,
-			nextSlot, PersistentState.NEW));
+		ItemStone stone = new ItemStone(getObjectId(), itemId,
+			nextSlot, PersistentState.NEW);
+		this.itemStones.add(stone);
 		DAOManager.getDAO(ItemStoneListDAO.class).save(itemStones);
+		return stone;
 	}
 
 	/**

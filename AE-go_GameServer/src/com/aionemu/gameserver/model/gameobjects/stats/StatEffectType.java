@@ -24,7 +24,8 @@ public enum StatEffectType
 {
 	SKILL_EFFECT(1),
 	ITEM_EFFECT(2),
-	TITLE_EFFECT(3);
+	TITLE_EFFECT(3),
+	STONE_EFFECT(4);
 	
 	private int value;
 	

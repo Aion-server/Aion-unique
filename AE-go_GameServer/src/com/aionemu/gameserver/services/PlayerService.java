@@ -189,6 +189,7 @@ public class PlayerService
 		
 		player.setQuestStateList(DAOManager.getDAO(QuestListDAO.class).load(player));
 		player.setInventory(DAOManager.getDAO(InventoryDAO.class).load(player));
+		itemService.loadItemStones(player);
 		
 		//if kinah was deleted by some reason it should be restored with 0 count
 		if(player.getInventory().getKinahItem() == null)
@@ -196,9 +197,7 @@ public class PlayerService
 			Item kinahItem = itemService.newItem(182400001, 0);
 			player.getInventory().onLoadHandler(kinahItem);
 		}
-		
-		itemService.loadItemStones(player.getInventory().getAllItems());
-		
+
 		if (player.getCommonData().getTitleId()>0)
 		{
 			TitleChangeListener.onTitleChange(player.getGameStats(), player.getCommonData().getTitleId(), true);

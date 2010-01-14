@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.services;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -29,7 +28,9 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.items.ItemId;
+import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
@@ -39,7 +40,6 @@ import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
-import com.mysql.jdbc.UpdatableResultSet;
 
 /**
  * @author ATracer
@@ -114,16 +114,23 @@ public class ItemService
 	 *  
 	 * @param itemList
 	 */
-	public void loadItemStones(List<Item> itemList)
+	public void loadItemStones(Player player)
 	{
-		if(itemList == null)
-			return;
+		List<Item> itemList = player.getInventory().getAllItems();
 
 		for(Item item : itemList)
 		{
 			if(item.getItemTemplate().isArmor() || item.getItemTemplate().isWeapon())
 			{
 				item.setItemStones(DAOManager.getDAO(ItemStoneListDAO.class).load(item.getObjectId()));
+				//if item equipped - apply stats of item stone
+				if(item.isEquipped())
+				{
+					for(ItemStone itemStone : item.getItemStones())
+					{
+						ItemEquipmentListener.addStoneStats(itemStone, player.getGameStats());
+					}
+				}			
 			}
 		}
 	}

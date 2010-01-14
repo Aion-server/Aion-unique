@@ -18,8 +18,8 @@ package com.aionemu.gameserver.model.gameobjects.stats.listeners;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
-import com.aionemu.gameserver.model.gameobjects.stats.StatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEffectType;
+import com.aionemu.gameserver.model.gameobjects.stats.id.StatEffectId;
 import com.aionemu.gameserver.model.templates.TitleTemplate;
 
 /**

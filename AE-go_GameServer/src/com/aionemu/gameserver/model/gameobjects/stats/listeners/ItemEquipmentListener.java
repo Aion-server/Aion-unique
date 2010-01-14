@@ -16,15 +16,18 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.listeners;
 
+import java.util.List;
 import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
-import com.aionemu.gameserver.model.gameobjects.stats.ItemStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.id.ItemStatEffectId;
+import com.aionemu.gameserver.model.gameobjects.stats.id.StoneStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
+import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
@@ -48,14 +51,74 @@ public class ItemEquipmentListener
 		cgs.addModifiers(ItemStatEffectId.getInstance(itemTemplate.getItemId(), slot), modifiers);
 	}
 	
+	/**
+	 * @param item
+	 * @param cgs
+	 */
 	public static void onItemEquipment(Item item, CreatureGameStats<?> cgs)
 	{
 		ItemTemplate itemTemplate = item.getItemTemplate();
 		onItemEquipment(itemTemplate,item.getEquipmentSlot(),cgs);
+		addStonesStats(item.getItemStones(), cgs);
 	}
 	
+	/**
+	 * All modifiers of stones will be applied to character
+	 * 
+	 * @param itemStones
+	 * @param cgs
+	 */
+	private static void addStonesStats(List<ItemStone> itemStones, CreatureGameStats<?> cgs)
+	{
+		if(itemStones == null || itemStones.size() == 0)
+			return;
+		
+		for(ItemStone stone : itemStones)
+		{
+			addStoneStats(stone, cgs);
+		}
+	}
+	
+	/**
+	 * All modifiers of stones will be removed
+	 * 
+	 * @param itemStones
+	 * @param cgs
+	 */
+	private static void removeStoneStats(List<ItemStone> itemStones, CreatureGameStats<?> cgs)
+	{
+		if(itemStones == null || itemStones.size() == 0)
+			return;
+		
+		for(ItemStone stone : itemStones)
+		{
+			TreeSet<StatModifier> modifiers = stone.getModifiers();
+			if(modifiers != null)
+			{
+				cgs.endEffect(StoneStatEffectId.getInstance(stone.getItemObjId(), stone.getSlot()));
+			}
+		}
+		
+	}
+	
+	/**
+	 *  Used when socketing of equipped item
+	 *  
+	 * @param stone
+	 * @param cgs
+	 */
+	public static void addStoneStats(ItemStone stone, CreatureGameStats<?> cgs)
+	{
+		TreeSet<StatModifier> modifiers = stone.getModifiers();
+		if(modifiers != null)
+		{
+			cgs.addModifiers(StoneStatEffectId.getInstance(stone.getItemObjId(), stone.getSlot()), modifiers);
+		}	
+	}
+
 	public static void onItemUnequipment(Item item, CreatureGameStats<?> cgs)
 	{
 		cgs.endEffect(ItemStatEffectId.getInstance(item.getItemTemplate().getItemId(), item.getEquipmentSlot()));
+		removeStoneStats(item.getItemStones(), cgs);
 	}
 }

@@ -148,7 +148,7 @@ public abstract class InventoryPacket extends AionServerPacket
 				if(count == 6)
 					break;
 				
-				StatModifier modifier = itemStone.getModifier();
+				StatModifier modifier = itemStone.getFirstModifier();
 				if(modifier != null)
 				{
 					count++;
@@ -162,7 +162,7 @@ public abstract class InventoryPacket extends AionServerPacket
 				if(count == 6)
 					break;
 				
-				StatModifier modifier = itemStone.getModifier();
+				StatModifier modifier = itemStone.getFirstModifier();
 				if(modifier != null)
 				{
 					count++;
