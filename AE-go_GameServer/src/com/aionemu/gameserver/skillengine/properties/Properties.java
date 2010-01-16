@@ -36,7 +36,8 @@ public class Properties {
         @XmlElement(name = "firsttarget", type = FirstTargetProperty.class),
         @XmlElement(name = "targetrange", type = TargetRangeProperty.class),
         @XmlElement(name = "addweaponrange", type = AddWeaponRangeProperty.class),
-        @XmlElement(name = "targetrelation", type = TargetRelationProperty.class)
+        @XmlElement(name = "targetrelation", type = TargetRelationProperty.class),
+        @XmlElement(name = "firsttargetrange", type = FirstTargetRangeProperty.class)
     })
     protected List<Property> properties;
 
@@ -62,6 +63,7 @@ public class Properties {
      * {@link TargetRangeProperty }
      * {@link AddWeaponRangeProperty }
      * {@link TargetRelationProperty }
+     * {@link FirstTargetRangeProperty }
      * 
      * 
      */

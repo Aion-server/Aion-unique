@@ -398,6 +398,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300670);
 	}
+	
+	public static SM_SYSTEM_MESSAGE STR_ATTACK_TOO_FAR_FROM_TARGET()
+	{
+		return new SM_SYSTEM_MESSAGE(1300032);
+	}
 
 	private final int		code;
 	private final Object[]	params;

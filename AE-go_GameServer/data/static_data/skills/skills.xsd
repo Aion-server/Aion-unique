@@ -73,6 +73,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="firsttarget" type="FirstTargetProperty"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="firsttargetrange" type="FirstTargetRangeProperty"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="targetrange" type="TargetRangeProperty"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="targetrelation" type="TargetRelationProperty"
@@ -120,6 +122,8 @@
 				<xs:attribute name="type" type="DamageType" />
 				<xs:attribute name="value" type="xs:int" use="required" />
 				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="check" type="xs:string" />
+				<xs:attribute name="checkvalue" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -301,6 +305,14 @@
 			<xs:extension base="Property">
 				<xs:attribute name="value" type="FirstTargetAttribute"
 					use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="FirstTargetRangeProperty">
+		<xs:complexContent>
+			<xs:extension base="Property">
+				<xs:attribute name="value" type="xs:int"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
