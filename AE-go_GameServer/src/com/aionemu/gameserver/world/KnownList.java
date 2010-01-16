@@ -161,7 +161,7 @@ public class KnownList implements Iterable<VisibleObject>
 
 			for(VisibleObject newObject : objects)
 			{
-				if(newObject == owner)
+				if(newObject == owner || newObject == null)
 					continue;
 
 				if(!MathUtil.isInRange(owner, newObject, visibilityDistance))
