@@ -43,6 +43,10 @@ public class GoodsList {
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
 		itemIdList = new ArrayList<Integer>();
+		
+		if(item == null)
+			return;
+		
 		for(Item it : item)
 		{
 			itemIdList.add(it.getId());
