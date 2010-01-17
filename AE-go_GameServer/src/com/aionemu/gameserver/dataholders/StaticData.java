@@ -89,6 +89,9 @@ public class StaticData
 	@XmlElement(name = "zones")
 	public ZoneData					zoneData;
 	
+	@XmlElement(name = "goodslists")
+	public GoodsListData					goodsListData;
+	
 	// JAXB callback
 	@SuppressWarnings("unused")
 	private void afterUnmarshal(Unmarshaller unmarshaller, Object parent)
@@ -111,5 +114,6 @@ public class StaticData
 		DataManager.log.info("Loaded " + titleData.size() + " title entries");
 		DataManager.log.info("Loaded " + walkerData.size() + " walker routes");
 		DataManager.log.info("Loaded " + zoneData.size() + " zone entries");
+		DataManager.log.info("Loaded " + goodsListData.size() + " goodslist entries");
 	}
 }

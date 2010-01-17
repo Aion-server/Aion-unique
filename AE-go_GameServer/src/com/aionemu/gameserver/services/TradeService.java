@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,19 +17,28 @@
 package com.aionemu.gameserver.services;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.dataholders.GoodsListData;
+import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.TradeListTemplate;
+import com.aionemu.gameserver.model.templates.TradeListTemplate.TradeTab;
+import com.aionemu.gameserver.model.templates.goods.GoodsList;
 import com.aionemu.gameserver.model.trade.TradeItem;
 import com.aionemu.gameserver.model.trade.TradeList;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
@@ -42,6 +51,12 @@ public class TradeService
 	
 	@Inject
 	private ItemService itemService;
+	@Inject
+	private World world;
+	@Inject
+	private TradeListData tradeListData;
+	@Inject
+	private GoodsListData goodsListData;
 
 	/**
 	 * 
@@ -51,6 +66,13 @@ public class TradeService
 	 */
 	public boolean performBuyFromShop(Player player, TradeList tradeList)
 	{
+		
+		if(!validateBuyItems(tradeList))
+		{
+			PacketSendUtility.sendMessage(player, "Some items are not allowed to be selled from this npc");
+			return false;
+		}
+		
 		Inventory inventory  = player.getInventory();
 		Item kinahItem = inventory.getKinahItem();
 
@@ -81,6 +103,32 @@ public class TradeService
 		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(kinahItem));
 		PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(addedItems));
 		//TODO message
+		return true;
+	}
+
+	/**
+	 * @param tradeList
+	 */
+	private boolean validateBuyItems(TradeList tradeList)
+	{
+		Npc npc = (Npc) world.findAionObject(tradeList.getNpcObjId());
+		TradeListTemplate tradeListTemplate = tradeListData.getTradeListTemplate(npc.getTemplate().getTemplateId());
+
+		Set<Integer> allowedItems = new HashSet<Integer>();
+		for(TradeTab tradeTab : tradeListTemplate.getTradeTablist())
+		{
+			GoodsList goodsList = goodsListData.getGoodsListById(tradeTab.getId());
+			if(goodsList != null && goodsList.getItemIdList() != null)
+			{
+				allowedItems.addAll(goodsList.getItemIdList());
+			}				
+		}
+		
+		for(TradeItem tradeItem : tradeList.getTradeItems())
+		{
+			if(!allowedItems.contains(tradeItem.getItemId()))
+				return false;
+		}
 		return true;
 	}
 

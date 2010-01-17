@@ -111,6 +111,8 @@ public final class DataManager
 	public static WalkerData			WALKER_DATA;
 	
 	public static ZoneData				ZONE_DATA;
+	
+	public GoodsListData				GOODSLIST_DATA;
 
 	/**
 	 * Constructor creating <tt>DataManager</tt> instance.<br>
@@ -146,10 +148,9 @@ public final class DataManager
 		CUBEEXPANDER_DATA = data.cubeExpandData;
 		BIND_POINT_DATA = data.bindPointData;
 		QUEST_DATA = data.questData;
-		ZONE_DATA = data.zoneData;
-		
+		ZONE_DATA = data.zoneData;	
 		WALKER_DATA = data.walkerData;
-		
+		GOODSLIST_DATA = data.goodsListData;
 		// some sexy time message
 		long seconds = time / 1000;
 

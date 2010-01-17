@@ -51,7 +51,8 @@ public class CM_BUY_ITEM extends AionClientPacket
 	
 	@Inject
 	private TradeService tradeService;
-
+	
+	private TradeList	tradeList;
 	
 	/**
 	 * {@inheritDoc}
@@ -63,9 +64,8 @@ public class CM_BUY_ITEM extends AionClientPacket
 		unk1	 = readH();
 		amount = readH(); //total no of items
 
-		Player player = getConnection().getActivePlayer();
-		
-		TradeList tradeList = new TradeList();
+		tradeList = new TradeList();
+		tradeList.setNpcObjId(npcObjId);
 		
 		for (int i = 0; i < amount; i++) 
 		{
@@ -80,9 +80,17 @@ public class CM_BUY_ITEM extends AionClientPacket
 			else if(unk1 == 1)
 			{
 				tradeList.addSellItem(itemId, count);
-			}
-			
+			}		
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void runImpl()
+	{
+		Player player = getConnection().getActivePlayer();
 		
 		if (unk1 == 12) //buy
 		{
@@ -96,15 +104,6 @@ public class CM_BUY_ITEM extends AionClientPacket
 		{
 			log.info(String.format("Unhandle shop action unk1: %d", unk1));
 		}
-
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void runImpl()
-	{
 	}
 
 }

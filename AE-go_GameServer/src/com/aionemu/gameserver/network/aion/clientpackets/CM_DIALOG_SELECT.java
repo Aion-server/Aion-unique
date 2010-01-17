@@ -105,7 +105,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 		switch (dialogId)
 		{
 			case 2:
-				sendPacket(new SM_TRADELIST(player, targetObjectId));
+				sendPacket(new SM_TRADELIST(npc));
 				break;
 			case 3:
 				sendPacket(new SM_SELL_ITEM(player, targetObjectId));

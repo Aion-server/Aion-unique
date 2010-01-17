@@ -19,6 +19,7 @@ package com.aionemu.gameserver;
 import com.aionemu.commons.services.ScriptService;
 import com.aionemu.gameserver.dataholders.CubeExpandData;
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.GoodsListData;
 import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.PlayerExperienceTable;
@@ -160,5 +161,11 @@ public class DataInjectionModule extends AbstractModule
 	WalkerData provideWalkerData(DataManager datamanager)
 	{
 		return datamanager.WALKER_DATA;
+	}
+	
+	@Provides
+	GoodsListData provideGoodsListData(DataManager datamanager)
+	{
+		return datamanager.GOODSLIST_DATA;
 	}
 }

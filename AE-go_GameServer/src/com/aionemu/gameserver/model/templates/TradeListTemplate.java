@@ -16,10 +16,15 @@
  */
 package com.aionemu.gameserver.model.templates;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author orz
@@ -47,23 +52,19 @@ public class TradeListTemplate
 	@XmlAttribute(name = "count", required = true)
 	private int	 Count = 0;
 
+	@XmlElement(name = "tradelist")
+	protected List<TradeTab> tradeTablist;
+	
 	/**
-	 * Trade ListID.
+	 * 
+	 * @return
 	 */
-	@XmlAttribute(name = "listId0")
-	private int	_listId0 = 0;
-	@XmlAttribute(name = "listId1")
-	private int	_listId1 = 0;
-	@XmlAttribute(name = "listId2")
-	private int	_listId2 = 0;
-	@XmlAttribute(name = "listId3")
-	private int	_listId3 = 0;
-	@XmlAttribute(name = "listId4")
-	private int	_listId4 = 0;
-	@XmlAttribute(name = "listId5")
-	private int	_listId5 = 0;
-	@XmlAttribute(name = "listId6")
-	private int	_listId6 = 0;
+	public List<TradeTab> getTradeTablist() {
+        if (tradeTablist == null) {
+            tradeTablist = new ArrayList<TradeTab>();
+        }
+        return this.tradeTablist;
+    }
 	
 	public String getName()
 	{
@@ -79,34 +80,37 @@ public class TradeListTemplate
 	{
 		return Count;
 	}
+	
+	/**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}int" />
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "Tradelist")
+    public static class TradeTab {
 
-	public int getlistId0()
-	{
-		return _listId0;
-	}
+        @XmlAttribute
+        protected int id;
 
-	public int getlistId1()
-	{
-		return _listId1;
-	}
-	public int getlistId2()
-	{
-		return _listId2;
-	}
-	public int getlistId3()
-	{
-		return _listId3;
-	}
-	public int getlistId4()
-	{
-		return _listId4;
-	}
-	public int getlistId5()
-	{
-		return _listId5;
-	}
-	public int getlistId6()
-	{
-		return _listId6;
-	}
+        /**
+         * Gets the value of the id property.
+         *     
+         */
+        public int getId() {
+            return id;
+        }
+    }
 }

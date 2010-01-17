@@ -113,5 +113,9 @@
 	<zones>
 		<import file="zones" skipRoot="true"/>
 	</zones>
+	
+	<goodslists>
+		<import file="goodslists" skipRoot="true"/>
+	</goodslists>
 
 </ae_static_data>

@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aionunique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,68 +18,43 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.templates.TradeListTemplate;
+import com.aionemu.gameserver.model.templates.TradeListTemplate.TradeTab;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.world.World;
-import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.templates.TradeListTemplate;
 
 /**
  * 
  * @author alexa026
- * 
+ * modified by ATracer
  */
 public class SM_TRADELIST extends AionServerPacket
 {
-
+	
 	private int	targetObjectId;
-	private Player	player;
-	private int	type;
 	private TradeListTemplate tlist;
-		
-	public SM_TRADELIST(Player player, int targetObjectId)
+
+	public SM_TRADELIST(Npc npc)
 	{
-		
-		this.player = player ;// empty
-		this.targetObjectId = targetObjectId;
-		
-		World world = player.getActiveRegion().getWorld();
-		Npc npc = (Npc) world.findAionObject(targetObjectId);
-			tlist = DataManager.TRADE_LIST_DATA.getTradeListTemplate(npc.getNpcId());
-		
-		
+		this.targetObjectId = npc.getObjectId();
+		tlist = DataManager.TRADE_LIST_DATA.getTradeListTemplate(npc.getNpcId());
 	}
 
-	/**
-	* {@inheritDoc}
-	*/
-	
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{		
-
 		if ((tlist != null)&&(tlist.getNpcId()!=0)&&(tlist.getCount()!=0))
 		{
-		writeD(buf, targetObjectId);
-		writeD(buf, 51201); //unknown for 1.5.x
-		writeC(buf, 0); // unknown
-		writeH(buf, tlist.getCount()); // unknown
-		if(tlist.getlistId0() != 0)
-		writeD(buf, tlist.getlistId0()); // unknown
-		if(tlist.getlistId1() != 0)
-		writeD(buf, tlist.getlistId1()); // unknown
-		if(tlist.getlistId2() != 0)
-		writeD(buf, tlist.getlistId2()); // unknown
-		if(tlist.getlistId3() != 0)
-		writeD(buf, tlist.getlistId3()); // unknown
-		if(tlist.getlistId4() != 0)
-		writeD(buf, tlist.getlistId4()); // unknown
-		if(tlist.getlistId5() != 0)
-		writeD(buf, tlist.getlistId5()); // unknown
-		if(tlist.getlistId6() != 0)
-		writeD(buf, tlist.getlistId6()); // unknown
+			writeD(buf, targetObjectId);
+			writeD(buf, 51201); //unknown for 1.5.x
+			writeC(buf, 0); // unknown
+			writeH(buf, tlist.getCount()); // unknown
+			for(TradeTab tradeTabl : tlist.getTradeTablist())
+			{
+				writeD(buf, tradeTabl.getId());
+			}
 		}
 	}	
 }

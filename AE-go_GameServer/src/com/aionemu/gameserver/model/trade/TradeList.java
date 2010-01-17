@@ -28,6 +28,8 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
  */
 public class TradeList
 {
+	private int npcObjId;
+	
 	private List<TradeItem> tradeItems = new ArrayList<TradeItem>();
 	
 	/**
@@ -83,5 +85,21 @@ public class TradeList
 	public int size()
 	{
 		return tradeItems.size();
+	}
+
+	/**
+	 * @return the npcId
+	 */
+	public int getNpcObjId()
+	{
+		return npcObjId;
+	}
+
+	/**
+	 * @param npcObjId the npcId to set
+	 */
+	public void setNpcObjId(int npcObjId)
+	{
+		this.npcObjId = npcObjId;
 	}
 }
