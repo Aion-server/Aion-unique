@@ -128,9 +128,8 @@ public class SpawnEngine
 
 			npc.setKnownlist(new KnownList(npc));
 			npc.setEffectController(new EffectController(npc));
-			
-			bringIntoWorld(npc, spawn);
 			npc.getController().onRespawn();
+			bringIntoWorld(npc, spawn);
 			return npc;
 		}
 		else if(spawn.getObjectTemplate() instanceof GatherableTemplate)
