@@ -47,8 +47,8 @@ public class FirstTargetRangeProperty extends Property
 		Creature firstTarget = skill.getFirstTarget();
 		if(firstTarget == null)
 			return false;
-		
-		if(MathUtil.isInRange(effector, firstTarget, value))
+		//here value +4 till better move controller developed
+		if(MathUtil.isInRange(effector, firstTarget, value + 4))
 		{
 			return true;
 		}
