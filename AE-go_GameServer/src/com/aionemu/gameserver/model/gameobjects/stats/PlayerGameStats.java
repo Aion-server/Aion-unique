@@ -55,6 +55,8 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 		initStat(StatEnum.FLY_TIME, 60);
 		initStat(StatEnum.REGEN_HP, level + 3);
 		initStat(StatEnum.REGEN_MP, level + 8);
+		initStat(StatEnum.MAXDP, 4000);
+
 	}
 
 	public void doLevelUpgrade (PlayerStatsData playerStatsData, int level) {

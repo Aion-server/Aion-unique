@@ -29,6 +29,7 @@ import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
@@ -386,7 +387,8 @@ public class PlayerCommonData
 	 */
 	public void setDp(int dp)
 	{
-		this.dp = dp > 4000 ? 4000 : dp;
+		int maxDp = getPlayer().getGameStats().getCurrentStat(StatEnum.MAXDP);
+		this.dp = dp > maxDp ? maxDp : dp;
 		if(this.getPlayer() != null)
 		{
 			PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATUPDATE_DP(this.dp));
