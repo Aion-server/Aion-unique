@@ -224,8 +224,8 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeS(buf, player.getCommonData().getNote());     //note show in right down windows if your target on player
 
         writeH(buf, player.getLevel()); // [level]
-        writeH(buf, 0x04); // unk - 0x04
-        writeH(buf, 0x00); // unk - 0x00
+        writeH(buf, 0x00); // unk - 0x04
+        writeC(buf, 0x00); // unk - 0x00
         writeD(buf, 0x01); // unk - 0x01
         /* writeC(buf, 0);
        writeC(buf, 0);
