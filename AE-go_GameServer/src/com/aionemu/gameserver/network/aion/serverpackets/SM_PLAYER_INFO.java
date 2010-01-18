@@ -120,7 +120,7 @@ public class SM_PLAYER_INFO extends AionServerPacket {
             if (item.getEquipmentSlot() < Short.MAX_VALUE * 2)
             {
                 writeD(buf, item.getItemTemplate().getItemId());
-                writeD(buf, 0); //unk
+                writeD(buf, 0); //GodStone ItemId
                 writeD(buf, item.getItemColor());
             }
         }
@@ -206,7 +206,7 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeH(buf, 2800);
         writeC(buf, 0);
 
-        writeS(buf, "");// private shop?
+        writeS(buf, "");// private store message
         unk = new byte[]{(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
                 (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00
         };
@@ -223,9 +223,10 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeC(buf, self ? 0x40 : 0x00); // unk - 0x40, 0x00
         writeS(buf, player.getCommonData().getNote());     //note show in right down windows if your target on player
 
-        writeD(buf, player.getLevel()); // unk - 0x01, 0x02, 0x03 etc [lvl?]
-        writeC(buf, 0x00); // unk - 0x00
-        writeD(buf, 0x01); // unk - 0x00
+        writeH(buf, player.getLevel()); // [level]
+        writeH(buf, 0x04); // unk - 0x04
+        writeH(buf, 0x00); // unk - 0x00
+        writeD(buf, 0x01); // unk - 0x01
         /* writeC(buf, 0);
        writeC(buf, 0);
        writeC(buf, 0);

@@ -111,8 +111,7 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeH(buf, pgs.getCurrentStat(StatEnum.MAGICAL_RESIST)); // [current mres]
 
-		writeH(buf, 0);// [unk]
-		writeH(buf, pgs.getCurrentStat(StatEnum.ATTACK_RANGE));// attack range
+		writeF(buf, pgs.getCurrentStat(StatEnum.ATTACK_RANGE) / 1000f);// attack range
 		writeH(buf, pgs.getCurrentStat(StatEnum.ATTACK_SPEED));// attack speed 
 		writeH(buf, pgs.getCurrentStat(StatEnum.EVASION));// [current evasion]
 		writeH(buf, pgs.getCurrentStat(StatEnum.PARRY));// [current parry]
@@ -169,8 +168,8 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeD(buf, pgs.getBaseStat(StatEnum.MAXMP));// [base mana]
 
-		writeD(buf, 0);// [unk]
-		writeD(buf, pgs.getBaseStat(StatEnum.FLY_TIME));// [unk]
+		writeD(buf, pgs.getBaseStat(StatEnum.MAXDP));// [base dp]
+		writeD(buf, pgs.getBaseStat(StatEnum.FLY_TIME));// [fly time]
 
 		writeH(buf, pgs.getBaseStat(StatEnum.MAIN_HAND_POWER));// [base main hand attack]
 		writeH(buf, pgs.getBaseStat(StatEnum.OFF_HAND_POWER));// [base off hand attack]
