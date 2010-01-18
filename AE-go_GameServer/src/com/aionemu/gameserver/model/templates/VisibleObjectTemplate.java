@@ -20,18 +20,18 @@ package com.aionemu.gameserver.model.templates;
  * @author ATracer
  *
  */
-public interface VisibleObjectTemplate
+public abstract class VisibleObjectTemplate
 {
 	/**
 	 * For Npcs it will return npcid from templates xml
 	 * 
 	 * @return id of object template
 	 */
-	int getTemplateId();
+	public abstract int getTemplateId();
 	/**
 	 * For Npcs it will return name from templates xml
 	 * 
 	 * @return name of object
 	 */
-	String getName();
+	public abstract String getName();
 }

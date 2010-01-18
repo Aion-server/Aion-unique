@@ -18,18 +18,13 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 
-import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.utils.PacketSendUtility;
-import java.util.Iterator;
-import com.aionemu.gameserver.model.gameobjects.VisibleObject;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SHOW_NPC_ON_MAP;
-
-import com.aionemu.gameserver.dataholders.SpawnData;
-import com.google.inject.Inject;
+import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
+import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SHOW_NPC_ON_MAP;
+import com.google.inject.Inject;
 
 /**
  * @author Lyahim
@@ -39,7 +34,7 @@ public class CM_OBJECT_SEARCH extends AionClientPacket
 	private int objid;
 
 	@Inject
-	private SpawnData spawndata;
+	private SpawnsData spawnsData;
 	/**
 	 * Constructs new client packet instance.
 	 * @param opcode
@@ -65,7 +60,7 @@ public class CM_OBJECT_SEARCH extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{		
-		SpawnTemplate spawnTemplate = spawndata.getFirstSpawnByNpcId(objid);
+		SpawnTemplate spawnTemplate = spawnsData.getFirstSpawnByNpcId(objid);
 		if(spawnTemplate != null)
 		{
 			VisibleObjectTemplate vot = spawnTemplate.getObjectTemplate();

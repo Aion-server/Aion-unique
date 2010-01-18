@@ -54,9 +54,9 @@ public final class DataManager
 	/**
 	 * Spawn data is keeping information about all spawn definitions.
 	 * 
-	 * @see SpawnData
+	 * @see SpawnsData
 	 */
-	public final SpawnData				SPAWN_DATA;
+	public final SpawnsData				SPAWNS_DATA;
 
 	/**
 	 * World maps data is keeping information about all world maps.
@@ -139,8 +139,7 @@ public final class DataManager
 		PLAYER_INITIAL_DATA = data.playerInitialData;
 		SKILL_DATA = data.skillData;
 		SKILL_TREE_DATA = data.skillTreeData;	
-		//spawn data use NPC_DATA and GATHERABLE_DATA
-		SPAWN_DATA = new SpawnData(NPC_DATA, GATHERABLE_DATA);
+		SPAWNS_DATA = data.spawnsData;
 		TITLE_DATA = data.titleData;
 		TRADE_LIST_DATA = data.tradeListData;
 		TELEPORTER_DATA = data.teleporterData;	

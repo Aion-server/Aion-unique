@@ -17,19 +17,20 @@
 package com.aionemu.gameserver;
 
 import com.aionemu.commons.services.ScriptService;
+import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.CubeExpandData;
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.GoodsListData;
 import com.aionemu.gameserver.dataholders.NpcData;
-import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.PlayerExperienceTable;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.SkillData;
-import com.aionemu.gameserver.dataholders.SpawnData;
-import com.aionemu.gameserver.dataholders.TradeListData;
-import com.aionemu.gameserver.dataholders.TeleporterData;
+import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.dataholders.TeleLocationData;
+import com.aionemu.gameserver.dataholders.TeleporterData;
+import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.dataholders.WalkerData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.services.AccountService;
@@ -81,22 +82,27 @@ public class DataInjectionModule extends AbstractModule
 	}
 
 	@Provides
-	SpawnData provideSpawnData(DataManager datamanager)
+	SpawnsData provideSpawnData(DataManager datamanager)
 	{
-		return datamanager.SPAWN_DATA;
+		return datamanager.SPAWNS_DATA;
 	}
 
 	@Provides
 	WorldMapsData provideWorldMapsData(DataManager datamanager)
 	{
 		return datamanager.WORLD_MAPS_DATA;
-	}
-	
+	}	
 
 	@Provides
 	NpcData provideNpcData(DataManager datamanager)
 	{
 		return datamanager.NPC_DATA;
+	}
+	
+	@Provides
+	GatherableData provideGatherableData(DataManager datamanager)
+	{
+		return datamanager.GATHERABLE_DATA;
 	}
 
 	@Provides

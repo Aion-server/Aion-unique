@@ -117,5 +117,9 @@
 	<goodslists>
 		<import file="goodslists" skipRoot="true"/>
 	</goodslists>
+	
+	<spawns>
+		<import file="spawns" skipRoot="true"/>
+	</spawns>
 
 </ae_static_data>

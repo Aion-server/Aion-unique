@@ -70,8 +70,8 @@ public class ActionitemController extends NpcController
 		this.doDrop(target);
 		if(decayTask == null)
 		{
-			RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
 			decayTask = DecayService.getInstance().scheduleDecayTask(this.getOwner());
+			RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
 		}	
 		
 		//deselect target at the end

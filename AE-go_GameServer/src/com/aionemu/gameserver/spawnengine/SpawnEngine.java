@@ -27,7 +27,9 @@ import com.aionemu.gameserver.controllers.MonsterController;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.controllers.PostboxController;
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.dataholders.SpawnData;
+import com.aionemu.gameserver.dataholders.GatherableData;
+import com.aionemu.gameserver.dataholders.NpcData;
+import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.gameobjects.Citizen;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
@@ -37,6 +39,8 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
+import com.aionemu.gameserver.model.templates.spawn.SpawnGroup;
 import com.aionemu.gameserver.services.DropService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
@@ -58,31 +62,29 @@ import com.google.inject.Inject;
 public class SpawnEngine
 {
 	private static Logger log = Logger.getLogger(SpawnEngine.class);
-	
-	/** In this world VisibleObjects are spawned by this SpawnEngine */
+		
+	@Inject
 	private World	world;
-
+	@IDFactoryAionObject
+	@Inject
 	private IDFactory aionObjectsIDFactory;
-
 	@Inject
 	private DropService dropService;
-	
 	@Inject
 	private ItemService itemService;
-	
-	/**
-	 * Constructor creating <tt>SpawnEngine</tt> instance.
-	 * 
-	 * @param world
-	 *            a {@link World} instance which VisibleObjects are spawned in.
-	 */
 	@Inject
-	public SpawnEngine(World world, @IDFactoryAionObject IDFactory aionObjectsIDFactory)
-	{
-		this.world = world;
-		this.aionObjectsIDFactory = aionObjectsIDFactory;
-	}
-
+	private SpawnsData spawns;
+	@Inject
+	private GatherableData gatherableData;
+	@Inject
+	private NpcData npcData;
+	
+	/** Counter counting number of npc spawns */
+	private int npcCounter		= 0;
+	/** Counter counting number of gatherable spawns */
+	private int gatherableCounter		= 0;
+	
+	
 	/**
 	 * Creates VisibleObject instance and spawns it using given {@link SpawnTemplate} instance.
 	 * 
@@ -91,10 +93,28 @@ public class SpawnEngine
 	 */
 	public VisibleObject spawnObject(SpawnTemplate spawn)
 	{
-
-		if(spawn.getObjectTemplate() instanceof NpcTemplate)
+		VisibleObjectTemplate template = null;
+		int objectId = spawn.getSpawnGroup().getNpcid();
+		
+		if(objectId > 400000 && objectId < 499999)// gatherable
 		{
-			NpcType npcType = ((NpcTemplate)spawn.getObjectTemplate()).getNpcType();	
+			template = gatherableData.getGatherableTemplate(objectId);
+			if(template == null)
+				return null;
+			gatherableCounter++;
+		}
+		else // npc
+		{
+			template = npcData.getNpcTemplate(objectId);
+			if(template == null)
+				return null;
+			npcCounter++;
+		}
+		spawn.setObjectTemplate(template);
+		spawn.setSpawned(true);
+		if(template instanceof NpcTemplate)
+		{
+			NpcType npcType = ((NpcTemplate)template).getNpcType();	
 			Npc npc = null;
 			
 			switch(npcType)
@@ -144,24 +164,69 @@ public class SpawnEngine
 		return null;
 	}
 
+	/**
+	 * 
+	 * @param worldId
+	 * @param objectId
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param heading
+	 * @param walkerid
+	 * @param randomwalk
+	 * @return
+	 */
+	public SpawnTemplate addNewSpawn(int worldId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk)
+	{
+		VisibleObjectTemplate template = null;
+		if(objectId > 400000 && objectId < 499999)// gatherable
+		{
+			template = gatherableData.getGatherableTemplate(objectId);
+			if(template == null)
+				return null;
+			gatherableCounter++;
+		}
+		else // npc
+		{
+			template = npcData.getNpcTemplate(objectId);
+			if(template == null)
+				return null;
+			npcCounter++;
+		}
+
+		SpawnTemplate spawnTemplate = new SpawnTemplate(x, y, z, heading, walkerid, randomwalk);		
+		spawns.addNewTemplate(spawnTemplate, worldId);
+		return spawnTemplate;
+	}
+	
 	private void bringIntoWorld(VisibleObject visibleObject, SpawnTemplate spawn)
 	{
 		world.storeObject(visibleObject);
 		world.setPosition(visibleObject, spawn.getWorldId(), spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getHeading());
 		world.spawn(visibleObject);
 	}
+	
+	public void spawnAll()
+	{
+		for(SpawnGroup spawnGroup : spawns)
+		{
+			int pool = spawnGroup.getPool();
+			for(int i = 0; i < pool; i++)
+			{
+				spawnObject(spawnGroup.getNextAvailableTemplate());
+			}
+		}
+		
+		log.info("Loaded " + npcCounter + " npc spawns");
+		log.info("Loaded " + gatherableCounter + " gatherable spawns");
+	}
 
 	/**
-	 * Creates and spawn NPCs based on given {@link SpawnData} instance.
 	 * 
-	 * @param spawnData
-	 *            <tt>SpawnData</tt> which is holding information about spawns.
 	 */
-	public void spawnAll(SpawnData spawnData)
+	public void clearAll()
 	{
-		for(SpawnTemplate spawn : spawnData)
-		{
-			spawnObject(spawn);
-		}
+		spawns.clear();
 	}
+
 }

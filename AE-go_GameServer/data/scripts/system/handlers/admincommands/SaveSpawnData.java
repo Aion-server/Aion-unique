@@ -17,7 +17,7 @@
 package admincommands;
 
 import com.aionemu.gameserver.configs.AdminConfig;
-import com.aionemu.gameserver.dataholders.SpawnData;
+import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
@@ -30,17 +30,12 @@ import com.google.inject.Inject;
 
 public class SaveSpawnData extends AdminCommand
 {
-	private final SpawnData	spawnData;
-
-	/**
-	 * 
-	 */
-
 	@Inject
-	public SaveSpawnData(SpawnData spawnData)
+	private SpawnsData	spawnsData;
+
+	public SaveSpawnData()
 	{
 		super("save_spawn");
-		this.spawnData = spawnData;
 	}
 
 	@Override
@@ -51,14 +46,15 @@ public class SaveSpawnData extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;
 		}
-		
-		if(spawnData.saveData())
-		{
-			PacketSendUtility.sendMessage(admin, "new_spawndata.txt saved");
-		}
-		else
-		{
-			PacketSendUtility.sendMessage(admin, "Some error occured while saving spawndata.txt check server console");
-		}
+		//TODO need to be reworked
+		PacketSendUtility.sendMessage(admin, "Not implemented yet");
+//		if(spawnData.saveData())
+//		{
+//			PacketSendUtility.sendMessage(admin, "new_spawndata.txt saved");
+//		}
+//		else
+//		{
+//			PacketSendUtility.sendMessage(admin, "Some error occured while saving spawndata.txt check server console");
+//		}
 	}
 }

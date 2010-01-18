@@ -16,43 +16,85 @@
  */
 package com.aionemu.gameserver.model.templates;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+
+import com.aionemu.gameserver.model.templates.spawn.SpawnGroup;
+
 /**
  * @author Luno
  * 
  * modified by ATracer
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "object")
 public class SpawnTemplate
 {
 	private VisibleObjectTemplate	objectTemplate;
-	private int			worldId;
-	private float		x;
-	private float		y;
-	private float		z;
-	private byte		heading;
+	private SpawnGroup			spawnGroup;
+	@XmlAttribute(name = "x")
+	private float x;
+	@XmlAttribute(name = "y")
+	private float y;
+	@XmlAttribute(name = "z")
+	private float z;
+	@XmlAttribute(name = "h")
+	private byte heading;
+
 	private int			walkerId;
 	private int			randomWalk;
+	
+	private boolean isSpawned;
+	
+	
+	/**
+	 * Constructor used by unmarshaller
+	 */
+	public SpawnTemplate()
+	{
+	}
 
-	public SpawnTemplate(VisibleObjectTemplate objectTemplate, int worldId, float x, float y, float z, byte heading, int walkerid, int randomwalk)
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param heading
+	 * @param walkerId
+	 * @param randomWalk
+	 */
+	public SpawnTemplate(float x, float y, float z, byte heading, int walkerId, int randomWalk)
 	{
 		super();
-		this.objectTemplate = objectTemplate;
-		this.worldId = worldId;
 		this.x = x;
 		this.y = y;
 		this.z = z;
 		this.heading = heading;
-		this.walkerId = walkerid;
-		this.randomWalk = randomwalk;
+		this.walkerId = walkerId;
+		this.randomWalk = randomWalk;
 	}
 
+	/**
+	 * @return the objectTemplate
+	 */
 	public VisibleObjectTemplate getObjectTemplate()
 	{
 		return objectTemplate;
 	}
 
+	/**
+	 * @param objectTemplate the objectTemplate to set
+	 */
+	public void setObjectTemplate(VisibleObjectTemplate objectTemplate)
+	{
+		this.objectTemplate = objectTemplate;
+	}
+
 	public int getWorldId()
 	{
-		return worldId;
+		return spawnGroup.getMapid();
 	}
 
 	public float getX()
@@ -85,13 +127,35 @@ public class SpawnTemplate
 		return randomWalk > 0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * @return the spawnGroup
 	 */
-	@Override
-	public String toString()
+	public SpawnGroup getSpawnGroup()
 	{
-		return "SpawnTemplate " + objectTemplate.getName() + " " + worldId + " " + x + " " + y + " " + z;
+		return spawnGroup;
+	}
+
+	/**
+	 * @param spawnGroup the spawnGroup to set
+	 */
+	public void setSpawnGroup(SpawnGroup spawnGroup)
+	{
+		this.spawnGroup = spawnGroup;
+	}
+
+	/**
+	 * @return the isSpawned
+	 */
+	public boolean isSpawned()
+	{
+		return isSpawned;
+	}
+
+	/**
+	 * @param isSpawned the isSpawned to set
+	 */
+	public void setSpawned(boolean isSpawned)
+	{
+		this.isSpawned = isSpawned;
 	}
 }

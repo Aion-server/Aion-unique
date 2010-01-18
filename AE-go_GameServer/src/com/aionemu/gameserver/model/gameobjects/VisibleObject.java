@@ -226,4 +226,13 @@ public abstract class VisibleObject extends AionObject
 	{
 		return spawn;
 	}
+
+	/**
+	 * @param spawn the spawn to set
+	 */
+	public void setSpawn(SpawnTemplate spawn)
+	{
+		this.spawn = spawn;
+	}	
+	
 }

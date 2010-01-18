@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="../import.xsd" />
+
+	<xs:element name="spawns">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element name="spawn" type="SpawnGroup" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="SpawnGroup">
+		<xs:sequence>
+			<xs:element name="object" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="x" type="xs:float" />
+					<xs:attribute name="y" type="xs:float" />
+					<xs:attribute name="z" type="xs:float" />
+					<xs:attribute name="h" type="xs:int" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="interval" type="xs:int" />
+		<xs:attribute name="pool" type="xs:int" />
+		<xs:attribute name="npcid" type="xs:int" />
+		<xs:attribute name="map" type="xs:int" />
+	</xs:complexType>
+
+</xs:schema>
+

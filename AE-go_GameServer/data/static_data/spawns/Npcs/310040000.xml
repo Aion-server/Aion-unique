@@ -1,0 +1,11 @@
+<!-- NPCs/Objects spawns by Atomix from http://aion.atomixro.com
+Thanks to Matej for helping me.
+map npcid pool interval
+object x y z h
+ -->
+<spawns>
+  <!-- Kimeia -->
+  <spawn map="310040000" npcid="204044" pool="1" interval="105">
+    <object x="272.66403" y="175.63103" z="204.34718" h="0"/>
+  </spawn>
+</spawns>

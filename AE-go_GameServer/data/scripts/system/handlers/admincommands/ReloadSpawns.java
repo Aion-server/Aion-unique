@@ -19,14 +19,13 @@ package admincommands;
 import java.util.Iterator;
 
 import com.aionemu.gameserver.configs.AdminConfig;
-import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
-import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
+import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
@@ -36,8 +35,6 @@ import com.google.inject.Inject;
 
 public class ReloadSpawns extends AdminCommand
 {
-	@Inject
-	private SpawnData	spawnData;
 	@Inject
 	private World		world;
 	@Inject
@@ -61,7 +58,8 @@ public class ReloadSpawns extends AdminCommand
 			return;
 		}
 		
-		Iterator<AionObject> it = world.getObjectsIterator(); // despawn all
+		// despawn all
+		Iterator<AionObject> it = world.getObjectsIterator(); 
 		while(it.hasNext())
 		{
 			AionObject obj = it.next();
@@ -70,7 +68,9 @@ public class ReloadSpawns extends AdminCommand
 				((Npc) obj).getController().delete();
 			}
 		}
-		spawnData.reloadData(); // reload spawns from files
-		spawnEngine.spawnAll(spawnData); // spawn all;
+		
+		// spawn all;
+		spawnEngine.clearAll();
+		spawnEngine.spawnAll(); 
 	}
 }

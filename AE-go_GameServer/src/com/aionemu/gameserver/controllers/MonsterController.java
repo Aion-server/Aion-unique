@@ -193,8 +193,8 @@ public class MonsterController extends NpcController
 		
 		if(decayTask == null)
 		{
-			RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
 			decayTask = DecayService.getInstance().scheduleDecayTask(this.getOwner());
+			RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
 		}	
 
 		//deselect target at the end

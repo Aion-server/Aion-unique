@@ -25,7 +25,6 @@ import com.aionemu.commons.network.NioServer;
 import com.aionemu.commons.services.LoggingService;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dao.PlayerDAO;
-import com.aionemu.gameserver.dataholders.SpawnData;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandlersManager;
@@ -96,9 +95,9 @@ public class GameServer
 		ZoneManager.getInstance().initializeZones();
 		QuestHandlersManager.init();
 		Util.printMemoryUsage(log);
-		log.info("###########################################################################");
+		log.info("#################################################");
 		log.info("AE Game Server started in " + (System.currentTimeMillis() - start) / 1000 + " seconds.");
-		log.info("###########################################################################");
+		log.info("#################################################");
 		
 		gs.startServers();
 		GameTimeManager.startClock();
@@ -120,10 +119,8 @@ public class GameServer
 	 */
 	private void spawnMonsters()
 	{
-		SpawnData spawnData = injector.getInstance(SpawnData.class);
 		SpawnEngine spawnEngine = injector.getInstance(SpawnEngine.class);
-
-		spawnEngine.spawnAll(spawnData);
+		spawnEngine.spawnAll();
 	}
 
 	/**
@@ -165,6 +162,5 @@ public class GameServer
 		DAOManager.init();
 		// Initialize thread pools
 		ThreadPoolManager.getInstance();
-		
 	}
 }

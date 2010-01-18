@@ -17,7 +17,7 @@
 package admincommands;
 
 import com.aionemu.gameserver.configs.AdminConfig;
-import com.aionemu.gameserver.dataholders.SpawnData;
+import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -28,19 +28,15 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.google.inject.Inject;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-
 /**
  * @author Luno
  */
 
 public class SpawnNpc extends AdminCommand {
 
-    private final SpawnData spawnData;
+    private final SpawnsData spawnsData;
 
-    private final SpawnEngine spawnService;
+    private final SpawnEngine spawnEngine;
 
     /**
      * @param spawnData
@@ -48,10 +44,10 @@ public class SpawnNpc extends AdminCommand {
      */
 
     @Inject
-    public SpawnNpc(SpawnData spawnData, SpawnEngine spawnService) {
+    public SpawnNpc(SpawnsData spawnsData, SpawnEngine spawnEngine) {
         super("spawn");
-        this.spawnData = spawnData;
-        this.spawnService = spawnService;
+        this.spawnsData = spawnsData;
+        this.spawnEngine = spawnEngine;
     }
 
     @Override
@@ -75,7 +71,7 @@ public class SpawnNpc extends AdminCommand {
         byte heading = admin.getHeading();
         int worldId = admin.getWorldId();
 
-        SpawnTemplate spawn = spawnData.addNewSpawn(worldId, templateId, x, y, z, heading, 0, 0);
+        SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, templateId, x, y, z, heading, 0, 0);
 
         if (spawn == null)
         {
@@ -83,7 +79,7 @@ public class SpawnNpc extends AdminCommand {
             return;
         }
 
-        VisibleObject visibleObject = spawnService.spawnObject(spawn);
+        VisibleObject visibleObject = spawnEngine.spawnObject(spawn);
         String objectName = "";
         if (visibleObject instanceof Npc)
         {
@@ -92,25 +88,6 @@ public class SpawnNpc extends AdminCommand {
         else if (visibleObject instanceof Gatherable)
         {
             objectName = ((Gatherable) visibleObject).getTemplate().getName();
-        }
-
-        String file = "data/static_data/spawns/new/" + worldId + ".txt";
-        try
-        {
-            BufferedWriter out = new BufferedWriter(new FileWriter(file, true));
-
-            StringBuilder sb = new StringBuilder();
-            sb.append("#").append(objectName).append(" (spawned from game)\n");
-            sb.append(worldId).append(" ");
-            sb.append(templateId).append(" ");
-            sb.append(x).append(" ").append(y).append(" ").append(z).append(" ").append(heading).append("0\n");
-            out.write(sb.toString());
-            out.close();
-        }
-        catch (IOException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
 
         PacketSendUtility.sendMessage(admin, objectName + " spawned and save spawndata to file");

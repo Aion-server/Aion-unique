@@ -19,6 +19,7 @@ package com.aionemu.gameserver.services;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 
@@ -30,13 +31,13 @@ public class RespawnService
 {
 	private static final Logger log = Logger.getLogger(RespawnService.class);
 
-	private static final int RESPAWN_DEFAULT_DELAY = 80000;
-
 	private static RespawnService instance = new RespawnService();
 	
 	public void scheduleRespawnTask(final VisibleObject visibleObject)
 	{
 		final World world = visibleObject.getActiveRegion().getWorld();
+		final int interval = visibleObject.getSpawn().getSpawnGroup().getInterval();
+		
 		//TODO separate thread executor for decay/spawns
 		// or schedule separate decay runnable service with queue 
 		ThreadPoolManager.getInstance().schedule(new Runnable()
@@ -44,12 +45,25 @@ public class RespawnService
 			@Override
 			public void run()
 			{
+				exchangeSpawnTemplate(visibleObject);		
 				world.setPosition(visibleObject, visibleObject.getSpawn().getWorldId(), visibleObject.getSpawn().getX(), visibleObject.getSpawn().getY(), visibleObject.getSpawn().getZ(), visibleObject.getSpawn().getHeading());
 				//call onRespawn before actual spawning
 				visibleObject.getController().onRespawn();
 				world.spawn(visibleObject);			
 			}
-		}, RESPAWN_DEFAULT_DELAY);
+
+			private synchronized void exchangeSpawnTemplate(final VisibleObject visibleObject)
+			{
+				SpawnTemplate nextSpawn = visibleObject.getSpawn().getSpawnGroup().getNextAvailableTemplate();
+				if(nextSpawn != null)
+				{
+					nextSpawn.setSpawned(true);
+					visibleObject.getSpawn().setSpawned(false);
+					visibleObject.setSpawn(nextSpawn);
+				}	
+			}
+			
+		}, interval * 1000);
 
 	}
 	
