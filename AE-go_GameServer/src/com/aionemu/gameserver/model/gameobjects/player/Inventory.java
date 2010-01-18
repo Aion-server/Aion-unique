@@ -30,7 +30,6 @@ import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
-import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.ItemStorage;
 import com.aionemu.gameserver.model.templates.item.ArmorType;
@@ -593,6 +592,11 @@ public class Inventory
 
 	private void equip(int slot, Item item)
 	{
+		if(equipment.get(slot) != null)
+			log.error("CHECKPOINT : putting item to already equiped slot. Info slot: " + 
+				slot + " new item: " + item.getItemTemplate().getItemId() + " old item: "
+				+ equipment.get(slot).getItemTemplate().getItemId());
+		
 		equipment.put(slot, item);
 		item.setEquipmentSlot(slot);
 		if (owner.getGameStats()!=null)
@@ -780,5 +784,31 @@ public class Inventory
 	{
 		Item subHandItem = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
 		return subHandItem != null && subHandItem.getItemTemplate().getArmorType() == ArmorType.SHIELD;
+	}
+
+	/**
+	 * 
+	 * @return <tt>WeaponType</tt> of current weapon in main hand or null
+	 */
+	public WeaponType getMainHandWeaponType()
+	{
+		Item mainHandItem = equipment.get(ItemSlot.MAIN_HAND.getSlotIdMask());
+		if(mainHandItem == null)
+			return null;
+
+		return mainHandItem.getItemTemplate().getWeaponType();
+	}
+	
+	/**
+	 * 
+	 * @return <tt>WeaponType</tt> of current weapon in off hand or null
+	 */
+	public WeaponType getOffHandWeaponType()
+	{
+		Item offHandItem = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
+		if(offHandItem != null && offHandItem.getItemTemplate().isWeapon())
+			return offHandItem.getItemTemplate().getWeaponType();
+
+		return null;
 	}
 }

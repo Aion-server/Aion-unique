@@ -22,6 +22,7 @@ import java.util.List;
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
@@ -37,9 +38,6 @@ public class AttackUtil
 {
 
 	/**
-	 *  TODO: 1) diff between physical and magical attacks - diff status
-	 *  
-	 *  
 	 * @param attacker
 	 * @param attacked
 	 * @return
@@ -47,13 +45,66 @@ public class AttackUtil
 	public static List<AttackResult> calculateAttackResult(Creature attacker, Creature attacked)
 	{
 		int damage = StatFunctions.calculateBaseDamageToTarget(attacker, attacked);
+		AttackStatus status = calculatePhysicalStatus(attacker, attacked);
 		CreatureGameStats<?> gameStats = attacker.getGameStats();
 
-		int hitCount = Rnd.get(1,gameStats.getCurrentStat(StatEnum.MAIN_HAND_HITS) + gameStats.getCurrentStat(StatEnum.OFF_HAND_HITS));
+		if(attacker instanceof Player)
+		{
+			Inventory inventory = ((Player)attacker).getInventory();
+			if(inventory.getOffHandWeaponType() != null)
+			{
+				AttackStatus offHandStatus;
+				
+				switch(status)
+				{
+					case BLOCK:
+						offHandStatus = AttackStatus.OFFHAND_BLOCK;
+						break;
+					case DODGE:
+						offHandStatus = AttackStatus.OFFHAND_DODGE;
+						break;
+					case CRITICAL:
+						offHandStatus = AttackStatus.OFFHAND_CRITICAL;
+						break;
+					case PARRY:
+						offHandStatus = AttackStatus.OFFHAND_PARRY;
+						break;
+					default:
+						offHandStatus = AttackStatus.OFFHAND_NORMALHIT;
+						break;
+				}
 
+				int mainHandPower = gameStats.getCurrentStat(StatEnum.MAIN_HAND_POWER);
+				int offHandPower = gameStats.getCurrentStat(StatEnum.OFF_HAND_POWER);
+
+				int mainHandDamagePercentage = Math.round((mainHandPower * 100) / (mainHandPower + offHandPower));
+				int offHandDamagePercentage = Math.round((offHandPower * 100) / (mainHandPower + offHandPower));
+
+				int mainHandDamage = Math.round((damage * mainHandDamagePercentage) / 100);
+				int offHandDamage = Math.round((damage * offHandDamagePercentage) / 100);
+
+				int mainHandHits = Rnd.get(1,gameStats.getCurrentStat(StatEnum.MAIN_HAND_HITS));
+				int offHandHits =  Rnd.get(1,gameStats.getCurrentStat(StatEnum.OFF_HAND_HITS));
+
+				List<AttackResult> attackList = new ArrayList<AttackResult>();
+				attackList.addAll(splitPhysicalDamage(attacker, attacked, mainHandHits, mainHandDamage, status));
+				attackList.addAll(splitPhysicalDamage(attacker, attacked, offHandHits, offHandDamage, offHandStatus));
+
+				return attackList;
+			}
+		}
+
+		int hitCount = Rnd.get(1,gameStats.getCurrentStat(StatEnum.MAIN_HAND_HITS));
+		List<AttackResult> attackList = splitPhysicalDamage(attacker, attacked, hitCount, damage, status);
+		return attackList;
+	}
+
+
+	public static List<AttackResult> splitPhysicalDamage(Creature attacker, Creature attacked, int hitCount, int damage, AttackStatus status)
+	{
 		List<AttackResult> attackList = new ArrayList<AttackResult>();
 
-		for (int i=0; (i<hitCount); i++) 
+		for (int i=0; i < hitCount; i++) 
 		{
 			int damages;
 			if (i==0)
@@ -66,21 +117,24 @@ public class AttackUtil
 			}
 			damage -= damages;
 
-			AttackStatus status = calculatePhysicalStatus(attacker, attacked);
 			//TODO this is very basic calcs, for initial testing only
 			switch(status)
 			{
 				case BLOCK:
+				case OFFHAND_BLOCK:
 					int shieldDamageReduce = ((Player)attacked).getGameStats().getCurrentStat(StatEnum.DAMAGE_REDUCE);
 					damages -= Math.round((damages * shieldDamageReduce) / 100);
 					break;
 				case DODGE:
+				case OFFHAND_DODGE:
 					damages = 0;
 					break;
 				case CRITICAL:
+				case OFFHAND_CRITICAL:
 					damages *= 2;
 					break;
 				case PARRY:
+				case OFFHAND_PARRY:
 					damages *= 0.5;
 					break;
 				default:
@@ -91,12 +145,12 @@ public class AttackUtil
 		return attackList;
 	}
 
+
 	public static SkillAttackResult calculatePhysicalSkillAttackResult(Creature attacker, Creature attacked, int skillDamage)
 	{
 		int damage = StatFunctions.calculatePhysicDamageToTarget(attacker, attacked, skillDamage);
 
 		AttackStatus status = calculatePhysicalStatus(attacker, attacked);
-
 		switch(status)
 		{
 			case BLOCK:
@@ -116,7 +170,6 @@ public class AttackUtil
 				break;
 		}
 		SkillAttackResult skillAttackResult = new SkillAttackResult(attacked, damage, status);
-
 		return skillAttackResult;
 	}
 
@@ -126,7 +179,6 @@ public class AttackUtil
 		int damage = StatFunctions.calculateMagicDamageToTarget(attacker, attacked, skillDamage, element);  //TODO SkillElement
 
 		AttackStatus status = calculateMagicalStatus(attacker, attacked);
-
 		switch(status)
 		{
 			case RESIST:
@@ -137,7 +189,6 @@ public class AttackUtil
 		}
 
 		SkillAttackResult skillAttackResult = new SkillAttackResult(attacked, damage, status);
-
 		return skillAttackResult;
 	}
 
@@ -182,5 +233,3 @@ public class AttackUtil
 		return AttackStatus.NORMALHIT;
 	}
 }
-
-

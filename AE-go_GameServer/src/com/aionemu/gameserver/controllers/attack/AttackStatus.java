@@ -23,20 +23,27 @@ package com.aionemu.gameserver.controllers.attack;
 public enum AttackStatus
 {
 	DODGE(0),
+	OFFHAND_DODGE(1),
 	PARRY(2),
+	OFFHAND_PARRY(3),
 	BLOCK(4),
+	OFFHAND_BLOCK(5),
 	RESIST(6),
+	OFFHAND_RESIST(7),
 	BUF(8),// ??
+	OFFHAND_BUF(9),
 	NORMALHIT(10),
-	CRITICAL(12);
-	
+	OFFHAND_NORMALHIT(11),
+	CRITICAL(12),
+	OFFHAND_CRITICAL(13);
+
 	private int _type;
-	
+
 	private AttackStatus(int type)
 	{
 		this._type = type;
 	}
-	
+
 	public int getId()
 	{
 		return _type;
