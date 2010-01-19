@@ -387,11 +387,18 @@ public class PlayerCommonData
 	 */
 	public void setDp(int dp)
 	{
-		int maxDp = getPlayer().getGameStats().getCurrentStat(StatEnum.MAXDP);
-		this.dp = dp > maxDp ? maxDp : dp;
-		if(this.getPlayer() != null)
+		if(getPlayer() != null)
 		{
-			PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATUPDATE_DP(this.dp));
+			int maxDp = getPlayer().getGameStats().getCurrentStat(StatEnum.MAXDP);
+			this.dp = dp > maxDp ? maxDp : dp;
+			if(this.getPlayer() != null)
+			{
+				PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATUPDATE_DP(this.dp));
+			}
+		}
+		else
+		{
+			log.warn("CHECKPOINT : getPlayer in PCD return null for setDP " + isOnline() + " " + getPosition());
 		}
 	}
 
