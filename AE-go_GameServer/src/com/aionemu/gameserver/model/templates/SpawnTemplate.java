@@ -58,6 +58,7 @@ public class SpawnTemplate
 
 	/**
 	 * 
+	 * @param template 
 	 * @param x
 	 * @param y
 	 * @param z
@@ -65,9 +66,9 @@ public class SpawnTemplate
 	 * @param walkerId
 	 * @param randomWalk
 	 */
-	public SpawnTemplate(float x, float y, float z, byte heading, int walkerId, int randomWalk)
+	public SpawnTemplate(VisibleObjectTemplate template, float x, float y, float z, byte heading, int walkerId, int randomWalk)
 	{
-		super();
+		this.objectTemplate = template;
 		this.x = x;
 		this.y = y;
 		this.z = z;

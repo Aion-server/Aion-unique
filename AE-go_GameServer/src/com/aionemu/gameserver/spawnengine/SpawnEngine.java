@@ -193,9 +193,10 @@ public class SpawnEngine
 				return null;
 			npcCounter++;
 		}
-
-		SpawnTemplate spawnTemplate = new SpawnTemplate(x, y, z, heading, walkerid, randomwalk);		
+		
+		SpawnTemplate spawnTemplate = new SpawnTemplate(template, x, y, z, heading, walkerid, randomwalk);		
 		spawns.addNewTemplate(spawnTemplate, worldId);
+		
 		return spawnTemplate;
 	}
 	

@@ -111,12 +111,16 @@ public class SpawnsData implements Iterable<SpawnGroup>
 	}
 
 	/**
+	 *  All new spawns have following structure : 1 SpawnGroup with 1 Object (pool=1)
+	 *  Used only with admin command
+	 *  
 	 * @param spawnTemplate
+	 * @param worldId
 	 */
 	public void addNewTemplate(SpawnTemplate spawnTemplate, int worldId)
 	{
-		SpawnGroup spawnGroup = new SpawnGroup(60);
-
+		SpawnGroup spawnGroup = new SpawnGroup(worldId, spawnTemplate.getObjectTemplate().getTemplateId(), 60, 1);
+		
 		//put to map spawns
 		ArrayList<SpawnGroup> mapSpawnGroups = spawnsByMapId.get(worldId);
 		if(mapSpawnGroups == null)
@@ -134,7 +138,6 @@ public class SpawnsData implements Iterable<SpawnGroup>
 			spawnsByNpcID.put(worldId, npcIdSpawnGroups);
 		}
 		npcIdSpawnGroups.add(spawnGroup);		
-
 
 		spawnTemplate.setSpawnGroup(spawnGroup);
 		spawnGroup.getObjects().add(spawnTemplate);

@@ -62,18 +62,21 @@ public class SpawnGroup
 	}
 
 	/**
-	 *  Constructor used to create unmanaged spawns
+	 *  Constructor used to create new spawns not defined in xml
 	 *  
+	 * @param mapid
+	 * @param npcid
 	 * @param interval
+	 * @param pool
 	 */
-	public SpawnGroup(int interval)
+	public SpawnGroup(int mapid, int npcid, int interval, int pool)
 	{
+		super();
+		this.mapid = mapid;
+		this.npcid = npcid;
 		this.interval = interval;
+		this.pool = pool;
 	}
-
-	/**
-	 * Real-time attributes
-	 */
 
 	/**
 	 * @return the mapid
@@ -82,6 +85,8 @@ public class SpawnGroup
 	{
 		return mapid;
 	}
+
+	
 
 	/**
 	 * @return the npcid
