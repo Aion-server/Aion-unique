@@ -28,8 +28,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.aionemu.gameserver.model.templates.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnGroup;
+import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.utils.collections.IteratorIterator;
 
 /**

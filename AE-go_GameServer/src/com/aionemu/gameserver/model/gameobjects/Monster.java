@@ -21,7 +21,7 @@ import com.aionemu.gameserver.ai.npcai.MonsterAi;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.controllers.MonsterController;
 import com.aionemu.gameserver.controllers.attack.AggroList;
-import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 
 public class Monster extends Npc
 {	

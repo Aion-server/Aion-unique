@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.templates.SpawnTemplate;
 
 /**
  * @author ATracer

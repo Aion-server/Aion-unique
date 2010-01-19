@@ -6,7 +6,7 @@ Poeta -->
  <spawns>
   <!-- Obelisk (akarios village) -->
   <spawn map="210010000" npcid="700013" pool="1" interval="105">
-    <object x="853.09706" y="1206.9664" z="118.432625" h="-5"/>
+    <object x="853.09706" y="1206.9664" z="118.432625" h="0"/>
   </spawn>
   <!-- Obelisk (Melponeh Campsite) -->
   <spawn map="210010000" npcid="700014" pool="1" interval="105">

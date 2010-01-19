@@ -20,7 +20,7 @@
 					<xs:attribute name="x" type="xs:float" />
 					<xs:attribute name="y" type="xs:float" />
 					<xs:attribute name="z" type="xs:float" />
-					<xs:attribute name="h" type="xs:int" />
+					<xs:attribute name="h" type="Heading" />
 				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
@@ -29,6 +29,13 @@
 		<xs:attribute name="npcid" type="xs:int" />
 		<xs:attribute name="map" type="xs:int" />
 	</xs:complexType>
+	
+	<xs:simpleType name="Heading">
+		<xs:restriction base="xs:byte">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="120"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 </xs:schema>
 

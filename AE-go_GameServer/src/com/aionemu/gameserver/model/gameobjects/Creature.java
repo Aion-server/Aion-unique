@@ -21,7 +21,7 @@ import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
-import com.aionemu.gameserver.model.templates.SpawnTemplate;
+import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
