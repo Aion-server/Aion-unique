@@ -16,10 +16,13 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_VIEW_PLAYER_DETAILS;
+import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -29,6 +32,8 @@ import com.google.inject.Inject;
  */
 public class CM_VIEW_PLAYER_DETAILS extends AionClientPacket
 {
+	private static final Logger log = Logger.getLogger(CM_VIEW_PLAYER_DETAILS.class);
+	
 	private int targetObjectId;
 
 	@Inject	
@@ -55,7 +60,12 @@ public class CM_VIEW_PLAYER_DETAILS extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = world.findPlayer(targetObjectId);
-
+		if(player == null)
+		{
+			//probably targetObjectId can be 0
+			log.warn("CHECKPOINT: can't show player details for " + targetObjectId);
+			return;
+		}
 		Inventory inventory = player.getInventory();	
 
 		sendPacket(new SM_VIEW_PLAYER_DETAILS(inventory.getEquippedItems()));
