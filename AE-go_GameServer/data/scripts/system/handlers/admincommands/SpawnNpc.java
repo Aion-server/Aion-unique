@@ -60,9 +60,14 @@ public class SpawnNpc extends AdminCommand {
 
         if (params.length < 1)
         {
-            PacketSendUtility.sendMessage(admin, "syntax //spawn <template_id>");
+            PacketSendUtility.sendMessage(admin, "syntax //spawn <template_id> {norespawn}");
             return;
         }
+        
+        boolean respawn = true;
+        
+        if(params.length == 2 && "norespawn".equalsIgnoreCase(params[1]))
+        	respawn = false;
 
         int templateId = Integer.parseInt(params[0]);
         float x = admin.getX();
@@ -71,7 +76,7 @@ public class SpawnNpc extends AdminCommand {
         byte heading = admin.getHeading();
         int worldId = admin.getWorldId();
 
-        SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, templateId, x, y, z, heading, 0, 0);
+        SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, templateId, x, y, z, heading, 0, 0, respawn);
 
         if (spawn == null)
         {

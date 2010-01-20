@@ -176,7 +176,7 @@ public class SpawnEngine
 	 * @param randomwalk
 	 * @return
 	 */
-	public SpawnTemplate addNewSpawn(int worldId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk)
+	private SpawnTemplate addNewSpawn(int worldId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk)
 	{
 		VisibleObjectTemplate template = null;
 		if(objectId > 400000 && objectId < 499999)// gatherable
@@ -195,10 +195,50 @@ public class SpawnEngine
 		}
 		
 		SpawnTemplate spawnTemplate = new SpawnTemplate(template, x, y, z, heading, walkerid, randomwalk);		
-		spawns.addNewTemplate(spawnTemplate, worldId);
+		
+		SpawnGroup spawnGroup = new SpawnGroup(worldId, spawnTemplate.getObjectTemplate().getTemplateId(), 60, 1);
+		spawnTemplate.setSpawnGroup(spawnGroup);
+		spawnGroup.getObjects().add(spawnTemplate);
 		
 		return spawnTemplate;
 	}
+	
+	/**
+	 *  Should be used when need to define whether spawn will be deleted after death
+	 *  
+	 * @param worldId
+	 * @param objectId
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param heading
+	 * @param walkerid
+	 * @param randomwalk
+	 * @param respawn
+	 * @return
+	 */
+	public SpawnTemplate addNewSpawn(int worldId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk, boolean respawn)
+	{
+		SpawnTemplate spawnTemplate = addNewSpawn(worldId, objectId, x, y, z, heading, walkerid, randomwalk);
+		
+		if(spawnTemplate == null)
+		{
+			log.warn("Object couldn't be spawned");
+			return null;
+		}
+		
+		if(respawn)
+		{
+			spawns.addNewTemplate(spawnTemplate, worldId);
+		}
+		else
+		{
+			spawnTemplate.setRespawn(false);	
+		}
+	
+		return spawnTemplate;
+	}
+
 	
 	private void bringIntoWorld(VisibleObject visibleObject, SpawnTemplate spawn)
 	{

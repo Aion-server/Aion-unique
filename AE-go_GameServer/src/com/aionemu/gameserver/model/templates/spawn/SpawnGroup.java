@@ -140,4 +140,9 @@ public class SpawnGroup
 		return null;
 	}
 	
+	public int size()
+	{
+		return getObjects().size();
+	}
+	
 }

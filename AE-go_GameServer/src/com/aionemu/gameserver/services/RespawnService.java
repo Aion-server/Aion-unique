@@ -43,11 +43,18 @@ public class RespawnService
 			@Override
 			public void run()
 			{
-				exchangeSpawnTemplate(visibleObject);		
-				world.setPosition(visibleObject, visibleObject.getSpawn().getWorldId(), visibleObject.getSpawn().getX(), visibleObject.getSpawn().getY(), visibleObject.getSpawn().getZ(), visibleObject.getSpawn().getHeading());
-				//call onRespawn before actual spawning
-				visibleObject.getController().onRespawn();
-				world.spawn(visibleObject);			
+				if(visibleObject.getSpawn().isRespawn())
+				{
+					exchangeSpawnTemplate(visibleObject);		
+					world.setPosition(visibleObject, visibleObject.getSpawn().getWorldId(), visibleObject.getSpawn().getX(), visibleObject.getSpawn().getY(), visibleObject.getSpawn().getZ(), visibleObject.getSpawn().getHeading());
+					//call onRespawn before actual spawning
+					visibleObject.getController().onRespawn();
+					world.spawn(visibleObject);		
+				}
+				else
+				{
+					visibleObject.getController().delete();
+				}				
 			}
 
 			private synchronized void exchangeSpawnTemplate(final VisibleObject visibleObject)

@@ -47,6 +47,7 @@ public class SpawnTemplate
 	private int			randomWalk;
 	
 	private boolean isSpawned;
+	private boolean respawn = true;
 	
 	
 	/**
@@ -158,5 +159,21 @@ public class SpawnTemplate
 	public void setSpawned(boolean isSpawned)
 	{
 		this.isSpawned = isSpawned;
+	}
+
+	/**
+	 * @return the respawn
+	 */
+	public boolean isRespawn()
+	{
+		return respawn;
+	}
+
+	/**
+	 * @param respawn the respawn to set
+	 */
+	public void setRespawn(boolean respawn)
+	{
+		this.respawn = respawn;
 	}
 }
