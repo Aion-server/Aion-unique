@@ -96,6 +96,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_RECONNECT_KEY;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RESTORE_CHARACTER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SET_BIND_POINT;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SHOW_BRAND;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SHOW_NPC_ON_MAP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
@@ -300,6 +301,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_GROUP_INFO.class, 0x52, idSet);
 		addPacketOpcode(SM_GROUP_MEMBER_INFO.class, 0x55, idSet);
 		addPacketOpcode(SM_LEAVE_GROUP_MEMBER.class, 0x11, idSet);
+		addPacketOpcode(SM_SHOW_BRAND.class, 0xF3, idSet);
 		//Unrecognized Opcodes from 1.5.0:
 		//addPacketOpcode(SM_VIRTUAL_AUTH.class, 0xE4, idSet);
 		//addPacketOpcode(SM_WAITING_LIST.class, 0x18, idSet);		

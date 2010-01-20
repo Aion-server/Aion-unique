@@ -79,6 +79,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_REVIVE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SET_GUILD_DESCR;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SET_NOTE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_BLOCKLIST;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_BRAND;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_DIALOG;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_FRIENDLIST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_LOGOUT_SCREEN;
@@ -197,6 +198,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_DISTRIBUTION_SETTINGS(0x2C), State.IN_GAME);
 		addPacket(new CM_DISCONNECT(0xE5), State.IN_GAME);
 		addPacket(new CM_GROUP_DISTRIBUTION(0x5F), State.IN_GAME);
+		addPacket(new CM_SHOW_BRAND(0x18), State.IN_GAME);
 		
 		//addPacket(new CM_REQUEST_DUEL(0x5C ), State.IN_GAME);
 		addPacket(new CM_PLAY_MOVIE_END(0xB4), State.IN_GAME);
