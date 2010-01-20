@@ -26,7 +26,9 @@ import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.dao.PlayerSettingsDAO;
+import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.PlayerSettings;
 
 /**
  * @author ATracer
@@ -37,11 +39,22 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 
 	private static final Logger log = Logger.getLogger(MySQL5PlayerSettingsDAO.class);
 
+	/**
+	 * TODO
+	 * 1) analyze possibility to zip settings
+	 * 2) insert/update instead of replace
+	 * 
+	 *  0 - uisettings
+	 *  1 - shortcuts
+	 *  2 - display
+	 *  3 - deny
+	 */
 
 	@Override
 	public void loadSettings(final Player player)
 	{
 		final int playerId = player.getObjectId();
+		final PlayerSettings playerSettings = new PlayerSettings();
 
 		boolean success = DB.select("SELECT * FROM player_settings WHERE player_id = ?", new ParamReadStH() {
 
@@ -51,18 +64,21 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 				while(resultSet.next())
 				{
 					int type = resultSet.getInt("settings_type");
-					if(type == 0)
+					switch(type)
 					{
-						player.setUiSettings(resultSet.getBytes("settings"));
-					}
-					else if(type == 1)
-					{
-						player.setShortcuts(resultSet.getBytes("settings"));
-					}
-				}
-				if(resultSet.next())
-				{
-					
+						case 0:
+							playerSettings.setUiSettings(resultSet.getBytes("settings"));
+							break;
+						case 1:
+							playerSettings.setShortcuts(resultSet.getBytes("settings"));
+							break;
+						case 2:
+							playerSettings.setDisplay(resultSet.getInt("settings"));
+							break;
+						case 3:
+							playerSettings.setDeny(resultSet.getInt("settings"));
+							break;
+					}			
 				}
 			}
 
@@ -72,6 +88,8 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 				preparedStatement.setInt(1, playerId);
 			}
 		});
+		playerSettings.setPersistentState(PersistentState.UPDATED);
+		player.setPlayerSettings(playerSettings);
 		log.info("Loaded settings with success: " + success);
 	}
 
@@ -79,14 +97,21 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 	public void saveSettings(final Player player)
 	{
 		final int playerId = player.getObjectId();
-		final byte[] uiSettings = player.getUiSettings();
-		final byte[] shortcuts = player.getShortcuts();
 		
+		PlayerSettings playerSettings = player.getPlayerSettings();
+		if(playerSettings.getPersistentState() == PersistentState.UPDATED)
+			return;
+		
+		final byte[] uiSettings = playerSettings.getUiSettings();
+		final byte[] shortcuts = playerSettings.getShortcuts();
+		final int display = playerSettings.getDisplay();
+		final int deny = playerSettings.getDeny();
+
 		log.info("Saving settings");
-		
+
 		if(uiSettings != null)
 		{
-			DB.insertUpdate("REPLACE INTO player_settings values (?, ?,  ?)", new IUStH() {
+			DB.insertUpdate("REPLACE INTO player_settings values (?, ?, ?)", new IUStH() {
 				@Override
 				public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 				{
@@ -97,10 +122,10 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 				}
 			});
 		}
-		
+
 		if(shortcuts != null)
 		{
-			DB.insertUpdate("REPLACE INTO player_settings values (?, ?,  ?)", new IUStH() {
+			DB.insertUpdate("REPLACE INTO player_settings values (?, ?, ?)", new IUStH() {
 				@Override
 				public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 				{
@@ -111,6 +136,29 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 				}
 			});
 		}	
+
+		DB.insertUpdate("REPLACE INTO player_settings values (?, ?, ?)", new IUStH() {
+			@Override
+			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, playerId);
+				stmt.setInt(2, 2);
+				stmt.setInt(3, display);
+				stmt.execute();
+			}
+		});
+
+		DB.insertUpdate("REPLACE INTO player_settings values (?, ?, ?)", new IUStH() {
+			@Override
+			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, playerId);
+				stmt.setInt(2, 3);
+				stmt.setInt(3, deny);
+				stmt.execute();
+			}
+		});
+
 	}
 
 	@Override

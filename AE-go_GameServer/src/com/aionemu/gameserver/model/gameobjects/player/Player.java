@@ -65,8 +65,7 @@ public class Player extends Creature
 	private ExchangeList		exchangeList;
 	private PlayerStatsTemplate	playerStatsTemplate;
 	private TitleList			titleList;
-	private byte[]				uiSettings;
-	private byte[]				shortcuts;
+	private PlayerSettings		playerSettings;
 
 	private QuestStateList		questStateList;
 	private List<Integer>		nearbyQuestList	= new ArrayList<Integer>();
@@ -420,37 +419,19 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @return the shortcuts
+	 * @return the playerSettings
 	 */
-	public byte[] getShortcuts()
+	public PlayerSettings getPlayerSettings()
 	{
-		return shortcuts;
+		return playerSettings;
 	}
 
 	/**
-	 * @param shortcuts
-	 *            the shortcuts to set
+	 * @param playerSettings the playerSettings to set
 	 */
-	public void setShortcuts(byte[] shortcuts)
+	public void setPlayerSettings(PlayerSettings playerSettings)
 	{
-		this.shortcuts = shortcuts;
-	}
-
-	/**
-	 * @return the uiSettings
-	 */
-	public byte[] getUiSettings()
-	{
-		return uiSettings;
-	}
-
-	/**
-	 * @param uiSettings
-	 *            the uiSettings to set
-	 */
-	public void setUiSettings(byte[] uiSettings)
-	{
-		this.uiSettings = uiSettings;
+		this.playerSettings = playerSettings;
 	}
 
 	/**

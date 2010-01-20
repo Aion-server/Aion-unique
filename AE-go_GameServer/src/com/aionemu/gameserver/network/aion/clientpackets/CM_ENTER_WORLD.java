@@ -140,8 +140,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			QuestEngine.getInstance().onEnterWorld(new QuestEnv(null, player, 0, 0));
 			player.updateNearbyQuests();
 
-			byte[] uiSettings = player.getUiSettings();
-			byte[] shortcuts = player.getShortcuts();
+			byte[] uiSettings = player.getPlayerSettings().getUiSettings();
+			byte[] shortcuts = player.getPlayerSettings().getShortcuts();
 
 			if(uiSettings != null)
 				client.sendPacket(new SM_UI_SETTINGS(uiSettings, 0));
