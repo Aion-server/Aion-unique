@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.org.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -37,9 +37,7 @@ public class RespawnService
 	{
 		final World world = visibleObject.getActiveRegion().getWorld();
 		final int interval = visibleObject.getSpawn().getSpawnGroup().getInterval();
-		
-		//TODO separate thread executor for decay/spawns
-		// or schedule separate decay runnable service with queue 
+	
 		ThreadPoolManager.getInstance().schedule(new Runnable()
 		{
 			@Override
@@ -54,12 +52,17 @@ public class RespawnService
 
 			private synchronized void exchangeSpawnTemplate(final VisibleObject visibleObject)
 			{
-				SpawnTemplate nextSpawn = visibleObject.getSpawn().getSpawnGroup().getNextAvailableTemplate();
+				SpawnTemplate oldSpawn = visibleObject.getSpawn();
+				SpawnTemplate nextSpawn = oldSpawn.getSpawnGroup().getNextAvailableTemplate();
+				
 				if(nextSpawn != null)
 				{
 					nextSpawn.setSpawned(true);
 					visibleObject.getSpawn().setSpawned(false);
 					visibleObject.setSpawn(nextSpawn);
+					//new spawn can contain null object template
+					//TODO refactor so only spawn group will contain object template
+					nextSpawn.setObjectTemplate(oldSpawn.getObjectTemplate());
 				}	
 			}
 			
