@@ -62,6 +62,8 @@ public class CM_LEVEL_READY extends AionClientPacket
 	protected void runImpl()
 	{		
 		Player activePlayer = getConnection().getActivePlayer();
+		
+		//TODO can be flying also but need save in db first probably
 		activePlayer.setState(CreatureState.STANDING);
 		
 		sendPacket(new SM_PLAYER_INFO(activePlayer, true));

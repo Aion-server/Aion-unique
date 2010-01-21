@@ -45,7 +45,7 @@ public abstract class Creature extends VisibleObject
 
 	private EffectController effectController;
 	
-	private CreatureState state =  CreatureState.STANDING;
+	private CreatureState state;
 	
 	private boolean isRooted = false;
 
