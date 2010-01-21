@@ -20,11 +20,13 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.PlayerState;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneManager;
@@ -74,7 +76,7 @@ public class CM_EMOTION extends AionClientPacket
 			case 0x03:// end resting
 			case 0x4://Sit (Nothing to do) ?? check
 			case 0x5://standing (Nothing to do) ?? check
-			case 0x7: //fly land
+			case 0x7: //fly teleport land
 			case 0x8:// fly up
 			case 0x9:// land
 			case 0x11:// Nothing here
@@ -104,16 +106,17 @@ public class CM_EMOTION extends AionClientPacket
 		switch(emotionType)
 		{
 			case 0x2:
-				player.setState(PlayerState.RESTING);
+				player.setState(CreatureState.RESTING);
 				break;
 			case 0x3:
-				player.setState(PlayerState.STANDING);
+				player.setState(CreatureState.STANDING);
 				break;
 			case 0x7:
+				player.setState(CreatureState.STANDING);
 				PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
 				ZoneManager.getInstance().findZoneInCurrentMap(player);
 				break;
-			case 0x8:
+			case 0x8:				
 				//TODO move to player controller? but after states working
 				ZoneInstance currentZone = player.getZoneInstance();
 				if(currentZone != null)
@@ -125,9 +128,15 @@ public class CM_EMOTION extends AionClientPacket
 						return;
 					}
 				}
+				player.setState(CreatureState.FLYING);
+				PacketSendUtility.broadcastPacket(player,
+					new SM_EMOTION(player, 30, 0, 0), true);
+				PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+						
 				//player.getCommonData().setFlying(true);
 				break;
 			case 0x9:
+				player.setState(CreatureState.STANDING);
 				//player.getCommonData().setFlying(false);
 				break;
 			case 21:

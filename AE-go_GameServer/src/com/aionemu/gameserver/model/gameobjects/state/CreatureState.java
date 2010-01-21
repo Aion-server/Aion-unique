@@ -14,15 +14,37 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects.player;
+package com.aionemu.gameserver.model.gameobjects.state;
 
 /**
  * @author ATracer
  *
  */
-public enum PlayerState
+public enum CreatureState
 {
-	RESTING,
-	STANDING,
-	MOVING
+	//TODO diff fo npc and player
+	RESTING(1),//?? exist? - player specific
+	STANDING(1),//for player
+	NPC_IDLE(65),//for npc
+	MOVING(1),//?? exist?
+	FLYING(3),
+	FLY_TELEPORT(2),
+	PRIVATE_SHOP(17),
+	WALKING(65),
+	DEAD(7);
+
+	private int id;
+
+	private CreatureState(int id)
+	{
+		this.id = id;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public int getId()
+	{
+		return id;
+	}
 }

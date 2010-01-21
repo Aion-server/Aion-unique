@@ -23,6 +23,7 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.templates.teleport.TelelocationTemplate;
 import com.aionemu.gameserver.model.templates.teleport.TeleportLocation;
 import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
@@ -111,8 +112,8 @@ public class TeleportService
 		
 		if(!checkKinahForTransportation(location, player))
 			return;
-		
-		PacketSendUtility.sendPacket(player, new SM_EMOTION(player.getObjectId(), 6, location.getTeleportId(), 0));
+		player.setState(CreatureState.FLY_TELEPORT);
+		PacketSendUtility.sendPacket(player, new SM_EMOTION(player, 6, location.getTeleportId(), 0));
 	}
 	
 	/**

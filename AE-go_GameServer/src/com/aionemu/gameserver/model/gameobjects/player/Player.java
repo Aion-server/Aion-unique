@@ -28,6 +28,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.group.PlayerGroup;
@@ -71,7 +72,6 @@ public class Player extends Creature
 	private List<Integer>		nearbyQuestList	= new ArrayList<Integer>();
 	private ZoneInstance		zoneInstance;
 	private PlayerGroup			playerGroup;
-	private PlayerState 		state =  PlayerState.STANDING;
 
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -482,22 +482,6 @@ public class Player extends Creature
 	{
 		// TODO Auto-generated method stub
 
-	}
-	
-	/**
-	 * @return the state
-	 */
-	public PlayerState getState()
-	{
-		return state;
-	}
-
-	/**
-	 * @param state the state to set
-	 */
-	public void setState(PlayerState state)
-	{
-		this.state = state;
 	}
 
 	/**

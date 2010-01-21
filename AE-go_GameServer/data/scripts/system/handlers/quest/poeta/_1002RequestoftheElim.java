@@ -208,7 +208,7 @@ public class _1002RequestoftheElim extends QuestHandler
 					final int targetObjectId = env.getVisibleObject().getObjectId();
 					PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), targetObjectId, 3000,
 						1));
-					PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 37, 0,
+					PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 37, 0,
 						targetObjectId), true);
 					ThreadPoolManager.getInstance().schedule(new Runnable(){
 						@Override
@@ -218,7 +218,7 @@ public class _1002RequestoftheElim extends QuestHandler
 								return;
 							PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(),
 								targetObjectId, 3000, 0));
-							PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 38, 0,
+							PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 38, 0,
 								targetObjectId), true);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(targetObjectId, 10));
 						}
@@ -294,7 +294,7 @@ public class _1002RequestoftheElim extends QuestHandler
 				case 25:
 					if(var == 20)
 					{
-						PacketSendUtility.sendPacket(player, new SM_EMOTION(player.getObjectId(), 6, 1001, 0));
+						PacketSendUtility.sendPacket(player, new SM_EMOTION(player, 6, 1001, 0));
 						ThreadPoolManager.getInstance().schedule(new Runnable(){
 							@Override
 							public void run()

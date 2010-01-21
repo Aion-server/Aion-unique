@@ -66,7 +66,7 @@ public class SM_NPC_INFO extends AionServerPacket
 		writeD(buf, npc.getNpcId());
 
 		writeC(buf, npcTemplate.getNpcType().getId());// 0-monster, 38 - (non attackable), 8- pre-emptive attack (aggro monsters)
-		writeC(buf, 65);// unk 65=normal,0x47 (71)= [dead npc ?]no drop,0x21(33)=fight state,0x07=[dead monster?]
+		writeC(buf, npc.getState().getId());// unk 65=normal,0x47 (71)= [dead npc ?]no drop,0x21(33)=fight state,0x07=[dead monster?]
 								// no drop
 								// 3,19 - wings spread (NPCs)
 								// 5,6,11,21 - sitting (NPC)

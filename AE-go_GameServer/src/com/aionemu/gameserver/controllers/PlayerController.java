@@ -28,8 +28,8 @@ import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.PlayerState;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
@@ -170,22 +170,24 @@ public class PlayerController extends CreatureController<Player>
 	public void onDie()
 	{
 		super.onDie();
-
 		// TODO probably introduce variable - last attack creature in player AI
 		Player player = this.getOwner();
 		//TODO move to DuelController
-		if (lastAttacker instanceof Player) { // PvP
+		if (lastAttacker instanceof Player) 
+		{ // PvP
 			this.lostDuelWith((Player)lastAttacker);
 			((Player)lastAttacker).getController().wonDuelWith(player);
-		} else { // PvE
-
+		} 
+		else 
+		{ // PvE
+			getOwner().setState(CreatureState.DEAD);
 			/**
 			 * Set recoverable exp to player.
 			 */
 			if(player.getLevel() > 4) //only over level 5
 				player.getCommonData().calculateExpLoss();	
 
-			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 13,
+			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 13,
 				0, lastAttacker.getObjectId()), true);
 			PacketSendUtility.sendPacket(player, new SM_DIE());
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
@@ -251,8 +253,6 @@ public class PlayerController extends CreatureController<Player>
 	public void onMove()
 	{
 		super.onMove();
-		getOwner().setState(PlayerState.MOVING);
-
 		PlayerGameStats pgs = getOwner().getGameStats();
 		pgs.increaseMoveCounter();
 		if(pgs.getMoveCounter() % 5 == 0)
@@ -265,7 +265,6 @@ public class PlayerController extends CreatureController<Player>
 	public void onStopMove()
 	{
 		super.onStopMove();
-		getOwner().setState(PlayerState.STANDING);
 	}
 
 	@Override

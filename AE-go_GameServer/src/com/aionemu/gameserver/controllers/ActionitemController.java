@@ -48,7 +48,7 @@ public class ActionitemController extends NpcController
 		final int defaultUseTime = 3000;
 		PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), 
 			getOwner().getObjectId(), defaultUseTime, 1));
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 37, 0, getOwner().getObjectId()), true);
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 37, 0, getOwner().getObjectId()), true);
 		ThreadPoolManager.getInstance().schedule(new Runnable(){
 			@Override
 			public void run()
@@ -66,7 +66,7 @@ public class ActionitemController extends NpcController
 	{
 		super.onDie();
 		Player target = (Player) getOwner().getTarget();
-		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(getOwner().getObjectId(), 13, 0, target == null?0:target.getObjectId()));
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(getOwner(), 13, 0, target == null?0:target.getObjectId()));
 		this.doDrop(target);
 		if(decayTask == null)
 		{

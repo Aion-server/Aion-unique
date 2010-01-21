@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.questEngine.QuestEngine;
@@ -53,6 +54,8 @@ public class NpcController extends CreatureController<Npc>
 	public void onRespawn()
 	{
 		this.decayTask = null;
+		//TODO based on template
+		this.getOwner().setState(CreatureState.NPC_IDLE);
 		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
 	}
 

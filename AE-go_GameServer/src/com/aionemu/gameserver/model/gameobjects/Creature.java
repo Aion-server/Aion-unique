@@ -19,6 +19,7 @@ package com.aionemu.gameserver.model.gameobjects;
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.EffectController;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
@@ -43,7 +44,9 @@ public abstract class Creature extends VisibleObject
 	private CreatureGameStats<? extends Creature> gameStats;
 
 	private EffectController effectController;
-
+	
+	private CreatureState state =  CreatureState.STANDING;
+	
 	private boolean isRooted = false;
 
 	private boolean isSleep = false;
@@ -164,5 +167,21 @@ public abstract class Creature extends VisibleObject
 	public boolean canPerformMove()
 	{
 		return !(isRooted || isSleep);
+	}
+
+	/**
+	 * @return
+	 */
+	public CreatureState getState()
+	{
+		return state;
+	}
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(CreatureState state)
+	{
+		this.state = state;
 	}
 }

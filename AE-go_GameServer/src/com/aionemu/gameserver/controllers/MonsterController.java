@@ -30,6 +30,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
@@ -178,11 +179,12 @@ public class MonsterController extends NpcController
 	public void onDie()
 	{
 		super.onDie();
-		
+		//TODO move to creature controller after duel will be moved out of onDie
+		this.getOwner().setState(CreatureState.DEAD);
 		//TODO change - now reward is given to target only
 		Player target = (Player) this.getOwner().getTarget();
 
-		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(this.getOwner().getObjectId(), 13, 0, target == null?0:target.getObjectId()));
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(getOwner(), 13, 0, target == null?0:target.getObjectId()));
 
 		if(target == null)
 			target = (Player) getOwner().getAggroList().getMostHated();//TODO based on damage;

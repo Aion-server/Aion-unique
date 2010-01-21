@@ -17,10 +17,10 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.*;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -71,6 +71,8 @@ public class CM_REVIVE extends AionClientPacket
 
 		activePlayer.setLifeStats(new PlayerLifeStats(activePlayer, activePlayer.getPlayerStatsTemplate().getMaxHp(),
 		activePlayer.getPlayerStatsTemplate().getMaxMp()));
+		
+		activePlayer.setState(CreatureState.STANDING);
 		
 		sendPacket(SM_SYSTEM_MESSAGE.REVIVE);	
 		sendPacket(new SM_QUEST_LIST(activePlayer));

@@ -163,7 +163,7 @@ public class DropService
 		PacketSendUtility.sendPacket(player, new SM_LOOT_ITEMLIST(npcId, dropItems));
 		//PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, size > 0 ? size - 1 : size));
 		PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 2));
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 35, 0, 0), true);
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 35, 0, 0), true);
 	}
 
 	public void requestDropItem(Player player, int npcId, int itemIndex)
@@ -226,7 +226,7 @@ public class DropService
 		else
 		{
 			PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 3));
-			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player.getObjectId(), 36, 0, 0), true);
+			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 36, 0, 0), true);
 			Creature creature = (Creature) world.findAionObject(npcId);
 			if(creature != null)
 			{

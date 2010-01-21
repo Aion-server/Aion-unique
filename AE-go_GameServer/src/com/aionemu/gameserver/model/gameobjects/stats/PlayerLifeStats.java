@@ -18,7 +18,7 @@ package com.aionemu.gameserver.model.gameobjects.stats;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.PlayerState;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.group.GroupEvent;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_MP;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -95,7 +95,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	public void restoreHp()
 	{
 		int currentRegenHp = getOwner().getGameStats().getCurrentStat(StatEnum.REGEN_HP);
-		if(getOwner().getState() == PlayerState.RESTING)
+		if(getOwner().getState() == CreatureState.RESTING)
 			currentRegenHp *= 8;
 		increaseHp(currentRegenHp);
 	}
@@ -104,7 +104,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	public void restoreMp()
 	{
 		int currentRegenMp = getOwner().getGameStats().getCurrentStat(StatEnum.REGEN_MP);
-		if(getOwner().getState() == PlayerState.RESTING)
+		if(getOwner().getState() == CreatureState.RESTING)
 			currentRegenMp *= 8;
 		increaseMp(currentRegenMp);
 	}
