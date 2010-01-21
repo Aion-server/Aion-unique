@@ -23,9 +23,11 @@ import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+import com.aionemu.gameserver.model.templates.item.WeaponType;
 import com.aionemu.gameserver.model.templates.stats.NpcRank;
 
 /**
@@ -132,36 +134,122 @@ public class StatFunctions
 		log.debug("| Attacker: "+ags);
 		log.debug("| Target  : "+tgs);
 
-		int baseDamages = skillDamages; 
-
-		//adjusting baseDamages according to attacker and target level
-		//
-		baseDamages = adjustDamages(attacker, target, baseDamages);
+		int Damage = 0;
 
 		if (attacker instanceof Player)
 		{
-			int min = ags.getCurrentStat(StatEnum.MIN_DAMAGES);
-			int max = ags.getCurrentStat(StatEnum.MAX_DAMAGES);
-			int base = Rnd.get(min,max);
-			float multiplier = Math.round((ags.getBaseStat(StatEnum.MAIN_HAND_POWER)+ags.getBaseStat(StatEnum.OFF_HAND_POWER))/100f);
-			baseDamages += Math.round(base * multiplier) + ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + ags.getStatBonus(StatEnum.OFF_HAND_POWER);
+			int totalMin = ags.getCurrentStat(StatEnum.MIN_DAMAGES);
+			int totalMax = ags.getCurrentStat(StatEnum.MAX_DAMAGES);
+			int average = Math.round((totalMin + totalMax)/2);
+			int mainHandAttack = ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
+
+			Inventory inventory = ((Player)attacker).getInventory();
+
+			WeaponType weaponType = inventory.getMainHandWeaponType();
+
+			if(weaponType != null)
+			{
+
+				switch(weaponType)
+				{
+					case ORB_2H:
+					case BOOK_2H:
+						break;
+
+					default:
+						mainHandAttack -= 100;
+						break;
+				}
+
+				int min = Math.round((((mainHandAttack * 100)/ average) * totalMin)/100);
+				int max = Math.round((((mainHandAttack * 100)/ average) * totalMax)/100);
+
+				if(skillDamages != 0)
+				{
+					int base = Rnd.get(min,max);
+					Damage = base + Math.round(skillDamages * (ags.getCurrentStat(StatEnum.POWER)/100f));
+				}
+				else
+				{
+					int base = Rnd.get(min,max);
+					Damage = Math.round(base + (ags.getBaseStat(StatEnum.MAIN_HAND_POWER)/ 2 + ags.getBaseStat(StatEnum.OFF_HAND_POWER)/ 2)/10f)
+					+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + ags.getStatBonus(StatEnum.OFF_HAND_POWER);
+				}
+
+			}
+			else   //if hand attack
+			{
+				int base = Rnd.get(16,20);
+				Damage = Math.round(base + (ags.getBaseStat(StatEnum.MAIN_HAND_POWER)/ 2 + ags.getBaseStat(StatEnum.OFF_HAND_POWER)/ 2)/10f)
+				+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + ags.getStatBonus(StatEnum.OFF_HAND_POWER);
+			}
+
+
+
 		}
 		else
 		{
 			NpcRank npcRank = ((Npc) attacker).getTemplate().getRank();
 			int multipler = calculateRankMultipler(npcRank);
-			baseDamages += ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
-			baseDamages = (baseDamages * multipler) + ((baseDamages*attacker.getLevel())/10);			
+			Damage += ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
+			Damage = (Damage * multipler) + ((Damage*attacker.getLevel())/10);
 		}
 
-		int pDef = tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE);
-		int damages = baseDamages; // + Math.round(baseDamages*0.60f);
-		damages -= Math.round(pDef * 0.10f);
-		if (damages<=0) {
-			damages=1;
+		//adjusting baseDamages according to attacker and target level
+		//
+		Damage = adjustDamages(attacker, target, Damage);
+
+		Damage -= Math.round(tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE) * 0.10f);
+
+		if (Damage<=0)
+			Damage=1;
+
+		log.debug("|=> Damages calculation result: damages("+Damage+")");
+
+		return Damage;
+	}
+
+	public static int calculateOffHandPhysicDamageToTarget(Creature attacker, Creature target)
+	{
+		CreatureGameStats<?> ags = attacker.getGameStats();
+		CreatureGameStats<?> tgs = target.getGameStats();
+
+		int totalMin = ags.getCurrentStat(StatEnum.MIN_DAMAGES);
+		int totalMax = ags.getCurrentStat(StatEnum.MAX_DAMAGES);
+		int average = Math.round((totalMin + totalMax)/2);
+		int offHandAttack = ags.getCurrentStat(StatEnum.OFF_HAND_POWER);
+
+		Inventory inventory = ((Player)attacker).getInventory();
+
+		WeaponType weaponType = inventory.getOffHandWeaponType();
+
+		switch(weaponType)
+		{
+			case ORB_2H:
+			case BOOK_2H:
+				break;
+
+			default:
+				offHandAttack -= 100;
+				break;
 		}
-		log.debug("|=> Damages calculation result: damages("+damages+")");
-		return damages;
+
+		int Damage = 0;
+		int min = Math.round((((offHandAttack * 100)/ average) * totalMin)/100);
+		int max = Math.round((((offHandAttack * 100)/ average) * totalMax)/100);
+
+		int base = Rnd.get(min,max);
+		Damage = Math.round(base + (ags.getBaseStat(StatEnum.MAIN_HAND_POWER)/ 2 + ags.getBaseStat(StatEnum.OFF_HAND_POWER)/ 2)/10)
+		+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + ags.getStatBonus(StatEnum.OFF_HAND_POWER);
+
+		Damage = adjustDamages(attacker, target, Damage);
+
+		Damage -= Math.round(tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE) * 0.10f);
+
+		if (Damage<=0)
+			Damage=1;
+
+		return Damage;
 	}
 
 
@@ -224,22 +312,29 @@ public class StatFunctions
 		return damages;
 	}
 
-	public static int calculateRankMultipler(NpcRank NpcRank)
+	public static int calculateRankMultipler(NpcRank npcRank)
 	{
 		//FIXME: to correct formula, have any reference?
-		int multipler = 1;
-		switch(NpcRank) {
-			case JUNK: multipler = 2;
-			break;
-			case NORMAL: multipler = 3;
-			break;
-			case ELITE: multipler = 4;
-			break;
-			case HERO: multipler = 5;
-			break;
-			case LEGENDARY: multipler = 6;
-			break;
-			default: multipler = 2;
+		int multipler;
+		switch(npcRank) 
+		{
+			case JUNK: 
+				multipler = 1;
+				break;
+			case NORMAL: 
+				multipler = 2;
+				break;
+			case ELITE:
+				multipler = 3;
+				break;
+			case HERO: 
+				multipler = 4;
+				break;
+			case LEGENDARY: 
+				multipler = 5;
+				break;
+			default: 
+				multipler = 1;
 		}
 
 		return multipler;
@@ -299,9 +394,9 @@ public class StatFunctions
 	{
 		int dodgeRate = ( attacked.getGameStats().getCurrentStat(StatEnum.BLOCK) - attacker.getGameStats().getCurrentStat(StatEnum.ACCURACY) ) / 10;
 		//maximal dodge rate
-		if( dodgeRate > 50) {
+		if( dodgeRate > 50)
 			dodgeRate = 50;
-		}
+
 		return dodgeRate;
 	}
 
@@ -309,9 +404,9 @@ public class StatFunctions
 	{
 		int parryRate = ( attacked.getGameStats().getCurrentStat(StatEnum.PARRY) - attacker.getGameStats().getCurrentStat(StatEnum.ACCURACY) ) / 10;
 		//maximal parry rate
-		if( parryRate > 40) {
+		if( parryRate > 40)
 			parryRate = 40;
-		}
+
 		return parryRate;
 	}
 
@@ -319,9 +414,9 @@ public class StatFunctions
 	{
 		int blockRate = ( attacked.getGameStats().getCurrentStat(StatEnum.BLOCK) - attacker.getGameStats().getCurrentStat(StatEnum.ACCURACY) ) / 10;
 		//maximal block rate
-		if( blockRate > 30 ) {
+		if( blockRate > 30 )
 			blockRate = 30;
-		}
+
 		return blockRate;
 	}
 
@@ -329,9 +424,9 @@ public class StatFunctions
 	{
 		double criticalRate = 75d * Math.sin( ( ( 900 - attacker.getGameStats().getCurrentStat(StatEnum.PHYSICAL_CRITICAL) ) / 1800 ) * Math.PI );
 		//minimal critical rate
-		if(criticalRate < 0.1d) {
+		if(criticalRate < 0.1d)
 			criticalRate = 0.1d;
-		}
+
 		return criticalRate * 100d;
 	}
 
