@@ -434,4 +434,8 @@ Ishalgen -->
   <spawn map="220010000" npcid="700127" pool="1" interval="105">
     <object x="1070.7109" y="1600.1602" z="258.87057" h="40"/>
   </spawn>
+    <!-- Mailbox -->
+  <spawn map="220010000" npcid="700079" pool="1" interval="105">
+    <object x="562.1119" y="2426.1196" z="278.5" h="25"/>
+  </spawn>
 </spawns>
