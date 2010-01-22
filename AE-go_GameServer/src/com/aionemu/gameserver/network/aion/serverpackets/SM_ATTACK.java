@@ -36,7 +36,7 @@ public class SM_ATTACK extends AionServerPacket
 	private int	time;
 	private int	type;
 	private List<AttackResult> attackList;
-	
+
 	public SM_ATTACK(int attackerobjectid ,int targetObjectId, int attackno, int time, int type, List<AttackResult> attackList)
 	{
 		this.attackerobjectid = attackerobjectid;
@@ -50,7 +50,7 @@ public class SM_ATTACK extends AionServerPacket
 	/**
 	 * {@inheritDoc}
 	 */
-	
+
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{		
@@ -62,16 +62,30 @@ public class SM_ATTACK extends AionServerPacket
 		//defender
 		writeD(buf, targetObjectId);
 		writeC(buf, 0); //unknown
-		writeH(buf, 84); // unknown
-		writeC(buf, 0); // unknown
+		writeC(buf, 84); // unknown
 		
+		switch(attackList.get(0).getAttackStatus().getId())    // Counter skills
+		{
+			case 4:  // case BLOCK
+				writeC(buf, 32);    // Shield counter attack skill activation
+				break;
+			case 0:  // case DODGE
+				writeC(buf, 128);    // Scout counter attack skill activation
+				break;
+			default:
+				writeC(buf, 0);
+				break;
+		}
+
+		writeC(buf, 0); // unknown
+
 		writeC(buf, attackList.size());
 		for (AttackResult attack : attackList)
 		{
 			writeD(buf, attack.getDamage()); // damage
 			writeH(buf, attack.getAttackStatus().getId()); // attack status
 		}
-		
+
 		writeC(buf, 0);
 	}	
 }

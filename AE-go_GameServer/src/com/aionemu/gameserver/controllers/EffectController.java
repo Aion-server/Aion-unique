@@ -35,11 +35,11 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class EffectController
 {
 	private Creature owner;
-	
+
 	private ConcurrentMap<Integer, Effect> effectMap;
-	
+
 	private int abnormals;
-	
+
 	public EffectController(Creature owner)
 	{
 		super();
@@ -54,7 +54,7 @@ public class EffectController
 	{
 		return owner;
 	}
-	
+
 	/**
 	 * 
 	 * @param effect
@@ -68,9 +68,9 @@ public class EffectController
 			effectMap.get(effect.getSkillId()).endEffect();
 		}
 		effectMap.put(effect.getSkillId(), effect);
-		
+
 		effect.startEffect();
-		
+
 		// effect icon updates
 		if(owner instanceof Player)
 		{
@@ -79,7 +79,7 @@ public class EffectController
 		}
 		broadCastEffects();	
 	}
-	
+
 	/**
 	 *  Broadcasts current effects to all visible objects
 	 */
@@ -89,7 +89,7 @@ public class EffectController
 			new SM_ABNORMAL_EFFECT(getOwner().getObjectId(),
 				effectMap.values().toArray(new Effect[effectMap.size()])));	
 	}
-	
+
 	/**
 	 *  Used when player see new player
 	 *  
@@ -98,9 +98,9 @@ public class EffectController
 	public void sendEffectIconsTo(Player player)
 	{
 		PacketSendUtility.sendPacket(player, new SM_ABNORMAL_EFFECT(getOwner().getObjectId(),
-				effectMap.values().toArray(new Effect[effectMap.size()])));
+			effectMap.values().toArray(new Effect[effectMap.size()])));
 	}
-	
+
 	/**
 	 *  Adds icon of effect to owner (only for Player objects)
 	 *  
@@ -111,7 +111,7 @@ public class EffectController
 		PacketSendUtility.sendPacket((Player) owner,
 			new SM_ABNORMAL_STATE(effectMap.values().toArray(new Effect[effectMap.size()])));
 	}
-	
+
 	/**
 	 * Updates player stats in UI
 	 */
@@ -120,7 +120,7 @@ public class EffectController
 		Player player = (Player) owner;
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 	}
-	
+
 	/**
 	 * 
 	 * @param effect
@@ -128,14 +128,15 @@ public class EffectController
 	public void removeEffect(Effect effect)
 	{
 		effectMap.remove(effect.getSkillId());
-		
+
 		broadCastEffects();
 		if(owner instanceof Player)
 		{
 			updatePlayerEffectIcons();
+			updatePlayerStats();
 		}
 	}
-	
+
 	/**
 	 * Removes all effects from controllers and ends them appropriately
 	 */
@@ -147,16 +148,16 @@ public class EffectController
 		}
 		effectMap.clear();
 	}
-	
+
 	/**
 	 *  ABNORMAL EFFECTS
 	 */
-	
+
 	public void setAbnormal(int mask)
 	{
 		abnormals |= mask;
 	}
-	
+
 	public void unsetAbnormal(int mask)
 	{
 		abnormals &= ~mask;
