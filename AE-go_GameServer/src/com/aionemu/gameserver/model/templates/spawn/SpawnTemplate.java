@@ -32,7 +32,6 @@ import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 @XmlType(name = "object")
 public class SpawnTemplate
 {
-	private VisibleObjectTemplate	objectTemplate;
 	private SpawnGroup			spawnGroup;
 	@XmlAttribute(name = "x")
 	private float x;
@@ -59,7 +58,6 @@ public class SpawnTemplate
 
 	/**
 	 * 
-	 * @param template 
 	 * @param x
 	 * @param y
 	 * @param z
@@ -67,9 +65,8 @@ public class SpawnTemplate
 	 * @param walkerId
 	 * @param randomWalk
 	 */
-	public SpawnTemplate(VisibleObjectTemplate template, float x, float y, float z, byte heading, int walkerId, int randomWalk)
+	public SpawnTemplate(float x, float y, float z, byte heading, int walkerId, int randomWalk)
 	{
-		this.objectTemplate = template;
 		this.x = x;
 		this.y = y;
 		this.z = z;
@@ -77,23 +74,7 @@ public class SpawnTemplate
 		this.walkerId = walkerId;
 		this.randomWalk = randomWalk;
 	}
-
-	/**
-	 * @return the objectTemplate
-	 */
-	public VisibleObjectTemplate getObjectTemplate()
-	{
-		return objectTemplate;
-	}
-
-	/**
-	 * @param objectTemplate the objectTemplate to set
-	 */
-	public void setObjectTemplate(VisibleObjectTemplate objectTemplate)
-	{
-		this.objectTemplate = objectTemplate;
-	}
-
+	
 	public int getWorldId()
 	{
 		return spawnGroup.getMapid();

@@ -51,6 +51,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="hot" type="HealOverTimeEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="transform" type="TransformEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -241,7 +243,6 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-
 	<xs:complexType name="BufEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
@@ -249,6 +250,14 @@
 					<xs:element name="change" type="Change" minOccurs="1"
 						maxOccurs="unbounded" />
 				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="TransformEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="model" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

@@ -20,6 +20,7 @@ import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.npcai.CitizenAi;
 import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.controllers.CitizenController;
+import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 /**
  * @author ATracer
@@ -33,9 +34,9 @@ public class Citizen extends Npc
 	 * @param controller
 	 * @param spawn
 	 */
-	public Citizen(int objId, CitizenController controller, SpawnTemplate spawn)
+	public Citizen(int objId, CitizenController controller, SpawnTemplate spawn, VisibleObjectTemplate objectTemplate)
 	{
-		super(objId, controller, spawn);
+		super(objId, controller, spawn, objectTemplate);
 	}
 
 	@Override

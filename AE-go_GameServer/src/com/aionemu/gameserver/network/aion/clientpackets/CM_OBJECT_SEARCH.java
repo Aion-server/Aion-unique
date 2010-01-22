@@ -63,12 +63,8 @@ public class CM_OBJECT_SEARCH extends AionClientPacket
 		SpawnTemplate spawnTemplate = spawnsData.getFirstSpawnByNpcId(objid);
 		if(spawnTemplate != null)
 		{
-			VisibleObjectTemplate vot = spawnTemplate.getObjectTemplate();
-			if(vot instanceof NpcTemplate)
-			{
-				sendPacket(new SM_SHOW_NPC_ON_MAP(objid, spawnTemplate.getWorldId(),
-					spawnTemplate.getX(), spawnTemplate.getY(), spawnTemplate.getZ()));
-			}
+			sendPacket(new SM_SHOW_NPC_ON_MAP(objid, spawnTemplate.getWorldId(),
+				spawnTemplate.getX(), spawnTemplate.getY(), spawnTemplate.getZ()));
 		}
 	}
 }

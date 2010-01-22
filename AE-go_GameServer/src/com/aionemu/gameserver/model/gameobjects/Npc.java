@@ -22,6 +22,7 @@ import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
+import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
 import com.aionemu.gameserver.utils.MathUtil;
@@ -36,12 +37,6 @@ import com.aionemu.gameserver.world.WorldPosition;
  */
 public class Npc extends Creature
 {
-	
-	/**
-	 *  Template keeping all base data for this npc 
-	 */
-	protected NpcTemplate		template;
-
 
 	/**
 	 * Constructor creating instance of Npc.
@@ -51,13 +46,12 @@ public class Npc extends Creature
 	 * @param objId
 	 *            unique objId
 	 */
-	public Npc(int objId, NpcController controller, SpawnTemplate spawnTemplate)
+	public Npc(int objId, NpcController controller, SpawnTemplate spawnTemplate, VisibleObjectTemplate objectTemplate)
 	{
-		super(objId, controller, spawnTemplate, new WorldPosition());
+		super(objId, controller, spawnTemplate, objectTemplate, new WorldPosition());
 		controller.setOwner(this);
 		
-		this.template = (NpcTemplate) spawnTemplate.getObjectTemplate();
-		NpcStatsTemplate nst = template.getStatsTemplate();
+		NpcStatsTemplate nst = getTemplate().getStatsTemplate();
 		super.setGameStats(new NpcGameStats(this,nst));
 		
 		//TODO probably its not simple addition of equipment stats
@@ -73,7 +67,7 @@ public class Npc extends Creature
 
 	public NpcTemplate getTemplate()
 	{
-		return template;
+		return (NpcTemplate) objectTemplate;
 	}
 	@Override
 	public String getName()
@@ -121,12 +115,12 @@ public class Npc extends Creature
 	
 	public boolean isAggressive()
 	{
-		return ((NpcTemplate)this.getSpawn().getObjectTemplate()).getNpcType() == NpcType.AGGRESSIVE;
+		return getTemplate().getNpcType() == NpcType.AGGRESSIVE;
 	}
 	
 	public int getAggroRange()
 	{
-		return ((NpcTemplate)this.getSpawn().getObjectTemplate()).getAggroRange();
+		return getTemplate().getAggroRange();
 	}
 	
 	@Override

@@ -21,6 +21,7 @@ import com.aionemu.gameserver.ai.npcai.MonsterAi;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.controllers.MonsterController;
 import com.aionemu.gameserver.controllers.attack.AggroList;
+import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 
 public class Monster extends Npc
@@ -30,9 +31,9 @@ public class Monster extends Npc
 	/**
 	 * @param template
 	 */
-	public Monster(int objId, MonsterController controller, SpawnTemplate spawn)
+	public Monster(int objId, MonsterController controller, SpawnTemplate spawn, VisibleObjectTemplate objectTemplate)
 	{
-		super(objId, controller, spawn);
+		super(objId, controller, spawn, objectTemplate);
 		this.aggroList = new AggroList(this);
 	}
 

@@ -28,10 +28,10 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
-import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.group.PlayerGroup;
+import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
@@ -83,7 +83,7 @@ public class Player extends Creature
 
 	public Player(PlayerController controller, PlayerCommonData plCommonData, PlayerAppearance appereance)
 	{
-		super(plCommonData.getPlayerObjId(), controller, null, plCommonData.getPosition());
+		super(plCommonData.getPlayerObjId(), controller, null, null, plCommonData.getPosition());
 
 		this.playerCommonData = plCommonData;
 		this.playerAppearance = appereance;
@@ -481,7 +481,12 @@ public class Player extends Creature
 	public void initializeAi()
 	{
 		// TODO Auto-generated method stub
-
+	}
+	
+	@Override
+	public VisibleObjectTemplate getObjectTemplate()
+	{
+		throw new IllegalStateException("Player does not have object template yet");
 	}
 
 	/**

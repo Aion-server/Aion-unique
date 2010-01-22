@@ -73,7 +73,7 @@ public class SpawnEngine
 	@Inject
 	private ItemService itemService;
 	@Inject
-	private SpawnsData spawns;
+	private SpawnsData spawnsData;
 	@Inject
 	private GatherableData gatherableData;
 	@Inject
@@ -110,7 +110,7 @@ public class SpawnEngine
 				return null;
 			npcCounter++;
 		}
-		spawn.setObjectTemplate(template);
+
 		spawn.setSpawned(true);
 		if(template instanceof NpcTemplate)
 		{
@@ -123,26 +123,26 @@ public class SpawnEngine
 				case ATTACKABLE:
 					MonsterController mosnterController = new MonsterController();
 					mosnterController.setDropService(dropService);
-					npc = new Monster(aionObjectsIDFactory.nextId(), mosnterController, spawn);
+					npc = new Monster(aionObjectsIDFactory.nextId(), mosnterController, spawn, template);
 					break;
 				case NON_ATTACKABLE:
-					npc = new Citizen(aionObjectsIDFactory.nextId(), new CitizenController(), spawn);
+					npc = new Citizen(aionObjectsIDFactory.nextId(), new CitizenController(), spawn, template);
 					break;
 				case POSTBOX:
-					npc = new Npc(aionObjectsIDFactory.nextId(), new PostboxController(), spawn);
+					npc = new Npc(aionObjectsIDFactory.nextId(), new PostboxController(), spawn, template);
 					break;
 				case RESURRECT:
 					BindpointController bindPointController = new BindpointController();
-					bindPointController.setBindPointTemplate(DataManager.BIND_POINT_DATA.getBindPointTemplate(spawn.getObjectTemplate().getTemplateId()));
-					npc = new Npc(aionObjectsIDFactory.nextId(), bindPointController, spawn);
+					bindPointController.setBindPointTemplate(DataManager.BIND_POINT_DATA.getBindPointTemplate(objectId));
+					npc = new Npc(aionObjectsIDFactory.nextId(), bindPointController, spawn, template);
 					break;
 				case USEITEM:
 					ActionitemController  actionitemController = new ActionitemController();
 					actionitemController.setDropService(dropService);
-					npc = new Npc(aionObjectsIDFactory.nextId(), actionitemController, spawn);
+					npc = new Npc(aionObjectsIDFactory.nextId(), actionitemController, spawn, template);
 					break;
 				default: 
-					npc = new Npc(aionObjectsIDFactory.nextId(), new NpcController(), spawn);
+					npc = new Npc(aionObjectsIDFactory.nextId(), new NpcController(), spawn, template);
 						
 			}
 
@@ -152,11 +152,11 @@ public class SpawnEngine
 			bringIntoWorld(npc, spawn);
 			return npc;
 		}
-		else if(spawn.getObjectTemplate() instanceof GatherableTemplate)
+		else if(template instanceof GatherableTemplate)
 		{
 			GatherableController gatherableController = new GatherableController();
 			gatherableController.setItemService(itemService);
-			Gatherable gatherable = new Gatherable(spawn, aionObjectsIDFactory.nextId(), gatherableController);
+			Gatherable gatherable = new Gatherable(spawn, template, aionObjectsIDFactory.nextId(), gatherableController);
 			gatherable.setKnownlist(new KnownList(gatherable));
 			bringIntoWorld(gatherable, spawn);
 			return gatherable;
@@ -178,25 +178,9 @@ public class SpawnEngine
 	 */
 	private SpawnTemplate addNewSpawn(int worldId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk)
 	{
-		VisibleObjectTemplate template = null;
-		if(objectId > 400000 && objectId < 499999)// gatherable
-		{
-			template = gatherableData.getGatherableTemplate(objectId);
-			if(template == null)
-				return null;
-			gatherableCounter++;
-		}
-		else // npc
-		{
-			template = npcData.getNpcTemplate(objectId);
-			if(template == null)
-				return null;
-			npcCounter++;
-		}
+		SpawnTemplate spawnTemplate = new SpawnTemplate(x, y, z, heading, walkerid, randomwalk);		
 		
-		SpawnTemplate spawnTemplate = new SpawnTemplate(template, x, y, z, heading, walkerid, randomwalk);		
-		
-		SpawnGroup spawnGroup = new SpawnGroup(worldId, spawnTemplate.getObjectTemplate().getTemplateId(), 60, 1);
+		SpawnGroup spawnGroup = new SpawnGroup(worldId, objectId, 60, 1);
 		spawnTemplate.setSpawnGroup(spawnGroup);
 		spawnGroup.getObjects().add(spawnTemplate);
 		
@@ -229,7 +213,7 @@ public class SpawnEngine
 		
 		if(respawn)
 		{
-			spawns.addNewTemplate(spawnTemplate, worldId);
+			spawnsData.addNewTemplate(spawnTemplate, worldId, objectId);
 		}
 		else
 		{
@@ -249,7 +233,7 @@ public class SpawnEngine
 	
 	public void spawnAll()
 	{
-		for(SpawnGroup spawnGroup : spawns)
+		for(SpawnGroup spawnGroup : spawnsData)
 		{
 			int pool = spawnGroup.getPool();
 			for(int i = 0; i < pool; i++)
@@ -267,7 +251,7 @@ public class SpawnEngine
 	 */
 	public void clearAll()
 	{
-		spawns.clear();
+		spawnsData.clear();
 	}
 
 }

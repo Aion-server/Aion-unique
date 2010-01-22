@@ -22,6 +22,7 @@ import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
+import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.world.WorldPosition;
 
@@ -52,9 +53,9 @@ public abstract class Creature extends VisibleObject
 	private boolean isSleep = false;
 
 	public Creature(int objId, CreatureController<? extends Creature> controller,
-		SpawnTemplate spawnTemplate, WorldPosition position)
+		SpawnTemplate spawnTemplate, VisibleObjectTemplate objectTemplate, WorldPosition position)
 	{
-		super(objId, controller, spawnTemplate, position);
+		super(objId, controller, spawnTemplate, objectTemplate, position);
 		initializeAi();
 	}
 

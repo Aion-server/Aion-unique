@@ -27,7 +27,8 @@ public enum EffectId
 	SLEEP(2),
 	HIDE(3),
 	HEAL_OT(4),
-	DAMAGE_OT(5);
+	DAMAGE_OT(5),
+	TRANSFORM(6);
 	
 	private int effectId;
 	

@@ -59,17 +59,13 @@ public class RespawnService
 
 			private synchronized void exchangeSpawnTemplate(final VisibleObject visibleObject)
 			{
-				SpawnTemplate oldSpawn = visibleObject.getSpawn();
-				SpawnTemplate nextSpawn = oldSpawn.getSpawnGroup().getNextAvailableTemplate();
+				SpawnTemplate nextSpawn = visibleObject.getSpawn().getSpawnGroup().getNextAvailableTemplate();
 				
 				if(nextSpawn != null)
 				{
 					nextSpawn.setSpawned(true);
 					visibleObject.getSpawn().setSpawned(false);
 					visibleObject.setSpawn(nextSpawn);
-					//new spawn can contain null object template
-					//TODO refactor so only spawn group will contain object template
-					nextSpawn.setObjectTemplate(oldSpawn.getObjectTemplate());
 				}	
 			}
 			

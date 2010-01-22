@@ -117,7 +117,7 @@ public class SpawnsData implements Iterable<SpawnGroup>
 	 * @param spawnTemplate
 	 * @param worldId
 	 */
-	public void addNewTemplate(SpawnTemplate spawnTemplate, int worldId)
+	public void addNewTemplate(SpawnTemplate spawnTemplate, int worldId, int npcId)
 	{
 		//put to map spawns
 		ArrayList<SpawnGroup> mapSpawnGroups = spawnsByMapId.get(worldId);
@@ -129,11 +129,11 @@ public class SpawnsData implements Iterable<SpawnGroup>
 		mapSpawnGroups.add(spawnTemplate.getSpawnGroup());
 
 		//put to npcid spawns
-		ArrayList<SpawnGroup> npcIdSpawnGroups = spawnsByNpcID.get(spawnTemplate.getObjectTemplate().getTemplateId());;
+		ArrayList<SpawnGroup> npcIdSpawnGroups = spawnsByNpcID.get(npcId);
 		if(npcIdSpawnGroups == null)
 		{
 			npcIdSpawnGroups = new ArrayList<SpawnGroup>();
-			spawnsByNpcID.put(spawnTemplate.getObjectTemplate().getTemplateId(), npcIdSpawnGroups);
+			spawnsByNpcID.put(npcId, npcIdSpawnGroups);
 		}
 		npcIdSpawnGroups.add(spawnTemplate.getSpawnGroup());
 	}
@@ -161,7 +161,7 @@ public class SpawnsData implements Iterable<SpawnGroup>
 			worldSpawns.remove(spawn.getSpawnGroup());
 		}
 		
-		List<SpawnGroup> spawnsByNpc = spawnsByNpcID.get(spawn.getObjectTemplate().getTemplateId());
+		List<SpawnGroup> spawnsByNpc = spawnsByNpcID.get(spawn.getSpawnGroup().getNpcid());
 		if(spawnsByNpc != null)
 		{
 			spawnsByNpc.remove(spawn.getSpawnGroup());

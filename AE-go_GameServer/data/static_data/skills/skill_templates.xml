@@ -8422,6 +8422,7 @@
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="39"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="39"/>
             </buf>
+            <transform model="202500" duration="120000"/>
         </effects>
         <actions>
             <dummy/>
@@ -8440,6 +8441,7 @@
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="26"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="39"/>
             </buf>
+            <transform model="202501" duration="120000"/>
         </effects>
         <actions>
             <dummy/>
@@ -9248,6 +9250,7 @@
         </useconditions>
         <effects>
             <root duration="60000"/>
+            <transform model="749110" duration="60000"/>
         </effects>
         <actions>
             <mpuse value="29" delta="0"/>
@@ -9272,6 +9275,7 @@
         </useconditions>
         <effects>
             <root duration="60000"/>
+            <transform model="749111" duration="60000"/>
         </effects>
         <actions>
             <mpuse value="29" delta="0"/>
@@ -9904,6 +9908,7 @@
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="20"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="30"/>
             </buf>
+            <transform model="202501" duration="120000"/>
         </effects>
         <actions>
             <dummy/>
@@ -9922,6 +9927,7 @@
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="22"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="30"/>
             </buf>
+            <transform model="202501" duration="120000"/>
         </effects>
         <actions>
             <dummy/>
@@ -9940,6 +9946,7 @@
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="24"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="33"/>
             </buf>
+            <transform model="202501" duration="120000"/>
         </effects>
         <actions>
             <dummy/>
@@ -10070,6 +10077,7 @@
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="30"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="33"/>
             </buf>
+            <transform model="202500" duration="120000"/>
         </effects>
         <actions>
             <dummy/>
@@ -10088,6 +10096,7 @@
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="33"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="36"/>
             </buf>
+            <transform model="202500" duration="120000"/>
         </effects>
         <actions>
             <dummy/>
@@ -10106,6 +10115,7 @@
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="36"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="36"/>
             </buf>
+            <transform model="202500" duration="120000"/>
         </effects>
         <actions>
             <dummy/>
@@ -17564,6 +17574,7 @@
                 <change stat="MAXHP" duration="300000" func="PERCENT" delta="0" value="20"/>
                 <change stat="REGEN_HP" duration="300000" func="PERCENT" delta="0" value="20"/>
             </buf>
+            <transform model="201047" duration="300000"/>
         </effects>
         <actions>
             <mpuse value="1253" delta="0"/>
@@ -17591,6 +17602,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="300000" func="PERCENT" delta="0" value="20"/>
                 <change stat="ATTACK_SPEED" duration="300000" func="PERCENT" delta="0" value="20"/>
             </buf>
+            <transform model="201048" duration="300000"/>
         </effects>
         <actions>
             <mpuse value="1253" delta="0"/>
@@ -19683,6 +19695,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="201046" duration="20000"/>
+        </effects>
         <actions>
             <mpuse value="74" delta="0"/>
             <dummy/>
@@ -20682,6 +20697,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="201046" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="392" delta="0"/>
             <dummy/>
@@ -22814,6 +22832,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="201051" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="327" delta="0"/>
             <dummy/>
@@ -22832,6 +22853,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="201051" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="170" delta="0"/>
             <dummy/>
@@ -23663,6 +23687,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="201051" duration="18000"/>
+        </effects>
         <actions>
             <mpuse value="520" delta="0"/>
             <dummy/>
@@ -23917,6 +23944,7 @@
                 <change stat="WATER_RESISTANCE" duration="60000" func="ADD" value="10"/>
                 <change stat="FIRE_RESISTANCE" duration="60000" func="ADD" value="-30"/>
             </buf>
+            <transform model="201024" duration="60000"/>
         </effects>
         <actions>
             <mpuse value="519" delta="5"/>
@@ -24073,6 +24101,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="201051" duration="15000"/>
+        </effects>
         <actions>
             <mpuse value="383" delta="0"/>
             <dummy/>
@@ -24265,6 +24296,7 @@
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="20"/>
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-30"/>
             </buf>
+            <transform model="201049" duration="30000"/>
         </effects>
         <actions>
             <mpuse value="473" delta="5"/>
@@ -24289,6 +24321,7 @@
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="20"/>
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-30"/>
             </buf>
+            <transform model="201050" duration="30000"/>
         </effects>
         <actions>
             <mpuse value="473" delta="5"/>
@@ -25300,6 +25333,7 @@
             <buf duration="8000">
                 <change stat="WATER_RESISTANCE" duration="8000" func="ADD" delta="0" value="-100"/>
             </buf>
+            <transform model="749165" duration="8000"/>
         </effects>
         <actions>
             <mpuse value="180" delta="0"/>
@@ -25320,6 +25354,7 @@
             <buf duration="8000">
                 <change stat="FIRE_RESISTANCE" duration="8000" func="ADD" delta="0" value="-80"/>
             </buf>
+            <transform model="749166" duration="8000"/>
         </effects>
         <actions>
             <mpuse value="180" delta="0"/>
@@ -26256,6 +26291,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <transform model="280271" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -26467,6 +26505,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <transform model="211046" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -26478,6 +26519,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <transform model="211042" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -26489,6 +26533,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <transform model="211047" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -29485,6 +29532,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="210273" duration="10000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -31211,6 +31261,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="280271" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -35499,6 +35552,7 @@
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="12"/>
             </buf>
+            <transform model="210138" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -35517,6 +35571,7 @@
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="18"/>
             </buf>
+            <transform model="210757" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -35535,6 +35590,7 @@
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="24"/>
             </buf>
+            <transform model="210306" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -35650,6 +35706,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="210633" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -35663,6 +35722,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="210832" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -35694,6 +35756,7 @@
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="12"/>
             </buf>
+            <transform model="210421" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -35712,6 +35775,7 @@
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="18"/>
             </buf>
+            <transform model="211875" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -35730,6 +35794,7 @@
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="24"/>
             </buf>
+            <transform model="210390" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -37203,6 +37268,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="254523" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -39806,6 +39874,7 @@
             <buf duration="600000">
                 <change stat="FLY_TIME" duration="600000" func="ADD" delta="0" value="10"/>
             </buf>
+            <transform model="210119" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -39820,6 +39889,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211850" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -39833,6 +39905,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="210833" duration="3600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -39846,6 +39921,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="210915" duration="3600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -39864,6 +39942,7 @@
                 <change stat="REGEN_HP" duration="600000" func="ADD" delta="0" value="8"/>
                 <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="12"/>
             </buf>
+            <transform model="212104" duration="3600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -39882,6 +39961,7 @@
             <buf duration="600000">
                 <change stat="FLY_TIME" duration="600000" func="ADD" delta="0" value="10"/>
             </buf>
+            <transform model="210656" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -39896,6 +39976,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211318" duration="3600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -39909,6 +39992,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211850" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -39922,6 +40008,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="213020" duration="3600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -39940,6 +40029,7 @@
                 <change stat="REGEN_HP" duration="600000" func="ADD" delta="0" value="8"/>
                 <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="12"/>
             </buf>
+            <transform model="213140" duration="3600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -40412,6 +40502,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="214532" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40425,6 +40518,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="214532" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40438,6 +40534,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202514" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40451,6 +40550,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202515" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40464,6 +40566,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202516" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40477,6 +40582,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202517" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40490,6 +40598,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202518" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40503,6 +40614,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202519" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40516,6 +40630,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202520" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40529,6 +40646,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202521" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40542,6 +40662,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202522" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40555,6 +40678,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202523" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40761,6 +40887,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202529" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40774,6 +40903,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202530" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40801,6 +40933,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="214905" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -40814,6 +40949,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="214945" duration="600000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -43158,6 +43296,7 @@
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-1000"/>
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-10"/>
             </buf>
+            <transform model="201046" duration="30000"/>
         </effects>
         <actions>
             <mpuse value="227" delta="0"/>
@@ -43534,6 +43673,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="30000" func="ADD" delta="0" value="300"/>
                 <change stat="MAGICAL_ATTACK" duration="30000" func="ADD" delta="0" value="300"/>
             </buf>
+            <transform model="211235" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -43554,6 +43694,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="30000" func="ADD" delta="0" value="500"/>
                 <change stat="MAGICAL_ATTACK" duration="30000" func="ADD" delta="0" value="500"/>
             </buf>
+            <transform model="211235" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -43583,6 +43724,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202502" duration="600000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300012" count="6"/>
             <dummy/>
@@ -43598,6 +43742,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202503" duration="600000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300012" count="7"/>
             <dummy/>
@@ -43613,6 +43760,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202504" duration="600000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300012" count="8"/>
             <dummy/>
@@ -43628,6 +43778,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202505" duration="600000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300012" count="9"/>
             <dummy/>
@@ -43643,6 +43796,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202506" duration="600000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300012" count="10"/>
             <dummy/>
@@ -43658,6 +43814,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202507" duration="600000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300012" count="6"/>
             <dummy/>
@@ -43673,6 +43832,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202508" duration="600000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300012" count="7"/>
             <dummy/>
@@ -43688,6 +43850,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202509" duration="600000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300012" count="8"/>
             <dummy/>
@@ -43703,6 +43868,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202510" duration="600000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300012" count="9"/>
             <dummy/>
@@ -43718,6 +43886,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="202511" duration="600000"/>
+        </effects>
         <actions>
             <itemuse itemid="169300012" count="10"/>
             <dummy/>
@@ -44589,6 +44760,7 @@
             <buf duration="300000">
                 <change stat="PHYSICAL_DEFENSE" duration="300000" func="ADD" delta="0" value="5000"/>
             </buf>
+            <transform model="280115" duration="300000"/>
         </effects>
         <actions>
             <dummy/>
@@ -44607,6 +44779,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="280598" duration="180000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45070,6 +45245,7 @@
             <buf duration="300000">
                 <change stat="PHYSICAL_DEFENSE" duration="300000" func="ADD" delta="0" value="5000"/>
             </buf>
+            <transform model="280115" duration="300000"/>
         </effects>
         <actions>
             <dummy/>
@@ -45111,6 +45287,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="280598" duration="180000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -50745,6 +50924,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="285977" duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -51896,6 +52078,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="285978" duration="8000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -52547,6 +52732,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="286079" duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -54011,6 +54199,7 @@
         </useconditions>
         <effects>
             <dot damage="15" delta="1" checktime="2000" duration="3100"/>
+            <transform model="210804" duration="8000"/>
         </effects>
         <actions>
             <dummy/>
@@ -54214,6 +54403,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="207006" duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -54303,6 +54495,7 @@
         </useconditions>
         <effects>
             <dot damage="15" delta="1" checktime="2000" duration="3100"/>
+            <transform model="210804" duration="3100"/>
         </effects>
         <actions>
             <dummy/>
@@ -54451,6 +54644,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211501" duration="10000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -55286,6 +55482,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="285978" duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -55365,6 +55564,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="286129" duration="3100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -55879,6 +56081,7 @@
         </useconditions>
         <effects>
             <dot damage="15" delta="1" checktime="2000" duration="3100"/>
+            <transform model="210804" duration="3100"/>
         </effects>
         <actions>
             <dummy/>
@@ -56720,6 +56923,7 @@
         </useconditions>
         <effects>
             <dot damage="15" delta="1" checktime="2000" duration="3100"/>
+            <transform model="210804" duration="3100"/>
         </effects>
         <actions>
             <dummy/>
@@ -56974,6 +57178,7 @@
             <buf duration="3000">
                 <change stat="FIRE_RESISTANCE" duration="3000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <transform model="201046" duration="3000"/>
         </effects>
         <actions>
             <dummy/>
@@ -57007,6 +57212,7 @@
             <buf duration="3000">
                 <change stat="FIRE_RESISTANCE" duration="3000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <transform model="201046" duration="3000"/>
         </effects>
         <actions>
             <dummy/>
@@ -59527,6 +59733,7 @@
                 <change stat="PHYSICAL_DEFENSE" duration="5000" func="PERCENT" delta="0" value="-95"/>
                 <change stat="MAGICAL_RESIST" duration="5000" func="PERCENT" delta="0" value="-95"/>
             </buf>
+            <transform model="213569" duration="5000"/>
         </effects>
         <actions>
             <dummy/>
@@ -60489,6 +60696,7 @@
             <buf duration="3000">
                 <change stat="FIRE_RESISTANCE" duration="3000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <transform model="201046" duration="3000"/>
         </effects>
         <actions>
             <dummy/>
@@ -60508,6 +60716,7 @@
             <buf duration="3000">
                 <change stat="FIRE_RESISTANCE" duration="3000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <transform model="201046" duration="3000"/>
         </effects>
         <actions>
             <dummy/>
@@ -62215,6 +62424,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211380" duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -62274,6 +62486,7 @@
         </useconditions>
         <effects>
             <dot damage="15" delta="1" checktime="2000" duration="3100"/>
+            <transform model="210804" duration="3100"/>
         </effects>
         <actions>
             <dummy/>
@@ -62297,6 +62510,7 @@
                 <change stat="PHYSICAL_DEFENSE" duration="10000" func="PERCENT" delta="0" value="-90"/>
                 <change stat="FIRE_RESISTANCE" duration="10000" func="ADD" delta="0" value="-900"/>
             </buf>
+            <transform model="213569" duration="10000"/>
         </effects>
         <actions>
             <dummy/>
@@ -62351,6 +62565,7 @@
                 <change stat="PHYSICAL_DEFENSE" duration="15000" func="PERCENT" delta="0" value="-50"/>
                 <change stat="MAGICAL_RESIST" duration="15000" func="PERCENT" delta="0" value="-50"/>
             </buf>
+            <transform model="210427" duration="15000"/>
         </effects>
         <actions>
             <dummy/>
@@ -63011,6 +63226,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211501" duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -66062,6 +66280,7 @@
             <buf duration="3000">
                 <change stat="FIRE_RESISTANCE" duration="3000" func="ADD" delta="0" value="-200"/>
             </buf>
+            <transform model="201046" duration="3000"/>
         </effects>
         <actions>
             <dummy/>
@@ -66845,6 +67064,7 @@
                 <change stat="PHYSICAL_ATTACK" duration="6000" func="PERCENT" delta="0" value="5"/>
                 <change stat="MAGICAL_ATTACK" duration="6000" func="PERCENT" delta="0" value="5"/>
             </buf>
+            <transform model="210598" duration="6000"/>
         </effects>
         <actions>
             <dummy/>
@@ -68420,6 +68640,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="280710" duration="60000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -68438,6 +68661,7 @@
             <buf duration="60000">
                 <change stat="MAXHP" duration="60000" func="PERCENT" delta="0" value="-80"/>
             </buf>
+            <transform model="280711" duration="60000"/>
         </effects>
         <actions>
             <dummy/>
@@ -68520,6 +68744,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211639" duration="25000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -68738,6 +68965,7 @@
                 <change stat="PHYSICAL_DEFENSE" duration="60000" func="PERCENT" delta="0" value="-95"/>
                 <change stat="MAGICAL_RESIST" duration="60000" func="PERCENT" delta="0" value="-95"/>
             </buf>
+            <transform model="210804" duration="60000"/>
         </effects>
         <actions>
             <dummy/>
@@ -68772,6 +69000,7 @@
                 <change stat="PHYSICAL_DEFENSE" duration="15000" func="PERCENT" delta="0" value="-95"/>
                 <change stat="MAGICAL_RESIST" duration="15000" func="PERCENT" delta="0" value="-95"/>
             </buf>
+            <transform model="210804" duration="15000"/>
         </effects>
         <actions>
             <dummy/>
@@ -68795,6 +69024,7 @@
                 <change stat="PHYSICAL_DEFENSE" duration="15000" func="PERCENT" delta="0" value="-95"/>
                 <change stat="MAGICAL_RESIST" duration="15000" func="PERCENT" delta="0" value="-95"/>
             </buf>
+            <transform model="210804" duration="15000"/>
         </effects>
         <actions>
             <dummy/>
@@ -69337,6 +69567,7 @@
             <buf duration="30000">
                 <change stat="MAXHP" duration="30000" func="PERCENT" delta="0" value="-50"/>
             </buf>
+            <transform model="210420" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -69441,6 +69672,7 @@
                 <change stat="PHYSICAL_DEFENSE" duration="20000" func="PERCENT" delta="0" value="-95"/>
                 <change stat="MAGICAL_RESIST" duration="20000" func="PERCENT" delta="0" value="-95"/>
             </buf>
+            <transform model="213569" duration="20000"/>
         </effects>
         <actions>
             <dummy/>
@@ -69596,6 +69828,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="213176" duration="5000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -69624,6 +69859,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="213176" duration="5000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -69638,6 +69876,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211094" duration="15100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -70008,6 +70249,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211939" duration="8000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -70121,6 +70365,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211960" duration="8500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -70509,6 +70756,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211268" duration="20000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -70754,6 +71004,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211960" duration="8500"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -71283,6 +71536,7 @@
             <buf duration="30000">
                 <change stat="MAXHP" duration="30000" func="PERCENT" delta="0" value="-50"/>
             </buf>
+            <transform model="210484" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -71316,6 +71570,7 @@
             <buf duration="20000">
                 <change stat="MAXHP" duration="20000" func="PERCENT" delta="0" value="-30"/>
             </buf>
+            <transform model="211111" duration="20000"/>
         </effects>
         <actions>
             <dummy/>
@@ -73410,6 +73665,7 @@
             <buf duration="5000">
                 <change stat="MAXHP" duration="5000" func="PERCENT" delta="0" value="-50"/>
             </buf>
+            <transform model="210420" duration="5000"/>
         </effects>
         <actions>
             <dummy/>
@@ -73619,6 +73875,7 @@
         </useconditions>
         <effects>
             <dot damage="15" delta="94" checktime="6000" duration="6100"/>
+            <transform model="214869" duration="6100"/>
         </effects>
         <actions>
             <dummy/>
@@ -74031,6 +74288,7 @@
             <buf duration="12000">
                 <change stat="FIRE_RESISTANCE" duration="12000" func="ADD" delta="0" value="-300"/>
             </buf>
+            <transform model="201046" duration="12000"/>
         </effects>
         <actions>
             <dummy/>
@@ -74685,6 +74943,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="210804" duration="3000"/>
+        </effects>
         <actions>
             <damage value="23" delta="0"/>
         </actions>
@@ -74716,6 +74977,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="210420" duration="5000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -76584,6 +76848,7 @@
         </useconditions>
         <effects>
             <dot damage="15" delta="1" checktime="2000" duration="12000"/>
+            <transform model="210804" duration="12000"/>
         </effects>
         <actions>
             <dummy/>
@@ -76602,6 +76867,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="211501" duration="12000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -77626,6 +77894,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="280684" duration="35000"/>
+        </effects>
         <actions>
             <damage value="100" delta="0"/>
         </actions>
@@ -78004,6 +78275,7 @@
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="300"/>
             </buf>
+            <transform model="202526" duration="1200000"/>
         </effects>
         <actions>
             <dummy/>
@@ -78022,6 +78294,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="280115" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -78050,6 +78325,9 @@
             <targetrange value="AREA" distance="7" maxcount="2"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <transform model="202522" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -78132,6 +78410,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <transform model="210273" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
