@@ -79,7 +79,7 @@
 	
 	<!-- Request of the Elim handled by script -->
 	
-	<!-- The Elim's Message  handled by script-->
+	<!-- The Elim's Message handled by script -->
 	
 	<!-- 
 		The Nymph's Gown http://www.aionarmory.com/quest.aspx?id=1114
@@ -108,6 +108,31 @@
 	
 	<!-- Avenging Tutty -->
 	<item_collecting id="1124" start_npc_id="790001" />
+	
+	<!-- Delivering Pernos's Robe handled by script -->
+	
+	<!-- Illegal Logging handled by script -->
+	
+	<!-- Oz's Prayer Beads -->
+	<item_collecting start_npc_id="203081" id="1121"/>
+	
+	<!-- Where's Tutty? handled by script -->
+	
+	<!-- Mushroom Research -->
+	<item_collecting start_npc_id="203079" id="1126"/>
+	
+	<!-- Neutralizing Odium handled by script -->
+	
+	<!-- Suspicious Ore -->
+	<item_collecting start_npc_id="203085" id="1125"/>
+	
+	<!-- Tula's Music Box -->
+	<item_collecting start_npc_id="203082" end_npc_id="203085" id="1207"/>
+
+	<!-- Barring the Gate handled by script -->
+	
+	<!-- Scouting Timolia Mine -->
+	<item_collecting start_npc_id="203085" id="1129"/>
 	
 	
 </quest_scripts>

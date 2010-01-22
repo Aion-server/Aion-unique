@@ -46,6 +46,8 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandlersManager;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 
 /**
  * @author MrPoke
@@ -53,6 +55,9 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  */
 public class Reload extends AdminCommand
 {
+	@Inject
+	private Injector injector;
+
 	private static final Logger	log	= Logger.getLogger(Reload.class);
 
 	public Reload()
@@ -71,7 +76,7 @@ public class Reload extends AdminCommand
 
 		if(params == null || params.length != 1)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //reload <quest>");
+			PacketSendUtility.sendMessage(admin, "syntax //reload <quest | skill>");
 			return;
 		}
 		if(params[0].equals("quest"))
@@ -88,7 +93,7 @@ public class Reload extends AdminCommand
 				DataManager.QUEST_DATA = (QuestsData) un.unmarshal(xml);
 				for(File file : listFiles(dir, true))
 					un.unmarshal(file);
-				QuestHandlersManager.init();
+				QuestHandlersManager.init(injector);
 			}
 			catch(Exception e)
 			{
@@ -100,8 +105,29 @@ public class Reload extends AdminCommand
 				PacketSendUtility.sendMessage(admin, "Quest reload Success!");
 			}
 		}
+		else if(params[0].equals("skill"))
+		{
+			File dir = new File("./data/static_data/skills");
+			try
+			{
+				JAXBContext jc = JAXBContext.newInstance(StaticData.class);
+				Unmarshaller un = jc.createUnmarshaller();
+				un.setSchema(getSchema("./data/static_data/static_data.xsd"));
+				for(File file : listFiles(dir, true))
+					un.unmarshal(file);
+			}
+			catch(Exception e)
+			{
+				PacketSendUtility.sendMessage(admin, "Skill reload failed!");
+				log.error(e);
+			}
+			finally
+			{
+				PacketSendUtility.sendMessage(admin, "Skill reload Success!");
+			}
+		}
 		else
-			PacketSendUtility.sendMessage(admin, "syntax //reload <quest>");
+			PacketSendUtility.sendMessage(admin, "syntax //reload <quest | skill>");
 
 	}
 

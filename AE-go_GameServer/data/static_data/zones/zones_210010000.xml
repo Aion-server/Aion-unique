@@ -119,6 +119,7 @@
         </points>
         <link>DEFORESTED_AREA</link>
         <link>AGARIC_SPORE_ROAD</link>
+        <link>Q1123</link>
     </zone>
     <zone mapid="210010000" name="FEIRAS_DOCK" priority="16">
         <points>
@@ -227,5 +228,15 @@
             <point y="1032.348755" x="614.034851"/>
             <point y="1023.518860" x="638.559387"/>
         </points>
+    </zone>
+    
+    <zone mapid="210010000" name="Q1123" priority="18">
+        <points>
+		<point x="208" y="1899"/>
+		<point x="2241" y="1887"/>
+		<point x="236" y="1901"/>
+		<point x="219" y="1914"/>
+        </points>
+	<link>KABARAH_STRIP_MINE</link>
     </zone>
 </zones>

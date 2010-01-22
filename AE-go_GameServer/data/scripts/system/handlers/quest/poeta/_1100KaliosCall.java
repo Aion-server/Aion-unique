@@ -82,12 +82,16 @@ public class _1100KaliosCall extends QuestHandler
 				QuestEngine.getInstance().getQuest(
 					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1004, env.getDialogId())).startQuest(
 					QuestStatus.LOCKED);
+				QuestEngine.getInstance().getQuest(
+					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1005, env.getDialogId())).startQuest(
+					QuestStatus.LOCKED);
 			}
 			return defaultQuestEndDialog(env);
 		}
 		return false;
 	}
 
+	@Override
 	public boolean onEnterZoneEvent(QuestEnv env, ZoneName zoneName)
 	{
 		if(zoneName != ZoneName.AKARIOS_VILLAGE)

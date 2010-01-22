@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.scripting.classlistener.ClassListener;
 import com.aionemu.commons.scripting.classlistener.DefaultClassListener;
 import com.aionemu.commons.utils.ClassUtils;
+import com.google.inject.Injector;
 
 /**
  * @author MrPoke
@@ -32,8 +33,11 @@ class QuestHandlerLoader extends DefaultClassListener implements ClassListener
 {
 	private static final Logger logger = Logger.getLogger(QuestHandlerLoader.class);
 
-	public QuestHandlerLoader()
+	private final Injector injector;
+
+	public QuestHandlerLoader(Injector injector)
 	{
+		this.injector = injector;
 	}
 
 	@Override
@@ -49,20 +53,7 @@ class QuestHandlerLoader extends DefaultClassListener implements ClassListener
 
 			if (ClassUtils.isSubclass(c, QuestHandler.class))
 			{
-				try
-				{
-					QuestHandlers.addQuestHandler((QuestHandler)c.newInstance());
-				}
-				catch(InstantiationException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				catch(IllegalAccessException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				QuestHandlers.addQuestHandler((QuestHandler)injector.getInstance(c));
 			}
 		}
 

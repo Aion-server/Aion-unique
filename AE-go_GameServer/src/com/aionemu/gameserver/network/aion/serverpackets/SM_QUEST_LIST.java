@@ -54,7 +54,7 @@ public class SM_QUEST_LIST extends AionServerPacket
 	{
 		//temp solution to enable teleports
 		// TODO remove this as this quests are implemented
-		int[] questList = { 2200, 2300, 1130, 1007, 1006, 2008, 2009, 1300 };
+		int[] questList = { 2200, 2300, 1130, 2008, 2009, 1300 };
 
 		writeH(buf, compliteQuestList.size() + questList.length);
 		for (QuestState qs : compliteQuestList)

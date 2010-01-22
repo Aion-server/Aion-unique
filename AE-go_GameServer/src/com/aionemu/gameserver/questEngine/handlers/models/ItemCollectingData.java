@@ -37,11 +37,13 @@ public class ItemCollectingData extends QuestScriptData
 	protected int	startNpcId;
 	@XmlAttribute(name = "action_item_id")
 	protected int	actionItemId;
+    @XmlAttribute(name = "end_npc_id")
+    protected int endNpcId;
 
 	@Override
 	public void register()
 	{
-		ItemCollecting template = new ItemCollecting(id, startNpcId, actionItemId);
+		ItemCollecting template = new ItemCollecting(id, startNpcId, actionItemId, endNpcId);
 		QuestHandlers.addQuestHandler(template);
 	}
 

@@ -1,0 +1,244 @@
+<quest_scripts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="quest_script_data.xsd">
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+  
+	<!-- http://www.aionarmory.com/search.aspx?browse=4.3.6#quests:0+2+1 -->
+  
+	<!-- TODO: [Spend Coin] Iron (Mage and Priest) -->
+  
+	<!-- TODO: [Spend Coin] Iron (Warrior and Scout) -->
+  
+	<!-- TODO: Altgard Duties -->
+  
+	<!-- TODO: Conversing With a Skurv -->
+  
+	<!-- TODO: Encroachers -->
+  
+	<!-- TODO: Fungus Among Us -->
+  
+	<!-- Ice Lake Crystals -->
+	<item_collecting start_npc_id="203556" id="2203"/>
+  
+  	<!-- TODO: Mau in Ten Minutes a Day -->
+  
+  	<!-- Slinking About -->
+  	<item_collecting start_npc_id="203562" id="2206"/>
+  
+  	<!-- Sparkie Sap Polish -->
+  	<item_collecting start_npc_id="203576" id="2204"/>
+  	
+  	<!-- The Crasaur Threat -->
+  	<monster_hunt start_npc_id="203563" id="2201">
+  		<monster_infos var_id="0" npc_id="210414" max_kill="10"/>
+  		<monster_infos var_id="0" npc_id="210415" max_kill="10"/>
+  	</monster_hunt>
+  	
+  	<!-- The Lobnite Problem -->
+  	<monster_hunt start_npc_id="203560" id="2202">
+  		<monster_infos var_id="0" npc_id="213183" max_kill="10"/>
+  	</monster_hunt>
+  	
+  	<!-- TODO: The Scribbler -->
+  	
+  	<!-- The Way to His Heart -->
+  	<item_collecting start_npc_id="203582" id="2205"/>
+  	
+  	<!-- TODO: [Event] Ascension Blessings -->
+  	
+  	<!-- TODO: [Event] Yearning for the Sky -->
+  	
+  	<!-- [Manastone] Lakutu's Exchange -->
+  	<item_collecting start_npc_id="203690" id="2298"/>
+  	
+  	<!-- A Better Trap -->
+  	<item_collecting start_npc_id="203606" id="2212"/>
+  	
+  	<!-- TODO: A Dangerous Crop -->
+  	
+  	<!-- Karnif Threat -->
+  	<monster_hunt start_npc_id="203606" id="2211">
+  		<monster_infos var_id="0" npc_id="210421" max_kill="10"/>
+  		<monster_infos var_id="0" npc_id="210422" max_kill="10"/>
+  	</monster_hunt>
+  	
+  	<!-- No-Frills Quills -->
+  	<item_collecting start_npc_id="203605" id="2214"/>
+  	
+  	<!-- TODO: Poison Root, Potent Fruit -->
+  	
+  	<!-- Retrieving the Report -->
+  	<report_to start_npc_id="203603" end_npc_id="203605" id="2210"/>
+  	
+  	<!-- A Long-Lost Friend -->
+  	<report_to start_npc_id="203606" end_npc_id="203607" id="2215"/>
+  	
+  	<!-- Frightcorn Seeds -->
+  	<item_collecting start_npc_id="203604" id="2218"/>
+  	
+  	<!-- Gleaning the Meaning -->
+  	<report_to start_npc_id="203606" end_npc_id="203616" id="2217"/>
+  	
+  	<!-- TODO: Knot Your Average Message -->
+  	
+  	<!-- Manir's Message -->
+  	<report_to start_npc_id="203607" end_npc_id="203631" id="2222"/>
+  	
+  	<!-- TODO: Manir's Uncle -->
+  	
+  	<!-- TODO: Picking off Frightcorn -->
+  	
+  	<!-- Ripened Frightcorn -->
+  	<item_collecting start_npc_id="203604" id="2219"/>
+  	
+  	<!-- TODO: Scout it Out -->
+  	
+  	<!-- A Crazy Request -->
+  	<item_collecting start_npc_id="203639" id="2227"/>
+  	
+  	<!-- A Cure for Crazy -->
+  	<report_to start_npc_id="203617" end_npc_id="203639" id="2226"/>
+  	
+  	<!-- TODO: Groken's Escape -->
+  	
+  	<!-- Lamir's New Clothes -->
+  	<item_collecting start_npc_id="203620" id="2224"/>
+  	
+  	<!-- Report to Garuntat -->
+  	<report_to start_npc_id="203639" end_npc_id="203617" id="2291"/>
+  	
+  	<!-- TODO: A Mythical Monster -->
+  	
+  	<!-- TODO: A Thorn in Its Side -->
+  	
+  	<!-- TODO: Fear This -->
+  	
+  	<!-- No-Good Slime -->
+  	<monster_hunt start_npc_id="203633" id="2225">
+  		<monster_infos var_id="0" npc_id="210435" max_kill="5"/>
+  	</monster_hunt>
+  	
+  	<!-- TODO: Put Your Money Where Your Mouth Is -->
+  	
+  	<!-- A Fertile Field -->
+  	<item_collecting start_npc_id="203629" id="2237"/>
+  	
+  	<!-- A Friendly Wager -->
+  	<item_collecting start_npc_id="203621" id="2230"/>
+  	
+  	<!-- A Matter of Pride -->
+  	<item_collecting start_npc_id="203616" id="2238"/>
+  	
+  	<!-- Leinolz's Request -->
+  	<report_to start_npc_id="203640" end_npc_id="203645" id="2285"/>
+  	
+  	<!-- Mantigar's Request -->
+  	<monster_hunt start_npc_id="203611" id="2233">
+  		<monster_infos var_id="0" npc_id="210587" max_kill="3"/>
+  	</monster_hunt>
+  	
+  	<!-- Rarified Tastes -->
+  	<item_collecting start_npc_id="203615" id="2236"/>
+  	
+  	<!-- TODO: Sibling Rivalry -->
+  	
+  	<!-- http://www.aionarmory.com/search.aspx?browse=4.3.6#quests:50+2+1 -->
+  	
+  	<!-- TODO: Take the Initiative -->
+  	
+  	<!-- A Crystal Hand Mirror -->
+  	<report_to start_npc_id="798031" end_npc_id="798035" id="2243"/>
+  	
+  	<!-- A Sneaky Delivery -->
+  	<report_to start_npc_id="798030" end_npc_id="798036" item_id="182203241" id="2262"/>
+  	
+  	<!-- An Irritating Problem -->
+  	<monster_hunt start_npc_id="203611" id="2234">
+  		<monster_infos var_id="0" npc_id="210445" max_kill="5"/>
+  		<monster_infos var_id="0" npc_id="210446" max_kill="5"/>
+  	</monster_hunt>
+  	
+  	<!-- Clearing the Path -->
+  	<monster_hunt start_npc_id="203610" id="2235">
+  		<monster_infos var_id="0" npc_id="210441" max_kill="3"/>
+  	</monster_hunt>
+  	
+  	<!-- Failure to Report -->
+  	<report_to start_npc_id="203559" end_npc_id="203665" id="2261"/>
+  	
+  	<!-- Gathering Kandula -->
+  	<item_collecting start_npc_id="203641" id="2250"/>
+  	
+  	<!-- Glowing Mushroom -->
+  	<item_collecting start_npc_id="203630" id="2241"/>
+  	
+  	<!-- TODO: Making a New Start -->
+  	
+  	<!-- TODO: Malodor Antidote -->
+  	
+  	<!-- TODO: Rampaging Mosbears -->
+  	
+  	<!-- Shugo Potion -->
+  	<item_collecting start_npc_id="798036" id="2263"/>
+  	
+  	<!-- The Broken Honey Jar -->
+  	<item_collecting start_npc_id="203613" id="2232"/>
+  	
+  	<!-- The Sting of Poison -->
+  	<monster_hunt start_npc_id="203664" id="2264">
+  		<monster_infos var_id="0" npc_id="210754" max_kill="3"/>
+  	</monster_hunt>
+  	
+  	<!-- A Drinking Problem -->
+  	<monster_hunt start_npc_id="203644" id="2244">
+  		<monster_infos var_id="0" npc_id="210573" max_kill="5"/>
+  		<monster_infos var_id="0" npc_id="210574" max_kill="5"/>
+  	</monster_hunt>
+  	
+  	<!-- A Lost Sword -->
+  	<item_collecting start_npc_id="203665" id="2265"/>
+  	
+  	<!-- A Monster in a Box -->
+  	<monster_hunt start_npc_id="203656" id="2267">
+  		<monster_infos var_id="0" npc_id="210524" max_kill="5"/>
+  		<monster_infos var_id="0" npc_id="210525" max_kill="5"/>
+  	</monster_hunt>
+  	
+  	<!-- A Nice Gesture -->
+  	<report_to start_npc_id="203630" end_npc_id="203643" item_id="182203258" id="2242"/>
+  	
+  	<!-- TODO: A Trustworthy Messenger -->
+  	
+  	<!-- An Important Announcement -->
+  	<report_to start_npc_id="203650" end_npc_id="204190" item_id="182203239" id="2258"/>
+  	
+  	<!-- TODO: Aurtri's Letter -->
+  	
+  	<!-- Creating a Delay -->
+  	<item_collecting start_npc_id="203655" id="2270"/>
+  	
+  	<!-- Disgruntled Workers -->
+  	<item_collecting start_npc_id="798105" id="2297"/>
+  	
+  	<!-- Emergency Rations -->
+  	<item_collecting start_npc_id="203669" id="2273"/>
+  	
+  	<!-- TODO: Escaping Asmodae -->
+  	
+  	<!-- Kagorinerk's Gift -->
+  	<report_to start_npc_id="798035" end_npc_id="798031" item_id="182203236" id="2253"/>
+  	
+</quest_scripts>

@@ -84,4 +84,63 @@
 	<!-- TODO: The Lost Axe -->
 	
 	<!-- TODO: Where's Rae? -->
+	
+	<!-- A Brax Skin Rug -->
+	<item_collecting start_npc_id="203542" id="2120"/>
+	
+	<!-- A Cursed Opal -->
+	<report_to start_npc_id="203539" end_npc_id="203541" id="2137"/>
+	
+	<!-- A Treasure Map -->
+	<item_collecting start_npc_id="203541" action_item_id="700139" id="2116"/>
+	
+	<!-- TODO: Black Opal -->
+	
+	<!-- Food Bandits -->
+	<monster_hunt start_npc_id="203540" id="2117">
+		<monster_infos npc_id="210389" var_id="0" max_kill="1"/>
+	</monster_hunt>
+	
+	<!-- TODO: Treasure of the Deceased -->
+	
+	<!-- Up to no Good -->
+	<item_collecting id="2118" start_npc_id="203539"/>
+	
+	<!-- TODO: A Charmed Cube -->
+	
+	<!-- TODO: Ashes to Ashes -->
+	
+	<!-- Checking on a Friend -->
+	<report_to start_npc_id="203540" end_npc_id="278581" id="2121"/>
+	
+	<!-- The Captain's Secret -->
+	<item_collecting id="2124" start_npc_id="203548"/>
+	
+	<!-- The Imprisoned Gourmet -->
+	<item_collecting id="2123" start_npc_id="203550"/>
+	
+	<!-- A Good Tonic -->
+	<item_collecting id="2128" start_npc_id="203543"/>
+	
+	<!-- Alfrigh's Request -->
+	<item_collecting id="2134" start_npc_id="203543"/>
+	
+	<!-- As Much as You Can Carry -->
+	<item_collecting id="2126" start_npc_id="203544" action_item_id="700129"/>
+	
+	<!-- TODO: Hit Them Where it Hurts -->
+	
+	<!-- Pearls Before Swine -->
+	<item_collecting id="2127" start_npc_id="203544"/>
+	
+	<!-- TODO: Teaching a Lesson -->
+	
+	<!-- TODO: The Robbery Plot -->
+	
+	<!-- Suspicious Activity -->
+	<monster_hunt id="2129" start_npc_id="203552">
+		<monster_infos npc_id="210409"  var_id="0" max_kill="1"/>
+	</monster_hunt>
+	
+	<!-- TODO: Where's Rae This Time? -->
 </quest_scripts>

@@ -80,6 +80,7 @@ public class _2132ANewSkill extends QuestHandler
 					else if(env.getDialogId() == 1009)
 					{
 						qs.setStatus(QuestStatus.REWARD);
+						qs.getQuestVars().setQuestVar(1);
 						updateQuestStatus(player, qs);
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 5);
 					}
@@ -95,6 +96,7 @@ public class _2132ANewSkill extends QuestHandler
 					else if(env.getDialogId() == 1009)
 					{
 						qs.setStatus(QuestStatus.REWARD);
+						qs.getQuestVars().setQuestVar(2);
 						updateQuestStatus(player, qs);
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 6);
 					}
@@ -110,6 +112,7 @@ public class _2132ANewSkill extends QuestHandler
 					else if(env.getDialogId() == 1009)
 					{
 						qs.setStatus(QuestStatus.REWARD);
+						qs.getQuestVars().setQuestVar(3);
 						updateQuestStatus(player, qs);
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 7);
 					}
@@ -125,6 +128,7 @@ public class _2132ANewSkill extends QuestHandler
 					else if(env.getDialogId() == 1009)
 					{
 						qs.setStatus(QuestStatus.REWARD);
+						qs.getQuestVars().setQuestVar(4);
 						updateQuestStatus(player, qs);
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 8);
 					}

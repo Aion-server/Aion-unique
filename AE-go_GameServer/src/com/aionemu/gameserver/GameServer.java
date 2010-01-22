@@ -91,9 +91,9 @@ public class GameServer
 		
 		
 		SkillEngine.getInstance().setWorld(gs.injector.getInstance(World.class));
-		QuestEngine.getInstance().setItemService(gs.injector.getInstance(ItemService.class));
+		QuestEngine.getInstance().setItemService(gs.injector.getInstance(ItemService.class), gs.injector.getInstance(SpawnEngine.class));
 		ZoneManager.getInstance().initializeZones();
-		QuestHandlersManager.init();
+		QuestHandlersManager.init(gs.injector);
 		Util.printMemoryUsage(log);
 		log.info("#################################################");
 		log.info("AE Game Server started in " + (System.currentTimeMillis() - start) / 1000 + " seconds.");

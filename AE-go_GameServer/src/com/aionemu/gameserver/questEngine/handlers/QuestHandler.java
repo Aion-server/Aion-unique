@@ -110,8 +110,6 @@ public class QuestHandler
 				{
 					return sendQuestDialog(player, targetObjId, 5);
 				}
-				
-				
 		}
 		return false;
 	}
@@ -147,7 +145,12 @@ public class QuestHandler
 	{
 		return false;
 	}
-	
+
+	public boolean onAttackEvent(QuestEnv questEnv)
+	{
+		return false;
+	}
+
 	public boolean onLvlUpEvent(QuestEnv questEnv)
 	{
 		return false;

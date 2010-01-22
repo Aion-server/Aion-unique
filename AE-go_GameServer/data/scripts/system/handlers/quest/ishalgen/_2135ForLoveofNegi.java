@@ -85,7 +85,7 @@ public class _2135ForLoveofNegi extends QuestHandler
 		}
 		else if(targetId == 203531)
 		{
-			if(qs.getStatus() == QuestStatus.START && qs.getQuestVars().getQuestVarById(0) == 0)
+			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVars().getQuestVarById(0) == 0)
 			{
 				if(env.getDialogId() == 25)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);

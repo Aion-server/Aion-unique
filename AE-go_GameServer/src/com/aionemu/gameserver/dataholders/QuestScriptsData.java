@@ -47,5 +47,8 @@ public class QuestScriptsData
 	{
 		for(QuestScriptData qsdata : data)
 			qsdata.register();
+		
+		data.clear();
+		data = null;
 	}
 }

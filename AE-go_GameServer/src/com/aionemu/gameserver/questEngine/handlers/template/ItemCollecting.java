@@ -38,6 +38,7 @@ public class ItemCollecting extends QuestHandler
 	private final int	questId;
 	private final int	startNpcId;
 	private final int	actionItemId;
+	private final int	endNpcId;
 
 	/**
 	 * @param questId
@@ -45,16 +46,22 @@ public class ItemCollecting extends QuestHandler
 	 * @param endNpcId
 	 * @param actionItemId
 	 */
-	public ItemCollecting(int questId, int startNpcId, int actionItemId)
+	public ItemCollecting(int questId, int startNpcId, int actionItemId, int endNpcId)
 	{
 		super(questId);
 		this.questId = questId;
 		this.startNpcId = startNpcId;
 		this.actionItemId = actionItemId;
+		if (endNpcId != 0)
+			this.endNpcId = endNpcId;
+		else
+			this.endNpcId = startNpcId;
 		QuestEngine.getInstance().setNpcQuestData(startNpcId).addOnQuestStart(questId);
 		QuestEngine.getInstance().setNpcQuestData(startNpcId).addOnTalkEvent(questId);
-		if(actionItemId != 0)
+		if(actionItemId != startNpcId)
 			QuestEngine.getInstance().setNpcQuestData(actionItemId).addOnTalkEvent(questId);
+		if (endNpcId != 0)
+			QuestEngine.getInstance().setNpcQuestData(endNpcId).addOnTalkEvent(questId);
 	}
 
 	@Override
@@ -74,7 +81,10 @@ public class ItemCollecting extends QuestHandler
 				else
 					return defaultQuestStartDialog(env);
 			}
-			else if(qs.getStatus() == QuestStatus.START)
+		}
+		else if (targetId == endNpcId)
+		{
+			if(qs != null && qs.getStatus() == QuestStatus.START)
 			{
 				if(env.getDialogId() == 25)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2375);

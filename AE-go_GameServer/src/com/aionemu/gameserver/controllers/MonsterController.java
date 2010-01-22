@@ -127,6 +127,9 @@ public class MonsterController extends NpcController
 			return;
 
 		Monster monster = getOwner();
+		if (creature instanceof Player)
+			if (QuestEngine.getInstance().onAttack(new QuestEnv(monster, (Player)creature, 0 , 0)))
+				return;
 		monster.getAggroList().addDamageHate(creature, damage, 0);
 		monster.getLifeStats().reduceHp(damage);
 

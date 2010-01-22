@@ -94,7 +94,7 @@ public class _1002RequestoftheElim extends QuestHandler
 				else if(env.getDialogId() == 1009)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 5);
 				else
-					defaultQuestEndDialog(env);
+					return defaultQuestEndDialog(env);
 			}
 			return false;
 		}
@@ -134,7 +134,6 @@ public class _1002RequestoftheElim extends QuestHandler
 					else if(var == 5)
 					{
 						player.getInventory().removeFromBagByItemId(182200002, 1);
-						updateQuestStatus(player, qs);
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1693);
 					}
 					else if(var == 6)

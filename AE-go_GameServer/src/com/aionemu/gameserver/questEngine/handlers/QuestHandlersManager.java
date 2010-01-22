@@ -22,6 +22,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
 import com.aionemu.gameserver.GameServerError;
+import com.google.inject.Injector;
 
 /**
  * @author MrPoke
@@ -40,11 +41,11 @@ public class QuestHandlersManager
 	{
 	}
 
-	public static QuestHandlers init()
+	public static QuestHandlers init(Injector injector)
 	{
 		scriptManager = new ScriptManager();
 		QuestHandlers questHandlers = new QuestHandlers();
-		scriptManager.setGlobalClassListener(new QuestHandlerLoader());
+		scriptManager.setGlobalClassListener(new QuestHandlerLoader(injector));
 
 		try
 		{

@@ -26,9 +26,9 @@ import java.util.List;
 public class NpcQuestData
 {
 	private List<Integer> onQuestStart = new ArrayList<Integer>();
-	private List<Integer> onQuestEnd = new ArrayList<Integer>();
 	private List<Integer> onKillEvent = new ArrayList<Integer>();
 	private List<Integer> onTalkEvent = new ArrayList<Integer>();
+	private List<Integer> onAttackEvent = new ArrayList<Integer>();
 	
 	public NpcQuestData()
 	{
@@ -46,16 +46,16 @@ public class NpcQuestData
 		return onQuestStart;
 	}
 
-	public void addOnQuestEnd(int questId)
+	public void addOnAttackEvent(int questId)
 	{
-		if (!onQuestEnd.contains(questId))
+		if (!onAttackEvent.contains(questId))
 		{
-			onQuestEnd.add(questId);
+			onAttackEvent.add(questId);
 		}
 	}
-	public List<Integer> getOnQuestEnd()
+	public List<Integer> getOnAttackEvent()
 	{
-		return onQuestEnd;
+		return onAttackEvent;
 	}
 
 	public void addOnKillEvent(int questId)

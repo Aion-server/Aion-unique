@@ -26,9 +26,11 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
+import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
 
@@ -36,6 +38,7 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.services.ItemService;
+import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.world.zone.ZoneName;
 
 /**
@@ -53,6 +56,7 @@ public class QuestEngine
 	private FastMap<ZoneName, List<Integer>>	_questEnterZone;
 	private FastMap<Integer, List<Integer>>		_questMovieEndIds;
 	private ItemService							itemService;
+	private SpawnEngine							spawnEngine;
 
 	private QuestEngine()
 	{
@@ -100,6 +104,19 @@ public class QuestEngine
 			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				if(questHandler.onKillEvent(env))
+					return true;
+		}
+		return false;
+	}
+
+	public boolean onAttack(QuestEnv env)
+	{
+		Npc npc = (Npc) env.getVisibleObject();
+		for(int questId : getNpcQuestData(npc.getNpcId()).getOnAttackEvent())
+		{
+			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			if(questHandler != null)
+				if(questHandler.onAttackEvent(env))
 					return true;
 		}
 		return false;
@@ -262,14 +279,22 @@ public class QuestEngine
 		return _questMovieEndIds.get(moveId);
 	}
 
-	public void setItemService(ItemService itemService)
+	public void setItemService(ItemService itemService, SpawnEngine spawnEngine)
 	{
 		this.itemService = itemService;
+		this.spawnEngine = spawnEngine;
 	}
 
 	public void addItem(Player player, int itemId, int count)
 	{
 		itemService.addItem(player, itemId, count, false);
+	}
+
+	public VisibleObject addNewSpawn(int worldId, int templateId, float x, float y, float z, byte heading, boolean respawn)
+	{
+		SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, templateId, x, y, z, heading, 0, 0, respawn);
+		
+		return spawnEngine.spawnObject(spawn);
 	}
 
 	public void clear()
