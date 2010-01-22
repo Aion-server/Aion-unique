@@ -17,21 +17,21 @@
 package com.aionemu.gameserver.model.gameobjects.state;
 
 /**
- * @author ATracer
+ * @author ATracer, Sweetkr
  *
  */
 public enum CreatureState
 {
-	//TODO diff fo npc and player
-	RESTING(1),//?? exist? - player specific
-	STANDING(1),//for player
 	NPC_IDLE(65),//for npc
-	MOVING(1),//?? exist?
-	FLYING(3),
+	//confirmed in SM_EMOTION
+	STANDING(1),
 	FLY_TELEPORT(2),
-	PRIVATE_SHOP(17),
+	FLYING(3),
+	RESTING(5),
+	DEAD(7),
+	PRIVATE_SHOP(11),
 	WALKING(65),
-	DEAD(7);
+	POWERSHARD(129);
 
 	private int id;
 
