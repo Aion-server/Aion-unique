@@ -45,15 +45,15 @@ import com.google.inject.Inject;
 
 /**
  * @author MrPoke
- *
+ * 
  */
 public class _1006Ascension extends QuestHandler
 {
-	private final static int	questId	= 1006;
-	private int activePlayerId = 0;
-	private List<Monster> mobs = new ArrayList<Monster>();
-	private final SpawnsData		spawnsData;
-	
+	private final static int	questId			= 1006;
+	private int					activePlayerId	= 0;
+	private List<Npc>			mobs			= new ArrayList<Npc>();
+	private final SpawnsData	spawnsData;
+
 	@Inject
 	public _1006Ascension(SpawnsData spawnsData)
 	{
@@ -69,6 +69,7 @@ public class _1006Ascension extends QuestHandler
 		QuestEngine.getInstance().setQuestMovieEndIds(151).add(questId);
 	}
 
+	@Override
 	public boolean onKillEvent(QuestEnv env)
 	{
 		Player player = env.getPlayer();
@@ -87,15 +88,16 @@ public class _1006Ascension extends QuestHandler
 			{
 				qs.getQuestVars().setQuestVar(qs.getQuestVars().getQuestVars() + 1);
 				updateQuestStatus(player, qs);
-				if (mobs.contains((Monster)env.getVisibleObject()))
+				if(mobs.contains((Monster)env.getVisibleObject()))
 					mobs.remove((Monster)env.getVisibleObject());
 				return true;
 			}
-			else if (var == 54)
+			else if(var == 54)
 			{
 				qs.getQuestVars().setQuestVar(4);
 				updateQuestStatus(player, qs);
-				mobs.add((Monster)QuestEngine.getInstance().addNewSpawn(310010000, 211043, (float)226.7, (float)251.5, (float)205.5, (byte)0, false));
+				mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211043, (float) 226.7,
+					(float) 251.5, (float) 205.5, (byte) 0, false));
 				return true;
 			}
 		}
@@ -126,10 +128,10 @@ public class _1006Ascension extends QuestHandler
 							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
 						else if(var == 3)
 							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1693);
-						else if (var == 5)
+						else if(var == 5)
 							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2034);
 					case 10000:
-						if (var == 0)
+						if(var == 0)
 						{
 							if(player.getInventory().getItemCountByItemId(182200007) == 0)
 								QuestEngine.getInstance().addItem(player, 182200007, 1);
@@ -140,16 +142,18 @@ public class _1006Ascension extends QuestHandler
 							return true;
 						}
 					case 10002:
-						if (var == 3)
+						if(var == 3)
 						{
 							player.getInventory().removeFromBagByItemId(182200009, 1);
 							qs.getQuestVars().setQuestVar(99);
 							updateQuestStatus(player, qs);
-							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),0));
+							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
+								.getObjectId(), 0));
 							World world = player.getActiveRegion().getWorld();
 							world.despawn(player);
 							// TODO! this should go to PlayerController.teleportTo(...)
-							// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but something
+							// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but
+							// something
 							// else
 							world.setPosition(player, 310010000, 52, 174, 229, player.getHeading());
 							player.setProtectionActive(true);
@@ -157,20 +161,20 @@ public class _1006Ascension extends QuestHandler
 							return true;
 						}
 					case 10003:
-						if (var == 5)
+						if(var == 5)
 						{
 							PlayerClass playerClass = player.getCommonData().getPlayerClass();
-							if (playerClass == PlayerClass.WARRIOR)
+							if(playerClass == PlayerClass.WARRIOR)
 								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2375);
-							else if (playerClass == PlayerClass.SCOUT)
+							else if(playerClass == PlayerClass.SCOUT)
 								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2716);
-							else if (playerClass == PlayerClass.MAGE)
+							else if(playerClass == PlayerClass.MAGE)
 								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 3057);
-							else if (playerClass == PlayerClass.PRIEST)
+							else if(playerClass == PlayerClass.PRIEST)
 								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 3398);
 						}
 					case 10004:
-						if (var == 5)
+						if(var == 5)
 						{
 							player.getCommonData().setPlayerClass(PlayerClass.GLADIATOR);
 							player.getCommonData().upgradePlayer();
@@ -178,29 +182,29 @@ public class _1006Ascension extends QuestHandler
 							updateQuestStatus(player, qs);
 						}
 					case 10005:
-						if (var == 5)
+						if(var == 5)
 							return setPlayerClass(env, qs, PlayerClass.TEMPLAR);
 					case 10006:
-						if (var == 5)
+						if(var == 5)
 							return setPlayerClass(env, qs, PlayerClass.ASSASSIN);
 					case 10007:
-						if (var == 5)
+						if(var == 5)
 							return setPlayerClass(env, qs, PlayerClass.RANGER);
 					case 10008:
-						if (var == 5)
+						if(var == 5)
 							return setPlayerClass(env, qs, PlayerClass.SORCERER);
 					case 10009:
-						if (var == 5)
+						if(var == 5)
 							return setPlayerClass(env, qs, PlayerClass.SPIRIT_MASTER);
 					case 10010:
-						if (var == 5)
+						if(var == 5)
 							return setPlayerClass(env, qs, PlayerClass.CLERIC);
 					case 10011:
-						if (var == 5)
+						if(var == 5)
 							return setPlayerClass(env, qs, PlayerClass.CHANTER);
 				}
 			}
-			else if (targetId == 730008)
+			else if(targetId == 730008)
 			{
 				switch(env.getDialogId())
 				{
@@ -238,15 +242,15 @@ public class _1006Ascension extends QuestHandler
 					case 25:
 						if(var == 99)
 						{
-							if (activePlayerId != 0 && activePlayerId != player.getObjectId())
+							if(activePlayerId != 0 && activePlayerId != player.getObjectId())
 							{
 								World world = player.getActiveRegion().getWorld();
 								Player activePlayer = world.findPlayer(activePlayerId);
-								if (!(activePlayer == null || !activePlayer.isOnline() || activePlayer.getWorldId() != 310010000 ))
+								if(!(activePlayer == null || !activePlayer.isOnline() || activePlayer.getWorldId() != 310010000))
 									return false;
 							}
 							activePlayerId = player.getObjectId();
-							for (Monster mob : mobs)
+							for(Npc mob : mobs)
 							{
 								mob.getAi().stop();
 								spawnsData.removeSpawn(mob.getSpawn());
@@ -262,13 +266,17 @@ public class _1006Ascension extends QuestHandler
 								{
 									qs.getQuestVars().setQuestVar(51);
 									updateQuestStatus(player, qs);
-									mobs.add((Monster)QuestEngine.getInstance().addNewSpawn(310010000, 211042, (float)224.073, (float)239.1, (float)206.7, (byte)0, false));
-									mobs.add((Monster)QuestEngine.getInstance().addNewSpawn(310010000, 211042, (float)233.5, (float)241.04, (float)206.365, (byte)0, false));
-									mobs.add((Monster)QuestEngine.getInstance().addNewSpawn(310010000, 211042, (float)229.6, (float)265.7, (float)205.7, (byte)0, false));
-									mobs.add((Monster)QuestEngine.getInstance().addNewSpawn(310010000, 211042, (float)222.8, (float)262.5, (float)205.7, (byte)0, false));
-									for (Monster mob : mobs)
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211042,
+										(float) 224.073, (float) 239.1, (float) 206.7, (byte) 0, false));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211042,
+										(float) 233.5, (float) 241.04, (float) 206.365, (byte) 0, false));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211042,
+										(float) 229.6, (float) 265.7, (float) 205.7, (byte) 0, false));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211042,
+										(float) 222.8, (float) 262.5, (float) 205.7, (byte) 0, false));
+									for(Npc mob : mobs)
 									{
-										mob.getAggroList().addDamageHate(player, 1000, 0);
+										((Monster) mob).getAggroList().addDamageHate(player, 1000, 0);
 										mob.getAi().handleEvent(Event.ATTACKED);
 									}
 								}
@@ -281,7 +289,7 @@ public class _1006Ascension extends QuestHandler
 				}
 			}
 		}
-		else if (qs.getStatus() == QuestStatus.REWARD)
+		else if(qs.getStatus() == QuestStatus.REWARD)
 		{
 			if(targetId == 790001)
 			{
@@ -298,23 +306,24 @@ public class _1006Ascension extends QuestHandler
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs != null)
 		{
-			if (qs.getStatus() != QuestStatus.START)
+			if(qs.getStatus() != QuestStatus.START)
 				return false;
 			int var = qs.getQuestVars().getQuestVars();
-			if (var == 4 || (var >= 50 && var <=55))
+			if(var == 4 || (var >= 50 && var <= 55))
 			{
-				if (activePlayerId == player.getObjectId() && player.getWorldId() == 310010000)
+				if(activePlayerId == player.getObjectId() && player.getWorldId() == 310010000)
 					return false;
 				else
 				{
-					if (player.getWorldId() == 310010000)
+					if(player.getWorldId() == 310010000)
 					{
 						World world = player.getActiveRegion().getWorld();
 						world.despawn(player);
 						// TODO! this should go to PlayerController.teleportTo(...)
 						// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but something
 						// else
-						world.setPosition(player, 210010000, (float)243.34, (float)1639.5, (float)100.4, player.getHeading());
+						world.setPosition(player, 210010000, (float) 243.34, (float) 1639.5, (float) 100.4, player
+							.getHeading());
 						player.setProtectionActive(true);
 						PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
 					}
@@ -340,10 +349,10 @@ public class _1006Ascension extends QuestHandler
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
-		if (targetId != 211043)
+		if(targetId != 211043)
 			return false;
-		Monster monster = (Monster)env.getVisibleObject();
-		if (monster.getLifeStats().getCurrentHp() < monster.getLifeStats().getMaxHp()/2)
+		Monster monster = (Monster) env.getVisibleObject();
+		if(monster.getLifeStats().getCurrentHp() < monster.getLifeStats().getMaxHp() / 2)
 		{
 			PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 151));
 			monster.getAi().stop();
@@ -362,7 +371,7 @@ public class _1006Ascension extends QuestHandler
 
 		if(id != 182200007)
 			return false;
-		if (!ZoneManager.getInstance().isInsideZone(player, ZoneName.ITEMUSE_Q1006))
+		if(!ZoneManager.getInstance().isInsideZone(player, ZoneName.ITEMUSE_Q1006))
 			return false;
 		final QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null)
@@ -384,20 +393,22 @@ public class _1006Ascension extends QuestHandler
 		return true;
 	}
 
+	@Override
 	public boolean onMovieEndEvent(QuestEnv env, int movieId)
 	{
-		if (movieId != 151)
+		if(movieId != 151)
 			return false;
 		Player player = env.getPlayer();
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null || qs.getStatus() != QuestStatus.START || qs.getQuestVars().getQuestVars() != 4)
 			return false;
-		mobs.add((Monster)QuestEngine.getInstance().addNewSpawn(310010000, 790001, (float)220.6, (float)247.8, (float)206.0, (byte)0, false));
+		mobs.add((Npc) QuestEngine.getInstance().addNewSpawn(310010000, 790001, (float) 220.6, (float) 247.8,
+			(float) 206.0, (byte) 0, false));
 		qs.getQuestVars().setQuestVar(5);
 		updateQuestStatus(player, qs);
 		return true;
 	}
-	
+
 	private boolean setPlayerClass(QuestEnv env, QuestState qs, PlayerClass playerClass)
 	{
 		Player player = env.getPlayer();
