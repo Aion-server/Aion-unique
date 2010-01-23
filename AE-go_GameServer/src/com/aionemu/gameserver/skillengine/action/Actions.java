@@ -46,7 +46,8 @@ public class Actions
         @XmlElement(name = "itemheal", type = ItemHealAction.class),
         @XmlElement(name = "itemhealmp", type = ItemHealMpAction.class),
         @XmlElement(name = "heal", type = HealAction.class),
-        @XmlElement(name = "healmp", type = HealMpAction.class)
+        @XmlElement(name = "healmp", type = HealMpAction.class),
+        @XmlElement(name = "delaydamage", type = DelayDamageAction.class)
     })
     protected List<Action> actions;
 

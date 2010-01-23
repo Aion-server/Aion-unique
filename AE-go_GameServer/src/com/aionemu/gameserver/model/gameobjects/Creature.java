@@ -51,6 +51,8 @@ public abstract class Creature extends VisibleObject
 	private boolean isRooted = false;
 
 	private boolean isSleep = false;
+	
+	private int transformedModelId;
 
 	public Creature(int objId, CreatureController<? extends Creature> controller,
 		SpawnTemplate spawnTemplate, VisibleObjectTemplate objectTemplate, WorldPosition position)
@@ -184,5 +186,21 @@ public abstract class Creature extends VisibleObject
 	public void setState(CreatureState state)
 	{
 		this.state = state;
+	}
+
+	/**
+	 * @return the transformedModelId
+	 */
+	public int getTransformedModelId()
+	{
+		return transformedModelId;
+	}
+
+	/**
+	 * @param transformedModelId the transformedModelId to set
+	 */
+	public void setTransformedModelId(int transformedModelId)
+	{
+		this.transformedModelId = transformedModelId;
 	}
 }

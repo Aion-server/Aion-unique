@@ -88,6 +88,8 @@
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
 			<xs:element name="damage" type="DamageAction" minOccurs="0"
 				maxOccurs="1" />
+			<xs:element name="delaydamage" type="DelayDamageAction" minOccurs="0"
+				maxOccurs="1" />
 			<xs:element name="return" type="ReturnAction" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="itemuse" type="ItemUseAction" minOccurs="0"
@@ -126,6 +128,14 @@
 				<xs:attribute name="delta" type="xs:int" />
 				<xs:attribute name="check" type="xs:string" />
 				<xs:attribute name="checkvalue" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="DelayDamageAction">
+		<xs:complexContent>
+			<xs:extension base="DamageAction">
+				<xs:attribute name="delay" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

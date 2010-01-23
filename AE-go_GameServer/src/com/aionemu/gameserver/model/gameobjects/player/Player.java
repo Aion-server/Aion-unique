@@ -84,7 +84,7 @@ public class Player extends Creature
 	public Player(PlayerController controller, PlayerCommonData plCommonData, PlayerAppearance appereance)
 	{
 		super(plCommonData.getPlayerObjId(), controller, null, null, plCommonData.getPosition());
-
+		//TODO may be pcd->visibleObjectTemplate ?
 		this.playerCommonData = plCommonData;
 		this.playerAppearance = appereance;
 
@@ -481,12 +481,6 @@ public class Player extends Creature
 	public void initializeAi()
 	{
 		// TODO Auto-generated method stub
-	}
-	
-	@Override
-	public VisibleObjectTemplate getObjectTemplate()
-	{
-		throw new IllegalStateException("Player does not have object template yet");
 	}
 
 	/**

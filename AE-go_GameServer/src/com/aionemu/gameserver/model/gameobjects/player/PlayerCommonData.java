@@ -30,6 +30,7 @@ import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
@@ -48,7 +49,7 @@ import com.aionemu.gameserver.world.WorldPosition;
  * @author Luno
  * 
  */
-public class PlayerCommonData
+public class PlayerCommonData extends VisibleObjectTemplate
 {
 	/** Logger used by this class and {@link StaticData} class */
 	static Logger			log	= Logger.getLogger(PlayerCommonData.class);
@@ -405,5 +406,11 @@ public class PlayerCommonData
 	public int getDp()
 	{
 		return this.dp;
+	}
+
+	@Override
+	public int getTemplateId()
+	{
+		return 100000 + race.getRaceId()*2 + gender.getGenderId();
 	}
 }

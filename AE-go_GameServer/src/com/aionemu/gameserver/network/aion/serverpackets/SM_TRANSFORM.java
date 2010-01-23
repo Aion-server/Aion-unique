@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -26,15 +27,13 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_TRANSFORM extends AionServerPacket
 {
-	private int	targetObjectId;
-	private int	model;
+	private Creature creature;
 	private int	state;
 
-	public SM_TRANSFORM(int targetObjectId, int model, int state)
+	public SM_TRANSFORM(Creature creature)
 	{
-		this.targetObjectId = targetObjectId;
-		this.model = model;
-		this.state = state;
+		this.creature = creature;
+		this.state = creature.getState().ordinal();
 	}
 
 	/**
@@ -43,8 +42,8 @@ public class SM_TRANSFORM extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, targetObjectId);
-		writeD(buf, model);
+		writeD(buf, creature.getObjectId());
+		writeD(buf, creature.getTransformedModelId());
 		writeH(buf, state);
 		writeF(buf, 0.55f);
 		writeF(buf, 1.5f);

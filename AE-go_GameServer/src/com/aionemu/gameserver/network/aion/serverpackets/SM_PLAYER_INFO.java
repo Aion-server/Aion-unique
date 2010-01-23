@@ -69,9 +69,12 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         /**
          * A3 female asmodian A2 male asmodian A1 female elyos A0 male elyos
          */
-        int modelId = 100000 + raceId * 2 + genderId;
-        writeD(buf, modelId);
-        writeD(buf, modelId);
+        writeD(buf, pcd.getTemplateId());
+        /**
+         * Transformed state - send transformed model id
+         * Regular state - send player model id (from common data)
+         */
+        writeD(buf, player.getTransformedModelId() == 0 ? pcd.getTemplateId() : player.getTransformedModelId());
 
         writeC(buf, 0x26); // unk 0x00 - name in red
         writeC(buf, raceId); //race
@@ -102,8 +105,7 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         int maxHp = player.getGameStats().getCurrentStat(StatEnum.MAXHP);
         int currHp = player.getLifeStats().getCurrentHp();
         writeC(buf, 100 * currHp/maxHp);// %hp
-        writeC(buf, 0x00);// unk (0x00)
-        writeC(buf, 0x00);// unk (0x00)
+        writeH(buf, pcd.getDp());// current dp
         writeC(buf, 0x00);// unk (0x00)
 
         List<Item> items = player.getInventory().getEquippedItems();
@@ -111,7 +113,6 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         for (Item item : items)
         {
             mask |= item.getEquipmentSlot();
-
         }
 
         writeH(buf, mask);

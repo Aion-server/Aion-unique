@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,96 +16,69 @@
  */
 package com.aionemu.gameserver.skillengine.action;
 
+import java.util.Collections;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.aionemu.gameserver.model.SkillElement;
+import com.aionemu.gameserver.controllers.attack.AttackStatus;
+import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
-import com.aionemu.gameserver.controllers.attack.AttackUtil;
-
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author ATracer
  *  
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DamageAction")
-public class DamageAction
-extends Action
+@XmlType(name = "DelayDamageAction")
+public class DelayDamageAction extends DamageAction
 {
-
-	@XmlAttribute(required = true)
-	protected int value;
-
+	
 	@XmlAttribute
-	protected int delta;
-
-	@XmlAttribute(name="type")
-	protected DamageType damageType;
+	protected int delay;
 
 	@Override
 	public void act(Skill skill)
 	{
-		Player effector = skill.getEffector();
-		VisibleObject firstTarget = skill.getFirstTarget();
+		final Player effector = skill.getEffector();
 		SkillTemplate template = skill.getSkillTemplate();
+		final int skillId = template.getSkillId();
 
 		int valueWithDelta = value + delta * skill.getSkillLevel();
 
 		if(damageType == null)
 			damageType = DamageType.valueOf(skill.getSkillTemplate().getType().name());
 
-		List<SkillAttackResult> skillAttackList = calculateAttackResult(skill, effector, valueWithDelta);
+		final List<SkillAttackResult> skillAttackList = calculateAttackResult(skill, effector, valueWithDelta);
 
 		int unk = 0;
 		PacketSendUtility.broadcastPacket(effector,
 			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), skill.getSkillLevel(),
-				unk, firstTarget.getObjectId(), skillAttackList, template.getCooldown()), true);
+				unk, skill.getFirstTarget().getObjectId(), Collections.singletonList(new SkillAttackResult(skill.getFirstTarget(), 0, AttackStatus.NORMALHIT)), template.getCooldown()), true);
 
-		// Castspell_end packet must go first
-
-		for (SkillAttackResult skillAttack : skillAttackList)
-		{
-			skillAttack.getCreature().getController().onAttack(effector, skill.getSkillTemplate().getSkillId(), TYPE.REGULAR, skillAttack.getDamage());
-		}
-
-	}
-
-	protected List<SkillAttackResult> calculateAttackResult(Skill skill, Player effector, int valueWithDelta)
-	{
-		List<SkillAttackResult> skillAttackList = new ArrayList<SkillAttackResult>();
-
-		for(Creature effected : skill.getEffectedList())
-		{
-			if(effected == null)
-				continue;
-
-			switch(damageType)
+		ThreadPoolManager.getInstance().schedule(new Runnable(){		
+			@Override
+			public void run()
 			{
-				case PHYSICAL:
-					skillAttackList.add(AttackUtil.calculatePhysicalSkillAttackResult(effector, effected, valueWithDelta));
-					break;
-				case MAGICAL:
-					skillAttackList.add(AttackUtil.calculateMagicalSkillAttackResult(effector, effected, valueWithDelta, SkillElement.NONE));
-					break;
-				default:
-					skillAttackList.add(AttackUtil.calculatePhysicalSkillAttackResult(effector, effected, 0));
+				for (SkillAttackResult skillAttack : skillAttackList)
+				{
+					Creature effected = skillAttack.getCreature();
+					if(effected != null && !effected.getLifeStats().isAlreadyDead())
+					{
+						effected.getController().onAttack(effector, skillId, TYPE.REGULAR, skillAttack.getDamage());
+					}				
+				}
 			}
-
-		}
-		return skillAttackList;
+		}, delay);	
 	}
 }

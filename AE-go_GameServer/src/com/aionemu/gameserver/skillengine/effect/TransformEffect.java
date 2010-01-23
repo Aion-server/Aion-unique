@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRANSFORM;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -48,19 +49,16 @@ public class TransformEffect extends EffectTemplate
 		Creature effected = effect.getEffected();
 		effected.getEffectController().unsetAbnormal(EffectId.TRANSFORM.getEffectId());
 
-		int returnModel = 0;
-
-		Npc npc;
 		if(effected instanceof Npc)
 		{
-			npc = (Npc)effected;
-			returnModel = npc.getNpcId();
+			effected.setTransformedModelId(effected.getObjectTemplate().getTemplateId());
 		}
 		else if(effected instanceof Player)
 		{
-			returnModel = 0;
+			effected.setTransformedModelId(0);
+			//PacketSendUtility.sendPacket((Player)effected, new SM_PLAYER_INFO((Player)effected, false));
 		}
-		PacketSendUtility.broadcastPacket(effected, new SM_TRANSFORM(effected.getObjectId(), returnModel, effected.getState().ordinal()));
+		PacketSendUtility.broadcastPacket(effected, new SM_TRANSFORM(effected));
 	}
 
 	@Override
@@ -68,8 +66,12 @@ public class TransformEffect extends EffectTemplate
 	{
 		final Creature effected = effect.getEffected();
 		effected.getEffectController().setAbnormal(EffectId.TRANSFORM.getEffectId());
-
-		PacketSendUtility.broadcastPacket(effected, new SM_TRANSFORM(effected.getObjectId(), model, 65));
+		effected.setTransformedModelId(model);	
+		PacketSendUtility.broadcastPacket(effected, new SM_TRANSFORM(effected));
+		if(effected instanceof Player)
+		{
+			//PacketSendUtility.sendPacket((Player)effected, new SM_PLAYER_INFO((Player)effected, false));
+		}
 	}
 
 	@Override
