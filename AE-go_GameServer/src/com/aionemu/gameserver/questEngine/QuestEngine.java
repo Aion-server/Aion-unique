@@ -122,16 +122,14 @@ public class QuestEngine
 		return false;
 	}
 
-	public boolean onLvlUp(QuestEnv env)
+	public void onLvlUp(QuestEnv env)
 	{
 		for(int questId : _questLvlUp)
 		{
 			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
-				if(questHandler.onLvlUpEvent(env))
-					return true;
+				questHandler.onLvlUpEvent(env);
 		}
-		return false;
 	}
 
 	public boolean onItemUseEvent(QuestEnv env, Item item)

@@ -61,11 +61,11 @@ public class _1002RequestoftheElim extends QuestHandler
 	{
 		final Player player = env.getPlayer();
 		final QuestState qs = player.getQuestStateList().getQuestState(questId);
-		if(qs == null)
+		if(qs == null || qs.getStatus() != QuestStatus.LOCKED)
 			return false;
 
 		QuestState qs2 = player.getQuestStateList().getQuestState(1001);
-		if(qs2 == null || qs2.getStatus() != QuestStatus.COMPLITE || qs.getStatus() != QuestStatus.LOCKED)
+		if(qs2 == null || qs2.getStatus() != QuestStatus.COMPLITE)
 			return false;
 		qs.setStatus(QuestStatus.START);
 		updateQuestStatus(player, qs);

@@ -76,11 +76,7 @@ public class _1001TheKerubThreat extends QuestHandler
 	{
 		Player player = env.getPlayer();
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
-		if(qs == null)
-			return false;
-		QuestState qs2 = player.getQuestStateList().getQuestState(1100);
-		if(qs2 == null || qs2.getStatus() != QuestStatus.COMPLITE || player.getCommonData().getLevel() < 3
-			|| qs.getStatus() != QuestStatus.LOCKED)
+		if(qs == null || qs.getStatus() != QuestStatus.LOCKED)
 			return false;
 		qs.setStatus(QuestStatus.START);
 		updateQuestStatus(player, qs);

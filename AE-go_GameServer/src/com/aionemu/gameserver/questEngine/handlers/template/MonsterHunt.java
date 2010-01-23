@@ -61,7 +61,7 @@ public class MonsterHunt extends QuestHandler
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(targetId == startNpc)
 		{
-			if(qs == null)
+			if(qs == null || qs.getStatus() == QuestStatus.NONE)
 			{
 				if(env.getDialogId() == 25)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);

@@ -58,9 +58,9 @@ public class ItemCollecting extends QuestHandler
 			this.endNpcId = startNpcId;
 		QuestEngine.getInstance().setNpcQuestData(startNpcId).addOnQuestStart(questId);
 		QuestEngine.getInstance().setNpcQuestData(startNpcId).addOnTalkEvent(questId);
-		if(actionItemId != startNpcId)
+		if(actionItemId != 0)
 			QuestEngine.getInstance().setNpcQuestData(actionItemId).addOnTalkEvent(questId);
-		if (endNpcId != 0)
+		if (endNpcId != startNpcId)
 			QuestEngine.getInstance().setNpcQuestData(endNpcId).addOnTalkEvent(questId);
 	}
 
@@ -72,9 +72,9 @@ public class ItemCollecting extends QuestHandler
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
-		if(targetId == startNpcId)
+		if(qs == null || qs.getStatus() == QuestStatus.NONE)
 		{
-			if(qs == null)
+			if(targetId == startNpcId)
 			{
 				if(env.getDialogId() == 25)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
@@ -82,9 +82,9 @@ public class ItemCollecting extends QuestHandler
 					return defaultQuestStartDialog(env);
 			}
 		}
-		else if (targetId == endNpcId)
+		else if(qs != null && qs.getStatus() == QuestStatus.START)
 		{
-			if(qs != null && qs.getStatus() == QuestStatus.START)
+			if (targetId == endNpcId)
 			{
 				if(env.getDialogId() == 25)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2375);
@@ -110,18 +110,12 @@ public class ItemCollecting extends QuestHandler
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2716);
 				}
 			}
-			else if(qs.getStatus() == QuestStatus.REWARD)
-			{
-				return defaultQuestEndDialog(env);
-			}
-			return false;
-		}
-		else if(targetId == actionItemId && targetId != 0)
-		{
-			if(qs != null && qs.getStatus() == QuestStatus.START)
-			{
+			else if(targetId == actionItemId && targetId != 0)
 				return true;
-			}
+		}
+		else if(qs.getStatus() == QuestStatus.REWARD && targetId == endNpcId)
+		{
+			return defaultQuestEndDialog(env);
 		}
 		return false;
 	}
