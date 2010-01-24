@@ -230,10 +230,7 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeH(buf, player.getPlayerSettings().getDeny()); // unk - 0x00
         writeD(buf, 0x01); // unk - 0x01
         
-        /* writeC(buf, 0);
-       writeC(buf, 0);
-       writeC(buf, 0);
-       writeH(buf, 0);*/
-
+        writeC(buf, 0); //unk
+        writeD(buf, 1); //unk
     }
 }
