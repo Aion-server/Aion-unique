@@ -40,11 +40,11 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 {
 	@Inject
 	private World world;
-	
+
 	@Inject
 	@IDFactoryAionObject
 	private IDFactory aionObjectsIDFactory;		
-	
+
 	private String name;
 
 	public CM_INVITE_TO_GROUP(int opcode)
@@ -69,11 +69,11 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 	protected void runImpl()
 	{
 		final String playerName = Util.convertName(name);
-		
+
 		final Player inviter = getConnection().getActivePlayer();
 		final Player invited = world.findPlayer(playerName);
 		final PlayerGroup group = inviter.getPlayerGroup();
-		
+
 		if(group != null && group.isFull())
 			sendPacket(SM_SYSTEM_MESSAGE.FULL_GROUP());
 		else if(group != null && inviter.getObjectId() != group.getGroupLeader().getObjectId())
@@ -97,16 +97,21 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 				@Override
 				public void acceptRequest(Creature requester, Player responder)
 				{
+					if(group != null && group.isFull())
+						return;
+
 					sendPacket(SM_SYSTEM_MESSAGE.REQUEST_GROUP_INVITE(playerName));
 					if(group != null)
+					{
 						inviter.getPlayerGroup().addPlayerToGroup(invited);
+					}					
 					else
 					{
 						new PlayerGroup(aionObjectsIDFactory, inviter);
 						inviter.getPlayerGroup().addPlayerToGroup(invited);
 					}
 				}
-	
+
 				@Override
 				public void denyRequest(Creature requester, Player responder)
 				{
