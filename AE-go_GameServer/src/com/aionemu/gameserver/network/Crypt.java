@@ -31,11 +31,11 @@ public class Crypt
 	/**
 	 * Second byte of client packet must be equal to this
 	 */
-	public final static byte	staticClientPacketCode	= 0x5D;
+	public final static byte	staticClientPacketCode	= 0x54;
 	/**
 	 * Second byte of server packet must be equal to this
 	 */
-	public final static byte	staticServerPacketCode	= 0x44;// 1.5.x (0x54 works too)
+	public final static byte	staticServerPacketCode	= 0x55;// 1.5.x (0x54 works too)
 	/**
 	 * Static xor key
 	 */

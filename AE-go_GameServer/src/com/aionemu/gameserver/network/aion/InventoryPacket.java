@@ -102,7 +102,7 @@ public abstract class InventoryPacket extends AionServerPacket
 	protected void writeWeaponInfo(ByteBuffer buf, Item item)
 	{
 		int itemSlotId = item.getEquipmentSlot();
-		writeH(buf, 0x46);
+		writeH(buf, 0x4B);
 		writeC(buf, 0x06);	
 		writeD(buf, item.isEquipped() ? itemSlotId : 0);
 		writeC(buf, 0x01);
@@ -115,9 +115,13 @@ public abstract class InventoryPacket extends AionServerPacket
 		
 		writeItemStones(buf, item);
 		
+		
 		writeC(buf, 0);
 		writeD(buf, 0);
 		writeD(buf, 0);
+		
+		writeD(buf, 0);//unk 1.5.1.9
+		writeC(buf, 0);//unk 1.5.1.9
 
 		writeC(buf, 0x3E);
 		writeC(buf, 0x0A);
@@ -188,7 +192,7 @@ public abstract class InventoryPacket extends AionServerPacket
 	protected void writeArmorInfo(ByteBuffer buf, Item item)
 	{
 		int itemSlotId = item.getEquipmentSlot();
-		writeH(buf, 0x4A);
+		writeH(buf, 0x4F);
 		writeC(buf, 0x06);		
 		writeD(buf, item.isEquipped() ? itemSlotId : 0);
 		writeC(buf, 0x02);
@@ -206,6 +210,9 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeC(buf, 0);
 		writeD(buf, 0);
 		writeD(buf, 0);	
+		
+		writeD(buf, 0);//unk 1.5.1.9
+		writeC(buf, 0);//unk 1.5.1.9
 		
 		writeC(buf, 0x3E);
 		writeC(buf, 0x02);
