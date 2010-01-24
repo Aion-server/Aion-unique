@@ -27,8 +27,6 @@ public class Rewards {
     protected List<QuestItems> selectableRewardItem;
     @XmlElement(name = "reward_item")
     protected List<QuestItems> rewardItem;
-    @XmlAttribute(name = "reward_id")
-    protected Integer rewardId;
     @XmlAttribute
     protected Integer gold;
     @XmlAttribute
@@ -94,18 +92,6 @@ public class Rewards {
             rewardItem = new ArrayList<QuestItems>();
         }
         return this.rewardItem;
-    }
-
-    /**
-     * Gets the value of the rewardId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getRewardId() {
-        return rewardId;
     }
 
     /**

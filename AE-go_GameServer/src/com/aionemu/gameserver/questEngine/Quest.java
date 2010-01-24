@@ -19,6 +19,7 @@ package com.aionemu.gameserver.questEngine;
 import static com.aionemu.gameserver.configs.Config.QUEST_KINAH_RATE;
 import static com.aionemu.gameserver.configs.Config.QUEST_XP_RATE;
 
+import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
@@ -172,12 +173,49 @@ public class Quest
 		int dialogId = env.getDialogId();
 		if(dialogId != 17 && dialogId != 0)
 		{
-			// TODO: Need support other reward qroup.
-			QuestItems selectebleRewardItem = rewards.getSelectableRewardItem().get(dialogId - 8);
-			if(selectebleRewardItem != null)
+			if (template.isUseClassReward())
 			{
-				QuestEngine.getInstance().addItem(player, selectebleRewardItem.getItemId(),
-					selectebleRewardItem.getCount());
+				QuestItems classRewardItem = null;
+				PlayerClass playerClass = player.getCommonData().getPlayerClass();
+				switch (playerClass)
+				{
+					case ASSASSIN :
+						classRewardItem = template.getAssassinSelectableReward().get(dialogId - 8);
+						break;
+					case CHANTER :
+						classRewardItem = template.getChanterSelectableReward().get(dialogId - 8);
+						break;
+					case CLERIC :
+						classRewardItem = template.getPriestSelectableReward().get(dialogId - 8);
+						break;
+					case GLADIATOR :
+						classRewardItem = template.getFighterSelectableReward().get(dialogId - 8);
+						break;
+					case RANGER :
+						classRewardItem = template.getRangerSelectableReward().get(dialogId - 8);
+						break;
+					case SORCERER :
+						classRewardItem = template.getWizardSelectableReward().get(dialogId - 8);
+						break;
+					case SPIRIT_MASTER :
+						classRewardItem = template.getElementalistSelectableReward().get(dialogId - 8);
+						break;
+					case TEMPLAR :
+						classRewardItem = template.getKnightSelectableReward().get(dialogId - 8);
+						break;
+				}
+				if (classRewardItem != null)
+					QuestEngine.getInstance().addItem(player, classRewardItem.getItemId(),
+						classRewardItem.getCount());
+			}
+			else
+			{
+				QuestItems selectebleRewardItem = rewards.getSelectableRewardItem().get(dialogId - 8);
+				if(selectebleRewardItem != null)
+				{
+					QuestEngine.getInstance().addItem(player, selectebleRewardItem.getItemId(),
+						selectebleRewardItem.getCount());
+				}
 			}
 		}
 

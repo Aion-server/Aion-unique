@@ -24,10 +24,24 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="quest_work_items" type="QuestWorkItems"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="fighter_selectable_reward" type="QuestItems"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="knight_selectable_reward" type="QuestItems"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="ranger_selectable_reward" type="QuestItems"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="assassin_selectable_reward" type="QuestItems"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="wizard_selectable_reward" type="QuestItems"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="elementalist_selectable_reward" type="QuestItems"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="priest_selectable_reward" type="QuestItems"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="chanter_selectable_reward" type="QuestItems"
+				minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:int" use="required" />
-		<xs:attribute name="start_npc_id" type="xs:int" />
-		<xs:attribute name="end_npc_id" type="xs:int" />
 		<xs:attribute name="name" type="xs:string" />
 		<xs:attribute name="minlevel_permitted" type="xs:int" />
 		<xs:attribute name="max_repeat_count" type="xs:int" />
@@ -35,7 +49,8 @@
 			default="false" />
 		<xs:attribute name="cannot_giveup" type="xs:boolean"
 			default="false" />
-		<xs:attribute name="f_mission" type="xs:int" />
+		<xs:attribute name="use_class_reward" type="xs:boolean"
+			default="false" />
 		<xs:attribute name="race_permitted" type="Race" />
 	</xs:complexType>
 
@@ -53,7 +68,6 @@
 			<xs:element name="reward_item" type="QuestItems"
 				minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
-		<xs:attribute name="reward_id" type="xs:int" />
 		<xs:attribute name="gold" type="xs:int" />
 		<xs:attribute name="exp" type="xs:int" />
 		<xs:attribute name="reward_abyss_point" type="xs:int" />
