@@ -26,10 +26,10 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
@@ -96,8 +96,13 @@ public class _1006Ascension extends QuestHandler
 			{
 				qs.getQuestVars().setQuestVar(4);
 				updateQuestStatus(player, qs);
-				mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211043, (float) 226.7,
-					(float) 251.5, (float) 205.5, (byte) 0, false));
+				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211043, (float) 226.7,
+					(float) 251.5, (float) 205.5, (byte) 0, false);
+				//TODO: Tempt decrease P attack.
+				mob.getGameStats().setStat(StatEnum.PHYSICAL_ATTACK, mob.getGameStats().getCurrentStat(StatEnum.PHYSICAL_ATTACK)/3 );
+				mob.getAggroList().addDamageHate(player, 1000, 0);
+				mob.getAi().handleEvent(Event.ATTACKED);
+				mobs.add(mob);
 				return true;
 			}
 		}
@@ -268,6 +273,8 @@ public class _1006Ascension extends QuestHandler
 										(float) 222.8, (float) 262.5, (float) 205.7, (byte) 0, false));
 									for(Npc mob : mobs)
 									{
+										//TODO: Tempt decrease P attack.
+										mob.getGameStats().setStat(StatEnum.PHYSICAL_ATTACK, mob.getGameStats().getCurrentStat(StatEnum.PHYSICAL_ATTACK)/3 );
 										((Monster) mob).getAggroList().addDamageHate(player, 1000, 0);
 										mob.getAi().handleEvent(Event.ATTACKED);
 									}

@@ -75,11 +75,7 @@
 	<!-- Sap for Leather -->
 	<report_to start_npc_id="203534" end_npc_id="203515" id="2115"/>
 	
-	<!-- The Insect Problem -->
-	<monster_hunt id="2114" start_npc_id="203533">
-		<monster_infos npc_id="210380"  var_id="0" max_kill="10"/>
-		<monster_infos npc_id="210381"  var_id="0" max_kill="10"/>
-	</monster_hunt>
+	<!-- TODO: The Insect Problem -->
 	
 	<!-- TODO: The Lost Axe -->
 	
@@ -98,7 +94,7 @@
 	
 	<!-- Food Bandits -->
 	<monster_hunt start_npc_id="203540" id="2117">
-		<monster_infos npc_id="210389" var_id="0" max_kill="1"/>
+		<monster_infos npc_id="210389" var_id="0" max_kill="9"/>
 	</monster_hunt>
 	
 	<!-- TODO: Treasure of the Deceased -->
@@ -111,7 +107,7 @@
 	<!-- TODO: Ashes to Ashes -->
 	
 	<!-- Checking on a Friend -->
-	<report_to start_npc_id="203540" end_npc_id="278581" id="2121"/>
+	<report_to start_npc_id="203540" end_npc_id="278581" item_id="182203119" id="2121"/>
 	
 	<!-- The Captain's Secret -->
 	<item_collecting id="2124" start_npc_id="203548"/>
@@ -139,7 +135,8 @@
 	
 	<!-- Suspicious Activity -->
 	<monster_hunt id="2129" start_npc_id="203552">
-		<monster_infos npc_id="210409"  var_id="0" max_kill="1"/>
+		<monster_infos var_id="0" npc_id="210408" max_kill="1"/>
+		<monster_infos var_id="1" npc_id="210409" max_kill="1"/>
 	</monster_hunt>
 	
 	<!-- TODO: Where's Rae This Time? -->

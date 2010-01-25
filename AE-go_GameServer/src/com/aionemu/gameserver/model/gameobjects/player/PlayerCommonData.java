@@ -169,6 +169,8 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	{
 		//maxLevel is 51 but in game 50 should be shown with full XP bar
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
+		if (getPlayerClass().isStartingClass())
+			maxLevel = 10;
 		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
 		int level = 1;
 

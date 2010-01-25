@@ -20,6 +20,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
@@ -35,6 +36,7 @@ public class SM_QUEST_LIST extends AionServerPacket
 	
 	private List<QuestState> compliteQuestList = new ArrayList<QuestState>();
 	private List<QuestState> startedQuestList = new ArrayList<QuestState>();
+	private List<Integer> questList = new ArrayList<Integer>();
 
 	public SM_QUEST_LIST(Player player)
 	{
@@ -45,6 +47,22 @@ public class SM_QUEST_LIST extends AionServerPacket
 			else if (qs.getStatus() != QuestStatus.NONE)
 				startedQuestList.add(qs);
 		}
+
+		//temp solution to enable teleports
+		// TODO remove this as this quests are implemented
+
+		if (player.getCommonData().getRace() == Race.ELYOS)
+		{
+			questList.add(1130);
+			questList.add(1300);
+		}
+		else
+		{
+			questList.add(2200);
+			questList.add(2300);
+			questList.add(2008);
+			questList.add(2009);
+		}
 	}
 	/**
 	 * {@inheritDoc}
@@ -52,11 +70,7 @@ public class SM_QUEST_LIST extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		//temp solution to enable teleports
-		// TODO remove this as this quests are implemented
-		int[] questList = { 2200, 2300, 1130, 2008, 2009, 1300 };
-
-		writeH(buf, compliteQuestList.size() + questList.length);
+		writeH(buf, compliteQuestList.size() + questList.size());
 		for (QuestState qs : compliteQuestList)
 		{
 			writeH(buf, qs.getQuestId());
