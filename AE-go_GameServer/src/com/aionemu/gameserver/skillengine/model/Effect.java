@@ -32,7 +32,9 @@ public class Effect
 {
 	private int effectorId;
 	private int skillId;
+	private String stack;
 	private int skillLevel;
+	private int skillStackLvl;
 	private int duration;
 	private int endTime;
 
@@ -43,13 +45,15 @@ public class Effect
 	private Future<?> task = null;
 	private Future<?> periodicTask = null;
 
-	public Effect(Creature effector, int skillId, int skillLevel,
-		int duration, Effects effects)
+	public Effect(Creature effector, int skillId, String stack, int skillLevel,
+		int skillStackLvl, int duration, Effects effects)
 	{
 		this.effector = effector;
 		this.effectorId = effector.getObjectId();
 		this.skillId = skillId;
+		this.stack = stack;
 		this.skillLevel = skillLevel;
+		this.skillStackLvl = skillStackLvl;
 		this.duration = duration;
 		this.effects = effects;
 	}
@@ -71,11 +75,27 @@ public class Effect
 	}
 
 	/**
+	 * @return the stack
+	 */
+	public String getStack()
+	{
+		return stack;
+	}
+
+	/**
 	 * @return the skillLevel
 	 */
 	public int getSkillLevel()
 	{
 		return skillLevel;
+	}
+	
+	/**
+	 * @return the skillStackLvl
+	 */
+	public int getSkillStackLvl()
+	{
+		return skillStackLvl;
 	}
 
 	/**

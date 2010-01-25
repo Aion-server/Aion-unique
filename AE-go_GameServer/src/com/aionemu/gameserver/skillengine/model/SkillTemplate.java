@@ -53,6 +53,10 @@ public class SkillTemplate
     protected int skillId;
     @XmlAttribute(required = true)
     protected String name;
+    @XmlAttribute
+    protected String stack = "NONE";
+    @XmlAttribute
+    protected int lvl;
     @XmlAttribute(name = "skilltype", required = true)
     protected SkillType type;
     @XmlAttribute(name = "skillsubtype", required = true)
@@ -149,6 +153,22 @@ public class SkillTemplate
     }
 
     /**
+	 * @return the stack
+	 */
+	public String getStack()
+	{
+		return stack;
+	}
+
+	/**
+	 * @return the lvl
+	 */
+	public int getLvl()
+	{
+		return lvl;
+	}
+
+	/**
      * Gets the value of the type property.
      * 
      * @return

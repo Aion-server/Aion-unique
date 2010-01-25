@@ -50,6 +50,8 @@ public class Skill
 	
 	private int skillLevel;
 	
+	private int skillStackLvl;
+	
 	private ConditionChangeListener conditionChangeListener;
 	
 	private SkillTemplate skillTemplate;
@@ -86,6 +88,7 @@ public class Skill
 		this.conditionChangeListener = new ConditionChangeListener();
 		this.firstTarget = effector.getTarget() instanceof Creature ? (Creature) effector.getTarget() : null;
 		this.skillLevel = skillLvl;
+		this.skillStackLvl = skillTemplate.getLvl();
 		this.skillTemplate = skillTemplate;
 		this.effector = effector;
 		this.world = world;
@@ -158,8 +161,8 @@ public class Skill
 
 			for(Creature creature : effectedList)
 			{
-				Effect effect = new Effect(effector, skillTemplate.getSkillId(),
-					skillLevel, duration, skillTemplate.getEffects());	
+				Effect effect = new Effect(effector, skillTemplate.getSkillId(), skillTemplate.getStack(),
+					skillLevel, skillStackLvl, duration, skillTemplate.getEffects());	
 				
 				creature.getEffectController().addEffect(effect);
 			}
@@ -269,6 +272,14 @@ public class Skill
 	public int getSkillLevel()
 	{
 		return skillLevel;
+	}
+
+	/**
+	 * @return the skillStackLvl
+	 */
+	public int getSkillStackLvl()
+	{
+		return skillStackLvl;
 	}
 
 	/**

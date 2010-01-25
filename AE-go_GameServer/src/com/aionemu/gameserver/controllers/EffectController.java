@@ -36,7 +36,7 @@ public class EffectController
 {
 	private Creature owner;
 
-	private ConcurrentMap<Integer, Effect> effectMap;
+	private ConcurrentMap<String, Effect> effectMap;
 
 	private int abnormals;
 
@@ -44,7 +44,7 @@ public class EffectController
 	{
 		super();
 		this.owner = owner;
-		this.effectMap = new ConcurrentHashMap<Integer, Effect>();
+		this.effectMap = new ConcurrentHashMap<String, Effect>();
 	}
 
 	/**
@@ -62,12 +62,22 @@ public class EffectController
 	public void addEffect(Effect effect)
 	{
 		effect.setController(this);
-		//TODO stack groups and level check
-		if(effectMap.containsKey(effect.getSkillId()))
+
+		if(effectMap.containsKey(effect.getStack()))
 		{
-			effectMap.get(effect.getSkillId()).endEffect();
+			Effect existingEffect = effectMap.get(effect.getStack());
+			
+			//check stack level
+			if(existingEffect.getSkillStackLvl() > effect.getSkillStackLvl())
+				return;
+			//check skill level (when stack level same)
+			if(existingEffect.getSkillStackLvl() == effect.getSkillStackLvl() 
+				&& existingEffect.getSkillLevel() > effect.getSkillLevel())
+				return;
+			
+			existingEffect.endEffect();
 		}
-		effectMap.put(effect.getSkillId(), effect);
+		effectMap.put(effect.getStack(), effect);
 
 		effect.startEffect();
 
@@ -127,7 +137,7 @@ public class EffectController
 	 */
 	public void removeEffect(Effect effect)
 	{
-		effectMap.remove(effect.getSkillId());
+		effectMap.remove(effect.getStack());
 
 		broadCastEffects();
 		if(owner instanceof Player)
