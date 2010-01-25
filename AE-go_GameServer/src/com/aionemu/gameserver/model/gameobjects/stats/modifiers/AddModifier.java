@@ -41,7 +41,7 @@ public class AddModifier extends SimpleModifier
 	@Override
 	public StatModifierPriority getPriority()
 	{
-		return StatModifierPriority.MEDIUM;
+		return StatModifierPriority.LOW;
 	}
 	
 	public static AddModifier newInstance (StatEnum stat, int value, boolean isBonus)

@@ -42,7 +42,7 @@ public class RateModifier extends SimpleModifier
 	@Override
 	public StatModifierPriority getPriority()
 	{
-		return StatModifierPriority.LOW;
+		return StatModifierPriority.MEDIUM;
 	}
 	
 	public static RateModifier newInstance (StatEnum stat, int value, boolean isBonus)

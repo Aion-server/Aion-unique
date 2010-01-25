@@ -40,6 +40,6 @@ public class SubModifier extends SimpleModifier
 	@Override
 	public StatModifierPriority getPriority()
 	{
-		return StatModifierPriority.MEDIUM;
+		return StatModifierPriority.LOW;
 	}
 }
