@@ -10369,7 +10369,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="14" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="808" name="STR_SKILL_AS_CarveSignet_G2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="7" duration="0">
@@ -10383,7 +10383,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="25" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="809" name="STR_SKILL_AS_CarveSignet_G3" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="7" duration="0">
@@ -10397,7 +10397,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="35" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="810" name="STR_SKILL_AS_CarveSignetChain_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
@@ -10411,7 +10411,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="18" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="811" name="STR_SKILL_AS_CarveSignetChain_G2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
@@ -10425,7 +10425,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="26" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="812" name="STR_SKILL_AS_CarveSignetChain_G3" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
@@ -10439,7 +10439,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="30" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="813" name="STR_SKILL_AS_ClearFocus_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="120" duration="0">
@@ -10781,7 +10781,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="166" delta="7"/>
         </actions>
     </skill_template>
     <skill_template skill_id="833" name="STR_SKILL_AS_SignetBurst_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="18" duration="0">
@@ -10868,7 +10868,7 @@
         </useconditions>
         <actions>
             <mpuse value="124" delta="0"/>
-            <dummy/>
+            <damage value="346" delta="8"/>
         </actions>
     </skill_template>
     <skill_template skill_id="838" name="STR_SKILL_AS_WindSlash_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="24" duration="0">
@@ -10997,7 +10997,7 @@
         </useconditions>
         <actions>
             <mpuse value="31" delta="0"/>
-            <dummy/>
+            <damage value="34" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="844" name="STR_SKILL_AS_TigerFang_G2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
@@ -11018,7 +11018,7 @@
         </useconditions>
         <actions>
             <mpuse value="42" delta="0"/>
-            <dummy/>
+            <damage value="55" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="845" name="STR_SKILL_AS_TigerFang_G3" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
@@ -11039,7 +11039,7 @@
         </useconditions>
         <actions>
             <mpuse value="49" delta="0"/>
-            <dummy/>
+            <damage value="78" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="846" name="STR_SKILL_AS_ChainSignetBurst_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="60" duration="0">
@@ -11078,7 +11078,7 @@
         </useconditions>
         <actions>
             <mpuse value="42" delta="0"/>
-            <dummy/>
+            <damage value="66" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="848" name="STR_SKILL_AS_TigerKick_G2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
@@ -11099,7 +11099,7 @@
         </useconditions>
         <actions>
             <mpuse value="49" delta="0"/>
-            <dummy/>
+            <damage value="95" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="849" name="STR_SKILL_AS_TigerUpper_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
@@ -11120,7 +11120,7 @@
         </useconditions>
         <actions>
             <mpuse value="49" delta="0"/>
-            <dummy/>
+            <damage value="101" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="850" name="STR_SKILL_AS_VisiousEye_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="0">
@@ -11312,7 +11312,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <damage value="291" delta="9"/>
         </actions>
     </skill_template>
     <skill_template skill_id="861" name="STR_SKILL_AS_DashAttack_G4" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="40" duration="0">
@@ -11387,7 +11387,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="278" delta="8"/>
         </actions>
     </skill_template>
     <skill_template skill_id="866" name="STR_SKILL_AS_TigerHook_G2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
@@ -11404,7 +11404,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <damage value="362" delta="16"/>
         </actions>
     </skill_template>
     <skill_template skill_id="867" name="STR_SKILL_AS_CarveSignet_G4" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="7" duration="0">
@@ -11418,7 +11418,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="45" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="868" name="STR_SKILL_AS_SignetBurst_G4" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="18" duration="0">
@@ -11546,7 +11546,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="35" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="875" name="STR_SKILL_AS_TigerFang_G4" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="10" duration="0">
@@ -11563,7 +11563,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <damage value="287" delta="9"/>
         </actions>
     </skill_template>
     <skill_template skill_id="876" name="STR_SKILL_AS_SpectralWalk_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="0">
@@ -11837,7 +11837,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="100" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="893" name="STR_SKILL_AS_CarveWave_G2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="1" duration="0">
@@ -11848,7 +11848,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="100" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="894" name="STR_SKILL_AS_CarveRay_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="1" duration="0">
@@ -11859,7 +11859,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="100" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="895" name="STR_SKILL_AS_CarveRay_G2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="1" duration="0">
@@ -11870,7 +11870,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="100" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="896" name="STR_SKILL_AS_AssassinsGift_G1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
@@ -12131,7 +12131,7 @@
         </setproperties>
         <actions>
             <mpuse value="38" delta="0"/>
-            <dummy/>
+            <damage value="32" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="916" name="STR_SKILL_AS_SignetWave_G2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="7" duration="0">
@@ -12149,7 +12149,7 @@
         </setproperties>
         <actions>
             <mpuse value="41" delta="0"/>
-            <dummy/>
+            <damage value="39" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="917" name="STR_SKILL_AS_SixSense_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="120" duration="0">
@@ -12264,7 +12264,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="40" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="926" name="STR_SKILL_AS_AlertStance_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="600" duration="0">
@@ -12378,7 +12378,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="360" delta="12"/>
         </actions>
     </skill_template>
     <skill_template skill_id="933" name="STR_SKILL_AS_DrainBurst_G2" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="60" duration="0">
@@ -12411,7 +12411,7 @@
         </setproperties>
         <actions>
             <mpuse value="42" delta="0"/>
-            <dummy/>
+            <damage value="44" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="935" name="STR_SKILL_AS_FlyingDagger_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="40" duration="0">
@@ -12436,7 +12436,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <damage value="45" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="937" name="STR_SKILL_AS_InstantRecall_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="1800" duration="1000">
@@ -43139,7 +43139,7 @@
         </useconditions>
         <actions>
             <mpuse value="37" delta="0"/>
-            <dummy/>
+            <damage value="9" delta="1"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9316" name="STR_SKILL_StigmaI_ClearFocus_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="300" duration="0">
