@@ -42,6 +42,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHERABLE_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
@@ -51,6 +52,7 @@ import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.Skill.SkillType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneManager;
@@ -209,7 +211,7 @@ public class PlayerController extends CreatureController<Player>
 			|| !target.getController().isAttackable()
 			|| target.getLifeStats().isAlreadyDead())
 			return;
-		
+
 		List<AttackResult> attackResult = AttackUtil.calculateAttackResult(player, target);
 
 		int damage = 0;
@@ -271,6 +273,31 @@ public class PlayerController extends CreatureController<Player>
 	public void onStartMove()
 	{
 		super.onStartMove();
+	}
+
+	@Override
+	public boolean teleportTo(final int worldId, final float x,
+		final float y, final float z, final byte heading, final int delay)
+	{
+		final Player player = getOwner();
+		if(player.getActiveRegion() == null)
+		{
+			//debug
+		}
+		ThreadPoolManager.getInstance().schedule(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				World world = player.getActiveRegion().getWorld();
+				world.despawn(player);
+				world.setPosition(player, worldId, x, y, z, heading);
+				player.setProtectionActive(true);
+				PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));		
+			}
+		}, delay);
+
+		return true;
 	}
 
 	/**

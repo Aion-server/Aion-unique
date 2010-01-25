@@ -149,15 +149,7 @@ public class _1006Ascension extends QuestHandler
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 								.getObjectId(), 0));
-							World world = player.getActiveRegion().getWorld();
-							world.despawn(player);
-							// TODO! this should go to PlayerController.teleportTo(...)
-							// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but
-							// something
-							// else
-							world.setPosition(player, 310010000, 52, 174, 229, player.getHeading());
-							player.setProtectionActive(true);
-							PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
+							player.getController().teleportTo(310010000, 52, 174, 229, 0);
 							return true;
 						}
 					case 10003:
@@ -317,15 +309,7 @@ public class _1006Ascension extends QuestHandler
 				{
 					if(player.getWorldId() == 310010000)
 					{
-						World world = player.getActiveRegion().getWorld();
-						world.despawn(player);
-						// TODO! this should go to PlayerController.teleportTo(...)
-						// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but something
-						// else
-						world.setPosition(player, 210010000, (float) 243.34, (float) 1639.5, (float) 100.4, player
-							.getHeading());
-						player.setProtectionActive(true);
-						PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
+						player.getController().teleportTo(210010000, 243.34f, 1639.5f, 100.4f, 0);
 					}
 					qs.getQuestVars().setQuestVar(3);
 					updateQuestStatus(player, qs);

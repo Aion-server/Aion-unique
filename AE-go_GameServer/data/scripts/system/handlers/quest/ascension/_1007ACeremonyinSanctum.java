@@ -80,14 +80,8 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 							qs.getQuestVars().setQuestVar(1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),0));
-							World world = player.getActiveRegion().getWorld();
-							world.despawn(player);
-							// TODO! this should go to PlayerController.teleportTo(...)
-							// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but something
-							// else
-							world.setPosition(player, 110010000, 1313, 1512, 568, player.getHeading());
-							player.setProtectionActive(true);
-							PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
+							
+							player.getController().teleportTo(110010000, 1313, 1512, 568, 0);
 							return true;
 						}
 				}

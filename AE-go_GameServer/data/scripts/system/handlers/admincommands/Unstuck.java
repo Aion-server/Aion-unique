@@ -70,10 +70,6 @@ public class Unstuck extends AdminCommand {
         /**
          * Spawn player.
          */
-        world.despawn(admin);
-        world.setPosition(admin, worldId, x, y, z, admin.getHeading());
-        admin.setProtectionActive(true);
-
-        PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+        admin.getController().teleportTo(worldId, x, y, z, 0);
     }
 }

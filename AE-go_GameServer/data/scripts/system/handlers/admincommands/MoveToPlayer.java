@@ -77,11 +77,7 @@ public class MoveToPlayer extends AdminCommand
 			return;
 		}
 
-		world.despawn(admin);
-		world.setPosition(admin, player.getWorldId(), player.getX(), player.getY(), player.getZ(), player.getHeading());
-		admin.setProtectionActive(true);
-		PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
-
+		admin.getController().teleportTo(player.getWorldId(), player.getX(), player.getY(), player.getZ(), player.getHeading(), 0);
 		PacketSendUtility.sendMessage(admin, "Teleported to player " + player.getName() + ".");
 	}
 }

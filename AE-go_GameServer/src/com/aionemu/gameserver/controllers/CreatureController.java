@@ -105,6 +105,37 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		this.onAttack(creature, 0, TYPE.REGULAR, damage);
 	}
 	
+	/**
+	 *  Teleport Creature to the location using current heading
+	 *  
+	 * @param worldId
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param delay
+	 * @return
+	 */
+	public boolean teleportTo(int worldId, float x, float y, float z, int delay)
+	{		
+		return teleportTo(worldId, x, y, z, getOwner().getHeading(), delay);
+	}
+	
+	/**
+	 *  Teleport Creature to the location using specific heading
+	 *  
+	 * @param worldId
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param heading
+	 * @param delay
+	 * @return
+	 */
+	public boolean teleportTo(int worldId, float x, float y, float z, byte heading, int delay)
+	{		
+		return true;
+	}
+	
 	public void onRestore(HopType hopType, int value)
 	{
 		switch(hopType)

@@ -56,7 +56,8 @@ public class TeleportService
 	public void scheduleTeleportTask(final Player activePlayer, final int mapid, final float x, final float y, final float z)
 	{
 		final World world = activePlayer.getPosition().getWorld();
-
+		
+		activePlayer.getController().teleportTo(mapid, x, y, z, TELEPORT_DEFAULT_DELAY);
 		ThreadPoolManager.getInstance().schedule(new Runnable()
 		{
 			@Override

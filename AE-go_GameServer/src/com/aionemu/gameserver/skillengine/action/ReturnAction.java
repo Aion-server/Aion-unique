@@ -62,7 +62,6 @@ extends Action
 		PacketSendUtility.broadcastPacket(player,
 			new SM_CASTSPELL_END(player.getObjectId(), template.getSkillId(), skill.getSkillLevel(), unk, 0, Collections.singletonList(new SkillAttackResult(skill.getFirstTarget(), 0, AttackStatus.NORMALHIT)), template.getCooldown()), true);
 
-		skill.getWorld().despawn(player);
 		LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
 
 		int bindPointId = player.getCommonData().getBindPoint();
@@ -84,10 +83,6 @@ extends Action
 			z = locationData.getZ();
 		}
 		
-		skill.getWorld().setPosition(player, worldId, x, y, z, player.getHeading());
-
-		player.setProtectionActive(true);
-		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
-
+		player.getController().teleportTo(worldId, x, y, z, 0);
 	}
 }

@@ -261,14 +261,7 @@ public class _1002RequestoftheElim extends QuestHandler
 						updateQuestStatus(player, qs);
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),
 							0));
-						World world = player.getActiveRegion().getWorld();
-						world.despawn(player);
-						// TODO! this should go to PlayerController.teleportTo(...)
-						// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but something
-						// else
-						world.setPosition(player, 310010000, 52, 174, 229, player.getHeading());
-						player.setProtectionActive(true);
-						PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
+						player.getController().teleportTo(310010000, 52, 174, 229, 0);
 						return true;
 					}
 					return false;
@@ -300,14 +293,7 @@ public class _1002RequestoftheElim extends QuestHandler
 							{
 								qs.getQuestVars().setQuestVarById(0, 14);
 								updateQuestStatus(player, qs);
-								World world = player.getActiveRegion().getWorld();
-								world.despawn(player);
-								// TODO! this should go to PlayerController.teleportTo(...)
-								// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but
-								// something else
-								world.setPosition(player, 210010000, 603, 1537, 116, (byte) 20);
-								player.setProtectionActive(true);
-								PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
+								player.getController().teleportTo(210010000, 603, 1537, 116, (byte) 20, 0);
 							}
 						}, 43000);
 						return true;

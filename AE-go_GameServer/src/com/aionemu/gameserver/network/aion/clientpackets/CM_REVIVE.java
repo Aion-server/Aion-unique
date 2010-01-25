@@ -104,14 +104,6 @@ public class CM_REVIVE extends AionClientPacket
 		/**
 		 * Spawn player.
 		 */
-
-		world.despawn(activePlayer);
-		// TODO! this should go to PlayerController.teleportTo(...)
-		// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but something else
-		world.setPosition(activePlayer, worldId, x, y, z, activePlayer.getHeading());
-		activePlayer.setProtectionActive(true);
-		//world.spawn(activePlayer);
-		
-		sendPacket(new SM_PLAYER_SPAWN(activePlayer));
+		activePlayer.getController().teleportTo(worldId, x, y, z, 0);
 	}
 }

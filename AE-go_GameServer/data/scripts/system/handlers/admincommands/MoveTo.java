@@ -88,12 +88,7 @@ public class MoveTo extends AdminCommand
 		}
 		else
 		{
-			world.despawn(admin);
-			// TODO! this should go to PlayerController.teleportTo(...)
-			// more todo: when teleporting to the same map then SM_UNKF5 should not be send, but something else
-			world.setPosition(admin, worldId, x, y, z, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(worldId, x, y, z, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to " + x + " " + y + " " + z + " [" + worldId + "]");
 		}
 	}

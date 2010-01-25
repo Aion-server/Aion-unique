@@ -23,6 +23,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.world.WorldMapType;
 import com.google.inject.Inject;
 
 /**
@@ -39,15 +40,10 @@ public class GoTo extends AdminCommand
 	/**
 	 * Constructor.
 	 */
-
 	public GoTo()
 	{
 		super("goto");
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
 
 	public void executeCommand(Player admin, String[] params)
 	{
@@ -65,118 +61,79 @@ public class GoTo extends AdminCommand
 
 		if(params[0].equals("poeta"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 210010000, 1215, 1042, 141, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.POETA.getId(), 1215, 1042, 141, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Poeta");
 		}
 
 		else if(params[0].equals("verteron"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 210030000, 1643, 1500, 119, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.VERTERON.getId(), 1643, 1500, 119, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Verteron");
 		}
 
 		else if(params[0].equals("eltnen"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 210020000, 343, 2724, 264, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.ELTNEN.getId(), 343, 2724, 264, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Eltnen");
 		}
 
 		else if(params[0].equals("theobomos"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 210060000, 1398, 1557, 31, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.THEOMOBOS.getId(), 1398, 1557, 31, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Theobomos");
 		}
 
 		else if(params[0].equals("heiron"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 210040000, 2540, 343, 411, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.HEIRON.getId(), 2540, 343, 411, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Heiron");
 		}
 
 		else if(params[0].equals("sanctum"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 110010000, 1329, 1506, 570, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.SANCTUM.getId(), 1329, 1506, 570, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Sanctum");
 		}
 
 		else if(params[0].equals("ishalgen"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 220010000, 562, 2786, 299, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.ISHALGEN.getId(), 562, 2786, 299, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Ishalgen");
 		}
 
 		else if(params[0].equals("altgard"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 220030000, 1748, 1807, 254, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.ISHALGEN.getId(), 1748, 1807, 254, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Altgard");
 		}
 
 		else if(params[0].equals("morheim"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 220020000, 308, 2274, 449, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.MORHEIM.getId(), 308, 2274, 449, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Morheim");
 		}
 
 		else if(params[0].equals("brusthonin"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 220050000, 2917, 2421, 15, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.BRUSTHONIN.getId(), 2917, 2421, 15, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Brusthonin");
 		}
 
 		else if(params[0].equals("beluslan"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 220040000, 325, 336, 229, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.BELUSLAN.getId(), 325, 336, 229, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Beluslan");
 		}
 
 		else if(params[0].equals("pandemonium"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 120010000, 1682, 1397, 195, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(WorldMapType.PANDAEMONIUM.getId(), 1682, 1397, 195, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Pandemonium");
 		}
 
 		else if(params[0].equals("abyss1"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 400010000, 2867, 1034, 1528, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(400010000, 2867, 1034, 1528, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Latis Plazza bottom elyos");
 		}
 
