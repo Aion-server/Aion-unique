@@ -204,8 +204,8 @@ public class SM_PLAYER_INFO extends AionServerPacket {
 
         writeF(buf, player.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000f); // move speed
 
-        writeH(buf, 2800);
-        writeH(buf, 2800);
+        writeH(buf, player.getGameStats().getCurrentStat(StatEnum.ATTACK_SPEED));
+        writeH(buf, player.getGameStats().getCurrentStat(StatEnum.ATTACK_SPEED));
         writeC(buf, 0);
 
         writeS(buf, "");// private store message

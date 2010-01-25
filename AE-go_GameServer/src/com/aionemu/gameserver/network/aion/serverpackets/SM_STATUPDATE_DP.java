@@ -47,7 +47,7 @@ public class SM_STATUPDATE_DP extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, currentDp);
+		writeH(buf, currentDp);
 	}
 
 }
