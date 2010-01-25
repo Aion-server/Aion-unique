@@ -167,7 +167,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_SHOW_DIALOG(0x9A), State.IN_GAME);
 		addPacket(new CM_DIALOG_SELECT(0xAC), State.IN_GAME);
 		addPacket(new CM_CLOSE_DIALOG(0x9B), State.IN_GAME);//
-		addPacket(new CM_REVIVE(0xA5), State.IN_GAME);//0x9F
+		addPacket(new CM_REVIVE(0xEB), State.IN_GAME);//0x9F
 		addPacket(new CM_BUY_ITEM(0x99), State.IN_GAME);//0x9d
 		addPacket(new CM_USE_ITEM(0x8B), State.IN_GAME);//
 		addPacket(new CM_EQUIP_ITEM(0x9C), State.IN_GAME);//
