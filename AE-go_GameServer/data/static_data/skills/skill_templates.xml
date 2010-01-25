@@ -7039,7 +7039,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <damage value="43" delta="3"/>
+            <damage value="73" delta="7"/>
         </actions>
     </skill_template>
     <skill_template skill_id="556" name="STR_SKILL_SC_CounterSlash_G2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="10" duration="0">
@@ -7053,7 +7053,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <damage value="84" delta="3"/>
+            <damage value="157" delta="7"/>
         </actions>
     </skill_template>
     <skill_template skill_id="557" name="STR_SKILL_SC_CounterSlash_G3" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="10" duration="0">
@@ -7067,7 +7067,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <damage value="137" delta="4"/>
+            <damage value="256" delta="7"/>
         </actions>
     </skill_template>
     <skill_template skill_id="558" name="STR_SKILL_SC_CounterSlash_G4" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="10" duration="0">
@@ -7081,7 +7081,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <damage value="194" delta="4"/>
+            <damage value="358" delta="7"/>
         </actions>
     </skill_template>
     <skill_template skill_id="559" name="STR_SKILL_SC_Hide_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="0">
@@ -7425,7 +7425,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <damage value="237" delta="3"/>
+            <damage value="451" delta="7"/>
         </actions>
     </skill_template>
     <skill_template skill_id="582" name="STR_SKILL_SC_Hide_G2" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="0">
@@ -12198,7 +12198,7 @@
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="920" name="STR_SKILL_AS_WhisperofGale_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="30" duration="0">
+    <skill_template skill_id="920" name="STR_SKILL_AS_WhisperofGale_G1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -14328,7 +14328,7 @@
         </setproperties>
         <actions>
             <mpuse value="38" delta="1"/>
-            <damage value="195" delta="8"/>
+            <damage value="234" delta="8"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1087" name="STR_SKILL_PR_LightningBolt_G2" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="16" duration="0">
@@ -14343,7 +14343,7 @@
         </setproperties>
         <actions>
             <mpuse value="46" delta="2"/>
-            <damage value="290" delta="13"/>
+            <damage value="348" delta="13"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1088" name="STR_SKILL_PR_LightningBolt_G3" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="16" duration="0">
@@ -14358,7 +14358,7 @@
         </setproperties>
         <actions>
             <mpuse value="73" delta="1"/>
-            <damage value="449" delta="9"/>
+            <damage value="538" delta="9"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1089" name="STR_SKILL_PR_MassEmergentHeal_G1" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="60" duration="2000">
@@ -14888,7 +14888,7 @@
         </setproperties>
         <actions>
             <mpuse value="93" delta="1"/>
-            <damage value="547" delta="6"/>
+            <damage value="656" delta="6"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1118" name="STR_SKILL_PR_RapidRegeneration_G4" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="5" duration="0">
@@ -16679,9 +16679,6 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1233" name="STR_SKILL_CH_MountainCrash_G1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="30" duration="0">
-        <initproperties>
-            <addweaponrange/>
-        </initproperties>
         <startconditions>
             <mp value="144" delta="0"/>
         </startconditions>
@@ -16694,9 +16691,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dot damage="102" delta="1" checktime="3000" duration="12000"/>
+        </effects>
         <actions>
             <mpuse value="144" delta="0"/>
-            <damage value="13" delta="0"/>
+            <damage value="1396" delta="13"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1234" name="STR_SKILL_CH_Chant_Invincible_G1" skilltype="MAGICAL" skillsubtype="CHANT" activation="TOGGLE" cooldown="0" duration="0">
@@ -21446,7 +21446,7 @@
     </skill_template>
     <skill_template skill_id="1557" name="STR_SKILL_WI_BurningSoul_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="2000">
         <startconditions>
-            <mp value="110" delta="2"/>
+            <mp value="88" delta="2"/>
         </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
@@ -21458,13 +21458,13 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <mpuse value="110" delta="2"/>
+            <mpuse value="88" delta="2"/>
             <damage value="350" delta="9"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1558" name="STR_SKILL_WI_BurningSoul_G2" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="2000">
         <startconditions>
-            <mp value="148" delta="4"/>
+            <mp value="118" delta="3"/>
         </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
@@ -21476,13 +21476,13 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <mpuse value="148" delta="4"/>
+            <mpuse value="118" delta="3"/>
             <damage value="509" delta="17"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1559" name="STR_SKILL_WI_BurningSoul_G3" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="2000">
         <startconditions>
-            <mp value="205" delta="4"/>
+            <mp value="164" delta="3"/>
         </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
@@ -21494,7 +21494,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <mpuse value="205" delta="4"/>
+            <mpuse value="164" delta="3"/>
             <damage value="709" delta="16"/>
         </actions>
     </skill_template>
@@ -22089,7 +22089,7 @@
     </skill_template>
     <skill_template skill_id="1595" name="STR_SKILL_WI_BurningSoul_G4" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="2000">
         <startconditions>
-            <mp value="269" delta="4"/>
+            <mp value="215" delta="3"/>
         </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
@@ -22101,7 +22101,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <mpuse value="269" delta="4"/>
+            <mpuse value="215" delta="3"/>
             <damage value="891" delta="15"/>
         </actions>
     </skill_template>
@@ -25472,7 +25472,7 @@
             <heal value="-20" delta="0"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="1789" name="STR_SKILL_EL_DecayingWing_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="60" duration="1000">
+    <skill_template skill_id="1789" name="STR_SKILL_EL_DecayingWing_G1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="120" duration="1000">
         <startconditions>
             <mp value="182" delta="0"/>
         </startconditions>
@@ -33945,6 +33945,58 @@
             <dummy/>
         </actions>
     </skill_template>
+    <skill_template skill_id="8644" name="STR_sub_light_avatar_buff_shield_01" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="TARGET"/>
+            <firsttargetrange value="1"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="600000">
+                <change stat="PHYSICAL_DEFENSE" duration="600000" func="ADD" delta="0" value="50"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="8645" name="STR_sub_dark_avatar_buff_shield_01" skilltype="MAGICAL" skillsubtype="BUFF" activation="PROVOKED" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="TARGET"/>
+            <firsttargetrange value="1"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="600000">
+                <change stat="PHYSICAL_DEFENSE" duration="600000" func="ADD" delta="0" value="50"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="8646" name="STR_SKILL_NoFlyAlert_G1" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="TARGET"/>
+            <firsttargetrange value="1"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
     <skill_template skill_id="8706" name="STR_ITEM_E3_DISH_HP_01" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
             <firsttarget value="ME"/>
@@ -41109,6 +41161,315 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9140" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="MAXHP" duration="3600000" func="ADD" delta="0" value="220"/>
+                <change stat="ATTACK_SPEED" duration="3600000" func="PERCENT" delta="0" value="-2"/>
+            </buf>
+            <transform model="202529" duration="3600000"/>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9141" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="MAXHP" duration="3600000" func="ADD" delta="0" value="220"/>
+                <change stat="ATTACK_SPEED" duration="3600000" func="PERCENT" delta="0" value="-2"/>
+            </buf>
+            <transform model="202530" duration="3600000"/>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9190" name="STR_CASH_FOOD_L_SHAPE_TIGER_01" skilltype="NONE" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="MAXHP" duration="3600000" func="ADD" delta="0" value="181"/>
+                <change stat="MAXMP" duration="3600000" func="ADD" delta="0" value="181"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9191" name="STR_CASH_FOOD_D_SHAPE_TIGER_01" skilltype="NONE" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="MAXHP" duration="3600000" func="ADD" delta="0" value="181"/>
+                <change stat="MAXMP" duration="3600000" func="ADD" delta="0" value="181"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9192" name="STR_CASH_FOOD_L_SHAPE_TIGER_02" skilltype="NONE" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="MAXHP" duration="3600000" func="ADD" delta="0" value="181"/>
+                <change stat="REGEN_MP" duration="3600000" func="ADD" delta="0" value="15"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9193" name="STR_CASH_FOOD_D_SHAPE_TIGER_02" skilltype="NONE" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="MAXHP" duration="3600000" func="ADD" delta="0" value="181"/>
+                <change stat="REGEN_MP" duration="3600000" func="ADD" delta="0" value="15"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9194" name="STR_CASH_FOOD_L_SHAPE_TIGER_03" skilltype="NONE" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="REGEN_HP" duration="3600000" func="ADD" delta="0" value="12"/>
+                <change stat="MAXMP" duration="3600000" func="ADD" delta="0" value="181"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9195" name="STR_CASH_FOOD_D_SHAPE_TIGER_03" skilltype="NONE" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="REGEN_HP" duration="3600000" func="ADD" delta="0" value="12"/>
+                <change stat="MAXMP" duration="3600000" func="ADD" delta="0" value="181"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9196" name="STR_CASH_FOOD_L_SHAPE_TIGER_04" skilltype="NONE" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="REGEN_HP" duration="3600000" func="ADD" delta="0" value="12"/>
+                <change stat="REGEN_MP" duration="3600000" func="ADD" delta="0" value="15"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9197" name="STR_CASH_FOOD_D_SHAPE_TIGER_04" skilltype="NONE" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="REGEN_HP" duration="3600000" func="ADD" delta="0" value="12"/>
+                <change stat="REGEN_MP" duration="3600000" func="ADD" delta="0" value="15"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9198" name="STR_CASH_FOOD_L_SHAPE_TIGER_05" skilltype="NONE" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects/>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9199" name="STR_CASH_FOOD_D_SHAPE_TIGER_05" skilltype="NONE" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects/>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9202" name="STR_LIGHT_AVATAR_BUFF_SHIELD_01" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="TARGET"/>
+            <firsttargetrange value="25"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9203" name="STR_DARK_AVATAR_BUFF_SHIELD_01" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="TARGET"/>
+            <firsttargetrange value="25"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9204" name="STR_EVENT_DISH_CAKE_01" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="MAXHP" duration="3600000" func="ADD" delta="0" value="150"/>
+                <change stat="MAXMP" duration="3600000" func="ADD" delta="0" value="110"/>
+                <change stat="FLY_SPEED" duration="3600000" func="PERCENT" delta="0" value="5"/>
+                <change stat="SPEED" duration="3600000" func="PERCENT" delta="0" value="5"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9209" name="STR_EVENT_DISH_MANDU_01" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="PHYSICAL_CRITICAL" duration="3600000" func="ADD" delta="0" value="50"/>
+                <change stat="BOOST_MAGICAL_SKILL" duration="3600000" func="ADD" delta="0" value="50"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="9210" name="STR_EVENT_DISH_DRINK_01" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="ME"/>
+            <targetrange value="ONLYONE"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <effects>
+            <buf duration="3600000">
+                <change stat="PHYSICAL_ATTACK" duration="3600000" func="ADD" delta="0" value="10"/>
+                <change stat="BOOST_MAGICAL_SKILL" duration="3600000" func="ADD" delta="0" value="50"/>
+                <change stat="ATTACK_SPEED" duration="3600000" func="PERCENT" delta="0" value="-2"/>
+                <change stat="BOOST_CASTING_TIME" duration="3600000" func="PERCENT" delta="0" value="2"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -68100,7 +68461,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="367" delta="18"/>
+            <damage value="416" delta="20"/>
         </actions>
     </skill_template>
     <skill_template skill_id="17798" name="STR_NPC_SKILL_EL_Pet_Interupt_G2_Water" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
@@ -68114,7 +68475,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="580" delta="15"/>
+            <damage value="653" delta="18"/>
         </actions>
     </skill_template>
     <skill_template skill_id="17799" name="STR_NPC_SKILL_EL_Pet_Interupt_G3_Water" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
@@ -68128,7 +68489,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="768" delta="15"/>
+            <damage value="860" delta="18"/>
         </actions>
     </skill_template>
     <skill_template skill_id="17800" name="STR_NPC_SKILL_EL_Pet_Interupt_G4_Water" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
@@ -68142,7 +68503,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="768" delta="15"/>
+            <damage value="860" delta="18"/>
         </actions>
     </skill_template>
     <skill_template skill_id="17801" name="STR_NPC_SKILL_EL_Pet_Interupt_G1_Magma" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
@@ -68226,7 +68587,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="1178" delta="20"/>
+            <damage value="1278" delta="21"/>
         </actions>
     </skill_template>
     <skill_template skill_id="17806" name="STR_NPC_SKILL_HeavensTrap_G3" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="500">
@@ -73507,7 +73868,7 @@
             <dummy/>
         </actions>
     </skill_template>
-    <skill_template skill_id="18153" name="STR_BNMA_DranaSteam_TA" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="6000">
+    <skill_template skill_id="18153" name="STR_BNMA_DranaSteam_TA" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="10000">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -74271,14 +74632,14 @@
             <dot damage="750" delta="0" checktime="3000" duration="9000"/>
         </effects>
         <actions>
-            <damage value="1000" delta="0"/>
+            <damage value="750" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="18200" name="STR_BNFI_CurseTreeTA_Captain" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
-            <targetrange value="AREA" distance="45" maxcount="7"/>
+            <targetrange value="AREA" distance="45" maxcount="4"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
         <useconditions>
@@ -74288,7 +74649,7 @@
             <buf duration="12000">
                 <change stat="FIRE_RESISTANCE" duration="12000" func="ADD" delta="0" value="-300"/>
             </buf>
-            <transform model="201046" duration="12000"/>
+            <transform model="201046" duration="8000"/>
         </effects>
         <actions>
             <dummy/>
@@ -74645,7 +75006,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="229" delta="0"/>
+            <damage value="205" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="18226" name="STR_BNWI_SpellAtk16mHTA7_Poi" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2000">
@@ -74698,7 +75059,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <damage value="160" delta="0"/>
+            <damage value="145" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="18230" name="STR_BNWI_SpellAtk8mNTA5_Nc_Poi" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
@@ -74849,7 +75210,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="295" delta="0"/>
+            <damage value="265" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="18241" name="STR_BNWI_SpellAtk20mHTA10_Poi" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2000">
@@ -74905,7 +75266,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
-            <damage value="235" delta="0"/>
+            <damage value="205" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="18245" name="STR_BNWI_SpellAtk16mNTA7_Nc_Poi" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
@@ -74957,7 +75318,7 @@
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="20"/>
-            <targetrange value="AREA" distance="7" maxcount="7"/>
+            <targetrange value="AREA" distance="3" maxcount="7"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
         <useconditions>
@@ -79653,6 +80014,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <buf duration="5000">
+                <change stat="SPEED" duration="5000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -80161,6 +80527,36 @@
         </useconditions>
         <actions>
             <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="18762" name="STR_NAS_HideLong_Nr" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
+        <setproperties>
+            <firsttarget value="TARGET"/>
+            <firsttargetrange value="2"/>
+            <targetrange value="ONLYONE" maxcount="1"/>
+            <targetrelation value="FRIEND"/>
+        </setproperties>
+        <effects>
+            <buf duration="5000">
+                <change stat="SPEED" duration="5000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
+        <actions>
+            <dummy/>
+        </actions>
+    </skill_template>
+    <skill_template skill_id="18763" name="STR_BNPR_StunSA_Hide" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
+        <setproperties>
+            <firsttarget value="TARGET"/>
+            <firsttargetrange value="4"/>
+            <targetrange value="AREA" distance="5" maxcount="3"/>
+            <targetrelation value="ENEMY"/>
+        </setproperties>
+        <useconditions>
+            <playermove allow="false"/>
+        </useconditions>
+        <actions>
+            <damage value="38" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="30001" name="STR_GATHERING_A" skilltype="NONE" skillsubtype="NONE" activation="NONE" cooldown="0" duration="0">
