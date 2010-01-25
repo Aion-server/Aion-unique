@@ -48,6 +48,9 @@ public class AdminConfig
 	@Property(key = "gameserver.administration.command.goto", defaultValue = "3")
 	public static int			COMMAND_GOTO;
 	
+	@Property(key = "gameserver.administration.command.heal", defaultValue = "3")
+	public static int			COMMAND_HEAL;
+	
 	@Property(key = "gameserver.administration.command.info", defaultValue = "3")
 	public static int			COMMAND_INFO;
 
@@ -125,4 +128,7 @@ public class AdminConfig
 
     @Property(key = "gameserver.administration.command.unstuck", defaultValue = "3")
     public static int           COMMAND_UNSTUCK;
+    
+    @Property(key = "gameserver.administration.command.zone", defaultValue = "3")
+    public static int           COMMAND_ZONE;
 }
