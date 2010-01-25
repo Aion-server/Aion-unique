@@ -1647,6 +1647,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="1000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -1661,6 +1662,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="1000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -2482,6 +2484,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="3000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -3709,6 +3712,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="185" delta="5"/>
         </actions>
     </skill_template>
@@ -3723,6 +3727,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="324" delta="15"/>
         </actions>
     </skill_template>
@@ -3737,6 +3742,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="532" delta="10"/>
         </actions>
     </skill_template>
@@ -3917,6 +3923,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="185" delta="5"/>
         </actions>
     </skill_template>
@@ -3931,6 +3938,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="324" delta="15"/>
         </actions>
     </skill_template>
@@ -3945,6 +3953,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="532" delta="10"/>
         </actions>
     </skill_template>
@@ -3962,6 +3971,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="4000"/>
             <damage value="673" delta="12"/>
         </actions>
     </skill_template>
@@ -4117,6 +4127,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="652" delta="16"/>
         </actions>
     </skill_template>
@@ -4131,6 +4142,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="652" delta="16"/>
         </actions>
     </skill_template>
@@ -4347,6 +4359,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="4000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -4365,6 +4378,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="4000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -5839,6 +5853,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="4000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -5855,6 +5870,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="4000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -6117,6 +6133,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="129" delta="5"/>
         </actions>
     </skill_template>
@@ -6131,6 +6148,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="207" delta="12"/>
         </actions>
     </skill_template>
@@ -6145,6 +6163,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="367" delta="14"/>
         </actions>
     </skill_template>
@@ -6389,6 +6408,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
+            <dpuse value="3000"/>
             <heal value="100" delta="0"/>
         </actions>
     </skill_template>
@@ -6451,6 +6471,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="129" delta="5"/>
         </actions>
     </skill_template>
@@ -6465,6 +6486,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="207" delta="12"/>
         </actions>
     </skill_template>
@@ -6479,6 +6501,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="367" delta="14"/>
         </actions>
     </skill_template>
@@ -6525,6 +6548,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="4000"/>
             <damage value="0" delta="0"/>
         </actions>
     </skill_template>
@@ -6640,6 +6664,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="505" delta="14"/>
         </actions>
     </skill_template>
@@ -6654,6 +6679,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="505" delta="14"/>
         </actions>
     </skill_template>
@@ -7323,6 +7349,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -7342,6 +7369,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8425,6 +8453,7 @@
             <transform model="202500" duration="120000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -8444,6 +8473,7 @@
             <transform model="202501" duration="120000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9194,6 +9224,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="3000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9690,6 +9721,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="4000"/>
             <damage value="701" delta="13"/>
         </actions>
     </skill_template>
@@ -9911,6 +9943,7 @@
             <transform model="202501" duration="120000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9930,6 +9963,7 @@
             <transform model="202501" duration="120000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -9949,6 +9983,7 @@
             <transform model="202501" duration="120000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -10080,6 +10115,7 @@
             <transform model="202500" duration="120000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -10099,6 +10135,7 @@
             <transform model="202500" duration="120000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -10118,6 +10155,7 @@
             <transform model="202500" duration="120000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -10227,6 +10265,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="3000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -10241,6 +10280,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="3000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -10255,6 +10295,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="3000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -11156,6 +11197,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="3000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -11279,6 +11321,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="3000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -11982,6 +12025,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="254" delta="13"/>
         </actions>
     </skill_template>
@@ -11996,6 +12040,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="458" delta="22"/>
         </actions>
     </skill_template>
@@ -12010,6 +12055,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="775" delta="25"/>
         </actions>
     </skill_template>
@@ -12024,6 +12070,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="228" delta="11"/>
         </actions>
     </skill_template>
@@ -12038,6 +12085,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="412" delta="19"/>
         </actions>
     </skill_template>
@@ -12052,6 +12100,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="697" delta="22"/>
         </actions>
     </skill_template>
@@ -12217,6 +12266,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="4000"/>
             <damage value="777" delta="15"/>
         </actions>
     </skill_template>
@@ -12350,6 +12400,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="919" delta="30"/>
         </actions>
     </skill_template>
@@ -12364,6 +12415,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <damage value="1022" delta="34"/>
         </actions>
     </skill_template>
@@ -12527,6 +12579,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="4000"/>
             <damage value="920" delta="3"/>
         </actions>
     </skill_template>
@@ -12541,6 +12594,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="4000"/>
             <damage value="920" delta="3"/>
         </actions>
     </skill_template>
@@ -13220,6 +13274,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -13234,6 +13289,7 @@
             <hot value="150" delta="0" checktime="3000" type="HP" duration="30000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -15287,6 +15343,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="4000"/>
             <heal value="100" delta="0"/>
             <healmp value="100" delta="0"/>
         </actions>
@@ -15305,6 +15362,7 @@
             <hot value="100" delta="0" checktime="6000" type="MP" duration="30000"/>
         </effects>
         <actions>
+            <dpuse value="4000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -15600,6 +15658,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="4000"/>
             <heal value="30" delta="0"/>
         </actions>
     </skill_template>
@@ -15614,6 +15673,7 @@
             <hot value="20" delta="0" checktime="2000" type="HP" duration="10000"/>
         </effects>
         <actions>
+            <dpuse value="3000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -15625,6 +15685,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <healmp value="50" delta="0"/>
         </actions>
     </skill_template>
@@ -15708,6 +15769,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
+            <dpuse value="2000"/>
             <healmp value="50" delta="0"/>
         </actions>
     </skill_template>
@@ -15766,6 +15828,7 @@
             <dot damage="655" delta="8" checktime="3000" duration="57000"/>
         </effects>
         <actions>
+            <dpuse value="4000"/>
             <damage value="655" delta="8"/>
         </actions>
     </skill_template>
@@ -17940,6 +18003,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -17956,6 +18020,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -18203,6 +18268,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="4000"/>
             <damage value="321" delta="7"/>
         </actions>
     </skill_template>
@@ -18282,6 +18348,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="3000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -18527,6 +18594,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <actions>
+            <dpuse value="4000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -19151,6 +19219,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <damage value="752" delta="34"/>
         </actions>
     </skill_template>
@@ -19165,6 +19234,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <damage value="752" delta="34"/>
         </actions>
     </skill_template>
@@ -19317,6 +19387,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <damage value="1116" delta="50"/>
         </actions>
     </skill_template>
@@ -19331,6 +19402,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <damage value="1721" delta="39"/>
         </actions>
     </skill_template>
@@ -19345,6 +19417,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <damage value="1116" delta="50"/>
         </actions>
     </skill_template>
@@ -19359,6 +19432,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <damage value="1721" delta="39"/>
         </actions>
     </skill_template>
@@ -19665,6 +19739,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="4000"/>
             <damage value="1783" delta="32"/>
         </actions>
     </skill_template>
@@ -19679,6 +19754,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="4000"/>
             <damage value="1783" delta="32"/>
         </actions>
     </skill_template>
@@ -20485,6 +20561,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="3000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -21865,6 +21942,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="4000"/>
             <damage value="1855" delta="40"/>
         </actions>
     </skill_template>
@@ -21879,6 +21957,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="4000"/>
             <damage value="1855" delta="40"/>
         </actions>
     </skill_template>
@@ -22029,6 +22108,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <damage value="2227" delta="37"/>
         </actions>
     </skill_template>
@@ -22043,6 +22123,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <damage value="2227" delta="37"/>
         </actions>
     </skill_template>
@@ -22678,6 +22759,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="3000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -24450,6 +24532,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -24464,6 +24547,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -24961,6 +25045,7 @@
             <hot value="50" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -24984,6 +25069,7 @@
             <hot value="70" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25007,6 +25093,7 @@
             <hot value="90" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25084,6 +25171,7 @@
             <hot value="50" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25107,6 +25195,7 @@
             <hot value="70" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25130,6 +25219,7 @@
             <hot value="90" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25239,6 +25329,7 @@
             <dot damage="648" delta="8" checktime="6000" duration="54000"/>
         </effects>
         <actions>
+            <dpuse value="4000"/>
             <damage value="648" delta="8"/>
         </actions>
     </skill_template>
@@ -25432,6 +25523,7 @@
             <hot value="110" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25455,6 +25547,7 @@
             <hot value="110" delta="1" checktime="6000" type="HP" duration="600000"/>
         </effects>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25762,6 +25855,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25776,6 +25870,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25793,6 +25888,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="4000"/>
             <damage value="849" delta="12"/>
         </actions>
     </skill_template>
@@ -25807,6 +25903,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25821,6 +25918,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25835,6 +25933,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25849,6 +25948,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25863,6 +25963,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25877,6 +25978,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25891,6 +25993,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25908,6 +26011,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="4000"/>
             <damage value="849" delta="12"/>
         </actions>
     </skill_template>
@@ -25922,6 +26026,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25936,6 +26041,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25950,6 +26056,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25964,6 +26071,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25978,6 +26086,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
+            <dpuse value="2000"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -25992,6 +26101,7 @@
             <targetrelation value="MYPARTY"/>
         </setproperties>
         <actions>
+            <dpuse value="1"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -26607,6 +26717,7 @@
             </buf>
         </effects>
         <actions>
+            <dpuse value="290"/>
             <dummy/>
         </actions>
     </skill_template>
@@ -43866,6 +43977,7 @@
         </useconditions>
         <actions>
             <mpuse value="639" delta="6"/>
+            <dpuse value="200"/>
             <dummy/>
         </actions>
     </skill_template>

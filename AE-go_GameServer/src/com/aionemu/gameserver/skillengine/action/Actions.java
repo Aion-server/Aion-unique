@@ -42,6 +42,7 @@ public class Actions
         @XmlElement(name = "itemuse", type = ItemUseAction.class),
         @XmlElement(name = "mpuse", type = MpUseAction.class),
         @XmlElement(name = "hpuse", type = HpUseAction.class),
+        @XmlElement(name = "dpuse", type = DpUseAction.class),
         @XmlElement(name = "dummy", type = DummyAction.class),
         @XmlElement(name = "itemheal", type = ItemHealAction.class),
         @XmlElement(name = "itemhealmp", type = ItemHealMpAction.class),

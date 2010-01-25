@@ -98,6 +98,8 @@
 				maxOccurs="1" />
 			<xs:element name="hpuse" type="HpUseAction" minOccurs="0"
 				maxOccurs="1" />
+			<xs:element name="dpuse" type="DpUseAction" minOccurs="0"
+				maxOccurs="1" />
 			<xs:element name="dummy" type="DummyAction" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="itemheal" type="ItemHealAction"
@@ -173,6 +175,14 @@
 	</xs:complexType>
 
 	<xs:complexType name="HpUseAction">
+		<xs:complexContent>
+			<xs:extension base="Action">
+				<xs:attribute name="value" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="DpUseAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
 				<xs:attribute name="value" type="xs:int" use="required" />
