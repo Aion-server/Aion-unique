@@ -97,7 +97,7 @@
     <skill skillId="339" name="Advanced Greatsword Training II" minLevel="25" skillLevel="1" race="ALL" classId="FIGHTER" type="PASSIVE"/>
     <skill skillId="340" name="Advanced Polearm Training II" minLevel="25" skillLevel="1" race="ALL" classId="FIGHTER" type="PASSIVE"/>
     <skill skillId="341" name="Advanced Archery Training II" minLevel="25" skillLevel="1" race="ALL" classId="FIGHTER" type="PASSIVE"/>
-    <skill skillId="111" name="Boost Shield Defense I" minLevel="25" skillLevel="1" race="ALL" classId="FIGHTER" type="PASSIVE"/>
+    <skill skillId="111" name="Boost Block I" minLevel="25" skillLevel="1" race="ALL" classId="FIGHTER" type="PASSIVE"/>
     <skill skillId="333" name="Winged Rage" minLevel="25" skillLevel="1" race="ALL" classId="FIGHTER" type="PASSIVE"/>
     <skill skillId="138" name="Boost Physical Attack IV" minLevel="28" skillLevel="1" race="ALL" classId="FIGHTER" type="PASSIVE"/>
     <skill skillId="359" name="Boost HP II" minLevel="34" skillLevel="1" race="ALL" classId="FIGHTER" type="PASSIVE"/>
@@ -137,15 +137,15 @@
     <skill skillId="284" name="Seismic Wave I" minLevel="16" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="284" name="Seismic Wave I" minLevel="17" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="284" name="Seismic Wave I" minLevel="18" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="10" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="11" skillLevel="2" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="12" skillLevel="3" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="13" skillLevel="4" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="14" skillLevel="5" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="15" skillLevel="6" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="16" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="17" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="18" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="10" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="11" skillLevel="2" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="12" skillLevel="3" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="13" skillLevel="4" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="14" skillLevel="5" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="15" skillLevel="6" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="16" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="17" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="18" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="348" name="Explosion of Rage I" minLevel="10" skillLevel="1" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="348" name="Explosion of Rage I" minLevel="11" skillLevel="2" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="348" name="Explosion of Rage I" minLevel="12" skillLevel="3" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
@@ -248,15 +248,15 @@
     <skill skillId="285" name="Seismic Wave II" minLevel="28" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="285" name="Seismic Wave II" minLevel="29" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="285" name="Seismic Wave II" minLevel="30" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="22" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="23" skillLevel="2" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="24" skillLevel="3" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="25" skillLevel="4" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="26" skillLevel="5" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="27" skillLevel="6" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="28" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="29" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="30" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="22" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="23" skillLevel="2" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="24" skillLevel="3" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="25" skillLevel="4" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="26" skillLevel="5" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="27" skillLevel="6" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="28" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="29" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="30" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="349" name="Explosion of Rage II" minLevel="22" skillLevel="1" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="349" name="Explosion of Rage II" minLevel="23" skillLevel="2" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="349" name="Explosion of Rage II" minLevel="24" skillLevel="3" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
@@ -419,15 +419,15 @@
     <skill skillId="286" name="Seismic Wave III" minLevel="40" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="286" name="Seismic Wave III" minLevel="41" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="286" name="Seismic Wave III" minLevel="42" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="34" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="35" skillLevel="2" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="36" skillLevel="3" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="37" skillLevel="4" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="38" skillLevel="5" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="39" skillLevel="6" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="40" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="41" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="42" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="34" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="35" skillLevel="2" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="36" skillLevel="3" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="37" skillLevel="4" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="38" skillLevel="5" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="39" skillLevel="6" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="40" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="41" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="42" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="350" name="Explosion of Rage III" minLevel="34" skillLevel="1" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="350" name="Explosion of Rage III" minLevel="35" skillLevel="2" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="350" name="Explosion of Rage III" minLevel="36" skillLevel="3" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
@@ -659,15 +659,15 @@
     <skill skillId="303" name="Seismic Wave IV" minLevel="51" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="303" name="Seismic Wave IV" minLevel="52" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="303" name="Seismic Wave IV" minLevel="53" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="45" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="46" skillLevel="2" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="47" skillLevel="3" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="48" skillLevel="4" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="49" skillLevel="5" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="50" skillLevel="6" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="51" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="52" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="53" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="45" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="46" skillLevel="2" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="47" skillLevel="3" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="48" skillLevel="4" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="49" skillLevel="5" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="50" skillLevel="6" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="51" skillLevel="7" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="52" skillLevel="8" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="53" skillLevel="9" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="377" name="Explosion of Rage IV" minLevel="45" skillLevel="1" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="377" name="Explosion of Rage IV" minLevel="46" skillLevel="2" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="377" name="Explosion of Rage IV" minLevel="47" skillLevel="3" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
@@ -690,8 +690,8 @@
     <skill skillId="397" name="Ancestral Piercing Wave I" minLevel="45" skillLevel="1" race="PC_DARK" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="398" name="Draining Blow I" minLevel="45" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="244" name="Precision Cut I" minLevel="45" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="245" name="Assault Posture I" minLevel="45" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="246" name="Technical Counter I" minLevel="45" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="245" name="Berserking I" minLevel="45" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="246" name="Spite Strike I" minLevel="45" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="247" name="Sharp Strike I" minLevel="45" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="379" name="Crippling Cut V" minLevel="46" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="380" name="Aerial Lockdown III" minLevel="46" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
@@ -796,8 +796,8 @@
     <skill skillId="391" name="Zikel's Threat I" minLevel="50" skillLevel="1" race="PC_DARK" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="399" name="Shattering Wave I" minLevel="50" skillLevel="1" race="PC_LIGHT" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="400" name="Piercing Rupture I" minLevel="50" skillLevel="1" race="PC_DARK" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="248" name="Severe Demolishing Blow I" minLevel="50" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
-    <skill skillId="249" name="Severing Strike I" minLevel="50" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="248" name="Severe Precision Cut I" minLevel="50" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
+    <skill skillId="249" name="Vicious Blow I" minLevel="50" skillLevel="1" race="ALL" classId="FIGHTER" type="ACTIVE"/>
     <skill skillId="8" name="Advanced Sword Training I" minLevel="9" autolearn="true" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="10" name="Advanced Mace Training I" minLevel="9" autolearn="true" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="15" name="Advanced Greatsword Training I" minLevel="9" autolearn="true" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
@@ -808,7 +808,7 @@
     <skill skillId="480" name="Winged Defense I" minLevel="10" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="102" name="Aggravation I" minLevel="13" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="359" name="Boost HP II" minLevel="13" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
-    <skill skillId="111" name="Boost Shield Defense I" minLevel="16" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
+    <skill skillId="111" name="Boost Block I" minLevel="16" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="123" name="Boost Element Defense I" minLevel="22" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="336" name="Advanced Sword Training II" minLevel="25" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="338" name="Advanced Mace Training II" minLevel="25" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
@@ -816,7 +816,7 @@
     <skill skillId="358" name="Boost Physical Attack II" minLevel="25" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="496" name="Boost HP III" minLevel="25" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="487" name="Winged Guardian" minLevel="25" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
-    <skill skillId="497" name="Boost Shield Defense II" minLevel="28" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
+    <skill skillId="497" name="Boost Block II" minLevel="28" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="548" name="Seal of Protection I" minLevel="31" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="342" name="Advanced Sword Training III" minLevel="40" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
     <skill skillId="344" name="Advanced Mace Training III" minLevel="40" skillLevel="1" race="ALL" classId="KNIGHT" type="PASSIVE"/>
@@ -838,15 +838,15 @@
     <skill skillId="170" name="Ferocious Strike II" minLevel="16" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="170" name="Ferocious Strike II" minLevel="17" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="170" name="Ferocious Strike II" minLevel="18" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="10" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="11" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="12" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="13" skillLevel="4" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="14" skillLevel="5" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="15" skillLevel="6" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="16" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="17" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="158" name="Provoke I" minLevel="18" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="10" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="11" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="12" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="13" skillLevel="4" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="14" skillLevel="5" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="15" skillLevel="6" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="16" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="17" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="158" name="Taunt I" minLevel="18" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="441" name="Shield Bash I" minLevel="10" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="441" name="Shield Bash I" minLevel="11" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="441" name="Shield Bash I" minLevel="12" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
@@ -958,15 +958,15 @@
     <skill skillId="171" name="Ferocious Strike III" minLevel="28" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="171" name="Ferocious Strike III" minLevel="29" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="171" name="Ferocious Strike III" minLevel="30" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="22" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="23" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="24" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="25" skillLevel="4" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="26" skillLevel="5" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="27" skillLevel="6" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="28" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="29" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="159" name="Provoke II" minLevel="30" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="22" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="23" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="24" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="25" skillLevel="4" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="26" skillLevel="5" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="27" skillLevel="6" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="28" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="29" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="159" name="Taunt II" minLevel="30" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="442" name="Shield Bash II" minLevel="22" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="442" name="Shield Bash II" minLevel="23" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="442" name="Shield Bash II" minLevel="24" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
@@ -1079,7 +1079,7 @@
     <skill skillId="517" name="Dazing Severe Blow I" minLevel="34" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="517" name="Dazing Severe Blow I" minLevel="35" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="517" name="Dazing Severe Blow I" minLevel="36" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="414" name="Divine Slash I" minLevel="28" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="414" name="Punishment I" minLevel="28" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="402" name="Incite Rage I" minLevel="28" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="156" name="Shield Counter III" minLevel="31" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="156" name="Shield Counter III" minLevel="32" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
@@ -1120,15 +1120,15 @@
     <skill skillId="172" name="Ferocious Strike IV" minLevel="40" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="172" name="Ferocious Strike IV" minLevel="41" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="172" name="Ferocious Strike IV" minLevel="42" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="34" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="35" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="36" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="37" skillLevel="4" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="38" skillLevel="5" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="39" skillLevel="6" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="40" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="41" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="160" name="Provoke III" minLevel="42" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="34" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="35" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="36" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="37" skillLevel="4" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="38" skillLevel="5" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="39" skillLevel="6" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="40" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="41" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="160" name="Taunt III" minLevel="42" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="443" name="Shield Bash III" minLevel="34" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="443" name="Shield Bash III" minLevel="35" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="443" name="Shield Bash III" minLevel="36" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
@@ -1165,7 +1165,7 @@
     <skill skillId="404" name="Avenging Blow II" minLevel="40" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="404" name="Avenging Blow II" minLevel="41" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="404" name="Avenging Blow II" minLevel="42" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="415" name="Divine Slash II" minLevel="34" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="415" name="Punishment II" minLevel="34" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="406" name="Incite Rage II" minLevel="34" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="519" name="Blunting Severe Blow I" minLevel="34" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="519" name="Blunting Severe Blow I" minLevel="35" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
@@ -1261,7 +1261,7 @@
     <skill skillId="518" name="Dazing Severe Blow II" minLevel="46" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="518" name="Dazing Severe Blow II" minLevel="47" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="518" name="Dazing Severe Blow II" minLevel="48" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="461" name="Divine Slash III" minLevel="40" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="461" name="Punishment III" minLevel="40" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="407" name="Incite Rage III" minLevel="40" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="457" name="Break Power II" minLevel="40" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="426" name="Iron Skin I" minLevel="40" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
@@ -1324,15 +1324,15 @@
     <skill skillId="177" name="Ferocious Strike V" minLevel="51" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="177" name="Ferocious Strike V" minLevel="52" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="531" name="Power of Restoration I" minLevel="44" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="45" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="46" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="47" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="48" skillLevel="4" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="49" skillLevel="5" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="50" skillLevel="6" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="51" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="52" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="176" name="Provoke IV" minLevel="53" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="45" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="46" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="47" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="48" skillLevel="4" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="49" skillLevel="5" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="50" skillLevel="6" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="51" skillLevel="7" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="52" skillLevel="8" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="176" name="Taunt IV" minLevel="53" skillLevel="9" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="465" name="Shield Bash IV" minLevel="45" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="465" name="Shield Bash IV" minLevel="46" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="465" name="Shield Bash IV" minLevel="47" skillLevel="3" race="ALL" classId="KNIGHT" type="ACTIVE"/>
@@ -1372,11 +1372,11 @@
     <skill skillId="546" name="Ancestral Holy Punishment I" minLevel="45" skillLevel="1" race="PC_LIGHT" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="547" name="Ancestral Righteous Punishment I" minLevel="45" skillLevel="1" race="PC_DARK" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="401" name="Aether Armor I" minLevel="45" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="409" name="Great Resuscitation I" minLevel="45" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="409" name="Prayer of Resilience I" minLevel="45" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="438" name="Prayer of Victory I" minLevel="45" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="411" name="Divine Justice I" minLevel="45" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="412" name="Magic Smash I" minLevel="45" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
-    <skill skillId="534" name="Divine Slash IV" minLevel="46" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
+    <skill skillId="534" name="Punishment IV" minLevel="46" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="408" name="Incite Rage IV" minLevel="46" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="535" name="Blunting Severe Blow II" minLevel="46" skillLevel="1" race="ALL" classId="KNIGHT" type="ACTIVE"/>
     <skill skillId="535" name="Blunting Severe Blow II" minLevel="47" skillLevel="2" race="ALL" classId="KNIGHT" type="ACTIVE"/>
@@ -2214,7 +2214,7 @@
     <skill skillId="640" name="Gale Arrow I" minLevel="45" skillLevel="1" race="ALL" classId="RANGER" type="ACTIVE"/>
     <skill skillId="641" name="Speed of the Wind I" minLevel="45" skillLevel="1" race="ALL" classId="RANGER" type="ACTIVE"/>
     <skill skillId="642" name="Explosive Arrow I" minLevel="45" skillLevel="1" race="ALL" classId="RANGER" type="ACTIVE"/>
-    <skill skillId="643" name="Hunters Might I" minLevel="45" skillLevel="1" race="ALL" classId="RANGER" type="ACTIVE"/>
+    <skill skillId="643" name="Hunter's Might I" minLevel="45" skillLevel="1" race="ALL" classId="RANGER" type="ACTIVE"/>
     <skill skillId="698" name="Snare Trap IV" minLevel="46" skillLevel="1" race="PC_LIGHT" classId="RANGER" type="ACTIVE"/>
     <skill skillId="700" name="Snare Trap IV" minLevel="46" skillLevel="1" race="PC_DARK" classId="RANGER" type="ACTIVE"/>
     <skill skillId="729" name="Breath of Nature III" minLevel="46" skillLevel="1" race="ALL" classId="RANGER" type="ACTIVE"/>
@@ -3127,21 +3127,21 @@
     <skill skillId="958" name="Light of Renewal I" minLevel="11" skillLevel="7" race="ALL" classId="CHANTER" type="ACTIVE"/>
     <skill skillId="958" name="Light of Renewal I" minLevel="12" skillLevel="8" race="ALL" classId="CHANTER" type="ACTIVE"/>
     <skill skillId="958" name="Light of Renewal I" minLevel="13" skillLevel="9" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="7" skillLevel="1" race="ALL" classId="CLERIC" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="8" skillLevel="2" race="ALL" classId="CLERIC" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="9" skillLevel="3" race="ALL" classId="CLERIC" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="10" skillLevel="4" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="11" skillLevel="5" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="12" skillLevel="6" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="13" skillLevel="7" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="14" skillLevel="8" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="15" skillLevel="9" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="10" skillLevel="4" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="11" skillLevel="5" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="12" skillLevel="6" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="13" skillLevel="7" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="14" skillLevel="8" race="ALL" classId="CHANTER" type="ACTIVE"/>
-    <skill skillId="979" name="Heavens Judgment I" minLevel="15" skillLevel="9" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="7" skillLevel="1" race="ALL" classId="CLERIC" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="8" skillLevel="2" race="ALL" classId="CLERIC" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="9" skillLevel="3" race="ALL" classId="CLERIC" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="10" skillLevel="4" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="11" skillLevel="5" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="12" skillLevel="6" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="13" skillLevel="7" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="14" skillLevel="8" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="15" skillLevel="9" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="10" skillLevel="4" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="11" skillLevel="5" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="12" skillLevel="6" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="13" skillLevel="7" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="14" skillLevel="8" race="ALL" classId="CHANTER" type="ACTIVE"/>
+    <skill skillId="979" name="Infernal Blaze I" minLevel="15" skillLevel="9" race="ALL" classId="CHANTER" type="ACTIVE"/>
     <skill skillId="969" name="Promise of Wind I" minLevel="9" skillLevel="1" race="ALL" classId="CLERIC" type="ACTIVE"/>
     <skill skillId="969" name="Promise of Wind I" minLevel="10" skillLevel="2" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="969" name="Promise of Wind I" minLevel="11" skillLevel="3" race="ALL" classId="PRIEST" type="ACTIVE"/>
@@ -3305,15 +3305,15 @@
     <skill skillId="977" name="Smite III" minLevel="28" skillLevel="7" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="977" name="Smite III" minLevel="29" skillLevel="8" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="977" name="Smite III" minLevel="30" skillLevel="9" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="980" name="Heavens Judgment II" minLevel="22" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="980" name="Heavens Judgment II" minLevel="23" skillLevel="2" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="980" name="Heavens Judgment II" minLevel="24" skillLevel="3" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="980" name="Heavens Judgment II" minLevel="25" skillLevel="4" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="980" name="Heavens Judgment II" minLevel="26" skillLevel="5" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="980" name="Heavens Judgment II" minLevel="27" skillLevel="6" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="980" name="Heavens Judgment II" minLevel="28" skillLevel="7" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="980" name="Heavens Judgment II" minLevel="29" skillLevel="8" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="980" name="Heavens Judgment II" minLevel="30" skillLevel="9" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="980" name="Infernal Blaze II" minLevel="22" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="980" name="Infernal Blaze II" minLevel="23" skillLevel="2" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="980" name="Infernal Blaze II" minLevel="24" skillLevel="3" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="980" name="Infernal Blaze II" minLevel="25" skillLevel="4" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="980" name="Infernal Blaze II" minLevel="26" skillLevel="5" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="980" name="Infernal Blaze II" minLevel="27" skillLevel="6" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="980" name="Infernal Blaze II" minLevel="28" skillLevel="7" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="980" name="Infernal Blaze II" minLevel="29" skillLevel="8" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="980" name="Infernal Blaze II" minLevel="30" skillLevel="9" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="1096" name="Light of Rejuvenation II" minLevel="22" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="1096" name="Light of Rejuvenation II" minLevel="23" skillLevel="2" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="1096" name="Light of Rejuvenation II" minLevel="24" skillLevel="3" race="ALL" classId="PRIEST" type="ACTIVE"/>
@@ -3645,15 +3645,15 @@
     <skill skillId="988" name="Smite V" minLevel="50" skillLevel="7" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="988" name="Smite V" minLevel="51" skillLevel="8" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="988" name="Smite V" minLevel="52" skillLevel="9" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="982" name="Heavens Judgment IV" minLevel="44" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="982" name="Heavens Judgment IV" minLevel="45" skillLevel="2" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="982" name="Heavens Judgment IV" minLevel="46" skillLevel="3" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="982" name="Heavens Judgment IV" minLevel="47" skillLevel="4" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="982" name="Heavens Judgment IV" minLevel="48" skillLevel="5" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="982" name="Heavens Judgment IV" minLevel="49" skillLevel="6" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="982" name="Heavens Judgment IV" minLevel="50" skillLevel="7" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="982" name="Heavens Judgment IV" minLevel="51" skillLevel="8" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="982" name="Heavens Judgment IV" minLevel="52" skillLevel="9" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="982" name="Infernal Blaze IV" minLevel="44" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="982" name="Infernal Blaze IV" minLevel="45" skillLevel="2" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="982" name="Infernal Blaze IV" minLevel="46" skillLevel="3" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="982" name="Infernal Blaze IV" minLevel="47" skillLevel="4" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="982" name="Infernal Blaze IV" minLevel="48" skillLevel="5" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="982" name="Infernal Blaze IV" minLevel="49" skillLevel="6" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="982" name="Infernal Blaze IV" minLevel="50" skillLevel="7" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="982" name="Infernal Blaze IV" minLevel="51" skillLevel="8" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="982" name="Infernal Blaze IV" minLevel="52" skillLevel="9" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="1180" name="Splendor of Purification I" minLevel="44" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="1118" name="Light of Rejuvenation IV" minLevel="45" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="1118" name="Light of Rejuvenation IV" minLevel="46" skillLevel="2" race="ALL" classId="PRIEST" type="ACTIVE"/>
@@ -3690,15 +3690,15 @@
     <skill skillId="1040" name="Chain of Suffering I" minLevel="45" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="1041" name="Hand of Reincarnation I" minLevel="45" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="1037" name="Earth's Wrath IV" minLevel="46" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="1181" name="Chastisement II" minLevel="46" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="1181" name="Chastisement II" minLevel="47" skillLevel="2" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="1181" name="Chastisement II" minLevel="48" skillLevel="3" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="1181" name="Chastisement II" minLevel="49" skillLevel="4" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="1181" name="Chastisement II" minLevel="50" skillLevel="5" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="1181" name="Chastisement II" minLevel="51" skillLevel="6" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="1181" name="Chastisement II" minLevel="52" skillLevel="7" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="1181" name="Chastisement II" minLevel="53" skillLevel="8" race="ALL" classId="PRIEST" type="ACTIVE"/>
-    <skill skillId="1181" name="Chastisement II" minLevel="54" skillLevel="9" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="1181" name="Chastise II" minLevel="46" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="1181" name="Chastise II" minLevel="47" skillLevel="2" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="1181" name="Chastise II" minLevel="48" skillLevel="3" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="1181" name="Chastise II" minLevel="49" skillLevel="4" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="1181" name="Chastise II" minLevel="50" skillLevel="5" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="1181" name="Chastise II" minLevel="51" skillLevel="6" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="1181" name="Chastise II" minLevel="52" skillLevel="7" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="1181" name="Chastise II" minLevel="53" skillLevel="8" race="ALL" classId="PRIEST" type="ACTIVE"/>
+    <skill skillId="1181" name="Chastise II" minLevel="54" skillLevel="9" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="1182" name="Splendor of Recovery II" minLevel="46" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="1183" name="Splendor of Flight I" minLevel="46" skillLevel="1" race="ALL" classId="PRIEST" type="ACTIVE"/>
     <skill skillId="1183" name="Splendor of Flight I" minLevel="47" skillLevel="2" race="ALL" classId="PRIEST" type="ACTIVE"/>
