@@ -1100,4 +1100,10 @@
         <tradelist id="520"/>
         <tradelist id="521"/>
     </tradelist_template>
+    <tradelist_template npc_id="799714" name="smootinerk" count="1">
+        <tradelist id="731"/>
+    </tradelist_template>
+    <tradelist_template npc_id="799715" name="bloitinerk" count="1">
+        <tradelist id="732"/>
+    </tradelist_template>
 </npc_trade_list>
