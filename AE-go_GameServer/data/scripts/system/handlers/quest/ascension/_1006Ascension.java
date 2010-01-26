@@ -251,7 +251,6 @@ public class _1006Ascension extends QuestHandler
 							{
 								mob.getAi().stop();
 								spawnsData.removeSpawn(mob.getSpawn());
-								mob.getController().delete();
 							}
 							mobs.clear();
 							PacketSendUtility.sendPacket(player, new SM_EMOTION(player, 6, 1001, 0));
@@ -348,7 +347,6 @@ public class _1006Ascension extends QuestHandler
 			PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 151));
 			monster.getAi().stop();
 			spawnsData.removeSpawn(monster.getSpawn());
-			monster.getController().delete();
 		}
 		return false;
 	}
