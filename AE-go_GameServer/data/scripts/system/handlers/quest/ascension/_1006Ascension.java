@@ -172,12 +172,7 @@ public class _1006Ascension extends QuestHandler
 						}
 					case 10004:
 						if(var == 5)
-						{
-							player.getCommonData().setPlayerClass(PlayerClass.GLADIATOR);
-							player.getCommonData().upgradePlayer();
-							qs.setStatus(QuestStatus.REWARD);
-							updateQuestStatus(player, qs);
-						}
+							return setPlayerClass(env, qs, PlayerClass.GLADIATOR);
 					case 10005:
 						if(var == 5)
 							return setPlayerClass(env, qs, PlayerClass.TEMPLAR);
