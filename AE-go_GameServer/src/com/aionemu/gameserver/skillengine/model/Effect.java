@@ -37,6 +37,7 @@ public class Effect
 	private int skillStackLvl;
 	private int duration;
 	private int endTime;
+	private boolean isPassive;
 
 	private EffectController controller;
 	private Effects effects;
@@ -45,17 +46,17 @@ public class Effect
 	private Future<?> task = null;
 	private Future<?> periodicTask = null;
 
-	public Effect(Creature effector, int skillId, String stack, int skillLevel,
-		int skillStackLvl, int duration, Effects effects)
+	public Effect(Creature effector, SkillTemplate skillTemplate, int skillLevel, int duration)
 	{
 		this.effector = effector;
 		this.effectorId = effector.getObjectId();
-		this.skillId = skillId;
-		this.stack = stack;
+		this.skillId = skillTemplate.getSkillId();
+		this.stack = skillTemplate.getStack();
 		this.skillLevel = skillLevel;
-		this.skillStackLvl = skillStackLvl;
+		this.skillStackLvl = skillTemplate.getLvl();
 		this.duration = duration;
-		this.effects = effects;
+		this.effects = skillTemplate.getEffects();
+		this.isPassive = skillTemplate.getActivationAttribute() == ActivationAttribute.PASSIVE;
 	}
 	
 	/**
@@ -123,6 +124,14 @@ public class Effect
 	}
 
 	/**
+	 * @return the isPassive
+	 */
+	public boolean isPassive()
+	{
+		return isPassive;
+	}
+
+	/**
 	 * @param task the task to set
 	 */
 	public void setTask(Future<?> task)
@@ -161,7 +170,10 @@ public class Effect
 		{
 			template.startEffect(this);
 		}
-
+		
+		if(duration == 0)
+			return;
+		
 		endTime = (int) System.currentTimeMillis() + duration;
 
 		task = ThreadPoolManager.getInstance().scheduleEffect((new Runnable()

@@ -187,6 +187,9 @@ public class PlayerService
 		player.setLifeStats(new PlayerLifeStats(player, player.getPlayerStatsTemplate().getMaxHp(), player.getPlayerStatsTemplate().getMaxMp()));		
 		player.setEffectController(new EffectController(player));
 		
+		//update passive stats after effect controller and stats are initialized
+		player.getController().updatePassiveStats();
+		
 		player.setQuestStateList(DAOManager.getDAO(QuestListDAO.class).load(player));
 		player.setInventory(DAOManager.getDAO(InventoryDAO.class).load(player));
 		itemService.loadItemStones(player);

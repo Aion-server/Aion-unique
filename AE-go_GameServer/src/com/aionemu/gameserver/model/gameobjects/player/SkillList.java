@@ -142,5 +142,4 @@ public class SkillList
 	{
 		return skills.size();
 	}
-	
 }

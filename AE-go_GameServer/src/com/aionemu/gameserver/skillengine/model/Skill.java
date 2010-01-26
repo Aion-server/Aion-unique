@@ -59,7 +59,8 @@ public class Skill
 	public enum SkillType
 	{
 		CAST,
-		ITEM
+		ITEM,
+		PASSIVE
 	}
 	
 	/**
@@ -100,7 +101,8 @@ public class Skill
 	public void useSkill(SkillType skillType)
 	{
 		//TODO OOP
-		if(skillTemplate.getActivationAttribute() != ActivationAttribute.ACTIVE)
+		ActivationAttribute activation = skillTemplate.getActivationAttribute();
+		if(activation != ActivationAttribute.ACTIVE && activation != ActivationAttribute.PASSIVE)
 			return;
 		
 		if(!setProperties(skillTemplate.getInitproperties()))
@@ -161,8 +163,7 @@ public class Skill
 
 			for(Creature creature : effectedList)
 			{
-				Effect effect = new Effect(effector, skillTemplate.getSkillId(), skillTemplate.getStack(),
-					skillLevel, skillStackLvl, duration, skillTemplate.getEffects());	
+				Effect effect = new Effect(effector, skillTemplate,	skillLevel, duration);	
 				
 				creature.getEffectController().addEffect(effect);
 			}
@@ -313,5 +314,12 @@ public class Skill
 	{
 		this.firstTarget = firstTarget;
 	}
-	
+
+	/**
+	 * @return
+	 */
+	public boolean isPassive()
+	{
+		return skillTemplate.getActivationAttribute() == ActivationAttribute.PASSIVE;
+	}
 }

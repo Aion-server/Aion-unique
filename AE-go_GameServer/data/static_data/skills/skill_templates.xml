@@ -865,9 +865,6 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
     </skill_template>
     <skill_template skill_id="105" name="STR_SKILL_P_Concentration_G1" stack="SKILL_P_CONCENTRATION" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -876,9 +873,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="CONCENTRATION" func="ADD" value="25"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="106" name="STR_SKILL_P_ConStatBoostCritical_G1" stack="SKILL_P_CONSTATBOOSTCRITICAL" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -942,9 +941,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="BLOCK" func="ADD" value="100"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="112" name="STR_SKILL_P_StatBoostDodge_G1" stack="SKILL_P_STATBOOSTDODGE" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -953,9 +954,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="EVASION" func="ADD" value="20"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="113" name="STR_SKILL_P_StatBoostHitAccuracy_G1" stack="SKILL_P_STATBOOSTHITACCURACY" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -964,9 +967,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ACCURACY" func="ADD" value="20"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="114" name="STR_SKILL_P_StatBoostKDKBSP_G1" stack="SKILL_P_STATBOOSTKDKBSP" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -975,9 +980,13 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="STAGGER_RESISTANCE" func="ADD" value="100"/>
+                <change stat="STUMBLE_RESISTANCE" func="ADD" value="100"/>
+                <change stat="SPIN_RESISTANCE" func="ADD" value="100"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="115" name="STR_SKILL_P_StatBoostLowResist_G1" stack="SKILL_P_STATBOOSTLOWRESIST" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -997,9 +1006,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="MAGICAL_RESIST" func="ADD" value="20"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="117" name="STR_SKILL_P_StatBoostMagiclOffense_G1" stack="SKILL_P_STATBOOSTMAGICLOFFENSE" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1008,9 +1019,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="BOOST_MAGICAL_SKILL" func="ADD" value="20"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="118" name="STR_SKILL_P_StatBoostMaxHP_G1" stack="SKILL_P_STATBOOSTMAXHP" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1019,9 +1032,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="MAXHP" func="PERCENT" value="5"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="119" name="STR_SKILL_P_StatBoostMaxMP_G1" stack="SKILL_P_STATBOOSTMAXMP" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1030,9 +1045,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="MAXMP" func="PERCENT" value="3"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="120" name="STR_SKILL_P_StatBoostParry_G1" stack="SKILL_P_STATBOOSTPARRY" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1041,9 +1058,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PARRY" func="ADD" value="80"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="121" name="STR_SKILL_P_StatBoostPhysicalDefense_G1" stack="SKILL_P_STATBOOSTPHYSICALDEFENSE" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1052,9 +1071,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="MAXHP" func="PERCENT" value="3"/>
+                <change stat="REGEN_HP" func="ADD" value="4"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="122" name="STR_SKILL_P_StatBoostPhysicalOffense_G1" stack="SKILL_P_STATBOOSTPHYSICALOFFENSE" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1063,9 +1085,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="ADD" value="7"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="123" name="STR_SKILL_P_StatBoostResist_G1" stack="SKILL_P_STATBOOSTRESIST" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1074,9 +1098,6 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
     </skill_template>
     <skill_template skill_id="124" name="STR_SKILL_P_Tanacity_G1" stack="SKILL_P_TANACITY" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1096,9 +1117,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="CONCENTRATION" func="ADD" value="50"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="126" name="STR_SKILL_P_StatBoostLowResist_G2" stack="SKILL_P_STATBOOSTLOWRESIST" lvl="2" skilltype="MAGICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1140,9 +1163,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_CRITICAL" func="ADD" value="50"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="130" name="STR_SKILL_P_StatBoostCritical_G2" stack="SKILL_P_STATBOOSTCRITICAL" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1151,9 +1176,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_CRITICAL" func="ADD" value="75"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="131" name="STR_SKILL_P_StatBoostHitAccuracy_G2" stack="SKILL_P_STATBOOSTHITACCURACY" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1162,9 +1189,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ACCURACY" func="ADD" value="40"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="132" name="STR_SKILL_P_StatBoostHitAccuracy_G3" stack="SKILL_P_STATBOOSTHITACCURACY" lvl="3" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1173,9 +1202,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ACCURACY" func="ADD" value="60"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="133" name="STR_SKILL_P_StatBoostDodge_G2" stack="SKILL_P_STATBOOSTDODGE" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1184,9 +1215,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="EVASION" func="ADD" value="40"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="134" name="STR_SKILL_P_StatBoostDodge_G3" stack="SKILL_P_STATBOOSTDODGE" lvl="3" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1195,9 +1228,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="EVASION" func="ADD" value="60"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="135" name="STR_SKILL_P_StatBoostMagicalDefense_G2" stack="SKILL_P_STATBOOSTMAGICALDEFENSE" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1206,9 +1241,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="MAGICAL_RESIST" func="ADD" value="30"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="136" name="STR_SKILL_P_HealMastery_G2" stack="SKILL_P_HEALMASTERY" lvl="2" skilltype="MAGICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1239,9 +1276,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="ADD" value="28"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="139" name="STR_SKILL_P_StatBoostMagiclOffense_G3" stack="SKILL_P_STATBOOSTMAGICLOFFENSE" lvl="3" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1250,9 +1289,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="BOOST_MAGICAL_SKILL" func="ADD" value="180"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="140" name="STR_SKILL_P_StatBoostElementalDefendAll_G1" stack="SKILL_P_STATBOOSTELEMENTALDEFENDALL" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -1261,9 +1302,6 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
     </skill_template>
     <skill_template skill_id="151" name="STR_SKILL_WA_ArmorBreak_G1" stack="SKILL_WA_ARMORBREAK" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="12" duration="0">
         <initproperties>
@@ -1626,9 +1664,13 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="BLOCK" func="ADD" value="500"/>
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" value="10"/>
+                <change stat="STUN_RESISTANCE" func="ADD" value="500"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="174" name="STR_SKILL_WA_CeletialPower_G1" stack="SKILL_WA_CELETIALPOWER" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="0">
         <initproperties>
@@ -2107,9 +2149,12 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" value="15"/>
+                <change stat="PVP_ATTACK_RATIO" func="ADD" value="100"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="252" name="STR_SKILL_FI_AggressiveMode_G2" stack="SKILL_FI_AGGRESSIVEMODE" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" activation="TOGGLE" cooldown="1" duration="0">
         <setproperties>
@@ -2118,9 +2163,12 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="ADD" delta="1" value="19"/>
+                <change stat="PHYSICAL_DEFENSE" func="ADD" value="-200"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="253" name="STR_SKILL_FI_AggressiveMode_G3" stack="SKILL_FI_AGGRESSIVEMODE" lvl="3" skilltype="MAGICAL" skillsubtype="BUFF" activation="TOGGLE" cooldown="1" duration="0">
         <setproperties>
@@ -2129,9 +2177,12 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="ADD" delta="1" value="35"/>
+                <change stat="PHYSICAL_DEFENSE" func="ADD" value="-360"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="254" name="STR_SKILL_FI_BashingMode_G1" stack="SKILL_FI_BASHINGMODE" lvl="1" skilltype="PHYSICAL" skillsubtype="BUFF" activation="TOGGLE" cooldown="1" duration="0">
         <startconditions>
@@ -2145,7 +2196,6 @@
         </setproperties>
         <actions>
             <mpuse value="10" delta="0"/>
-            <dummy/>
         </actions>
     </skill_template>
     <skill_template skill_id="255" name="STR_SKILL_FI_CripplingCut_G1" stack="SKILL_FI_CRIPPLINGCUT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="18" duration="0">
@@ -2218,9 +2268,13 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PARRY" func="ADD" value="250"/>
+                <change stat="BLOCK" func="ADD" value="250"/>
+                <change stat="PVP_DEFEND_RATIO" func="ADD" value="100"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="259" name="STR_SKILL_FI_DefenseMode_G2" stack="SKILL_FI_DEFENSEMODE" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" activation="TOGGLE" cooldown="1" duration="0">
         <startconditions>
@@ -2232,9 +2286,14 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="5" value="144"/>
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" value="-8"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="200" delta="0"/>
-            <dummy/>
         </actions>
     </skill_template>
     <skill_template skill_id="260" name="STR_SKILL_FI_DefenseMode_G3" stack="SKILL_FI_DEFENSEMODE" lvl="3" skilltype="MAGICAL" skillsubtype="BUFF" activation="TOGGLE" cooldown="1" duration="0">
@@ -2247,9 +2306,14 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="5" value="188"/>
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" value="-11"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="210" delta="0"/>
-            <dummy/>
         </actions>
     </skill_template>
     <skill_template skill_id="261" name="STR_SKILL_FI_DropImpact_G1" stack="SKILL_FI_DROPIMPACT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="60" duration="0">
@@ -2971,9 +3035,14 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="ADD" delta="1" value="46"/>
+                <change stat="PHYSICAL_DEFENSE" func="ADD" value="-470"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="150" delta="0"/>
-            <dummy/>
         </actions>
     </skill_template>
     <skill_template skill_id="300" name="STR_SKILL_FI_MercilessBlow_G2" stack="SKILL_FI_MERCILESSBLOW" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="10" duration="0">
@@ -3131,7 +3200,6 @@
         </setproperties>
         <actions>
             <mpuse value="12" delta="0"/>
-            <dummy/>
         </actions>
     </skill_template>
     <skill_template skill_id="308" name="STR_SKILL_FI_RaisingImpact_G2" stack="SKILL_FI_RAISINGIMPACT" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="180" duration="0">
@@ -3204,9 +3272,14 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_DEFENSE" func="ADD" delta="3" value="227"/>
+                <change stat="PHYSICAL_ATTACK" func="ADD" value="-16"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="220" delta="0"/>
-            <dummy/>
         </actions>
     </skill_template>
     <skill_template skill_id="312" name="STR_SKILL_FI_ForceBlade_G1" stack="SKILL_FI_FORCEBLADE" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="30" duration="0">
@@ -3461,9 +3534,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" value="10"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="327" name="STR_SKILL_FI_SeraphicPower_G2" stack="SKILL_FI_SERAPHICPOWER" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -3472,9 +3547,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" value="10"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="328" name="STR_SKILL_FI_SeraphicPower_G3" stack="SKILL_FI_SERAPHICPOWER" lvl="3" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -3483,9 +3560,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" value="10"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="329" name="STR_SKILL_FI_TilentImpact_G1" stack="SKILL_FI_TILENTIMPACT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="1" duration="0">
         <setproperties>
@@ -3538,9 +3617,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="POWER" func="ADD" value="10"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="334" name="STR_SKILL_FI_FightersGift_G2" stack="SKILL_FI_FIGHTERSGIFT" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -3549,9 +3631,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="POWER" func="ADD" value="10"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="335" name="STR_SKILL_FI_BoostWing_G1" stack="SKILL_FI_BOOSTWING" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="1" duration="0">
         <setproperties>
@@ -3875,9 +3960,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="ADD" value="14"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="359" name="STR_SKILL_P_StatBoostPhysicalDefense_G2" stack="SKILL_P_STATBOOSTPHYSICALDEFENSE" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -3886,9 +3973,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="MAXHP" func="PERCENT" value="6"/>
+                <change stat="REGEN_HP" func="ADD" value="10"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="360" name="STR_SKILL_P_EQUIP_Dual_G2" stack="SKILL_P_EQUIP_DUAL" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -3908,9 +3998,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="ADD" value="21"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="362" name="STR_SKILL_FI_AbysalRage_G1" stack="SKILL_FI_ABYSALRAGE" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="10" duration="0">
         <initproperties>
@@ -3993,9 +4085,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ATTACK" func="ADD" value="35"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="368" name="STR_SKILL_P_EQUIP_Sword_G4" stack="SKILL_P_EQUIP_SWORD" lvl="4" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -4262,9 +4356,12 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PVP_ATTACK_RATIO" func="ADD" value="250"/>
+                <change stat="MAGICAL_ACCURACY" func="ADD" value="300"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="386" name="STR_SKILL_FI_LockdownImpact_G4" stack="SKILL_FI_LOCKDOWNIMPACT" lvl="4" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="12" duration="0">
         <initproperties>
@@ -5914,9 +6011,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" value="10"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="481" name="STR_SKILL_KN_SeraphicDefence_G2" stack="SKILL_KN_SERAPHICDEFENCE" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -5925,9 +6024,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" value="10"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="482" name="STR_SKILL_KN_SeraphicDefence_G3" stack="SKILL_KN_SERAPHICDEFENCE" lvl="3" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -5936,9 +6037,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" value="10"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="483" name="STR_SKILL_KN_ArcGuardian_G1" stack="SKILL_KN_ARCGUARDIAN" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="1" duration="0">
         <setproperties>
@@ -5987,9 +6090,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="488" name="STR_SKILL_KN_KnightGift_G2" stack="SKILL_KN_KNIGHTGIFT" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -5998,9 +6103,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="489" name="STR_SKILL_KN_HonorableShock_G1" stack="SKILL_KN_HONORABLESHOCK" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="1" duration="0">
         <setproperties>
@@ -6085,9 +6192,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="MAXHP" func="PERCENT" value="9"/>
+                <change stat="REGEN_HP" func="ADD" value="20"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="497" name="STR_SKILL_P_StatBoostBlock_G2" stack="SKILL_P_STATBOOSTBLOCK" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -6096,9 +6206,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="BLOCK" func="ADD" value="150"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="498" name="STR_SKILL_P_StatBoostResist_G2" stack="SKILL_P_STATBOOSTRESIST" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -6107,9 +6219,6 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
     </skill_template>
     <skill_template skill_id="499" name="STR_SKILL_P_StatBoostPhysicalDefense_G4" stack="SKILL_P_STATBOOSTPHYSICALDEFENSE" lvl="4" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -6118,9 +6227,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="MAXHP" func="PERCENT" value="12"/>
+                <change stat="REGEN_HP" func="ADD" value="38"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="500" name="STR_SKILL_KN_DivineJudgement_G1" stack="SKILL_KN_DIVINEJUDGEMENT" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
         <initproperties>
@@ -6530,9 +6642,13 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="BLOCK" func="ADD" value="1000"/>
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" value="15"/>
+                <change stat="ATTACK_SPEED" func="PERCENT" value="50"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="525" name="STR_SKILL_KN_LandSnacher_G1" stack="SKILL_KN_LANDSNACHER" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="3600" duration="2000">
         <initproperties>
@@ -6559,9 +6675,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="MAXHP" func="PERCENT" value="15"/>
+                <change stat="REGEN_HP" func="ADD" value="48"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="527" name="STR_SKILL_KN_HolyWrath_G3" stack="SKILL_KN_HOLYWRATH" lvl="3" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="0">
         <startconditions>
@@ -6942,9 +7061,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PVP_DEFEND_RATIO" func="ADD" value="100"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="549" name="STR_SKILL_KN_Stigma_GodPunishment_G1" stack="SKILL_KN_STIGMA_GODPUNISHMENT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="120" duration="0">
         <initproperties>
@@ -8505,9 +8626,6 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <actions>
-            <dummy/>
-        </actions>
     </skill_template>
     <skill_template skill_id="693" name="STR_SKILL_RA_MindsEye_G1" stack="SKILL_RA_MINDSEYE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="10" duration="0">
         <setproperties>
@@ -9058,9 +9176,6 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <actions>
-            <dummy/>
-        </actions>
     </skill_template>
     <skill_template skill_id="727" name="STR_SKILL_RA_Light_SpikeTrap_G4" stack="SKILL_RA_LIGHT_SPIKETRAP" lvl="4" skilltype="MAGICAL" skillsubtype="SUMMONTRAP" activation="ACTIVE" cooldown="30" duration="1000">
         <setproperties>
@@ -9607,9 +9722,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="POWER" func="ADD" value="10"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="759" name="STR_SKILL_RA_RangersGift_G2" stack="SKILL_RA_RANGERSGIFT" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -9618,9 +9736,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="POWER" func="ADD" value="100"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="760" name="STR_SKILL_RA_EagleShot_G1" stack="SKILL_RA_EAGLESHOT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="1" duration="0">
         <initproperties>
@@ -10220,9 +10341,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_ACCURACY" func="ADD" value="80"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="796" name="STR_SKILL_RA_BackdashStab_G4" stack="SKILL_RA_BACKDASHSTAB" lvl="4" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="60" duration="0">
         <startconditions>
@@ -11846,9 +11969,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_CRITICAL" func="ADD" value="50"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="890" name="STR_SKILL_AS_SeraphicSharpness_G2" stack="SKILL_AS_SERAPHICSHARPNESS" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -11857,9 +11982,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_CRITICAL" func="ADD" value="100"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="891" name="STR_SKILL_AS_SeraphicSharpness_G3" stack="SKILL_AS_SERAPHICSHARPNESS" lvl="3" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -11868,9 +11995,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_CRITICAL" func="ADD" value="100"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="892" name="STR_SKILL_AS_CarveWave_G1" stack="SKILL_AS_CARVEWAVE" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="1" duration="0">
         <setproperties>
@@ -11923,9 +12052,13 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="POWER" func="ADD" value="10"/>
+                <change stat="AGILITY" func="ADD" value="10"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="897" name="STR_SKILL_AS_AssassinsGift_G2" stack="SKILL_AS_ASSASSINSGIFT" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -11934,9 +12067,13 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="POWER" func="ADD" value="100"/>
+                <change stat="AGILITY" func="ADD" value="100"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="898" name="STR_SKILL_AS_AirWalk_G1" stack="SKILL_AS_AIRWALK" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="1" duration="0">
         <setproperties>
@@ -12126,9 +12263,12 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="SPEED" func="PERCENT" value="20"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="20"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="913" name="STR_SKILL_AS_QuickMove_G1" stack="SKILL_AS_QUICKMOVE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="120" duration="0">
         <startconditions>
@@ -12277,9 +12417,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="EVASION" func="ADD" value="80"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="923" name="STR_SKILL_P_StatBoostCritical_G3" stack="SKILL_P_STATBOOSTCRITICAL" lvl="3" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -12288,9 +12430,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="PHYSICAL_CRITICAL" func="ADD" value="100"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="924" name="STR_SKILL_P_EQUIP_Dual_G5" stack="SKILL_P_EQUIP_DUAL" lvl="5" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -15517,9 +15661,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="WILL" func="ADD" value="10"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1154" name="STR_SKILL_PR_PriestsGift_G2" stack="SKILL_PR_PRIESTSGIFT" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -15528,9 +15675,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="WILL" func="ADD" value="100"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1155" name="STR_SKILL_PR_SeraphicAid_G1" stack="SKILL_PR_SERAPHICAID" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="1" duration="2000">
         <setproperties>
@@ -15780,9 +15930,13 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="STAGGER_RESISTANCE" func="ADD" value="200"/>
+                <change stat="STUMBLE_RESISTANCE" func="ADD" value="200"/>
+                <change stat="SPIN_RESISTANCE" func="ADD" value="200"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1173" name="STR_SKILL_P_BoostHateDown_G2" stack="SKILL_P_BOOSTHATEDOWN" lvl="2" skilltype="MAGICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -17917,9 +18071,13 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="POWER" func="ADD" value="10"/>
+                <change stat="WILL" func="ADD" value="10"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1298" name="STR_SKILL_CH_ChantersGift_G2" stack="SKILL_CH_CHANTERSGIFT" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -17928,9 +18086,13 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="POWER" func="ADD" value="100"/>
+                <change stat="WILL" func="ADD" value="100"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1299" name="STR_SKILL_CH_Chant_BoostFly_G1" stack="SKILL_CH_CHANT_BOOSTFLY" lvl="1" skilltype="MAGICAL" skillsubtype="CHANT" activation="TOGGLE" cooldown="1" duration="2000">
         <setproperties>
@@ -21408,9 +21570,13 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="KNOWLEDGE" func="ADD" value="10"/>
+                <change stat="WILL" func="ADD" value="10"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1549" name="STR_SKILL_WI_WizardsGift_G2" stack="SKILL_WI_WIZARDSGIFT" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -21419,9 +21585,13 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="KNOWLEDGE" func="ADD" value="100"/>
+                <change stat="WILL" func="ADD" value="100"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1550" name="STR_SKILL_WI_GroundBurst_G1" stack="SKILL_WI_GROUNDBURST" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="1" duration="2000">
         <setproperties>
@@ -21905,9 +22075,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="BOOST_MAGICAL_SKILL" func="ADD" value="100"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1579" name="STR_SKILL_P_StatBoostMaxMP_G2" stack="SKILL_P_STATBOOSTMAXMP" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -21916,9 +22088,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="MAXMP" func="PERCENT" value="6"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1580" name="STR_SKILL_P_EQUIP_Book_G4" stack="SKILL_P_EQUIP_BOOK" lvl="4" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -24600,9 +24774,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="REGEN_MP" func="ADD" value="10"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1733" name="STR_SKILL_EL_SeraphicTwinQualrity_G2" stack="SKILL_EL_SERAPHICTWINQUALRITY" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -24611,9 +24787,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="REGEN_MP" func="ADD" value="10"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1734" name="STR_SKILL_EL_SeraphicTwinQualrity_G3" stack="SKILL_EL_SERAPHICTWINQUALRITY" lvl="3" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -24622,9 +24800,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="REGEN_MP" func="ADD" value="10"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1735" name="STR_SKILL_EL_ElementalBind_G1" stack="SKILL_EL_ELEMENTALBIND" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="1" duration="2000">
         <setproperties>
@@ -24703,9 +24883,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="KNOWLEDGE" func="ADD" value="10"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1740" name="STR_SKILL_EL_ElementalsGift_G2" stack="SKILL_EL_ELEMENTALSGIFT" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -24714,9 +24897,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="KNOWLEDGE" func="ADD" value="100"/>
+                <change stat="FLY_SPEED" func="PERCENT" value="33"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1741" name="STR_SKILL_EL_CallSlave_StormServant_G1" stack="SKILL_EL_CALLSLAVE_STORMSERVANT" lvl="1" skilltype="MAGICAL" skillsubtype="SUMMONTRAP" activation="ACTIVE" cooldown="1" duration="2000">
         <setproperties>
@@ -25340,9 +25526,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="CONCENTRATION" func="ADD" value="75"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="1776" name="STR_SKILL_P_StatBoostLowResist_G3" stack="SKILL_P_STATBOOSTLOWRESIST" lvl="3" skilltype="MAGICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -26699,9 +26887,13 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ALL"/>
         </setproperties>
+        <effects>
+            <buf duration="0">
+                <change stat="MAGICAL_RESIST" func="ADD" value="300"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="190" delta="10"/>
-            <dummy/>
         </actions>
     </skill_template>
     <skill_template skill_id="1915" name="STR_SKILL_Test_Buff_Magical_Resist_2" stack="SKILL_TEST_BUFF_MAGICAL_RESIST_2" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -42863,9 +43055,14 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <buf duration="0">
+                <change stat="SPEED" func="PERCENT" value="20"/>
+                <change stat="ATTACK_SPEED" func="PERCENT" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="32" delta="0"/>
-            <dummy/>
         </actions>
     </skill_template>
     <skill_template skill_id="9294" name="STR_SKILL_StigmaI_Steadiness_G1" stack="SKILL_STIGMAI_STEADINESS" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="600" duration="0">
@@ -43190,9 +43387,13 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <buf duration="0">
+                <change stat="SPEED" func="ADD" value="-10000"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="77" delta="0"/>
-            <dummy/>
         </actions>
     </skill_template>
     <skill_template skill_id="9313" name="STR_SKILL_StigmaI_SnipeShot_G1" stack="SKILL_STIGMAI_SNIPESHOT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
@@ -44105,9 +44306,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="ATTACK_SPEED" func="PERCENT" value="-20"/>
+                <change stat="SPEED" func="PERCENT" value="20"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="9732" name="STR_SYSTEM_SKILL_test_light_rankerskill_passive_02" stack="SYSTEM_SKILL_TEST_LIGHT_RANKERSKILL_PASSIVE_02" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -44116,9 +44320,12 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="ATTACK_SPEED" func="PERCENT" value="-50"/>
+                <change stat="SPEED" func="PERCENT" value="50"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="9733" name="STR_SYSTEM_SKILL_test_light_rankerskill_passive_03" stack="SYSTEM_SKILL_TEST_LIGHT_RANKERSKILL_PASSIVE_03" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -44127,9 +44334,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <actions>
-            <dummy/>
-        </actions>
+        <effects>
+            <buf duration="0">
+                <change stat="FIRE_RESISTANCE" func="ADD" value="100"/>
+            </buf>
+        </effects>
     </skill_template>
     <skill_template skill_id="9734" name="STR_SYSTEM_SKILL_test_light_rankerskill_active_01" stack="SYSTEM_SKILL_TEST_LIGHT_RANKERSKILL_ACTIVE_01" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="4000">
         <setproperties>

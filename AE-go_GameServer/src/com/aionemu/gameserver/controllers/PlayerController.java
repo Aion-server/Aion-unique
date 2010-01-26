@@ -29,6 +29,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
+import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
@@ -415,6 +416,22 @@ public class PlayerController extends CreatureController<Player>
 		getOwner().setLifeStats(new PlayerLifeStats(getOwner(), 1, pls.getCurrentMp()));
 		getOwner().getLifeStats().triggerRestoreTask();
 	}
+	
+	/**
+	 * 
+	 */
+	public void updatePassiveStats()
+	{
+		for(SkillListEntry skillEntry : getOwner().getSkillList().getAllSkills())
+		{
+			Skill skill = SkillEngine.getInstance().getSkillFor(getOwner(), skillEntry.getSkillId());
+			if(skill != null && skill.isPassive())
+			{
+				skill.useSkill(SkillType.PASSIVE);
+			}
+		}
+	}
+	
 
 	@Override
 	public Player getOwner()

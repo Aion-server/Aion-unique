@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -31,11 +33,11 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  * @author ATracer
  *
  */
-// Global TODO - differentiate effect controllers to npcs and players ?
 public class EffectController
 {
 	private Creature owner;
-
+	
+	private Map<String, Effect> passiveEffectMap;
 	private ConcurrentMap<String, Effect> effectMap;
 
 	private int abnormals;
@@ -45,6 +47,7 @@ public class EffectController
 		super();
 		this.owner = owner;
 		this.effectMap = new ConcurrentHashMap<String, Effect>();
+		this.passiveEffectMap = new HashMap<String, Effect>();
 	}
 
 	/**
@@ -63,9 +66,11 @@ public class EffectController
 	{
 		effect.setController(this);
 
-		if(effectMap.containsKey(effect.getStack()))
+		Map<String, Effect> mapToUpdate = effect.isPassive() ? passiveEffectMap : effectMap;
+		
+		if(mapToUpdate.containsKey(effect.getStack()))
 		{
-			Effect existingEffect = effectMap.get(effect.getStack());
+			Effect existingEffect = mapToUpdate.get(effect.getStack());
 			
 			//check stack level
 			if(existingEffect.getSkillStackLvl() > effect.getSkillStackLvl())
@@ -77,17 +82,24 @@ public class EffectController
 			
 			existingEffect.endEffect();
 		}
-		effectMap.put(effect.getStack(), effect);
-
+		
+		mapToUpdate.put(effect.getStack(), effect);
 		effect.startEffect();
-
-		// effect icon updates
-		if(owner instanceof Player)
+		
+		if(owner instanceof Player && owner.isSpawned())
 		{
-			updatePlayerEffectIcons();
 			updatePlayerStats();
-		}
-		broadCastEffects();	
+		}		
+		
+		if(!effect.isPassive())
+		{
+			// effect icon updates
+			if(owner instanceof Player)
+			{
+				updatePlayerEffectIcons();				
+			}
+			broadCastEffects();	
+		}	
 	}
 
 	/**
@@ -149,6 +161,7 @@ public class EffectController
 
 	/**
 	 * Removes all effects from controllers and ends them appropriately
+	 * Passive effect will not be removed
 	 */
 	public void removeAllEffects()
 	{
@@ -177,5 +190,4 @@ public class EffectController
 	{
 		return abnormals;
 	}
-
 }

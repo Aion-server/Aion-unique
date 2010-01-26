@@ -70,7 +70,6 @@ extends Property
 		switch(value)
 		{
 			case ONLYONE:
-				skill.getEffectedList().add(skill.getFirstTarget());
 				break;			
 			case AREA:	
 				Creature firstTarget = skill.getFirstTarget();
@@ -79,7 +78,6 @@ extends Property
 					log.warn("CHECKPOINT: first target is null for skillid " + skill.getSkillTemplate().getSkillId());
 					return false;
 				}
-				effectedList.add(firstTarget);
 			
 				Iterator<VisibleObject> iterator = firstTarget.getKnownList().iterator();
 				while(iterator.hasNext() && counter < maxcount)
@@ -95,6 +93,7 @@ extends Property
 				}
 				break;
 			case PARTY:
+				effectedList.clear();//clear from first target
 				PlayerGroup group = skill.getEffector().getPlayerGroup();
 				if(group == null)
 					return false;
