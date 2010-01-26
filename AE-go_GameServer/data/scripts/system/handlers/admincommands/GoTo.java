@@ -103,7 +103,7 @@ public class GoTo extends AdminCommand
 
 		else if(params[0].equals("altgard"))
 		{
-			admin.getController().teleportTo(WorldMapType.ISHALGEN.getId(), 1748, 1807, 254, 0);
+			admin.getController().teleportTo(WorldMapType.ALTGARD.getId(), 1748, 1807, 254, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Altgard");
 		}
 
@@ -139,91 +139,61 @@ public class GoTo extends AdminCommand
 
 		else if(params[0].equals("abyss2"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 400010000, 1078, 2839, 1636, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(400010000, 1078, 2839, 1636, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Russet Plazza bottom asmodians");
 		}
 
 		else if(params[0].equals("abyss3"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 400010000, 1596, 2952, 2943, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(400010000, 1596, 2952, 2943, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Top asmodians");
 		}
 
 		else if(params[0].equals("abyss4"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 400010000, 2054, 660, 2843, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(400010000, 2054, 660, 2843, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Top elyos");
 		}
 
 		else if(params[0].equals("abyssfortress"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 400010000, 2130, 1925, 2325, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(400010000, 2130, 1925, 2325, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Core Fortress");
 		}
 
 		else if(params[0].equals("senza"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 300010000, 270, 200, 206, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(300010000, 270, 200, 206, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Senza Nome");
 		}
 
 		else if(params[0].equals("karamatis1"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 310010000, 270, 200, 206, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(300010000, 270, 200, 206, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Karamatis 1");
 		}
 
 		else if(params[0].equals("karamatis2"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 310020000, 270, 200, 206, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(300010000, 270, 200, 206, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Karamatis 2");
 		}
 
 		else if(params[0].equals("aerdina"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 310030000, 270, 189, 206, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(300010000, 270, 189, 206, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Aerdina");
 		}
 
 		else if(params[0].equals("gerania"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 310040000, 270, 189, 206, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(300010000, 270, 189, 206, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Gerania");
 		}
 
 		else if(params[0].equals("lepharist"))
 		{
-			world.despawn(admin);
-			world.setPosition(admin, 310050000, 225, 244, 132, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			admin.getController().teleportTo(310050000, 225, 244, 132, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Lerpharist Secret Labratory");
 		}
 
