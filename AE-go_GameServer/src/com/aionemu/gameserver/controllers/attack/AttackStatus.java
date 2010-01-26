@@ -34,8 +34,8 @@ public enum AttackStatus
 	OFFHAND_BUF(9),
 	NORMALHIT(10),
 	OFFHAND_NORMALHIT(11),
-	CRITICAL(12),
-	OFFHAND_CRITICAL(13);
+	CRITICAL(202),
+	OFFHAND_CRITICAL(219);
 
 	private int _type;
 
