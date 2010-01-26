@@ -56,7 +56,7 @@ public class TransformEffect extends EffectTemplate
 		else if(effected instanceof Player)
 		{
 			effected.setTransformedModelId(0);
-			//PacketSendUtility.sendPacket((Player)effected, new SM_PLAYER_INFO((Player)effected, false));
+			PacketSendUtility.sendPacket((Player)effected, new SM_TRANSFORM(effected));
 		}
 		PacketSendUtility.broadcastPacket(effected, new SM_TRANSFORM(effected));
 	}
@@ -66,11 +66,11 @@ public class TransformEffect extends EffectTemplate
 	{
 		final Creature effected = effect.getEffected();
 		effected.getEffectController().setAbnormal(EffectId.TRANSFORM.getEffectId());
-		effected.setTransformedModelId(model);	
+		effected.setTransformedModelId(model);
 		PacketSendUtility.broadcastPacket(effected, new SM_TRANSFORM(effected));
 		if(effected instanceof Player)
 		{
-			//PacketSendUtility.sendPacket((Player)effected, new SM_PLAYER_INFO((Player)effected, false));
+			PacketSendUtility.sendPacket((Player)effected, new SM_TRANSFORM(effected));
 		}
 	}
 

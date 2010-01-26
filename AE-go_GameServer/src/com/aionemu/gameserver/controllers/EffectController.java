@@ -158,7 +158,28 @@ public class EffectController
 			updatePlayerStats();
 		}
 	}
-
+	
+	/**
+	 * Removes the effect by skillid.
+	 * 
+	 * @param skillid
+	 */
+	public void removeEffect(int skillid)
+	{
+		for(Effect effect : effectMap.values()){
+			if(effect.getSkillId()==skillid){
+				effectMap.remove(effect.getStack());
+				effect.endEffect();
+			}
+		}
+		
+		broadCastEffects();
+		if(owner instanceof Player)
+		{
+			updatePlayerEffectIcons();
+			updatePlayerStats();
+		}
+	}
 	/**
 	 * Removes all effects from controllers and ends them appropriately
 	 * Passive effect will not be removed

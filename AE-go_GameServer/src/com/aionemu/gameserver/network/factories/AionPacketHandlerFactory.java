@@ -75,6 +75,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_PLAY_MOVIE_END;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUESTION_RESPONSE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_RECONNECT_AUTH;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_REMOVE_ALTERED_STATE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_RESTORE_CHARACTER;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_REVIVE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SET_GUILD_DESCR;
@@ -200,6 +201,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_SHOW_BRAND(0x1B), State.IN_GAME);
 		addPacket(new CM_PLAY_MOVIE_END(0x47), State.IN_GAME);
 		addPacket(new CM_CUSTOM_SETTINGS(0xF2), State.IN_GAME);
+		addPacket(new CM_REMOVE_ALTERED_STATE(0x89), State.IN_GAME);
 		
 	}
 
