@@ -25,6 +25,7 @@
 	<xs:include schemaLocation="player_titles.xsd" />
 	<xs:include schemaLocation="goodslists/goodslists.xsd" />
 	<xs:include schemaLocation="spawns/spawns.xsd" />
+	<xs:include schemaLocation="tribe/tribe_relations.xsd" />
 	
 	<xs:element name="ae_static_data">
 		<xs:complexType>
@@ -51,6 +52,7 @@
 				<xs:element ref="zones" minOccurs="0" />
 				<xs:element ref="goodslists" minOccurs="0" />
 				<xs:element ref="spawns" minOccurs="0" />
+				<xs:element ref="tribe_relations" minOccurs="0" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

@@ -1,0 +1,1468 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tribe_relations>
+    <tribe name="PC"/>
+    <tribe name="GENERAL"/>
+    <tribe name="GUARD"/>
+    <tribe name="PC_DARK"/>
+    <tribe name="GENERAL_DARK"/>
+    <tribe name="GUARD_DARK"/>
+    <tribe name="PC_DRAGON"/>
+    <tribe name="GENERAL_DRAGON"/>
+    <tribe name="GUARD_DRAGON"/>
+    <tribe name="MONSTER"/>
+    <tribe name="PET"/>
+    <tribe name="PET_DARK"/>
+    <tribe name="AGGRESSIVESINGLEMONSTER">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVESUPPORTMONSTER">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="FRILLFAIMAMCOUPLE">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SPAKY">
+        <aggro>
+            <to>FUNGUS</to>
+        </aggro>
+    </tribe>
+    <tribe name="MUTA">
+        <aggro>
+            <to>FUNGUS</to>
+        </aggro>
+    </tribe>
+    <tribe name="FUNGUS"/>
+    <tribe name="ORC">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="GOBLIN">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="POLYMORPHFUNGY"/>
+    <tribe name="FUNGY">
+        <aggro>
+            <to>POLYMORPHFUNGY</to>
+        </aggro>
+    </tribe>
+    <tribe name="BRAX"/>
+    <tribe name="HIPPOLIZARD"/>
+    <tribe name="FRILLFAIMAMBABY">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="FRILLFAIMAMMOM">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="FETHLOT"/>
+    <tribe name="GARGOYLE">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="MINX"/>
+    <tribe name="ZAIF">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>MINX</to>
+            <to>TOG</to>
+        </aggro>
+    </tribe>
+    <tribe name="TOG">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>MINX</to>
+            <to>ZAIF</to>
+        </aggro>
+    </tribe>
+    <tribe name="GUARD_D1NOATTACK"/>
+    <tribe name="ZAIF_ATOG">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>TOG_AZAIF</to>
+        </aggro>
+    </tribe>
+    <tribe name="TOG_AZAIF">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>ZAIF_ATOG</to>
+        </aggro>
+    </tribe>
+    <tribe name="ZAIF_AMINX">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>MINX_HZAIF</to>
+        </aggro>
+    </tribe>
+    <tribe name="MINX_HZAIF"/>
+    <tribe name="MERDION"/>
+    <tribe name="GUARDIAN">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="DARU"/>
+    <tribe name="LUPYLLINI"/>
+    <tribe name="MOSBEARBABY">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="MOSBEARFATHER">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SOULEDSTONE">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SOULEDSTONE_MINI">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="MINX_HKALNIF"/>
+    <tribe name="KALNIF_AMINX">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>MINX_HKALNIF</to>
+        </aggro>
+    </tribe>
+    <tribe name="KALNIF_ATOG">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>TOG_AKALNIF</to>
+        </aggro>
+    </tribe>
+    <tribe name="TOG_AKALNIF">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>KALNIF_ATOG</to>
+        </aggro>
+    </tribe>
+    <tribe name="FARMER_HKERUBIM_LF1"/>
+    <tribe name="KERUBIM_AFARMER_LF1">
+        <aggro>
+            <to>FARMER_HKERUBIM_LF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="GUARD_LIGHT_AKERUBIM_LF1">
+        <aggro>
+            <to>KERUBIM_AFARMER_LF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="D1_HKERUBIM_LF1"/>
+    <tribe name="KERUBIM_AD1_LF1">
+        <aggro>
+            <to>D1_HKERUBIM_LF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="BROWNIE">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="BROWNIECOWARD"/>
+    <tribe name="BROWNIEGUARD"/>
+    <tribe name="BROWNIEFELLER_HZAIF_LF1">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="ZAIF_ABROWNIEFELLER_LF1">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>BROWNIEFELLER_HZAIF_LF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="KRALL">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="KRALLMASTER">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="KRALLWIZARDCY">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>CYCLOPSBOSS</to>
+        </aggro>
+    </tribe>
+    <tribe name="KRALL_TRAINING">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>TARGETBASFELT_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="SPRIGG_HROBBERALDER_DF1"/>
+    <tribe name="ROBBERALDER_ASPRIGG_DF1">
+        <aggro>
+            <to>SPRIGG_HROBBERALDER_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="SPRIGGREFUSE_DF1"/>
+    <tribe name="ARCHERYBASFELT_ATARGETBASFELT_DF1">
+        <aggro>
+            <to>TARGETBASFELT_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="ARCHERYBASFELT_ATARGETBASFELT_LF1">
+        <aggro>
+            <to>TARGETBASFELT_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="TARGETBASFELT_DF1"/>
+    <tribe name="ARCHERYBASFELT2_ATARGETBASFELT2_DF1">
+        <aggro>
+            <to>TARGETBASFELT2_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="ARCHERYBASFELT2_ATARGETBASFELT2_LF1">
+        <aggro>
+            <to>TARGETBASFELT2_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="TARGETBASFELT2_DF1"/>
+    <tribe name="GUARD_FTARGETBASFELT_DF1"/>
+    <tribe name="GUARD_FTARGETBASFELT_LF1"/>
+    <tribe name="LYCAN">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LYCAN_HUNTER">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LYCAN_MAGE">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LYCAN_AGUARD_DARK_DF1">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>GUARD_DARK_ALYCANARATMAN_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="LYCAN_TRAINING">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>TARGETBASFELT_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="LYCANMASTER">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LYCAN_PET">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LYCAN_PET_TRAINING">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>TARGETBASFELT_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="LYCAN_SUM">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LYCANDF2MASTER">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LYCANDF2SLAVE1">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LYCANDF2SLAVE2">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="TOWERMAN">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="RATMAN">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="RATMANWORKER">
+        <aggro>
+            <to>SAMM</to>
+        </aggro>
+    </tribe>
+    <tribe name="RATMANDFWORKER">
+        <aggro>
+            <to>SAMM</to>
+        </aggro>
+    </tribe>
+    <tribe name="SAMM"/>
+    <tribe name="RATMAN_AGUARD_DARK_DF1">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK_ALYCANARATMAN_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="GUARD_DARK_ALYCANARATMAN_DF1">
+        <aggro>
+            <to>LYCAN_AGUARD_DARK_DF1</to>
+            <to>RATMAN_AGUARD_DARK_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="UNDEADGRADIATOR_DF1">
+        <aggro>
+            <to>UNDEADGRADIATOR_DF1</to>
+        </aggro>
+    </tribe>
+    <tribe name="GUARD_LIGHTMA"/>
+    <tribe name="GUARD_DARKMA"/>
+    <tribe name="GUARD_DRAGONMA"/>
+    <tribe name="NEUT">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NEUTQUEEN">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NEUTBUG">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVE_LIGHT">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVE_DARK">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVE_DRAGON">
+        <aggro>
+            <to>PC_DRAGON</to>
+            <to>GENERAL_DRAGON</to>
+            <to>GUARD_DRAGON</to>
+        </aggro>
+    </tribe>
+    <tribe name="POLYMORPHPARROT"/>
+    <tribe name="ABDRAGON_AABDARK">
+        <aggro>
+            <to>ABDARK_AABDRAGON</to>
+        </aggro>
+    </tribe>
+    <tribe name="ABDARK_AABDRAGON">
+        <aggro>
+            <to>ABDRAGON_AABDARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="OCTASIDEBABY">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="GUARD_DARKAENEMY">
+        <aggro>
+            <to>ENEMY_AGUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="ENEMY_AGUARD_DARK">
+        <aggro>
+            <to>GUARD_DARKAENEMY</to>
+        </aggro>
+    </tribe>
+    <tribe name="GRIFFO"/>
+    <tribe name="GRIFFON">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SHELLIZARDMOM"/>
+    <tribe name="SHELLIZARDBABY"/>
+    <tribe name="MANDURITWEAK"/>
+    <tribe name="CHERUBIM2ND"/>
+    <tribe name="LEHPAR">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="GUARDDARK_ALEHPAR">
+        <aggro>
+            <to>LEHPAR_AGUARDDARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LEHPAR_AGUARDDARK">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>GUARDDARK_ALEHPAR</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVE1_AAGGRESSIVE2">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>AGGRESSIVE2_AAGGRESSIVE1</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVE2_AAGGRESSIVE1">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>AGGRESSIVE1_AAGGRESSIVE2</to>
+        </aggro>
+    </tribe>
+    <tribe name="LEHPAR_APRETOR">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>PRETOR_ALEHPAR</to>
+        </aggro>
+    </tribe>
+    <tribe name="PRETOR_ALEHPAR">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>LEHPAR_APRETOR</to>
+        </aggro>
+    </tribe>
+    <tribe name="CYCLOPSBOSS">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>KRALLWIZARDCY</to>
+        </aggro>
+    </tribe>
+    <tribe name="FIREELBOSS">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="FIREEL1">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="FIREEL2">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="FIREEL3">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="AIRELBOSS">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="AIREL1">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="AIREL2">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="AIREL3">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="ETTIN">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="L_DRGUARD_ADRAGGMOB1">
+        <aggro>
+            <to>DRAGGMOB_ADRGUARD1</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAGGMOB_ADRGUARD1">
+        <aggro>
+            <to>L_DRGUARD_ADRAGGMOB1</to>
+        </aggro>
+    </tribe>
+    <tribe name="DARU_HZAIF"/>
+    <tribe name="ZAIF_ADARU">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>DARU_HZAIF</to>
+        </aggro>
+    </tribe>
+    <tribe name="MUTA_HOCTASIDE"/>
+    <tribe name="OCTASIDE_AMUTA">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>MUTA_HOCTASIDE</to>
+        </aggro>
+    </tribe>
+    <tribe name="LIZARDMAN">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="ATAURIC">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="AHELLHOUND">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="APRETOR">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="GHOSTLIGHT">
+        <aggro>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="GHOSTDARK">
+        <aggro>
+            <to>PC</to>
+        </aggro>
+    </tribe>
+    <tribe name="BMLGUARDIAN">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="BMDGUARDIAN">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="GMASTER">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="GSLAVE">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="ELEMENTAL_FIRE">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="ELEMENTAL_EARTH">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="ELEMENTAL_AIR">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="ELEMENTAL_WATER">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="BAT_FAMILY_ELITE">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SUCCUBUS_ELITE">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SAM_ELITE">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="MAIDENGOLEM_ELITE">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="GARGOYLE_ELITE">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVE_LIGHT_HSPECTRE">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVE_DARK_HSPECTRE">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SPECTRE_AALIGHTDARK">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>AGGRESSIVE_LIGHT_HSPECTRE</to>
+            <to>AGGRESSIVE_DARK_HSPECTRE</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAMA_EVE_NONPC_A">
+        <aggro>
+            <to>DRAMA_EVE_NONPC_B</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAMA_EVE_NONPC_B">
+        <aggro>
+            <to>DRAMA_EVE_NONPC_A</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAMA_KIMEIA_NPC"/>
+    <tribe name="DRAMA_EVE_NONPC_DARKA">
+        <aggro>
+            <to>DRAMA_EVE_NONPC_B</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAMA_EVE_NONPC_DARKB">
+        <aggro>
+            <to>DRAMA_EVE_NONPC_A</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAMA_KIMEIA_DARKNPC"/>
+    <tribe name="DRAMA_KIMEIA_MOB">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>DRAMA_KIMEIA_NPC</to>
+            <to>DRAMA_KIMEIA_DARKNPC</to>
+        </aggro>
+    </tribe>
+    <tribe name="XIPETO">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="XIPETOBABY">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="TAURIC">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="CRESTLICH"/>
+    <tribe name="NNAGA">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NNAGA_PRIEST">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NNAGA_SERVANT">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NNAGA_ELEMENTALIST">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NNAGA_ELEMENTAL">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NLIZARDMAN">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NLIZARDRAISER">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NLIZARDPET">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NLIZARDPRIEST">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NNAGA_PRIESTBOSS">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="NNAGA_BOSS_SERVANT">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SEIREN_MASTER">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SEIREN_SNAKE">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="GENERAL_ADADR">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>PC_DRAGON</to>
+            <to>GENERAL_DRAGON</to>
+            <to>GUARD_DRAGON</to>
+        </aggro>
+    </tribe>
+    <tribe name="GENERALDA_ALIDR">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DRAGON</to>
+            <to>GENERAL_DRAGON</to>
+            <to>GUARD_DRAGON</to>
+        </aggro>
+    </tribe>
+    <tribe name="GENERALDR_ALIDA">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LIZARDMAN_BOMB">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="BOMB_LIZARDMAN">
+        <aggro>
+            <to>LIZARDMAN_BOMB</to>
+        </aggro>
+    </tribe>
+    <tribe name="LIZARDMAN_KB">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAKEPURPLE_MASTER">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAKEPURPLE_SLAVE"/>
+    <tribe name="DRAKY_BOMB_MASTER">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAKY_BOMB_EX">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="FIREFUNGY"/>
+    <tribe name="NOFIGHT"/>
+    <tribe name="FIELD_OBJECT_ALL"/>
+    <tribe name="DRAKANDF3BOSS">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAKANDF3SLAVE">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="CONSIADE">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="CONSIADE_SUM">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="PARENTSMONSTER">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="CHILDMONSTER">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SEIREN">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_LIGHT_ADARK">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_LIGHT_ADRAGON">
+        <aggro>
+            <to>PC_DRAGON</to>
+            <to>GENERAL_DRAGON</to>
+            <to>GUARD_DRAGON</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_LIGHT_AETC">
+        <aggro>
+            <to>MONSTER</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_DARK_ALIGHT">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_DARK_ADRAGON">
+        <aggro>
+            <to>PC_DRAGON</to>
+            <to>GENERAL_DRAGON</to>
+            <to>GUARD_DRAGON</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_DARK_AETC">
+        <aggro>
+            <to>MONSTER</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_DRAGON_ALIGHT">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_DRAGON_ADARK">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_DRAGON_AETC">
+        <aggro>
+            <to>MONSTER</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_ETC_ALIGHT">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_ETC_ADARK">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="TEST_ETC_ADRAGON">
+        <aggro>
+            <to>PC_DRAGON</to>
+            <to>GENERAL_DRAGON</to>
+            <to>GUARD_DRAGON</to>
+        </aggro>
+    </tribe>
+    <tribe name="ABYSSDRAKANGATE"/>
+    <tribe name="DARK_NPC">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="LIGHT_NPC">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="DARK_MOB">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="LIGHT_MOB">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="DARK_SUR_MOB">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="LIGHT_SUR_MOB">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="DARK_LICH">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="LIGHT_LICH">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LICH_SOULEDSTONE"/>
+    <tribe name="LIGHT_DENLABIS">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="FIRETEMPLE_MOB">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="QUESTGUARD_DARK">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="QUESTGUARD_LIGHT">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="BROHUM">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="CALYDON">
+        <aggro>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="CALYDON_POLYMORPH"/>
+    <tribe name="SWELLFISH"/>
+    <tribe name="TRICON">
+        <aggro>
+            <to>PC_DARK</to>
+            <to>GENERAL_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>PC</to>
+            <to>GENERAL</to>
+            <to>GUARD</to>
+        </aggro>
+    </tribe>
+    <tribe name="TRICO"/>
+    <tribe name="PROTECTGUARD_LIGHT"/>
+    <tribe name="PROTECTGUARD_DARK"/>
+    <tribe name="FIELD_OBJECT_ALL_MONSTER"/>
+    <tribe name="HOLYSERVANT">
+        <aggro>
+            <to>HOLYSERVANT_DEBUFFER</to>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="HOLYSERVANT_DEBUFFER">
+        <aggro>
+            <to>HOLYSERVANT</to>
+        </aggro>
+    </tribe>
+    <tribe name="HOLYSERVANT_DESPAWN"/>
+    <tribe name="RANMARK">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>GENERAL</to>
+            <to>GENERAL_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVESUPPORTMONSTER2">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="LASBERG"/>
+    <tribe name="SHULACK">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>AGGRESSIVETOSHULACK2</to>
+        </aggro>
+    </tribe>
+    <tribe name="ESCORT"/>
+    <tribe name="AGGRESSIVEESCORT">
+        <aggro>
+            <to>ESCORT</to>
+        </aggro>
+    </tribe>
+    <tribe name="XDRAKAN">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>ESCORT</to>
+        </aggro>
+    </tribe>
+    <tribe name="XDRAKAN_ELEMENTALIST">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>ESCORT</to>
+        </aggro>
+    </tribe>
+    <tribe name="XDRAKAN_PET">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>ESCORT</to>
+        </aggro>
+    </tribe>
+    <tribe name="XDRAKAN_PRIEST">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>ESCORT</to>
+        </aggro>
+    </tribe>
+    <tribe name="XDRAKAN_SERVANT">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+            <to>ESCORT</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVETOSHULACK">
+        <aggro>
+            <to>SHULACK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SHULACK_DECK">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SHULACK_DECK_KILLER">
+        <aggro>
+            <to>SHULACK_DECK</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAGON">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="DRAGON_SLAVE">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVETOSHULACK2">
+        <aggro>
+            <to>SHULACK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SPALLER">
+        <aggro>
+            <to>PC</to>
+            <to>GUARD</to>
+            <to>PC_DARK</to>
+            <to>GUARD_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="SPALLERCTRL"/>
+    <tribe name="SHULACK_SLAVE">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+        </aggro>
+    </tribe>
+    <tribe name="IDLF1_MONSTER">
+        <aggro>
+            <to>PC</to>
+            <to>PC_DARK</to>
+            <to>ESCORT</to>
+        </aggro>
+    </tribe>
+    <tribe name="AGGRESSIVETOPCPET"/>
+    <tribe name="GENERALDR_ALIDA_SUPPORT"/>
+    <tribe name="GOLEM_SWITCH"/>
+    <tribe name="USEALLNONETOMONSTER"/>
+</tribe_relations>

@@ -37,10 +37,10 @@ public class StaticData
 
 	@XmlElement(name = "npc_trade_list")
 	public TradeListData			tradeListData;
-	
+
 	@XmlElement(name = "npc_teleporter")
 	public TeleporterData 			teleporterData;
-	
+
 	@XmlElement(name = "teleport_location")
 	public TeleLocationData 		teleLocationData;
 
@@ -49,10 +49,10 @@ public class StaticData
 
 	@XmlElement(name = "quests")
 	public QuestsData			questData;
-	
+
 	@XmlElement(name = "quest_scripts")
 	public QuestScriptsData			questsScriptData;
-	
+
 	@XmlElement(name = "player_experience_table")
 	public PlayerExperienceTable	playerExperienceTable;
 
@@ -61,40 +61,43 @@ public class StaticData
 
 	@XmlElement(name = "item_templates")
 	public ItemData					itemData;
-	
+
 	@XmlElement(name = "npc_templates")
 	public NpcData					npcData;
 
 	@XmlElement(name = "player_initial_data")
 	public PlayerInitialData        playerInitialData;
-	
+
 	@XmlElement(name = "skill_data")
 	public SkillData				skillData;
-	
+
 	@XmlElement(name = "skill_tree")
 	public SkillTreeData			skillTreeData;
 
 	@XmlElement(name = "cube_expander")
 	public CubeExpandData			cubeExpandData;
-	
+
 	@XmlElement(name = "player_titles")
 	public TitleData				titleData;
-	
+
 	@XmlElement(name = "gatherable_templates")
 	public GatherableData			gatherableData;
-	
+
 	@XmlElement(name = "npc_walker")
 	public WalkerData				walkerData;
-	
+
 	@XmlElement(name = "zones")
 	public ZoneData					zoneData;
-	
+
 	@XmlElement(name = "goodslists")
 	public GoodsListData			goodsListData;
-	
+
 	@XmlElement(name = "spawns")
 	public SpawnsData				spawnsData;
-	
+
+	@XmlElement(name = "tribe_relations")
+	public TribeRelationsData		tribeRelationsData;
+
 	// JAXB callback
 	@SuppressWarnings("unused")
 	private void afterUnmarshal(Unmarshaller unmarshaller, Object parent)
@@ -119,5 +122,6 @@ public class StaticData
 		DataManager.log.info("Loaded " + zoneData.size() + " zone entries");
 		DataManager.log.info("Loaded " + goodsListData.size() + " goodslist entries");
 		DataManager.log.info("Loaded " + spawnsData.size() + " spawn entries");
+		DataManager.log.info("Loaded " + tribeRelationsData.size() + " tribe relation entries");
 	}
 }
