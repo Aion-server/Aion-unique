@@ -10,14 +10,8 @@ import java.util.List;
 
 import com.aionemu.packetsamurai.PacketSamurai;
 import com.aionemu.packetsamurai.Util;
-import com.aionemu.packetsamurai.parser.datatree.DataForBlock;
-import com.aionemu.packetsamurai.parser.datatree.DataForPart;
-import com.aionemu.packetsamurai.parser.datatree.DataSwitchBlock;
-import com.aionemu.packetsamurai.parser.datatree.DataTreeNode;
-import com.aionemu.packetsamurai.parser.datatree.DataTreeNodeContainer;
-import com.aionemu.packetsamurai.parser.datatree.IntBSValuePart;
-import com.aionemu.packetsamurai.parser.datatree.IntValuePart;
-import com.aionemu.packetsamurai.parser.datatree.ValuePart;
+import com.aionemu.packetsamurai.parser.datatree.*;
+import com.aionemu.packetsamurai.parser.datatree.IntBCValuePart;
 import com.aionemu.packetsamurai.parser.formattree.ForPart;
 import com.aionemu.packetsamurai.parser.formattree.Format;
 import com.aionemu.packetsamurai.parser.formattree.Part;
@@ -151,8 +145,8 @@ public class DataStructure
                     return false;
                 }
                 int size;
-                if(vp instanceof IntBSValuePart)
-                	size = ((IntBSValuePart)vp).getBitCount();
+                if(vp instanceof IntBCValuePart)
+                	size = ((IntBCValuePart)vp).getBitCount();
                 else
                 	size = ((IntValuePart)vp).getIntValue();
                 if(size < 0)

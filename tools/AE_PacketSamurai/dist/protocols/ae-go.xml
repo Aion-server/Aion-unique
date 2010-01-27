@@ -332,7 +332,7 @@
 		</packet>
 		<packet id="0x1C" name="SM_UPDATE_PLAYER_APPEARANCE">
 			<part name="playerObjId" type="d" />
-			<part id="0" name="itemMask" type="hbs" />
+			<part id="0" name="itemMask" type="bch" />
 			<for id="0">
 				<part name="itemId" type="d" />
 				<part name="unk" type="d" />
@@ -360,7 +360,7 @@
 			<part name="0x00" type="c" />
 			<part name="0x00" type="c" />
 			<part name="0x00" type="c" />
-			<part id="0" name="gears" type="hbs" />
+			<part id="0" name="gears" type="bch" />
 			<for id="0">
 				<part name="itemId" type="d" />
 				<part name="0x00" type="d" />
@@ -628,7 +628,7 @@
 			<part name="%hp" type="c" />
 			<part name="unk" type="d" />
 			<part name="level" type="c" />
-			<part id="0" name="gears" type="hbs" />
+			<part id="0" name="gears" type="bch" />
 			<for id="0">
 				<part name="itemId" type="d" />
 				<part name="0x00" type="d" />

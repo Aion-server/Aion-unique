@@ -48,9 +48,9 @@ public class PartTypeManager
         PartTypeManager.getInstance().registerPartType(PartType.c);
         PartTypeManager.getInstance().registerPartType(PartType.h);
         PartTypeManager.getInstance().registerPartType(PartType.d);
-        PartTypeManager.getInstance().registerPartType(PartType.cbs);
-        PartTypeManager.getInstance().registerPartType(PartType.hbs);
-        PartTypeManager.getInstance().registerPartType(PartType.dbs);
+        PartTypeManager.getInstance().registerPartType(PartType.bcc);
+        PartTypeManager.getInstance().registerPartType(PartType.bch);
+        PartTypeManager.getInstance().registerPartType(PartType.bcd);
         PartTypeManager.getInstance().registerPartType(PartType.f);
         PartTypeManager.getInstance().registerPartType(PartType.df);
         PartTypeManager.getInstance().registerPartType(PartType.Q);
@@ -66,9 +66,9 @@ public class PartTypeManager
         IconsTable.getInstance().registerIcon(PartType.c, IconsTable.ICON_C);
         IconsTable.getInstance().registerIcon(PartType.h, IconsTable.ICON_H);
         IconsTable.getInstance().registerIcon(PartType.d, IconsTable.ICON_D);
-        IconsTable.getInstance().registerIcon(PartType.cbs, IconsTable.ICON_C);
-        IconsTable.getInstance().registerIcon(PartType.hbs, IconsTable.ICON_HBS);
-        IconsTable.getInstance().registerIcon(PartType.dbs, IconsTable.ICON_D);
+        IconsTable.getInstance().registerIcon(PartType.bcc, IconsTable.ICON_C);
+        IconsTable.getInstance().registerIcon(PartType.bch, IconsTable.ICON_BCH);
+        IconsTable.getInstance().registerIcon(PartType.bcd, IconsTable.ICON_D);
         IconsTable.getInstance().registerIcon(PartType.f, IconsTable.ICON_F);
         IconsTable.getInstance().registerIcon(PartType.df, IconsTable.ICON_DF);
         IconsTable.getInstance().registerIcon(PartType.Q, IconsTable.ICON_Q);

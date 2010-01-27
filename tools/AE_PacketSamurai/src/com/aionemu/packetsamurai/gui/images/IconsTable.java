@@ -52,7 +52,7 @@ public class IconsTable
     public static final ImageIcon ICON_S = new ImageIcon(IconsTable.class.getResource("S.png"));
     public static final ImageIcon ICON_S_SMALL = new ImageIcon(IconsTable.class.getResource("smallS.png"));
     public static final ImageIcon ICON_B = new ImageIcon(IconsTable.class.getResource("b.png"));
-    public static final ImageIcon ICON_HBS = new ImageIcon(IconsTable.class.getResource("hbs.png"));
+    public static final ImageIcon ICON_BCH = new ImageIcon(IconsTable.class.getResource("bch.png"));
     public static final ImageIcon ICON_X = new ImageIcon(IconsTable.class.getResource("x.png"));
     
     public static final ImageIcon ICON_FROM_SERVER = new ImageIcon(IconsTable.class.getResource("fromServer.png"));
