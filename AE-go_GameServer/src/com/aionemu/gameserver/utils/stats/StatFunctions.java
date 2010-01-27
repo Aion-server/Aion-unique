@@ -392,10 +392,10 @@ public class StatFunctions
 
 	public static int calculatePhysicalDodgeRate( Creature attacker, Creature attacked )
 	{
-		int dodgeRate = ( attacked.getGameStats().getCurrentStat(StatEnum.BLOCK) - attacker.getGameStats().getCurrentStat(StatEnum.ACCURACY) ) / 10;
+		int dodgeRate = ( attacked.getGameStats().getCurrentStat(StatEnum.EVASION) - attacker.getGameStats().getCurrentStat(StatEnum.ACCURACY) ) / 10;
 		//maximal dodge rate
-		if( dodgeRate > 50)
-			dodgeRate = 50;
+		if( dodgeRate > 30)
+			dodgeRate = 30;
 
 		return dodgeRate;
 	}
@@ -414,8 +414,8 @@ public class StatFunctions
 	{
 		int blockRate = ( attacked.getGameStats().getCurrentStat(StatEnum.BLOCK) - attacker.getGameStats().getCurrentStat(StatEnum.ACCURACY) ) / 10;
 		//maximal block rate
-		if( blockRate > 30 )
-			blockRate = 30;
+		if( blockRate > 50 )
+			blockRate = 50;
 
 		return blockRate;
 	}
