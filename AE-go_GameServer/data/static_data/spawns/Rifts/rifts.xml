@@ -1,0 +1,46 @@
+<spawns>
+	<!-- Rift Eltnen Master-->
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_AM">
+		<object x="183.269" y="2829.474" z="155" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_BM">
+		<object x="824.07" y="2023.466" z="256" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_CM">
+		<object x="1655.108" y="1858.26" z="308" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_DM">
+		<object x="1024.32" y="61.013" z="318" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_EM">
+		<object x="1471.4779" y="555.982" z="356.466" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_FM">
+		<object x="2210.803" y="2644.242" z="269" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_GM">
+		<object x="2182.4036" y="561.195" z="435" h="0"/>
+	</spawn>
+	<!-- Rift Morheim Slave-->
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_AS">
+		<object x="745.42" y="1872.32" z="365" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_BS">
+		<object x="1364.66" y="1334.966" z="239" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_CS">
+		<object x="617.477" y="209.070" z="519" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_DS">
+		<object x="1820.139" y="1309.377" z="22" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_ES">
+		<object x="1559.136" y="2757.688" z="359" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_FS">
+		<object x="2613.383" y="2235.682" z="96" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_GS">
+		<object x="2930.681" y="879.490" z="371" h="0"/>
+	</spawn>
+</spawns>
