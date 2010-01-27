@@ -149,6 +149,8 @@ public class ServerPacketsOpcodes
 
 		addPacketOpcode(SM_BLOCK_RESPONSE.class, 0xDF, idSet);
 		
+		addPacketOpcode(SM_RIFT_STATUS.class, 0xA4, idSet);
+		
 		//Unrecognized Opcodes from 1.5.4:
 		//addPacketOpcode(SM_BUY_LIST.class, 0x7E, idSet);
 		//addPacketOpcode(SM_GUILD_DETAILS.class, 0x24, idSet);

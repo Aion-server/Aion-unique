@@ -44,6 +44,7 @@ public class SM_QUESTION_WINDOW extends AionServerPacket
 	public static final int STR_BIND_TO_LOCATION = 160012;
 	public static final int	STR_REQUEST_GROUP_INVITE = 60000;
 	public static final int	STR_WAREHOUSE_EXPAND_WARNING = 900686;
+	public static final int STR_USE_RIFT = 160019;
 	
 	private int code;
 	private int senderId;

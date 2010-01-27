@@ -26,6 +26,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.commons.utils.Rnd;
+import com.aionemu.gameserver.spawnengine.SpawnHandlerType;
+
 
 /**
  * @author ATracer
@@ -48,7 +51,10 @@ public class SpawnGroup
 	private int pool;
 	@XmlElement(name = "object")
 	private List<SpawnTemplate> objects;
-	
+	@XmlAttribute(name = "handler")
+	private SpawnHandlerType handler;
+	@XmlAttribute(name = "anchor")
+	private String anchor;
 	/**
 	 * Real-time properties
 	 */
@@ -122,6 +128,22 @@ public class SpawnGroup
 		return this.objects;
 	}
 
+	/**
+	 * @return the handler
+	 */
+	public SpawnHandlerType getHandler()
+	{
+		return handler;
+	}
+
+	/**
+	 * @return the anchor
+	 */
+	public String getAnchor()
+	{
+		return anchor;
+	}
+
 	public SpawnTemplate getNextAvailableTemplate()
 	{
 		for(int i = 0; i < getObjects().size(); i++)
@@ -143,6 +165,14 @@ public class SpawnGroup
 	public int size()
 	{
 		return getObjects().size();
+	}
+
+	/**
+	 * 
+	 */
+	public SpawnTemplate getNextRandomTemplate()
+	{
+		return objects.get(Rnd.get(0, size() - 1));
 	}
 	
 }

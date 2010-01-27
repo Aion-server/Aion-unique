@@ -40,6 +40,7 @@ import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.SocialService;
 import com.aionemu.gameserver.services.TradeService;
+import com.aionemu.gameserver.spawnengine.RiftSpawnManager;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlers;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlersFactory;
@@ -79,6 +80,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(TradeService.class).in(Scopes.SINGLETON);
 		bind(DropService.class).asEagerSingleton();
 		bind(CubeExpandService.class).in(Scopes.SINGLETON);
+		bind(RiftSpawnManager.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides

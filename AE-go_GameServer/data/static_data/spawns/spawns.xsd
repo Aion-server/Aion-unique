@@ -24,6 +24,8 @@
 				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="anchor" type="xs:string" />
+		<xs:attribute name="handler" type="SpawnHandlerType" />
 		<xs:attribute name="interval" type="xs:int" />
 		<xs:attribute name="pool" type="xs:int" />
 		<xs:attribute name="npcid" type="xs:int" />
@@ -36,6 +38,13 @@
 			<xs:maxInclusive value="120"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
+	<xs:simpleType name="SpawnHandlerType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RIFT" />
+		</xs:restriction>
+	</xs:simpleType>
+
 
 </xs:schema>
 

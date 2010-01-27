@@ -78,6 +78,8 @@ public class SpawnEngine
 	private GatherableData gatherableData;
 	@Inject
 	private NpcData npcData;
+	@Inject
+	private RiftSpawnManager riftSpawnManager;
 	
 	/** Counter counting number of npc spawns */
 	private int npcCounter		= 0;
@@ -235,15 +237,31 @@ public class SpawnEngine
 	{
 		for(SpawnGroup spawnGroup : spawnsData)
 		{
-			int pool = spawnGroup.getPool();
-			for(int i = 0; i < pool; i++)
+			if(spawnGroup.getHandler() == null)
 			{
-				spawnObject(spawnGroup.getNextAvailableTemplate());
+				int pool = spawnGroup.getPool();
+				for(int i = 0; i < pool; i++)
+				{
+					spawnObject(spawnGroup.getNextAvailableTemplate());
+				}
+			}
+			else
+			{
+				switch(spawnGroup.getHandler())
+				{
+					case RIFT:
+						riftSpawnManager.addRiftSpawnGroup(spawnGroup);
+						break;
+					default:
+						break;
+				}
 			}
 		}
 		
 		log.info("Loaded " + npcCounter + " npc spawns");
 		log.info("Loaded " + gatherableCounter + " gatherable spawns");
+		
+		riftSpawnManager.startRiftPool();
 	}
 
 	/**
