@@ -69,16 +69,16 @@
 	<report_to start_npc_id="203123" end_npc_id="730001" id="1140"/>
 	
 	<!-- Ancient Lobnite Fossil -->
-	<item_collecting start_npc_id="203111" action_item_id="182200512" id="1137"/>
-	
+	<item_collecting start_npc_id="203111" action_item_id="700108" id="1137"/>
+
 	<!-- Collecting Kukuru -->
 	<item_collecting start_npc_id="203124" id="1145"/>
 	
 	<!-- TODO: Danger From Above -->
 	
 	<!-- Decorative Weapons -->
-	<item_collecting start_npc_id="203100" id="1136"/>
-	
+	<item_collecting id="1136" start_npc_id="203100" action_item_id="700116" />
+
 	<!-- Belbua is Missing -->
 	<item_collecting start_npc_id="203125" id="1151"/>
 	
@@ -93,6 +93,7 @@
 	<!-- Nola's Request -->
 	<monster_hunt start_npc_id="730001" id="1143">
 		<monster_infos var_id="0" npc_id="212883" max_kill="15"/>
+		<monster_infos var_id="0" npc_id="210077" max_kill="15"/>
 	</monster_hunt>
 	
 	<!-- TODO: Odella Recipe -->

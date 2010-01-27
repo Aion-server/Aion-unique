@@ -124,7 +124,7 @@
 	<!-- Neutralizing Odium handled by script -->
 	
 	<!-- Suspicious Ore -->
-	<item_collecting start_npc_id="203085" id="1125"/>
+	<item_collecting id="1125" start_npc_id="203085" action_item_id="700107" />
 	
 	<!-- Tula's Music Box -->
 	<item_collecting start_npc_id="203082" end_npc_id="203085" id="1207"/>
