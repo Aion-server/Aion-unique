@@ -998,4 +998,8 @@ Eltnen -->
     <object x="264.2007" y="2724.056" z="271.1823" h="27"/>
     <object x="254.5989" y="2732.431" z="271.2378" h="27"/>
   </spawn>
+	<!-- Fire Temple Entrance -->
+  <spawn map="210020000" npcid="730047" pool="1" interval="105">
+    <object x="1332.47" y="351.78" z="350.74" h="0"/>
+  </spawn>
 </spawns>

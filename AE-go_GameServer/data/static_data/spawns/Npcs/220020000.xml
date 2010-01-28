@@ -1000,6 +1000,10 @@ Morheim -->
     <object x="997.81" y="2314.1" z="234.25" h="0"/>
     <object x="1009.52" y="2300.89" z="235.49" h="0"/>
   </spawn>
+    <!-- Fire Temple Entrance -->
+  <spawn map="220020000" npcid="730047" pool="1" interval="105">
+    <object x="1591.4" y="970.94" z="141" h="0"/>
+  </spawn>
   <!-- Mailbox -->
   <spawn map="220020000" npcid="700000" pool="2" interval="105">
     <object x="247.91" y="2343.63" z="445.12" h="0"/>

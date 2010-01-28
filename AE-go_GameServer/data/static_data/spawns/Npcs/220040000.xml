@@ -852,13 +852,6 @@ Beluslan -->
     <object x="1281.87" y="526.1" z="257.62" h="0"/>
     <object x="1242.68" y="481.2" z="261.06" h="0"/>
   </spawn>
-  <!-- Rift -->
-  <spawn map="220040000" npcid="700137" pool="4" interval="105">
-    <object x="1367.26" y="735.73" z="275.7" h="0"/>
-    <object x="225.63" y="170.78" z="241.97" h="0"/>
-    <object x="2079.16" y="206.1" z="383.34" h="0"/>
-    <object x="719.65" y="2245.34" z="246.01" h="0"/>
-  </spawn>
   <!-- Secret Port Entrance -->
   <spawn map="220040000" npcid="700359" pool="1" interval="105">
     <object x="1654.75" y="1499.61" z="333.51" h="57"/>

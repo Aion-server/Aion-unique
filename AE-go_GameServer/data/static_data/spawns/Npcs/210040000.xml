@@ -835,12 +835,6 @@ Heiron -->
   <spawn map="210040000" npcid="730190" pool="1" interval="105">
     <object x="1070.98" y="1620.05" z="102.87" h="0"/>
   </spawn>
-  <!-- Rift -->
-  <spawn map="210040000" npcid="700137" pool="3" interval="105">
-    <object x="2564.87" y="509.58" z="387" h="0"/>
-    <object x="533.53" y="560.14" z="143.1" h="0"/>
-    <object x="655.14" y="1889.05" z="115.1" h="0"/>
-  </spawn>
   <!-- Second Stone Plate -->
   <spawn map="210040000" npcid="700357" pool="1" interval="105">
     <object x="312.34" y="339.88" z="119.7" h="0"/>
