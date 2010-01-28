@@ -43,7 +43,8 @@ public class RespawnService
 			@Override
 			public void run()
 			{
-				if(visibleObject.getSpawn().isRespawn())
+				int instanceId = visibleObject.getInstanceId();
+				if(visibleObject.getSpawn().isRespawn(instanceId))
 				{
 					exchangeSpawnTemplate(visibleObject);		
 					world.setPosition(visibleObject, visibleObject.getSpawn().getWorldId(), visibleObject.getSpawn().getX(), visibleObject.getSpawn().getY(), visibleObject.getSpawn().getZ(), visibleObject.getSpawn().getHeading());
@@ -59,18 +60,17 @@ public class RespawnService
 
 			private synchronized void exchangeSpawnTemplate(final VisibleObject visibleObject)
 			{
-				SpawnTemplate nextSpawn = visibleObject.getSpawn().getSpawnGroup().getNextAvailableTemplate();
-				
+				int instanceId = visibleObject.getInstanceId();			
+				SpawnTemplate nextSpawn = visibleObject.getSpawn().getSpawnGroup().getNextAvailableTemplate(instanceId);	
 				if(nextSpawn != null)
 				{
-					nextSpawn.setSpawned(true);
-					visibleObject.getSpawn().setSpawned(false);
+					nextSpawn.setSpawned(true, instanceId);
+					visibleObject.getSpawn().setSpawned(false, instanceId);
 					visibleObject.setSpawn(nextSpawn);
 				}	
 			}
 			
 		}, interval * 1000);
-
 	}
 	
 	public static RespawnService getInstance()

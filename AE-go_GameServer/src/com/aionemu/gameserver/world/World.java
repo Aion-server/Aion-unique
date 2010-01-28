@@ -241,12 +241,33 @@ public class World
 	 */
 	public void setPosition(VisibleObject object, int mapId, float x, float y, float z, byte heading)
 	{
+		int instanceIndex = 1;	
+		if(object.getWorldId() == mapId)
+		{
+			instanceIndex = object.getInstanceId();
+		}
+		this.setPosition(object, mapId, instanceIndex, x, y, z, heading);
+	}
+	
+	/**
+	 * 
+	 * @param object
+	 * @param mapId
+	 * @param instance
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param heading
+	 */
+	public void setPosition(VisibleObject object, int mapId, int instance, float x, float y, float z, byte heading)
+	{
 		if(object.isSpawned())
 			despawn(object);
-
+		
 		object.getPosition().setXYZH(x, y, z, heading);
-		object.getPosition().setMapRegion(getWorldMap(mapId).getWorldMapInstance().getRegion(object));
+		object.getPosition().setMapRegion(getWorldMap(mapId).getWorldMapInstanceById(instance).getRegion(object));
 	}
+		
 
 	/**
 	 * Creates and return {@link WorldPosition} object, representing position with given parameters.

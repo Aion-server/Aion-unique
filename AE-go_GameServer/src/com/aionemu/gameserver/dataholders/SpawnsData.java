@@ -59,14 +59,7 @@ public class SpawnsData implements Iterable<SpawnGroup>
 				template.setSpawnGroup(spawnGroup);
 			}
 
-			//fill spawnsByNpcID map
-			ArrayList<SpawnGroup> groups = spawnsByNpcID.get(spawnGroup.getNpcid());
-			if(groups == null)
-			{
-				groups = new ArrayList<SpawnGroup>();
-				spawnsByNpcID.put(spawnGroup.getNpcid(), groups);
-			}
-			groups.add(spawnGroup);
+			addNewSpawnGroup(spawnGroup, spawnGroup.getMapid(), spawnGroup.getNpcid());
 
 			counter += spawnGroup.getObjects().size();
 		}
@@ -101,6 +94,11 @@ public class SpawnsData implements Iterable<SpawnGroup>
 	{	
 		return new IteratorIterator<SpawnGroup>(spawnsByNpcID.values());
 	}
+	
+	public List<SpawnGroup> getSpawnsForWorld(int worldId)
+	{
+		return spawnsByMapId.get(worldId);
+	}
 
 	/**
 	 * @return
@@ -117,7 +115,7 @@ public class SpawnsData implements Iterable<SpawnGroup>
 	 * @param spawnTemplate
 	 * @param worldId
 	 */
-	public void addNewTemplate(SpawnTemplate spawnTemplate, int worldId, int npcId)
+	public void addNewSpawnGroup(SpawnGroup spawnGroup, int worldId, int npcId)
 	{
 		//put to map spawns
 		ArrayList<SpawnGroup> mapSpawnGroups = spawnsByMapId.get(worldId);
@@ -126,7 +124,7 @@ public class SpawnsData implements Iterable<SpawnGroup>
 			mapSpawnGroups = new ArrayList<SpawnGroup>();
 			spawnsByMapId.put(worldId, mapSpawnGroups);
 		}
-		mapSpawnGroups.add(spawnTemplate.getSpawnGroup());
+		mapSpawnGroups.add(spawnGroup);
 
 		//put to npcid spawns
 		ArrayList<SpawnGroup> npcIdSpawnGroups = spawnsByNpcID.get(npcId);
@@ -135,7 +133,7 @@ public class SpawnsData implements Iterable<SpawnGroup>
 			npcIdSpawnGroups = new ArrayList<SpawnGroup>();
 			spawnsByNpcID.put(npcId, npcIdSpawnGroups);
 		}
-		npcIdSpawnGroups.add(spawnTemplate.getSpawnGroup());
+		npcIdSpawnGroups.add(spawnGroup);
 	}
 
 	public void clear()

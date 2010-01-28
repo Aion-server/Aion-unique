@@ -35,6 +35,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_CHANNEL_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL;
@@ -290,10 +291,11 @@ public class PlayerController extends CreatureController<Player>
 			@Override
 			public void run()
 			{
-				World world = player.getActiveRegion().getWorld();
+				World world = player.getActiveRegion().getWorld();			
 				world.despawn(player);
 				world.setPosition(player, worldId, x, y, z, heading);
 				player.setProtectionActive(true);
+				PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));	
 				PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));		
 			}
 		}, delay);
@@ -444,5 +446,20 @@ public class PlayerController extends CreatureController<Player>
 	public boolean isAttackable()
 	{
 		return true;
+	}
+
+	/**
+	 * @param channel
+	 */
+	public void changeChannel(int channel)
+	{
+		Player player = getOwner();
+		World world = player.getActiveRegion().getWorld();			
+		world.despawn(player);
+		world.setPosition(player, player.getWorldId(), channel + 1, player.getX(),
+			player.getY(), player.getZ(), player.getHeading());
+		player.setProtectionActive(true);
+		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));	
+		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));	
 	}
 }

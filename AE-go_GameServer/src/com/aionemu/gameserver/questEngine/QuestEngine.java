@@ -290,9 +290,8 @@ public class QuestEngine
 
 	public VisibleObject addNewSpawn(int worldId, int templateId, float x, float y, float z, byte heading, boolean respawn)
 	{
-		SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, templateId, x, y, z, heading, 0, 0, respawn);
-		
-		return spawnEngine.spawnObject(spawn);
+		SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, 1, templateId, x, y, z, heading, 0, 0, respawn);
+		return spawnEngine.spawnObject(spawn, 1);
 	}
 
 	public void clear()

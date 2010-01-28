@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.spawnengine;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.controllers.ActionitemController;
@@ -30,6 +32,7 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.dataholders.SpawnsData;
+import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.gameobjects.Citizen;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
@@ -39,6 +42,7 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
+import com.aionemu.gameserver.model.templates.WorldMapTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnGroup;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.services.DropService;
@@ -80,12 +84,13 @@ public class SpawnEngine
 	private NpcData npcData;
 	@Inject
 	private RiftSpawnManager riftSpawnManager;
+	@Inject
+	private WorldMapsData worldMapsData;
 	
 	/** Counter counting number of npc spawns */
 	private int npcCounter		= 0;
 	/** Counter counting number of gatherable spawns */
 	private int gatherableCounter		= 0;
-	
 	
 	/**
 	 * Creates VisibleObject instance and spawns it using given {@link SpawnTemplate} instance.
@@ -93,7 +98,7 @@ public class SpawnEngine
 	 * @param spawn
 	 * @return created and spawned VisibleObject
 	 */
-	public VisibleObject spawnObject(SpawnTemplate spawn)
+	public VisibleObject spawnObject(SpawnTemplate spawn, int instanceIndex)
 	{
 		VisibleObjectTemplate template = null;
 		int objectId = spawn.getSpawnGroup().getNpcid();
@@ -113,7 +118,7 @@ public class SpawnEngine
 			npcCounter++;
 		}
 
-		spawn.setSpawned(true);
+		spawn.setSpawned(true, instanceIndex);
 		if(template instanceof NpcTemplate)
 		{
 			NpcType npcType = ((NpcTemplate)template).getNpcType();	
@@ -151,7 +156,7 @@ public class SpawnEngine
 			npc.setKnownlist(new KnownList(npc));
 			npc.setEffectController(new EffectController(npc));
 			npc.getController().onRespawn();
-			bringIntoWorld(npc, spawn);
+			bringIntoWorld(npc, spawn, instanceIndex);
 			return npc;
 		}
 		else if(template instanceof GatherableTemplate)
@@ -160,7 +165,7 @@ public class SpawnEngine
 			gatherableController.setItemService(itemService);
 			Gatherable gatherable = new Gatherable(spawn, template, aionObjectsIDFactory.nextId(), gatherableController);
 			gatherable.setKnownlist(new KnownList(gatherable));
-			bringIntoWorld(gatherable, spawn);
+			bringIntoWorld(gatherable, spawn, instanceIndex);
 			return gatherable;
 		}
 		return null;
@@ -203,7 +208,7 @@ public class SpawnEngine
 	 * @param respawn
 	 * @return
 	 */
-	public SpawnTemplate addNewSpawn(int worldId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk, boolean respawn)
+	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk, boolean respawn)
 	{
 		SpawnTemplate spawnTemplate = addNewSpawn(worldId, objectId, x, y, z, heading, walkerid, randomwalk);
 		
@@ -215,34 +220,69 @@ public class SpawnEngine
 		
 		if(respawn)
 		{
-			spawnsData.addNewTemplate(spawnTemplate, worldId, objectId);
+			spawnsData.addNewSpawnGroup(spawnTemplate.getSpawnGroup(), worldId, objectId);
 		}
-		else
-		{
-			spawnTemplate.setRespawn(false);	
-		}
+		
+		spawnTemplate.setRespawn(respawn, instanceId);	
 	
 		return spawnTemplate;
 	}
 
 	
-	private void bringIntoWorld(VisibleObject visibleObject, SpawnTemplate spawn)
+	private void bringIntoWorld(VisibleObject visibleObject, SpawnTemplate spawn, int instanceIndex)
 	{
 		world.storeObject(visibleObject);
-		world.setPosition(visibleObject, spawn.getWorldId(), spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getHeading());
+		world.setPosition(visibleObject, spawn.getWorldId(), instanceIndex, spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getHeading());
 		world.spawn(visibleObject);
 	}
 	
 	public void spawnAll()
 	{
-		for(SpawnGroup spawnGroup : spawnsData)
+		
+		for(WorldMapTemplate worldMapTemplate : worldMapsData)
+		{
+			int maxTwin = worldMapTemplate.getTwinCount();
+			int mapId = worldMapTemplate.getMapId();
+			int numberToSpawn = maxTwin > 0 ? maxTwin : 1;
+			
+			List<SpawnGroup> spawnsForWorld = spawnsData.getSpawnsForWorld(mapId);
+			if(spawnsForWorld != null)
+			{
+				for(SpawnGroup spawnGroup : spawnsForWorld)
+					spawnGroup.setInstanceSupport(numberToSpawn);
+			}					
+			
+			for(int i = 1; i <= numberToSpawn; i++)
+			{
+				spawnInstance(mapId, i);
+			}
+		}
+		
+		log.info("Loaded " + npcCounter + " npc spawns");
+		log.info("Loaded " + gatherableCounter + " gatherable spawns");
+		
+		riftSpawnManager.startRiftPool();
+	}
+	
+	private void spawnInstance(int worldId, int instanceIndex)
+	{	
+		
+		List<SpawnGroup> worldSpawns = spawnsData.getSpawnsForWorld(worldId);
+		
+		if(worldSpawns == null || worldSpawns.size() == 0)
+			return;
+		
+		int instanceSpawnCounter = 0;
+		for(SpawnGroup spawnGroup : worldSpawns)
 		{
 			if(spawnGroup.getHandler() == null)
 			{
 				int pool = spawnGroup.getPool();
 				for(int i = 0; i < pool; i++)
 				{
-					spawnObject(spawnGroup.getNextAvailableTemplate());
+					spawnObject(spawnGroup.getNextAvailableTemplate(instanceIndex), instanceIndex);
+					
+					instanceSpawnCounter++;
 				}
 			}
 			else
@@ -257,11 +297,7 @@ public class SpawnEngine
 				}
 			}
 		}
-		
-		log.info("Loaded " + npcCounter + " npc spawns");
-		log.info("Loaded " + gatherableCounter + " gatherable spawns");
-		
-		riftSpawnManager.startRiftPool();
+		log.info("Spawned " + worldId + " [" + instanceIndex + "] : " + instanceSpawnCounter); 
 	}
 
 	/**

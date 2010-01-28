@@ -14,27 +14,40 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets.unk;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import com.aionemu.gameserver.world.WorldPosition;
 
 /**
  * 
  * @author ATracer
- * Third packet is send SM_INVENTORY_INFO (1.5 client)
+ * 
  */
-public class SM_UNKDC extends AionServerPacket
+public class SM_CHANNEL_INFO extends AionServerPacket
 {
+	int instanceCount = 0;
+	int currentChannel = 0;
+	/**
+	 * @param position
+	 */
+	public SM_CHANNEL_INFO(WorldPosition position)
+	{
+		this.instanceCount = position.getInstanceCount();
+		this.currentChannel = position.getInstanceId() - 1;
+		
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, 0);
-		writeD(buf, 0x0A);
+		writeD(buf, currentChannel);
+		writeD(buf, instanceCount);
 	}
 }

@@ -76,7 +76,7 @@ public class SpawnNpc extends AdminCommand {
         byte heading = admin.getHeading();
         int worldId = admin.getWorldId();
 
-        SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, templateId, x, y, z, heading, 0, 0, respawn);
+        SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, 1, templateId, x, y, z, heading, 0, 0, respawn);
 
         if (spawn == null)
         {
@@ -84,7 +84,7 @@ public class SpawnNpc extends AdminCommand {
             return;
         }
 
-        VisibleObject visibleObject = spawnEngine.spawnObject(spawn);
+        VisibleObject visibleObject = spawnEngine.spawnObject(spawn, 1);
         String objectName = "";
         if (visibleObject instanceof Npc)
         {

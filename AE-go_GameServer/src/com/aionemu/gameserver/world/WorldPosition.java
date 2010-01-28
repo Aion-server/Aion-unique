@@ -99,6 +99,16 @@ public class WorldPosition
 	{
 		return isSpawned ? mapRegion : null;
 	}
+	
+	public int getInstanceId()
+	{
+		return mapRegion.getParent().getInstanceId();
+	}
+	
+	public int getInstanceCount()
+	{
+		return mapRegion.getParent().getParent().getInstanceCount();
+	}
 
 	/**
 	 * Return heading.

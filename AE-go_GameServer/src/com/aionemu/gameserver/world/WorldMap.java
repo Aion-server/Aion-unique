@@ -44,10 +44,10 @@ public class WorldMap
 		this.world = world;
 		this.worldMapTemplate = worldMapTemplate;
 		if(worldMapTemplate.getTwinCount() != 0)
-			for(int i = 0; i < worldMapTemplate.getTwinCount(); i++)
-				instances.put(i, new WorldMapInstance(this));
+			for(int i = 1; i <= worldMapTemplate.getTwinCount(); i++)
+				instances.put(i, new WorldMapInstance(this, i));
 		else
-			instances.put(0, new WorldMapInstance(this));
+			instances.put(1, new WorldMapInstance(this, 1));
 	}
 
 	/**
@@ -69,6 +69,16 @@ public class WorldMap
 	{
 		return worldMapTemplate.getMapId();
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getInstanceCount()
+	{
+		int twinCount = worldMapTemplate.getTwinCount();
+		return twinCount > 0 ? twinCount : 1;
+	}
 
 	/**
 	 * Return a WorldMapInstance - depends on map configuration one map may have twins instances to balance player. This
@@ -86,7 +96,7 @@ public class WorldMap
 			/**
 			 * Balance players into instances.
 			 */
-			for(int i = 0; i < worldMapTemplate.getTwinCount(); i++)
+			for(int i = 1; i <= worldMapTemplate.getTwinCount(); i++)
 			{
 				WorldMapInstance inst = getWorldMapInstance(i);
 				// TODO! user count etc..
@@ -96,7 +106,43 @@ public class WorldMap
 			return getWorldMapInstance(worldMapTemplate.getTwinCount());
 		}
 		else
-			return getWorldMapInstance(0);
+			return getWorldMapInstance(1);
+	}
+	
+	/**
+	 *  This method return WorldMapInstance by specified instanceId
+	 *  
+	 * @param instanceId
+	 * @return
+	 */
+	public WorldMapInstance getWorldMapInstanceById(int instanceId)
+	{
+		if(worldMapTemplate.getTwinCount() !=0)
+		{
+			if(instanceId > worldMapTemplate.getTwinCount())
+			{
+				throw new IllegalArgumentException("WorldMapInstance " + worldMapTemplate.getMapId() + " has lower instances count than " + instanceId);
+			}		
+		}
+		return getWorldMapInstance(instanceId);
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public WorldMapInstance getNextFreeInstance()
+	{
+		//TODO
+		if(worldMapTemplate.getTwinCount() !=0)
+		{
+			for(WorldMapInstance instance : instances.values())
+			{
+				if(instance.getCurrentPlayerCount() == 0)
+					return instance;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -105,7 +151,7 @@ public class WorldMap
 	 * @param instanceId
 	 * @return WorldMapInstance/
 	 */
-	public WorldMapInstance getWorldMapInstance(int instanceId)
+	private WorldMapInstance getWorldMapInstance(int instanceId)
 	{
 		return instances.get(instanceId);
 	}

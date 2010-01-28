@@ -34,6 +34,7 @@ import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.KnownList;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.world.WorldMap;
 import com.google.inject.Inject;
 
 /**
@@ -94,15 +95,19 @@ public class RiftSpawnManager
 		if(masterGroup == null || slaveGroup == null)
 			return;
 		
+		int instanceCount = world.getWorldMap(masterGroup.getMapid()).getInstanceCount();
+		
 		SpawnTemplate masterTemplate = masterGroup.getNextRandomTemplate();
 		SpawnTemplate slaveTemplate = slaveGroup.getNextRandomTemplate();
 		
-		Npc slave = spawnInstance(masterGroup, slaveTemplate, new RiftController());
-		spawnInstance(masterGroup, masterTemplate, new RiftController(slave, rift.getEntries(), rift.getMaxLevel()));
-		
+		for(int i = 1; i <= instanceCount; i++)
+		{
+			Npc slave = spawnInstance(i, masterGroup, slaveTemplate, new RiftController());
+			spawnInstance(i, masterGroup, masterTemplate, new RiftController(slave, rift.getEntries(), rift.getMaxLevel()));
+		}		
 	}
 
-	private Npc spawnInstance(SpawnGroup spawnGroup, SpawnTemplate spawnTemplate, RiftController riftController)
+	private Npc spawnInstance(int instanceIndex, SpawnGroup spawnGroup, SpawnTemplate spawnTemplate, RiftController riftController)
 	{
 		NpcTemplate masterObjectTemplate = npcData.getNpcTemplate(spawnGroup.getNpcid());
 		Npc npc = new Npc(aionObjectsIDFactory.nextId(),riftController,
@@ -113,7 +118,7 @@ public class RiftSpawnManager
 		npc.getController().onRespawn();
 		
 		world.storeObject(npc);
-		world.setPosition(npc, spawnTemplate.getWorldId(), 
+		world.setPosition(npc, spawnTemplate.getWorldId(), instanceIndex, 
 			spawnTemplate.getX(), spawnTemplate.getY(), spawnTemplate.getZ(), spawnTemplate.getHeading());
 		world.spawn(npc);
 		

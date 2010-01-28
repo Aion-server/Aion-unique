@@ -16,12 +16,14 @@
  */
 package com.aionemu.gameserver.model.templates.spawn;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-
-import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 
 /**
  * @author Luno
@@ -45,8 +47,8 @@ public class SpawnTemplate
 	private int			walkerId;
 	private int			randomWalk;
 	
-	private boolean isSpawned;
-	private boolean respawn = true;
+	private byte spawnState = 0;
+	private byte respawn = -1;
 	
 	
 	/**
@@ -129,32 +131,43 @@ public class SpawnTemplate
 	/**
 	 * @return the isSpawned
 	 */
-	public boolean isSpawned()
+	public boolean isSpawned(int instance)
 	{
-		return isSpawned;
+		int MASK = 1 << instance;
+		return (spawnState & MASK) == MASK;
 	}
 
 	/**
 	 * @param isSpawned the isSpawned to set
 	 */
-	public void setSpawned(boolean isSpawned)
+	public void setSpawned(boolean isSpawned, int instance)
 	{
-		this.isSpawned = isSpawned;
+		int MASK = 1 << instance;
+		if(isSpawned)
+			this.spawnState |= MASK;
+		else
+			spawnState &= ~MASK;
+
 	}
 
 	/**
 	 * @return the respawn
 	 */
-	public boolean isRespawn()
+	public boolean isRespawn(int instance)
 	{
-		return respawn;
+		int MASK = 1 << instance;
+		return (respawn & MASK) == MASK;
 	}
 
 	/**
 	 * @param respawn the respawn to set
 	 */
-	public void setRespawn(boolean respawn)
+	public void setRespawn(boolean respawn, int instance)
 	{
-		this.respawn = respawn;
+		int MASK = 1 << instance;
+		if(respawn)
+			this.respawn |= MASK;
+		else
+			this.respawn &= ~MASK;
 	}
 }

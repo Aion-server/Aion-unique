@@ -17,13 +17,15 @@
 package com.aionemu.gameserver.model.templates.spawn;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.commons.utils.Rnd;
@@ -58,7 +60,8 @@ public class SpawnGroup
 	/**
 	 * Real-time properties
 	 */
-	private int lastSpawnedTemplate = -1;
+	private List<Integer> lastSpawnedTemplate = new ArrayList<Integer>();
+	
 	/**
 	 * Constructor used by unmarshaller
 	 */
@@ -81,6 +84,14 @@ public class SpawnGroup
 		this.npcid = npcid;
 		this.interval = interval;
 		this.pool = pool;
+	}
+	
+	public void setInstanceSupport(int instanceCount)
+	{
+		for(int i = 0; i < instanceCount; i++)
+		{
+			lastSpawnedTemplate.add(-1);
+		}
 	}
 
 	/**
@@ -144,19 +155,19 @@ public class SpawnGroup
 		return anchor;
 	}
 
-	public SpawnTemplate getNextAvailableTemplate()
+	public SpawnTemplate getNextAvailableTemplate(int instance)
 	{
 		for(int i = 0; i < getObjects().size(); i++)
 		{
-			int nextSpawnCounter = lastSpawnedTemplate + 1;
+			int nextSpawnCounter = lastSpawnedTemplate.get(instance - 1) + 1;
 			if(nextSpawnCounter >= objects.size())
 				nextSpawnCounter = 0;
 			
 			 SpawnTemplate nextSpawn = objects.get(nextSpawnCounter);
-			 if(nextSpawn.isSpawned())
+			 if(nextSpawn.isSpawned(instance))
 				 continue;
 			 
-			 lastSpawnedTemplate = nextSpawnCounter;
+			 lastSpawnedTemplate.set(instance - 1, nextSpawnCounter);
 			 return nextSpawn;
 		}
 		return null;

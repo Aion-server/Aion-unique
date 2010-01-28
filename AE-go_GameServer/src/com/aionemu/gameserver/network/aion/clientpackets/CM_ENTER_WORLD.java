@@ -20,6 +20,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import java.util.List;
 
 import com.aionemu.gameserver.network.aion.serverpackets.*;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.configs.Config;
@@ -36,7 +37,6 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNKDC;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.ClassChangeService;
@@ -165,7 +165,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			}
 
 			client.sendPacket(new SM_INVENTORY_INFO());
-			client.sendPacket(new SM_UNKDC()); //?? unknwon
+			client.sendPacket(new SM_CHANNEL_INFO(player.getPosition())); //?? unknwon
 			//sendPacket(new SM_UNKD3());
 
 			/*
@@ -224,19 +224,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
             sendPacket(new SM_PLAYER_ID(player));
             sendPacket(new SM_ABYSS_RANK());
 			sendPacket(new SM_FLY_TIME());
-            // sendPacket(new SM_UNK15());
-			// sendPacket(new SM_UNKC6());
-			// sendPacket(new SM_UNK66());
-			// sendPacket(new SM_UNKCB());
-			// sendPacket(new SM_UNK64());
-			// sendPacket(new SM_UNKE7());
-			// sendPacket(new SM_UNK97());
-			// sendPacket(new SM_UNK8D());
-
-
 
 			sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME
-				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2009", null,
+				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2010", null,
 				ChatType.ANNOUNCEMENTS));
 
 			// zone channel message

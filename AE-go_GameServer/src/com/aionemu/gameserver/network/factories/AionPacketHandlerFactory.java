@@ -25,6 +25,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_BLOCK_DEL;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_BLOCK_SET_REASON;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_BUY_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CASTSPELL;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_CHANGE_CHANNEL;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CHARACTER_LIST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CHAT_MESSAGE_PUBLIC;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CHAT_MESSAGE_WHISPER;
@@ -54,6 +55,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_ADD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_DEL;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_STATUS;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_GATHER;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_GROUP_DISTRIBUTION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_GROUP_RESPONSE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_INVITE_TO_GROUP;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_L2AUTH_LOGIN_CHECK;
@@ -84,7 +86,6 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_BLOCKLIST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_BRAND;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_DIALOG;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_FRIENDLIST;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_LOGOUT_SCREEN;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_MAP;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SPLIT_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_START_LOOT;
@@ -97,7 +98,6 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_USE_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERIFY_LOCATION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VIEW_PLAYER_DETAILS;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_GROUP_DISTRIBUTION;
 import com.google.inject.Injector;
 
 /**
@@ -153,6 +153,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_DELETE_CHARACTER(0x0E), State.AUTHED);// 1.5.x
 		addPacket(new CM_CREATE_CHARACTER(0x0D), State.AUTHED);// 1.5.x
 		addPacket(new CM_CHECK_NICKNAME(0x27), State.AUTHED);// 1.5.x
+		addPacket(new CM_CHANGE_CHANNEL(0x12), State.IN_GAME);
 		addPacket(new CM_CHAT_MESSAGE_WHISPER(0x82), State.IN_GAME);// 1.5.x
 		addPacket(new CM_CHAT_MESSAGE_PUBLIC(0x81), State.IN_GAME);
 		addPacket(new CM_CHARACTER_LIST(0x0C), State.AUTHED);

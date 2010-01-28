@@ -47,15 +47,22 @@ public class WorldMapInstance
 	 * List of active regions.
 	 */
 	private final Map<Integer, MapRegion>	regions			= new HashMap<Integer, MapRegion>();
-
+	
+	/**
+	 * Current player count in this instance
+	 */
+	private int 							currentPlayerCount;
+	
+	private int								instanceId;
 	/**
 	 * Constructor.
 	 *
 	 * @param parent
 	 */
-	WorldMapInstance(WorldMap parent)
+	WorldMapInstance(WorldMap parent, int instanceId)
 	{
 		this.parent = parent;
+		this.instanceId = instanceId;
 	}
 
 	/**
@@ -167,5 +174,31 @@ public class WorldMapInstance
 	public World getWorld()
 	{
 		return getParent().getWorld();
+	}
+
+	/**
+	 * @return the currentPlayerCount
+	 */
+	public int getCurrentPlayerCount()
+	{
+		return currentPlayerCount;
+	}
+	
+	public void onPlayerEnter()
+	{
+		currentPlayerCount++;
+	}
+	
+	public void onPlayerLeave()
+	{
+		currentPlayerCount--;
+	}
+
+	/**
+	 * @return the instanceIndex
+	 */
+	public int getInstanceId()
+	{
+		return instanceId;
 	}
 }

@@ -88,6 +88,11 @@ public abstract class VisibleObject extends AionObject
 	{
 		return position.getMapRegion();
 	}
+	
+	public int getInstanceId()
+	{
+		return position.getInstanceId();
+	}
 
 	/**
 	 * Return World map id.
