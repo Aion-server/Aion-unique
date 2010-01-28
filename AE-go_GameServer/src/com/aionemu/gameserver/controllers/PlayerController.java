@@ -22,6 +22,8 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackUtil;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
@@ -33,6 +35,7 @@ import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CHANNEL_INFO;
@@ -461,5 +464,46 @@ public class PlayerController extends CreatureController<Player>
 		player.setProtectionActive(true);
 		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));	
 		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));	
+	}
+
+	/**
+	 * @param b
+	 */
+	public void moveToBindLocation(boolean useTeleport)
+	{
+		float x,y,z;
+		int worldId;
+		BindPointTemplate bplist;
+		Player player = getOwner();
+		World world = player.getActiveRegion().getWorld();
+		
+		LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
+
+		int bindPointId = player.getCommonData().getBindPoint();
+		if (bindPointId != 0) 
+		{
+			bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate2(bindPointId);
+			worldId = bplist.getZoneId();
+			x = bplist.getX();
+			y = bplist.getY();
+			z = bplist.getZ();
+		}
+		else
+		{
+			locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
+			worldId = locationData.getMapId();
+			x = locationData.getX();
+			y = locationData.getY();
+			z = locationData.getZ();
+		}
+		
+		if(useTeleport)
+		{
+			teleportTo(worldId, x, y, z, 0);
+		}
+		else
+		{
+			world.setPosition(player, worldId, x, y, z, player.getHeading());
+		}
 	}
 }

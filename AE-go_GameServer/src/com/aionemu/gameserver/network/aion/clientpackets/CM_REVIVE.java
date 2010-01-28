@@ -36,11 +36,6 @@ public class CM_REVIVE extends AionClientPacket
 {
 	private static final Logger	log	= Logger.getLogger(CM_REVIVE.class);
 
-	@Inject
-	private World	world;
-	private float   x ,y,z;
-	private BindPointTemplate bplist;
-	private LocationData      locationData;
 	private int		  worldId;
 	/**
 	 * Constructs new instance of <tt>CM_REVIVE </tt> packet
@@ -78,32 +73,7 @@ public class CM_REVIVE extends AionClientPacket
 		sendPacket(new SM_QUEST_LIST(activePlayer));
 		sendPacket(new SM_STATS_INFO(activePlayer));
 		sendPacket(new SM_PLAYER_INFO(activePlayer, true));	
-		
-		/**
-		 * get place where to spawn.
-		 */
 
-		int bindPointId = activePlayer.getCommonData().getBindPoint();
-
-		if (bindPointId != 0) {
-			bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate2(bindPointId);
-			worldId = bplist.getZoneId();
-			x = bplist.getX();
-			y = bplist.getY();
-			z = bplist.getZ();
-		}
-		else
-		{
-			locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(activePlayer.getCommonData().getRace());
-			worldId = locationData.getMapId();
-			x = locationData.getX();
-			y = locationData.getY();
-			z = locationData.getZ();
-		}
-
-		/**
-		 * Spawn player.
-		 */
-		activePlayer.getController().teleportTo(worldId, x, y, z, 0);
+		activePlayer.getController().moveToBindLocation(true);
 	}
 }
