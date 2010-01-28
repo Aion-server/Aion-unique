@@ -31,7 +31,7 @@
 	<!-- TODO: Fungus Among Us -->
   
 	<!-- Ice Lake Crystals -->
-	<item_collecting start_npc_id="203556" id="2203"/>
+	<item_collecting start_npc_id="203556" action_item_id="700055" id="2203"/>
   
   	<!-- TODO: Mau in Ten Minutes a Day -->
   
@@ -49,7 +49,7 @@
   	
   	<!-- The Lobnite Problem -->
   	<monster_hunt start_npc_id="203560" id="2202">
-  		<monster_infos var_id="0" npc_id="213183" max_kill="10"/>
+  		<monster_infos var_id="0" npc_id="210413" max_kill="10"/>
   	</monster_hunt>
   	
   	<!-- TODO: The Scribbler -->

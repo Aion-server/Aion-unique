@@ -98,8 +98,9 @@
 	
 	<!-- TODO: Odella Recipe -->
 	
-	<!-- TODO: Pumpkin Season -->
-	
+	<!-- Pumpkin Season -->
+	<item_collecting id="1144" start_npc_id="730001" end_npc_id="203130" action_item_id="700109" />
+
 	<!-- TODO: The Forest Outlaw -->
 	
 	<!-- The Writing on the Wall -->
@@ -126,7 +127,7 @@
 	<!-- TODO: Odium in the Dukaki Settlement -->
 	
 	<!-- Retrieving Supplies -->
-	<item_collecting start_npc_id="203126" id="1155"/>
+	<item_collecting start_npc_id="203126" action_item_id="700117" id="1155"/>
 	
 	<!-- Secret Trade -->
 	<item_collecting start_npc_id="203137" id="1208"/>
