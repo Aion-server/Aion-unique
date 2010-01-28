@@ -222,6 +222,7 @@
 			<xs:extension base="Action">
 				<xs:attribute name="value" type="xs:int" use="required" />
 				<xs:attribute name="delta" type="xs:int" use="required" />
+				<xs:attribute name="percent" type="xs:boolean"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -231,6 +232,7 @@
 			<xs:extension base="Action">
 				<xs:attribute name="value" type="xs:int" use="required" />
 				<xs:attribute name="delta" type="xs:int" use="required" />
+				<xs:attribute name="percent" type="xs:boolean"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

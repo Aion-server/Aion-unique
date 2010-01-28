@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
@@ -48,6 +49,9 @@ public class HealAction
     
     @XmlAttribute
     protected int delta;
+    
+    @XmlAttribute
+    protected boolean percent;
 
     /**
      * Gets the value of the value property.
@@ -67,15 +71,23 @@ public class HealAction
 
 		int valueWithDelta = value + delta * skill.getSkillLevel();
 		
+		int firstTargetHealValue = valueWithDelta;
+		if(percent)
+		{
+			firstTargetHealValue = 
+				skill.getFirstTarget().getGameStats().getCurrentStat(StatEnum.MAXHP) * valueWithDelta / 100;
+		}
+		
 		int unk = 0;
 		PacketSendUtility.broadcastPacket(effector,
 			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), skill.getSkillLevel(),
-				unk, skill.getFirstTarget().getObjectId(), Collections.singletonList(new SkillAttackResult(skill.getFirstTarget(), -valueWithDelta, AttackStatus.NORMALHIT)), template.getCooldown()), true);
+				unk, skill.getFirstTarget().getObjectId(), Collections.singletonList(new SkillAttackResult(skill.getFirstTarget(), -firstTargetHealValue, AttackStatus.NORMALHIT)), template.getCooldown()), true);
 		
 		List<Creature> effectedList = skill.getEffectedList();
 		for(Creature effected : effectedList)
 		{
-			effected.getLifeStats().increaseHp(valueWithDelta);
+			int effectedHealValue = effected.getGameStats().getCurrentStat(StatEnum.MAXHP) * valueWithDelta / 100;
+			effected.getLifeStats().increaseHp(effectedHealValue);
 		}
 		
 	}
