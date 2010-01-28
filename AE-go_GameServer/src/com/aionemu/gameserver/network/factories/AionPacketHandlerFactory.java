@@ -175,7 +175,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_EQUIP_ITEM(0x9C), State.IN_GAME);//
 		addPacket(new CM_DELETE_ITEM(0x5A), State.IN_GAME);//
 		addPacket(new CM_DELETE_QUEST(0x46), State.IN_GAME);//
-		addPacket(new CM_PING_REQUEST(0x4D), State.IN_GAME); //1.5.x
+		addPacket(new CM_PING_REQUEST(0x5D), State.IN_GAME); //1.5.x
 		addPacket(new CM_TELEPORT_SELECT(0x7A), State.IN_GAME);//
 		addPacket(new CM_VERIFY_LOCATION(0xA7), State.IN_GAME);//
 		addPacket(new CM_VIEW_PLAYER_DETAILS(0x4A), State.IN_GAME);		
