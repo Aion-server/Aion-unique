@@ -86,7 +86,10 @@ public class HealAction
 		List<Creature> effectedList = skill.getEffectedList();
 		for(Creature effected : effectedList)
 		{
-			int effectedHealValue = effected.getGameStats().getCurrentStat(StatEnum.MAXHP) * valueWithDelta / 100;
+			int effectedHealValue = valueWithDelta;
+			if(percent)
+				effectedHealValue = effected.getGameStats().getCurrentStat(StatEnum.MAXHP) * valueWithDelta / 100;
+			
 			effected.getLifeStats().increaseHp(effectedHealValue);
 		}
 		

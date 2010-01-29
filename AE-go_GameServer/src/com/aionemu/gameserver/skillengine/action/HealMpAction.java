@@ -86,7 +86,10 @@ public class HealMpAction
 		List<Creature> effectedList = skill.getEffectedList();
 		for(Creature effected : effectedList)
 		{
-			int effectedHealValue = effected.getGameStats().getCurrentStat(StatEnum.MAXMP) * valueWithDelta / 100;
+			int effectedHealValue = valueWithDelta;
+			if(percent)
+				effectedHealValue = effected.getGameStats().getCurrentStat(StatEnum.MAXMP) * valueWithDelta / 100;
+			
 			effected.getLifeStats().increaseMp(effectedHealValue);
 		}
 		
