@@ -1070,10 +1070,10 @@
         <collect_items>
             <collect_item count="8" item_id="182200543"/>
         </collect_items>
-        <rewards exp="32540" gold="2800"/>
+        <rewards exp="37200" gold="3100"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="16" name="Slaying Slimes" id="1173">
-        <rewards exp="23000" gold="500">
+        <rewards exp="26000" gold="500">
             <reward_item count="2" item_id="164000086"/>
         </rewards>
     </quest>
@@ -1084,19 +1084,19 @@
         <rewards exp="31500" gold="1630"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="16" name="Poisoned Plumas" id="1175">
-        <rewards exp="26200" gold="2440"/>
+        <rewards exp="29700" gold="2680"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="16" name="Kalgolem's Essence" id="1176">
         <collect_items>
             <collect_item count="8" item_id="182200545"/>
         </collect_items>
-        <rewards exp="30200" gold="2750"/>
+        <rewards exp="33500" gold="2900"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="16" name="Mysterious Stones" id="1177">
         <collect_items>
             <collect_item count="7" item_id="182200546"/>
         </collect_items>
-        <rewards exp="13000" gold="850">
+        <rewards exp="17050" gold="850">
             <reward_item count="100" item_id="169000004"/>
         </rewards>
     </quest>
@@ -1107,7 +1107,7 @@
         <rewards exp="20130" gold="1580"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="17" name="Dispelling Ancient Spirits" id="1179">
-        <rewards exp="26000">
+        <rewards exp="29500">
             <reward_item count="1" item_id="161000003"/>
         </rewards>
     </quest>
@@ -1120,7 +1120,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="17" name="[Group] Culling Krall" id="1181">
-        <rewards exp="22000" gold="8400">
+        <rewards exp="33000" gold="9800">
             <reward_item count="10" item_id="164000067"/>
         </rewards>
     </quest>
@@ -1146,13 +1146,13 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="18" name="Unquiet Spirits" id="1185">
-        <rewards exp="14800" gold="1560"/>
+        <rewards exp="22300" gold="2020"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="18" name="The Wriggot Menace" id="1186">
         <collect_items>
             <collect_item count="5" item_id="182200552"/>
         </collect_items>
-        <rewards exp="22200">
+        <rewards exp="30500">
             <reward_item count="2" item_id="160000007"/>
         </rewards>
     </quest>
@@ -1165,19 +1165,19 @@
         <rewards exp="300"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="18" name="Message From Morai" id="1188">
-        <rewards exp="26400" gold="2000"/>
+        <rewards exp="28400" gold="2000"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="18" name="Potcrab, the Headache" id="1189">
         <collect_items>
             <collect_item count="7" item_id="182200553"/>
         </collect_items>
-        <rewards exp="22200" gold="2000"/>
+        <rewards exp="32800" gold="2500"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="18" name="Shipwreck Revolutionaries" id="1190">
         <collect_items>
             <collect_item count="1" item_id="182200554"/>
         </collect_items>
-        <rewards exp="30400" gold="1940"/>
+        <rewards exp="32400" gold="2200"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="18" name="An Urgent Letter" id="1191">
         <rewards exp="31600" gold="2610"/>
@@ -1186,7 +1186,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="19" name="Verteron Reinforcements" id="1192">
-        <rewards exp="47900"/>
+        <rewards exp="48800"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182200556"/>
         </quest_work_items>
@@ -1195,7 +1195,7 @@
         <collect_items>
             <collect_item count="1" item_id="182200557"/>
         </collect_items>
-        <rewards exp="12000" gold="3000">
+        <rewards exp="24000" gold="3000">
             <reward_item count="3" item_id="164000074"/>
         </rewards>
         <finished_quest_conds>1192</finished_quest_conds>
@@ -1211,12 +1211,12 @@
         <finished_quest_conds>1194</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="100" minlevel_permitted="16" name="[Coin] Dampening Spirits" id="1196">
-        <rewards exp="8400">
+        <rewards exp="16800">
             <reward_item count="1" item_id="186000001"/>
         </rewards>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="14" name="Krall Book" id="1197">
-        <rewards exp="14850" gold="740"/>
+        <rewards exp="14850" gold="820"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182200558"/>
         </quest_work_items>
@@ -1246,14 +1246,14 @@
         <finished_quest_conds>1135</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="100" minlevel_permitted="17" name="[Group] Persistent Krall" id="1202">
-        <rewards exp="24800" gold="4800"/>
+        <rewards exp="34200" gold="5600"/>
         <finished_quest_conds>1181</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="100" minlevel_permitted="18" name="Wriggot Resurgence" id="1203">
         <collect_items>
             <collect_item count="5" item_id="182200561"/>
         </collect_items>
-        <rewards exp="3800">
+        <rewards exp="9800">
             <reward_item count="2" item_id="160000007"/>
         </rewards>
         <finished_quest_conds>1186</finished_quest_conds>
@@ -1262,7 +1262,7 @@
         <collect_items>
             <collect_item count="5" item_id="182200562"/>
         </collect_items>
-        <rewards exp="3800" gold="1700"/>
+        <rewards exp="9800" gold="2100"/>
         <finished_quest_conds>1189</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="3" name="A New Skill" id="1205">
@@ -1304,7 +1304,7 @@
             <collect_item count="10" item_id="152000601"/>
             <collect_item count="5" item_id="152000702"/>
         </collect_items>
-        <rewards exp="15000" gold="1500"/>
+        <rewards exp="17500" gold="1500"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="99" name="Targena for Titania" id="1211">
         <collect_items>
@@ -1330,13 +1330,13 @@
         <collect_items>
             <collect_item count="15" item_id="152001002"/>
         </collect_items>
-        <rewards exp="10000" gold="2250"/>
+        <rewards exp="12500" gold="2250"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="18" name="Saving the Snappers" id="1216">
-        <rewards exp="29800" gold="2800"/>
+        <rewards exp="38700" gold="2800"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="18" name="Flotsam" id="1217">
-        <rewards exp="23800" gold="2740"/>
+        <rewards exp="31500" gold="2740"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="19" name="Numonerk's Demand Note" id="1218">
         <rewards exp="40200"/>
@@ -1348,11 +1348,11 @@
         <collect_items>
             <collect_item count="3" item_id="182200567"/>
         </collect_items>
-        <rewards exp="25000"/>
+        <rewards exp="32200"/>
         <finished_quest_conds>1218</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="19" name="A Secret Delivery" id="1220">
-        <rewards exp="40000" gold="2000">
+        <rewards exp="49900" gold="2000">
             <reward_item count="1" item_id="166000020"/>
         </rewards>
         <finished_quest_conds>1219</finished_quest_conds>
@@ -2069,7 +2069,7 @@
         <finished_quest_conds>1415 1425</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="100" minlevel_permitted="20" name="[Coin] Fortress Beasts" id="1418">
-        <rewards exp="11000">
+        <rewards exp="19800">
             <reward_item count="1" item_id="186000002"/>
         </rewards>
         <finished_quest_conds>1419</finished_quest_conds>
@@ -3024,7 +3024,7 @@
         <collect_items>
             <collect_item count="1" item_id="182201727"/>
         </collect_items>
-        <rewards exp="598680" gold="3900"/>
+        <rewards exp="598680" gold="7300"/>
         <finished_quest_conds>1542</finished_quest_conds>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="200" minlevel_permitted="37" name="The Agrint Problem" id="1557">
@@ -6959,15 +6959,15 @@
         <collect_items>
             <collect_item count="5" item_id="182203237"/>
         </collect_items>
-        <rewards exp="15800">
+        <rewards exp="20480">
             <reward_item count="1" item_id="164000010"/>
         </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="17" name="Turbulent Mist Spirits" id="2255">
-        <rewards exp="6980" gold="1200"/>
+        <rewards exp="9920" gold="1200"/>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="17" name="Turbulent Splash Spirits" id="2256">
-        <rewards exp="11600" gold="1600"/>
+        <rewards exp="16480" gold="1900"/>
         <finished_quest_conds>2255</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="17" name="Rebuilding the Pillar" id="2257">
@@ -6987,7 +6987,7 @@
         <collect_items>
             <collect_item count="1" item_id="182203240"/>
         </collect_items>
-        <rewards exp="22900" gold="1800">
+        <rewards exp="24420" gold="1950">
             <reward_item count="2" item_id="162000003"/>
         </rewards>
     </quest>
@@ -7013,7 +7013,7 @@
         </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="15" name="The Sting of Poison" id="2264">
-        <rewards exp="9063" gold="1800"/>
+        <rewards exp="10050" gold="1800"/>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="15" name="A Lost Sword" id="2265">
         <collect_items>
@@ -7024,28 +7024,28 @@
         </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="16" name="A Trustworthy Messenger" id="2266">
-        <rewards exp="15300" gold="1500"/>
+        <rewards exp="18420" gold="1500"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203244"/>
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="16" name="A Monster in a Box" id="2267">
-        <rewards exp="11000" gold="2300"/>
+        <rewards exp="17580" gold="2500"/>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="16" name="Urnir's Reasoning" id="2268">
-        <rewards exp="10700" gold="2300"/>
+        <rewards exp="16890" gold="2500"/>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="16" name="Neifenmer's Reasoning" id="2269">
         <collect_items>
             <collect_item count="1" item_id="182203245"/>
         </collect_items>
-        <rewards exp="6000"/>
+        <rewards exp="7510"/>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="16" name="Creating a Delay" id="2270">
         <collect_items>
             <collect_item count="3" item_id="182203246"/>
         </collect_items>
-        <rewards exp="14600" gold="1750">
+        <rewards exp="17200" gold="1900">
             <reward_item count="50" item_id="169000004"/>
         </rewards>
         <finished_quest_conds>2269</finished_quest_conds>
@@ -7061,7 +7061,7 @@
         <collect_items>
             <collect_item count="1" item_id="182203248"/>
         </collect_items>
-        <rewards exp="9120" gold="700"/>
+        <rewards exp="9750" gold="700"/>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="16" name="Emergency Rations" id="2273">
         <collect_items>
@@ -7071,7 +7071,7 @@
         <finished_quest_conds>2272</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="18" name="Black Claw Baton" id="2274">
-        <rewards exp="21500" gold="3000">
+        <rewards exp="24200" gold="3000">
             <reward_item count="2" item_id="166000018"/>
         </rewards>
         <quest_work_items>
@@ -7082,20 +7082,20 @@
         <collect_items>
             <collect_item count="9" item_id="152000052"/>
         </collect_items>
-        <rewards exp="12500" gold="900"/>
+        <rewards exp="13200" gold="900"/>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="17" name="Branching out Further" id="2276">
         <collect_items>
             <collect_item count="9" item_id="152000053"/>
         </collect_items>
-        <rewards exp="13000" gold="900"/>
+        <rewards exp="16500" gold="1100"/>
         <finished_quest_conds>2275</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="17" name="[Group] A Lucrative Endeavor" id="2277">
         <collect_items>
             <collect_item count="10" item_id="182203251"/>
         </collect_items>
-        <rewards exp="22400" gold="10000">
+        <rewards exp="26400" gold="10000">
             <reward_item count="3" item_id="164000071"/>
         </rewards>
     </quest>
@@ -7114,32 +7114,32 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="17" name="[Group] Killing the Shamans" id="2280">
-        <rewards exp="17100" gold="8000">
+        <rewards exp="22460" gold="8500">
             <reward_item count="5" item_id="160003012"/>
         </rewards>
         <finished_quest_conds>2286</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="17" name="[Group] Finishing off Fighters" id="2281">
-        <rewards exp="55600" gold="12000">
+        <rewards exp="55600" gold="13500">
             <reward_item count="5" item_id="162000047"/>
         </rewards>
         <finished_quest_conds>2287</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="19" name="[Group] Killing Kumbaron's Followers" id="2282">
-        <rewards exp="41800">
+        <rewards exp="44100">
             <reward_item count="1" item_id="121000751"/>
         </rewards>
         <finished_quest_conds>2279</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="19" name="Report to Pandaemonium" id="2283">
-        <rewards exp="12600" gold="1560"/>
+        <rewards exp="24000" gold="1950"/>
         <finished_quest_conds>2282</finished_quest_conds>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203255"/>
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="16" name="Escaping Asmodae" id="2284">
-        <rewards title="55" exp="24500">
+        <rewards title="55" exp="33420">
             <reward_item count="1" item_id="122000871"/>
         </rewards>
         <finished_quest_conds>2247</finished_quest_conds>
@@ -7156,7 +7156,7 @@
         </quest_work_items>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="17" name="Order to Valurion" id="2287">
-        <rewards exp="3750" gold="200"/>
+        <rewards exp="4270" gold="300"/>
         <finished_quest_conds>2279</finished_quest_conds>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203260"/>
@@ -7191,7 +7191,7 @@
         </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="100" minlevel_permitted="16" name="[Coin] Mutated Spirits" id="2293">
-        <rewards exp="5800">
+        <rewards exp="14900">
             <reward_item count="1" item_id="186000006"/>
         </rewards>
     </quest>
@@ -7202,7 +7202,7 @@
         <class_permitted>MAGE PRIEST SORCERER SPIRIT_MASTER CHANTER CLERIC</class_permitted>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="17" name="A Bill Found in a Box" id="2296">
-        <rewards exp="36500" gold="3700"/>
+        <rewards exp="36500" gold="4500"/>
         <quest_work_items>
             <quest_work_item count="1" item_id="182203263"/>
         </quest_work_items>
@@ -7211,7 +7211,7 @@
         <collect_items>
             <collect_item count="18" item_id="152001052"/>
         </collect_items>
-        <rewards exp="13000" gold="2700"/>
+        <rewards exp="15700" gold="3000"/>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="255" minlevel_permitted="10" name="[Manastone] Lakutu's Exchange" id="2298">
         <collect_items>
@@ -7336,7 +7336,7 @@
         </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="100" minlevel_permitted="20" name="[Coin] Foes of the Fortress" id="2318">
-        <rewards exp="16800">
+        <rewards exp="22100">
             <reward_item count="1" item_id="186000007"/>
         </rewards>
     </quest>
@@ -7757,7 +7757,7 @@
         <finished_quest_conds>2381</finished_quest_conds>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="30" name="Combat Preparation" id="2383">
-        <rewards exp="65900"/>
+        <rewards exp="65900" gold="5200"/>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="30" name="[Group] A Missing Bandage" id="2384">
         <collect_items>
@@ -10518,7 +10518,9 @@
         <rewards reward_abyss_point="400" exp="730350"/>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="255" minlevel_permitted="99" name="A Ghost Hosts" id="2817">
-        <rewards reward_abyss_point="150" gold="9000"/>
+        <rewards reward_abyss_point="150" gold="9000">
+            <reward_item count="5" item_id="141000001"/>
+        </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="99" name="Temporary" id="2818">
         <rewards reward_abyss_point="100"/>
@@ -10527,37 +10529,49 @@
         <collect_items>
             <collect_item count="5" item_id="182205656"/>
         </collect_items>
-        <rewards reward_abyss_point="100" exp="70140" gold="7000"/>
+        <rewards reward_abyss_point="100" exp="70140" gold="7000">
+            <reward_item count="5" item_id="141000001"/>
+        </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="200" minlevel_permitted="30" name="Medicinal Purposes" id="2820">
         <collect_items>
             <collect_item count="5" item_id="182205657"/>
         </collect_items>
-        <rewards reward_abyss_point="100" exp="102120" gold="6800"/>
+        <rewards reward_abyss_point="100" exp="102120" gold="6800">
+            <reward_item count="10" item_id="141000001"/>
+        </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="200" minlevel_permitted="30" name="Dangerous Statue" id="2821">
         <collect_items>
             <collect_item count="10" item_id="182205658"/>
         </collect_items>
-        <rewards reward_abyss_point="100" exp="87420" gold="8500"/>
+        <rewards reward_abyss_point="100" exp="87420" gold="8500">
+            <reward_item count="10" item_id="141000001"/>
+        </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="200" minlevel_permitted="38" name="Deformed Weapon" id="2822">
         <collect_items>
             <collect_item count="5" item_id="182205659"/>
         </collect_items>
-        <rewards reward_abyss_point="120" exp="149670" gold="7000"/>
+        <rewards reward_abyss_point="120" exp="149670" gold="7000">
+            <reward_item count="10" item_id="141000001"/>
+        </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="200" minlevel_permitted="38" name="Ravenous Hearts" id="2823">
         <collect_items>
             <collect_item count="10" item_id="182205660"/>
         </collect_items>
-        <rewards reward_abyss_point="150" exp="149670" gold="8800"/>
+        <rewards reward_abyss_point="150" exp="149670" gold="8800">
+            <reward_item count="10" item_id="141000001"/>
+        </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="200" minlevel_permitted="38" name="Protect the Weapons" id="2824">
         <collect_items>
             <collect_item count="10" item_id="182205661"/>
         </collect_items>
-        <rewards reward_abyss_point="150" exp="149670" gold="8400"/>
+        <rewards reward_abyss_point="150" exp="149670" gold="8400">
+            <reward_item count="10" item_id="141000001"/>
+        </rewards>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="49" name="Core Competency" id="2825">
         <collect_items>
