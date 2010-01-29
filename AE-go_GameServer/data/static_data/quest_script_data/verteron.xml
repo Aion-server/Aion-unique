@@ -173,7 +173,7 @@
 	<item_collecting start_npc_id="203162" id="1167"/>
 	
 	<!-- Soporific Mushroom -->
-	<item_collecting start_npc_id="203163" id="1168"/>
+	<item_collecting start_npc_id="203163" action_item_id="700114" id="1168"/>
 	
 	<!-- A Hungry Abex -->
 	<item_collecting start_npc_id="203153" id="1213"/>
@@ -197,8 +197,8 @@
 	
 	<!-- TODO: Trandila's Eggs -->
 	
-	<!-- TEST: A Foolish Gamble -->
-	<item_collecting start_npc_id="203110" end_npc_id="203146" id="1172"/>
+	<!-- A Foolish Gamble -->
+	<item_collecting start_npc_id="203110" end_npc_id="203146" action_item_id="700115" id="1172"/>
 	
 	<!-- Dispelling Ancient Spirits -->
 	<monster_hunt start_npc_id="203158" id="1179">
@@ -225,8 +225,8 @@
 	<!-- Kalgolem's Essence -->
 	<item_collecting start_npc_id="203158" id="1176"/>
 	
-	<!-- TEST: Mysterious Stones -->
-	<item_collecting start_npc_id="203156" end_npc_id="203157" id="1177"/>
+	<!-- Mysterious Stones -->
+	<item_collecting start_npc_id="203156" end_npc_id="203157" action_item_id="700006" id="1177"/>
 	
 	<!-- Poisoned Plumas -->
 	<monster_hunt start_npc_id="203156" id="1175">
@@ -236,7 +236,7 @@
 	<!-- TODO: Source of the Pollution -->
 	
 	<!-- Swamp Plant Samples -->
-	<item_collecting start_npc_id="203155" id="1178"/>
+	<item_collecting start_npc_id="203155" action_item_id="700113" id="1178"/>
 	
 	<!-- TODO: [Group] Persistent Krall -->
 	
