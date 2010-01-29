@@ -82,6 +82,8 @@ public class CM_EMOTION extends AionClientPacket
 			case 0x11:// Nothing here
 			case 0x13://emotion = readH();
 			case 0x14:// duel end
+			case 0x15:// walk on
+			case 0x16:// walk off
 			case 0x21://get equip weapon
 			case 0x22://remove equip weapon
 			case 0x1F://powershard
@@ -109,10 +111,11 @@ public class CM_EMOTION extends AionClientPacket
 				player.setState(CreatureState.RESTING);
 				break;
 			case 0x3:
-				player.setState(CreatureState.STANDING);
+				player.unsetState(CreatureState.RESTING);
 				break;
 			case 0x7:
-				player.setState(CreatureState.STANDING);
+				player.unsetState(CreatureState.FLYING);
+				player.setState(CreatureState.ACTIVE);
 				PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
 				ZoneManager.getInstance().findZoneInCurrentMap(player);
 				break;
@@ -136,13 +139,25 @@ public class CM_EMOTION extends AionClientPacket
 				//player.getCommonData().setFlying(true);
 				break;
 			case 0x9:
-				player.setState(CreatureState.STANDING);
+				player.unsetState(CreatureState.FLYING);
 				//player.getCommonData().setFlying(false);
 				break;
-			case 21:
-			case 22:
+			case 0x21:
+			case 0x13:
+				player.setState(CreatureState.WEAPON_EQUIPPED);
+				break;
+			case 0x22:
+			case 0x14:
+				 player.unsetState(CreatureState.WEAPON_EQUIPPED);
+				break;
 //				if (player.getCommonData().isFlying() == true)
 //					return;
+			case 0x15:
+				player.setState(CreatureState.WALKING);
+				break;
+			case 0x16:
+				player.unsetState(CreatureState.WALKING);
+				break;
 		}
 		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, emotionType, emotion, player.getTarget()== null?0:player.getTarget().getObjectId()), true);
 	}

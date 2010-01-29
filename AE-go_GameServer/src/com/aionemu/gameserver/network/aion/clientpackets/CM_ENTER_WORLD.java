@@ -229,8 +229,6 @@ public class CM_ENTER_WORLD extends AionClientPacket
 				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2010", null,
 				ChatType.ANNOUNCEMENTS));
 
-			// zone channel message
-			sendPacket(new SM_SYSTEM_MESSAGE(1390122, 1));
 			playerService.playerLoggedIn(player);
 
 			ClassChangeService.showClassChangeDialog(player);

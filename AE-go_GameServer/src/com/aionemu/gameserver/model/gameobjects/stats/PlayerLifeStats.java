@@ -95,7 +95,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	public void restoreHp()
 	{
 		int currentRegenHp = getOwner().getGameStats().getCurrentStat(StatEnum.REGEN_HP);
-		if(getOwner().getState() == CreatureState.RESTING)
+		if(getOwner().isInState(CreatureState.RESTING))
 			currentRegenHp *= 8;
 		increaseHp(currentRegenHp);
 	}
@@ -104,7 +104,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	public void restoreMp()
 	{
 		int currentRegenMp = getOwner().getGameStats().getCurrentStat(StatEnum.REGEN_MP);
-		if(getOwner().getState() == CreatureState.RESTING)
+		if(getOwner().isInState(CreatureState.RESTING))
 			currentRegenMp *= 8;
 		increaseMp(currentRegenMp);
 	}

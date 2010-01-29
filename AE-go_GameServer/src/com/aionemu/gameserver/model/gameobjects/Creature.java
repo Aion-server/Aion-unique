@@ -46,7 +46,7 @@ public abstract class Creature extends VisibleObject
 
 	private EffectController effectController;
 	
-	private CreatureState state;
+	private int state = CreatureState.ACTIVE.getId();
 	
 	private boolean isRooted = false;
 
@@ -175,7 +175,7 @@ public abstract class Creature extends VisibleObject
 	/**
 	 * @return
 	 */
-	public CreatureState getState()
+	public int getState()
 	{
 		return state;
 	}
@@ -185,7 +185,22 @@ public abstract class Creature extends VisibleObject
 	 */
 	public void setState(CreatureState state)
 	{
-		this.state = state;
+		this.state |= state.getId();
+	}
+
+	public void unsetState(CreatureState state)
+	{
+		this.state &= ~state.getId();
+	}
+
+	public boolean isInState(CreatureState state)
+	{
+		int isState = this.state & state.getId();
+
+		if(isState == state.getId())
+			return true;
+
+		return false;
 	}
 
 	/**

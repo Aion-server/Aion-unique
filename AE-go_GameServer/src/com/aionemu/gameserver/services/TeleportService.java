@@ -98,7 +98,8 @@ public class TeleportService
 		
 		if(!checkKinahForTransportation(location, player))
 			return;
-		player.setState(CreatureState.FLY_TELEPORT);
+		player.setState(CreatureState.FLYING);
+		player.unsetState(CreatureState.ACTIVE);
 		PacketSendUtility.sendPacket(player, new SM_EMOTION(player, 6, location.getTeleportId(), 0));
 	}
 	

@@ -55,6 +55,7 @@ public class NpcController extends CreatureController<Npc>
 	{
 		this.decayTask = null;
 		//TODO based on template
+		this.getOwner().unsetState(CreatureState.DEAD);                
 		this.getOwner().setState(CreatureState.NPC_IDLE);
 		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
 	}

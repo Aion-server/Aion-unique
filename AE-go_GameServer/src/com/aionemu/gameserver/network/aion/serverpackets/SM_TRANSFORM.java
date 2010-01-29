@@ -33,7 +33,7 @@ public class SM_TRANSFORM extends AionServerPacket
 	public SM_TRANSFORM(Creature creature)
 	{
 		this.creature = creature;
-		this.state = creature.getState().ordinal();
+		this.state = creature.getState();
 	}
 
 	/**

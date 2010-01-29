@@ -80,7 +80,7 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeC(buf, raceId); //race
         writeC(buf, pcd.getPlayerClass().getClassId());
         writeC(buf, genderId); //sex
-        writeH(buf, player.getState().getId());
+        writeH(buf, player.getState());
         
         byte[] unk = new byte[]{(byte) 0x00, (byte) 0x00, (byte) 0x00,
                 (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00

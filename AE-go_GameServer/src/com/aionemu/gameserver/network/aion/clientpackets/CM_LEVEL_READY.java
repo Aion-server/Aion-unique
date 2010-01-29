@@ -20,6 +20,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_WEATHER;
 import com.aionemu.gameserver.services.WeatherService;
 import com.aionemu.gameserver.world.World;
@@ -63,8 +64,9 @@ public class CM_LEVEL_READY extends AionClientPacket
 	{		
 		Player activePlayer = getConnection().getActivePlayer();
 		
-		//TODO can be flying also but need save in db first probably
-		activePlayer.setState(CreatureState.STANDING);
+		//here check flying zone may be to dissallow teleporting itself
+		activePlayer.unsetState(CreatureState.FLYING);
+		
 		
 		sendPacket(new SM_PLAYER_INFO(activePlayer, true));
 
@@ -80,6 +82,9 @@ public class CM_LEVEL_READY extends AionClientPacket
 		//random weather
 		int weatherMaskId = WeatherService.getRandomWeather();
 		sendPacket(new SM_WEATHER(weatherMaskId));
+		
+		// zone channel message
+		sendPacket(new SM_SYSTEM_MESSAGE(1390122, activePlayer.getPosition().getInstanceId()));
 		
 		activePlayer.getEffectController().updatePlayerEffectIcons();
 	}

@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
@@ -62,8 +63,6 @@ public class SM_EMOTION extends AionServerPacket
 	 */
 	private float				speed = 6.0f;
 	
-	private float 				flightSpeed = 9.0f;
-	
 	private int					state;
 	/**
 	 * Constructs new server packet with specified opcode
@@ -83,7 +82,7 @@ public class SM_EMOTION extends AionServerPacket
 		this.emotionType = emotionType;
 		this.emotion = emotion;
 		this.targetObjectId = targetObjectId;
-		this.state = creature.getState().getId();
+		this.state = creature.getState();
 	}
 
 	/**
@@ -96,13 +95,13 @@ public class SM_EMOTION extends AionServerPacket
 		this.emotionType = emotionType;
 		this.emotion = emotion;
 		this.targetObjectId = targetObjectId;
-		//TODO correct flying state
-//		if (player.getCommonData().isFlying() == true)
-//			this.speed = player.getGameStats().getCurrentStat(StatEnum.FLY_SPEED) / 1000f;
-//		else
-		this.speed = player.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000f;
-		this.flightSpeed = player.getGameStats().getCurrentStat(StatEnum.FLY_SPEED) / 1000f;
-		this.state = player.getState().getId();
+
+		if (player.isInState(CreatureState.FLYING))
+			this.speed = player.getGameStats().getCurrentStat(StatEnum.FLY_SPEED) / 1000f;
+		else
+			this.speed = player.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000f;
+
+		this.state = player.getState();
 	}
 
 	/**
@@ -161,7 +160,7 @@ public class SM_EMOTION extends AionServerPacket
 			case 8:
 				// toggle flight mode
 				writeH(buf, state); // state?
-				writeF(buf, flightSpeed); // speed
+				writeF(buf, speed); // speed
 				break;
 			case 9:
 				// toggle land mode
