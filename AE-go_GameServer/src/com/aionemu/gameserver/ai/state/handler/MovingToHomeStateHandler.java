@@ -45,12 +45,10 @@ public class MovingToHomeStateHandler extends StateHandler
 	{
 		ai.clearDesires();
 		Monster monster = (Monster) ai.getOwner();
-		
+		monster.setTarget(null);
 		monster.getAggroList().clear();
-		PacketSendUtility.broadcastPacket(monster,
-			new SM_EMOTION(monster, 30, 0,  monster.getTarget() == null ? 0:monster.getTarget().getObjectId()));
-		PacketSendUtility.broadcastPacket(monster,
-			new SM_EMOTION(monster, 20, 0, monster.getTarget() == null ? 0:monster.getTarget().getObjectId()));
+		PacketSendUtility.broadcastPacket(monster, new SM_EMOTION(monster, 30, 0, 0));
+		PacketSendUtility.broadcastPacket(monster, new SM_EMOTION(monster, 20, 0, 0));
 		ai.addDesire(new MoveToHomeDesire(monster, AIState.MOVINGTOHOME.getPriority()));
 		
 		ai.schedule();

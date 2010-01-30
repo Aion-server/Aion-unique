@@ -20,11 +20,14 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.aionemu.gameserver.controllers.movement.MoveObserver;
+import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.skillengine.model.HopType;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * This class is for controlling Creatures [npc's, players etc]
@@ -78,6 +81,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	public void onDie()
 	{
 		this.getOwner().getEffectController().removeAllEffects();
+		this.getOwner().getMoveController().stop();
 	}
 	
 	/**
@@ -210,5 +214,15 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	public boolean isAttackable()
 	{
 		return false;
+	}
+
+	/**
+	 *  Stops movements
+	 */
+	public void stopMoving()
+	{
+		Creature owner = getOwner();
+		owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(), owner.getHeading());			
+		PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0, owner.getHeading(), MovementType.MOVEMENT_STOP));	
 	}
 }

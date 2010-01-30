@@ -57,7 +57,7 @@ public class RestoreHealthDesire extends AbstractDesire
 	@Override
 	public int getExecutionInterval()
 	{
-		return 2;
+		return 1;
 	}
 
 	@Override

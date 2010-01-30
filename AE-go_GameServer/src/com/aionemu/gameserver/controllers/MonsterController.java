@@ -244,6 +244,4 @@ public class MonsterController extends NpcController
 		if(object instanceof Player)
 			getOwner().getAi().handleEvent(Event.SEE_PLAYER);
 	}
-
-
 }

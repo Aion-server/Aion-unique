@@ -157,6 +157,11 @@ public class SpawnGroup
 
 	public SpawnTemplate getNextAvailableTemplate(int instance)
 	{
+		if(lastSpawnedTemplate.size() < instance)
+		{
+			setInstanceSupport(instance - lastSpawnedTemplate.size());
+		}
+		
 		for(int i = 0; i < getObjects().size(); i++)
 		{
 			int nextSpawnCounter = lastSpawnedTemplate.get(instance - 1) + 1;

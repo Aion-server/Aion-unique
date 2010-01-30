@@ -83,6 +83,7 @@ public class SM_EMOTION extends AionServerPacket
 		this.emotion = emotion;
 		this.targetObjectId = targetObjectId;
 		this.state = creature.getState();
+		this.speed = creature.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000f;
 	}
 
 	/**

@@ -19,6 +19,7 @@ package com.aionemu.gameserver.model.gameobjects;
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.EffectController;
+import com.aionemu.gameserver.controllers.MoveController;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
@@ -46,6 +47,8 @@ public abstract class Creature extends VisibleObject
 
 	private EffectController effectController;
 	
+	private MoveController moveController;
+	
 	private int state = CreatureState.ACTIVE.getId();
 	
 	private boolean isRooted = false;
@@ -59,6 +62,7 @@ public abstract class Creature extends VisibleObject
 	{
 		super(objId, controller, spawnTemplate, objectTemplate, position);
 		initializeAi();
+		this.moveController = new MoveController(this);
 	}
 
 	/**
@@ -217,5 +221,13 @@ public abstract class Creature extends VisibleObject
 	public void setTransformedModelId(int transformedModelId)
 	{
 		this.transformedModelId = transformedModelId;
+	}
+
+	/**
+	 * @return the moveController
+	 */
+	public MoveController getMoveController()
+	{
+		return moveController;
 	}
 }

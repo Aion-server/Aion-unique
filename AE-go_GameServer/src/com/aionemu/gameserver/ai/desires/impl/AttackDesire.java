@@ -82,7 +82,7 @@ public final class AttackDesire extends AbstractDesire
 			return false;
 		}
 		
-		if(distance <= 3)
+		if(distance <= 2)
 		{
 			owner.getController().attackTarget(target.getObjectId());
 			attackNotPossibleCounter = 0;
@@ -139,7 +139,7 @@ public final class AttackDesire extends AbstractDesire
 	@Override
 	public int getExecutionInterval()
 	{
-		return 4;
+		return 2;
 	}
 
 	@Override

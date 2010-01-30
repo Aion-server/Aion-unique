@@ -34,5 +34,6 @@ public class NpcGameStats extends CreatureGameStats<Npc>
 		initStat(StatEnum.PHYSICAL_DEFENSE, Math.round(nst.getPdef()));
 		initStat(StatEnum.MAGICAL_RESIST, Math.round(nst.getMdef()));
 		initStat(StatEnum.MAIN_HAND_POWER, nst.getPower());
+		initStat(StatEnum.SPEED, Math.round(nst.getRunSpeedFight()*1000));
 	}
 }

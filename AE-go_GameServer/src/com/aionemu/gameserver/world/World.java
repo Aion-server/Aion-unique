@@ -202,6 +202,19 @@ public class World
 	 */
 	public void updatePosition(VisibleObject object, float newX, float newY, float newZ, byte newHeading)
 	{
+		this.updatePosition(object, newX, newY, newZ, newHeading, true);
+	}
+	
+	/**
+	 *  
+	 * @param object
+	 * @param newX
+	 * @param newY
+	 * @param newZ
+	 * @param newHeading
+	 */
+	public void updatePosition(VisibleObject object, float newX, float newY, float newZ, byte newHeading, boolean updateKnownList)
+	{
 		//prevent updating object position in despawned state
 		if(!object.isSpawned())
 			return;
@@ -223,7 +236,9 @@ public class World
 			newRegion.add(object);
 			object.getPosition().setMapRegion(newRegion);
 		}
-		object.updateKnownlist();
+		
+		if(updateKnownList)
+			object.updateKnownlist();
 	}
 
 	/**

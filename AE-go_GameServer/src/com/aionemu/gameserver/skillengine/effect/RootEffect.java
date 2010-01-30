@@ -38,14 +38,13 @@ public class RootEffect extends EffectTemplate
 	@Override
 	public void startEffect(Effect effect)
 	{
-		// TODO Auto-generated method stub
+		effect.getEffected().setIsRooted(true);
 	}
 
 	@Override
 	public void endEffect(Effect effect)
 	{
-		// TODO Auto-generated method stub
-		
+		effect.getEffected().setIsRooted(false);
 	}
 
 	@Override

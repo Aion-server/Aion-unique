@@ -43,6 +43,7 @@ public class GeneralDesireIteratorHandler implements DesireIteratorHandler
 		boolean isOk = desire.handleDesire(ai);
 		if(!isOk)
 		{
+			desire.onClear();
 			iterator.remove();
 		}
 	}
