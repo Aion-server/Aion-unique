@@ -59,6 +59,9 @@ public class ItemTemplate
 
 	@XmlAttribute(name = "dmg_decal")
 	private int					dmgDecal;
+	
+	@XmlAttribute(name = "weapon_boost")
+	private int					weaponBoost;
 
 	@XmlAttribute(name = "price")
 	private int					price;
@@ -426,6 +429,14 @@ public class ItemTemplate
 	public String getRacePermitted()
 	{
 		return racePermitted;
+	}
+	
+	/**
+	 * @return the weaponBoost
+	 */
+	public int getWeaponBoost()
+	{
+		return weaponBoost;
 	}
 
 	/**

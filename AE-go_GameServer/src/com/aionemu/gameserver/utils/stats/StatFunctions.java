@@ -17,18 +17,23 @@
 package com.aionemu.gameserver.utils.stats;
 
 import org.apache.log4j.Logger;
+import java.util.List;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.SkillElement;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
 import com.aionemu.gameserver.model.templates.stats.NpcRank;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 
 /**
  * @author ATracer
@@ -184,8 +189,20 @@ public class StatFunctions
 				+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + ags.getStatBonus(StatEnum.OFF_HAND_POWER);
 			}
 
+			//adjusting baseDamages according to attacker and target level
+			//
+			Damage = adjustDamages(attacker, target, Damage);
 
+			if(attacker.isInState(CreatureState.POWERSHARD))
+			{
+				Item mainHandPowerShard = ((Player)attacker).getInventory().getMainHandPowerShard();
+				if(mainHandPowerShard != null)
+				{
+					Damage += mainHandPowerShard.getItemTemplate().getWeaponBoost();
 
+					((Player)attacker).getInventory().usePowerShard(mainHandPowerShard, 1);
+				}
+			}
 		}
 		else
 		{
@@ -194,10 +211,6 @@ public class StatFunctions
 			Damage += ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
 			Damage = (Damage * multipler) + ((Damage*attacker.getLevel())/10);
 		}
-
-		//adjusting baseDamages according to attacker and target level
-		//
-		Damage = adjustDamages(attacker, target, Damage);
 
 		Damage -= Math.round(tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE) * 0.10f);
 
@@ -243,6 +256,16 @@ public class StatFunctions
 		+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + ags.getStatBonus(StatEnum.OFF_HAND_POWER);
 
 		Damage = adjustDamages(attacker, target, Damage);
+
+		if(attacker.isInState(CreatureState.POWERSHARD))
+		{
+			Item offHandPowerShard = ((Player)attacker).getInventory().getOffHandPowerShard();
+			if(offHandPowerShard != null)
+			{
+				Damage += offHandPowerShard.getItemTemplate().getWeaponBoost();
+				((Player)attacker).getInventory().usePowerShard(offHandPowerShard, 1);
+			}
+		}
 
 		Damage -= Math.round(tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE) * 0.10f);
 

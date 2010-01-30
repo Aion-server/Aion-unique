@@ -24,6 +24,7 @@
 		<xs:attribute name="slot" type="xs:int" />
 		<xs:attribute name="cash_item" type="xs:int" />
 		<xs:attribute name="dmg_decal" type="xs:int" />
+		<xs:attribute name="weapon_boost" type="xs:int" />
 		<xs:attribute name="attack_type" type="xs:string" />
 		<xs:attribute name="attack_gap" type="xs:float" />
 		<xs:attribute name="lore" type="xs:boolean" />

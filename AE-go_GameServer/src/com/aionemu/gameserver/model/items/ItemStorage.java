@@ -279,7 +279,7 @@ public class ItemStorage
 	public boolean removeItemFromStorage(Item item)
 	{
 		int slot = getSlotIdByObjId(item.getObjectId());
-		if(slot != -1)
+		if(slot != -1 && !item.isEquipped())
 		{
 			storageItems[slot] = null;
 			return true;

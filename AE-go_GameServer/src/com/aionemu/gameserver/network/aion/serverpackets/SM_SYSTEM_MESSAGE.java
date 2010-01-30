@@ -226,7 +226,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	}
 
 	public static SM_SYSTEM_MESSAGE DUEL_START = new SM_SYSTEM_MESSAGE(1300770);
-	
+
 	public static SM_SYSTEM_MESSAGE DUEL_END = new SM_SYSTEM_MESSAGE(1300771);
 
 	/**
@@ -336,7 +336,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300162);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE CANNOT_INVITE_BECAUSE_YOU_DEAD()
 	{
 		return new SM_SYSTEM_MESSAGE(1300163);
@@ -398,10 +398,30 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300670);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE STR_ATTACK_TOO_FAR_FROM_TARGET()
 	{
 		return new SM_SYSTEM_MESSAGE(1300032);
+	}
+
+	public static SM_SYSTEM_MESSAGE NO_POWER_SHARD_EQUIPPED()
+	{
+		return new SM_SYSTEM_MESSAGE(1300490);
+	}
+
+	public static SM_SYSTEM_MESSAGE ACTIVATE_THE_POWER_SHARD()
+	{
+		return new SM_SYSTEM_MESSAGE(1300491);
+	}
+
+	public static SM_SYSTEM_MESSAGE DEACTIVATE_THE_POWER_SHARD()
+	{
+		return new SM_SYSTEM_MESSAGE(1300492);
+	}
+
+	public static SM_SYSTEM_MESSAGE NO_POWER_SHARD_LEFT()
+	{
+		return new SM_SYSTEM_MESSAGE(1400075);
 	}
 
 	private final int		code;
@@ -422,8 +442,8 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 
 	public SM_SYSTEM_MESSAGE(SystemMessageId sm, Object... params)
 	{
-			this.code = sm.getId();
-			this.params = params;
+		this.code = sm.getId();
+		this.params = params;
 	}
 	/**
 	 * {@inheritDoc}

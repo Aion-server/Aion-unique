@@ -29,13 +29,16 @@ import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.ItemStorage;
 import com.aionemu.gameserver.model.templates.item.ArmorType;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -270,7 +273,11 @@ public class Inventory
 			return false;
 
 		Item item = defaultItemBag.getItemFromStorageByItemObjId(itemObjId);
-		return decreaseItemCount(item, count) >= 0;
+
+		if(item == null)
+			item = getEquippedItemByObjId(itemObjId); //power shards
+
+			return decreaseItemCount(item, count) >= 0;
 	}
 
 	/**
@@ -296,7 +303,9 @@ public class Inventory
 		}
 		if(item.getItemCount() == 0)
 		{
-			defaultItemBag.removeItemFromStorage(item);
+			//TODO remove based on location and not try/if
+			if(!defaultItemBag.removeItemFromStorage(item))
+				equipment.remove(item.getEquipmentSlot());
 			PacketSendUtility.sendPacket(getOwner(), new SM_DELETE_ITEM(item.getObjectId()));
 		}
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
@@ -596,7 +605,7 @@ public class Inventory
 			log.error("CHECKPOINT : putting item to already equiped slot. Info slot: " + 
 				slot + " new item: " + item.getItemTemplate().getItemId() + " old item: "
 				+ equipment.get(slot).getItemTemplate().getItemId());
-		
+
 		equipment.put(slot, item);
 		item.setEquipmentSlot(slot);
 		if (owner.getGameStats()!=null)
@@ -650,6 +659,13 @@ public class Inventory
 					unEquip(possibleArrows);
 				}
 			}
+			//if unequip power shard
+			if(itemToUnequip.getItemTemplate().isArmor() && itemToUnequip.getItemTemplate().getArmorType() == ArmorType.SHARD)
+			{
+				owner.unsetState(CreatureState.POWERSHARD);
+				PacketSendUtility.sendPacket(owner, new SM_EMOTION(owner, 32, 0, 0));
+			}
+
 			unEquip(itemToUnequip);
 		}
 
@@ -798,7 +814,7 @@ public class Inventory
 
 		return mainHandItem.getItemTemplate().getWeaponType();
 	}
-	
+
 	/**
 	 * 
 	 * @return <tt>WeaponType</tt> of current weapon in off hand or null
@@ -810,5 +826,57 @@ public class Inventory
 			return offHandItem.getItemTemplate().getWeaponType();
 
 		return null;
+	}
+
+
+	public boolean isPowerShardEquipped()
+	{
+		for(Item item : equipment.values())
+		{
+			if(item.getItemTemplate().isArmor() && item.getItemTemplate().getArmorType() == ArmorType.SHARD)
+				return true;
+		}
+		return false;
+	}
+
+	public Item getMainHandPowerShard()
+	{
+		Item mainHandPowerShard = equipment.get(ItemSlot.POWER_SHARD_RIGHT.getSlotIdMask());
+		if(mainHandPowerShard != null)
+			return mainHandPowerShard;
+
+		return null;
+	}
+
+	public Item getOffHandPowerShard()
+	{
+		Item offHandPowerShard = equipment.get(ItemSlot.POWER_SHARD_LEFT.getSlotIdMask());
+		if(offHandPowerShard != null)
+			return offHandPowerShard;
+
+		return null;
+	}
+
+	/**
+	 * @param powerShardItem
+	 * @param i
+	 */
+	public void usePowerShard(Item powerShardItem, int i)
+	{
+		removeFromBagByObjectId(powerShardItem.getObjectId(), 1);
+
+		if(powerShardItem.getItemCount() <= 0)
+		{// Search for next same power shards stack
+			List<Item> powerShardStacks = getItemsByItemId(powerShardItem.getItemTemplate().getItemId());
+			if(powerShardStacks.size() != 0)
+			{
+				equipItem(powerShardStacks.get(0).getObjectId(), powerShardItem.getEquipmentSlot());
+			}
+			else
+			{
+				PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.NO_POWER_SHARD_LEFT());
+				getOwner().unsetState(CreatureState.POWERSHARD);
+			}
+		}
 	}
 }

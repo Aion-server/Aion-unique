@@ -84,9 +84,10 @@ public class CM_EMOTION extends AionClientPacket
 			case 0x14:// duel end
 			case 0x15:// walk on
 			case 0x16:// walk off
+			case 0x1F://powershard on
+			case 0x20://powershard off
 			case 0x21://get equip weapon
 			case 0x22://remove equip weapon
-			case 0x1F://powershard
 				break;
 			case 0x10:
 				emotion = readH();
@@ -135,7 +136,7 @@ public class CM_EMOTION extends AionClientPacket
 				PacketSendUtility.broadcastPacket(player,
 					new SM_EMOTION(player, 30, 0, 0), true);
 				PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-						
+
 				//player.getCommonData().setFlying(true);
 				break;
 			case 0x9:
@@ -148,15 +149,28 @@ public class CM_EMOTION extends AionClientPacket
 				break;
 			case 0x22:
 			case 0x14:
-				 player.unsetState(CreatureState.WEAPON_EQUIPPED);
+				player.unsetState(CreatureState.WEAPON_EQUIPPED);
 				break;
-//				if (player.getCommonData().isFlying() == true)
-//					return;
+				//				if (player.getCommonData().isFlying() == true)
+				//					return;
 			case 0x15:
 				player.setState(CreatureState.WALKING);
 				break;
 			case 0x16:
 				player.unsetState(CreatureState.WALKING);
+				break;
+			case 0x1F:
+				if(!player.getInventory().isPowerShardEquipped())
+				{
+					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.NO_POWER_SHARD_EQUIPPED());
+					return;
+				}
+				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.ACTIVATE_THE_POWER_SHARD());
+				player.setState(CreatureState.POWERSHARD);
+				break;
+			case 0x20:
+				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DEACTIVATE_THE_POWER_SHARD());
+				player.unsetState(CreatureState.POWERSHARD);
 				break;
 		}
 		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, emotionType, emotion, player.getTarget()== null?0:player.getTarget().getObjectId()), true);
