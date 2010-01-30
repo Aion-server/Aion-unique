@@ -61,7 +61,7 @@ public class GoTo extends AdminCommand
 
 		if(params[0].equals("poeta"))
 		{
-			admin.getController().teleportTo(WorldMapType.POETA.getId(), 1215, 1042, 141, 0);
+			admin.getController().teleportTo(WorldMapType.POETA.getId(), 806, 1242, 119, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Poeta");
 		}
 
@@ -91,13 +91,13 @@ public class GoTo extends AdminCommand
 
 		else if(params[0].equals("sanctum"))
 		{
-			admin.getController().teleportTo(WorldMapType.SANCTUM.getId(), 1329, 1506, 570, 0);
+			admin.getController().teleportTo(WorldMapType.SANCTUM.getId(), 1322, 1511, 568, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Sanctum");
 		}
 
 		else if(params[0].equals("ishalgen"))
 		{
-			admin.getController().teleportTo(WorldMapType.ISHALGEN.getId(), 562, 2786, 299, 0);
+			admin.getController().teleportTo(WorldMapType.ISHALGEN.getId(), 529, 2449, 281, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Ishalgen");
 		}
 
@@ -125,39 +125,39 @@ public class GoTo extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "Teleported to Beluslan");
 		}
 
-		else if(params[0].equals("pandemonium"))
+		else if(params[0].equals("pandaemonium"))
 		{
-			admin.getController().teleportTo(WorldMapType.PANDAEMONIUM.getId(), 1682, 1397, 195, 0);
-			PacketSendUtility.sendMessage(admin, "Teleported to Pandemonium");
+			admin.getController().teleportTo(WorldMapType.PANDAEMONIUM.getId(), 1679, 1400, 195, 0);
+			PacketSendUtility.sendMessage(admin, "Teleported to Pandaemonium");
 		}
 
 		else if(params[0].equals("abyss1"))
 		{
 			admin.getController().teleportTo(400010000, 2867, 1034, 1528, 0);
-			PacketSendUtility.sendMessage(admin, "Teleported to Latis Plazza bottom elyos");
+			PacketSendUtility.sendMessage(admin, "Teleported to Latis Plazza bottom Elyos");
 		}
 
 		else if(params[0].equals("abyss2"))
 		{
 			admin.getController().teleportTo(400010000, 1078, 2839, 1636, 0);
-			PacketSendUtility.sendMessage(admin, "Teleported to Russet Plazza bottom asmodians");
+			PacketSendUtility.sendMessage(admin, "Teleported to Russet Plazza bottom Asmodians");
 		}
 
 		else if(params[0].equals("abyss3"))
 		{
 			admin.getController().teleportTo(400010000, 1596, 2952, 2943, 0);
-			PacketSendUtility.sendMessage(admin, "Teleported to Top asmodians");
+			PacketSendUtility.sendMessage(admin, "Teleported to Top Asmodians");
 		}
 
 		else if(params[0].equals("abyss4"))
 		{
 			admin.getController().teleportTo(400010000, 2054, 660, 2843, 0);
-			PacketSendUtility.sendMessage(admin, "Teleported to Top elyos");
+			PacketSendUtility.sendMessage(admin, "Teleported to Top Elyos");
 		}
 
 		else if(params[0].equals("abyssfortress"))
 		{
-			admin.getController().teleportTo(400010000, 2130, 1925, 2325, 0);
+			admin.getController().teleportTo(400010000, 2130, 1925, 2322, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Core Fortress");
 		}
 
@@ -181,19 +181,19 @@ public class GoTo extends AdminCommand
 
 		else if(params[0].equals("aerdina"))
 		{
-			admin.getController().teleportTo(300010000, 270, 189, 206, 0);
+			admin.getController().teleportTo(300010000, 270, 200, 206, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Aerdina");
 		}
 
 		else if(params[0].equals("gerania"))
 		{
-			admin.getController().teleportTo(300010000, 270, 189, 206, 0);
+			admin.getController().teleportTo(300010000, 270, 200, 206, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Gerania");
 		}
 
 		else if(params[0].equals("lepharist"))
 		{
-			admin.getController().teleportTo(310050000, 225, 244, 132, 0);
+			admin.getController().teleportTo(310050000, 225, 244, 133, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to Lerpharist Secret Labratory");
 		}
 
@@ -209,7 +209,7 @@ public class GoTo extends AdminCommand
 		else if(params[0].equals("sanctumarena"))
 		{
 			world.despawn(admin);
-			world.setPosition(admin, 310080000, 275, 242, 158, admin.getHeading());
+			world.setPosition(admin, 310080000, 275, 242, 159, admin.getHeading());
 			admin.setProtectionActive(true);
 			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
 			PacketSendUtility.sendMessage(admin, "Teleported to Sanctum Underground Arena");
@@ -227,13 +227,13 @@ public class GoTo extends AdminCommand
 		else if(params[0].equals("azoturan"))
 		{
 			world.despawn(admin);
-			world.setPosition(admin, 310100000, 458, 428, 1539, admin.getHeading());
+			world.setPosition(admin, 310100000, 458, 428, 1039, admin.getHeading());
 			admin.setProtectionActive(true);
 			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
 			PacketSendUtility.sendMessage(admin, "Teleported to Azoturan");
 		}
 
-		else if(params[0].equals("narsass1"))
+		else if(params[0].equals("ataxiar1"))
 		{
 			world.despawn(admin);
 			world.setPosition(admin, 320010000, 229, 237, 206, admin.getHeading());
@@ -242,7 +242,7 @@ public class GoTo extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "Teleported to Narsass 1");
 		}
 
-		else if(params[0].equals("narsass2"))
+		else if(params[0].equals("ataxiar2"))
 		{
 			world.despawn(admin);
 			world.setPosition(admin, 320020000, 229, 237, 206, admin.getHeading());
@@ -290,7 +290,7 @@ public class GoTo extends AdminCommand
 		else if(params[0].equals("trinielarena"))
 		{
 			world.despawn(admin);
-			world.setPosition(admin, 320090000, 275, 239, 158, admin.getHeading());
+			world.setPosition(admin, 320090000, 275, 239, 159, admin.getHeading());
 			admin.setProtectionActive(true);
 			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
 			PacketSendUtility.sendMessage(admin, "Teleported to Triniel Underground Arena");
@@ -299,7 +299,7 @@ public class GoTo extends AdminCommand
 		else if(params[0].equals("firetemple"))
 		{
 			world.despawn(admin);
-			world.setPosition(admin, 320100000, 144, 312, 122, admin.getHeading());
+			world.setPosition(admin, 320100000, 144, 312, 123, admin.getHeading());
 			admin.setProtectionActive(true);
 			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
 			PacketSendUtility.sendMessage(admin, "Teleported to Fire Temple");
@@ -308,7 +308,7 @@ public class GoTo extends AdminCommand
 		else if(params[0].equals("reshanta"))
 		{
 			world.despawn(admin);
-			world.setPosition(admin, 400010000, 951, 953, 1667, admin.getHeading());
+			world.setPosition(admin, 400010000, 951, 936, 1667, admin.getHeading());
 			admin.setProtectionActive(true);
 			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
 			PacketSendUtility.sendMessage(admin, "Teleported to Reshanta");
@@ -335,28 +335,28 @@ public class GoTo extends AdminCommand
 		else if(params[0].equals("test1"))
 		{
 			world.despawn(admin);
+			world.setPosition(admin, 900100000, 196, 187, 20, admin.getHeading());
+			admin.setProtectionActive(true);
+			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
+			PacketSendUtility.sendMessage(admin, "Teleported to Test Giant Monster");
+		}
+
+		else if(params[0].equals("test2"))
+		{
+			world.despawn(admin);
 			world.setPosition(admin, 900020000, 144, 136, 20, admin.getHeading());
 			admin.setProtectionActive(true);
 			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
 			PacketSendUtility.sendMessage(admin, "Teleported to Test Basic");
 		}
 
-		else if(params[0].equals("test2"))
+		else if(params[0].equals("test3"))
 		{
 			world.despawn(admin);
 			world.setPosition(admin, 900030000, 228, 171, 49, admin.getHeading());
 			admin.setProtectionActive(true);
 			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
 			PacketSendUtility.sendMessage(admin, "Teleported to Test Server");
-		}
-
-		else if(params[0].equals("giantmonster"))
-		{
-			world.despawn(admin);
-			world.setPosition(admin, 900100000, 196, 187, 20, admin.getHeading());
-			admin.setProtectionActive(true);
-			PacketSendUtility.sendPacket(admin, new SM_PLAYER_SPAWN(admin));
-			PacketSendUtility.sendMessage(admin, "Teleported to Test Giant Monster");
 		}
 
 		else 
