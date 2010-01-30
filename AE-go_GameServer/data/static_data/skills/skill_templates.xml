@@ -27631,8 +27631,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hot value="100" delta="0" checktime="6000" type="DP" duration="30000"/>
+        </effects>
         <actions>
-            <dummy/>
+            <healdp value="500" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="1967" name="STR_SKILL_TestResurrectBase" stack="SKILL_TESTRESURRECTBASE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="1" duration="1000">
@@ -30466,7 +30469,7 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemhealdp value="1000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="8388" name="STR_SYSTEM_SKILL_KN_Proc_Guardian_G4" stack="SYSTEM_SKILL_KN_PROC_GUARDIAN" lvl="4" skilltype="MAGICAL" skillsubtype="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -40105,7 +40108,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <healdp value="0" delta="1000"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9050" name="STR_FOOD_MAXFP" stack="FOOD_MAXFP" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -45242,7 +45245,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealdp value="1000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9898" name="STR_SKILL_Abyss_Artifact_SandStorm_G1" stack="SKILL_ABYSS_ARTIFACT_SANDSTORM" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
@@ -45284,7 +45287,7 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemhealdp value="1000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9900" name="STR_SKILL_Abyss_Artifact_CurseofHeaven_G1" stack="SKILL_ABYSS_ARTIFACT_CURSEOFHEAVEN" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -45505,7 +45508,7 @@
             <hot value="300" delta="0" checktime="10000" type="HP" duration="300000"/>
         </effects>
         <actions>
-            <dummy/>
+            <itemhealdp value="4000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9913" name="STR_SKILL_Abyss_Def_Low_KN_40L_40_FireDMG_G1" stack="SKILL_ABYSS_DEF_LOW_KN_40L_40_FIREDMG" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="PROVOKED" cooldown="0" duration="0">
@@ -45816,7 +45819,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealdp value="2000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9931" name="STR_SKILL_Abyss_Artifact_ExposureofMoon_G2" stack="SKILL_ABYSS_ARTIFACT_EXPOSUREOFMOON" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
@@ -45890,7 +45893,7 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <dummy/>
+            <itemhealdp value="1000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9935" name="STR_SKILL_Abyss_Artifact_AirBind_G2" stack="SKILL_ABYSS_ARTIFACT_AIRBIND" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
@@ -45953,7 +45956,7 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemhealdp value="1000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9938" name="STR_SKILL_Abyss_Artifact_LegendofPhantom2_G2" stack="SKILL_ABYSS_ARTIFACT_LEGENDOFPHANTOM2" lvl="2" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -45995,7 +45998,7 @@
             </buf>
         </effects>
         <actions>
-            <dummy/>
+            <itemhealdp value="1000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9940" name="STR_SKILL_Abyss_Artifact_CurseofHeaven_G2" stack="SKILL_ABYSS_ARTIFACT_CURSEOFHEAVEN" lvl="2" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -46092,7 +46095,7 @@
             <hot value="300" delta="0" checktime="10000" type="HP" duration="300000"/>
         </effects>
         <actions>
-            <dummy/>
+            <itemhealdp value="4000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="9945" name="STR_SKILL_Abyss_Def_Low_KN_45L_40_FireDMG_G1" stack="SKILL_ABYSS_DEF_LOW_KN_45L_40_FIREDMG" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="PROVOKED" cooldown="0" duration="0">
@@ -80398,7 +80401,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <healdp value="4000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="18567" name="STR_Q_FinalBuff_Dark_1" stack="Q_FINALBUFF_DARK_1" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -80455,7 +80458,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <actions>
-            <dummy/>
+            <healdp value="4000" delta="0"/>
         </actions>
     </skill_template>
     <skill_template skill_id="18571" name="STR_BNEL_SatkSA_Area" stack="BNEL_SATKSA_AREA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2500">

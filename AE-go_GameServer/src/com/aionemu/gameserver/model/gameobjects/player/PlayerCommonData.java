@@ -385,6 +385,10 @@ public class PlayerCommonData extends VisibleObjectTemplate
 		return null;
 	}
 
+	public void addDp(int dp)
+	{
+		setDp(this.dp + dp);
+	}
 	/**
 	 *  //TODO move to lifestats -> db save?
 	 *  

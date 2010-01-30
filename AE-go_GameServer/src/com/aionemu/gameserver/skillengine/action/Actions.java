@@ -46,8 +46,10 @@ public class Actions
         @XmlElement(name = "dummy", type = DummyAction.class),
         @XmlElement(name = "itemheal", type = ItemHealAction.class),
         @XmlElement(name = "itemhealmp", type = ItemHealMpAction.class),
+        @XmlElement(name = "itemhealdp", type = ItemHealDpAction.class),
         @XmlElement(name = "heal", type = HealAction.class),
         @XmlElement(name = "healmp", type = HealMpAction.class),
+        @XmlElement(name = "healdp", type = HealDpAction.class),
         @XmlElement(name = "delaydamage", type = DelayDamageAction.class)
     })
     protected List<Action> actions;
@@ -78,8 +80,10 @@ public class Actions
      * {@link DummyAction }
      * {@link ItemHealAction }
      * {@link ItemHealMpAction }
+     * {@link ItemHealDpAction }
      * {@link HealAction }
      * {@link HealMpAction }
+     * {@link HealDpAction }
      * 
      */
     public List<Action> getActions() 

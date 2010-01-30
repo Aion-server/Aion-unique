@@ -54,6 +54,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.skillengine.SkillEngine;
+import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.Skill.SkillType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -464,6 +465,19 @@ public class PlayerController extends CreatureController<Player>
 		player.setProtectionActive(true);
 		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));	
 		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));	
+	}
+	
+	
+	@Override
+	public void onRestore(HopType hopType, int value)
+	{
+		super.onRestore(hopType, value);
+		switch(hopType)
+		{
+			case DP:
+				getOwner().getCommonData().addDp(value);
+				break;
+		}
 	}
 
 	/**

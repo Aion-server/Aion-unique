@@ -108,9 +108,13 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="itemhealmp" type="ItemHealMpAction"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="itemhealdp" type="ItemHealDpAction"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="heal" type="HealAction" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="healmp" type="HealMpAction" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="healdp" type="HealDpAction" minOccurs="0"
 				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
@@ -216,6 +220,15 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:complexType name="ItemHealDpAction">
+		<xs:complexContent>
+			<xs:extension base="Action">
+				<xs:attribute name="value" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<xs:complexType name="HealAction">
 		<xs:complexContent>
@@ -228,6 +241,16 @@
 	</xs:complexType>
 
 	<xs:complexType name="HealMpAction">
+		<xs:complexContent>
+			<xs:extension base="Action">
+				<xs:attribute name="value" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" use="required" />
+				<xs:attribute name="percent" type="xs:boolean"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="HealDpAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
 				<xs:attribute name="value" type="xs:int" use="required" />
