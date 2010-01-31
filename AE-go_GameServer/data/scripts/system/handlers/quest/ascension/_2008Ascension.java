@@ -27,6 +27,7 @@ import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
@@ -95,6 +96,8 @@ public class _2008Ascension extends QuestHandler
 				updateQuestStatus(player, qs);
 				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(320010000, 205041, 301f,
 					259f, 205.5f, (byte) 0, false);
+				//TODO: Tempt decrease P attack.
+				mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER)/3 );
 				((Monster) mob).getAggroList().addDamageHate(player, 1000, 0);
 				mob.getAi().handleEvent(Event.ATTACKED);
 				mobs.add(mob);
@@ -315,6 +318,8 @@ public class _2008Ascension extends QuestHandler
 										306f, 251f, 206f, (byte) 0, false));
 									for(Npc mob : mobs)
 									{
+										//TODO: Tempt decrease P attack.
+										mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER)/3 );
 										((Monster) mob).getAggroList().addDamageHate(player, 1000, 0);
 										mob.getAi().handleEvent(Event.ATTACKED);
 									}

@@ -264,6 +264,8 @@ public class _1006Ascension extends QuestHandler
 										(float) 222.8, (float) 262.5, (float) 205.7, (byte) 0, false));
 									for(Npc mob : mobs)
 									{
+										//TODO: Tempt decrease P attack.
+										mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER)/3 );
 										((Monster) mob).getAggroList().addDamageHate(player, 1000, 0);
 										mob.getAi().handleEvent(Event.ATTACKED);
 									}
