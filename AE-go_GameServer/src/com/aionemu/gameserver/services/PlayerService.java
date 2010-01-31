@@ -43,7 +43,6 @@ import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.ItemType;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.ExchangeList;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
 import com.aionemu.gameserver.model.gameobjects.player.MacroList;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -174,8 +173,6 @@ public class PlayerService
 		player.setTitleList(DAOManager.getDAO(PlayerTitleListDAO.class).loadTitleList(playerObjId));
 		
 		DAOManager.getDAO(PlayerSettingsDAO.class).loadSettings(player);
-
-		player.setExchangeList(new ExchangeList());
 
 		player.setPlayerStatsTemplate(DataManager.PLAYER_STATS_DATA.getTemplate(player));	
 		

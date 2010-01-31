@@ -20,17 +20,17 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.SystemMessageId;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_REQUEST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.services.ExchangeService;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author -Avol-
@@ -44,7 +44,8 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 	public Integer			targetObjectId;
 	@Inject	
 	private World			world;
-	private String receiver;
+	@Inject
+	private ExchangeService exchangeService;
 
 	public CM_EXCHANGE_REQUEST(int opcode)
 	{
@@ -67,51 +68,35 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 		/**
 		 * check if not trading with yourself.
 		 */
-		if (activePlayer != targetPlayer) {
-
+		if (activePlayer != targetPlayer) 
+		{
 			/**
 			 * check if trade partner exists or is he/she a player.
 			 */
-			if (targetPlayer!=null) {
+			if (targetPlayer!=null) 
+			{
 				sendPacket(SM_SYSTEM_MESSAGE.REQUEST_TRADE(targetPlayer.getName()));
 
 				RequestResponseHandler responseHandler = new RequestResponseHandler(activePlayer){
 					@Override
 					public void acceptRequest(Creature requester, Player responder)
 					{
-						/**
-						 * set exchange partners
-						 */
-						activePlayer.getExchangeList().setExchangePartner(targetPlayer.getObjectId());
-						targetPlayer.getExchangeList().setExchangePartner(activePlayer.getObjectId());
-
-						/**
-						 * prepare for a new trade
-						 */
-						activePlayer.getExchangeList().setExchangeItemList();
-						targetPlayer.getExchangeList().setExchangeItemList();
-						activePlayer.getExchangeList().setConfirm(false);
-						targetPlayer.getExchangeList().setConfirm(false);
-						activePlayer.getExchangeList().setExchangeKinah(0);
-						targetPlayer.getExchangeList().setExchangeKinah(0);
-
-						receiver = activePlayer.getName();
-						PacketSendUtility.sendPacket(targetPlayer, new SM_EXCHANGE_REQUEST(receiver));
-						receiver = targetPlayer.getName();
-						PacketSendUtility.sendPacket(activePlayer, new SM_EXCHANGE_REQUEST(receiver));
-
+						//TODO some message here - already trading
+						if(exchangeService.isPlayerInExchange(activePlayer))
+							return;
+						
+						exchangeService.registerExchange(activePlayer, targetPlayer);
 					}
 
 					public void denyRequest(Creature requester, Player responder)
 					{
-						//TODO check whether need SM_QUESTION_WINDOW here
-						PacketSendUtility.sendPacket(activePlayer, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_EXCHANGE_HE_REJECTED_EXCHANGE, targetPlayer.getObjectId(), targetPlayer.getName()));
 						PacketSendUtility.sendPacket(activePlayer, new SM_SYSTEM_MESSAGE(SystemMessageId.EXCHANGE_HE_REJECTED_EXCHANGE, targetPlayer.getName()));
 					}
 				};
 
 				boolean requested = targetPlayer.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE,responseHandler);
-				if (requested){
+				if (requested)
+				{
 					PacketSendUtility.sendPacket(targetPlayer, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE, targetPlayer.getObjectId(), activePlayer.getName()));
 				}
 			}

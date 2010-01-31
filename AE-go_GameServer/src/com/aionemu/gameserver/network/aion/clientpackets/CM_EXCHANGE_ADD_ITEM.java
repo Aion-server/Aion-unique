@@ -18,15 +18,15 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_ITEM;
+import com.aionemu.gameserver.services.ExchangeService;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * 
@@ -39,9 +39,9 @@ public class CM_EXCHANGE_ADD_ITEM extends AionClientPacket
 	public int itemObjId;
 	public int itemCount;
 
-	@Inject	
-	private World			world;
-
+	@Inject
+	private ExchangeService exchangeService;
+	
 	private static final Logger log = Logger.getLogger(CM_EXCHANGE_ADD_ITEM.class);
 
 	public CM_EXCHANGE_ADD_ITEM(int opcode)
@@ -66,16 +66,6 @@ public class CM_EXCHANGE_ADD_ITEM extends AionClientPacket
 	protected void runImpl()
 	{
 		final Player activePlayer = getConnection().getActivePlayer();
-		int targetPlayerId = activePlayer.getExchangeList().getExchangePartner();
-		final Player targetPlayer = world.findPlayer(targetPlayerId);
-
-		Inventory inventory = activePlayer.getInventory();
-		Item item = inventory.getItemByObjId(itemObjId);
-		int itemId = item.getItemTemplate().getItemId();
-		int itemNameId = Integer.parseInt(item.getItemTemplate().getDescription());
-		PacketSendUtility.sendPacket(activePlayer, new SM_EXCHANGE_ADD_ITEM(itemObjId, itemCount, 0, itemId, itemNameId, activePlayer));
-		PacketSendUtility.sendPacket(targetPlayer, new SM_EXCHANGE_ADD_ITEM(itemObjId, itemCount, 1, itemId, itemNameId, activePlayer));
-
-		activePlayer.getExchangeList().exchangeItemListAdd(itemObjId, itemCount);
+		exchangeService.addItem(activePlayer, itemObjId, itemCount);
 	}
 }

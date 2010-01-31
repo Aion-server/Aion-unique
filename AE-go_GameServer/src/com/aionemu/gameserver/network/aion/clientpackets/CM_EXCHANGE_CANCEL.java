@@ -20,10 +20,8 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_CONFIRMATION;
-import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.services.ExchangeService;
 import com.google.inject.Inject;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author -Avol-
@@ -33,9 +31,8 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class CM_EXCHANGE_CANCEL extends AionClientPacket
 {
 
-	private int	action;
 	@Inject	
-	private World			world;
+	private ExchangeService exchangeService;
 
 	public CM_EXCHANGE_CANCEL(int opcode)
 	{
@@ -52,9 +49,6 @@ public class CM_EXCHANGE_CANCEL extends AionClientPacket
 	protected void runImpl()
 	{	
 		final Player activePlayer = getConnection().getActivePlayer();
-		int targetPlayerId = activePlayer.getExchangeList().getExchangePartner();
-
-		final Player targetPlayer = world.findPlayer(targetPlayerId);
-		PacketSendUtility.sendPacket(targetPlayer, new SM_EXCHANGE_CONFIRMATION(1));
+		exchangeService.cancelExchange(activePlayer);
 	}
 }

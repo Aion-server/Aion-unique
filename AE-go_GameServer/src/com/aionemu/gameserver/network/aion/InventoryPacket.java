@@ -56,12 +56,22 @@ public abstract class InventoryPacket extends AionServerPacket
 	 * @param buf
 	 * @param item
 	 */
-	protected void writeGeneralItemInfo(ByteBuffer buf, Item item)
+	protected void writeGeneralItemInfo(ByteBuffer buf, Item item, boolean isQuest)
 	{
 		writeH(buf, 0x16); //length of details
 		writeC(buf, 0);
-		writeC(buf, 0x3E); //or can be 0x1E
-		writeC(buf, 0x63); // ?
+		
+		if(isQuest)
+		{
+			writeC(buf, 0x20);
+			writeC(buf, 0x65); // ?
+		}else
+		{
+			writeC(buf, 0x3E); //or can be 0x1E 0x3E 0x20 (quest)
+			writeC(buf, 0x63); // ?
+		}
+		
+		
 		writeD(buf, item.getItemCount());
 		writeD(buf, 0);
 		writeD(buf, 0);
@@ -69,7 +79,6 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeH(buf, 0);
 		writeC(buf, 0);
 		writeH(buf, item.getEquipmentSlot()); // not equipable items
-		writeC(buf, 0);
 	}
 	
 	/**

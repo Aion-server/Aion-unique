@@ -108,8 +108,9 @@ public class SM_INVENTORY_INFO extends InventoryPacket
 				writeArmorInfo(buf,item);
 			}
 			else
-			{
-				writeGeneralItemInfo(buf, item);
+			{				
+				writeGeneralItemInfo(buf, item, false);
+				writeC(buf, 0);
 			}
 		}
 	}

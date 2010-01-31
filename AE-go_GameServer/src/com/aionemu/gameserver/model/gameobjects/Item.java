@@ -45,6 +45,8 @@ public class Item extends AionObject
 	
 	private int equipmentSlot = 0;
 	
+	private boolean isQuest;
+	
 	private PersistentState persistentState;
 	
 	//TODO move to ItemStoneList ?
@@ -287,6 +289,22 @@ public class Item extends AionObject
 				this.persistentState = persistentState;
 		}
 		
+	}
+
+	/**
+	 * @return the isQuest
+	 */
+	public boolean isQuest()
+	{
+		return isQuest;
+	}
+
+	/**
+	 * @param isQuest the isQuest to set
+	 */
+	public void setQuest(boolean isQuest)
+	{
+		this.isQuest = isQuest;
 	}
 
 	@Override

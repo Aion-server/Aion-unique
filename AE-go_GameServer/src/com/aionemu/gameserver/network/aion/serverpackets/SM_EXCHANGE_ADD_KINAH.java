@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.util.Random;
 
 import org.apache.log4j.Logger;
 
@@ -44,7 +43,6 @@ public class SM_EXCHANGE_ADD_KINAH extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-
 		writeC(buf, action); // 0 -self 1-other
 		writeD(buf, itemCount); // itemId
 		writeD(buf, 0); // unk

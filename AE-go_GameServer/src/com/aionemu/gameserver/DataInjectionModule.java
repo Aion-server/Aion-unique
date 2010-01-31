@@ -36,6 +36,7 @@ import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.services.AccountService;
 import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.services.DropService;
+import com.aionemu.gameserver.services.ExchangeService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.SocialService;
@@ -81,6 +82,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(DropService.class).asEagerSingleton();
 		bind(CubeExpandService.class).in(Scopes.SINGLETON);
 		bind(RiftSpawnManager.class).in(Scopes.SINGLETON);
+		bind(ExchangeService.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides

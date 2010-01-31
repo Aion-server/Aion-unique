@@ -70,7 +70,8 @@ public class SM_INVENTORY_UPDATE extends InventoryPacket
 			}
 			else
 			{
-				writeGeneralItemInfo(buf, item);
+				writeGeneralItemInfo(buf, item, item.isQuest());
+				writeC(buf, 0);
 			}
  		}
 	}	

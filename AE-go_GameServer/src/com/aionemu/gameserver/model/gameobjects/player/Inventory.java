@@ -212,14 +212,26 @@ public class Inventory
 
 	/**
 	 *  Removes item completely from inventory.
-	 *  Every remove operation is persisted immediately now
+	 *  Every remove operation is persisted immediately when using this method
 	 *  
 	 * @param item
 	 */
 	public void removeFromBag(Item item)
 	{
+		removeFromBag(item, true);
+	}
+	
+	/**
+	 *  Removes item completely from inventory.
+	 *  Every remove operation is persisted based on persistOperation parameter
+	 *  
+	 * @param item
+	 * @param persistOperation
+	 */
+	public void removeFromBag(Item item, boolean persistOperation)
+	{
 		boolean operationResult = defaultItemBag.removeItemFromStorage(item);
-		if(operationResult)
+		if(operationResult && persistOperation)
 		{
 			item.setPersistentState(PersistentState.DELETED);
 			DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());

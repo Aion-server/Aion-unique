@@ -18,16 +18,14 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_KINAH;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
+import com.aionemu.gameserver.services.ExchangeService;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * 
@@ -37,13 +35,13 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 
 public class CM_EXCHANGE_ADD_KINAH extends AionClientPacket
 {
+	private static final Logger log = Logger.getLogger(CM_EXCHANGE_ADD_KINAH.class);
+	
 	public int unk;
 	public int itemCount;
 
-	@Inject	
-	private World			world;
-
-	private static final Logger log = Logger.getLogger(CM_EXCHANGE_ADD_KINAH.class);
+	@Inject
+	private ExchangeService exchangeService;
 
 	public CM_EXCHANGE_ADD_KINAH(int opcode)
 	{
@@ -66,21 +64,7 @@ public class CM_EXCHANGE_ADD_KINAH extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		final Player activePlayer = getConnection().getActivePlayer();
-		int targetPlayerId = activePlayer.getExchangeList().getExchangePartner();
-		final Player targetPlayer = world.findPlayer(targetPlayerId);
-
-		Inventory currentKinah = activePlayer.getInventory();
-		//send update in trade kinah.
-
-		if (activePlayer.getExchangeList().getExchangeKinah() != 0) {
-			itemCount = itemCount - activePlayer.getExchangeList().getExchangeKinah();
-		}
-
-		PacketSendUtility.sendPacket(activePlayer, new SM_EXCHANGE_ADD_KINAH(itemCount,0));
-		PacketSendUtility.sendPacket(targetPlayer, new SM_EXCHANGE_ADD_KINAH(itemCount,1));
-
-		activePlayer.getExchangeList().setExchangeKinah(itemCount);
-
+		final Player activePlayer = getConnection().getActivePlayer();		
+		exchangeService.addKinah(activePlayer, itemCount);
 	}
 }

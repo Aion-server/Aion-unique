@@ -63,7 +63,6 @@ public class Player extends Creature
 	private boolean				lookingForGroup	= false;
 	private Inventory			inventory;
 	private PlayerStore			store;
-	private ExchangeList		exchangeList;
 	private PlayerStatsTemplate	playerStatsTemplate;
 	private TitleList			titleList;
 	private PlayerSettings		playerSettings;
@@ -209,16 +208,6 @@ public class Player extends Creature
 	public void setFriendList(FriendList list)
 	{
 		this.friendList = list;
-	}
-
-	public ExchangeList getExchangeList()
-	{
-		return exchangeList;
-	}
-
-	public void setExchangeList(ExchangeList list)
-	{
-		this.exchangeList = list;
 	}
 
 	public BlockList getBlockList()
