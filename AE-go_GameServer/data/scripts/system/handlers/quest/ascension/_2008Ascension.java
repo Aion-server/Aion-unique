@@ -19,7 +19,6 @@ package quest.ascension;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dataholders.SpawnsData;
@@ -39,6 +38,7 @@ import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -50,7 +50,8 @@ public class _2008Ascension extends QuestHandler
 	private final static int	questId			= 2008;
 	private int					activePlayerId	= 0;
 	private List<Npc>			mobs			= new ArrayList<Npc>();
-
+	
+	@Inject
 	public _2008Ascension(SpawnsData spawnsData)
 	{
 		super(questId);
