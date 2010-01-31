@@ -16,22 +16,44 @@
  */
 package admincommands;
 
+import java.io.File;
+import java.util.List;
+
+import javax.xml.XMLConstants;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+
+import org.apache.log4j.Logger;
+import org.xml.sax.SAXException;
+
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.dataholders.SpawnsData;
+import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.WorldMapTemplate;
+import com.aionemu.gameserver.model.templates.spawn.SpawnGroup;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.google.inject.Inject;
 
 /**
  * @author Luno
+ * @author ATracer (xml version)
  * 
  */
 
 public class SaveSpawnData extends AdminCommand
 {
+
+	private static Logger log = Logger.getLogger(SaveSpawnData.class);
+
 	@Inject
 	private SpawnsData	spawnsData;
+	@Inject
+	private WorldMapsData worldMapsData;
 
 	public SaveSpawnData()
 	{
@@ -46,15 +68,50 @@ public class SaveSpawnData extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;
 		}
-		//TODO need to be reworked
-		PacketSendUtility.sendMessage(admin, "Not implemented yet");
-//		if(spawnData.saveData())
-//		{
-//			PacketSendUtility.sendMessage(admin, "new_spawndata.txt saved");
-//		}
-//		else
-//		{
-//			PacketSendUtility.sendMessage(admin, "Some error occured while saving spawndata.txt check server console");
-//		}
+
+		Schema schema = null;
+		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+
+		try
+		{
+			schema = sf.newSchema(new File("./data/static_data/spawns/spawns.xsd"));
+		}
+		catch(SAXException e1)
+		{
+			log.error(e1.getCause());
+			PacketSendUtility.sendMessage(admin, "Unexpected error occured during saving");
+			return;
+		}
+
+		for(WorldMapTemplate template : worldMapsData)
+		{
+
+			List<SpawnGroup> spawnsForWorld = spawnsData.getSpawnsForWorld(template.getMapId());
+			if(spawnsForWorld != null && spawnsForWorld.size() > 0)
+			{
+				SpawnsData data = new SpawnsData();
+				data.getSpawnGroups().addAll(spawnsForWorld);
+
+				File xml = new File("./data/static_data/spawns/new/" + template.getMapId() + ".xml");
+				
+				JAXBContext jc;
+				Marshaller marshaller;
+				try
+				{
+					jc = JAXBContext.newInstance(SpawnsData.class);
+					marshaller = jc.createMarshaller();
+					marshaller.setSchema(schema);
+					marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+					marshaller.marshal(data, xml);
+				}
+				catch(JAXBException e)
+				{
+					log.error(e.getCause());
+					PacketSendUtility.sendMessage(admin, "Unexpected error occured during saving");
+					return;
+				}			
+			}
+		}
+		PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 	}
 }

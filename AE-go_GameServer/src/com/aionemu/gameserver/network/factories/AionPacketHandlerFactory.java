@@ -183,7 +183,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_GATHER(0xF9), State.IN_GAME);//1.5
 		addPacket(new CM_UI_SETTINGS(0xF0), State.IN_GAME);		
 		addPacket(new CM_SET_GUILD_DESCR(0xA3), State.IN_GAME);
-		addPacket(new CM_SPLIT_ITEM(0x13), State.IN_GAME);
+		addPacket(new CM_SPLIT_ITEM(0x03), State.IN_GAME);
 		addPacket(new CM_FRIEND_DEL(0x66), State.IN_GAME);
 		addPacket(new CM_EXCHANGE_REQUEST(0xB5), State.IN_GAME);
 		addPacket(new CM_EXCHANGE_LOCK(0xA9), State.IN_GAME);

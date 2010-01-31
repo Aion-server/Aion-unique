@@ -17,15 +17,13 @@
 package com.aionemu.gameserver.model.templates.spawn;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.commons.utils.Rnd;
@@ -41,25 +39,30 @@ import com.aionemu.gameserver.spawnengine.SpawnHandlerType;
 public class SpawnGroup
 {
 	/**
-	 * XML attribues
+	 * XML attributes
+	 * Order should be reversed to XML attributes order
 	 */
-	@XmlAttribute(name = "map")
-	private int mapid;
-	@XmlAttribute(name = "npcid")
-	private int npcid;
+	@XmlAttribute(name = "anchor")
+	private String anchor;
+	@XmlAttribute(name = "handler")
+	private SpawnHandlerType handler;
 	@XmlAttribute(name = "interval")
 	private int interval;
 	@XmlAttribute(name = "pool")
 	private int pool;
+	@XmlAttribute(name = "npcid")
+	private int npcid;
+	@XmlAttribute(name = "map")
+	private int mapid;
+	
 	@XmlElement(name = "object")
 	private List<SpawnTemplate> objects;
-	@XmlAttribute(name = "handler")
-	private SpawnHandlerType handler;
-	@XmlAttribute(name = "anchor")
-	private String anchor;
+	
+	
 	/**
 	 * Real-time properties
 	 */
+	@XmlTransient
 	private List<Integer> lastSpawnedTemplate = new ArrayList<Integer>();
 	
 	/**

@@ -99,7 +99,7 @@ public class _1006Ascension extends QuestHandler
 				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211043, (float) 226.7,
 					(float) 251.5, (float) 205.5, (byte) 0, false);
 				//TODO: Tempt decrease P attack.
-				mob.getGameStats().setStat(StatEnum.PHYSICAL_ATTACK, mob.getGameStats().getCurrentStat(StatEnum.PHYSICAL_ATTACK)/3 );
+				mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER)/3 );
 				mob.getAggroList().addDamageHate(player, 1000, 0);
 				mob.getAi().handleEvent(Event.ATTACKED);
 				mobs.add(mob);
@@ -268,7 +268,7 @@ public class _1006Ascension extends QuestHandler
 									for(Npc mob : mobs)
 									{
 										//TODO: Tempt decrease P attack.
-										mob.getGameStats().setStat(StatEnum.PHYSICAL_ATTACK, mob.getGameStats().getCurrentStat(StatEnum.PHYSICAL_ATTACK)/3 );
+										mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER)/3 );
 										((Monster) mob).getAggroList().addDamageHate(player, 1000, 0);
 										mob.getAi().handleEvent(Event.ATTACKED);
 									}

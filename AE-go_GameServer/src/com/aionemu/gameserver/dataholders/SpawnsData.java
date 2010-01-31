@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import com.aionemu.gameserver.model.templates.spawn.SpawnGroup;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
@@ -42,13 +43,16 @@ public class SpawnsData implements Iterable<SpawnGroup>
 {
 	@XmlElement(name = "spawn")
 	protected List<SpawnGroup> spawnGroups;
-
+	
 	//key is mapid
+	@XmlTransient
 	private Map<Integer, ArrayList<SpawnGroup>> spawnsByMapId = new HashMap<Integer, ArrayList<SpawnGroup>>();
 	//key is npcid
+	@XmlTransient
 	private Map<Integer, ArrayList<SpawnGroup>> spawnsByNpcID = new HashMap<Integer, ArrayList<SpawnGroup>>();
-
+	@XmlTransient
 	private int counter = 0;
+	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
 		for(SpawnGroup spawnGroup : spawnGroups)
@@ -164,6 +168,20 @@ public class SpawnsData implements Iterable<SpawnGroup>
 		{
 			spawnsByNpc.remove(spawn.getSpawnGroup());
 		}
-		
 	}
+
+	/**
+	 * 
+	 *  Don't use this method from core functionality
+	 *  Used only while marshalling spawns to a file
+	 *  
+	 * @return the spawnGroups
+	 */
+	public List<SpawnGroup> getSpawnGroups()
+	{
+		if(spawnGroups == null)
+			spawnGroups = new ArrayList<SpawnGroup>();
+		return spawnGroups;
+	}
+	
 }

@@ -16,13 +16,10 @@
  */
 package com.aionemu.gameserver.model.templates.spawn;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -34,22 +31,28 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "object")
 public class SpawnTemplate
 {
+	/**
+	 * XML attributes
+	 * Order should be reversed to XML attributes order
+	 */
+	@XmlTransient
 	private SpawnGroup			spawnGroup;
-	@XmlAttribute(name = "x")
-	private float x;
-	@XmlAttribute(name = "y")
-	private float y;
-	@XmlAttribute(name = "z")
-	private float z;
 	@XmlAttribute(name = "h")
 	private byte heading;
-
+	@XmlAttribute(name = "z")
+	private float z;
+	@XmlAttribute(name = "y")
+	private float y;
+	@XmlAttribute(name = "x")
+	private float x;
+	@XmlTransient
 	private int			walkerId;
+	@XmlTransient
 	private int			randomWalk;
-	
+	@XmlTransient
 	private byte spawnState = 0;
+	@XmlTransient
 	private byte respawn = -1;
-	
 	
 	/**
 	 * Constructor used by unmarshaller
