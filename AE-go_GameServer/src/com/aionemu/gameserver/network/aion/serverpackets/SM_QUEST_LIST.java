@@ -60,8 +60,6 @@ public class SM_QUEST_LIST extends AionServerPacket
 		{
 			questList.add(2200);
 			questList.add(2300);
-			questList.add(2008);
-			questList.add(2009);
 		}
 	}
 	/**

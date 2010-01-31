@@ -1,18 +1,18 @@
 /*
  * This file is part of aion-unique <aion-unique.org>.
  *
- * aion-unique is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ *  aion-unique is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  *
- * aion-unique is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *  aion-unique is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+ *  You should have received a copy of the GNU General Public License
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
 package quest.ascension;
 
@@ -28,29 +28,30 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.WorldMapType;
 
 /**
  * @author MrPoke
  *
  */
-public class _1007ACeremonyinSanctum extends QuestHandler
+public class _2009ACeremonyinPandaemonium extends QuestHandler
 {
 
-	private final static int	questId	= 1007;
+	private final static int	questId	= 2009;
 
-	public _1007ACeremonyinSanctum()
+	public _2009ACeremonyinPandaemonium()
 	{
 		super(questId);
 		if(Config.ENABLE_SIMPLE_2NDCLASS)
 			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
-		QuestEngine.getInstance().setNpcQuestData(790001).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203725).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203752).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203758).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203759).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203760).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203761).addOnTalkEvent(questId);
+		QuestEngine.getInstance().setNpcQuestData(203550).addOnTalkEvent(questId);
+		QuestEngine.getInstance().setNpcQuestData(204182).addOnTalkEvent(questId);
+		QuestEngine.getInstance().setNpcQuestData(204075).addOnTalkEvent(questId);
+		QuestEngine.getInstance().setNpcQuestData(204080).addOnTalkEvent(questId);
+		QuestEngine.getInstance().setNpcQuestData(204081).addOnTalkEvent(questId);
+		QuestEngine.getInstance().setNpcQuestData(204082).addOnTalkEvent(questId);
+		QuestEngine.getInstance().setNpcQuestData(204083).addOnTalkEvent(questId);
 	}
 
 	@Override
@@ -68,7 +69,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 
 		if(qs.getStatus() == QuestStatus.START)
 		{
-			if(targetId == 790001)
+			if(targetId == 203550)
 			{
 				switch(env.getDialogId())
 				{
@@ -82,12 +83,12 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),0));
 							
-							player.getController().teleportTo(110010000, 1313, 1512, 568, 0);
+							player.getController().teleportTo(WorldMapType.PANDAEMONIUM.getId(), 1685, 1400, 195, 0);
 							return true;
 						}
 				}
 			}
-			else if (targetId == 203725)
+			else if (targetId == 204182)
 			{
 				switch(env.getDialogId())
 				{
@@ -97,7 +98,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 					case 1353:
 						if(var == 1)
 						{
-							PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 92));
+							PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 121));
 							return false;
 						}
 					case 10001:
@@ -111,7 +112,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 						}
 				}
 			}
-			else if (targetId == 203752)
+			else if (targetId == 204075)
 			{
 				switch(env.getDialogId())
 				{
@@ -121,7 +122,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 					case 1694:
 						if(var == 2)
 						{
-							PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 91));
+							PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 122));
 							return false;
 						}
 					case 10002:
@@ -147,7 +148,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 		}
 		else if (qs.getStatus() == QuestStatus.REWARD)
 		{
-			if (targetId == 203758 && var == 10)
+			if (targetId == 204080 && var == 10)
 			{
 				switch (env.getDialogId())
 				{
@@ -172,7 +173,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 						}
 				}
 			}
-			else if (targetId == 203759 && var == 20)
+			else if (targetId == 204081 && var == 20)
 			{
 				switch (env.getDialogId())
 				{
@@ -197,7 +198,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 						}
 				}
 			}
-			else if (targetId == 203760 && var == 30)
+			else if (targetId == 204082 && var == 30)
 			{
 				switch (env.getDialogId())
 				{
@@ -222,7 +223,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 						}
 				}
 			}
-			else if (targetId == 203761 && var == 40)
+			else if (targetId == 204083 && var == 40)
 			{
 				switch (env.getDialogId())
 				{
@@ -258,7 +259,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 		if(qs != null)
 			return false;
 
-		QuestState qs2 = player.getQuestStateList().getQuestState(1006);
+		QuestState qs2 = player.getQuestStateList().getQuestState(2008);
 		if(qs2 == null || qs2.getStatus() != QuestStatus.COMPLITE)
 			return false;
 		env.setQuestId(questId);

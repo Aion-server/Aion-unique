@@ -92,7 +92,7 @@ public class _2135ForLoveofNegi extends QuestHandler
 				else if(env.getDialogId() == 10000)
 				{
 					qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
-					player.getInventory().removeFromBagByItemId(targetId, 1);
+					player.getInventory().removeFromBagByItemId(182203131, 1);
 					updateQuestStatus(player, qs);
 					PacketSendUtility
 						.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));

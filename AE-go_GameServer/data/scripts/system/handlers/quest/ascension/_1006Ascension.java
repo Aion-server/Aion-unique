@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aionemu.gameserver.ai.events.Event;
-import com.aionemu.gameserver.dataholders.SpawnsData;
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Monster;
@@ -41,7 +41,6 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.zone.ZoneManager;
 import com.aionemu.gameserver.world.zone.ZoneName;
-import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -52,13 +51,12 @@ public class _1006Ascension extends QuestHandler
 	private final static int	questId			= 1006;
 	private int					activePlayerId	= 0;
 	private List<Npc>			mobs			= new ArrayList<Npc>();
-	private final SpawnsData	spawnsData;
 
-	@Inject
-	public _1006Ascension(SpawnsData spawnsData)
+	public _1006Ascension()
 	{
 		super(questId);
-		this.spawnsData = spawnsData;
+		if(Config.ENABLE_SIMPLE_2NDCLASS)
+			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
 		QuestEngine.getInstance().setNpcQuestData(790001).addOnTalkEvent(questId);
 		QuestEngine.getInstance().setQuestItemIds(182200007).add(questId);
@@ -244,8 +242,7 @@ public class _1006Ascension extends QuestHandler
 							activePlayerId = player.getObjectId();
 							for(Npc mob : mobs)
 							{
-								mob.getAi().stop();
-								spawnsData.removeSpawn(mob.getSpawn());
+								mob.getController().onDie();
 							}
 							mobs.clear();
 							PacketSendUtility.sendPacket(player, new SM_EMOTION(player, 6, 1001, 0));
@@ -267,8 +264,6 @@ public class _1006Ascension extends QuestHandler
 										(float) 222.8, (float) 262.5, (float) 205.7, (byte) 0, false));
 									for(Npc mob : mobs)
 									{
-										//TODO: Tempt decrease P attack.
-										mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER)/3 );
 										((Monster) mob).getAggroList().addDamageHate(player, 1000, 0);
 										mob.getAi().handleEvent(Event.ATTACKED);
 									}
@@ -341,7 +336,7 @@ public class _1006Ascension extends QuestHandler
 		{
 			PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 151));
 			monster.getAi().stop();
-			spawnsData.removeSpawn(monster.getSpawn());
+			monster.getController().onDie();
 		}
 		return false;
 	}

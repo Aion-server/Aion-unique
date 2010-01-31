@@ -97,7 +97,7 @@
 	</monster_hunt>
 	
 	<!-- TODO: Odella Recipe -->
-	
+
 	<!-- Pumpkin Season -->
 	<item_collecting id="1144" start_npc_id="730001" end_npc_id="203130" action_item_id="700109" />
 
@@ -237,6 +237,97 @@
 	
 	<!-- Swamp Plant Samples -->
 	<item_collecting start_npc_id="203155" action_item_id="700113" id="1178"/>
+	
+	<!-- TODO: [Group] Persistent Krall -->
+	
+	<!-- TODO: Ancient Stone Fragment -->
+	
+	<!-- Can't Please Everyone -->
+	<item_collecting start_npc_id="203172" id="1215"/>
+	
+	<!-- TODO: Held Sacred -->
+	
+	<!-- Investigating Wind Spirits -->
+	<report_to start_npc_id="203165" end_npc_id="203097" id="1184"/>
+	
+	<!-- TODO: Mark of Vengeance -->
+	
+	<!-- Potcrab Pincers -->
+	<item_collecting start_npc_id="203166" id="1204"/>
+	
+	<!-- Potcrab, the Headache -->
+	<item_collecting start_npc_id="203166" id="1189"/>
+	
+	<!-- TODO: Spirit Of Nature -->
+	
+	<!-- The Wriggot Menace -->
+	<item_collecting start_npc_id="730012" id="1186"/>
+	
+	<!-- Tribute to the Temple -->
+	<report_to start_npc_id="203157" end_npc_id="203178" item_id="182200548" id="1180"/>
+	
+	<!-- Unquiet Spirits -->
+	<monster_hunt start_npc_id="203178" id="1185">
+		<monster_infos var_id="0" npc_id="210080" max_kill="6"/>
+	</monster_hunt>
+	
+	<!-- Wriggot Resurgence -->
+	<item_collecting start_npc_id="730012" id="1203"/>
+	
+	<!-- [Coin] Dampening Spirits -->
+	<monster_hunt start_npc_id="203179" id="1196">
+		<monster_infos var_id="0" npc_id="210086" max_kill="14"/>
+		<monster_infos var_id="0" npc_id="210711" max_kill="8"/>
+	</monster_hunt>
+	
+	<!-- TODO: [Group] Culling Krall -->
+	
+	<!-- An Urgent Letter -->
+	<report_to start_npc_id="203099" end_npc_id="203183" item_id="182200555" id="1191"/>
+	
+	<!-- Flotsam -->
+	<monster_hunt start_npc_id="203184" id="1217">
+		<monster_infos var_id="0" npc_id="210299" max_kill="12"/>
+		<monster_infos var_id="0" npc_id="210197" max_kill="12"/>
+	</monster_hunt>
+	
+	<!-- TODO: Flying Reconnaissance -->
+	
+	<!-- TODO: Krall Desecration -->
+	
+	<!-- Message From Morai -->
+	<report_to start_npc_id="203164" end_npc_id="203167" id="1188"/>
+	
+	<!-- Numonerk's Demand Note -->
+	<report_to start_npc_id="203121" end_npc_id="798004" item_id="182200566" id="1218"/>
+
+	<!-- Saving the Snappers -->
+	<monster_hunt start_npc_id="203169" id="1216">
+		<monster_infos var_id="0" npc_id="210112" max_kill="12"/>
+	</monster_hunt>
+	
+	<!-- Shipwreck Revolutionaries -->
+	<item_collecting start_npc_id="203183" id="1190"/>
+	
+	<!-- TODO: Verteron Reinforcements -->
+	
+	<!-- TODO: [Group] Krall Conspiracy -->
+	
+	<!-- TODO: [Group] Reducing Tursin Strength -->
+	
+	<!-- TODO: A Nest of Lepharists -->
+	
+	<!-- TODO: A Secret Delivery -->
+	
+	<!-- Lepharist Treasure Box -->
+	<item_collecting start_npc_id="203172" action_item_id="700283" id="1219"/>
+	
+	<!-- http://www.aionarmory.com/search.aspx?browse=4.3.2#quests:100+2+1 -->
+	
+	<!-- TODO: [Group] Tursin Assassination -->
+	
+	<!-- TODO: Sealing the Abyss Gate -->
+	
 	
 	<!-- TODO: [Group] Persistent Krall -->
 	

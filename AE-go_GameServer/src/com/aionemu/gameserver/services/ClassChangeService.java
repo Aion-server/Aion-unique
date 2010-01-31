@@ -18,33 +18,39 @@ package com.aionemu.gameserver.services;
 
 import java.util.Arrays;
 
+import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.dao.QuestListDAO;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
+import com.aionemu.gameserver.questEngine.model.QuestState;
+import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer, sweetkr
- *
+ * 
  */
 public class ClassChangeService
 {
 	/**
-	 *  TODO remove after class change quest is done
-	 *  
+	 * TODO remove after class change quest is done
+	 * 
 	 * @param player
 	 */
 	public static void showClassChangeDialog(Player player)
 	{
-		if (Config.ENABLE_SIMPLE_2NDCLASS)
+		if(Config.ENABLE_SIMPLE_2NDCLASS)
 		{
 			PlayerClass playerClass = player.getPlayerClass();
 			Race playerRace = player.getCommonData().getRace();
-			if (player.getLevel() >= 9 && Arrays.asList(0,3,6,9).contains(playerClass.ordinal()))
+			if(player.getLevel() >= 9 && Arrays.asList(0, 3, 6, 9).contains(playerClass.ordinal()))
 			{
-				if (playerRace.ordinal() == 0)
+				if(playerRace.ordinal() == 0)
 				{
 					switch(playerClass.ordinal())
 					{
@@ -62,7 +68,7 @@ public class ClassChangeService
 							break;
 					}
 				}
-				else if (playerRace.ordinal() == 1)
+				else if(playerRace.ordinal() == 1)
 				{
 					switch(playerClass.ordinal())
 					{
@@ -83,7 +89,7 @@ public class ClassChangeService
 			}
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @param player
@@ -91,10 +97,10 @@ public class ClassChangeService
 	 */
 	public static void changeClassToSelection(final Player player, final int dialogId)
 	{
-		if (Config.ENABLE_SIMPLE_2NDCLASS)
+		if(Config.ENABLE_SIMPLE_2NDCLASS)
 		{
 			Race playerRace = player.getCommonData().getRace();
-			if (playerRace.ordinal() == 0)
+			if(playerRace.ordinal() == 0)
 			{
 				switch(dialogId)
 				{
@@ -123,8 +129,10 @@ public class ClassChangeService
 						setClass(player, PlayerClass.getPlayerClassById(Byte.parseByte("11")));
 						break;
 				}
+				addCompliteQuest(player, 1006);
+				addCompliteQuest(player, 1007);
 			}
-			else if (playerRace.ordinal() == 1)
+			else if(playerRace.ordinal() == 1)
 			{
 				switch(dialogId)
 				{
@@ -153,7 +161,26 @@ public class ClassChangeService
 						setClass(player, PlayerClass.getPlayerClassById(Byte.parseByte("11")));
 						break;
 				}
+				addCompliteQuest(player, 2008);
+				addCompliteQuest(player, 2009);
 			}
+		}
+	}
+
+	private static void addCompliteQuest(Player player, int questId)
+	{
+		QuestState qs = player.getQuestStateList().getQuestState(questId);
+		if(qs == null)
+		{
+			player.getQuestStateList().addQuest(questId, new QuestState(questId, QuestStatus.COMPLITE, 0, 0));
+			PacketSendUtility.sendPacket(player, new SM_QUEST_ACCEPTED(questId, QuestStatus.COMPLITE.value(), 0));
+		}
+		else
+		{
+			qs.setStatus(QuestStatus.COMPLITE);
+			PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(questId, qs.getStatus(), qs.getQuestVars()
+				.getQuestVars()));
+			DAOManager.getDAO(QuestListDAO.class).store(player.getObjectId(), qs);
 		}
 	}
 
