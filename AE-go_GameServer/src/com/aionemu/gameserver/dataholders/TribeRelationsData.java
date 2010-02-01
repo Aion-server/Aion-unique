@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.aionemu.gameserver.model.templates.tribe.AggroRelations;
 import com.aionemu.gameserver.model.templates.tribe.Tribe;
 
 /**
@@ -56,5 +57,16 @@ public class TribeRelationsData
 	public int size()
 	{
 		return tribeNameMap.size();
+	}
+	
+	public boolean isAggressiveRelation(String tribeName1, String tribeName2)
+	{
+		Tribe tribe1 = tribeNameMap.get(tribeName1);
+		if(tribe1 == null)
+			return false;
+		AggroRelations aggroRelations = tribe1.getAggroRelations();
+		if(aggroRelations == null)
+			return false;
+		return aggroRelations.getTo().contains(tribeName2);
 	}
 }

@@ -100,7 +100,7 @@ public class PlayerController extends CreatureController<Player>
 		{
 			boolean update = false;
 			Npc npc = ((Npc)object);
-			PacketSendUtility.sendPacket(getOwner(), new SM_NPC_INFO(npc));
+			PacketSendUtility.sendPacket(getOwner(), new SM_NPC_INFO(npc, getOwner()));
 			for (int questId : QuestEngine.getInstance().getNpcQuestData(npc.getNpcId()).getOnQuestStart())
 			{
 				if (QuestEngine.getInstance().getQuest(new QuestEnv(object, getOwner(), questId, 0)).checkStartCondition())

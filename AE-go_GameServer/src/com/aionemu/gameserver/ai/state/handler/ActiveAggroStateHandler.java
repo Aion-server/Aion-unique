@@ -21,6 +21,7 @@ import com.aionemu.gameserver.ai.desires.impl.AggressionDesire;
 import com.aionemu.gameserver.ai.desires.impl.WalkDesire;
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.state.AIState;
+import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -58,7 +59,20 @@ public class ActiveAggroStateHandler extends StateHandler
 		for(VisibleObject visibleObject : ai.getOwner().getKnownList())
 		{
 			if (visibleObject instanceof Player)
-				playerCount++;
+			{
+				Race playerRace = ((Player) visibleObject).getCommonData().getRace();
+				switch(playerRace)
+				{
+					case ASMODIANS:
+						if(owner.isAggressiveTo("PC_DARK"))
+							playerCount++;
+						break;
+					case ELYOS:
+						if(owner.isAggressiveTo("PC"))
+							playerCount++;
+						break;
+				}
+			}
 		}
 		if(playerCount > 0)
 		{

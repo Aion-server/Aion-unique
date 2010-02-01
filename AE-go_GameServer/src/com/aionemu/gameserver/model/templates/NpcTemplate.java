@@ -59,9 +59,11 @@ public class NpcTemplate extends VisibleObjectTemplate
 	private int					ammoSpeed		= 0;
 	@XmlAttribute(name = "rank")
 	private NpcRank				rank;
-	@XmlAttribute(name = "aggro_range")
+	@XmlAttribute(name = "srange")
 	private int					aggrorange;
-
+	@XmlAttribute(name = "tribe")
+	private String				tribe;
+	
 	public int getTemplateId()
 	{
 		return npcId;
@@ -119,6 +121,14 @@ public class NpcTemplate extends VisibleObjectTemplate
 	public void setStatsTemplate(NpcStatsTemplate statsTemplate)
 	{
 		this.statsTemplate = statsTemplate;
+	}
+	
+	/**
+	 * @return the tribe
+	 */
+	public String getTribe()
+	{
+		return tribe;
 	}
 
 	/**

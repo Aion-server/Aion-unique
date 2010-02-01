@@ -113,6 +113,8 @@ public final class DataManager
 	public static ZoneData				ZONE_DATA;
 	
 	public GoodsListData				GOODSLIST_DATA;
+	
+	public static TribeRelationsData			TRIBE_RELATIONS_DATA;
 
 	/**
 	 * Constructor creating <tt>DataManager</tt> instance.<br>
@@ -150,6 +152,8 @@ public final class DataManager
 		ZONE_DATA = data.zoneData;	
 		WALKER_DATA = data.walkerData;
 		GOODSLIST_DATA = data.goodsListData;
+		TRIBE_RELATIONS_DATA = data.tribeRelationsData;
+		
 		// some sexy time message
 		long seconds = time / 1000;
 

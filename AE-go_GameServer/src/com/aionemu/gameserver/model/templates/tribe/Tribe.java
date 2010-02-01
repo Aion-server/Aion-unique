@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Tribe")
 public class Tribe
 {
-	@XmlElement(name = "tribe")
+	@XmlElement(name = "aggro")
 	protected AggroRelations aggroRelations;
 	@XmlAttribute(required = true)
 	protected String name;

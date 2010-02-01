@@ -18,6 +18,7 @@ package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.controllers.NpcController;
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
@@ -115,7 +116,18 @@ public class Npc extends Creature
 	
 	public boolean isAggressive()
 	{
-		return getTemplate().getNpcType() == NpcType.AGGRESSIVE;
+		return isAggressiveTo("PC") || isAggressiveTo("PC_DARK");
+	}
+	/**
+	 *  //TODO refactore to npc-npc interations
+	 *  
+	 * @param tribe
+	 * @return
+	 */
+	public boolean isAggressiveTo(String tribe)
+	{
+		String currentTribe = getTemplate().getTribe();
+		return DataManager.TRIBE_RELATIONS_DATA.isAggressiveRelation(currentTribe, tribe);
 	}
 	
 	public int getAggroRange()

@@ -19,7 +19,10 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 import java.nio.ByteBuffer;
 import java.util.Map.Entry;
 
+import com.aionemu.gameserver.model.NpcType;
+import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.NpcEquippedGear;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
@@ -39,16 +42,22 @@ public class SM_NPC_INFO extends AionServerPacket
 	 * Visible npc
 	 */
 	private final Npc		npc;
+	
+	private final boolean isAggressive;
 
 	/**
 	 * Constructs new <tt>SM_NPC_INFO </tt> packet
 	 * 
 	 * @param npc
 	 *            visible npc.
+	 * @param player 
 	 */
-	public SM_NPC_INFO(Npc npc)
+	public SM_NPC_INFO(Npc npc, Player player)
 	{
 		this.npc = npc;
+		
+		String playerTribe = player.getCommonData().getRace() == Race.ELYOS ? "PC" : "PC_DARK";
+		isAggressive = npc.isAggressiveTo(playerTribe);
 	}
 
 	/**
@@ -64,8 +73,12 @@ public class SM_NPC_INFO extends AionServerPacket
 		writeD(buf, npc.getObjectId());
 		writeD(buf, npc.getNpcId());
 		writeD(buf, npc.getNpcId());
-
-		writeC(buf, npcTemplate.getNpcType().getId());// 0-monster, 38 - (non attackable), 8- pre-emptive attack (aggro monsters)
+		
+		if(isAggressive)
+			writeC(buf, NpcType.AGGRESSIVE.getId());
+		else
+			writeC(buf, npcTemplate.getNpcType().getId());// 0-monster, 38 - (non attackable), 8- pre-emptive attack (aggro monsters)
+		
 		writeH(buf, npc.getState());// unk 65=normal,0x47 (71)= [dead npc ?]no drop,0x21(33)=fight state,0x07=[dead monster?]
 								// no drop
 								// 3,19 - wings spread (NPCs)
