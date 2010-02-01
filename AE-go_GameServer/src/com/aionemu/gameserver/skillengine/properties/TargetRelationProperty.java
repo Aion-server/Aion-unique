@@ -77,11 +77,14 @@ public class TargetRelationProperty
 					
 					if(lastAttacker != null && lastAttacker.getObjectId() == nextEffected.getObjectId())
 						continue;
-
+					
+					if(nextEffected instanceof Player 
+						&& ((Player) nextEffected).getController().isEnemy(skill.getEffector()))
+						continue;
+					
 					iter.remove();
 					//need to implement in a more robust way
 					//TODO duel
-					//TODO different race				
 				}
 				break;
 			case FRIEND:		
@@ -89,10 +92,12 @@ public class TargetRelationProperty
 				{
 					Creature nextEffected = iter.next();
 					
+					//TODO refactor here for duel support
 					if(nextEffected instanceof Player 
-						&& ((Player)nextEffected).getCommonData().getRace() == skill.getEffector().getCommonData().getRace())
+						&& !((Player)nextEffected).getController().isEnemy(skill.getEffector()))
 						continue;
 					
+					//TODO here also needs refactoring
 					if(nextEffected instanceof Player
 						&& lastAttacker != null 
 						&& lastAttacker.getObjectId() != nextEffected.getObjectId())
