@@ -42,7 +42,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 
     public static final String SELECT_QUERY = "SELECT `itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `isEquiped`, `slot` FROM `inventory` WHERE `itemOwner`=?";
     public static final String INSERT_QUERY = "INSERT INTO `inventory` (`itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `itemOwner`, `isEquiped`, `slot`) VALUES(?,?,?,?,?,?,?)";
-    public static final String UPDATE_QUERY = "UPDATE inventory SET  itemCount=?, itemColor=?, isEquiped=?, slot=? WHERE itemUniqueId=?";
+    public static final String UPDATE_QUERY = "UPDATE inventory SET  itemCount=?, itemColor=?, itemOwner=?, isEquiped=?, slot=? WHERE itemUniqueId=?";
     public static final String DELETE_QUERY = "DELETE FROM inventory WHERE itemUniqueId=?";
 
     @Override
@@ -109,7 +109,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
     			result = insertItem(item, playerId);
     			break;
     		case UPDATE_REQUIRED:
-    			result = updateItem(item);
+    			result = updateItem(item, playerId);
     			break;
     		case DELETED:
     			result = deleteItem(item);
@@ -146,7 +146,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
      * @param item
      * @return
      */
-    private boolean updateItem(final Item item)
+    private boolean updateItem(final Item item,  final int playerId)
     {
     	return DB.insertUpdate(UPDATE_QUERY, new IUStH() {
 			@Override
@@ -154,9 +154,10 @@ public class MySQL5InventoryDAO extends InventoryDAO
 			{
 				stmt.setInt(1, item.getItemCount());
 				stmt.setInt(2, item.getItemColor());
-				stmt.setBoolean(3, item.isEquipped());
-				stmt.setInt(4, item.getEquipmentSlot());
-				stmt.setInt(5, item.getObjectId());
+				stmt.setInt(3, playerId);
+				stmt.setBoolean(4, item.isEquipped());
+				stmt.setInt(5, item.getEquipmentSlot());
+				stmt.setInt(6, item.getObjectId());
 				stmt.execute();
 			}
 		});
