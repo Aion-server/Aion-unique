@@ -26,7 +26,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneManager;
@@ -117,7 +116,7 @@ public class CM_EMOTION extends AionClientPacket
 			case 0x7:
 				player.unsetState(CreatureState.FLYING);
 				player.setState(CreatureState.ACTIVE);
-				PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
+				PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false, false));
 				ZoneManager.getInstance().findZoneInCurrentMap(player);
 				break;
 			case 0x8:				

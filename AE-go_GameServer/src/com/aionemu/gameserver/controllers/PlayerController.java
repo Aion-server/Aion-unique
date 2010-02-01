@@ -93,7 +93,7 @@ public class PlayerController extends CreatureController<Player>
 		super.see(object);
 		if(object instanceof Player)
 		{
-			PacketSendUtility.sendPacket(getOwner(), new SM_PLAYER_INFO((Player) object, false));
+			PacketSendUtility.sendPacket(getOwner(), new SM_PLAYER_INFO((Player)object, false, isEnemy((Player) object)));
 			getOwner().getEffectController().sendEffectIconsTo((Player) object);
 		}
 		else if(object instanceof Npc)
@@ -181,22 +181,18 @@ public class PlayerController extends CreatureController<Player>
 		// TODO probably introduce variable - last attack creature in player AI
 		Player player = this.getOwner();
 		//TODO move to DuelController
-		if (lastAttacker instanceof Player) 
-		{ // PvP
+		if (lastAttacker instanceof Player && !isEnemy((Player) lastAttacker)) 
+		{
 			this.lostDuelWith((Player)lastAttacker);
 			((Player)lastAttacker).getController().wonDuelWith(player);
-		} 
-		else 
-		{ // PvE
+		}
+		else
+		{
 			getOwner().setState(CreatureState.DEAD);
-			/**
-			 * Set recoverable exp to player.
-			 */
-			if(player.getLevel() > 4) //only over level 5
-				player.getCommonData().calculateExpLoss();	
+			if(player.getLevel() > 4)
+				player.getCommonData().calculateExpLoss();
 
-			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 13,
-				0, lastAttacker.getObjectId()), true);
+			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 13, 0, lastAttacker.getObjectId()), true);
 			PacketSendUtility.sendPacket(player, new SM_DIE());
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
 		}
@@ -481,7 +477,7 @@ public class PlayerController extends CreatureController<Player>
 	}
 
 	/**
-	 * @param b
+	 * @param useTeleport
 	 */
 	public void moveToBindLocation(boolean useTeleport)
 	{
@@ -520,4 +516,8 @@ public class PlayerController extends CreatureController<Player>
 			world.setPosition(player, worldId, x, y, z, player.getHeading());
 		}
 	}
+
+    public boolean isEnemy (Player player) {
+        return player.getCommonData().getRace() != getOwner().getCommonData().getRace();
+    }
 }

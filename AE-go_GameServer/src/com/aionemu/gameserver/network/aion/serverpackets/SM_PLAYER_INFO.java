@@ -39,16 +39,19 @@ public class SM_PLAYER_INFO extends AionServerPacket {
      */
     private final Player player;
     private final boolean self;
+    private boolean enemy;
 
     /**
      * Constructs new <tt>SM_PLAYER_INFO </tt> packet
      *
      * @param player actual player.
      * @param self   send packet yourself ?
+     * @param enemy
      */
-    public SM_PLAYER_INFO(Player player, boolean self) {
+    public SM_PLAYER_INFO(Player player, boolean self, boolean enemy) {
         this.player = player;
         this.self = self;
+        this.enemy = enemy;
     }
 
     /**
@@ -76,7 +79,14 @@ public class SM_PLAYER_INFO extends AionServerPacket {
          */
         writeD(buf, player.getTransformedModelId() == 0 ? pcd.getTemplateId() : player.getTransformedModelId());
 
-        writeC(buf, 0x26); // unk 0x00 - name in red
+        if (enemy)
+        {
+            writeC(buf, 0x00);
+        }
+        else
+        {
+            writeC(buf, 0x26);
+        }
         writeC(buf, raceId); //race
         writeC(buf, pcd.getPlayerClass().getClassId());
         writeC(buf, genderId); //sex

@@ -21,12 +21,7 @@ import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.*;
-import com.aionemu.gameserver.world.World;
-import com.google.inject.Inject;
-import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import org.apache.log4j.Logger;
-import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 
 /**
  * @author ATracer, orz, avol
@@ -72,7 +67,7 @@ public class CM_REVIVE extends AionClientPacket
 		sendPacket(SM_SYSTEM_MESSAGE.REVIVE);	
 		sendPacket(new SM_QUEST_LIST(activePlayer));
 		sendPacket(new SM_STATS_INFO(activePlayer));
-		sendPacket(new SM_PLAYER_INFO(activePlayer, true));	
+		sendPacket(new SM_PLAYER_INFO(activePlayer, true, false));
 
 		activePlayer.getController().moveToBindLocation(true);
 	}

@@ -68,7 +68,7 @@ public class CM_LEVEL_READY extends AionClientPacket
 		activePlayer.unsetState(CreatureState.FLYING);
 		
 		
-		sendPacket(new SM_PLAYER_INFO(activePlayer, true));
+		sendPacket(new SM_PLAYER_INFO(activePlayer, true, false));
 
 		/**
 		 * Spawn player into the world.
