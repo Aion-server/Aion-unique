@@ -82,11 +82,17 @@ public class SaveSpawnData extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "Unexpected error occured during saving");
 			return;
 		}
-
+		
+		boolean isAllSave = params.length == 1 && "all".equalsIgnoreCase(params[0]);
+		
 		for(WorldMapTemplate template : worldMapsData)
-		{
+		{		
+			List<SpawnGroup> spawnsForWorld = null;
+			if(isAllSave)
+				spawnsForWorld = spawnsData.getSpawnsForWorld(template.getMapId());
+			else
+				spawnsForWorld = spawnsData.getNewSpawnsForWorld(template.getMapId());
 
-			List<SpawnGroup> spawnsForWorld = spawnsData.getSpawnsForWorld(template.getMapId());
 			if(spawnsForWorld != null && spawnsForWorld.size() > 0)
 			{
 				SpawnsData data = new SpawnsData();
@@ -112,6 +118,6 @@ public class SaveSpawnData extends AdminCommand
 				}			
 			}
 		}
-		PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
+		PacketSendUtility.sendMessage(admin, "Spawn data was saved into /static_data/spawns/new folder");
 	}
 }

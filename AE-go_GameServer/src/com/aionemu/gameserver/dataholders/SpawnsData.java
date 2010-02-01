@@ -50,6 +50,9 @@ public class SpawnsData implements Iterable<SpawnGroup>
 	//key is npcid
 	@XmlTransient
 	private Map<Integer, ArrayList<SpawnGroup>> spawnsByNpcID = new HashMap<Integer, ArrayList<SpawnGroup>>();
+	//key is mapid
+	@XmlTransient
+	private Map<Integer, ArrayList<SpawnGroup>> spawnsByMapIdNew = new HashMap<Integer, ArrayList<SpawnGroup>>();
 	@XmlTransient
 	private int counter = 0;
 	
@@ -63,7 +66,7 @@ public class SpawnsData implements Iterable<SpawnGroup>
 				template.setSpawnGroup(spawnGroup);
 			}
 
-			addNewSpawnGroup(spawnGroup, spawnGroup.getMapid(), spawnGroup.getNpcid());
+			addNewSpawnGroup(spawnGroup, spawnGroup.getMapid(), spawnGroup.getNpcid(), false);
 
 			counter += spawnGroup.getObjects().size();
 		}
@@ -103,6 +106,11 @@ public class SpawnsData implements Iterable<SpawnGroup>
 	{
 		return spawnsByMapId.get(worldId);
 	}
+	
+	public List<SpawnGroup> getNewSpawnsForWorld(int worldId)
+	{
+		return spawnsByMapIdNew.get(worldId);
+	}
 
 	/**
 	 * @return
@@ -119,7 +127,7 @@ public class SpawnsData implements Iterable<SpawnGroup>
 	 * @param spawnTemplate
 	 * @param worldId
 	 */
-	public void addNewSpawnGroup(SpawnGroup spawnGroup, int worldId, int npcId)
+	public void addNewSpawnGroup(SpawnGroup spawnGroup, int worldId, int npcId, boolean isNew)
 	{
 		//put to map spawns
 		ArrayList<SpawnGroup> mapSpawnGroups = spawnsByMapId.get(worldId);
@@ -138,6 +146,19 @@ public class SpawnsData implements Iterable<SpawnGroup>
 			spawnsByNpcID.put(npcId, npcIdSpawnGroups);
 		}
 		npcIdSpawnGroups.add(spawnGroup);
+		
+		//put to new map spawns
+		if(isNew)
+		{
+			//put to map spawns
+			ArrayList<SpawnGroup> mapNewSpawnGroups = spawnsByMapIdNew.get(worldId);
+			if(mapNewSpawnGroups == null)
+			{
+				mapNewSpawnGroups = new ArrayList<SpawnGroup>();
+				spawnsByMapIdNew.put(worldId, mapNewSpawnGroups);
+			}
+			mapNewSpawnGroups.add(spawnGroup);
+		}
 	}
 
 	public void clear()
@@ -161,6 +182,12 @@ public class SpawnsData implements Iterable<SpawnGroup>
 		if(worldSpawns != null)
 		{
 			worldSpawns.remove(spawn.getSpawnGroup());
+		}
+		
+		List<SpawnGroup> worldNewSpawns = spawnsByMapIdNew.get(spawn.getWorldId());
+		if(worldNewSpawns != null)
+		{
+			worldNewSpawns.remove(spawn.getSpawnGroup());
 		}
 		
 		List<SpawnGroup> spawnsByNpc = spawnsByNpcID.get(spawn.getSpawnGroup().getNpcid());

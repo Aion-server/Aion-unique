@@ -66,7 +66,7 @@ import com.google.inject.Inject;
 public class SpawnEngine
 {
 	private static Logger log = Logger.getLogger(SpawnEngine.class);
-		
+
 	@Inject
 	private World	world;
 	@IDFactoryAionObject
@@ -86,12 +86,12 @@ public class SpawnEngine
 	private RiftSpawnManager riftSpawnManager;
 	@Inject
 	private WorldMapsData worldMapsData;
-	
+
 	/** Counter counting number of npc spawns */
 	private int npcCounter		= 0;
 	/** Counter counting number of gatherable spawns */
 	private int gatherableCounter		= 0;
-	
+
 	/**
 	 * Creates VisibleObject instance and spawns it using given {@link SpawnTemplate} instance.
 	 * 
@@ -102,7 +102,7 @@ public class SpawnEngine
 	{
 		VisibleObjectTemplate template = null;
 		int objectId = spawn.getSpawnGroup().getNpcid();
-		
+
 		if(objectId > 400000 && objectId < 499999)// gatherable
 		{
 			template = gatherableData.getGatherableTemplate(objectId);
@@ -123,7 +123,7 @@ public class SpawnEngine
 		{
 			NpcType npcType = ((NpcTemplate)template).getNpcType();	
 			Npc npc = null;
-			
+
 			switch(npcType)
 			{
 				case AGGRESSIVE:
@@ -150,7 +150,7 @@ public class SpawnEngine
 					break;
 				default: 
 					npc = new Npc(aionObjectsIDFactory.nextId(), new NpcController(), spawn, template);
-						
+
 			}
 
 			npc.setKnownlist(new KnownList(npc));
@@ -183,19 +183,20 @@ public class SpawnEngine
 	 * @param randomwalk
 	 * @return
 	 */
-	private SpawnTemplate addNewSpawn(int worldId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk)
+	private SpawnTemplate createSpawnTemplate(int worldId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk)
 	{
 		SpawnTemplate spawnTemplate = new SpawnTemplate(x, y, z, heading, walkerid, randomwalk);		
-		
+
 		SpawnGroup spawnGroup = new SpawnGroup(worldId, objectId, 105, 1);
 		spawnTemplate.setSpawnGroup(spawnGroup);
 		spawnGroup.getObjects().add(spawnTemplate);
-		
+
 		return spawnTemplate;
 	}
-	
+
 	/**
 	 *  Should be used when need to define whether spawn will be deleted after death
+	 *  Using this method spawns will not be saved with //save_spawn command
 	 *  
 	 * @param worldId
 	 * @param objectId
@@ -210,68 +211,90 @@ public class SpawnEngine
 	 */
 	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk, boolean respawn)
 	{
-		SpawnTemplate spawnTemplate = addNewSpawn(worldId, objectId, x, y, z, heading, walkerid, randomwalk);
-		
+		return this.addNewSpawn(worldId, instanceId, objectId, x, y, z, heading, walkerid, randomwalk, respawn, false);
+	}
+	
+	/**
+	 * 
+	 * @param worldId
+	 * @param instanceId
+	 * @param objectId
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param heading
+	 * @param walkerid
+	 * @param randomwalk
+	 * @param respawn
+	 * @param isNewSpawn
+	 * @return
+	 */
+	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, 
+		float x, float y, float z, byte heading, int walkerid, int randomwalk,
+		boolean respawn, boolean isNewSpawn)
+	{
+		SpawnTemplate spawnTemplate = createSpawnTemplate(worldId, objectId, x, y, z, heading, walkerid, randomwalk);
+
 		if(spawnTemplate == null)
 		{
 			log.warn("Object couldn't be spawned");
 			return null;
 		}
-		
+
 		if(respawn)
 		{
-			spawnsData.addNewSpawnGroup(spawnTemplate.getSpawnGroup(), worldId, objectId);
+			spawnsData.addNewSpawnGroup(spawnTemplate.getSpawnGroup(), worldId, objectId, isNewSpawn);
 		}
-		
+
 		spawnTemplate.setRespawn(respawn, instanceId);	
-	
+
 		return spawnTemplate;
 	}
 
-	
+
 	private void bringIntoWorld(VisibleObject visibleObject, SpawnTemplate spawn, int instanceIndex)
 	{
 		world.storeObject(visibleObject);
 		world.setPosition(visibleObject, spawn.getWorldId(), instanceIndex, spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getHeading());
 		world.spawn(visibleObject);
 	}
-	
+
 	public void spawnAll()
 	{
-		
+
 		for(WorldMapTemplate worldMapTemplate : worldMapsData)
 		{
 			int maxTwin = worldMapTemplate.getTwinCount();
 			int mapId = worldMapTemplate.getMapId();
 			int numberToSpawn = maxTwin > 0 ? maxTwin : 1;
-			
+
 			List<SpawnGroup> spawnsForWorld = spawnsData.getSpawnsForWorld(mapId);
 			if(spawnsForWorld != null)
 			{
 				for(SpawnGroup spawnGroup : spawnsForWorld)
 					spawnGroup.setInstanceSupport(numberToSpawn);
 			}					
-			
+
 			for(int i = 1; i <= numberToSpawn; i++)
 			{
 				spawnInstance(mapId, i);
 			}
 		}
-		
+
 		log.info("Loaded " + npcCounter + " npc spawns");
 		log.info("Loaded " + gatherableCounter + " gatherable spawns");
-		
+
 		riftSpawnManager.startRiftPool();
 	}
-	
+
 	private void spawnInstance(int worldId, int instanceIndex)
 	{	
-		
+
 		List<SpawnGroup> worldSpawns = spawnsData.getSpawnsForWorld(worldId);
-		
+
 		if(worldSpawns == null || worldSpawns.size() == 0)
 			return;
-		
+
 		int instanceSpawnCounter = 0;
 		for(SpawnGroup spawnGroup : worldSpawns)
 		{
@@ -281,7 +304,7 @@ public class SpawnEngine
 				for(int i = 0; i < pool; i++)
 				{
 					spawnObject(spawnGroup.getNextAvailableTemplate(instanceIndex), instanceIndex);
-					
+
 					instanceSpawnCounter++;
 				}
 			}

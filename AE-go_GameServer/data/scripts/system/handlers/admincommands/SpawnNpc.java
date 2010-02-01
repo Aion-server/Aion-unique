@@ -76,7 +76,7 @@ public class SpawnNpc extends AdminCommand {
         byte heading = admin.getHeading();
         int worldId = admin.getWorldId();
 
-        SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, 1, templateId, x, y, z, heading, 0, 0, respawn);
+        SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, 1, templateId, x, y, z, heading, 0, 0, respawn, true);
 
         if (spawn == null)
         {
@@ -95,6 +95,6 @@ public class SpawnNpc extends AdminCommand {
             objectName = ((Gatherable) visibleObject).getTemplate().getName();
         }
 
-        PacketSendUtility.sendMessage(admin, objectName + " spawned and save spawndata to file");
+        PacketSendUtility.sendMessage(admin, objectName + " spawned");
     }
 }
