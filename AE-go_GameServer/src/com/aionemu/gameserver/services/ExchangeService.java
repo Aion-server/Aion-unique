@@ -113,9 +113,12 @@ public class ExchangeService
 		Exchange currentExchange = getCurrentExchange(activePlayer);
 		if(currentExchange.isLocked())
 			return;
-
+		
+		//count total amount in inventory
 		int availableCount = activePlayer.getInventory().getKinahItem().getItemCount();
-
+		//count amount that was already added to exchange
+		availableCount -= currentExchange.getKinahCount();
+		
 		int countToAdd = availableCount > itemCount ? itemCount : availableCount;
 
 		if(countToAdd > 0)
