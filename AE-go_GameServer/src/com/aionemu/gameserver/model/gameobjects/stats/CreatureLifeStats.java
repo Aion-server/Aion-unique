@@ -335,7 +335,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	{
 		if(getMaxHp() < currentHp)
 			currentHp = getMaxHp();
-		if(getMaxHp() < currentMp)
+		if(getMaxMp() < currentMp)
 			currentMp = getMaxMp();
 		
 		if(!isFullyRestored())
