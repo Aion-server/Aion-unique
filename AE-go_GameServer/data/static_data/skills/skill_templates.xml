@@ -3314,6 +3314,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="83" delta="0"/>
             <damage value="232" delta="4"/>
@@ -4189,6 +4194,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="83" delta="0"/>
             <damage value="232" delta="4"/>
@@ -4227,6 +4237,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="83" delta="0"/>
             <damage value="242" delta="0"/>
@@ -4458,6 +4473,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="83" delta="0"/>
             <damage value="264" delta="0"/>
@@ -5745,6 +5765,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="20000">
+                <change stat="SPEED" duration="20000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="9" delta="0"/>
             <damage value="709" delta="23"/>
@@ -6652,6 +6677,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="76" delta="0"/>
             <damage value="0" delta="0"/>
@@ -6947,6 +6977,11 @@
             <targetrange value="AREA" distance="10" maxcount="4"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="124" delta="0"/>
             <dummy/>
@@ -8355,6 +8390,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="16000">
+                <change stat="SPEED" duration="16000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="36" delta="0"/>
             <damage value="68" delta="2"/>
@@ -8373,6 +8413,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="16000">
+                <change stat="SPEED" duration="16000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="54" delta="0"/>
             <damage value="89" delta="3"/>
@@ -8391,6 +8436,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="16000">
+                <change stat="SPEED" duration="16000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="68" delta="0"/>
             <damage value="138" delta="2"/>
@@ -9160,6 +9210,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="16000">
+                <change stat="SPEED" duration="16000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="74" delta="0"/>
             <damage value="161" delta="3"/>
@@ -17050,6 +17105,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="8000">
+                <change stat="SPEED" duration="8000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="46" delta="0"/>
             <damage value="66" delta="2"/>
@@ -17068,6 +17128,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="8000">
+                <change stat="SPEED" duration="8000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="57" delta="0"/>
             <damage value="98" delta="2"/>
@@ -17086,6 +17151,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="8000">
+                <change stat="SPEED" duration="8000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="63" delta="0"/>
             <damage value="135" delta="2"/>
@@ -17649,6 +17719,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="8000">
+                <change stat="SPEED" duration="8000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="54" delta="0"/>
             <damage value="314" delta="7"/>
@@ -18495,6 +18570,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="5000">
+                <change stat="SPEED" duration="5000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="251" delta="0"/>
             <dummy/>
@@ -19135,6 +19215,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="42" delta="1"/>
             <damage value="66" delta="13"/>
@@ -19153,6 +19238,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="70" delta="2"/>
             <damage value="212" delta="6"/>
@@ -19171,6 +19261,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="100" delta="3"/>
             <damage value="289" delta="9"/>
@@ -19189,6 +19284,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="145" delta="3"/>
             <damage value="375" delta="8"/>
@@ -19584,6 +19684,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="476" delta="9"/>
             <damage value="2146" delta="36"/>
@@ -22276,6 +22381,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="193" delta="3"/>
             <damage value="642" delta="12"/>
@@ -22291,6 +22401,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="194" delta="3"/>
             <damage value="642" delta="12"/>
@@ -23116,6 +23231,9 @@
         </setproperties>
         <effects>
             <dot damage="25" delta="1" checktime="3000" duration="15000"/>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
         </effects>
         <actions>
             <mpuse value="68" delta="1"/>
@@ -23134,6 +23252,9 @@
         </setproperties>
         <effects>
             <dot damage="35" delta="1" checktime="3000" duration="15000"/>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-55"/>
+            </buf>
         </effects>
         <actions>
             <mpuse value="92" delta="3"/>
@@ -23152,6 +23273,9 @@
         </setproperties>
         <effects>
             <dot damage="46" delta="1" checktime="3000" duration="15000"/>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
         </effects>
         <actions>
             <mpuse value="127" delta="3"/>
@@ -24058,6 +24182,9 @@
         </useconditions>
         <effects>
             <transform model="201051" duration="18000"/>
+            <buf duration="18000">
+                <change stat="SPEED" duration="18000" func="PERCENT" delta="0" value="-40"/>
+            </buf>
         </effects>
         <actions>
             <mpuse value="520" delta="0"/>
@@ -24605,6 +24732,9 @@
         </setproperties>
         <effects>
             <dot damage="55" delta="1" checktime="3000" duration="15000"/>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-65"/>
+            </buf>
         </effects>
         <actions>
             <mpuse value="164" delta="2"/>
@@ -25409,6 +25539,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-70"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="205" delta="0"/>
             <dummy/>
@@ -25724,6 +25859,7 @@
         <effects>
             <transform model="749165" duration="8000"/>
             <buf duration="8000">
+                <change stat="SPEED" duration="8000" func="PERCENT" delta="0" value="-30"/>
                 <change stat="WATER_RESISTANCE" duration="8000" func="ADD" delta="0" value="-100"/>
             </buf>
         </effects>
@@ -25745,6 +25881,7 @@
         <effects>
             <transform model="749166" duration="8000"/>
             <buf duration="8000">
+                <change stat="SPEED" duration="8000" func="PERCENT" delta="0" value="-30"/>
                 <change stat="FIRE_RESISTANCE" duration="8000" func="ADD" delta="0" value="-80"/>
             </buf>
         </effects>
@@ -28552,6 +28689,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="10" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -32019,6 +32161,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -32990,6 +33137,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -33205,6 +33357,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -33866,6 +34023,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="0">
+                <change stat="SPEED" duration="0" func="PERCENT" delta="5" value="0"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -42707,6 +42869,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="72" delta="0"/>
             <damage value="20" delta="0"/>
@@ -43030,6 +43197,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="144" delta="0"/>
             <damage value="20" delta="0"/>
@@ -45642,6 +45814,9 @@
         </useconditions>
         <effects>
             <transform model="280598" duration="180000"/>
+            <buf duration="180000">
+                <change stat="SPEED" duration="180000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -45697,6 +45872,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1500">
+                <change stat="SPEED" duration="1500" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45711,6 +45891,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2000">
+                <change stat="SPEED" duration="2000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45725,6 +45910,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="3000">
+                <change stat="SPEED" duration="3000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -46150,6 +46340,9 @@
         </useconditions>
         <effects>
             <transform model="280598" duration="180000"/>
+            <buf duration="180000">
+                <change stat="SPEED" duration="180000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -46284,6 +46477,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1500">
+                <change stat="SPEED" duration="1500" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -46298,6 +46496,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="3000">
+                <change stat="SPEED" duration="3000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -46368,6 +46571,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="1500">
+                <change stat="SPEED" duration="1500" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -46382,6 +46590,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="3000">
+                <change stat="SPEED" duration="3000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -47229,6 +47442,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -47482,6 +47700,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -47741,6 +47964,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -47831,6 +48059,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -48439,6 +48672,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="5000">
+                <change stat="SPEED" duration="5000" func="PERCENT" delta="10" value="-40"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -48971,6 +49209,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -49091,6 +49334,9 @@
         </useconditions>
         <effects>
             <poison value="49" delta="1" checktime="5000" duration="15100"/>
+            <buf duration="15100">
+                <change stat="SPEED" duration="15100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <damage value="31" delta="0"/>
@@ -49605,6 +49851,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -50609,6 +50860,9 @@
         </useconditions>
         <effects>
             <root duration="4000"/>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -50663,6 +50917,9 @@
         </useconditions>
         <effects>
             <root duration="4000"/>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -50692,6 +50949,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -50801,6 +51063,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -50863,6 +51130,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -51096,6 +51368,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -51141,6 +51418,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -51206,6 +51488,9 @@
         </useconditions>
         <effects>
             <poison value="49" delta="1" checktime="5000" duration="15100"/>
+            <buf duration="15100">
+                <change stat="SPEED" duration="15100" func="PERCENT" delta="0" value="-20"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -51497,6 +51782,9 @@
         </useconditions>
         <effects>
             <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+            <buf duration="8100">
+                <change stat="SPEED" duration="8100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <damage value="49" delta="0"/>
@@ -51653,6 +51941,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -51911,6 +52204,7 @@
             <buf duration="10000">
                 <change stat="PHYSICAL_ATTACK" duration="10000" func="PERCENT" delta="0" value="35"/>
                 <change stat="MAGICAL_ATTACK" duration="10000" func="PERCENT" delta="0" value="35"/>
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-30"/>
             </buf>
         </effects>
         <actions>
@@ -52271,6 +52565,7 @@
         <effects>
             <buf duration="10000">
                 <change stat="PHYSICAL_ATTACK" duration="10000" func="PERCENT" delta="0" value="35"/>
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-30"/>
             </buf>
         </effects>
         <actions>
@@ -52880,6 +53175,9 @@
         </useconditions>
         <effects>
             <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+            <buf duration="8100">
+                <change stat="SPEED" duration="8100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <damage value="49" delta="0"/>
@@ -52943,6 +53241,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -53116,6 +53419,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -53297,6 +53605,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -53311,6 +53624,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -53325,6 +53643,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -53339,6 +53662,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -53353,6 +53681,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -53455,6 +53788,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="48" delta="0"/>
         </actions>
@@ -53661,6 +53999,9 @@
         </useconditions>
         <effects>
             <dot damage="15" delta="1" checktime="2000" duration="8100"/>
+            <buf duration="8100">
+                <change stat="SPEED" duration="8100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <damage value="75" delta="0"/>
@@ -53713,6 +54054,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="12100">
+                <change stat="SPEED" duration="12100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -53892,6 +54238,9 @@
         </useconditions>
         <effects>
             <poison value="49" delta="1" checktime="5000" duration="15100"/>
+            <buf duration="15100">
+                <change stat="SPEED" duration="15100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <damage value="31" delta="0"/>
@@ -54018,6 +54367,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -54037,6 +54391,9 @@
         </useconditions>
         <effects>
             <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+            <buf duration="8100">
+                <change stat="SPEED" duration="8100" func="PERCENT" delta="0" value="-90"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -54049,6 +54406,11 @@
             <targetrange value="AREA" distance="25" maxcount="24"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-65"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -54153,6 +54515,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -54310,6 +54677,9 @@
         </useconditions>
         <effects>
             <poison value="49" delta="1" checktime="5000" duration="15100"/>
+            <buf duration="15100">
+                <change stat="SPEED" duration="15100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <damage value="31" delta="0"/>
@@ -54457,6 +54827,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="92" delta="0"/>
         </actions>
@@ -54818,6 +55193,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -54893,6 +55273,9 @@
         </useconditions>
         <effects>
             <dot damage="15" delta="1" checktime="2000" duration="8100"/>
+            <buf duration="8100">
+                <change stat="SPEED" duration="8100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <damage value="75" delta="0"/>
@@ -55186,6 +55569,9 @@
         </useconditions>
         <effects>
             <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+            <buf duration="8100">
+                <change stat="SPEED" duration="8100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <damage value="75" delta="0"/>
@@ -55323,6 +55709,9 @@
         </useconditions>
         <effects>
             <dot damage="10" delta="1" checktime="2000" duration="3100"/>
+            <buf duration="3100">
+                <change stat="SPEED" duration="3100" func="PERCENT" delta="0" value="-90"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -55340,6 +55729,9 @@
         </useconditions>
         <effects>
             <dot damage="10" delta="1" checktime="2000" duration="3100"/>
+            <buf duration="3100">
+                <change stat="SPEED" duration="3100" func="PERCENT" delta="0" value="-90"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -55938,6 +56330,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="9000">
+                <change stat="SPEED" duration="9000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="57" delta="3"/>
         </actions>
@@ -55952,6 +56349,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="2000">
+                <change stat="SPEED" duration="2000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="420" delta="20"/>
         </actions>
@@ -56068,6 +56470,11 @@
             <targetrange value="AREA" distance="5" maxcount="4"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -56169,6 +56576,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="6000">
+                <change stat="SPEED" duration="6000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -56185,6 +56597,9 @@
         </useconditions>
         <effects>
             <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+            <buf duration="8100">
+                <change stat="SPEED" duration="8100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <damage value="49" delta="0"/>
@@ -56297,6 +56712,9 @@
         </useconditions>
         <effects>
             <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+            <buf duration="8100">
+                <change stat="SPEED" duration="8100" func="PERCENT" delta="0" value="-20"/>
+            </buf>
         </effects>
         <actions>
             <damage value="53" delta="0"/>
@@ -56590,6 +57008,9 @@
         </setproperties>
         <effects>
             <dot damage="10" delta="1" checktime="2000" duration="30100"/>
+            <buf duration="30100">
+                <change stat="SPEED" duration="30100" func="PERCENT" delta="0" value="-70"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -56954,6 +57375,9 @@
         </useconditions>
         <effects>
             <poison value="74" delta="1" checktime="5000" duration="10100"/>
+            <buf duration="10100">
+                <change stat="SPEED" duration="10100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <damage value="0" delta="0"/>
@@ -57108,6 +57532,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="3000">
+                <change stat="SPEED" duration="3000" func="PERCENT" delta="0" value="-70"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -57382,6 +57811,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -57753,6 +58187,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="16100">
+                <change stat="SPEED" duration="16100" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -57781,6 +58220,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -57966,6 +58410,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-40"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -57983,6 +58432,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="8000">
+                <change stat="SPEED" duration="8000" func="PERCENT" value="-40"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -58099,6 +58553,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -58131,6 +58590,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
             <dot damage="25" delta="0" checktime="2000" duration="8100"/>
         </effects>
         <actions>
@@ -58148,6 +58610,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
             <dot damage="25" delta="0" checktime="2000" duration="8100"/>
         </effects>
         <actions>
@@ -58448,6 +58913,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -58604,6 +59074,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="104" delta="0"/>
         </actions>
@@ -58858,6 +59333,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-20"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -58872,6 +59352,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -58886,6 +59371,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-40"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -58900,6 +59390,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -58914,6 +59409,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -59494,6 +59994,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="18" delta="0"/>
         </actions>
@@ -59806,6 +60311,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -60658,6 +61168,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-55"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="53" delta="0"/>
         </actions>
@@ -61370,6 +61885,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-40"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -61694,6 +62214,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="18" delta="0"/>
         </actions>
@@ -62260,6 +62785,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-20"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -62274,6 +62804,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-40"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -62288,6 +62823,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -62401,6 +62941,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -62494,6 +63039,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -62511,6 +63061,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="8000">
+                <change stat="SPEED" duration="8000" func="PERCENT" value="-40"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -62559,6 +63114,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -62587,6 +63147,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -62615,6 +63180,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -63698,6 +64268,11 @@
             <targetrange value="AREA" distance="5" maxcount="4"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -63712,6 +64287,11 @@
             <targetrange value="AREA" distance="5" maxcount="4"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -63726,6 +64306,11 @@
             <targetrange value="AREA" distance="5" maxcount="4"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="12100">
+                <change stat="SPEED" duration="12100" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="73" delta="0"/>
         </actions>
@@ -64001,6 +64586,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="8000">
+                <change stat="SPEED" duration="8000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -64018,6 +64608,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="6000">
+                <change stat="SPEED" duration="6000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -64168,6 +64763,11 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="6000">
+                <change stat="SPEED" duration="6000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -64308,6 +64908,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="6000">
+                <change stat="SPEED" duration="6000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="68" delta="2"/>
         </actions>
@@ -64367,6 +64972,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="13000">
+                <change stat="SPEED" duration="13000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="90" delta="2"/>
         </actions>
@@ -64381,6 +64991,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="13000">
+                <change stat="SPEED" duration="13000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="115" delta="2"/>
         </actions>
@@ -64908,6 +65523,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -64922,6 +65542,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="18" delta="0"/>
         </actions>
@@ -65672,6 +66297,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="145" delta="3"/>
         </actions>
@@ -65720,6 +66350,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="6000">
+                <change stat="SPEED" duration="6000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="95" delta="2"/>
         </actions>
@@ -67995,6 +68630,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -69054,6 +69694,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="335" delta="0"/>
         </actions>
@@ -69596,6 +70241,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
+            <buf duration="120000">
+                <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
             <dot damage="5" delta="0" checktime="10000" duration="120000"/>
         </effects>
         <actions>
@@ -69728,6 +70376,11 @@
             <targetrange value="AREA" distance="15" maxcount="24"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -69776,6 +70429,11 @@
             <targetrange value="AREA" distance="27" maxcount="24"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -69832,6 +70490,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="20000">
+                <change stat="SPEED" duration="20000" func="PERCENT" delta="0" value="-20"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -70016,6 +70679,9 @@
         </useconditions>
         <effects>
             <dot damage="15" delta="1" checktime="2000" duration="60100"/>
+            <buf duration="60100">
+                <change stat="SPEED" duration="60100" func="PERCENT" delta="0" value="-90"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -71006,6 +71672,9 @@
         </useconditions>
         <effects>
             <dot damage="10" delta="1" checktime="2000" duration="8100"/>
+            <buf duration="8100">
+                <change stat="SPEED" duration="8100" func="PERCENT" delta="0" value="-70"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -71080,6 +71749,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-70"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -71217,6 +71891,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="5000">
+                <change stat="SPEED" duration="5000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -71418,6 +72097,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -71724,6 +72408,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -71836,6 +72525,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <buf duration="30100">
+                <change stat="SPEED" duration="30100" func="PERCENT" delta="0" value="-90"/>
+            </buf>
             <dot damage="5" delta="1" checktime="2000" duration="30100"/>
         </effects>
         <actions>
@@ -71905,6 +72597,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="20000">
+                <change stat="SPEED" duration="20000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -72051,6 +72748,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="120000">
+                <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -72479,6 +73181,9 @@
         </useconditions>
         <effects>
             <dot damage="600" delta="0" checktime="3000" duration="15000"/>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
         </effects>
         <actions>
             <damage value="600" delta="0"/>
@@ -72514,6 +73219,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-25"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -72656,6 +73366,7 @@
         <effects>
             <buf duration="30000">
                 <change stat="MAXHP" duration="30000" func="PERCENT" delta="0" value="-50"/>
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-30"/>
             </buf>
             <transform model="210484" duration="30000"/>
         </effects>
@@ -74011,6 +74722,9 @@
         </useconditions>
         <effects>
             <dot damage="88" delta="0" checktime="2000" duration="8000"/>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <damage value="88" delta="0"/>
@@ -74045,6 +74759,9 @@
         </useconditions>
         <effects>
             <poison value="250" delta="0" checktime="3000" duration="15000"/>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-75"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -74128,6 +74845,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="5000">
+                <change stat="SPEED" duration="5000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -74209,6 +74931,11 @@
             <targetrange value="AREA" distance="5" maxcount="6"/>
             <targetrelation value="ALL"/>
         </setproperties>
+        <effects>
+            <buf duration="8000">
+                <change stat="SPEED" duration="8000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="104" delta="0"/>
         </actions>
@@ -74237,6 +74964,11 @@
             <targetrange value="AREA" distance="5" maxcount="6"/>
             <targetrelation value="ALL"/>
         </setproperties>
+        <effects>
+            <buf duration="5000">
+                <change stat="SPEED" duration="5000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -74885,6 +75617,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -74996,6 +75733,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -75184,6 +75926,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -75226,6 +75973,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="6000">
+                <change stat="SPEED" duration="6000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -75348,6 +76100,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -75390,6 +76147,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -75469,6 +76231,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-80"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="500" delta="0"/>
         </actions>
@@ -75891,6 +76658,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="5000">
+                <change stat="SPEED" duration="5000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="87" delta="0"/>
         </actions>
@@ -76033,6 +76805,9 @@
         </useconditions>
         <effects>
             <dot damage="15" delta="1" checktime="2000" duration="4100"/>
+            <buf duration="4100">
+                <change stat="SPEED" duration="4100" func="PERCENT" delta="0" value="-90"/>
+            </buf>
         </effects>
         <actions>
             <damage value="53" delta="0"/>
@@ -76118,6 +76893,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="6000">
+                <change stat="SPEED" duration="6000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -76134,6 +76914,9 @@
         </useconditions>
         <effects>
             <transform model="210420" duration="5000"/>
+            <buf duration="5000">
+                <change stat="SPEED" duration="5000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -76244,6 +77027,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -76286,6 +77074,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="6000">
+                <change stat="SPEED" duration="6000" func="PERCENT" delta="0" value="-60"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="120" delta="2"/>
         </actions>
@@ -77243,6 +78036,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -77324,6 +78122,9 @@
         </useconditions>
         <effects>
             <dot damage="10" delta="1" checktime="3000" duration="12000"/>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-70"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -77791,6 +78592,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="12000">
+                <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -77802,6 +78608,11 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -78137,6 +78948,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -78288,6 +79104,9 @@
         </useconditions>
         <effects>
             <dot damage="2" delta="1" checktime="2000" duration="30000"/>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
         </effects>
         <actions>
             <damage value="25" delta="0"/>
@@ -78359,6 +79178,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="390" delta="0"/>
         </actions>
@@ -78387,6 +79211,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="384" delta="0"/>
         </actions>
@@ -78967,6 +79796,9 @@
         </useconditions>
         <effects>
             <dot damage="350" delta="0" checktime="2000" duration="110000"/>
+            <buf duration="110000">
+                <change stat="SPEED" duration="110000" func="PERCENT" delta="0" value="-95"/>
+            </buf>
         </effects>
         <actions>
             <damage value="200" delta="0"/>
@@ -79575,6 +80407,9 @@
         </useconditions>
         <effects>
             <dot damage="500" delta="0" checktime="3000" duration="3000"/>
+            <buf duration="3000">
+                <change stat="SPEED" duration="3000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
         </effects>
         <actions>
             <dummy/>
@@ -79730,6 +80565,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-80"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="88" delta="0"/>
         </actions>
@@ -79749,6 +80589,9 @@
         </useconditions>
         <effects>
             <dot damage="500" delta="0" checktime="3000" duration="15000"/>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-80"/>
+            </buf>
         </effects>
         <actions>
             <damage value="115" delta="0"/>
@@ -79825,6 +80668,9 @@
         </useconditions>
         <effects>
             <dot damage="500" delta="0" checktime="3000" duration="15000"/>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-80"/>
+            </buf>
         </effects>
         <actions>
             <damage value="25" delta="0"/>
@@ -79854,6 +80700,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -79871,6 +80722,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="4000">
+                <change stat="SPEED" duration="4000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="104" delta="0"/>
         </actions>
@@ -80117,6 +80973,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="545" delta="24"/>
         </actions>
@@ -80131,6 +80992,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="888" delta="25"/>
         </actions>
@@ -80145,6 +81011,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="1244" delta="26"/>
         </actions>
@@ -80159,6 +81030,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="30000">
+                <change stat="SPEED" duration="30000" func="PERCENT" delta="0" value="-50"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="1244" delta="26"/>
         </actions>
@@ -80291,6 +81167,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="PERCENT" delta="0" value="-80"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -80350,6 +81231,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="20000">
+                <change stat="SPEED" duration="20000" func="PERCENT" delta="0" value="-90"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -80637,6 +81523,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="15000">
+                <change stat="SPEED" duration="15000" func="PERCENT" delta="0" value="-99"/>
+            </buf>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -81100,6 +81991,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="5000">
+                <change stat="SPEED" duration="5000" func="PERCENT" delta="0" value="-70"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
