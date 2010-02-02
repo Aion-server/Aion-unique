@@ -296,4 +296,42 @@ public class MathUtil
 		float dy = (object2.getY() - object1.getY());
 		return dx * dx + dy * dy < range * range;
 	}
+	
+	/**
+	 * 
+	 * @param obj1X
+	 * @param obj1Y
+	 * @param obj2X
+	 * @param obj2Y
+	 * @return
+	 */
+	public final static float calculateAngleFrom(float obj1X, float obj1Y, float obj2X, float obj2Y)
+	{
+		float angleTarget = (float) Math.toDegrees(Math.atan2(obj2Y - obj1Y, obj2X - obj1X));
+		if (angleTarget < 0)
+			angleTarget = 360 + angleTarget;
+		return angleTarget;
+	}
+	
+	/**
+	 * 
+	 * @param obj1
+	 * @param obj2
+	 * @return
+	 */
+	public static float calculateAngleFrom(VisibleObject obj1, VisibleObject obj2)
+	{
+		return calculateAngleFrom(obj1.getX(), obj1.getY(), obj2.getX(), obj2.getY());
+	}
+	
+	/**
+	 * 
+	 * @param clientHeading
+	 * @return
+	 */
+	public final static float convertHeadingToDegree(byte clientHeading)
+	{
+		float degree = clientHeading * 3;
+		return degree;
+	}
 }

@@ -44,13 +44,17 @@
 	</xs:complexType>
 
 	<xs:complexType name="Effects">
-		<xs:sequence>
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
 			<xs:element name="root" type="RootEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="stun" type="StunEffect" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="buf" type="BufEffect" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="dot" type="DamageOverTimeEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="poison" type="PoisonEffect" minOccurs="0"
+				maxOccurs="1" />
 			<xs:element name="hot" type="HealOverTimeEffect"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="transform" type="TransformEffect"
@@ -118,13 +122,36 @@
 				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:complexType name="ActionModifiers">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="backdamage" type="BackDamageModifier" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="frontdamage" type="FrontDamageModifier" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="stundamage" type="StunDamageModifier" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="stumbledamage" type="StumbleDamageModifier" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="poisondamage" type="PoisonDamageModifier" minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
 
 	<xs:complexType name="Condition" abstract="true" />
-	<xs:complexType name="Action" abstract="true" />
+	
+	<xs:complexType name="Action" abstract="true">
+		<xs:sequence>
+			<xs:element name="modifiers" type="ActionModifiers" minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
 	<xs:complexType name="Effect" abstract="true">
 		<xs:attribute name="duration" type="xs:int" use="required" />
 	</xs:complexType>
 	<xs:complexType name="Property" abstract="true" />
+	<xs:complexType name="ActionModifier" abstract="true" />
 
 	<!-- ACTIONS -->
 
@@ -134,8 +161,6 @@
 				<xs:attribute name="type" type="DamageType" />
 				<xs:attribute name="value" type="xs:int" use="required" />
 				<xs:attribute name="delta" type="xs:int" />
-				<xs:attribute name="check" type="xs:string" />
-				<xs:attribute name="checkvalue" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -259,12 +284,76 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<!-- ACTION MODIFIERS -->
+	
+	<xs:complexType name="BackDamageModifier">
+		<xs:complexContent>
+			<xs:extension base="ActionModifier">
+				<xs:attribute name="delta" type="xs:int" use="required" />
+				<xs:attribute name="value" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="FrontDamageModifier">
+		<xs:complexContent>
+			<xs:extension base="ActionModifier">
+				<xs:attribute name="delta" type="xs:int" use="required" />
+				<xs:attribute name="value" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="StunDamageModifier">
+		<xs:complexContent>
+			<xs:extension base="ActionModifier">
+				<xs:attribute name="delta" type="xs:int" use="required" />
+				<xs:attribute name="value" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="StumbleDamageModifier">
+		<xs:complexContent>
+			<xs:extension base="ActionModifier">
+				<xs:attribute name="delta" type="xs:int" use="required" />
+				<xs:attribute name="value" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="PoisonDamageModifier">
+		<xs:complexContent>
+			<xs:extension base="ActionModifier">
+				<xs:attribute name="delta" type="xs:int" use="required" />
+				<xs:attribute name="value" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<!-- EFFECTS -->
 
 	<xs:complexType name="RootEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="StunEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="PoisonEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="checktime" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="value" type="xs:int"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

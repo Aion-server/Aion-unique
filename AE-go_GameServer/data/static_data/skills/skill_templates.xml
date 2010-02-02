@@ -2431,7 +2431,11 @@
         </useconditions>
         <actions>
             <mpuse value="88" delta="0"/>
-            <damage value="237" delta="6"/>
+            <damage value="237" delta="6">
+                <modifiers>
+                    <stumbledamage value="237" delta="6"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="267" name="STR_SKILL_FI_LockdownImpact_G1" stack="SKILL_FI_LOCKDOWNIMPACT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="12" duration="0">
@@ -2469,7 +2473,12 @@
         </useconditions>
         <actions>
             <mpuse value="28" delta="0"/>
-            <damage value="287" delta="8"/>
+            <damage value="287" delta="8">
+                <modifiers>
+                    <stundamage value="287" delta="8"/>
+                    <stumbledamage value="287" delta="8"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="269" name="STR_SKILL_FI_PotentialHealth_G1" stack="SKILL_FI_POTENTIALHEALTH" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="180" duration="0">
@@ -2703,7 +2712,11 @@
         </useconditions>
         <actions>
             <mpuse value="57" delta="0"/>
-            <damage value="216" delta="6"/>
+            <damage value="216" delta="6">
+                <modifiers>
+                    <stundamage value="216" delta="6"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="282" name="STR_SKILL_FI_SeismicBillow_G1" stack="SKILL_FI_SEISMICBILLOW" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="8" duration="0">
@@ -3063,7 +3076,12 @@
         </useconditions>
         <actions>
             <mpuse value="36" delta="0"/>
-            <damage value="401" delta="13"/>
+            <damage value="401" delta="13">
+                <modifiers>
+                    <stundamage value="401" delta="13"/>
+                    <stumbledamage value="401" delta="13"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="301" name="STR_SKILL_FI_SecondBlade_G2" stack="SKILL_FI_SECONDBLADE" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="8" duration="0">
@@ -3084,7 +3102,11 @@
         </useconditions>
         <actions>
             <mpuse value="73" delta="0"/>
-            <damage value="218" delta="8"/>
+            <damage value="218" delta="8">
+                <modifiers>
+                    <stundamage value="218" delta="8"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="302" name="STR_SKILL_FI_VigorBody_G2" stack="SKILL_FI_VIGORBODY" lvl="2" skilltype="PHYSICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="600" duration="0">
@@ -3373,8 +3395,8 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <root duration="27000"/>
             <dot damage="106" delta="2" checktime="3000" duration="27000"/>
+            <root duration="27000"/>
         </effects>
         <actions>
             <mpuse value="63" delta="0"/>
@@ -7118,7 +7140,11 @@
         </setproperties>
         <actions>
             <mpuse value="13" delta="0"/>
-            <damage checkvalue="87" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="87" delta="9"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="552" name="STR_SKILL_SC_AssaultStabber_G2" stack="SKILL_SC_ASSAULTSTABBER" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="16" duration="0">
@@ -7136,7 +7162,11 @@
         </setproperties>
         <actions>
             <mpuse value="23" delta="0"/>
-            <damage checkvalue="177" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="177" delta="8"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="553" name="STR_SKILL_SC_AssaultStabber_G3" stack="SKILL_SC_ASSAULTSTABBER" lvl="3" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="16" duration="0">
@@ -7154,7 +7184,11 @@
         </setproperties>
         <actions>
             <mpuse value="33" delta="0"/>
-            <damage checkvalue="303" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="303" delta="9"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="554" name="STR_SKILL_SC_AssaultStabber_G4" stack="SKILL_SC_ASSAULTSTABBER" lvl="4" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="16" duration="0">
@@ -7172,7 +7206,11 @@
         </setproperties>
         <actions>
             <mpuse value="40" delta="0"/>
-            <damage checkvalue="409" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="409" delta="13"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="555" name="STR_SKILL_SC_CounterSlash_G1" stack="SKILL_SC_COUNTERSLASH" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="10" duration="0">
@@ -7546,7 +7584,11 @@
         </setproperties>
         <actions>
             <mpuse value="42" delta="0"/>
-            <damage checkvalue="524" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="524" delta="10"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="580" name="STR_SKILL_SC_SwiftShock_G5" stack="SKILL_SC_SWIFTSHOCK" lvl="5" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
@@ -8566,12 +8608,12 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <transform model="202500" duration="120000"/>
             <buf duration="120000">
                 <change stat="PHYSICAL_ATTACK" duration="120000" func="PERCENT" delta="0" value="13"/>
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="-39"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="39"/>
             </buf>
-            <transform model="202500" duration="120000"/>
         </effects>
         <actions>
             <dpuse value="2000"/>
@@ -8586,12 +8628,12 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <transform model="202501" duration="120000"/>
             <buf duration="120000">
                 <change stat="PHYSICAL_ATTACK" duration="120000" func="PERCENT" delta="0" value="26"/>
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="-26"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="39"/>
             </buf>
-            <transform model="202501" duration="120000"/>
         </effects>
         <actions>
             <dpuse value="2000"/>
@@ -8614,6 +8656,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="228" delta="6" checktime="4000" duration="12000"/>
+        </effects>
         <actions>
             <mpuse value="74" delta="0"/>
             <damage value="228" delta="0"/>
@@ -9395,8 +9440,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <root duration="60000"/>
             <transform model="749110" duration="60000"/>
+            <root duration="60000"/>
         </effects>
         <actions>
             <mpuse value="29" delta="0"/>
@@ -9420,8 +9465,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <root duration="60000"/>
             <transform model="749111" duration="60000"/>
+            <root duration="60000"/>
         </effects>
         <actions>
             <mpuse value="29" delta="0"/>
@@ -10022,6 +10067,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="113" delta="5" checktime="4000" duration="12000"/>
+        </effects>
         <actions>
             <mpuse value="54" delta="0"/>
             <damage value="113" delta="0"/>
@@ -10043,6 +10091,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="181" delta="4" checktime="4000" duration="12000"/>
+        </effects>
         <actions>
             <mpuse value="68" delta="0"/>
             <damage value="181" delta="0"/>
@@ -10056,12 +10107,12 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <transform model="202501" duration="120000"/>
             <buf duration="120000">
                 <change stat="PHYSICAL_ATTACK" duration="120000" func="PERCENT" delta="0" value="20"/>
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="-20"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="30"/>
             </buf>
-            <transform model="202501" duration="120000"/>
         </effects>
         <actions>
             <dpuse value="2000"/>
@@ -10076,12 +10127,12 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <transform model="202501" duration="120000"/>
             <buf duration="120000">
                 <change stat="PHYSICAL_ATTACK" duration="120000" func="PERCENT" delta="0" value="22"/>
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="-22"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="30"/>
             </buf>
-            <transform model="202501" duration="120000"/>
         </effects>
         <actions>
             <dpuse value="2000"/>
@@ -10096,12 +10147,12 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <transform model="202501" duration="120000"/>
             <buf duration="120000">
                 <change stat="PHYSICAL_ATTACK" duration="120000" func="PERCENT" delta="0" value="24"/>
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="-24"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="33"/>
             </buf>
-            <transform model="202501" duration="120000"/>
         </effects>
         <actions>
             <dpuse value="2000"/>
@@ -10228,12 +10279,12 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <transform model="202500" duration="120000"/>
             <buf duration="120000">
                 <change stat="PHYSICAL_ATTACK" duration="120000" func="PERCENT" delta="0" value="10"/>
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="-30"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="33"/>
             </buf>
-            <transform model="202500" duration="120000"/>
         </effects>
         <actions>
             <dpuse value="2000"/>
@@ -10248,12 +10299,12 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <transform model="202500" duration="120000"/>
             <buf duration="120000">
                 <change stat="PHYSICAL_ATTACK" duration="120000" func="PERCENT" delta="0" value="11"/>
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="-33"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="36"/>
             </buf>
-            <transform model="202500" duration="120000"/>
         </effects>
         <actions>
             <dpuse value="2000"/>
@@ -10268,12 +10319,12 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <transform model="202500" duration="120000"/>
             <buf duration="120000">
                 <change stat="PHYSICAL_ATTACK" duration="120000" func="PERCENT" delta="0" value="12"/>
                 <change stat="ATTACK_SPEED" duration="120000" func="PERCENT" delta="0" value="-36"/>
                 <change stat="SPEED" duration="120000" func="PERCENT" delta="0" value="36"/>
             </buf>
-            <transform model="202500" duration="120000"/>
         </effects>
         <actions>
             <dpuse value="2000"/>
@@ -10442,7 +10493,11 @@
         </effects>
         <actions>
             <mpuse value="76" delta="0"/>
-            <damage checkvalue="382" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="382" delta="12"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="802" name="STR_SKILL_AS_BlindingBurst_G1" stack="SKILL_AS_BLINDINGBURST" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="600" duration="0">
@@ -10664,7 +10719,12 @@
         </useconditions>
         <actions>
             <mpuse value="37" delta="0"/>
-            <damage value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <stundamage value="179" delta="4"/>
+                    <poisondamage value="179" delta="4"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="816" name="STR_SKILL_AS_DashAttack_G1" stack="SKILL_AS_DASHATTACK" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="40" duration="0">
@@ -11428,7 +11488,11 @@
         </setproperties>
         <actions>
             <mpuse value="30" delta="0"/>
-            <damage value="15" delta="0"/>
+            <damage value="15" delta="0">
+                <modifiers>
+                    <frontdamage value="172" delta="2"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="858" name="STR_SKILL_AS_WindWalk_G2" stack="SKILL_AS_WINDWALK" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="1800" duration="0">
@@ -11537,6 +11601,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <poison value="112" delta="4" checktime="6000" duration="12000"/>
+        </effects>
         <actions>
             <mpuse value="24" delta="0"/>
             <damage value="223" delta="9"/>
@@ -11655,7 +11722,12 @@
         </useconditions>
         <actions>
             <mpuse value="41" delta="0"/>
-            <damage value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <stundamage value="268" delta="4"/>
+                    <poisondamage value="268" delta="4"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="872" name="STR_SKILL_AS_VisiousEye_G2" stack="SKILL_AS_VISIOUSEYE" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="60" duration="0">
@@ -11698,7 +11770,11 @@
         </effects>
         <actions>
             <mpuse value="83" delta="0"/>
-            <damage checkvalue="548" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="548" delta="9"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="874" name="STR_SKILL_AS_CarveSignetChain_G4" stack="SKILL_AS_CARVESIGNETCHAIN" lvl="4" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="6" duration="0">
@@ -11926,7 +12002,11 @@
         </setproperties>
         <actions>
             <mpuse value="136" delta="0"/>
-            <damage checkvalue="2227" check="BACK" value="206" delta="0"/>
+            <damage value="206" delta="0">
+                <modifiers>
+                    <backdamage value="2227" delta="47"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="886" name="STR_SKILL_AS_DancingDagger_G1" stack="SKILL_AS_DANCINGDAGGER" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="1" duration="0">
@@ -12724,7 +12804,11 @@
         </setproperties>
         <actions>
             <dpuse value="4000"/>
-            <damage value="920" delta="3"/>
+            <damage value="920" delta="3">
+                <modifiers>
+                    <backdamage value="920" delta="3"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="943" name="STR_SKILL_AS_DeathBringer_G1" stack="SKILL_AS_DEATHBRINGER" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="3600" duration="0">
@@ -12739,7 +12823,11 @@
         </setproperties>
         <actions>
             <dpuse value="4000"/>
-            <damage value="920" delta="3"/>
+            <damage value="920" delta="3">
+                <modifiers>
+                    <backdamage value="920" delta="3"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="944" name="STR_SKILL_AS_Stigma_NovaBurst_G1" stack="SKILL_AS_STIGMA_NOVABURST" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="180" duration="0">
@@ -13696,10 +13784,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="315" delta="5" checktime="3000" type="HP" duration="21000"/>
             <buf duration="21000">
                 <change stat="PHYSICAL_DEFENSE" duration="21000" func="ADD" delta="0" value="200"/>
             </buf>
-            <hot value="315" delta="5" checktime="3000" type="HP" duration="21000"/>
         </effects>
         <actions>
             <mpuse value="287" delta="3"/>
@@ -13736,10 +13824,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="499" delta="8" checktime="12000" duration="120000"/>
             <buf duration="120000">
                 <change stat="MAGICAL_RESIST" duration="120000" func="ADD" delta="0" value="-400"/>
             </buf>
-            <dot damage="499" delta="8" checktime="12000" duration="120000"/>
         </effects>
         <actions>
             <mpuse value="311" delta="6"/>
@@ -15503,6 +15591,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="20" delta="0" checktime="3000" type="HP" duration="15000"/>
             <hot value="100" delta="0" checktime="6000" type="MP" duration="30000"/>
         </effects>
         <actions>
@@ -15625,10 +15714,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
             <buf duration="24000">
                 <change stat="PHYSICAL_ATTACK" duration="24000" func="PERCENT" delta="0" value="-100"/>
             </buf>
-            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <damage value="50" delta="0"/>
@@ -15645,10 +15734,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
             <buf duration="24000">
                 <change stat="PHYSICAL_ATTACK" duration="24000" func="PERCENT" delta="0" value="-100"/>
             </buf>
-            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <damage value="50" delta="0"/>
@@ -17787,11 +17876,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201047" duration="300000"/>
             <buf duration="300000">
                 <change stat="MAXHP" duration="300000" func="PERCENT" delta="0" value="20"/>
                 <change stat="REGEN_HP" duration="300000" func="PERCENT" delta="0" value="20"/>
             </buf>
-            <transform model="201047" duration="300000"/>
         </effects>
         <actions>
             <mpuse value="1253" delta="0"/>
@@ -17815,11 +17904,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201048" duration="300000"/>
             <buf duration="300000">
                 <change stat="PHYSICAL_ATTACK" duration="300000" func="PERCENT" delta="0" value="20"/>
                 <change stat="ATTACK_SPEED" duration="300000" func="PERCENT" delta="0" value="-20"/>
             </buf>
-            <transform model="201048" duration="300000"/>
         </effects>
         <actions>
             <mpuse value="1253" delta="0"/>
@@ -20655,7 +20744,11 @@
         </useconditions>
         <actions>
             <mpuse value="281" delta="3"/>
-            <damage value="513" delta="12"/>
+            <damage value="513" delta="12">
+                <modifiers>
+                    <stundamage value="821" delta="19"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="1494" name="STR_SKILL_WI_ShockGranade_G1" stack="SKILL_WI_SHOCKGRANADE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="3" duration="2000">
@@ -20755,6 +20848,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <mpuse value="115" delta="3"/>
             <dummy/>
@@ -20770,6 +20866,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <mpuse value="192" delta="3"/>
             <dummy/>
@@ -20785,6 +20884,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <mpuse value="257" delta="2"/>
             <dummy/>
@@ -20859,7 +20961,11 @@
         </useconditions>
         <actions>
             <mpuse value="232" delta="7"/>
-            <damage value="653" delta="7"/>
+            <damage value="653" delta="7">
+                <modifiers>
+                    <stundamage value="2119" delta="27"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="1506" name="STR_SKILL_WI_WizardryHook_G3" stack="SKILL_WI_WIZARDRYHOOK" lvl="3" skilltype="MAGICAL" skillsubtype="NONE" activation="ACTIVE" cooldown="120" duration="2500">
@@ -20891,7 +20997,11 @@
         </useconditions>
         <actions>
             <mpuse value="478" delta="12"/>
-            <damage value="2399" delta="13"/>
+            <damage value="2399" delta="13">
+                <modifiers>
+                    <stundamage value="2703" delta="53"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="1508" name="STR_SKILL_WI_FireShooter_G2" stack="SKILL_WI_FIRESHOOTER" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
@@ -21134,6 +21244,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <mpuse value="402" delta="7"/>
             <dummy/>
@@ -24196,11 +24309,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201024" duration="60000"/>
             <buf duration="60000">
                 <change stat="WATER_RESISTANCE" duration="60000" func="ADD" value="10"/>
                 <change stat="FIRE_RESISTANCE" duration="60000" func="ADD" value="-30"/>
             </buf>
-            <transform model="201024" duration="60000"/>
         </effects>
         <actions>
             <mpuse value="519" delta="5"/>
@@ -24548,11 +24661,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201049" duration="30000"/>
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="20"/>
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-30"/>
             </buf>
-            <transform model="201049" duration="30000"/>
         </effects>
         <actions>
             <mpuse value="473" delta="5"/>
@@ -24573,11 +24686,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201050" duration="30000"/>
             <buf duration="30000">
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="20"/>
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-30"/>
             </buf>
-            <transform model="201050" duration="30000"/>
         </effects>
         <actions>
             <mpuse value="473" delta="5"/>
@@ -24817,8 +24930,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <root duration="24000"/>
             <dot damage="50" delta="0" checktime="6000" duration="24000"/>
+            <root duration="24000"/>
         </effects>
         <actions>
             <damage value="50" delta="0"/>
@@ -24835,8 +24948,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <root duration="24000"/>
             <dot damage="50" delta="0" checktime="6000" duration="24000"/>
+            <root duration="24000"/>
         </effects>
         <actions>
             <damage value="50" delta="0"/>
@@ -25609,10 +25722,10 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
+            <transform model="749165" duration="8000"/>
             <buf duration="8000">
                 <change stat="WATER_RESISTANCE" duration="8000" func="ADD" delta="0" value="-100"/>
             </buf>
-            <transform model="749165" duration="8000"/>
         </effects>
         <actions>
             <mpuse value="180" delta="0"/>
@@ -25630,10 +25743,10 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
+            <transform model="749166" duration="8000"/>
             <buf duration="8000">
                 <change stat="FIRE_RESISTANCE" duration="8000" func="ADD" delta="0" value="-80"/>
             </buf>
-            <transform model="749166" duration="8000"/>
         </effects>
         <actions>
             <mpuse value="180" delta="0"/>
@@ -26403,6 +26516,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <poison value="20" delta="0" checktime="6000" duration="600000"/>
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="-10"/>
             </buf>
@@ -27342,6 +27456,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ALL"/>
         </setproperties>
+        <effects>
+            <poison value="100" delta="0" checktime="3000" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -28308,6 +28425,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="60" delta="2" checktime="3000" duration="9000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -28322,6 +28442,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="5" delta="5" checktime="3000" duration="16000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -28353,6 +28476,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -28454,6 +28580,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="0" delta="30" checktime="3000" duration="10000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -28934,11 +29063,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="55" delta="5" checktime="1000" type="HP" duration="1500"/>
             <buf duration="6500">
                 <change stat="PHYSICAL_ATTACK" duration="6500" func="ADD" value="-10"/>
                 <change stat="MAGICAL_ATTACK" duration="6500" func="PERCENT" value="-30"/>
             </buf>
-            <hot value="55" delta="5" checktime="1000" type="HP" duration="1500"/>
         </effects>
         <actions>
             <dummy/>
@@ -29403,6 +29532,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -29507,6 +29639,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="85" delta="1" checktime="3000" duration="9000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -29521,6 +29656,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="100" delta="1" checktime="3000" duration="9000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -29710,6 +29848,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <poison value="68" delta="4" checktime="3000" duration="22000"/>
             <buf duration="22000">
                 <change stat="EARTH_RESISTANCE" duration="22000" func="ADD" value="-10"/>
                 <change stat="WATER_RESISTANCE" duration="22000" func="ADD" value="-10"/>
@@ -29764,6 +29903,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <poison value="130" delta="4" checktime="3000" duration="34000"/>
             <buf duration="34000">
                 <change stat="EARTH_RESISTANCE" duration="34000" func="ADD" value="-10"/>
                 <change stat="WATER_RESISTANCE" duration="34000" func="ADD" value="-10"/>
@@ -30031,6 +30171,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30193,10 +30336,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="15" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="FIRE_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="15" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30213,10 +30356,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="23" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="WATER_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="23" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30233,10 +30376,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="18" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="WIND_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="18" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30253,10 +30396,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="21" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="EARTH_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="21" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30273,10 +30416,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="25" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="FIRE_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="25" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30293,10 +30436,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="39" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="WATER_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="39" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30313,10 +30456,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="30" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="WIND_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="30" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30333,10 +30476,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="34" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="EARTH_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="34" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30386,6 +30529,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30741,6 +30887,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="180" delta="5" checktime="3000" duration="9000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30844,6 +30993,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30890,10 +31042,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="44" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="FIRE_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="44" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30910,10 +31062,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="97" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="WATER_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="97" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30930,10 +31082,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="49" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="WIND_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="49" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30950,10 +31102,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="54" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="EARTH_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="54" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30970,10 +31122,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="FIRE_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -30990,10 +31142,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="WATER_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -31010,10 +31162,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="WIND_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -31030,10 +31182,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="EARTH_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -31050,10 +31202,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="WATER_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -31070,10 +31222,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="FIRE_RESISTANCE" duration="25000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <dot damage="50" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <dummy/>
@@ -32077,6 +32229,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -32974,6 +33129,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -33075,6 +33233,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="38" delta="0" checktime="2000" duration="20000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -33804,12 +33965,12 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="32" delta="0" checktime="3000" type="MP" duration="6500"/>
             <buf duration="6500">
                 <change stat="PHYSICAL_ATTACK" duration="6500" func="PERCENT" delta="0" value="15"/>
                 <change stat="PHYSICAL_DEFENSE" duration="6500" func="ADD" delta="0" value="35"/>
                 <change stat="BOOST_MAGICAL_SKILL" duration="6500" func="ADD" delta="0" value="150"/>
             </buf>
-            <hot value="32" delta="0" checktime="3000" type="MP" duration="6500"/>
         </effects>
         <actions>
             <dummy/>
@@ -33948,6 +34109,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="10" delta="0" checktime="2000" duration="20000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34032,6 +34196,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="20" delta="0" checktime="2000" duration="20000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -35907,10 +36074,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210138" duration="600000"/>
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="12"/>
             </buf>
-            <transform model="210138" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -35926,10 +36093,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210757" duration="600000"/>
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="18"/>
             </buf>
-            <transform model="210757" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -35945,10 +36112,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210306" duration="600000"/>
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="24"/>
             </buf>
-            <transform model="210306" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -36097,6 +36264,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="50" delta="0" checktime="3000" duration="30000"/>
+        </effects>
         <actions>
             <damage value="0" delta="100"/>
         </actions>
@@ -36111,10 +36281,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210421" duration="600000"/>
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="12"/>
             </buf>
-            <transform model="210421" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -36130,10 +36300,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="211875" duration="600000"/>
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="18"/>
             </buf>
-            <transform model="211875" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -36149,10 +36319,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210390" duration="600000"/>
             <buf duration="600000">
                 <change stat="SPEED" duration="600000" func="ADD" delta="0" value="24"/>
             </buf>
-            <transform model="210390" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -40229,10 +40399,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210119" duration="600000"/>
             <buf duration="600000">
                 <change stat="FLY_TIME" duration="600000" func="ADD" delta="0" value="10"/>
             </buf>
-            <transform model="210119" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -40296,11 +40466,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="212104" duration="3600000"/>
             <buf duration="600000">
                 <change stat="REGEN_HP" duration="600000" func="ADD" delta="0" value="8"/>
                 <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="12"/>
             </buf>
-            <transform model="212104" duration="3600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -40316,10 +40486,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210656" duration="600000"/>
             <buf duration="600000">
                 <change stat="FLY_TIME" duration="600000" func="ADD" delta="0" value="10"/>
             </buf>
-            <transform model="210656" duration="600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -40383,11 +40553,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="213140" duration="3600000"/>
             <buf duration="600000">
                 <change stat="REGEN_HP" duration="600000" func="ADD" delta="0" value="8"/>
                 <change stat="REGEN_MP" duration="600000" func="ADD" delta="0" value="12"/>
             </buf>
-            <transform model="213140" duration="3600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -40403,6 +40573,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="37" delta="0" checktime="2000" type="HP" duration="20000"/>
             <hot value="59" delta="0" checktime="2000" type="MP" duration="20000"/>
         </effects>
         <actions>
@@ -40420,6 +40591,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="67" delta="0" checktime="2000" type="HP" duration="20000"/>
             <hot value="98" delta="0" checktime="2000" type="MP" duration="20000"/>
         </effects>
         <actions>
@@ -40437,6 +40609,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="97" delta="0" checktime="2000" type="HP" duration="20000"/>
             <hot value="128" delta="0" checktime="2000" type="MP" duration="20000"/>
         </effects>
         <actions>
@@ -40454,6 +40627,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="127" delta="0" checktime="2000" type="HP" duration="20000"/>
             <hot value="148" delta="0" checktime="2000" type="MP" duration="20000"/>
         </effects>
         <actions>
@@ -40471,6 +40645,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="154" delta="0" checktime="2000" type="HP" duration="20000"/>
             <hot value="160" delta="0" checktime="2000" type="MP" duration="20000"/>
         </effects>
         <actions>
@@ -41481,11 +41656,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="202529" duration="3600000"/>
             <buf duration="3600000">
                 <change stat="MAXHP" duration="3600000" func="ADD" delta="0" value="220"/>
                 <change stat="ATTACK_SPEED" duration="3600000" func="PERCENT" delta="0" value="-2"/>
             </buf>
-            <transform model="202529" duration="3600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -41501,11 +41676,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="202530" duration="3600000"/>
             <buf duration="3600000">
                 <change stat="MAXHP" duration="3600000" func="ADD" delta="0" value="220"/>
                 <change stat="ATTACK_SPEED" duration="3600000" func="PERCENT" delta="0" value="-2"/>
             </buf>
-            <transform model="202530" duration="3600000"/>
         </effects>
         <actions>
             <dummy/>
@@ -41672,7 +41847,6 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects/>
         <actions>
             <dummy/>
         </actions>
@@ -41686,7 +41860,6 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects/>
         <actions>
             <dummy/>
         </actions>
@@ -42324,10 +42497,10 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
+            <dot damage="193" delta="0" checktime="6000" duration="24000"/>
             <buf duration="25000">
                 <change stat="SPEED" duration="25000" func="PERCENT" delta="0" value="10"/>
             </buf>
-            <dot damage="193" delta="0" checktime="6000" duration="24000"/>
         </effects>
         <actions>
             <mpuse value="187" delta="8"/>
@@ -43968,11 +44141,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201046" duration="30000"/>
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-1000"/>
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-10"/>
             </buf>
-            <transform model="201046" duration="30000"/>
         </effects>
         <actions>
             <mpuse value="227" delta="0"/>
@@ -44354,11 +44527,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="211235" duration="30000"/>
             <buf duration="30000">
                 <change stat="PHYSICAL_ATTACK" duration="30000" func="ADD" delta="0" value="300"/>
                 <change stat="MAGICAL_ATTACK" duration="30000" func="ADD" delta="0" value="300"/>
             </buf>
-            <transform model="211235" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -44375,11 +44548,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="211235" duration="30000"/>
             <buf duration="30000">
                 <change stat="PHYSICAL_ATTACK" duration="30000" func="ADD" delta="0" value="500"/>
                 <change stat="MAGICAL_ATTACK" duration="30000" func="ADD" delta="0" value="500"/>
             </buf>
-            <transform model="211235" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -44736,6 +44909,9 @@
             <targetrange value="AREA" distance="20" maxcount="18"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="5000"/>
+        </effects>
         <actions>
             <mpuse value="25400" delta="0"/>
             <dummy/>
@@ -45442,10 +45618,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="280115" duration="300000"/>
             <buf duration="300000">
                 <change stat="PHYSICAL_DEFENSE" duration="300000" func="ADD" delta="0" value="5000"/>
             </buf>
-            <transform model="280115" duration="300000"/>
         </effects>
         <actions>
             <dummy/>
@@ -45502,10 +45678,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="300" delta="0" checktime="10000" type="HP" duration="300000"/>
             <buf duration="300000">
                 <change stat="MAXHP" duration="300000" func="ADD" delta="0" value="5000"/>
             </buf>
-            <hot value="300" delta="0" checktime="10000" type="HP" duration="300000"/>
         </effects>
         <actions>
             <itemhealdp value="4000" delta="0"/>
@@ -45927,10 +46103,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="280115" duration="300000"/>
             <buf duration="300000">
                 <change stat="PHYSICAL_DEFENSE" duration="300000" func="ADD" delta="0" value="5000"/>
             </buf>
-            <transform model="280115" duration="300000"/>
         </effects>
         <actions>
             <dummy/>
@@ -46089,10 +46265,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="300" delta="0" checktime="10000" type="HP" duration="300000"/>
             <buf duration="300000">
                 <change stat="MAXHP" duration="300000" func="ADD" delta="0" value="6000"/>
             </buf>
-            <hot value="300" delta="0" checktime="10000" type="HP" duration="300000"/>
         </effects>
         <actions>
             <itemhealdp value="4000" delta="0"/>
@@ -46249,10 +46425,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <hot value="10" delta="0" checktime="4000" type="HP" duration="5100"/>
             <buf duration="5100">
                 <change stat="PHYSICAL_DEFENSE" duration="5100" func="PERCENT" delta="0" value="20"/>
             </buf>
-            <hot value="10" delta="0" checktime="4000" type="HP" duration="5100"/>
         </effects>
         <actions>
             <dummy/>
@@ -48529,7 +48705,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <stumbledamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16530" name="STR_NFI_SatkchainKnock_D3" stack="NFI_SATKCHAINKNOCK_D3" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="1000">
@@ -48543,7 +48723,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <stumbledamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16531" name="STR_NFI_SDownPyDeShort_Nr" stack="NFI_SDOWNPYDESHORT_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -48868,6 +49052,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="31" delta="0"/>
         </actions>
@@ -48883,6 +49070,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
             <buf duration="15100">
                 <change stat="PHYSICAL_ATTACK" duration="15100" func="PERCENT" delta="0" value="-20"/>
             </buf>
@@ -48901,6 +49089,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="31" delta="0"/>
         </actions>
@@ -48916,6 +49107,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
             <buf duration="15100">
                 <change stat="PHYSICAL_DEFENSE" duration="15100" func="PERCENT" delta="0" value="-20"/>
             </buf>
@@ -48968,7 +49160,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage checkvalue="21" check="BACK" value="100" delta="0"/>
+            <damage value="100" delta="0">
+                <modifiers>
+                    <backdamage value="21" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16557" name="STR_NAS_Disease_Nr" stack="NAS_DISEASE_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
@@ -49426,6 +49622,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="54" delta="0"/>
         </actions>
@@ -50029,7 +50228,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage checkvalue="21" check="BACK" value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <backdamage value="21" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16620" name="STR_GNSC_Stun_Nr" stack="GNSC_STUN_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -50107,6 +50310,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
             <buf duration="15100">
                 <change stat="PHYSICAL_ATTACK" duration="15100" func="PERCENT" delta="0" value="-20"/>
             </buf>
@@ -50951,6 +51155,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="22" delta="0"/>
         </actions>
@@ -50980,7 +51187,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <poisondamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16679" name="STR_NAS_PoisonNonSkill_Nr" stack="NAS_POISONNONSKILL_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -50993,6 +51204,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -51007,6 +51221,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="31" delta="0"/>
         </actions>
@@ -51022,7 +51239,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="42" delta="0"/>
+            <damage value="42" delta="0">
+                <modifiers>
+                    <poisondamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16682" name="STR_NPR_HealSSA_Nr" stack="NPR_HEALSSA_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="4000">
@@ -51142,7 +51363,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="42" delta="0"/>
+            <damage value="42" delta="0">
+                <modifiers>
+                    <stundamage value="0" delta="3"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16689" name="STR_NCH_SatkKDSA_Nr" stack="NCH_SATKKDSA_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="3500">
@@ -51803,6 +52028,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -51916,7 +52144,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="42" delta="0"/>
+            <damage value="42" delta="0">
+                <modifiers>
+                    <stumbledamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16737" name="STR_GNKN_Protect_Nr" stack="GNKN_PROTECT_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="MAINTAIN" cooldown="0" duration="2500">
@@ -52307,7 +52539,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="0"/>
+            <damage value="0">
+                <modifiers>
+                    <frontdamage value="60" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16760" name="STR_GNAS_SatkChain1_Nr" stack="GNAS_SATKCHAIN1_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -52676,6 +52912,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -52842,7 +53081,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="42" delta="0"/>
+            <damage value="42" delta="0">
+                <modifiers>
+                    <stundamage value="0" delta="3"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16794" name="STR_NAS_Spin_Front" stack="NAS_SPIN_FRONT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="3500">
@@ -52856,7 +53099,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="21" delta="0"/>
+            <damage value="21" delta="0">
+                <modifiers>
+                    <frontdamage value="60" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16795" name="STR_NGR_BlindSlow_Scream" stack="NGR_BLINDSLOW_SCREAM" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -53222,6 +53469,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="31" delta="0"/>
         </actions>
@@ -53236,6 +53486,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="31" delta="0"/>
         </actions>
@@ -53250,6 +53503,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="74" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="31" delta="0"/>
         </actions>
@@ -53264,6 +53520,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="74" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="31" delta="0"/>
         </actions>
@@ -53437,6 +53696,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -53564,7 +53826,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage checkvalue="21" check="BACK" value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <backdamage value="21" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="16842" name="STR_NAS_MoveBehindStun_Nr" stack="NAS_MOVEBEHINDSTUN_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -53624,6 +53890,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="31" delta="0"/>
         </actions>
@@ -53714,6 +53983,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="22" delta="0"/>
         </actions>
@@ -54036,6 +54308,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="31" delta="0"/>
         </actions>
@@ -54272,6 +54547,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -54354,6 +54632,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -54883,8 +55164,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
             <transform model="210804" duration="8000"/>
+            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
         </effects>
         <actions>
             <dummy/>
@@ -54976,6 +55257,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="74" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="31" delta="0"/>
         </actions>
@@ -55179,8 +55463,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
             <transform model="210804" duration="3100"/>
+            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
         </effects>
         <actions>
             <dummy/>
@@ -56140,7 +56424,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="42" delta="0"/>
+            <damage value="42" delta="0">
+                <modifiers>
+                    <poisondamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17006" name="STR_GNAS_PoisonTA_Nr" stack="GNAS_POISONTA_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -56153,6 +56441,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="22" delta="0"/>
         </actions>
@@ -56596,7 +56887,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="21" delta="0"/>
+            <damage value="21" delta="0">
+                <modifiers>
+                    <stundamage value="0" delta="3"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17034" name="STR_NRA_SatkApBleAddTALong_Nr" stack="NRA_SATKAPBLEADDTALONG_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
@@ -56657,6 +56952,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="74" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -56765,8 +57063,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
             <transform model="210804" duration="3100"/>
+            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
         </effects>
         <actions>
             <dummy/>
@@ -57369,7 +57667,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="42" delta="0"/>
+            <damage value="42" delta="0">
+                <modifiers>
+                    <stumbledamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17083" name="STR_GFI_SDownPyDeShort_Nr" stack="GFI_SDOWNPYDESHORT_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -57535,6 +57837,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="4000" duration="16100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -57607,8 +57912,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
             <transform model="210804" duration="3100"/>
+            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
         </effects>
         <actions>
             <dummy/>
@@ -57860,10 +58165,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201046" duration="3000"/>
             <buf duration="3000">
                 <change stat="FIRE_RESISTANCE" duration="3000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <transform model="201046" duration="3000"/>
         </effects>
         <actions>
             <dummy/>
@@ -57894,10 +58199,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201046" duration="3000"/>
             <buf duration="3000">
                 <change stat="FIRE_RESISTANCE" duration="3000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <transform model="201046" duration="3000"/>
         </effects>
         <actions>
             <dummy/>
@@ -58696,6 +59001,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -58710,6 +59018,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -58758,6 +59069,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="74" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -58863,7 +59177,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage checkvalue="21" check="BACK" value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <backdamage value="21" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17179" name="STR_GAS_OpenAerial_Nr" stack="GAS_OPENAERIAL_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2000">
@@ -59854,6 +60172,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -60053,6 +60374,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="63" delta="0"/>
         </actions>
@@ -60371,6 +60695,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="63" delta="0"/>
         </actions>
@@ -60414,11 +60741,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="213569" duration="5000"/>
             <buf duration="5000">
                 <change stat="PHYSICAL_DEFENSE" duration="5000" func="PERCENT" delta="0" value="-95"/>
                 <change stat="MAGICAL_RESIST" duration="5000" func="PERCENT" delta="0" value="-95"/>
             </buf>
-            <transform model="213569" duration="5000"/>
         </effects>
         <actions>
             <dummy/>
@@ -60835,7 +61162,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <stumbledamage value="31" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17307" name="STR_DGFI_SKnockdown_TA" stack="DGFI_SKNOCKDOWN_TA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="1000">
@@ -60849,7 +61180,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <stumbledamage value="31" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17308" name="STR_DGFI_SUpPyDef_Nr" stack="DGFI_SUPPYDEF_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" activation="ACTIVE" cooldown="0" duration="1500">
@@ -61081,7 +61416,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage checkvalue="31" check="BACK" value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <backdamage value="31" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17322" name="STR_DGAS_Poison_Nr" stack="DGAS_POISON_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -61094,6 +61433,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -61108,6 +61450,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -61378,10 +61723,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201046" duration="3000"/>
             <buf duration="3000">
                 <change stat="FIRE_RESISTANCE" duration="3000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <transform model="201046" duration="3000"/>
         </effects>
         <actions>
             <dummy/>
@@ -61398,10 +61743,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201046" duration="3000"/>
             <buf duration="3000">
                 <change stat="FIRE_RESISTANCE" duration="3000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <transform model="201046" duration="3000"/>
         </effects>
         <actions>
             <dummy/>
@@ -62402,7 +62747,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage checkvalue="21" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="21" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17409" name="STR_GNAS_AimBackSatk_Chain1" stack="GNAS_AIMBACKSATK_CHAIN1" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="1000">
@@ -62416,7 +62765,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage checkvalue="21" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="21" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17410" name="STR_GNAS_BlindTA_AddhideSH" stack="GNAS_BLINDTA_ADDHIDESH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -62463,6 +62816,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="74" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="25" delta="0"/>
         </actions>
@@ -62477,6 +62833,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="22" delta="0"/>
         </actions>
@@ -62793,10 +63152,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="69" delta="4" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="69" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -62813,10 +63172,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="102" delta="5" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="102" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -62833,10 +63192,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="88" delta="4" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="WIND_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="88" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -62853,10 +63212,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="94" delta="4" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="EARTH_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="94" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -62873,10 +63232,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="119" delta="5" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="119" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -62893,10 +63252,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="162" delta="4" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="162" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -62913,10 +63272,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="151" delta="4" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="WIND_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="151" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -62933,10 +63292,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="154" delta="4" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="EARTH_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="154" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -63170,8 +63529,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
             <transform model="210804" duration="3100"/>
+            <dot damage="15" delta="1" checktime="2000" duration="3100"/>
         </effects>
         <actions>
             <dummy/>
@@ -63191,11 +63550,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="213569" duration="10000"/>
             <buf duration="10000">
                 <change stat="PHYSICAL_DEFENSE" duration="10000" func="PERCENT" delta="0" value="-90"/>
                 <change stat="FIRE_RESISTANCE" duration="10000" func="ADD" delta="0" value="-900"/>
             </buf>
-            <transform model="213569" duration="10000"/>
         </effects>
         <actions>
             <dummy/>
@@ -63246,11 +63605,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210427" duration="15000"/>
             <buf duration="15000">
                 <change stat="PHYSICAL_DEFENSE" duration="15000" func="PERCENT" delta="0" value="-50"/>
                 <change stat="MAGICAL_RESIST" duration="15000" func="PERCENT" delta="0" value="-50"/>
             </buf>
-            <transform model="210427" duration="15000"/>
         </effects>
         <actions>
             <dummy/>
@@ -63396,7 +63755,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <stumbledamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17469" name="STR_GNFI_SatkFPAtkIns_Chain2_Lc" stack="GNFI_SATKFPATKINS_CHAIN2_LC" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="500">
@@ -63823,11 +64186,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
             <buf duration="10000">
                 <change stat="PHYSICAL_DEFENSE" duration="10000" func="PERCENT" delta="0" value="-30"/>
                 <change stat="MAGICAL_RESIST" duration="10000" func="PERCENT" delta="0" value="-30"/>
             </buf>
-            <dot damage="10" delta="1" checktime="2000" duration="8100"/>
         </effects>
         <actions>
             <damage value="49" delta="0"/>
@@ -63928,6 +64291,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="74" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="50" delta="0"/>
         </actions>
@@ -64310,7 +64676,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage checkvalue="21" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="21" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17524" name="STR_NPet_SatkLr_AddSuAtt" stack="NPET_SATKLR_ADDSUATT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="3000">
@@ -64566,6 +64936,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="74" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -64789,7 +65162,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="41" delta="0"/>
+            <damage value="41" delta="0">
+                <modifiers>
+                    <stumbledamage value="51" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17556" name="STR_AGC_SKnockDownTA_Mid" stack="AGC_SKNOCKDOWNTA_MID" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="1000">
@@ -64803,7 +65180,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="61" delta="0"/>
+            <damage value="61" delta="0">
+                <modifiers>
+                    <stumbledamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17557" name="STR_AGC_SKnockDownTA_Lr" stack="AGC_SKNOCKDOWNTA_LR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="1000">
@@ -64817,7 +65198,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="81" delta="0"/>
+            <damage value="81" delta="0">
+                <modifiers>
+                    <stumbledamage value="91" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17558" name="STR_NGR_SpellATKDrain_Ins_Such1" stack="NGR_SPELLATKDRAIN_INS_SUCH1" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="0">
@@ -65180,7 +65565,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage checkvalue="20" check="BACK" value="20" delta="0"/>
+            <damage value="20" delta="0">
+                <modifiers>
+                    <backdamage value="20" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17582" name="STR_DGRA_H_SpellLong_Fire" stack="DGRA_H_SPELLLONG_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="3000">
@@ -65459,10 +65848,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="180" delta="5" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="180" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -65479,10 +65868,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="215" delta="4" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="215" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -65499,10 +65888,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="208" delta="6" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="WIND_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="208" delta="6" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -65519,10 +65908,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="216" delta="4" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="EARTH_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="216" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -65769,10 +66158,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="235" delta="5" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="235" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -65789,10 +66178,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="215" delta="4" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="215" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -65809,10 +66198,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="268" delta="6" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="WIND_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="268" delta="6" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -65829,10 +66218,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="216" delta="4" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="EARTH_RESISTANCE" duration="30000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <dot damage="216" delta="4" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -65849,11 +66238,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="329" delta="5" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="WIND_RESISTANCE" duration="30000" func="ADD" delta="0" value="-300"/>
                 <change stat="WATER_RESISTANCE" duration="30000" func="ADD" delta="0" value="-300"/>
             </buf>
-            <dot damage="329" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -65870,11 +66259,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dot damage="344" delta="5" checktime="6000" duration="30000"/>
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-300"/>
                 <change stat="EARTH_RESISTANCE" duration="30000" func="ADD" delta="0" value="-300"/>
             </buf>
-            <dot damage="344" delta="5" checktime="6000" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -66962,10 +67351,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201046" duration="3000"/>
             <buf duration="3000">
                 <change stat="FIRE_RESISTANCE" duration="3000" func="ADD" delta="0" value="-200"/>
             </buf>
-            <transform model="201046" duration="3000"/>
         </effects>
         <actions>
             <dummy/>
@@ -67236,7 +67625,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="30" delta="0"/>
+            <damage value="30" delta="0">
+                <modifiers>
+                    <stumbledamage value="20" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17704" name="STR_DGPR_H_SDownPyDef_Nr" stack="DGPR_H_SDOWNPYDEF_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="2000">
@@ -67568,6 +67961,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="74" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -67613,6 +68009,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="1500" delta="0" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -67627,6 +68026,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="2500" delta="0" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -68938,6 +69340,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="129" delta="5" checktime="6000" duration="24000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -68952,6 +69357,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="229" delta="6" checktime="6000" duration="24000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -68966,6 +69374,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="337" delta="6" checktime="6000" duration="24000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -68991,6 +69402,9 @@
             <targetrange value="ONLYONE" maxcount="5"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <poison value="300" delta="0" checktime="3000" duration="10100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -69097,6 +69511,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="98" delta="0" checktime="5000" duration="30100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -69343,10 +69760,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="280711" duration="60000"/>
             <buf duration="60000">
                 <change stat="MAXHP" duration="60000" func="PERCENT" delta="0" value="-80"/>
             </buf>
-            <transform model="280711" duration="60000"/>
         </effects>
         <actions>
             <dummy/>
@@ -69513,6 +69930,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -69646,11 +70066,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210804" duration="60000"/>
             <buf duration="60000">
                 <change stat="PHYSICAL_DEFENSE" duration="60000" func="PERCENT" delta="0" value="-95"/>
                 <change stat="MAGICAL_RESIST" duration="60000" func="PERCENT" delta="0" value="-95"/>
             </buf>
-            <transform model="210804" duration="60000"/>
         </effects>
         <actions>
             <dummy/>
@@ -69681,11 +70101,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210804" duration="15000"/>
             <buf duration="15000">
                 <change stat="PHYSICAL_DEFENSE" duration="15000" func="PERCENT" delta="0" value="-95"/>
                 <change stat="MAGICAL_RESIST" duration="15000" func="PERCENT" delta="0" value="-95"/>
             </buf>
-            <transform model="210804" duration="15000"/>
         </effects>
         <actions>
             <dummy/>
@@ -69705,11 +70125,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210804" duration="15000"/>
             <buf duration="15000">
                 <change stat="PHYSICAL_DEFENSE" duration="15000" func="PERCENT" delta="0" value="-95"/>
                 <change stat="MAGICAL_RESIST" duration="15000" func="PERCENT" delta="0" value="-95"/>
             </buf>
-            <transform model="210804" duration="15000"/>
         </effects>
         <actions>
             <dummy/>
@@ -70249,10 +70669,10 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
+            <transform model="210420" duration="30000"/>
             <buf duration="30000">
                 <change stat="MAXHP" duration="30000" func="PERCENT" delta="0" value="-50"/>
             </buf>
-            <transform model="210420" duration="30000"/>
         </effects>
         <actions>
             <dummy/>
@@ -70353,11 +70773,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="213569" duration="20000"/>
             <buf duration="20000">
                 <change stat="PHYSICAL_DEFENSE" duration="20000" func="PERCENT" delta="0" value="-95"/>
                 <change stat="MAGICAL_RESIST" duration="20000" func="PERCENT" delta="0" value="-95"/>
             </buf>
-            <transform model="213569" duration="20000"/>
         </effects>
         <actions>
             <dummy/>
@@ -70393,6 +70813,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="44" delta="0"/>
         </actions>
@@ -70446,6 +70869,9 @@
             <targetrange value="ONLYONE" maxcount="24"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <poison value="13" delta="1" checktime="1000" duration="6100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -70808,6 +71234,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -70834,7 +71263,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage checkvalue="21" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="21" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="17934" name="STR_NAS_SPinTA5_No" stack="NAS_SPINTA5_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="3500">
@@ -72115,6 +72548,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="99" delta="1" checktime="4000" duration="8100"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -72271,6 +72707,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="20100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -72415,6 +72854,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="500" delta="1" checktime="5000" duration="15100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -73446,6 +73888,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="250" delta="0" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -73581,6 +74026,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="600" delta="0" checktime="5000" duration="15000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -73595,6 +74043,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="250" delta="0" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -73924,7 +74375,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="127" delta="0"/>
+            <damage value="127" delta="0">
+                <modifiers>
+                    <stumbledamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="18137" name="STR_BNKN_SpellAtkSteam_TA" stack="BNKN_SPELLATKSTEAM_TA" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
@@ -74290,6 +74745,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="49" delta="1" checktime="5000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -74305,7 +74763,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage checkvalue="84" check="BACK" value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <backdamage value="84" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="18160" name="STR_NAS_SatkAimPoiC2HTA3_Po" stack="NAS_SATKAIMPOIC2HTA3_PO" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2000">
@@ -74319,7 +74781,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <poisondamage value="101" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="18161" name="STR_NCL_Healins15P_Self" stack="NCL_HEALINS15P_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" activation="ACTIVE" cooldown="0" duration="0">
@@ -74347,10 +74813,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="210420" duration="5000"/>
             <buf duration="5000">
                 <change stat="MAXHP" duration="5000" func="PERCENT" delta="0" value="-50"/>
             </buf>
-            <transform model="210420" duration="5000"/>
         </effects>
         <actions>
             <dummy/>
@@ -74559,8 +75025,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <dot damage="15" delta="94" checktime="6000" duration="6100"/>
             <transform model="214869" duration="6100"/>
+            <dot damage="15" delta="94" checktime="6000" duration="6100"/>
         </effects>
         <actions>
             <dummy/>
@@ -74970,10 +75436,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="201046" duration="8000"/>
             <buf duration="12000">
                 <change stat="FIRE_RESISTANCE" duration="12000" func="ADD" delta="0" value="-300"/>
             </buf>
-            <transform model="201046" duration="8000"/>
         </effects>
         <actions>
             <dummy/>
@@ -75066,7 +75532,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="61" delta="0"/>
+            <damage value="61" delta="0">
+                <modifiers>
+                    <stumbledamage value="51" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="18207" name="STR_AGC_Satk_Nr" stack="AGC_SATK_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="2000">
@@ -76663,7 +77133,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <stumbledamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="18320" name="STR_GKN_SatkStun_Command" stack="GKN_SATKSTUN_COMMAND" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" activation="ACTIVE" cooldown="0" duration="1500">
@@ -76752,7 +77226,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="60" delta="0"/>
+            <damage value="60" delta="0">
+                <modifiers>
+                    <stundamage value="0" delta="3"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="18326" name="STR_GEL_SpellSnareTA_Command" stack="GEL_SPELLSNARETA_COMMAND" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
@@ -77532,8 +78010,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <dot damage="15" delta="1" checktime="2000" duration="12000"/>
             <transform model="210804" duration="12000"/>
+            <dot damage="15" delta="1" checktime="2000" duration="12000"/>
         </effects>
         <actions>
             <dummy/>
@@ -77639,6 +78117,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="200" delta="0" checktime="5000" duration="30000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -77671,7 +78152,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <poisondamage value="71" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="18386" name="STR_BNAS_SatkPoiDisS30HTA25_Poi" stack="BNAS_SATKPOIDISS30HTA25_POI" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -77687,6 +78172,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="150" delta="0" checktime="5000" duration="30000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -77702,7 +78190,11 @@
             <playermove allow="false"/>
         </useconditions>
         <actions>
-            <damage value="0" delta="0"/>
+            <damage value="0" delta="0">
+                <modifiers>
+                    <poisondamage value="100" delta="0"/>
+                </modifiers>
+            </damage>
         </actions>
     </skill_template>
     <skill_template skill_id="18388" name="STR_BNAS_MortalNoFlyKBC10TA20_Shield10S_No" stack="BNAS_MORTALNOFLYKBC10TA20_SHIELD10S_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" activation="ACTIVE" cooldown="0" duration="5000">
@@ -78957,10 +79449,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <transform model="202526" duration="1200000"/>
             <buf duration="1200000">
                 <change stat="MAXHP" duration="1200000" func="ADD" delta="0" value="300"/>
             </buf>
-            <transform model="202526" duration="1200000"/>
         </effects>
         <actions>
             <dummy/>
@@ -79044,6 +79536,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <poison value="74" delta="1" checktime="3000" duration="10100"/>
+        </effects>
         <actions>
             <damage value="20" delta="0"/>
         </actions>

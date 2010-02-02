@@ -42,18 +42,18 @@ public abstract class Creature extends VisibleObject
 	protected AI<? extends Creature> ai;
 
 	private CreatureLifeStats<? extends Creature> lifeStats;
-
 	private CreatureGameStats<? extends Creature> gameStats;
 
 	private EffectController effectController;
-	
 	private MoveController moveController;
 	
 	private int state = CreatureState.ACTIVE.getId();
 	
-	private boolean isRooted = false;
-
-	private boolean isSleep = false;
+	private boolean isRooted;
+	private boolean isSleep;
+	private boolean isPoisoned;
+	private boolean isStumbled;
+	private boolean isStunned;
 	
 	private int transformedModelId;
 
@@ -151,29 +151,96 @@ public abstract class Creature extends VisibleObject
 		this.ai = ai;
 	}
 
-	public void setIsRooted(boolean isRooted)
-	{
-		this.isRooted = isRooted;
-	}
+	
 
+	/**
+	 * @return the isRooted
+	 */
 	public boolean isRooted()
 	{
 		return isRooted;
 	}
 
-	public void setSleep(boolean isSleep)
+	/**
+	 * @param isRooted the isRooted to set
+	 */
+	public void setRooted(boolean isRooted)
 	{
-		this.isSleep = isSleep;
+		this.isRooted = isRooted;
 	}
 
+	/**
+	 * @return the isSleep
+	 */
 	public boolean isSleep()
 	{
 		return isSleep;
 	}
 
+	/**
+	 * @param isSleep the isSleep to set
+	 */
+	public void setSleep(boolean isSleep)
+	{
+		this.isSleep = isSleep;
+	}
+
+	/**
+	 * @return the isPoisoned
+	 */
+	public boolean isPoisoned()
+	{
+		return isPoisoned;
+	}
+
+	/**
+	 * @param isPoisoned the isPoisoned to set
+	 */
+	public void setPoisoned(boolean isPoisoned)
+	{
+		this.isPoisoned = isPoisoned;
+	}
+
+	/**
+	 * @return the isStumbled
+	 */
+	public boolean isStumbled()
+	{
+		return isStumbled;
+	}
+
+	/**
+	 * @param isStumbled the isStumbled to set
+	 */
+	public void setStumbled(boolean isStumbled)
+	{
+		this.isStumbled = isStumbled;
+	}
+
+	/**
+	 * @return the isStunned
+	 */
+	public boolean isStunned()
+	{
+		return isStunned;
+	}
+
+	/**
+	 * @param isStunned the isStunned to set
+	 */
+	public void setStunned(boolean isStunned)
+	{
+		this.isStunned = isStunned;
+	}
+
 	public boolean canPerformMove()
 	{
-		return !(isRooted || isSleep);
+		return !(isRooted || isSleep || isStumbled || isStunned);
+	}
+	
+	public boolean canFight()
+	{
+		return !(isSleep || isStunned || isStumbled);
 	}
 
 	/**

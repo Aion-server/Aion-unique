@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,15 +14,16 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.action;
+
+package com.aionemu.gameserver.skillengine.action.modifier;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.action.modifier.ActionModifier;
-import com.aionemu.gameserver.skillengine.action.modifier.ActionModifiers;
 import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.utils.PositionUtil;
 
 
 /**
@@ -30,34 +31,22 @@ import com.aionemu.gameserver.skillengine.model.Skill;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Action")
-public abstract class Action
+@XmlType(name = "BackDamageModifier")
+public class BackDamageModifier
+extends ActionModifier
 {
-	protected ActionModifiers modifiers;
-    
-	/**
-	 *  Perform action specified in template
-	 *  
-	 * @param env
-	 */
-	public abstract void act(Skill skill);
-	
-	/**
-	 * @param value
-	 * @return
-	 */
-	protected int applyActionModifiers(Skill skill, int value)
-	{	
-		//TODO refactor with SkillResultList
-		if(modifiers == null)
-			return value;
-		
-		for(ActionModifier modifier : modifiers.getActionModifiers())
-		{
-			value = modifier.analyze(skill, value);
-		}
-		
-		return value;
+
+	@XmlAttribute(required = true)
+	protected int delta;
+	@XmlAttribute(required = true)
+	protected int value;
+
+
+	@Override
+	public int analyze(Skill skill, int originalValue)
+	{
+		boolean isAtBack = PositionUtil.isBehindTarget(skill.getEffector(), skill.getEffectedList().get(0)); 	
+		return isAtBack ? originalValue + value + skill.getSkillLevel() * delta : originalValue;
 	}
 
 }

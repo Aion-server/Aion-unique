@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,14 +14,12 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.action;
+package com.aionemu.gameserver.skillengine.action.modifier;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.action.modifier.ActionModifier;
-import com.aionemu.gameserver.skillengine.action.modifier.ActionModifiers;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
 
@@ -30,34 +28,15 @@ import com.aionemu.gameserver.skillengine.model.Skill;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Action")
-public abstract class Action
-{
-	protected ActionModifiers modifiers;
-    
+@XmlType(name = "ActionModifier")
+public abstract class ActionModifier {
+
 	/**
-	 *  Perform action specified in template
+	 *  For now just pass damage value
+	 *  Later probaly Context will be passed
 	 *  
-	 * @param env
-	 */
-	public abstract void act(Skill skill);
-	
-	/**
-	 * @param value
+	 * @param originalValue
 	 * @return
 	 */
-	protected int applyActionModifiers(Skill skill, int value)
-	{	
-		//TODO refactor with SkillResultList
-		if(modifiers == null)
-			return value;
-		
-		for(ActionModifier modifier : modifiers.getActionModifiers())
-		{
-			value = modifier.analyze(skill, value);
-		}
-		
-		return value;
-	}
-
+	public abstract int analyze(Skill skill, int originalValue);
 }

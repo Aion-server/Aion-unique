@@ -38,13 +38,13 @@ public class RootEffect extends EffectTemplate
 	@Override
 	public void startEffect(Effect effect)
 	{
-		effect.getEffected().setIsRooted(true);
+		effect.getEffected().setRooted(true);
 	}
 
 	@Override
 	public void endEffect(Effect effect)
 	{
-		effect.getEffected().setIsRooted(false);
+		effect.getEffected().setRooted(false);
 	}
 
 	@Override

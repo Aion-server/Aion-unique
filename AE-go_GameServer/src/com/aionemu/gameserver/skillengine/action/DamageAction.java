@@ -64,7 +64,9 @@ extends Action
 		SkillTemplate template = skill.getSkillTemplate();
 
 		int valueWithDelta = value + delta * skill.getSkillLevel();
-
+		
+		valueWithDelta = applyActionModifiers(skill, valueWithDelta);
+		
 		if(damageType == null)
 			damageType = DamageType.valueOf(skill.getSkillTemplate().getType().name());
 
@@ -83,7 +85,7 @@ extends Action
 		}
 
 	}
-
+	
 	protected List<SkillAttackResult> calculateAttackResult(Skill skill, Player effector, int valueWithDelta)
 	{
 		List<SkillAttackResult> skillAttackList = new ArrayList<SkillAttackResult>();
