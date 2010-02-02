@@ -40,12 +40,34 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 	 */
 	private static final Logger				log			= Logger.getLogger(ThreadPoolManager.class);
 
+	/**
+	 * instance of the singleton
+	 */
 	private static ThreadPoolManager		instance	= new ThreadPoolManager();
 
+	/**
+	 * common scheduled threads pool
+	 */
 	private ScheduledThreadPoolExecutorAE	scheduledThreadPool;
+
+	/**
+	 * Disconnection scheduled threads pool
+	 */
 	private ScheduledThreadPoolExecutorAE	disconnectionScheduledThreadPool;
+
+	/**
+	 * Effects scheduled threads pool
+	 */
 	private ScheduledThreadPoolExecutorAE	effectsScheduledThreadPool;
+
+	/**
+	 * AI scheduled threads pool
+	 */
 	private ScheduledThreadPoolExecutorAE	aiScheduledThreadPool;
+
+	/**
+	 * Thread manager for loginServer packets
+	 */
 	private ThreadPoolExecutor				loginServerPacketsThreadPool;
 
 	/**
@@ -64,12 +86,12 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 		scheduledThreadPool = new ScheduledThreadPoolExecutorAE(4, new PriorityThreadFactory("ScheduledThreadPool",
 			Thread.NORM_PRIORITY));
 		// scheduledThreadPool.setRemoveOnCancelPolicy(true);
-		
-		effectsScheduledThreadPool = new ScheduledThreadPoolExecutorAE(6, new PriorityThreadFactory("EffectsScheduledThreadPool",
-			Thread.NORM_PRIORITY));
-		
-		aiScheduledThreadPool = new ScheduledThreadPoolExecutorAE(10, new PriorityThreadFactory("AiScheduledThreadPool",
-			Thread.NORM_PRIORITY));
+
+		effectsScheduledThreadPool = new ScheduledThreadPoolExecutorAE(6, new PriorityThreadFactory(
+			"EffectsScheduledThreadPool", Thread.NORM_PRIORITY));
+
+		aiScheduledThreadPool = new ScheduledThreadPoolExecutorAE(10, new PriorityThreadFactory(
+			"AiScheduledThreadPool", Thread.NORM_PRIORITY));
 
 		disconnectionScheduledThreadPool = new ScheduledThreadPoolExecutorAE(4, new PriorityThreadFactory(
 			"ScheduledThreadPool", Thread.NORM_PRIORITY));
@@ -80,6 +102,17 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 				Thread.NORM_PRIORITY + 3));
 	}
 
+	/**
+	 * Standard tasks schedulers (once)
+	 * 
+	 * @param <T>
+	 *            Template for Runnable
+	 * @param r
+	 *            runnable task
+	 * @param delay
+	 *            wait before task execution
+	 * @return scheduled task
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends Runnable> ScheduledFuture<T> schedule(T r, long delay)
 	{
@@ -95,6 +128,19 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 		}
 	}
 
+	/**
+	 * Standard tasks schedulers (cyclic)
+	 * 
+	 * @param <T>
+	 *            Template for Runnable
+	 * @param r
+	 *            runnable task
+	 * @param initial
+	 *            wait before first exec
+	 * @param delay
+	 *            delay between executions
+	 * @return scheduled task
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends Runnable> ScheduledFuture<T> scheduleAtFixedRate(T r, long initial, long delay)
 	{
@@ -112,9 +158,18 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 			return null;
 		}
 	}
-	
-	/** Effects schedulers **/
-	
+
+	/**
+	 * Effects schedulers (once)
+	 * 
+	 * @param <T>
+	 *            Template for Runnable
+	 * @param r
+	 *            runnable task
+	 * @param delay
+	 *            wait before task execution
+	 * @return scheduled task
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends Runnable> ScheduledFuture<T> scheduleEffect(T r, long delay)
 	{
@@ -129,7 +184,20 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 			return null;
 		}
 	}
-	
+
+	/**
+	 * Effects schedulers (cyclic)
+	 * 
+	 * @param <T>
+	 *            Template for Runnable
+	 * @param r
+	 *            runnable task
+	 * @param initial
+	 *            wait before first task execution
+	 * @param delay
+	 *            delay between executions
+	 * @return scheduled task
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends Runnable> ScheduledFuture<T> scheduleEffectAtFixedRate(T r, long initial, long delay)
 	{
@@ -147,9 +215,20 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 			return null;
 		}
 	}
-	
-	/** AI schedulers **/
-	
+
+	/**  **/
+
+	/**
+	 * AI schedulers
+	 * 
+	 * @param <T>
+	 *            Template for Runnable
+	 * @param r
+	 *            runnable task
+	 * @param delay
+	 *            wait before task execution
+	 * @return scheduled task
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends Runnable> ScheduledFuture<T> scheduleAi(T r, long delay)
 	{
@@ -164,7 +243,20 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 			return null;
 		}
 	}
-	
+
+	/**
+	 * AI schedulers
+	 * 
+	 * @param <T>
+	 *            Template for Runnable
+	 * @param r
+	 *            runnable task
+	 * @param initial
+	 *            wait before first task execution
+	 * @param delay
+	 *            delay between executions
+	 * @return scheduled task
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends Runnable> ScheduledFuture<T> scheduleAiAtFixedRate(T r, long initial, long delay)
 	{
@@ -183,13 +275,21 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 		}
 	}
 
+	/**
+	 * Executes a loginServer packet task
+	 * 
+	 * @param pkt
+	 *            runnable packet for Login Server
+	 */
 	public void executeLsPacket(Runnable pkt)
 	{
 		loginServerPacketsThreadPool.execute(pkt);
 	}
 
-	/**
-	 * {@inheritDoc}
+	/*
+	 * (non-Javadoc)
+	 * @seecom.aionemu.commons.network.DisconnectionThreadPool#scheduleDisconnection(com.aionemu.commons.network.
+	 * DisconnectionTask, long)
 	 */
 	@Override
 	public final void scheduleDisconnection(DisconnectionTask dt, long delay)
@@ -199,8 +299,9 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 		scheduledThreadPool.schedule(dt, delay, TimeUnit.MILLISECONDS);
 	}
 
-	/**
-	 * {@inheritDoc}
+	/*
+	 * (non-Javadoc)
+	 * @see com.aionemu.commons.network.DisconnectionThreadPool#waitForDisconnectionTasks()
 	 */
 	@Override
 	public void waitForDisconnectionTasks()
@@ -215,6 +316,12 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 		}
 	}
 
+	/**
+	 * Custom implementation of ThreadFactory to manage priorities
+	 * 
+	 * @author -Nemesiss-
+	 * 
+	 */
 	private class PriorityThreadFactory implements ThreadFactory
 	{
 		private int				prio;
@@ -222,6 +329,14 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 		private AtomicInteger	threadNumber	= new AtomicInteger(1);
 		private ThreadGroup		group;
 
+		/**
+		 * Parametered Constructor
+		 * 
+		 * @param name
+		 *            Thread name
+		 * @param prio
+		 *            Thread priority
+		 */
 		public PriorityThreadFactory(String name, int prio)
 		{
 			this.prio = prio;

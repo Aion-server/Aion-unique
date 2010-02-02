@@ -21,7 +21,6 @@ import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_WEATHER;
 import com.aionemu.gameserver.services.WeatherService;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.zone.ZoneManager;
@@ -31,15 +30,19 @@ import com.google.inject.Inject;
  * Client is saying that level[map] is ready.
  * 
  * @author -Nemesiss-
- * 
+ * @author Kwazar
  */
 public class CM_LEVEL_READY extends AionClientPacket
 {
 	@Inject
-	private World	world;
+	private World			world;
+
+	@Inject
+	private WeatherService	weatherService;
 
 	/**
 	 * Constructs new instance of <tt>CM_LEVEL_READY </tt> packet
+	 * 
 	 * @param opcode
 	 */
 	public CM_LEVEL_READY(int opcode)
@@ -61,31 +64,32 @@ public class CM_LEVEL_READY extends AionClientPacket
 	 */
 	@Override
 	protected void runImpl()
-	{		
+	{
 		Player activePlayer = getConnection().getActivePlayer();
-		
-		//here check flying zone may be to dissallow teleporting itself
+
+		// here check flying zone may be to disallow teleporting itself
 		activePlayer.unsetState(CreatureState.FLYING);
-		
-		
+
 		sendPacket(new SM_PLAYER_INFO(activePlayer, true, false));
 
 		/**
 		 * Spawn player into the world.
 		 */
 		world.spawn(activePlayer);
+
 		/**
 		 * Find zone in current map
 		 */
 		ZoneManager.getInstance().findZoneInCurrentMap(activePlayer);
-		
-		//random weather
-		int weatherMaskId = WeatherService.getRandomWeather();
-		sendPacket(new SM_WEATHER(weatherMaskId));
-		
+
+		/**
+		 * Loading weather for the player's region
+		 */
+		weatherService.loadWeather(activePlayer);
+
 		// zone channel message
 		sendPacket(new SM_SYSTEM_MESSAGE(1390122, activePlayer.getPosition().getInstanceId()));
-		
+
 		activePlayer.getEffectController().updatePlayerEffectIcons();
 	}
 }

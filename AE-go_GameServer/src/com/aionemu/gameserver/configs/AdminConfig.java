@@ -129,6 +129,9 @@ public class AdminConfig
     @Property(key = "gameserver.administration.command.unstuck", defaultValue = "3")
     public static int           COMMAND_UNSTUCK;
     
+    @Property(key = "gameserver.administration.command.weather", defaultValue = "3")
+	public static int			COMMAND_WEATHER;
+    
     @Property(key = "gameserver.administration.command.zone", defaultValue = "3")
     public static int           COMMAND_ZONE;
 }

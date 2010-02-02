@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.util.Random;
 
 import org.apache.log4j.Logger;
 
@@ -26,24 +25,22 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
  * @author ATracer
+ * @author Kwazar
  */
 public class SM_WEATHER extends AionServerPacket
 {
 	private static final Logger	log	= Logger.getLogger(SM_WEATHER.class);
 
-	private int weatherCode;
-	
+	private int					weatherCode;
+
 	public SM_WEATHER(int weatherCode)
 	{
 		this.weatherCode = weatherCode;
 	}
 
-
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeC(buf, 0);
-		writeH(buf, this.weatherCode);
-		writeC(buf, 0);
+		writeC(buf, this.weatherCode);
 	}
 }
