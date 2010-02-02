@@ -139,6 +139,14 @@ public class Inventory
 		//TODO checks
 		if(item.isEquipped())
 		{
+			if(equipment.get(item.getEquipmentSlot()) != null)
+			{
+				log.error("Deleting duplicate item for player: " + getOwner().getObjectId());
+				item.setPersistentState(PersistentState.DELETED);
+				DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
+				return;
+			}
+			
 			equipment.put(item.getEquipmentSlot(), item);
 			if (owner.getGameStats() != null)
 			{
