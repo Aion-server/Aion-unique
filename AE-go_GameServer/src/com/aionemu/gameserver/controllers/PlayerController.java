@@ -201,12 +201,13 @@ public class PlayerController extends CreatureController<Player>
 	public void attackTarget(int targetObjectId)
 	{
 		Player player = getOwner();
+		if(!player.canAttack())
+			return;
+		
 		PlayerGameStats gameStats = player.getGameStats();
 		long time = System.currentTimeMillis();
 		int attackType = 0; // TODO investigate attack types
-
-
-
+		
 		World world = player.getActiveRegion().getWorld();
 		Creature target = (Creature) world.findAionObject(targetObjectId);
 		if(target == null 

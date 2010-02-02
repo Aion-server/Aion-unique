@@ -144,7 +144,10 @@ public class MonsterController extends NpcController
 
 		if (monster == null || monster.getLifeStats().isAlreadyDead())
 			return;
-
+		
+		if(!monster.canAttack())
+			return;
+		
 		MonsterAi monsterAi = monster.getAi();
 		CreatureGameStats<? extends Creature> npcGameStats = monster.getGameStats();
 
