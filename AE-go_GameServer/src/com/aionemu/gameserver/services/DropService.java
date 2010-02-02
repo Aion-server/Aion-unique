@@ -68,6 +68,14 @@ public class DropService
 	}
 
 	/**
+	 * @return the dropList
+	 */
+	public DropList getDropList()
+	{
+		return dropList;
+	}
+
+	/**
 	 * After NPC dies - it can register arbitrary drop
 	 * @param npc
 	 */
