@@ -42,7 +42,8 @@ public class Effects
         @XmlElement(name = "buf", type = BufEffect.class),
         @XmlElement(name = "dot", type = DamageOverTimeEffect.class),
         @XmlElement(name = "hot", type = HealOverTimeEffect.class),
-        @XmlElement(name = "transform", type = TransformEffect.class)
+        @XmlElement(name = "transform", type = TransformEffect.class),
+        @XmlElement(name = "poison", type = PoisonEffect.class)
     })
     protected List<EffectTemplate> effects;
 
