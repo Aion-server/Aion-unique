@@ -175,4 +175,12 @@ public class WorldPosition
 		z = newZ;
 		heading = newHeading;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "WorldPosition [heading=" + heading + ", isSpawned=" + isSpawned + ", mapRegion=" + mapRegion + ", x="
+			+ x + ", y=" + y + ", z=" + z + "]";
+	}
+	
 }

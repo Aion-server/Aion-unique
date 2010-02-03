@@ -400,10 +400,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 		{
 			int maxDp = getPlayer().getGameStats().getCurrentStat(StatEnum.MAXDP);
 			this.dp = dp > maxDp ? maxDp : dp;
-			if(this.getPlayer() != null)
-			{
-				PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATUPDATE_DP(this.dp));
-			}
+			PacketSendUtility.sendPacket(getPlayer(), new SM_STATUPDATE_DP(this.dp));
 		}
 		else
 		{
