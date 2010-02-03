@@ -44,6 +44,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHERABLE_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
@@ -287,12 +288,18 @@ public class PlayerController extends CreatureController<Player>
 		{
 			//debug
 		}
-		ThreadPoolManager.getInstance().schedule(new Runnable()
+		if(delay != 0){
+        PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, 0, delay, 0, 0));
+        }
+        ThreadPoolManager.getInstance().schedule(new Runnable()
 		{
 			@Override
 			public void run()
 			{
-				World world = player.getActiveRegion().getWorld();			
+				if(delay != 0){
+                PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
+                }
+                World world = player.getActiveRegion().getWorld();
 				world.despawn(player);
 				world.setPosition(player, worldId, x, y, z, heading);
 				player.setProtectionActive(true);
@@ -476,11 +483,14 @@ public class PlayerController extends CreatureController<Player>
 				break;
 		}
 	}
-
+    public void moveToBindLocation (boolean useTeleport)
+    {
+        this.moveToBindLocation(useTeleport, 0);
+    }
 	/**
 	 * @param useTeleport
 	 */
-	public void moveToBindLocation(boolean useTeleport)
+	public void moveToBindLocation(boolean useTeleport, int delay)
 	{
 		float x,y,z;
 		int worldId;
@@ -510,7 +520,7 @@ public class PlayerController extends CreatureController<Player>
 		
 		if(useTeleport)
 		{
-			teleportTo(worldId, x, y, z, 0);
+			teleportTo(worldId, x, y, z, delay);
 		}
 		else
 		{

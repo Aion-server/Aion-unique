@@ -17,6 +17,7 @@
 package admincommands;
 
 import com.aionemu.gameserver.configs.AdminConfig;
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
@@ -45,7 +46,11 @@ public class Unstuck extends AdminCommand
             PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
             return;
         }
-        
-        admin.getController().moveToBindLocation(true);
+        if (admin.getLifeStats().isAlreadyDead())
+        {
+            PacketSendUtility.sendMessage(admin, "You dont have execute this command. You die");
+            return;
+        }
+        admin.getController().moveToBindLocation(true, Config.UNSTUCK_DELAY);
     }
 }

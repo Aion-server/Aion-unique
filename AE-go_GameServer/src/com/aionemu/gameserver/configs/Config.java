@@ -181,7 +181,13 @@ public class Config
 	 */
 	@Property(key = "gameserver.enable.simple.2ndclass",defaultValue = "false")
 	public static boolean			ENABLE_SIMPLE_2NDCLASS;
-    
+
+   	/*
+	 * Unstuck delay
+	 */
+	@Property(key = "gameserver.unstuck.delay",defaultValue = "3600")
+	public static int				UNSTUCK_DELAY;
+
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
 	 */
