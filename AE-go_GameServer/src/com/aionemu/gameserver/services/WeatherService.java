@@ -179,7 +179,9 @@ public class WeatherService
 				return key;
 			}
 		}
-		return null;
+		WeatherKey newKey = new WeatherKey(new Date(), map);
+		worldWeathers.put(newKey, getRandomWeather());
+		return newKey;
 	}
 
 	/**
@@ -189,12 +191,6 @@ public class WeatherService
 	private int getWeatherTypeByRegion(WorldMap worldMap)
 	{
 		WeatherKey key = getKeyFromMapByWorldMap(worldMap);
-
-		if(key == null)
-		{
-			key = new WeatherKey(new Date(), worldMap);
-			worldWeathers.put(key, getRandomWeather());
-		}
 		return worldWeathers.get(key).intValue();
 	}
 
