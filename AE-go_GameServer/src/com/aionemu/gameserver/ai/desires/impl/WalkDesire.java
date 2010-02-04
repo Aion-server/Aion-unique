@@ -20,7 +20,6 @@ import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.desires.AbstractDesire;
 import com.aionemu.gameserver.ai.desires.MoveDesire;
-import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -103,22 +102,22 @@ public class WalkDesire extends AbstractDesire implements MoveDesire
 		float destinationZ = _route.getRouteSteps().get(_currentPos).getZ();
 		
 		float walkSpeed = owner.getTemplate().getStatsTemplate().getWalkSpeed();
-		double dist = MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), destinationX, destinationY, destinationZ);
 		
+		double dist = MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), destinationX, destinationY, destinationZ);
+		//TODO refactor to new MoveController
 		if (dist > 2)
 		{
-			float x2 = (float) (((destinationX - owner.getX())/dist) * walkSpeed * 0.5) ;
-			float y2 = (float) (((destinationY - owner.getY())/dist) * walkSpeed * 0.5) ;
-			float z2 = (float) (((destinationZ - owner.getZ())/dist) * walkSpeed * 0.5) ; 
+			float x2 = (float) (((destinationX - owner.getX())/dist) * walkSpeed) ;
+			float y2 = (float) (((destinationY - owner.getY())/dist) * walkSpeed) ;
+			float z2 = (float) (((destinationZ - owner.getZ())/dist) * walkSpeed) ; 
 
-			
 			byte heading2 = (byte) (Math.toDegrees(Math.atan2(y2, x2))/3) ;
 			
 			//TODO [ATracer] probably we don't need to send SM_EMOTION each 0.5 sec - just when
 			// new player sees it (onSee in controller) - this needs implementation of current stats
 			// like attacking - send corresponding emotion etc
 			PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner,0x15,0,0));
-			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(),(float) (x2 / 0.5) , (float) (y2 / 0.5) , 0, heading2, MovementType.MOVEMENT_START_KEYBOARD));
+			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(),(float) (x2) , (float) (y2) , 0, heading2, MovementType.MOVEMENT_START_KEYBOARD));
 			owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX() + x2, owner.getY() + y2, owner.getZ() + z2, heading2);
 		}
 		else

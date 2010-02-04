@@ -65,5 +65,13 @@ public enum Event
 	/**
 	 * Creature died
 	 */
-	DIED
+	DIED,
+	/**
+	 * DayTime changed
+	 */
+	DAYTIME_CHANGE,
+	/**
+	 * Despawn service was called
+	 */
+	DESPAWN
 }

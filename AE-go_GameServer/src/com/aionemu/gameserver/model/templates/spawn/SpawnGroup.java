@@ -42,6 +42,8 @@ public class SpawnGroup
 	 * XML attributes
 	 * Order should be reversed to XML attributes order
 	 */
+	@XmlAttribute(name = "time")
+	private SpawnTime spawnTime;
 	@XmlAttribute(name = "anchor")
 	private String anchor;
 	@XmlAttribute(name = "handler")
@@ -158,6 +160,14 @@ public class SpawnGroup
 		return anchor;
 	}
 
+	/**
+	 * @return the dayTime
+	 */
+	public SpawnTime getSpawnTime()
+	{
+		return spawnTime;
+	}
+	
 	public SpawnTemplate getNextAvailableTemplate(int instance)
 	{
 		if(lastSpawnedTemplate.size() < instance)

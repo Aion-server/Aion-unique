@@ -21,9 +21,11 @@
 					<xs:attribute name="y" type="xs:float" />
 					<xs:attribute name="z" type="xs:float" />
 					<xs:attribute name="h" type="Heading" />
+					<xs:attribute name="w" type="xs:int" />
 				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="time" type="SpawnTime" />
 		<xs:attribute name="anchor" type="xs:string" />
 		<xs:attribute name="handler" type="SpawnHandlerType" />
 		<xs:attribute name="interval" type="xs:int" />
@@ -45,6 +47,12 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-
+	<xs:simpleType name="SpawnTime">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DAY" />
+			<xs:enumeration value="NIGHT" />
+		</xs:restriction>
+	</xs:simpleType>
+	
 </xs:schema>
 

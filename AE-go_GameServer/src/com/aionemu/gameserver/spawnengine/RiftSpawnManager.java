@@ -19,6 +19,8 @@ package com.aionemu.gameserver.spawnengine;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.RiftController;
@@ -28,6 +30,7 @@ import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnGroup;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
+import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
@@ -43,6 +46,8 @@ import com.google.inject.Inject;
  */
 public class RiftSpawnManager
 {
+	private static final Logger log = Logger.getLogger(RiftSpawnManager.class);
+	
 	@Inject
 	private NpcData npcData;
 	@IDFactoryAionObject
@@ -89,6 +94,7 @@ public class RiftSpawnManager
 	 */
 	private void spawnRift(RiftEnum rift)
 	{
+		log.info("Spawning rift : " + rift.name());
 		SpawnGroup masterGroup = spawnGroups.get(rift.getMaster());
 		SpawnGroup slaveGroup = spawnGroups.get(rift.getSlave());
 		

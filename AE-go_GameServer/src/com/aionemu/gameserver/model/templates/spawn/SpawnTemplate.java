@@ -22,6 +22,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.utils.gametime.DayTime;
+
 /**
  * @author Luno
  * 
@@ -37,6 +39,10 @@ public class SpawnTemplate
 	 */
 	@XmlTransient
 	private SpawnGroup			spawnGroup;
+	@XmlAttribute(name = "rw")
+	private int			randomWalk;
+	@XmlAttribute(name = "w")
+	private int			walkerId;
 	@XmlAttribute(name = "h")
 	private byte heading;
 	@XmlAttribute(name = "z")
@@ -45,14 +51,13 @@ public class SpawnTemplate
 	private float y;
 	@XmlAttribute(name = "x")
 	private float x;
-	@XmlTransient
-	private int			walkerId;
-	@XmlTransient
-	private int			randomWalk;
+	
 	@XmlTransient
 	private byte spawnState = 0;
 	@XmlTransient
 	private byte respawn = -1;
+	@XmlTransient
+	private byte restingState = 0;
 	
 	/**
 	 * Constructor used by unmarshaller
@@ -129,6 +134,27 @@ public class SpawnTemplate
 	public void setSpawnGroup(SpawnGroup spawnGroup)
 	{
 		this.spawnGroup = spawnGroup;
+	}
+
+	/**
+	 * @return the isResting
+	 */
+	public boolean isResting(int instance)
+	{
+		int MASK = 1 << instance;
+		return (restingState & MASK) == MASK;
+	}
+
+	/**
+	 * @param isResting the isResting to set
+	 */
+	public void setResting(boolean isResting, int instance)
+	{
+		int MASK = 1 << instance;
+		if(isResting)
+			this.restingState |= MASK;
+		else
+			restingState &= ~MASK;
 	}
 
 	/**

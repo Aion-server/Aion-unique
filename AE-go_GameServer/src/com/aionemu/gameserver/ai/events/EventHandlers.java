@@ -18,6 +18,8 @@ package com.aionemu.gameserver.ai.events;
 
 import com.aionemu.gameserver.ai.events.handler.AttackedEventHandler;
 import com.aionemu.gameserver.ai.events.handler.BackHomeEventHandler;
+import com.aionemu.gameserver.ai.events.handler.DayTimeChangeEventHandler;
+import com.aionemu.gameserver.ai.events.handler.DespawnEventHandler;
 import com.aionemu.gameserver.ai.events.handler.DiedEventHandler;
 import com.aionemu.gameserver.ai.events.handler.EventHandler;
 import com.aionemu.gameserver.ai.events.handler.NotSeePlayerEventHandler;
@@ -43,6 +45,8 @@ public enum EventHandlers
 	TALK_EH(new TalkEventHandler()),
 	RESTOREDHEALTH_EH(new RestoredHealthEventHandler()),
 	NOTHINGTODO_EH(new NothingTodoEventHandler()),
+	DESPAWN_EH(new DespawnEventHandler()),
+	DAYTIMECHANGE_EH(new DayTimeChangeEventHandler()),
 	DIED_EH(new DiedEventHandler());
 	
 	private EventHandler eventHandler;

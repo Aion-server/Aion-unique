@@ -14,35 +14,38 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.npcai;
+package com.aionemu.gameserver.model.templates.spawn;
 
-import com.aionemu.gameserver.ai.AI;
-import com.aionemu.gameserver.ai.events.EventHandlers;
-import com.aionemu.gameserver.ai.state.StateHandlers;
-import com.aionemu.gameserver.model.gameobjects.Npc;
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlType;
+
+import com.aionemu.gameserver.utils.gametime.DayTime;
 
 /**
  * @author ATracer
  *
  */
-public class NpcAi extends AI<Npc>
+@XmlType(name = "SpawnTime")
+@XmlEnum
+public enum SpawnTime
 {
+	DAY,
+	NIGHT;
 
-	public NpcAi()
+	/**
+	 * @param dayTime
+	 * @return
+	 */
+	public boolean isAllowedDuring(DayTime dayTime)
 	{
-		/**
-		 * Event Handlers
-		 */
-		this.addEventHandler(EventHandlers.NOTHINGTODO_EH.getHandler());
-		this.addEventHandler(EventHandlers.RESPAWNED_EH.getHandler());
-		this.addEventHandler(EventHandlers.DIED_EH.getHandler());
-		this.addEventHandler(EventHandlers.DESPAWN_EH.getHandler());
-		this.addEventHandler(EventHandlers.DAYTIMECHANGE_EH.getHandler());
-		
-		/**
-		 * State Handlers
-		 */
-		this.addStateHandler(StateHandlers.ACTIVE_NPC_SH.getHandler());
+		switch(this)
+		{
+			case DAY:
+				return dayTime == DayTime.AFTERNOON || dayTime == DayTime.MORNING
+					|| dayTime == DayTime.EVENING;
+			case NIGHT:
+				return dayTime == DayTime.NIGHT;
+		}
+		return true;
 	}
-
 }

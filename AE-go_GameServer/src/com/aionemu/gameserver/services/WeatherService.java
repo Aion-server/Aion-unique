@@ -244,16 +244,12 @@ public class WeatherService
 				{
 					PacketSendUtility.sendPacket(currentPlayer, new SM_WEATHER(
 						getWeatherTypeByRegion(currentPlayerWorldMap)));
-					PacketSendUtility.sendMessage(currentPlayer, "Weather changed "
-						+ getWeatherTypeByRegion(currentPlayerWorldMap));
-
 				}
 			}
 		}
 		else
 		{
 			PacketSendUtility.sendPacket(player, new SM_WEATHER(getWeatherTypeByRegion(worldMap)));
-			PacketSendUtility.sendMessage(player, "Weather changed " + getWeatherTypeByRegion(worldMap));
 		}
 	}
 }

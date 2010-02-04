@@ -14,35 +14,28 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.npcai;
+package com.aionemu.gameserver.ai.events.handler;
 
 import com.aionemu.gameserver.ai.AI;
-import com.aionemu.gameserver.ai.events.EventHandlers;
-import com.aionemu.gameserver.ai.state.StateHandlers;
-import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.ai.events.Event;
 
 /**
  * @author ATracer
  *
  */
-public class NpcAi extends AI<Npc>
+public class DespawnEventHandler extends EventHandler
 {
 
-	public NpcAi()
+	@Override
+	public Event getEvent()
 	{
-		/**
-		 * Event Handlers
-		 */
-		this.addEventHandler(EventHandlers.NOTHINGTODO_EH.getHandler());
-		this.addEventHandler(EventHandlers.RESPAWNED_EH.getHandler());
-		this.addEventHandler(EventHandlers.DIED_EH.getHandler());
-		this.addEventHandler(EventHandlers.DESPAWN_EH.getHandler());
-		this.addEventHandler(EventHandlers.DAYTIMECHANGE_EH.getHandler());
-		
-		/**
-		 * State Handlers
-		 */
-		this.addStateHandler(StateHandlers.ACTIVE_NPC_SH.getHandler());
+		return Event.DESPAWN;
+	}
+
+	@Override
+	public void handleEvent(Event event, AI<?> ai)
+	{
+		ai.handleEvent(Event.NOTHING_TODO);
 	}
 
 }

@@ -18,6 +18,10 @@ package com.aionemu.gameserver.utils.gametime;
 
 import java.security.InvalidParameterException;
 
+import com.aionemu.commons.callbacks.Enhancable;
+import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
+import com.aionemu.gameserver.utils.gametime.listeners.DayTimeListener;
+
 /**
  * Represents the internal clock for the time in aion world
  * 
@@ -32,6 +36,8 @@ public class GameTime
 	public static final int	MINUTES_IN_HOUR		= 60;
 
 	private int				gameTime			= 0;
+	
+	private DayTime dayTime;
 
 	/**
 	 * Constructs a GameTime with the given time in minutes since midnight 1/1/00
@@ -62,6 +68,39 @@ public class GameTime
 	protected void increase()
 	{
 		gameTime++;
+		if(getMinute() == 0)
+		{
+			analyzeDayTime();
+		}
+	}
+
+	/**
+	 * 
+	 */
+	private void analyzeDayTime()
+	{
+		DayTime newDateTime = null;
+		int hour = getHour();
+		if(hour > 21 || hour < 4)
+			newDateTime = DayTime.NIGHT;
+		else if(hour > 16)
+			newDateTime = DayTime.EVENING;
+		else if (hour > 8)
+			newDateTime = DayTime.AFTERNOON;
+		else
+			newDateTime = DayTime.MORNING;
+		
+		if(newDateTime != this.dayTime)
+		{
+			this.dayTime = newDateTime;
+			this.onDayTimeChange();
+		}
+	}
+	
+	@Enhancable(callback = DayTimeListener.class)
+	public void onDayTimeChange()
+	{
+
 	}
 
 	/**
@@ -112,5 +151,13 @@ public class GameTime
 	public int getMinute()
 	{
 		return (gameTime % MINUTES_IN_HOUR);
+	}
+
+	/**
+	 * @return the dayTime
+	 */
+	public DayTime getDayTime()
+	{
+		return dayTime;
 	}
 }

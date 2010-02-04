@@ -20,8 +20,8 @@ import java.util.concurrent.Future;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -41,7 +41,7 @@ public class DecayService
 	
 	public Future<?> scheduleDecayTask(final Npc npc)
 	{
-		final World world = npc.getActiveRegion().getWorld();
+		final World world = npc.getPosition().getWorld();
 		//TODO separate thread executor for decay/spawns
 		// or schedule separate decay runnable service with queue 
 		return ThreadPoolManager.getInstance().schedule(new Runnable()
@@ -49,6 +49,10 @@ public class DecayService
 			@Override
 			public void run()
 			{
+				if(!npc.isSpawned())
+					return;
+				
+				npc.getAi().handleEvent(Event.DESPAWN);
 				PacketSendUtility.broadcastPacket(npc, new SM_DELETE(npc));
 				world.despawn(npc);	
 			}

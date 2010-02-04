@@ -20,7 +20,10 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
+import com.aionemu.gameserver.model.templates.spawn.SpawnTime;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.utils.gametime.DayTime;
+import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.world.World;
 
 /**
@@ -35,14 +38,22 @@ public class RespawnService
 	
 	public void scheduleRespawnTask(final VisibleObject visibleObject)
 	{
-		final World world = visibleObject.getActiveRegion().getWorld();
-		final int interval = visibleObject.getSpawn().getSpawnGroup().getInterval();
+		final World world = visibleObject.getPosition().getWorld();
+		final int interval = visibleObject.getSpawn().getSpawnGroup().getInterval();		
 	
 		ThreadPoolManager.getInstance().schedule(new Runnable()
 		{
 			@Override
 			public void run()
 			{
+				SpawnTime spawnTime = visibleObject.getSpawn().getSpawnGroup().getSpawnTime();
+				if(spawnTime != null)
+				{
+					DayTime dayTime = GameTimeManager.getGameTime().getDayTime();
+					if(!spawnTime.isAllowedDuring(dayTime))
+						return;
+				}
+				
 				int instanceId = visibleObject.getInstanceId();
 				if(visibleObject.getSpawn().isRespawn(instanceId))
 				{
