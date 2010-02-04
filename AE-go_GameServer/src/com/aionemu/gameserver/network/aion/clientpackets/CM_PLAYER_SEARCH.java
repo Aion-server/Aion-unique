@@ -84,7 +84,7 @@ public class CM_PLAYER_SEARCH extends AionClientPacket
 		
 		if(activeplayer != null && activeplayer.getLevel() < 10)
 		{
-			sendPacket(SM_SYSTEM_MESSAGE.LEVEL_NOT_ENOUGH_FOR_SEARCH());
+			sendPacket(SM_SYSTEM_MESSAGE.LEVEL_NOT_ENOUGH_FOR_SEARCH("10"));
 			return;
 		}
 		while (it.hasNext() && matches.size() < MAX_RESULTS)

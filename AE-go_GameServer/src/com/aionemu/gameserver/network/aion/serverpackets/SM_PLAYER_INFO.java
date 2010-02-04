@@ -90,7 +90,8 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeC(buf, raceId); //race
         writeC(buf, pcd.getPlayerClass().getClassId());
         writeC(buf, genderId); //sex
-        writeH(buf, player.getState());
+        writeC(buf, player.getState());
+        writeC(buf, 0x00);
         
         byte[] unk = new byte[]{(byte) 0x00, (byte) 0x00, (byte) 0x00,
                 (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00
@@ -102,8 +103,8 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeS(buf, player.getName());
 
         writeD(buf, pcd.getTitleId());
-        writeH(buf, 0x0);//if set 0x1 can jump and fly..
-        writeC(buf, 0);
+        writeC(buf, 0x0);//if set 0x1 can't jump and fly..
+        writeH(buf, 0x00); //TODO Cast spell id
         writeH(buf, 0); //LegionId
         writeH(buf, 0);
         writeC(buf, 0);
@@ -238,9 +239,16 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeH(buf, player.getLevel()); // [level]
         writeH(buf, player.getPlayerSettings().getDisplay()); // unk - 0x04
         writeH(buf, player.getPlayerSettings().getDeny()); // unk - 0x00
-        writeD(buf, 0x01); // unk - 0x01
-        
-        writeC(buf, 0); //unk
-        writeD(buf, 1); //unk
+        writeH(buf, 1); //abyss rank
+        writeH(buf, 0x00); //unk
+        if (player.getTarget() == null)
+        {
+            writeD(buf, 0);
+        }
+        else
+        {
+            writeD(buf, player.getTarget().getObjectId());
+        }
+        writeC(buf, 0); //suspect id
     }
 }

@@ -14,11 +14,11 @@ public class SM_ABYSS_RANK extends AionServerPacket {
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeQ(buf, 0); //curAP
-        writeD(buf, 0); //curRank
+        writeD(buf, 1); //curRank
         writeD(buf, 0); //curRating
         writeD(buf, 0); //exp %
         writeD(buf, 0); //allKill
-        writeD(buf, 0); //maxRank
+        writeD(buf, 1); //maxRank
         writeD(buf, 0); //dayKill
         writeQ(buf, 0); //dayAP
         writeD(buf, 0); //weekKill

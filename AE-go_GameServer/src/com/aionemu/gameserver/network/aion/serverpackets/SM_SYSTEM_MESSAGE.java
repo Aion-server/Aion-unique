@@ -356,12 +356,12 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300188);	
 	}
 
-	public static SM_SYSTEM_MESSAGE LEVEL_NOT_ENOUGH_FOR_SEARCH() {
-		return new SM_SYSTEM_MESSAGE(1400341);
+	public static SM_SYSTEM_MESSAGE LEVEL_NOT_ENOUGH_FOR_SEARCH(String level) {
+		return new SM_SYSTEM_MESSAGE(1400341, level);
 	}
 
 	public static SM_SYSTEM_MESSAGE LEVEL_NOT_ENOUGH_FOR_WHISPER(String level) {
-		return new SM_SYSTEM_MESSAGE(1310004);
+		return new SM_SYSTEM_MESSAGE(1310004, level);
 	}
 
 	public static SM_SYSTEM_MESSAGE EXP_RECOVEREBLED_BY_COUNT(String count) {
