@@ -16,9 +16,15 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import com.aionemu.commons.callbacks.EnhancedObject;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.StatChangeListener;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author xavier
@@ -31,13 +37,22 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 		super(owner);
 	}
 
-	public PlayerGameStats(PlayerStatsData playerStatsData, Player owner)
+	public PlayerGameStats(PlayerStatsData playerStatsData, final Player owner)
 	{
 		super(owner);
 		PlayerStatsTemplate pst = playerStatsData.getTemplate(owner.getPlayerClass(), owner.getLevel());
 		initStats(pst, owner.getLevel());
 		log.debug("loading base game stats for player " + owner.getName() + " (id " + owner.getObjectId() + "): "
 			+ this);
+		//this is not 100% correct - emotion should be sent only on speed change
+		((EnhancedObject)this).addCallback(new StatChangeListener(){		
+			@Override
+			protected void onRecompute(CreatureGameStats<Creature> gameTime)
+			{
+				PacketSendUtility.sendPacket(owner, new SM_EMOTION(owner, 30, 0, 0));
+				PacketSendUtility.sendPacket(owner, new SM_STATS_INFO(owner));
+			}
+		});
 	}
 
 	private void initStats(PlayerStatsTemplate pst, int level)

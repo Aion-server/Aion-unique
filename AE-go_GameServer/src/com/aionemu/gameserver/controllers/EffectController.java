@@ -84,12 +84,7 @@ public class EffectController
 		}
 		
 		mapToUpdate.put(effect.getStack(), effect);
-		effect.startEffect();
-		
-		if(owner instanceof Player && owner.isSpawned())
-		{
-			updatePlayerStats();
-		}		
+		effect.startEffect();		
 		
 		if(!effect.isPassive())
 		{
@@ -135,15 +130,6 @@ public class EffectController
 	}
 
 	/**
-	 * Updates player stats in UI
-	 */
-	private void updatePlayerStats()
-	{
-		Player player = (Player) owner;
-		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-	}
-
-	/**
 	 * 
 	 * @param effect
 	 */
@@ -155,7 +141,6 @@ public class EffectController
 		if(owner instanceof Player)
 		{
 			updatePlayerEffectIcons();
-			updatePlayerStats();
 		}
 	}
 	
@@ -177,7 +162,6 @@ public class EffectController
 		if(owner instanceof Player)
 		{
 			updatePlayerEffectIcons();
-			updatePlayerStats();
 		}
 	}
 	/**

@@ -24,12 +24,15 @@ import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.callbacks.Enhancable;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.stats.id.ItemStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.id.StatEffectId;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.StatChangeListener;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.items.ItemSlot;
+import com.aionemu.gameserver.utils.gametime.listeners.DayTimeListener;
 import com.aionemu.gameserver.world.zone.ZoneManager;
 
 /**
@@ -286,7 +289,8 @@ public class CreatureGameStats<T extends Creature>
 
 		recomputeStats();
 	}
-
+	
+	@Enhancable(callback = StatChangeListener.class)
 	protected void recomputeStats()
 	{
 		resetStats();

@@ -78,6 +78,5 @@ public class CM_TITLE_SET extends AionClientPacket {
         {
         	TitleChangeListener.onTitleChange(player.getGameStats(), titleId, true);
         }
-        PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 	}
 }
