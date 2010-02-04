@@ -216,10 +216,10 @@ public class _2008Ascension extends QuestHandler
 							return setPlayerClass(env, qs, PlayerClass.SPIRIT_MASTER);
 					case 10012:
 						if(var == 6)
-							return setPlayerClass(env, qs, PlayerClass.CLERIC);
+							return setPlayerClass(env, qs, PlayerClass.CHANTER);						
 					case 10013:
 						if(var == 6)
-							return setPlayerClass(env, qs, PlayerClass.CHANTER);
+							return setPlayerClass(env, qs, PlayerClass.CLERIC);
 				}
 			}
 			else if(targetId == 790003)
