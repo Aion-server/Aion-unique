@@ -27,4 +27,7 @@ public interface Restrictions
 {
 	// TODO
 	public boolean canUseSkill(Player player, VisibleObject target);
+	
+	// TODO
+	public boolean canChat(Player player);
 }

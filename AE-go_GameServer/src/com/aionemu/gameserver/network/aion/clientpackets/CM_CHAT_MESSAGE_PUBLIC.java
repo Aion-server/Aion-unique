@@ -29,6 +29,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
+import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandler;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlerResponse;
@@ -98,17 +99,20 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 
 			message = response.getMessage();
 		}
-
-		switch(this.type)
+		
+		if(RestrictionsManager.canChat(player))
 		{
-			case GROUP:
-				broadcastToGroupMembers(player);
-				break;
-			case GROUP_LEADER:
-				broadcastToGroupMembers(player);
-				break;
-			default:
-				broadcastToNonBlockedPlayers(player);				
+			switch(this.type)
+			{
+				case GROUP:
+					broadcastToGroupMembers(player);
+					break;
+				case GROUP_LEADER:
+					broadcastToGroupMembers(player);
+					break;
+				default:
+					broadcastToNonBlockedPlayers(player);				
+			}
 		}
 	}
 	

@@ -199,6 +199,7 @@ public class PlayerController extends CreatureController<Player>
 		}
 	}
 
+	@Override
 	public void attackTarget(int targetObjectId)
 	{
 		Player player = getOwner();
@@ -487,6 +488,7 @@ public class PlayerController extends CreatureController<Player>
     {
         this.moveToBindLocation(useTeleport, 0);
     }
+    
 	/**
 	 * @param useTeleport
 	 */

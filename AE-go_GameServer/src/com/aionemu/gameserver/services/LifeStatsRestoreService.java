@@ -18,8 +18,6 @@ package com.aionemu.gameserver.services;
 
 import java.util.concurrent.Future;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -30,8 +28,6 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  */
 public class LifeStatsRestoreService
 {
-	private static final Logger log = Logger.getLogger(LifeStatsRestoreService.class);
-
 	private static final int DEFAULT_DELAY = 6000;
 	
 	private static LifeStatsRestoreService instance = new LifeStatsRestoreService();

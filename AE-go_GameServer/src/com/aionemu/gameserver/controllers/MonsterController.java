@@ -19,8 +19,6 @@ package com.aionemu.gameserver.controllers;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.npcai.MonsterAi;
 import com.aionemu.gameserver.ai.state.AIState;
@@ -53,8 +51,6 @@ import com.aionemu.gameserver.world.World;
  */
 public class MonsterController extends NpcController
 {
-	private static Logger log = Logger.getLogger(MonsterController.class);
-
 	@Override
 	public void doDrop(Player player)
 	{
@@ -138,6 +134,7 @@ public class MonsterController extends NpcController
 		PacketSendUtility.broadcastPacket(monster, new SM_ATTACK_STATUS(monster, type, skillId, damage));
 	}
 
+	@Override
 	public void attackTarget(int targetObjectId)
 	{
 		Monster monster = getOwner();

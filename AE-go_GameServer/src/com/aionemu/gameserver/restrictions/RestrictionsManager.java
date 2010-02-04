@@ -40,6 +40,7 @@ public class RestrictionsManager
 	{
 		// TODO
 		canUseSkill,
+		canChat,
 		// TODO
 		;
 
@@ -167,6 +168,18 @@ public class RestrictionsManager
 				return false;
 		}
 
+		return true;
+	}
+	
+	// TODO
+	public static boolean canChat(Player player)
+	{
+		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canChat.ordinal()])
+		{
+			if(!restrictions.canChat(player))
+				return false;
+		}
+		
 		return true;
 	}
 }

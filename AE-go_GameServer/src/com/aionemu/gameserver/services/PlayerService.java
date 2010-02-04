@@ -20,8 +20,6 @@ package com.aionemu.gameserver.services;
 import java.sql.Timestamp;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.CacheConfig;
 import com.aionemu.gameserver.configs.Config;
@@ -77,8 +75,6 @@ import com.google.inject.Inject;
  */
 public class PlayerService
 {
-	private static Logger				log				= Logger.getLogger(PlayerService.class);
-
 	private CacheMap<Integer, Player>	playerCache		= CacheMapFactory.createSoftCacheMap("Player", "player");
 
 	private IDFactory					aionObjectsIDFactory;

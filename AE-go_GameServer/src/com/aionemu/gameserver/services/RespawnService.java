@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.services;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTime;
@@ -32,8 +30,6 @@ import com.aionemu.gameserver.world.World;
  */
 public class RespawnService
 {
-	private static final Logger log = Logger.getLogger(RespawnService.class);
-
 	private static RespawnService instance = new RespawnService();
 	
 	public void scheduleRespawnTask(final VisibleObject visibleObject)
