@@ -90,6 +90,6 @@ public class SM_ATTACK_STATUS extends AionServerPacket
 		writeC(buf, type.getValue());
 		writeC(buf, creature.getLifeStats().getHpPercentage());
 		writeH(buf, skillId);
-		writeC(buf, 0x94); // unknown   0x98 or 0x01
+		writeC(buf, 0x9B);
 	}	
 }

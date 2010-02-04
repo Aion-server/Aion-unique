@@ -97,7 +97,7 @@ public class SM_NPC_INFO extends AionServerPacket
 		writeC(buf, 0x00);// unk
 		writeC(buf, 100);// %hp
 
-		writeD(buf, 2961);// unk 172, 143, 2961, 199, 28396...
+		writeD(buf, npc.getTemplate().getStatsTemplate().getMaxHp());
 		writeC(buf, npc.getLevel());// lvl
 		
 		NpcEquippedGear gear = npcTemplate.getEquipment();
@@ -146,5 +146,13 @@ public class SM_NPC_INFO extends AionServerPacket
 
 		writeH(buf, 1);// unk
 		writeC(buf, 0x00);// unk
+        if (npc.getTarget() == null)
+        {
+            writeD(buf, 0);
+        }
+        else
+        {
+            writeD(buf, npc.getTarget().getObjectId());
+        }
 	}
 }

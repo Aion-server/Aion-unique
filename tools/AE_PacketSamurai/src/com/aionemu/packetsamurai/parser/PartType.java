@@ -28,7 +28,7 @@ public abstract class PartType
     public static final PartType h = new IntPartType("h",intType.h);
     public static final PartType d = new IntPartType("d",intType.d);
     public static final PartType bcc = new IntBSPartType("cbs",intType.c);
-    public static final PartType bch = new IntBSPartType("hbs",intType.h);
+    public static final PartType bch = new IntBSPartType("bch",intType.h);
     public static final PartType bcd = new IntBSPartType("dbs",intType.d);
     public static final PartType f = new FloatPartType("f");
     public static final PartType df = new DoublePartType("df");
