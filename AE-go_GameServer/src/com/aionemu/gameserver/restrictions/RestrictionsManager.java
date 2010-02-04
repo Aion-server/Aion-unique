@@ -163,7 +163,7 @@ public class RestrictionsManager
 	{
 		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canUseSkill.ordinal()])
 		{
-			if(!restrictions.canUseSkill(player, player.getTarget()))
+			if(!restrictions.canUseSkill(player, target))
 				return false;
 		}
 

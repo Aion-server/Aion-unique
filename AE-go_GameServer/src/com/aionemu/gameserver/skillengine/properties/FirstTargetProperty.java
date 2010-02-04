@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
 
@@ -75,6 +76,9 @@ public class FirstTargetProperty
 			//TODO other enum values
 		}
 		
+		if (!RestrictionsManager.canUseSkill(skill.getEffector(), skill.getFirstTarget()))
+			return false;
+			
 		if(skill.getFirstTarget() != null)
 			skill.getEffectedList().add(skill.getFirstTarget());
 		return true;
