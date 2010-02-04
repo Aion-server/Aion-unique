@@ -31,6 +31,8 @@ import com.aionemu.gameserver.dao.GameTimeDAO;
  */
 public class MySQL5GameTimeDAO extends GameTimeDAO
 {
+	private static Logger log = Logger.getLogger(MySQL5GameTimeDAO.class);
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -46,7 +48,7 @@ public class MySQL5GameTimeDAO extends GameTimeDAO
 		}
 		catch(SQLException e)
 		{
-			Logger.getLogger(MySQL5GameTimeDAO.class).error("Error loading last saved server time", e);
+			log.error("Error loading last saved server time", e);
 		}
 		finally
 		{
@@ -72,7 +74,7 @@ public class MySQL5GameTimeDAO extends GameTimeDAO
 		}
 		catch(SQLException e)
 		{
-			Logger.getLogger(MySQL5GameTimeDAO.class).error("Error storing server time", e);
+			log.error("Error storing server time", e);
 		}
 		finally
 		{

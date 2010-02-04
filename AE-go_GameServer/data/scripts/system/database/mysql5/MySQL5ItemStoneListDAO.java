@@ -22,8 +22,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
@@ -37,8 +35,6 @@ import com.aionemu.gameserver.model.items.ItemStone;
  */
 public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 {
-	private static final Logger log = Logger.getLogger(MySQL5ItemStoneListDAO.class);
-
 	public static final String INSERT_QUERY = "INSERT INTO `item_stones` (`itemUniqueId`, `itemId`, `slot`) VALUES (?,?,?)";
 	public static final String DELETE_QUERY = "DELETE FROM `item_stones` WHERE `itemUniqueId`=? AND slot=?";
 	public static final String SELECT_QUERY = "SELECT `itemId`, `slot` FROM `item_stones` WHERE `itemUniqueId`=?";

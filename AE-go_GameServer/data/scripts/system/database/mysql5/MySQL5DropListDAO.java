@@ -24,8 +24,6 @@ import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
 
-import org.apache.log4j.Logger;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,8 +38,6 @@ import java.util.List;
 
 public class MySQL5DropListDAO extends DropListDAO
 {
-    private static final Logger log = Logger.getLogger(MySQL5InventoryDAO.class);
-
     public static final String SELECT_QUERY = "SELECT * FROM `droplist`";
     
     @Override
