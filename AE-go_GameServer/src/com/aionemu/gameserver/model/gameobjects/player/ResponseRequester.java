@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.util.HashMap;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.callbacks.EnhancedObject;

@@ -17,19 +17,13 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import org.apache.log4j.Logger;
 import java.util.List;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import org.apache.log4j.Logger;
+
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.templates.item.ItemTemplate;
-
-import com.aionemu.gameserver.world.World;
-import com.google.inject.Inject;
 
 /**
  * @author Avol

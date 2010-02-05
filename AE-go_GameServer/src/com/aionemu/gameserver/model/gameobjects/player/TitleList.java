@@ -18,12 +18,12 @@ package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.util.Collection;
 
+import javolution.util.FastMap;
+
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.templates.TitleTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_LIST;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-
-import javolution.util.FastMap;
 
 /**
  * @author xavier

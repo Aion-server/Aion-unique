@@ -16,7 +16,6 @@
  */
 package com.aionemu.gameserver.questEngine.model;
 
-import com.aionemu.gameserver.questEngine.model.QuestStatus;
 
 /**
  * @author MrPoke

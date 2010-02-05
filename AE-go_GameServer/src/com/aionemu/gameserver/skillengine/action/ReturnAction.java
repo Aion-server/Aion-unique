@@ -22,8 +22,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -41,8 +39,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class ReturnAction
 extends Action
 {
-	private static final Logger	log	= Logger.getLogger(ReturnAction.class);
-
 	@Override
 	public void act(Skill skill)
 	{

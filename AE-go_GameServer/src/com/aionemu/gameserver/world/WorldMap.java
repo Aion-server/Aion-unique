@@ -96,7 +96,7 @@ public class WorldMap
 			/**
 			 * Balance players into instances.
 			 */
-			for(int i = 1; i <= worldMapTemplate.getTwinCount(); i++)
+			for(int i = 1; i <= worldMapTemplate.getTwinCount(); i++) // FIXME: DEAD CODE!
 			{
 				WorldMapInstance inst = getWorldMapInstance(i);
 				// TODO! user count etc..

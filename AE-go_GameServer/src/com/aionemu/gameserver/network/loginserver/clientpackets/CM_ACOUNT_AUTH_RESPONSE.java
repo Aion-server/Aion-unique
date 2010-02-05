@@ -17,13 +17,9 @@
 
 package com.aionemu.gameserver.network.loginserver.clientpackets;
 
-import com.aionemu.gameserver.model.account.Account;
 import com.aionemu.gameserver.model.account.AccountTime;
-import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_L2AUTH_LOGIN_CHECK;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.network.loginserver.LsClientPacket;
-import com.aionemu.gameserver.services.AccountService;
 import com.google.inject.Inject;
 
 /**

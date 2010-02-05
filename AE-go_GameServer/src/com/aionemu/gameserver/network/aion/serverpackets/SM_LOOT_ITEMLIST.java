@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.util.Collections;
 import java.util.Set;
 
 import org.apache.log4j.Logger;

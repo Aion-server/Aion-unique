@@ -18,8 +18,6 @@ package com.aionemu.gameserver.skillengine;
 
 import java.io.File;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Skill;
@@ -31,10 +29,8 @@ import com.aionemu.gameserver.world.World;
  *
  */
 public class SkillEngine
-{
-	private static final Logger log = Logger.getLogger(SkillEngine.class);
-	
-	public static final File SKILL_DESCRIPTOR_FILE = new File("./data/scripts/system/skills.xml");
+{	
+	public static final File SKILL_DESCRIPTOR_FILE = new File("./data/scripts/system/skills.xml"); // TODO: This file isn't exists!
 	
 	public static final SkillEngine skillEngine = new SkillEngine();
 	
@@ -45,6 +41,7 @@ public class SkillEngine
 	 */
 	private SkillEngine()
 	{	
+		
 	}
 	
 	public void setWorld(World world)
@@ -66,7 +63,7 @@ public class SkillEngine
 		if(template == null)
 			return null;
 		
-		//player doesn't have such skill
+		// player doesn't have such skill
 		if(!player.getSkillList().isSkillPresent(skillId))
 			return null;
 

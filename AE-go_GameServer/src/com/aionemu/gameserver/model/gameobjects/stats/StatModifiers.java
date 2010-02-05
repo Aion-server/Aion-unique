@@ -16,10 +16,10 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
-
 import javolution.util.FastList;
 import javolution.util.FastMap;
+
+import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 
 /**
  * @author xavier

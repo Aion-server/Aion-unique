@@ -1,12 +1,13 @@
 package com.aionemu.gameserver.utils.chathandlers;
 
+import java.lang.reflect.Modifier;
+
+import org.apache.log4j.Logger;
+
 import com.aionemu.commons.scripting.classlistener.ClassListener;
 import com.aionemu.commons.scripting.classlistener.DefaultClassListener;
 import com.aionemu.commons.utils.ClassUtils;
 import com.google.inject.Injector;
-import org.apache.log4j.Logger;
-
-import java.lang.reflect.Modifier;
 
 /**
  * Created on: 12.09.2009 14:13:24

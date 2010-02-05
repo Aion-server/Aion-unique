@@ -16,12 +16,12 @@
  */
 package com.aionemu.gameserver.utils.chathandlers;
 
+import java.io.File;
+
 import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
 import com.aionemu.commons.services.ScriptService;
 import com.aionemu.gameserver.GameServerError;
 import com.google.inject.Injector;
-
-import java.io.File;
 
 /**
  * This factory is responsible for creating class tree starting with {@link ChatHandlers}

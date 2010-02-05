@@ -17,12 +17,11 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+
 import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.world.World;
-import com.google.inject.Inject;
 
 /** 
  * Opens a yes/no question window on the client.

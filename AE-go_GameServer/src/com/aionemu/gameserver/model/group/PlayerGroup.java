@@ -24,6 +24,7 @@ import javolution.util.FastMap;
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.objects.filter.ObjectFilter;
+import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GROUP_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GROUP_MEMBER_INFO;
@@ -31,7 +32,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_LEAVE_GROUP_MEMBER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
-import com.aionemu.commons.utils.Rnd;
 
 /**
  * @author ATracer, Lyahim

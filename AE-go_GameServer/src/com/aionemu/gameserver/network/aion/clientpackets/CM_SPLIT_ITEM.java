@@ -5,10 +5,10 @@
 
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.google.inject.Inject;
+import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.services.ItemService;
+import com.google.inject.Inject;
 /**
  *
  * @author kosyak

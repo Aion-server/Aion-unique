@@ -17,9 +17,7 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author Sweetkr

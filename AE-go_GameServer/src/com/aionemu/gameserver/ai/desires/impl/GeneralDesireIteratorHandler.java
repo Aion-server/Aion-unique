@@ -27,10 +27,13 @@ import com.aionemu.gameserver.ai.desires.DesireIteratorHandler;
  */
 public class GeneralDesireIteratorHandler implements DesireIteratorHandler
 {
+	@SuppressWarnings("unchecked")
 	private AI ai;
+	
 	/**
 	 * @param ai
 	 */
+	@SuppressWarnings("unchecked")
 	public GeneralDesireIteratorHandler(AI ai)
 	{
 		super();

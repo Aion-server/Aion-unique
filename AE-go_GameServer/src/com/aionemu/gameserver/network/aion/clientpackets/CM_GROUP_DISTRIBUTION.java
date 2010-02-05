@@ -20,12 +20,9 @@ import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.group.LootGroupRules;
 import com.aionemu.gameserver.model.group.PlayerGroup;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.network.aion.AionClientPacket;
 
 /**
  * @author Lyahim

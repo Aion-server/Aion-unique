@@ -18,8 +18,6 @@ package com.aionemu.gameserver.world;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 

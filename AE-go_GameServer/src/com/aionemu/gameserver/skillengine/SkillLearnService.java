@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.skillengine;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
@@ -33,9 +31,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  *
  */
 public class SkillLearnService
-{
-	private static final Logger log = Logger.getLogger(SkillLearnService.class);
-	
+{	
 	/**
 	 * 
 	 * @param player

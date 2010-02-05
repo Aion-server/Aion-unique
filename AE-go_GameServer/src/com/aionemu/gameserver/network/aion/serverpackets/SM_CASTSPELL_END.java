@@ -20,9 +20,9 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
 
 /**
  * 

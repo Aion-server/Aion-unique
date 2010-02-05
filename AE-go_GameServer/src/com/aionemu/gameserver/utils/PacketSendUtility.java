@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.utils;
 
-import java.util.Collection;
-
 import com.aionemu.commons.objects.filter.ObjectFilter;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;

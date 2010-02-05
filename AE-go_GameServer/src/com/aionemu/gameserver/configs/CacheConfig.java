@@ -19,6 +19,7 @@ package com.aionemu.gameserver.configs;
 import com.aionemu.commons.configuration.Property;
 import com.aionemu.gameserver.model.account.Account;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 
 /**
  * This config contains settings about cache.

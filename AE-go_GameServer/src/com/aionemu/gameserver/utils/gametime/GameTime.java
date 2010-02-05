@@ -19,7 +19,6 @@ package com.aionemu.gameserver.utils.gametime;
 import java.security.InvalidParameterException;
 
 import com.aionemu.commons.callbacks.Enhancable;
-import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
 import com.aionemu.gameserver.utils.gametime.listeners.DayTimeListener;
 
 /**

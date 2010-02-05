@@ -21,11 +21,11 @@ import java.nio.ByteBuffer;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
+import com.aionemu.gameserver.model.group.GroupEvent;
+import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.world.WorldPosition;
-import com.aionemu.gameserver.model.group.PlayerGroup;
-import com.aionemu.gameserver.model.group.GroupEvent;
 
 /**
  * @author Lyahim, ATracer

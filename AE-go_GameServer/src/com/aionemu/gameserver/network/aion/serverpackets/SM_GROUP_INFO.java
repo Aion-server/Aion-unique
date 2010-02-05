@@ -19,8 +19,8 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 import java.nio.ByteBuffer;
 
 import com.aionemu.gameserver.model.group.LootGroupRules;
-import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.model.group.LootRuleType;
+import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 

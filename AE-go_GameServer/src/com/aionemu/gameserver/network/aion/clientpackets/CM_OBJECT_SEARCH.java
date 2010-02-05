@@ -19,8 +19,6 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 
 import com.aionemu.gameserver.dataholders.SpawnsData;
-import com.aionemu.gameserver.model.templates.NpcTemplate;
-import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SHOW_NPC_ON_MAP;
