@@ -36,6 +36,7 @@ public class Configure extends AdminCommand
 		super("configure");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{

@@ -32,9 +32,11 @@ import com.google.inject.Inject;
  * @author Luno
  */
 
-public class SpawnNpc extends AdminCommand {
+public class SpawnNpc extends AdminCommand 
+{
 
-    private final SpawnsData spawnsData;
+    @SuppressWarnings("unused")
+	private final SpawnsData spawnsData;
 
     private final SpawnEngine spawnEngine;
 

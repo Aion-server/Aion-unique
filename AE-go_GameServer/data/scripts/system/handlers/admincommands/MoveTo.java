@@ -33,6 +33,7 @@ import com.google.inject.Inject;
 
 public class MoveTo extends AdminCommand
 {
+	@SuppressWarnings("unused")
 	private final World		world;
 
 	/**

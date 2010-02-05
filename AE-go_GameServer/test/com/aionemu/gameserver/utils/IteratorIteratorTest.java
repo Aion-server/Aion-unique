@@ -36,6 +36,7 @@ import com.aionemu.gameserver.utils.collections.IteratorIterator;
  */
 public class IteratorIteratorTest
 {
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testIt()
 	{
@@ -77,6 +78,7 @@ public class IteratorIteratorTest
 		Assert.assertTrue(res.containsAll(goodRes) && goodRes.containsAll(res));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testIt1()
 	{

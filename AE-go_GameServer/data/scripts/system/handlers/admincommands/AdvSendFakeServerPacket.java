@@ -215,6 +215,7 @@ public class AdvSendFakeServerPacket extends AdminCommand
 			return packets;
 		}
 
+		@SuppressWarnings("unused")
 		public boolean add(Packet packet)
 		{
 			return packets.add(packet);
