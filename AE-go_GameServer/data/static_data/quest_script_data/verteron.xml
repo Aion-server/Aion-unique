@@ -22,9 +22,13 @@
 	
 	<!-- TODO: 	[Spend Coin] Iron (Warrior and Scout) -->
 	
-	<!-- TODO: A Favor for Gaione -->
+	<!-- A Favor for Gaione -->
+	<monster_hunt start_npc_id="203190" id="1201">
+		<monster_infos var_id="0" npc_id="210268" max_kill="9"/>
+	</monster_hunt>
 	
-	<!-- TODO: An Honest Merchant -->
+	<!-- An Honest Merchant -->
+	<item_collecting start_npc_id="203101" end_npc_id="203097" id="1132"/>
 	
 	<!-- Guardian Tog -->
 	<monster_hunt start_npc_id="203190" id="1135">
@@ -101,8 +105,13 @@
 	<!-- Pumpkin Season -->
 	<item_collecting id="1144" start_npc_id="730001" end_npc_id="203130" action_item_id="700109" />
 
-	<!-- TODO: The Forest Outlaw -->
-	
+	<!-- The Forest Outlaw -->
+	<monster_hunt start_npc_id="203124" id="1139">
+		<monster_infos var_id="0" npc_id="210138" max_kill="6"/>
+		<monster_infos var_id="0" npc_id="210139" max_kill="6"/>
+		<monster_infos var_id="1" npc_id="210140" max_kill="5"/>
+	</monster_hunt>
+
 	<!-- The Writing on the Wall -->
 	<report_to start_npc_id="203339" end_npc_id="203098" item_id="182200559" id="1198"/>
 	
@@ -410,7 +419,7 @@
 	<!-- TODO: A Secret Delivery -->
 	
 	<!-- Lepharist Treasure Box -->
-	<item_collecting start_npc_id="203172" id="1219"/>
+	<item_collecting start_npc_id="203172" action_item_id="700283" id="1219"/>
 	
 	<!-- http://www.aionarmory.com/search.aspx?browse=4.3.2#quests:100+2+1 -->
 	
