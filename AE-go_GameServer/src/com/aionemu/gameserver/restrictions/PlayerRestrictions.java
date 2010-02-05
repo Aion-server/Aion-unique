@@ -34,7 +34,7 @@ public class PlayerRestrictions extends AbstractRestrictions
 	{
 		if(((Creature) target).getLifeStats().isAlreadyDead())
 		{
-			PacketSendUtility.sendMessage(player, "You cannot use skill on your target if it's dead!"); // TODO: Need retail message.
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.SELECTED_TARGET_DEAD());
 			return false;
 		}
 		// TODO: We have to add the exception skills, 
