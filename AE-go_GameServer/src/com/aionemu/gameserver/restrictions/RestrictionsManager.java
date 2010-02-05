@@ -177,7 +177,7 @@ public class RestrictionsManager
 	}
 	
 	/**
-	 * This 
+	 * This function created for enable/disable attack.
 	 * 
 	 * @param player
 	 * @param target
@@ -193,6 +193,12 @@ public class RestrictionsManager
 		return true;
 	}
 
+	/**
+	 * This function is created for enable/disable skill use.
+	 * 
+	 * @param player
+	 * @param target
+	 */
 	public static boolean canUseSkill(Player player, VisibleObject target)
 	{
 		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canUseSkill.ordinal()])
@@ -204,6 +210,11 @@ public class RestrictionsManager
 		return true;
 	}
 	
+	/**
+	 * This function is created for enable/disable chat.
+	 * 
+	 * @param player
+	 */
 	public static boolean canChat(Player player)
 	{
 		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canChat.ordinal()])
