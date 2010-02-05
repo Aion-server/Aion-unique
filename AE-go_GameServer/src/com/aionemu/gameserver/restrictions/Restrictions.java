@@ -30,4 +30,6 @@ public interface Restrictions
 	public boolean canUseSkill(Player player, VisibleObject target);
 	
 	public boolean canChat(Player player);
+	
+	public boolean canInviteToGroup(Player player, Player target);
 }

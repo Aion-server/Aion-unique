@@ -24,6 +24,7 @@ import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
@@ -73,24 +74,8 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 		final Player inviter = getConnection().getActivePlayer();
 		final Player invited = world.findPlayer(playerName);
 		final PlayerGroup group = inviter.getPlayerGroup();
-
-		if(group != null && group.isFull())
-			sendPacket(SM_SYSTEM_MESSAGE.FULL_GROUP());
-		else if(group != null && inviter.getObjectId() != group.getGroupLeader().getObjectId())
-			sendPacket(SM_SYSTEM_MESSAGE.ONLY_GROUP_LEADER_CAN_INVITE());
-		else if(invited == null)
-			sendPacket(SM_SYSTEM_MESSAGE.INVITED_PLAYER_OFFLINE());
-		else if(invited.getCommonData().getRace() != inviter.getCommonData().getRace())
-			sendPacket(SM_SYSTEM_MESSAGE.CANT_INVITE_OTHER_RACE());
-		else if(invited.getObjectId() == inviter.getObjectId())
-			sendPacket(SM_SYSTEM_MESSAGE.CANNOT_INVITE_YOURSELF());
-		else if(invited.getLifeStats().isAlreadyDead())
-			sendPacket(SM_SYSTEM_MESSAGE.SELECTED_TARGET_DEAD());
-		else if(inviter.getLifeStats().isAlreadyDead())
-			sendPacket(SM_SYSTEM_MESSAGE.CANNOT_INVITE_BECAUSE_YOU_DEAD());
-		else if(invited.getPlayerGroup() != null)
-			sendPacket(SM_SYSTEM_MESSAGE.PLAYER_IN_ANOTHER_GROUP(playerName));
-		else
+		
+		if(RestrictionsManager.canInviteToGroup(inviter, invited))
 		{
 			RequestResponseHandler responseHandler = new RequestResponseHandler(inviter) 
 			{				

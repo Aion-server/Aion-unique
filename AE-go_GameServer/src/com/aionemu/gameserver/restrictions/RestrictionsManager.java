@@ -58,6 +58,7 @@ public class RestrictionsManager
 		canAttack,
 		canUseSkill,
 		canChat,
+		canInviteToGroup,
 		// TODO
 		;
 
@@ -220,6 +221,23 @@ public class RestrictionsManager
 		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canChat.ordinal()])
 		{
 			if(!restrictions.canChat(player))
+				return false;
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * This function is created for enable/disable invite to group.
+	 * 
+	 * @param player
+	 * @param target
+	 */
+	public static boolean canInviteToGroup(Player player, Player target)
+	{
+		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canInviteToGroup.ordinal()])
+		{
+			if(!restrictions.canInviteToGroup(player, target))
 				return false;
 		}
 		

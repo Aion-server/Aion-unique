@@ -19,6 +19,8 @@ package com.aionemu.gameserver.restrictions;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.group.PlayerGroup;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -38,6 +40,55 @@ public class PlayerRestrictions extends AbstractRestrictions
 		// TODO: We have to add the exception skills, 
 		// what's can be used on dead target.
 
+		return true;
+	}
+	
+	@Override
+	public boolean canInviteToGroup(Player player, Player target)
+	{
+		final PlayerGroup group = player.getPlayerGroup();
+		
+		if(group != null && group.isFull())
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.FULL_GROUP());
+			return false;
+		}
+		else if(group != null && player.getObjectId() != group.getGroupLeader().getObjectId())
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.ONLY_GROUP_LEADER_CAN_INVITE());
+			return false;
+		}
+		else if(target == null)
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.INVITED_PLAYER_OFFLINE());
+			return false;
+		}
+		else if(target.getCommonData().getRace() != player.getCommonData().getRace())
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.CANT_INVITE_OTHER_RACE());
+			return false;
+		}
+		else if(target.getObjectId() == player.getObjectId())
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.CANNOT_INVITE_YOURSELF());
+			return false;
+		}
+		else if(target.getLifeStats().isAlreadyDead())
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.SELECTED_TARGET_DEAD());
+			return false;
+		}
+		else if(player.getLifeStats().isAlreadyDead())
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.CANNOT_INVITE_BECAUSE_YOU_DEAD());
+			return false;
+		}
+		else if(target.getPlayerGroup() != null)
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.PLAYER_IN_ANOTHER_GROUP(target.getName()));
+			return false;
+		}
+		
 		return true;
 	}
 }

@@ -67,4 +67,10 @@ public abstract class AbstractRestrictions implements Restrictions
 	{
 		throw new AbstractMethodError();
 	}
+	
+	@DisabledRestriction
+	public boolean canInviteToGroup(Player player, Player target)
+	{
+		throw new AbstractMethodError();
+	}
 }
