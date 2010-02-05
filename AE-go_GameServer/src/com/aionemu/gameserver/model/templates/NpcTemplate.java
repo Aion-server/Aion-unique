@@ -47,6 +47,7 @@ public class NpcTemplate extends VisibleObjectTemplate
 	private String				name;
 	@XmlAttribute(name = "height")
 	private float				height			= 1;
+	@SuppressWarnings("unused")
 	@XmlAttribute(name = "talking_distance")
 	private int					talkingDistance	= 2;
 	@XmlAttribute(name = "npc_type", required = true)
@@ -55,6 +56,7 @@ public class NpcTemplate extends VisibleObjectTemplate
 	private NpcStatsTemplate	statsTemplate;
 	@XmlElement(name = "equipment")
 	private NpcEquippedGear		equipment;
+	@SuppressWarnings("unused")
 	@XmlElement(name = "ammo_speed")
 	private int					ammoSpeed		= 0;
 	@XmlAttribute(name = "rank")

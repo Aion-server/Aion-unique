@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -34,13 +32,11 @@ import com.google.inject.Inject;
  */
 public class CM_SHOW_DIALOG extends AionClientPacket
 {
-
-	private static final Logger log	= Logger.getLogger(CM_SHOW_DIALOG.class);
-
 	private int					targetObjectId;
 
 	@Inject
 	private World world;
+	
 	/**
 	 * Constructs new instance of <tt>CM_SHOW_DIALOG </tt> packet
 	 * @param opcode

@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -30,6 +30,7 @@ public class CM_MAC_ADDRESS extends AionClientPacket
 	 * Mac Addres send by client in the same format as: ipconfig /all [ie: xx-xx-xx-xx-xx-xx]
 	 * 
 	 */
+	@SuppressWarnings("unused")
 	private String	macAddress;
 
 	/**

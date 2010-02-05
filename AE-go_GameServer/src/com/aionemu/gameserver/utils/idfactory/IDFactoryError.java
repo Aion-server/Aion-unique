@@ -22,6 +22,7 @@ package com.aionemu.gameserver.utils.idfactory;
  * 
  * @author SoulKeeper
  */
+@SuppressWarnings("serial")
 public class IDFactoryError extends Error
 {
 
@@ -30,6 +31,7 @@ public class IDFactoryError extends Error
 	 */
 	public IDFactoryError()
 	{
+		
 	}
 
 	/**

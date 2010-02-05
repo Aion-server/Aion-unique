@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -37,6 +35,7 @@ import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
+
 /**
  * 
  * @author KKnD , orz, avol
@@ -44,7 +43,6 @@ import com.google.inject.Inject;
  */
 public class CM_DIALOG_SELECT extends AionClientPacket
 {
-	private static final Logger	log	= Logger.getLogger(CM_DIALOG_SELECT.class);
 	/**
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */

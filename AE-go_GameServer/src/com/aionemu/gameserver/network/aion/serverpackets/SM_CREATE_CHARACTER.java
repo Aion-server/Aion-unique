@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -14,16 +14,14 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.PlayerInfo;
+
 /**
  * This packet is response for CM_CREATE_CHARACTER
  * 
@@ -32,8 +30,6 @@ import com.aionemu.gameserver.network.aion.PlayerInfo;
  */
 public class SM_CREATE_CHARACTER extends PlayerInfo
 {	
-	private static Logger log = Logger.getLogger(SM_CREATE_CHARACTER.class);
-	
 	/** If response is ok */
 	public static final int	RESPONSE_OK				= 0x00;
 	
@@ -54,7 +50,6 @@ public class SM_CREATE_CHARACTER extends PlayerInfo
 	/** You cannot create characters of other races in the same server */
 	public static final int RESPONSE_OTHER_RACE = 12;
 
-	
 
 	/**
 	 * response code

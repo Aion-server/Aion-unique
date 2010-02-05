@@ -58,6 +58,7 @@ public class WalkDesire extends AbstractDesire implements MoveDesire
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean handleDesire(AI ai)
 	{

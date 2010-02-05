@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
@@ -16,20 +16,17 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.services.DropService;
 import com.google.inject.Inject;
+
 /**
  * @author alexa026
  * modified by ATracer
  */
 public class CM_LOOT_ITEM extends AionClientPacket
 {
-	private static final Logger	log	= Logger.getLogger(CM_LOOT_ITEM.class);
-
 	private int					targetObjectId;
 	private int					index;
 	

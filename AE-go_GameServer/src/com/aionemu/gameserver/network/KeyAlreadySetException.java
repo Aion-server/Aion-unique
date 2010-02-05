@@ -22,6 +22,7 @@ package com.aionemu.gameserver.network;
  * @author -Nemesiss-
  * 
  */
+@SuppressWarnings("serial")
 public class KeyAlreadySetException extends RuntimeException
 {
 	/**

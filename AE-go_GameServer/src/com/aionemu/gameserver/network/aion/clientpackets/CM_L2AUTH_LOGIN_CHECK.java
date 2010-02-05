@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -28,10 +28,12 @@ import com.google.inject.Inject;
  * @author -Nemesiss-
  * 
  */
+// TODO: L2AUTH? Really? :O
 public class CM_L2AUTH_LOGIN_CHECK extends AionClientPacket
 {
 	@Inject
 	private LoginServer	loginServer;
+	@SuppressWarnings("unused")
 	@Inject
 	private AccountService accountService;
 	

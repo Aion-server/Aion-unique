@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-unique <aion-unique.smfnew.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
@@ -18,16 +18,11 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
-
 public class SM_SHOW_ITEM extends AionServerPacket
 {
-	private static final Logger	log	= Logger.getLogger(SM_SHOW_ITEM.class);
-
 	public SM_SHOW_ITEM()
 	{
 		

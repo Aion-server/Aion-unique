@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-unique <www.aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
@@ -14,13 +14,10 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 import java.util.List;
-
-import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -33,8 +30,6 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_UPDATE_PLAYER_APPEARANCE extends AionServerPacket
 {
-	private static final Logger	log	= Logger.getLogger(SM_UPDATE_PLAYER_APPEARANCE.class);
-
 	public int playerId;
 	public int size;
 	public List<Item> items;

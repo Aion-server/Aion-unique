@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-unique <www.aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
@@ -14,11 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 package com.aionemu.gameserver.network.aion.clientpackets;
-
-import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
@@ -29,11 +25,8 @@ import com.google.inject.Inject;
  * @author -Avol-
  * 
  */
-
 public class CM_EXCHANGE_OK extends AionClientPacket
 {
-	private static final Logger	log	= Logger.getLogger(CM_EXCHANGE_OK.class);
-
 	@Inject	
 	private ExchangeService			exchangeService;
 

@@ -51,6 +51,7 @@ public class ItemService
 	private static Logger log = Logger.getLogger(ItemService.class);
 
 	private IDFactory aionObjectsIDFactory;
+	@SuppressWarnings("unused")
 	private World world;
 
 	@Inject

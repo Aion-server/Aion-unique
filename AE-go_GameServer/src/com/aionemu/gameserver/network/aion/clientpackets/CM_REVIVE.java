@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
@@ -33,9 +31,9 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
  */
 public class CM_REVIVE extends AionClientPacket
 {
-	private static final Logger	log	= Logger.getLogger(CM_REVIVE.class);
-
+	@SuppressWarnings("unused")
 	private int		  worldId;
+	
 	/**
 	 * Constructs new instance of <tt>CM_REVIVE </tt> packet
 	 * @param opcode

@@ -52,6 +52,7 @@ public class CM_SHOW_BRAND extends AionClientPacket
 	/**
 	 * {@inheritDoc}
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void runImpl()
 	{

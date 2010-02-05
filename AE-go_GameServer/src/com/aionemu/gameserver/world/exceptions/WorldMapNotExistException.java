@@ -23,6 +23,7 @@ package com.aionemu.gameserver.world.exceptions;
  * @author -Nemesiss-
  * 
  */
+@SuppressWarnings("serial")
 public class WorldMapNotExistException extends RuntimeException
 {
 	/**

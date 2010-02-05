@@ -738,9 +738,13 @@ public class Inventory
 	 */
 	public boolean switchHands(int itemUniqueId, int slot)
 	{
+		@SuppressWarnings("unused")
 		Item mainHandItem = equipment.get(ItemSlot.MAIN_HAND.getSlotIdMask());
+		@SuppressWarnings("unused")
 		Item subHandItem = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
+		@SuppressWarnings("unused")
 		Item mainOffHandItem = equipment.get(ItemSlot.MAIN_OFF_HAND.getSlotIdMask());
+		@SuppressWarnings("unused")
 		Item subOffHandItem = equipment.get(ItemSlot.SUB_OFF_HAND.getSlotIdMask());
 		//TODO switch items
 		return false;

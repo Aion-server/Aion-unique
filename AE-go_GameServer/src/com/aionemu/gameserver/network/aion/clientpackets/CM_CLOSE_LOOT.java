@@ -16,27 +16,28 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+
 /**
  * 
  * @author alexa026
  * 
  */
 public class CM_CLOSE_LOOT extends AionClientPacket
-{
-	private static final Logger	log	= Logger.getLogger(CM_CLOSE_LOOT.class);
-	
+{	
 	/**
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */
+	@SuppressWarnings("unused")
 	private int					targetObjectId;
+	@SuppressWarnings("unused")
 	private int					unk;
+	@SuppressWarnings("unused")
 	private int					slot;
+	
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
 	 * @param opcode

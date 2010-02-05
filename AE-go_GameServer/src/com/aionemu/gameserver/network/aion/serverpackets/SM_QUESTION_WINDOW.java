@@ -18,8 +18,6 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -31,9 +29,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  *
  */
 public class SM_QUESTION_WINDOW extends AionServerPacket
-{
-	private static final Logger	log	= Logger.getLogger(SM_QUESTION_WINDOW.class);
-	
+{	
 	public static final int STR_BUDDYLIST_ADD_BUDDY_REQUETS = 0x0DBEE9;
 	public static final int STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE = 0x15f91;
 	public static final int STR_EXCHANGE_HE_REJECTED_EXCHANGE = 0x13D782;// TODO: make it a simple box, not a question.

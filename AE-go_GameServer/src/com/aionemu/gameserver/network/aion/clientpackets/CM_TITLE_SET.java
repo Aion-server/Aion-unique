@@ -14,10 +14,7 @@
  *     You should have received a copy of the GNU General Public License
  *     along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.network.aion.clientpackets;
-
-import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.TitleChangeListener;
@@ -30,12 +27,8 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  * @author Nemiroff
  * Date: 01.12.2009
  */
-public class CM_TITLE_SET extends AionClientPacket {
-    /**
-     * Logger for this class.
-     */
-    private static final Logger log = Logger.getLogger(CM_TITLE_SET.class);
-
+public class CM_TITLE_SET extends AionClientPacket 
+{
     /**
      * Title id
      */
@@ -46,7 +39,8 @@ public class CM_TITLE_SET extends AionClientPacket {
      *
      * @param opcode
      */
-    public CM_TITLE_SET(int opcode) {
+    public CM_TITLE_SET(int opcode) 
+    {
         super(opcode);
     }
 
@@ -54,7 +48,8 @@ public class CM_TITLE_SET extends AionClientPacket {
      * {@inheritDoc}
      */
     @Override
-    protected void readImpl() {
+    protected void readImpl() 
+    {
         titleId = readD();
     }
 
@@ -62,7 +57,8 @@ public class CM_TITLE_SET extends AionClientPacket {
      * {@inheritDoc}
      */
     @Override
-    protected void runImpl() {
+    protected void runImpl() 
+    {
         Player player = getConnection().getActivePlayer();
         sendPacket(new SM_TITLE_SET(titleId));
         PacketSendUtility.broadcastPacket(player, (new SM_TITLE_UPDATE(player, titleId)));

@@ -14,12 +14,9 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.util.List;
-
-import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -70,8 +67,6 @@ import com.google.inject.Inject;
  */
 public class CM_ENTER_WORLD extends AionClientPacket
 {
-
-	private static final Logger	log	= Logger.getLogger(CM_ENTER_WORLD.class);
 	/**
 	 * Object Id of player that is entering world
 	 */

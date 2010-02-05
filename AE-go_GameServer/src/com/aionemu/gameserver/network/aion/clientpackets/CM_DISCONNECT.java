@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
@@ -16,7 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 
 /**
@@ -24,6 +23,7 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
  */
 public class CM_DISCONNECT extends AionClientPacket
 {	
+	@SuppressWarnings("unused")
 	private int unk;
 	
 	public CM_DISCONNECT(int opcode)

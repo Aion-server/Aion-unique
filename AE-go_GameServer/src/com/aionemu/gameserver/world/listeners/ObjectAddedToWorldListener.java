@@ -26,6 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
  * 
  * @author SoulKeeper
  */
+@SuppressWarnings("unchecked")
 public abstract class ObjectAddedToWorldListener implements Callback
 {
 

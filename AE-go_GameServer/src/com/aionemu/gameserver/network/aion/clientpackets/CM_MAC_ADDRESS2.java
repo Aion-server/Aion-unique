@@ -25,7 +25,9 @@ public class CM_MAC_ADDRESS2 extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
+		@SuppressWarnings("unused")
 		int objectId = readD(); // lol NC
+		@SuppressWarnings("unused")
 		byte[] macAddress = readB(6);
 	}
 

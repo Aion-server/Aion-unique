@@ -24,17 +24,16 @@ import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
-
 /**
  * @author Lyahim, ATracer
  *
  */
-
 public class SM_GROUP_INFO extends AionServerPacket
 {
 	private int groupid;
 	private int leaderid;
 	private LootRuleType lootruletype; //0-free-for-all, 1-round-robin 2-leader
+	@SuppressWarnings("unused")
 	private int autodistribution;
 	//rare item distribution
 	//0-normal, 2-Roll-dice,3-bid

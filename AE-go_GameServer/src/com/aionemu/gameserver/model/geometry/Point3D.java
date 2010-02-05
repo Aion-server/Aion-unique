@@ -26,6 +26,7 @@ import java.io.Serializable;
  * 
  * @author SoulKeeper
  */
+@SuppressWarnings("serial")
 public class Point3D implements Cloneable, Serializable
 {
 
@@ -203,7 +204,6 @@ public class Point3D implements Cloneable, Serializable
 	 * @throws CloneNotSupportedException
 	 *             never thrown
 	 */
-	@SuppressWarnings( { "CloneDoesntCallSuperClone" })
 	@Override
 	public Point3D clone() throws CloneNotSupportedException
 	{

@@ -65,6 +65,7 @@ public class MonsterController extends NpcController
 		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void doReward(Creature creature)
 	{

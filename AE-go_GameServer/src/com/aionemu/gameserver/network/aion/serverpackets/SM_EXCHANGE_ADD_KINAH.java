@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-unique <www.aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
@@ -18,19 +18,14 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
  * @author Avol
  */
-
 public class SM_EXCHANGE_ADD_KINAH extends AionServerPacket
 {
-	private static final Logger	log	= Logger.getLogger(SM_EXCHANGE_ADD_KINAH.class);
-
 	private int itemCount;
 	private int action;
 

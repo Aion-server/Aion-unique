@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TIME_CHECK;
@@ -30,11 +28,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_TIME_CHECK;
  */
 public class CM_TIME_CHECK extends AionClientPacket
 {
-	/**
-	 * Logger for this class.
-	 */
-	private static final Logger	log	= Logger.getLogger(CM_TIME_CHECK.class);
-
 	/**
 	 * Nano time / 1000000
 	 */
@@ -66,6 +59,7 @@ public class CM_TIME_CHECK extends AionClientPacket
 	{
 		AionConnection client = getConnection();
 		int timeNow = (int) (System.nanoTime() / 1000000);
+		@SuppressWarnings("unused")
 		int diff = timeNow - nanoTime;
 		client.sendPacket(new SM_TIME_CHECK(nanoTime));
 		

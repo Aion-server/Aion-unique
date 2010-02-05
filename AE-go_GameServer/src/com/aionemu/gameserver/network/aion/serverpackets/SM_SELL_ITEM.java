@@ -32,6 +32,7 @@ public class SM_SELL_ITEM extends AionServerPacket
 {
 
 	private int	targetObjectId;
+	@SuppressWarnings("unused")
 	private Player	player;
 		
 	public SM_SELL_ITEM(Player player, int targetObjectId)

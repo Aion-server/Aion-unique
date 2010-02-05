@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-unique <www.aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
@@ -18,8 +18,6 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.skillengine.model.Effect;
@@ -30,8 +28,6 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 public class SM_ABNORMAL_STATE extends AionServerPacket
 {
-	private static final Logger	log	= Logger.getLogger(SM_ABNORMAL_STATE.class);
-
 	public int action;
 	private Effect[] effects;
 	

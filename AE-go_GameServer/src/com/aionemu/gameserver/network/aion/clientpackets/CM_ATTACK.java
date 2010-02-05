@@ -29,11 +29,18 @@ public class CM_ATTACK extends AionClientPacket
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */
 	private int					targetObjectId;
+	// TODO: Question, are they really needed?
+	@SuppressWarnings("unused")
 	private int					attackno;
+	@SuppressWarnings("unused")
 	private int					time;
+	@SuppressWarnings("unused")
 	private int					type;
+	@SuppressWarnings("unused")
 	private long                exp;
+	@SuppressWarnings("unused")
 	private long                maxexp;
+	@SuppressWarnings("unused")
 	private int					at;
 
 	public CM_ATTACK(int opcode)

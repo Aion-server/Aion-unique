@@ -14,12 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-
-import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -35,8 +32,6 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_EMOTION extends AionServerPacket
 {
-	private static final Logger	log	= Logger.getLogger(SM_EMOTION.class);
-
 	/**
 	 * Object id of emotion sender
 	 */

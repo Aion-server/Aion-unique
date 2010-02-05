@@ -18,8 +18,6 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -28,8 +26,6 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_USE_OBJECT extends AionServerPacket
 {
-	private static final Logger	log	= Logger.getLogger(SM_USE_OBJECT.class);
-
 	private int playerObjId;
 	private int targetObjId;
 	private int time;

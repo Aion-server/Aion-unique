@@ -20,8 +20,6 @@ import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
@@ -38,9 +36,7 @@ import com.aionemu.gameserver.network.aion.InventoryPacket;
  * modified by ATracer
  */
 public class SM_INVENTORY_INFO extends InventoryPacket
-{
-	private static final Logger	log	= Logger.getLogger(SM_INVENTORY_INFO.class);
-	
+{	
 	public static final int EMPTY = 0;
 	public static final int FULL = 1;
 	public int CUBE = 0;

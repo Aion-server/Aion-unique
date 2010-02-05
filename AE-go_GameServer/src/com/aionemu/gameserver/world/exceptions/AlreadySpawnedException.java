@@ -22,6 +22,7 @@ package com.aionemu.gameserver.world.exceptions;
  * @author -Nemesiss-
  * 
  */
+@SuppressWarnings("serial")
 public class AlreadySpawnedException extends RuntimeException
 {
 	/**

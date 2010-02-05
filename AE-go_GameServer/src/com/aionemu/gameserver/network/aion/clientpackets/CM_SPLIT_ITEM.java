@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.services.ItemService;
 import com.google.inject.Inject;
+
 /**
  *
  * @author kosyak
@@ -33,6 +33,7 @@ public class CM_SPLIT_ITEM extends AionClientPacket
 	{
 		sourceItemObjId = readD();      // drag item unique ID. If merging and itemCount becoming null, this item must be deleted.
 		itemAmount = readD();           // Items count to be moved.
+		@SuppressWarnings("unused")
 		byte[] zeros = readB(5);        // Nothing
 		destinationItemObjId = readD(); // Destination item unique ID if merging. Null if spliting.
 		zeros = readB(1);               // Nothing

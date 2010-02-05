@@ -16,7 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 
@@ -28,11 +27,14 @@ public class CM_QUESTION_RESPONSE extends AionClientPacket
 {
     private int 			questionid;
     private int 			response;
-    private int 			senderid;
+    @SuppressWarnings("unused")
+	private int 			senderid;
     
-	public CM_QUESTION_RESPONSE(int opcode) {
+	public CM_QUESTION_RESPONSE(int opcode) 
+	{
 		super(opcode);
 	}
+	
 	/**
 	 * {@inheritDoc}
 	 */

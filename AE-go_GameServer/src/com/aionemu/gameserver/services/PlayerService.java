@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -14,7 +14,6 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.services;
 
 import java.sql.Timestamp;
@@ -77,6 +76,7 @@ public class PlayerService
 {
 	private CacheMap<Integer, Player>	playerCache		= CacheMapFactory.createSoftCacheMap("Player", "player");
 
+	@SuppressWarnings("unused")
 	private IDFactory					aionObjectsIDFactory;
 	private World						world;
 	private ItemService 				itemService;

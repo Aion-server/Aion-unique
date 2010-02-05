@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.services.DropService;
@@ -30,8 +28,6 @@ import com.google.inject.Inject;
  */
 public class CM_START_LOOT extends AionClientPacket
 {
-	private static final Logger	log	= Logger.getLogger(CM_START_LOOT.class);
-
 	/**
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */

@@ -13,12 +13,18 @@ public class CM_CASTSPELL extends AionClientPacket
 	/**
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */
+	@SuppressWarnings("unused")
 	private int					targetObjectId;
 	private int					spellid;
+	@SuppressWarnings("unused")
 	private int					time;
+	@SuppressWarnings("unused")
 	private int					level;
+	@SuppressWarnings("unused")
 	private int					unk;
+	@SuppressWarnings("unused")
 	private World				world;
+	@SuppressWarnings("unused")
     private float 				x, y, z, x2, y2, z2;
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet

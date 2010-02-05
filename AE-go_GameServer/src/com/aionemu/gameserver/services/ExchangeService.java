@@ -19,8 +19,6 @@ package com.aionemu.gameserver.services;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
@@ -42,8 +40,6 @@ import com.google.inject.Inject;
  */
 public class ExchangeService
 {
-	private static final Logger log = Logger.getLogger(ExchangeService.class);
-
 	@Inject
 	private ItemService itemService;
 

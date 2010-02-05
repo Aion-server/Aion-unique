@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
@@ -19,8 +19,6 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 import java.nio.ByteBuffer;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
@@ -31,8 +29,6 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 public class SM_VIEW_PLAYER_DETAILS extends AionServerPacket
 {
-	private static final Logger	log	= Logger.getLogger(SM_VIEW_PLAYER_DETAILS.class);
-
 	private List<Item> items;
 	private int size;
 	

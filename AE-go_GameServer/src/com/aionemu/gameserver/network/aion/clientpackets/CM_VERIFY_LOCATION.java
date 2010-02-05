@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.world.World;
@@ -31,10 +29,6 @@ import com.google.inject.Inject;
  */
 public class CM_VERIFY_LOCATION extends AionClientPacket
 {
-	/**
-	 * logger for this class
-	 */
-	private static final Logger	log	= Logger.getLogger(CM_VERIFY_LOCATION.class);
 	@Inject
 	private World				world;
 
@@ -54,6 +48,7 @@ public class CM_VERIFY_LOCATION extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
+		@SuppressWarnings("unused")
 		int mapid;
 		float x, y, z;
 		Player player = getConnection().getActivePlayer();

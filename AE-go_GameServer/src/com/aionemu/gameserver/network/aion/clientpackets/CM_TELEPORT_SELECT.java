@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Inventory;
@@ -27,19 +25,13 @@ import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.world.World;
+
 /**
  * @author ATracer, orz
  *
  */
 public class CM_TELEPORT_SELECT extends AionClientPacket
 {
-
-
-	/**
-	 * Logger
-	 */
-	private static final Logger	log	= Logger.getLogger(CM_TELEPORT_SELECT.class);
-
 	/** NPC ID */
 	public  int					targetObjectId;
 
@@ -73,6 +65,7 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 	protected void runImpl()
 	{
 		Player activePlayer = getConnection().getActivePlayer();
+		@SuppressWarnings("unused")
 		Inventory bag = activePlayer.getInventory();
 		World world = activePlayer.getActiveRegion().getWorld();
 		Npc npc = (Npc)world.findAionObject(targetObjectId);

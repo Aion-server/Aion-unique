@@ -14,10 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.network.aion.clientpackets;
-
-import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -41,11 +38,6 @@ import com.google.inject.Inject;
 public class CM_TARGET_SELECT extends AionClientPacket
 {
 	/**
-	 * Logger
-	 */
-	private static final Logger	log	= Logger.getLogger(CM_TARGET_SELECT.class);
-
-	/**
 	 * Target object id that client wants to select or 0 if wants to unselect
 	 */
 	private int					targetObjectId;
@@ -53,7 +45,9 @@ public class CM_TARGET_SELECT extends AionClientPacket
 	/**
 	 * Unknown value, always 0?
 	 */
+	@SuppressWarnings("unused")
 	private int					unknown;
+	
 	@Inject
 	private World				world;
 

@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -14,12 +14,9 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.sql.Timestamp;
-
-import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
@@ -45,9 +42,6 @@ import com.google.inject.Inject;
  */
 public class CM_CREATE_CHARACTER extends AionClientPacket
 {
-	/** Logger for this class. */
-	private static final Logger	log	= Logger.getLogger(CM_CREATE_CHARACTER.class);
-
 	/** Character appearance */
 	private PlayerAppearance	playerAppearance;
 	/** Player base data */
@@ -76,7 +70,9 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
+		@SuppressWarnings("unused")
 		int playOk2 = readD(); // ignored for now
+		@SuppressWarnings("unused")
 		String someShit = readS(); // something + accointId
 
 		playerCommonData = new PlayerCommonData(aionObjectsIDFactory.nextId());
@@ -86,6 +82,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 		// just for sure...
 		//log.info((42 - name.length() * 2) + " == " + (getRemainingBytes() - 76));
 
+		@SuppressWarnings("unused")
 		byte[] shit = readB(42 - (name.length() * 2)); // some shit? 1.5.x
 
 		/*
@@ -162,10 +159,12 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 		playerAppearance.setFootSize(readC());
 		playerAppearance.setFacialRate(readC());
 
+		@SuppressWarnings("unused")
 		byte unk1 = (byte) readC(); // always 0
 		playerAppearance.setArmLength(readC());
 		playerAppearance.setLegLength(readC()); //wrong??
 		playerAppearance.setShoulders(readC()); // 1.5.x May be ShoulderSize
+		@SuppressWarnings("unused")
 		byte unk2 = (byte) readC(); // always 0
 		readC();
 		playerAppearance.setHeight(readF());
