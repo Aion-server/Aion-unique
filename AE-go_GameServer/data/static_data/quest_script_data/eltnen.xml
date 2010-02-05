@@ -1,0 +1,181 @@
+<quest_scripts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="quest_script_data.xsd">
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+<!--
+ * @author A-G
+ * 
+  -->
+	<!-- A Treat For Adelphie -->
+	<item_collecting id="1434" start_npc_id="203936" action_item_id="152000004" />
+
+        <!-- Pluma Attack! -->
+        <item_collecting id="1303" start_npc_id="203917" />
+
+        <!-- Nature's Balance -->
+        <monster_hunt id="1304" start_npc_id="203917">
+           <monster_infos npc_id="211682" var_id="0" max_kill="10"/>
+        </monster_hunt>
+
+        <!-- The River Predators -->
+        <item_collecting id="1431" start_npc_id="203328" />
+
+        <!-- [Manastone] Nyornyerk's Business Opportunity -->
+        <item_collecting id="1442" start_npc_id="203334" />
+
+        <!-- [Manastone] New Manastones for Old (III) -->
+        <item_collecting id="1438" start_npc_id="203334" />
+
+        <!-- Aether Powder -->
+        <item_collecting id="1301" start_npc_id="203918" />
+
+        <!-- Bait and Switch -->
+        <item_collecting id="1475" start_npc_id="203328" />
+
+        <!-- Violent Frillneck -->
+        <monster_hunt id="1476" start_npc_id="203997">
+           <monster_infos npc_id="211690" var_id="0" max_kill="7"/>
+        </monster_hunt>
+
+        <!-- Ferenna's Test -->
+        <item_collecting id="1419" start_npc_id="203931" />
+
+	<!-- The Manduri Problem -->
+	<report_to id="1302" start_npc_id="203921" end_npc_id="203932"/>
+
+	<!-- [Coin] Fortress Beasts -->
+	<monster_hunt id="1418" start_npc_id="203931">
+		<monster_infos npc_id="211684"  var_id="0" max_kill="10"/>
+		<monster_infos npc_id="210758"  var_id="0" max_kill="13"/>
+		<monster_infos npc_id="210759"  var_id="0" max_kill="13"/>
+	</monster_hunt>
+
+	<!-- Cleansing The Forest -->
+	<monster_hunt id="1427" start_npc_id="203935">
+		<monster_infos npc_id="210755"  var_id="0" max_kill="7"/>
+		<monster_infos npc_id="210756"  var_id="0" max_kill="7"/>
+	</monster_hunt>
+
+	<!-- Cleansing The Forest -->
+	<monster_hunt id="1306" start_npc_id="203935">
+		<monster_infos npc_id="210755"  var_id="0" max_kill="7"/>
+                <monster_infos npc_id="210756"  var_id="0" max_kill="9"/>
+	</monster_hunt>
+
+        <!-- More Manduri Frillnecks -->
+        <monster_hunt id="1305" start_npc_id="203935">
+           <monster_infos npc_id="211687" var_id="0" max_kill="15"/>
+        </monster_hunt>
+
+	<!-- Seeds of Restoration -->
+	<report_to id="1310" start_npc_id="203932" end_npc_id="203997"/>
+
+        <!-- Stolen Goods -->
+        <item_collecting id="1307" start_npc_id="203936" />
+
+        <!-- The Price of Titanium -->
+        <item_collecting id="1435" start_npc_id="203922" />
+
+	<!-- A Treat For Adelphie -->
+	<item_collecting id="1486" start_npc_id="203923" action_item_id="700312" />
+
+	<!-- Hopeful Delivery -->
+	<report_to id="1312" start_npc_id="203997" end_npc_id="203932" item_id="182201306"/>
+
+	<!-- Preserving Forest Soil -->
+	<monster_hunt id="1313" start_npc_id="204030">
+		<monster_infos npc_id="210766"  var_id="1" max_kill="5"/>
+		<monster_infos npc_id="210760"  var_id="1" max_kill="12"/>
+	</monster_hunt>
+
+	<!-- The Manduri Polluters -->
+	<monster_hunt id="1477" start_npc_id="203997">
+		<monster_infos npc_id="210770"  var_id="1" max_kill="6"/>
+		<monster_infos npc_id="210771"  var_id="1" max_kill="6"/>
+	</monster_hunt>
+
+	<!-- Wily Kundu -->
+	<monster_hunt id="1308" start_npc_id="203936">
+		<monster_infos npc_id="213000"  var_id="1" max_kill="1"/>
+	</monster_hunt>
+
+	<!-- Dirty Chindu -->
+	<monster_hunt id="1485" start_npc_id="204030">
+		<monster_infos npc_id="213794"  var_id="1" max_kill="1"/>
+	</monster_hunt>
+
+	<!-- Plant Poison Antidote -->
+        <item_collecting id="1461" start_npc_id="204030" />
+
+	<!-- The Strongest Spear -->
+        <item_collecting id="1439" start_npc_id="203334" />
+
+	<!-- A Feast for Phomona -->
+        <item_collecting id="1478" start_npc_id="730019" />
+
+	<!-- Balaur Bones -->
+	<item_collecting id="1487" start_npc_id="798126" action_item_id="182201407" />
+	<item_collecting id="1487" start_npc_id="798126" action_item_id="182201408" />
+	<item_collecting id="1487" start_npc_id="798126" action_item_id="182201409" />
+
+	<!-- Killing Crestliches -->
+	<monster_hunt id="1326" start_npc_id="203940">
+		<monster_infos npc_id="210775"  var_id="0" max_kill="7"/>
+		<monster_infos npc_id="210784"  var_id="0" max_kill="14"/>
+	</monster_hunt>
+
+	<!-- Three Kurin Brothers -->
+	<monster_hunt id="1488" start_npc_id="730019">
+		<monster_infos npc_id="213795"  var_id="0" max_kill="1"/>
+		<monster_infos npc_id="213796"  var_id="0" max_kill="1"/>
+		<monster_infos npc_id="213797"  var_id="0" max_kill="1"/>
+	</monster_hunt>
+
+	<!-- Plague of the Elim -->
+	<monster_hunt start_npc_id="730021" id="1316">
+		<monster_infos var_id="0" npc_id="211285" max_kill="10"/>
+	</monster_hunt>
+
+	<!-- Revenge of the Elim -->
+	<item_collecting start_npc_id="210774" id="1317"/>
+
+	<!-- Scourge of the Elim -->
+	<monster_hunt start_npc_id="730021" id="1315">
+		<monster_infos var_id="0" npc_id="210772" max_kill="10"/>
+	</monster_hunt>
+
+	<!-- Acheron Drake Research -->
+	<item_collecting start_npc_id="203998" id="1333"/>
+
+	<!-- Fire Sword -->
+	<item_collecting start_npc_id="204000" id="1334"/>
+
+	<!-- Support for the Desert Scouts -->
+	<report_to start_npc_id="203999" end_npc_id="204006" id="1335"/>
+
+	<!-- The Scolopen Sting -->
+	<monster_hunt start_npc_id="204008" id="1339">
+		<monster_infos var_id="0" npc_id="210801" max_kill="10"/>
+	</monster_hunt>
+
+	<!-- Basilisk Purge -->
+	<monster_hunt start_npc_id="204008" id="1340">
+		<monster_infos var_id="0" npc_id="210809" max_kill="7"/>
+	</monster_hunt>
+
+	<!-- Eating Better -->
+	<item_collecting start_npc_id="204010" id="1353"/>
+ </quest_scripts>
