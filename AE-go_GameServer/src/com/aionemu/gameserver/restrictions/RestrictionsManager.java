@@ -28,6 +28,23 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 /**
  * @author lord_rex
  * 
+ * This class is a Manager for restrictions.
+ * This is a very useful system, you can use that for:
+ * game restrictions, events restrictions, quests restrictions, 
+ * instances restrictions, customs restrictions.
+ * 
+ * @Example: Open a new class like this:
+ * 		public class AppleRestrictions extends AbstractRestrictions 
+ * 		{ 
+ * 			@Override 
+ * 			public boolean canEatApple(Player player)  
+ * 			{
+ * 				if(player.getController().isInEvent()) { // only example, don't forget! 
+ * 					return true; // player can eat apple in event.
+ * 				}
+ * 				return false; // player cannot eat apple in normal game.
+ * 			} 
+ * 		} 
  */
 public class RestrictionsManager
 {
@@ -159,6 +176,12 @@ public class RestrictionsManager
 		activate(new PlayerRestrictions());
 	}
 	
+	/**
+	 * This 
+	 * 
+	 * @param player
+	 * @param target
+	 */
 	public static boolean canAttack(Player player, VisibleObject target)
 	{
 		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canAttack.ordinal()])
