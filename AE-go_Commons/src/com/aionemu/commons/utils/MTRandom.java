@@ -57,26 +57,73 @@ public class MTRandom extends Random
 	private static final long	serialVersionUID	= -515082678588212038L;
 
 	// Constants used in the original C implementation
+	/**
+	 * 
+	 */
 	private final static int	UPPER_MASK			= 0x80000000;
+	/**
+	 * 
+	 */
 	private final static int	LOWER_MASK			= 0x7fffffff;
-
+	/**
+	 * 
+	 */
 	private final static int	N					= 624;
+	/**
+	 * 
+	 */
 	private final static int	M					= 397;
+	/**
+	 * 
+	 */
 	private final static int[]	MAGIC				= { 0x0, 0x9908b0df };
+	/**
+	 * 
+	 */
 	private final static int	MAGIC_FACTOR1		= 1812433253;
+	/**
+	 * 
+	 */
 	private final static int	MAGIC_FACTOR2		= 1664525;
+	/**
+	 * 
+	 */
 	private final static int	MAGIC_FACTOR3		= 1566083941;
+	/**
+	 * 
+	 */
 	private final static int	MAGIC_MASK1			= 0x9d2c5680;
+	/**
+	 * 
+	 */
 	private final static int	MAGIC_MASK2			= 0xefc60000;
+	/**
+	 * 
+	 */
 	private final static int	MAGIC_SEED			= 19650218;
+	/**
+	 * 
+	 */
 	private final static long	DEFAULT_SEED		= 5489L;
 
 	// Internal state
+	/**
+	 * 
+	 */
 	private transient int[]		mt;
+	/**
+	 * 
+	 */
 	private transient int		mti;
+	/**
+	 * 
+	 */
 	private transient boolean	compat				= false;
 
 	// Temporary buffer used during setSeed(long)
+	/**
+	 * 
+	 */
 	private transient int[]		ibuf;
 
 	/**
@@ -157,6 +204,10 @@ public class MTRandom extends Random
 	// Initializes mt[N] with a simple integer seed. This method is
 	// required as part of the Mersenne Twister algorithm but need
 	// not be made public.
+	/**
+	 * @param seed 
+	 * 
+	 */
 	private void setSeed(int seed)
 	{
 

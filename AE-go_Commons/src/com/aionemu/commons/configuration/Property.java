@@ -17,11 +17,11 @@
 
 package com.aionemu.commons.configuration;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import java.lang.annotation.Documented;
 
 /**
  * This annotation is used to mark field that should be processed by
@@ -73,6 +73,7 @@ public @interface Property
 	 * 
 	 * @return returns class that will be used to transform value
 	 */
+	@SuppressWarnings("unchecked")
 	public Class<? extends PropertyTransformer> propertyTransformer() default PropertyTransformer.class;
 
 	/**

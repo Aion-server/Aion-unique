@@ -24,17 +24,21 @@ package com.aionemu.commons.database.dao;
  */
 public class DAOException extends RuntimeException
 {
+	/**
+	 * serial
+	 */
 	private static final long serialVersionUID = 7637014806313099318L;
 
 	/**
-	 * {@inheritDoc}
+	 * 
 	 */
 	public DAOException()
 	{
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * 
+	 * @param message 
 	 */
 	public DAOException(String message)
 	{
@@ -42,7 +46,9 @@ public class DAOException extends RuntimeException
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param message 
+	 * @param cause 
+	 * 
 	 */
 	public DAOException(String message, Throwable cause)
 	{
@@ -50,7 +56,8 @@ public class DAOException extends RuntimeException
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param cause 
+	 * 
 	 */
 	public DAOException(Throwable cause)
 	{

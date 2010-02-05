@@ -45,6 +45,7 @@ public interface EnhancedObject
 	 *            instance of callback to add
 	 * @see com.aionemu.commons.callbacks.CallbackHelper#addCallback(Callback, EnhancedObject)
 	 */
+	@SuppressWarnings("unchecked")
 	public void addCallback(Callback callback);
 
 	/**
@@ -54,6 +55,7 @@ public interface EnhancedObject
 	 *            instance of callback to remove
 	 * @see com.aionemu.commons.callbacks.CallbackHelper#removeCallback(Callback, EnhancedObject)
 	 */
+	@SuppressWarnings("unchecked")
 	public void removeCallback(Callback callback);
 
 	/**
@@ -61,6 +63,7 @@ public interface EnhancedObject
 	 * 
 	 * @return unmodifiable list of callbacks
 	 */
+	@SuppressWarnings("unchecked")
 	public Map<Class<? extends Callback>, List<Callback>> getCallbacks();
 
 	/**

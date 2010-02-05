@@ -102,6 +102,7 @@ public class CallbackHelper
 	 * @param object
 	 *            remove callback from which object
 	 */
+	@SuppressWarnings("unchecked")
 	public static void removeCallback(Callback callback, EnhancedObject object)
 	{
 		try
@@ -141,7 +142,7 @@ public class CallbackHelper
 	 *            args of method
 	 * @return {@link Callback#beforeCall(Object, Object[])}
 	 */
-	@SuppressWarnings( { "unchecked", "UnusedDeclaration" })
+	@SuppressWarnings( { "unchecked" })
 	public static CallbackResult<?> beforeCall(EnhancedObject obj, Class callbackClass, Object... args)
 	{
 		List<Callback> list = obj.getCallbacks().get(callbackClass);
@@ -185,7 +186,7 @@ public class CallbackHelper
 	 *            method invokation result
 	 * @return {@link Callback#afterCall(Object, Object[], Object)}
 	 */
-	@SuppressWarnings( { "unchecked", "UnusedDeclaration" })
+	@SuppressWarnings("unchecked")
 	public static CallbackResult<?> afterCall(EnhancedObject obj, Class callbackClass, Object[] args, Object result)
 	{
 		List<Callback> list = obj.getCallbacks().get(callbackClass);
@@ -231,6 +232,7 @@ public class CallbackHelper
 	 *            priority to get from
 	 * @return priority of callback
 	 */
+	@SuppressWarnings("unchecked")
 	private static int getCallbackPriority(Callback callback)
 	{
 		if (callback instanceof CallbackPriority)

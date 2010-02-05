@@ -126,7 +126,6 @@ public class ScriptContextImpl implements ScriptContext
 	 * {@inheritDoc}
 	 */
 	@Override
-	@SuppressWarnings( { "ThrowableInstanceNeverThrown" })
 	public synchronized void init()
 	{
 
@@ -164,7 +163,6 @@ public class ScriptContextImpl implements ScriptContext
 	 * {@inheritDoc}
 	 */
 	@Override
-	@SuppressWarnings( { "ThrowableInstanceNeverThrown" })
 	public synchronized void shutdown()
 	{
 

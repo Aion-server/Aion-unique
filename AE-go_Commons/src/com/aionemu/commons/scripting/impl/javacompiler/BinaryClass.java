@@ -18,12 +18,12 @@
 package com.aionemu.commons.scripting.impl.javacompiler;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Writer;
-import java.io.ByteArrayOutputStream;
 import java.net.URI;
 
 import com.sun.tools.javac.file.BaseFileObject;

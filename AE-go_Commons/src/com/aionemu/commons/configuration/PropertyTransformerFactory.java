@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
 import com.aionemu.commons.configuration.transformers.BooleanTransformer;
 import com.aionemu.commons.configuration.transformers.ByteTransformer;
 import com.aionemu.commons.configuration.transformers.CharTransformer;
+import com.aionemu.commons.configuration.transformers.ClassTransformer;
 import com.aionemu.commons.configuration.transformers.DoubleTransformer;
 import com.aionemu.commons.configuration.transformers.EnumTransformer;
 import com.aionemu.commons.configuration.transformers.FileTransformer;
@@ -31,10 +32,9 @@ import com.aionemu.commons.configuration.transformers.FloatTransformer;
 import com.aionemu.commons.configuration.transformers.InetSocketAddressTransformer;
 import com.aionemu.commons.configuration.transformers.IntegerTransformer;
 import com.aionemu.commons.configuration.transformers.LongTransformer;
+import com.aionemu.commons.configuration.transformers.PatternTransformer;
 import com.aionemu.commons.configuration.transformers.ShortTransformer;
 import com.aionemu.commons.configuration.transformers.StringTransformer;
-import com.aionemu.commons.configuration.transformers.PatternTransformer;
-import com.aionemu.commons.configuration.transformers.ClassTransformer;
 import com.aionemu.commons.utils.ClassUtils;
 
 /**
@@ -58,6 +58,7 @@ public class PropertyTransformerFactory
 	 * @throws TransformationException
 	 *             if can't instantiate {@link com.aionemu.commons.configuration.PropertyTransformer}
 	 */
+	@SuppressWarnings("unchecked")
 	public static PropertyTransformer newTransformer(Class clazzToTransform, Class<? extends PropertyTransformer> tc)
 		throws TransformationException
 	{

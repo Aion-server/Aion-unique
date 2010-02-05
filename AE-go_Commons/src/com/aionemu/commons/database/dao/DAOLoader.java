@@ -1,10 +1,10 @@
 package com.aionemu.commons.database.dao;
 
+import java.lang.reflect.Modifier;
+
 import com.aionemu.commons.scripting.classlistener.ClassListener;
 import com.aionemu.commons.scripting.classlistener.DefaultClassListener;
 import com.aionemu.commons.utils.ClassUtils;
-
-import java.lang.reflect.Modifier;
 
 /**
  * Utility class that loads all DAO's after script context initialization.<br>
@@ -16,7 +16,11 @@ class DAOLoader
 		extends DefaultClassListener
 		implements ClassListener
 {
-	@SuppressWarnings({"unchecked"})
+
+	/**
+	 * 
+	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void postLoad(Class<?>[] classes)
 	{
@@ -40,7 +44,10 @@ class DAOLoader
 		super.postLoad(classes);
 	}
 
-	@SuppressWarnings({"unchecked"})
+	/**
+	 * 
+	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void preUnload(Class<?>[] classes)
 	{
@@ -64,6 +71,10 @@ class DAOLoader
 		}
 	}
 
+	/**
+	 * @param clazz
+	 * @return boolean
+	 */
 	public boolean isValidDAO(Class<?> clazz)
 	{
 		if (!ClassUtils.isSubclass(clazz, DAO.class))

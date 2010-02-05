@@ -31,8 +31,8 @@ import javax.tools.ForwardingJavaFileManager;
 import javax.tools.JavaCompiler;
 import javax.tools.JavaFileManager;
 import javax.tools.JavaFileObject;
-import javax.tools.JavaFileObject.Kind;
 import javax.tools.StandardLocation;
+import javax.tools.JavaFileObject.Kind;
 
 import com.aionemu.commons.scripting.ScriptClassLoader;
 

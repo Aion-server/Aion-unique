@@ -17,14 +17,15 @@
 
 package com.aionemu.commons.database.dao;
 
+import static com.aionemu.commons.database.DatabaseFactory.getDatabaseMajorVersion;
+import static com.aionemu.commons.database.DatabaseFactory.getDatabaseMinorVersion;
+import static com.aionemu.commons.database.DatabaseFactory.getDatabaseName;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import static com.aionemu.commons.database.DatabaseFactory.getDatabaseMajorVersion;
-import static com.aionemu.commons.database.DatabaseFactory.getDatabaseMinorVersion;
-import static com.aionemu.commons.database.DatabaseFactory.getDatabaseName;
 import com.aionemu.commons.database.DatabaseConfig;
 import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
 
@@ -165,7 +166,6 @@ public class DAOManager
 	 * @param daoClass
 	 *            DAO implementation to unregister
 	 */
-	@SuppressWarnings( { "unchecked" })
 	public static void unregisterDAO(Class<? extends DAO> daoClass)
 	{
 		synchronized (DAOManager.class)
@@ -185,6 +185,9 @@ public class DAOManager
 		}
 	}
 
+	/**
+	 * 
+	 */
 	private DAOManager()
 	{
 		//empty

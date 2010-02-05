@@ -16,11 +16,11 @@
  */
 package com.aionemu.commons.network.packet;
 
+import java.nio.ByteBuffer;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.network.AConnection;
-
-import java.nio.ByteBuffer;
 
 /**
  * Base class for every Client Packet
@@ -91,9 +91,6 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	 * This method reads data from a packet buffer. If the error occurred while reading data, the connection is closed.
 	 * 
 	 * @return <code>true</code> if reading was successful, otherwise <code>false</code>
-	 * 
-	 * @see com.aionemu.commons.network.AConnection#processData(java.nio.ByteBuffer)
-	 * @see com.aionemu.commons.network.Dispatcher#parse(com.aionemu.commons.network.AConnection, java.nio.ByteBuffer)
 	 * 
 	 */
 	public final boolean read()

@@ -56,7 +56,13 @@ import java.util.Arrays;
 
 public class Base64
 {
+	/**
+	 * 
+	 */
 	private static final char[]	CA	= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
+	/**
+	 * 
+	 */
 	private static final int[]	IA	= new int[256];
 
 	static

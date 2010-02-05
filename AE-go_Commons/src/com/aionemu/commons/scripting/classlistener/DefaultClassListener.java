@@ -32,8 +32,14 @@ import com.aionemu.commons.scripting.metadata.OnClassUnload;
  */
 public class DefaultClassListener implements ClassListener
 {
+	/**
+	 * Logger
+	 */
 	private static final Logger	log	= Logger.getLogger(DefaultClassListener.class);
 
+	/**
+	 * 
+	 */
 	@Override
 	public void postLoad(Class<?>[] classes)
 	{
@@ -43,6 +49,9 @@ public class DefaultClassListener implements ClassListener
 		}
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void preUnload(Class<?>[] classes)
 	{

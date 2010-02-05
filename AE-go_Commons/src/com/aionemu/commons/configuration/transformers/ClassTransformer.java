@@ -1,9 +1,9 @@
 package com.aionemu.commons.configuration.transformers;
 
+import java.lang.reflect.Field;
+
 import com.aionemu.commons.configuration.PropertyTransformer;
 import com.aionemu.commons.configuration.TransformationException;
-
-import java.lang.reflect.Field;
 
 /**
  * Returns the <code>Class</code> object associated with the class or
@@ -21,6 +21,9 @@ public class ClassTransformer implements PropertyTransformer<Class<?>>
 	/** Shared instance. */
 	public static final ClassTransformer SHARED_INSTANCE = new ClassTransformer();
 
+	/**
+	 * doc
+	 */
 	@Override
 	public Class<?> transform(String value, Field field) throws TransformationException
 	{

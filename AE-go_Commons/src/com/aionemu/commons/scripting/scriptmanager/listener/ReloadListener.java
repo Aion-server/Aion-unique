@@ -27,6 +27,7 @@ import com.aionemu.commons.callbacks.CallbackResult;
  *
  * @author SoulKeeper, Aquanox
  */
+@SuppressWarnings("unchecked")
 public abstract class ReloadListener implements Callback
 {
 	/** {@inheritDoc} */

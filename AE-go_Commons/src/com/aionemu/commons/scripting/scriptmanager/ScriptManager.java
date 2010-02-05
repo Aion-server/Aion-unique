@@ -28,13 +28,13 @@ import javax.xml.bind.Unmarshaller;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.callbacks.Enhancable;
 import com.aionemu.commons.scripting.ScriptContext;
 import com.aionemu.commons.scripting.ScriptContextFactory;
 import com.aionemu.commons.scripting.classlistener.ClassListener;
 import com.aionemu.commons.scripting.scriptmanager.listener.ContextCreationListener;
 import com.aionemu.commons.scripting.scriptmanager.listener.ContextReloadListener;
 import com.aionemu.commons.scripting.scriptmanager.listener.ReloadListener;
-import com.aionemu.commons.callbacks.Enhancable;
 
 /**
  * Class that represents managers of script contexes. It loads, reloads and unload script contexes. In the future it may

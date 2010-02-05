@@ -69,7 +69,6 @@ public class ScriptCompilerImpl implements ScriptCompiler
 	 * @throws RuntimeException
 	 *             if compiler is not available
 	 */
-	@SuppressWarnings( { "ThrowableInstanceNeverThrown" })
 	public ScriptCompilerImpl()
 	{
 		this.javaCompiler = ToolProvider.getSystemJavaCompiler();
@@ -189,6 +188,7 @@ public class ScriptCompilerImpl implements ScriptCompiler
 	 * @throws RuntimeException
 	 *             if compilation failed with errros
 	 */
+	@SuppressWarnings("unchecked")
 	protected CompilationResult doCompilation(Iterable<JavaFileObject> compilationUnits)
 	{
 		List<String> options = Arrays.asList("-encoding", "UTF-8", "-g");
@@ -232,6 +232,7 @@ public class ScriptCompilerImpl implements ScriptCompiler
 	 * @throws RuntimeException
 	 *             if can't find class
 	 */
+	@SuppressWarnings("unchecked")
 	protected Class[] classNamesToClasses(Collection<String> classNames, ScriptClassLoader cl)
 	{
 		Class<?>[] classes = new Class<?>[classNames.size()];

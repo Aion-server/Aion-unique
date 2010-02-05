@@ -26,6 +26,9 @@ package com.aionemu.commons.configuration;
  */
 public class TransformationException extends RuntimeException
 {
+	/**
+	 * serial
+	 */
 	private static final long	serialVersionUID	= -6641235751743285902L;
 
 	/**

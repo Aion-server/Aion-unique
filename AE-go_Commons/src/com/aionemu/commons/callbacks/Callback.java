@@ -22,6 +22,7 @@ package com.aionemu.commons.callbacks;
  * Each enhanced method will call "beforeCall" and "afterCall" methods
  * 
  * @author SoulKeeper
+ * @param <T> 
  */
 public interface Callback<T>
 {
@@ -45,6 +46,7 @@ public interface Callback<T>
 	 *            method args
 	 * @return see {@link CallbackResult}
 	 */
+	@SuppressWarnings("unchecked")
 	public CallbackResult beforeCall(T obj, Object[] args);
 
 	/**
@@ -68,6 +70,7 @@ public interface Callback<T>
 	 *            result of method invocation
 	 * @return see {@link CallbackResult}
 	 */
+	@SuppressWarnings("unchecked")
 	public CallbackResult afterCall(T obj, Object[] args, Object methodResult);
 
 	/**
@@ -76,5 +79,6 @@ public interface Callback<T>
 	 * 
 	 * @return base class of callback
 	 */
+	@SuppressWarnings("unchecked")
 	public Class<? extends Callback> getBaseClass();
 }

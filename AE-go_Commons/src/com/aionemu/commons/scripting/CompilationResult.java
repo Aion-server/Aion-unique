@@ -30,6 +30,7 @@ public class CompilationResult
 	/**
 	 * List of classes that were compiled by compiler
 	 */
+	@SuppressWarnings("unchecked")
 	private final Class[]			compiledClasses;
 
 	/**
@@ -46,6 +47,7 @@ public class CompilationResult
 	 * @param classLoader
 	 *            classloader that was used by compiler
 	 */
+	@SuppressWarnings("unchecked")
 	public CompilationResult(Class[] compiledClasses, ScriptClassLoader classLoader)
 	{
 		this.compiledClasses = compiledClasses;
@@ -67,6 +69,7 @@ public class CompilationResult
 	 * 
 	 * @return list of classes that were compiled
 	 */
+	@SuppressWarnings("unchecked")
 	public Class[] getCompiledClasses()
 	{
 		return compiledClasses;

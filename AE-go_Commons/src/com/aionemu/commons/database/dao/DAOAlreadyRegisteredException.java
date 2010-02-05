@@ -24,17 +24,21 @@ package com.aionemu.commons.database.dao;
  */
 public class DAOAlreadyRegisteredException extends DAOException
 {
+	/**
+	 * serial
+	 */
 	private static final long serialVersionUID = -4966845154050833016L;
 
 	/**
-	 * {@inheritDoc}
+	 * 
 	 */
 	public DAOAlreadyRegisteredException()
 	{
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param message 
+	 * 
 	 */
 	public DAOAlreadyRegisteredException(String message)
 	{
@@ -42,7 +46,9 @@ public class DAOAlreadyRegisteredException extends DAOException
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param message 
+	 * @param cause 
+	 * 
 	 */
 	public DAOAlreadyRegisteredException(String message, Throwable cause)
 	{
@@ -50,7 +56,8 @@ public class DAOAlreadyRegisteredException extends DAOException
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param cause 
+	 * 
 	 */
 	public DAOAlreadyRegisteredException(Throwable cause)
 	{

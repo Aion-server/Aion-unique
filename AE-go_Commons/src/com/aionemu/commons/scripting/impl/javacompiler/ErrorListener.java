@@ -17,13 +17,13 @@
 
 package com.aionemu.commons.scripting.impl.javacompiler;
 
+import java.util.Locale;
+
 import javax.tools.Diagnostic;
 import javax.tools.DiagnosticListener;
 import javax.tools.JavaFileObject;
 
 import org.apache.log4j.Logger;
-
-import java.util.Locale;
 
 /**
  * This class is simple compiler error listener that forwards errors to log4j logger

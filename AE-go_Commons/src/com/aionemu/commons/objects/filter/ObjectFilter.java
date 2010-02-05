@@ -9,6 +9,7 @@ package com.aionemu.commons.objects.filter;
  * Created on: 31.03.2009 10:07:12
  *
  * @author Aquanox
+ * @param <T> 
  */
 public interface ObjectFilter<T>
 {

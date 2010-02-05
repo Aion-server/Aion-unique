@@ -24,17 +24,21 @@ package com.aionemu.commons.database.dao;
  */
 public class DAONotFoundException extends DAOException
 {
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 4241980426435305296L;
 
 	/**
-	 * {@inheritDoc}
+	 * 
 	 */
 	public DAONotFoundException()
 	{
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param message 
+	 * 
 	 */
 	public DAONotFoundException(String message)
 	{
@@ -42,7 +46,9 @@ public class DAONotFoundException extends DAOException
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param message 
+	 * @param cause 
+	 * 
 	 */
 	public DAONotFoundException(String message, Throwable cause)
 	{
@@ -50,7 +56,7 @@ public class DAONotFoundException extends DAOException
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param cause 
 	 */
 	public DAONotFoundException(Throwable cause)
 	{

@@ -62,7 +62,13 @@ public class NioServer
 	 */
 	private final DisconnectionThreadPool	dcPool;
 
+	/**
+	 * 
+	 */
 	private int readWriteThreads;
+	/**
+	 * 
+	 */
 	private ServerCfg[] cfgs;
 	
 	/**
@@ -94,6 +100,9 @@ public class NioServer
 		this.cfgs = cfgs;
 	}
 
+	/**
+	 * 
+	 */
 	public void connect()
 	{
 		try

@@ -40,5 +40,6 @@ public @interface Enhancable
 	 * 
 	 * @return callback class that will be used as listener
 	 */
+	@SuppressWarnings("unchecked")
 	Class<? extends Callback> callback();
 }

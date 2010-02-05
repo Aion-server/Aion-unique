@@ -19,8 +19,8 @@ package com.aionemu.commons.services;
 
 import java.io.File;
 import java.lang.reflect.Field;
-import java.net.URL;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.logging.Handler;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;

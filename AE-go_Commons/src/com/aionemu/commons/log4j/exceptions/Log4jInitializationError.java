@@ -24,6 +24,9 @@ package com.aionemu.commons.log4j.exceptions;
  */
 public class Log4jInitializationError extends Error
 {
+	/**
+	 * serial
+	 */
 	private static final long serialVersionUID = -628697707807736993L;
 
 	/**

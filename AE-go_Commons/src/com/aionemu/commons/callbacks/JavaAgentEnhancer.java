@@ -13,10 +13,6 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.apache.log4j.Logger;
-
-import com.aionemu.commons.utils.ExitCode;
-
 import javassist.CannotCompileException;
 import javassist.ClassPool;
 import javassist.CtClass;
@@ -26,6 +22,10 @@ import javassist.LoaderClassPath;
 import javassist.NotFoundException;
 import javassist.bytecode.AnnotationsAttribute;
 import javassist.bytecode.annotation.Annotation;
+
+import org.apache.log4j.Logger;
+
+import com.aionemu.commons.utils.ExitCode;
 
 /**
  * This class is used as javaagent to do on-class-load transformations with objects whose methods are marked by

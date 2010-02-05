@@ -44,6 +44,9 @@ import com.aionemu.commons.scripting.url.VirtualClassURLStreamHandler;
 public abstract class ScriptClassLoader extends URLClassLoader
 {
 
+	/**
+	 * Logger
+	 */
 	private static final Logger					log					= Logger.getLogger(ScriptClassLoader.class);
 
 	/**

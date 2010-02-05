@@ -28,6 +28,7 @@ import com.aionemu.commons.scripting.ScriptContext;
  *
  * @author SoulKeeper, Aquanox
  */
+@SuppressWarnings("unchecked")
 public abstract class ContextReloadListener implements Callback
 {
 	/** {@inheritDoc} */
@@ -50,6 +51,7 @@ public abstract class ContextReloadListener implements Callback
 
 	/**
 	 * Invoke before context reload procedure.
+	 * @param ctx 
 	 */
 	protected void beforeReload(ScriptContext ctx)
 	{
@@ -58,6 +60,7 @@ public abstract class ContextReloadListener implements Callback
 
 	/**
 	 * Invoke after context reload procedure.
+	 * @param ctx 
 	 */
 	protected void afterReload(ScriptContext ctx)
 	{
