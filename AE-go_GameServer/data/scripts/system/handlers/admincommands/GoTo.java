@@ -45,6 +45,7 @@ public class GoTo extends AdminCommand
 		super("goto");
 	}
 
+	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
 		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_GOTO)

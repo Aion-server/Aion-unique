@@ -73,7 +73,8 @@ public class GatherableTemplate extends VisibleObjectTemplate
     /**
      * Gets the value of the id property.  
      */
-    public int getTemplateId() {
+    @Override
+	public int getTemplateId() {
         return id;
     }
     
@@ -169,7 +170,8 @@ public class GatherableTemplate extends VisibleObjectTemplate
      *     {@link String }
      *     
      */
-    public String getName() {
+    @Override
+	public String getName() {
         return name;
     }
 

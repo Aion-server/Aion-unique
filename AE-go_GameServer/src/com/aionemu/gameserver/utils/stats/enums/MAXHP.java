@@ -49,6 +49,6 @@ public enum MAXHP
 	
 	public int getMaxHpFor(int level)
 	{
-		return (int) Math.round(a*(level - 1)*(level - 1) + b*(level -1) + c);
+		return Math.round(a*(level - 1)*(level - 1) + b*(level -1) + c);
 	}
 }

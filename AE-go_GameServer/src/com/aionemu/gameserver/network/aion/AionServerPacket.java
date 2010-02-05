@@ -80,5 +80,8 @@ public abstract class AionServerPacket extends BaseServerPacket
 	 * @param con
 	 * @param buf
 	 */
-	protected void writeImpl(AionConnection con, ByteBuffer buf){}
+	protected void writeImpl(AionConnection con, ByteBuffer buf)
+	{
+		
+	}
 }

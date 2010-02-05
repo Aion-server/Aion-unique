@@ -34,6 +34,7 @@ public class SchemaGen
 
 		class MySchemaOutputResolver extends SchemaOutputResolver
 		{
+			@Override
 			public Result createOutput(String namespaceUri, String suggestedFileName) throws IOException
 			{
 				return new StreamResult(new File(baseDir, "static_data1.xsd"));

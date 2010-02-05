@@ -335,6 +335,7 @@ public class PlayerController extends CreatureController<Player>
 		log.debug("[PvP] Player " + this.getOwner().getName() + " has been requested for a duel by "
 			+ requester.getName());
 		RequestResponseHandler rrh = new RequestResponseHandler(requester){
+			@Override
 			public void denyRequest(Creature requester, Player responder)
 			{
 				responder.getController().rejectDuelRequest((Player)requester);

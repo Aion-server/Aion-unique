@@ -41,7 +41,8 @@ public class SM_TITLE_UPDATE extends AionServerPacket {
         this.titleId = titleId;
     }
 
-    protected void writeImpl(AionConnection con, ByteBuffer buf) {
+    @Override
+	protected void writeImpl(AionConnection con, ByteBuffer buf) {
         writeD(buf, this.objectId);
         writeD(buf, this.titleId);
     }

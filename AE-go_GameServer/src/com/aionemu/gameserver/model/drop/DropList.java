@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,12 +14,11 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.model.drop;
 
-import java.util.HashMap;
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -27,7 +26,7 @@ import java.util.Set;
  */
 public class DropList 
 {	
-	private Map<Integer, Set<DropTemplate>> templatesMap = new HashMap<Integer, Set<DropTemplate>>();
+	private TIntObjectHashMap<Set<DropTemplate>> templatesMap = new TIntObjectHashMap<Set<DropTemplate>>();
 	
 	public void addDropTemplate(int mobId, DropTemplate dropTemplate)
 	{

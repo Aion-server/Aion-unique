@@ -87,6 +87,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	/**
 	 *  Perform tasks on Creature respawn
 	 */
+	@Override
 	public void onRespawn()
 	{
 		

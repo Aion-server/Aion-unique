@@ -66,6 +66,7 @@ public abstract class AionClientPacket extends BaseClientPacket<AionConnection> 
 	/**
 	 * run runImpl catching and logging Throwable.
 	 */
+	@Override
 	public final void run()
 	{
 		try
@@ -78,7 +79,7 @@ public abstract class AionClientPacket extends BaseClientPacket<AionConnection> 
 			if(name == null)
 				name = getConnection().getIP();
 
-			log.error("error handling client (" + name + ") message " + this, e);
+			log.error("Error handling client (" + name + ") message :" + this, e);
 		}
 	}
 

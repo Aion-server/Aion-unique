@@ -66,6 +66,7 @@ public class _1123WheresTutty extends QuestHandler
 		return false;
 	}
 	
+	@Override
 	public boolean onEnterZoneEvent(QuestEnv env, ZoneName zoneName)
 	{
 		if(zoneName != ZoneName.Q1123)

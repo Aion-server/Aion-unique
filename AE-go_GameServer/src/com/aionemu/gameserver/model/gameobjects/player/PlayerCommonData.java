@@ -252,6 +252,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 		this.race = race;
 	}
 
+	@Override
 	public String getName()
 	{
 		return name;

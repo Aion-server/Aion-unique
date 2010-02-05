@@ -95,7 +95,7 @@ public class Set extends AdminCommand {
 
 			if (target instanceof Player)
 			{
-				Player player = (Player) target;
+				Player player = target;
 				player.getCommonData().setExp(exp);
 				PacketSendUtility.sendMessage(admin, "Set your exp to " + paramValue);
 			}
@@ -122,7 +122,7 @@ public class Set extends AdminCommand {
 
 			if (target instanceof Player)
 			{
-				Player player = (Player) target;
+				Player player = target;
 				if (level <= 51)
 					player.getCommonData().setLevel(level);
 				PacketSendUtility.sendMessage(admin, "Set " + player.getCommonData().getName() + " level to " + level);
@@ -150,7 +150,7 @@ public class Set extends AdminCommand {
 			if (target instanceof Player)
 			{
 
-				Player player = (Player) target;
+				Player player = target;
 				if (titleId <= 106)
 					setTitle(player, titleId);
 				PacketSendUtility.sendMessage(admin, "Set " + player.getCommonData().getName() + " title to " + titleId);

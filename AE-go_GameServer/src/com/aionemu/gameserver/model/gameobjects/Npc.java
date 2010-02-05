@@ -89,6 +89,7 @@ public class Npc extends Creature
 	/**
 	 * @return the lifeStats
 	 */
+	@Override
 	public NpcLifeStats getLifeStats()
 	{
 		return (NpcLifeStats) super.getLifeStats();
@@ -97,6 +98,7 @@ public class Npc extends Creature
 	/**
 	 * @return the gameStats
 	 */
+	@Override
 	public NpcGameStats getGameStats()
 	{
 		return (NpcGameStats) super.getGameStats();

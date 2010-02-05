@@ -111,6 +111,7 @@ public class MySQL5FriendListDAO extends FriendListDAO
 		
 	}
 	
+	@Override
 	public boolean delFriends(final int playerOid, final int friendOid) 
 	{
 		

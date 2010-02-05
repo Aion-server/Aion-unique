@@ -95,6 +95,7 @@ public class Stat
 		bonus = 0;
 	}
 	
+	@Override
 	public String toString()
 	{
 		final String s = type+":"+base+"+"+bonus;

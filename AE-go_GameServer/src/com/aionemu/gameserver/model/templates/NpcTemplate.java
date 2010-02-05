@@ -66,6 +66,7 @@ public class NpcTemplate extends VisibleObjectTemplate
 	@XmlAttribute(name = "tribe")
 	private String				tribe;
 	
+	@Override
 	public int getTemplateId()
 	{
 		return npcId;
@@ -81,6 +82,7 @@ public class NpcTemplate extends VisibleObjectTemplate
 		return titleId;
 	}
 
+	@Override
 	public String getName()
 	{
 		return name;

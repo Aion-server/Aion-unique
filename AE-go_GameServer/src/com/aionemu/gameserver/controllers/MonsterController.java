@@ -61,7 +61,7 @@ public class MonsterController extends NpcController
 			dropService.registerDrop((Monster) getOwner() , winner);
 		}
 		else*/
-		dropService.registerDrop((Monster) getOwner() , player);			
+		dropService.registerDrop(getOwner() , player);			
 		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
 	}
 	

@@ -87,8 +87,8 @@ public class _2008Ascension extends QuestHandler
 			{
 				qs.getQuestVars().setQuestVar(qs.getQuestVars().getQuestVars() + 1);
 				updateQuestStatus(player, qs);
-				if(mobs.contains((Monster)env.getVisibleObject()))
-					mobs.remove((Monster)env.getVisibleObject());
+				if(mobs.contains(env.getVisibleObject()))
+					mobs.remove(env.getVisibleObject());
 				return true;
 			}
 			else if(var == 54)
@@ -99,7 +99,7 @@ public class _2008Ascension extends QuestHandler
 					259f, 205.5f, (byte) 0, false);
 				//TODO: Tempt decrease P attack.
 				mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER)/3 );
-				((Monster) mob).getAggroList().addDamageHate(player, 1000, 0);
+				(mob).getAggroList().addDamageHate(player, 1000, 0);
 				mob.getAi().handleEvent(Event.ATTACKED);
 				mobs.add(mob);
 				return true;

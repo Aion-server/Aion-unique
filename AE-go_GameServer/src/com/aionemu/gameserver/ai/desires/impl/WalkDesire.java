@@ -118,7 +118,7 @@ public class WalkDesire extends AbstractDesire implements MoveDesire
 			// new player sees it (onSee in controller) - this needs implementation of current stats
 			// like attacking - send corresponding emotion etc
 			PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner,0x15,0,0));
-			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(),(float) (x2) , (float) (y2) , 0, heading2, MovementType.MOVEMENT_START_KEYBOARD));
+			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(),(x2) , (y2) , 0, heading2, MovementType.MOVEMENT_START_KEYBOARD));
 			owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX() + x2, owner.getY() + y2, owner.getZ() + z2, heading2);
 		}
 		else

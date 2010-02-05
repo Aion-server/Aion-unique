@@ -222,6 +222,7 @@ public class Player extends Creature
 	/**
 	 * @return the playerLifeStats
 	 */
+	@Override
 	public PlayerLifeStats getLifeStats()
 	{
 		return (PlayerLifeStats) super.getLifeStats();
@@ -239,6 +240,7 @@ public class Player extends Creature
 	/**
 	 * @return the gameStats
 	 */
+	@Override
 	public PlayerGameStats getGameStats()
 	{
 		return (PlayerGameStats) super.getGameStats();

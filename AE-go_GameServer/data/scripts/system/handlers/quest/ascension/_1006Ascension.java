@@ -86,8 +86,8 @@ public class _1006Ascension extends QuestHandler
 			{
 				qs.getQuestVars().setQuestVar(qs.getQuestVars().getQuestVars() + 1);
 				updateQuestStatus(player, qs);
-				if(mobs.contains((Monster)env.getVisibleObject()))
-					mobs.remove((Monster)env.getVisibleObject());
+				if(mobs.contains(env.getVisibleObject()))
+					mobs.remove(env.getVisibleObject());
 				return true;
 			}
 			else if(var == 54)

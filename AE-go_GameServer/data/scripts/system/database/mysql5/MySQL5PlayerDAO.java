@@ -410,6 +410,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	/**
 	 * {@inheritDoc} - Nemiroff
 	 */
+	@Override
 	public void setPlayersOffline(final boolean online)
 	{
 		DB.insertUpdate("UPDATE players SET online=?", new IUStH(){

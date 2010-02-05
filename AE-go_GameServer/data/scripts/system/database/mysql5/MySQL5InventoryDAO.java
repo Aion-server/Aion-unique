@@ -99,7 +99,8 @@ public class MySQL5InventoryDAO extends InventoryDAO
      * @param playerId
      * @return
      */
-    public boolean store(final Item item, final int playerId)
+    @Override
+	public boolean store(final Item item, final int playerId)
     {   
     	boolean result = false;
     	
