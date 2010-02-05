@@ -139,6 +139,8 @@ public class Skill
 	{
 		int targetObjId = firstTarget !=  null ? firstTarget.getObjectId() : 0;
 		final int unk = 0;
+		//start casting
+		effector.setCasting(this);
 		PacketSendUtility.broadcastPacket(effector, 
 			new SM_CASTSPELL(effector.getObjectId(), skillTemplate.getSkillId(), skillLevel,
 				unk, targetObjId, skillTemplate.getDuration()), true);
@@ -149,6 +151,9 @@ public class Skill
 	 */
 	private void endCast()
 	{
+		//stop casting must be before preUsageCheck()
+		effector.setCasting(null);
+		
 		if(!preUsageCheck())
 			return;
 		
@@ -168,7 +173,6 @@ public class Skill
 				creature.getEffectController().addEffect(effect);
 			}
 		}
-		
 		
 		Actions skillActions = skillTemplate.getActions();
 		if(skillActions != null)

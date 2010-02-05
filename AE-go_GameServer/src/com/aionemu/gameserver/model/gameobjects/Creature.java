@@ -25,6 +25,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -54,6 +55,8 @@ public abstract class Creature extends VisibleObject
 	private boolean isPoisoned;
 	private boolean isStumbled;
 	private boolean isStunned;
+	
+	private Skill castingSkill;
 	
 	private int transformedModelId;
 
@@ -232,7 +235,22 @@ public abstract class Creature extends VisibleObject
 	{
 		this.isStunned = isStunned;
 	}
-
+	
+	public boolean isCasting()
+	{
+		return castingSkill != null;
+	}
+	
+	public void setCasting(Skill castingSkill)
+	{
+		this.castingSkill = castingSkill;
+	}
+	
+	public int getCastingSkillId()
+	{
+		return castingSkill != null ? castingSkill.getSkillTemplate().getSkillId() : 0;
+	}
+	
 	public boolean canPerformMove()
 	{
 		return !(isRooted || isSleep || isStumbled || isStunned);
@@ -240,7 +258,7 @@ public abstract class Creature extends VisibleObject
 	
 	public boolean canAttack()
 	{
-		return !(isSleep || isStunned || isStumbled);
+		return !(isSleep || isStunned || isStumbled || isCasting());
 	}
 
 	/**

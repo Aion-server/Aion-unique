@@ -248,6 +248,14 @@ public class PlayerController extends CreatureController<Player>
 
 	public void useSkill(int skillId)
 	{
+		//check if is casting to avoid multicast exploit
+		//TODO retail-like message
+		//TODO cancel skill if other is used
+		if(this.getOwner().isCasting())
+		{
+			PacketSendUtility.sendMessage(this.getOwner(), "You must wait until cast time finished to use skill again.");
+			return;
+		}
 		Skill skill = SkillEngine.getInstance().getSkillFor(getOwner(), skillId);
 		if(skill != null)
 		{
