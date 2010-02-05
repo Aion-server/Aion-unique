@@ -25,6 +25,9 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
  */
 public interface Restrictions
 {
+	//TODO
+	public boolean canAttack(Player player, VisibleObject target);
+	
 	// TODO
 	public boolean canUseSkill(Player player, VisibleObject target);
 	

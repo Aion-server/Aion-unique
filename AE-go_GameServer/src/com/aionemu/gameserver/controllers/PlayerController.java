@@ -54,6 +54,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.Skill;
@@ -203,6 +204,7 @@ public class PlayerController extends CreatureController<Player>
 	public void attackTarget(int targetObjectId)
 	{
 		Player player = getOwner();
+		
 		if(!player.canAttack())
 			return;
 		
@@ -215,6 +217,9 @@ public class PlayerController extends CreatureController<Player>
 		if(target == null 
 			|| !target.getController().isAttackable()
 			|| target.getLifeStats().isAlreadyDead())
+			return;
+		
+		if(!RestrictionsManager.canAttack(player, target))
 			return;
 
 		List<AttackResult> attackResult = AttackUtil.calculateAttackResult(player, target);
