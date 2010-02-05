@@ -32,8 +32,6 @@ import com.aionemu.gameserver.model.gameobjects.stats.id.StatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.StatChangeListener;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.items.ItemSlot;
-import com.aionemu.gameserver.utils.gametime.listeners.DayTimeListener;
-import com.aionemu.gameserver.world.zone.ZoneManager;
 
 /**
  * @author xavier

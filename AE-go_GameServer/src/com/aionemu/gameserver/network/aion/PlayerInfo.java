@@ -19,8 +19,6 @@ package com.aionemu.gameserver.network.aion;
 import java.nio.ByteBuffer;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
@@ -35,8 +33,6 @@ import com.aionemu.gameserver.model.items.ItemSlot;
  */
 public abstract class PlayerInfo extends AionServerPacket
 {
-	private static Logger log= Logger.getLogger(PlayerInfo.class);
-
 	protected PlayerInfo()
 	{
 		

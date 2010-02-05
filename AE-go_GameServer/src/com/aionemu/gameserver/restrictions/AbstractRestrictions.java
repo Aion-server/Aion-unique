@@ -49,8 +49,6 @@ public abstract class AbstractRestrictions implements Restrictions
 	{
 		return getClass().equals(obj.getClass());
 	}
-
-	// TODO
 	
 	@DisabledRestriction
 	public boolean canAttack(Player player, VisibleObject target)

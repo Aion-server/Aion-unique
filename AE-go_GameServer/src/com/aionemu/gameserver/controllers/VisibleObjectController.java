@@ -18,10 +18,7 @@ package com.aionemu.gameserver.controllers;
 
 import org.apache.log4j.Logger;
 
-import sun.util.logging.resources.logging;
-
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
-import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.world.World;
 
 /**

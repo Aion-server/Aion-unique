@@ -14,14 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.ai;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Future;
-
-import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.desires.Desire;
 import com.aionemu.gameserver.ai.desires.DesireQueue;
@@ -35,9 +32,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 public abstract class AI<T extends Creature> implements Runnable
-{
-	private static Logger log = Logger.getLogger(AI.class);
-	
+{	
 	protected Map<Event, EventHandler> eventHandlers = new HashMap<Event, EventHandler>();
 	protected Map<AIState, StateHandler> stateHandlers = new HashMap<AIState, StateHandler>();
 	
@@ -141,7 +136,7 @@ public abstract class AI<T extends Creature> implements Runnable
 	public void run()
 	{
 		desireQueue.iterateDesires(new GeneralDesireIteratorHandler(this), new CounterBasedDesireFilter());
-		//todo move to home
+		// todo move to home
 		if(desireQueue.isEmpty() || isStateChanged)
 		{
 			analyzeState();

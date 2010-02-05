@@ -14,14 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.ai.desires;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.PriorityQueue;
-
-import org.apache.log4j.Logger;
 
 /**
  * This class represents desire queue, it's thread-safe. Desires can be added and removed. If desire is added - previous
@@ -33,7 +30,6 @@ import org.apache.log4j.Logger;
  */
 public class DesireQueue
 {
-	private static Logger log = Logger.getLogger(DesireQueue.class);
 	/**
 	 * Prioritized Queue of desires, lazy initialization.
 	 */

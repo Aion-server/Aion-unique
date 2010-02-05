@@ -19,12 +19,9 @@ package com.aionemu.gameserver.ai.desires.impl;
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.desires.AbstractDesire;
 import com.aionemu.gameserver.ai.events.Event;
-import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.utils.MathUtil;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * This class indicates that character wants to attack somebody

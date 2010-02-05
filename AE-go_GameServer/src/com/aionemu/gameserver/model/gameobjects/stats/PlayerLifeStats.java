@@ -16,7 +16,6 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.group.GroupEvent;

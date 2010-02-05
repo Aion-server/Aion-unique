@@ -62,6 +62,7 @@ public class MoveToTargetDesire extends AbstractDesire implements MoveDesire
 		return true;
 	}
 
+	@Override
 	public boolean equals(Object o)
 	{
 		if(this == o)

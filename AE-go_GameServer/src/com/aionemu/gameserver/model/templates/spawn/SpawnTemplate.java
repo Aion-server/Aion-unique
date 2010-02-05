@@ -22,8 +22,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.utils.gametime.DayTime;
-
 /**
  * @author Luno
  * 
@@ -64,6 +62,7 @@ public class SpawnTemplate
 	 */
 	public SpawnTemplate()
 	{
+		
 	}
 
 	/**

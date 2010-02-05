@@ -38,7 +38,6 @@ public class RestrictionsManager
 
 	private static enum RestrictionMode implements Comparator<Restrictions>
 	{
-		// TODO
 		canAttack,
 		canUseSkill,
 		canChat,
@@ -160,7 +159,6 @@ public class RestrictionsManager
 		activate(new PlayerRestrictions());
 	}
 	
-	// TODO
 	public static boolean canAttack(Player player, VisibleObject target)
 	{
 		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canAttack.ordinal()])
@@ -172,7 +170,6 @@ public class RestrictionsManager
 		return true;
 	}
 
-	// TODO
 	public static boolean canUseSkill(Player player, VisibleObject target)
 	{
 		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canUseSkill.ordinal()])
@@ -184,7 +181,6 @@ public class RestrictionsManager
 		return true;
 	}
 	
-	// TODO
 	public static boolean canChat(Player player)
 	{
 		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canChat.ordinal()])

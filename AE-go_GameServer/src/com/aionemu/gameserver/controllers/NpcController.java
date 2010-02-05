@@ -18,9 +18,6 @@ package com.aionemu.gameserver.controllers;
 
 import java.util.concurrent.Future;
 
-import org.apache.log4j.Logger;
-
-import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
@@ -38,9 +35,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class NpcController extends CreatureController<Npc>
 {
-
-	private static Logger log = Logger.getLogger(NpcController.class);
-
 	protected Future<?> decayTask;
 
 	protected DropService dropService;

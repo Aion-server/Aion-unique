@@ -19,8 +19,6 @@ package com.aionemu.gameserver.network.aion;
 import java.nio.ByteBuffer;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SimpleModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
@@ -33,9 +31,7 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
  *
  */
 public abstract class InventoryPacket extends AionServerPacket
-{
-	private static Logger log= Logger.getLogger(InventoryPacket.class);
-	
+{	
 	/**
 	 *  The header of every item block
 	 * @param buf
