@@ -984,7 +984,7 @@
 		<link>NORTHERN_TOLBAS_FOREST</link>
         <link>SOUTHERN_TOLBAS_FOREST</link>
     </zone>
-    <zone mapid="210030000" name="ARDUS_SHRINE" priority="17">
+    <zone mapid="210030000" name="ARDUS_SHRINE" priority="17" fly="true">
         <points>
             <point x="2264.53" y="1786.2"/>
             <point x="2307.9607" y="1739.6296"/>
