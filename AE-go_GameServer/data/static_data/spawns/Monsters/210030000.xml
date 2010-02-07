@@ -393,7 +393,7 @@ Verteron -->
     <object x="930" y="2350" z="179.01099" h="37"/>
   </spawn>
   <!-- Dukaki Peon -->
-  <spawn map="210030000" npcid="210150" pool="41" interval="105">
+  <spawn map="210030000" npcid="210150" pool="40" interval="105">
     <object x="972.3937" y="2256.07" z="159.95924" h="43"/>
     <object x="868.0272" y="2034.889" z="157.29706" h="34"/>
     <object x="960.5211" y="2198.081" z="152.85257" h="64"/>
@@ -610,7 +610,7 @@ Verteron -->
     <object x="1523.823" y="1224.295" z="115" h="104"/>
   </spawn>
   <!-- Kobold Cook -->
-  <spawn map="210030000" npcid="210332" pool="11" interval="105">
+  <spawn map="210030000" npcid="210332" pool="10" interval="105">
     <object x="962.8401" y="2467.255" z="186.6975" h="29"/>
     <object x="862.9846" y="2613.963" z="203.75" h="3"/>
     <object x="790.4025" y="2556.034" z="215.625" h="98"/>
