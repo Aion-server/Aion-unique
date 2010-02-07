@@ -107,8 +107,8 @@
 
 	<!-- The Forest Outlaw -->
 	<monster_hunt start_npc_id="203124" id="1139">
-		<monster_infos var_id="0" npc_id="210138" max_kill="6"/>
-		<monster_infos var_id="0" npc_id="210139" max_kill="6"/>
+		<monster_infos var_id="0" npc_id="210138" max_kill="9"/>
+		<monster_infos var_id="0" npc_id="210139" max_kill="9"/>
 		<monster_infos var_id="1" npc_id="210140" max_kill="5"/>
 	</monster_hunt>
 

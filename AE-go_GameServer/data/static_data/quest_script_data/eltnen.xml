@@ -18,36 +18,36 @@
 	<!-- A Treat For Adelphie -->
 	<item_collecting id="1434" start_npc_id="203936" action_item_id="152000004" />
 
-    <!-- Pluma Attack! -->
-    <item_collecting id="1303" start_npc_id="203917" />
+   	 <!-- Pluma Attack! -->
+    	<item_collecting id="1303" start_npc_id="203917" />
 
-    <!-- Nature's Balance -->
-    <monster_hunt id="1304" start_npc_id="203917">
-        <monster_infos npc_id="211682" var_id="0" max_kill="10"/>
-    </monster_hunt>
+    	<!-- Nature's Balance -->
+    	<monster_hunt id="1304" start_npc_id="203917">
+        	<monster_infos npc_id="211682" var_id="0" max_kill="10"/>
+    	</monster_hunt>
 
-    <!-- The River Predators -->
-    <item_collecting id="1431" start_npc_id="203328" />
+    	<!-- The River Predators -->
+    	<item_collecting id="1431" start_npc_id="203328" />
 
-    <!-- [Manastone] Nyornyerk's Business Opportunity -->
-    <item_collecting id="1442" start_npc_id="203334" />
+    	<!-- [Manastone] Nyornyerk's Business Opportunity -->
+    	<item_collecting id="1442" start_npc_id="203334" />
 
-    <!-- [Manastone] New Manastones for Old (III) -->
-    <item_collecting id="1438" start_npc_id="203334" />
+    	<!-- [Manastone] New Manastones for Old (III) -->
+    	<item_collecting id="1438" start_npc_id="203334" />
 
-    <!-- Aether Powder -->
-    <item_collecting id="1301" start_npc_id="203918" />
+    	<!-- Aether Powder -->
+    	<item_collecting id="1301" start_npc_id="203918" />
 
-    <!-- Bait and Switch -->
-    <item_collecting id="1475" start_npc_id="203328" />
+    	<!-- Bait and Switch -->
+    	<item_collecting id="1475" start_npc_id="203328" />
 
-    <!-- Violent Frillneck -->
-    <monster_hunt id="1476" start_npc_id="203997">
+    	<!-- Violent Frillneck -->
+    	<monster_hunt id="1476" start_npc_id="203997">
 		<monster_infos npc_id="211690" var_id="0" max_kill="7"/>
-    </monster_hunt>
+   	 </monster_hunt>
 
-    <!-- Ferenna's Test -->
-    <item_collecting id="1419" start_npc_id="203931" />
+    	<!-- Ferenna's Test -->
+    	<item_collecting id="1419" start_npc_id="203931" />
 
 	<!-- The Manduri Problem -->
 	<report_to id="1302" start_npc_id="203921" end_npc_id="203932"/>
