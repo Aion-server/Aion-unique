@@ -299,7 +299,7 @@ public class LoginServer
 	{
 		synchronized(this)
 		{
-			AionConnection client = loginRequests.get(accountId);
+			AionConnection client = loggedInAccounts.get(accountId);
 			if(client != null)
 				client.close(/* closePacket, */false);
 			/**
