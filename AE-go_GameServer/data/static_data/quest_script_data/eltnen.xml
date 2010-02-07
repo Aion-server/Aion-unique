@@ -15,64 +15,60 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
   -->
-<!--
- * @author A-G
- * 
-  -->
 	<!-- A Treat For Adelphie -->
 	<item_collecting id="1434" start_npc_id="203936" action_item_id="152000004" />
 
-        <!-- Pluma Attack! -->
-        <item_collecting id="1303" start_npc_id="203917" />
+    <!-- Pluma Attack! -->
+    <item_collecting id="1303" start_npc_id="203917" />
 
-        <!-- Nature's Balance -->
-        <monster_hunt id="1304" start_npc_id="203917">
-           <monster_infos npc_id="211682" var_id="0" max_kill="10"/>
-        </monster_hunt>
+    <!-- Nature's Balance -->
+    <monster_hunt id="1304" start_npc_id="203917">
+        <monster_infos npc_id="211682" var_id="0" max_kill="10"/>
+    </monster_hunt>
 
-        <!-- The River Predators -->
-        <item_collecting id="1431" start_npc_id="203328" />
+    <!-- The River Predators -->
+    <item_collecting id="1431" start_npc_id="203328" />
 
-        <!-- [Manastone] Nyornyerk's Business Opportunity -->
-        <item_collecting id="1442" start_npc_id="203334" />
+    <!-- [Manastone] Nyornyerk's Business Opportunity -->
+    <item_collecting id="1442" start_npc_id="203334" />
 
-        <!-- [Manastone] New Manastones for Old (III) -->
-        <item_collecting id="1438" start_npc_id="203334" />
+    <!-- [Manastone] New Manastones for Old (III) -->
+    <item_collecting id="1438" start_npc_id="203334" />
 
-        <!-- Aether Powder -->
-        <item_collecting id="1301" start_npc_id="203918" />
+    <!-- Aether Powder -->
+    <item_collecting id="1301" start_npc_id="203918" />
 
-        <!-- Bait and Switch -->
-        <item_collecting id="1475" start_npc_id="203328" />
+    <!-- Bait and Switch -->
+    <item_collecting id="1475" start_npc_id="203328" />
 
-        <!-- Violent Frillneck -->
-        <monster_hunt id="1476" start_npc_id="203997">
-           <monster_infos npc_id="211690" var_id="0" max_kill="7"/>
-        </monster_hunt>
+    <!-- Violent Frillneck -->
+    <monster_hunt id="1476" start_npc_id="203997">
+		<monster_infos npc_id="211690" var_id="0" max_kill="7"/>
+    </monster_hunt>
 
-        <!-- Ferenna's Test -->
-        <item_collecting id="1419" start_npc_id="203931" />
+    <!-- Ferenna's Test -->
+    <item_collecting id="1419" start_npc_id="203931" />
 
 	<!-- The Manduri Problem -->
 	<report_to id="1302" start_npc_id="203921" end_npc_id="203932"/>
 
 	<!-- [Coin] Fortress Beasts -->
 	<monster_hunt id="1418" start_npc_id="203931">
-		<monster_infos npc_id="211684"  var_id="0" max_kill="10"/>
-		<monster_infos npc_id="210758"  var_id="0" max_kill="13"/>
-		<monster_infos npc_id="210759"  var_id="0" max_kill="13"/>
+		<monster_infos npc_id="211684" var_id="0" max_kill="10"/>
+		<monster_infos npc_id="210758" var_id="1" max_kill="13"/>
+		<monster_infos npc_id="210759" var_id="2" max_kill="13"/>
 	</monster_hunt>
 
 	<!-- Cleansing The Forest -->
 	<monster_hunt id="1427" start_npc_id="203935">
-		<monster_infos npc_id="210755"  var_id="0" max_kill="7"/>
-		<monster_infos npc_id="210756"  var_id="0" max_kill="7"/>
+		<monster_infos npc_id="210755" var_id="0" max_kill="7"/>
+		<monster_infos npc_id="210756" var_id="1" max_kill="7"/>
 	</monster_hunt>
-
+	
 	<!-- Cleansing The Forest -->
 	<monster_hunt id="1306" start_npc_id="203935">
 		<monster_infos npc_id="210755"  var_id="0" max_kill="7"/>
-                <monster_infos npc_id="210756"  var_id="0" max_kill="9"/>
+        <monster_infos npc_id="210756"  var_id="0" max_kill="9"/>
 	</monster_hunt>
 
         <!-- More Manduri Frillnecks -->
@@ -145,7 +141,7 @@
 	</monster_hunt>
 
 	<!-- Plague of the Elim -->
-	<monster_hunt start_npc_id="730021" id="1316">
+	<monster_hunt id="1316" start_npc_id="730021">
 		<monster_infos var_id="0" npc_id="211285" max_kill="10"/>
 	</monster_hunt>
 
@@ -178,4 +174,397 @@
 
 	<!-- Eating Better -->
 	<item_collecting start_npc_id="204010" id="1353"/>
+	
+	<!-- A Package For Crios -->
+	<report_to id="1337" start_npc_id="203938" end_npc_id="798150" item_id="182201315"/>
+	
+	<!-- The Frillneck Threat -->
+	<monster_hunt start_npc_id="203935" id="1421">
+		<monster_infos var_id="0" npc_id="211687" max_kill="11"/>
+	</monster_hunt>	
+	
+	<!-- Spiner Pincers -->
+	<item_collecting start_npc_id="204031" id="1325"/>
+	
+	<!-- Thirst-Quencher -->
+	<report_to id="1329" start_npc_id="203918" end_npc_id="203998" item_id="182201375"/>
+	
+	<!-- Maeki Attack -->
+	<monster_hunt start_npc_id="203939" id="1328">
+		<monster_infos var_id="0" npc_id="210803" max_kill="24"/>
+	</monster_hunt>
+	
+	<!-- [Coin] Sataloca's Heartbeat -->
+	<monster_hunt start_npc_id="203999" id="1330">
+		<monster_infos var_id="0" npc_id="211648" max_kill="14"/>
+		<monster_infos var_id="1" npc_id="210800" max_kill="13"/>
+	</monster_hunt>
+	
+	<!-- Scout Leader's Request -->
+	<report_to id="1338" start_npc_id="204006" end_npc_id="204008" />
+	
+	<!-- The Scolopen Sting -->
+	<monster_hunt start_npc_id="204008" id="1339">
+		<monster_infos var_id="0" npc_id="210801" max_kill="10"/>
+	</monster_hunt>
+	
+	<!-- Trinkets For Children -->
+	<item_collecting start_npc_id="204009" id="1341" />
+	
+	<!-- A Favor For Brirunerk(Brirunyerk) -->
+	<report_to id="1360" start_npc_id="798055" end_npc_id="203944" item_id="182201325" />
+	
+	<!-- Armor For Pilgrims -->
+	<item_collecting start_npc_id="204040" id="1381" />
+	
+	<!-- Drake Hunt -->
+	<monster_hunt start_npc_id="203993" id="1379">
+		<monster_infos var_id="0" npc_id="210832" max_kill="8"/>
+		<monster_infos var_id="1" npc_id="210889" max_kill="4"/>
+	</monster_hunt>
+	
+	<!-- Endymion The Slow -->
+	<monster_hunt start_npc_id="204007" id="1343">
+		<monster_infos var_id="0" npc_id="210909" max_kill="1"/>
+	</monster_hunt>	
+	
+	<!-- Killer Ksellids -->
+	<item_collecting start_npc_id="204007" id="1342" />
+
+		<!-- TODO: 1319 Prorite'sMoney -->
+
+	<!-- TODO: 1300 OrdersfromTelemachus -->
+
+	<!-- TODO: 1430 ATeleportationExperiment -->
+
+	<!-- TODO: 1434 MedicinalRoots -->
+
+	<!-- TODO: 1031 TheManduri'sSecret -->
+
+	<!-- TODO: 1314 AnElimoutofWater -->
+
+	<!-- TODO: 1311 AGermofHope -->
+
+	<!-- TODO: 1309 Manduri'sDiary -->
+
+	<!-- TODO: 1432 StalkingtheWilyLapia -->
+
+	<!-- TODO: 1482 [Spy]ATeleportationAdventure -->
+
+	<!-- TODO: 1479 HelpingMemnes -->
+
+	<!-- TODO: 1462 [Spy]Celestine'sAntidote -->
+
+	<!-- TODO: 1436 DesertFess -->
+
+	<!-- TODO: 1437 WorthYourWeightinGold -->
+
+	<!-- TODO: 1032 ARuler'sDuty -->
+
+	<!-- TODO: 1318 KerubianHorns -->
+
+	<!-- TODO: 1322 ALeafFromLodas -->
+
+	<!-- TODO: 1323 LostJewelBox -->
+
+	<!-- TODO: 1320 KurinHunt -->
+
+	<!-- TODO: 1321 TheElimTragedy -->
+
+	<!-- TODO: 1324 ConfidentialOrders -->
+
+	<!-- TODO: 1433 Girrinerk'sPotions -->
+
+	<!-- TODO: 1455 ADaeva'sReputation -->
+
+	<!-- TODO: 1480 KerubianWeapons -->
+
+	<!-- TODO: 1489 MarfondaofDarkness -->
+
+	<!-- TODO: 1483 Harumonerk'sRequest -->
+
+	<!-- TODO: 1484 Chiyorinrinerk'sRequest -->
+
+	<!-- TODO: 1463 [Spy]MessagetoaSpy -->
+
+	<!-- TODO: 1464 [Spy]AGiftofLove -->
+
+	<!-- TODO: 1440 FirstAid -->
+
+	<!-- TODO: 1033 Sataloca'sHeart -->
+
+	<!-- TODO: 1327 WhenStatuesgoBad -->
+
+	<!-- TODO: 1034 DisappearingAether -->
+
+	<!-- TODO: 1441 TheVitalIngredient -->
+
+	<!-- TODO: 1490 ALepharistBox -->
+
+	<!-- TODO: 1465 [Spy]ThatOldElyosSpirit -->
+
+	<!-- TODO: 1466 [Spy]RespectForDeltras -->
+
+	<!-- TODO: 1458 ADaeva'sReputation(II) -->
+
+	<!-- TODO: 1336 ScoutingforDemokritos -->
+
+	<!-- TODO: 1345 BearerofBadNews -->
+
+	<!-- TODO: 1446 LikeMotherUsedtoMake -->
+
+	<!-- TODO: 1449 LettertoOphelos -->
+
+	<!-- TODO: 1496 [Group]EnemyintheKaidanMine -->
+
+	<!-- TODO: 1497 [Group]EnemyMiner -->
+
+	<!-- TODO: 1498 [Group]GeologistinJeopardy -->
+
+	<!-- TODO: 1358 SpringWaterEssence -->
+
+	<!-- TODO: 1344 ReportingtoCastor -->
+
+	<!-- TODO: 1036 KaidanPrisoner -->
+
+	<!-- TODO: 1361 FindingDrinkingWater -->
+
+	<!-- TODO: 1362 Mother'sKeepsake -->
+
+	<!-- TODO: 1380 DrakieHunt -->
+
+	<!-- TODO: 1382 GimmeShelter -->
+
+	<!-- TODO: 1363 ThankingMabangtah -->
+
+	<!-- TODO: 1364 JourneytoAgairon -->
+
+	<!-- TODO: 1365 Mabangtah'sFirstTest -->
+
+	<!-- TODO: 1422 ABetterSword -->
+
+	<!-- TODO: 1037 SecretsoftheTemple -->
+
+	<!-- TODO: 1359 APainintheNyerk -->
+
+	<!-- TODO: 1346 KillingforCastor -->
+
+	<!-- TODO: 1467 [Group]TheFourLeaders -->
+
+	<!-- TODO: 1450 OreforHannet -->
+
+	<!-- TODO: 1451 DeliveryforHannet -->
+
+	<!-- TODO: 1445 DeliveryForVulcanus -->
+
+	<!-- TODO: 1457 MagicalShugoGrass -->
+
+	<!-- TODO: 1443 UntouchableAetherCrystals -->
+
+	<!-- TODO: 3310 [Group]Marana'sWorry -->
+
+	<!-- TODO: 3311 [Group]AGustRisingintheUndergroundTemple -->
+
+	<!-- TODO: 1348 SeekingtheSeekers -->
+
+	<!-- TODO: 1349 TheKlaws'Secret -->
+
+	<!-- TODO: 1350 [Coin]DesertDangers -->
+
+	<!-- TODO: 1351 [Group]EarningMarana'sRespect -->
+
+	<!-- TODO: 1352 [Group]SirenSong -->
+
+	<!-- TODO: 1354 PracticalAerobatics -->
+
+	<!-- TODO: 1035 RefreshingtheSprings -->
+
+	<!-- TODO: 1423 ExpertAdvice -->
+
+	<!-- TODO: 1366 Mabangtah'sSecondTest -->
+
+	<!-- TODO: 1367 Mabangtah'sFeast -->
+
+	<!-- TODO: 1369 Mabangtah'sMessage -->
+
+	<!-- TODO: 1372 FoodForAgaironVillage -->
+
+	<!-- TODO: 1368 ASecretRecipe -->
+
+	<!-- TODO: 1383 Griffon'sThreat -->
+
+	<!-- TODO: 1384 FireFeather -->
+
+	<!-- TODO: 1356 AGiftforActeon -->
+
+	<!-- TODO: 3312 [Group]AGustHinderingtheFlyingTest -->
+
+	<!-- TODO: 1447 ATenderConcern -->
+
+	<!-- TODO: 1468 Hannet'sLostLove -->
+
+	<!-- TODO: 1448 MaceMakingMaterials -->
+
+	<!-- TODO: 1452 DoubtfulCharacters -->
+
+	<!-- TODO: 1454 Arkel'sSignposts -->
+
+	<!-- TODO: 1460 AStrangeTurnofPhrase -->
+
+	<!-- TODO: 1357 InterferingSkyrays -->
+
+	<!-- TODO: 1385 RescuingGriffo -->
+
+	<!-- TODO: 1386 SentinelViragos -->
+
+	<!-- TODO: 1387 Corpse-HuntingViragos -->
+
+	<!-- TODO: 1388 Shumerunerk'sTrade -->
+
+	<!-- TODO: 1370 Isson'sBetrayal -->
+
+	<!-- TODO: 1371 FlowersforIsson -->
+
+	<!-- TODO: 1374 WarningtoLaquepin -->
+
+	<!-- TODO: 1389 SuspiciousPretors -->
+
+	<!-- TODO: 1390 DeliverytotheLyceum -->
+
+	<!-- TODO: 1391 RM-12b -->
+
+	<!-- TODO: 1392 AMysteriousCrystal -->
+
+	<!-- TODO: 1393 NewFlightPath -->
+
+	<!-- TODO: 1355 TheFireTempleKey -->
+
+	<!-- TODO: 1038 TheShadow'sCommand -->
+
+	<!-- TODO: 1039 SomethingintheWater -->
+
+	<!-- TODO: 1456 GarnetsForKrato -->
+
+	<!-- TODO: 1459 KratoNeedsLapis -->
+
+	<!-- TODO: 1469 [Spy/Group]FindingDenlavis -->
+
+	<!-- TODO: 1444 CombatPreparation -->
+
+	<!-- TODO: 1394 ReportingtheNewFlightPath -->
+
+	<!-- TODO: 1375 ArmingtheWatch -->
+
+	<!-- TODO: 1376 AMountainofTrouble -->
+
+	<!-- TODO: 1377 [Coin]KerubsinKuriullu -->
+
+	<!-- TODO: 1420 TrespassersattheObservatory -->
+
+	<!-- TODO: 1400 Paion'sWorry -->
+
+	<!-- TODO: 1402 SpecialtyHides -->
+
+	<!-- TODO: 1403 HeartoftheMamut -->
+
+	<!-- TODO: 1404 AHeadStartonHylas -->
+
+	<!-- TODO: 1408 TrespassersattheObservatory -->
+
+	<!-- TODO: 1405 CrystalsforHylas -->
+
+	<!-- TODO: 1406 TigricsofIllOmen -->
+
+	<!-- TODO: 1407 EncounteringAkeras -->
+
+	<!-- TODO: 1378 SuppliesforHylas -->
+
+	<!-- TODO: 1040 ScoutingtheScouts -->
+
+	<!-- TODO: 1373 WaterTherapy -->
+
+	<!-- TODO: 1401 ALieBegetsaLie -->
+
+	<!-- TODO: 1409 [Group]MamakiPatrol -->
+
+	<!-- TODO: 1410 Tumblusen'sCall -->
+
+	<!-- TODO: 1411 [Group]TheKaidanSurge -->
+
+	<!-- TODO: 1412 ADangerousPotion -->
+
+	<!-- TODO: 1470 [Spy/Group]Hannet'sVengeance -->
+
+	<!-- TODO: 1471 FakeStigma -->
+
+	<!-- TODO: 1481 TrollHammers -->
+
+	<!-- TODO: 3303 MysteriousWaterSource -->
+
+	<!-- TODO: 3304 [Group]RingAroundtheCitadel -->
+
+	<!-- TODO: 3305 [Group]ConcerningaNecklace -->
+
+	<!-- TODO: 3306 [Group]YourNeckisontheLine -->
+
+	<!-- TODO: 3307 [Group]ImportantTargets -->
+
+	<!-- TODO: 1491 [Group]KorumonerkinDanger -->
+
+	<!-- TODO: 1492 [Group]TheLostGloveBox -->
+
+	<!-- TODO: 1417 TheKaidanReport -->
+
+	<!-- TODO: 1395 AWrenchintheWorks -->
+
+	<!-- TODO: 1041 ADangerousArtifact -->
+
+	<!-- TODO: 1396 PressingtheAdvantage -->
+
+	<!-- TODO: 1397 LepharistsAmok -->
+
+	<!-- TODO: 1413 InfiltratetheKaidan -->
+
+	<!-- TODO: 1414 [Group]OperationWindmill -->
+
+	<!-- TODO: 1493 Korumonerk'sPauldrons -->
+
+	<!-- TODO: 3308 [Group]AMessageinBlood -->
+
+	<!-- TODO: 3309 [Group]TheHandofJustice -->
+
+	<!-- TODO: 1494 [Group]Korumonerk'sWorry -->
+
+	<!-- TODO: 1495 [Group]Korumonerk'sBackpack -->
+
+	<!-- TODO: 1472 [Spy]Ganimerk'sEspionage -->
+
+	<!-- TODO: 1473 [Spy/Group] Tayga -->
+
+	<!-- TODO: 1474 [Group]BloodFeud -->
+
+	<!-- TODO: 1415 [Group]ReducingKaidanStrength -->
+
+	<!-- TODO: 1424 [Group]RaidingTheRaiders -->
+
+	<!-- TODO: 1425 [Group]OdiumMarks -->
+
+	<!-- TODO: 1426 [Group]KillingKaidanGuards -->
+
+	<!-- TODO: 1042 Keeper of the Kaidan Key -->
+
+	<!-- TODO: 1043 Balaur Conspiracy -->
+	
+	<!-- TODO: 1331 [SpendCoin]Bronze(WarriorandScout) -->
+
+	<!-- TODO: 1332 [SpendCoin]Bronze(WarriorAndScout) -->
+
+	<!-- TODO: 1398 [SpendCoin]Silver(WarriorandScout) -->
+
+	<!-- TODO: 1399 [SpendCoin]Silver(MageandPriest) -->
+
+	<!-- TODO: 1428 [SpendCoin]Bronze(MageandPriest) -->
+
+	<!-- TODO: 1429 [SpendCoin]SilverorBronze(MageandPriest) -->
+	
  </quest_scripts>
