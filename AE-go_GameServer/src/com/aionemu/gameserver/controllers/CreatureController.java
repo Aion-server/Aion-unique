@@ -226,4 +226,14 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(), owner.getHeading());			
 		PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0, owner.getHeading(), MovementType.MOVEMENT_STOP));	
 	}
+	
+	public void updateNearbyQuestList()
+	{
+		// TODO
+	}
+	
+	public void updateNearbyQuestListImpl()
+	{
+		// TODO
+	}
 }

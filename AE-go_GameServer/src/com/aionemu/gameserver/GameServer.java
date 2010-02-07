@@ -31,6 +31,7 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandlersManager;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
+import com.aionemu.gameserver.taskmanager.PacketBroadcaster;
 import com.aionemu.gameserver.utils.DeadlockDetector;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.ThreadUncaughtExceptionHandler;
@@ -94,6 +95,7 @@ public class GameServer
 		QuestEngine.getInstance().setItemService(gs.injector.getInstance(ItemService.class), gs.injector.getInstance(SpawnEngine.class));
 		ZoneManager.getInstance().initializeZones();
 		QuestHandlersManager.init(gs.injector);
+		PacketBroadcaster.getInstance();
 		Util.printMemoryUsage(log);
 		log.info("#################################################");
 		log.info("AE Game Server started in " + (System.currentTimeMillis() - start) / 1000 + " seconds.");

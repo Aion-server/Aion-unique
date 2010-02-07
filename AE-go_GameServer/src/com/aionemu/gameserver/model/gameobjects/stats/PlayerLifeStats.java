@@ -19,7 +19,9 @@ package com.aionemu.gameserver.model.gameobjects.stats;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.group.GroupEvent;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_HP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_MP;
+import com.aionemu.gameserver.taskmanager.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -37,6 +39,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	@Override
 	protected void onReduceHp()
 	{
+		sendHpPacketUpdate();
 		triggerRestoreTask();
 		sendGroupPacketUpdate();	
 	}
@@ -61,18 +64,8 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	protected void onIncreaseHp()
 	{
 		sendHpPacketUpdate();
+		sendAttackStatusPacketUpdate();
 		sendGroupPacketUpdate();
-	}
-
-	/**
-	 * Informs player about MP change
-	 */
-	private void sendMpPacketUpdate()
-	{
-		if(owner == null)
-			return;
-
-		PacketSendUtility.sendPacket((Player) owner, new SM_STATUPDATE_MP(currentMp, getMaxMp()));
 	}
 	
 	private void sendGroupPacketUpdate()
@@ -106,5 +99,31 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 		if(getOwner().isInState(CreatureState.RESTING))
 			currentRegenMp *= 8;
 		increaseMp(currentRegenMp);
+	}
+	
+	public void sendHpPacketUpdate()
+	{
+		owner.addPacketBroadcastMask(BroadcastMode.UPDATE_PLAYER_HP_STAT);
+	}
+	
+	public void sendHpPacketUpdateImpl()
+	{
+		if(owner == null)
+			return;
+		
+		PacketSendUtility.sendPacket((Player) owner, new SM_STATUPDATE_HP(currentHp, getMaxHp()));
+	}
+	
+	public void sendMpPacketUpdate()
+	{
+		owner.addPacketBroadcastMask(BroadcastMode.UPDATE_PLAYER_MP_STAT);
+	}
+	
+	public void sendMpPacketUpdateImpl()
+	{
+		if(owner == null)
+			return;
+
+		PacketSendUtility.sendPacket((Player) owner, new SM_STATUPDATE_MP(currentMp, getMaxMp()));
 	}
 }

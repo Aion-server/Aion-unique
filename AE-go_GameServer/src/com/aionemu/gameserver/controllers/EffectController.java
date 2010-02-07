@@ -26,6 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_EFFECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.taskmanager.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -118,17 +119,6 @@ public class EffectController
 	}
 
 	/**
-	 *  Adds icon of effect to owner (only for Player objects)
-	 *  
-	 * @param effect
-	 */
-	public void updatePlayerEffectIcons()
-	{
-		PacketSendUtility.sendPacket((Player) owner,
-			new SM_ABNORMAL_STATE(effectMap.values().toArray(new Effect[effectMap.size()])));
-	}
-
-	/**
 	 * 
 	 * @param effect
 	 */
@@ -193,5 +183,16 @@ public class EffectController
 	public int getAbnormals()
 	{
 		return abnormals;
+	}
+	
+	public void updatePlayerEffectIcons()
+	{
+		getOwner().addPacketBroadcastMask(BroadcastMode.UPDATE_PLAYER_EFFECT_ICONS);
+	}
+	
+	public void updatePlayerEffectIconsImpl()
+	{
+		PacketSendUtility.sendPacket((Player) owner,
+			new SM_ABNORMAL_STATE(effectMap.values().toArray(new Effect[effectMap.size()])));
 	}
 }

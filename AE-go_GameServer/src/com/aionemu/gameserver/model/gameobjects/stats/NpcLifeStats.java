@@ -36,7 +36,7 @@ public class NpcLifeStats extends CreatureLifeStats<Npc>
 	@Override
 	protected void onIncreaseHp()
 	{
-		sendHpPacketUpdate();
+		sendAttackStatusPacketUpdate();
 	}
 
 	@Override

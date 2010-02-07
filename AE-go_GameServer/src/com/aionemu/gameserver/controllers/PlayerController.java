@@ -59,6 +59,7 @@ import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.Skill.SkillType;
+import com.aionemu.gameserver.taskmanager.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
@@ -115,7 +116,7 @@ public class PlayerController extends CreatureController<Player>
 				}
 			}
 			if (update)
-				PacketSendUtility.sendPacket( getOwner(), new SM_NEARBY_QUESTS(getOwner().getNearbyQuests()));
+				updateNearbyQuestList();
 		}
 		else if(object instanceof Gatherable)
 		{
@@ -146,7 +147,7 @@ public class PlayerController extends CreatureController<Player>
 				}
 			}
 			if (update)
-				PacketSendUtility.sendPacket( getOwner(), new SM_NEARBY_QUESTS(getOwner().getNearbyQuests()));
+				updateNearbyQuestList();
 		}
 
 		PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object));
@@ -547,4 +548,16 @@ public class PlayerController extends CreatureController<Player>
     public boolean isEnemy (Player player) {
         return player.getCommonData().getRace() != getOwner().getCommonData().getRace();
     }
+    
+	@Override
+	public void updateNearbyQuestList()
+	{
+		getOwner().addPacketBroadcastMask(BroadcastMode.UPDATE_NEARBY_QUEST_LIST);
+	}
+	
+	@Override
+	public void updateNearbyQuestListImpl()
+	{
+		PacketSendUtility.sendPacket(getOwner(), new SM_NEARBY_QUESTS(getOwner().getNearbyQuests()));
+	}
 }

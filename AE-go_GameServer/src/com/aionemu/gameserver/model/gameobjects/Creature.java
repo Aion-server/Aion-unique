@@ -26,6 +26,8 @@ import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.taskmanager.PacketBroadcaster;
+import com.aionemu.gameserver.taskmanager.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -314,5 +316,24 @@ public abstract class Creature extends VisibleObject
 	public MoveController getMoveController()
 	{
 		return moveController;
+	}
+	
+	private volatile byte packetBroadcastMask;
+
+	public final void addPacketBroadcastMask(BroadcastMode mode)
+	{
+		packetBroadcastMask |= mode.mask();
+
+		PacketBroadcaster.getInstance().add(this);
+	}
+
+	public final void removePacketBroadcastMask(BroadcastMode mode)
+	{
+		packetBroadcastMask &= ~mode.mask();
+	}
+
+	public final byte getPacketBroadcastMask()
+	{
+		return packetBroadcastMask;
 	}
 }

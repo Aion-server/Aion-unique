@@ -183,11 +183,8 @@ public abstract class CreatureLifeStats<T extends Creature>
 		return currentMp;
 	}
 	
-
-	/**
-	 * Informs about HP change
-	 */
-	protected void sendHpPacketUpdate()
+	
+	protected void sendAttackStatusPacketUpdate()
 	{
 		if(owner == null)
 		{
