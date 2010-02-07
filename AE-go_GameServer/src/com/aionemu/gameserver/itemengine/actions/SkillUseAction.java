@@ -67,18 +67,8 @@ public class SkillUseAction extends AbstractItemAction
 			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(),
 				parentItem.getObjectId(), parentItem.getItemTemplate().getItemId()), true);
 			skill.useSkill(SkillType.ITEM);
-			
-			Item item = player.getInventory().getItemByObjId(parentItem.getObjectId());
-			if (item.getItemCount() > 1)
-			{
-				parentItem.decreaseItemCount(1);
-				PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
-			}
-			else
-			{
-				player.getInventory().removeFromBag(item);
-				PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(parentItem.getObjectId()));
-			}
+
+			player.getInventory().removeFromBagByObjectId(parentItem.getObjectId(), 1);
 		}
 	}
 

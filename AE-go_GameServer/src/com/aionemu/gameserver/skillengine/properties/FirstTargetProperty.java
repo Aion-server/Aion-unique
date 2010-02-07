@@ -75,10 +75,7 @@ public class FirstTargetProperty
 				break;
 			//TODO other enum values
 		}
-		
-		if (!RestrictionsManager.canUseSkill(skill.getEffector(), skill.getFirstTarget()))
-			return false;
-			
+
 		if(skill.getFirstTarget() != null)
 			skill.getEffectedList().add(skill.getFirstTarget());
 		return true;

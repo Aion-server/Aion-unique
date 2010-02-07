@@ -113,6 +113,10 @@ public class TargetRelationProperty
 					skill.setFirstTarget(skill.getEffector());
 					effectedList.add(skill.getEffector());
 				}
+				else
+				{
+					skill.setFirstTarget(effectedList.get(0));
+				}
 					
 				break;
 			

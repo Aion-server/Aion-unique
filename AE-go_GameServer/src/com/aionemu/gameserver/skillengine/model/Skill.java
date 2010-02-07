@@ -22,6 +22,7 @@ import java.util.List;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
+import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.skillengine.action.Action;
 import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.Condition;
@@ -112,6 +113,9 @@ public class Skill
 			return;
 		
 		if(!setProperties(skillTemplate.getSetproperties()))
+			return;
+		
+		if (!RestrictionsManager.canUseSkill(getEffector(), getFirstTarget()))
 			return;
 		
 		//temporary hook till i find permanent solution
