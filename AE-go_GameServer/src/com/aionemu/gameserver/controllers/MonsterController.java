@@ -38,8 +38,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
-import com.aionemu.gameserver.services.DecayService;
-import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
@@ -195,12 +193,6 @@ public class MonsterController extends NpcController
 		this.doReward(target);
 		this.doDrop(target);
 		this.getOwner().getAi().handleEvent(Event.DIED);
-		
-		if(decayTask == null)
-		{
-			decayTask = DecayService.getInstance().scheduleDecayTask(this.getOwner());
-			RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
-		}	
 
 		//deselect target at the end
 		getOwner().setTarget(null);

@@ -225,16 +225,11 @@ public class DropService
 		{
 			PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 3));
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 36, 0, 0), true);
-			Creature creature = (Creature) world.findAionObject(npcId);
-			if(creature != null)
+			Npc npc = (Npc) world.findAionObject(npcId);
+			if(npc != null)
 			{
-				PacketSendUtility.broadcastPacket(creature, new SM_DELETE(creature));
+				npc.getController().onDespawn(true);
 			}
-
-			//TODO send 7B ??
-			//7B 54 38 00 00 0D 00 00 00 00 00 00
-			// or
-			//7B 54 38 00 00 0E 00 00 00 00 00 00
 		}
 	}
 }

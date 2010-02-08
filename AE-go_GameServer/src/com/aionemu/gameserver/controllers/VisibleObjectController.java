@@ -85,8 +85,6 @@ public abstract class VisibleObjectController<T extends VisibleObject>
 		 */
 		if(getOwner().isSpawned())
 			world.despawn(getOwner());
-		else
-			log.error("Attempt to remove from world not spawned object");
 		/**
 		 * Delete object from World.
 		 */

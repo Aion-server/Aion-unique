@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.smfnew.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,12 +18,8 @@ package com.aionemu.gameserver.services;
 
 import java.util.concurrent.Future;
 
-import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
-import com.aionemu.gameserver.world.World;
 
 /**
  * @author ATracer
@@ -37,23 +33,14 @@ public class DecayService
 	
 	public Future<?> scheduleDecayTask(final Npc npc)
 	{
-		final World world = npc.getPosition().getWorld();
-		//TODO separate thread executor for decay/spawns
-		// or schedule separate decay runnable service with queue 
 		return ThreadPoolManager.getInstance().schedule(new Runnable()
 		{
 			@Override
 			public void run()
 			{
-				if(!npc.isSpawned())
-					return;
-				
-				npc.getAi().handleEvent(Event.DESPAWN);
-				PacketSendUtility.broadcastPacket(npc, new SM_DELETE(npc));
-				world.despawn(npc);	
+				npc.getController().onDespawn(false);
 			}
 		}, DECAY_DEFAULT_DELAY);
-
 	}
 	
 	public static DecayService getInstance()

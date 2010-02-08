@@ -60,7 +60,7 @@ public class DayTimeChangeEventHandler extends EventHandler
 		}
 		else if(!spawnTime.isAllowedDuring(dayTime) && !spawn.isResting(instanceId))
 		{
-			DecayService.getInstance().scheduleDecayTask(owner);
+			owner.getController().onDespawn(true);
 			spawn.setResting(true, instanceId);
 		}
 	}

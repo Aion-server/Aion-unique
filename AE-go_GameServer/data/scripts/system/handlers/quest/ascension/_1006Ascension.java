@@ -242,7 +242,7 @@ public class _1006Ascension extends QuestHandler
 							activePlayerId = player.getObjectId();
 							for(Npc mob : mobs)
 							{
-								mob.getController().onDie();
+								mob.getController().onDelete();
 							}
 							mobs.clear();
 							PacketSendUtility.sendPacket(player, new SM_EMOTION(player, 6, 1001, 0));
@@ -337,8 +337,7 @@ public class _1006Ascension extends QuestHandler
 		if(monster.getLifeStats().getCurrentHp() < monster.getLifeStats().getMaxHp() / 2)
 		{
 			PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 151));
-			monster.getAi().stop();
-			monster.getController().onDie();
+			monster.getController().onDelete();
 		}
 		return false;
 	}
