@@ -80,7 +80,7 @@ public class Item extends AionObject
 	 * 
 	 * This constructor should be called only from DAO while loading from DB
 	 */
-	public Item(int objId, int itemId, int itemCount, int itemColor, boolean isEquipped, int equipmentSlot)
+	public Item(int objId, int itemId, int itemCount, int itemColor, boolean isEquipped, int equipmentSlot, int itemLocation)
 	{
 		super(objId);
 
@@ -89,6 +89,7 @@ public class Item extends AionObject
 		this.itemColor = itemColor;
 		this.isEquipped = isEquipped;
 		this.equipmentSlot = equipmentSlot;
+		this.itemLocation = itemLocation;
 	}
 
 	@Override
@@ -327,6 +328,7 @@ public class Item extends AionObject
 	public void setItemLocation(int storageType)
 	{
 		this.itemLocation = storageType;
+       setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 
 	public int getItemLocation()

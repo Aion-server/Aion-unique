@@ -26,6 +26,7 @@ import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.StorageType;
@@ -185,7 +186,6 @@ public class ItemService
 
 
 		Item newItem = newItem(itemToSplit.getItemTemplate().getItemId(), splitAmount);
-
 		if(destinationStorage.putToBag(newItem) != null)
 		{
 			itemToSplit.decreaseItemCount(splitAmount);
@@ -421,14 +421,19 @@ public class ItemService
 			else
 			{
 				item.setItemCount(count);
-				sourceStorage.removeFromBag(item, true);
+				sourceStorage.removeFromBag(item, false);
 				sendDeleteItemPacket(player, sourceStorageType, item.getObjectId());
-
 				Item newitem = destinationStorage.putToBag(item);
 				sendStorageUpdatePacket(player, destinationStorageType, newitem);
 
 				count = 0;
 			}
+		}
+
+		if(count > 0) // if storage is full and some items left
+		{
+			item.setItemCount(count);
+			sendUpdateItemPacket(player, sourceStorageType, item);
 		}
 
 	}

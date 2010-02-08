@@ -83,7 +83,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 					int itemColor = rset.getInt("itemColor");
 					int isEquiped = rset.getInt("isEquiped");
 					int slot = rset.getInt("slot");
-					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, isEquiped == 1, slot);
+					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, isEquiped == 1, slot, storage);
 					item.setPersistentState(PersistentState.UPDATED);
 					inventory.onLoadHandler(item);
 				}

@@ -180,12 +180,10 @@ public class Storage
 		}
 		else if(item.getItemTemplate().isKinah())
 		{
-			item.setItemLocation(storageType);
 			kinahItem = item;
 		}
 		else
 		{
-			item.setItemLocation(storageType);
 			storage.putToDefinedOrNextAvaiableSlot(item);
 		}	
 	}
@@ -228,10 +226,7 @@ public class Storage
 		if(resultItem != null && persistImmediately)
 		{
 			resultItem.setItemLocation(storageType);
-			resultItem.setPersistentState(PersistentState.NEW);
-
 			DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
-
 		}
 		return resultItem;
 	}
