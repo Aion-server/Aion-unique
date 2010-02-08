@@ -1,0 +1,30 @@
+<quest_scripts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="quest_script_data.xsd">
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+
+	<!-- Teleporter Troubles -->
+	<item_collecting id="1910" start_npc_id="203833" />
+
+	<!-- Marmeia's Krall Research -->
+	<item_collecting id="1911" start_npc_id="203864" />
+
+	<!-- Familiar Food -->
+	<item_collecting id="1912" start_npc_id="203864" />
+
+
+ </quest_scripts>
