@@ -100,7 +100,8 @@
 		<monster_infos var_id="0" npc_id="210077" max_kill="15"/>
 	</monster_hunt>
 	
-	<!-- TODO: Odella Recipe -->
+	<!-- Odella Recipe -->
+	<item_collecting id="1152" start_npc_id="203132" end_npc_id="203130"/>
 
 	<!-- Pumpkin Season -->
 	<item_collecting id="1144" start_npc_id="730001" end_npc_id="203130" action_item_id="700109" />
@@ -286,7 +287,7 @@
 	<!-- [Coin] Dampening Spirits -->
 	<monster_hunt start_npc_id="203179" id="1196">
 		<monster_infos var_id="0" npc_id="210086" max_kill="14"/>
-		<monster_infos var_id="0" npc_id="210711" max_kill="8"/>
+		<monster_infos var_id="1" npc_id="210711" max_kill="8"/>
 	</monster_hunt>
 	
 	<!-- TODO: [Group] Culling Krall -->
@@ -373,12 +374,6 @@
 	
 	<!-- Wriggot Resurgence -->
 	<item_collecting start_npc_id="730012" id="1203"/>
-	
-	<!-- [Coin] Dampening Spirits -->
-	<monster_hunt start_npc_id="203179" id="1196">
-		<monster_infos var_id="0" npc_id="210086" max_kill="14"/>
-		<monster_infos var_id="0" npc_id="210711" max_kill="8"/>
-	</monster_hunt>
 	
 	<!-- TODO: [Group] Culling Krall -->
 	
