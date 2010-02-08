@@ -16,6 +16,9 @@
  */
 package com.aionemu.gameserver;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.DatabaseFactory;
@@ -114,6 +117,7 @@ public class GameServer
 		Runtime.getRuntime().addShutdownHook(new Thread(new ShutdownHook(gs.injector)));
 
 		//gs.injector.getInstance(com.aionemu.gameserver.utils.chathandlers.ChatHandlers.class);
+		onStartup();
 	}
 
 	/**
@@ -164,5 +168,30 @@ public class GameServer
 		DAOManager.init();
 		// Initialize thread pools
 		ThreadPoolManager.getInstance();
+	}
+	
+	private static Set<StartupHook> STARTUP_HOOKS = new HashSet<StartupHook>();
+	
+	public synchronized static void addStartupHook(StartupHook hook)
+	{
+		if (STARTUP_HOOKS != null)
+			STARTUP_HOOKS.add(hook);
+		else
+			hook.onStartup();
+	}
+	
+	private synchronized static void onStartup()
+	{
+		final Set<StartupHook> startupHooks = STARTUP_HOOKS;
+		
+		STARTUP_HOOKS = null;
+		
+		for (StartupHook hook : startupHooks)
+			hook.onStartup();
+	}
+	
+	public interface StartupHook
+	{
+		public void onStartup();
 	}
 }

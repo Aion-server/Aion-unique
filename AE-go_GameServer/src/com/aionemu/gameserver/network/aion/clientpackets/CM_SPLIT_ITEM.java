@@ -35,6 +35,7 @@ public class CM_SPLIT_ITEM extends AionClientPacket
 	{
 		sourceItemObjId = readD();       // drag item unique ID. If merging and itemCount becoming null, this item must be deleted.
 		itemAmount = readD();            // Items count to be moved.
+		@SuppressWarnings("unused")
 		byte[] zeros = readB(4);         // Nothing
 		sourceStorageType = readC();     // Source storage
 		destinationItemObjId = readD();  // Destination item unique ID if merging. Null if spliting.

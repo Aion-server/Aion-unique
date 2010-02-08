@@ -16,25 +16,15 @@
  */
 package com.aionemu.gameserver.taskmanager;
 
-import java.util.HashSet;
-import java.util.Iterator;
-
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author lord_rex and MrPoke
  * 
  */
-public class PacketBroadcaster implements Runnable
+public class PacketBroadcaster extends AbstractPeriodicTaskManager<Creature>
 {
-	private static final Logger		log		= Logger.getLogger(PacketBroadcaster.class);
-
-	private final HashSet<Creature>	SET	= new HashSet<Creature>();
-
 	private static final class SingletonHolder
 	{
 		private static final PacketBroadcaster	INSTANCE	= new PacketBroadcaster();
@@ -47,9 +37,7 @@ public class PacketBroadcaster implements Runnable
 
 	private PacketBroadcaster()
 	{
-		ThreadPoolManager.getInstance().scheduleAtFixedRate(this, 100, 100);
-
-		log.info("PacketBroadcaster: Initialized.");
+		super(100);
 	}
 
 	public static enum BroadcastMode
@@ -112,30 +100,14 @@ public class PacketBroadcaster implements Runnable
 
 	private static final BroadcastMode[]	VALUES	= BroadcastMode.values();
 
-	public void add(Creature creature)
-	{
-		synchronized(SET)
-		{
-			SET.add(creature);
-		}
-	}
-
 	@Override
-	public void run()
+	protected void callTask(Creature creature)
 	{
-		Iterator<Creature> it = SET.iterator();
-		while(it.hasNext())
+		for(byte mask; (mask = creature.getPacketBroadcastMask()) != 0;)
 		{
-			Creature creature = it.next();
-			synchronized(SET)
+			for(BroadcastMode mode : VALUES)
 			{
-				SET.remove(creature);
-			}
-			for(byte mask; (mask = creature.getPacketBroadcastMask()) != 0;)
-			{
-				for(BroadcastMode mode : VALUES) {
-					mode.trySendPacket(creature, mask);
-				}
+				mode.trySendPacket(creature, mask);
 			}
 		}
 	}

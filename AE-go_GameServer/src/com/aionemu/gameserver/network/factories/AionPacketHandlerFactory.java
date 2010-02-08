@@ -32,7 +32,6 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_CHAT_MESSAGE_WHISPER
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CHECK_NICKNAME;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CLIENT_COMMAND_LOC;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CLOSE_DIALOG;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_MOVE_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CREATE_CHARACTER;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CUSTOM_SETTINGS;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_DELETE_CHARACTER;
@@ -68,6 +67,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_MAC_ADDRESS2;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_MAY_LOGIN_INTO_GAME;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_MAY_QUIT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_MOVE;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_MOVE_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_OBJECT_SEARCH;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_PING;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_PING_REQUEST;

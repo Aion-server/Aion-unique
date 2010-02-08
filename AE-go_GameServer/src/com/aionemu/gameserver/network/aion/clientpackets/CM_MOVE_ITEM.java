@@ -16,16 +16,14 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
+
 /**
- * 
  * @author alexa026, kosyachok
  * 
  */
@@ -34,14 +32,13 @@ public class CM_MOVE_ITEM extends AionClientPacket
 	@Inject
 	private ItemService itemService;
 
-	private static final Logger	log	= Logger.getLogger(CM_MOVE_ITEM.class);
-
 	/**
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */
 	private int					targetObjectId;
 	private int					source;
 	private int                                     destination;
+	@SuppressWarnings("unused")
 	private int					slot;
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet

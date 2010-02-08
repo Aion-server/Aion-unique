@@ -18,9 +18,9 @@ package com.aionemu.gameserver.model.account;
 
 import java.sql.Timestamp;
 
-import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 
 /**
  * This class is holding information about player, that is displayed on char selection screen, such as: player

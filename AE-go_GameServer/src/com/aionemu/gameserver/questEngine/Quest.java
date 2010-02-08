@@ -20,8 +20,8 @@ import static com.aionemu.gameserver.configs.Config.QUEST_KINAH_RATE;
 import static com.aionemu.gameserver.configs.Config.QUEST_XP_RATE;
 
 import com.aionemu.gameserver.model.PlayerClass;
-import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.CollectItem;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;

@@ -20,7 +20,6 @@ package com.aionemu.gameserver.model.gameobjects.player;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -34,9 +33,9 @@ import com.aionemu.gameserver.model.items.ItemStorage;
 import com.aionemu.gameserver.model.templates.item.ArmorType;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_WAREHOUSE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -732,9 +731,13 @@ public class Storage
 	 */
 	public boolean switchHands(int itemUniqueId, int slot)
 	{
+		@SuppressWarnings("unused")
 		Item mainHandItem = owner.getEquipment().get(ItemSlot.MAIN_HAND.getSlotIdMask());
+		@SuppressWarnings("unused")
 		Item subHandItem = owner.getEquipment().get(ItemSlot.SUB_HAND.getSlotIdMask());
+		@SuppressWarnings("unused")
 		Item mainOffHandItem = owner.getEquipment().get(ItemSlot.MAIN_OFF_HAND.getSlotIdMask());
+		@SuppressWarnings("unused")
 		Item subOffHandItem = owner.getEquipment().get(ItemSlot.SUB_OFF_HAND.getSlotIdMask());
 		//TODO switch items
 		return false;

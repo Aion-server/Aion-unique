@@ -17,15 +17,15 @@
 
 package com.aionemu.gameserver.network.aion.serverpackets;
 
-import java.util.List;
 import java.nio.ByteBuffer;
-
-import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.templates.item.ItemTemplate;
-import com.aionemu.gameserver.model.items.ItemId;
-import com.aionemu.gameserver.network.aion.InventoryPacket;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.items.ItemId;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
+import com.aionemu.gameserver.network.aion.AionConnection;
+import com.aionemu.gameserver.network.aion.InventoryPacket;
 /**
  *
  * @author kosyachok
