@@ -295,7 +295,7 @@ public class PlayerController extends CreatureController<Player>
 	}
 
 	@Override
-	public boolean teleportTo(final int worldId, final float x,
+	public boolean teleportTo(final int worldId, final int instanceId, final float x,
 		final float y, final float z, final byte heading, final int delay)
 	{
 		final Player player = getOwner();
@@ -316,7 +316,7 @@ public class PlayerController extends CreatureController<Player>
                 }
                 World world = player.getActiveRegion().getWorld();
 				world.despawn(player);
-				world.setPosition(player, worldId, x, y, z, heading);
+				world.setPosition(player, worldId, instanceId,  x, y, z, heading);
 				player.setProtectionActive(true);
 				PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));	
 				PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));		

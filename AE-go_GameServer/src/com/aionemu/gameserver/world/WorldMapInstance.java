@@ -191,6 +191,11 @@ public class WorldMapInstance
 	{
 		currentPlayerCount--;
 	}
+	
+	public boolean isInUse()
+	{
+		return currentPlayerCount > 0;
+	}
 
 	/**
 	 * @return the instanceIndex

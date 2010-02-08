@@ -19,6 +19,8 @@ package com.aionemu.gameserver.world;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.templates.WorldMapTemplate;
 
 /**
@@ -29,6 +31,8 @@ import com.aionemu.gameserver.model.templates.WorldMapTemplate;
  */
 public class WorldMap
 {
+	private static Logger log = Logger.getLogger(WorldMap.class);
+	
 	private WorldMapTemplate				worldMapTemplate;
 
 	/**
@@ -79,6 +83,28 @@ public class WorldMap
 		int twinCount = worldMapTemplate.getTwinCount();
 		return twinCount > 0 ? twinCount : 1;
 	}
+	
+	/**
+	 *  Will create new instance if there are not free yet and spawn according to xml data
+	 *  //TODO limit
+	 *  //TODO dispose unused instances (lifecycle)
+	 * @return
+	 */
+	public synchronized int getNextFreeInstanceIndex()
+	{	
+		for(WorldMapInstance instance : instances.values())
+		{
+			if(!instance.isInUse())
+				return instance.getInstanceId();
+		}
+		//create new instance
+		int nextInstanceId = instances.size() + 1;
+		log.info("Creating new instance: " + worldMapTemplate.getMapId() + " " + nextInstanceId );
+		instances.put(nextInstanceId, new WorldMapInstance(this, nextInstanceId));
+		world.getSpawnEngine().spawnInstance(worldMapTemplate.getMapId(), nextInstanceId);
+		
+		return nextInstanceId;
+	}
 
 	/**
 	 * Return a WorldMapInstance - depends on map configuration one map may have twins instances to balance player. This
@@ -125,24 +151,6 @@ public class WorldMap
 			}		
 		}
 		return getWorldMapInstance(instanceId);
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public WorldMapInstance getNextFreeInstance()
-	{
-		//TODO
-		if(worldMapTemplate.getTwinCount() !=0)
-		{
-			for(WorldMapInstance instance : instances.values())
-			{
-				if(instance.getCurrentPlayerCount() == 0)
-					return instance;
-			}
-		}
-		return null;
 	}
 
 	/**

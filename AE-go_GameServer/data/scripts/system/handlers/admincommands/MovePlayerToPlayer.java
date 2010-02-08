@@ -82,7 +82,7 @@ public class MovePlayerToPlayer extends AdminCommand
 			return;
 		}
 
-		playerToMove.getController().teleportTo(playerDestination.getWorldId(), playerDestination.getX(), playerDestination.getY(), playerDestination.getZ(), playerDestination.getHeading(), 0);
+		playerToMove.getController().teleportTo(playerDestination.getWorldId(), playerDestination.getInstanceId(), playerDestination.getX(), playerDestination.getY(), playerDestination.getZ(), playerDestination.getHeading(), 0);
 		
 		PacketSendUtility.sendMessage(admin, "Teleported player " + playerToMove.getName() + " to the location of player " + playerDestination.getName() + ".");
 		PacketSendUtility.sendMessage(playerToMove, "You have been teleported by an administrator.");

@@ -305,7 +305,12 @@ public class SpawnEngine
 		});
 	}
 
-	private void spawnInstance(int worldId, int instanceIndex)
+	/**
+	 * 
+	 * @param worldId
+	 * @param instanceIndex
+	 */
+	public void spawnInstance(int worldId, int instanceIndex)
 	{	
 
 		List<SpawnGroup> worldSpawns = spawnsData.getSpawnsForWorld(worldId);

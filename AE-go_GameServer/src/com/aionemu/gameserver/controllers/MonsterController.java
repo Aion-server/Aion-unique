@@ -137,7 +137,7 @@ public class MonsterController extends NpcController
 	{
 		Monster monster = getOwner();
 
-		if (monster == null || monster.getLifeStats().isAlreadyDead())
+		if (monster == null || monster.getLifeStats().isAlreadyDead() || !monster.isSpawned())
 			return;
 		
 		if(!monster.canAttack())

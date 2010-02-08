@@ -30,6 +30,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.WorldMapTemplate;
+import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.container.PlayerContainer;
@@ -69,6 +70,8 @@ public class World
 	private final Map<Integer, WorldMap>	worldMaps	= new HashMap<Integer, WorldMap>();
 
 	private IDFactory						aionObjectsIDFactory;
+	@Inject
+	private SpawnEngine						spawnEngine;
 
 	/**
 	 * Constructor.
@@ -173,6 +176,14 @@ public class World
 	}
 
 	/**
+	 * @return the spawnEngine
+	 */
+	public SpawnEngine getSpawnEngine()
+	{
+		return spawnEngine;
+	}
+
+	/**
 	 * Return World Map by id
 	 * 
 	 * @param id
@@ -188,6 +199,17 @@ public class World
 		if(map == null)
 			throw new WorldMapNotExistException("Map: " + id + " not exist!");
 		return map;
+	}
+	
+	/**
+	 * 
+	 * @param worldId
+	 * @return
+	 */
+	public int getNextAvailableInstanceId(int worldId)
+	{
+		WorldMap map = worldMaps.get(worldId);
+		return map.getNextFreeInstanceIndex();
 	}
 
 	/**
@@ -256,12 +278,12 @@ public class World
 	 */
 	public void setPosition(VisibleObject object, int mapId, float x, float y, float z, byte heading)
 	{
-		int instanceIndex = 1;	
+		int instanceId = 1;	
 		if(object.getWorldId() == mapId)
 		{
-			instanceIndex = object.getInstanceId();
+			instanceId = object.getInstanceId();
 		}
-		this.setPosition(object, mapId, instanceIndex, x, y, z, heading);
+		this.setPosition(object, mapId, instanceId, x, y, z, heading);
 	}
 	
 	/**

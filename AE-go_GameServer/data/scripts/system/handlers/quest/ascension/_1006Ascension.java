@@ -17,7 +17,9 @@
 package quest.ascension;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.configs.Config;
@@ -49,8 +51,9 @@ import com.aionemu.gameserver.world.zone.ZoneName;
 public class _1006Ascension extends QuestHandler
 {
 	private final static int	questId			= 1006;
-	private int					activePlayerId	= 0;
-	private List<Npc>			mobs			= new ArrayList<Npc>();
+	//TODO [ATracer] - do we really need activePlayer ids in script body ???
+	private Map<Integer, Integer> activePlayers = new HashMap<Integer, Integer>();
+	private Map<Integer, List<Npc>> mobs = new HashMap<Integer, List<Npc>>();
 
 	public _1006Ascension()
 	{
@@ -71,6 +74,7 @@ public class _1006Ascension extends QuestHandler
 	public boolean onKillEvent(QuestEnv env)
 	{
 		Player player = env.getPlayer();
+		int instanceId = player.getInstanceId();
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null || qs.getStatus() != QuestStatus.START)
 			return false;
@@ -86,21 +90,20 @@ public class _1006Ascension extends QuestHandler
 			{
 				qs.getQuestVars().setQuestVar(qs.getQuestVars().getQuestVars() + 1);
 				updateQuestStatus(player, qs);
-				if(mobs.contains(env.getVisibleObject()))
-					mobs.remove(env.getVisibleObject());
+				removeMobToInstance(instanceId, (Npc) env.getVisibleObject());
 				return true;
 			}
 			else if(var == 54)
 			{
 				qs.getQuestVars().setQuestVar(4);
 				updateQuestStatus(player, qs);
-				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211043, (float) 226.7,
+				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211043, (float) 226.7,
 					(float) 251.5, (float) 205.5, (byte) 0, false);
 				//TODO: Tempt decrease P attack.
 				mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER)/3 );
 				mob.getAggroList().addDamageHate(player, 1000, 0);
 				mob.getAi().handleEvent(Event.ATTACKED);
-				mobs.add(mob);
+				addMobToInstance(instanceId, mob);
 				return true;
 			}
 		}
@@ -111,6 +114,7 @@ public class _1006Ascension extends QuestHandler
 	public boolean onDialogEvent(QuestEnv env)
 	{
 		final Player player = env.getPlayer();
+		final int instanceId = player.getInstanceId();
 		final QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null)
 			return false;
@@ -152,7 +156,8 @@ public class _1006Ascension extends QuestHandler
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 								.getObjectId(), 0));
-							player.getController().teleportTo(310010000, 52, 174, 229, 0);
+							int newInstanceId = player.getPosition().getWorld().getNextAvailableInstanceId(310010000);
+							player.getController().teleportTo(310010000, newInstanceId, 52, 174, 229, 0);
 							return true;
 						}
 					case 10003:
@@ -232,19 +237,15 @@ public class _1006Ascension extends QuestHandler
 					case 25:
 						if(var == 99)
 						{
-							if(activePlayerId != 0 && activePlayerId != player.getObjectId())
+							if(activePlayers.get(instanceId) != null && activePlayers.get(instanceId) != player.getObjectId())
 							{
 								World world = player.getActiveRegion().getWorld();
-								Player activePlayer = world.findPlayer(activePlayerId);
+								Player activePlayer = world.findPlayer(activePlayers.get(instanceId));
 								if(!(activePlayer == null || !activePlayer.isOnline() || activePlayer.getWorldId() != 310010000))
 									return false;
 							}
-							activePlayerId = player.getObjectId();
-							for(Npc mob : mobs)
-							{
-								mob.getController().onDelete();
-							}
-							mobs.clear();
+							activePlayers.put(instanceId, player.getObjectId());
+							clearMobsInInstance(instanceId);
 							PacketSendUtility.sendPacket(player, new SM_EMOTION(player, 6, 1001, 0));
 							qs.getQuestVars().setQuestVar(50);
 							updateQuestStatus(player, qs);
@@ -254,15 +255,16 @@ public class _1006Ascension extends QuestHandler
 								{
 									qs.getQuestVars().setQuestVar(51);
 									updateQuestStatus(player, qs);
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211042,
+									addMobToInstance(instanceId, (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042,
 										(float) 224.073, (float) 239.1, (float) 206.7, (byte) 0, false));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211042,
+									addMobToInstance(instanceId, (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042,
 										(float) 233.5, (float) 241.04, (float) 206.365, (byte) 0, false));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211042,
+									addMobToInstance(instanceId, (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042,
 										(float) 229.6, (float) 265.7, (float) 205.7, (byte) 0, false));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, 211042,
+									addMobToInstance(instanceId, (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042,
 										(float) 222.8, (float) 262.5, (float) 205.7, (byte) 0, false));
-									for(Npc mob : mobs)
+									List<Npc> monsters = mobs.get(instanceId);
+									for(Npc mob : monsters)
 									{
 										//TODO: Tempt decrease P attack.
 										mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER)/3 );
@@ -293,6 +295,7 @@ public class _1006Ascension extends QuestHandler
 	public boolean onLvlUpEvent(QuestEnv env)
 	{
 		Player player = env.getPlayer();
+		int instanceId = player.getInstanceId();
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs != null)
 		{
@@ -301,7 +304,9 @@ public class _1006Ascension extends QuestHandler
 			int var = qs.getQuestVars().getQuestVars();
 			if(var == 4 || (var >= 50 && var <= 55))
 			{
-				if(activePlayerId == player.getObjectId() && player.getWorldId() == 310010000)
+				if(activePlayers.get(instanceId) != null 
+					&& activePlayers.get(instanceId)== player.getObjectId()
+					&& player.getWorldId() == 310010000)
 					return false;
 				else
 				{
@@ -379,10 +384,11 @@ public class _1006Ascension extends QuestHandler
 		if(movieId != 151)
 			return false;
 		Player player = env.getPlayer();
+		int instanceId = player.getInstanceId();
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null || qs.getStatus() != QuestStatus.START || qs.getQuestVars().getQuestVars() != 4)
 			return false;
-		mobs.add((Npc) QuestEngine.getInstance().addNewSpawn(310010000, 790001, (float) 220.6, (float) 247.8,
+		addMobToInstance(instanceId, (Npc) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 790001, (float) 220.6, (float) 247.8,
 			(float) 206.0, (byte) 0, false));
 		qs.getQuestVars().setQuestVar(5);
 		updateQuestStatus(player, qs);
@@ -398,5 +404,51 @@ public class _1006Ascension extends QuestHandler
 		updateQuestStatus(player, qs);
 		sendQuestDialog(player, env.getVisibleObject().getObjectId(), 5);
 		return true;
+	}
+	
+	/**
+	 * 
+	 * @param instanceId
+	 * @param npc
+	 */
+	private void addMobToInstance(int instanceId, Npc npc)
+	{
+		List<Npc> mobList = mobs.get(instanceId);
+		if(mobList == null)
+		{
+			mobList = new ArrayList<Npc>();
+			mobs.put(instanceId, mobList);
+		}
+			
+		mobList.add(npc);		
+	}
+	
+	/**
+	 * 
+	 * @param instanceId
+	 * @param npc
+	 */
+	private void removeMobToInstance(int instanceId, Npc npc)
+	{
+		List<Npc> mobList = mobs.get(instanceId);
+		if(mobList != null && mobList.contains(npc))
+			mobList.remove(npc);		
+	}
+	
+	/**
+	 * 
+	 * @param instanceId
+	 */
+	private void clearMobsInInstance(int instanceId)
+	{
+		List<Npc> mobList = mobs.get(instanceId);
+		if(mobList != null)
+		{
+			for(Npc npc : mobList)
+			{
+				npc.getController().onDelete();
+			}
+			mobList.clear();	
+		}				
 	}
 }

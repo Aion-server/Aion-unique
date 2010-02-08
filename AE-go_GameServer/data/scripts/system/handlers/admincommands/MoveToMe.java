@@ -76,7 +76,7 @@ public class MoveToMe extends AdminCommand
 			return;
 		}
 
-		playerToMove.getController().teleportTo(admin.getWorldId(), admin.getX(), admin.getY(), admin.getZ(), admin.getHeading(), 0);
+		playerToMove.getController().teleportTo(admin.getWorldId(), admin.getInstanceId(), admin.getX(), admin.getY(), admin.getZ(), admin.getHeading(), 0);
 		PacketSendUtility.sendMessage(admin, "Teleported player " + playerToMove.getName() + " to your location.");
 		PacketSendUtility.sendMessage(playerToMove, "You have been teleported by " + admin.getName() + ".");
 	}

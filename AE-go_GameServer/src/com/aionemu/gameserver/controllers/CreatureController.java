@@ -111,7 +111,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	}
 	
 	/**
-	 *  Teleport Creature to the location using current heading
+	 *  Teleport Creature to the location using current heading and instanceId
 	 *  
 	 * @param worldId
 	 * @param x
@@ -122,13 +122,34 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 */
 	public boolean teleportTo(int worldId, float x, float y, float z, int delay)
 	{		
-		return teleportTo(worldId, x, y, z, getOwner().getHeading(), delay);
+		int instanceId = 1;	
+		if(getOwner().getWorldId() == worldId)
+		{
+			instanceId = getOwner().getInstanceId();
+		}
+		return teleportTo(worldId, instanceId, x, y, z, delay);
+	}
+	
+	/**
+	 * 
+	 * @param worldId
+	 * @param instanceId
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param delay
+	 * @return
+	 */
+	public boolean teleportTo(int worldId, int instanceId, float x, float y, float z, int delay)
+	{		
+		return teleportTo(worldId, instanceId, x, y, z, getOwner().getHeading(), delay);
 	}
 	
 	/**
 	 *  Teleport Creature to the location using specific heading
 	 *  
 	 * @param worldId
+	 * @param instanceId
 	 * @param x
 	 * @param y
 	 * @param z
@@ -136,7 +157,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @param delay
 	 * @return
 	 */
-	public boolean teleportTo(int worldId, float x, float y, float z, byte heading, int delay)
+	public boolean teleportTo(int worldId, int instanceId, float x, float y, float z, byte heading, int delay)
 	{		
 		return true;
 	}
