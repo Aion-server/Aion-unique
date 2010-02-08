@@ -54,18 +54,22 @@
 
 	<!-- [Coin] Fortress Beasts -->
 	<monster_hunt id="1418" start_npc_id="203931">
-		<monster_infos npc_id="211684" var_id="0" max_kill="10"/>
-		<monster_infos npc_id="210758" var_id="1" max_kill="13"/>
-		<monster_infos npc_id="210759" var_id="2" max_kill="13"/>
+		<monster_infos npc_id="211684"  var_id="0" max_kill="10"/>
+		<monster_infos npc_id="210758"  var_id="1" max_kill="13"/>
+		<monster_infos npc_id="210759"  var_id="2" max_kill="13"/>
 	</monster_hunt>
 
 	<!-- Cleansing The Forest -->
 	<monster_hunt id="1427" start_npc_id="203935">
-		<monster_infos npc_id="210755" var_id="0" max_kill="7"/>
-		<monster_infos npc_id="210756" var_id="1" max_kill="7"/>
+		<monster_infos npc_id="210755"  var_id="0" max_kill="7"/>
+		<monster_infos npc_id="210756"  var_id="1" max_kill="7"/>
 	</monster_hunt>
 	
-	<!-- TODO: 1306 Cleansing The Forest -->
+	<!-- Cleansing The Forest -->
+	<monster_hunt id="1306" start_npc_id="203935">
+		<monster_infos npc_id="210755"  var_id="0" max_kill="7"/>
+        <monster_infos npc_id="210756"  var_id="1" max_kill="9"/>
+	</monster_hunt>
 
         <!-- More Manduri Frillnecks -->
         <monster_hunt id="1305" start_npc_id="203935">
@@ -87,18 +91,26 @@
 	<!-- Hopeful Delivery -->
 	<report_to id="1312" start_npc_id="203997" end_npc_id="203932" item_id="182201306"/>
 
-	<!-- TODO: 1313 Preserving Forest Soil -->
+	<!-- Preserving Forest Soil -->
+	<monster_hunt id="1313" start_npc_id="204030">
+		<monster_infos npc_id="210766"  var_id="0" max_kill="5"/>
+		<monster_infos npc_id="210760"  var_id="1" max_kill="12"/>
+	</monster_hunt>
 
-	<!-- TODO: 1477 The Manduri Polluters -->
+	<!-- The Manduri Polluters -->
+	<monster_hunt id="1477" start_npc_id="203997">
+		<monster_infos npc_id="210770"  var_id="0" max_kill="6"/>
+		<monster_infos npc_id="210771"  var_id="1" max_kill="6"/>
+	</monster_hunt>
 
 	<!-- Wily Kundu -->
 	<monster_hunt id="1308" start_npc_id="203936">
-		<monster_infos npc_id="213000"  var_id="1" max_kill="1"/>
+		<monster_infos npc_id="213000"  var_id="0" max_kill="1"/>
 	</monster_hunt>
 
 	<!-- Dirty Chindu -->
 	<monster_hunt id="1485" start_npc_id="204030">
-		<monster_infos npc_id="213794"  var_id="1" max_kill="1"/>
+		<monster_infos npc_id="213794"  var_id="0" max_kill="1"/>
 	</monster_hunt>
 
 	<!-- Plant Poison Antidote -->
@@ -115,9 +127,18 @@
 	<item_collecting id="1487" start_npc_id="798126" action_item_id="182201408" />
 	<item_collecting id="1487" start_npc_id="798126" action_item_id="182201409" />
 
-	<!-- TODO: 1326 Killing Crestliches -->
+	<!-- Killing Crestliches -->
+	<monster_hunt id="1326" start_npc_id="203940">
+		<monster_infos npc_id="210775"  var_id="0" max_kill="7"/>
+		<monster_infos npc_id="210784"  var_id="1" max_kill="14"/>
+	</monster_hunt>
 
-	<!-- TODO: 1488 Three Kurin Brothers -->
+	<!-- Three Kurin Brothers -->
+	<monster_hunt id="1488" start_npc_id="730019">
+		<monster_infos npc_id="213795"  var_id="0" max_kill="1"/>
+		<monster_infos npc_id="213796"  var_id="1" max_kill="1"/>
+		<monster_infos npc_id="213797"  var_id="2" max_kill="1"/>
+	</monster_hunt>
 
 	<!-- Plague of the Elim -->
 	<monster_hunt id="1316" start_npc_id="730021">
