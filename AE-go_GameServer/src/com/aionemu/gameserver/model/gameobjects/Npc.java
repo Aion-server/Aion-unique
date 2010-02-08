@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.ai.npcai.NpcAi;
-import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;

@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.controllers;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.world.World;
 
@@ -30,7 +28,6 @@ import com.aionemu.gameserver.world.World;
  */
 public abstract class VisibleObjectController<T extends VisibleObject>
 {
-	private static Logger log = Logger.getLogger(VisibleObjectController.class);
 	/**
 	 * Object that is controlled by this controller.
 	 */
