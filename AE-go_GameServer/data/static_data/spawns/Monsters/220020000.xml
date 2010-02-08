@@ -1875,7 +1875,7 @@ Morheim -->
     <object x="2754.401" y="2613.704" z="160.99371" h="3" />
   </spawn>
   <!-- Deffense Commander -->
-  <spawn map="220020000" npcid="207584" pool="10" interval="105">
+  <spawn map="220020000" npcid="207584" pool="1" interval="14400">
     <object x="291.72" y="2293.22" z="448.9124" h="106" />
     <object x="231.1213" y="2329.045" z="446.438" h="53" />
     <object x="278.7759" y="2341.627" z="443.31723" h="68" />

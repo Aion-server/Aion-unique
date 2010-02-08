@@ -107,7 +107,7 @@ Eltnen -->
     <object x="1227" y="2255" z="259.4375" h="75" />
   </spawn>
   <!-- Andre -->
-  <spawn map="210020000" npcid="211041" pool="1" interval="1800">
+  <spawn map="210020000" npcid="211041" pool="1" interval="14400">
     <object x="792.5521" y="653.5261" z="294.39972" h="51" />
   </spawn>
   <!-- Apprentice Mage -->
@@ -480,7 +480,7 @@ Eltnen -->
     <object x="824.25" y="895.15" z="283.43" h="59" />
   </spawn>
   <!-- Chaos Dracus -->
-  <spawn map="210020000" npcid="211800" pool="1" interval="105">
+  <spawn map="210020000" npcid="211800" pool="1" interval="14400">
     <object x="1421.7506" y="241.9237" z="348.05386" h="93" />
   </spawn>
   <!-- Chaoslord Kalabar -->
