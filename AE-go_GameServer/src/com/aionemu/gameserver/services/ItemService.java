@@ -26,15 +26,19 @@ import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.StorageType;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_WAREHOUSE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_WAREHOUSE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_UPDATE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
@@ -117,7 +121,11 @@ public class ItemService
 	 */
 	public void loadItemStones(Player player)
 	{
-		List<Item> itemList = player.getInventory().getAllItems();
+		List<Item> itemList = new ArrayList<Item>();
+		itemList.addAll(player.getStorage(StorageType.CUBE.getId()).getStorageItems());
+		itemList.addAll(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems());
+		itemList.addAll(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getStorageItems());
+		itemList.addAll(player.getStorage(StorageType.CUBE.getId()).getEquippedItems());
 
 		for(Item item : itemList)
 		{
@@ -143,15 +151,29 @@ public class ItemService
 	 * @param itemObjId
 	 * @param splitAmount
 	 * @param slotNum
+	 * @param sourceStorageType
+	 * @param desetinationStorageType
 	 */
-	public void splitItem (Player player, int itemObjId, int splitAmount, int slotNum)
+	public void splitItem (Player player, int itemObjId, int splitAmount, int slotNum, int sourceStorageType, int destinationStorageType)
 	{
-		Inventory inventory = player.getInventory();
+		Storage sourceStorage = player.getStorage(sourceStorageType);
+		Storage destinationStorage = player.getStorage(destinationStorageType);
 
-		Item itemToSplit = inventory.getItemByObjId(itemObjId);
+		Item itemToSplit = sourceStorage.getItemByObjId(itemObjId);
 		if(itemToSplit == null)
 		{
-			log.warn(String.format("CHECKPOINT: attempt to split null item %d %d %d", itemObjId, splitAmount, slotNum));
+			itemToSplit = sourceStorage.getKinahItem();
+			if(itemToSplit.getObjectId() != itemObjId || itemToSplit == null)
+			{
+				log.warn(String.format("CHECKPOINT: attempt to split null item %d %d %d", itemObjId, splitAmount, slotNum));
+				return;
+			}
+		}
+
+		// To move kinah from inventory to warehouse and vise versa client using split item packet
+		if(itemToSplit.getItemTemplate().isKinah())
+		{
+			moveKinah(player, sourceStorage, splitAmount);
 			return;
 		}
 
@@ -162,24 +184,60 @@ public class ItemService
 
 
 
-		Item newItem = this.newItem(itemToSplit.getItemTemplate().getItemId(), splitAmount);
+		Item newItem = newItem(itemToSplit.getItemTemplate().getItemId(), splitAmount);
 
-		if(inventory.putToBag(newItem) != null)
+		if(destinationStorage.putToBag(newItem) != null)
 		{
 			itemToSplit.decreaseItemCount(splitAmount);
 
 			List<Item> itemsToUpdate = new ArrayList<Item>();
 			itemsToUpdate.add(newItem);
 
-			PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(itemsToUpdate));
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(itemToSplit));
+			sendStorageUpdatePacket(player, destinationStorageType, itemsToUpdate.get(0));
+
+			sendUpdateItemPacket(player, sourceStorageType, itemToSplit);
 		}		
 		else
 		{
 			releaseItemId(newItem);
 		}
 	}
-	
+
+
+	public void moveKinah(Player player, Storage source, int splitAmount)
+	{
+		switch(source.getStorageType())
+		{
+			case 0:
+			{
+				Storage destination = player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId());
+				int chksum = (source.getKinahItem().getItemCount() - splitAmount) + (destination.getKinahItem().getItemCount() + splitAmount);
+
+				if(chksum != source.getKinahItem().getItemCount() + destination.getKinahItem().getItemCount())
+					return;
+
+				source.decreaseKinah(splitAmount);
+				destination.increaseKinah(splitAmount);
+				break;
+			}
+
+			case 2:
+			{
+				Storage destination = player.getStorage(StorageType.CUBE.getId());
+				int chksum = (source.getKinahItem().getItemCount() - splitAmount) + (destination.getKinahItem().getItemCount() + splitAmount);
+
+				if(chksum != source.getKinahItem().getItemCount() + destination.getKinahItem().getItemCount())
+					return;
+
+				source.decreaseKinah(splitAmount);
+				destination.increaseKinah(splitAmount);
+				break;
+			}
+			default:
+				break;
+		}
+	}
+
 	/**
 	 *  Used to merge 2 items in inventory
 	 *  
@@ -188,40 +246,44 @@ public class ItemService
 	 * @param itemAmount
 	 * @param destinationObjId
 	 */
-	public void mergeItems (Player player, int sourceItemObjId, int itemAmount, int destinationObjId)
+	public void mergeItems (Player player, int sourceItemObjId, int itemAmount, int destinationObjId, int sourceStorageType, int destinationStorageType)
 	{
 		if(itemAmount == 0)
 			return;
 
-		Inventory inventory = player.getInventory();
+		Storage sourceStorage = player.getStorage(sourceStorageType);
+		Storage destinationStorage = player.getStorage(destinationStorageType);
 
-		Item sourceItem = inventory.getItemByObjId(sourceItemObjId);
-		Item destinationItem = inventory.getItemByObjId(destinationObjId);
-		
+		Item sourceItem = sourceStorage.getItemByObjId(sourceItemObjId);
+		Item destinationItem = destinationStorage.getItemByObjId(destinationObjId);
+
 		if(sourceItem == null || destinationItem == null)
 			return; //Invalid object id provided
-		
+
 		if(sourceItem.getItemTemplate().getItemId() != destinationItem.getItemTemplate().getItemId())
 			return; //Invalid item type
-		
+
 		if(sourceItem.getItemCount() < itemAmount)
 			return; //Invalid item amount
 
 		if(sourceItem.getItemCount() == itemAmount)
 		{
 			destinationItem.increaseItemCount(itemAmount);
-			inventory.removeFromBag(sourceItem);
+			sourceStorage.removeFromBag(sourceItem, true);
 
-			PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(sourceItem.getObjectId()));
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(destinationItem));
+			sendDeleteItemPacket(player, sourceStorageType, sourceItem.getObjectId());
+
+			sendUpdateItemPacket(player, destinationStorageType, destinationItem);
+
 		}
 		else if(sourceItem.getItemCount() > itemAmount)
 		{
 			sourceItem.decreaseItemCount(itemAmount);
 			destinationItem.increaseItemCount(itemAmount);
 
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(sourceItem));
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(destinationItem));
+			sendUpdateItemPacket(player, sourceStorageType, sourceItem);
+
+			sendUpdateItemPacket(player, destinationStorageType, destinationItem);
 		}
 		else return; // cant happen in theory, but...
 	}
@@ -239,7 +301,7 @@ public class ItemService
 	 */
 	public int addItem(Player player, int itemId, int count, boolean isQuestItem)
 	{
-		Inventory inventory = player.getInventory();
+		Storage inventory = player.getInventory();
 
 		ItemTemplate itemTemplate =  DataManager.ITEM_DATA.getItemTemplate(itemId);
 		if(itemTemplate == null)
@@ -262,7 +324,7 @@ public class ItemService
 			{
 				if(count == 0)
 					break;
-				
+
 				int freeCount = maxStackCount - existingItem.getItemCount();
 				if(count <= freeCount)
 				{
@@ -274,7 +336,7 @@ public class ItemService
 					existingItem.increaseItemCount(freeCount);
 					count -= freeCount;
 				}
-				
+
 				udpateItem(player, existingItem, false);
 			}
 
@@ -306,17 +368,102 @@ public class ItemService
 			return count;
 		}
 	}
-	
+
+	public void moveItem(Player player, int itemObjId, int sourceStorageType, int destinationStorageType)
+	{
+		Storage sourceStorage = player.getStorage(sourceStorageType);
+		Storage destinationStorage = player.getStorage(destinationStorageType);
+
+		Item item = player.getStorage(sourceStorageType).getItemByObjId(itemObjId);
+
+		if(item == null)
+			return;
+
+		List<Item> existingItems = destinationStorage.getItemsByItemId(item.getItemTemplate().getItemId());
+
+		int count = item.getItemCount();
+		int maxStackCount = item.getItemTemplate().getMaxStackCount();
+
+		for(Item existingItem : existingItems)
+		{
+			if(count == 0)
+				break;
+
+			int freeCount = maxStackCount - existingItem.getItemCount();
+			if(count <= freeCount)
+			{
+				existingItem.increaseItemCount(count);
+				count = 0;
+				sendDeleteItemPacket(player, sourceStorageType, item.getObjectId());
+				sourceStorage.removeFromBag(item, true);
+
+			}
+			else
+			{
+				existingItem.increaseItemCount(freeCount);
+				count -= freeCount;
+			}
+			sendStorageUpdatePacket(player, destinationStorageType, existingItem);
+
+		}
+
+		while(!destinationStorage.isFull() && count > 0)
+		{
+			// item count still more than maxStack value
+			if(count > maxStackCount)
+			{
+				count -= maxStackCount;
+				Item newitem = newItem(item.getItemTemplate().getItemId(), maxStackCount);
+				newitem = destinationStorage.putToBag(newitem);
+				sendStorageUpdatePacket(player, destinationStorageType, newitem);
+
+			}
+			else
+			{
+				item.setItemCount(count);
+				sourceStorage.removeFromBag(item, true);
+				sendDeleteItemPacket(player, sourceStorageType, item.getObjectId());
+
+				Item newitem = destinationStorage.putToBag(item);
+				sendStorageUpdatePacket(player, destinationStorageType, newitem);
+
+				count = 0;
+			}
+		}
+
+	}
+
+
 	public void udpateItem(Player player, Item item, boolean isNew)
 	{
 		if(isNew)
-		{
 			PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(Collections.singletonList(item)));
-		}
 		else
-		{
 			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
-		}
+	}
+
+	public void sendDeleteItemPacket(Player player, int storageType, int itemObjId)
+	{
+		if(storageType == StorageType.CUBE.getId())
+			PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(itemObjId));
+		else
+			PacketSendUtility.sendPacket(player, new SM_DELETE_WAREHOUSE_ITEM(storageType, itemObjId));
+	}
+
+	public void sendStorageUpdatePacket(Player player, int storageType, Item item)
+	{
+		if(storageType == StorageType.CUBE.getId())
+			PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(Collections.singletonList(item)));
+		else
+			PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_UPDATE(item, storageType));
+	}
+
+	public void sendUpdateItemPacket(Player player, int storageType, Item item)
+	{
+		if(storageType == StorageType.CUBE.getId())
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
+		else
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_WAREHOUSE_ITEM(item, storageType));
 	}
 
 	/**
@@ -324,8 +471,8 @@ public class ItemService
 	 *  
 	 * @param item
 	 */
-	public void releaseItemId(Item item)
+	 public void releaseItemId(Item item)
 	{
-		aionObjectsIDFactory.releaseId(item.getObjectId());
+		 aionObjectsIDFactory.releaseId(item.getObjectId());
 	}
 }

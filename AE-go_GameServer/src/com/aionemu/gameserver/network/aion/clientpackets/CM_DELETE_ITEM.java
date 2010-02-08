@@ -17,7 +17,7 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
@@ -29,7 +29,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 public class CM_DELETE_ITEM extends AionClientPacket
 {
 	public int objId;
-	
+
 	public CM_DELETE_ITEM(int opcode)
 	{
 		super(opcode);
@@ -47,10 +47,10 @@ public class CM_DELETE_ITEM extends AionClientPacket
 	{
 
 		Player player = getConnection().getActivePlayer();
-		Inventory bag = player.getInventory();
+		Storage bag = player.getInventory();
 		Item resultItem = bag.getItemByObjId(objId);
 		if (resultItem != null)
-			bag.removeFromBag(resultItem);
+			bag.removeFromBag(resultItem, true);
 		sendPacket(new SM_DELETE_ITEM(objId));
 	}
 }

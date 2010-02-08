@@ -18,6 +18,9 @@ package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.Collections;
 
 import com.aionemu.commons.callbacks.Enhancable;
 import com.aionemu.gameserver.controllers.PlayerController;
@@ -28,6 +31,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.group.PlayerGroup;
@@ -60,7 +64,10 @@ public class Player extends Creature
 	private BlockList			blockList;
 	private ResponseRequester	requester;
 	private boolean				lookingForGroup	= false;
-	private Inventory			inventory;
+	private Storage                         inventory;
+	private Storage                         regularWarehouse;
+	private Storage                         accountWarehouse;
+	private SortedMap<Integer, Item>        equipment = Collections.synchronizedSortedMap(new TreeMap<Integer, Item>());
 	private PlayerStore			store;
 	private PlayerStatsTemplate	playerStatsTemplate;
 	private TitleList			titleList;
@@ -305,9 +312,10 @@ public class Player extends Creature
 	/**
 	 * @return the inventory
 	 */
-	public Inventory getInventory()
+
+	public SortedMap<Integer, Item> getEquipment()
 	{
-		return inventory;
+		return equipment;
 	}
 
 	/**
@@ -373,10 +381,10 @@ public class Player extends Creature
 					QuestEnv env = new QuestEnv(obj, this, questId, 0);
 					if (QuestEngine.getInstance().getQuest(env).checkStartCondition())
 					{
-					    if (!nearbyQuestList.contains(questId))
-					    {
-					    	nearbyQuestList.add(questId);
-					    }
+						if (!nearbyQuestList.contains(questId))
+						{
+							nearbyQuestList.add(questId);
+						}
 					}
 				}
 			}
@@ -393,110 +401,145 @@ public class Player extends Creature
 	 * @param inventory
 	 *            the inventory to set Inventory should be set right after player object is created
 	 */
-	public void setInventory(Inventory inventory)
+	public void setStorage(Storage storage, StorageType storageType)
 	{
-		this.inventory = inventory;
-		inventory.setOwner(this);
+		if(storageType == StorageType.CUBE)
+		{
+			this.inventory = storage;
+			inventory.setOwner(this);
+		}
+
+		if(storageType == StorageType.REGULAR_WAREHOUSE)
+		{
+			this.regularWarehouse = storage;
+			regularWarehouse.setOwner(this);
+		}
+
+		if(storageType == StorageType.ACCOUNT_WAREHOUSE)
+		{
+			this.accountWarehouse = storage;
+			accountWarehouse.setOwner(this);
+		}
+
+	}
+
+	public Storage getStorage(int storageType)
+	{
+		if(storageType == StorageType.REGULAR_WAREHOUSE.getId())
+			return regularWarehouse;
+
+		if(storageType == StorageType.ACCOUNT_WAREHOUSE.getId())
+			return accountWarehouse;
+
+		if(storageType == StorageType.CUBE.getId())
+			return inventory;
+		else
+			return null;
+	}
+
+	public Storage getInventory()
+	{
+		return inventory;
 	}
 
 	/**
 	 * @param CubeUpgrade
 	 *            int Sets the cubesize
 	 */
-	public void setCubesize(int cubesize)
+	 public void setCubesize(int cubesize)
 	{
 		this.playerCommonData.setCubesize(cubesize);
 	}
 
-	/**
-	 * @return the playerSettings
-	 */
-	public PlayerSettings getPlayerSettings()
-	{
-		return playerSettings;
-	}
+	 /**
+	  * @return the playerSettings
+	  */
+	 public PlayerSettings getPlayerSettings()
+	 {
+		 return playerSettings;
+	 }
 
-	/**
-	 * @param playerSettings the playerSettings to set
-	 */
-	public void setPlayerSettings(PlayerSettings playerSettings)
-	{
-		this.playerSettings = playerSettings;
-	}
+	 /**
+	  * @param playerSettings the playerSettings to set
+	  */
+	 public void setPlayerSettings(PlayerSettings playerSettings)
+	 {
+		 this.playerSettings = playerSettings;
+	 }
 
-	/**
-	 * @return the zoneInstance
-	 */
-	public ZoneInstance getZoneInstance()
-	{
-		return zoneInstance;
-	}
+	 /**
+	  * @return the zoneInstance
+	  */
+	 public ZoneInstance getZoneInstance()
+	 {
+		 return zoneInstance;
+	 }
 
-	/**
-	 * @param zoneInstance the zoneInstance to set
-	 */
-	public void setZoneInstance(ZoneInstance zoneInstance)
-	{
-		this.zoneInstance = zoneInstance;
-	}
+	 /**
+	  * @param zoneInstance the zoneInstance to set
+	  */
+	 public void setZoneInstance(ZoneInstance zoneInstance)
+	 {
+		 this.zoneInstance = zoneInstance;
+	 }
 
-	public TitleList getTitleList()
-	{
-		return titleList;
-	}
-	
-	public void setTitleList(TitleList titleList)
-	{
-		this.titleList = titleList;
-		titleList.setOwner(this);
-	}
+	 public TitleList getTitleList()
+	 {
+		 return titleList;
+	 }
 
-	/**
-	 * @return the playerGroup
-	 */
-	public PlayerGroup getPlayerGroup()
-	{
-		return playerGroup;
-	}
+	 public void setTitleList(TitleList titleList)
+	 {
+		 this.titleList = titleList;
+		 titleList.setOwner(this);
+	 }
 
-	/**
-	 * @param playerGroup the playerGroup to set
-	 */
-	public void setPlayerGroup(PlayerGroup playerGroup)
-	{
-		this.playerGroup = playerGroup;
-	}
+	 /**
+	  * @return the playerGroup
+	  */
+	 public PlayerGroup getPlayerGroup()
+	 {
+		 return playerGroup;
+	 }
 
-	@Override
-	public void initializeAi()
-	{
-		// TODO Auto-generated method stub
-	}
+	 /**
+	  * @param playerGroup the playerGroup to set
+	  */
+	 public void setPlayerGroup(PlayerGroup playerGroup)
+	 {
+		 this.playerGroup = playerGroup;
+	 }
 
-	/**
-	 * This method is called when player logs into the game. It's main responsibility is to call all registered
-	 * listeners.<br>
-	 * <br>
-	 * 
-	 * <b><font color='red'>NOTICE: </font>this method is supposed to be called only from
-	 * {@link PlayerService#playerLoggedIn(Player)}</b>
-	 */
-	@Enhancable(callback = PlayerLoggedInListener.class)
-	public void onLoggedIn()
-	{
+	 @Override
+	 public void initializeAi()
+	 {
+		 // TODO Auto-generated method stub
+	 }
 
-	}
+	 /**
+	  * This method is called when player logs into the game. It's main responsibility is to call all registered
+	  * listeners.<br>
+	  * <br>
+	  * 
+	  * <b><font color='red'>NOTICE: </font>this method is supposed to be called only from
+	  * {@link PlayerService#playerLoggedIn(Player)}</b>
+	  */
+	 @Enhancable(callback = PlayerLoggedInListener.class)
+	 public void onLoggedIn()
+	 {
 
-	/**
-	 * This method is called when player leaves the game. It's main responsibility is to call all registered listeners.<br>
-	 * <br>
-	 * 
-	 * <b><font color='red'>NOTICE: </font>this method is supposed to be called only from
-	 * {@link PlayerService#playerLoggedOut(Player)}</b>
-	 */
-	@Enhancable(callback = PlayerLoggedOutListener.class)
-	public void onLoggedOut()
-	{
+	 }
 
-	}
+	 /**
+	  * This method is called when player leaves the game. It's main responsibility is to call all registered listeners.<br>
+	  * <br>
+	  * 
+	  * <b><font color='red'>NOTICE: </font>this method is supposed to be called only from
+	  * {@link PlayerService#playerLoggedOut(Player)}</b>
+	  */
+	 @Enhancable(callback = PlayerLoggedOutListener.class)
+	 public void onLoggedOut()
+	 {
+
+	 }
 }

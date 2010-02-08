@@ -32,7 +32,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_CHAT_MESSAGE_WHISPER
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CHECK_NICKNAME;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CLIENT_COMMAND_LOC;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CLOSE_DIALOG;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_CLOSE_LOOT;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_MOVE_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CREATE_CHARACTER;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CUSTOM_SETTINGS;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_DELETE_CHARACTER;
@@ -113,7 +113,7 @@ public class AionPacketHandlerFactory
 {
 	private Injector			injector;
 	private AionPacketHandler	handler	= new AionPacketHandler();
-	
+
 	/**
 	 * Creates new instance of <tt>AionPacketHandlerFactory</tt><br>
 	 * 
@@ -164,7 +164,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_PLAYER_STATUS_INFO(0x56), State.IN_GAME);
 		addPacket(new CM_START_LOOT(0x00), State.IN_GAME);
 		addPacket(new CM_LOOT_ITEM(0x01), State.IN_GAME);
-		addPacket(new CM_CLOSE_LOOT(0x02), State.IN_GAME);
+		addPacket(new CM_MOVE_ITEM(0x02), State.IN_GAME);
 		addPacket(new CM_CASTSPELL(0x97), State.IN_GAME);
 		addPacket(new CM_SHOW_DIALOG(0x9A), State.IN_GAME);
 		addPacket(new CM_DIALOG_SELECT(0xAC), State.IN_GAME);
@@ -203,7 +203,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_PLAY_MOVIE_END(0x47), State.IN_GAME);
 		addPacket(new CM_CUSTOM_SETTINGS(0xF2), State.IN_GAME);
 		addPacket(new CM_REMOVE_ALTERED_STATE(0x89), State.IN_GAME);
-		
+
 	}
 
 	public AionPacketHandler getPacketHandler()

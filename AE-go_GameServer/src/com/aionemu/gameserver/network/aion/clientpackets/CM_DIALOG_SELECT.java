@@ -21,6 +21,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
+import com.aionemu.gameserver.model.gameobjects.player.StorageType;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
@@ -29,11 +30,13 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_INFO;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.MathUtil;
 import com.google.inject.Inject;
 
 /**
@@ -86,7 +89,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 		final Player player = getConnection().getActivePlayer();
 		if(player == null)
 			return;
-		
+
 		if(targetObjectId == 0)
 		{
 			if (QuestEngine.getInstance().onDialog(new QuestEnv(null, player, questId, dialogId)))
@@ -118,7 +121,14 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				break;
 			case 20:
 				//warehouse
-				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 26));
+				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
+				{
+					sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 26));
+					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems(), StorageType.REGULAR_WAREHOUSE.getId()));
+					sendPacket(new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE.getId())); // strange retail way of sending warehouse packets
+					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getUnquippedItems(), StorageType.ACCOUNT_WAREHOUSE.getId()));
+					sendPacket(new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE.getId()));
+				}				
 				break;
 			case 27:
 				//Consign trade?? npc karinerk, koorunerk
@@ -141,7 +151,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 						}
 						//TODO not enought kinah message
 					}
-		
+
 					@Override
 					public void denyRequest(Creature requester, Player responder)
 					{
@@ -173,11 +183,11 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				break;
 			case 38:
 				//flight and teleport
-//				if (player.getCommonData().isFlying() == true)
-//				{
-//					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300696));
-//					return;
-//				}
+				//				if (player.getCommonData().isFlying() == true)
+				//				{
+				//					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300696));
+				//					return;
+				//				}
 				sendPacket(new SM_TELEPORT_MAP(player, targetObjectId));
 				break;
 			case 39:

@@ -424,6 +424,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1400075);
 	}
 
+	public static SM_SYSTEM_MESSAGE ADDITIONAL_PLACES_IN_WAREHOUSE()
+	{
+		return new SM_SYSTEM_MESSAGE(1300433);
+	}
+
 	private final int		code;
 	private final Object[]	params;
 

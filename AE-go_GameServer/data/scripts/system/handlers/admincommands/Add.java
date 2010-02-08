@@ -20,7 +20,7 @@ import java.util.Collections;
 
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
@@ -52,7 +52,7 @@ public class Add extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;
 		}
-		
+
 		if(params.length == 0 || params.length > 2)
 		{
 			PacketSendUtility.sendMessage(admin, "syntax //add <item ID> <quantity>");
@@ -61,7 +61,7 @@ public class Add extends AdminCommand
 
 		int itemId = 0;
 		int itemCount = 1;
-		
+
 		try
 		{
 			itemId = Integer.parseInt(params[0]);
@@ -75,18 +75,18 @@ public class Add extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "Parameters need to be an integer.");
 			return;
 		}
-		
+
 		Item item  = itemService.newItem(itemId, itemCount);
-		
+
 		if(item == null)
 		{
 			PacketSendUtility.sendMessage(admin, "Item template was not found for this itemId");
 			return;
 		}
-		
-		Inventory inventory = admin.getInventory();
+
+		Storage inventory = admin.getInventory();
 		Item addedItem = null;
-		
+
 		if(itemId == ItemId.KINAH.value())
 		{
 			addedItem = inventory.getKinahItem();
@@ -97,7 +97,7 @@ public class Add extends AdminCommand
 		{
 			addedItem = inventory.addToBag(item);
 		}
-		
+
 		if(addedItem != null)
 		{
 			PacketSendUtility.sendPacket(admin, new SM_INVENTORY_UPDATE(Collections.singletonList(addedItem)));

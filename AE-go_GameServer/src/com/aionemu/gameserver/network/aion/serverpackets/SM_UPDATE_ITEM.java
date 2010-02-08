@@ -37,7 +37,7 @@ public class SM_UPDATE_ITEM extends InventoryPacket
 	{
 		this.item = item;	
 	}
-	
+
 	@Override
 	protected void writeGeneralInfo(ByteBuffer buf, Item item)
 	{
@@ -47,35 +47,35 @@ public class SM_UPDATE_ITEM extends InventoryPacket
 		writeD(buf, Integer.parseInt(itemTemplate.getDescription()));
 		writeH(buf, 0);
 	}
-	
+
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 
 		writeGeneralInfo(buf, item);
-		
+
 		ItemTemplate itemTemplate = item.getItemTemplate();
-		
+
 		if(itemTemplate.getItemId() == ItemId.KINAH.value())
 		{
-			writeKinah(buf, item);
+			writeKinah(buf, item, true);
 		}
 		else if (itemTemplate.isWeapon())
 		{
-			writeWeaponInfo(buf, item);
+			writeWeaponInfo(buf, item, true);
 		}
 		else if (itemTemplate.isArmor())
 		{
-			writeArmorInfo(buf,item);
+			writeArmorInfo(buf,item, true);
 		}
 		else
 		{
 			writeGeneralItemInfo(buf, item, item.isQuest());
 		}
 	}
-	
+
 	@Override
-	protected void writeKinah(ByteBuffer buf, Item item)
+	protected void writeKinah(ByteBuffer buf, Item item, boolean isInventory)
 	{
 		writeH(buf, 0x16); //length of details
 		writeC(buf, 0);

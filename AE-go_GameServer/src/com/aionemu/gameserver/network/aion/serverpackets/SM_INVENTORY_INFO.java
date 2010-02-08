@@ -40,12 +40,12 @@ public class SM_INVENTORY_INFO extends InventoryPacket
 	public static final int EMPTY = 0;
 	public static final int FULL = 1;
 	public int CUBE = 0;
-	
+
 	private List<Item> items;
 	private int size;
 
 	public int packetType = FULL;
-	
+
 	/**
 	 * @param items
 	 */
@@ -57,7 +57,7 @@ public class SM_INVENTORY_INFO extends InventoryPacket
 		this.size = items.size();
 		this.CUBE = cubesize;
 	}
-	
+
 	/**
 	 * @param isEmpty
 	 */
@@ -78,7 +78,7 @@ public class SM_INVENTORY_INFO extends InventoryPacket
 			writeH(buf, 0);
 			return;
 		}
-		
+
 		// something wrong with cube part.
 		writeC(buf, 1); // TRUE/FALSE (1/0) update cube size
 		writeC(buf, CUBE); // cube size
@@ -88,20 +88,20 @@ public class SM_INVENTORY_INFO extends InventoryPacket
 		for(Item item : items)
 		{
 			writeGeneralInfo(buf, item);
-			
+
 			ItemTemplate itemTemplate = item.getItemTemplate();
-			
+
 			if(itemTemplate.getItemId() == ItemId.KINAH.value())
 			{
-				writeKinah(buf, item);
+				writeKinah(buf, item, true);
 			}
 			else if (itemTemplate.isWeapon())
 			{
-				writeWeaponInfo(buf, item);
+				writeWeaponInfo(buf, item, true);
 			}
 			else if (itemTemplate.isArmor())
 			{
-				writeArmorInfo(buf,item);
+				writeArmorInfo(buf,item, true);
 			}
 			else
 			{				

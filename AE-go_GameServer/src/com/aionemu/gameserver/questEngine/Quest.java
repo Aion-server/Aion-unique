@@ -20,7 +20,7 @@ import static com.aionemu.gameserver.configs.Config.QUEST_KINAH_RATE;
 import static com.aionemu.gameserver.configs.Config.QUEST_XP_RATE;
 
 import com.aionemu.gameserver.model.PlayerClass;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.CollectItem;
@@ -146,7 +146,7 @@ public class Quest
 		PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus(), qs.getQuestVars().getQuestVars()));
 		player.updateNearbyQuests();
 
-		Inventory inventory = player.getInventory();
+		Storage inventory = player.getInventory();
 		Rewards rewards = template.getRewards().get(reward);
 		if(rewards.getGold() != null)
 		{

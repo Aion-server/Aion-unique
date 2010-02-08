@@ -16,7 +16,7 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
@@ -52,10 +52,10 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 
 		final Player activePlayer = getConnection().getActivePlayer();
 
-		Inventory inventory = activePlayer.getInventory();
-		
+		Storage inventory = activePlayer.getInventory();
+
 		boolean operationResult = false;
-		
+
 		if(action == 0)
 		{
 			operationResult = inventory.equipItem(itemUniqueId, slotRead);

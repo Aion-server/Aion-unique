@@ -25,7 +25,7 @@ import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
@@ -156,7 +156,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// will be removed next time
 
 			//items
-			Inventory inventory = player.getInventory();
+			Storage inventory = player.getInventory();
 			List<Item> equipedItems = inventory.getEquippedItems();
 			if(equipedItems.size() != 0)
 			{
@@ -221,30 +221,30 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			AccountTime accountTime = getConnection().getAccount().getAccountTime();
 
 			sendPacket(SM_SYSTEM_MESSAGE.ACCUMULATED_TIME(
-															accountTime.getAccumulatedOnlineHours(), 
-															accountTime.getAccumulatedOnlineMinutes(),
-															accountTime.getAccumulatedRestHours(),
-															accountTime.getAccumulatedRestMinutes())
-														);
+				accountTime.getAccumulatedOnlineHours(), 
+				accountTime.getAccumulatedOnlineMinutes(),
+				accountTime.getAccumulatedRestHours(),
+				accountTime.getAccumulatedRestMinutes())
+			);
 
 			/*
 			 * Needed
 			 */
-			sendPacket(new SM_PLAYER_SPAWN(player));
-			sendPacket(new SM_EMOTION_LIST());
-			sendPacket(new SM_INFLUENCE_RATIO());
-            sendPacket(new SM_PRICES());
-            sendPacket(new SM_PLAYER_ID(player));
-            sendPacket(new SM_ABYSS_RANK());
-			sendPacket(new SM_FLY_TIME());
+			 sendPacket(new SM_PLAYER_SPAWN(player));
+			 sendPacket(new SM_EMOTION_LIST());
+			 sendPacket(new SM_INFLUENCE_RATIO());
+			 sendPacket(new SM_PRICES());
+			 sendPacket(new SM_PLAYER_ID(player));
+			 sendPacket(new SM_ABYSS_RANK());
+			 sendPacket(new SM_FLY_TIME());
 
-			sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME
-				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2010", null,
-				ChatType.ANNOUNCEMENTS));
+			 sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME
+				 + " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2010", null,
+				 ChatType.ANNOUNCEMENTS));
 
-			playerService.playerLoggedIn(player);
+			 playerService.playerLoggedIn(player);
 
-			ClassChangeService.showClassChangeDialog(player);
+			 ClassChangeService.showClassChangeDialog(player);
 		}
 		else
 		{
@@ -252,5 +252,5 @@ public class CM_ENTER_WORLD extends AionClientPacket
 		}
 	}
 
-	
+
 }

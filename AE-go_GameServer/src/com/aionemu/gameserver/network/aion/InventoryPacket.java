@@ -46,7 +46,7 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeD(buf, Integer.parseInt(itemTemplate.getDescription()));
 		writeH(buf, 0);
 	}
-	
+
 	/**
 	 *  All misc items
 	 * @param buf
@@ -56,7 +56,7 @@ public abstract class InventoryPacket extends AionServerPacket
 	{
 		writeH(buf, 0x16); //length of details
 		writeC(buf, 0);
-		
+
 		if(isQuest)
 		{
 			writeC(buf, 0x20);
@@ -66,8 +66,8 @@ public abstract class InventoryPacket extends AionServerPacket
 			writeC(buf, 0x3E); //or can be 0x1E 0x3E 0x20 (quest)
 			writeC(buf, 0x63); // ?
 		}
-		
-		
+
+
 		writeD(buf, item.getItemCount());
 		writeD(buf, 0);
 		writeD(buf, 0);
@@ -76,13 +76,13 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeC(buf, 0);
 		writeH(buf, item.getEquipmentSlot()); // not equipable items
 	}
-	
+
 	/**
 	 * 
 	 * @param buf
 	 * @param item
 	 */
-	protected void writeKinah(ByteBuffer buf, Item item)
+	protected void writeKinah(ByteBuffer buf, Item item, boolean isInventory)
 	{
 		writeH(buf, 0x16); //length of details
 		writeC(buf, 0);
@@ -95,16 +95,17 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeH(buf, 0);
 		writeC(buf, 0);
 		writeH(buf, 255); // FF FF equipment
-		writeC(buf, 0);
+		if(isInventory)
+			writeC(buf, 0);
 	}
-	
+
 	/**
 	 *  For all weapon. Weapon is identified by weapon_type in xml
 	 *  
 	 * @param buf
 	 * @param item
 	 */
-	protected void writeWeaponInfo(ByteBuffer buf, Item item)
+	protected void writeWeaponInfo(ByteBuffer buf, Item item, boolean isInventory)
 	{
 		int itemSlotId = item.getEquipmentSlot();
 		writeH(buf, 0x4B);
@@ -117,14 +118,14 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeC(buf, 0); //enchant (1-10)
 		writeD(buf, item.getItemTemplate().getItemId());
 		writeC(buf, 0);
-		
+
 		writeItemStones(buf, item);
-		
-		
+
+
 		writeC(buf, 0);
 		writeD(buf, 0);
 		writeD(buf, 0);
-		
+
 		writeD(buf, 0);//unk 1.5.1.9
 		writeC(buf, 0);//unk 1.5.1.9
 
@@ -137,9 +138,10 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeH(buf, 0);
 		writeC(buf, 0);
 		writeH(buf, item.isEquipped() ? 255 : item.getEquipmentSlot()); // FF FF equipment
-		writeC(buf,  0);//item.isEquipped() ? 1 : 0
+		if(isInventory)
+			writeC(buf,  0);//item.isEquipped() ? 1 : 0
 	}
-	
+
 	/**
 	 *  Writes manastones : 6C - statenum mask, 6H - value
 	 * @param buf
@@ -149,14 +151,14 @@ public abstract class InventoryPacket extends AionServerPacket
 	{
 		int count = 0;
 		List<ItemStone> itemStones = item.getItemStones();
-		
+
 		if(itemStones != null)
 		{
 			for(ItemStone itemStone : itemStones)
 			{
 				if(count == 6)
 					break;
-				
+
 				StatModifier modifier = itemStone.getFirstModifier();
 				if(modifier != null)
 				{
@@ -170,7 +172,7 @@ public abstract class InventoryPacket extends AionServerPacket
 			{
 				if(count == 6)
 					break;
-				
+
 				StatModifier modifier = itemStone.getFirstModifier();
 				if(modifier != null)
 				{
@@ -184,17 +186,17 @@ public abstract class InventoryPacket extends AionServerPacket
 		{
 			writeB(buf, new byte[18]);
 		}
-		
+
 		//for now max 6 stones - write some junk
-		
+
 	}
-	
+
 	/**
 	 *  For all armor. Armor is identified by armor_type in xml
 	 * @param buf
 	 * @param item
 	 */
-	protected void writeArmorInfo(ByteBuffer buf, Item item)
+	protected void writeArmorInfo(ByteBuffer buf, Item item, boolean isInventory)
 	{
 		int itemSlotId = item.getEquipmentSlot();
 		writeH(buf, 0x4F);
@@ -207,18 +209,18 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeH(buf, 0x0B); //? some details separator
 		writeC(buf, 0); //enchant (1-10)
 		writeD(buf, item.getItemTemplate().getItemId());
-		
+
 		writeC(buf, 0);
-		
+
 		writeItemStones(buf, item);
-		
+
 		writeC(buf, 0);
 		writeD(buf, 0);
 		writeD(buf, 0);	
-		
+
 		writeD(buf, 0);//unk 1.5.1.9
 		writeC(buf, 0);//unk 1.5.1.9
-		
+
 		writeC(buf, 0x3E);
 		writeC(buf, 0x02);
 		writeD(buf, item.getItemCount());
@@ -228,6 +230,7 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeH(buf, 0);
 		writeC(buf, 0);
 		writeH(buf, item.isEquipped() ? 255 : item.getEquipmentSlot()); // FF FF equipment
-		writeC(buf,  1);//item.isEquipped() ? 1 : 0
+		if(isInventory)
+			writeC(buf,  1);//item.isEquipped() ? 1 : 0
 	}
 }

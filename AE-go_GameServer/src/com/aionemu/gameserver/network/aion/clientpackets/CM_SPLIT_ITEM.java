@@ -19,8 +19,10 @@ public class CM_SPLIT_ITEM extends AionClientPacket
 	private ItemService itemService;
 
 	int sourceItemObjId;
+	int sourceStorageType;
 	int itemAmount;
 	int destinationItemObjId;
+	int destinationStorageType;
 	int slotNum; // destination slot.
 
 	public CM_SPLIT_ITEM(int opcode)
@@ -31,14 +33,15 @@ public class CM_SPLIT_ITEM extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		sourceItemObjId = readD();      // drag item unique ID. If merging and itemCount becoming null, this item must be deleted.
-		itemAmount = readD();           // Items count to be moved.
-		@SuppressWarnings("unused")
-		byte[] zeros = readB(5);        // Nothing
-		destinationItemObjId = readD(); // Destination item unique ID if merging. Null if spliting.
-		zeros = readB(1);               // Nothing
-		slotNum = readH();              // Destination slot. Not needed right now, Items adding only to next available slot. Not needed at all when merge.
+		sourceItemObjId = readD();       // drag item unique ID. If merging and itemCount becoming null, this item must be deleted.
+		itemAmount = readD();            // Items count to be moved.
+		byte[] zeros = readB(4);         // Nothing
+		sourceStorageType = readC();     // Source storage
+		destinationItemObjId = readD();  // Destination item unique ID if merging. Null if spliting.
+		destinationStorageType = readC();// Destination storage
+		slotNum = readH();               // Destination slot. Not needed right now, Items adding only to next available slot. Not needed at all when merge.
 	}
+
 
 	@Override
 	protected void runImpl()
@@ -46,8 +49,8 @@ public class CM_SPLIT_ITEM extends AionClientPacket
 		Player player = getConnection().getActivePlayer();
 
 		if(destinationItemObjId == 0)
-			itemService.splitItem(player, sourceItemObjId, itemAmount, slotNum);
+			itemService.splitItem(player, sourceItemObjId, itemAmount, slotNum, sourceStorageType, destinationStorageType);
 		else
-			itemService.mergeItems(player, sourceItemObjId, itemAmount, destinationItemObjId);
+			itemService.mergeItems(player, sourceItemObjId, itemAmount, destinationItemObjId, sourceStorageType, destinationStorageType);
 	}
 }

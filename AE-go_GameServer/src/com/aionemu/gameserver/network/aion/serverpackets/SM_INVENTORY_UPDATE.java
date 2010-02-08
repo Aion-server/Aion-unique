@@ -34,7 +34,7 @@ public class SM_INVENTORY_UPDATE extends InventoryPacket
 {
 	private List<Item> items;
 	private int size;
-	
+
 	public SM_INVENTORY_UPDATE(List<Item> items)
 	{
 		this.items = items;
@@ -44,35 +44,35 @@ public class SM_INVENTORY_UPDATE extends InventoryPacket
 	/**
 	 * {@inheritDoc} dc
 	 */
-	
+
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{	
 		writeH(buf, 25); // padding?
 		writeH(buf, size); // number of entries
 		for(Item item : items)
- 		{
+		{
 			writeGeneralInfo(buf, item);
-			
+
 			ItemTemplate itemTemplate = item.getItemTemplate();
-			
+
 			if(itemTemplate.getItemId() == ItemId.KINAH.value())
 			{
-				writeKinah(buf, item);
+				writeKinah(buf, item, true);
 			}
 			else if (itemTemplate.isWeapon())
 			{
-				writeWeaponInfo(buf, item);
+				writeWeaponInfo(buf, item, true);
 			}
 			else if (itemTemplate.isArmor())
 			{
-				writeArmorInfo(buf,item);
+				writeArmorInfo(buf,item, true);
 			}
 			else
 			{
 				writeGeneralItemInfo(buf, item, item.isQuest());
 				writeC(buf, 0);
 			}
- 		}
+		}
 	}	
 }

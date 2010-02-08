@@ -30,10 +30,11 @@ import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.model.account.Account;
 import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
+import com.aionemu.gameserver.model.gameobjects.player.StorageType;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.world.World;
@@ -127,8 +128,8 @@ public class AccountService
 			PlayerCommonData playerCommonData = playerDAO.loadPlayerCommonData(playerOid, world);
 			PlayerAppearance appereance = appereanceDAO.load(playerOid);
 			Player player = new Player(new PlayerController(),playerCommonData,appereance);
-			
-			Inventory inventory = DAOManager.getDAO(InventoryDAO.class).load(player);
+
+			Storage inventory = DAOManager.getDAO(InventoryDAO.class).load(player, StorageType.CUBE);
 			PlayerAccountData acData = new PlayerAccountData(playerCommonData, appereance, inventory);
 			playerDAO.setCreationDeletionTime(acData);
 

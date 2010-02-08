@@ -57,7 +57,7 @@ public class SkillLearnAction extends AbstractItemAction
 	{
 		if(!validateConditions(player))
 			return;
-		
+
 		//item animation and message
 		ItemTemplate itemTemplate = parentItem.getItemTemplate();
 		//PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.USE_ITEM(itemTemplate.getDescription()));
@@ -67,10 +67,10 @@ public class SkillLearnAction extends AbstractItemAction
 		player.getSkillList().addSkill(skillid, 1);
 		PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(new SkillListEntry(skillid, 1, null)));
 		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
-		
+
 		//remove book from inventory (assuming its not stackable)
 		Item item = player.getInventory().getItemByObjId(parentItem.getObjectId());
-		player.getInventory().removeFromBag(item);
+		player.getInventory().removeFromBag(item, true);
 		PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(parentItem.getObjectId()));	
 	}
 
@@ -79,12 +79,12 @@ public class SkillLearnAction extends AbstractItemAction
 		//1. check player level
 		if(player.getCommonData().getLevel() < level)
 			return false;
-		
+
 		PlayerClass pc = player.getCommonData().getPlayerClass();
-		
+
 		if(!validateClass(pc))
 			return false;
-		
+
 		//4. check player race and SkillRace.ALL
 		if(player.getCommonData().getRace().ordinal() != race.ordinal() 
 			&& race != SkillRace.ALL)
@@ -92,7 +92,7 @@ public class SkillLearnAction extends AbstractItemAction
 		//5. check whether this skill is already learned
 		if(player.getSkillList().isSkillPresent(skillid))
 			return false;
-		
+
 		return true;
 	}
 
@@ -106,7 +106,7 @@ public class SkillLearnAction extends AbstractItemAction
 		if(pc.ordinal() == playerClass.ordinal()
 			|| playerClass == SkillClass.ALL)
 			result = true;
-		
+
 		return result;
 	}
 }

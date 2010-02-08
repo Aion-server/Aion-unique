@@ -45,22 +45,22 @@ public class SM_EXCHANGE_ADD_ITEM extends InventoryPacket
 	{
 
 		writeC(buf, action); // 0 -self 1-other
-		
+
 		writeGeneralInfo(buf, item);
-		
+
 		ItemTemplate itemTemplate = item.getItemTemplate();
-		
+
 		if(itemTemplate.getItemId() == ItemId.KINAH.value())
 		{
-			writeKinah(buf, item);
+			writeKinah(buf, item, true);
 		}
 		else if (itemTemplate.isWeapon())
 		{
-			writeWeaponInfo(buf, item);
+			writeWeaponInfo(buf, item, true);
 		}
 		else if (itemTemplate.isArmor())
 		{
-			writeArmorInfo(buf,item);
+			writeArmorInfo(buf,item, true);
 		}
 		else
 		{				

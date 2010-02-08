@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
@@ -34,16 +34,16 @@ import com.aionemu.gameserver.skillengine.model.Skill;
 public class ItemUseAction extends Action
 {
 	@XmlAttribute(required = true)
-    protected int itemid;
-	
+	protected int itemid;
+
 	@XmlAttribute(required = true)
-    protected int count;
-	
+	protected int count;
+
 	@Override
 	public void act(Skill skill)
 	{
 		Player player = skill.getEffector();
-		Inventory inventory = player.getInventory();
+		Storage inventory = player.getInventory();
 
 		if(!inventory.removeFromBagByItemId(itemid, count))
 		{

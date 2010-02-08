@@ -21,7 +21,7 @@ import java.util.Map;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.trade.Exchange;
 import com.aionemu.gameserver.model.trade.ExchangeItem;
@@ -109,12 +109,12 @@ public class ExchangeService
 		Exchange currentExchange = getCurrentExchange(activePlayer);
 		if(currentExchange.isLocked())
 			return;
-		
+
 		//count total amount in inventory
 		int availableCount = activePlayer.getInventory().getKinahItem().getItemCount();
 		//count amount that was already added to exchange
 		availableCount -= currentExchange.getKinahCount();
-		
+
 		int countToAdd = availableCount > itemCount ? itemCount : availableCount;
 
 		if(countToAdd > 0)
@@ -281,7 +281,7 @@ public class ExchangeService
 	 */
 	private void removeItemsFromInventory(Player player, Exchange exchange)
 	{
-		Inventory inventory = player.getInventory();
+		Storage inventory = player.getInventory();
 
 		for(ExchangeItem exchangeItem : exchange.getItems().values())
 		{

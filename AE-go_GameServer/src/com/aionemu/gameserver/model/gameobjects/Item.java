@@ -32,22 +32,24 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 public class Item extends AionObject
 {	
 	private int itemCount = 1;
-	
+
 	private int itemColor = 0;
-	
+
 	private ItemTemplate itemTemplate;
-	
+
 	private boolean isEquipped = false;
-	
+
 	private int equipmentSlot = 0;
-	
+
 	private boolean isQuest;
-	
+
 	private PersistentState persistentState;
-	
+
 	//TODO move to ItemStoneList ?
 	private List<ItemStone> itemStones;
-	
+
+	private int itemLocation;
+
 	/**
 	 * @param objId
 	 * @param itemTemplate
@@ -61,14 +63,14 @@ public class Item extends AionObject
 	public Item(int objId, ItemTemplate itemTemplate, int itemCount, boolean isEquipped, int equipmentSlot)
 	{
 		super(objId);
-		
+
 		this.itemTemplate = itemTemplate;
 		this.itemCount = itemCount;
 		this.isEquipped = isEquipped;
 		this.equipmentSlot = equipmentSlot;
 		this.persistentState = PersistentState.NEW;
 	}
-	
+
 	/**
 	 * @param objId
 	 * @param itemId
@@ -81,7 +83,7 @@ public class Item extends AionObject
 	public Item(int objId, int itemId, int itemCount, int itemColor, boolean isEquipped, int equipmentSlot)
 	{
 		super(objId);
-		
+
 		this.itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
 		this.itemCount = itemCount;
 		this.itemColor = itemColor;
@@ -107,7 +109,7 @@ public class Item extends AionObject
 
 	/**
 	 *@return the itemColor
-     */
+	 */
 	public int getItemColor()
 	{
 		return itemColor;
@@ -147,7 +149,7 @@ public class Item extends AionObject
 		this.itemCount = itemCount;
 		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
-	
+
 	/**
 	 *  Every increase operation should be persisted immediately in caller method
 	 *  Use <code>setItemCount</code> method for non-persisted operations
@@ -245,7 +247,7 @@ public class Item extends AionObject
 		int nextSlot = itemStones == null ? 0 : itemStones.size();
 		if(itemStones == null)
 			itemStones = new ArrayList<ItemStone>();
-		
+
 		ItemStone stone = new ItemStone(getObjectId(), itemId,
 			nextSlot, PersistentState.NEW);
 		this.itemStones.add(stone);
@@ -284,7 +286,7 @@ public class Item extends AionObject
 			default:
 				this.persistentState = persistentState;
 		}
-		
+
 	}
 
 	/**
@@ -320,5 +322,15 @@ public class Item extends AionObject
 		}
 		sb.append('}');
 		return sb.toString();
+	}
+
+	public void setItemLocation(int storageType)
+	{
+		this.itemLocation = storageType;
+	}
+
+	public int getItemLocation()
+	{
+		return itemLocation;
 	}
 }

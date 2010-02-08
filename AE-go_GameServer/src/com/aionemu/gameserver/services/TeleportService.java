@@ -20,7 +20,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.ChatType;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.templates.teleport.TelelocationTemplate;
@@ -42,7 +42,7 @@ public class TeleportService
 	private static final int TELEPORT_DEFAULT_DELAY = 2200;
 
 	private static TeleportService instance = new TeleportService();
-	
+
 	/**
 	 *  Schedules teleport animation
 	 *  
@@ -56,13 +56,13 @@ public class TeleportService
 	{
 		activePlayer.getController().teleportTo(mapid, x, y, z, TELEPORT_DEFAULT_DELAY);
 	}
-	
+
 	// TODO injectable bean
 	public static TeleportService getInstance()
 	{
 		return instance;
 	}
-	
+
 	/**
 	 *  Performs flight teleportation
 	 *  
@@ -78,7 +78,7 @@ public class TeleportService
 			PacketSendUtility.sendMessage(player, "Missing locId for this teleporter at teleporter_templates.xml with locId: "+locId);
 			return;
 		}
-		
+
 		TeleportLocation location = template.getTeleLocIdData().getTeleportLocation(locId);
 		if(location == null)
 		{
@@ -86,7 +86,7 @@ public class TeleportService
 			PacketSendUtility.sendMessage(player, "Missing locId for this teleporter at teleporter_templates.xml with locId: "+locId);
 			return;
 		}			
-		
+
 		TelelocationTemplate locationTemplate = DataManager.TELELOCATION_DATA.getTelelocationTemplate(locId);
 		if(locationTemplate == null)
 		{
@@ -94,14 +94,14 @@ public class TeleportService
 			PacketSendUtility.sendMessage(player, "Missing info at teleport_location.xml with locId: "+locId);
 			return;
 		}
-		
+
 		if(!checkKinahForTransportation(location, player))
 			return;
 		player.setState(CreatureState.FLYING);
 		player.unsetState(CreatureState.ACTIVE);
 		PacketSendUtility.sendPacket(player, new SM_EMOTION(player, 6, location.getTeleportId(), 0));
 	}
-	
+
 	/**
 	 *  Performs regular teleportation
 	 *  
@@ -118,7 +118,7 @@ public class TeleportService
 			PacketSendUtility.sendMessage(player, "Missing locId for this teleporter at teleporter_templates.xml with locId: "+locId);
 			return;
 		}
-		
+
 		TeleportLocation location = template.getTeleLocIdData().getTeleportLocation(locId);
 		if(location == null)
 		{
@@ -126,7 +126,7 @@ public class TeleportService
 			PacketSendUtility.sendMessage(player, "Missing locId for this teleporter at teleporter_templates.xml with locId: "+locId);
 			return;
 		}
-		
+
 		TelelocationTemplate locationTemplate = DataManager.TELELOCATION_DATA.getTelelocationTemplate(locId);
 		if(locationTemplate == null)
 		{
@@ -134,10 +134,10 @@ public class TeleportService
 			PacketSendUtility.sendMessage(player, "Missing info at teleport_location.xml with locId: "+locId);
 			return;
 		}
-		
+
 		if(!checkKinahForTransportation(location, player))
 			return;
-		
+
 		PacketSendUtility.sendPacket(player, new SM_TELEPORT_LOC(locationTemplate.getMapId(),
 			locationTemplate.getX(), locationTemplate.getY(), locationTemplate.getZ()));
 		scheduleTeleportTask(player, locationTemplate.getMapId(),
@@ -153,8 +153,8 @@ public class TeleportService
 	 */
 	private boolean checkKinahForTransportation(TeleportLocation location, Player player)
 	{
-		Inventory inventory = player.getInventory();
-		
+		Storage inventory = player.getInventory();
+
 		if (!inventory.decreaseKinah(location.getPrice()))
 		{
 			// TODO using the correct system message

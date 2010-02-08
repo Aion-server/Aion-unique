@@ -27,7 +27,7 @@ import com.aionemu.gameserver.dataholders.GoodsListData;
 import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.TradeListTemplate;
 import com.aionemu.gameserver.model.templates.TradeListTemplate.TradeTab;
@@ -48,7 +48,7 @@ import com.google.inject.Inject;
 public class TradeService
 {
 	private static final Logger log = Logger.getLogger(TradeService.class);
-	
+
 	@Inject
 	private ItemService itemService;
 	@Inject
@@ -66,14 +66,14 @@ public class TradeService
 	 */
 	public boolean performBuyFromShop(Player player, TradeList tradeList)
 	{
-		
+
 		if(!validateBuyItems(tradeList))
 		{
 			PacketSendUtility.sendMessage(player, "Some items are not allowed to be selled from this npc");
 			return false;
 		}
-		
-		Inventory inventory  = player.getInventory();
+
+		Storage inventory  = player.getInventory();
 		Item kinahItem = inventory.getKinahItem();
 
 		int freeSlots = inventory.getLimit() - inventory.getUnquippedItems().size() + 1;
@@ -123,7 +123,7 @@ public class TradeService
 				allowedItems.addAll(goodsList.getItemIdList());
 			}				
 		}
-		
+
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
 			if(!allowedItems.contains(tradeItem.getItemId()))
@@ -140,7 +140,7 @@ public class TradeService
 	 */
 	public boolean performSellToShop(Player player, TradeList tradeList)
 	{
-		Inventory inventory = player.getInventory();
+		Storage inventory = player.getInventory();
 
 		int kinahReward = 0;		
 		for(TradeItem tradeItem : tradeList.getTradeItems())
@@ -152,7 +152,7 @@ public class TradeService
 
 			if(item.getItemCount() - tradeItem.getCount() == 0)
 			{
-				inventory.removeFromBag(item);    // need to be here to avoid exploit by sending packet with many items with same unique ids
+				inventory.removeFromBag(item, true);    // need to be here to avoid exploit by sending packet with many items with same unique ids
 				kinahReward += item.getItemTemplate().getPrice() * item.getItemCount();
 				//TODO check retail packet here
 				PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(item.getObjectId()));

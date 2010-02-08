@@ -24,7 +24,7 @@ import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.model.gameobjects.player.Inventory;
+import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
@@ -145,7 +145,7 @@ public class StatFunctions
 			int average = Math.round((totalMin + totalMax)/2);
 			int mainHandAttack = ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
 
-			Inventory inventory = ((Player)attacker).getInventory();
+			Storage inventory = ((Player)attacker).getInventory();
 
 			WeaponType weaponType = inventory.getMainHandWeaponType();
 
@@ -229,7 +229,7 @@ public class StatFunctions
 		int average = Math.round((totalMin + totalMax)/2);
 		int offHandAttack = ags.getCurrentStat(StatEnum.OFF_HAND_POWER);
 
-		Inventory inventory = ((Player)attacker).getInventory();
+		Storage inventory = ((Player)attacker).getInventory();
 
 		WeaponType weaponType = inventory.getOffHandWeaponType();
 

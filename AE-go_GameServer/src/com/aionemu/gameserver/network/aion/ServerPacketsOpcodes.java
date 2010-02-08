@@ -41,11 +41,11 @@ public class ServerPacketsOpcodes
 	static
 	{
 		Set<Integer> idSet = new HashSet<Integer>();
-		
+
 		addPacketOpcode(SM_VERSION_CHECK.class, 0x00, idSet);
 		addPacketOpcode(SM_STATS_INFO.class, 0x01, idSet);
 		addPacketOpcode(SM_SET_BIND_POINT.class, 0x03, idSet);
-        addPacketOpcode(SM_ABYSS_RANK.class, 0x05, idSet);
+		addPacketOpcode(SM_ABYSS_RANK.class, 0x05, idSet);
 		addPacketOpcode(SM_MACRO_LIST.class, 0x07, idSet);
 		addPacketOpcode(SM_MACRO_RESULT.class, 0x08, idSet);
 		addPacketOpcode(SM_NICKNAME_CHECK_RESPONSE.class, 0x09, idSet);
@@ -121,6 +121,10 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_DUEL.class, 0xB9, idSet);
 		addPacketOpcode(SM_TELEPORT_MAP.class, 0xBC, idSet);
 		addPacketOpcode(SM_USE_OBJECT.class, 0xBD, idSet);
+		addPacketOpcode(SM_DELETE_WAREHOUSE_ITEM.class, 0xC2, idSet);
+		addPacketOpcode(SM_UPDATE_WAREHOUSE_ITEM.class, 0xC3, idSet);
+		addPacketOpcode(SM_WAREHOUSE_INFO.class, 0xC8, idSet);
+		addPacketOpcode(SM_WAREHOUSE_UPDATE.class, 0xC9, idSet);
 		addPacketOpcode(SM_TITLE_LIST.class, 0xD0, idSet);
 		addPacketOpcode(SM_TITLE_SET.class, 0xD1, idSet);
 		addPacketOpcode(SM_CHANNEL_INFO.class, 0xDD, idSet);
@@ -144,13 +148,13 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_STATUPDATE_MP.class, 0xFC, idSet);
 		addPacketOpcode(SM_ATTACK_STATUS.class, 0xFD, idSet);
 		addPacketOpcode(SM_RECONNECT_KEY.class, 0xFF, idSet);
-		
+
 		addPacketOpcode(SM_CUSTOM_PACKET.class, 99999, idSet); // fake packet
 
 		addPacketOpcode(SM_BLOCK_RESPONSE.class, 0xDF, idSet);
-		
+
 		addPacketOpcode(SM_RIFT_STATUS.class, 0xA4, idSet);
-		
+
 		//Unrecognized Opcodes from 1.5.4:
 		//addPacketOpcode(SM_BUY_LIST.class, 0x7E, idSet);
 		//addPacketOpcode(SM_GUILD_DETAILS.class, 0x24, idSet);
@@ -179,7 +183,7 @@ public class ServerPacketsOpcodes
 		if(idSet.contains(opcode))
 			throw new IllegalArgumentException(String.format("There already exists another packet with id 0x%02X", opcode));
 
-		
+
 		idSet.add(opcode);
 		opcodes.put(packetClass, opcode);
 	}
