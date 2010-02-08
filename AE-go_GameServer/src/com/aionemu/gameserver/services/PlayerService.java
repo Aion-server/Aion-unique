@@ -197,6 +197,7 @@ public class PlayerService
 		if(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getKinahItem() == null)
 		{
 			Item kinahItem = itemService.newItem(182400001, 0);
+			kinahItem.setItemLocation(StorageType.ACCOUNT_WAREHOUSE.getId());
 			player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).onLoadHandler(kinahItem);
 		}
 
