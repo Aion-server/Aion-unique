@@ -324,7 +324,7 @@
   	
   	<!-- Turbulent Splash Spirits -->
   	<monster_hunt start_npc_id="203650" id="2256">
-  		<monster_infos var_id="0" npc_id="210577" max_kill="5"/>
+  		<monster_infos var_id="0" npc_id="210522" max_kill="5"/>
   	</monster_hunt> 
   	
   	<!-- [Coin] Mutated Spirits -->
@@ -355,7 +355,7 @@
   	</monster_hunt>
   	
   	<!-- Neifenmer's Reasoning -->
-  	<item_collecting start_npc_id="203655" id="2269"/>
+  	<item_collecting id="2269" start_npc_id="203655" action_item_id="700010"/>
   	
   	<!-- Reconstruction Supplies -->
   	<report_to start_npc_id="203649" end_npc_id="203557" id="2260"/>
