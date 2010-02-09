@@ -6814,6 +6814,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <bleed value="48" delta="0" checktime="3000" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="83" delta="0"/>
             <damage value="244" delta="5"/>
@@ -9689,6 +9692,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="20" delta="0" checktime="3000" duration="60000"/>
+        </effects>
         <actions>
             <mpuse value="110" delta="0"/>
             <damage value="200" delta="2"/>
@@ -19992,6 +19998,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="299" delta="5" checktime="3000" duration="6000"/>
+        </effects>
         <actions>
             <mpuse value="196" delta="4"/>
             <damage value="598" delta="10"/>
@@ -20010,6 +20019,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="332" delta="6" checktime="3000" duration="6000"/>
+        </effects>
         <actions>
             <mpuse value="217" delta="6"/>
             <damage value="664" delta="12"/>
@@ -20028,6 +20040,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="373" delta="6" checktime="3000" duration="6000"/>
+        </effects>
         <actions>
             <mpuse value="257" delta="5"/>
             <damage value="746" delta="12"/>
@@ -20046,6 +20061,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="407" delta="7" checktime="3000" duration="6000"/>
+        </effects>
         <actions>
             <mpuse value="287" delta="5"/>
             <damage value="814" delta="14"/>
@@ -25199,6 +25217,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="50" delta="0" checktime="6000" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -25213,6 +25234,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="50" delta="0" checktime="6000" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -25227,6 +25251,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="50" delta="0" checktime="6000" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -27837,6 +27864,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ALL"/>
         </setproperties>
+        <effects>
+            <bleed value="100" delta="0" checktime="3000" duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -28978,6 +29008,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="0" delta="30" checktime="3000" duration="10000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -30266,6 +30299,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <bleed value="103" delta="5" checktime="3000" duration="28000"/>
             <buf duration="28000">
                 <change stat="WIND_RESISTANCE" duration="28000" func="ADD" value="-10"/>
                 <change stat="FIRE_RESISTANCE" duration="28000" func="ADD" value="-10"/>
@@ -31774,6 +31808,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="40" delta="0" checktime="3000" duration="20000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -31788,6 +31825,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="65" delta="0" checktime="3000" duration="10000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -33663,6 +33703,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="71" delta="0" checktime="2000" duration="10000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34556,6 +34599,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="14" delta="0" checktime="2000" duration="10000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34643,6 +34689,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="28" delta="0" checktime="2000" duration="10000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -43986,6 +44035,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="25" delta="1" checktime="6000" duration="31000"/>
+        </effects>
         <actions>
             <mpuse value="201" delta="0"/>
             <damage value="127" delta="3"/>
@@ -48071,6 +48123,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -49099,6 +49154,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -49681,6 +49739,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="81" delta="0"/>
         </actions>
@@ -49868,6 +49929,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="57" delta="0"/>
         </actions>
@@ -50296,6 +50360,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="96" delta="0"/>
         </actions>
@@ -50428,6 +50495,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="113" delta="0"/>
         </actions>
@@ -50482,6 +50552,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="34" delta="0"/>
         </actions>
@@ -50961,6 +51034,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="81" delta="0"/>
         </actions>
@@ -51023,6 +51099,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="81" delta="0"/>
         </actions>
@@ -51655,6 +51734,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="96" delta="0"/>
         </actions>
@@ -51828,6 +51910,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="53" delta="0"/>
         </actions>
@@ -52724,6 +52809,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="81" delta="0"/>
         </actions>
@@ -53052,6 +53140,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="81" delta="0"/>
         </actions>
@@ -53108,6 +53199,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="81" delta="0"/>
         </actions>
@@ -53284,6 +53378,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="14" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="151" delta="0"/>
         </actions>
@@ -53298,6 +53395,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="34" delta="1" checktime="3000" duration="42100"/>
+        </effects>
         <actions>
             <damage value="181" delta="0"/>
         </actions>
@@ -53340,6 +53440,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="44" delta="1" checktime="3000" duration="42100"/>
+        </effects>
         <actions>
             <damage value="105" delta="0"/>
         </actions>
@@ -54494,6 +54597,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
             <buf duration="12100">
                 <change stat="SPEED" duration="12100" func="PERCENT" delta="0" value="-30"/>
             </buf>
@@ -54512,6 +54616,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -56056,6 +56163,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="78" delta="2" checktime="3000" duration="34000"/>
+        </effects>
         <actions>
             <damage value="78" delta="2"/>
         </actions>
@@ -56087,6 +56197,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="176" delta="4" checktime="3000" duration="34000"/>
+        </effects>
         <actions>
             <damage value="176" delta="4"/>
         </actions>
@@ -56792,6 +56905,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <bleed value="57" delta="3" checktime="4000" duration="9000"/>
             <buf duration="9000">
                 <change stat="SPEED" duration="9000" func="PERCENT" delta="0" value="-60"/>
             </buf>
@@ -57424,6 +57538,7 @@
         </useconditions>
         <effects>
             <transform model="286129" duration="3100"/>
+            <bleed value="49" delta="1" checktime="3000" duration="3100"/>
         </effects>
         <actions>
             <dummy/>
@@ -57521,6 +57636,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -58973,6 +59091,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="36" delta="0"/>
         </actions>
@@ -59937,6 +60058,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -60064,6 +60188,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="57" delta="0"/>
         </actions>
@@ -62393,6 +62520,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="36" delta="0"/>
         </actions>
@@ -63762,6 +63892,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="24" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -64873,6 +65006,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="12100"/>
             <buf duration="12100">
                 <change stat="SPEED" duration="12100" func="PERCENT" delta="0" value="-30"/>
             </buf>
@@ -65301,6 +65435,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="65" delta="0"/>
         </actions>
@@ -65542,6 +65679,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <bleed value="90" delta="2" checktime="6000" duration="13000"/>
             <buf duration="13000">
                 <change stat="SPEED" duration="13000" func="PERCENT" delta="0" value="-30"/>
             </buf>
@@ -65561,6 +65699,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <bleed value="115" delta="2" checktime="6000" duration="13000"/>
             <buf duration="13000">
                 <change stat="SPEED" duration="13000" func="PERCENT" delta="0" value="-30"/>
             </buf>
@@ -66084,6 +66223,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="49" delta="1" checktime="3000" duration="6100"/>
+        </effects>
         <actions>
             <damage value="57" delta="0"/>
         </actions>
@@ -66888,6 +67030,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <bleed value="145" delta="3" checktime="6000" duration="12000"/>
             <buf duration="12000">
                 <change stat="SPEED" duration="12000" func="PERCENT" delta="0" value="-30"/>
             </buf>
@@ -67329,6 +67472,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="72" delta="1" checktime="3000" duration="60000"/>
+        </effects>
         <actions>
             <damage value="72" delta="1"/>
         </actions>
@@ -75491,6 +75637,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="48" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="81" delta="0"/>
         </actions>
@@ -77701,6 +77850,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="1000" delta="0" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -79825,6 +79977,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="45" delta="1" checktime="3000" duration="20100"/>
+        </effects>
         <actions>
             <damage value="97" delta="0"/>
         </actions>
@@ -79839,6 +79994,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="85" delta="1" checktime="3000" duration="20100"/>
+        </effects>
         <actions>
             <damage value="127" delta="0"/>
         </actions>
@@ -79867,6 +80025,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="85" delta="1" checktime="3000" duration="20100"/>
+        </effects>
         <actions>
             <damage value="73" delta="0"/>
         </actions>
@@ -81209,6 +81370,7 @@
         </useconditions>
         <effects>
             <stun duration="9000"/>
+            <bleed value="700" delta="0" checktime="3000" duration="9000"/>
         </effects>
         <actions>
             <damage value="700" delta="0"/>
@@ -81345,6 +81507,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="800" delta="0" checktime="3000" duration="15000"/>
+        </effects>
         <actions>
             <damage value="115" delta="0"/>
         </actions>
@@ -81910,6 +82075,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="124" delta="1" checktime="3000" duration="12000"/>
+        </effects>
         <actions>
             <damage value="50" delta="0"/>
         </actions>
@@ -82047,6 +82215,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="100" delta="1" checktime="3000" duration="12100"/>
+        </effects>
         <actions>
             <damage value="100" delta="0"/>
         </actions>
@@ -82645,6 +82816,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <bleed value="100" delta="1" checktime="3000" duration="3000"/>
+        </effects>
         <actions>
             <damage value="10" delta="0"/>
         </actions>

@@ -57,6 +57,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="poison" type="PoisonEffect" minOccurs="0"
 				maxOccurs="1" />
+			<xs:element name="bleed" type="BleedEffect" minOccurs="0"
+				maxOccurs="1" />	
 			<xs:element name="hot" type="HealOverTimeEffect"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="transform" type="TransformEffect"
@@ -358,6 +360,16 @@
 	</xs:complexType>
 	
 	<xs:complexType name="PoisonEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="checktime" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="value" type="xs:int"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="BleedEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
 				<xs:attribute name="checktime" type="xs:int" use="required" />

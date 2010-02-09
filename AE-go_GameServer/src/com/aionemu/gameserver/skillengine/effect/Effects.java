@@ -45,7 +45,8 @@ public class Effects
         @XmlElement(name = "transform", type = TransformEffect.class),
         @XmlElement(name = "poison", type = PoisonEffect.class),
         @XmlElement(name = "stun", type = StunEffect.class),
-        @XmlElement(name = "sleep", type = SleepEffect.class)
+        @XmlElement(name = "sleep", type = SleepEffect.class),
+        @XmlElement(name = "bleed", type = BleedEffect.class)
     })
     protected List<EffectTemplate> effects;
 

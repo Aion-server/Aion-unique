@@ -29,7 +29,8 @@ public enum EffectId
 	HEAL_OT(4),
 	DAMAGE_OT(5),
 	TRANSFORM(6),
-	POISON(7);
+	POISON(7),
+	BLEED(8);
 	
 	private int effectId;
 	
