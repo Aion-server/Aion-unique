@@ -8852,6 +8852,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="12000"/>
+        </effects>
         <actions>
             <mpuse value="110" delta="0"/>
             <dummy/>
@@ -8871,6 +8874,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="12000"/>
+        </effects>
         <actions>
             <mpuse value="2" delta="0"/>
             <dummy/>
@@ -9270,6 +9276,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="12000"/>
+        </effects>
         <actions>
             <mpuse value="2" delta="0"/>
             <dummy/>
@@ -20123,6 +20132,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="20000"/>
+        </effects>
         <actions>
             <mpuse value="512" delta="10"/>
             <dummy/>
@@ -20310,6 +20322,7 @@
         </useconditions>
         <effects>
             <transform model="201046" duration="20000"/>
+            <sleep duration="20000"/>
         </effects>
         <actions>
             <mpuse value="74" delta="0"/>
@@ -20641,6 +20654,7 @@
         </setproperties>
         <effects>
             <hot value="210" delta="2" checktime="1000" type="MP" duration="5000"/>
+            <sleep duration="5000"/>
         </effects>
         <actions>
             <healmp value="210" delta="2"/>
@@ -21074,6 +21088,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="20000"/>
+        </effects>
         <actions>
             <mpuse value="110" delta="0"/>
             <dummy/>
@@ -21092,6 +21109,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="20000"/>
+        </effects>
         <actions>
             <mpuse value="334" delta="0"/>
             <dummy/>
@@ -21107,6 +21127,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="20000"/>
+        </effects>
         <actions>
             <dpuse value="3000"/>
             <dummy/>
@@ -21320,6 +21343,7 @@
         </setproperties>
         <effects>
             <hot value="300" delta="2" checktime="1000" type="MP" duration="5000"/>
+            <sleep duration="5000"/>
         </effects>
         <actions>
             <healmp value="300" delta="2"/>
@@ -21340,6 +21364,7 @@
         </useconditions>
         <effects>
             <transform model="201046" duration="30000"/>
+            <sleep duration="30000"/>
         </effects>
         <actions>
             <mpuse value="392" delta="0"/>
@@ -21359,6 +21384,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="20000"/>
+        </effects>
         <actions>
             <mpuse value="564" delta="0"/>
             <dummy/>
@@ -28006,6 +28034,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -28020,6 +28051,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="30000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -44573,6 +44607,7 @@
         </useconditions>
         <effects>
             <hot value="155" delta="2" checktime="2000" type="MP" duration="10000"/>
+            <sleep duration="10000"/>
         </effects>
         <actions>
             <dummy/>
@@ -44593,6 +44628,7 @@
         </useconditions>
         <effects>
             <transform model="201046" duration="30000"/>
+            <sleep duration="30000"/>
             <buf duration="30000">
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-1000"/>
                 <change stat="FIRE_RESISTANCE" duration="30000" func="ADD" delta="0" value="-10"/>
@@ -48970,6 +49006,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="6000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -52250,6 +52289,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="8000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -59211,6 +59253,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="8000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -60078,6 +60123,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="8000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -60862,6 +60910,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="6000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -64655,6 +64706,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="8000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -70836,6 +70890,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <sleep duration="120000"/>
             <buf duration="120000">
                 <change stat="PHYSICAL_DEFENSE" duration="120000" func="PERCENT" delta="0" value="-20"/>
                 <change stat="MAGICAL_RESIST" duration="120000" func="PERCENT" delta="0" value="-20"/>
@@ -70856,6 +70911,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <sleep duration="40000"/>
             <buf duration="40000">
                 <change stat="PHYSICAL_DEFENSE" duration="40000" func="PERCENT" delta="0" value="-80"/>
                 <change stat="MAGICAL_RESIST" duration="40000" func="PERCENT" delta="0" value="-80"/>
@@ -71224,6 +71280,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="8000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -71406,6 +71465,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -73390,6 +73452,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <sleep duration="8000"/>
             <buf duration="8000">
                 <change stat="PHYSICAL_DEFENSE" duration="8000" func="PERCENT" delta="0" value="-95"/>
                 <change stat="MAGICAL_RESIST" duration="8000" func="PERCENT" delta="0" value="-95"/>
@@ -76387,6 +76450,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <sleep duration="6100"/>
             <transform model="214869" duration="6100"/>
             <dot damage="15" delta="94" checktime="6000" duration="6100"/>
         </effects>
@@ -76819,6 +76883,7 @@
         </useconditions>
         <effects>
             <transform model="201046" duration="8000"/>
+            <sleep duration="12000"/>
             <buf duration="12000">
                 <change stat="FIRE_RESISTANCE" duration="12000" func="ADD" delta="0" value="-300"/>
             </buf>
@@ -78769,6 +78834,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="24000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -80527,6 +80595,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="35100"/>
+        </effects>
         <actions>
             <damage value="200" delta="0"/>
         </actions>
@@ -81029,6 +81100,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <sleep duration="8000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>

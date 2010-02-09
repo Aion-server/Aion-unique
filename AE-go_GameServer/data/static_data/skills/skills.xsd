@@ -49,6 +49,8 @@
 				maxOccurs="1" />
 			<xs:element name="stun" type="StunEffect" minOccurs="0"
 				maxOccurs="1" />
+			<xs:element name="sleep" type="SleepEffect" minOccurs="0"
+				maxOccurs="1" />
 			<xs:element name="buf" type="BufEffect" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="dot" type="DamageOverTimeEffect"
@@ -342,6 +344,13 @@
 	</xs:complexType>
 	
 	<xs:complexType name="StunEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SleepEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
 			</xs:extension>
