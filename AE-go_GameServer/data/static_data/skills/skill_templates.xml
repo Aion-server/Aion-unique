@@ -1373,6 +1373,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="38" delta="0"/>
             <damage value="57" delta="3"/>
@@ -1391,6 +1394,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="56" delta="0"/>
             <damage value="86" delta="6"/>
@@ -1409,6 +1415,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="73" delta="0"/>
             <damage value="149" delta="3"/>
@@ -1427,6 +1436,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="82" delta="0"/>
             <damage value="190" delta="3"/>
@@ -1799,6 +1811,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="52" delta="0"/>
             <damage value="877" delta="37"/>
@@ -2350,6 +2365,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="33" delta="0"/>
             <damage value="116" delta="4"/>
@@ -2368,6 +2386,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="44" delta="0"/>
             <damage value="178" delta="6"/>
@@ -4882,6 +4903,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="165" delta="0"/>
             <damage value="829" delta="16"/>
@@ -5168,6 +5192,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="334" delta="7"/>
         </actions>
@@ -5275,6 +5302,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="2" delta="0"/>
             <damage value="37" delta="3"/>
@@ -5296,6 +5326,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="3" delta="0"/>
             <damage value="60" delta="5"/>
@@ -5317,6 +5350,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="4" delta="0"/>
             <damage value="96" delta="4"/>
@@ -5611,6 +5647,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="6" delta="0"/>
             <damage value="126" delta="4"/>
@@ -6025,6 +6064,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="100" delta="0"/>
         </actions>
@@ -6036,6 +6078,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="100" delta="0"/>
         </actions>
@@ -6047,6 +6092,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="100" delta="0"/>
         </actions>
@@ -6162,6 +6210,9 @@
             <targetrange value="AREA" distance="10" maxcount="5"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -7015,6 +7066,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="512" delta="6"/>
         </actions>
@@ -7053,6 +7107,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="124" delta="0"/>
             <damage value="720" delta="7"/>
@@ -7088,6 +7145,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="124" delta="0"/>
             <damage value="720" delta="7"/>
@@ -7137,6 +7197,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="165" delta="0"/>
             <damage value="881" delta="10"/>
@@ -7258,6 +7321,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="73" delta="7"/>
         </actions>
@@ -7272,6 +7338,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="157" delta="7"/>
         </actions>
@@ -7286,6 +7355,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="256" delta="7"/>
         </actions>
@@ -7300,6 +7372,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="358" delta="7"/>
         </actions>
@@ -7650,6 +7725,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="451" delta="7"/>
         </actions>
@@ -8046,6 +8124,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="41" delta="0"/>
             <damage value="0" delta="0"/>
@@ -8061,6 +8142,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="23" delta="0"/>
             <damage value="68" delta="8"/>
@@ -8479,6 +8563,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="500"/>
+        </effects>
         <actions>
             <mpuse value="75" delta="0"/>
             <damage value="237" delta="12"/>
@@ -8498,6 +8585,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="500"/>
+        </effects>
         <actions>
             <mpuse value="98" delta="0"/>
             <damage value="404" delta="9"/>
@@ -8517,6 +8607,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="500"/>
+        </effects>
         <actions>
             <mpuse value="110" delta="0"/>
             <damage value="504" delta="14"/>
@@ -9052,6 +9145,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="29" delta="0"/>
             <damage value="166" delta="13"/>
@@ -9457,6 +9553,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="500"/>
+        </effects>
         <actions>
             <mpuse value="39" delta="0"/>
             <damage value="382" delta="7"/>
@@ -10463,6 +10562,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="29" delta="0"/>
             <damage value="166" delta="13"/>
@@ -10478,6 +10580,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="29" delta="0"/>
             <damage value="166" delta="13"/>
@@ -10580,6 +10685,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="65" delta="0"/>
             <dummy/>
@@ -10595,6 +10703,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="73" delta="0"/>
             <dummy/>
@@ -11754,6 +11865,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="79" delta="0"/>
             <dummy/>
@@ -12540,6 +12654,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <dpuse value="4000"/>
             <damage value="777" delta="15"/>
@@ -12648,6 +12765,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="82" delta="0"/>
             <dummy/>
@@ -12752,6 +12872,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="351" delta="5"/>
         </actions>
@@ -12797,6 +12920,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="82" delta="0"/>
             <dummy/>
@@ -13503,6 +13629,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="25" delta="2"/>
             <damage value="106" delta="10"/>
@@ -13518,6 +13647,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="59" delta="2"/>
             <damage value="221" delta="10"/>
@@ -13533,6 +13665,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="97" delta="2"/>
             <damage value="342" delta="7"/>
@@ -13548,6 +13683,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="121" delta="2"/>
             <damage value="413" delta="4"/>
@@ -13736,6 +13874,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="301" delta="21"/>
             <damage value="1632" delta="55"/>
@@ -15011,6 +15152,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="594" delta="0"/>
             <damage value="50" delta="0"/>
@@ -15387,6 +15531,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <mpuse value="876" delta="0"/>
             <damage value="100" delta="0"/>
@@ -16938,6 +17085,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="49" delta="0"/>
             <damage value="187" delta="4"/>
@@ -16956,6 +17106,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="59" delta="0"/>
             <damage value="253" delta="7"/>
@@ -17195,6 +17348,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="29" delta="0"/>
             <damage value="120" delta="3"/>
@@ -17216,6 +17372,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="50" delta="0"/>
             <damage value="164" delta="3"/>
@@ -17794,6 +17953,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="62" delta="0"/>
             <damage value="412" delta="6"/>
@@ -17812,6 +17974,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="62" delta="0"/>
             <damage value="348" delta="6"/>
@@ -18182,6 +18347,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="100" delta="0"/>
         </actions>
@@ -18196,6 +18364,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="100" delta="0"/>
         </actions>
@@ -18779,6 +18950,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <mpuse value="83" delta="0"/>
             <damage value="320" delta="5"/>
@@ -18794,6 +18968,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <mpuse value="83" delta="0"/>
             <damage value="320" delta="5"/>
@@ -19874,6 +20051,9 @@
             <targetrange value="AREA" distance="10" maxcount="6"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <mpuse value="538" delta="10"/>
             <damage value="475" delta="8"/>
@@ -20256,6 +20436,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="233" delta="3"/>
             <delaydamage delay="3000" value="709" delta="19" type="MAGICAL"/>
@@ -20274,6 +20457,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="207" delta="2"/>
             <delaydamage delay="3000" value="1172" delta="16" type="MAGICAL"/>
@@ -22197,6 +22383,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="203" delta="3"/>
             <damage value="491" delta="10"/>
@@ -22623,6 +22812,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="8000"/>
+        </effects>
         <actions>
             <mpuse value="214" delta="3"/>
             <dummy/>
@@ -26746,6 +26938,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="19" delta="0"/>
         </actions>
@@ -26867,6 +27062,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="180" delta="0"/>
         </actions>
@@ -26881,6 +27079,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="1000" delta="0"/>
         </actions>
@@ -27682,6 +27883,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ALL"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="300" delta="0"/>
         </actions>
@@ -29587,6 +29791,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -29604,6 +29811,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -42188,6 +42398,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="37" delta="12"/>
             <damage value="17" delta="23"/>
@@ -42492,6 +42705,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="26" delta="5"/>
             <damage value="45" delta="10"/>
@@ -42589,6 +42805,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="28" delta="0"/>
             <damage value="10" delta="10"/>
@@ -42742,6 +42961,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="28" delta="0"/>
             <damage value="20" delta="0"/>
@@ -42796,6 +43018,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <mpuse value="112" delta="10"/>
             <damage value="385" delta="0"/>
@@ -42892,6 +43117,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="96" delta="0"/>
             <damage value="12" delta="0"/>
@@ -42987,6 +43215,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="160" delta="0"/>
             <dummy/>
@@ -43115,6 +43346,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="67" delta="0"/>
             <damage value="40" delta="0"/>
@@ -43157,6 +43391,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="52" delta="0"/>
             <damage value="180" delta="0"/>
@@ -43220,6 +43457,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="192" delta="0"/>
             <damage value="12" delta="0"/>
@@ -43310,6 +43550,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="134" delta="0"/>
             <damage value="40" delta="0"/>
@@ -43623,6 +43866,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="67" delta="0"/>
             <damage value="5" delta="5"/>
@@ -43852,6 +44098,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <mpuse value="160" delta="0"/>
             <dummy/>
@@ -44063,6 +44312,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <mpuse value="594" delta="0"/>
             <damage value="50" delta="0"/>
@@ -44190,6 +44442,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <mpuse value="115" delta="3"/>
             <damage value="273" delta="6"/>
@@ -45448,6 +45703,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45462,6 +45720,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45476,6 +45737,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45685,6 +45949,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45699,6 +45966,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45713,6 +45983,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45727,6 +46000,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="1000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45755,6 +46031,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="5000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45835,6 +46114,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -45873,6 +46155,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <stun duration="500"/>
             <buf duration="1500">
                 <change stat="SPEED" duration="1500" func="PERCENT" delta="0" value="-50"/>
             </buf>
@@ -45892,6 +46175,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <stun duration="500"/>
             <buf duration="2000">
                 <change stat="SPEED" duration="2000" func="PERCENT" delta="0" value="-50"/>
             </buf>
@@ -45911,6 +46195,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <stun duration="500"/>
             <buf duration="3000">
                 <change stat="SPEED" duration="3000" func="PERCENT" delta="0" value="-50"/>
             </buf>
@@ -46440,6 +46725,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -46478,6 +46766,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <stun duration="500"/>
             <buf duration="1500">
                 <change stat="SPEED" duration="1500" func="PERCENT" delta="0" value="-50"/>
             </buf>
@@ -46497,6 +46786,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <stun duration="500"/>
             <buf duration="3000">
                 <change stat="SPEED" duration="3000" func="PERCENT" delta="0" value="-50"/>
             </buf>
@@ -46572,6 +46862,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <stun duration="500"/>
             <buf duration="1500">
                 <change stat="SPEED" duration="1500" func="PERCENT" delta="0" value="-50"/>
             </buf>
@@ -46591,6 +46882,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <stun duration="500"/>
             <buf duration="3000">
                 <change stat="SPEED" duration="3000" func="PERCENT" delta="0" value="-50"/>
             </buf>
@@ -47397,6 +47689,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -47608,6 +47903,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -47884,6 +48182,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -48813,6 +49114,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -49158,6 +49462,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -49594,6 +49901,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="108" delta="0"/>
         </actions>
@@ -50096,6 +50406,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="34" delta="0"/>
         </actions>
@@ -50158,6 +50471,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -50280,6 +50596,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -50496,6 +50815,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -50684,6 +51006,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="108" delta="0"/>
         </actions>
@@ -51029,6 +51354,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -51096,6 +51424,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -51580,6 +51911,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="38" delta="0"/>
         </actions>
@@ -52308,6 +52642,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="60" delta="0"/>
         </actions>
@@ -52938,6 +53275,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -52952,6 +53292,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -54189,6 +54532,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -54810,6 +55156,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -55148,6 +55497,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="37" delta="0"/>
         </actions>
@@ -55162,6 +55514,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="61" delta="0"/>
         </actions>
@@ -55216,6 +55571,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <stun duration="3000"/>
             <buf duration="5000">
                 <change stat="PHYSICAL_DEFENSE" duration="5000" func="PERCENT" delta="0" value="-50"/>
             </buf>
@@ -55587,6 +55943,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="490" delta="10"/>
         </actions>
@@ -55615,6 +55974,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="990" delta="10"/>
         </actions>
@@ -56232,6 +56594,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="98" delta="0"/>
         </actions>
@@ -56548,6 +56913,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -57026,6 +57394,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="114" delta="0"/>
         </actions>
@@ -57356,6 +57727,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -57668,6 +58042,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -57685,6 +58062,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -57727,6 +58107,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -57755,6 +58138,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -57783,6 +58169,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -58505,6 +58894,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -58717,6 +59109,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -58731,6 +59126,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="18" delta="0"/>
         </actions>
@@ -58932,6 +59330,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="108" delta="0"/>
         </actions>
@@ -58946,6 +59347,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="30" delta="0"/>
         </actions>
@@ -58960,6 +59364,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="23" delta="0"/>
         </actions>
@@ -59121,6 +59528,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -59648,6 +60058,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -59662,6 +60075,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -59792,6 +60208,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -59820,6 +60239,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -59862,6 +60284,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -61470,6 +61895,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -61484,6 +61912,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -61769,6 +62200,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -61783,6 +62217,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -61907,6 +62344,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -61921,6 +62361,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -62439,6 +62882,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -62453,6 +62899,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="23" delta="0"/>
         </actions>
@@ -62627,6 +63076,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="30" delta="0"/>
         </actions>
@@ -62655,6 +63107,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -63166,6 +63621,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -64698,6 +65156,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="60" delta="0"/>
         </actions>
@@ -65066,6 +65527,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="332" delta="3"/>
         </actions>
@@ -65418,6 +65882,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -65893,6 +66360,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -65907,6 +66377,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="8000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -66091,6 +66564,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="60" delta="0"/>
         </actions>
@@ -66175,6 +66651,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -66263,6 +66742,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="427" delta="4"/>
         </actions>
@@ -66369,6 +66851,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="262" delta="0"/>
         </actions>
@@ -67937,6 +68422,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -68105,6 +68593,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="18" delta="0"/>
         </actions>
@@ -68161,6 +68652,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="28" delta="0"/>
         </actions>
@@ -68231,6 +68725,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -68315,6 +68812,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -68477,6 +68977,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -69512,6 +70015,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="315" delta="16"/>
         </actions>
@@ -69526,6 +70032,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="539" delta="17"/>
         </actions>
@@ -69540,6 +70049,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="743" delta="21"/>
         </actions>
@@ -69554,6 +70066,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="2000"/>
+        </effects>
         <actions>
             <damage value="953" delta="22"/>
         </actions>
@@ -69680,6 +70195,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="6000"/>
+        </effects>
         <actions>
             <damage value="20" delta="10"/>
         </actions>
@@ -69957,6 +70475,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="1278" delta="21"/>
         </actions>
@@ -70972,6 +71493,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -71000,6 +71524,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="6000"/>
+        </effects>
         <actions>
             <damage value="20" delta="10"/>
         </actions>
@@ -71014,6 +71541,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="6000"/>
+        </effects>
         <actions>
             <damage value="20" delta="10"/>
         </actions>
@@ -71028,6 +71558,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -71368,6 +71901,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -71396,6 +71932,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -71524,6 +72063,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="53" delta="0"/>
         </actions>
@@ -71735,6 +72277,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="49" delta="0"/>
         </actions>
@@ -72226,6 +72771,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -72697,6 +73245,9 @@
             <targetrange value="ONLYONE" maxcount="2"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="64" delta="0"/>
         </actions>
@@ -72841,6 +73392,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="8000"/>
+        </effects>
         <actions>
             <damage value="100" delta="0"/>
         </actions>
@@ -72855,6 +73409,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="12000"/>
+        </effects>
         <actions>
             <damage value="135" delta="0"/>
         </actions>
@@ -73081,6 +73638,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="236" delta="26"/>
         </actions>
@@ -75155,6 +75715,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="6000"/>
+        </effects>
         <actions>
             <damage value="50000" delta="0"/>
         </actions>
@@ -75169,6 +75732,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="6000"/>
+        </effects>
         <actions>
             <damage value="50000" delta="0"/>
         </actions>
@@ -76368,6 +76934,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="100" delta="0"/>
         </actions>
@@ -77855,6 +78424,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -77943,6 +78515,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -78803,6 +79378,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="60" delta="0"/>
         </actions>
@@ -79005,6 +79583,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="5000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0">
                 <modifiers>
@@ -79766,6 +80347,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="5000"/>
+        </effects>
         <actions>
             <damage value="0" delta="0"/>
         </actions>
@@ -80354,6 +80938,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="3000"/>
+        </effects>
         <actions>
             <damage value="108" delta="0"/>
         </actions>
@@ -80492,6 +81079,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="9000"/>
+        </effects>
         <actions>
             <damage value="700" delta="0"/>
         </actions>
@@ -80607,6 +81197,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="88" delta="0"/>
         </actions>
@@ -81153,6 +81746,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="4000"/>
+        </effects>
         <actions>
             <damage value="800" delta="0"/>
         </actions>
@@ -81250,6 +81846,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="1000"/>
+        </effects>
         <actions>
             <damage value="38" delta="0"/>
         </actions>
@@ -82270,6 +82869,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <stun duration="1000"/>
+        </effects>
         <actions>
             <damage value="38" delta="0"/>
         </actions>
