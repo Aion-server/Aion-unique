@@ -16,8 +16,51 @@
   ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
+	<!-- TODO: Symbol of the Chosen -->
+	
+	<!-- TODO: A Ring Imbued With Aether -->
+	
+	<!-- TODO: A Song Of Praise -->
 
-	<!-- Teleporter Troubles -->
+	<!-- TODO: Delivery for the Outer Port -->
+	
+	<!-- TODO: Krallic Language Potion -->
+	
+	<!-- TODO: Ulaguru Speaks -->
+
+	<!-- [Craft] A Betua Wood Offering -->
+	<item_collecting id="1905" start_npc_id="203792" />
+
+	<!-- [Craft] A Token of Respect -->
+	<item_collecting id="1906" start_npc_id="203786" />
+
+	<!-- [Craft] Crafting Ingots -->
+	<item_collecting id="1902" start_npc_id="203788" />
+
+	<!-- [Craft] First Steps in Tailoring -->
+	<item_collecting id="1907" start_npc_id="203793" />
+
+	<!-- [Craft] Ingot Ingredients -->
+	<item_collecting id="1903" start_npc_id="203701" />
+
+	<!-- [Craft] Roasting Inina -->
+	<item_collecting id="1904" start_npc_id="203784" />
+
+	<!-- TODO: [Event] Chasing the Grankers -->
+	
+	<!-- TODO: [Event] Festival of Daevas -->
+	
+	<!-- TODO: [Event] Solorius Donations -->
+
+	<!-- TODO: [Event] Solorius Invitations -->
+	
+	<!-- TODO: [Event] Thirst for Invention! -->
+	
+	<!-- TODO: A Lingering Mystery -->
+
+	<!-- TODO: An Ax For Namus -->
+	
+	<!-- The Seed of Evil -->
 	<item_collecting id="1910" start_npc_id="203833" />
 
 	<!-- Marmeia's Krall Research -->
@@ -26,5 +69,256 @@
 	<!-- Familiar Food -->
 	<item_collecting id="1912" start_npc_id="203864" />
 
+	<!-- TODO: Guide of Life -->
+	
+	<!-- TODO: Intention of Lady Yustiel -->
 
- </quest_scripts>
+	<!-- TODO: Meaning of Life -->
+	
+	<!-- TODO: Teachings of Life -->
+	
+	<!-- TODO: A Souvenir For Noris -->
+
+	<!-- A Costume on Consignment -->
+	<report_to id="1986" start_npc_id="798009" end_npc_id="203810" />
+
+	<!-- TODO: Chasing a Criminal -->
+	
+	<!-- TODO: Secret Library Access -->
+
+	<!-- D'yer Ma'ker -->
+	<item_collecting id="1971" start_npc_id="203812" />
+
+	<!-- TODO: A Helmet Gone Astray -->
+	
+	<!-- TODO: A Robe Gone Astray -->
+
+	<!-- TODO: A Staff Gone Astray -->
+	
+	<!-- TODO: A Sword Gone Astray -->
+	
+	<!-- TODO: Combat Potions -->
+
+	<!-- TODO: Combat Rations -->
+	
+	<!-- TODO: Esoteric Book of Illusion -->
+	
+	<!-- TODO: Esoteric Book of Justice -->
+
+	<!-- TODO: Esoteric Book of Life -->
+	
+	<!-- TODO: Esoteric Freedom Book -->
+	
+	<!-- A Mended Robe -->
+	<report_to id="1956" start_npc_id="203793" end_npc_id="278511" item_id="182206029" />
+
+	<!-- TODO: A Package From Vulcanus -->
+
+	<!-- Getting a Grip -->
+	<report_to id="1953" start_npc_id="203792" end_npc_id="278510" item_id="182206026" />
+
+	<!-- Never Short of Steel -->
+	<report_to id="1951" start_npc_id="203788" end_npc_id="278510" item_id="182206024" />
+
+	<!-- Nuts to Denegos -->
+	<report_to id="1954" start_npc_id="203784" end_npc_id="278510" item_id="182206027" />
+
+	<!-- Spellbook Express -->
+	<report_to id="1955" start_npc_id="203786" end_npc_id="278510" item_id="182206028" />
+
+	<!-- TODO: A Letter to Medea -->
+
+	<!-- TODO: A Bigger Warehouse -->
+
+	<!-- A Lucky Day -->
+	<report_to id="1947" start_npc_id="203795" end_npc_id="798012" />
+
+	<!-- TODO: Wings of Mastery -->
+
+	<!-- TODO: A Passion For Tailoring -->
+
+	<!-- TODO: Alchemy Expert -->
+
+	<!-- TODO: Armorsmithing Expert -->
+
+	<!-- TODO: Cooking Expert -->
+
+	<!-- TODO: Handicrafting Expert -->
+
+	<!-- TODO: Passion for Alchemy -->
+
+	<!-- TODO: Passion for Armorsmithing -->
+
+	<!-- TODO: Passion for Cooking -->
+
+	<!-- TODO: Passion for Handicrafting -->
+
+	<!-- TODO: Passion for Weaponsmithing -->
+
+	<!-- TODO: Requirements For Tailoring Expert -->
+
+	<!-- TODO: Requirements for Alchemy Expert -->
+
+	<!-- TODO: Requirements for Armorsmithing Expert -->
+
+	<!-- TODO: Requirements for Cooking Expert -->
+
+	<!-- TODO: Requirements for Handicrafting Expert -->
+
+	<!-- TODO: Requirements for Weaponsmithing Expert -->
+
+	<!-- TODO: Tailoring Expert -->
+
+	<!-- TODO: [Expert] Weaponsmithing Expert -->
+	
+	<!-- TODO: [Top Expert] Alchemy Expert -->
+	
+	<!-- TODO: [Top Expert] Armorsmithing Expert -->
+	
+	<!-- TODO: [Top Expert] Cooking Expert -->
+
+	<!-- TODO: [Top Expert] Handicrafting Expert -->
+	
+	<!-- TODO: [Top Expert] Passion for Alchemy -->
+	
+	<!-- TODO: [Top Expert] Passion for Armorsmithing -->
+
+	<!-- TODO: [Top Expert] Passion for Cooking -->
+	
+	<!-- TODO: [Top Expert] Passion for Handicrafting -->
+	
+	<!-- TODO: [Top Expert] Passion for Tailoring -->
+
+	<!-- TODO: [Top Expert] Passion for Weaponsmithing -->
+	
+	<!-- TODO: [Top Expert] Requirements for Alchemy Expert -->
+	
+	<!-- TODO: [Top Expert] Requirements for Armorsmithing Expert -->
+
+	<!-- TODO: [Top Expert] Requirements for Cooking Expert -->
+	
+	<!-- TODO: [Top Expert] Requirements for Handicrafting Expert -->
+	
+	<!-- TODO: [Top Expert] Requirements for Tailoring Expert -->
+
+	<!-- TODO: [Top Expert] Requirements for Weaponsmithing Expert -->
+	
+	<!-- TODO: [Top Expert] Tailoring Expert -->
+	
+	<!-- TODO: [Top Expert] Weaponsmithing Expert -->
+
+	<!-- TODO: The Assassin Preceptor's Task -->
+	
+	<!-- TODO: The Chanter Preceptor's Task -->
+	
+	<!-- TODO: The Cleric Preceptor's Task -->
+
+	<!-- TODO: The Gladiator Preceptor's Task -->
+	
+	<!-- TODO: The Ranger Preceptor's Task -->
+	
+	<!-- TODO: The Sorcerer Preceptor's Task -->
+
+	<!-- TODO: The Spiritmaster Preceptor's Task -->
+	
+	<!-- TODO: The Templar Preceptor's Task -->
+	
+	<!-- TODO: To Catch a Dragon -->
+
+	<!-- TODO: [Growth] Flora's First Charm -->
+	
+	<!-- A Gift For Vindachinerk -->
+	<item_collecting id="1949" start_npc_id="279006" />
+
+	<!-- TODO: Where's Vindachinerk? -->
+
+	<!-- TODO: Black Cloud Fakery -->
+	
+	<!-- Flame Sword -->
+	<item_collecting id="1930" start_npc_id="203767" />
+
+	<!-- TODO: Going out of Business -->
+
+	<!-- TODO: A Matter of Reputation -->
+	
+	<!-- TODO: [Growth] Flora's Second Charm -->
+
+	<!-- TODO: Shameless Peperinrinerk -->
+	
+	<!-- TODO: [Group] A Promise to a Customer -->
+	
+	<!-- TODO: Hairpin Ahoy! -->
+
+	<!-- TODO: Rules of Alchemy and Life -->
+
+	<!-- TODO: [Group] Snow Blessing -->
+	
+	<!-- TODO: The Manduri Imperative -->
+
+	<!-- TODO: The Pirates' Log -->
+
+	<!-- TODO: A Disturbing Report -->
+
+	<!-- TODO: Tissue? I Don't Even Know You! -->
+
+	<!-- What Nerison Saw -->
+	<report_to id="1936" start_npc_id="203833" end_npc_id="204573" />
+
+	<!-- TODO: RM-78c -->
+
+	<!-- TODO: A Lepharist Monstrosity -->
+
+	<!-- TODO: Bring Back the Booty -->
+
+	<!-- TODO: Plunder the Pirates -->
+
+	<!-- TODO: [Group] Rescue Haorunerk! -->
+	
+	<!-- TODO: Revenge of Himusus -->
+
+	<!-- TODO: [Group] Steel Rake Spy -->
+
+	<!-- TODO: [Group] The Difficulties of Beauty -->
+	
+	<!-- TODO: [Group] The Missing Cube Craftsman -->
+	
+	<!-- TODO: The Pirates' Pouch -->
+
+	<!-- Goodwill of Kuruminerk -->
+	<report_to id="3960" start_npc_id="798322" end_npc_id="203711" />
+
+	<!-- TODO: Destruction and Rebirth -->
+
+	<!-- TODO: Fire and Ice -->
+
+	<!-- TODO: [Growth] Flora's Third Charm -->
+	
+	<!-- TODO: [Group] To Master the Dragon -->
+	
+	<!-- A Secret Summons -->
+	<report_to id="3913" start_npc_id="203752" end_npc_id="278536" />
+
+	<!-- TODO: Epilogue -->
+	
+	<!-- TODO: Koruchinerk's Offer -->
+
+	<!-- TODO: Mutual Benefits -->
+	
+	<!-- TODO: Shoshinerk's Reward -->
+	
+	<!-- TODO: The Balaur Report -->
+
+	<!-- TODO: [Group] Gathering the Surkana -->
+	
+	<!-- TODO: [Group] Obtaining the Dragel -->
+	
+	<!-- TODO: [Group] Obtaining the Drazma -->
+
+	<!-- TODO: [Group] The Danger of Drana -->
+	
+	<!-- TODO: [Group] The Secret of Surkana -->
+	
+	<!-- TODO: [Growth] Flora's Fourth Charm -->
+
+
+</quest_scripts>
