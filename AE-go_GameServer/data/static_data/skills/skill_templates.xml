@@ -1834,6 +1834,7 @@
         </setproperties>
         <effects>
             <buf duration="10000">
+                <change stat="SPEED" duration="10000" func="ADD" delta="0" value="60"/>
                 <change stat="FLY_SPEED" duration="10000" func="PERCENT" delta="0" value="100"/>
             </buf>
         </effects>
@@ -29433,6 +29434,7 @@
             <buf duration="40000">
                 <change stat="MAXHP" duration="40000" func="PERCENT" value="-30"/>
                 <change stat="MAXMP" duration="40000" func="PERCENT" value="-30"/>
+                <change stat="SPEED" duration="40000" func="PERCENT" value="-50"/>
             </buf>
         </effects>
         <actions>
@@ -29453,6 +29455,7 @@
             <buf duration="40000">
                 <change stat="MAXHP" duration="40000" func="PERCENT" value="-10"/>
                 <change stat="MAXMP" duration="40000" func="PERCENT" value="-10"/>
+                <change stat="SPEED" duration="40000" func="PERCENT" value="-50"/>
             </buf>
         </effects>
         <actions>
@@ -29473,6 +29476,7 @@
             <buf duration="40000">
                 <change stat="MAXHP" duration="40000" func="PERCENT" value="-10"/>
                 <change stat="MAXMP" duration="40000" func="PERCENT" value="-10"/>
+                <change stat="SPEED" duration="40000" func="PERCENT" value="-50"/>
             </buf>
         </effects>
         <actions>
@@ -29493,6 +29497,7 @@
             <buf duration="20000">
                 <change stat="MAXHP" duration="20000" func="PERCENT" value="-20"/>
                 <change stat="MAXMP" duration="20000" func="PERCENT" value="-20"/>
+                <change stat="SPEED" duration="20000" func="PERCENT" value="-30"/>
             </buf>
         </effects>
         <actions>
@@ -29513,6 +29518,7 @@
             <buf duration="30000">
                 <change stat="MAXHP" duration="30000" func="PERCENT" value="-25"/>
                 <change stat="MAXMP" duration="30000" func="PERCENT" value="-25"/>
+                <change stat="SPEED" duration="30000" func="PERCENT" value="-40"/>
             </buf>
         </effects>
         <actions>
@@ -29533,6 +29539,7 @@
             <buf duration="40000">
                 <change stat="MAXHP" duration="40000" func="PERCENT" value="-30"/>
                 <change stat="MAXMP" duration="40000" func="PERCENT" value="-30"/>
+                <change stat="SPEED" duration="40000" func="PERCENT" value="-50"/>
             </buf>
         </effects>
         <actions>
@@ -29556,6 +29563,7 @@
             <buf duration="40000">
                 <change stat="MAXHP" duration="40000" func="PERCENT" value="-10"/>
                 <change stat="MAXMP" duration="40000" func="PERCENT" value="-10"/>
+                <change stat="SPEED" duration="40000" func="PERCENT" value="-30"/>
             </buf>
         </effects>
         <actions>
@@ -29579,6 +29587,7 @@
             <buf duration="40000">
                 <change stat="MAXHP" duration="40000" func="PERCENT" value="-30"/>
                 <change stat="MAXMP" duration="40000" func="PERCENT" value="-30"/>
+                <change stat="SPEED" duration="40000" func="PERCENT" value="-50"/>
             </buf>
         </effects>
         <actions>
@@ -29599,6 +29608,7 @@
             <buf duration="40000">
                 <change stat="MAXHP" duration="40000" func="PERCENT" value="-20"/>
                 <change stat="MAXMP" duration="40000" func="PERCENT" value="-20"/>
+                <change stat="SPEED" duration="40000" func="PERCENT" value="-50"/>
             </buf>
         </effects>
         <actions>
@@ -29639,6 +29649,7 @@
             <buf duration="40000">
                 <change stat="MAXHP" duration="40000" func="PERCENT" value="-30"/>
                 <change stat="MAXMP" duration="40000" func="PERCENT" value="-30"/>
+                <change stat="SPEED" duration="40000" func="PERCENT" value="-50"/>
             </buf>
         </effects>
         <actions>
@@ -31801,6 +31812,7 @@
             <buf duration="40000">
                 <change stat="MAXHP" duration="40000" func="PERCENT" value="-20"/>
                 <change stat="MAXMP" duration="40000" func="PERCENT" value="-20"/>
+                <change stat="SPEED" duration="40000" func="PERCENT" value="-30"/>
             </buf>
         </effects>
         <actions>
@@ -34375,6 +34387,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="86400000">
+                <change stat="SPEED" duration="86400000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34391,6 +34408,7 @@
         </useconditions>
         <effects>
             <buf duration="86400000">
+                <change stat="SPEED" duration="86400000" func="PERCENT" delta="0" value="-30"/>
                 <change stat="ATTACK_SPEED" duration="86400000" func="PERCENT" delta="0" value="50"/>
             </buf>
         </effects>
@@ -34408,6 +34426,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <buf duration="86400000">
+                <change stat="SPEED" duration="86400000" func="PERCENT" delta="0" value="-30"/>
+            </buf>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -34424,6 +34447,7 @@
         </useconditions>
         <effects>
             <buf duration="86400000">
+                <change stat="SPEED" duration="86400000" func="PERCENT" delta="0" value="-30"/>
                 <change stat="ATTACK_SPEED" duration="86400000" func="PERCENT" delta="0" value="50"/>
             </buf>
         </effects>
@@ -45011,6 +45035,9 @@
         </useconditions>
         <effects>
             <transform model="202502" duration="600000"/>
+            <buf duration="600000">
+                <change stat="SPEED" duration="600000" func="ADD" delta="0" value="10"/>
+            </buf>
         </effects>
         <actions>
             <itemuse itemid="169300012" count="6"/>
@@ -45029,6 +45056,9 @@
         </useconditions>
         <effects>
             <transform model="202503" duration="600000"/>
+            <buf duration="600000">
+                <change stat="SPEED" duration="600000" func="ADD" delta="0" value="10"/>
+            </buf>
         </effects>
         <actions>
             <itemuse itemid="169300012" count="7"/>
@@ -45047,6 +45077,9 @@
         </useconditions>
         <effects>
             <transform model="202504" duration="600000"/>
+            <buf duration="600000">
+                <change stat="SPEED" duration="600000" func="ADD" delta="0" value="20"/>
+            </buf>
         </effects>
         <actions>
             <itemuse itemid="169300012" count="8"/>
@@ -45065,6 +45098,9 @@
         </useconditions>
         <effects>
             <transform model="202505" duration="600000"/>
+            <buf duration="600000">
+                <change stat="SPEED" duration="600000" func="ADD" delta="0" value="30"/>
+            </buf>
         </effects>
         <actions>
             <itemuse itemid="169300012" count="9"/>
@@ -45083,6 +45119,9 @@
         </useconditions>
         <effects>
             <transform model="202506" duration="600000"/>
+            <buf duration="600000">
+                <change stat="SPEED" duration="600000" func="ADD" delta="0" value="30"/>
+            </buf>
         </effects>
         <actions>
             <itemuse itemid="169300012" count="10"/>
@@ -45101,6 +45140,9 @@
         </useconditions>
         <effects>
             <transform model="202507" duration="600000"/>
+            <buf duration="600000">
+                <change stat="SPEED" duration="600000" func="ADD" delta="0" value="10"/>
+            </buf>
         </effects>
         <actions>
             <itemuse itemid="169300012" count="6"/>
@@ -45119,6 +45161,9 @@
         </useconditions>
         <effects>
             <transform model="202508" duration="600000"/>
+            <buf duration="600000">
+                <change stat="SPEED" duration="600000" func="ADD" delta="0" value="10"/>
+            </buf>
         </effects>
         <actions>
             <itemuse itemid="169300012" count="7"/>
@@ -45137,6 +45182,9 @@
         </useconditions>
         <effects>
             <transform model="202509" duration="600000"/>
+            <buf duration="600000">
+                <change stat="SPEED" duration="600000" func="ADD" delta="0" value="20"/>
+            </buf>
         </effects>
         <actions>
             <itemuse itemid="169300012" count="8"/>
@@ -45155,6 +45203,9 @@
         </useconditions>
         <effects>
             <transform model="202510" duration="600000"/>
+            <buf duration="600000">
+                <change stat="SPEED" duration="600000" func="ADD" delta="0" value="30"/>
+            </buf>
         </effects>
         <actions>
             <itemuse itemid="169300012" count="9"/>
@@ -45173,6 +45224,9 @@
         </useconditions>
         <effects>
             <transform model="202511" duration="600000"/>
+            <buf duration="600000">
+                <change stat="SPEED" duration="600000" func="ADD" delta="0" value="30"/>
+            </buf>
         </effects>
         <actions>
             <itemuse itemid="169300012" count="10"/>
