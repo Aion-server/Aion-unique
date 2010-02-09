@@ -17,9 +17,11 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.ai.AI;
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.MoveController;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
@@ -28,6 +30,7 @@ import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.taskmanager.PacketBroadcaster;
 import com.aionemu.gameserver.taskmanager.PacketBroadcaster.BroadcastMode;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -325,11 +328,17 @@ public abstract class Creature extends VisibleObject
 		packetBroadcastMask |= mode.mask();
 
 		PacketBroadcaster.getInstance().add(this);
+		
+		if(Config.DEBUG_PACKET_BROADCASTER)
+			PacketSendUtility.sendMessage(((Player)this), "PacketBroadcast: " + mode.name() + " added.");
 	}
 
 	public final void removePacketBroadcastMask(BroadcastMode mode)
 	{
 		packetBroadcastMask &= ~mode.mask();
+		
+		if(Config.DEBUG_PACKET_BROADCASTER)
+			PacketSendUtility.sendMessage(((Player)this), "PacketBroadcast: " + mode.name() + " removed.");
 	}
 
 	public final byte getPacketBroadcastMask()
