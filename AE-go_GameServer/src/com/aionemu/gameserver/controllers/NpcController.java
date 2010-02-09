@@ -68,7 +68,8 @@ public class NpcController extends CreatureController<Npc>
 			return;
 			
 		PacketSendUtility.broadcastPacket(owner, new SM_DELETE(owner));
-		owner.getAi().handleEvent(Event.DESPAWN);
+		if(owner.getAi() != null)
+			owner.getAi().handleEvent(Event.DESPAWN);
 		owner.getPosition().getWorld().despawn(owner);	
 		decayTask = null;
 	}
