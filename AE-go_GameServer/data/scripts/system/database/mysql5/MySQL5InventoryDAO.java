@@ -127,8 +127,9 @@ public class MySQL5InventoryDAO extends InventoryDAO
 
 		boolean resultSuccess = true;
 		for(Item item : allPlayerItems)
-		{   	
-			resultSuccess = store(item, playerId);      
+		{
+			if(item != null)
+				resultSuccess = store(item, playerId);
 		} 
 		return resultSuccess;
 	}

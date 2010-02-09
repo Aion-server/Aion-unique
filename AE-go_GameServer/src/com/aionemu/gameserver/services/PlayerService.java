@@ -266,8 +266,6 @@ public class PlayerService
 
 			playerInventory.onLoadHandler(item);
 		}
-		Item accountKinah = itemService.newItem(182400001, 0);
-		accountWarehouse.onLoadHandler(accountKinah);
 
 		return newPlayer;
 	}
