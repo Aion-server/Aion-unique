@@ -251,6 +251,7 @@ public class _2009ACeremonyinPandaemonium extends QuestHandler
 		}
 		return false;
 	}
+
 	@Override
 	public boolean onLvlUpEvent(QuestEnv env)
 	{

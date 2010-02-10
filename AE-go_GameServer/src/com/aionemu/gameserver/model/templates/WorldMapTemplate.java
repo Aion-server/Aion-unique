@@ -59,6 +59,12 @@ public class WorldMapTemplate
 	@XmlAttribute(name = "prison")
 	private boolean	prison	= false;
 
+	/**
+	 * True if this map is a instance.
+	 */
+	@XmlAttribute(name = "instance")
+	private boolean	instance	= false;
+
 	public String getName()
 	{
 		return name;
@@ -82,5 +88,13 @@ public class WorldMapTemplate
 	public boolean isPrison()
 	{
 		return prison;
+	}
+
+	/**
+	 * @return the instance
+	 */
+	public boolean isInstance()
+	{
+		return instance;
 	}
 }

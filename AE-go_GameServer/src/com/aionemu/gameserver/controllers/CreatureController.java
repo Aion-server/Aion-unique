@@ -144,7 +144,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	{		
 		return teleportTo(worldId, instanceId, x, y, z, getOwner().getHeading(), delay);
 	}
-	
+
 	/**
 	 *  Teleport Creature to the location using specific heading
 	 *  

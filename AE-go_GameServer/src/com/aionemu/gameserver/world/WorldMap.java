@@ -90,20 +90,26 @@ public class WorldMap
 	 *  //TODO dispose unused instances (lifecycle)
 	 * @return
 	 */
-	public synchronized int getNextFreeInstanceIndex()
+	public synchronized WorldMapInstance getNextFreeInstanceIndex()
 	{	
-		for(WorldMapInstance instance : instances.values())
+		if (!worldMapTemplate.isInstance())
 		{
-			if(!instance.isInUse())
-				return instance.getInstanceId();
+			for(WorldMapInstance instance : instances.values())
+			{
+				if(!instance.isInUse())
+					return instance;
+			}
 		}
 		//create new instance
 		int nextInstanceId = instances.size() + 1;
 		log.info("Creating new instance: " + worldMapTemplate.getMapId() + " " + nextInstanceId );
-		instances.put(nextInstanceId, new WorldMapInstance(this, nextInstanceId));
+		if (worldMapTemplate.isInstance())
+			instances.put(nextInstanceId, new WorldMapScriptInstance(this, nextInstanceId));
+		else
+			instances.put(nextInstanceId, new WorldMapInstance(this, nextInstanceId));
 		world.getSpawnEngine().spawnInstance(worldMapTemplate.getMapId(), nextInstanceId);
 		
-		return nextInstanceId;
+		return instances.get(nextInstanceId);
 	}
 
 	/**
@@ -162,6 +168,33 @@ public class WorldMap
 	private WorldMapInstance getWorldMapInstance(int instanceId)
 	{
 		return instances.get(instanceId);
+	}
+
+	/**
+	 * Remove WorldMapInstance by instanceId.
+	 * 
+	 * @param instanceId
+	 * @return WorldMapInstance/
+	 */
+	public WorldMapInstance removeWorldMapInstance(int instanceId)
+	{
+		WorldMapInstance instance = instances.get(instanceId);
+		if (instance != null)
+		{
+			instance.destroyInstance();
+			return instances.remove(instanceId);
+		}
+		return null;
+	}
+
+	public int getWorldMapScriptInstanceIdByPlyerObjId(int objId)
+	{
+		for (WorldMapInstance instance : instances.values())
+		{
+			if (instance.isInInstance(objId))
+				return instance.getInstanceId();
+		}
+		return -1;
 	}
 
 	/**

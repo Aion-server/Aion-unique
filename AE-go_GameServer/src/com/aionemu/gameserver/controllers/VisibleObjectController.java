@@ -85,6 +85,7 @@ public abstract class VisibleObjectController<T extends VisibleObject>
 		/**
 		 * Delete object from World.
 		 */
+
 		world.removeObject(getOwner());
 	}
 	

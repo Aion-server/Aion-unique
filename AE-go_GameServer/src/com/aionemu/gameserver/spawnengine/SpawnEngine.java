@@ -273,6 +273,8 @@ public class SpawnEngine
 
 		for(WorldMapTemplate worldMapTemplate : worldMapsData)
 		{
+			if (worldMapTemplate.isInstance())
+				continue;
 			int maxTwin = worldMapTemplate.getTwinCount();
 			int mapId = worldMapTemplate.getMapId();
 			int numberToSpawn = maxTwin > 0 ? maxTwin : 1;

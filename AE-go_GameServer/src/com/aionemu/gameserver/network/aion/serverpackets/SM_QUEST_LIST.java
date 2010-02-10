@@ -53,13 +53,13 @@ public class SM_QUEST_LIST extends AionServerPacket
 
 		if (player.getCommonData().getRace() == Race.ELYOS)
 		{
-			questList.add(1130);
-			questList.add(1300);
+			//questList.add(1130);
+			//questList.add(1300);
 		}
 		else
 		{
-			questList.add(2200);
-			questList.add(2300);
+			//questList.add(2200);
+			//questList.add(2300);
 		}
 	}
 	/**
@@ -72,15 +72,15 @@ public class SM_QUEST_LIST extends AionServerPacket
 		for (QuestState qs : compliteQuestList)
 		{
 			writeH(buf, qs.getQuestId());
-			writeC(buf, 1);
+			writeC(buf, qs.getCompliteCount());
 		}
-		
+		/*
 		for(int questId : questList)
 		{
 			writeH(buf, questId);
 			writeC(buf, 1);
 		}
-		
+		*/
 		writeC(buf, startedQuestList.size());
 		for (QuestState qs : startedQuestList) // quest list size ( max is 25 )
 		{

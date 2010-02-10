@@ -156,6 +156,11 @@ public class QuestHandler
 		return false;
 	}
 	
+	public boolean onDieEvent(QuestEnv questEnv)
+	{
+		return false;
+	}
+
 	public boolean onMovieEndEvent(QuestEnv questEnv, int movieId)
 	{
 		return false;

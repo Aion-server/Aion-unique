@@ -206,10 +206,16 @@ public class World
 	 * @param worldId
 	 * @return
 	 */
-	public int getNextAvailableInstanceId(int worldId)
+	public WorldMapInstance getNextAvailableInstanceId(int worldId)
 	{
 		WorldMap map = worldMaps.get(worldId);
 		return map.getNextFreeInstanceIndex();
+	}
+
+	public void destroyInstance(int worldId, int instanceId)
+	{
+		WorldMap map = worldMaps.get(worldId);
+		map.removeWorldMapInstance(instanceId);
 	}
 
 	/**
@@ -300,7 +306,6 @@ public class World
 	{
 		if(object.isSpawned())
 			despawn(object);
-		
 		object.getPosition().setXYZH(x, y, z, heading);
 		object.getPosition().setMapRegion(getWorldMap(mapId).getWorldMapInstanceById(instance).getRegion(object));
 	}

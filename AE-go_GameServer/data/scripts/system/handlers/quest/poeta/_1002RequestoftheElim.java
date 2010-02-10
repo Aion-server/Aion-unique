@@ -32,6 +32,7 @@ import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.world.WorldMapInstance;
 
 /**
  * @author MrPoke
@@ -227,7 +228,6 @@ public class _1002RequestoftheElim extends QuestHandler
 					qs.getQuestVars().setQuestVarById(0, var + 1);
 					updateQuestStatus(player, qs);
 					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
-					// TODO: Need NPC Die... :D
 					((Npc) env.getVisibleObject()).getController().onDie();
 					return true;
 				default:
@@ -259,7 +259,9 @@ public class _1002RequestoftheElim extends QuestHandler
 						updateQuestStatus(player, qs);
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),
 							0));
-						player.getController().teleportTo(310010000, 52, 174, 229, 0);
+						WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstanceId(310010000);
+						newInstance.setDestroyTime(60 * 5);
+						player.getController().teleportTo(310010000, newInstance.getInstanceId(), 52, 174, 229, 0);
 						return true;
 					}
 					return false;

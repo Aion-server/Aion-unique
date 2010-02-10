@@ -24,7 +24,6 @@ import java.util.List;
 import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * Just some part of map.
@@ -137,8 +136,7 @@ public class MapRegion
 	void add(VisibleObject object)
 	{
 		objects.put(object.getObjectId(), object);
-		if(object instanceof Player)
-			parent.onPlayerEnter();
+		parent.onEnter(object);
 	}
 
 	/**
@@ -149,7 +147,6 @@ public class MapRegion
 	void remove(VisibleObject object)
 	{
 		objects.remove(object.getObjectId());
-		if(object instanceof Player)
-			parent.onPlayerLeave();
+		parent.onLeave(object);
 	}
 }

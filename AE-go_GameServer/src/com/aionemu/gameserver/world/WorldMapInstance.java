@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * World map instance object.
@@ -182,14 +183,16 @@ public class WorldMapInstance
 		return currentPlayerCount;
 	}
 	
-	public void onPlayerEnter()
+	public void onEnter(VisibleObject object)
 	{
-		currentPlayerCount++;
+		if (object instanceof Player)
+			currentPlayerCount++;
 	}
 	
-	public void onPlayerLeave()
+	public void onLeave(VisibleObject object)
 	{
-		currentPlayerCount--;
+		if (object instanceof Player)
+			currentPlayerCount--;
 	}
 	
 	public boolean isInUse()
@@ -203,5 +206,26 @@ public class WorldMapInstance
 	public int getInstanceId()
 	{
 		return instanceId;
+	}
+	
+	public boolean isInInstance(int objId)
+	{
+		return false;
+	}
+
+	public void setDestroyTime(int sec)
+	{	
+	}
+
+	public void destroyInstance()
+	{
+	}
+
+	public void addPlayer(int objId)
+	{
+	}
+
+	public void removePlayer(int objId)
+	{
 	}
 }

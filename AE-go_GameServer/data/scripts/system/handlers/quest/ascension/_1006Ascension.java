@@ -17,22 +17,23 @@
 package quest.ascension;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+import com.aionemu.gameserver.network.aion.SystemMessageId;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
@@ -41,8 +42,11 @@ import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.world.WorldMap;
+import com.aionemu.gameserver.world.WorldMapInstance;
 import com.aionemu.gameserver.world.zone.ZoneManager;
 import com.aionemu.gameserver.world.zone.ZoneName;
+import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -50,14 +54,14 @@ import com.aionemu.gameserver.world.zone.ZoneName;
  */
 public class _1006Ascension extends QuestHandler
 {
-	private final static int	questId			= 1006;
-	//TODO [ATracer] - do we really need activePlayer ids in script body ???
-	private Map<Integer, Integer> activePlayers = new HashMap<Integer, Integer>();
-	private Map<Integer, List<Npc>> mobs = new HashMap<Integer, List<Npc>>();
+	private final static int	questId	= 1006;
+	private final World				world;
 
-	public _1006Ascension()
+	@Inject
+	public _1006Ascension(World world)
 	{
 		super(questId);
+		this.world = world;
 		if(Config.ENABLE_SIMPLE_2NDCLASS)
 			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
@@ -68,6 +72,8 @@ public class _1006Ascension extends QuestHandler
 		QuestEngine.getInstance().setNpcQuestData(211042).addOnKillEvent(questId);
 		QuestEngine.getInstance().setNpcQuestData(211043).addOnAttackEvent(questId);
 		QuestEngine.getInstance().setQuestMovieEndIds(151).add(questId);
+		QuestEngine.getInstance().addOnEnterWorld(questId);
+		QuestEngine.getInstance().addOnDie(questId);
 	}
 
 	@Override
@@ -90,20 +96,17 @@ public class _1006Ascension extends QuestHandler
 			{
 				qs.getQuestVars().setQuestVar(qs.getQuestVars().getQuestVars() + 1);
 				updateQuestStatus(player, qs);
-				removeMobToInstance(instanceId, (Npc) env.getVisibleObject());
 				return true;
 			}
 			else if(var == 54)
 			{
 				qs.getQuestVars().setQuestVar(4);
 				updateQuestStatus(player, qs);
-				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211043, (float) 226.7,
-					(float) 251.5, (float) 205.5, (byte) 0, false);
-				//TODO: Tempt decrease P attack.
-				mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER)/3 );
+				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211043, (float) 226.7, (float) 251.5, (float) 205.5, (byte) 0, false);
+				// TODO: Tempt decrease P attack.
+				mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER) / 3);
 				mob.getAggroList().addDamageHate(player, 1000, 0);
 				mob.getAi().handleEvent(Event.ATTACKED);
-				addMobToInstance(instanceId, mob);
 				return true;
 			}
 		}
@@ -144,8 +147,7 @@ public class _1006Ascension extends QuestHandler
 								QuestEngine.getInstance().addItem(player, 182200007, 1);
 							qs.getQuestVars().setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
-							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-								.getObjectId(), 10));
+							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 							return true;
 						}
 					case 10002:
@@ -154,10 +156,10 @@ public class _1006Ascension extends QuestHandler
 							player.getInventory().removeFromBagByItemId(182200009, 1);
 							qs.getQuestVars().setQuestVar(99);
 							updateQuestStatus(player, qs);
-							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-								.getObjectId(), 0));
-							int newInstanceId = player.getPosition().getWorld().getNextAvailableInstanceId(310010000);
-							player.getController().teleportTo(310010000, newInstanceId, 52, 174, 229, 0);
+							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
+							WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstanceId(310010000);
+							newInstance.setDestroyTime(60 * 20);
+							player.getController().teleportTo(310010000, newInstance.getInstanceId(), 52, 174, 229, 0);
 							return true;
 						}
 					case 10003:
@@ -224,8 +226,7 @@ public class _1006Ascension extends QuestHandler
 						{
 							qs.getQuestVars().setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
-							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-								.getObjectId(), 10));
+							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 							return true;
 						}
 				}
@@ -237,15 +238,6 @@ public class _1006Ascension extends QuestHandler
 					case 25:
 						if(var == 99)
 						{
-							if(activePlayers.get(instanceId) != null && activePlayers.get(instanceId) != player.getObjectId())
-							{
-								World world = player.getActiveRegion().getWorld();
-								Player activePlayer = world.findPlayer(activePlayers.get(instanceId));
-								if(!(activePlayer == null || !activePlayer.isOnline() || activePlayer.getWorldId() != 310010000))
-									return false;
-							}
-							activePlayers.put(instanceId, player.getObjectId());
-							clearMobsInInstance(instanceId);
 							PacketSendUtility.sendPacket(player, new SM_EMOTION(player, 6, 1001, 0));
 							qs.getQuestVars().setQuestVar(50);
 							updateQuestStatus(player, qs);
@@ -255,19 +247,15 @@ public class _1006Ascension extends QuestHandler
 								{
 									qs.getQuestVars().setQuestVar(51);
 									updateQuestStatus(player, qs);
-									addMobToInstance(instanceId, (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042,
-										(float) 224.073, (float) 239.1, (float) 206.7, (byte) 0, false));
-									addMobToInstance(instanceId, (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042,
-										(float) 233.5, (float) 241.04, (float) 206.365, (byte) 0, false));
-									addMobToInstance(instanceId, (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042,
-										(float) 229.6, (float) 265.7, (float) 205.7, (byte) 0, false));
-									addMobToInstance(instanceId, (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042,
-										(float) 222.8, (float) 262.5, (float) 205.7, (byte) 0, false));
-									List<Npc> monsters = mobs.get(instanceId);
-									for(Npc mob : monsters)
+									List<Monster> mobs = new ArrayList<Monster>();
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 224.073, (float) 239.1, (float) 206.7, (byte) 0, false));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 233.5, (float) 241.04, (float) 206.365, (byte) 0, false));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 229.6, (float) 265.7, (float) 205.7, (byte) 0, false));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 222.8, (float) 262.5, (float) 205.7, (byte) 0, false));
+									for(Npc mob : mobs)
 									{
-										//TODO: Tempt decrease P attack.
-										mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER)/3 );
+										// TODO: Tempt decrease P attack.
+										mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER) / 3);
 										((Monster) mob).getAggroList().addDamageHate(player, 1000, 0);
 										mob.getAi().handleEvent(Event.ATTACKED);
 									}
@@ -295,30 +283,9 @@ public class _1006Ascension extends QuestHandler
 	public boolean onLvlUpEvent(QuestEnv env)
 	{
 		Player player = env.getPlayer();
-		int instanceId = player.getInstanceId();
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs != null)
-		{
-			if(qs.getStatus() != QuestStatus.START)
-				return false;
-			int var = qs.getQuestVars().getQuestVars();
-			if(var == 4 || (var >= 50 && var <= 55))
-			{
-				if(activePlayers.get(instanceId) != null 
-					&& activePlayers.get(instanceId)== player.getObjectId()
-					&& player.getWorldId() == 310010000)
-					return false;
-				else
-				{
-					if(player.getWorldId() == 310010000)
-					{
-						player.getController().teleportTo(210010000, 243.34f, 1639.5f, 100.4f, 0);
-					}
-					qs.getQuestVars().setQuestVar(3);
-					updateQuestStatus(player, qs);
-				}
-			}
-		}
+			return false;
 		if(player.getCommonData().getLevel() < 9)
 			return false;
 		env.setQuestId(questId);
@@ -361,14 +328,12 @@ public class _1006Ascension extends QuestHandler
 		final QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null)
 			return false;
-		PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, id,
-			3000, 0, 0), true);
+		PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, id, 3000, 0, 0), true);
 		ThreadPoolManager.getInstance().schedule(new Runnable(){
 			@Override
 			public void run()
 			{
-				PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId,
-					id, 0, 1, 0), true);
+				PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, id, 0, 1, 0), true);
 				player.getInventory().removeFromBagByObjectId(itemObjId, 1);
 				QuestEngine.getInstance().addItem(player, 182200008, 1);
 				qs.getQuestVars().setQuestVarById(0, 2);
@@ -388,8 +353,7 @@ public class _1006Ascension extends QuestHandler
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null || qs.getStatus() != QuestStatus.START || qs.getQuestVars().getQuestVars() != 4)
 			return false;
-		addMobToInstance(instanceId, (Npc) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 790001, (float) 220.6, (float) 247.8,
-			(float) 206.0, (byte) 0, false));
+		QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 790001, (float) 220.6, (float) 247.8, (float) 206.0, (byte) 0, false);
 		qs.getQuestVars().setQuestVar(5);
 		updateQuestStatus(player, qs);
 		return true;
@@ -405,50 +369,50 @@ public class _1006Ascension extends QuestHandler
 		sendQuestDialog(player, env.getVisibleObject().getObjectId(), 5);
 		return true;
 	}
-	
-	/**
-	 * 
-	 * @param instanceId
-	 * @param npc
-	 */
-	private void addMobToInstance(int instanceId, Npc npc)
+
+	@Override
+	public boolean onDieEvent(QuestEnv env)
 	{
-		List<Npc> mobList = mobs.get(instanceId);
-		if(mobList == null)
+		Player player = env.getPlayer();
+		QuestState qs = player.getQuestStateList().getQuestState(questId);
+		if(qs == null || qs.getStatus() != QuestStatus.START)
+			return false;
+		int var = qs.getQuestVars().getQuestVars();
+		if(var == 4 || (var >= 50 && var <= 55))
 		{
-			mobList = new ArrayList<Npc>();
-			mobs.put(instanceId, mobList);
+			qs.getQuestVars().setQuestVar(3);
+			updateQuestStatus(player, qs);
+			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(env.getQuestId()).getName()));
 		}
-			
-		mobList.add(npc);		
+		return false;
 	}
-	
-	/**
-	 * 
-	 * @param instanceId
-	 * @param npc
-	 */
-	private void removeMobToInstance(int instanceId, Npc npc)
+
+	@Override
+	public boolean onEnterWorldEvent(QuestEnv env)
 	{
-		List<Npc> mobList = mobs.get(instanceId);
-		if(mobList != null && mobList.contains(npc))
-			mobList.remove(npc);		
-	}
-	
-	/**
-	 * 
-	 * @param instanceId
-	 */
-	private void clearMobsInInstance(int instanceId)
-	{
-		List<Npc> mobList = mobs.get(instanceId);
-		if(mobList != null)
+		Player player = env.getPlayer();
+		QuestState qs = player.getQuestStateList().getQuestState(questId);
+		if(qs != null && qs.getStatus() == QuestStatus.START)
 		{
-			for(Npc npc : mobList)
+			int var = qs.getQuestVars().getQuestVars();
+			if(var == 4 || (var >= 50 && var <= 55) || var == 99)
 			{
-				npc.getController().onDelete();
+				int instanceId = player.getInstanceId();
+				WorldMap worldMap = world.getWorldMap(310010000);
+				int id = -1;
+				if (worldMap != null)
+					id = worldMap.getWorldMapScriptInstanceIdByPlyerObjId(player.getObjectId());
+				if(id == -1 || player.getWorldId() != 310010000)
+				{
+					qs.getQuestVars().setQuestVar(3);
+					updateQuestStatus(player, qs);
+					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(questId).getName()));
+					player.getController().teleportTo(210010000, 1, 244f, 1639f, 100.5f, 1000);
+				}
+				else if(id != instanceId)
+					player.getController().changeChannel(id-1);
 			}
-			mobList.clear();	
-		}				
+		}
+		return false;
 	}
 }

@@ -38,12 +38,12 @@ public class _1000Prologue extends QuestHandler
 	public _1000Prologue()
 	{
 		super(questId);
-		QuestEngine.getInstance().addQuestLvlUp(questId);
+		QuestEngine.getInstance().addOnEnterWorld(questId);
 		QuestEngine.getInstance().setQuestMovieEndIds(1).add(questId);
 	}
 
 	@Override
-	public boolean onLvlUpEvent(QuestEnv env)
+	public boolean onEnterWorldEvent(QuestEnv env)
 	{
 		Player player = env.getPlayer();
 		if(player.getCommonData().getRace() != Race.ELYOS)

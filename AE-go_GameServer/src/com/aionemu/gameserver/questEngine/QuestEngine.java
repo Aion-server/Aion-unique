@@ -54,6 +54,8 @@ public class QuestEngine
 	private List<Integer>						_questLvlUp;
 	private FastMap<ZoneName, List<Integer>>	_questEnterZone;
 	private FastMap<Integer, List<Integer>>		_questMovieEndIds;
+	private List<Integer>						_questOnDie;
+	private List<Integer>						_questOnEnterWorld;
 	private ItemService							itemService;
 	private SpawnEngine							spawnEngine;
 
@@ -62,6 +64,8 @@ public class QuestEngine
 		_npcQuestData = new FastMap<Integer, NpcQuestData>();
 		_questItemIds = new FastMap<Integer, List<Integer>>();
 		_questLvlUp = new ArrayList<Integer>();
+		_questOnEnterWorld = new ArrayList<Integer>();
+		_questOnDie = new ArrayList<Integer>();
 		_questEnterZone = new FastMap<ZoneName, List<Integer>>();
 		_questMovieEndIds = new FastMap<Integer, List<Integer>>();
 	}
@@ -88,11 +92,6 @@ public class QuestEngine
 			}
 		}
 		return false;
-	}
-
-	public void onEnterWorld(QuestEnv env)
-	{
-		onLvlUp(env);
 	}
 
 	public boolean onKill(QuestEnv env)
@@ -128,6 +127,26 @@ public class QuestEngine
 			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				questHandler.onLvlUpEvent(env);
+		}
+	}
+
+	public void onDie(QuestEnv env)
+	{
+		for(int questId : _questOnDie)
+		{
+			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			if(questHandler != null)
+				questHandler.onDieEvent(env);
+		}
+	}
+	
+	public void onEnterWorld(QuestEnv env)
+	{
+		for(int questId : _questOnEnterWorld)
+		{
+			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			if(questHandler != null)
+				questHandler.onEnterWorldEvent(env);
 		}
 	}
 
@@ -240,6 +259,18 @@ public class QuestEngine
 			_questLvlUp.add(questId);
 	}
 
+	public void addOnEnterWorld(int questId)
+	{
+		if(!_questOnEnterWorld.contains(questId))
+			_questOnEnterWorld.add(questId);
+	}
+
+	public void addOnDie(int questId)
+	{
+		if(!_questOnDie.contains(questId))
+			_questOnDie.add(questId);
+	}
+
 	public List<Integer> getQuestEnterZone(ZoneName zoneName)
 	{
 		if(_questEnterZone.containsKey(zoneName))
@@ -298,8 +329,11 @@ public class QuestEngine
 		_npcQuestData.clear();
 		_questItemIds.clear();
 		_questLvlUp.clear();
+		_questOnEnterWorld.clear();
+		_questOnDie.clear();
 		_questEnterZone.clear();
 		_questMovieEndIds.clear();
+		
 	}
 
 	public static QuestEngine getInstance()

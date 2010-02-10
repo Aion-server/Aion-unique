@@ -52,8 +52,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UI_SETTINGS;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
-import com.aionemu.gameserver.questEngine.QuestEngine;
-import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.world.World;
@@ -127,13 +125,13 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNKC7());
 			// sendPacket(new SM_UNKC8());
 
+
+			client.sendPacket(new SM_QUEST_LIST(player));
+
 			/*
 			 * Needed
 			 */
 			client.sendPacket(new SM_ENTER_WORLD_CHECK());
-			client.sendPacket(new SM_QUEST_LIST(player));
-			QuestEngine.getInstance().onEnterWorld(new QuestEnv(null, player, 0, 0));
-			player.updateNearbyQuests();
 
 			byte[] uiSettings = player.getPlayerSettings().getUiSettings();
 			byte[] shortcuts = player.getPlayerSettings().getShortcuts();
@@ -209,6 +207,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNKE1());
 			sendPacket(new SM_MACRO_LIST(player));
 
+			player.updateNearbyQuests();
 
 			sendPacket(new SM_GAME_TIME());
 			sendPacket(new SM_TITLE_LIST(player));

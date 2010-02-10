@@ -15,27 +15,27 @@
 	<map id="220040000" name="Beluslan" />
 	
 	<map id="300010000" name="IDAbPro" />
-	<map id="310010000" name="IDAbProL1" />
-	<map id="310020000" name="IDAbProL2" />
+	<map id="310010000" name="IDAbProL1" instance="true" />
+	<map id="310020000" name="IDAbProL2" instance="true" />
 	<map id="310030000" name="IDAbGateL1" />
 	<map id="310040000" name="IDAbGateL2" />
-	<map id="310050000" name="IDLF3Lp" />
+	<map id="310050000" name="IDLF3Lp" instance="true" />
 	<map id="310060000" name="IDLF1B" />
 	<map id="310070000" name="IDLF1B_Stigma" />
 	<map id="310080000" name="IDLC1_arena" />
 	<map id="310090000" name="IDLF3_Castle_indratoo" />
-	<map id="310100000" name="IDLF3_Castle_Lehpar" />
-	<map id="320010000" name="IDAbProD1" />
-	<map id="320020000" name="IDAbProD2" />
+	<map id="310100000" name="IDLF3_Castle_Lehpar" instance="true" />
+	<map id="320010000" name="IDAbProD1" instance="true" />
+	<map id="320020000" name="IDAbProD2" instance="true" />
 	<map id="320030000" name="IDAbGateD1" />
 	<map id="320040000" name="IDAbGateD2" />
 	<map id="320050000" name="IDDF2Flying" />
 	<map id="320060000" name="IDDF1B" />
 	<map id="320070000" name="IDSpace" />
-	<map id="320080000" name="IDDF3_Dragon" />
+	<map id="320080000" name="IDDF3_Dragon" instance="true" />
 	<map id="320090000" name="IDDC1_arena" />
-	<map id="320100000" name="IDDF2_Dflame" />
-	<map id="320110000" name="IDDF3_LP" />
+	<map id="320100000" name="IDDF2_Dflame" instance="true" />
+	<map id="320110000" name="IDDF3_LP" instance="true" />
 	<map id="320120000" name="IDDC1_Arena_3F" />
 	<map id="400010000" name="Ab1" />
 	<map id="510010000" prison="true" name="LF_Prison" />

@@ -198,6 +198,7 @@ public class PlayerController extends CreatureController<Player>
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 13, 0, lastAttacker.getObjectId()), true);
 			PacketSendUtility.sendPacket(player, new SM_DIE());
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
+			QuestEngine.getInstance().onDie(new QuestEnv(null, player,0,0));
 		}
 	}
 
@@ -315,6 +316,11 @@ public class PlayerController extends CreatureController<Player>
                 PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
                 }
                 World world = player.getActiveRegion().getWorld();
+				if (player.getInstanceId() != instanceId || player.getWorldId() != worldId)
+				{
+					world.getWorldMap(player.getWorldId()).getWorldMapInstanceById(player.getInstanceId()).removePlayer(player.getObjectId());
+					world.getWorldMap(worldId).getWorldMapInstanceById(instanceId).addPlayer(player.getObjectId());
+				}
 				world.despawn(player);
 				world.setPosition(player, worldId, instanceId,  x, y, z, heading);
 				player.setProtectionActive(true);
@@ -478,7 +484,7 @@ public class PlayerController extends CreatureController<Player>
 	public void changeChannel(int channel)
 	{
 		Player player = getOwner();
-		World world = player.getActiveRegion().getWorld();			
+		World world = player.getActiveRegion().getWorld();
 		world.despawn(player);
 		world.setPosition(player, player.getWorldId(), channel + 1, player.getX(),
 			player.getY(), player.getZ(), player.getHeading());
@@ -535,12 +541,18 @@ public class PlayerController extends CreatureController<Player>
 			z = locationData.getZ();
 		}
 		
+		
 		if(useTeleport)
 		{
 			teleportTo(worldId, x, y, z, delay);
 		}
 		else
 		{
+			if (player.getInstanceId() != 1 || player.getWorldId() != worldId)
+			{
+				world.getWorldMap(player.getWorldId()).getWorldMapInstanceById(player.getInstanceId()).removePlayer(player.getObjectId());
+				world.getWorldMap(worldId).getWorldMapInstanceById(1).addPlayer(player.getObjectId());
+			}
 			world.setPosition(player, worldId, x, y, z, player.getHeading());
 		}
 	}
