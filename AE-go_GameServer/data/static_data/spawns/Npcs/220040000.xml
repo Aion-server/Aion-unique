@@ -914,4 +914,8 @@ Beluslan -->
   <spawn map="220040000" npcid="213754" pool="1" interval="105">
     <object x="2742.09" y="2579.77" z="655.88" h="12"/>
   </spawn>
+  <!-- Hresvelgr -->
+  <spawn map="220040000" npcid="204837" pool="1" interval="105">
+    <object x="2423" y="2059" z="579.8773" h="12"/>
+  </spawn>
 </spawns>

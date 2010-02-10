@@ -620,4 +620,9 @@ Theobomos -->
   <spawn map="210060000" npcid="730106" pool="1" interval="105">
     <object x="1462.62" y="1554.21" z="33.15564" h="89"/>
   </spawn>
+  <!-- Sentinel -->
+  <spawn map="210060000" npcid="207738" pool="2" interval="105">
+    <object x="2067.107" y="1867.799" z="37.446" h="74"/>
+    <object x="2058.637" y="1872.386" z="37.31" h="68"/>	
+  </spawn>  
 </spawns>
