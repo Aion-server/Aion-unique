@@ -184,6 +184,7 @@ CREATE TABLE `inventory` (
   `itemOwner` int(11) NOT NULL,
   `isEquiped` TINYINT(1) NOT NULL DEFAULT '0',
   `slot` INT NOT NULL DEFAULT '0',
+  `itemLocation` TINYINT(1) DEFAULT '0',
   PRIMARY KEY (`itemUniqueId`),
   FOREIGN KEY (`itemOwner`) references players (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
