@@ -290,6 +290,17 @@ public class Storage
 	}
 
 	/**
+	 * 
+	 * @param itemObjId
+	 * @param count
+	 * @return
+	 */
+	public boolean removeFromBagByObjectId(int itemObjId, int count)
+	{
+		return removeFromBagByObjectId(itemObjId, count, true);
+	}
+	
+	/**
 	 *  Used to reduce item count in bag or completely remove by OBJECTID
 	 *  Return value can be the following:
 	 *  - true - item removal was successfull
@@ -300,7 +311,7 @@ public class Storage
 	 * @param count
 	 * @return
 	 */
-	public boolean removeFromBagByObjectId(int itemObjId, int count)
+	public boolean removeFromBagByObjectId(int itemObjId, int count, boolean persist)
 	{
 		if(count < 1)
 			return false;
@@ -310,19 +321,20 @@ public class Storage
 		if(item == null)
 			item = getEquippedItemByObjId(itemObjId); //power shards
 
-		return decreaseItemCount(item, count) >= 0;
+		return decreaseItemCount(item, count, persist) >= 0;
 	}
 
 	/**
 	 *   This method decreases inventory's item by count and sends
 	 *   appropriate packets to owner.
-	 *   Item will be saved in database after update or deleted if count=0
+	 *   Item will be saved in database after update or deleted if count=0 (and persist=true)
 	 * 
 	 * @param count should be > 0
 	 * @param item
+	 * @param persist
 	 * @return
 	 */
-	private int decreaseItemCount(Item item, int count)
+	private int decreaseItemCount(Item item, int count, boolean persist)
 	{
 		if(item.getItemCount() >= count)
 		{
@@ -342,10 +354,24 @@ public class Storage
 			PacketSendUtility.sendPacket(getOwner(), new SM_DELETE_ITEM(item.getObjectId()));
 		}
 		PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
-
-		DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
+		
+		if(persist || item.getItemCount() == 0)
+		{
+			DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
+		}	
 
 		return count;
+	}
+	
+	/**
+	 * 
+	 * @param item
+	 * @param count
+	 * @return
+	 */
+	private int decreaseItemCount(Item item, int count)
+	{
+		return decreaseItemCount(item, count, true);
 	}
 
 	/**
@@ -903,11 +929,11 @@ public class Storage
 
 	/**
 	 * @param powerShardItem
-	 * @param i
+	 * @param count
 	 */
-	public void usePowerShard(Item powerShardItem, int i)
+	public void usePowerShard(Item powerShardItem, int count)
 	{
-		removeFromBagByObjectId(powerShardItem.getObjectId(), 1);
+		removeFromBagByObjectId(powerShardItem.getObjectId(), count, false);
 
 		if(powerShardItem.getItemCount() <= 0)
 		{// Search for next same power shards stack
