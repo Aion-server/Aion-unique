@@ -31,7 +31,7 @@ import com.aionemu.gameserver.questEngine.model.QuestStatus;
  */
 public class _2132ANewSkill extends QuestHandler
 {
-	private final static int	questId	= 1205;
+	private final static int	questId	= 2132;
 
 	public _2132ANewSkill()
 	{
@@ -53,7 +53,27 @@ public class _2132ANewSkill extends QuestHandler
 		if(qs != null)
 			return false;
 		env.setQuestId(questId);
-		QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+		if (QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START))
+		{
+			qs = player.getQuestStateList().getQuestState(questId);
+			qs.setStatus(QuestStatus.REWARD);
+			switch(player.getCommonData().getPlayerClass())
+			{
+				case WARRIOR:
+					qs.getQuestVars().setQuestVar(1);
+					break;
+				case SCOUT:
+					qs.getQuestVars().setQuestVar(2);
+					break;
+				case MAGE:
+					qs.getQuestVars().setQuestVar(3);
+					break;
+				case PRIEST:
+					qs.getQuestVars().setQuestVar(4);
+					break;
+			}
+			updateQuestStatus(player, qs);
+		}
 		return true;
 	}
 
@@ -78,12 +98,7 @@ public class _2132ANewSkill extends QuestHandler
 					if(env.getDialogId() == 25)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
 					else if(env.getDialogId() == 1009)
-					{
-						qs.setStatus(QuestStatus.REWARD);
-						qs.getQuestVars().setQuestVar(1);
-						updateQuestStatus(player, qs);
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 5);
-					}
 					else
 						return this.defaultQuestEndDialog(env);
 				}
@@ -94,12 +109,7 @@ public class _2132ANewSkill extends QuestHandler
 					if(env.getDialogId() == 25)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
 					else if(env.getDialogId() == 1009)
-					{
-						qs.setStatus(QuestStatus.REWARD);
-						qs.getQuestVars().setQuestVar(2);
-						updateQuestStatus(player, qs);
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 6);
-					}
 					else
 						return this.defaultQuestEndDialog(env);
 				}
@@ -110,12 +120,7 @@ public class _2132ANewSkill extends QuestHandler
 					if(env.getDialogId() == 25)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1693);
 					else if(env.getDialogId() == 1009)
-					{
-						qs.setStatus(QuestStatus.REWARD);
-						qs.getQuestVars().setQuestVar(3);
-						updateQuestStatus(player, qs);
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 7);
-					}
 					else
 						return this.defaultQuestEndDialog(env);
 				}
@@ -126,18 +131,12 @@ public class _2132ANewSkill extends QuestHandler
 					if(env.getDialogId() == 25)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2034);
 					else if(env.getDialogId() == 1009)
-					{
-						qs.setStatus(QuestStatus.REWARD);
-						qs.getQuestVars().setQuestVar(4);
-						updateQuestStatus(player, qs);
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 8);
-					}
 					else
 						return this.defaultQuestEndDialog(env);
 				}
 				return false;
 		}
-
 		return false;
 	}
 }
