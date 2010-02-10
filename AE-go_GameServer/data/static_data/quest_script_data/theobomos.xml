@@ -34,7 +34,11 @@
 
 	<!-- TODO: Agrint Afire -->
 
-	<!-- TODO: Pests Among the Vegetables -->
+	<!-- Pests Among the Vegetables -->
+	<monster_hunt start_npc_id="798138" id="3005">
+		<monster_infos var_id="0" npc_id="213812" max_kill="7"/>
+		<monster_infos var_id="1" npc_id="213810" max_kill="11"/>
+	</monster_hunt>
 
 	<!-- TODO: The Shugo Fugitive -->
 	

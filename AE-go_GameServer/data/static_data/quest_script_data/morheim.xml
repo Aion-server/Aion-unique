@@ -203,11 +203,7 @@
         <!-- Urgent Care -->
 	<item_collecting id="2462" start_npc_id="204330" />
 
-        <!-- [Group] Kimssi's Wish -->
-	<monster_hunt id="2354" start_npc_id="204393">
-		<monster_infos npc_id="212747"  var_id="0" max_kill="15"/>
-		<monster_infos npc_id="212746"  var_id="1" max_kill="10"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Kimssi's Wish -->
 
         <!-- TODO: [Spy] Curious Behavior -->
 
@@ -237,8 +233,7 @@
 		<monster_infos npc_id="211367"  var_id="1" max_kill="12"/>
 	</monster_hunt>
 
-        <!-- [Group] Legendary Amethysts -->
-	<item_collecting id="2353" start_npc_id="790020" action_item_id="790020" />
+        <!-- TODO: [Group] Legendary Amethysts -->
 
         <!-- A Foul Stench -->
 	<monster_hunt id="2360" start_npc_id="204372">
@@ -312,20 +307,11 @@
 		<monster_infos npc_id="700250"  var_id="0" max_kill="5"/>
 	</monster_hunt>
 
-        <!-- [Group] An Ice Claw Raid -->
-	<monster_hunt id="2342" start_npc_id="204333">
-		<monster_infos npc_id="211457"  var_id="0" max_kill="5"/>
-		<monster_infos npc_id="211460"  var_id="1" max_kill="5"/>
-	</monster_hunt>
+        <!-- TODO: [Group] An Ice Claw Raid -->
        
-	<!-- [Group] Odella Rope -->
-	<item_collecting id="2346" start_npc_id="204332" />
+	<!-- TODO: [Group] Odella Rope -->
 
-        <!-- [Group] Weakening the Iceclaws -->
-	<monster_hunt id="2341" start_npc_id="204333">
-		<monster_infos npc_id="211437"  var_id="0" max_kill="7"/>
-		<monster_infos npc_id="211409"  var_id="1" max_kill="19"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Weakening the Iceclaws -->
 
         <!-- TODO: A Dish For Dukar -->
 
@@ -358,28 +344,13 @@
 	<!-- Thirteen Pieces of Ore -->
 	<item_collecting id="2469" start_npc_id="204341" />
 
-        <!-- [Group] All Nyerk and No Play -->
-	<monster_hunt id="2375" start_npc_id="798079">
-		<monster_infos npc_id="212685"  var_id="0" max_kill="5"/>
-		<monster_infos npc_id="212689"  var_id="1" max_kill="5"/>
-	</monster_hunt>
+        <!-- TODO: [Group] All Nyerk and No Play -->
 
-        <!-- [Group] Gangleri's Request -->
-	<monster_hunt id="4312" start_npc_id="204372">
-		<monster_infos npc_id="212678"  var_id="0" max_kill="5"/>
-		<monster_infos npc_id="212680"  var_id="1" max_kill="5"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Gangleri's Request -->
 
-        <!-- [Group] Sarinerk's Safety -->
-	<monster_hunt id="2376" start_npc_id="798080">
-		<monster_infos npc_id="212693"  var_id="0" max_kill="6"/>
-		<monster_infos npc_id="212697"  var_id="1" max_kill="3"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Sarinerk's Safety -->
 
-        <!-- [Group] The Still Remaining Mission -->
-	<monster_hunt id="4313" start_npc_id="204372">
-		<monster_infos npc_id="212677"  var_id="0" max_kill="11"/>
-	</monster_hunt>
+        <!-- TODO: [Group] The Still Remaining Mission -->
 
         <!-- TODO: [Spy] Ingredients For Kselopen Sausage -->
 
@@ -396,14 +367,9 @@
 		<monster_infos npc_id="212995"  var_id="0" max_kill="10"/>
 	</monster_hunt>        
        
-	<!-- [Group] A Curse-Breaking Clue -->
-	<monster_hunt id="2377" start_npc_id="798080">
-		<monster_infos npc_id="212710"  var_id="0" max_kill="7"/>
-		<monster_infos npc_id="212714"  var_id="1" max_kill="7"/>
-	</monster_hunt>
+	<!-- TODO: [Group] A Curse-Breaking Clue -->
 
-        <!-- [Group] A Missing Bandage -->
-	<item_collecting id="2384" start_npc_id="798080" />
+        <!-- TODO: [Group] A Missing Bandage -->
 
         <!-- TODO: [Group] The Snowflake Necklace -->
 
@@ -426,11 +392,9 @@
         <!-- Crop Stompers -->
 	<item_collecting id="2389" start_npc_id="204340" />
 
-        <!-- [Group] An Ancient Weapon -->
-        <item_collecting id="2373" start_npc_id="204408" action_item_id="700252" />
+        <!-- TODO: [Group] An Ancient Weapon -->
 
-	<!-- [Group] Kalgolem Crystals -->
-	<item_collecting id="2371" start_npc_id="798079" />
+	<!-- TODO: [Group] Kalgolem Crystals -->
 
         <!-- TODO: [Spy] Homecoming of the Soul -->
 
@@ -462,12 +426,7 @@
 		<monster_infos npc_id="212473"  var_id="1" max_kill="9"/>
 	</monster_hunt>
 
-        <!-- [Group] Re-sanctifying the Temple -->
-	<monster_hunt id="2374" start_npc_id="204408">
-		<monster_infos npc_id="212788"  var_id="0" max_kill="15"/>
-		<monster_infos npc_id="212802"  var_id="1" max_kill="47"/>
-		<monster_infos npc_id="212794"  var_id="2" max_kill="5"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Re-sanctifying the Temple -->
 
         <!-- A Special Friendship -->
         <item_collecting id="2474" start_npc_id="204390" />
@@ -557,12 +516,7 @@
         <!-- Shoot That Poison Arrow -->
 	<item_collecting id="2452" start_npc_id="204331" />
 
-        <!-- [Group] Taking Back the Hot Springs -->
-	<monster_hunt id="2405" start_npc_id="204381">
-		<monster_infos npc_id="212500"  var_id="0" max_kill="3"/>
-		<monster_infos npc_id="212638"  var_id="1" max_kill="3"/>
-		<monster_infos npc_id="211523"  var_id="2" max_kill="7"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Taking Back the Hot Springs -->
 
         <!-- TODO: A Dying Wish -->
 
@@ -605,45 +559,25 @@
 		<monster_infos npc_id="211025"  var_id="2" max_kill="5"/>
 	</monster_hunt>
 
-        <!-- [Group] A Step to Revenge -->
-	<item_collecting id="2464" start_npc_id="204110" />
+        <!-- TODO: [Group] A Step to Revenge -->
 
-        <!-- [Group] Ananta's Plan -->
-	<item_collecting id="2463" start_npc_id="204387" />
+        <!-- TODO: [Group] Ananta's Plan -->
 
-        <!-- [Group] Chaomirk's Request -->
-	<monster_hunt id="2447" start_npc_id="798115">
-		<monster_infos npc_id="211562"  var_id="0" max_kill="5"/>
-		<monster_infos npc_id="212721"  var_id="1" max_kill="3"/>
-		<monster_infos npc_id="212722"  var_id="2" max_kill="7"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Chaomirk's Request -->
 
-        <!-- [Group] Chase of the Mist Mane Mau -->
-	<monster_hunt id="2432" start_npc_id="204387">
-		<monster_infos npc_id="211576"  var_id="0" max_kill="3"/>
-		<monster_infos npc_id="211573"  var_id="1" max_kill="3"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Chase of the Mist Mane Mau -->
 
         <!-- TODO: [Group] Earrings of the Lepharist Annihilator -->
 
         <!-- TODO: [Group] Reckless for a Necklace -->
 
-        <!-- [Group] Revenge is Sweet -->
-	<monster_hunt id="2434" start_npc_id="204388">
-		<monster_infos npc_id="211595"  var_id="0" max_kill="9"/>
-		<monster_infos npc_id="211575"  var_id="1" max_kill="12"/>
-		<monster_infos npc_id="211612"  var_id="2" max_kill="9"/>
-		<monster_infos npc_id="211574"  var_id="3" max_kill="12"/>
-		<monster_infos npc_id="212729"  var_id="4" max_kill="9"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Revenge is Sweet -->
 
         <!-- TODO: [Group] Ringleaders for a Ring -->
 
-        <!-- [Group] Taisan's Request -->
-	<item_collecting id="2442" start_npc_id="204403" />
+        <!-- TODO: [Group] Taisan's Request -->
 
-        <!-- [Group] The Nunu Fertilizer -->
-	<item_collecting id="2446" start_npc_id="204402" />
+        <!-- TODO: [Group] The Nunu Fertilizer -->
 
         <!-- TODO: [Spy] Our Man in Elysea -->
 
@@ -651,28 +585,15 @@
 
         <!-- TODO: Lepharist Ointment -->
 
-        <!-- [Group] Incredulous Nuaka -->
-	<item_collecting id="2490" start_npc_id="204388" />
+        <!-- TODO: [Group] Incredulous Nuaka -->
 
-        <!-- [Group] Legendary Armor -->
-	<item_collecting id="2471" start_npc_id="204110" />
+        <!-- TODO: [Group] Legendary Armor -->
 
-        <!-- [Group] Never to Rise Again -->
-	<monster_hunt id="2439" start_npc_id="204400">
-		<monster_infos npc_id="211598"  var_id="0" max_kill="9"/>
-		<monster_infos npc_id="212732"  var_id="1" max_kill="9"/>
-		<monster_infos npc_id="212734"  var_id="2" max_kill="9"/>
-		<monster_infos npc_id="211596"  var_id="3" max_kill="9"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Never to Rise Again -->
 
         <!-- TODO: [Group] Strange Brew -->
 
-        <!-- [Group] Striking the Elite -->
-	<monster_hunt id="2406" start_npc_id="204342">
-		<monster_infos npc_id="212901"  var_id="0" max_kill="10"/>
-		<monster_infos npc_id="212907"  var_id="1" max_kill="10"/>
-		<monster_infos npc_id="212910"  var_id="2" max_kill="10"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Striking the Elite -->
 
         <!-- TODO: [Spy/Group] Killing Mabangtah -->
 
@@ -680,15 +601,9 @@
 
         <!-- TODO: [Group] Besting the Bodyguards -->
 
-        <!-- [Group] Blueprints for Assassination -->
-	<item_collecting id="2407" start_npc_id="204345" />
+        <!-- TODO: [Group] Blueprints for Assassination -->
 
-        <!-- [Group] Defeating the Main Force of Mist Mane -->
-	<monster_hunt id="2489" start_npc_id="204414">
-		<monster_infos npc_id="212865"  var_id="0" max_kill="1"/>
-		<monster_infos npc_id="212866"  var_id="1" max_kill="1"/>
-		<monster_infos npc_id="212867"  var_id="2" max_kill="1"/>
-	</monster_hunt>
+        <!-- TODO: [Group] Defeating the Main Force of Mist Mane -->
 
 	<!-- TODO: [Group] Designer Naremi -->
 
