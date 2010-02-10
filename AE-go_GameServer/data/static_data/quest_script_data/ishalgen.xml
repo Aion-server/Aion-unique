@@ -107,7 +107,7 @@
 	<!-- TODO: Ashes to Ashes -->
 	
 	<!-- Checking on a Friend -->
-	<report_to start_npc_id="203540" end_npc_id="278581" item_id="182203119" id="2121"/>
+	<report_to start_npc_id="203540" end_npc_id="203547" item_id="182203119" id="2121"/>
 	
 	<!-- The Captain's Secret -->
 	<item_collecting id="2124" start_npc_id="203548"/>

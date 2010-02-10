@@ -134,7 +134,7 @@
   	<!-- TODO: Put Your Money Where Your Mouth Is -->
   	
   	<!-- A Fertile Field -->
-  	<item_collecting start_npc_id="203629" id="2237"/>
+  	<item_collecting start_npc_id="203629" action_item_id="182203226" id="2237"/>
   	
   	<!-- A Friendly Wager -->
   	<item_collecting start_npc_id="203621" id="2230"/>
@@ -195,7 +195,7 @@
   	<item_collecting start_npc_id="798036" id="2263"/>
   	
   	<!-- The Broken Honey Jar -->
-  	<item_collecting start_npc_id="203613" id="2232"/>
+  	<item_collecting start_npc_id="203613" action_item_id="182203224" id="2232"/>
   	
   	<!-- The Sting of Poison -->
   	<monster_hunt start_npc_id="203664" id="2264">
@@ -260,7 +260,7 @@
   	<!-- TODO: The Gerger's Disguise -->
   	
   	<!-- The Gerger's Insignia -->
-  	<item_collecting start_npc_id="203645" id="2246"/>
+  	<item_collecting start_npc_id="203645" action_item_id="182203230" id="2246"/>
   	
   	<!-- The Lost Cube -->
   	<item_collecting start_npc_id="203669" id="2272"/>
@@ -295,7 +295,7 @@
   	<report_to start_npc_id="203557" end_npc_id="203558" item_id="182203260" id="2287"/>
   	
   	<!-- Rebuilding the Pillar -->
-  	<item_collecting start_npc_id="203673" id="2257"/>
+  	<item_collecting start_npc_id="203673" action_item_id="182203238" id="2257"/>
   	
   	<!-- TODO: Reconstructing Impetusium -->
   	
@@ -330,7 +330,7 @@
   	<!-- [Coin] Mutated Spirits -->
   	<monster_hunt start_npc_id="203659" id="2293">
   		<monster_infos var_id="0" npc_id="210576" max_kill="6"/>
-  		<monster_infos var_id="1" npc_id="210578" max_kill="16"/>
+  		<monster_infos var_id="1" npc_id="210523" max_kill="16"/>
   	</monster_hunt>
   	
   	<!-- TODO: [Group] A Lucrative Endeavor -->
