@@ -360,6 +360,7 @@ public class PlayerService
 	void deletePlayerFromDB(int playerId)
 	{
 		DAOManager.getDAO(PlayerDAO.class).deletePlayer(playerId);
+		DAOManager.getDAO(InventoryDAO.class).deletePlayerItems(playerId);
 	}
 
 	/**
