@@ -83,7 +83,7 @@ public class _2009ACeremonyinPandaemonium extends QuestHandler
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),0));
 							
-							player.getController().teleportTo(WorldMapType.PANDAEMONIUM.getId(), 1685, 1400, 195, 0);
+							player.getController().teleportTo(WorldMapType.PANDAEMONIUM.getId(), 1, 1685, 1400, 195, 0);
 							return true;
 						}
 				}

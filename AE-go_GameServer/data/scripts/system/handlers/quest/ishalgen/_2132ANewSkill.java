@@ -95,7 +95,7 @@ public class _2132ANewSkill extends QuestHandler
 			case 203527:
 				if(playerClass == PlayerClass.WARRIOR)
 				{
-					if(env.getDialogId() == 25)
+					if(env.getDialogId() == -1)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
 					else if(env.getDialogId() == 1009)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 5);
@@ -106,7 +106,7 @@ public class _2132ANewSkill extends QuestHandler
 			case 203528:
 				if(playerClass == PlayerClass.SCOUT)
 				{
-					if(env.getDialogId() == 25)
+					if(env.getDialogId() == -1)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
 					else if(env.getDialogId() == 1009)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 6);
@@ -117,7 +117,7 @@ public class _2132ANewSkill extends QuestHandler
 			case 203529:
 				if(playerClass == PlayerClass.MAGE)
 				{
-					if(env.getDialogId() == 25)
+					if(env.getDialogId() == -1)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1693);
 					else if(env.getDialogId() == 1009)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 7);
@@ -128,7 +128,7 @@ public class _2132ANewSkill extends QuestHandler
 			case 203530:
 				if(playerClass == PlayerClass.PRIEST)
 				{
-					if(env.getDialogId() == 25)
+					if(env.getDialogId() == -1)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2034);
 					else if(env.getDialogId() == 1009)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 8);

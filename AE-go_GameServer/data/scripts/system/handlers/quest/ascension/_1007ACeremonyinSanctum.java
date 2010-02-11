@@ -82,7 +82,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),0));
 							
-							player.getController().teleportTo(110010000, 1313, 1512, 568, 0);
+							player.getController().teleportTo(110010000, 1, 1313, 1512, 568, 0);
 							return true;
 						}
 				}

@@ -212,7 +212,7 @@ public class _1002RequestoftheElim extends QuestHandler
 						@Override
 						public void run()
 						{
-							if(player.getTarget().getObjectId() != targetObjectId)
+							if(player.getTarget() == null || player.getTarget().getObjectId() != targetObjectId)
 								return;
 							PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(),
 								targetObjectId, 3000, 0));
@@ -293,7 +293,7 @@ public class _1002RequestoftheElim extends QuestHandler
 							{
 								qs.getQuestVars().setQuestVarById(0, 14);
 								updateQuestStatus(player, qs);
-								player.getController().teleportTo(210010000, 603, 1537, 116, (byte) 20, 0);
+								player.getController().teleportTo(210010000, 1, 603, 1537, 116, (byte) 20, 0);
 							}
 						}, 43000);
 						return true;

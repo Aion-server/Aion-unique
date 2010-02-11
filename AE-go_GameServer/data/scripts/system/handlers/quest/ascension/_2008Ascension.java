@@ -365,7 +365,7 @@ public class _2008Ascension extends QuestHandler
 				{
 					qs.getQuestVars().setQuestVar(4);
 					updateQuestStatus(player, qs);
-					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(env.getQuestId()).getName()));
+					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(questId).getName()));
 					player.getController().teleportTo(220010000, 1, 378.9f, 1895.39f, 330.0f, 1000);
 				}
 				else if(id != instanceId)
