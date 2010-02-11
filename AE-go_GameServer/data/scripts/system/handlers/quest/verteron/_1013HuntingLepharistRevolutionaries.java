@@ -50,7 +50,7 @@ public class _1013HuntingLepharistRevolutionaries extends QuestHandler
    {
       Player player = env.getPlayer();
       QuestState qs = player.getQuestStateList().getQuestState(questId);
-      if(qs == null || player.getCommonData().getLevel() < 10 || qs.getStatus() != QuestStatus.LOCKED)
+      if(qs == null || player.getCommonData().getLevel() < 13 || qs.getStatus() != QuestStatus.LOCKED)
          return false;
       qs.setStatus(QuestStatus.START);
       updateQuestStatus(player, qs);
