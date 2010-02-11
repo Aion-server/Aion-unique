@@ -157,7 +157,7 @@ public class _1006Ascension extends QuestHandler
 							qs.getQuestVars().setQuestVar(99);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
-							WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstanceId(310010000);
+							WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstance(310010000);
 							newInstance.setDestroyTime(60 * 20);
 							player.getController().teleportTo(310010000, newInstance.getInstanceId(), 52, 174, 229, 0);
 							return true;
@@ -382,7 +382,7 @@ public class _1006Ascension extends QuestHandler
 		{
 			qs.getQuestVars().setQuestVar(3);
 			updateQuestStatus(player, qs);
-			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(env.getQuestId()).getName()));
+			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(questId).getName()));
 		}
 		return false;
 	}

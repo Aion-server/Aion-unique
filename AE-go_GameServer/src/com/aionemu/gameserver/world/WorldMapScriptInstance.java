@@ -17,6 +17,8 @@
 package com.aionemu.gameserver.world;
 
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.Future;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -30,7 +32,7 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 public class WorldMapScriptInstance extends WorldMapInstance
 {
 	private final HashSet<Integer> players = new HashSet<Integer>();
-	private final HashSet<VisibleObject>	allObjects	= new HashSet<VisibleObject>();
+	private final CopyOnWriteArraySet<VisibleObject>	allObjects	= new CopyOnWriteArraySet<VisibleObject>();
 	protected Future<?> destroy;
 	
 	/**
@@ -87,8 +89,10 @@ public class WorldMapScriptInstance extends WorldMapInstance
 
 	public void destroyInstance()
 	{
-		for (VisibleObject obj: allObjects)
+		Iterator<VisibleObject> it = allObjects.iterator(); 
+		while(it.hasNext())
 		{
+			VisibleObject obj = it.next();
 			if (obj instanceof Player)
 				((Player)obj).getController().moveToBindLocation(false);
 			else

@@ -182,7 +182,7 @@ public class _2008Ascension extends QuestHandler
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
 							// Create instance
-							WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstanceId(320010000);
+							WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstance(320010000);
 							newInstance.setDestroyTime(60 * 20); // 20 min
 							player.getController().teleportTo(320010000, newInstance.getInstanceId(), 457.65f, 426.8f, 230.4f, 0);
 							return true;

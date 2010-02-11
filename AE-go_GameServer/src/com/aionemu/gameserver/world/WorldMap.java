@@ -35,6 +35,7 @@ public class WorldMap
 	
 	private WorldMapTemplate				worldMapTemplate;
 
+	private int nextInstanceId = 1;
 	/**
 	 * List of instances.
 	 */
@@ -49,9 +50,9 @@ public class WorldMap
 		this.worldMapTemplate = worldMapTemplate;
 		if(worldMapTemplate.getTwinCount() != 0)
 			for(int i = 1; i <= worldMapTemplate.getTwinCount(); i++)
-				instances.put(i, new WorldMapInstance(this, i));
+				addInstance(nextInstanceId, new WorldMapInstance(this, nextInstanceId));
 		else
-			instances.put(1, new WorldMapInstance(this, 1));
+			addInstance(nextInstanceId, new WorldMapInstance(this, nextInstanceId));
 	}
 
 	/**
@@ -90,7 +91,7 @@ public class WorldMap
 	 *  //TODO dispose unused instances (lifecycle)
 	 * @return
 	 */
-	public synchronized WorldMapInstance getNextFreeInstanceIndex()
+	public synchronized WorldMapInstance getNextFreeInstance()
 	{	
 		if (!worldMapTemplate.isInstance())
 		{
@@ -100,16 +101,14 @@ public class WorldMap
 					return instance;
 			}
 		}
-		//create new instance
-		int nextInstanceId = instances.size() + 1;
 		log.info("Creating new instance: " + worldMapTemplate.getMapId() + " " + nextInstanceId );
 		if (worldMapTemplate.isInstance())
-			instances.put(nextInstanceId, new WorldMapScriptInstance(this, nextInstanceId));
+			addInstance(nextInstanceId, new WorldMapScriptInstance(this, nextInstanceId));
 		else
-			instances.put(nextInstanceId, new WorldMapInstance(this, nextInstanceId));
-		world.getSpawnEngine().spawnInstance(worldMapTemplate.getMapId(), nextInstanceId);
+			addInstance(nextInstanceId, new WorldMapInstance(this, nextInstanceId));
+		world.getSpawnEngine().spawnInstance(worldMapTemplate.getMapId(), nextInstanceId-1);
 		
-		return instances.get(nextInstanceId);
+		return instances.get(nextInstanceId-1);
 	}
 
 	/**
@@ -197,6 +196,11 @@ public class WorldMap
 		return -1;
 	}
 
+	private void addInstance(int instanceId, WorldMapInstance instance)
+	{
+		instances.put(instanceId, instance);
+		nextInstanceId++;
+	}
 	/**
 	 * Returns the World containing this WorldMap.
 	 */

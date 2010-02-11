@@ -206,10 +206,10 @@ public class World
 	 * @param worldId
 	 * @return
 	 */
-	public WorldMapInstance getNextAvailableInstanceId(int worldId)
+	public WorldMapInstance getNextAvailableInstance(int worldId)
 	{
 		WorldMap map = worldMaps.get(worldId);
-		return map.getNextFreeInstanceIndex();
+		return map.getNextFreeInstance();
 	}
 
 	public void destroyInstance(int worldId, int instanceId)
