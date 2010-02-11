@@ -37,7 +37,6 @@ import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
@@ -389,7 +388,7 @@ public class Player extends Creature
 				}
 			}
 		}
-		PacketSendUtility.sendPacket(this, new SM_NEARBY_QUESTS(nearbyQuestList));
+		getController().updateNearbyQuestList();
 	}
 
 	public List<Integer> getNearbyQuests()
