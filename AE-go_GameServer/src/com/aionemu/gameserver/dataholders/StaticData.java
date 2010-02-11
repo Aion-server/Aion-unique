@@ -97,6 +97,9 @@ public class StaticData
 
 	@XmlElement(name = "tribe_relations")
 	public TribeRelationsData		tribeRelationsData;
+	
+	@XmlElement(name = "recipe_templates")
+	public RecipeData				recipeData;
 
 	// JAXB callback
 	@SuppressWarnings("unused")
@@ -123,5 +126,6 @@ public class StaticData
 		DataManager.log.info("Loaded " + goodsListData.size() + " goodslist entries");
 		DataManager.log.info("Loaded " + spawnsData.size() + " spawn entries");
 		DataManager.log.info("Loaded " + tribeRelationsData.size() + " tribe relation entries");
+		DataManager.log.info("Loaded " + recipeData.size() + " recipe entries");
 	}
 }

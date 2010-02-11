@@ -125,5 +125,9 @@
 	<tribe_relations>
 		<import file="tribe" skipRoot="true"/>
 	</tribe_relations>
+	
+	<recipe_templates>
+		<import file="recipe" skipRoot="true"/>
+	</recipe_templates>
 
 </ae_static_data>

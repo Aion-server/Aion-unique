@@ -114,7 +114,9 @@ public final class DataManager
 	
 	public GoodsListData				GOODSLIST_DATA;
 	
-	public static TribeRelationsData			TRIBE_RELATIONS_DATA;
+	public static TribeRelationsData	TRIBE_RELATIONS_DATA;
+	
+	public static RecipeData			RECIPE_DATA;
 
 	/**
 	 * Constructor creating <tt>DataManager</tt> instance.<br>
@@ -153,6 +155,7 @@ public final class DataManager
 		WALKER_DATA = data.walkerData;
 		GOODSLIST_DATA = data.goodsListData;
 		TRIBE_RELATIONS_DATA = data.tribeRelationsData;
+		RECIPE_DATA = data.recipeData;
 		
 		// some sexy time message
 		long seconds = time / 1000;
