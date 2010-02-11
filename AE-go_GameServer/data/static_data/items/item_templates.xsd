@@ -98,6 +98,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="dye" type="DyeAction"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="craftlearn" type="CraftLearnAction"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -141,6 +143,14 @@
 		<xs:complexContent>
 			<xs:extension base="AbstractItemAction">
 				<xs:attribute name="questid" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="CraftLearnAction">
+		<xs:complexContent>
+			<xs:extension base="AbstractItemAction">
+				<xs:attribute name="recipeid" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
