@@ -48,7 +48,8 @@ public class SM_TRADELIST extends AionServerPacket
 		if ((tlist != null)&&(tlist.getNpcId()!=0)&&(tlist.getCount()!=0))
 		{
 			writeD(buf, targetObjectId);
-			writeD(buf, 51201); //unknown for 1.5.x
+			writeH(buf, tlist.isAbyss() ? 2 : 1); //abyss or normal
+			writeH(buf, 0xC8);//unk
 			writeC(buf, 0); // unknown
 			writeH(buf, tlist.getCount()); // unknown
 			for(TradeTab tradeTabl : tlist.getTradeTablist())
