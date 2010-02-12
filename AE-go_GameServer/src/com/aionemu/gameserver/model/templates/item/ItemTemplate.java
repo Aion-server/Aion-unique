@@ -65,6 +65,9 @@ public class ItemTemplate
 
 	@XmlAttribute(name = "price")
 	private int					price;
+	
+	@XmlAttribute(name = "ap")
+	private int					abyssPoints;
 
 	@XmlAttribute(name = "max_stack_count")
 	private int					maxStackCount;
@@ -197,6 +200,14 @@ public class ItemTemplate
 	public int getPrice()
 	{
 		return price;
+	}
+
+	/**
+	 * @return the abyssPoints
+	 */
+	public int getAbyssPoints()
+	{
+		return abyssPoints;
 	}
 
 	/**

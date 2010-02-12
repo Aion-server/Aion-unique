@@ -349,6 +349,28 @@
     <tradelist_template npc_id="203348" name="lv50 average equipment" count="1">
         <tradelist id="424"/>
     </tradelist_template>
+    <tradelist_template npc_id="203386" name="adetes" count="2" abyss="true">
+        <tradelist id="534"/>
+        <tradelist id="535"/>
+    </tradelist_template>
+    <tradelist_template npc_id="203387" name="alcyone" count="4" abyss="true">
+        <tradelist id="536"/>
+        <tradelist id="537"/>
+        <tradelist id="538"/>
+        <tradelist id="539"/>
+    </tradelist_template>
+    <tradelist_template npc_id="203388" name="ocarino" count="4" abyss="true">
+        <tradelist id="501"/>
+        <tradelist id="502"/>
+        <tradelist id="503"/>
+        <tradelist id="504"/>
+    </tradelist_template>
+    <tradelist_template npc_id="203389" name="telephus" count="4" abyss="true">
+        <tradelist id="505"/>
+        <tradelist id="506"/>
+        <tradelist id="507"/>
+        <tradelist id="508"/>
+    </tradelist_template>
     <tradelist_template npc_id="203514" name="hephe" count="2">
         <tradelist id="259"/>
         <tradelist id="260"/>
@@ -431,8 +453,18 @@
         <tradelist id="17"/>
         <tradelist id="18"/>
     </tradelist_template>
+    <tradelist_template npc_id="203708" name="iocaste" count="2" abyss="true">
+        <tradelist id="199"/>
+        <tradelist id="200"/>
+    </tradelist_template>
     <tradelist_template npc_id="203709" name="clymene" count="1">
         <tradelist id="161"/>
+    </tradelist_template>
+    <tradelist_template npc_id="203710" name="dairos" count="4" abyss="true">
+        <tradelist id="201"/>
+        <tradelist id="202"/>
+        <tradelist id="203"/>
+        <tradelist id="204"/>
     </tradelist_template>
     <tradelist_template npc_id="203724" name="gwenspena" count="2">
         <tradelist id="357"/>
@@ -581,6 +613,17 @@
     <tradelist_template npc_id="203892" name="elephenor" count="1">
         <tradelist id="239"/>
     </tradelist_template>
+    <tradelist_template npc_id="203896" name="melicar" count="4" abyss="true">
+        <tradelist id="517"/>
+        <tradelist id="402"/>
+        <tradelist id="546"/>
+        <tradelist id="557"/>
+    </tradelist_template>
+    <tradelist_template npc_id="203897" name="momus" count="3" abyss="true">
+        <tradelist id="205"/>
+        <tradelist id="206"/>
+        <tradelist id="207"/>
+    </tradelist_template>
     <tradelist_template npc_id="203922" name="hibrion" count="4">
         <tradelist id="177"/>
         <tradelist id="178"/>
@@ -596,6 +639,12 @@
     </tradelist_template>
     <tradelist_template npc_id="203925" name="octavia" count="1">
         <tradelist id="174"/>
+    </tradelist_template>
+    <tradelist_template npc_id="204050" name="tragi" count="4" abyss="true">
+        <tradelist id="377"/>
+        <tradelist id="378"/>
+        <tradelist id="379"/>
+        <tradelist id="380"/>
     </tradelist_template>
     <tradelist_template npc_id="204051" name="vergelmir" count="1">
         <tradelist id="294"/>
@@ -615,6 +664,10 @@
     <tradelist_template npc_id="204059" name="freyr" count="2">
         <tradelist id="45"/>
         <tradelist id="46"/>
+    </tradelist_template>
+    <tradelist_template npc_id="204060" name="genoveva" count="2" abyss="true">
+        <tradelist id="375"/>
+        <tradelist id="376"/>
     </tradelist_template>
     <tradelist_template npc_id="204062" name="groa" count="1">
         <tradelist id="118"/>
@@ -756,12 +809,45 @@
         <tradelist id="359"/>
         <tradelist id="360"/>
     </tradelist_template>
+    <tradelist_template npc_id="204272" name="dein" count="4" abyss="true">
+        <tradelist id="518"/>
+        <tradelist id="403"/>
+        <tradelist id="547"/>
+        <tradelist id="558"/>
+    </tradelist_template>
+    <tradelist_template npc_id="204273" name="sichel" count="3" abyss="true">
+        <tradelist id="381"/>
+        <tradelist id="382"/>
+        <tradelist id="383"/>
+    </tradelist_template>
     <tradelist_template npc_id="204274" name="huron" count="1">
         <tradelist id="426"/>
     </tradelist_template>
     <tradelist_template npc_id="204279" name="sjalfi" count="2">
         <tradelist id="554"/>
         <tradelist id="556"/>
+    </tradelist_template>
+    <tradelist_template npc_id="204287" name="mannheim" count="2" abyss="true">
+        <tradelist id="540"/>
+        <tradelist id="541"/>
+    </tradelist_template>
+    <tradelist_template npc_id="204288" name="riegle" count="4" abyss="true">
+        <tradelist id="542"/>
+        <tradelist id="543"/>
+        <tradelist id="544"/>
+        <tradelist id="545"/>
+    </tradelist_template>
+    <tradelist_template npc_id="204289" name="giles" count="4" abyss="true">
+        <tradelist id="509"/>
+        <tradelist id="510"/>
+        <tradelist id="511"/>
+        <tradelist id="512"/>
+    </tradelist_template>
+    <tradelist_template npc_id="204290" name="sinamara" count="4" abyss="true">
+        <tradelist id="513"/>
+        <tradelist id="514"/>
+        <tradelist id="515"/>
+        <tradelist id="516"/>
     </tradelist_template>
     <tradelist_template npc_id="204321" name="arnkell" count="4">
         <tradelist id="310"/>
@@ -891,6 +977,90 @@
     <tradelist_template npc_id="205224" name="macaronerk" count="2">
         <tradelist id="498"/>
         <tradelist id="500"/>
+    </tradelist_template>
+    <tradelist_template npc_id="278132" name="steinkel" count="2" abyss="true">
+        <tradelist id="375"/>
+        <tradelist id="376"/>
+    </tradelist_template>
+    <tradelist_template npc_id="278133" name="garantin" count="4" abyss="true">
+        <tradelist id="377"/>
+        <tradelist id="378"/>
+        <tradelist id="379"/>
+        <tradelist id="380"/>
+    </tradelist_template>
+    <tradelist_template npc_id="278134" name="lukea" count="3" abyss="true">
+        <tradelist id="384"/>
+        <tradelist id="403"/>
+        <tradelist id="547"/>
+    </tradelist_template>
+    <tradelist_template npc_id="278135" name="bephax" count="3" abyss="true">
+        <tradelist id="381"/>
+        <tradelist id="382"/>
+        <tradelist id="383"/>
+    </tradelist_template>
+    <tradelist_template npc_id="278634" name="glaucos" count="2" abyss="true">
+        <tradelist id="199"/>
+        <tradelist id="200"/>
+    </tradelist_template>
+    <tradelist_template npc_id="278635" name="nerites" count="4" abyss="true">
+        <tradelist id="201"/>
+        <tradelist id="202"/>
+        <tradelist id="203"/>
+        <tradelist id="204"/>
+    </tradelist_template>
+    <tradelist_template npc_id="278636" name="deucalion" count="3" abyss="true">
+        <tradelist id="208"/>
+        <tradelist id="402"/>
+        <tradelist id="546"/>
+    </tradelist_template>
+    <tradelist_template npc_id="278637" name="menoetios" count="3" abyss="true">
+        <tradelist id="205"/>
+        <tradelist id="206"/>
+        <tradelist id="207"/>
+    </tradelist_template>
+    <tradelist_template npc_id="279046" name="thea" count="2" abyss="true">
+        <tradelist id="534"/>
+        <tradelist id="535"/>
+    </tradelist_template>
+    <tradelist_template npc_id="279047" name="kizelmanon" count="4" abyss="true">
+        <tradelist id="536"/>
+        <tradelist id="537"/>
+        <tradelist id="538"/>
+        <tradelist id="539"/>
+    </tradelist_template>
+    <tradelist_template npc_id="279048" name="teucer" count="4" abyss="true">
+        <tradelist id="501"/>
+        <tradelist id="502"/>
+        <tradelist id="503"/>
+        <tradelist id="504"/>
+    </tradelist_template>
+    <tradelist_template npc_id="279049" name="monitan" count="4" abyss="true">
+        <tradelist id="505"/>
+        <tradelist id="506"/>
+        <tradelist id="507"/>
+        <tradelist id="508"/>
+    </tradelist_template>
+    <tradelist_template npc_id="279050" name="hubert" count="2" abyss="true">
+        <tradelist id="540"/>
+        <tradelist id="541"/>
+    </tradelist_template>
+    <tradelist_template npc_id="279051" name="fichte" count="4" abyss="true">
+        <tradelist id="542"/>
+        <tradelist id="543"/>
+        <tradelist id="544"/>
+        <tradelist id="545"/>
+    </tradelist_template>
+    <tradelist_template npc_id="279052" name="sirr" count="4" abyss="true">
+        <tradelist id="509"/>
+        <tradelist id="510"/>
+        <tradelist id="511"/>
+        <tradelist id="512"/>
+    </tradelist_template>
+    <tradelist_template npc_id="279053" name="warberg" count="4" abyss="true">
+        <tradelist id="513"/>
+        <tradelist id="514"/>
+        <tradelist id="515"/>
+        <tradelist id="516"/>
     </tradelist_template>
     <tradelist_template npc_id="790004" name="hannet" count="2">
         <tradelist id="185"/>

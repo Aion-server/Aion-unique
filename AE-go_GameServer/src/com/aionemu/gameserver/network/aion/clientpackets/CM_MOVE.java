@@ -58,11 +58,21 @@ public class CM_MOVE extends AionClientPacket
 	protected void readImpl()
 	{
 		Player player = getConnection().getActivePlayer();
+		
+		if(!player.isSpawned())
+			return;
 
 		float x, y, z, x2 = 0, y2 = 0, z2 = 0;
 		x = readF();
 		y = readF();
 		z = readF();	
+		
+		//falling characters
+		if(z < 0)
+		{
+			player.getController().moveToBindLocation(true);
+			return;
+		}	
 		
 		byte heading = (byte) readC();
 		byte movementType = (byte) readC();
@@ -75,6 +85,7 @@ public class CM_MOVE extends AionClientPacket
 				x2 = readF();
 				y2 = readF();
 				z2 = readF();
+
 				world.updatePosition(player, x, y, z, heading);
 				player.getController().onStartMove();
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);

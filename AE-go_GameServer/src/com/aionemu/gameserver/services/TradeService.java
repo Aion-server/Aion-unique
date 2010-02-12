@@ -113,7 +113,10 @@ public class TradeService
 	{
 		Npc npc = (Npc) world.findAionObject(tradeList.getNpcObjId());
 		TradeListTemplate tradeListTemplate = tradeListData.getTradeListTemplate(npc.getTemplate().getTemplateId());
-
+		
+		if(tradeListTemplate.isAbyss())
+			return false;
+		
 		Set<Integer> allowedItems = new HashSet<Integer>();
 		for(TradeTab tradeTab : tradeListTemplate.getTradeTablist())
 		{
@@ -123,7 +126,7 @@ public class TradeService
 				allowedItems.addAll(goodsList.getItemIdList());
 			}				
 		}
-
+		
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
 			if(!allowedItems.contains(tradeItem.getItemId()))

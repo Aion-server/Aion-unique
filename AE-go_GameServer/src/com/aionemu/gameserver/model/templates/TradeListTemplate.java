@@ -51,6 +51,9 @@ public class TradeListTemplate
 	 */
 	@XmlAttribute(name = "count", required = true)
 	private int	 Count = 0;
+	
+	@XmlAttribute(name = "abyss")
+	private boolean abyss;
 
 	@XmlElement(name = "tradelist")
 	protected List<TradeTab> tradeTablist;
@@ -80,7 +83,17 @@ public class TradeListTemplate
 	{
 		return Count;
 	}
-	
+
+	/**
+	 * @return the abyss
+	 */
+	public boolean isAbyss()
+	{
+		return abyss;
+	}
+
+
+
 	/**
      * <p>Java class for anonymous complex type.
      * 

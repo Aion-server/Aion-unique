@@ -46,6 +46,7 @@
 		<xs:attribute name="drop" type="xs:boolean" />
 		<xs:attribute name="dye" type="xs:boolean" />
 		<xs:attribute name="race" type="xs:string" />
+		<xs:attribute name="ap" type="xs:int" />
 		<xs:attribute name="price" type="xs:int" />
 		<xs:attribute name="quality" type="itemQuality" />
 		<xs:attribute name="item_type" type="xs:string" />

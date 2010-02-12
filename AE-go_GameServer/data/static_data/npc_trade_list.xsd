@@ -17,6 +17,7 @@
 				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="abyss" type="xs:boolean" />
 		<xs:attribute name="count" type="xs:int" />
 		<xs:attribute name="name" type="xs:string" />
 		<xs:attribute name="npc_id" type="xs:int" />
