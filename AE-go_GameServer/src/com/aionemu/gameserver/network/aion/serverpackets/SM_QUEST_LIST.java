@@ -19,6 +19,8 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -34,7 +36,7 @@ import com.aionemu.gameserver.questEngine.model.QuestStatus;
 public class SM_QUEST_LIST extends AionServerPacket
 {
 	
-	private List<QuestState> compliteQuestList = new ArrayList<QuestState>();
+	private SortedMap<Integer, QuestState> compliteQuestList = new TreeMap<Integer, QuestState>();
 	private List<QuestState> startedQuestList = new ArrayList<QuestState>();
 	private List<Integer> questList = new ArrayList<Integer>();
 
@@ -43,7 +45,7 @@ public class SM_QUEST_LIST extends AionServerPacket
 		for (QuestState qs : player.getQuestStateList().getAllQuestState())
 		{
 			if (qs.getStatus() == QuestStatus.COMPLITE)
-				compliteQuestList.add(qs);
+				compliteQuestList.put(qs.getQuestId(), qs);
 			else if (qs.getStatus() != QuestStatus.NONE)
 				startedQuestList.add(qs);
 		}
@@ -53,13 +55,13 @@ public class SM_QUEST_LIST extends AionServerPacket
 
 		if (player.getCommonData().getRace() == Race.ELYOS)
 		{
-			//questList.add(1130);
-			//questList.add(1300);
+			compliteQuestList.put(1130, new QuestState(1130, QuestStatus.COMPLITE, 0, 1));
+			compliteQuestList.put(1300, new QuestState(1300, QuestStatus.COMPLITE, 0, 1));
 		}
 		else
 		{
-			//questList.add(2200);
-			//questList.add(2300);
+			compliteQuestList.put(2200, new QuestState(2200, QuestStatus.COMPLITE, 0, 1));
+			compliteQuestList.put(2300, new QuestState(2300, QuestStatus.COMPLITE, 0, 1));
 		}
 	}
 	/**
@@ -69,18 +71,11 @@ public class SM_QUEST_LIST extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeH(buf, compliteQuestList.size() + questList.size());
-		for (QuestState qs : compliteQuestList)
+		for (QuestState qs : compliteQuestList.values())
 		{
 			writeH(buf, qs.getQuestId());
 			writeC(buf, qs.getCompliteCount());
 		}
-		/*
-		for(int questId : questList)
-		{
-			writeH(buf, questId);
-			writeC(buf, 1);
-		}
-		*/
 		writeC(buf, startedQuestList.size());
 		for (QuestState qs : startedQuestList) // quest list size ( max is 25 )
 		{
