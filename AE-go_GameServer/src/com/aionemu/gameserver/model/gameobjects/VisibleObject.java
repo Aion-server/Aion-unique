@@ -163,6 +163,11 @@ public abstract class VisibleObject extends AionObject
 	{
 		return position.isSpawned();
 	}
+	
+	public boolean isInWorld()
+	{
+		return position.getWorld().findAionObject(getObjectId()) != null;
+	}
 
 	/**
 	 * Update knownlist.

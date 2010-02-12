@@ -109,7 +109,10 @@ public class NpcController extends CreatureController<Npc>
 	 */
 	public void onDelete()
 	{
-		this.onDespawn(true);
-		this.delete();
+		if(getOwner().isInWorld())
+		{
+			this.onDespawn(true);
+			this.delete();
+		}	
 	}
 }
