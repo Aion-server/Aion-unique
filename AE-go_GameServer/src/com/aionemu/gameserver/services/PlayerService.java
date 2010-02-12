@@ -139,6 +139,7 @@ public class PlayerService
 	{
 		DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
 		DAOManager.getDAO(InventoryDAO.class).store(player);
+		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
 		DAOManager.getDAO(PlayerSettingsDAO.class).saveSettings(player);
 		DAOManager.getDAO(QuestListDAO.class).store(player.getObjectId(), player.getQuestStateList());
 		DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);

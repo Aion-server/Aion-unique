@@ -155,9 +155,7 @@ public class Quest
 		if(rewards.getExp() != null)
 		{
 			int rewardExp = (QUEST_XP_RATE * rewards.getExp());
-			long currentExp = player.getCommonData().getExp();
-			player.getCommonData().setExp(currentExp + rewardExp);
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.EXP(Integer.toString(rewardExp)));
+			player.getCommonData().addExp(rewardExp);
 		}
 
 		if(rewards.getTitle() != null)

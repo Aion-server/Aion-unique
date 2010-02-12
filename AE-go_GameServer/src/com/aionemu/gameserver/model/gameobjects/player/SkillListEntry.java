@@ -28,6 +28,11 @@ public class SkillListEntry
 	
 	private int skillLvl;
 	
+	/**
+	 * for crafting skills
+	 */
+	private int currentXp;
+	
 	private PersistentState persistentState;
 
 	public SkillListEntry(int skillId, int skillLvl, PersistentState persistentState)
@@ -60,6 +65,39 @@ public class SkillListEntry
 	{
 		this.skillLvl = skillLvl;
 		persistentState = PersistentState.UPDATE_REQUIRED;
+	}
+
+	/**
+	 * @return the currentXp
+	 */
+	public int getCurrentXp()
+	{
+		return currentXp;
+	}
+
+	/**
+	 * @param currentXp the currentXp to set
+	 */
+	public void setCurrentXp(int currentXp)
+	{
+		this.currentXp = currentXp;
+	}
+	
+	/**
+	 *  Later will be moved to DB
+	 *  
+	 * @param xp
+	 */
+	public boolean addSkillXp(int xp)
+	{
+		this.currentXp += xp;
+		if(currentXp > (skillLvl + 1) * (skillLvl+1) * 10)
+		{
+			currentXp = 0;
+			setSkillLvl(skillLvl + 1);
+			return true;
+		}
+		return false;
 	}
 
 	/**

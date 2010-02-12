@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.controllers;
 
 import java.util.List;
-import java.util.concurrent.Future;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.controllers.movement.MoveObserver;
@@ -27,13 +26,11 @@ import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.gather.Material;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHER_STATUS;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHER_UPDATE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.RespawnService;
+import com.aionemu.gameserver.skillengine.task.GatheringTask;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 
 /**
@@ -49,6 +46,8 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	
 	private int currentGatherer;
 	
+	private GatheringTask task;
+	
 	public enum GatherState
 	{
 		GATHERED,
@@ -57,8 +56,6 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	}
 
 	private GatherState state = GatherState.IDLE;
-
-	private Future<?> gatheringTask;
 
 	/**
 	 * @param itemService the itemService to set
@@ -97,10 +94,8 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 				}
 			});
 			
-			PacketSendUtility.sendPacket(player, new SM_GATHER_UPDATE(template, material, 0, 0, 0));
-			PacketSendUtility.broadcastPacket(player, new SM_GATHER_STATUS(player.getObjectId(), getOwner().getObjectId(), 0), true);
-			PacketSendUtility.broadcastPacket(player, new SM_GATHER_STATUS(player.getObjectId(), getOwner().getObjectId(), 1), true);
-			scheduleGathering(player, template, material);
+			task = new GatheringTask(player, getOwner(), material);
+			task.start();
 		}
 	}
 	
@@ -128,87 +123,12 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 		return true;
 	}
 	
-	/**
-	 *  Schedules gathering process animation
-	 *  
-	 * @param player
-	 * @param template
-	 * @param material
-	 */
-	private void scheduleGathering(final Player player,
-		final GatherableTemplate template, final Material material)
+	public void completeInteraction()
 	{
-
-		gatheringTask = ThreadPoolManager.getInstance().scheduleAtFixedRate((new Runnable()
-		{
-			private int successCounter = 0;
-			private int failureCounter = 0;
-
-			@Override
-			public void run()
-			{					
-				if(player == null)
-					return;
-				
-				switch(state)
-				{
-					case GATHERING:
-						PacketSendUtility.sendPacket(player, new SM_GATHER_UPDATE(template, material, successCounter, failureCounter, 1));
-						analyze();
-						break;
-					case GATHERED:
-						if(successCounter == template.getSuccessAdj())
-						{
-							PacketSendUtility.sendPacket(player, new SM_GATHER_UPDATE(template, material, successCounter, failureCounter, 2));					
-							PacketSendUtility.sendPacket(player, new SM_GATHER_UPDATE(template, material, successCounter, failureCounter, 6));
-							PacketSendUtility.broadcastPacket(player, new SM_GATHER_STATUS(player.getObjectId(), getOwner().getObjectId(), 2), true);
-							PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.Gather_Success(Integer.toString(60)));
-							addItem(material, player);
-							gatherCount++;
-						}
-						else if(failureCounter == template.getFailureAdj())
-						{
-							PacketSendUtility.sendPacket(player, new SM_GATHER_UPDATE(template, material, successCounter, failureCounter, 1));					
-							PacketSendUtility.sendPacket(player, new SM_GATHER_UPDATE(template, material, successCounter, failureCounter, 7));
-							PacketSendUtility.broadcastPacket(player, new SM_GATHER_STATUS(player.getObjectId(), getOwner().getObjectId(), 3), true);
-							gatherCount++;
-						}
-						if(gatherCount == getOwner().getTemplate().getHarvestCount())
-							onDie();
-						finishGathering();
-						break;
-						
-				}
-			}
-
-			private void analyze()
-			{
-				if(successCounter == template.getSuccessAdj() || failureCounter == template.getFailureAdj())
-				{
-					state = GatherState.GATHERED;
-					return;
-				}
-				
-				if(Rnd.nextBoolean())
-				{
-					successCounter += Rnd.get(20,60);
-				}
-				else
-				{
-					failureCounter += Rnd.get(0,30);
-				}
-				
-				if(successCounter >= template.getSuccessAdj())
-				{
-					successCounter = template.getSuccessAdj();
-				}
-				else if(failureCounter >= template.getFailureAdj())
-				{
-					failureCounter = template.getFailureAdj();
-				}
-			}
-
-		}), 1000, 2500);
+		state = GatherState.IDLE;
+		gatherCount++;
+		if(gatherCount == getOwner().getTemplate().getHarvestCount())
+			onDie();
 	}
 	
 	/**
@@ -217,9 +137,52 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	 * @param material
 	 * @param player
 	 */
-	private void addItem(Material material, Player player)
+	public void addItem(Material material, Player player)
 	{
 		itemService.addItem(player, material.getItemid(), 1, false);
+	}
+	
+	public void rewardPlayer(Player player)
+	{
+		if(player != null)
+		{
+			int skillLvl = getOwner().getTemplate().getSkillLevel();
+			int xpReward = skillLvl * 10 + Rnd.get(0, skillLvl * 10/2);
+			player.getCommonData().addExp(xpReward);
+			
+			SkillListEntry skillEntry = player.getSkillList().getSkillEntry(
+				getOwner().getTemplate().getHarvestSkill());
+			switch(skillEntry.getSkillId())
+			{
+				case 30001:
+					if(skillEntry.getSkillLevel() > 49)
+						return;
+				case 30002:
+				case 30003:
+					if(skillEntry.getSkillLevel() > 99)
+						return;
+			}
+			
+			boolean updateSkill = skillEntry.addSkillXp(xpReward);
+			if(updateSkill)
+			{
+				PacketSendUtility.sendPacket(player,
+					new SM_SKILL_LIST(player.getSkillList().getSkillEntry(skillEntry.getSkillId())));
+				//TODO retail message
+				if (skillEntry.getSkillId() == 30001)
+				{
+					PacketSendUtility.sendMessage(player, "Skill Collection " + skillEntry.getSkillLevel() + " level.");
+				}
+				else if (skillEntry.getSkillId() == 30002)
+				{
+					PacketSendUtility.sendMessage(player, "Skill Extract Vitality " + skillEntry.getSkillLevel() + " level.");
+				}
+				else if (skillEntry.getSkillId() == 30003)
+				{
+					PacketSendUtility.sendMessage(player, "Skill Extract Aether " + skillEntry.getSkillLevel() + " level.");
+				}
+			}
+		}
 	}
 	
 	/**
@@ -234,26 +197,11 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 		{
 			if(state == GatherState.GATHERING)
 			{
-				GatherableTemplate template = this.getOwner().getTemplate();		
-				List<Material> materials = template.getMaterials().getMaterial();
-				Material material = materials.get(0);//TODO current material
-				PacketSendUtility.sendPacket(player, new SM_GATHER_UPDATE(template, material, 0, 0, 5));
-				//TODO this packet is incorrect cause i need to find emotion of aborted gathering
-				PacketSendUtility.broadcastPacket(player, new SM_GATHER_STATUS(player.getObjectId(), getOwner().getObjectId(), 2));
+				task.abort();
 			}
-			finishGathering();
+			currentGatherer = 0;
+			state = GatherState.IDLE;
 		}	
-	}
-
-	private void finishGathering()
-	{
-		currentGatherer = 0;
-		state = GatherState.IDLE;
-		if(gatheringTask != null && !gatheringTask.isCancelled())
-		{
-			gatheringTask.cancel(true);
-			gatheringTask = null;
-		}
 	}
 	
 	private void onDie()

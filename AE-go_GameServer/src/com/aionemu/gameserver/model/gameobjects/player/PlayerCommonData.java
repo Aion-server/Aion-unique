@@ -36,6 +36,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_DP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.ClassChangeService;
@@ -154,11 +155,18 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	{
 		return this.expRecoverable;
 	}
-
-	//TODO need to test before use
+	
+	/**
+	 * 
+	 * @param value
+	 */
 	public void addExp(long value)
 	{
 		this.setExp(this.exp + value);
+		if(this.getPlayer() != null)
+		{
+			PacketSendUtility.sendPacket(this.getPlayer(),SM_SYSTEM_MESSAGE.EXP(Long.toString(value)));
+		}
 	}
 
 	/**

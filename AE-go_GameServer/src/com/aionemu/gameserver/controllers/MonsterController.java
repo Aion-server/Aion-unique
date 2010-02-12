@@ -75,12 +75,8 @@ public class MonsterController extends NpcController
 			//TODO may be introduce increaseExpBy method in PlayerCommonData
 			if(player.getPlayerGroup() == null) //solo
 			{
-				long currentExp = player.getCommonData().getExp();
-
 				long xpReward = StatFunctions.calculateSoloExperienceReward(player, getOwner());				
-				player.getCommonData().setExp(currentExp + xpReward);				
-
-				PacketSendUtility.sendPacket(player,SM_SYSTEM_MESSAGE.EXP(Long.toString(xpReward)));
+				player.getCommonData().addExp(xpReward);				
 
 				//DPreward
 				int currentDp = player.getCommonData().getDp();
