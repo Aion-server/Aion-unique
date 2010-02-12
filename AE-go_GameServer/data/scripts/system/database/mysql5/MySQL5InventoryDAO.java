@@ -46,7 +46,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 	public static final String INSERT_QUERY = "INSERT INTO `inventory` (`itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `itemOwner`, `isEquiped`, `slot`, `itemLocation`) VALUES(?,?,?,?,?,?,?,?)";
 	public static final String UPDATE_QUERY = "UPDATE inventory SET  itemCount=?, itemColor=?, itemOwner=?, isEquiped=?, slot=?, itemLocation=? WHERE itemUniqueId=?";
 	public static final String DELETE_QUERY = "DELETE FROM inventory WHERE itemUniqueId=?";
-	public static final String DELETE_CLEAN_QUERY = "DELETE FROM inventory WHERE itemOwner=? AND itemLocation=0 OR itemLocation=1";
+	public static final String DELETE_CLEAN_QUERY = "DELETE FROM inventory WHERE itemOwner=? AND (itemLocation=0 OR itemLocation=1)";
 	public static final String SELECT_ACCOUNT_QUERY = "SELECT `account_id` FROM `players` WHERE `id`=?";
 
 	@Override
