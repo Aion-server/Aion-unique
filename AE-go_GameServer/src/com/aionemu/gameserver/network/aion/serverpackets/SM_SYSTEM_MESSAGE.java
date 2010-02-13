@@ -438,6 +438,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300023);
 	}
+	
+	public static SM_SYSTEM_MESSAGE INVALID_TARGET()
+	{
+		return new SM_SYSTEM_MESSAGE(1300013);
+	}
 
 	private final int		code;
 	private final Object[]	params;
