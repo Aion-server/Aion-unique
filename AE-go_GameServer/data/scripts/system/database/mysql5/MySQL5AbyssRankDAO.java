@@ -118,9 +118,9 @@ public class MySQL5AbyssRankDAO extends AbyssRankDAO
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
-				stmt.setInt(1, objectId);
-				stmt.setInt(2, rank.getAp());
-				stmt.setInt(3, rank.getRank().getId());
+				stmt.setInt(1, rank.getAp());
+				stmt.setInt(2, rank.getRank().getId());
+				stmt.setInt(3, objectId);
 				stmt.execute();
 			}
 		});

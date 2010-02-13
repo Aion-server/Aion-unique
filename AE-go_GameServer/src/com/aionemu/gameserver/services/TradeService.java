@@ -129,7 +129,7 @@ public class TradeService
 		//1. check kinah
 		AbyssRank rank = player.getAbyssRank();
 		int ap  = rank.getAp();
-		int tradeListPrice = tradeList.calculateBuyListPrice() * 2;
+		int tradeListPrice = tradeList.calculateAbyssBuyListPrice();
 		if(ap < tradeListPrice)
 			return false; //ban :)
 

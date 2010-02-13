@@ -75,6 +75,21 @@ public class TradeList
 	}
 	
 	/**
+	 * 
+	 * @return
+	 */
+	public int calculateAbyssBuyListPrice()
+	{
+		int price = 0;
+		for(TradeItem tradeItem : tradeItems)
+		{
+			price += tradeItem.getItemTemplate().getAbyssPoints() * tradeItem.getCount();
+		}
+		return price;
+	}
+	
+	
+	/**
 	 * @return the tradeItems
 	 */
 	public List<TradeItem> getTradeItems()
