@@ -277,14 +277,7 @@ public class SpawnEngine
 				continue;
 			int maxTwin = worldMapTemplate.getTwinCount();
 			int mapId = worldMapTemplate.getMapId();
-			int numberToSpawn = maxTwin > 0 ? maxTwin : 1;
-
-			List<SpawnGroup> spawnsForWorld = spawnsData.getSpawnsForWorld(mapId);
-			if(spawnsForWorld != null)
-			{
-				for(SpawnGroup spawnGroup : spawnsForWorld)
-					spawnGroup.setInstanceSupport(numberToSpawn);
-			}					
+			int numberToSpawn = maxTwin > 0 ? maxTwin : 1;				
 
 			for(int i = 1; i <= numberToSpawn; i++)
 			{
@@ -323,6 +316,7 @@ public class SpawnEngine
 		int instanceSpawnCounter = 0;
 		for(SpawnGroup spawnGroup : worldSpawns)
 		{
+			spawnGroup.resetLastSpawnCounter(instanceIndex);
 			if(spawnGroup.getHandler() == null)
 			{
 				int pool = spawnGroup.getPool();

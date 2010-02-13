@@ -17,7 +17,9 @@
 package com.aionemu.gameserver.model.templates.spawn;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -65,7 +67,7 @@ public class SpawnGroup
 	 * Real-time properties
 	 */
 	@XmlTransient
-	private List<Integer> lastSpawnedTemplate = new ArrayList<Integer>();
+	private Map<Integer, Integer> lastSpawnedTemplate = new HashMap<Integer, Integer>();
 	
 	/**
 	 * Constructor used by unmarshaller
@@ -89,14 +91,6 @@ public class SpawnGroup
 		this.npcid = npcid;
 		this.interval = interval;
 		this.pool = pool;
-	}
-	
-	public void setInstanceSupport(int instanceCount)
-	{
-		for(int i = 0; i < instanceCount; i++)
-		{
-			lastSpawnedTemplate.add(-1);
-		}
 	}
 
 	/**
@@ -168,16 +162,19 @@ public class SpawnGroup
 		return spawnTime;
 	}
 	
+	/**
+	 *  Returns next template to spawn
+	 *  
+	 * @param instance
+	 * @return
+	 */
 	public SpawnTemplate getNextAvailableTemplate(int instance)
 	{
-		if(lastSpawnedTemplate.size() < instance)
-		{
-			setInstanceSupport(instance - lastSpawnedTemplate.size());
-		}
-		
 		for(int i = 0; i < getObjects().size(); i++)
 		{
-			int nextSpawnCounter = lastSpawnedTemplate.get(instance - 1) + 1;
+			Integer lastSpawnCounter = lastSpawnedTemplate.get(instance);
+			int nextSpawnCounter = lastSpawnCounter == null ? 0 : lastSpawnCounter + 1;
+			
 			if(nextSpawnCounter >= objects.size())
 				nextSpawnCounter = 0;
 			
@@ -185,7 +182,7 @@ public class SpawnGroup
 			 if(nextSpawn.isSpawned(instance))
 				 continue;
 			 
-			 lastSpawnedTemplate.set(instance - 1, nextSpawnCounter);
+			 lastSpawnedTemplate.put(instance, nextSpawnCounter);
 			 return nextSpawn;
 		}
 		return null;
@@ -202,6 +199,17 @@ public class SpawnGroup
 	public SpawnTemplate getNextRandomTemplate()
 	{
 		return objects.get(Rnd.get(0, size() - 1));
+	}
+
+	/**
+	 *  Last spawn counter will be reseted during instance respawn
+	 * 
+	 * @param instanceIndex
+	 */
+	public void resetLastSpawnCounter(int instanceIndex)
+	{
+		if(lastSpawnedTemplate.containsKey(instanceIndex))
+			lastSpawnedTemplate.remove(instanceIndex);
 	}
 	
 }
