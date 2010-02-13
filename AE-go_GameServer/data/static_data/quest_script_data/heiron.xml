@@ -1,0 +1,652 @@
+<quest_scripts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="quest_script_data.xsd">
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+
+	<!-- [Manastone] Atera's Exchange -->
+	<item_collecting id="1519" start_npc_id="204640" />
+
+	<!-- [Manastone] Atera's Trade -->
+	<item_collecting id="1520" start_npc_id="204640" />
+
+	<!-- A Lost Memento -->
+	<item_collecting id="1503" start_npc_id="204505" action_item_id="700189" />
+
+	<!-- Going For a Curry -->
+	<item_collecting id="1516" start_npc_id="212116" />
+
+	<!-- A Message to Sakmis -->
+	<report_to id="1504" start_npc_id="204500" end_npc_id="278502" item_id="182201703" />
+
+	<!-- Eliminating Ettins -->
+	<monster_hunt id="1501" start_npc_id="204507">
+           <monster_infos npc_id="211046" var_id="0" max_kill="5" />
+        </monster_hunt>
+
+	<!-- Jewel of Passion -->
+	<item_collecting id="1673" start_npc_id="204508" />
+
+	<!-- Resha's Special Stew -->
+	<item_collecting id="1502" start_npc_id="204525" />
+
+	<!-- Tenacious Ibelia -->
+	<report_to id="1505" start_npc_id="204502" end_npc_id="204582" />
+
+	<!-- Vaizel Worg Hunt -->
+	<monster_hunt id="1507" start_npc_id="204507">
+           <monster_infos npc_id="211051" var_id="0" max_kill="3" />
+	   <monster_infos npc_id="211875" var_id="1" max_kill="5" />
+        </monster_hunt>
+
+	<!-- TODO: [Spend Coin] Gold or Silver (Mage/Priest) -->
+
+	<!-- TODO: [Spend Coin] Gold or Silver (Warrior/Scout) -->
+
+	<!-- Killing Kerubiels -->
+	<monster_hunt id="1521" start_npc_id="204552">
+           <monster_infos npc_id="211056" var_id="0" max_kill="7" />
+        </monster_hunt>
+
+	<!-- Stolen Relic -->
+	<item_collecting id="1512" start_npc_id="204581" />
+
+	<!-- Supporting Heiron Observatory -->
+	<report_to id="1515" start_npc_id="204502" end_npc_id="204549" />
+
+	<!-- Suspicious Spice Pot -->
+	<item_collecting id="1513" start_npc_id="204580" />
+
+	<!-- TODO: The Ettin's Necklace -->
+
+	<!-- Troublesome Ettin -->
+	<item_collecting id="1511" start_npc_id="204582" />
+
+	<!-- [Coin] Ettin Jerky -->
+	<item_collecting id="1506" start_npc_id="204515" />
+
+	<!-- Basilisk is Best -->
+	<item_collecting id="1523" start_npc_id="204551" />
+
+	<!-- Clodworm Vindicated -->
+	<item_collecting id="1534" start_npc_id="204553" />
+
+	<!-- Clodworm is Close Enough -->
+	<item_collecting id="1524" start_npc_id="204553" />
+
+	<!-- Kerubiels on the Move -->
+	<monster_hunt id="1522" start_npc_id="204552">
+           <monster_infos npc_id="211062" var_id="0" max_kill="7" />
+        </monster_hunt>
+
+	<!-- The Cold, Cold Ground -->
+	<item_collecting id="1535" start_npc_id="204580" />
+
+	<!-- Agrint Aggro -->
+	<monster_hunt id="1525" start_npc_id="204555">
+           <monster_infos npc_id="211078" var_id="0" max_kill="12" />
+        </monster_hunt>
+
+	<!-- Angling Advice -->
+	<report_to id="1538" start_npc_id="204588" end_npc_id="203073" />
+
+	<!-- TODO: Bait the Hooks -->
+
+	<!-- Ben's Special Bait -->
+	<item_collecting id="1539" start_npc_id="204588" />
+
+	<!-- TODO: Fish on the Line -->
+
+	<!-- Peel Me a Rotron -->
+	<item_collecting id="1526" start_npc_id="204555" />
+
+	<!-- Remembering Xanthe -->
+	<report_to id="1533" start_npc_id="204609" end_npc_id="203893" item_id="186000017" />
+
+	<!-- Returned Tartaron Residents -->
+	<monster_hunt id="1529" start_npc_id="204550">
+           <monster_infos npc_id="212092" var_id="0" max_kill="5" />
+        </monster_hunt>
+
+	<!-- Sample Skulls -->
+	<item_collecting id="1530" start_npc_id="204550" />
+
+	<!-- Stench on the Road -->
+	<monster_hunt id="1536" start_npc_id="204601">
+           <monster_infos npc_id="211081" var_id="0" max_kill="6" />
+	   <monster_infos npc_id="211091" var_id="1" max_kill="3" />
+        </monster_hunt>
+
+	<!-- TODO: What's in the Box? -->
+
+	<!-- TODO: A Feast For a Village -->
+
+	<!-- A Gnarly Problem -->
+	<monster_hunt id="1572" start_npc_id="204572">
+           <monster_infos npc_id="211956" var_id="0" max_kill="10" />
+        </monster_hunt>
+
+	<!-- An Egrasi Fence -->
+	<item_collecting id="1677" start_npc_id="204558" />
+
+	<!-- Deathsong Dangers -->
+	<monster_hunt id="1575" start_npc_id="730025">
+           <monster_infos npc_id="211951" var_id="0" max_kill="7" />
+	   <monster_infos npc_id="211953" var_id="1" max_kill="15" />
+        </monster_hunt>
+
+	<!-- Helping Kravis -->
+	<monster_hunt id="1571" start_npc_id="204557">
+           <monster_infos npc_id="211079" var_id="0" max_kill="12" />
+        </monster_hunt>
+
+	<!-- Late of Heiron -->
+	<monster_hunt id="1531" start_npc_id="204613">
+           <monster_infos npc_id="211924" var_id="0" max_kill="7" />
+        </monster_hunt>
+
+	<!-- TODO: Rotten Rotrons -->
+
+	<!-- TODO: Some Tasty Mushrooms -->
+
+	<!-- TODO: Strange Leather -->
+
+	<!-- Undead Trinkets -->
+	<item_collecting id="1532" start_npc_id="204613" />
+
+	<!-- A Cooling Drink -->
+	<item_collecting id="1676" start_npc_id="204608" />
+
+	<!-- A Personal Gift -->
+	<item_collecting id="1674" start_npc_id="204554" />
+
+	<!-- Banshee Farming -->
+	<monster_hunt id="1565" start_npc_id="204588">
+           <monster_infos npc_id="211136" var_id="0" max_kill="7" />
+	   <monster_infos npc_id="211104" var_id="1" max_kill="5" />
+        </monster_hunt>
+
+	<!-- TODO: Crossed Destiny -->
+
+	<!-- Gray Fog Corruption -->
+	<item_collecting id="1576" start_npc_id="204568" />
+
+	<!-- Gray Fog Monsters -->
+	<monster_hunt id="1577" start_npc_id="204557">
+           <monster_infos npc_id="211948" var_id="0" max_kill="5" />
+	   <monster_infos npc_id="211112" var_id="1" max_kill="5" />
+	   <monster_infos npc_id="212099" var_id="2" max_kill="5" />
+	   <monster_infos npc_id="211946" var_id="3" max_kill="5" />
+        </monster_hunt>
+
+	<!-- Jaiorunerk's Diary -->
+	<report_to id="1564" start_npc_id="798096" end_npc_id="798012" item_id="182201731" />
+
+	<!-- Roina's Craving -->
+	<item_collecting id="1675" start_npc_id="204633" />
+
+	<!-- TODO: The Legend of Vindachinerk -->
+
+	<!-- TODO: [Coin Reward] 36Lv. Mage, Priest -->
+
+	<!-- TODO: [Coin Reward] 36Lv. Warrior, Scout -->
+	
+	<!-- A Bone to Pick -->
+	<item_collecting id="1566" start_npc_id="204588" />
+
+	<!-- TODO: A Job for Pobinerk -->
+
+	<!-- Collecting the Essence of Earth -->
+	<item_collecting id="1545" start_npc_id="204586" />
+
+	<!-- Frillneck Fluid -->
+	<item_collecting id="1541" start_npc_id="204585" />
+
+	<!-- Laupede Antidote -->
+	<item_collecting id="1543" start_npc_id="204584" />
+
+	<!-- Outlaw of the Jungle -->
+	<monster_hunt id="1542" start_npc_id="204585">
+           <monster_infos npc_id="211879" var_id="0" max_kill="10" />
+        </monster_hunt>
+
+	<!-- Sillen's Spirit Samples -->
+	<item_collecting id="1544" start_npc_id="204586" />
+
+	<!-- TODO: The Miser's Map -->
+	
+	<!-- TODO: Where do Rotrons Come From? -->
+
+	<!-- [Coin] Deathsong Corruption -->
+	<monster_hunt id="1567" start_npc_id="204571">
+           <monster_infos npc_id="211101" var_id="0" max_kill="8" />
+	   <monster_infos npc_id="211111" var_id="1" max_kill="8" />
+	   <monster_infos npc_id="212104" var_id="2" max_kill="12" />
+        </monster_hunt>
+
+	<!-- Contemplating Klaw Hearts -->
+	<item_collecting id="1547" start_npc_id="204583" />
+
+	<!-- TODO: Delivery to Arbolu's Haven -->
+
+	<!-- Discolored Bones -->
+	<item_collecting id="1579" start_npc_id="204559" action_item_id="700195" />
+
+	<!-- Edoras's Best Clothing -->
+	<item_collecting id="1681" start_npc_id="204559" />
+
+	<!-- TODO: Finding the Forges -->
+
+	<!-- Gluttonous Manduris -->
+	<monster_hunt id="1551" start_npc_id="204586">
+           <monster_infos npc_id="211157" var_id="0" max_kill="10" />
+	   <monster_infos npc_id="211158" var_id="1" max_kill="10" />
+        </monster_hunt>
+
+	<!-- Klaw Control -->
+	<monster_hunt id="1548" start_npc_id="204583">
+           <monster_infos npc_id="700169" var_id="0" max_kill="5" />
+        </monster_hunt>
+
+	<!-- Picking off the Undead -->
+	<item_collecting id="1580" start_npc_id="204612" />
+
+	<!-- Stopping the Spread of Klaw -->
+	<monster_hunt id="1546" start_npc_id="204607">
+           <monster_infos npc_id="211145" var_id="0" max_kill="10" />
+	   <monster_infos npc_id="211118" var_id="1" max_kill="10" />
+        </monster_hunt>
+
+	<!-- TODO: The Priest's Nightmare -->
+
+	<!-- Which Came First? -->
+	<item_collecting id="1556" start_npc_id="204585" action_item_id="700192" />
+
+	<!-- [Group] King Klawtan -->
+	<item_collecting id="1549" start_npc_id="204583" />
+
+	<!-- A Nice Tigric Rug -->
+	<monster_hunt id="1601" start_npc_id="204575">
+           <monster_infos npc_id="211171" var_id="0" max_kill="1" />
+        </monster_hunt>
+
+	<!-- Frillneck Arrowheads -->
+	<item_collecting id="1552" start_npc_id="204585" />
+
+	<!-- Gellar -->
+	<monster_hunt id="1581" start_npc_id="204612">
+           <monster_infos npc_id="211196" var_id="0" max_kill="1" />
+        </monster_hunt>
+
+	<!-- Insomnia Tea -->
+	<item_collecting id="1682" start_npc_id="204578" />
+
+	<!-- Looting the Tigrics -->
+	<item_collecting id="1602" start_npc_id="204575" />
+
+	<!-- Looting the Tigrics -->
+	<monster_hunt id="1613" start_npc_id="204575">
+           <monster_infos npc_id="211169" var_id="0" max_kill="15" />
+        </monster_hunt>
+
+	<!-- TODO: Mapping the Revolutionaries -->
+
+	<!-- Researching the Lepharists -->
+	<item_collecting id="1603" start_npc_id="204576" />
+
+	<!-- TODO: Start Spreading the News -->
+
+	<!-- Sylphen Wing Soup -->
+	<item_collecting id="1592" start_npc_id="204585" />
+
+	<!-- The Agrint Problem -->
+	<monster_hunt id="1557" start_npc_id="204583">
+           <monster_infos npc_id="211145" var_id="0" max_kill="10" />
+	   <monster_infos npc_id="211146" var_id="1" max_kill="10" />
+	   <monster_infos npc_id="211118" var_id="2" max_kill="10" />
+	   <monster_infos npc_id="211119" var_id="3" max_kill="10" />
+        </monster_hunt>
+
+	<!-- TODO: The Lepharist Situation -->
+
+	<!-- TODO: To Catch a Spy -->
+
+	<!-- TODO: Where's Belbua? -->
+
+	<!-- [Group] Kill Kanshasha -->
+	<item_collecting id="1663" start_npc_id="204600" />
+
+	<!-- [Group] Krall to the Wall -->
+	<monster_hunt id="1662" start_npc_id="204602">
+           <monster_infos npc_id="212212" var_id="0" max_kill="5" />
+	   <monster_infos npc_id="212213" var_id="1" max_kill="5" />
+	   <monster_infos npc_id="212265" var_id="2" max_kill="5" />
+        </monster_hunt>
+
+	<!-- [Spend Coin] Silver (Warriors and Scouts) -->
+	<monster_hunt id="1558" start_npc_id="204585">
+           <monster_infos npc_id="211887" var_id="0" max_kill="5" />
+	   <monster_infos npc_id="211889" var_id="1" max_kill="5" />
+	   <monster_infos npc_id="211891" var_id="2" max_kill="5" />
+        </monster_hunt>
+
+	<!-- Amalen the Forlorn -->
+	<monster_hunt id="1583" start_npc_id="204625">
+           <monster_infos npc_id="211930" var_id="0" max_kill="7" />
+	   <monster_infos npc_id="212129" var_id="1" max_kill="1" />
+        </monster_hunt>
+
+	<!-- Fangs for the Kinah -->
+	<item_collecting id="1594" start_npc_id="798071" />
+
+	<!-- Kill the Kobold Cook -->
+	<item_collecting id="1672" start_npc_id="203784" />
+
+	<!-- TODO: Light the Path -->
+
+	<!-- Orichalcum to Enchant Weapon -->
+	<item_collecting id="1680" start_npc_id="204602" />
+
+	<!-- Specter's Wall of Sound -->
+	<monster_hunt id="1627" start_npc_id="204547">
+           <monster_infos npc_id="212111" var_id="0" max_kill="9" />
+        </monster_hunt>
+
+	<!-- Starturtle Oil -->
+	<item_collecting id="1625" start_npc_id="204592" />
+
+	<!-- Supplies For the Blue Fleet -->
+	<item_collecting id="1623" start_npc_id="204593" action_item_id="700200" />
+
+	<!-- TODO: Target: Lepharist Secrets -->
+	
+	<!-- The Case of the Wailing Windwisps -->
+	<monster_hunt id="1621" start_npc_id="204531">
+           <monster_infos npc_id="211172" var_id="0" max_kill="10" />
+        </monster_hunt>
+
+	<!-- TODO: Weapons of the Ancient Warriors -->
+
+	<!-- [Coin] Taking out the Trash -->
+	<item_collecting id="1611" start_npc_id="204571" />
+
+	<!-- [Coin] The Aggressive Undead -->
+	<monster_hunt id="1637" start_npc_id="204548">
+           <monster_infos npc_id="211986" var_id="0" max_kill="34" />
+        </monster_hunt>
+
+	<!-- [Group] Hokuna Matata -->
+	<item_collecting id="1664" start_npc_id="204618" />
+
+	<!-- [Repeat] Dead Porgus Walking -->
+	<item_collecting id="1596" start_npc_id="798071" />
+
+	<!-- Blue's Crews Blues -->
+	<item_collecting id="1622" start_npc_id="204534" />
+
+	<!-- Breaking Things Up -->
+	<monster_hunt id="1608" start_npc_id="204574">
+           <monster_infos npc_id="700197" var_id="0" max_kill="6" />
+        </monster_hunt>
+
+	<!-- Dignity and Bluster -->
+	<monster_hunt id="1570" start_npc_id="204557">
+           <monster_infos npc_id="211933" var_id="0" max_kill="7" />
+	   <monster_infos npc_id="211930" var_id="1" max_kill="1" />
+        </monster_hunt>
+
+	<!-- Give Me Some Skin -->
+	<item_collecting id="1629" start_npc_id="204544" />
+
+	<!-- Kalione's Choice -->
+	<monster_hunt id="1593" start_npc_id="204577">
+           <monster_infos npc_id="212162" var_id="0" max_kill="2" />
+	   <monster_infos npc_id="212166" var_id="1" max_kill="1" />
+	   <monster_infos npc_id="212165" var_id="2" max_kill="1" />
+	   <monster_infos npc_id="212149" var_id="3" max_kill="1" />
+	   <monster_infos npc_id="212163" var_id="4" max_kill="1" />
+        </monster_hunt>
+
+	<!-- TODO: Message to Arbolu's Haven -->
+
+	<!-- Mutant Pretors -->
+	<monster_hunt id="1651" start_npc_id="204578">
+           <monster_infos npc_id="211918" var_id="0" max_kill="30" />
+	   <monster_infos npc_id="211920" var_id="1" max_kill="25" />
+        </monster_hunt>
+
+	<!-- TODO: News from Arbolu's Haven -->
+
+	<!-- TODO: Price of Goodwill -->
+
+	<!-- Researching Earth Spirits -->
+	<item_collecting id="1610" start_npc_id="204577" />
+
+	<!-- Showing Mercy -->
+	<item_collecting id="1585" start_npc_id="204569" />
+
+	<!-- Suspicious Shugo -->
+	<report_to id="3221" start_npc_id="204530" end_npc_id="204658" />
+
+	<!-- The Best Firewood -->
+	<item_collecting id="1591" start_npc_id="204541" />
+
+	<!-- The Undead Orphanage -->
+	<monster_hunt id="1584" start_npc_id="204612">
+           <monster_infos npc_id="211979" var_id="0" max_kill="2" />
+	   <monster_infos npc_id="211982" var_id="1" max_kill="2" />
+        </monster_hunt>
+
+	<!-- The Undutiful Daughter -->
+	<report_to id="1671" start_npc_id="78095" end_npc_id="798027" item_id="182201771"/>
+
+	<!-- TODO: [Coin Reward] 41Lv. Mage, Priest -->
+
+	<!-- TODO: [Coin Reward] 41Lv. Warrior, Scout -->
+
+	<!-- [Group] Destroy the Seed of Evil -->
+	<monster_hunt id="1600" start_npc_id="204577">
+           <monster_infos npc_id="212175" var_id="0" max_kill="1" />
+	   <monster_infos npc_id="212178" var_id="1" max_kill="1" />
+	   <monster_infos npc_id="212183" var_id="2" max_kill="1" />
+	   <monster_infos npc_id="212184" var_id="3" max_kill="1" />
+        </monster_hunt>
+
+	<!-- [Repeat] Rest for the Undead -->
+	<monster_hunt id="1590" start_npc_id="204569">
+           <monster_infos npc_id="211977" var_id="0" max_kill="20" />
+        </monster_hunt>
+
+	<!-- Ancient Pot -->
+	<item_collecting id="1630" start_npc_id="204546" action_item_id="700205" />
+
+	<!-- Eternal Servants -->
+	<monster_hunt id="1598" start_npc_id="204625">
+           <monster_infos npc_id="211970" var_id="0" max_kill="16" />
+	   <monster_infos npc_id="211972" var_id="1" max_kill="13" />
+        </monster_hunt>
+
+	<!-- Give Me a Break -->
+	<monster_hunt id="1597" start_npc_id="204579">
+           <monster_infos npc_id="212155" var_id="0" max_kill="10" />
+	   <monster_infos npc_id="212157" var_id="1" max_kill="15" />
+	   <monster_infos npc_id="211208" var_id="2" max_kill="12" />
+	   <monster_infos npc_id="211914" var_id="3" max_kill="18" />
+        </monster_hunt>
+
+	<!-- Medicinal Clodworms -->
+	<item_collecting id="1645" start_npc_id="798076" />
+
+	<!-- Trouble at Changarnerk's Campsite -->
+	<monster_hunt id="1631" start_npc_id="204531">
+           <monster_infos npc_id="211198" var_id="0" max_kill="7" />
+        </monster_hunt>
+
+	<!-- Whip it Profitably -->
+	<item_collecting id="1595" start_npc_id="798071" />
+
+	<!-- A Kind Husband -->
+	<item_collecting id="1679" start_npc_id="790019" />
+
+	<!-- TODO: A Very Old Letter -->
+
+	<!-- Art Appreciation -->
+	<item_collecting id="1599" start_npc_id="204625" />
+
+	<!-- TODO: Dressing Up For Bollvig -->
+
+	<!-- Elemental Water Flowers -->
+	<item_collecting id="1646" start_npc_id="204546" />
+
+	<!-- Energizing Food -->
+	<item_collecting id="1678" start_npc_id="204598" />
+
+	<!-- TODO: Invisible Bridges -->
+
+	<!-- Know Your Anubites -->
+	<item_collecting id="1642" start_npc_id="204545" />
+
+	<!-- Namarinerk's Dream -->
+	<item_collecting id="1641" start_npc_id="798074" action_item_id="700207" />
+
+	<!-- TODO: The Star of Heiron -->
+
+	<!-- TODO: Undead War Alert -->
+
+	<!-- [Coin] Eradicating Undead -->
+	<monster_hunt id="1667" start_npc_id="204638">
+           <monster_infos npc_id="211231" var_id="0" max_kill="10" />
+	   <monster_infos npc_id="212000" var_id="1" max_kill="20" />
+        </monster_hunt>
+
+	<!-- [Group] Monitoring -->
+	<monster_hunt id="1665" start_npc_id="204610">
+           <monster_infos npc_id="212280" var_id="0" max_kill="1" />
+        </monster_hunt>
+
+	<!-- [Group] Taking it to the Indratu -->
+	<monster_hunt id="1666" start_npc_id="204601">
+           <monster_infos npc_id="213962" var_id="0" max_kill="15" />
+	   <monster_infos npc_id="213985" var_id="1" max_kill="15" />
+        </monster_hunt>	
+
+	<!-- A Message to Trajanus -->
+	<report_to id="1588" start_npc_id="204612" end_npc_id="730024" />
+
+	<!-- Kishar Balaur -->
+	<monster_hunt id="1654" start_npc_id="204600">
+           <monster_infos npc_id="213966" var_id="0" max_kill="60" />
+	   <monster_infos npc_id="214162" var_id="1" max_kill="30" />
+        </monster_hunt>	
+
+	<!-- Stealing Stigma -->
+	<item_collecting id="1632" start_npc_id="204590" />
+
+	<!-- Teleporter Repairs -->
+	<item_collecting id="1640" start_npc_id="730033" />
+
+	<!-- The Missing Fiance -->
+	<item_collecting id="1635" start_npc_id="204536" />
+
+	<!-- The Stenon Bay Shipwreck -->
+	<report_to id="1633" start_npc_id="204590" end_npc_id="204547" />
+
+	<!-- TODO: The Wreck of the Argos -->
+
+	<!-- [Coin] Reducing Balaur Numbers -->
+	<monster_hunt id="1668" start_npc_id="204515">
+           <monster_infos npc_id="213968" var_id="0" max_kill="10" />
+	   <monster_infos npc_id="213987" var_id="1" max_kill="10" />
+	   <monster_infos npc_id="213964" var_id="2" max_kill="10" />
+        </monster_hunt>
+
+	<!-- [Group] RM-114c -->
+	<item_collecting id="1619" start_npc_id="203833" />
+
+	<!-- [Group] The Greater of Two Evils -->
+	<item_collecting id="1589" start_npc_id="730024" />
+
+	<!-- [Group] Weakening Bollvig's Forces -->
+	<monster_hunt id="1587" start_npc_id="204612">
+           <monster_infos npc_id="211254" var_id="0" max_kill="30" />
+	   <monster_infos npc_id="211259" var_id="1" max_kill="1" />
+        </monster_hunt>
+
+	<!-- TODO: [Spy/Group] A Suspicious Box -->
+
+	<!-- TODO: [Spy/Group] Suspicious Scientists -->
+	
+	<!-- TODO: [Spy/Group] The Key is the Key -->
+
+	<!-- TODO: [Spy/Group] The Research Journal -->
+
+	<!-- TODO: A Cube for Michalis -->
+
+	<!-- TODO: A Flute For the Fixing -->
+
+	<!-- TODO: Meteria's Regret -->
+
+	<!-- [Group] It's for Your Own Good -->
+	<monster_hunt id="1652" start_npc_id="204533">
+           <monster_infos npc_id="212600" var_id="0" max_kill="15" />
+	   <monster_infos npc_id="212603" var_id="1" max_kill="15" />
+	   <monster_infos npc_id="212596" var_id="2" max_kill="25" />
+        </monster_hunt>
+
+	<!-- [Group] Strategically Important Mucus -->
+	<item_collecting id="1653" start_npc_id="204602" />
+
+	<!-- TODO: [Spy/Group] Key to the Cave -->
+		
+	<!-- TODO: [Spy/Group] Meeting the Mau Spy -->
+
+	<!-- TODO: [Spy/Group] Mirror, Mirror -->
+
+	<!-- TODO: [Spy/Group] The Draupnir Weapons -->
+
+	<!-- TODO: [Spy/Group] The Seiren's Fin -->
+
+	<!-- TODO: [Spy] Alukina's Palace -->
+	
+	<!-- [Group] Insufficient Funds -->
+	<item_collecting id="1510" start_npc_id="798095" />
+
+	<!-- TODO: [Spy/Group] Return to Draupnir Cave -->
+
+	<!-- TODO: [Spy/Group] The Draconic Assignment -->
+
+	<!-- TODO: [Spy/Group] The Tigraki Agreement -->
+
+	<!-- TODO: [Spy/Group] The Tigraki Assignment -->
+
+	<!-- [Group] Demoralizing Drakans -->
+	<item_collecting id="1518" start_npc_id="204651" />
+
+	<!-- [Group] Negating Nagas -->
+	<monster_hunt id="1517" start_npc_id="204651">
+           <monster_infos npc_id="213577" var_id="0" max_kill="11" />
+	   <monster_infos npc_id="213579" var_id="1" max_kill="20" />
+        </monster_hunt>
+
+	<!-- [Group] Hanuman's Elite -->
+	<item_collecting id="1669" start_npc_id="204600" />
+
+	<!-- TODO: Nereus Needs You! -->
+
+	<!-- [Group] Trial of Transcendence -->
+	<item_collecting id="3503" start_npc_id="204656" />
+
+ </quest_scripts>
