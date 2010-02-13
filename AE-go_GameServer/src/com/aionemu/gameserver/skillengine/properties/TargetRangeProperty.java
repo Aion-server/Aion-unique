@@ -95,15 +95,19 @@ extends Property
 			case PARTY:
 				effectedList.clear();//clear from first target
 				PlayerGroup group = skill.getEffector().getPlayerGroup();
+				Creature effector = skill.getEffector();
 				if(group == null)
 					return false;
-				//TODO distance
+
 				Iterator<Player> it = group.getGroupMemberIterator();
 				while(it.hasNext() && counter < maxcount)
 				{
 					Player player = it.next();
 					
-					effectedList.add(player);
+					//TODO: here value +4 till better move controller developed
+					if(MathUtil.isInRange(effector, player, distance + 4))						
+						effectedList.add(player);
+					
 					counter++;
 				}
 				break;
