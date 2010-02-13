@@ -55,6 +55,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
+import com.aionemu.gameserver.services.AbyssService;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.Skill;
@@ -63,6 +64,7 @@ import com.aionemu.gameserver.taskmanager.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.world.WorldMapType;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneManager;
 
@@ -199,6 +201,10 @@ public class PlayerController extends CreatureController<Player>
 			PacketSendUtility.sendPacket(player, new SM_DIE());
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
 			QuestEngine.getInstance().onDie(new QuestEnv(null, player,0,0));
+		}
+		if(lastAttacker instanceof Player && isEnemy((Player) lastAttacker))
+		{
+			AbyssService.doReward(getOwner(), (Player) lastAttacker);
 		}
 	}
 

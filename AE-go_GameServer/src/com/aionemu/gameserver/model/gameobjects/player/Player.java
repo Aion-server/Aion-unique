@@ -76,6 +76,7 @@ public class Player extends Creature
 	private List<Integer>		nearbyQuestList	= new ArrayList<Integer>();
 	private ZoneInstance		zoneInstance;
 	private PlayerGroup			playerGroup;
+	private AbyssRank			abyssRank;
 
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -509,7 +510,23 @@ public class Player extends Creature
 		 this.playerGroup = playerGroup;
 	 }
 
-	 @Override
+	 /**
+	 * @return the abyssRank
+	 */
+	public AbyssRank getAbyssRank()
+	{
+		return abyssRank;
+	}
+
+	/**
+	 * @param abyssRank the abyssRank to set
+	 */
+	public void setAbyssRank(AbyssRank abyssRank)
+	{
+		this.abyssRank = abyssRank;
+	}
+
+	@Override
 	 public void initializeAi()
 	 {
 		 // TODO Auto-generated method stub

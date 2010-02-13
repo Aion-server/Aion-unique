@@ -27,6 +27,7 @@ import com.aionemu.gameserver.dataholders.GoodsListData;
 import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.AbyssRank;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.templates.TradeListTemplate;
@@ -34,6 +35,7 @@ import com.aionemu.gameserver.model.templates.TradeListTemplate.TradeTab;
 import com.aionemu.gameserver.model.templates.goods.GoodsList;
 import com.aionemu.gameserver.model.trade.TradeItem;
 import com.aionemu.gameserver.model.trade.TradeList;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ABYSS_RANK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
@@ -105,6 +107,54 @@ public class TradeService
 		//TODO message
 		return true;
 	}
+	
+	/**
+	 *  Probably later merge with regular buy
+	 *  
+	 * @param player
+	 * @param tradeList
+	 * @return
+	 */
+	public boolean performBuyFromAbyssShop(Player player, TradeList tradeList)
+	{
+
+		if(!validateBuyItems(tradeList))
+		{
+			PacketSendUtility.sendMessage(player, "Some items are not allowed to be selled from this npc");
+			return false;
+		}
+		
+		Storage inventory  = player.getInventory();
+		int freeSlots = inventory.getLimit() - inventory.getUnquippedItems().size() + 1;
+		//1. check kinah
+		AbyssRank rank = player.getAbyssRank();
+		int ap  = rank.getAp();
+		int tradeListPrice = tradeList.calculateBuyListPrice() * 2;
+		if(ap < tradeListPrice)
+			return false; //ban :)
+
+		//2. check free slots, need to check retail behaviour
+		if(freeSlots < tradeList.size())
+			return false; //TODO message
+
+		List<Item> addedItems = new ArrayList<Item>();
+		for(TradeItem tradeItem : tradeList.getTradeItems())
+		{
+			int count = itemService.addItem(player, tradeItem.getItemTemplate().getItemId(), tradeItem.getCount(), false); // addToBag is old and have alot of bugs with item adding, suggest to remove it.
+			if(count != 0)
+			{
+				log.warn(String.format("CHECKPOINT: itemservice couldnt add all items on buy: %d %d %d %d", player.getObjectId(), 
+					tradeItem.getItemTemplate().getItemId(), tradeItem.getCount(), count));
+				rank.addAp(-tradeListPrice);
+				return false;
+			}		
+		}
+		rank.addAp(-tradeListPrice);
+		PacketSendUtility.sendPacket(player, new SM_ABYSS_RANK(rank));
+		PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(addedItems));
+		//TODO message
+		return true;
+	}
 
 	/**
 	 * @param tradeList
@@ -113,9 +163,6 @@ public class TradeService
 	{
 		Npc npc = (Npc) world.findAionObject(tradeList.getNpcObjId());
 		TradeListTemplate tradeListTemplate = tradeListData.getTradeListTemplate(npc.getTemplate().getTemplateId());
-		
-		if(tradeListTemplate.isAbyss())
-			return false;
 		
 		Set<Integer> allowedItems = new HashSet<Integer>();
 		for(TradeTab tradeTab : tradeListTemplate.getTradeTablist())

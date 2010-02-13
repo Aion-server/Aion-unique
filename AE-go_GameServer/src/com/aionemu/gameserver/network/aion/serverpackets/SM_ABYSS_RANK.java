@@ -2,6 +2,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.gameobjects.player.AbyssRank;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -10,11 +11,20 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  *         Date: 25.01.2010
  */
 public class SM_ABYSS_RANK extends AionServerPacket {
-    @Override
+	
+	private AbyssRank rank;
+	
+	
+	public SM_ABYSS_RANK(AbyssRank rank)
+	{
+		this.rank = rank;
+	}
+
+	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeQ(buf, 0); //curAP
-        writeD(buf, 1); //curRank
+		writeQ(buf, rank.getAp()); //curAP
+        writeD(buf, rank.getRank().getId()); //curRank
         writeD(buf, 0); //curRating
         writeD(buf, 0); //exp %
         writeD(buf, 0); //allKill

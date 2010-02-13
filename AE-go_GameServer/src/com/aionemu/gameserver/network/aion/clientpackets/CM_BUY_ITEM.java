@@ -18,7 +18,10 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.TradeListTemplate;
 import com.aionemu.gameserver.model.trade.TradeList;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.services.TradeService;
@@ -73,7 +76,7 @@ public class CM_BUY_ITEM extends AionClientPacket
 			count  = readD();
 			unk2   = readD();
 			
-			if(unk1 == 12)
+			if(unk1 == 12 || unk1 == 13)
 			{
 				tradeList.addBuyItem(itemId, count);
 			}
@@ -91,7 +94,11 @@ public class CM_BUY_ITEM extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
+		Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(npcObjId);
+		if(npc == null)
+			return;
 		
+		TradeListTemplate tlist = DataManager.TRADE_LIST_DATA.getTradeListTemplate(npc.getNpcId());
 		if (unk1 == 12) //buy
 		{
 			tradeService.performBuyFromShop(player, tradeList);
@@ -99,6 +106,11 @@ public class CM_BUY_ITEM extends AionClientPacket
 		else if (unk1 == 1) //sell
 		{
 			tradeService.performSellToShop(player, tradeList);
+		}
+		else if(unk1 == 13) //abyss buy
+		{
+			if(tlist.isAbyss())
+				tradeService.performBuyFromAbyssShop(player, tradeList);
 		}
 		else
 		{

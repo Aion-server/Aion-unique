@@ -234,7 +234,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 sendPacket(new SM_INFLUENCE_RATIO());
 			 sendPacket(new SM_PRICES());
 			 sendPacket(new SM_PLAYER_ID(player));
-			 sendPacket(new SM_ABYSS_RANK());
+			 sendPacket(new SM_ABYSS_RANK(player.getAbyssRank()));
 			 sendPacket(new SM_FLY_TIME());
 
 			 sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME

@@ -228,3 +228,15 @@ CREATE TABLE `droplist` (
 `quest` int(11) NOT NULL DEFAULT 0,
 PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- abyss_rank
+-- ----------------------------
+
+CREATE TABLE `abyss_rank` (
+  `player_id` int(11) NOT NULL,
+  `ap` int(11) NOT NULL,
+  `rank` int(2) NOT NULL default '1',
+  PRIMARY KEY  (`player_id`),
+  FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

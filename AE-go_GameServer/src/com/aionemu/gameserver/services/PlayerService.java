@@ -24,6 +24,7 @@ import com.aionemu.gameserver.configs.CacheConfig;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.PlayerController;
+import com.aionemu.gameserver.dao.AbyssRankDAO;
 import com.aionemu.gameserver.dao.BlockListDAO;
 import com.aionemu.gameserver.dao.FriendListDAO;
 import com.aionemu.gameserver.dao.InventoryDAO;
@@ -143,6 +144,7 @@ public class PlayerService
 		DAOManager.getDAO(PlayerSettingsDAO.class).saveSettings(player);
 		DAOManager.getDAO(QuestListDAO.class).store(player.getObjectId(), player.getQuestStateList());
 		DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
+		DAOManager.getDAO(AbyssRankDAO.class).storeAbyssRank(player);
 	}
 
 	/**
@@ -171,7 +173,8 @@ public class PlayerService
 		player.setTitleList(DAOManager.getDAO(PlayerTitleListDAO.class).loadTitleList(playerObjId));
 
 		DAOManager.getDAO(PlayerSettingsDAO.class).loadSettings(player);
-
+		DAOManager.getDAO(AbyssRankDAO.class).loadAbyssRank(player);
+		
 		player.setPlayerStatsTemplate(DataManager.PLAYER_STATS_DATA.getTemplate(player));	
 
 		player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA,player));
