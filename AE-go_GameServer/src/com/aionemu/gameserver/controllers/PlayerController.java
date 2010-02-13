@@ -64,7 +64,6 @@ import com.aionemu.gameserver.taskmanager.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
-import com.aionemu.gameserver.world.WorldMapType;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneManager;
 
@@ -309,17 +308,20 @@ public class PlayerController extends CreatureController<Player>
 		if(player.getActiveRegion() == null)
 		{
 			//debug
+			// TODO: return false ? 
 		}
-		if(delay != 0){
-        PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, 0, delay, 0, 0));
+		if(delay != 0)
+		{
+			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, 0, delay, 0, 0));
         }
         ThreadPoolManager.getInstance().schedule(new Runnable()
 		{
 			@Override
 			public void run()
 			{
-				if(delay != 0){
-                PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
+				if(delay != 0)
+				{
+					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
                 }
                 World world = player.getActiveRegion().getWorld();
 				if (player.getInstanceId() != instanceId || player.getWorldId() != worldId)
@@ -563,17 +565,16 @@ public class PlayerController extends CreatureController<Player>
 		}
 	}
 
-    public boolean isEnemy (Player player) {
+    public boolean isEnemy (Player player) 
+    {
         return player.getCommonData().getRace() != getOwner().getCommonData().getRace();
     }
     
-	@Override
 	public void updateNearbyQuestList()
 	{
 		getOwner().addPacketBroadcastMask(BroadcastMode.UPDATE_NEARBY_QUEST_LIST);
 	}
 	
-	@Override
 	public void updateNearbyQuestListImpl()
 	{
 		PacketSendUtility.sendPacket(getOwner(), new SM_NEARBY_QUESTS(getOwner().getNearbyQuests()));
