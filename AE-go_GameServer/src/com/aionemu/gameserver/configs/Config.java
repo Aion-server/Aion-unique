@@ -190,6 +190,12 @@ public class Config
 	
 	@Property(key = "gameserver.taskmanager.DebugPacketBroadcaster",defaultValue = "false")
 	public static boolean			DEBUG_PACKET_BROADCASTER;
+	
+	@Property(key = "gameserver.taskmanager.AllowGC", defaultValue = "false")
+	public static boolean			ALLOW_GC;
+	
+	@Property(key = "gameserver.taskmanager.GCInterval", defaultValue = "3600000")
+	public static int				GC_INTERVAL;
 
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
