@@ -23,6 +23,7 @@ import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.skillengine.model.learn.SkillLearnTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -65,7 +66,7 @@ public class SkillLearnService
 			
 			if(!isNewCharacter)
 			{
-				//TODO message should be SM_SKILL_LIST.YOU_LEARNED
+				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.SKILL_LEARNED_NEW_SKILL(template.getName(), template.getSkillLevel()));
 				PacketSendUtility.sendPacket(player,
 					new SM_SKILL_LIST(player.getSkillList().getSkillEntry(template.getSkillId())));
 			}

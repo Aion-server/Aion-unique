@@ -134,6 +134,10 @@ public class SkillList
 		return skills.get(skillId).getSkillLevel();
 	}
 	
+	public synchronized boolean removeSkill(int skillId)
+	{
+		return skills.remove(skillId) == null ? false : true;
+	}
 	/**
 	 * Returns count of available skillist.
 	 * @return count of available skillist.
