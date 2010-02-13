@@ -80,6 +80,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_SELL_ITEM.class, 0x3E, idSet);
 		addPacketOpcode(SM_PLAYER_STATE.class, 0x3C, idSet);
 		addPacketOpcode(SM_VIEW_PLAYER_DETAILS.class, 0x41, idSet);
+		addPacketOpcode(SM_SKILL_CANCEL.class, 0x42, idSet);
 		addPacketOpcode(SM_CASTSPELL_END.class, 0x43, idSet);
 		addPacketOpcode(SM_SKILL_LIST.class, 0x44, idSet);
 		addPacketOpcode(SM_GAME_TIME.class, 0x46, idSet);

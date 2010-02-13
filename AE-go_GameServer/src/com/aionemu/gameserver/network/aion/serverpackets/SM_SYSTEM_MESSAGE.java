@@ -434,6 +434,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1320000, count);
 	}
 
+	public static SM_SYSTEM_MESSAGE STR_SKILL_CANCELED()
+	{
+		return new SM_SYSTEM_MESSAGE(1300023);
+	}
+
 	private final int		code;
 	private final Object[]	params;
 

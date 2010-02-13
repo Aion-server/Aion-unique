@@ -50,6 +50,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_CANCEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
@@ -211,21 +212,21 @@ public class PlayerController extends CreatureController<Player>
 	public void attackTarget(int targetObjectId)
 	{
 		Player player = getOwner();
-		
+
 		if(!player.canAttack())
 			return;
-		
+
 		PlayerGameStats gameStats = player.getGameStats();
 		long time = System.currentTimeMillis();
 		int attackType = 0; // TODO investigate attack types
-		
+
 		World world = player.getActiveRegion().getWorld();
 		Creature target = (Creature) world.findAionObject(targetObjectId);
 		if(target == null 
 			|| !target.getController().isAttackable()
 			|| target.getLifeStats().isAlreadyDead())
 			return;
-		
+
 		if(!RestrictionsManager.canAttack(player, target))
 			return;
 
@@ -260,7 +261,7 @@ public class PlayerController extends CreatureController<Player>
 		//TODO cancel skill if other is used
 		if(this.getOwner().isCasting())
 		{
-			PacketSendUtility.sendMessage(this.getOwner(), "You must wait until cast time finished to use skill again.");
+			//PacketSendUtility.sendMessage(this.getOwner(), "You must wait until cast time finished to use skill again.");
 			return;
 		}
 		Skill skill = SkillEngine.getInstance().getSkillFor(getOwner(), skillId);
@@ -297,6 +298,12 @@ public class PlayerController extends CreatureController<Player>
 	@Override
 	public void onStartMove()
 	{
+		if(this.getOwner().isCasting())
+		{
+			this.getOwner().setCasting(null);
+			PacketSendUtility.sendPacket(this.getOwner(), new SM_SKILL_CANCEL(this.getOwner()));
+			PacketSendUtility.sendPacket(this.getOwner(), SM_SYSTEM_MESSAGE.STR_SKILL_CANCELED());
+		}
 		super.onStartMove();
 	}
 
@@ -313,8 +320,8 @@ public class PlayerController extends CreatureController<Player>
 		if(delay != 0)
 		{
 			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, 0, delay, 0, 0));
-        }
-        ThreadPoolManager.getInstance().schedule(new Runnable()
+		}
+		ThreadPoolManager.getInstance().schedule(new Runnable()
 		{
 			@Override
 			public void run()
@@ -322,8 +329,8 @@ public class PlayerController extends CreatureController<Player>
 				if(delay != 0)
 				{
 					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
-                }
-                World world = player.getActiveRegion().getWorld();
+				}
+				World world = player.getActiveRegion().getWorld();
 				if (player.getInstanceId() != instanceId || player.getWorldId() != worldId)
 				{
 					world.getWorldMap(player.getWorldId()).getWorldMapInstanceById(player.getInstanceId()).removePlayer(player.getObjectId());
@@ -456,7 +463,7 @@ public class PlayerController extends CreatureController<Player>
 		getOwner().setLifeStats(new PlayerLifeStats(getOwner(), 1, pls.getCurrentMp()));
 		getOwner().getLifeStats().triggerRestoreTask();
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -471,7 +478,7 @@ public class PlayerController extends CreatureController<Player>
 			}
 		}
 	}
-	
+
 
 	@Override
 	public Player getOwner()
@@ -500,8 +507,8 @@ public class PlayerController extends CreatureController<Player>
 		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));	
 		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));	
 	}
-	
-	
+
+
 	@Override
 	public void onRestore(HopType hopType, int value)
 	{
@@ -513,11 +520,11 @@ public class PlayerController extends CreatureController<Player>
 				break;
 		}
 	}
-    public void moveToBindLocation (boolean useTeleport)
-    {
-        this.moveToBindLocation(useTeleport, 0);
-    }
-    
+	public void moveToBindLocation (boolean useTeleport)
+	{
+		this.moveToBindLocation(useTeleport, 0);
+	}
+
 	/**
 	 * @param useTeleport
 	 */
@@ -528,7 +535,7 @@ public class PlayerController extends CreatureController<Player>
 		BindPointTemplate bplist;
 		Player player = getOwner();
 		World world = player.getActiveRegion().getWorld();
-		
+
 		LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
 
 		int bindPointId = player.getCommonData().getBindPoint();
@@ -548,8 +555,8 @@ public class PlayerController extends CreatureController<Player>
 			y = locationData.getY();
 			z = locationData.getZ();
 		}
-		
-		
+
+
 		if(useTeleport)
 		{
 			teleportTo(worldId, x, y, z, delay);
@@ -565,16 +572,16 @@ public class PlayerController extends CreatureController<Player>
 		}
 	}
 
-    public boolean isEnemy (Player player) 
-    {
-        return player.getCommonData().getRace() != getOwner().getCommonData().getRace();
-    }
-    
+	public boolean isEnemy (Player player) 
+	{
+		return player.getCommonData().getRace() != getOwner().getCommonData().getRace();
+	}
+
 	public void updateNearbyQuestList()
 	{
 		getOwner().addPacketBroadcastMask(BroadcastMode.UPDATE_NEARBY_QUEST_LIST);
 	}
-	
+
 	public void updateNearbyQuestListImpl()
 	{
 		PacketSendUtility.sendPacket(getOwner(), new SM_NEARBY_QUESTS(getOwner().getNearbyQuests()));
