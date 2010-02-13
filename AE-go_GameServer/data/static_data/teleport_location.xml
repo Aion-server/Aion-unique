@@ -19,6 +19,31 @@
 	<teleloc_template loc_id="11" mapid="220040000" name="Beluslan" posX="325" posY="336" posZ="229" heading="0"/>
 	<teleloc_template loc_id="82" mapid="220050000" name="Brusthonin" posX="2917" posY="2421" posZ="15" heading="0"/>
 	
+	<!-- ELYOS -->   
+	<teleloc_template loc_id="40" mapid="400010000" name="Eastern Shard of Latesran" posX="1642" posY="3042" posZ="1669" heading="0"/>   
+	<teleloc_template loc_id="42" mapid="400010000" name="Western Shard of Latesran" posX="2098" posY="754" posZ="1569" heading="0"/>
+	<teleloc_template loc_id="36" mapid="400010000" name="Sulfur Archipelago" posX="0" posY="0" posZ="0" heading="0"/>   
+	<teleloc_template loc_id="37" mapid="400010000" name="Siel’s Western Fortress" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="39" mapid="400010000" name="Siel’s Eastern Fortess" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="44" mapid="400010000" name="Asteria Fortress" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="45" mapid="400010000" name="Miren Fortress" posX="0" posY="0" posZ="0" heading="0"/>   
+	<teleloc_template loc_id="46" mapid="400010000" name="Kysis Fortress" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="47" mapid="400010000" name="Krotan Refuge" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="48" mapid="400010000" name="Roah Fortress" posX="0" posY="0" posZ="0" heading="0"/>
+	
+	<!-- ASMODIANS -->   
+	<teleloc_template loc_id="50" mapid="400010000" name="Eastern Shard of Latesran" posX="1644" posY="2881" posZ="1667" heading="0"/>
+	<teleloc_template loc_id="52" mapid="400010000" name="Western Shard of Latesran" posX="2100" posY="593" posZ="1567" heading="0"/>   
+	<teleloc_template loc_id="54" mapid="400010000" name="Sulfur Archipelago" posX="0" posY="0" posZ="0" heading="0"/>   
+	<teleloc_template loc_id="55" mapid="400010000" name="Siel’s Western Fortress" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="56" mapid="400010000" name="Siel’s Eastern Fortess" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="62" mapid="400010000" name="Asteria Fortress" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="75" mapid="400010000" name="Miren Fortress" posX="0" posY="0" posZ="0" heading="0"/>   
+	<teleloc_template loc_id="76" mapid="400010000" name="Kysis Fortress" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="77" mapid="400010000" name="Krotan Refuge" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="60" mapid="400010000" name="Roah Fortress" posX="0" posY="0" posZ="0" heading="0"/>
+	
+	
 	<!-- Flying Teleport-->
 	
 	<!-- ELYOS -->
@@ -61,4 +86,12 @@
 	<teleloc_template loc_id="86" mapid="220050000" name="Settler's Camp Site"/>	
 	<teleloc_template loc_id="87" mapid="220050000" name="Baltasar Hill Village"/>
 	<teleloc_template loc_id="88" mapid="220050000" name="BuBu Village"/>
+	
+	 <!-- Abyss\Reshanta -->   
+	<teleloc_template loc_id="43" mapid="400010000" name="Elyos Western Lower Layer of Latesran"/>
+	<teleloc_template loc_id="41" mapid="400010000" name="Elyos Eastern Lower Layer of Latesran"/>
+	
+	<teleloc_template loc_id="53" mapid="400010000" name="Asmo Western Lower Layer of Latesran"/>
+	<teleloc_template loc_id="51" mapid="400010000" name="Asmo Eastern Lower Layer of Latesran"/>
+  
 </teleport_location>

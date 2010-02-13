@@ -349,4 +349,86 @@
 			<telelocation loc_id="84" teleportid="62001" price="3300" />
 		</locations>
 	</teleporter_template>
+	
+	<!-- Abyss\Reshanta -->
+   <teleporter_template npc_id="278506" name="Tellus"
+      teleportId="500" type="REGULAR">
+      <locations>
+         <telelocation loc_id="36" price="2300" />
+         <telelocation loc_id="37" price="3000" />         
+         <telelocation loc_id="39" price="3000" />
+         <telelocation loc_id="40" price="1500" />
+         <telelocation loc_id="42" price="4500" />         
+         <telelocation loc_id="44" price="4500" />
+         <telelocation loc_id="45" price="5200" />
+         <telelocation loc_id="46" price="6000" />
+         <telelocation loc_id="47" price="6000" />
+         <telelocation loc_id="48" price="7500" />         
+      </locations>
+   </teleporter_template>
+   <teleporter_template npc_id="278513" name="Echo"
+      teleportId="507" type="FLIGHT">
+      <locations>
+         <telelocation loc_id="43" teleportid="36001" price="1500" />
+      </locations>
+   </teleporter_template>
+   <teleporter_template npc_id="278514" name="Tiberius"
+      teleportId="508" type="FLIGHT">
+      <locations>
+         <telelocation loc_id="42" teleportid="37001" price="1500" />
+      </locations>
+   </teleporter_template>
+   <teleporter_template npc_id="278515" name="Septimus"
+      teleportId="505" type="FLIGHT">
+      <locations>
+         <telelocation loc_id="41" teleportid="38001" price="2300" />
+      </locations>
+   </teleporter_template>
+      <teleporter_template npc_id="278516" name="Theon"
+      teleportId="506" type="FLIGHT">
+      <locations>
+         <telelocation loc_id="40" teleportid="39001" price="1500" />
+      </locations>
+   </teleporter_template>
+
+   <!-- Abyss\Reshanta -->
+   <teleporter_template npc_id="278006" name="Briallen"
+      teleportId="503" type="REGULAR">
+      <locations>
+         <telelocation loc_id="54" price="3800" />
+         <telelocation loc_id="55" price="3000" />         
+         <telelocation loc_id="56" price="3000" />
+         <telelocation loc_id="62" price="7500" />
+         <telelocation loc_id="75" price="6000" />
+         <telelocation loc_id="76" price="6000" />
+         <telelocation loc_id="77" price="5200" />         
+         <telelocation loc_id="60" price="4500" />
+         <telelocation loc_id="50" price="1500" />
+         <telelocation loc_id="52" price="4500" />         
+      </locations>
+   </teleporter_template>
+   <teleporter_template npc_id="278014" name="Mure"
+      teleportId="515" type="FLIGHT">
+      <locations>
+         <telelocation loc_id="51" teleportid="34001" price="1500" />
+      </locations>
+   </teleporter_template>
+   <teleporter_template npc_id="278015" name="Hwiath"
+      teleportId="516" type="FLIGHT">
+      <locations>
+         <telelocation loc_id="50" teleportid="35001" price="1500" />
+      </locations>
+   </teleporter_template>
+   <teleporter_template npc_id="278000" name="Peroniad"
+      teleportId="517" type="FLIGHT">
+      <locations>
+         <telelocation loc_id="53" teleportid="32001" price="1500" />
+      </locations>
+   </teleporter_template>
+      <teleporter_template npc_id="278013" name="Riudona"
+      teleportId="518" type="FLIGHT">
+      <locations>
+         <telelocation loc_id="52" teleportid="33001" price="1500" />
+      </locations>
+   </teleporter_template> 
 </npc_teleporter>
