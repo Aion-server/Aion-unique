@@ -36,7 +36,7 @@ public abstract class AbstractPeriodicTaskManager<T> extends AbstractLockManager
 	private final ArrayList<T>	LIST	= new ArrayList<T>();
 	private final int			PERIOD;
 
-	AbstractPeriodicTaskManager(int period)
+	public AbstractPeriodicTaskManager(int period)
 	{
 		PERIOD = period;
 
