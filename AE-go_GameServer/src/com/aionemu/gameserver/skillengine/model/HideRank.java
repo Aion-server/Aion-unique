@@ -14,34 +14,20 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
+package com.aionemu.gameserver.skillengine.model;
+
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlType;
 
 /**
- * @author ATracer
+ * @author Sweetkr
  *
  */
-public enum EffectId
+@XmlType(name = "HideRank")
+@XmlEnum
+public enum HideRank
 {
-	BUFF(0),
-	ROOT(1),
-	SLEEP(2),
-	HIDE(3),
-	HEAL_OT(4),
-	DAMAGE_OT(5),
-	TRANSFORM(6),
-	POISON(7),
-	BLEED(8),
-	SEE_THROUGH(9);
-	
-	private int effectId;
-	
-	private EffectId(int effectId)
-	{
-		this.effectId = effectId;
-	}
-	
-	public int getEffectId()
-	{
-		return effectId;
-	}
+	HIDE1,
+	HIDE2,
+	HIDE3
 }

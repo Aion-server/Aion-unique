@@ -7393,6 +7393,12 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hide rank="HIDE1" duration="50000"/>
+            <buf duration="50000">
+                <change stat="SPEED" duration="50000" func="PERCENT" delta="0" value="-40"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="30" delta="0"/>
             <dummy/>
@@ -7746,6 +7752,12 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <hide rank="HIDE2" duration="60000"/>
+            <buf duration="60000">
+                <change stat="SPEED" duration="60000" func="PERCENT" delta="0" value="-20"/>
+            </buf>
+        </effects>
         <actions>
             <mpuse value="76" delta="0"/>
             <dummy/>
@@ -8826,6 +8838,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <seethrough rank="HIDE1" duration="60000"/>
+        </effects>
         <actions>
             <dummy/>
         </actions>
@@ -12616,6 +12631,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <seethrough rank="HIDE1" duration="60000"/>
+        </effects>
         <actions>
             <mpuse value="69" delta="0"/>
             <dummy/>
@@ -12631,6 +12649,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <seethrough rank="HIDE2" duration="30000"/>
+        </effects>
         <actions>
             <mpuse value="81" delta="0"/>
             <dummy/>
@@ -22398,6 +22419,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <seethrough rank="HIDE1" duration="10000"/>
+        </effects>
         <actions>
             <mpuse value="90" delta="3"/>
             <dummy/>

@@ -28,7 +28,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * So far I've found only one usage for this packet - to stop character blinking ( just after login into game, player's
  * character is blinking )
  * 
- * @author Luno
+ * @author Luno, Sweetkr
  * 
  * states:
  * 0 - normal char
@@ -40,12 +40,14 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_PLAYER_STATE extends AionServerPacket
 {
 	private int	playerObjId;
-	private int _state;
+	private int	visualState;
+	private int	seeState;
 
-	public SM_PLAYER_STATE(Player player, int state)
+	public SM_PLAYER_STATE(Player player)
 	{
-		playerObjId = player.getObjectId();
-		_state = state;
+		this.playerObjId = player.getObjectId();
+		this.visualState = player.getVisualState();
+		this.seeState = player.getSeeState();
 	}
 
 	/**
@@ -55,9 +57,8 @@ public class SM_PLAYER_STATE extends AionServerPacket
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeD(buf, playerObjId);
-		writeC(buf, _state);
-		writeC(buf, 0x00);
+		writeC(buf, visualState);
+		writeC(buf, seeState);
 		writeC(buf, 0x00);
 	}
-
 }

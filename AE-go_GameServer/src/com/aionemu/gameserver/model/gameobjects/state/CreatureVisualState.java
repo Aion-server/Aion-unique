@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,34 +14,32 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
+package com.aionemu.gameserver.model.gameobjects.state;
 
 /**
- * @author ATracer
+ * @author Sweetkr
  *
  */
-public enum EffectId
+public enum CreatureVisualState
 {
-	BUFF(0),
-	ROOT(1),
-	SLEEP(2),
-	HIDE(3),
-	HEAL_OT(4),
-	DAMAGE_OT(5),
-	TRANSFORM(6),
-	POISON(7),
-	BLEED(8),
-	SEE_THROUGH(9);
-	
-	private int effectId;
-	
-	private EffectId(int effectId)
+	VISIBLE(0), // Normal
+	HIDE1(1), // Hide I
+	HIDE2(2), // Hide II
+	HIDE3(3), // Hide by Artifact?
+	BLINKING(64); // Blinking when entering to zone
+
+	private int id;
+
+	private CreatureVisualState(int id)
 	{
-		this.effectId = effectId;
+		this.id = id;
 	}
-	
-	public int getEffectId()
+
+	/**
+	 * @return the id
+	 */
+	public int getId()
 	{
-		return effectId;
+		return id;
 	}
 }

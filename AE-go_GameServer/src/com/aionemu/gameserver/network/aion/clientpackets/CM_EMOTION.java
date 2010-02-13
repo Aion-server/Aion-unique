@@ -116,7 +116,7 @@ public class CM_EMOTION extends AionClientPacket
 			case 0x7:
 				player.unsetState(CreatureState.FLYING);
 				player.setState(CreatureState.ACTIVE);
-				PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false, false));
+				PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
 				ZoneManager.getInstance().findZoneInCurrentMap(player);
 				break;
 			case 0x8:				

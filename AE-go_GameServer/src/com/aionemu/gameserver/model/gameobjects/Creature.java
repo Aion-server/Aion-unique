@@ -22,7 +22,9 @@ import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.MoveController;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureSeeState;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
@@ -54,6 +56,8 @@ public abstract class Creature extends VisibleObject
 	private MoveController moveController;
 	
 	private int state = CreatureState.ACTIVE.getId();
+	private int visualState = CreatureVisualState.VISIBLE.getId();
+	private int seeState = CreatureSeeState.NORMAL.getId();
 	
 	private boolean isRooted;
 	private boolean isSleep;
@@ -298,6 +302,68 @@ public abstract class Creature extends VisibleObject
 	}
 
 	/**
+	 * @return
+	 */
+	public int getVisualState()
+	{
+		return visualState;
+	}
+
+	/**
+	 * @param visualState the visualState to set
+	 */
+	public void setVisualState(CreatureVisualState visualState)
+	{
+		this.visualState |= visualState.getId();
+	}
+
+	public void unsetVisualState(CreatureVisualState visualState)
+	{
+		this.visualState &= ~visualState.getId();
+	}
+
+	public boolean isInVisualState(CreatureVisualState visualState)
+	{
+		int isVisualState = this.visualState & visualState.getId();
+
+		if(isVisualState == visualState.getId())
+			return true;
+
+		return false;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getSeeState()
+	{
+		return seeState;
+	}
+
+	/**
+	 * @param seeState the seeState to set
+	 */
+	public void setSeeState(CreatureSeeState seeState)
+	{
+		this.seeState |= seeState.getId();
+	}
+
+	public void unsetSeeState(CreatureSeeState seeState)
+	{
+		this.seeState &= ~seeState.getId();
+	}
+
+	public boolean isInSeeState(CreatureSeeState seeState)
+	{
+		int isSeeState = this.seeState & seeState.getId();
+
+		if(isSeeState == seeState.getId())
+			return true;
+
+		return false;
+	}
+
+	/**
 	 * @return the transformedModelId
 	 */
 	public int getTransformedModelId()
@@ -338,7 +404,7 @@ public abstract class Creature extends VisibleObject
 		packetBroadcastMask &= ~mode.mask();
 		
 		if(Config.DEBUG_PACKET_BROADCASTER)
-			PacketSendUtility.sendMessage(((Player)this), "PacketBroadcast: " + mode.name() + " removed.");
+			PacketSendUtility.sendMessage(((Player)this), "PacketBroadcast: " + mode.name() + " added.");
 	}
 
 	public final byte getPacketBroadcastMask()

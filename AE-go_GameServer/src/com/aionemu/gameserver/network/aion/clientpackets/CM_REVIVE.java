@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
@@ -62,14 +63,15 @@ public class CM_REVIVE extends AionClientPacket
 
 		activePlayer.setLifeStats(new PlayerLifeStats(activePlayer, activePlayer.getPlayerStatsTemplate().getMaxHp(),
 		activePlayer.getPlayerStatsTemplate().getMaxMp()));
-		
+
 		activePlayer.unsetState(CreatureState.DEAD);
-		
+		activePlayer.setVisualState(CreatureVisualState.BLINKING);
+
 		sendPacket(SM_SYSTEM_MESSAGE.REVIVE);
 		//TODO: It is not always necessary.
 		//sendPacket(new SM_QUEST_LIST(activePlayer));
 		sendPacket(new SM_STATS_INFO(activePlayer));
-		sendPacket(new SM_PLAYER_INFO(activePlayer, true, false));
+		sendPacket(new SM_PLAYER_INFO(activePlayer, false));
 
 		activePlayer.getController().moveToBindLocation(true);
 	}

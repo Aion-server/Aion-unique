@@ -42,7 +42,7 @@ public class SM_NPC_INFO extends AionServerPacket
 	 * Visible npc
 	 */
 	private final Npc		npc;
-	
+
 	private final boolean isAggressive;
 
 	/**
@@ -113,15 +113,15 @@ public class SM_NPC_INFO extends AionServerPacket
 				writeD(buf, 0x00);
 			}
 		}
-		
-		
+	
+	
 		writeD(buf, 1051931443);// unk
 		writeF(buf, npcTemplate.getHeight());// 0x3F7AE148
 		writeF(buf, 0.3f);// speed
 
 		writeH(buf, 2000);// 0x834 (depends on speed ? )
 		writeH(buf, 2000);// 0x834
-		
+	
 		writeC(buf, 0x00);// unk
 
 		/**
@@ -142,17 +142,17 @@ public class SM_NPC_INFO extends AionServerPacket
 		writeC(buf, 0);
 		writeC(buf, 0);
 		writeC(buf, 0);
-		writeC(buf, 0);
+		writeC(buf, npc.getVisualState()); // visualState
 
 		writeH(buf, 1);// unk
 		writeC(buf, 0x00);// unk
-        if (npc.getTarget() == null)
-        {
-            writeD(buf, 0);
-        }
-        else
-        {
-            writeD(buf, npc.getTarget().getObjectId());
-        }
+		if (npc.getTarget() == null)
+		{
+			writeD(buf, 0);
+		}
+		else
+		{
+			writeD(buf, npc.getTarget().getObjectId());
+		}
 	}
 }

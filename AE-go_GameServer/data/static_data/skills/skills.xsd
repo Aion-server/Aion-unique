@@ -63,6 +63,10 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="transform" type="TransformEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="hide" type="HideEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="seethrough" type="SeeThroughEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -419,6 +423,22 @@
 		</xs:complexContent>
 	</xs:complexType>
 
+	<xs:complexType name="HideEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="rank" type="HideRank" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="SeeThroughEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="rank" type="HideRank" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 	<!-- CONDITIONS -->
 
 	<xs:complexType name="MpCondition">
@@ -611,6 +631,14 @@
 			<xs:enumeration value="ADD" />
 			<xs:enumeration value="PERCENT" />
 			<xs:enumeration value="REPLACE" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="HideRank">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HIDE1" />
+			<xs:enumeration value="HIDE2" />
+			<xs:enumeration value="HIDE3" />
 		</xs:restriction>
 	</xs:simpleType>
 

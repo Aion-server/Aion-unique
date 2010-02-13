@@ -38,19 +38,16 @@ public class SM_PLAYER_INFO extends AionServerPacket {
      * Visible player
      */
     private final Player player;
-    private final boolean self;
     private boolean enemy;
 
     /**
      * Constructs new <tt>SM_PLAYER_INFO </tt> packet
      *
      * @param player actual player.
-     * @param self   send packet yourself ?
      * @param enemy
      */
-    public SM_PLAYER_INFO(Player player, boolean self, boolean enemy) {
+    public SM_PLAYER_INFO(Player player, boolean enemy) {
         this.player = player;
-        this.self = self;
         this.enemy = enemy;
     }
 
@@ -91,7 +88,7 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeC(buf, pcd.getPlayerClass().getClassId());
         writeC(buf, genderId); //sex
         writeC(buf, player.getState());
-        writeC(buf, 0x00);
+        writeC(buf, 0x00); //unk 0 or 1
         
         byte[] unk = new byte[]{(byte) 0x00, (byte) 0x00, (byte) 0x00,
                 (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00
@@ -233,22 +230,22 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeF(buf, player.getZ());// z
         writeC(buf, 0x00); // move type
 
-        writeC(buf, self ? 0x40 : 0x00); // unk - 0x40, 0x00
+        writeC(buf, player.getVisualState()); // visualState
         writeS(buf, player.getCommonData().getNote());     //note show in right down windows if your target on player
 
         writeH(buf, player.getLevel()); // [level]
         writeH(buf, player.getPlayerSettings().getDisplay()); // unk - 0x04
         writeH(buf, player.getPlayerSettings().getDeny()); // unk - 0x00
         writeH(buf, player.getAbyssRank().getRank().getId()); //abyss rank
-        writeH(buf, 0x00); //unk
-        if (player.getTarget() == null)
-        {
-            writeD(buf, 0);
-        }
-        else
-        {
-            writeD(buf, player.getTarget().getObjectId());
-        }
+        writeH(buf, 0x00); // unk - 0x01
+		if (player.getTarget() == null)
+		{
+			writeD(buf, 0);
+		}
+		else
+		{
+			writeD(buf, player.getTarget().getObjectId());
+		}
         writeC(buf, 0); //suspect id
     }
 }

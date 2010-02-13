@@ -32,6 +32,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.group.PlayerGroup;
@@ -152,7 +153,10 @@ public class Player extends Creature
 	{
 		this.protectionActive = protectionActive;
 		if(!protectionActive)
-			PacketSendUtility.sendPacket(this, new SM_PLAYER_STATE(this, 0));
+		{
+			this.unsetVisualState(CreatureVisualState.BLINKING);
+			PacketSendUtility.broadcastPacket(this, new SM_PLAYER_STATE(this), true);
+		}
 	}
 
 	public MacroList getMacroList()
