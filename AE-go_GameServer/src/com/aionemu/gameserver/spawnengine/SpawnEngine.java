@@ -127,7 +127,6 @@ public class SpawnEngine
 			npcCounter++;
 		}
 
-		spawn.setSpawned(true, instanceIndex);
 		if(template instanceof NpcTemplate)
 		{
 			NpcType npcType = ((NpcTemplate)template).getNpcType();	

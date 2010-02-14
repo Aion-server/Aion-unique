@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.model.templates.spawn;
 
+import java.util.BitSet;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -51,11 +53,11 @@ public class SpawnTemplate
 	private float x;
 	
 	@XmlTransient
-	private byte spawnState = 0;
+	private BitSet spawnState = new BitSet();
 	@XmlTransient
-	private byte respawn = -1;
+	private BitSet respawn = new BitSet();
 	@XmlTransient
-	private byte restingState = 0;
+	private BitSet restingState = new BitSet();
 	
 	/**
 	 * Constructor used by unmarshaller
@@ -140,8 +142,7 @@ public class SpawnTemplate
 	 */
 	public boolean isResting(int instance)
 	{
-		int MASK = 1 << instance;
-		return (restingState & MASK) == MASK;
+		return restingState.get(instance);
 	}
 
 	/**
@@ -149,11 +150,7 @@ public class SpawnTemplate
 	 */
 	public void setResting(boolean isResting, int instance)
 	{
-		int MASK = 1 << instance;
-		if(isResting)
-			this.restingState |= MASK;
-		else
-			restingState &= ~MASK;
+		restingState.set(instance, isResting);
 	}
 
 	/**
@@ -161,8 +158,7 @@ public class SpawnTemplate
 	 */
 	public boolean isSpawned(int instance)
 	{
-		int MASK = 1 << instance;
-		return (spawnState & MASK) == MASK;
+		return spawnState.get(instance);
 	}
 
 	/**
@@ -170,11 +166,7 @@ public class SpawnTemplate
 	 */
 	public void setSpawned(boolean isSpawned, int instance)
 	{
-		int MASK = 1 << instance;
-		if(isSpawned)
-			this.spawnState |= MASK;
-		else
-			spawnState &= ~MASK;
+		spawnState.set(instance, isSpawned);
 
 	}
 
@@ -182,9 +174,8 @@ public class SpawnTemplate
 	 * @return the respawn
 	 */
 	public boolean isRespawn(int instance)
-	{
-		int MASK = 1 << instance;
-		return (respawn & MASK) == MASK;
+	{		
+		return respawn.get(instance);
 	}
 
 	/**
@@ -192,10 +183,6 @@ public class SpawnTemplate
 	 */
 	public void setRespawn(boolean respawn, int instance)
 	{
-		int MASK = 1 << instance;
-		if(respawn)
-			this.respawn |= MASK;
-		else
-			this.respawn &= ~MASK;
+		this.respawn.set(instance, respawn);
 	}
 }

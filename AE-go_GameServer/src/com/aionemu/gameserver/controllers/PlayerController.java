@@ -312,15 +312,14 @@ public class PlayerController extends CreatureController<Player>
 		final float y, final float z, final byte heading, final int delay)
 	{
 		final Player player = getOwner();
-		if(player.getActiveRegion() == null)
+		
+		if(delay == 0)
 		{
-			//debug
-			// TODO: return false ? 
+			changePosition(worldId, instanceId, x, y, z, heading);
+			return true;
 		}
-		if(delay != 0)
-		{
-			PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, 0, delay, 0, 0));
-		}
+
+		PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, 0, delay, 0, 0));
 		ThreadPoolManager.getInstance().schedule(new Runnable()
 		{
 			@Override
@@ -330,21 +329,37 @@ public class PlayerController extends CreatureController<Player>
 				{
 					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
 				}
-				World world = player.getActiveRegion().getWorld();
-				if (player.getInstanceId() != instanceId || player.getWorldId() != worldId)
-				{
-					world.getWorldMap(player.getWorldId()).getWorldMapInstanceById(player.getInstanceId()).removePlayer(player.getObjectId());
-					world.getWorldMap(worldId).getWorldMapInstanceById(instanceId).addPlayer(player.getObjectId());
-				}
-				world.despawn(player);
-				world.setPosition(player, worldId, instanceId,  x, y, z, heading);
-				player.setProtectionActive(true);
-				PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));	
-				PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));		
-			}
+				changePosition(worldId, instanceId, x, y, z, heading);		
+			}		
 		}, delay);
 
 		return true;
+	}
+	
+	/**
+	 * 
+	 * @param worldId
+	 * @param instanceId
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param heading
+	 */
+	private void changePosition(int worldId, int instanceId, float x, float y,
+		float z, byte heading)
+	{
+		Player player = getOwner();
+		World world = player.getActiveRegion().getWorld();
+		if (player.getInstanceId() != instanceId || player.getWorldId() != worldId)
+		{
+			world.getWorldMap(player.getWorldId()).getWorldMapInstanceById(player.getInstanceId()).removePlayer(player.getObjectId());
+			world.getWorldMap(worldId).getWorldMapInstanceById(instanceId).addPlayer(player.getObjectId());
+		}
+		world.despawn(player);
+		world.setPosition(player, worldId, instanceId,  x, y, z, heading);
+		player.setProtectionActive(true);
+		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));	
+		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
 	}
 
 	/**

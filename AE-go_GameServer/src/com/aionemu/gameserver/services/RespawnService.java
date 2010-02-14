@@ -70,11 +70,7 @@ public class RespawnService
 				int instanceId = visibleObject.getInstanceId();			
 				SpawnTemplate nextSpawn = visibleObject.getSpawn().getSpawnGroup().getNextAvailableTemplate(instanceId);	
 				if(nextSpawn != null)
-				{
-					nextSpawn.setSpawned(true, instanceId);
-					visibleObject.getSpawn().setSpawned(false, instanceId);
 					visibleObject.setSpawn(nextSpawn);
-				}	
 			}
 			
 		}, interval * 1000);

@@ -21,6 +21,8 @@ import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.Future;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -31,6 +33,8 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  */
 public class WorldMapScriptInstance extends WorldMapInstance
 {
+	private static Logger log = Logger.getLogger(WorldMapScriptInstance.class);
+	
 	private final HashSet<Integer> players = new HashSet<Integer>();
 	private final CopyOnWriteArraySet<VisibleObject>	allObjects	= new CopyOnWriteArraySet<VisibleObject>();
 	protected Future<?> destroy;
@@ -86,15 +90,22 @@ public class WorldMapScriptInstance extends WorldMapInstance
 		super.onLeave(object);
 		allObjects.remove(object);
 	}
-
+	
+	/**
+	 * Instance will be desctroyed
+	 * All players moved to bind location
+	 * All objects - deleted
+	 * 
+	 */
 	public void destroyInstance()
 	{
+		log.info("Destroying instance:" + getMapId() + " " + getInstanceId());
 		Iterator<VisibleObject> it = allObjects.iterator(); 
 		while(it.hasNext())
 		{
 			VisibleObject obj = it.next();
 			if (obj instanceof Player)
-				((Player)obj).getController().moveToBindLocation(false);
+				((Player)obj).getController().moveToBindLocation(true);
 			else
 			{
 				obj.getController().delete();
