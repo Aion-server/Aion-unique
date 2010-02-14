@@ -13,7 +13,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_ABYSS_RANK extends AionServerPacket {
 	
 	private AbyssRank rank;
-	
+
 	
 	public SM_ABYSS_RANK(AbyssRank rank)
 	{
@@ -26,15 +26,21 @@ public class SM_ABYSS_RANK extends AionServerPacket {
 		writeQ(buf, rank.getAp()); //curAP
         writeD(buf, rank.getRank().getId()); //curRank
         writeD(buf, 0); //curRating
-        writeD(buf, 0); //exp %
-        writeD(buf, 0); //allKill
-        writeD(buf, 1); //maxRank
+
+        writeD(buf, 100 * rank.getAp()/AbyssRank.AbyssRankTemplate.getTemplateById(rank.getRank().getId()+1).getRequired()); //exp %
+
+        writeD(buf, rank.getAllKill()); //allKill
+        writeD(buf, rank.getMaxRank()); //maxRank
+
         writeD(buf, 0); //dayKill
         writeQ(buf, 0); //dayAP
+
         writeD(buf, 0); //weekKill
         writeQ(buf, 0); //weekAP
+
         writeD(buf, 0); //laterKill
         writeQ(buf, 0); //laterAP
+
         writeC(buf, 0x00); //unk
 	}
 }

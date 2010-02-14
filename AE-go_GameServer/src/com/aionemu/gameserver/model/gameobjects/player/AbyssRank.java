@@ -28,12 +28,17 @@ public class AbyssRank
 	private AbyssRankTemplate rank;
 	
 	private PersistentState persistentState;
-	
-	public AbyssRank(int ap, int rank)
+    private int allKill;
+    private int maxRank;
+
+
+    public AbyssRank(int ap, int rank, int allKill, int maxRank)
 	{
 		super();
 		this.ap = ap;
 		this.rank = AbyssRankTemplate.getTemplateById(rank);
+        this.allKill = allKill;
+        this.maxRank = maxRank;
 	}
 	
 	public void addAp(int ap)
@@ -68,12 +73,37 @@ public class AbyssRank
 	{
 		return rank;
 	}
+
+    /**
+     * @return all Kill
+     */
+    public int getAllKill()
+    {
+        return allKill;
+    }
+
+    public void setAllKill()
+    {
+        this.allKill = allKill+1;
+    }
+
+    /**
+     * @return max Rank
+     */
+    public int getMaxRank()
+    {
+        return maxRank;
+    }
+
 	/**
 	 * @param rank the rank to set
 	 */
 	public void setRank(AbyssRankTemplate rank)
 	{
+        if(rank.getId() > this.rank.getId())
+            this.maxRank = rank.getId();
 		this.rank = rank;
+
 		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 	/**
@@ -96,8 +126,8 @@ public class AbyssRank
 			default:
 				this.persistentState = persistentState;
 		}
-	} 
-	
+	}
+
 	public enum AbyssRankTemplate
 	{
 		GRADE9_SOLDIER(1, 120, 40, 0),

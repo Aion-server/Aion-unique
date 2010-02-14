@@ -40,6 +40,7 @@ public class AbyssService
 		
 		victim.getAbyssRank().addAp(-pointsLost);
 		winner.getAbyssRank().addAp(pointsGained);
+        winner.getAbyssRank().setAllKill();
 		PacketSendUtility.sendPacket(victim, new SM_ABYSS_RANK(victim.getAbyssRank()));
 		PacketSendUtility.sendPacket(winner, new SM_ABYSS_RANK(winner.getAbyssRank()));
 		PacketSendUtility.sendPacket(winner, SM_SYSTEM_MESSAGE.EARNED_ABYSS_POINT(String.valueOf(pointsGained)));

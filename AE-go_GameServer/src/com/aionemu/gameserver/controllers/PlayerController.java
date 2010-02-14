@@ -371,7 +371,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void onDuelRequest(Player requester)
 	{
-		log.debug("[PvP] Player " + this.getOwner().getName() + " has been requested for a duel by "
+		log.debug("[Duel] Player " + this.getOwner().getName() + " has been requested for a duel by "
 			+ requester.getName());
 		RequestResponseHandler rrh = new RequestResponseHandler(requester){
 			@Override
@@ -400,12 +400,12 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void confirmDuelWith(Player target)
 	{
-		log.debug("[PvP] Player " + this.getOwner().getName() + " has to confirm his duel with " + target.getName());
+		log.debug("[Duel] Player " + this.getOwner().getName() + " has to confirm his duel with " + target.getName());
 		RequestResponseHandler rrh = new RequestResponseHandler(target){
 			@Override
 			public void denyRequest(Creature requester, Player responder)
 			{
-				log.debug("PvP] Player "+ responder.getName() + " confirmed his duel with "+requester.getName());
+				log.debug("[Duel] Player "+ responder.getName() + " confirmed his duel with "+requester.getName());
 			}
 
 			@Override
@@ -427,7 +427,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void rejectDuelRequest(Player requester)
 	{
-		log.debug("[PvP] Player " + this.getOwner().getName() + " rejected duel request from " + requester.getName());
+		log.debug("[Duel] Player " + this.getOwner().getName() + " rejected duel request from " + requester.getName());
 		requester.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_REJECTED_BY(this.getOwner().getName()));
 		this.getOwner().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_REJECT_DUEL_OF(requester.getName()));
 	}
@@ -439,7 +439,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void cancelDuelRequest(Player target)
 	{
-		log.debug("[PvP] Player " + this.getOwner().getName() + " cancelled his duel request with " + target.getName());
+		log.debug("[Duel] Player " + this.getOwner().getName() + " cancelled his duel request with " + target.getName());
 		target.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_BY(this.getOwner().getName()));
 		this.getOwner().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_WITH(target.getName()));
 	}
@@ -451,7 +451,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void startDuelWith(Player player)
 	{
-		log.debug("[PvP] Player " + this.getOwner().getName() + " start duel with " + player.getName());
+		log.debug("[Duel] Player " + this.getOwner().getName() + " start duel with " + player.getName());
 		PacketSendUtility.sendPacket(getOwner(), SM_DUEL.SM_DUEL_STARTED(player.getObjectId()));
 		lastAttacker = player;
 	}
@@ -463,7 +463,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void wonDuelWith(Player attacker)
 	{
-		log.debug("[PvP] Player " + attacker.getName() + " won duel against " + this.getOwner().getName());
+		log.debug("[Duel] Player " + attacker.getName() + " won duel against " + this.getOwner().getName());
 		PacketSendUtility.sendPacket(getOwner(), SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_WON,attacker.getName()));
 	}
 
@@ -474,7 +474,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void lostDuelWith(Player attacker)
 	{
-		log.debug("[PvP] Player " + attacker.getName() + " lost duel against " + this.getOwner().getName());
+		log.debug("[Duel] Player " + attacker.getName() + " lost duel against " + this.getOwner().getName());
 		PacketSendUtility.sendPacket(getOwner(), SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_LOST,attacker.getName()));
 		PlayerLifeStats pls = getOwner().getLifeStats();
 		getOwner().setLifeStats(new PlayerLifeStats(getOwner(), 1, pls.getCurrentMp()));

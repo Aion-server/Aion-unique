@@ -36,9 +36,9 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 public class MySQL5AbyssRankDAO extends AbyssRankDAO
 {
 
-	public static final String SELECT_QUERY = "SELECT `ap`, `rank` FROM `abyss_rank` WHERE `player_id`=?";
-	public static final String INSERT_QUERY = "INSERT INTO `abyss_rank` (`player_id`, `ap`, `rank`) VALUES(?,?,?)";
-	public static final String UPDATE_QUERY = "UPDATE abyss_rank SET  ap=?, rank=? WHERE player_id=?";
+	public static final String SELECT_QUERY = "SELECT `ap`, `rank`, `all_kill`, `max_rank` FROM `abyss_rank` WHERE `player_id`=?";
+	public static final String INSERT_QUERY = "INSERT INTO `abyss_rank` (`player_id`, `ap`, `rank`, `all_kill`, `max_rank`) VALUES(?,?,?,?,?)";
+	public static final String UPDATE_QUERY = "UPDATE abyss_rank SET  ap=?, rank=?, all_kill=?, max_rank=? WHERE player_id=?";
 	
 	@Override
 	public void loadAbyssRank(final Player player)
@@ -58,14 +58,15 @@ public class MySQL5AbyssRankDAO extends AbyssRankDAO
 				{
 					int ap = rset.getInt("ap");
 					int rank = rset.getInt("rank");
-
-					AbyssRank abyssRank = new AbyssRank(ap, rank);
+                    int all_kill = rset.getInt("all_kill");
+                    int max_rank = rset.getInt("max_rank");
+					AbyssRank abyssRank = new AbyssRank(ap, rank, all_kill, max_rank);
 					abyssRank.setPersistentState(PersistentState.UPDATED);
 					player.setAbyssRank(abyssRank);
 				}
 				else
 				{
-					AbyssRank abyssRank = new AbyssRank(0, 1);
+					AbyssRank abyssRank = new AbyssRank(0, 1, 0, 1);
 					abyssRank.setPersistentState(PersistentState.NEW);
 					player.setAbyssRank(abyssRank);
 				}
@@ -101,7 +102,9 @@ public class MySQL5AbyssRankDAO extends AbyssRankDAO
 				stmt.setInt(1, objectId);
 				stmt.setInt(2, rank.getAp());
 				stmt.setInt(3, rank.getRank().getId());
-				stmt.execute();
+				stmt.setInt(4, rank.getAllKill());
+                stmt.setInt(5, rank.getMaxRank());
+                stmt.execute();
 			}
 		});
 	}
@@ -119,8 +122,10 @@ public class MySQL5AbyssRankDAO extends AbyssRankDAO
 			{
 				stmt.setInt(1, rank.getAp());
 				stmt.setInt(2, rank.getRank().getId());
-				stmt.setInt(3, objectId);
-				stmt.execute();
+                stmt.setInt(3, rank.getAllKill());
+                stmt.setInt(4, rank.getMaxRank());
+				stmt.setInt(5, objectId);
+                stmt.execute();
 			}
 		});
 	}

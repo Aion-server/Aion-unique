@@ -204,12 +204,8 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeC(buf, playerAppearance.getVoice());
 
         writeF(buf, playerAppearance.getHeight());
-
-        unk = new byte[]{(byte) 0x00, (byte) 0x00, (byte) 0x80, (byte) 0x3E, (byte) 0x00, (byte) 0x00, (byte) 0x00,
-                (byte) 0x40
-        };
-        writeB(buf, unk);
-
+        writeF(buf, 0.25f); //scale
+        writeF(buf, 2.0f); //gravity or slide surface o_O
         writeF(buf, player.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000f); // move speed
 
         writeH(buf, player.getGameStats().getCurrentStat(StatEnum.ATTACK_SPEED));
