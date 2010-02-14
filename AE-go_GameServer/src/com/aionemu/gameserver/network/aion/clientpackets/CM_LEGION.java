@@ -389,6 +389,7 @@ public class CM_LEGION extends AionClientPacket
 					else if(legionService.storeNewLegion(legion))
 					{
 						log.debug("[CM_LEGION] Legion has been created!.");
+						activePlayer.getInventory().decreaseKinah(LegionConfig.LEGION_CREATE_REQUIRED_KINAH);
 						/** Send the packets that contain legion info to legion leader **/
 						sendLegionCreationInfo(activePlayer, legion);
 					}
