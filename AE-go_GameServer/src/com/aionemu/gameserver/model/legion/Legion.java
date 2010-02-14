@@ -142,7 +142,7 @@ public class Legion
 	}
 
 	/**
-	 * @return the legionMembers
+	 * @return the online legionMembers
 	 */
 	public ArrayList<Player> getOnlineLegionMembers(World world)
 	{
