@@ -103,7 +103,7 @@ public class _1006Ascension extends QuestHandler
 			{
 				qs.getQuestVars().setQuestVar(4);
 				updateQuestStatus(player, qs);
-				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211043, (float) 226.7, (float) 251.5, (float) 205.5, (byte) 0, false);
+				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211043, (float) 226.7, (float) 251.5, (float) 205.5, (byte) 0, true);
 				// TODO: Tempt decrease P attack.
 				mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER) / 3);
 				mob.getAggroList().addDamageHate(player, 1000, 0);
@@ -159,7 +159,7 @@ public class _1006Ascension extends QuestHandler
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
 							WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstance(310010000);
-							newInstance.setDestroyTime(60 * 20);
+							newInstance.setDestroyTime(60 * 5);
 							player.getController().teleportTo(310010000, newInstance.getInstanceId(), 52, 174, 229, 0);
 							return true;
 						}
@@ -249,10 +249,10 @@ public class _1006Ascension extends QuestHandler
 									qs.getQuestVars().setQuestVar(51);
 									updateQuestStatus(player, qs);
 									List<Monster> mobs = new ArrayList<Monster>();
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 224.073, (float) 239.1, (float) 206.7, (byte) 0, false));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 233.5, (float) 241.04, (float) 206.365, (byte) 0, false));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 229.6, (float) 265.7, (float) 205.7, (byte) 0, false));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 222.8, (float) 262.5, (float) 205.7, (byte) 0, false));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 224.073, (float) 239.1, (float) 206.7, (byte) 0, true));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 233.5, (float) 241.04, (float) 206.365, (byte) 0, true));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 229.6, (float) 265.7, (float) 205.7, (byte) 0, true));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 222.8, (float) 262.5, (float) 205.7, (byte) 0, true));
 									for(Npc mob : mobs)
 									{
 										// TODO: Tempt decrease P attack.
@@ -354,7 +354,7 @@ public class _1006Ascension extends QuestHandler
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null || qs.getStatus() != QuestStatus.START || qs.getQuestVars().getQuestVars() != 4)
 			return false;
-		QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 790001, (float) 220.6, (float) 247.8, (float) 206.0, (byte) 0, false);
+		QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 790001, (float) 220.6, (float) 247.8, (float) 206.0, (byte) 0, true);
 		qs.getQuestVars().setQuestVar(5);
 		updateQuestStatus(player, qs);
 		return true;

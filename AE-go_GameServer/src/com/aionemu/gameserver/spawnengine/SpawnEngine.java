@@ -214,12 +214,12 @@ public class SpawnEngine
 	 * @param heading
 	 * @param walkerid
 	 * @param randomwalk
-	 * @param respawn
+	 * @param noRespawn
 	 * @return
 	 */
-	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk, boolean respawn)
+	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk, boolean noRespawn)
 	{
-		return this.addNewSpawn(worldId, instanceId, objectId, x, y, z, heading, walkerid, randomwalk, respawn, false);
+		return this.addNewSpawn(worldId, instanceId, objectId, x, y, z, heading, walkerid, randomwalk, noRespawn, false);
 	}
 
 	/**
@@ -233,13 +233,13 @@ public class SpawnEngine
 	 * @param heading
 	 * @param walkerid
 	 * @param randomwalk
-	 * @param respawn
+	 * @param noRespawn
 	 * @param isNewSpawn
 	 * @return
 	 */
 	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, 
 		float x, float y, float z, byte heading, int walkerid, int randomwalk,
-		boolean respawn, boolean isNewSpawn)
+		boolean noRespawn, boolean isNewSpawn)
 	{
 		SpawnTemplate spawnTemplate = createSpawnTemplate(worldId, objectId, x, y, z, heading, walkerid, randomwalk);
 
@@ -249,12 +249,12 @@ public class SpawnEngine
 			return null;
 		}
 
-		if(respawn)
+		if(!noRespawn)
 		{
 			spawnsData.addNewSpawnGroup(spawnTemplate.getSpawnGroup(), worldId, objectId, isNewSpawn);
 		}
 
-		spawnTemplate.setRespawn(respawn, instanceId);	
+		spawnTemplate.setNoRespawn(noRespawn, instanceId);	
 
 		return spawnTemplate;
 	}

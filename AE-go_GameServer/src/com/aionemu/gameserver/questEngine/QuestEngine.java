@@ -318,9 +318,9 @@ public class QuestEngine
 		itemService.addItem(player, itemId, count, false);
 	}
 
-	public VisibleObject addNewSpawn(int worldId, int instanceId, int templateId, float x, float y, float z, byte heading, boolean respawn)
+	public VisibleObject addNewSpawn(int worldId, int instanceId, int templateId, float x, float y, float z, byte heading, boolean noRespawn)
 	{
-		SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, instanceId, templateId, x, y, z, heading, 0, 0, respawn);
+		SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, instanceId, templateId, x, y, z, heading, 0, 0, noRespawn);
 		return spawnEngine.spawnObject(spawn, instanceId);
 	}
 

@@ -83,7 +83,7 @@ public class NpcController extends CreatureController<Npc>
 			decayTask = DecayService.getInstance().scheduleDecayTask(this.getOwner());
 		}		
 		int instanceId = getOwner().getInstanceId();
-		if(getOwner().getSpawn().isRespawn(instanceId))
+		if(!getOwner().getSpawn().isNoRespawn(instanceId))
 		{
 			RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
 		}

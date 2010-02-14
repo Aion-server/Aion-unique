@@ -51,17 +51,18 @@ public class RespawnService
 				}
 				
 				int instanceId = visibleObject.getInstanceId();
-				if(visibleObject.getSpawn().isRespawn(instanceId))
+				//TODO remove this if/else
+				if(visibleObject.getSpawn().isNoRespawn(instanceId))
+				{
+					visibleObject.getController().delete();				
+				}
+				else
 				{
 					exchangeSpawnTemplate(visibleObject);		
 					world.setPosition(visibleObject, visibleObject.getSpawn().getWorldId(), visibleObject.getSpawn().getX(), visibleObject.getSpawn().getY(), visibleObject.getSpawn().getZ(), visibleObject.getSpawn().getHeading());
 					//call onRespawn before actual spawning
 					visibleObject.getController().onRespawn();
 					world.spawn(visibleObject);		
-				}
-				else
-				{
-					visibleObject.getController().delete();
 				}				
 			}
 

@@ -66,10 +66,10 @@ public class SpawnNpc extends AdminCommand
             return;
         }
         
-        boolean respawn = true;
+        boolean noRespawn = false;
         
         if(params.length == 2 && "norespawn".equalsIgnoreCase(params[1]))
-        	respawn = false;
+        	noRespawn = true;
 
         int templateId = Integer.parseInt(params[0]);
         float x = admin.getX();
@@ -78,7 +78,7 @@ public class SpawnNpc extends AdminCommand
         byte heading = admin.getHeading();
         int worldId = admin.getWorldId();
 
-        SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, 1, templateId, x, y, z, heading, 0, 0, respawn, true);
+        SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, 1, templateId, x, y, z, heading, 0, 0, noRespawn, true);
 
         if (spawn == null)
         {

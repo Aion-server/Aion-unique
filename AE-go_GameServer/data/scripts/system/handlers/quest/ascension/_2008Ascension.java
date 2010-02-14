@@ -100,7 +100,7 @@ public class _2008Ascension extends QuestHandler
 			{
 				qs.getQuestVars().setQuestVar(5);
 				updateQuestStatus(player, qs);
-				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205041, 301f, 259f, 205.5f, (byte) 0, false);
+				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205041, 301f, 259f, 205.5f, (byte) 0, true);
 				// TODO: Tempt decrease P attack.
 				mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER) / 3);
 				(mob).getAggroList().addDamageHate(player, 1000, 0);
@@ -301,10 +301,10 @@ public class _2008Ascension extends QuestHandler
 									qs.getQuestVars().setQuestVar(51);
 									updateQuestStatus(player, qs);
 									List<Monster> mobs = new ArrayList<Monster>();
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 294f, 277f, 207f, (byte) 0, false));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 305f, 279f, 206.5f, (byte) 0, false));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 298f, 253f, 205.7f, (byte) 0, false));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 306f, 251f, 206f, (byte) 0, false));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 294f, 277f, 207f, (byte) 0, true));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 305f, 279f, 206.5f, (byte) 0, true));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 298f, 253f, 205.7f, (byte) 0, true));
+									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 306f, 251f, 206f, (byte) 0, true));
 									for(Monster mob : mobs)
 									{
 										// TODO: Tempt decrease P attack.
@@ -386,7 +386,7 @@ public class _2008Ascension extends QuestHandler
 		if(qs == null || qs.getStatus() != QuestStatus.START || qs.getQuestVars().getQuestVars() != 5)
 			return false;
 		int instanceId = player.getInstanceId();
-		QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 203550, 301.92999f, 274.26001f, 205.7f, (byte) 0, false);
+		QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 203550, 301.92999f, 274.26001f, 205.7f, (byte) 0, true);
 		qs.getQuestVars().setQuestVar(6);
 		updateQuestStatus(player, qs);
 		return true;

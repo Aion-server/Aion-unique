@@ -55,7 +55,7 @@ public class SpawnTemplate
 	@XmlTransient
 	private BitSet spawnState = new BitSet();
 	@XmlTransient
-	private BitSet respawn = new BitSet();
+	private BitSet noRespawn = new BitSet();
 	@XmlTransient
 	private BitSet restingState = new BitSet();
 	
@@ -171,18 +171,19 @@ public class SpawnTemplate
 	}
 
 	/**
-	 * @return the respawn
+	 * @param instance
+	 * @return
 	 */
-	public boolean isRespawn(int instance)
+	public boolean isNoRespawn(int instance)
 	{		
-		return respawn.get(instance);
+		return noRespawn.get(instance);
 	}
 
 	/**
-	 * @param respawn the respawn to set
+	 * @param noRespawn the respawn to set
 	 */
-	public void setRespawn(boolean respawn, int instance)
+	public void setNoRespawn(boolean noRespawn, int instance)
 	{
-		this.respawn.set(instance, respawn);
+		this.noRespawn.set(instance, noRespawn);
 	}
 }
