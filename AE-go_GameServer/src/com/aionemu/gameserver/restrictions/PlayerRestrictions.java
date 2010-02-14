@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.restrictions;
 
+import com.aionemu.gameserver.ShutdownHook;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -30,6 +31,18 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class PlayerRestrictions extends AbstractRestrictions
 {
 	@Override
+	public boolean canAttack(Player player, VisibleObject target)
+	{
+		if(ShutdownHook.isInProgress())
+		{
+			PacketSendUtility.sendMessage(player, "You cannot attack in Shutdown progress!");
+			return false;
+		}
+		
+		return true;
+	}
+	
+	@Override
 	public boolean canUseSkill(Player player, VisibleObject target)
 	{
 		if(((Creature) target).getLifeStats().isAlreadyDead())
@@ -39,7 +52,25 @@ public class PlayerRestrictions extends AbstractRestrictions
 		}
 		// TODO: We have to add the exception skills, 
 		// what's can be used on dead target.
-
+		
+		if(ShutdownHook.isInProgress())
+		{
+			PacketSendUtility.sendMessage(player, "You cannot use skills in Shutdown progress!");
+			return false;
+		}
+		
+		return true;
+	}
+	
+	@Override
+	public boolean canChat(Player player)
+	{
+		if(ShutdownHook.isInProgress())
+		{
+			PacketSendUtility.sendMessage(player, "You cannot chat in Shutdown progress!");
+			return false;
+		}
+		
 		return true;
 	}
 	
@@ -86,6 +117,12 @@ public class PlayerRestrictions extends AbstractRestrictions
 		else if(target.getPlayerGroup() != null)
 		{
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.PLAYER_IN_ANOTHER_GROUP(target.getName()));
+			return false;
+		}
+		
+		if(ShutdownHook.isInProgress())
+		{
+			PacketSendUtility.sendMessage(player, "You cannot invite members to group in Shutdown progress!");
 			return false;
 		}
 		

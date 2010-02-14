@@ -20,27 +20,29 @@ import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Injector;
 
 /**
- * This task is run, when server is shutting down. We should do here all data saving etc.
- * 
- * @author Luno, xavier
+ * @author lord_rex
  * 
  */
-public class ShutdownHook implements Runnable
+public class ShutdownHook extends Thread
 {
-	private static final Logger	log	= Logger.getLogger(ShutdownHook.class);
-	private World				world;
-	private PlayerService		playerService;
-	private LoginServer			loginServer;
+	private static final Logger		log		= Logger.getLogger(ShutdownHook.class);
+
+	private static ShutdownMode		mode	= ShutdownMode.NONE;
+	private static ShutdownHook		hookInstance;
+
+	private static World			world;
+	private static PlayerService	playerService;
+	private static LoginServer		loginServer;
 
 	public ShutdownHook(Injector injector)
 	{
@@ -49,59 +51,111 @@ public class ShutdownHook implements Runnable
 		loginServer = injector.getInstance(LoginServer.class);
 	}
 
-	private boolean broadcastShutdownMessage(int duration, int interval)
+	public static ShutdownHook getInstance(Injector injector)
 	{
-		for(int i = duration; i >= interval; i -= interval)
-		{
-			Iterator<Player> onlinePlayers = world.getPlayersIterator();
-			if(!onlinePlayers.hasNext())
-			{
-				return false;
-			}
-			while(onlinePlayers.hasNext())
-			{
-				Player onlinePlayer = onlinePlayers.next();
-				onlinePlayer.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(i));
-			}
-			try
-			{
-				if(i > interval)
-				{
-					Thread.sleep(interval * 1000);
-				}
-				else
-				{
-					Thread.sleep(1000);
-				}
-			}
-			catch(InterruptedException e)
-			{
-				return false;
-			}
-		}
-		return true;
+		if(hookInstance == null)
+			hookInstance = new ShutdownHook(injector);
+
+		return hookInstance;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
+	public static enum ShutdownMode
+	{
+		NONE("terminating"),
+		SHUTDOWN("shutting down"),
+		RESTART("restarting");
+
+		private final String	text;
+
+		private ShutdownMode(String text)
+		{
+			this.text = text;
+		}
+
+		private String getText()
+		{
+			return text;
+		}
+	}
+
 	@Override
 	public void run()
 	{
-		Iterator<Player> onlinePlayers;
-		
-		log.info("Starting AE GS shutdown sequence");
-		loginServer.gameServerDisconnected();
-		
-		broadcastShutdownMessage(Config.SERVER_SHUTDOWN_DELAY,10);
-		broadcastShutdownMessage(9,1);
-		
-		onlinePlayers = world.getPlayersIterator();
-		while (onlinePlayers.hasNext()) {
-			Player activePlayer = onlinePlayers.next();
-			playerService.playerLoggedOut(activePlayer);
+		if(this == hookInstance)
+			shutdownHook(mode);
+	}
+
+	private static void sendShutdownMessage(int seconds)
+	{
+		Iterator<Player> onlinePlayers = world.getPlayersIterator();
+		if(!onlinePlayers.hasNext())
+			return;
+		while(onlinePlayers.hasNext())
+			onlinePlayers.next().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(seconds));
+	}
+
+	private static void shutdownHook(ShutdownMode mode)
+	{
+		try
+		{
+			loginServer.gameServerDisconnected();
+			log.info("LoginServer: Disconnected from Login Server...");
 		}
-		
-		GameTimeManager.saveTime();
+		catch(Throwable t)
+		{
+			t.printStackTrace();
+		}
+
+		Iterator<Player> onlinePlayers = world.getPlayersIterator();
+		while(onlinePlayers.hasNext())
+		{
+			playerService.playerLoggedOut(onlinePlayers.next());
+			log.info("PlayerService: All players are disconnected...");
+		}
+
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+
+		try
+		{
+			GameTimeManager.saveTime();
+			log.info("GameTimeManager: Game time saved...");
+		}
+		catch(Throwable t)
+		{
+			t.printStackTrace();
+		}
+
+		log.info("Server is " + mode.getText() + " NOW!");
+
+		if(mode == ShutdownMode.RESTART)
+			Runtime.getRuntime().halt(1);
+		else
+			Runtime.getRuntime().halt(0);
+	}
+
+	public static void doShutdown(String initiator, int seconds, final ShutdownMode mode)
+	{
+		log.warn(initiator + " issued shutdown command: " + mode.getText() + " in " + seconds + " seconds!");
+		sendShutdownMessage(seconds);
+		ThreadPoolManager.getInstance().schedule(new Runnable(){
+			@Override
+			public void run()
+			{
+				ShutdownHook.mode = mode;
+				shutdownHook(mode);
+			}
+		}, seconds * 1000);
+	}
+
+	public static boolean isInProgress()
+	{
+		return hookInstance != null;
 	}
 }

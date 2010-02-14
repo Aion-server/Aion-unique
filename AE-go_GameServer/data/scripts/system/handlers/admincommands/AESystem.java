@@ -20,6 +20,8 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.aionemu.gameserver.ShutdownHook;
+import com.aionemu.gameserver.ShutdownHook.ShutdownMode;
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -31,6 +33,8 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  * @param //system info - System Informations
  * @param //system memory - Memory Informations
  * @param //system gc - Garbage Collector
+ * @param //system shutdown <seconds> - Shutdowner
+ * @param //system restart <seconds> - Restarter
  */
 public class AESystem extends AdminCommand
 {
@@ -75,6 +79,18 @@ public class AESystem extends AdminCommand
          System.runFinalization();
          PacketSendUtility.sendMessage(admin, "RAM Used (Final): " + ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1048576));
          PacketSendUtility.sendMessage(admin, "Garbage Collection and Finalization finished in: " + (System.currentTimeMillis() - time) + " milliseconds...");
+      }
+      else if (params[0].equals("shutdown"))
+      {
+    	  int val = Integer.parseInt(params[1]);
+    	  ShutdownHook.doShutdown(admin.getName(), val, ShutdownMode.SHUTDOWN);
+    	  PacketSendUtility.sendMessage(admin, "Server will be shutdown in " + val + " seconds.");
+      }
+      else if (params[0].equals("restart"))
+      {
+    	  int val = Integer.parseInt(params[1]);
+    	  ShutdownHook.doShutdown(admin.getName(), val, ShutdownMode.RESTART);
+    	  PacketSendUtility.sendMessage(admin, "Server will be restart in " + val + " seconds.");
       }
    }
    
