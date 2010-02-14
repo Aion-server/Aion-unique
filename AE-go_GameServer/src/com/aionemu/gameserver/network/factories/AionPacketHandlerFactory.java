@@ -79,6 +79,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_QUESTION_RESPONSE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_RECONNECT_AUTH;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_REMOVE_ALTERED_STATE;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_REPLACE_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_RESTORE_CHARACTER;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_REVIVE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SET_GUILD_DESCR;
@@ -158,6 +159,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_CHAT_MESSAGE_WHISPER(0x82), State.IN_GAME);// 1.5.x
 		addPacket(new CM_CHAT_MESSAGE_PUBLIC(0x81), State.IN_GAME);
 		addPacket(new CM_CHARACTER_LIST(0x0C), State.AUTHED);
+		addPacket(new CM_REPLACE_ITEM(0x18), State.IN_GAME);
 		addPacket(new CM_BLOCK_SET_REASON(0x19), State.IN_GAME);
 		addPacket(new CM_BLOCK_DEL(0x1D), State.IN_GAME);
 		addPacket(new CM_BLOCK_ADD(0x1C), State.IN_GAME);

@@ -287,6 +287,32 @@ public class ItemService
 		else return; // cant happen in theory, but...
 	}
 
+	public void switchStoragesItems(Player player, int sourceStorageType, int sourceItemObjId, int replaceStorageType, int replaceItemObjId)
+	{
+		Storage sourceStorage = player.getStorage(sourceStorageType);
+		Storage replaceStorage = player.getStorage(replaceStorageType);
+
+		Item sourceItem = sourceStorage.getItemByObjId(sourceItemObjId);
+		if(sourceItem == null)
+			return;
+
+		Item replaceItem = replaceStorage.getItemByObjId(replaceItemObjId);
+		if(replaceItem == null)
+			return;
+
+		sourceStorage.removeFromBag(sourceItem, false);
+		Item newSourceItem = sourceStorage.putToBag(replaceItem);
+
+		replaceStorage.removeFromBag(replaceItem, false);
+		Item newReplaceItem = replaceStorage.putToBag(sourceItem);
+
+		sendDeleteItemPacket(player, sourceStorageType, sourceItemObjId);
+		sendStorageUpdatePacket(player, sourceStorageType, newSourceItem);
+
+		sendDeleteItemPacket(player, replaceStorageType, replaceItemObjId);
+		sendStorageUpdatePacket(player, replaceStorageType, newReplaceItem);
+	}
+
 	/**
 	 *  Adds item count to player inventory
 	 *  I moved this method to service cause right implementation of it is critical to server
@@ -475,8 +501,8 @@ public class ItemService
 	 *  
 	 * @param item
 	 */
-	 public void releaseItemId(Item item)
+	public void releaseItemId(Item item)
 	{
-		 aionObjectsIDFactory.releaseId(item.getObjectId());
+		aionObjectsIDFactory.releaseId(item.getObjectId());
 	}
 }
