@@ -80,6 +80,8 @@ public class PlayerController extends CreatureController<Player>
 
 	// TEMP till player AI introduced
 	private Creature		lastAttacker;
+	
+	private boolean isInShutdownProgress;
 
 	/**
 	 * @return the lastAttacker
@@ -600,5 +602,15 @@ public class PlayerController extends CreatureController<Player>
 	public void updateNearbyQuestListImpl()
 	{
 		PacketSendUtility.sendPacket(getOwner(), new SM_NEARBY_QUESTS(getOwner().getNearbyQuests()));
+	}
+	
+	public boolean isInShutdownProgress()
+	{
+		return isInShutdownProgress;
+	}
+	
+	public void setInShutdownProgress(boolean isInShutdownProgress)
+	{
+		this.isInShutdownProgress = isInShutdownProgress;
 	}
 }

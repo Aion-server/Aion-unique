@@ -94,6 +94,15 @@ public class ShutdownHook extends Thread
 			onlinePlayers.next().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(seconds));
 	}
 
+	private static void sendShutdownStatus()
+	{
+		Iterator<Player> onlinePlayers = world.getPlayersIterator();
+		if(!onlinePlayers.hasNext())
+			return;
+		while(onlinePlayers.hasNext())
+			onlinePlayers.next().getController().setInShutdownProgress(true);
+	}
+
 	private static void shutdownHook(ShutdownMode mode)
 	{
 		try
@@ -144,6 +153,7 @@ public class ShutdownHook extends Thread
 	{
 		log.warn(initiator + " issued shutdown command: " + mode.getText() + " in " + seconds + " seconds!");
 		sendShutdownMessage(seconds);
+		sendShutdownStatus();
 		ThreadPoolManager.getInstance().schedule(new Runnable(){
 			@Override
 			public void run()
@@ -152,10 +162,5 @@ public class ShutdownHook extends Thread
 				shutdownHook(mode);
 			}
 		}, seconds * 1000);
-	}
-
-	public static boolean isInProgress()
-	{
-		return hookInstance != null;
 	}
 }
