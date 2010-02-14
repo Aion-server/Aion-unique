@@ -144,7 +144,7 @@ public class ShutdownHook extends Thread
 		log.info("Server is " + mode.getText() + " NOW!");
 
 		if(mode == ShutdownMode.RESTART)
-			Runtime.getRuntime().halt(1);
+			Runtime.getRuntime().halt(2);
 		else
 			Runtime.getRuntime().halt(0);
 	}
