@@ -36,6 +36,7 @@ import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.group.PlayerGroup;
+import com.aionemu.gameserver.model.legion.LegionMember;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
@@ -56,41 +57,43 @@ import com.aionemu.gameserver.world.zone.ZoneInstance;
  */
 public class Player extends Creature
 {
-	private PlayerAppearance	playerAppearance;
-	private PlayerCommonData	playerCommonData;
-	private MacroList			macroList;
-	private SkillList			skillList;
-	private FriendList			friendList;
-	private BlockList			blockList;
-	private ResponseRequester	requester;
-	private boolean				lookingForGroup	= false;
-	private Storage                         inventory;
-	private Storage                         regularWarehouse;
-	private Storage                         accountWarehouse;
-	private SortedMap<Integer, Item>        equipment = Collections.synchronizedSortedMap(new TreeMap<Integer, Item>());
-	private PlayerStore			store;
-	private PlayerStatsTemplate	playerStatsTemplate;
-	private TitleList			titleList;
-	private PlayerSettings		playerSettings;
+	private PlayerAppearance			playerAppearance;
+	private PlayerCommonData			playerCommonData;
+	private LegionMember				legionMember;
+	private MacroList					macroList;
+	private SkillList					skillList;
+	private FriendList					friendList;
+	private BlockList					blockList;
+	private ResponseRequester			requester;
+	private boolean						lookingForGroup	= false;
+	private Storage						inventory;
+	private Storage						regularWarehouse;
+	private Storage						accountWarehouse;
+	private SortedMap<Integer, Item>	equipment		= Collections
+															.synchronizedSortedMap(new TreeMap<Integer, Item>());
+	private PlayerStore					store;
+	private PlayerStatsTemplate			playerStatsTemplate;
+	private TitleList					titleList;
+	private PlayerSettings				playerSettings;
 
-	private QuestStateList		questStateList;
-	private List<Integer>		nearbyQuestList	= new ArrayList<Integer>();
-	private ZoneInstance		zoneInstance;
-	private PlayerGroup			playerGroup;
-	private AbyssRank			abyssRank;
+	private QuestStateList				questStateList;
+	private List<Integer>				nearbyQuestList	= new ArrayList<Integer>();
+	private ZoneInstance				zoneInstance;
+	private PlayerGroup					playerGroup;
+	private AbyssRank					abyssRank;
 
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
-	private boolean				protectionActive;
+	private boolean						protectionActive;
 
 	/**
 	 * Connection of this Player.
 	 */
-	private AionConnection		clientConnection;
+	private AionConnection				clientConnection;
 
 	public Player(PlayerController controller, PlayerCommonData plCommonData, PlayerAppearance appereance)
 	{
 		super(plCommonData.getPlayerObjId(), controller, null, null, plCommonData.getPosition());
-		//TODO may be pcd->visibleObjectTemplate ?
+		// TODO may be pcd->visibleObjectTemplate ?
 		this.playerCommonData = plCommonData;
 		this.playerAppearance = appereance;
 
@@ -380,12 +383,12 @@ public class Player extends Creature
 		{
 			if(obj instanceof Npc)
 			{
-				for (int questId : QuestEngine.getInstance().getNpcQuestData(((Npc)obj).getNpcId()).getOnQuestStart())
+				for(int questId : QuestEngine.getInstance().getNpcQuestData(((Npc) obj).getNpcId()).getOnQuestStart())
 				{
 					QuestEnv env = new QuestEnv(obj, this, questId, 0);
-					if (QuestEngine.getInstance().getQuest(env).checkStartCondition())
+					if(QuestEngine.getInstance().getQuest(env).checkStartCondition())
 					{
-						if (!nearbyQuestList.contains(questId))
+						if(!nearbyQuestList.contains(questId))
 						{
 							nearbyQuestList.add(questId);
 						}
@@ -450,71 +453,74 @@ public class Player extends Creature
 	 * @param CubeUpgrade
 	 *            int Sets the cubesize
 	 */
-	 public void setCubesize(int cubesize)
+	public void setCubesize(int cubesize)
 	{
 		this.playerCommonData.setCubesize(cubesize);
 	}
 
-	 /**
-	  * @return the playerSettings
-	  */
-	 public PlayerSettings getPlayerSettings()
-	 {
-		 return playerSettings;
-	 }
+	/**
+	 * @return the playerSettings
+	 */
+	public PlayerSettings getPlayerSettings()
+	{
+		return playerSettings;
+	}
 
-	 /**
-	  * @param playerSettings the playerSettings to set
-	  */
-	 public void setPlayerSettings(PlayerSettings playerSettings)
-	 {
-		 this.playerSettings = playerSettings;
-	 }
+	/**
+	 * @param playerSettings
+	 *            the playerSettings to set
+	 */
+	public void setPlayerSettings(PlayerSettings playerSettings)
+	{
+		this.playerSettings = playerSettings;
+	}
 
-	 /**
-	  * @return the zoneInstance
-	  */
-	 public ZoneInstance getZoneInstance()
-	 {
-		 return zoneInstance;
-	 }
+	/**
+	 * @return the zoneInstance
+	 */
+	public ZoneInstance getZoneInstance()
+	{
+		return zoneInstance;
+	}
 
-	 /**
-	  * @param zoneInstance the zoneInstance to set
-	  */
-	 public void setZoneInstance(ZoneInstance zoneInstance)
-	 {
-		 this.zoneInstance = zoneInstance;
-	 }
+	/**
+	 * @param zoneInstance
+	 *            the zoneInstance to set
+	 */
+	public void setZoneInstance(ZoneInstance zoneInstance)
+	{
+		this.zoneInstance = zoneInstance;
+	}
 
-	 public TitleList getTitleList()
-	 {
-		 return titleList;
-	 }
+	public TitleList getTitleList()
+	{
+		return titleList;
+	}
 
-	 public void setTitleList(TitleList titleList)
-	 {
-		 this.titleList = titleList;
-		 titleList.setOwner(this);
-	 }
+	public void setTitleList(TitleList titleList)
+	{
+		this.titleList = titleList;
+		titleList.setOwner(this);
+	}
 
-	 /**
-	  * @return the playerGroup
-	  */
-	 public PlayerGroup getPlayerGroup()
-	 {
-		 return playerGroup;
-	 }
+	/**
+	 * @return the playerGroup
+	 */
+	public PlayerGroup getPlayerGroup()
+	{
+		return playerGroup;
+	}
 
-	 /**
-	  * @param playerGroup the playerGroup to set
-	  */
-	 public void setPlayerGroup(PlayerGroup playerGroup)
-	 {
-		 this.playerGroup = playerGroup;
-	 }
+	/**
+	 * @param playerGroup
+	 *            the playerGroup to set
+	 */
+	public void setPlayerGroup(PlayerGroup playerGroup)
+	{
+		this.playerGroup = playerGroup;
+	}
 
-	 /**
+	/**
 	 * @return the abyssRank
 	 */
 	public AbyssRank getAbyssRank()
@@ -523,7 +529,8 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @param abyssRank the abyssRank to set
+	 * @param abyssRank
+	 *            the abyssRank to set
 	 */
 	public void setAbyssRank(AbyssRank abyssRank)
 	{
@@ -531,35 +538,64 @@ public class Player extends Creature
 	}
 
 	@Override
-	 public void initializeAi()
-	 {
-		 // TODO Auto-generated method stub
-	 }
+	public void initializeAi()
+	{
+		// TODO Auto-generated method stub
+	}
 
-	 /**
-	  * This method is called when player logs into the game. It's main responsibility is to call all registered
-	  * listeners.<br>
-	  * <br>
-	  * 
-	  * <b><font color='red'>NOTICE: </font>this method is supposed to be called only from
-	  * {@link PlayerService#playerLoggedIn(Player)}</b>
-	  */
-	 @Enhancable(callback = PlayerLoggedInListener.class)
-	 public void onLoggedIn()
-	 {
+	/**
+	 * This method is called when player logs into the game. It's main responsibility is to call all registered
+	 * listeners.<br>
+	 * <br>
+	 * 
+	 * <b><font color='red'>NOTICE: </font>this method is supposed to be called only from
+	 * {@link PlayerService#playerLoggedIn(Player)}</b>
+	 */
+	@Enhancable(callback = PlayerLoggedInListener.class)
+	public void onLoggedIn()
+	{
 
-	 }
+	}
 
-	 /**
-	  * This method is called when player leaves the game. It's main responsibility is to call all registered listeners.<br>
-	  * <br>
-	  * 
-	  * <b><font color='red'>NOTICE: </font>this method is supposed to be called only from
-	  * {@link PlayerService#playerLoggedOut(Player)}</b>
-	  */
-	 @Enhancable(callback = PlayerLoggedOutListener.class)
-	 public void onLoggedOut()
-	 {
+	/**
+	 * This method is called when player leaves the game. It's main responsibility is to call all registered listeners.<br>
+	 * <br>
+	 * 
+	 * <b><font color='red'>NOTICE: </font>this method is supposed to be called only from
+	 * {@link PlayerService#playerLoggedOut(Player)}</b>
+	 */
+	@Enhancable(callback = PlayerLoggedOutListener.class)
+	public void onLoggedOut()
+	{
 
-	 }
+	}
+
+	/**
+	 * Returns true if has valid LegionMember
+	 */
+	public boolean isLegionMember()
+	{
+		if(legionMember != null)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @param legionMember
+	 *            the legionMember to set
+	 */
+	public void setLegionMember(LegionMember legionMember)
+	{
+		this.legionMember = legionMember;
+	}
+
+	/**
+	 * @return the legionMember
+	 */
+	public LegionMember getLegionMember()
+	{
+		return legionMember;
+	}
 }

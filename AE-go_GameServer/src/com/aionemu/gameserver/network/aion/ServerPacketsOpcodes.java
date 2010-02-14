@@ -156,15 +156,27 @@ public class ServerPacketsOpcodes
 
 		addPacketOpcode(SM_RIFT_STATUS.class, 0xA4, idSet);
 
-		//Unrecognized Opcodes from 1.5.4:
-		//addPacketOpcode(SM_BUY_LIST.class, 0x7E, idSet);
-		//addPacketOpcode(SM_GUILD_DETAILS.class, 0x24, idSet);
-		//addPacketOpcode(SM_GUILD_INFO.class, 0x86, idSet);
-		//addPacketOpcode(SM_GUILD_MEMBERS.class, 0x97, idSet);
+		/** Legion server packets **/
+		addPacketOpcode(SM_CHANGE_NICKNAME.class, 0x23, idSet);
+		addPacketOpcode(SM_CHANGE_SELF_INTRODUCTION.class, 0x77, idSet);
+		addPacketOpcode(SM_UPDATE_LEGION_TITLE.class, 0x8A, idSet);
+		addPacketOpcode(SM_LEGION_INFO.class, 0x8E, idSet);
+		addPacketOpcode(SM_LEGION_TITLE.class, 0x8F, idSet);
+		addPacketOpcode(SM_LEAVE_LEGION.class, 0x90, idSet);
+		addPacketOpcode(SM_DISBAND_LEGION.class, 0x91, idSet);
+		addPacketOpcode(SM_LEGIONMEMBER_INFO.class, 0x95, idSet);
+		addPacketOpcode(SM_EDIT_LEGION.class, 0x9E, idSet);
+		addPacketOpcode(SM_LEGION_CREATED.class, 0xD7, idSet);
 
-		//Unrecognized Opcodes from 1.5.0:
-		//addPacketOpcode(SM_VIRTUAL_AUTH.class, 0xE4, idSet);
-		//addPacketOpcode(SM_WAITING_LIST.class, 0x18, idSet);		
+		// Unrecognized Opcodes from 1.5.4:
+		// addPacketOpcode(SM_BUY_LIST.class, 0x7E, idSet);
+		// addPacketOpcode(SM_GUILD_DETAILS.class, 0x24, idSet);
+		// addPacketOpcode(SM_GUILD_INFO.class, 0x86, idSet);
+		// addPacketOpcode(SM_GUILD_MEMBERS.class, 0x97, idSet);
+
+		// Unrecognized Opcodes from 1.5.0:
+		// addPacketOpcode(SM_VIRTUAL_AUTH.class, 0xE4, idSet);
+		// addPacketOpcode(SM_WAITING_LIST.class, 0x18, idSet);
 	}
 
 	static int getOpcode(Class<? extends AionServerPacket> packetClass)
@@ -182,8 +194,8 @@ public class ServerPacketsOpcodes
 			return;
 
 		if(idSet.contains(opcode))
-			throw new IllegalArgumentException(String.format("There already exists another packet with id 0x%02X", opcode));
-
+			throw new IllegalArgumentException(String.format("There already exists another packet with id 0x%02X",
+				opcode));
 
 		idSet.add(opcode);
 		opcodes.put(packetClass, opcode);

@@ -70,7 +70,7 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 		World world = activePlayer.getActiveRegion().getWorld();
 		Npc npc = (Npc)world.findAionObject(targetObjectId);
 
-		if(activePlayer == null)
+		if(activePlayer == null || activePlayer.getLifeStats().isAlreadyDead())
 			return;
 
 		teleport = DataManager.TELEPORTER_DATA.getTeleporterTemplate(npc.getNpcId());

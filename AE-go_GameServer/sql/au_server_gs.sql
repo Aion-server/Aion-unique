@@ -240,3 +240,39 @@ CREATE TABLE IF NOT EXISTS `abyss_rank` (
   PRIMARY KEY  (`player_id`),
   FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
+-- legions
+-- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `legions` (
+  `id` int(11) NOT NULL,
+  `name` varchar(16) NOT NULL,
+  `level` int(1) NOT NULL DEFAULT '1',
+  `legionar_permission2` int(11) NOT NULL DEFAULT '64',
+  `centurion_permission1` int(11) NOT NULL DEFAULT '104',
+  `centurion_permission2` int(11) NOT NULL DEFAULT '8',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `name_unique` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `legion_announcement_list` (
+  `legion_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `announcement` varchar(120) NOT NULL,
+  `date` int(11) NOT NULL,
+  PRIMARY KEY  (`id`),
+  FOREIGN KEY (`legion_id`) REFERENCES `legions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `legion_members` (
+  `legion_id` int(11) NOT NULL,
+  `player_id` int(11) NOT NULL,
+  `nickname` varchar(16) NOT NULL default '',  
+  `rank` int(1) NOT NULL default '2', 
+  `selfintro` varchar(25) default '',
+  PRIMARY KEY  (`player_id`),
+  FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`legion_id`) REFERENCES `legions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

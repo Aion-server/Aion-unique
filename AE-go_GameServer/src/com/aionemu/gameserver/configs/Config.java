@@ -209,6 +209,7 @@ public class Config
 			ConfigurableProcessor.process(Config.class, props);
 			ConfigurableProcessor.process(CacheConfig.class, props);
 			ConfigurableProcessor.process(AdminConfig.class, props);
+			ConfigurableProcessor.process(LegionConfig.class, props);
 		}
 		catch(Exception e)
 		{

@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.util.List;
+import java.util.Map.Entry;
 
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -27,6 +28,7 @@ import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
+import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -38,6 +40,9 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_FLY_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INFLUENCE_RATIO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGIONMEMBER_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_TITLE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_ID;
@@ -54,14 +59,15 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
  * In this packets aion client is asking if given char [by oid] may login into game [ie start playing].
- *
+ * 
  * @author -Nemesiss-, Avol
- *
+ * 
  */
 public class CM_ENTER_WORLD extends AionClientPacket
 {
@@ -76,7 +82,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 
 	/**
 	 * Constructs new instance of <tt>CM_ENTER_WORLD </tt> packet
-	 *
+	 * 
 	 * @param opcode
 	 */
 	public CM_ENTER_WORLD(int opcode)
@@ -104,7 +110,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 
 		if(playerAccData == null)
 		{
-			//Somebody wanted to login on character that is not at his account
+			// Somebody wanted to login on character that is not at his account
 			return;
 		}
 
@@ -124,7 +130,6 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNK91());
 			// sendPacket(new SM_UNKC7());
 			// sendPacket(new SM_UNKC8());
-
 
 			client.sendPacket(new SM_QUEST_LIST(player));
 
@@ -146,14 +151,14 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNK17());
 			sendPacket(new SM_UNK5E());
 
-			//Cubesize limit set in inventory.
+			// Cubesize limit set in inventory.
 			int cubeSize = player.getCubeSize();
 			player.getInventory().setLimit(27 + cubeSize * 9);
 
-			//TODO no need to load items here - inventory will be populated at startup
+			// TODO no need to load items here - inventory will be populated at startup
 			// will be removed next time
 
-			//items
+			// items
 			Storage inventory = player.getInventory();
 			List<Item> equipedItems = inventory.getEquippedItems();
 			if(equipedItems.size() != 0)
@@ -169,15 +174,15 @@ public class CM_ENTER_WORLD extends AionClientPacket
 				int index = 0;
 				while(index + 10 < itemsSize)
 				{
-					client.sendPacket(new SM_INVENTORY_INFO(unequipedItems.subList(index, index+10), cubeSize));
+					client.sendPacket(new SM_INVENTORY_INFO(unequipedItems.subList(index, index + 10), cubeSize));
 					index += 10;
 				}
 				client.sendPacket(new SM_INVENTORY_INFO(unequipedItems.subList(index, itemsSize), cubeSize));
 			}
 
 			client.sendPacket(new SM_INVENTORY_INFO());
-			client.sendPacket(new SM_CHANNEL_INFO(player.getPosition())); //?? unknwon
-			//sendPacket(new SM_UNKD3());
+			client.sendPacket(new SM_CHANNEL_INFO(player.getPosition())); // ?? unknwon
+			// sendPacket(new SM_UNKD3());
 
 			/*
 			 * Needed
@@ -186,10 +191,11 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			sendPacket(new SM_UNK7B());
 
 			int worldId;
-			float x,y,z;
-			if (player.getCommonData().getBindPoint() != 0)
+			float x, y, z;
+			if(player.getCommonData().getBindPoint() != 0)
 			{
-				BindPointTemplate bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate2(player.getCommonData().getBindPoint());
+				BindPointTemplate bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate2(player.getCommonData()
+					.getBindPoint());
 				worldId = bplist.getZoneId();
 				x = bplist.getX();
 				y = bplist.getY();
@@ -197,7 +203,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			}
 			else
 			{
-				LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
+				LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData()
+					.getRace());
 				worldId = locationData.getMapId();
 				x = locationData.getX();
 				y = locationData.getY();
@@ -207,9 +214,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNKE1());
 			sendPacket(new SM_MACRO_LIST(player));
 
+			sendPacket(new SM_GAME_TIME());
 			player.updateNearbyQuests();
 
-			sendPacket(new SM_GAME_TIME());
 			sendPacket(new SM_TITLE_LIST(player));
 			sendPacket(SM_SYSTEM_MESSAGE.REMAINING_PLAYING_TIME(12043));
 
@@ -219,12 +226,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 */
 			AccountTime accountTime = getConnection().getAccount().getAccountTime();
 
-			sendPacket(SM_SYSTEM_MESSAGE.ACCUMULATED_TIME(
-				accountTime.getAccumulatedOnlineHours(), 
-				accountTime.getAccumulatedOnlineMinutes(),
-				accountTime.getAccumulatedRestHours(),
-				accountTime.getAccumulatedRestMinutes())
-			);
+			sendPacket(SM_SYSTEM_MESSAGE.ACCUMULATED_TIME(accountTime.getAccumulatedOnlineHours(), accountTime
+				.getAccumulatedOnlineMinutes(), accountTime.getAccumulatedRestHours(), accountTime
+				.getAccumulatedRestMinutes()));
 
 			/*
 			 * Needed
@@ -237,13 +241,16 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			 sendPacket(new SM_ABYSS_RANK(player.getAbyssRank()));
 			 sendPacket(new SM_FLY_TIME());
 
-			 sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME
-				 + " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2010", null,
-				 ChatType.ANNOUNCEMENTS));
+			sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME
+				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2010",
+				null, ChatType.ANNOUNCEMENTS));
 
-			 playerService.playerLoggedIn(player);
+			if(player.isLegionMember())
+				handleLegionMemberInfo(player);
 
-			 ClassChangeService.showClassChangeDialog(player);
+			playerService.playerLoggedIn(player);
+
+			ClassChangeService.showClassChangeDialog(player);
 		}
 		else
 		{
@@ -251,5 +258,36 @@ public class CM_ENTER_WORLD extends AionClientPacket
 		}
 	}
 
+	private void handleLegionMemberInfo(Player player)
+	{
+		Legion legion = player.getLegionMember().getLegion();
+		sendPacket(new SM_LEGION_TITLE(player));
+		sendPacket(new SM_LEGION_INFO(legion));
+
+		for(Integer memberObjId : legion.getLegionMembers())
+		{
+			Player legionMember = world.findPlayer(memberObjId);
+			if(legionMember != null)
+			{
+				sendPacket(new SM_LEGIONMEMBER_INFO(legionMember));
+				if(player.getObjectId() != memberObjId)
+				{
+					PacketSendUtility.broadcastPacket(legionMember, new SM_LEGIONMEMBER_INFO(player), true);
+				}
+			}
+			else
+			{
+				legionMember = playerService.getPlayer(memberObjId);
+				sendPacket(new SM_LEGIONMEMBER_INFO(legionMember));
+			}
+		}
+
+		Entry<Integer, String> currentAnnouncement = legion.getCurrentAnnouncement();
+		if(currentAnnouncement != null)
+		{
+			sendPacket(SM_SYSTEM_MESSAGE.LEGION_DISPLAY_ANNOUNCEMENT(currentAnnouncement.getValue(),
+				currentAnnouncement.getKey(), 2));
+		}
+	}
 
 }

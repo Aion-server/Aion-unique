@@ -40,16 +40,21 @@ public enum ChatType
 	 * Whisper chat (green)
 	 */
 	WHISPER(0x04),
-	
+
 	/**
 	 * Group chat (blue)
 	 */
 	GROUP(0x05),
-	
+
 	/**
 	 * Group Leader chat
 	 */
 	GROUP_LEADER(0x07),
+
+	/**
+	 * Legion chat (green)
+	 */
+	LEGION(0x08),
 
 	/**
 	 * Unknown
@@ -63,7 +68,7 @@ public enum ChatType
 
 	/**
 	 * Notice chat (yellow with box over players head)
-	*/
+	 */
 	SYSTEM_NOTICE(0x21);
 
 	/**

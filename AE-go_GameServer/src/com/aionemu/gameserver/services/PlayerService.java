@@ -52,11 +52,14 @@ import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.TitleChangeListener;
 import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.model.items.ItemSlot;
+import com.aionemu.gameserver.model.legion.LegionMember;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGIONMEMBER_INFO;
 import com.aionemu.gameserver.skillengine.SkillLearnService;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
@@ -76,19 +79,22 @@ import com.google.inject.Inject;
  */
 public class PlayerService
 {
-	private CacheMap<Integer, Player>	playerCache		= CacheMapFactory.createSoftCacheMap("Player", "player");
+	private CacheMap<Integer, Player>	playerCache	= CacheMapFactory.createSoftCacheMap("Player", "player");
 
 	@SuppressWarnings("unused")
 	private IDFactory					aionObjectsIDFactory;
 	private World						world;
-	private ItemService 				itemService;
+	private ItemService					itemService;
+	private LegionService				legionService;
 
 	@Inject
-	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService)
+	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
+		LegionService legionService)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
 		this.itemService = itemService;
+		this.legionService = legionService;
 	}
 
 	/**
@@ -124,11 +130,11 @@ public class PlayerService
 	 */
 	public boolean storeNewPlayer(Player player, String accountName, int accountId)
 	{
-		return DAOManager.getDAO(PlayerDAO.class).saveNewPlayer(player.getCommonData(), accountId, accountName) 
-		&& DAOManager.getDAO(PlayerAppearanceDAO.class).store(player)
-		&& DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player)
-		&& DAOManager.getDAO(InventoryDAO.class).store(player)
-		&& DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
+		return DAOManager.getDAO(PlayerDAO.class).saveNewPlayer(player.getCommonData(), accountId, accountName)
+			&& DAOManager.getDAO(PlayerAppearanceDAO.class).store(player)
+			&& DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player)
+			&& DAOManager.getDAO(InventoryDAO.class).store(player)
+			&& DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
 	}
 
 	/**
@@ -164,34 +170,46 @@ public class PlayerService
 		MacroList macroses = DAOManager.getDAO(PlayerMacrossesDAO.class).restoreMacrosses(playerObjId);
 
 		player = new Player(new PlayerController(), pcd, appereance);
+
+		LegionMember legionMember = legionService.getLegionMember(player);
+		// LegionMember legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(player, legionService,
+		// this);
+		if(legionMember != null)
+		{
+			player.setLegionMember(legionMember);
+		}
+
 		player.setMacroList(macroses);
 
 		player.setSkillList(DAOManager.getDAO(PlayerSkillListDAO.class).loadSkillList(playerObjId));
 		player.setKnownlist(new KnownList(player));
 		player.setFriendList(DAOManager.getDAO(FriendListDAO.class).load(player, world));
-		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player,world));
+		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player, world));
 		player.setTitleList(DAOManager.getDAO(PlayerTitleListDAO.class).loadTitleList(playerObjId));
 
 		DAOManager.getDAO(PlayerSettingsDAO.class).loadSettings(player);
 		DAOManager.getDAO(AbyssRankDAO.class).loadAbyssRank(player);
-		
-		player.setPlayerStatsTemplate(DataManager.PLAYER_STATS_DATA.getTemplate(player));	
 
-		player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA,player));
-		player.setLifeStats(new PlayerLifeStats(player, player.getPlayerStatsTemplate().getMaxHp(), player.getPlayerStatsTemplate().getMaxMp()));		
+		player.setPlayerStatsTemplate(DataManager.PLAYER_STATS_DATA.getTemplate(player));
+
+		player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA, player));
+		player.setLifeStats(new PlayerLifeStats(player, player.getPlayerStatsTemplate().getMaxHp(), player
+			.getPlayerStatsTemplate().getMaxMp()));
 		player.setEffectController(new EffectController(player));
 
-		//update passive stats after effect controller and stats are initialized
+		// update passive stats after effect controller and stats are initialized
 		player.getController().updatePassiveStats();
 
 		player.setQuestStateList(DAOManager.getDAO(QuestListDAO.class).load(player));
 		player.setStorage(DAOManager.getDAO(InventoryDAO.class).load(player, StorageType.CUBE), StorageType.CUBE);
-		player.setStorage(DAOManager.getDAO(InventoryDAO.class).load(player, StorageType.REGULAR_WAREHOUSE), StorageType.REGULAR_WAREHOUSE);
-		player.setStorage(DAOManager.getDAO(InventoryDAO.class).load(player, StorageType.ACCOUNT_WAREHOUSE), StorageType.ACCOUNT_WAREHOUSE);
+		player.setStorage(DAOManager.getDAO(InventoryDAO.class).load(player, StorageType.REGULAR_WAREHOUSE),
+			StorageType.REGULAR_WAREHOUSE);
+		player.setStorage(DAOManager.getDAO(InventoryDAO.class).load(player, StorageType.ACCOUNT_WAREHOUSE),
+			StorageType.ACCOUNT_WAREHOUSE);
 
 		itemService.loadItemStones(player);
 
-		//if kinah was deleted by some reason it should be restored with 0 count
+		// if kinah was deleted by some reason it should be restored with 0 count
 		if(player.getStorage(StorageType.CUBE.getId()).getKinahItem() == null)
 		{
 			Item kinahItem = itemService.newItem(182400001, 0);
@@ -205,13 +223,13 @@ public class PlayerService
 			player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).onLoadHandler(kinahItem);
 		}
 
-		if (player.getCommonData().getTitleId()>0)
+		if(player.getCommonData().getTitleId() > 0)
 		{
 			TitleChangeListener.onTitleChange(player.getGameStats(), player.getCommonData().getTitleId(), true);
 		}
 
 		if(CacheConfig.CACHE_PLAYERS)
-			playerCache.put(playerObjId, player);	
+			playerCache.put(playerObjId, player);
 
 		return player;
 	}
@@ -238,27 +256,27 @@ public class PlayerService
 		SkillLearnService.addNewSkills(newPlayer, true);
 
 		// Starting items
-		PlayerCreationData playerCreationData = 
-			DataManager.PLAYER_INITIAL_DATA.getPlayerCreationData(playerCommonData.getPlayerClass());
+		PlayerCreationData playerCreationData = DataManager.PLAYER_INITIAL_DATA.getPlayerCreationData(playerCommonData
+			.getPlayerClass());
 
 		List<ItemType> items = playerCreationData.getItems();
 
 		Storage playerInventory = new Storage(newPlayer, StorageType.CUBE);
-		Storage regularWarehouse = new Storage(newPlayer,StorageType.REGULAR_WAREHOUSE);
-		Storage accountWarehouse = new Storage(newPlayer,StorageType.ACCOUNT_WAREHOUSE);
+		Storage regularWarehouse = new Storage(newPlayer, StorageType.REGULAR_WAREHOUSE);
+		Storage accountWarehouse = new Storage(newPlayer, StorageType.ACCOUNT_WAREHOUSE);
 		newPlayer.setStorage(playerInventory, StorageType.CUBE);
 		newPlayer.setStorage(regularWarehouse, StorageType.REGULAR_WAREHOUSE);
 		newPlayer.setStorage(accountWarehouse, StorageType.ACCOUNT_WAREHOUSE);
 
 		for(ItemType itemType : items)
 		{
-			int itemId = itemType.getTemplate().getItemId();		
+			int itemId = itemType.getTemplate().getItemId();
 			Item item = itemService.newItem(itemId, itemType.getCount());
 			if(item == null)
 				continue;
 
-			//When creating new player - all equipment that has slot values will be equipped
-			//Make sure you will not put into xml file more items than possible to equip.
+			// When creating new player - all equipment that has slot values will be equipped
+			// Make sure you will not put into xml file more items than possible to equip.
 			ItemTemplate itemTemplate = item.getItemTemplate();
 
 			if(itemTemplate.isArmor() || itemTemplate.isWeapon())
@@ -277,7 +295,8 @@ public class PlayerService
 	/**
 	 * This method is called just after player logged in to the game.<br>
 	 * <br>
-	 * <b><font color='red'>NOTICE: </font> This method called only from {@link CM_ENTER_WORLD} and must not be called from anywhere else.</b>
+	 * <b><font color='red'>NOTICE: </font> This method called only from {@link CM_ENTER_WORLD} and must not be called
+	 * from anywhere else.</b>
 	 * 
 	 * @param player
 	 */
@@ -290,9 +309,12 @@ public class PlayerService
 
 	/**
 	 * This method is called when player leaves the game, which includes just two cases: either player goes back to char
-	 * selection screen or it's leaving the game [closing client].<br><br>
+	 * selection screen or it's leaving the game [closing client].<br>
+	 * <br>
 	 * 
-	 * <b><font color='red'>NOTICE: </font> This method is called only from {@link AionConnection} and {@link CM_QUIT} and must not be called from anywhere else</b>
+	 * <b><font color='red'>NOTICE: </font> This method is called only from {@link AionConnection} and {@link CM_QUIT}
+	 * and must not be called from anywhere else</b>
+	 * 
 	 * @param player
 	 */
 	public void playerLoggedOut(Player player)
@@ -309,11 +331,22 @@ public class PlayerService
 		player.setClientConnection(null);
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);
 
-		//TODO this is a temprorary solution till GroupService will be introduced
+		// TODO this is a temprorary solution till GroupService will be introduced
 		PlayerGroup playerGroup = player.getPlayerGroup();
 		if(playerGroup != null)
 			playerGroup.removePlayerFromGroup(player);
 
+		if(player.isLegionMember())
+		{
+			for(Player onlineLegionMember : player.getLegionMember().getLegion().getOnlineLegionMembers(world))
+			{
+				if(onlineLegionMember.getObjectId() != player.getObjectId())
+				{
+					// TODO: Get proper packet
+					PacketSendUtility.broadcastPacket(onlineLegionMember, new SM_LEGIONMEMBER_INFO(player), true);
+				}
+			}
+		}
 		storePlayer(player);
 	}
 
@@ -375,7 +408,8 @@ public class PlayerService
 	 */
 	private void storeDeletionTime(PlayerAccountData accData)
 	{
-		DAOManager.getDAO(PlayerDAO.class).updateDeletionTime(accData.getPlayerCommonData().getPlayerObjId(), accData.getDeletionDate());
+		DAOManager.getDAO(PlayerDAO.class).updateDeletionTime(accData.getPlayerCommonData().getPlayerObjId(),
+			accData.getDeletionDate());
 	}
 
 	/**
@@ -424,6 +458,7 @@ public class PlayerService
 
 	/**
 	 * Gets a player ONLY if he is in the cache
+	 * 
 	 * @return Player or null if not cached
 	 */
 	public Player getCachedPlayer(int playerObjectId)

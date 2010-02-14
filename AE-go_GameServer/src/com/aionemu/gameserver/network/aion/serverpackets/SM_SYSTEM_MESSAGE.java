@@ -122,22 +122,22 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	/**
 	 * Your Requested player to trade
 	 */
-	public static final SM_SYSTEM_MESSAGE	REQUEST_TRADE				= new SM_SYSTEM_MESSAGE(1300353);
+	public static final SM_SYSTEM_MESSAGE	REQUEST_TRADE			= new SM_SYSTEM_MESSAGE(1300353);
 
 	/**
 	 * Your Friends List is full
 	 */
-	public static final SM_SYSTEM_MESSAGE	BUDDYLIST_LIST_FULL			= new SM_SYSTEM_MESSAGE(1300887);
+	public static final SM_SYSTEM_MESSAGE	BUDDYLIST_LIST_FULL		= new SM_SYSTEM_MESSAGE(1300887);
 
 	/**
 	 * The character is not on your Friends List.
 	 */
-	public static final SM_SYSTEM_MESSAGE	BUDDYLIST_NOT_IN_LIST		= new SM_SYSTEM_MESSAGE(1300889);
+	public static final SM_SYSTEM_MESSAGE	BUDDYLIST_NOT_IN_LIST	= new SM_SYSTEM_MESSAGE(1300889);
 
 	/**
 	 * The server is due to shut down in %0 seconds. Please quit the game.
 	 */
-	public static SM_SYSTEM_MESSAGE	SERVER_SHUTDOWN(int seconds)
+	public static SM_SYSTEM_MESSAGE SERVER_SHUTDOWN(int seconds)
 	{
 		return new SM_SYSTEM_MESSAGE(1300642, Integer.toString(seconds));
 	}
@@ -147,17 +147,17 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	 * 
 	 * @return
 	 */
-	public static SM_SYSTEM_MESSAGE			BLOCKLIST_NO_BUDDY			= new SM_SYSTEM_MESSAGE(1300891);
+	public static SM_SYSTEM_MESSAGE	BLOCKLIST_NO_BUDDY			= new SM_SYSTEM_MESSAGE(1300891);
 
 	/**
 	 * Character already in block list
 	 */
-	public static SM_SYSTEM_MESSAGE			BLOCKLIST_ALREADY_BLOCKED	= new SM_SYSTEM_MESSAGE(1300894);
+	public static SM_SYSTEM_MESSAGE	BLOCKLIST_ALREADY_BLOCKED	= new SM_SYSTEM_MESSAGE(1300894);
 
 	/**
 	 * The character is not blocked.
 	 */
-	public static SM_SYSTEM_MESSAGE			BLOCKLIST_NOT_BLOCKED		= new SM_SYSTEM_MESSAGE(1300897);
+	public static SM_SYSTEM_MESSAGE	BLOCKLIST_NOT_BLOCKED		= new SM_SYSTEM_MESSAGE(1300897);
 
 	/**
 	 * %0 has blocked you.
@@ -212,7 +212,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	/**
 	 * You won the duel against %0.
 	 */
-	public static SM_SYSTEM_MESSAGE DUEL_YOU_WON_AGAINST(String player) 
+	public static SM_SYSTEM_MESSAGE DUEL_YOU_WON_AGAINST(String player)
 	{
 		return new SM_SYSTEM_MESSAGE(1300098, player);
 	}
@@ -220,21 +220,21 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	/**
 	 * You lost the duel against %0.
 	 */
-	public static SM_SYSTEM_MESSAGE DUEL_YOU_LOST_AGAINST(String player) 
+	public static SM_SYSTEM_MESSAGE DUEL_YOU_LOST_AGAINST(String player)
 	{
 		return new SM_SYSTEM_MESSAGE(1300099, player);
 	}
 
-	public static SM_SYSTEM_MESSAGE DUEL_START = new SM_SYSTEM_MESSAGE(1300770);
+	public static SM_SYSTEM_MESSAGE	DUEL_START	= new SM_SYSTEM_MESSAGE(1300770);
 
-	public static SM_SYSTEM_MESSAGE DUEL_END = new SM_SYSTEM_MESSAGE(1300771);
+	public static SM_SYSTEM_MESSAGE	DUEL_END	= new SM_SYSTEM_MESSAGE(1300771);
 
 	/**
 	 * Starting the duel with %0.
 	 */
 	public static SM_SYSTEM_MESSAGE DUEL_STARTING_WITH(String player)
 	{
-		return new SM_SYSTEM_MESSAGE(1300777,player);
+		return new SM_SYSTEM_MESSAGE(1300777, player);
 	}
 
 	/**
@@ -242,7 +242,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	 */
 	public static SM_SYSTEM_MESSAGE DUEL_REJECT_DUEL_OF(String player)
 	{
-		return new SM_SYSTEM_MESSAGE(1301064,player);
+		return new SM_SYSTEM_MESSAGE(1301064, player);
 	}
 
 	/**
@@ -250,7 +250,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	 */
 	public static SM_SYSTEM_MESSAGE DUEL_CANCEL_DUEL_BY(String player)
 	{
-		return new SM_SYSTEM_MESSAGE(1300134,player);
+		return new SM_SYSTEM_MESSAGE(1300134, player);
 	}
 
 	/**
@@ -258,7 +258,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	 */
 	public static SM_SYSTEM_MESSAGE DUEL_CANCEL_DUEL_WITH(String player)
 	{
-		return new SM_SYSTEM_MESSAGE(1300135,player);
+		return new SM_SYSTEM_MESSAGE(1300135, player);
 	}
 
 	/**
@@ -266,7 +266,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	 */
 	public static SM_SYSTEM_MESSAGE DUEL_PARTNER_INVALID(String partner)
 	{
-		return new SM_SYSTEM_MESSAGE(1300091,partner);
+		return new SM_SYSTEM_MESSAGE(1300091, partner);
 	}
 
 	/**
@@ -274,17 +274,17 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	 */
 	public static SM_SYSTEM_MESSAGE REQUEST_GROUP_INVITE(String player)
 	{
-		return new SM_SYSTEM_MESSAGE(1300173,player);
+		return new SM_SYSTEM_MESSAGE(1300173, player);
 	}
 
 	public static SM_SYSTEM_MESSAGE REJECT_GROUP_INVITE(String player)
 	{
-		return new SM_SYSTEM_MESSAGE(1300161,player);
+		return new SM_SYSTEM_MESSAGE(1300161, player);
 	}
 
 	public static SM_SYSTEM_MESSAGE PLAYER_IN_ANOTHER_GROUP(String player)
 	{
-		return new SM_SYSTEM_MESSAGE(1300169,player);
+		return new SM_SYSTEM_MESSAGE(1300169, player);
 	}
 
 	public static SM_SYSTEM_MESSAGE INVITED_PLAYER_OFFLINE()
@@ -294,7 +294,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 
 	public static SM_SYSTEM_MESSAGE MEMBER_LEFT_GROUP(String player)
 	{
-		return new SM_SYSTEM_MESSAGE(1300168,player);
+		return new SM_SYSTEM_MESSAGE(1300168, player);
 	}
 
 	public static SM_SYSTEM_MESSAGE DISBAND_GROUP()
@@ -330,7 +330,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public static SM_SYSTEM_MESSAGE ONLY_GROUP_LEADER_CAN_INVITE()
 	{
 		return new SM_SYSTEM_MESSAGE(1300160);
-	}	
+	}
 
 	public static SM_SYSTEM_MESSAGE CANNOT_INVITE_YOURSELF()
 	{
@@ -352,34 +352,262 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300170);
 	}
 
-	public static SM_SYSTEM_MESSAGE CANT_INVITE_OTHER_RACE() {
-		return new SM_SYSTEM_MESSAGE(1300188);	
+	public static SM_SYSTEM_MESSAGE CANT_INVITE_OTHER_RACE()
+	{
+		return new SM_SYSTEM_MESSAGE(1300188);
 	}
 
-	public static SM_SYSTEM_MESSAGE LEVEL_NOT_ENOUGH_FOR_SEARCH(String level) {
+	public static SM_SYSTEM_MESSAGE LEVEL_NOT_ENOUGH_FOR_SEARCH(String level)
+	{
 		return new SM_SYSTEM_MESSAGE(1400341, level);
 	}
 
-	public static SM_SYSTEM_MESSAGE LEVEL_NOT_ENOUGH_FOR_WHISPER(String level) {
+	public static SM_SYSTEM_MESSAGE LEVEL_NOT_ENOUGH_FOR_WHISPER(String level)
+	{
 		return new SM_SYSTEM_MESSAGE(1310004, level);
 	}
 
-	public static SM_SYSTEM_MESSAGE EXP_RECOVEREBLED_BY_COUNT(String count) {
+	public static SM_SYSTEM_MESSAGE EXP_RECOVEREBLED_BY_COUNT(String count)
+	{
 		return new SM_SYSTEM_MESSAGE(1370002);
 	}
 
-	public static SM_SYSTEM_MESSAGE SOUL_HEALED() {
+	public static SM_SYSTEM_MESSAGE SOUL_HEALED()
+	{
 		return new SM_SYSTEM_MESSAGE(1300674);
 	}
 
-	public static SM_SYSTEM_MESSAGE DONT_HAVE_RECOVERED_EXP() {
+	public static SM_SYSTEM_MESSAGE DONT_HAVE_RECOVERED_EXP()
+	{
 		return new SM_SYSTEM_MESSAGE(1300682);
 	}
 
 	/**
+	 * Legion messages.
+	 */
+	public static SM_SYSTEM_MESSAGE LEGION_INCORRECT_TARGET()
+	{
+		return new SM_SYSTEM_MESSAGE(1300627);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_DISPLAY_ANNOUNCEMENT(String announcement, long unixTime, int type)
+	{
+		return new SM_SYSTEM_MESSAGE(1400019, announcement, unixTime, type);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_WRITE_NOTICE_DONE()
+	{
+		// The Legion Announcement has been modified.
+		return new SM_SYSTEM_MESSAGE(1300277);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_MEMBER_ONLINE(String charName)
+	{
+		return new SM_SYSTEM_MESSAGE(1400133, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE SEND_INVITE_REQUEST(String charName)
+	{
+		// You have sent a Legion invitation to %0.
+		return new SM_SYSTEM_MESSAGE(1300258, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE REJECTED_INVITE_REQUEST(String charName)
+	{
+		// %0 has declined your Legion invitation.
+		return new SM_SYSTEM_MESSAGE(1300259, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE NEW_MEMBER_JOINED(String charName)
+	{
+		// %0 has joined your Legion.
+		return new SM_SYSTEM_MESSAGE(1300260, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CREATED(String legionName)
+	{
+		// The %0 Legion has been created.
+		return new SM_SYSTEM_MESSAGE(1300235, legionName);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CREATE_INVALID_NAME()
+	{
+		// That name is invalid. Please try another..
+		return new SM_SYSTEM_MESSAGE(1300228);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CREATE_NAME_EXISTS()
+	{
+		// That name is invalid. Please try another.
+		return new SM_SYSTEM_MESSAGE(1300233);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CREATE_TOO_FAR_FROM_NPC()
+	{
+		// You are too far from the NPC to create a Legion.
+		return new SM_SYSTEM_MESSAGE(1300229);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CREATE_ALREADY_MEMBER()
+	{
+		// You cannot create a Legion as you are already a member of another Legion.
+		return new SM_SYSTEM_MESSAGE(1300232);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CREATE_NOT_ENOUGH_KINAH()
+	{
+		// You do not have enough Kinah to create a Legion.
+		return new SM_SYSTEM_MESSAGE(1300231);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CREATE_LAST_DAY_CHECK()
+	{
+		// You cannot create a new Legion as the grace period between creating Legions has not expired.
+		return new SM_SYSTEM_MESSAGE(1300234);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_MEMBER_JOINED()
+	{
+		// %0 has joined the Legion.
+		return new SM_SYSTEM_MESSAGE(900698);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_MEMBER_LEFT(String charName)
+	{
+		// %0 has left the Legion.
+		return new SM_SYSTEM_MESSAGE(900699, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_LEVEL_UP(int legionLevel)
+	{
+		// The Legion was leveled up to %0.
+		return new SM_SYSTEM_MESSAGE(900700, legionLevel);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_LEVEL_CANT_LEVEL_UP()
+	{
+		// The Legion is already at the highest level.
+		return new SM_SYSTEM_MESSAGE(1300316);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_NEW_MASTER()
+	{
+		// %0 was appointed as the new Legion Brigade General.
+		return new SM_SYSTEM_MESSAGE(900701);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_TARGET_BUSY()
+	{
+		// The target is busy and cannot be invited at the moment.
+		return new SM_SYSTEM_MESSAGE(1300325);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CANT_LEAVE_BEFORE_CHANGE_MASTER()
+	{
+		// You cannot leave your Legion unless you transfer Brigade General authority to someone else.
+		return new SM_SYSTEM_MESSAGE(1300238);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CANT_KICK_YOURSELF()
+	{
+		// You cannot kick yourself out from a Legion.
+		return new SM_SYSTEM_MESSAGE(1300243);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_KICKED_BY(String charName)
+	{
+		// You have been kicked out from the %0 Legion.
+		return new SM_SYSTEM_MESSAGE(1300246, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CANT_KICK_BRIGADE_GENERAL()
+	{
+		// You cannot kick out the Legion Brigade General.
+		return new SM_SYSTEM_MESSAGE(1300249);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CANT_INVITE_WHILE_DEAD()
+	{
+		// You cannot issue a Legion invitation while you are dead.
+		return new SM_SYSTEM_MESSAGE(1300250);
+	}	
+
+	public static SM_SYSTEM_MESSAGE LEGION_NO_USER_TO_INVITE()
+	{
+		// There is no user to invite to your Legion.
+		return new SM_SYSTEM_MESSAGE(1300253);
+	}		
+
+	public static SM_SYSTEM_MESSAGE LEGION_CAN_NOT_INVITE_SELF()
+	{
+		// You cannot invite yourself to a Legion.
+		return new SM_SYSTEM_MESSAGE(1300254);
+	}		
+
+	public static SM_SYSTEM_MESSAGE LEGION_HE_IS_MY_GUILD_MEMBER(String charName)
+	{
+		// %0 is already a member of your Legion.
+		return new SM_SYSTEM_MESSAGE(1300255, charName);
+	}		
+
+	public static SM_SYSTEM_MESSAGE LEGION_HE_IS_OTHER_GUILD_MEMBER(String charName)
+	{
+		// %0 is a member of another Legion.
+		return new SM_SYSTEM_MESSAGE(1300256, charName);
+	}	
+
+	public static SM_SYSTEM_MESSAGE LEGION_CAN_NOT_ADD_MEMBER_ANY_MORE()
+	{
+		// There is no room in the Legion for more members.
+		return new SM_SYSTEM_MESSAGE(1300257);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_DONT_HAVE_RIGHT()
+	{
+		// You cannot change the ranks of Legion members because you are not the Legion Brigade General.
+		return new SM_SYSTEM_MESSAGE(1300262);
+	}	
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_ERROR_SELF()
+	{
+		// The Legion Brigade General cannot change its own rank.
+		return new SM_SYSTEM_MESSAGE(1300263);
+	}	
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_NO_USER()
+	{
+		// There is no one to change rank.
+		return new SM_SYSTEM_MESSAGE(1300264);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_DONE_1_GUILD_MASTER(String charName)
+	{
+		// %0 has become the Legion Brigade General.
+		return new SM_SYSTEM_MESSAGE(1300266, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_DONE_2_GUILD_OFFICER(String charName)
+	{
+		// %0 has become a Legion Centurion.
+		return new SM_SYSTEM_MESSAGE(1300267, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_DONE_3_GUILD_MEMBER(String charName)
+	{
+		// %0 has become a Legionary.
+		return new SM_SYSTEM_MESSAGE(1300268, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MASTER_ERROR_SELF()
+	{
+		// You are already the Legion Brigade General
+		return new SM_SYSTEM_MESSAGE(1300271);
+	}	
+
+	/**
 	 * You cannot fly in this area.
 	 */
-	public static SM_SYSTEM_MESSAGE STR_FLYING_FORBIDDEN_HERE = new SM_SYSTEM_MESSAGE(1300960);
+	public static SM_SYSTEM_MESSAGE	STR_FLYING_FORBIDDEN_HERE	= new SM_SYSTEM_MESSAGE(1300960);
 
 	/**
 	 * Binding Point Messages
@@ -428,7 +656,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300433);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE EARNED_ABYSS_POINT(String count)
 	{
 		return new SM_SYSTEM_MESSAGE(1320000, count);
@@ -475,6 +703,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		this.code = sm.getId();
 		this.params = params;
 	}
+
 	/**
 	 * {@inheritDoc}
 	 */

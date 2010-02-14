@@ -18,6 +18,7 @@ package com.aionemu.gameserver;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.InventoryDAO;
+import com.aionemu.gameserver.dao.LegionDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
@@ -26,19 +27,23 @@ import com.google.inject.Provides;
 import com.google.inject.Singleton;
 
 /**
- * This module is responsible for initializing and providing IDFactories. 
+ * This module is responsible for initializing and providing IDFactories.
+ * 
  * @author Luno
- *
+ * 
  */
 public class IDFactoriesInjectionModule extends AbstractModule
-{	
+{
 	@Override
 	protected void configure()
 	{
 		// TODO Auto-generated method stub
 
 	}
-	@Provides @IDFactoryAionObject @Singleton
+
+	@Provides
+	@IDFactoryAionObject
+	@Singleton
 	IDFactory provideAionObjectIdFactory()
 	{
 		IDFactory idFactory = new IDFactory();
@@ -47,10 +52,11 @@ public class IDFactoriesInjectionModule extends AbstractModule
 		// used values in IDFactory
 		idFactory.lockIds(DAOManager.getDAO(PlayerDAO.class).getUsedIDs());
 		idFactory.lockIds(DAOManager.getDAO(InventoryDAO.class).getUsedIDs());
+		idFactory.lockIds(DAOManager.getDAO(LegionDAO.class).getUsedIDs());
 
 		return idFactory;
 	}
-	
+
 	@Provides
 	IDFactory provideIDFactory()
 	{

@@ -102,13 +102,13 @@ public class SM_PLAYER_INFO extends AionServerPacket {
         writeD(buf, pcd.getTitleId());
         writeC(buf, 0x0);//if set 0x1 can't jump and fly..
         writeH(buf, player.getCastingSkillId());
-        writeH(buf, 0); //LegionId
+		writeH(buf, player.isLegionMember() ? player.getLegionMember().getLegion().getLegionId() : 0);
         writeH(buf, 0);
         writeC(buf, 0);
         writeH(buf, 0);
         writeH(buf, 0);
         writeC(buf, 0);
-        writeS(buf, ""); //LegionName
+		writeS(buf, player.isLegionMember() ? player.getLegionMember().getLegion().getLegionName() : "");
 
         int maxHp = player.getGameStats().getCurrentStat(StatEnum.MAXHP);
         int currHp = player.getLifeStats().getCurrentHp();

@@ -23,6 +23,7 @@ import com.aionemu.commons.objects.filter.ObjectFilter;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.group.PlayerGroup;
+import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
@@ -30,6 +31,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandler;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlerResponse;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlers;
+import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
@@ -58,8 +60,12 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 	@Inject
 	private ChatHandlers		chatHandlers;
 
+	@Inject
+	private World				world;
+
 	/**
 	 * Constructs new client packet instance.
+	 * 
 	 * @param opcode
 	 */
 	public CM_CHAT_MESSAGE_PUBLIC(int opcode)
@@ -95,7 +101,7 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 
 			message = response.getMessage();
 		}
-		
+
 		if(RestrictionsManager.canChat(player))
 		{
 			switch(this.type)
@@ -106,32 +112,36 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 				case GROUP_LEADER:
 					broadcastToGroupMembers(player);
 					break;
+				case LEGION:
+					broadcastToLegionMembers(player);
+					break;
 				default:
-					broadcastToNonBlockedPlayers(player);				
+					broadcastToNonBlockedPlayers(player);
 			}
 		}
 	}
-	
+
 	/**
-	 * 	Sends message to all players that are not in blocklist
-	 *  
+	 * Sends message to all players that are not in blocklist
+	 * 
 	 * @param player
 	 */
 	private void broadcastToNonBlockedPlayers(final Player player)
 	{
-		PacketSendUtility.broadcastPacket(player, new SM_MESSAGE(player, message, type), true, new ObjectFilter<Player>(){
+		PacketSendUtility.broadcastPacket(player, new SM_MESSAGE(player, message, type), true,
+			new ObjectFilter<Player>(){
 
-			@Override
-			public boolean acceptObject(Player object)
-			{
-				return !object.getBlockList().contains(player.getObjectId());
-			}
-		});
+				@Override
+				public boolean acceptObject(Player object)
+				{
+					return !object.getBlockList().contains(player.getObjectId());
+				}
+			});
 	}
-	
+
 	/**
-	 *  Sends message to all group members
-	 *  
+	 * Sends message to all group members
+	 * 
 	 * @param player
 	 */
 	private void broadcastToGroupMembers(final Player player)
@@ -143,6 +153,23 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 			{
 				PacketSendUtility.sendPacket(groupPlayer, new SM_MESSAGE(player, message, type));
 			}
-		}	
+		}
+	}
+
+	/**
+	 * Sends message to all legion members
+	 * 
+	 * @param player
+	 */
+	private void broadcastToLegionMembers(final Player player)
+	{
+		Legion legion = player.getLegionMember().getLegion();
+		if(legion != null)
+		{
+			for(Player legionMember : legion.getOnlineLegionMembers(world))
+			{
+				PacketSendUtility.sendPacket(legionMember, new SM_MESSAGE(player, message, type));
+			}
+		}
 	}
 }
