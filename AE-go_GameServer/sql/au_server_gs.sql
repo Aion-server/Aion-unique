@@ -2,7 +2,7 @@
 -- server_variables
 -- ----------------------------
 
-CREATE TABLE `server_variables` (
+CREATE TABLE IF NOT EXISTS `server_variables` (
   `key` varchar(30) NOT NULL,
   `value` varchar(30) NOT NULL,
   PRIMARY KEY (`key`)
@@ -12,7 +12,7 @@ CREATE TABLE `server_variables` (
 -- players
 -- ----------------------------
 
-CREATE TABLE `players` (
+CREATE TABLE IF NOT EXISTS `players` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `account_id` int(11) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `players` (
 -- player_appearance
 -- ----------------------------
 
-CREATE TABLE `player_appearance` (
+CREATE TABLE IF NOT EXISTS `player_appearance` (
   `player_id` int(11) NOT NULL,
   `face` int(11) NOT NULL,
   `hair` int(11) NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE `player_appearance` (
 -- player_macrosses
 -- ----------------------------
 
-CREATE TABLE `player_macrosses` (
+CREATE TABLE IF NOT EXISTS `player_macrosses` (
   `player_id` int(11) NOT NULL,
   `order` int(3) NOT NULL,
   `macro` text NOT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE `player_macrosses` (
 -- ----------------------------
 -- player_titles
 -- ----------------------------
-CREATE TABLE `player_titles` (
+CREATE TABLE IF NOT EXISTS `player_titles` (
   `player_id` int(11) NOT NULL,
   `title_id` int(11) NOT NULL,
   PRIMARY KEY (`player_id`,`title_id`),
@@ -127,7 +127,7 @@ CREATE TABLE `player_titles` (
 -- friends
 -- ----------------------------
 
-CREATE TABLE `friends` (
+CREATE TABLE IF NOT EXISTS `friends` (
   `player` int(11) NOT NULL,
   `friend` int(11) NOT NULL,
   PRIMARY KEY (`player`,`friend`),
@@ -139,7 +139,7 @@ CREATE TABLE `friends` (
 -- blocks
 -- ----------------------------
 
-CREATE TABLE `blocks` (
+CREATE TABLE IF NOT EXISTS `blocks` (
   `player` int(11) NOT NULL,
   `blocked_player` int(11) NOT NULL,
   `reason` varchar(100) NOT NULL DEFAULT '',
@@ -152,7 +152,7 @@ CREATE TABLE `blocks` (
 -- player_settings
 -- ----------------------------
 
-CREATE TABLE `player_settings` (
+CREATE TABLE IF NOT EXISTS `player_settings` (
   `player_id` int(11) NOT NULL,
   `settings_type` tinyint(1) NOT NULL,
   `settings` BLOB NOT NULL,
@@ -164,7 +164,7 @@ CREATE TABLE `player_settings` (
 -- player_skills
 -- ----------------------------
 
-CREATE TABLE `player_skills` (
+CREATE TABLE IF NOT EXISTS `player_skills` (
   `player_id` int(11) NOT NULL,
   `skillId` int(11) NOT NULL,
   `skillLevel` int(3) NOT NULL default '1',
@@ -176,7 +176,7 @@ CREATE TABLE `player_skills` (
 -- inventory
 -- ----------------------------
 
-CREATE TABLE `inventory` (
+CREATE TABLE IF NOT EXISTS `inventory` (
   `itemUniqueId` int(11) NOT NULL,
   `itemId` int(11) NOT NULL,
   `itemCount` int(11) NOT NULL DEFAULT '0',
@@ -192,7 +192,7 @@ CREATE TABLE `inventory` (
 -- item_stones
 -- ----------------------------
 
-CREATE TABLE `item_stones` (
+CREATE TABLE IF NOT EXISTS `item_stones` (
   `itemUniqueId` int(11) NOT NULL,
   `itemId` int(11) NOT NULL,
   `slot` int(2) NOT NULL,
@@ -204,7 +204,7 @@ CREATE TABLE `item_stones` (
 -- player_quests
 -- ----------------------------
 
-CREATE TABLE `player_quests` (
+CREATE TABLE IF NOT EXISTS `player_quests` (
 `player_id` int(11) NOT NULL,
 `quest_id` int(10) unsigned NOT NULL default '0',
 `status` varchar(10) NOT NULL default 'NONE',
@@ -218,7 +218,7 @@ FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDAT
 -- droplist
 -- ----------------------------
 
-CREATE TABLE `droplist` (
+CREATE TABLE IF NOT EXISTS `droplist` (
 `Id` int(11) NOT NULL AUTO_INCREMENT,
 `mobId` int(11) NOT NULL DEFAULT 0,
 `itemId` int(11) NOT NULL DEFAULT 0,
@@ -233,7 +233,7 @@ PRIMARY KEY (`Id`)
 -- abyss_rank
 -- ----------------------------
 
-CREATE TABLE `abyss_rank` (
+CREATE TABLE IF NOT EXISTS `abyss_rank` (
   `player_id` int(11) NOT NULL,
   `ap` int(11) NOT NULL,
   `rank` int(2) NOT NULL default '1',
