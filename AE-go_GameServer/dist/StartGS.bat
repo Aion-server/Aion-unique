@@ -15,6 +15,7 @@ SET CLASSPATH=%OLDCLASSPATH%
 
 if ERRORLEVEL 2 goto restart
 if ERRORLEVEL 1 goto error
+if ERRORLEVEL 0 goto end
 
 REM Restart...
 :restart
