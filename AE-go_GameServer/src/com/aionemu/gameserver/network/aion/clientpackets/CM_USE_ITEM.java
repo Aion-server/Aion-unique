@@ -58,9 +58,8 @@ public class CM_USE_ITEM extends AionClientPacket {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void runImpl() {
-
-
+	protected void runImpl() 
+	{
 		Player player = getConnection().getActivePlayer();
 		Item item = player.getInventory().getItemByObjId(uniqueItemId);
 		if(item == null)
@@ -71,6 +70,13 @@ public class CM_USE_ITEM extends AionClientPacket {
 
 		if (QuestEngine.getInstance().onItemUseEvent(new QuestEnv(null, player, 0, 0), item))
 			return;
+
+		//check use item multicast delay exploit cast (spam)
+		if(player.isCasting())
+		{
+			//PacketSendUtility.sendMessage(this.getOwner(), "You must wait until cast time finished to use skill again.");
+			return;
+		}
 
 		Item targetItem = player.getInventory().findItemByObjId(targetItemId);
 		ItemActions itemActions = item.getItemTemplate().getActions();
