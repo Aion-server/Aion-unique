@@ -109,6 +109,9 @@ public class ExchangeService
 		Exchange currentExchange = getCurrentExchange(activePlayer);
 		if(currentExchange.isLocked())
 			return;
+		
+		if(itemCount < 1)
+			return;
 
 		//count total amount in inventory
 		int availableCount = activePlayer.getInventory().getKinahItem().getItemCount();
@@ -135,6 +138,9 @@ public class ExchangeService
 	{
 		Item item = activePlayer.getInventory().getItemByObjId(itemObjId);
 		if(item == null)
+			return;
+		
+		if(itemCount < 1)
 			return;
 
 		Player partner = getCurrentParter(activePlayer);

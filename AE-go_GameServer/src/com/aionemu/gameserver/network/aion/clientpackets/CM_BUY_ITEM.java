@@ -76,6 +76,10 @@ public class CM_BUY_ITEM extends AionClientPacket
 			count  = readD();
 			unk2   = readD();
 			
+			//prevent exploit packets
+			if(count < 1)
+				continue;
+			
 			if(unk1 == 12 || unk1 == 13)
 			{
 				tradeList.addBuyItem(itemId, count);
