@@ -20,7 +20,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
