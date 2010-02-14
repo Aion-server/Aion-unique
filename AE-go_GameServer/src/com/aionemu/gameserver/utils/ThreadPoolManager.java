@@ -373,7 +373,7 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 			effectsScheduledThreadPool.awaitTermination(2, TimeUnit.SECONDS);
 			aiScheduledThreadPool.awaitTermination(2, TimeUnit.SECONDS);
 			loginServerPacketsThreadPool.awaitTermination(2, TimeUnit.SECONDS);
-			log.info("All ThreadPools are now stopped");
+			log.info("All ThreadPools are now stopped.");
 		}
 		catch(InterruptedException e)
 		{

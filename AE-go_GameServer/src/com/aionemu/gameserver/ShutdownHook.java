@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
+import com.aionemu.gameserver.questEngine.handlers.QuestHandlersManager;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
@@ -130,11 +131,30 @@ public class ShutdownHook extends Thread
 		{
 			e.printStackTrace();
 		}
+		
+		try
+		{
+			QuestHandlersManager.shutdown();
+			log.info("QuestHandlersManager: Quests are shutdown...");
+		}
+		catch(Throwable t)
+		{
+			t.printStackTrace();
+		}
 
 		try
 		{
 			GameTimeManager.saveTime();
 			log.info("GameTimeManager: Game time saved...");
+		}
+		catch(Throwable t)
+		{
+			t.printStackTrace();
+		}
+		
+		try
+		{
+			ThreadPoolManager.getInstance().shutdown();
 		}
 		catch(Throwable t)
 		{
