@@ -659,10 +659,10 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300305);
 	}
 
-	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_REQUESTED()
+	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_REQUESTED(int unixTime)
 	{
 		// The Brigade General has requested to disband the Legion. The expected time of disbanding is %DATETIME0.
-		return new SM_SYSTEM_MESSAGE(1300303);
+		return new SM_SYSTEM_MESSAGE(1300303, unixTime);
 	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_ALREADY_REQUESTED()

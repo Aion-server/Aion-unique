@@ -41,6 +41,15 @@ public class OfflineLegionMember extends LegionMember
 		super(playerObjId);
 	}
 
+	/**
+	 * If player is defined later on this constructor is called
+	 */
+	public OfflineLegionMember(String name)
+	{
+		super();
+		this.name = name;
+	}
+
 	public String getName()
 	{
 		return name;

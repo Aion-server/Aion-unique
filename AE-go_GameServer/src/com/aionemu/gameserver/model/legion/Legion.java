@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.model.legion;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
@@ -30,17 +31,18 @@ import com.aionemu.gameserver.world.World;
  */
 public class Legion
 {
-	private int								legionId				= 0;
-	private String							legionName				= "";
-	private int								legionLevel				= 1;
-	private int								legionRank				= 0;
-	private int								legionContribution		= 0;
-	private ArrayList<Integer>				legionMembers			= new ArrayList<Integer>();
-	private static final int				legionarPermission1		= 0x40;
-	private int								legionarPermission2		= 0x00;
-	private int								centurionPermission1	= 0x60;
-	private int								centurionPermission2	= 0x00;
-	private LinkedHashMap<Integer, String>	announcementList		= new LinkedHashMap<Integer, String>();
+	private int									legionId				= 0;
+	private String								legionName				= "";
+	private int									legionLevel				= 1;
+	private int									legionRank				= 0;
+	private int									legionContribution		= 0;
+	private ArrayList<Integer>					legionMembers			= new ArrayList<Integer>();
+	private static final int					legionarPermission1		= 0x40;
+	private int									legionarPermission2		= 0x00;
+	private int									centurionPermission1	= 0x60;
+	private int									centurionPermission2	= 0x00;
+	private int									disbandTime;
+	private LinkedHashMap<Timestamp, String>	announcementList		= new LinkedHashMap<Timestamp, String>();
 
 	/**
 	 * Only called when a legion is created!
@@ -288,7 +290,7 @@ public class Legion
 		}
 		return false;
 	}
-	
+
 	public int getKinahPrice()
 	{
 		switch(getLegionLevel())
@@ -304,7 +306,7 @@ public class Legion
 		}
 		return 0;
 	}
-	
+
 	public int getContributionPrice()
 	{
 		switch(getLegionLevel())
@@ -362,7 +364,7 @@ public class Legion
 	 * @param announcementList
 	 *            the announcementList to set
 	 */
-	public void setAnnouncementList(LinkedHashMap<Integer, String> announcementList)
+	public void setAnnouncementList(LinkedHashMap<Timestamp, String> announcementList)
 	{
 		this.announcementList = announcementList;
 	}
@@ -370,7 +372,7 @@ public class Legion
 	/**
 	 * @return the announcementList
 	 */
-	public LinkedHashMap<Integer, String> getAnnouncementList()
+	public LinkedHashMap<Timestamp, String> getAnnouncementList()
 	{
 		return announcementList;
 	}
@@ -378,12 +380,12 @@ public class Legion
 	/**
 	 * @return the currentAnnouncement
 	 */
-	public Entry<Integer, String> getCurrentAnnouncement()
+	public Entry<Timestamp, String> getCurrentAnnouncement()
 	{
 		if(announcementList.size() > 0)
 		{
-			Entry<Integer, String> currentAnnouncement = null;
-			for(Entry<Integer, String> unixTime : announcementList.entrySet())
+			Entry<Timestamp, String> currentAnnouncement = null;
+			for(Entry<Timestamp, String> unixTime : announcementList.entrySet())
 			{
 				if(currentAnnouncement == null)
 				{
@@ -391,14 +393,43 @@ public class Legion
 				}
 				else
 				{
-					if(currentAnnouncement.getKey() < unixTime.getKey())
-					{
-						currentAnnouncement = unixTime;
-					}
+					// if(currentAnnouncement.getKey() < unixTime.getKey())
+					// {
+					// currentAnnouncement = unixTime;
+					// }
 				}
 			}
 			return currentAnnouncement;
 		}
 		return null;
+	}
+
+	/**
+	 * @param disbandTime
+	 *            the disbandTime to set
+	 */
+	public void setDisbandTime(int disbandTime)
+	{
+		this.disbandTime = disbandTime;
+	}
+
+	/**
+	 * @return the disbandTime
+	 */
+	public int getDisbandTime()
+	{
+		return disbandTime;
+	}
+
+	/**
+	 * @return true if currently disbanding
+	 */
+	public boolean isDisbanding()
+	{
+		if(disbandTime > 0)
+		{
+			return true;
+		}
+		return false;
 	}
 }

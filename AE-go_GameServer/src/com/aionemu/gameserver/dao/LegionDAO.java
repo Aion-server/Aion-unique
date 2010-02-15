@@ -17,6 +17,7 @@
 
 package com.aionemu.gameserver.dao;
 
+import java.sql.Timestamp;
 import java.util.LinkedHashMap;
 
 import com.aionemu.gameserver.model.legion.Legion;
@@ -78,14 +79,14 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	 * @param legion
 	 * @return announcementList
 	 */
-	public abstract LinkedHashMap<Integer, String> loadAnnouncementList(Legion legion);
+	public abstract LinkedHashMap<Timestamp, String> loadAnnouncementList(Legion legion);
 
 	/**
 	 * Creates legion in DB
 	 * 
 	 * @param legion
 	 */
-	public abstract boolean saveNewAnnouncement(int legionId, int unixTime, String message);
+	public abstract boolean saveNewAnnouncement(int legionId, String message);
 
 	/**
 	 * Identifier name for all LegionDAO classes

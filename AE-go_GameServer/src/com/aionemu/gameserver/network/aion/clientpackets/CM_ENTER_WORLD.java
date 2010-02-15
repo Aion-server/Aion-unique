@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -265,32 +266,37 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	private void handleLegionMemberInfo(Player player)
 	{
 		Legion legion = player.getLegionMember().getLegion();
-		sendPacket(new SM_LEGION_MEMBER(player));
-		sendPacket(new SM_LEGION_INFO(legion));
-
-		for(Integer memberObjId : legion.getLegionMembers())
+		if(!legion.isDisbanding())
 		{
-			Player legionMember = world.findPlayer(memberObjId);
-			if(legionMember != null)
+			sendPacket(new SM_LEGION_MEMBER(player));
+			sendPacket(new SM_LEGION_INFO(legion));
+
+			for(Integer memberObjId : legion.getLegionMembers())
 			{
-				sendPacket(new SM_LEGIONMEMBER_INFO(legionMember));
-				if(player.getObjectId() != memberObjId)
+				Player legionMember = world.findPlayer(memberObjId);
+				if(legionMember != null)
 				{
-					PacketSendUtility.broadcastPacket(legionMember, new SM_LEGIONMEMBER_INFO(player), true);
+					sendPacket(new SM_LEGIONMEMBER_INFO(legionMember));
+					if(player.getObjectId() != memberObjId)
+					{
+						PacketSendUtility.broadcastPacket(legionMember, new SM_LEGIONMEMBER_INFO(player), true);
+					}
+				}
+				else
+				{
+					OfflineLegionMember offlineLegionMember = legionService.getOfflineLegionMember(memberObjId);
+					if(offlineLegionMember != null)
+						sendPacket(new SM_LEGIONMEMBER_INFO(offlineLegionMember));
+					// else player mysteriously disappeared?
 				}
 			}
-			else
-			{
-				OfflineLegionMember offlineLegionMember = legionService.getOfflineLegionMember(memberObjId);
-				sendPacket(new SM_LEGIONMEMBER_INFO(offlineLegionMember));
-			}
-		}
 
-		Entry<Integer, String> currentAnnouncement = legion.getCurrentAnnouncement();
-		if(currentAnnouncement != null)
-		{
-			sendPacket(SM_SYSTEM_MESSAGE.LEGION_DISPLAY_ANNOUNCEMENT(currentAnnouncement.getValue(),
-				currentAnnouncement.getKey(), 2));
+			Entry<Timestamp, String> currentAnnouncement = legion.getCurrentAnnouncement();
+			if(currentAnnouncement != null)
+			{
+				sendPacket(SM_SYSTEM_MESSAGE.LEGION_DISPLAY_ANNOUNCEMENT(currentAnnouncement.getValue(),
+					(int) (currentAnnouncement.getKey().getTime() / 1000), 2));
+			}
 		}
 	}
 

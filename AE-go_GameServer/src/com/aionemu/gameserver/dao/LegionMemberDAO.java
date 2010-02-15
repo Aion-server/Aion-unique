@@ -76,6 +76,13 @@ public abstract class LegionMemberDAO implements IDFactoryAwareDAO
 	public abstract OfflineLegionMember loadOfflineLegionMember(int playerObjId, LegionService legionService);
 
 	/**
+	 * @param playerName
+	 * @param legionService
+	 * @return
+	 */
+	public abstract OfflineLegionMember loadOfflineLegionMember(String playerName, LegionService legionService);
+
+	/**
 	 * This method is used to store only newly created characters
 	 * 
 	 * @param world

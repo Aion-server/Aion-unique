@@ -255,6 +255,7 @@ CREATE TABLE IF NOT EXISTS `legions` (
   `legionar_permission2` int(11) NOT NULL DEFAULT '64',
   `centurion_permission1` int(11) NOT NULL DEFAULT '104',
   `centurion_permission2` int(11) NOT NULL DEFAULT '8',
+  `disband_time` timestamp NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name_unique` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -263,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `legion_announcement_list` (
   `legion_id` int(11) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `announcement` varchar(120) NOT NULL,
-  `date` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
   FOREIGN KEY (`legion_id`) REFERENCES `legions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

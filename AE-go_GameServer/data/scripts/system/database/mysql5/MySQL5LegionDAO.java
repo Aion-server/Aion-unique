@@ -19,6 +19,7 @@ package mysql5;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.LinkedHashMap;
 
 import org.apache.log4j.Logger;
@@ -104,7 +105,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	{
 		DB
 			.insertUpdate(
-				"UPDATE legions SET name=?, level=?, legionar_permission2=?, centurion_permission1=?, centurion_permission2=? WHERE id=?",
+				"UPDATE legions SET name=?, level=?, legionar_permission2=?, centurion_permission1=?, centurion_permission2=?, disband_time=? WHERE id=?",
 				new IUStH(){
 					@Override
 					public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
@@ -117,7 +118,8 @@ public class MySQL5LegionDAO extends LegionDAO
 						stmt.setInt(3, legion.getLegionarPermission2());
 						stmt.setInt(4, legion.getCenturionPermission1());
 						stmt.setInt(5, legion.getCenturionPermission2());
-						stmt.setInt(6, legion.getLegionId());
+						stmt.setInt(6, legion.getDisbandTime());
+						stmt.setInt(7, legion.getLegionId());
 						stmt.execute();
 					}
 				});
@@ -150,6 +152,8 @@ public class MySQL5LegionDAO extends LegionDAO
 
 					legion.setLegionarPermissions(resultSet.getInt("legionar_permission2"), resultSet
 						.getInt("centurion_permission1"), resultSet.getInt("centurion_permission2"));
+					
+					legion.setDisbandTime(resultSet.getInt("disband_time"));
 				}
 			}
 		});
@@ -224,9 +228,9 @@ public class MySQL5LegionDAO extends LegionDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedHashMap<Integer, String> loadAnnouncementList(final Legion legion)
+	public LinkedHashMap<Timestamp, String> loadAnnouncementList(final Legion legion)
 	{
-		final LinkedHashMap<Integer, String> announcementList = new LinkedHashMap<Integer, String>();
+		final LinkedHashMap<Timestamp, String> announcementList = new LinkedHashMap<Timestamp, String>();
 
 		boolean success = DB.select("SELECT * FROM legion_announcement_list WHERE legion_id=? ORDER BY date DESC",
 			new ParamReadStH(){
@@ -242,7 +246,7 @@ public class MySQL5LegionDAO extends LegionDAO
 					while(resultSet.next())
 					{
 						String message = resultSet.getString("announcement");
-						int date = resultSet.getInt("date");
+						Timestamp date = resultSet.getTimestamp("date");
 
 						announcementList.put(date, message);
 					}
@@ -276,10 +280,10 @@ public class MySQL5LegionDAO extends LegionDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean saveNewAnnouncement(final int legionId, final int unixTime, final String message)
+	public boolean saveNewAnnouncement(final int legionId, final String message)
 	{
-		boolean success = DB.insertUpdate("INSERT INTO legion_announcement_list(`legion_id`, `announcement`, `date`) "
-			+ "VALUES (?, ?, ?)", new IUStH(){
+		boolean success = DB.insertUpdate("INSERT INTO legion_announcement_list(`legion_id`, `announcement`) "
+			+ "VALUES (?, ?)", new IUStH(){
 			@Override
 			public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
 			{
@@ -287,7 +291,6 @@ public class MySQL5LegionDAO extends LegionDAO
 
 				preparedStatement.setInt(1, legionId);
 				preparedStatement.setString(2, message);
-				preparedStatement.setInt(3, unixTime);
 				preparedStatement.execute();
 			}
 		});

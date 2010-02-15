@@ -168,6 +168,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_LEGIONMEMBER_INFO.class, 0x95, idSet);
 		addPacketOpcode(SM_EDIT_LEGION.class, 0x9E, idSet);
 		addPacketOpcode(SM_LEGION_CREATED.class, 0xD7, idSet);
+		//addPacketOpcode(SM_LEGION_MODIFY_EMBLEM.class, 0xA1, idSet);
 
 		// Unrecognized Opcodes from 1.5.4:
 		// addPacketOpcode(SM_BUY_LIST.class, 0x7E, idSet);

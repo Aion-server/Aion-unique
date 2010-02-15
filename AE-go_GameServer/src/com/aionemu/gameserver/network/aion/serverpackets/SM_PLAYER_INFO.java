@@ -29,24 +29,27 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
  * This packet is displaying visible players.
- *
+ * 
  * @author -Nemesiss-, Avol, srx47
  */
-public class SM_PLAYER_INFO extends AionServerPacket {
+public class SM_PLAYER_INFO extends AionServerPacket
+{
 
 	/**
 	 * Visible player
 	 */
-	private final Player player;
-	private boolean enemy;
+	private final Player	player;
+	private boolean			enemy;
 
 	/**
 	 * Constructs new <tt>SM_PLAYER_INFO </tt> packet
-	 *
-	 * @param player actual player.
+	 * 
+	 * @param player
+	 *            actual player.
 	 * @param enemy
 	 */
-	public SM_PLAYER_INFO(Player player, boolean enemy) {
+	public SM_PLAYER_INFO(Player player, boolean enemy)
+	{
 		this.player = player;
 		this.enemy = enemy;
 	}
@@ -55,7 +58,8 @@ public class SM_PLAYER_INFO extends AionServerPacket {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(AionConnection con, ByteBuffer buf) {
+	protected void writeImpl(AionConnection con, ByteBuffer buf)
+	{
 		PlayerCommonData pcd = player.getCommonData();
 
 		final int raceId = pcd.getRace().getRaceId();
@@ -71,12 +75,11 @@ public class SM_PLAYER_INFO extends AionServerPacket {
 		 */
 		writeD(buf, pcd.getTemplateId());
 		/**
-		 * Transformed state - send transformed model id
-		 * Regular state - send player model id (from common data)
+		 * Transformed state - send transformed model id Regular state - send player model id (from common data)
 		 */
 		writeD(buf, player.getTransformedModelId() == 0 ? pcd.getTemplateId() : player.getTransformedModelId());
 
-		if (enemy)
+		if(enemy)
 		{
 			writeC(buf, 0x00);
 		}
@@ -84,15 +87,14 @@ public class SM_PLAYER_INFO extends AionServerPacket {
 		{
 			writeC(buf, 0x26);
 		}
-		writeC(buf, raceId); //race
+		writeC(buf, raceId); // race
 		writeC(buf, pcd.getPlayerClass().getClassId());
-		writeC(buf, genderId); //sex
+		writeC(buf, genderId); // sex
 		writeC(buf, player.getState());
-		writeC(buf, 0x00); //unk 0 or 1
+		writeC(buf, 0x00); // unk 0 or 1
 
-		byte[] unk = new byte[]{(byte) 0x00, (byte) 0x00, (byte) 0x00,
-			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00
-		};
+		byte[] unk = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
+			(byte) 0x00, (byte) 0x00 };
 		writeB(buf, unk);
 
 		writeC(buf, player.getHeading());
@@ -100,37 +102,39 @@ public class SM_PLAYER_INFO extends AionServerPacket {
 		writeS(buf, player.getName());
 
 		writeD(buf, pcd.getTitleId());
-		writeC(buf, 0x0);//if set 0x1 can't jump and fly..
+		writeC(buf, 0x0);// if set 0x1 can't jump and fly..
 		writeH(buf, player.getCastingSkillId());
-		writeH(buf, player.isLegionMember() ? player.getLegionMember().getLegion().getLegionId() : 0);
+		writeH(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+			.getLegionMember().getLegion().getLegionId() : 0);
 		writeH(buf, 0);
 		writeC(buf, 0);
 		writeH(buf, 0);
 		writeH(buf, 0);
 		writeC(buf, 0);
-		writeS(buf, player.isLegionMember() ? player.getLegionMember().getLegion().getLegionName() : "");
+		writeS(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+			.getLegionMember().getLegion().getLegionName() : "");
 
 		int maxHp = player.getGameStats().getCurrentStat(StatEnum.MAXHP);
 		int currHp = player.getLifeStats().getCurrentHp();
-		writeC(buf, 100 * currHp/maxHp);// %hp
+		writeC(buf, 100 * currHp / maxHp);// %hp
 		writeH(buf, pcd.getDp());// current dp
 		writeC(buf, 0x00);// unk (0x00)
 
 		List<Item> items = player.getEquipment().getEquippedItems();
 		short mask = 0;
-		for (Item item : items)
+		for(Item item : items)
 		{
 			mask |= item.getEquipmentSlot();
 		}
 
 		writeH(buf, mask);
 
-		for (Item item : items)
+		for(Item item : items)
 		{
-			if (item.getEquipmentSlot() < Short.MAX_VALUE * 2)
+			if(item.getEquipmentSlot() < Short.MAX_VALUE * 2)
 			{
 				writeD(buf, item.getItemTemplate().getItemId());
-				writeD(buf, 0); //GodStone ItemId
+				writeD(buf, 0); // GodStone ItemId
 				writeD(buf, item.getItemColor());
 			}
 		}
@@ -181,7 +185,6 @@ public class SM_PLAYER_INFO extends AionServerPacket {
 		writeC(buf, playerAppearance.getNeckLength());
 		writeC(buf, playerAppearance.getShoulderSize());
 
-
 		writeC(buf, playerAppearance.getTorso());
 		writeC(buf, playerAppearance.getChest()); // only woman
 		writeC(buf, playerAppearance.getWaist());
@@ -204,8 +207,8 @@ public class SM_PLAYER_INFO extends AionServerPacket {
 		writeC(buf, playerAppearance.getVoice());
 
 		writeF(buf, playerAppearance.getHeight());
-		writeF(buf, 0.25f); //scale
-		writeF(buf, 2.0f); //gravity or slide surface o_O
+		writeF(buf, 0.25f); // scale
+		writeF(buf, 2.0f); // gravity or slide surface o_O
 		writeF(buf, player.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000f); // move speed
 
 		writeH(buf, player.getGameStats().getCurrentStat(StatEnum.ATTACK_SPEED));
@@ -213,9 +216,8 @@ public class SM_PLAYER_INFO extends AionServerPacket {
 		writeC(buf, 0);
 
 		writeS(buf, "");// private store message
-		unk = new byte[]{(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
-			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00
-		};
+		unk = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
+			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
 		writeB(buf, unk);
 
 		/**
@@ -227,14 +229,14 @@ public class SM_PLAYER_INFO extends AionServerPacket {
 		writeC(buf, 0x00); // move type
 
 		writeC(buf, player.getVisualState()); // visualState
-		writeS(buf, player.getCommonData().getNote());     //note show in right down windows if your target on player
+		writeS(buf, player.getCommonData().getNote()); // note show in right down windows if your target on player
 
 		writeH(buf, player.getLevel()); // [level]
 		writeH(buf, player.getPlayerSettings().getDisplay()); // unk - 0x04
 		writeH(buf, player.getPlayerSettings().getDeny()); // unk - 0x00
-		writeH(buf, player.getAbyssRank().getRank().getId()); //abyss rank
+		writeH(buf, player.getAbyssRank().getRank().getId()); // abyss rank
 		writeH(buf, 0x00); // unk - 0x01
-		if (player.getTarget() == null)
+		if(player.getTarget() == null)
 		{
 			writeD(buf, 0);
 		}
@@ -242,6 +244,6 @@ public class SM_PLAYER_INFO extends AionServerPacket {
 		{
 			writeD(buf, player.getTarget().getObjectId());
 		}
-		writeC(buf, 0); //suspect id
+		writeC(buf, 0); // suspect id
 	}
 }

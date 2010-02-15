@@ -62,6 +62,13 @@ public class LegionMember
 	}
 
 	/**
+	 * This constructor is called when an offline legion member is called
+	 */
+	public LegionMember()
+	{
+	}
+
+	/**
 	 * @param legion
 	 *            the legion to set
 	 */

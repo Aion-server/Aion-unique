@@ -20,10 +20,12 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.legion.Legion;
+import com.aionemu.gameserver.model.legion.OfflineLegionMember;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.LegionService;
+import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
@@ -188,12 +190,13 @@ public class CM_LEGION extends AionClientPacket
 					case 0x04:
 						if(targetPlayer != null)
 						{
-							legionService.kickPlayer(activePlayer, targetPlayer);
+							legionService.kickPlayer(activePlayer, targetPlayer, null);
 						}
 						else
 						{
-							return;
-							// Player off line / does not exist? send message to player?
+							OfflineLegionMember offlineLegionMember = legionService.getOfflineLegionMemberByName(charName);
+							if(offlineLegionMember != null)
+								legionService.kickPlayer(activePlayer, null, offlineLegionMember);
 						}
 						break;
 					/** Appoint a new Brigade General **/
@@ -237,7 +240,8 @@ public class CM_LEGION extends AionClientPacket
 						break;
 					/** Refresh legion info **/
 					case 0x08:
-						sendPacket(new SM_LEGION_INFO(legion));
+						if(!legion.isDisbanding())
+							sendPacket(new SM_LEGION_INFO(legion));
 						break;
 					/** Edit announcements **/
 					case 0x09:
@@ -266,7 +270,7 @@ public class CM_LEGION extends AionClientPacket
 			{
 				/** Create a legion **/
 				case 0x00:
-					legionService.createLegion(activePlayer, legionName);
+					legionService.createLegion(activePlayer, Util.convertName(legionName));
 					break;
 			}
 		}

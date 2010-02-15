@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.sql.Timestamp;
 import java.util.Map;
 
 import com.aionemu.gameserver.model.legion.Legion;
@@ -53,11 +54,11 @@ public class SM_LEGION_INFO extends AionServerPacket
 		writeD(buf, 0x00); // unk
 
 		/** Get Announcements List From DB By Legion **/
-		Map<Integer, String> announcementList = legion.getAnnouncementList();
-		for(Integer unixTime : announcementList.keySet())
+		Map<Timestamp, String> announcementList = legion.getAnnouncementList();
+		for(Timestamp unixTime : announcementList.keySet())
 		{
 			writeS(buf, announcementList.get(unixTime));
-			writeD(buf, (int) unixTime);
+			writeD(buf, (int)(unixTime.getTime()/1000));
 		}
 		writeH(buf, 0x00); // unk
 	}

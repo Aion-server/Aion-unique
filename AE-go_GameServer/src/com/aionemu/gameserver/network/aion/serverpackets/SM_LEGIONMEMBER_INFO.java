@@ -50,6 +50,7 @@ public class SM_LEGIONMEMBER_INFO extends AionServerPacket
 	{
 		if(player != null)
 		{
+			int lastLogin = (int)(player.getCommonData().getLastOnline().getTime()/1000);
 			writeC(buf, 0x01); // Pledge Emblem related?
 			writeH(buf, 0xFFFF); // Pledge Emblem id?
 			writeD(buf, player.getObjectId());
@@ -61,11 +62,12 @@ public class SM_LEGIONMEMBER_INFO extends AionServerPacket
 			writeC(buf, player.isOnline() ? ONLINE : OFFLINE);
 			writeS(buf, player.getLegionMember().getSelfIntro());
 			writeS(buf, player.getLegionMember().getNickname());
-			writeD(buf, (int) player.getCommonData().getLastOnline().getTime());
+			writeD(buf, lastLogin);
 			writeH(buf, 0x00); // empty?
 		}
 		else
 		{
+			int lastLogin = (int)(offlineLegionMember.getLastOnline().getTime()/1000);
 			writeC(buf, 0x01); // Pledge Emblem related?
 			writeH(buf, 0xFFFF); // Pledge Emblem id?
 			writeD(buf, offlineLegionMember.getPlayerObjId());
@@ -77,7 +79,7 @@ public class SM_LEGIONMEMBER_INFO extends AionServerPacket
 			writeC(buf, OFFLINE);
 			writeS(buf, offlineLegionMember.getSelfIntro());
 			writeS(buf, offlineLegionMember.getNickname());
-			writeD(buf, (int) offlineLegionMember.getLastOnline().getTime());
+			writeD(buf, lastLogin);
 			writeH(buf, 0x00); // empty?
 		}
 	}

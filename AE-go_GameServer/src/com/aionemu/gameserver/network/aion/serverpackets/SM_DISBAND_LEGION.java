@@ -17,9 +17,7 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.util.Date;
 
-import com.aionemu.gameserver.configs.LegionConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
@@ -32,12 +30,10 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_DISBAND_LEGION extends AionServerPacket
 {
 	private Player	player;
-	private Date	disbandLegionTime;
 
 	public SM_DISBAND_LEGION(Player player)
 	{
 		this.player = player;
-		this.disbandLegionTime = new Date();
 	}
 
 	@Override
@@ -49,6 +45,6 @@ public class SM_DISBAND_LEGION extends AionServerPacket
 		writeD(buf, player.getPosition().getMapId());
 		writeD(buf, 0x00);
 		writeH(buf, 0x4FD7);
-		writeS(buf, disbandLegionTime.getTime() + LegionConfig.LEGION_DISBAND_TIME + "");
+		writeS(buf, player.getLegionMember().getLegion().getDisbandTime() + "");
 	}
 }

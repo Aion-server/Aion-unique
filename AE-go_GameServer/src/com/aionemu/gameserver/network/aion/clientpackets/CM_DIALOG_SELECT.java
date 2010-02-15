@@ -127,58 +127,8 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				break;
 			case 6:
 				// disband legion
-				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
-				{
-					final int BRIGADE_GENERAL_RANK = 0x00;
-					RequestResponseHandler disbandResponseHandler = new RequestResponseHandler(npc){
-
-						@Override
-						public void acceptRequest(Creature requester, Player responder)
-						{
-							// disband legion
-							// TODO: Can't disband during a war!!
-							// TODO: Can't disband during using legion warehouse!!
-							// TODO: Can't disband legion with fortress or hideout!!
-							if(player.getLegionMember().getRank() > BRIGADE_GENERAL_RANK)
-							{
-								PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE
-									.LEGION_DISPERSE_ONLY_MASTER_CAN_DISPERSE());
-							}
-							// else if(player.getLegionMember().getLegion().isDisbanded())
-							// {
-							// PacketSendUtility.sendPacket(player,
-							// SM_SYSTEM_MESSAGE.LEGION_DISPERSE_ALREADY_REQUESTED());
-							// }
-							else
-							{
-								//PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.LEGION_DISPERSE_DONE(player
-								//	.getLegionMember().getLegion().getLegionName()));
-								//legionService.refreshMembersInfoByPacket(player.getLegionMember().getLegion(),
-								//	SM_SYSTEM_MESSAGE.LEGION_DISPERSE_REQUESTED());
-							}
-						}
-
-						@Override
-						public void denyRequest(Creature requester, Player responder)
-						{
-							// no message
-						}
-					};
-
-					boolean disbandResult = player.getResponseRequester().putRequest(
-						SM_QUESTION_WINDOW.STR_LEGION_DISBAND, disbandResponseHandler);
-					if(disbandResult)
-					{
-						PacketSendUtility.sendPacket(player, new SM_QUESTION_WINDOW(
-							SM_QUESTION_WINDOW.STR_LEGION_DISBAND, 0));
-					}
-				}
-				else
-				{
-					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.LEGION_DISPERSE_TOO_FAR_FROM_NPC());
-				}
+				legionService.disbandLegion(npc, player);
 				break;
-
 			case 20:
 				// warehouse
 				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet

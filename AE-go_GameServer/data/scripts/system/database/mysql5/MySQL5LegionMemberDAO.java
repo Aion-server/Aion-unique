@@ -118,8 +118,6 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 		});
 	}
 
-	private Object	pcdLock	= new Object();
-
 	/**
 	 * {@inheritDoc}
 	 */
@@ -162,10 +160,7 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 
 		if(success && legionMember.getLegion() != null)
 		{
-			synchronized(pcdLock)
-			{
-				return legionMember;
-			}
+			return legionMember;
 		}
 		else
 			return null;
@@ -216,10 +211,58 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 
 		if(success && legionMember.getLegion() != null)
 		{
-			synchronized(pcdLock)
+			return legionMember;
+		}
+		else
+			return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public OfflineLegionMember loadOfflineLegionMember(final String playerName, final LegionService legionService)
+	{
+		final OfflineLegionMember legionMember = new OfflineLegionMember(playerName);
+
+		log.debug(playerName + " so this means player is not empty");
+
+		boolean success = DB.select("SELECT players.id, players.exp, players.player_class, players.last_online, players.world_id, legion_members.* FROM players, legion_members WHERE name = ? AND players.id=legion_members.player_id", new ParamReadStH(){
+			@Override
+			public void setParams(PreparedStatement stmt) throws SQLException
 			{
-				return legionMember;
+				stmt.setString(1, playerName);
 			}
+
+			@Override
+			public void handleRead(ResultSet resultSet)
+			{
+				try
+				{
+					resultSet.next();
+					legionMember.setPlayerObjId(resultSet.getInt("id"));
+					legionMember.setExp(resultSet.getLong("exp"));
+					legionMember.setPlayerClass(PlayerClass.valueOf(resultSet.getString("player_class")));
+					legionMember.setLastOnline(resultSet.getTimestamp("last_online"));
+					legionMember.setWorldId(resultSet.getInt("world_id"));
+					
+					int legionId = resultSet.getInt("legion_id");
+					legionMember.setRank(resultSet.getInt("rank"));
+					legionMember.setNickname(resultSet.getString("nickname"));
+					legionMember.setSelfIntro(resultSet.getString("selfintro"));
+
+					legionMember.setLegion(legionService.getLegion(legionId));
+				}
+				catch(SQLException sqlE)
+				{
+					log.debug("[DAO: MySQL5LegionMemberDAO] Player is not in a Legion");
+				}
+			}
+		});
+
+		if(success && legionMember.getLegion() != null)
+		{
+			return legionMember;
 		}
 		else
 			return null;
@@ -261,10 +304,7 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 
 		if(success && legionMembers.size() > 0)
 		{
-			synchronized(pcdLock)
-			{
-				return legionMembers;
-			}
+			return legionMembers;
 		}
 		else
 			return null;
