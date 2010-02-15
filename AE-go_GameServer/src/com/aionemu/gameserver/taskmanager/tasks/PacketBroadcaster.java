@@ -16,11 +16,9 @@
  */
 package com.aionemu.gameserver.taskmanager.tasks;
 
-import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.taskmanager.AbstractPeriodicTaskManager;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author lord_rex and MrPoke
@@ -50,9 +48,6 @@ public class PacketBroadcaster extends AbstractPeriodicTaskManager<Creature>
 			public void sendPacket(Creature creature)
 			{
 				((Player) creature).getLifeStats().sendHpPacketUpdateImpl();
-				
-				if(Config.DEBUG_PACKET_BROADCASTER)
-					PacketSendUtility.sendMessage(((Player) creature), "PacketBroadcast: Your HP stat is updated.");
 			}
 		},
 		UPDATE_PLAYER_MP_STAT {
@@ -60,9 +55,6 @@ public class PacketBroadcaster extends AbstractPeriodicTaskManager<Creature>
 			public void sendPacket(Creature creature)
 			{
 				((Player) creature).getLifeStats().sendMpPacketUpdateImpl();
-				
-				if(Config.DEBUG_PACKET_BROADCASTER)
-					PacketSendUtility.sendMessage(((Player) creature), "PacketBroadcast: Your MP stat is updated.");
 			}
 		},
 		UPDATE_PLAYER_EFFECT_ICONS {
@@ -70,9 +62,6 @@ public class PacketBroadcaster extends AbstractPeriodicTaskManager<Creature>
 			public void sendPacket(Creature creature)
 			{
 				((Player) creature).getEffectController().updatePlayerEffectIconsImpl();
-				
-				if(Config.DEBUG_PACKET_BROADCASTER)
-					PacketSendUtility.sendMessage(((Player) creature), "PacketBroadcast: Your effect icons are updated.");
 			}
 		},
 		UPDATE_NEARBY_QUEST_LIST {
@@ -80,9 +69,6 @@ public class PacketBroadcaster extends AbstractPeriodicTaskManager<Creature>
 			public void sendPacket(Creature creature)
 			{
 				((Player) creature).getController().updateNearbyQuestListImpl();
-				
-				if(Config.DEBUG_PACKET_BROADCASTER)
-					PacketSendUtility.sendMessage(((Player) creature), "PacketBroadcast: Your quest list is updated.");
 			}
 		},
 		// TODO: more packets

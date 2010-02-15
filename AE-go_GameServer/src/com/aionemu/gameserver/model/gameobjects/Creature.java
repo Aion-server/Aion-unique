@@ -16,8 +16,9 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.ai.AI;
-import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.MoveController;
@@ -32,7 +33,6 @@ import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -43,7 +43,8 @@ import com.aionemu.gameserver.world.WorldPosition;
  */
 public abstract class Creature extends VisibleObject
 {
-
+	private static final Logger log = Logger.getLogger(Creature.class);
+	
 	/**
 	 * Reference to AI
 	 */
@@ -387,26 +388,40 @@ public abstract class Creature extends VisibleObject
 		return moveController;
 	}
 	
+	/**
+	 * PacketBroadcasterMask
+	 */
 	private volatile byte packetBroadcastMask;
 
+	/**
+	 * This is adding broadcast to player.
+	 */
 	public final void addPacketBroadcastMask(BroadcastMode mode)
 	{
 		packetBroadcastMask |= mode.mask();
 
 		PacketBroadcaster.getInstance().add(this);
 		
-		if(Config.DEBUG_PACKET_BROADCASTER)
-			PacketSendUtility.sendMessage(((Player)this), "PacketBroadcast: " + mode.name() + " added.");
+		// Debug
+		if(log.isDebugEnabled())
+			log.debug("PacketBroadcaster: Packet " + mode.name() + " added to player " + ((Player)this).getName());
 	}
 
+	/**
+	 * This is removing broadcast from player.
+	 */
 	public final void removePacketBroadcastMask(BroadcastMode mode)
 	{
 		packetBroadcastMask &= ~mode.mask();
 		
-		if(Config.DEBUG_PACKET_BROADCASTER)
-			PacketSendUtility.sendMessage(((Player)this), "PacketBroadcast: " + mode.name() + " added.");
+		// Debug
+		if(log.isDebugEnabled())
+			log.debug("PacketBroadcaster: Packet " + mode.name() + " removed from player " + ((Player)this).getName());
 	}
 
+	/**
+	 * Broadcast getter.
+	 */
 	public final byte getPacketBroadcastMask()
 	{
 		return packetBroadcastMask;

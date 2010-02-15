@@ -182,9 +182,6 @@ public class Config
 	@Property(key = "gameserver.unstuck.delay",defaultValue = "3600")
 	public static int				UNSTUCK_DELAY;
 	
-	@Property(key = "gameserver.taskmanager.DebugPacketBroadcaster",defaultValue = "false")
-	public static boolean			DEBUG_PACKET_BROADCASTER;
-	
 	@Property(key = "gameserver.taskmanager.AllowGC", defaultValue = "false")
 	public static boolean			ALLOW_GC;
 	
