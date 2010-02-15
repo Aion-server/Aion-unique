@@ -205,6 +205,9 @@ public class ItemService
 
 	public void moveKinah(Player player, Storage source, int splitAmount)
 	{
+		if(source.getKinahItem().getItemCount() < splitAmount)
+			return;
+
 		switch(source.getStorageType())
 		{
 			case 0:
