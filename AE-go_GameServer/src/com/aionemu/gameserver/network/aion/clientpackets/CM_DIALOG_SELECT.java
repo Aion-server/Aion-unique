@@ -59,6 +59,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	private int					questId;
 	@Inject
 	private CubeExpandService	cubeExpandService;
+	@SuppressWarnings("unused")
 	@Inject
 	private LegionService		legionService;
 

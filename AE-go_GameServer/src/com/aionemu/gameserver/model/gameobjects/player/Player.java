@@ -17,17 +17,13 @@
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 import com.aionemu.commons.callbacks.Enhancable;
 import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;

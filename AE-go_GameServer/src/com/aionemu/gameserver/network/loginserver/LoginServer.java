@@ -345,5 +345,7 @@ public class LoginServer
 			
 			loginServer.close(false);
 		}
+
+		log.info("GameServer disconnected from the Login Server...");
 	}
 }

@@ -66,5 +66,6 @@ public class QuestHandlersManager
 		scriptManager.shutdown();
 		QuestHandlers.clearQuestHandlers();
 		scriptManager = null;
+		logger.info("Quests are shutdown...");
 	}
 }

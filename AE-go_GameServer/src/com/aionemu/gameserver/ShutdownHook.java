@@ -109,7 +109,6 @@ public class ShutdownHook extends Thread
 		try
 		{
 			loginServer.gameServerDisconnected();
-			log.info("LoginServer: Disconnected from Login Server...");
 		}
 		catch(Throwable t)
 		{
@@ -135,7 +134,6 @@ public class ShutdownHook extends Thread
 		try
 		{
 			QuestHandlersManager.shutdown();
-			log.info("QuestHandlersManager: Quests are shutdown...");
 		}
 		catch(Throwable t)
 		{
@@ -145,7 +143,6 @@ public class ShutdownHook extends Thread
 		try
 		{
 			GameTimeManager.saveTime();
-			log.info("GameTimeManager: Game time saved...");
 		}
 		catch(Throwable t)
 		{
