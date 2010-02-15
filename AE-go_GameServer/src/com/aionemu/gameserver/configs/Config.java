@@ -107,7 +107,7 @@ public class Config
 	/**
 	 * Character name pattern (checked when character is being created)
 	 */
-	@Property(key = "gameserver.character.name.pattern", defaultValue = "[a-zA-Z]{2,10}")
+	@Property(key = "gameserver.character.name.pattern", defaultValue = "[a-zA-Z]{2,16}")
 	public static Pattern			CHAR_NAME_PATTERN;
 
 	/**
