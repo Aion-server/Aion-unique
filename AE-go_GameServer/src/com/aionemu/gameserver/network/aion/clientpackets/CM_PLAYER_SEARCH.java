@@ -25,6 +25,7 @@ import com.aionemu.gameserver.model.gameobjects.player.FriendList.Status;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SEARCH;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -61,7 +62,7 @@ public class CM_PLAYER_SEARCH extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		name = readS();
+		name = Util.convertName(readS());
 		readB(44 - (name.length()*2 + 2));
 		region = readD();	
 		classMask = readD();

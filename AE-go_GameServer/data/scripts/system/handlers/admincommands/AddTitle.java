@@ -20,6 +20,7 @@ import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -63,7 +64,7 @@ public class AddTitle extends AdminCommand
 		Player target = null;
 		if(params.length == 2)
 		{
-			target = world.findPlayer(params[1]);
+			target = world.findPlayer(Util.convertName(params[1]));
 			if(target == null)
 			{
 				PacketSendUtility.sendMessage(admin, "player " + params[1] + " was not found");

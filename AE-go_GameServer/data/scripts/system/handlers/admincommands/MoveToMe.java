@@ -20,6 +20,7 @@ package admincommands;
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -63,7 +64,7 @@ public class MoveToMe extends AdminCommand
 			return;
 		}
 
-		Player playerToMove = world.findPlayer(params[0]);
+		Player playerToMove = world.findPlayer(Util.convertName(params[0]));
 		if (playerToMove == null)
 		{
 			PacketSendUtility.sendMessage(admin, "The specified player is not online.");

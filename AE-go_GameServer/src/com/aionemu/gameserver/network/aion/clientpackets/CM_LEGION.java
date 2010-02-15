@@ -24,6 +24,7 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.LegionService;
+import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.World;
@@ -169,7 +170,7 @@ public class CM_LEGION extends AionClientPacket
 			final Legion legion = activePlayer.getLegionMember().getLegion();
 			if(charName != null)
 			{
-				Player targetPlayer = world.findPlayer(charName);
+				Player targetPlayer = world.findPlayer(Util.convertName(charName));
 				switch(exOpcode)
 				{
 					/** Invite to legion **/
