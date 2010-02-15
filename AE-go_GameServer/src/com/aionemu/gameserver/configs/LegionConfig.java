@@ -46,6 +46,12 @@ public class LegionConfig
 	public static Pattern			SELF_INTRO_PATTERN;
 
 	/**
+	 * Nickname pattern (checked when nickname is being changed)
+	 */
+	@Property(key = "gameserver.legion.nicknamepattern", defaultValue = "[a-zA-Z]{2,14}")
+	public static Pattern			NICKNAME_PATTERN;
+
+	/**
 	 * Announcement pattern (checked when announcement is being created)
 	 */
 	@Property(key = "gameserver.legion.announcementpattern", defaultValue = "[a-zA-Z .,]{2,120}")
