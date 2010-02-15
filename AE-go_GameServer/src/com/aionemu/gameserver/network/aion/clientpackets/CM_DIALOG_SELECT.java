@@ -144,7 +144,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 						Long lossexp = responder.getCommonData().getExpRecoverable();
 						if(player.getInventory().getKinahItem().getItemCount() > lossexp)
 						{
-							sendPacket(SM_SYSTEM_MESSAGE.EXP_RECOVEREBLED_BY_COUNT(String.valueOf(lossexp.intValue())));//TODO check SM_SYSTEM_MESSAGE
+							sendPacket(SM_SYSTEM_MESSAGE.EXP(String.valueOf(lossexp.intValue())));//TODO check SM_SYSTEM_MESSAGE
 							sendPacket(SM_SYSTEM_MESSAGE.SOUL_HEALED());
 							player.getCommonData().resetRecoverableExp();
 							player.getInventory().decreaseKinah(lossexp.intValue());

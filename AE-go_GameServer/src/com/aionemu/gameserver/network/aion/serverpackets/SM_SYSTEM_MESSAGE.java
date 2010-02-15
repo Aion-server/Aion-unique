@@ -367,11 +367,6 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1310004, level);
 	}
 
-	public static SM_SYSTEM_MESSAGE EXP_RECOVEREBLED_BY_COUNT(String count)
-	{
-		return new SM_SYSTEM_MESSAGE(1370002);
-	}
-
 	public static SM_SYSTEM_MESSAGE SOUL_HEALED()
 	{
 		return new SM_SYSTEM_MESSAGE(1300674);
@@ -506,7 +501,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		// You do not have enough Kinah.
 		return new SM_SYSTEM_MESSAGE(1300319);
-	}	
+	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_NEW_MASTER()
 	{
@@ -548,31 +543,31 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		// You cannot issue a Legion invitation while you are dead.
 		return new SM_SYSTEM_MESSAGE(1300250);
-	}	
+	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_NO_USER_TO_INVITE()
 	{
 		// There is no user to invite to your Legion.
 		return new SM_SYSTEM_MESSAGE(1300253);
-	}		
+	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_CAN_NOT_INVITE_SELF()
 	{
 		// You cannot invite yourself to a Legion.
 		return new SM_SYSTEM_MESSAGE(1300254);
-	}		
+	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_HE_IS_MY_GUILD_MEMBER(String charName)
 	{
 		// %0 is already a member of your Legion.
 		return new SM_SYSTEM_MESSAGE(1300255, charName);
-	}		
+	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_HE_IS_OTHER_GUILD_MEMBER(String charName)
 	{
 		// %0 is a member of another Legion.
 		return new SM_SYSTEM_MESSAGE(1300256, charName);
-	}	
+	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_CAN_NOT_ADD_MEMBER_ANY_MORE()
 	{
@@ -584,13 +579,13 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		// You cannot change the ranks of Legion members because you are not the Legion Brigade General.
 		return new SM_SYSTEM_MESSAGE(1300262);
-	}	
+	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_ERROR_SELF()
 	{
 		// The Legion Brigade General cannot change its own rank.
 		return new SM_SYSTEM_MESSAGE(1300263);
-	}	
+	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_NO_USER()
 	{
@@ -620,7 +615,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		// You are already the Legion Brigade General
 		return new SM_SYSTEM_MESSAGE(1300271);
-	}	
+	}
 
 	/**
 	 * You cannot fly in this area.
@@ -684,7 +679,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1300023);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE INVALID_TARGET()
 	{
 		return new SM_SYSTEM_MESSAGE(1300013);
