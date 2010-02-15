@@ -86,6 +86,16 @@ public class LegionConfig
 	 */
 	@Property(key = "gameserver.legion.level3requiredkinah", defaultValue = "1000000")
 	public static int				LEGION_LEVEL3_REQUIRED_KINAH;
+	/*
+	 * Sets required kinah to level legion up to 4
+	 */
+	@Property(key = "gameserver.legion.level4requiredkinah", defaultValue = "2000000")
+	public static int				LEGION_LEVEL4_REQUIRED_KINAH;
+	/*
+	 * Sets required kinah to level legion up to 5
+	 */
+	@Property(key = "gameserver.legion.level5requiredkinah", defaultValue = "6000000")
+	public static int				LEGION_LEVEL5_REQUIRED_KINAH;
 
 	/*
 	 * Sets required amount of members to level legion up to 2
@@ -100,6 +110,18 @@ public class LegionConfig
 	public static int				LEGION_LEVEL3_REQUIRED_MEMBERS;
 
 	/*
+	 * Sets required amount of members to level legion up to 4
+	 */
+	@Property(key = "gameserver.legion.level4requiredmembers", defaultValue = "30")
+	public static int				LEGION_LEVEL4_REQUIRED_MEMBERS;
+
+	/*
+	 * Sets required amount of members to level legion up to 5
+	 */
+	@Property(key = "gameserver.legion.level5requiredmembers", defaultValue = "40")
+	public static int				LEGION_LEVEL5_REQUIRED_MEMBERS;
+
+	/*
 	 * Sets required amount of abyss point to level legion up to 2
 	 */
 	@Property(key = "gameserver.legion.level2requiredcontribution", defaultValue = "0")
@@ -110,6 +132,18 @@ public class LegionConfig
 	 */
 	@Property(key = "gameserver.legion.level3requiredcontribution", defaultValue = "20000")
 	public static int				LEGION_LEVEL3_REQUIRED_CONTRIBUTION;
+
+	/*
+	 * Sets required amount of abyss point to level legion up to 4
+	 */
+	@Property(key = "gameserver.legion.level4requiredcontribution", defaultValue = "100000")
+	public static int				LEGION_LEVEL4_REQUIRED_CONTRIBUTION;
+
+	/*
+	 * Sets required amount of abyss point to level legion up to 5
+	 */
+	@Property(key = "gameserver.legion.level5requiredcontribution", defaultValue = "500000")
+	public static int				LEGION_LEVEL5_REQUIRED_CONTRIBUTION;
 
 	/*
 	 * Sets max members of a level 1 legion
@@ -128,4 +162,16 @@ public class LegionConfig
 	 */
 	@Property(key = "gameserver.legion.level3maxmembers", defaultValue = "90")
 	public static int				LEGION_LEVEL3_MAX_MEMBERS;
+
+	/*
+	 * Sets max members of a level 4 legion
+	 */
+	@Property(key = "gameserver.legion.level4maxmembers", defaultValue = "120")
+	public static int				LEGION_LEVEL4_MAX_MEMBERS;
+
+	/*
+	 * Sets max members of a level 5 legion
+	 */
+	@Property(key = "gameserver.legion.level5maxmembers", defaultValue = "150")
+	public static int				LEGION_LEVEL5_MAX_MEMBERS;
 }

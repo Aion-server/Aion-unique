@@ -69,7 +69,7 @@ public class LegionService
 	/**
 	 * Legion Permission variables
 	 */
-	private static final int				MAX_LEGION_LEVEL			= 3;
+	private static final int				MAX_LEGION_LEVEL			= 5;
 	private static final int				BRIGADE_GENERAL_RANK		= 0x00;
 	private static final int				CENTURION_RANK				= 0x01;
 	private static final int				LEGIONAIRY_RANK				= 0x02;

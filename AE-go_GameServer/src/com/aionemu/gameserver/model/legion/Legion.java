@@ -277,6 +277,14 @@ public class Legion
 				if(getLegionMembers().size() >= LegionConfig.LEGION_LEVEL3_REQUIRED_MEMBERS)
 					return true;
 				break;
+			case 3:
+				if(getLegionMembers().size() >= LegionConfig.LEGION_LEVEL4_REQUIRED_MEMBERS)
+					return true;
+				break;
+			case 4:
+				if(getLegionMembers().size() >= LegionConfig.LEGION_LEVEL5_REQUIRED_MEMBERS)
+					return true;
+				break;
 		}
 		return false;
 	}
@@ -289,6 +297,10 @@ public class Legion
 				return LegionConfig.LEGION_LEVEL2_REQUIRED_KINAH;
 			case 2:
 				return LegionConfig.LEGION_LEVEL3_REQUIRED_KINAH;
+			case 3:
+				return LegionConfig.LEGION_LEVEL4_REQUIRED_KINAH;
+			case 4:
+				return LegionConfig.LEGION_LEVEL5_REQUIRED_KINAH;
 		}
 		return 0;
 	}
@@ -301,6 +313,10 @@ public class Legion
 				return LegionConfig.LEGION_LEVEL2_REQUIRED_CONTRIBUTION;
 			case 2:
 				return LegionConfig.LEGION_LEVEL3_REQUIRED_CONTRIBUTION;
+			case 3:
+				return LegionConfig.LEGION_LEVEL4_REQUIRED_CONTRIBUTION;
+			case 4:
+				return LegionConfig.LEGION_LEVEL5_REQUIRED_CONTRIBUTION;
 		}
 		return 0;
 	}
@@ -309,17 +325,24 @@ public class Legion
 	{
 		switch(getLegionLevel())
 		{
-			case 0:
+			case 1:
 				if(getLegionMembers().size() < LegionConfig.LEGION_LEVEL1_MAX_MEMBERS)
 					return true;
 				break;
-
-			case 1:
+			case 2:
 				if(getLegionMembers().size() < LegionConfig.LEGION_LEVEL2_MAX_MEMBERS)
 					return true;
 				break;
-			case 2:
+			case 3:
 				if(getLegionMembers().size() < LegionConfig.LEGION_LEVEL3_MAX_MEMBERS)
+					return true;
+				break;
+			case 4:
+				if(getLegionMembers().size() < LegionConfig.LEGION_LEVEL4_MAX_MEMBERS)
+					return true;
+				break;
+			case 5:
+				if(getLegionMembers().size() < LegionConfig.LEGION_LEVEL5_MAX_MEMBERS)
 					return true;
 				break;
 		}
