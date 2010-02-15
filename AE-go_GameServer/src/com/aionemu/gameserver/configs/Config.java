@@ -153,12 +153,6 @@ public class Config
 	public static int				DROP_RATE;
 	
 	/*
-	 * Server shutdown delay
-	 */
-	@Property(key = "gameserver.shutdown.delay",defaultValue = "60")
-	public static int				SERVER_SHUTDOWN_DELAY;
-	
-	/*
 	 * Factions speaking mode
 	 */
 	@Property(key = "gameserver.factions.speaking.mode",defaultValue = "0")
