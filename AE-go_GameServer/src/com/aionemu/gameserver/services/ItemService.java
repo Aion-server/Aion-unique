@@ -301,9 +301,9 @@ public class ItemService
 			return;
 
 		sourceStorage.removeFromBag(sourceItem, false);
-		Item newSourceItem = sourceStorage.putToBag(replaceItem);
-
 		replaceStorage.removeFromBag(replaceItem, false);
+
+		Item newSourceItem = sourceStorage.putToBag(replaceItem);
 		Item newReplaceItem = replaceStorage.putToBag(sourceItem);
 
 		sendDeleteItemPacket(player, sourceStorageType, sourceItemObjId);
