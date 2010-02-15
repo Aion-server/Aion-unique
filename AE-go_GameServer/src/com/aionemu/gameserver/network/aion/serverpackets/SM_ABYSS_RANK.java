@@ -29,7 +29,7 @@ public class SM_ABYSS_RANK extends AionServerPacket {
         writeD(buf, currentRankId); //curRank
         writeD(buf, 0); //curRating
         
-        int nextRankId = currentRankId < AbyssRankTemplate.values().length ? currentRankId++ : currentRankId;
+        int nextRankId = currentRankId < AbyssRankTemplate.values().length ? currentRankId + 1 : currentRankId;
         writeD(buf, 100 * rank.getAp()/AbyssRank.AbyssRankTemplate.getTemplateById(nextRankId).getRequired()); //exp %
 
         writeD(buf, rank.getAllKill()); //allKill
