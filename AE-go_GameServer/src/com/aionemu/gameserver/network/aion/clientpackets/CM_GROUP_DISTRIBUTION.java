@@ -33,7 +33,6 @@ public class CM_GROUP_DISTRIBUTION extends AionClientPacket
 		super(opcode);
 	}
 
-
 	/**
 	 * {@inheritDoc}
 	 */
@@ -50,11 +49,22 @@ public class CM_GROUP_DISTRIBUTION extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
+		if(amount < 1)
+			return;
+		
 		Player player = getConnection().getActivePlayer();
 		PlayerGroup pg = null;
 
 		if(player != null)
 			pg = player.getPlayerGroup();
+		
+		int availableKinah = player.getInventory().getKinahItem().getItemCount();
+		if(availableKinah < amount)
+		{
+			//TODO retail message ?
+			return;
+		}
+		
 		if(pg != null)
 		{
 			int rewardcount = pg.size() - 1;
