@@ -78,7 +78,7 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 	@Override
 	public boolean saveNewLegionMember(final int playerObjId, final LegionMember legionMember)
 	{
-		boolean success = DB.insertUpdate("INSERT INTO legion_members(legion_id, `player_id`, `rank`) " + "VALUES (?, ?)",
+		boolean success = DB.insertUpdate("INSERT INTO legion_members(legion_id, `player_id`, `rank`) " + "VALUES (?, ?, ?)",
 			new IUStH(){
 				@Override
 				public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
