@@ -187,11 +187,12 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				resultSet.next();
 
 				cd.setName(resultSet.getString("name"));
+				//set player class before exp
+				cd.setPlayerClass(PlayerClass.valueOf(resultSet.getString("player_class")));
 				cd.setExp(resultSet.getLong("exp"));
 				cd.setRecoverableExp(resultSet.getLong("recoverexp"));
 				cd.setRace(Race.valueOf(resultSet.getString("race")));
-				cd.setGender(Gender.valueOf(resultSet.getString("gender")));
-				cd.setPlayerClass(PlayerClass.valueOf(resultSet.getString("player_class")));
+				cd.setGender(Gender.valueOf(resultSet.getString("gender")));			
 				cd.setAdminRole(resultSet.getInt("admin"));
 				cd.setLastOnline(resultSet.getTimestamp("last_online"));
 				cd.setNote(resultSet.getString("note"));

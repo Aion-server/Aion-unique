@@ -396,7 +396,6 @@ public class _2008Ascension extends QuestHandler
 	{
 		Player player = env.getPlayer();
 		player.getCommonData().setPlayerClass(playerClass);
-		player.getCommonData().setExp(player.getCommonData().getExp());
 		player.getCommonData().upgradePlayer();
 		qs.setStatus(QuestStatus.REWARD);
 		updateQuestStatus(player, qs);

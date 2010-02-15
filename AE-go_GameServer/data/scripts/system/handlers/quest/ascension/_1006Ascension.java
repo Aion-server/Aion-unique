@@ -159,7 +159,7 @@ public class _1006Ascension extends QuestHandler
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
 							WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstance(310010000);
-							newInstance.setDestroyTime(60 * 5);
+							newInstance.setDestroyTime(60 * 20);
 							player.getController().teleportTo(310010000, newInstance.getInstanceId(), 52, 174, 229, 0);
 							return true;
 						}
@@ -364,7 +364,6 @@ public class _1006Ascension extends QuestHandler
 	{
 		Player player = env.getPlayer();
 		player.getCommonData().setPlayerClass(playerClass);
-		player.getCommonData().setExp(player.getCommonData().getExp());
 		player.getCommonData().upgradePlayer();
 		qs.setStatus(QuestStatus.REWARD);
 		updateQuestStatus(player, qs);
