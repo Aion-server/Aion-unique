@@ -259,9 +259,14 @@ public class LegionService
 			{
 				if((new Date().getTime() / 1000) > legion.getDisbandTime())
 				{
+					for(Integer memberObjId : legion.getLegionMembers())
+					{
+						legionMembersCache.remove(memberObjId);
+					}
 					deleteLegionFromDB(legion.getLegionId());
 					PacketSendUtility
 						.sendPacket(player, SM_SYSTEM_MESSAGE.LEGION_DISPERSE_DONE(legion.getLegionName()));
+					return null;
 				}
 			}
 		}

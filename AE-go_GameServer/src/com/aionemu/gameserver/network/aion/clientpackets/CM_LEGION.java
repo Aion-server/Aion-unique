@@ -270,7 +270,7 @@ public class CM_LEGION extends AionClientPacket
 			{
 				/** Create a legion **/
 				case 0x00:
-					legionService.createLegion(activePlayer, Util.convertName(legionName));
+					legionService.createLegion(activePlayer, legionName);
 					break;
 			}
 		}
