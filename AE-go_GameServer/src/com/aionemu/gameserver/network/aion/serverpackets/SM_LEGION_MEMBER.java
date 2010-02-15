@@ -27,11 +27,11 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author Simple
  * 
  */
-public class SM_LEGION_TITLE extends AionServerPacket
+public class SM_LEGION_MEMBER extends AionServerPacket
 {
 	private Player	player;
 
-	public SM_LEGION_TITLE(Player player)
+	public SM_LEGION_MEMBER(Player player)
 	{
 		this.player = player;
 	}

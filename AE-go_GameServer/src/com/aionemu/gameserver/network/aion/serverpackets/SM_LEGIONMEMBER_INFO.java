@@ -19,6 +19,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 import java.nio.ByteBuffer;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.legion.OfflineLegionMember;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -29,28 +30,55 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_LEGIONMEMBER_INFO extends AionServerPacket
 {
-	private Player	player;
+	private Player	player = null;
+	private OfflineLegionMember offlineLegionMember = null;
+	private static final int OFFLINE = 0x00;
+	private static final int ONLINE = 0x01;
 
 	public SM_LEGIONMEMBER_INFO(Player player)
 	{
 		this.player = player;
 	}
 
+	public SM_LEGIONMEMBER_INFO(OfflineLegionMember offlineLegionMember)
+	{
+		this.offlineLegionMember = offlineLegionMember;
+	}
+
 	@Override
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeC(buf, 0x01); // Pledge Emblem related?
-		writeH(buf, 0xFFFF); // Pledge Emblem id?
-		writeD(buf, player.getObjectId());
-		writeS(buf, player.getName());
-		writeC(buf, player.getCommonData().getPlayerClass().getClassId());
-		writeD(buf, player.getLevel());
-		writeC(buf, player.getLegionMember().getRank());
-		writeD(buf, player.getPosition().getMapId());
-		writeC(buf, player.isOnline() ? 0x01 : 0x00);
-		writeS(buf, player.getLegionMember().getSelfIntro());
-		writeS(buf, player.getLegionMember().getNickname());
-		writeD(buf, (int) player.getCommonData().getLastOnline().getTime());
-		writeH(buf, 0x00); // empty?
+		if(player != null)
+		{
+			writeC(buf, 0x01); // Pledge Emblem related?
+			writeH(buf, 0xFFFF); // Pledge Emblem id?
+			writeD(buf, player.getObjectId());
+			writeS(buf, player.getName());
+			writeC(buf, player.getCommonData().getPlayerClass().getClassId());
+			writeD(buf, player.getLevel());
+			writeC(buf, player.getLegionMember().getRank());
+			writeD(buf, player.getPosition().getMapId());
+			writeC(buf, player.isOnline() ? ONLINE : OFFLINE);
+			writeS(buf, player.getLegionMember().getSelfIntro());
+			writeS(buf, player.getLegionMember().getNickname());
+			writeD(buf, (int) player.getCommonData().getLastOnline().getTime());
+			writeH(buf, 0x00); // empty?
+		}
+		else
+		{
+			writeC(buf, 0x01); // Pledge Emblem related?
+			writeH(buf, 0xFFFF); // Pledge Emblem id?
+			writeD(buf, offlineLegionMember.getPlayerObjId());
+			writeS(buf, offlineLegionMember.getName());
+			writeC(buf, offlineLegionMember.getPlayerClass().getClassId());
+			writeD(buf, offlineLegionMember.getLevel());
+			writeC(buf, offlineLegionMember.getRank());
+			writeD(buf, offlineLegionMember.getWorldId());
+			writeC(buf, OFFLINE);
+			writeS(buf, offlineLegionMember.getSelfIntro());
+			writeS(buf, offlineLegionMember.getNickname());
+			writeD(buf, (int) offlineLegionMember.getLastOnline().getTime());
+			writeH(buf, 0x00); // empty?			
+		}
 	}
 }

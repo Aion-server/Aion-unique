@@ -162,7 +162,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_CHANGE_SELF_INTRODUCTION.class, 0x77, idSet);
 		addPacketOpcode(SM_UPDATE_LEGION_TITLE.class, 0x8A, idSet);
 		addPacketOpcode(SM_LEGION_INFO.class, 0x8E, idSet);
-		addPacketOpcode(SM_LEGION_TITLE.class, 0x8F, idSet);
+		addPacketOpcode(SM_LEGION_MEMBER.class, 0x8F, idSet);
 		addPacketOpcode(SM_LEAVE_LEGION.class, 0x90, idSet);
 		addPacketOpcode(SM_DISBAND_LEGION.class, 0x91, idSet);
 		addPacketOpcode(SM_LEGIONMEMBER_INFO.class, 0x95, idSet);

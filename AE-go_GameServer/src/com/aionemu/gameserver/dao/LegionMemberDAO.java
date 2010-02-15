@@ -21,6 +21,7 @@ import java.util.Map;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.legion.LegionMember;
+import com.aionemu.gameserver.model.legion.OfflineLegionMember;
 import com.aionemu.gameserver.services.LegionService;
 
 /**
@@ -68,6 +69,13 @@ public abstract class LegionMemberDAO implements IDFactoryAwareDAO
 	public abstract LegionMember loadLegionMember(Player player, LegionService legionService);
 
 	/**
+	 * @param playerObjId
+	 * @param legionService
+	 * @return
+	 */
+	public abstract OfflineLegionMember loadOfflineLegionMember(int playerObjId, LegionService legionService);
+
+	/**
 	 * This method is used to store only newly created characters
 	 * 
 	 * @param world
@@ -96,4 +104,5 @@ public abstract class LegionMemberDAO implements IDFactoryAwareDAO
 	{
 		return LegionMemberDAO.class.getName();
 	}
+
 }

@@ -29,6 +29,7 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.legion.Legion;
+import com.aionemu.gameserver.model.legion.OfflineLegionMember;
 import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -42,7 +43,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_INFLUENCE_RATIO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGIONMEMBER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_TITLE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_MEMBER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_ID;
@@ -58,6 +59,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_UI_SETTINGS;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.services.ClassChangeService;
+import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
@@ -79,6 +81,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	private World			world;
 	@Inject
 	private PlayerService	playerService;
+	@Inject
+	private LegionService	legionService;
 
 	/**
 	 * Constructs new instance of <tt>CM_ENTER_WORLD </tt> packet
@@ -261,7 +265,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	private void handleLegionMemberInfo(Player player)
 	{
 		Legion legion = player.getLegionMember().getLegion();
-		sendPacket(new SM_LEGION_TITLE(player));
+		sendPacket(new SM_LEGION_MEMBER(player));
 		sendPacket(new SM_LEGION_INFO(legion));
 
 		for(Integer memberObjId : legion.getLegionMembers())
@@ -277,8 +281,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			}
 			else
 			{
-				legionMember = playerService.getPlayer(memberObjId);
-				sendPacket(new SM_LEGIONMEMBER_INFO(legionMember));
+				OfflineLegionMember offlineLegionMember = legionService.getOfflineLegionMember(memberObjId);
+				sendPacket(new SM_LEGIONMEMBER_INFO(offlineLegionMember));
 			}
 		}
 

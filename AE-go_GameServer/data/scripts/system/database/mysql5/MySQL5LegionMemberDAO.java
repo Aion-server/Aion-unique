@@ -30,8 +30,10 @@ import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.dao.LegionMemberDAO;
+import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.legion.LegionMember;
+import com.aionemu.gameserver.model.legion.OfflineLegionMember;
 import com.aionemu.gameserver.services.LegionService;
 
 /**
@@ -144,6 +146,60 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 				try
 				{
 					resultSet.next();
+					int legionId = resultSet.getInt("legion_id");
+					legionMember.setRank(resultSet.getInt("rank"));
+					legionMember.setNickname(resultSet.getString("nickname"));
+					legionMember.setSelfIntro(resultSet.getString("selfintro"));
+
+					legionMember.setLegion(legionService.getLegion(legionId));
+				}
+				catch(SQLException sqlE)
+				{
+					log.debug("[DAO: MySQL5LegionMemberDAO] Player is not in a Legion");
+				}
+			}
+		});
+
+		if(success && legionMember.getLegion() != null)
+		{
+			synchronized(pcdLock)
+			{
+				return legionMember;
+			}
+		}
+		else
+			return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public OfflineLegionMember loadOfflineLegionMember(final int playerObjId, final LegionService legionService)
+	{
+		final OfflineLegionMember legionMember = new OfflineLegionMember(playerObjId);
+
+		log.debug(playerObjId + " so this means player is not empty");
+
+		boolean success = DB.select("SELECT players.name, players.exp, players.player_class, players.last_online, players.world_id, legion_members.* FROM players, legion_members WHERE id = ? AND players.id=legion_members.player_id", new ParamReadStH(){
+			@Override
+			public void setParams(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, playerObjId);
+			}
+
+			@Override
+			public void handleRead(ResultSet resultSet)
+			{
+				try
+				{
+					resultSet.next();
+					legionMember.setName(resultSet.getString("name"));
+					legionMember.setExp(resultSet.getLong("exp"));
+					legionMember.setPlayerClass(PlayerClass.valueOf(resultSet.getString("player_class")));
+					legionMember.setLastOnline(resultSet.getTimestamp("last_online"));
+					legionMember.setWorldId(resultSet.getInt("world_id"));
+					
 					int legionId = resultSet.getInt("legion_id");
 					legionMember.setRank(resultSet.getInt("rank"));
 					legionMember.setNickname(resultSet.getString("nickname"));
