@@ -22,10 +22,7 @@ import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillList;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.skillengine.model.learn.SkillLearnTemplate;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
@@ -59,17 +56,10 @@ public class SkillLearnService
 			if(!checkLearnIsPossible(playerSkillList, template))
 				continue;
 			
- 			boolean success = playerSkillList.addSkill(template.getSkillId(), template.getSkillLevel());
+ 			boolean success = playerSkillList.addSkill(player, template.getSkillId(), template.getSkillLevel(), !isNewCharacter);
   			
  			if(!success)
  				continue;
-			
-			if(!isNewCharacter)
-			{
-				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.SKILL_LEARNED_NEW_SKILL(template.getName(), template.getSkillLevel()));
-				PacketSendUtility.sendPacket(player,
-					new SM_SKILL_LIST(player.getSkillList().getSkillEntry(template.getSkillId())));
-			}
 		}
 	}
 	

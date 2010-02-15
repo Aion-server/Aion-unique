@@ -739,16 +739,6 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300013);
 	}
 
-	public static SM_SYSTEM_MESSAGE CRAFT_INFO_UPGRADE(String name, int lvl)
-	{
-		return new SM_SYSTEM_MESSAGE(1330064, name, lvl);
-	}
-
-	public static SM_SYSTEM_MESSAGE SKILL_LEARNED_NEW_SKILL(String name, int lvl)
-	{
-		return new SM_SYSTEM_MESSAGE(1300050, name, lvl);
-	}
-
 	private final int		code;
 	private final Object[]	params;
 

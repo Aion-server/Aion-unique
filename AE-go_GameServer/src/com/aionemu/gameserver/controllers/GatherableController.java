@@ -26,7 +26,6 @@ import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.gather.Material;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.skillengine.task.GatheringTask;
@@ -150,38 +149,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 			int xpReward = skillLvl * 10 + Rnd.get(0, skillLvl * 10/2);
 			player.getCommonData().addExp(xpReward);
 			
-			SkillListEntry skillEntry = player.getSkillList().getSkillEntry(
-				getOwner().getTemplate().getHarvestSkill());
-			switch(skillEntry.getSkillId())
-			{
-				case 30001:
-					if(skillEntry.getSkillLevel() > 49)
-						return;
-				case 30002:
-				case 30003:
-					if(skillEntry.getSkillLevel() > 99)
-						return;
-			}
-			
-			boolean updateSkill = skillEntry.addSkillXp(xpReward);
-			if(updateSkill)
-			{
-				PacketSendUtility.sendPacket(player,
-					new SM_SKILL_LIST(player.getSkillList().getSkillEntry(skillEntry.getSkillId())));
-				//TODO retail message
-				if (skillEntry.getSkillId() == 30001)
-				{
-					PacketSendUtility.sendMessage(player, "Skill Collection " + skillEntry.getSkillLevel() + " level.");
-				}
-				else if (skillEntry.getSkillId() == 30002)
-				{
-					PacketSendUtility.sendMessage(player, "Skill Extract Vitality " + skillEntry.getSkillLevel() + " level.");
-				}
-				else if (skillEntry.getSkillId() == 30003)
-				{
-					PacketSendUtility.sendMessage(player, "Skill Extract Aether " + skillEntry.getSkillLevel() + " level.");
-				}
-			}
+			player.getSkillList().addSkillXp(player, getOwner().getTemplate().getHarvestSkill(), xpReward);
 		}
 	}
 	

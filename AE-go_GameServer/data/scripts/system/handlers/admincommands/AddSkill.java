@@ -19,7 +19,6 @@ package admincommands;
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
@@ -72,8 +71,7 @@ public class AddSkill extends AdminCommand
 		if (target instanceof Player)
         {
             Player player = (Player) target;
-            player.getSkillList().addSkill(skillId, skillLevel);
-        	PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(player));
+            player.getSkillList().addSkill(player, skillId, skillLevel, true);
             PacketSendUtility.sendMessage(admin, "You have success add skill");
             PacketSendUtility.sendMessage(player, "You have acquire a new skill");
         }

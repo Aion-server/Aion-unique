@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -28,7 +29,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * 
  * @author -Nemesiss-
  * 
- * modified by ATracer
+ * modified by ATracer,MrPoke
  * 
  */
 public class SM_SKILL_LIST extends AionServerPacket
@@ -36,6 +37,8 @@ public class SM_SKILL_LIST extends AionServerPacket
 
 	private SkillListEntry[] skillList;
 	private int messageId;
+	private int skillNameId;
+	private String skillLvl;
 	public static final int YOU_LEARNED_SKILL = 1300050;
 
 	/**
@@ -50,22 +53,13 @@ public class SM_SKILL_LIST extends AionServerPacket
 		this.messageId = 0;
  	}
 	
-	public SM_SKILL_LIST(SkillListEntry skillListEntry)
+	public SM_SKILL_LIST(SkillListEntry skillListEntry, int messageId)
  	{
 		this.skillList = new SkillListEntry[]{skillListEntry};
-		this.messageId = 0;
- 	}
-	
-	/**
-	 *  This constructor is used to update player with new skills 
-	 *  
-	 * @param skillList
-	 */
-	public SM_SKILL_LIST(SkillListEntry[] skillList, int messageId)
-	{
-		this.skillList = skillList;
 		this.messageId = messageId;
-	}
+		this.skillNameId = DataManager.SKILL_DATA.getSkillTemplate(skillListEntry.getSkillId()).getNameId();
+		this.skillLvl = String.valueOf(skillListEntry.getSkillLevel());
+ 	}
 
 	/**
 	 * {@inheritDoc}
@@ -87,6 +81,13 @@ public class SM_SKILL_LIST extends AionServerPacket
 				writeC(buf, 0);//unk
 			}
 		}
-		writeD(buf, messageId);// unk
+		writeD(buf, messageId);
+		if (messageId != 0);
+		{
+			writeH(buf, 0x24); //unk
+			writeD(buf, skillNameId);
+			writeH(buf, 0x00);
+			writeS(buf, skillLvl);
+		}
 	}
 }

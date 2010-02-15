@@ -53,6 +53,8 @@ public class SkillTemplate
     protected int skillId;
     @XmlAttribute(required = true)
     protected String name;
+    @XmlAttribute(required = true)
+    protected int nameId;
     @XmlAttribute
     protected String stack = "NONE";
     @XmlAttribute
@@ -153,6 +155,14 @@ public class SkillTemplate
     }
 
     /**
+	 * @return the nameId
+	 */
+	public int getNameId()
+	{
+		return nameId;
+	}
+
+	/**
 	 * @return the stack
 	 */
 	public String getStack()

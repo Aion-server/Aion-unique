@@ -23,17 +23,12 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
-import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.skillengine.model.learn.SkillClass;
 import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -67,11 +62,8 @@ public class SkillLearnAction extends AbstractItemAction
 		PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(),
 			parentItem.getObjectId(), itemTemplate.getItemId()), true);	
 		//add skill
-		player.getSkillList().addSkill(skillid, 1);
-		SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(skillid);
-		PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(new SkillListEntry(skillid, 1, null)));
+		player.getSkillList().addSkill(player, skillid, 1, true);
 		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
-		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.SKILL_LEARNED_NEW_SKILL(template.getName(), 1));
 		//remove book from inventory (assuming its not stackable)
 		Item item = player.getInventory().getItemByObjId(parentItem.getObjectId());
 		player.getInventory().removeFromBag(item, true);
