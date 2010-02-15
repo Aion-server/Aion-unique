@@ -3,6 +3,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 import java.nio.ByteBuffer;
 
 import com.aionemu.gameserver.model.gameobjects.player.AbyssRank;
+import com.aionemu.gameserver.model.gameobjects.player.AbyssRank.AbyssRankTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -13,21 +14,23 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_ABYSS_RANK extends AionServerPacket {
 	
 	private AbyssRank rank;
-
+	private int currentRankId;
 	
 	public SM_ABYSS_RANK(AbyssRank rank)
 	{
 		this.rank = rank;
+		this.currentRankId = rank.getRank().getId();
 	}
 
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeQ(buf, rank.getAp()); //curAP
-        writeD(buf, rank.getRank().getId()); //curRank
+        writeD(buf, currentRankId); //curRank
         writeD(buf, 0); //curRating
-
-        writeD(buf, 100 * rank.getAp()/AbyssRank.AbyssRankTemplate.getTemplateById(rank.getRank().getId()+1).getRequired()); //exp %
+        
+        int nextRankId = currentRankId < AbyssRankTemplate.values().length ? currentRankId++ : currentRankId;
+        writeD(buf, 100 * rank.getAp()/AbyssRank.AbyssRankTemplate.getTemplateById(nextRankId).getRequired()); //exp %
 
         writeD(buf, rank.getAllKill()); //allKill
         writeD(buf, rank.getMaxRank()); //maxRank

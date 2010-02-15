@@ -99,10 +99,10 @@ public class MySQL5InventoryDAO extends InventoryDAO
 	public Equipment loadEquipment(Player player)
 	{
 		final Equipment equipment = new Equipment(player);
+		
 		int playerId = player.getObjectId();
 		final int storage = 0;
 		final int equipped = 1;
-
 		final int owner = playerId;
 
 		DB.select(SELECT_QUERY, new ParamReadStH()
@@ -124,9 +124,8 @@ public class MySQL5InventoryDAO extends InventoryDAO
 					int itemId = rset.getInt("itemId");
 					int itemCount = rset.getInt("itemCount");
 					int itemColor = rset.getInt("itemColor");
-					int isEquiped = rset.getInt("isEquiped");
 					int slot = rset.getInt("slot");
-					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, isEquiped == 1, slot, storage);
+					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, true, slot, storage);
 					item.setPersistentState(PersistentState.UPDATED);
 					equipment.onLoadHandler(item);
 				}

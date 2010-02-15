@@ -353,7 +353,11 @@ public class Equipment
 		return null;
 	}
 
-
+	/**
+	 * 
+	 * @param value
+	 * @return
+	 */
 	public List<Item> getEquippedItemsByItemId(int value)
 	{
 		List<Item> equippedItemsById = new ArrayList<Item>();
@@ -364,8 +368,11 @@ public class Equipment
 		}
 		return equippedItemsById;
 	}
-
-
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Item> getEquippedItems()
 	{
 		List<Item> equippedItems = new ArrayList<Item>();
@@ -374,26 +381,28 @@ public class Equipment
 		return equippedItems;
 	}
 
-
+	/**
+	 *  Should be called only when loading from DB for items isEquipped=1
+	 *  
+	 * @param item
+	 */
 	public void onLoadHandler(Item item)
 	{
-		//TODO checks
-		if(item.isEquipped())
+		if(equipment.containsKey(item.getEquipmentSlot()))
 		{
-			equipment.put(item.getEquipmentSlot(), item);
-			if (owner.getGameStats() != null)
-			{
-				ItemEquipmentListener.onItemEquipment(item, owner.getGameStats());
-			}
-			if(owner.getLifeStats() != null)//TODO why onLoadHandler called 2 times on load ?
-			{
-				owner.getLifeStats().synchronizeWithMaxStats();
-			}
+			log.warn("Duplicate equipped item in slot : " + item.getEquipmentSlot() + " " + owner.getObjectId());
+			return;
 		}
-		else
-			owner.getInventory().onLoadHandler(item);
+		equipment.put(item.getEquipmentSlot(), item);
+		if (owner.getGameStats() != null)
+		{
+			ItemEquipmentListener.onItemEquipment(item, owner.getGameStats());
+		}
+		if(owner.getLifeStats() != null)
+		{
+			owner.getLifeStats().synchronizeWithMaxStats();
+		}
 	}
-
 
 	/**
 	 * @return
