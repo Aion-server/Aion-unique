@@ -18,6 +18,8 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_CUSTOM_SETTINGS;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author Sweetkr
@@ -64,6 +66,7 @@ public class CM_CUSTOM_SETTINGS extends AionClientPacket
 		Player activePlayer = getConnection().getActivePlayer();
 		activePlayer.getPlayerSettings().setDisplay(display);
 		activePlayer.getPlayerSettings().setDeny(deny);
-		//PacketSendUtility.broadcastPacket(activePlayer, new SM_PLAYER_INFO(activePlayer, display, deny, true));
+
+		PacketSendUtility.broadcastPacket(activePlayer, new SM_CUSTOM_SETTINGS(activePlayer), true);
 	}
 }
