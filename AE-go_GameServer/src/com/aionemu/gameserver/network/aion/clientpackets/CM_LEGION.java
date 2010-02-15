@@ -45,9 +45,6 @@ public class CM_LEGION extends AionClientPacket
 	private LegionService		legionService;
 
 	@Inject
-	private PlayerService		playerService;
-
-	@Inject
 	private World				world;
 
 	@Inject
@@ -180,7 +177,7 @@ public class CM_LEGION extends AionClientPacket
 					case 0x01:
 						if(targetPlayer != null)
 						{
-							legionService.invitePlayerToLegion(activePlayer, targetPlayer, playerService);
+							legionService.invitePlayerToLegion(activePlayer, targetPlayer);
 						}
 						else
 						{
@@ -207,7 +204,7 @@ public class CM_LEGION extends AionClientPacket
 						}
 						else
 						{
-							sendPacket(SM_SYSTEM_MESSAGE.LEGION_CHANGE_MEMBER_RANK_NO_USER());
+							sendPacket(SM_SYSTEM_MESSAGE.LEGION_CHANGE_MASTER_NO_SUCH_USER());
 						}
 						break;
 					/** Appoint Centurion/Legionairy **/

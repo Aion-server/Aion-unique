@@ -30,10 +30,10 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_LEGIONMEMBER_INFO extends AionServerPacket
 {
-	private Player	player = null;
-	private OfflineLegionMember offlineLegionMember = null;
-	private static final int OFFLINE = 0x00;
-	private static final int ONLINE = 0x01;
+	private Player				player;
+	private OfflineLegionMember	offlineLegionMember;
+	private static final int	OFFLINE	= 0x00;
+	private static final int	ONLINE	= 0x01;
 
 	public SM_LEGIONMEMBER_INFO(Player player)
 	{
@@ -78,7 +78,7 @@ public class SM_LEGIONMEMBER_INFO extends AionServerPacket
 			writeS(buf, offlineLegionMember.getSelfIntro());
 			writeS(buf, offlineLegionMember.getNickname());
 			writeD(buf, (int) offlineLegionMember.getLastOnline().getTime());
-			writeH(buf, 0x00); // empty?			
+			writeH(buf, 0x00); // empty?
 		}
 	}
 }

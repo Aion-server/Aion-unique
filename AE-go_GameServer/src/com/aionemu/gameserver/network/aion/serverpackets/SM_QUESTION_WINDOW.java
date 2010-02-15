@@ -41,6 +41,7 @@ public class SM_QUESTION_WINDOW extends AionServerPacket
 	public static final int	STR_WAREHOUSE_EXPAND_WARNING		= 900686;
 	public static final int	STR_USE_RIFT						= 160019;
 	public static final int	STR_LEGION_INVITE					= 80001;
+	public static final int	STR_LEGION_DISBAND					= 80008;
 	public static final int	STR_LEGION_CHANGE_MASTER			= 80011;
 
 	private int				code;

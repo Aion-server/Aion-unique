@@ -617,6 +617,60 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300271);
 	}
 
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MASTER_NO_SUCH_USER()
+	{
+		// You cannot transfer your Brigade General authority to an offline user.
+		return new SM_SYSTEM_MESSAGE(1300270);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MASTER_SENT_OFFER_MSG_TO_HIM(String charName)
+	{
+		// You nominated %0 as the next Legion Brigade General.
+		return new SM_SYSTEM_MESSAGE(1300330, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MASTER_SENT_CANT_OFFER_WHEN_HE_IS_QUESTION_ASKED()
+	{
+		// You cannot request the selected player to become the Legion Brigade General.
+		return new SM_SYSTEM_MESSAGE(1300331);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MASTER_HE_DECLINE_YOUR_OFFER(String charName)
+	{
+		// %0 has declined to become the Legion Brigade General.
+		return new SM_SYSTEM_MESSAGE(1300332, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_ONLY_MASTER_CAN_DISPERSE()
+	{
+		// You have no authority to disband the Legion.
+		return new SM_SYSTEM_MESSAGE(1300300);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_DONE(String legionName)
+	{
+		// The %0 Legion has been disbanded.
+		return new SM_SYSTEM_MESSAGE(1300302, legionName);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_TOO_FAR_FROM_NPC()
+	{
+		// You are too far from the NPC to disband the Legion.
+		return new SM_SYSTEM_MESSAGE(1300305);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_REQUESTED()
+	{
+		// The Brigade General has requested to disband the Legion. The expected time of disbanding is %DATETIME0.
+		return new SM_SYSTEM_MESSAGE(1300303);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_ALREADY_REQUESTED()
+	{
+		// You have already requested to disband the Legion.
+		return new SM_SYSTEM_MESSAGE(1300304);
+	}
+
 	/**
 	 * You cannot fly in this area.
 	 */

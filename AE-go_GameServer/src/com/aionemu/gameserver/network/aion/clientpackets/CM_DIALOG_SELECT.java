@@ -35,6 +35,7 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.CubeExpandService;
+import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
@@ -57,9 +58,13 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	private int					lastPage;
 	private int					questId;
 	@Inject
-	private CubeExpandService cubeExpandService;
+	private CubeExpandService	cubeExpandService;
+	@Inject
+	private LegionService		legionService;
+
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
+	 * 
 	 * @param opcode
 	 */
 	public CM_DIALOG_SELECT(int opcode)
@@ -74,7 +79,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	protected void readImpl()
 	{
 		targetObjectId = readD();// empty
-		dialogId = readH(); //total no of choice
+		dialogId = readH(); // total no of choice
 		unk1 = readH();
 		lastPage = readH();
 		questId = readD();
@@ -92,18 +97,18 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 
 		if(targetObjectId == 0)
 		{
-			if (QuestEngine.getInstance().onDialog(new QuestEnv(null, player, questId, dialogId)))
+			if(QuestEngine.getInstance().onDialog(new QuestEnv(null, player, questId, dialogId)))
 				return;
-			//FIXME client sends unk1=1, targetObjectId=0, dialogId=2 (trader) => we miss some packet to close window 
+			// FIXME client sends unk1=1, targetObjectId=0, dialogId=2 (trader) => we miss some packet to close window
 			ClassChangeService.changeClassToSelection(player, dialogId);
 			return;
 		}
 		Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
 
-		if (QuestEngine.getInstance().onDialog(new QuestEnv(npc, player, questId, dialogId)))
+		if(QuestEngine.getInstance().onDialog(new QuestEnv(npc, player, questId, dialogId)))
 			return;
 
-		switch (dialogId)
+		switch(dialogId)
 		{
 			case 2:
 				sendPacket(new SM_TRADELIST(npc));
@@ -112,26 +117,84 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				sendPacket(new SM_SELL_ITEM(player, targetObjectId));
 				break;
 			case 4:
-				//stigma
+				// stigma
 				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
 				break;
 			case 5:
-				//create legion
+				// create legion
 				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 2));
 				break;
+			case 6:
+				// disband legion
+				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
+				{
+					final int BRIGADE_GENERAL_RANK = 0x00;
+					RequestResponseHandler disbandResponseHandler = new RequestResponseHandler(npc){
+
+						@Override
+						public void acceptRequest(Creature requester, Player responder)
+						{
+							// disband legion
+							// TODO: Can't disband during a war!!
+							// TODO: Can't disband during using legion warehouse!!
+							// TODO: Can't disband legion with fortress or hideout!!
+							if(player.getLegionMember().getRank() > BRIGADE_GENERAL_RANK)
+							{
+								PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE
+									.LEGION_DISPERSE_ONLY_MASTER_CAN_DISPERSE());
+							}
+							// else if(player.getLegionMember().getLegion().isDisbanded())
+							// {
+							// PacketSendUtility.sendPacket(player,
+							// SM_SYSTEM_MESSAGE.LEGION_DISPERSE_ALREADY_REQUESTED());
+							// }
+							else
+							{
+								//PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.LEGION_DISPERSE_DONE(player
+								//	.getLegionMember().getLegion().getLegionName()));
+								//legionService.refreshMembersInfoByPacket(player.getLegionMember().getLegion(),
+								//	SM_SYSTEM_MESSAGE.LEGION_DISPERSE_REQUESTED());
+							}
+						}
+
+						@Override
+						public void denyRequest(Creature requester, Player responder)
+						{
+							// no message
+						}
+					};
+
+					boolean disbandResult = player.getResponseRequester().putRequest(
+						SM_QUESTION_WINDOW.STR_LEGION_DISBAND, disbandResponseHandler);
+					if(disbandResult)
+					{
+						PacketSendUtility.sendPacket(player, new SM_QUESTION_WINDOW(
+							SM_QUESTION_WINDOW.STR_LEGION_DISBAND, 0));
+					}
+				}
+				else
+				{
+					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.LEGION_DISPERSE_TOO_FAR_FROM_NPC());
+				}
+				break;
+
 			case 20:
-				//warehouse
+				// warehouse
 				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
 				{
 					sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 26));
-					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems(), StorageType.REGULAR_WAREHOUSE.getId()));
-					sendPacket(new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE.getId())); // strange retail way of sending warehouse packets
-					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getUnquippedItems(), StorageType.ACCOUNT_WAREHOUSE.getId()));
+					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId())
+						.getStorageItems(), StorageType.REGULAR_WAREHOUSE.getId()));
+					sendPacket(new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE.getId())); // strange retail
+					// way of sending
+					// warehouse packets
+					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId())
+						.getUnquippedItems(), StorageType.ACCOUNT_WAREHOUSE.getId()));
 					sendPacket(new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE.getId()));
-				}				
+				}
 				break;
 			case 27:
-				//Consign trade?? npc karinerk, koorunerk
+				// Consign trade?? npc karinerk, koorunerk
 				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 13));
 				break;
 			case 29:
@@ -170,56 +233,56 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				else sendPacket(SM_SYSTEM_MESSAGE.DONT_HAVE_RECOVERED_EXP());
 				break;
 			case 35:
-				//Godstone socketing
+				// Godstone socketing
 				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 21));
 				break;
 			case 36:
-				//remove mana stone 
+				// remove mana stone
 				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 20));
 				break;
 			case 37:
-				//modify appearance
+				// modify appearance
 				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 19));
 				break;
 			case 38:
-				//flight and teleport
-				//				if (player.getCommonData().isFlying() == true)
-				//				{
-				//					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300696));
-				//					return;
-				//				}
+				// flight and teleport
+				// if (player.getCommonData().isFlying() == true)
+				// {
+				// PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300696));
+				// return;
+				// }
 				sendPacket(new SM_TELEPORT_MAP(player, targetObjectId));
 				break;
 			case 39:
-				//improve extraction skill npc cornelius, jhaelas in sanctum
+				// improve extraction skill npc cornelius, jhaelas in sanctum
 				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
 				break;
 			case 40:
-				//learn tailoring armor smithing etc...
+				// learn tailoring armor smithing etc...
 				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
 				break;
 			case 41:
-				//expand cube
+				// expand cube
 				cubeExpandService.expandCube(player, npc);
 				break;
 			case 50:
 				// WTF??? Quest dialog packet
 				break;
 			case 52:
-				//work order from lerning npc in sanctum
+				// work order from lerning npc in sanctum
 				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
 				break;
 			case 53:
-				//coin reward
+				// coin reward
 				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
 				break;
 			default:
-				if (questId > 0)
+				if(questId > 0)
 					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(targetObjectId, dialogId, questId));
 				else
 					sendPacket(new SM_DIALOG_WINDOW(targetObjectId, dialogId));
 				break;
 		}
-		//log.info("id: "+targetObjectId+" dialog type: " + unk1 +" other: " + unk2);
+		// log.info("id: "+targetObjectId+" dialog type: " + unk1 +" other: " + unk2);
 	}
 }
