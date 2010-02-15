@@ -262,14 +262,15 @@ public class LegionService
 	 */
 	public OfflineLegionMember getOfflineLegionMember(int playerObjId)
 	{
-		//OfflineLegionMember legionMember = legionMembersCache.get(player.getObjectId());
-		//if(legionMember != null)
-		//	return legionMember;
+		// OfflineLegionMember legionMember = legionMembersCache.get(player.getObjectId());
+		// if(legionMember != null)
+		// return legionMember;
 
-		OfflineLegionMember offlineLegionMember = DAOManager.getDAO(LegionMemberDAO.class).loadOfflineLegionMember(playerObjId, this);
+		OfflineLegionMember offlineLegionMember = DAOManager.getDAO(LegionMemberDAO.class).loadOfflineLegionMember(
+			playerObjId, this);
 
-		//if(legionMember != null)
-		//	legionMembersCache.put(player.getObjectId(), legionMember);
+		// if(legionMember != null)
+		// legionMembersCache.put(player.getObjectId(), legionMember);
 
 		return offlineLegionMember;
 	}
@@ -593,12 +594,14 @@ public class LegionService
 			LegionMember legionMember = targetPlayer.getLegionMember();
 			if(legionMember.getRank() > BRIGADE_GENERAL_RANK)
 			{
-				targetPlayer.getLegionMember().setRank(BRIGADE_GENERAL_RANK);
+				activePlayer.getLegionMember().setRank(CENTURION_RANK);
+				legionMember.setRank(BRIGADE_GENERAL_RANK);
 				storeLegionMember(targetPlayer.getObjectId(), legionMember);
 
 				// TODO: Need proper packet!!!!
-				refreshMembersInfoByPacket(legionMember.getLegion(), new SM_LEGIONMEMBER_INFO(targetPlayer));
-				refreshMembersInfoByPacket(legionMember.getLegion(), SM_SYSTEM_MESSAGE
+				refreshMembersInfoByPacket(legion, new SM_LEGIONMEMBER_INFO(activePlayer));
+				refreshMembersInfoByPacket(legion, new SM_LEGIONMEMBER_INFO(targetPlayer));
+				refreshMembersInfoByPacket(legion, SM_SYSTEM_MESSAGE
 					.LEGION_CHANGE_MEMBER_RANK_DONE_1_GUILD_MASTER(targetPlayer.getName()));
 			}
 		}
