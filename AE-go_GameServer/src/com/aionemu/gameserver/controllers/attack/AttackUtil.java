@@ -49,7 +49,7 @@ public class AttackUtil
 
 		CreatureGameStats<?> gameStats = attacker.getGameStats();
 
-		if(attacker instanceof Player && ((Player)attacker).getInventory().getOffHandWeaponType() != null)
+		if(attacker instanceof Player && ((Player)attacker).getEquipment().getOffHandWeaponType() != null)
 		{
 			AttackStatus offHandStatus;
 
@@ -129,12 +129,12 @@ public class AttackUtil
 					break;
 
 				case CRITICAL:
-					weaponType = ((Player)attacker).getInventory().getMainHandWeaponType();
+					weaponType = ((Player)attacker).getEquipment().getMainHandWeaponType();
 					damages = calculateWeaponCritical(damages, weaponType);
 					break;
 
 				case OFFHAND_CRITICAL:
-					weaponType = ((Player)attacker).getInventory().getOffHandWeaponType();
+					weaponType = ((Player)attacker).getEquipment().getOffHandWeaponType();
 					damages = calculateWeaponCritical(damages, weaponType);
 					break;
 
@@ -251,16 +251,16 @@ public class AttackUtil
 		if( Rnd.get( 0, 100 ) < StatFunctions.calculatePhysicalDodgeRate(attacker, attacked) )
 			return AttackStatus.DODGE;
 
-		if( attacked instanceof Player && ((Player)attacked).getInventory().getMainHandWeaponType() != null                  // PARRY can only be done with weapon, also weapon can have humanoid mobs,
+		if( attacked instanceof Player && ((Player)attacked).getEquipment().getMainHandWeaponType() != null                  // PARRY can only be done with weapon, also weapon can have humanoid mobs,
 			&& Rnd.get( 0, 100 ) < StatFunctions.calculatePhysicalParryRate(attacker, attacked) ) // but for now there isnt implementation of monster category
 			return AttackStatus.PARRY;
 
-		if( attacked instanceof Player && ((Player) attacked).getInventory().isShieldEquipped()
+		if( attacked instanceof Player && ((Player) attacked).getEquipment().isShieldEquipped()
 			&& Rnd.get( 0, 100 ) < StatFunctions.calculatePhysicalBlockRate(attacker, attacked) )
 			return AttackStatus.BLOCK;
 
 
-		if( attacker instanceof Player && ((Player)attacker).getInventory().getMainHandWeaponType() != null           // CRITICAL can only be done with weapon, weapon can have humanoid mobs also,
+		if( attacker instanceof Player && ((Player)attacker).getEquipment().getMainHandWeaponType() != null           // CRITICAL can only be done with weapon, weapon can have humanoid mobs also,
 			&& Rnd.get( 0, 100 ) < StatFunctions.calculatePhysicalCriticalRate(attacker) ) // but for now there isnt implementation of monster category
 			return AttackStatus.CRITICAL;
 

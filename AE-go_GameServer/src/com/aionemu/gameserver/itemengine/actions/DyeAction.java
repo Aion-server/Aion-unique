@@ -36,7 +36,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 
 public class DyeAction extends AbstractItemAction
 {
-	
+
 	@XmlAttribute(name = "color")
 	protected String color;
 
@@ -46,7 +46,7 @@ public class DyeAction extends AbstractItemAction
 		if (targetItem.getItemTemplate().isItemDyePermitted())
 		{
 			targetItem.setItemColor(Integer.parseInt(color, 16));
-			PacketSendUtility.sendPacket(player, new SM_UPDATE_PLAYER_APPEARANCE(player.getObjectId(), player.getInventory().getEquippedItems()));
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_PLAYER_APPEARANCE(player.getObjectId(), player.getEquipment().getEquippedItems()));
 			player.getInventory().removeFromBagByObjectId(parentItem.getObjectId(), 1);
 		}
 	}

@@ -78,7 +78,7 @@ public class TradeService
 		Storage inventory  = player.getInventory();
 		Item kinahItem = inventory.getKinahItem();
 
-		int freeSlots = inventory.getLimit() - inventory.getUnquippedItems().size() + 1;
+		int freeSlots = inventory.getLimit() - inventory.getAllItems().size() + 1;
 		//1. check kinah
 		int kinahCount = kinahItem.getItemCount();
 		int tradeListPrice = tradeList.calculateBuyListPrice() * 2;
@@ -107,7 +107,7 @@ public class TradeService
 		//TODO message
 		return true;
 	}
-	
+
 	/**
 	 *  Probably later merge with regular buy
 	 *  
@@ -123,9 +123,9 @@ public class TradeService
 			PacketSendUtility.sendMessage(player, "Some items are not allowed to be selled from this npc");
 			return false;
 		}
-		
+
 		Storage inventory  = player.getInventory();
-		int freeSlots = inventory.getLimit() - inventory.getUnquippedItems().size() + 1;
+		int freeSlots = inventory.getLimit() - inventory.getAllItems().size() + 1;
 		//1. check kinah
 		AbyssRank rank = player.getAbyssRank();
 		int ap  = rank.getAp();
@@ -163,7 +163,7 @@ public class TradeService
 	{
 		Npc npc = (Npc) world.findAionObject(tradeList.getNpcObjId());
 		TradeListTemplate tradeListTemplate = tradeListData.getTradeListTemplate(npc.getTemplate().getTemplateId());
-		
+
 		Set<Integer> allowedItems = new HashSet<Integer>();
 		for(TradeTab tradeTab : tradeListTemplate.getTradeTablist())
 		{
@@ -173,7 +173,7 @@ public class TradeService
 				allowedItems.addAll(goodsList.getItemIdList());
 			}				
 		}
-		
+
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
 			if(!allowedItems.contains(tradeItem.getItemId()))

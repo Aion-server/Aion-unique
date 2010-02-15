@@ -159,7 +159,7 @@ public class CM_EMOTION extends AionClientPacket
 				player.unsetState(CreatureState.WALKING);
 				break;
 			case 0x1F:
-				if(!player.getInventory().isPowerShardEquipped())
+				if(!player.getEquipment().isPowerShardEquipped())
 				{
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.NO_POWER_SHARD_EQUIPPED());
 					return;

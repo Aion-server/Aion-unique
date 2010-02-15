@@ -30,6 +30,7 @@ import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
+import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.StorageType;
@@ -42,7 +43,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 {
 	private static final Logger log = Logger.getLogger(MySQL5InventoryDAO.class);
 
-	public static final String SELECT_QUERY = "SELECT `itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `isEquiped`, `slot` FROM `inventory` WHERE `itemOwner`=? AND `itemLocation`=?";
+	public static final String SELECT_QUERY = "SELECT `itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `isEquiped`, `slot` FROM `inventory` WHERE `itemOwner`=? AND `itemLocation`=? AND `isEquiped`=?";
 	public static final String INSERT_QUERY = "INSERT INTO `inventory` (`itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `itemOwner`, `isEquiped`, `slot`, `itemLocation`) VALUES(?,?,?,?,?,?,?,?)";
 	public static final String UPDATE_QUERY = "UPDATE inventory SET  itemCount=?, itemColor=?, itemOwner=?, isEquiped=?, slot=?, itemLocation=? WHERE itemUniqueId=?";
 	public static final String DELETE_QUERY = "DELETE FROM inventory WHERE itemUniqueId=?";
@@ -50,12 +51,12 @@ public class MySQL5InventoryDAO extends InventoryDAO
 	public static final String SELECT_ACCOUNT_QUERY = "SELECT `account_id` FROM `players` WHERE `id`=?";
 
 	@Override
-	public Storage load(Player player, StorageType storageType)
+	public Storage loadStorage(Player player, StorageType storageType)
 	{
-		//TODO load parts - cube, equipment etc.
 		final Storage inventory = new Storage(player, storageType);
 		int playerId = player.getObjectId();
 		final int storage = storageType.getId();
+		final int equipped = 0;
 
 		if(storageType == StorageType.ACCOUNT_WAREHOUSE)
 		{
@@ -71,6 +72,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 			{
 				stmt.setInt(1, owner);
 				stmt.setInt(2, storage);
+				stmt.setInt(3, equipped);
 			}
 
 			@Override
@@ -91,6 +93,46 @@ public class MySQL5InventoryDAO extends InventoryDAO
 			}
 		});
 		return inventory;
+	}
+
+	@Override
+	public Equipment loadEquipment(Player player)
+	{
+		final Equipment equipment = new Equipment(player);
+		int playerId = player.getObjectId();
+		final int storage = 0;
+		final int equipped = 1;
+
+		final int owner = playerId;
+
+		DB.select(SELECT_QUERY, new ParamReadStH()
+		{
+			@Override
+			public void setParams(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, owner);
+				stmt.setInt(2, storage);
+				stmt.setInt(3, equipped);
+			}
+
+			@Override
+			public void handleRead(ResultSet rset) throws SQLException
+			{
+				while(rset.next())
+				{
+					int itemUniqueId = rset.getInt("itemUniqueId");
+					int itemId = rset.getInt("itemId");
+					int itemCount = rset.getInt("itemCount");
+					int itemColor = rset.getInt("itemColor");
+					int isEquiped = rset.getInt("isEquiped");
+					int slot = rset.getInt("slot");
+					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, isEquiped == 1, slot, storage);
+					item.setPersistentState(PersistentState.UPDATED);
+					equipment.onLoadHandler(item);
+				}
+			}
+		});
+		return equipment;
 	}
 
 	public int getPlayerAccountId(final int playerId)
@@ -121,10 +163,10 @@ public class MySQL5InventoryDAO extends InventoryDAO
 	{
 		int playerId = player.getObjectId();
 		List<Item> allPlayerItems = new ArrayList<Item>();
-		allPlayerItems.addAll(player.getStorage(StorageType.CUBE.getId()).getUnquippedItems());
+		allPlayerItems.addAll(player.getStorage(StorageType.CUBE.getId()).getAllItems());
 		allPlayerItems.addAll(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems());
-		allPlayerItems.addAll(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getUnquippedItems());
-		allPlayerItems.addAll(player.getInventory().getEquippedItems());
+		allPlayerItems.addAll(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems());
+		allPlayerItems.addAll(player.getEquipment().getEquippedItems());
 
 		boolean resultSuccess = true;
 		for(Item item : allPlayerItems)
@@ -227,7 +269,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 			}
 		});
 	}
-	
+
 	/**
 	 *  Since inventory is not using FK - need to clean items
 	 */

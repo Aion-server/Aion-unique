@@ -30,6 +30,7 @@ import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.model.account.Account;
 import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
+import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
@@ -129,8 +130,9 @@ public class AccountService
 			PlayerAppearance appereance = appereanceDAO.load(playerOid);
 			Player player = new Player(new PlayerController(),playerCommonData,appereance);
 
-			Storage inventory = DAOManager.getDAO(InventoryDAO.class).load(player, StorageType.CUBE);
-			PlayerAccountData acData = new PlayerAccountData(playerCommonData, appereance, inventory);
+			Storage inventory = DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE);
+			Equipment equipment = DAOManager.getDAO(InventoryDAO.class).loadEquipment(player);
+			PlayerAccountData acData = new PlayerAccountData(playerCommonData, appereance, inventory, equipment);
 			playerDAO.setCreationDeletionTime(acData);
 
 			account.addPlayerAccountData(acData);

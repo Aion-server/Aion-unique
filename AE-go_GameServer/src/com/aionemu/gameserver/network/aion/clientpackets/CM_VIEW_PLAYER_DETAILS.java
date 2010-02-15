@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -65,8 +66,7 @@ public class CM_VIEW_PLAYER_DETAILS extends AionClientPacket
 			log.warn("CHECKPOINT: can't show player details for " + targetObjectId);
 			return;
 		}
-		Storage inventory = player.getInventory();
 
-		sendPacket(new SM_VIEW_PLAYER_DETAILS(inventory.getEquippedItems()));
+		sendPacket(new SM_VIEW_PLAYER_DETAILS(player.getEquipment().getEquippedItems()));
 	}
 }

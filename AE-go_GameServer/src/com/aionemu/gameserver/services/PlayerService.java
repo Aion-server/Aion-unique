@@ -41,6 +41,7 @@ import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.ItemType;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.MacroList;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
@@ -131,10 +132,10 @@ public class PlayerService
 	public boolean storeNewPlayer(Player player, String accountName, int accountId)
 	{
 		return DAOManager.getDAO(PlayerDAO.class).saveNewPlayer(player.getCommonData(), accountId, accountName)
-			&& DAOManager.getDAO(PlayerAppearanceDAO.class).store(player)
-			&& DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player)
-			&& DAOManager.getDAO(InventoryDAO.class).store(player)
-			&& DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
+		&& DAOManager.getDAO(PlayerAppearanceDAO.class).store(player)
+		&& DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player)
+		&& DAOManager.getDAO(InventoryDAO.class).store(player)
+		&& DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
 	}
 
 	/**
@@ -201,11 +202,12 @@ public class PlayerService
 		player.getController().updatePassiveStats();
 
 		player.setQuestStateList(DAOManager.getDAO(QuestListDAO.class).load(player));
-		player.setStorage(DAOManager.getDAO(InventoryDAO.class).load(player, StorageType.CUBE), StorageType.CUBE);
-		player.setStorage(DAOManager.getDAO(InventoryDAO.class).load(player, StorageType.REGULAR_WAREHOUSE),
+		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE), StorageType.CUBE);
+		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.REGULAR_WAREHOUSE),
 			StorageType.REGULAR_WAREHOUSE);
-		player.setStorage(DAOManager.getDAO(InventoryDAO.class).load(player, StorageType.ACCOUNT_WAREHOUSE),
+		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.ACCOUNT_WAREHOUSE),
 			StorageType.ACCOUNT_WAREHOUSE);
+		player.setEquipment(DAOManager.getDAO(InventoryDAO.class).loadEquipment(player));
 
 		itemService.loadItemStones(player);
 
@@ -264,9 +266,11 @@ public class PlayerService
 		Storage playerInventory = new Storage(newPlayer, StorageType.CUBE);
 		Storage regularWarehouse = new Storage(newPlayer, StorageType.REGULAR_WAREHOUSE);
 		Storage accountWarehouse = new Storage(newPlayer, StorageType.ACCOUNT_WAREHOUSE);
+		Equipment equipment = new Equipment(newPlayer);
 		newPlayer.setStorage(playerInventory, StorageType.CUBE);
 		newPlayer.setStorage(regularWarehouse, StorageType.REGULAR_WAREHOUSE);
 		newPlayer.setStorage(accountWarehouse, StorageType.ACCOUNT_WAREHOUSE);
+		newPlayer.setEquipment(equipment);
 
 		for(ItemType itemType : items)
 		{
@@ -284,9 +288,10 @@ public class PlayerService
 				item.setEquipped(true);
 				List<ItemSlot> itemSlots = ItemSlot.getSlotsFor(itemTemplate.getItemSlot());
 				item.setEquipmentSlot(itemSlots.get(0).getSlotIdMask());
+				equipment.onLoadHandler(item);
 			}
-
-			playerInventory.onLoadHandler(item);
+			else
+				playerInventory.onLoadHandler(item);
 		}
 
 		return newPlayer;

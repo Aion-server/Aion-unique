@@ -24,8 +24,8 @@ import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
@@ -145,9 +145,9 @@ public class StatFunctions
 			int average = Math.round((totalMin + totalMax)/2);
 			int mainHandAttack = ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
 
-			Storage inventory = ((Player)attacker).getInventory();
+			Equipment equipment = ((Player)attacker).getEquipment();
 
-			WeaponType weaponType = inventory.getMainHandWeaponType();
+			WeaponType weaponType = equipment.getMainHandWeaponType();
 
 			if(weaponType != null)
 			{
@@ -157,6 +157,9 @@ public class StatFunctions
 					case ORB_2H:
 					case BOOK_2H:
 						break;
+					case BOW:
+
+						equipment.useArrow();
 
 					default:
 						mainHandAttack -= 100;
@@ -192,12 +195,12 @@ public class StatFunctions
 
 			if(attacker.isInState(CreatureState.POWERSHARD))
 			{
-				Item mainHandPowerShard = ((Player)attacker).getInventory().getMainHandPowerShard();
+				Item mainHandPowerShard = equipment.getMainHandPowerShard();
 				if(mainHandPowerShard != null)
 				{
 					Damage += mainHandPowerShard.getItemTemplate().getWeaponBoost();
 
-					((Player)attacker).getInventory().usePowerShard(mainHandPowerShard, 1);
+					equipment.usePowerShard(mainHandPowerShard, 1);
 				}
 			}
 		}
@@ -229,9 +232,9 @@ public class StatFunctions
 		int average = Math.round((totalMin + totalMax)/2);
 		int offHandAttack = ags.getCurrentStat(StatEnum.OFF_HAND_POWER);
 
-		Storage inventory = ((Player)attacker).getInventory();
+		Equipment equipment = ((Player)attacker).getEquipment();
 
-		WeaponType weaponType = inventory.getOffHandWeaponType();
+		WeaponType weaponType = equipment.getOffHandWeaponType();
 
 		switch(weaponType)
 		{
@@ -256,11 +259,11 @@ public class StatFunctions
 
 		if(attacker.isInState(CreatureState.POWERSHARD))
 		{
-			Item offHandPowerShard = ((Player)attacker).getInventory().getOffHandPowerShard();
+			Item offHandPowerShard = equipment.getOffHandPowerShard();
 			if(offHandPowerShard != null)
 			{
 				Damage += offHandPowerShard.getItemTemplate().getWeaponBoost();
-				((Player)attacker).getInventory().usePowerShard(offHandPowerShard, 1);
+				equipment.usePowerShard(offHandPowerShard, 1);
 			}
 		}
 

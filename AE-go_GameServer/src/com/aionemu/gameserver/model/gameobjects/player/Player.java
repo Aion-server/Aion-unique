@@ -69,8 +69,7 @@ public class Player extends Creature
 	private Storage						inventory;
 	private Storage						regularWarehouse;
 	private Storage						accountWarehouse;
-	private SortedMap<Integer, Item>	equipment		= Collections
-															.synchronizedSortedMap(new TreeMap<Integer, Item>());
+	private Equipment					equipment;
 	private PlayerStore					store;
 	private PlayerStatsTemplate			playerStatsTemplate;
 	private TitleList					titleList;
@@ -320,9 +319,14 @@ public class Player extends Creature
 	 * @return the inventory
 	 */
 
-	public SortedMap<Integer, Item> getEquipment()
+	public Equipment getEquipment()
 	{
 		return equipment;
+	}
+
+	public void setEquipment(Equipment equipment)
+	{
+		this.equipment = equipment;
 	}
 
 	/**

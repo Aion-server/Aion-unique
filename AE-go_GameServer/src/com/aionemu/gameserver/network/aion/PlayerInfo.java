@@ -35,7 +35,7 @@ public abstract class PlayerInfo extends AionServerPacket
 {
 	protected PlayerInfo()
 	{
-		
+
 	}
 
 	protected void writePlayerInfo(ByteBuffer buf, PlayerAccountData accPlData)
@@ -95,7 +95,7 @@ public abstract class PlayerInfo extends AionServerPacket
 		writeC(buf, playerAppearance.getNeck());
 		writeC(buf, playerAppearance.getNeckLength());
 		writeC(buf, playerAppearance.getShoulderSize()); // shoulderSize
-		
+
 		writeC(buf, playerAppearance.getTorso());
 		writeC(buf, playerAppearance.getChest());
 		writeC(buf, playerAppearance.getWaist());
@@ -111,7 +111,7 @@ public abstract class PlayerInfo extends AionServerPacket
 		writeC(buf, playerAppearance.getShoulders());
 		writeC(buf, 0x00); // always 0 may be acessLevel
 		writeC(buf, 0x00); // always 0 - unk
-		
+
 		writeF(buf, playerAppearance.getHeight());
 		int raceSex = 100000 + raceId * 2 + genderId;
 		writeD(buf, raceSex);
@@ -144,21 +144,21 @@ public abstract class PlayerInfo extends AionServerPacket
 
 		int itemsDataSize = 0;
 		//TODO figure out this part when fully equipped
-		List<Item> items = accPlData.getInventory().getEquippedItems();
-		
+		List<Item> items = accPlData.getEquipment().getEquippedItems();
+
 		for(Item item : items) {
-			
+
 			if(itemsDataSize < 208 && item.getItemTemplate().getItemSlot() <= ItemSlot.PANTS.getSlotIdMask())
 			{
 				writeC(buf, 1); // this flas is needed to show equipment on selection screen
-		    	writeD(buf, item.getItemTemplate().getItemId());
-		    	writeD(buf, 0);
-		     	writeD(buf, 0);
+				writeD(buf, item.getItemTemplate().getItemId());
+				writeD(buf, 0);
+				writeD(buf, 0);
 
 				itemsDataSize += 13;
 			}	
 		}
-		
+
 		stupidNc = new byte[208-itemsDataSize];
 		writeB(buf, stupidNc);
 		writeD(buf, accPlData.getDeletionTimeInSeconds());

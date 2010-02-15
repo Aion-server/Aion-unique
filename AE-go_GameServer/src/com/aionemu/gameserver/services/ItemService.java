@@ -125,7 +125,7 @@ public class ItemService
 		itemList.addAll(player.getStorage(StorageType.CUBE.getId()).getStorageItems());
 		itemList.addAll(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems());
 		itemList.addAll(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getStorageItems());
-		itemList.addAll(player.getStorage(StorageType.CUBE.getId()).getEquippedItems());
+		itemList.addAll(player.getEquipment().getEquippedItems());
 
 		for(Item item : itemList)
 		{

@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.dao;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.StorageType;
@@ -28,9 +29,16 @@ public abstract class InventoryDAO implements IDFactoryAwareDAO
 {
 	/**
 	 * @param player
+	 * @param StorageType
 	 * @return
 	 */
-	public abstract Storage load(Player player, StorageType storageType);
+	public abstract Storage loadStorage(Player player, StorageType storageType);
+
+	/**
+	 * @param player
+	 * @return
+	 */
+	public abstract Equipment loadEquipment(Player player);
 
 	/**
 	 * @param inventory
@@ -41,7 +49,7 @@ public abstract class InventoryDAO implements IDFactoryAwareDAO
 	 * @param item
 	 */
 	public abstract boolean store(Item item, int playerId);
-	
+
 	/**
 	 * @param playerId
 	 */

@@ -183,13 +183,9 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
 				{
 					sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 26));
-					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId())
-						.getStorageItems(), StorageType.REGULAR_WAREHOUSE.getId()));
-					sendPacket(new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE.getId())); // strange retail
-					// way of sending
-					// warehouse packets
-					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId())
-						.getUnquippedItems(), StorageType.ACCOUNT_WAREHOUSE.getId()));
+					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems(), StorageType.REGULAR_WAREHOUSE.getId()));
+					sendPacket(new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE.getId())); // strange retail way of sending warehouse packets
+					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems(), StorageType.ACCOUNT_WAREHOUSE.getId()));
 					sendPacket(new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE.getId()));
 				}
 				break;

@@ -60,7 +60,7 @@ public class ItemStorageTest
 			inventory.addToBag(item);
 		}
 		Assert.assertEquals(true, inventory.isFull());	
-		Assert.assertEquals(28, inventory.getUnquippedItems().size()); //cube + kinah
+		Assert.assertEquals(28, inventory.getAllItems().size()); //cube + kinah
 	}
 
 	@Test

@@ -49,7 +49,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 
 	@Inject
 	private PlayerService		playerService;
-	
+
 	@Inject
 	@IDFactoryAionObject
 	private IDFactory			aionObjectsIDFactory;
@@ -145,7 +145,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 		playerAppearance.setNeckLength(readC());
 
 		playerAppearance.setShoulderSize(readC());
-		
+
 		playerAppearance.setTorso(readC());
 		playerAppearance.setChest(readC()); // only woman
 		playerAppearance.setWaist(readC());
@@ -208,7 +208,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 		}
 		else
 		{
-			PlayerAccountData accPlData = new PlayerAccountData(playerCommonData, playerAppearance, player.getInventory());
+			PlayerAccountData accPlData = new PlayerAccountData(playerCommonData, playerAppearance, player.getInventory(), player.getEquipment());
 			accPlData.setCreationDate(new Timestamp(System.currentTimeMillis()));
 
 			playerService.storeCreationTime(player.getObjectId(), accPlData.getCreationDate());

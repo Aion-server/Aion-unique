@@ -164,13 +164,13 @@ public class CM_ENTER_WORLD extends AionClientPacket
 
 			// items
 			Storage inventory = player.getInventory();
-			List<Item> equipedItems = inventory.getEquippedItems();
+			List<Item> equipedItems = player.getEquipment().getEquippedItems();
 			if(equipedItems.size() != 0)
 			{
-				client.sendPacket(new SM_INVENTORY_INFO(inventory.getEquippedItems(), cubeSize));
+				client.sendPacket(new SM_INVENTORY_INFO(player.getEquipment().getEquippedItems(), cubeSize));
 			}
 
-			List<Item> unequipedItems = inventory.getUnquippedItems();
+			List<Item> unequipedItems = inventory.getAllItems();
 			int itemsSize = unequipedItems.size();
 
 			if(itemsSize != 0)
@@ -237,13 +237,13 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			/*
 			 * Needed
 			 */
-			 sendPacket(new SM_PLAYER_SPAWN(player));
-			 sendPacket(new SM_EMOTION_LIST());
-			 sendPacket(new SM_INFLUENCE_RATIO());
-			 sendPacket(new SM_PRICES());
-			 sendPacket(new SM_PLAYER_ID(player));
-			 sendPacket(new SM_ABYSS_RANK(player.getAbyssRank()));
-			 sendPacket(new SM_FLY_TIME());
+			sendPacket(new SM_PLAYER_SPAWN(player));
+			sendPacket(new SM_EMOTION_LIST());
+			sendPacket(new SM_INFLUENCE_RATIO());
+			sendPacket(new SM_PRICES());
+			sendPacket(new SM_PLAYER_ID(player));
+			sendPacket(new SM_ABYSS_RANK(player.getAbyssRank()));
+			sendPacket(new SM_FLY_TIME());
 
 			sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME
 				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2010",

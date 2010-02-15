@@ -16,8 +16,8 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -49,33 +49,27 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{	
-
 		final Player activePlayer = getConnection().getActivePlayer();
-
-		Storage inventory = activePlayer.getInventory();
-
+		Equipment equipment = activePlayer.getEquipment();
 		boolean operationResult = false;
 
-		if(action == 0)
+		switch(action)
 		{
-			operationResult = inventory.equipItem(itemUniqueId, slotRead);
-		}
-		else if (action == 1)
-		{
-			operationResult = inventory.unEquipItem(itemUniqueId, slotRead);
-		}
-		else if (action == 2)
-		{
-			operationResult = inventory.switchHands(itemUniqueId, slotRead);
+			case 0:
+				operationResult = equipment.equipItem(itemUniqueId, slotRead);
+				break;
+			case 1:
+				operationResult = equipment.unEquipItem(itemUniqueId, slotRead);
+				break;
+			case 2:
+				operationResult = equipment.switchHands(itemUniqueId, slotRead);
+				break;
 		}
 
 		if(operationResult)
 		{
 			PacketSendUtility.broadcastPacket(activePlayer,
-				new SM_UPDATE_PLAYER_APPEARANCE(activePlayer.getObjectId(), inventory.getEquippedItems()), true);
+				new SM_UPDATE_PLAYER_APPEARANCE(activePlayer.getObjectId(), equipment.getEquippedItems()), true);
 		}
-
-		//TODO
-		//send sm_stats_info with updated stats
 	}
 }

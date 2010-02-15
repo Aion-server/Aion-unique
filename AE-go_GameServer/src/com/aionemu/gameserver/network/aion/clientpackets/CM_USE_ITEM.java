@@ -78,7 +78,10 @@ public class CM_USE_ITEM extends AionClientPacket {
 			return;
 		}
 
-		Item targetItem = player.getInventory().findItemByObjId(targetItemId);
+		Item targetItem = player.getInventory().getItemByObjId(targetItemId);
+		if(targetItem == null)
+			targetItem = player.getEquipment().getEquippedItemByObjId(targetItemId);
+
 		ItemActions itemActions = item.getItemTemplate().getActions();
 
 		if (itemActions != null)
