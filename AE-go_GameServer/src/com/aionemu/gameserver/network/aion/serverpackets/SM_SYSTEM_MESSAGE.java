@@ -490,6 +490,24 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300316);
 	}
 
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_LEVEL_NOT_ENOUGH_POINT()
+	{
+		// You do not have enough Contribution Points.
+		return new SM_SYSTEM_MESSAGE(1300317);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_LEVEL_NOT_ENOUGH_MEMBER()
+	{
+		// Your Legion does not have enough members.
+		return new SM_SYSTEM_MESSAGE(1300318);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_LEVEL_NOT_ENOUGH_KINAH()
+	{
+		// You do not have enough Kinah.
+		return new SM_SYSTEM_MESSAGE(1300319);
+	}	
+
 	public static SM_SYSTEM_MESSAGE LEGION_NEW_MASTER()
 	{
 		// %0 was appointed as the new Legion Brigade General.

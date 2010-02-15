@@ -69,6 +69,7 @@ public class LegionService
 	/**
 	 * Legion Permission variables
 	 */
+	private static final int				MAX_LEGION_LEVEL			= 3;
 	private static final int				BRIGADE_GENERAL_RANK		= 0x00;
 	private static final int				CENTURION_RANK				= 0x01;
 	private static final int				LEGIONAIRY_RANK				= 0x02;
@@ -720,21 +721,28 @@ public class LegionService
 	public void changeLevel(Player activePlayer, int kinahAmount)
 	{
 		final Legion legion = activePlayer.getLegionMember().getLegion();
+		int levelKinahPrice = legion.getKinahPrice();
+		int levelContributionPrice = legion.getContributionPrice();
 
-		if(!legion.hasEnoughKinah(kinahAmount))
+		if(legion.getLegionLevel() == MAX_LEGION_LEVEL)
 		{
-			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_LEVEL_UP(legion.getLegionLevel()));
+			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CHANGE_LEVEL_CANT_LEVEL_UP());
+		}
+		else if(activePlayer.getInventory().getKinahItem().getItemCount() < levelKinahPrice)
+		{
+			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CHANGE_LEVEL_NOT_ENOUGH_KINAH());
 		}
 		else if(!legion.hasRequiredMembers())
 		{
-			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_LEVEL_UP(legion.getLegionLevel()));
+			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CHANGE_LEVEL_NOT_ENOUGH_MEMBER());
 		}
-		// else if(!legion.hasEnoughAbyssPoints(1000000))
-		// {
-		// PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_LEVEL_UP(legion.getLegionLevel()));
-		// }
+		else if(legion.getLegionContribution() < levelContributionPrice)
+		{
+			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CHANGE_LEVEL_NOT_ENOUGH_POINT());
+		}
 		else
 		{
+			activePlayer.getInventory().decreaseKinah(levelKinahPrice);
 			legion.setLegionLevel(legion.getLegionLevel() + 1);
 			storeLegion(legion);
 			refreshMembersInfoByPacket(legion, new SM_EDIT_LEGION(0x00, legion));

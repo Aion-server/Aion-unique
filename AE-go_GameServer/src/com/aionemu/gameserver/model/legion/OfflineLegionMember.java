@@ -82,11 +82,26 @@ public class OfflineLegionMember extends LegionMember
 	 */
 	public void setExp(long exp)
 	{		
+		//maxLevel is 51 but in game 50 should be shown with full XP bar
+		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
+		
+		if (getPlayerClass() != null && getPlayerClass().isStartingClass())
+			maxLevel = 10;
+		
+		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
 		int level = 1;
-		while(exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level + 1))
+
+		if (exp > maxExp)
+		{
+			exp = maxExp;
+		}
+
+		//make sure level is never larger than maxLevel-1
+		while ((level + 1) != maxLevel && exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level + 1))
 		{
 			level++;
 		}
+		
 		this.level = level;
 	}
 

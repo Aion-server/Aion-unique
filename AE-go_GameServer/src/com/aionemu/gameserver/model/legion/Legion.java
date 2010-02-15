@@ -35,37 +35,12 @@ public class Legion
 	private int								legionLevel				= 1;
 	private int								legionRank				= 0;
 	private int								legionContribution		= 0;
-	private int								legionLeaderId			= 0;
 	private ArrayList<Integer>				legionMembers			= new ArrayList<Integer>();
 	private static final int				legionarPermission1		= 0x40;
 	private int								legionarPermission2		= 0x00;
 	private int								centurionPermission1	= 0x60;
 	private int								centurionPermission2	= 0x00;
 	private LinkedHashMap<Integer, String>	announcementList		= new LinkedHashMap<Integer, String>();
-	private boolean							stateChanged			= false;
-
-	/**
-	 * Called if a clan is loaded.
-	 * 
-	 * @param legionId
-	 * @param legionName
-	 * @param legionarPermission2
-	 * @param centurionPermission1
-	 * @param centurionPermission2
-	 */
-	public Legion(int legionId, String legionName, int legionLevel, int legionLeaderId, int legionarPermission2,
-		int centurionPermission1, int centurionPermission2)
-	{
-		this.legionId = legionId;
-		this.legionName = legionName;
-		this.legionLevel = legionLevel;
-		this.setLegionRank(5);
-		this.setLegionContribution(500);
-		this.legionLeaderId = legionLeaderId;
-		this.legionarPermission2 = legionarPermission2;
-		this.centurionPermission1 = centurionPermission1;
-		this.centurionPermission2 = centurionPermission2;
-	}
 
 	/**
 	 * Only called when a legion is created!
@@ -198,23 +173,6 @@ public class Legion
 	}
 
 	/**
-	 * @param legionLeader
-	 *            the legionLeader to set
-	 */
-	public void setLegionLeaderId(int legionLeaderId)
-	{
-		this.legionLeaderId = legionLeaderId;
-	}
-
-	/**
-	 * @return the legionLeader
-	 */
-	public int getLegionLeaderId()
-	{
-		return legionLeaderId;
-	}
-
-	/**
 	 * @param legionarPermission1
 	 *            the legionarPermission1 to set
 	 */
@@ -280,7 +238,6 @@ public class Legion
 	public void setLegionRank(int legionRank)
 	{
 		this.legionRank = legionRank;
-		this.setStateChanged(true);
 	}
 
 	/**
@@ -298,7 +255,6 @@ public class Legion
 	public void setLegionContribution(int legionContribution)
 	{
 		this.legionContribution = legionContribution;
-		this.setStateChanged(true);
 	}
 
 	/**
@@ -324,38 +280,29 @@ public class Legion
 		}
 		return false;
 	}
-
-	public boolean hasEnoughKinah(int kinahAmount)
+	
+	public int getKinahPrice()
 	{
 		switch(getLegionLevel())
 		{
 			case 1:
-				if(kinahAmount >= LegionConfig.LEGION_LEVEL2_REQUIRED_KINAH)
-					return true;
-				break;
+				return LegionConfig.LEGION_LEVEL2_REQUIRED_KINAH;
 			case 2:
-				if(kinahAmount >= LegionConfig.LEGION_LEVEL3_REQUIRED_KINAH)
-					return true;
-				break;
+				return LegionConfig.LEGION_LEVEL3_REQUIRED_KINAH;
 		}
-		return false;
+		return 0;
 	}
-
-	public boolean hasEnoughAbyssPoints(int AbyssPoints)
+	
+	public int getContributionPrice()
 	{
 		switch(getLegionLevel())
 		{
 			case 1:
-				if(getLegionContribution() >= LegionConfig.LEGION_LEVEL2_REQUIRED_ABYSS_POINT)
-					return true;
-				break;
-
+				return LegionConfig.LEGION_LEVEL2_REQUIRED_CONTRIBUTION;
 			case 2:
-				if(getLegionContribution() >= LegionConfig.LEGION_LEVEL3_REQUIRED_ABYSS_POINT)
-					return true;
-				break;
+				return LegionConfig.LEGION_LEVEL3_REQUIRED_CONTRIBUTION;
 		}
-		return false;
+		return 0;
 	}
 
 	private boolean canAddMember()
@@ -380,23 +327,6 @@ public class Legion
 	}
 
 	/**
-	 * @param stateChanged
-	 *            the stateChanged to set
-	 */
-	public void setStateChanged(boolean stateChanged)
-	{
-		this.stateChanged = stateChanged;
-	}
-
-	/**
-	 * @return the stateChanged
-	 */
-	public boolean hasStateChanged()
-	{
-		return stateChanged;
-	}
-
-	/**
 	 * @param announcementList
 	 *            the announcementList to set
 	 */
@@ -412,7 +342,6 @@ public class Legion
 	public void setAnnouncementList(LinkedHashMap<Integer, String> announcementList)
 	{
 		this.announcementList = announcementList;
-		this.setStateChanged(true);
 	}
 
 	/**

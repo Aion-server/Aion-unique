@@ -48,7 +48,7 @@ public class LegionConfig
 	/**
 	 * Nickname pattern (checked when nickname is being changed)
 	 */
-	@Property(key = "gameserver.legion.nicknamepattern", defaultValue = "[a-zA-Z]{2,14}")
+	@Property(key = "gameserver.legion.nicknamepattern", defaultValue = "[a-zA-Z]{2,10}")
 	public static Pattern			NICKNAME_PATTERN;
 
 	/**
@@ -102,14 +102,14 @@ public class LegionConfig
 	/*
 	 * Sets required amount of abyss point to level legion up to 2
 	 */
-	@Property(key = "gameserver.legion.level2requiredabysspoint", defaultValue = "0")
-	public static int				LEGION_LEVEL2_REQUIRED_ABYSS_POINT;
+	@Property(key = "gameserver.legion.level2requiredcontribution", defaultValue = "0")
+	public static int				LEGION_LEVEL2_REQUIRED_CONTRIBUTION;
 
 	/*
 	 * Sets required amount of abyss point to level legion up to 3
 	 */
-	@Property(key = "gameserver.legion.level3requiredabysspoint", defaultValue = "20000")
-	public static int				LEGION_LEVEL3_REQUIRED_ABYSS_POINT;
+	@Property(key = "gameserver.legion.level3requiredcontribution", defaultValue = "20000")
+	public static int				LEGION_LEVEL3_REQUIRED_CONTRIBUTION;
 
 	/*
 	 * Sets max members of a level 1 legion

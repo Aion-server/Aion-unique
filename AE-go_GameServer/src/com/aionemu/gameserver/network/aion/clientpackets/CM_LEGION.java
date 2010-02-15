@@ -16,32 +16,15 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import java.util.Map.Entry;
-
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.configs.LegionConfig;
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.legion.Legion;
-import com.aionemu.gameserver.model.legion.LegionMember;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_CHANGE_NICKNAME;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_CHANGE_SELF_INTRODUCTION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EDIT_LEGION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEAVE_LEGION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGIONMEMBER_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_CREATED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_MEMBER;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_LEGION_TITLE;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.World;
@@ -55,7 +38,7 @@ import com.google.inject.Inject;
 @SuppressWarnings("unused")
 public class CM_LEGION extends AionClientPacket
 {
-	private static final Logger	log							= Logger.getLogger(CM_LEGION.class);
+	private static final Logger	log	= Logger.getLogger(CM_LEGION.class);
 
 	/** Legion based information **/
 	@Inject
@@ -203,8 +186,8 @@ public class CM_LEGION extends AionClientPacket
 						{
 							sendPacket(SM_SYSTEM_MESSAGE.LEGION_NO_USER_TO_INVITE());
 						}
-						break;	
-						/** Kick member from legion **/
+						break;
+					/** Kick member from legion **/
 					case 0x04:
 						if(targetPlayer != null)
 						{
@@ -244,7 +227,7 @@ public class CM_LEGION extends AionClientPacket
 							// Player offline or NOT in same legion as player
 							return;
 						legionService.changeNickname(activePlayer, targetPlayer, newNickname);
-						break;				
+						break;
 				}
 			}
 			else
@@ -255,7 +238,7 @@ public class CM_LEGION extends AionClientPacket
 					case 0x02:
 						legionService.leaveLegion(activePlayer);
 						break;
-						/** Refresh legion info **/
+					/** Refresh legion info **/
 					case 0x08:
 						sendPacket(new SM_LEGION_INFO(legion));
 						break;
@@ -269,13 +252,15 @@ public class CM_LEGION extends AionClientPacket
 						break;
 					/** Edit permissions **/
 					case 0x0D:
-						legionService.changePermissions(legion, legionarPermission2, centurionPermission1, centurionPermission2);
+						legionService.changePermissions(legion, legionarPermission2, centurionPermission1,
+							centurionPermission2);
 						break;
 					/** Level legion up **/
 					case 0x0E:
-						legionService.changeLevel(activePlayer, activePlayer.getInventory().getKinahItem().getItemCount());
-						break;				
-				}				
+						legionService.changeLevel(activePlayer, activePlayer.getInventory().getKinahItem()
+							.getItemCount());
+						break;
+				}
 			}
 		}
 		else

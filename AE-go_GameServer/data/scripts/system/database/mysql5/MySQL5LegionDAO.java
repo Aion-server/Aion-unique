@@ -104,7 +104,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	{
 		DB
 			.insertUpdate(
-				"UPDATE legions SET name=?, legionar_permission2=?, centurion_permission1=?, centurion_permission2=? WHERE id=?",
+				"UPDATE legions SET name=?, level=?, legionar_permission2=?, centurion_permission1=?, centurion_permission2=? WHERE id=?",
 				new IUStH(){
 					@Override
 					public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
@@ -113,10 +113,11 @@ public class MySQL5LegionDAO extends LegionDAO
 							+ legion.getLegionName());
 
 						stmt.setString(1, legion.getLegionName());
-						stmt.setInt(2, legion.getLegionarPermission2());
-						stmt.setInt(3, legion.getCenturionPermission1());
-						stmt.setInt(4, legion.getCenturionPermission2());
-						stmt.setInt(5, legion.getLegionId());
+						stmt.setInt(2, legion.getLegionLevel());
+						stmt.setInt(3, legion.getLegionarPermission2());
+						stmt.setInt(4, legion.getCenturionPermission1());
+						stmt.setInt(5, legion.getCenturionPermission2());
+						stmt.setInt(6, legion.getLegionId());
 						stmt.execute();
 					}
 				});
