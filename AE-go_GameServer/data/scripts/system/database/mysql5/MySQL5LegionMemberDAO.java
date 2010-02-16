@@ -189,16 +189,16 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 				try
 				{
 					resultSet.next();
-					legionMember.setName(resultSet.getString("name"));
-					legionMember.setExp(resultSet.getLong("exp"));
-					legionMember.setPlayerClass(PlayerClass.valueOf(resultSet.getString("player_class")));
-					legionMember.setLastOnline(resultSet.getTimestamp("last_online"));
-					legionMember.setWorldId(resultSet.getInt("world_id"));
+					legionMember.setName(resultSet.getString("players.name"));
+					legionMember.setExp(resultSet.getLong("players.exp"));
+					legionMember.setPlayerClass(PlayerClass.valueOf(resultSet.getString("players.player_class")));
+					legionMember.setLastOnline(resultSet.getTimestamp("players.last_online"));
+					legionMember.setWorldId(resultSet.getInt("players.world_id"));
 					
-					int legionId = resultSet.getInt("legion_id");
-					legionMember.setRank(resultSet.getInt("rank"));
-					legionMember.setNickname(resultSet.getString("nickname"));
-					legionMember.setSelfIntro(resultSet.getString("selfintro"));
+					int legionId = resultSet.getInt("legion_members.legion_id");
+					legionMember.setRank(resultSet.getInt("legion_members.rank"));
+					legionMember.setNickname(resultSet.getString("legion_members.nickname"));
+					legionMember.setSelfIntro(resultSet.getString("legion_members.selfintro"));
 
 					legionMember.setLegion(legionService.getLegion(legionId));
 				}
