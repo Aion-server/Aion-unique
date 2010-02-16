@@ -23,8 +23,8 @@
 	<teleloc_template loc_id="40" mapid="400010000" name="Eastern Shard of Latesran" posX="1642" posY="3042" posZ="1669" heading="0"/>   
 	<teleloc_template loc_id="42" mapid="400010000" name="Western Shard of Latesran" posX="2098" posY="754" posZ="1569" heading="0"/>
 	<teleloc_template loc_id="36" mapid="400010000" name="Sulfur Archipelago" posX="0" posY="0" posZ="0" heading="0"/>   
-	<teleloc_template loc_id="37" mapid="400010000" name="Siel’s Western Fortress" posX="0" posY="0" posZ="0" heading="0"/>
-	<teleloc_template loc_id="39" mapid="400010000" name="Siel’s Eastern Fortess" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="37" mapid="400010000" name="Siels Western Fortress" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="39" mapid="400010000" name="Siels Eastern Fortess" posX="0" posY="0" posZ="0" heading="0"/>
 	<teleloc_template loc_id="44" mapid="400010000" name="Asteria Fortress" posX="0" posY="0" posZ="0" heading="0"/>
 	<teleloc_template loc_id="45" mapid="400010000" name="Miren Fortress" posX="0" posY="0" posZ="0" heading="0"/>   
 	<teleloc_template loc_id="46" mapid="400010000" name="Kysis Fortress" posX="0" posY="0" posZ="0" heading="0"/>
@@ -35,8 +35,8 @@
 	<teleloc_template loc_id="50" mapid="400010000" name="Eastern Shard of Latesran" posX="1644" posY="2881" posZ="1667" heading="0"/>
 	<teleloc_template loc_id="52" mapid="400010000" name="Western Shard of Latesran" posX="2100" posY="593" posZ="1567" heading="0"/>   
 	<teleloc_template loc_id="54" mapid="400010000" name="Sulfur Archipelago" posX="0" posY="0" posZ="0" heading="0"/>   
-	<teleloc_template loc_id="55" mapid="400010000" name="Siel’s Western Fortress" posX="0" posY="0" posZ="0" heading="0"/>
-	<teleloc_template loc_id="56" mapid="400010000" name="Siel’s Eastern Fortess" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="55" mapid="400010000" name="Siels Western Fortress" posX="0" posY="0" posZ="0" heading="0"/>
+	<teleloc_template loc_id="56" mapid="400010000" name="Siels Eastern Fortess" posX="0" posY="0" posZ="0" heading="0"/>
 	<teleloc_template loc_id="62" mapid="400010000" name="Asteria Fortress" posX="0" posY="0" posZ="0" heading="0"/>
 	<teleloc_template loc_id="75" mapid="400010000" name="Miren Fortress" posX="0" posY="0" posZ="0" heading="0"/>   
 	<teleloc_template loc_id="76" mapid="400010000" name="Kysis Fortress" posX="0" posY="0" posZ="0" heading="0"/>
