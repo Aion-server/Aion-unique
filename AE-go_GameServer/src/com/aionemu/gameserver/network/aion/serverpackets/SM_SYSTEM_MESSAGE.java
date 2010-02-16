@@ -19,7 +19,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import com.aionemu.gameserver.model.DecriptionId;
+import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.network.aion.SystemMessageId;
@@ -75,9 +75,9 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	/**
 	 * You used item
 	 */
-	public static SM_SYSTEM_MESSAGE USE_ITEM(DecriptionId itemDecId)
+	public static SM_SYSTEM_MESSAGE USE_ITEM(DescriptionId itemDescId)
 	{
-		return new SM_SYSTEM_MESSAGE(1300423, itemDecId);
+		return new SM_SYSTEM_MESSAGE(1300423, itemDescId);
 	}
 
 	public static SM_SYSTEM_MESSAGE REQUEST_TRADE(String playerName)
@@ -782,10 +782,10 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		{
 			if (param instanceof String)
 				writeS(buf, String.valueOf(param));
-			else if (param instanceof DecriptionId)
+			else if (param instanceof DescriptionId)
 			{
 				writeH(buf, 0x24);
-				writeD(buf, ((DecriptionId) param).getValue());
+				writeD(buf, ((DescriptionId) param).getValue());
 				writeH(buf, 0x00); //unk
 			}
 		}

@@ -18,7 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import com.aionemu.gameserver.model.DecriptionId;
+import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -78,10 +78,10 @@ public class SM_QUESTION_WINDOW extends AionServerPacket
 		{
 			if (param instanceof String)
 				writeS(buf, String.valueOf(param));
-			else if (param instanceof DecriptionId)
+			else if (param instanceof DescriptionId)
 			{
 				writeH(buf, 0x24);
-				writeD(buf, ((DecriptionId) param).getValue());
+				writeD(buf, ((DescriptionId) param).getValue());
 				writeH(buf, 0x00); //unk
 			}
 		}

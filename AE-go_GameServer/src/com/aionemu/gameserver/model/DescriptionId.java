@@ -20,11 +20,11 @@ package com.aionemu.gameserver.model;
  * @author MrPoke
  * 
  */
-public final class DecriptionId extends Object
+public final class DescriptionId extends Object
 {
 	private int	value;
 
-	public DecriptionId(int value)
+	public DescriptionId(int value)
 	{
 		this.value = value;
 	}
