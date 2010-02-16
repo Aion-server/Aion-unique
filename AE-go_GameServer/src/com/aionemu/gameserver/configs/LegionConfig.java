@@ -74,6 +74,11 @@ public class LegionConfig
 	 */
 	@Property(key = "gameserver.legion.creationrequiredkinah", defaultValue = "10000")
 	public static int				LEGION_CREATE_REQUIRED_KINAH;
+	/*
+	 * Sets required kinah to create a legion
+	 */
+	@Property(key = "gameserver.legion.emblemrequiredkinah", defaultValue = "10000")
+	public static int				LEGION_EMBLEM_REQUIRED_KINAH;
 
 	/*
 	 * Sets required kinah to level legion up to 2
