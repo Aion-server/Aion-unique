@@ -63,69 +63,67 @@ public class CM_PLAYER_SEARCH extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		name = readS();
-		readB(44 - (name.length()*2 + 2));
-		region = readD();	
+		if(!(name = readS()).isEmpty())
+		{
+			name = Util.convertName(name);
+			readB(44 - (name.length() * 2 + 2));
+		}
+		else
+		{
+			readB(42);
+		}
+		region = readD();
 		classMask = readD();
 		minLevel = readC();
 		maxLevel = readC();
 		lfgOnly = readC();
 		readC(); // 0x00 in search pane 0x30 in /who?
 	}
-
+	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void runImpl()
 	{
-		if(name != null)
+		Player activePlayer = getConnection().getActivePlayer();
+
+		Iterator<Player> it = world.getPlayersIterator();
+
+		List<Player> matches = new ArrayList<Player>(MAX_RESULTS);
+
+		if(activePlayer != null && activePlayer.getLevel() < 10)
 		{
-			name = Util.convertName(name);
-
-			Player activePlayer = getConnection().getActivePlayer();
-
-			Iterator<Player> it = world.getPlayersIterator();
-
-			List<Player> matches = new ArrayList<Player>(MAX_RESULTS);
-
-			if(activePlayer != null && activePlayer.getLevel() < 10)
-			{
-				sendPacket(SM_SYSTEM_MESSAGE.LEVEL_NOT_ENOUGH_FOR_SEARCH("10"));
-				return;
-			}
-			while(it.hasNext() && matches.size() < MAX_RESULTS)
-			{
-				Player player = it.next();
-				if(!player.isSpawned())
-					continue;
-				else if(player.getFriendList().getStatus() == Status.OFFLINE)
-					continue;
-				else if(lfgOnly == 1 && !player.isLookingForGroup())
-					continue;
-				else if(!name.isEmpty() && !player.getName().toLowerCase().contains(name.toLowerCase()))
-					continue;
-				else if(minLevel != 0xFF && player.getLevel() < minLevel)
-					continue;
-				else if(maxLevel != 0xFF && player.getLevel() > maxLevel)
-					continue;
-				else if(classMask > 0 && (player.getPlayerClass().getMask() & classMask) == 0)
-					continue;
-				else if(region > 0 && player.getActiveRegion().getMapId() != region)
-					continue;
-				else
-				// This player matches criteria
-				{
-					matches.add(player);
-				}
-			}
-
-			sendPacket(new SM_PLAYER_SEARCH(matches, region));
+			sendPacket(SM_SYSTEM_MESSAGE.LEVEL_NOT_ENOUGH_FOR_SEARCH("10"));
+			return;
 		}
-		else
+		while(it.hasNext() && matches.size() < MAX_RESULTS)
 		{
-			sendPacket(SM_SYSTEM_MESSAGE.SEARCH_NOT_EXIST());
+			Player player = it.next();
+			if(!player.isSpawned())
+				continue;
+			else if(player.getFriendList().getStatus() == Status.OFFLINE)
+				continue;
+			else if(lfgOnly == 1 && !player.isLookingForGroup())
+				continue;
+			else if(!name.isEmpty() && !player.getName().toLowerCase().contains(name.toLowerCase()))
+				continue;
+			else if(minLevel != 0xFF && player.getLevel() < minLevel)
+				continue;
+			else if(maxLevel != 0xFF && player.getLevel() > maxLevel)
+				continue;
+			else if(classMask > 0 && (player.getPlayerClass().getMask() & classMask) == 0)
+				continue;
+			else if(region > 0 && player.getActiveRegion().getMapId() != region)
+				continue;
+			else
+			// This player matches criteria
+			{
+				matches.add(player);
+			}
 		}
+
+		sendPacket(new SM_PLAYER_SEARCH(matches, region));
 	}
 
 }
