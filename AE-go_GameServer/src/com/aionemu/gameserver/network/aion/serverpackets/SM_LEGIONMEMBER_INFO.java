@@ -35,11 +35,19 @@ public class SM_LEGIONMEMBER_INFO extends AionServerPacket
 	private static final int	OFFLINE	= 0x00;
 	private static final int	ONLINE	= 0x01;
 
+	/**
+	 * This constructor will handle legion member info when a Player is given
+	 * @param player
+	 */
 	public SM_LEGIONMEMBER_INFO(Player player)
 	{
 		this.player = player;
 	}
 
+	/**
+	 * This constructor will handle legion member info when an OfflineLegionMember is given
+	 * @param offlineLegionMember
+	 */
 	public SM_LEGIONMEMBER_INFO(OfflineLegionMember offlineLegionMember)
 	{
 		this.offlineLegionMember = offlineLegionMember;
@@ -51,15 +59,15 @@ public class SM_LEGIONMEMBER_INFO extends AionServerPacket
 		if(player != null)
 		{
 			int lastLogin = (int)(player.getCommonData().getLastOnline().getTime()/1000);
-			writeC(buf, 0x01); // Pledge Emblem related?
-			writeH(buf, 0xFFFF); // Pledge Emblem id?
+			writeC(buf, 0x01);
+			writeH(buf, 0xFFFF);
 			writeD(buf, player.getObjectId());
 			writeS(buf, player.getName());
 			writeC(buf, player.getCommonData().getPlayerClass().getClassId());
 			writeD(buf, player.getLevel());
 			writeC(buf, player.getLegionMember().getRank());
 			writeD(buf, player.getPosition().getMapId());
-			writeC(buf, player.isOnline() ? ONLINE : OFFLINE);
+			writeC(buf, ONLINE);
 			writeS(buf, player.getLegionMember().getSelfIntro());
 			writeS(buf, player.getLegionMember().getNickname());
 			writeD(buf, lastLogin);
@@ -68,8 +76,8 @@ public class SM_LEGIONMEMBER_INFO extends AionServerPacket
 		else
 		{
 			int lastLogin = (int)(offlineLegionMember.getLastOnline().getTime()/1000);
-			writeC(buf, 0x01); // Pledge Emblem related?
-			writeH(buf, 0xFFFF); // Pledge Emblem id?
+			writeC(buf, 0x01);
+			writeH(buf, 0xFFFF);
 			writeD(buf, offlineLegionMember.getPlayerObjId());
 			writeS(buf, offlineLegionMember.getName());
 			writeC(buf, offlineLegionMember.getPlayerClass().getClassId());
