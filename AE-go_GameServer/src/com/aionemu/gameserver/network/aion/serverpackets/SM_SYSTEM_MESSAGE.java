@@ -739,6 +739,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300013);
 	}
 
+	public static SM_SYSTEM_MESSAGE SEARCH_NOT_EXIST()
+	{
+		return new SM_SYSTEM_MESSAGE(1310019);
+	}
+
 	private final int		code;
 	private final Object[]	params;
 
