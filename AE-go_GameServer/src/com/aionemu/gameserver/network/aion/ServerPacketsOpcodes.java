@@ -114,6 +114,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UPDATE_NOTE.class, 0x88, idSet);
 		addPacketOpcode(SM_PLAY_MOVIE.class, 0x89, idSet);
 		addPacketOpcode(SM_PLAYER_ID.class, 0xA5, idSet);
+        addPacketOpcode(SM_ABYSS_RANK_UPDATE.class, 0xA8, idSet);
 		addPacketOpcode(SM_MAY_LOGIN_INTO_GAME.class, 0xA9, idSet);
 		addPacketOpcode(SM_PONG.class, 0xAE, idSet);
 		addPacketOpcode(SM_DIE.class, 0xC1, idSet);

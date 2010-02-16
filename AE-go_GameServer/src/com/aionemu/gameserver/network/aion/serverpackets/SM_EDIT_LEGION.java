@@ -56,22 +56,19 @@ public class SM_EDIT_LEGION extends AionServerPacket
 	@Override
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-
+        writeC(buf, type);
 		switch(type)
 		{
 			/** Change Legion Level **/
 			case 0x00:
-				writeC(buf, type);
 				writeC(buf, legion.getLegionLevel());
 				break;
 			/** Change Legion Rank **/
 			case 0x01:
-				writeC(buf, type);
 				writeC(buf, legion.getLegionRank());
 				break;
 			/** Change Legion Permissions **/
 			case 0x02:
-				writeC(buf, type);
 				writeC(buf, legion.getCenturionPermission1());
 				writeC(buf, legion.getCenturionPermission2());
 				writeC(buf, legionarPermission1);
@@ -79,18 +76,15 @@ public class SM_EDIT_LEGION extends AionServerPacket
 				break;
 			/** Change Legion Contributions **/
 			case 0x03:
-				writeC(buf, type);
 				writeC(buf, 0); // get Contributions
 				break;
 			/** Change Legion Announcement **/
 			case 0x05:
-				writeC(buf, type);
 				writeS(buf, announcement);
 				writeD(buf, unixTime);
 				break;
 			/** Refresh Legion Announcement? **/
 			case 0x08:
-				writeC(buf, type);
 				break;
 		}
 	}

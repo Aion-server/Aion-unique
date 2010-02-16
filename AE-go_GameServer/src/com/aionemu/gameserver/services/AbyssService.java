@@ -18,6 +18,7 @@ package com.aionemu.gameserver.services;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABYSS_RANK;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ABYSS_RANK_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -39,10 +40,14 @@ public class AbyssService
 		int pointsGained = victim.getAbyssRank().getRank().getPointsGained();
 		
 		victim.getAbyssRank().addAp(-pointsLost);
+        PacketSendUtility.broadcastPacket(victim, new SM_ABYSS_RANK_UPDATE(victim));
 		winner.getAbyssRank().addAp(pointsGained);
+        PacketSendUtility.broadcastPacket(winner, new SM_ABYSS_RANK_UPDATE(winner));
         winner.getAbyssRank().setAllKill();
 		PacketSendUtility.sendPacket(victim, new SM_ABYSS_RANK(victim.getAbyssRank()));
 		PacketSendUtility.sendPacket(winner, new SM_ABYSS_RANK(winner.getAbyssRank()));
 		PacketSendUtility.sendPacket(winner, SM_SYSTEM_MESSAGE.EARNED_ABYSS_POINT(String.valueOf(pointsGained)));
+        PacketSendUtility.sendPacket(victim, new SM_SYSTEM_MESSAGE(1340002, winner.getName()));
+        PacketSendUtility.sendPacket(winner, new SM_SYSTEM_MESSAGE(1340000, victim.getName()));
 	}
 }
