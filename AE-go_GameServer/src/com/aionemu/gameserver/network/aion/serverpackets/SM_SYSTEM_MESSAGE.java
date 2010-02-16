@@ -780,14 +780,14 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 
 		for(Object param : params)
 		{
-			//if (param instanceof String)
+			if (param instanceof DescriptionId)
+			{
+				writeH(buf, 0x24);
+				writeD(buf, ((DescriptionId) param).getValue());
+				writeH(buf, 0x00); //unk
+			}
+			else
 				writeS(buf, String.valueOf(param));
-			//else if (param instanceof DescriptionId)
-			//{
-				//writeH(buf, 0x24);
-				//writeD(buf, ((DescriptionId) param).getValue());
-				//writeH(buf, 0x00); //unk
-			//}
 		}
 		writeC(buf, 0x00);
 	}
