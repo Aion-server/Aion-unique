@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.DecriptionId;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -46,7 +47,7 @@ public class SM_QUESTION_WINDOW extends AionServerPacket
 
 	private int				code;
 	private int				senderId;
-	private String[]		params;
+	private Object[]		params;
 
 	/**
 	 * Creates a new <tt>SM_QUESTION_WINDOW<tt> packet
@@ -58,7 +59,7 @@ public class SM_QUESTION_WINDOW extends AionServerPacket
 	 * @param params
 	 *            params The parameters for the string, if any
 	 */
-	public SM_QUESTION_WINDOW(int code, int senderId, String... params)
+	public SM_QUESTION_WINDOW(int code, int senderId, Object... params)
 	{
 		this.code = code;
 		this.senderId = senderId;
@@ -73,8 +74,17 @@ public class SM_QUESTION_WINDOW extends AionServerPacket
 	{
 		writeD(buf, code);
 
-		for(String string : params)
-			writeS(buf, string);
+		for(Object param : params)
+		{
+			if (param instanceof String)
+				writeS(buf, String.valueOf(param));
+			else if (param instanceof DecriptionId)
+			{
+				writeH(buf, 0x24);
+				writeD(buf, ((DecriptionId) param).getValue());
+				writeH(buf, 0x00); //unk
+			}
+		}
 
 		writeD(buf, 0x00);// unk
 		writeH(buf, 0x00);// unk
