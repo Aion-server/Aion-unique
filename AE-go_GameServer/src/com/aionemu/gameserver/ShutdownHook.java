@@ -20,6 +20,7 @@ import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
@@ -92,7 +93,7 @@ public class ShutdownHook extends Thread
 		if(!onlinePlayers.hasNext())
 			return;
 		while(onlinePlayers.hasNext())
-			onlinePlayers.next().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(seconds));
+			onlinePlayers.next().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(Config.SHUTDOWN_HOOK_DELAY + seconds));
 	}
 
 	private static void sendShutdownStatus()
@@ -171,13 +172,13 @@ public class ShutdownHook extends Thread
 		log.warn(initiator + " issued shutdown command: " + mode.getText() + " in " + seconds + " seconds!");
 		sendShutdownMessage(seconds);
 		sendShutdownStatus();
-		ThreadPoolManager.getInstance().schedule(new Runnable(){
+		ThreadPoolManager.getInstance().schedule(new Runnable() {
 			@Override
 			public void run()
 			{
 				ShutdownHook.mode = mode;
 				shutdownHook(mode);
 			}
-		}, seconds * 1000);
+		}, Config.SHUTDOWN_HOOK_DELAY + seconds * 1000);
 	}
 }

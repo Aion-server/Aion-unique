@@ -188,6 +188,9 @@ public class Config
 	@Property(key = "gameserver.taskmanager.GCInterval", defaultValue = "3600000")
 	public static int				GC_INTERVAL;
 
+	@Property(key = "gameserver.ShutdownHookDelay", defaultValue = "60")
+	public static int				SHUTDOWN_HOOK_DELAY;
+	
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
 	 */
