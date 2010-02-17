@@ -55,7 +55,7 @@
 	<!-- The Shinier the Better -->
 	<item_collecting id="2108" start_npc_id="798037" />
 	
-	<!-- TODO: Thinking Ahead -->
+	<!-- Thinking Ahead handled by script-->
 	
 	<!-- Vanar's Flattery -->
 	<report_to start_npc_id="203502" end_npc_id="203517" item_id="182203106" id="2106"/>

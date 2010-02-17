@@ -28,7 +28,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author MrPoke
- *
+ * 
  */
 public class _1011DangerFromAbove extends QuestHandler
 {
@@ -38,10 +38,10 @@ public class _1011DangerFromAbove extends QuestHandler
 	public _1011DangerFromAbove()
 	{
 		super(questId);
-		int[] talkNpcs = {203109, 203122, 203109};
+		int[] talkNpcs = { 203109, 203122, 203109 };
 		QuestEngine.getInstance().setNpcQuestData(700091).addOnKillEvent(questId);
 		QuestEngine.getInstance().addQuestLvlUp(questId);
-		for (int id : talkNpcs)
+		for(int id : talkNpcs)
 			QuestEngine.getInstance().setNpcQuestData(id).addOnTalkEvent(questId);
 	}
 
@@ -68,14 +68,13 @@ public class _1011DangerFromAbove extends QuestHandler
 				updateQuestStatus(player, qs);
 				return true;
 			}
-			else if (var ==4)
-		            {
+			else if(var == 4)
+			{
 				qs.setStatus(QuestStatus.REWARD);
 				updateQuestStatus(player, qs);
-				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-					.getObjectId(), 10));
+				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 				return true;
-		            }
+			}
 		}
 		return false;
 	}
@@ -108,7 +107,7 @@ public class _1011DangerFromAbove extends QuestHandler
 							qs.getQuestVars().setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-							.getObjectId(), 10));
+								.getObjectId(), 10));
 							return true;
 						}
 				}
@@ -126,12 +125,12 @@ public class _1011DangerFromAbove extends QuestHandler
 							qs.getQuestVars().setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-							.getObjectId(), 10));
+								.getObjectId(), 10));
 							return true;
 						}
 				}
 			}
-			
+
 		}
 		else if(qs.getStatus() == QuestStatus.REWARD)
 		{
@@ -142,6 +141,7 @@ public class _1011DangerFromAbove extends QuestHandler
 		}
 		return false;
 	}
+
 	@Override
 	public boolean onLvlUpEvent(QuestEnv env)
 	{
@@ -149,13 +149,9 @@ public class _1011DangerFromAbove extends QuestHandler
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null || qs.getStatus() != QuestStatus.LOCKED)
 			return false;
-		int[] quests = {1130};
-		for (int id : quests)
-		{
-			QuestState qs2 = player.getQuestStateList().getQuestState(id);
-			if (qs2 == null || qs2.getStatus() != QuestStatus.COMPLITE)
-				return false;
-		}
+		QuestState qs2 = player.getQuestStateList().getQuestState(1130);
+		if(qs2 == null || qs2.getStatus() != QuestStatus.COMPLITE)
+			return false;
 
 		qs.setStatus(QuestStatus.START);
 		updateQuestStatus(player, qs);

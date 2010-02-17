@@ -16,12 +16,8 @@
  */
 package com.aionemu.gameserver.questEngine.handlers.template;
 
-import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.QuestTemplate;
-import com.aionemu.gameserver.model.templates.quest.CollectItem;
-import com.aionemu.gameserver.model.templates.quest.CollectItems;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
@@ -90,17 +86,8 @@ public class ItemCollecting extends QuestHandler
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2375);
 				else if(env.getDialogId() == 33)
 				{
-					if(QuestEngine.getInstance().getQuest(env).collectItemCheck())
+					if(collectItemCheck(env))
 					{
-						QuestTemplate template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
-						CollectItems collectItems = template.getCollectItems();
-						if (collectItems != null)
-						{
-							for (CollectItem collectItem : collectItems.getCollectItem())
-							{
-								player.getInventory().removeFromBagByItemId(collectItem.getItemId(), collectItem.getCount());
-							}
-						}
 						qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
 						qs.setStatus(QuestStatus.REWARD);
 						updateQuestStatus(player, qs);

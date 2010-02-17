@@ -16,7 +16,6 @@
  */
 package quest.poeta;
 
-import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
@@ -95,10 +94,8 @@ public class _1111InsomniaMedicine extends QuestHandler
 			}
 			else if(env.getDialogId() == 33)
 			{
-				if(QuestEngine.getInstance().getQuest(env).collectItemCheck())
+				if(collectItemCheck(env))
 				{
-					for(Item item : player.getInventory().getAllItemsByItemId(182200223))
-						item.decreaseItemCount(item.getItemCount());
 					qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
 					updateQuestStatus(player, qs);
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1353);

@@ -96,10 +96,8 @@ public class _2001ThinkingAhead extends QuestHandler
 					case 33:
 						if(var == 1)
 						{
-							int itemCount = player.getInventory().getItemCountByItemId(182203002);
-							if(itemCount >= 4)
+							if(collectItemCheck(env))
 							{
-								player.getInventory().removeFromBagByItemId(182203002, itemCount);
 								qs.getQuestVars().setQuestVarById(0, var + 1);
 								updateQuestStatus(player, qs);
 								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1694);

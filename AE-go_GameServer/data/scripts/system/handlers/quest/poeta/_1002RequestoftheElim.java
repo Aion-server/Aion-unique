@@ -141,10 +141,8 @@ public class _1002RequestoftheElim extends QuestHandler
 				case 33:
 					if(var == 6)
 					{
-						int itemCount = player.getInventory().getItemCountByItemId(182200003);
-						if(itemCount >= 6)
+						if(collectItemCheck(env))
 						{
-							player.getInventory().removeFromBagByItemId(182200003, itemCount);
 							qs.getQuestVars().setQuestVarById(0, 12);
 							updateQuestStatus(player, qs);
 							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2120);
