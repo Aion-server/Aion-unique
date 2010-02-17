@@ -39,6 +39,7 @@ public class ShutdownHook extends Thread
 {
 	private static final Logger		log		= Logger.getLogger(ShutdownHook.class);
 
+	@SuppressWarnings("unused")
 	private static ShutdownMode		mode	= ShutdownMode.NONE;
 	private static ShutdownHook		hookInstance;
 
@@ -83,8 +84,7 @@ public class ShutdownHook extends Thread
 	@Override
 	public void run()
 	{
-		if(this == hookInstance)
-			shutdownHook(mode);
+		doShutdown("Console", Config.SHUTDOWN_HOOK_DELAY, ShutdownMode.SHUTDOWN);
 	}
 
 	private static void sendShutdownMessage(int seconds)
@@ -93,7 +93,7 @@ public class ShutdownHook extends Thread
 		if(!onlinePlayers.hasNext())
 			return;
 		while(onlinePlayers.hasNext())
-			onlinePlayers.next().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(Config.SHUTDOWN_HOOK_DELAY + seconds));
+			onlinePlayers.next().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(seconds));
 	}
 
 	private static void sendShutdownStatus()
@@ -179,6 +179,6 @@ public class ShutdownHook extends Thread
 				ShutdownHook.mode = mode;
 				shutdownHook(mode);
 			}
-		}, Config.SHUTDOWN_HOOK_DELAY + seconds * 1000);
+		}, seconds * 1000);
 	}
 }
