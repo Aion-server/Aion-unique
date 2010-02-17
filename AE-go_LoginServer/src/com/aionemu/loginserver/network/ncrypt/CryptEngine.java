@@ -29,12 +29,21 @@ import com.aionemu.commons.utils.Rnd;
  */
 public class CryptEngine
 {
+    /**
+     * A key
+     */
     private byte[] key =
     {
         (byte) 0x6b, (byte) 0x60, (byte) 0xcb, (byte) 0x5b, (byte) 0x82, (byte) 0xce, (byte) 0x90, (byte) 0xb1,
         (byte) 0xcc, (byte) 0x2b, (byte) 0x6c, (byte) 0x55, (byte) 0x6c, (byte) 0x6c, (byte) 0x6c, (byte) 0x6c
     };
+    /**
+     * Tells you whether the key is updated or not
+     */
     private boolean        updatedKey = false;
+    /**
+     * A secret blowfish cipher
+     */
     private BlowfishCipher cipher;
 
     /**

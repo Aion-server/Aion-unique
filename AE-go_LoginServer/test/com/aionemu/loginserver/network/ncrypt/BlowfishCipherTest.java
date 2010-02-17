@@ -17,11 +17,9 @@
 
 package com.aionemu.loginserver.network.ncrypt;
 
-import junit.framework.TestCase;
-import org.junit.Test;
-
-import java.security.NoSuchAlgorithmException;
 import java.security.GeneralSecurityException;
+
+import org.junit.Test;
 
 /**
  * Simple test to check blowfish cipher encryption and decryption results.
@@ -30,12 +28,18 @@ import java.security.GeneralSecurityException;
  */
 public class BlowfishCipherTest
 {
+    /**
+     * Initial key
+     */
     private static final byte[]	INITIAL_KEY =
     {
         (byte) 0x6b, (byte) 0x60, (byte) 0xcb, (byte) 0x5b, (byte) 0x82, (byte) 0xce, (byte) 0x90, (byte) 0xb1,
         (byte) 0xcc, (byte) 0x2b, (byte) 0x6c, (byte) 0x55, (byte) 0x6c, (byte) 0x6c, (byte) 0x6c, (byte) 0x6c
     };
 
+    /**
+     * A test for a new blowfish cipher
+     */
     @Test
     public void testNewBlowfishCipher()
     {
@@ -60,6 +64,9 @@ public class BlowfishCipherTest
         }
     }
 
+    /**
+     * A test created for blowfish keygen performance
+     */
     @Test
     public void testBlowfishKeygenPerformance()
     {

@@ -49,6 +49,9 @@ public class CM_ACCOUNT_LIST extends GsClientPacket
 		super(buf, client, 0x04);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void readImpl()
 	{
@@ -59,6 +62,9 @@ public class CM_ACCOUNT_LIST extends GsClientPacket
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void runImpl()
 	{

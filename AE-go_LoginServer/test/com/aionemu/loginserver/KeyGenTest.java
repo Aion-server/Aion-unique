@@ -31,6 +31,9 @@ import java.security.spec.RSAKeyGenParameterSpec;
  */
 public class KeyGenTest
 {
+	/**
+	 * A test for keygen init
+	 */
 	@Test
 	public void testKeyGenInit()
 	{
@@ -44,7 +47,9 @@ public class KeyGenTest
 		}
 	}
 
-
+	/**
+	 * @throws Exception
+	 */
 	@Test
 	public void testRSAPreInit() throws Exception{
         EncryptedRSAKeyPair[] RSAKeyPairs = new EncryptedRSAKeyPair[10];

@@ -92,7 +92,7 @@ public class KeyGen
 
 	/**
 	 * Get common RSA Public/Static Key Pair with encrypted modulus N
-	 * @return
+	 * @return encryptedRSAkeypairs
 	 */
 	public static EncryptedRSAKeyPair getEncryptedRSAKeyPair()
 	{

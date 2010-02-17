@@ -165,8 +165,7 @@ public class Account
 
 	/**
 	 * Sets access level of account
-	 *
-	 * @param accessLevel
+	 * @param activated 
 	 *            access level of account
 	 */
 	public void setActivated(byte activated)
@@ -237,11 +236,17 @@ public class Account
 		this.ipForce = ipForce;
 	}
 
+	/**
+	 * @return accountTime
+	 */
 	public AccountTime getAccountTime()
 	{
 		return accountTime;
 	}
 
+	/**
+	 * @param accountTime
+	 */
 	public void setAccountTime(AccountTime accountTime)
 	{
 		this.accountTime = accountTime;

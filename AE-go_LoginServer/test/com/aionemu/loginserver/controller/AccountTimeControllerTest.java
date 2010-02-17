@@ -27,8 +27,14 @@ import com.aionemu.loginserver.model.AccountTime;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * A controller made for testing
+ */
 public class AccountTimeControllerTest
 {
+	/**
+	 * Initialise
+	 */
 	@Before
 	public void init()
 	{
@@ -36,10 +42,14 @@ public class AccountTimeControllerTest
 		DatabaseFactory.init();
 	}
 
+	/**
+	 * A test controller made for account time
+	 */
 	@Test
+	@SuppressWarnings("unused")
 	public void testAccountTimeController() 
     {
         Account account = DAOManager.getDAO(AccountDAO.class).getAccount("df");
-        AccountTime accountTime = DAOManager.getDAO(AccountTimeDAO.class).getAccountTime(account.getId());
+		AccountTime accountTime = DAOManager.getDAO(AccountTimeDAO.class).getAccountTime(account.getId());
     }
 }

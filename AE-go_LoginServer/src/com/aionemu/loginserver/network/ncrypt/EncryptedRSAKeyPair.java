@@ -33,7 +33,13 @@ import java.security.interfaces.RSAPublicKey;
  */
 public class EncryptedRSAKeyPair
 {
+	/**
+	 * KeyPair
+	 */
 	private KeyPair RSAKeyPair;
+	/**
+	 * Byte
+	 */
 	private byte[]	encryptedModulus;
 
     /**
@@ -93,7 +99,7 @@ public class EncryptedRSAKeyPair
 
     /**
      * Get default RSA key pair
-     * @return
+     * @return RSAKeyPair
      */
 	public KeyPair getRSAKeyPair()
 	{
@@ -102,7 +108,7 @@ public class EncryptedRSAKeyPair
 
     /**
      * Get encrypted modulus to be transferred on the net.
-     * @return
+     * @return encryptedModulus
      */
 	public byte[] getEncryptedModulus()
 	{
