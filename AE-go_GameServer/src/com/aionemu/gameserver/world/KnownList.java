@@ -36,7 +36,7 @@ public class KnownList implements Iterable<VisibleObject>
 	/**
 	 * Visibility distance.
 	 */
-	private static final int					visibilityDistance	= 150;
+	private static final int					visibilityDistance	= 85;
 	/**
 	 * Owner of this KnownList.
 	 */
