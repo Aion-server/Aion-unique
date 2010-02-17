@@ -31,10 +31,10 @@ import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
+import com.aionemu.gameserver.dao.PlayerQuestListDAO;
 import com.aionemu.gameserver.dao.PlayerSettingsDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.dao.PlayerTitleListDAO;
-import com.aionemu.gameserver.dao.QuestListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
@@ -149,7 +149,7 @@ public class PlayerService
 		DAOManager.getDAO(InventoryDAO.class).store(player);
 		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
 		DAOManager.getDAO(PlayerSettingsDAO.class).saveSettings(player);
-		DAOManager.getDAO(QuestListDAO.class).store(player.getObjectId(), player.getQuestStateList());
+		DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
 		DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
 		DAOManager.getDAO(AbyssRankDAO.class).storeAbyssRank(player);
 	}
@@ -201,7 +201,7 @@ public class PlayerService
 		// update passive stats after effect controller and stats are initialized
 		player.getController().updatePassiveStats();
 
-		player.setQuestStateList(DAOManager.getDAO(QuestListDAO.class).load(player));
+		player.setQuestStateList(DAOManager.getDAO(PlayerQuestListDAO.class).load(player));
 		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE), StorageType.CUBE);
 		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.REGULAR_WAREHOUSE),
 			StorageType.REGULAR_WAREHOUSE);

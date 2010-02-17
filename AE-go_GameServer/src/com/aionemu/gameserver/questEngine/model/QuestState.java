@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.questEngine.model;
 
+import com.aionemu.gameserver.model.gameobjects.PersistentState;
+
 
 /**
  * @author MrPoke
@@ -26,12 +28,15 @@ public class QuestState
        private QuestVars questVars;
        private QuestStatus status;
        private int compliteCount;
+       private PersistentState persistentState;
+
        public QuestState(int questId)
        {
                this.questId = questId;
                status = QuestStatus.START;
                questVars = new QuestVars();
                compliteCount = 0;
+               persistentState = PersistentState.NEW;
        }
 
        public QuestState(int questId, QuestStatus status, int questVars, int compliteCount)
@@ -40,6 +45,7 @@ public class QuestState
                this.status = status;
                this.questVars = new QuestVars(questVars);
                this.compliteCount = compliteCount;
+               this.persistentState = PersistentState.NEW;
        }
 
        public QuestVars getQuestVars()
@@ -55,6 +61,7 @@ public class QuestState
        public void setStatus(QuestStatus status)
        {
     	   this.status = status;
+    	   setPersistentState(PersistentState.UPDATE_REQUIRED);
        }
 
        public int getQuestId()
@@ -65,10 +72,37 @@ public class QuestState
        public void setCompliteCount(int compliteCount)
        {
     	   this.compliteCount = compliteCount;
+    	   setPersistentState(PersistentState.UPDATE_REQUIRED);
        }
 
        public int getCompliteCount()
        {
     	   return compliteCount;
        }
+       
+   	/**
+   	 * @return the pState
+   	 */
+   	public PersistentState getPersistentState()
+   	{
+   		return persistentState;
+   	}
+
+   	/**
+   	 * @param persistentState the pState to set
+   	 */
+   	public void setPersistentState(PersistentState persistentState)
+   	{
+		switch(persistentState)
+		{
+			case DELETED:
+				if(this.persistentState == PersistentState.NEW)
+					throw new IllegalArgumentException("Cannot change state to DELETED from NEW");
+			case UPDATE_REQUIRED:
+				if(this.persistentState == PersistentState.NEW)
+					break;
+			default:
+				this.persistentState = persistentState;
+		}
+   	}
 }

@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.questEngine.handlers;
 
-import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.dao.QuestListDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
@@ -49,7 +47,6 @@ public class QuestHandler
 	public synchronized void updateQuestStatus(Player player, QuestState qs)
 	{
 		PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(questId, qs.getStatus(), qs.getQuestVars().getQuestVars()));
-		DAOManager.getDAO(QuestListDAO.class).store(player.getObjectId(), qs);
 		if (qs.getStatus() == QuestStatus.COMPLITE)
 			player.updateNearbyQuests();
 	}

@@ -18,9 +18,7 @@ package com.aionemu.gameserver.services;
 
 import java.util.Arrays;
 
-import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.Config;
-import com.aionemu.gameserver.dao.QuestListDAO;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -181,7 +179,6 @@ public class ClassChangeService
 			qs.setStatus(QuestStatus.COMPLITE);
 			PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(questId, qs.getStatus(), qs.getQuestVars()
 				.getQuestVars()));
-			DAOManager.getDAO(QuestListDAO.class).store(player.getObjectId(), qs);
 		}
 	}
 

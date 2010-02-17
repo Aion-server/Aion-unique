@@ -22,6 +22,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerDAO;
+import com.aionemu.gameserver.dao.PlayerQuestListDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.StaticData;
@@ -244,7 +245,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 			//add new skills
 			SkillLearnService.addNewSkills(player, false);
 			DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
-
+			DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
 			//save player at this point
 			DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
 		}
