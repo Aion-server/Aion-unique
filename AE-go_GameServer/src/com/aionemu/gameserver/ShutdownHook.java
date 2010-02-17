@@ -20,7 +20,6 @@ import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
@@ -39,7 +38,6 @@ public class ShutdownHook extends Thread
 {
 	private static final Logger		log		= Logger.getLogger(ShutdownHook.class);
 
-	@SuppressWarnings("unused")
 	private static ShutdownMode		mode	= ShutdownMode.NONE;
 	private static ShutdownHook		hookInstance;
 
@@ -84,7 +82,8 @@ public class ShutdownHook extends Thread
 	@Override
 	public void run()
 	{
-		doShutdown("Console", Config.SHUTDOWN_HOOK_DELAY, ShutdownMode.SHUTDOWN);
+		if(this == hookInstance)
+			shutdownHook(mode);
 	}
 
 	private static void sendShutdownMessage(int seconds)
@@ -131,7 +130,7 @@ public class ShutdownHook extends Thread
 		{
 			e.printStackTrace();
 		}
-		
+
 		try
 		{
 			QuestHandlersManager.shutdown();
@@ -149,7 +148,7 @@ public class ShutdownHook extends Thread
 		{
 			t.printStackTrace();
 		}
-		
+
 		try
 		{
 			ThreadPoolManager.getInstance().shutdown();
@@ -172,7 +171,7 @@ public class ShutdownHook extends Thread
 		log.warn(initiator + " issued shutdown command: " + mode.getText() + " in " + seconds + " seconds!");
 		sendShutdownMessage(seconds);
 		sendShutdownStatus();
-		ThreadPoolManager.getInstance().schedule(new Runnable() {
+		ThreadPoolManager.getInstance().schedule(new Runnable(){
 			@Override
 			public void run()
 			{
