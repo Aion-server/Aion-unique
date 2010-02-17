@@ -32,10 +32,17 @@ import com.aionemu.gameserver.network.aion.InventoryPacket;
 public class SM_UPDATE_ITEM extends InventoryPacket
 {	
 	private Item item;
+	private boolean isWeaponSwitch = false;
 
 	public SM_UPDATE_ITEM(Item item)
 	{
 		this.item = item;	
+	}
+
+	public SM_UPDATE_ITEM(Item item, boolean isWeaponSwitch)
+	{
+		this.item = item;
+		this.isWeaponSwitch = isWeaponSwitch;
 	}
 
 	@Override
@@ -62,7 +69,7 @@ public class SM_UPDATE_ITEM extends InventoryPacket
 		}
 		else if (itemTemplate.isWeapon())
 		{
-			writeWeaponInfo(buf, item, true);
+			writeWeaponInfo(buf, item, true, isWeaponSwitch);
 		}
 		else if (itemTemplate.isArmor())
 		{

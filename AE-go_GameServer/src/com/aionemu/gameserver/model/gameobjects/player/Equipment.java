@@ -40,7 +40,6 @@ public class Equipment
 		this.owner = player;
 	}
 
-
 	public boolean equipItem(int itemUniqueId, int slot)
 	{
 		synchronized(this)
@@ -368,7 +367,7 @@ public class Equipment
 		}
 		return equippedItemsById;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -396,11 +395,15 @@ public class Equipment
 		equipment.put(item.getEquipmentSlot(), item);
 		if (owner.getGameStats() != null)
 		{
-			ItemEquipmentListener.onItemEquipment(item, owner.getGameStats());
+			if(item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
+				&& item.getEquipmentSlot() != ItemSlot.SUB_OFF_HAND.getSlotIdMask())
+				ItemEquipmentListener.onItemEquipment(item, owner.getGameStats());
 		}
 		if(owner.getLifeStats() != null)
 		{
-			owner.getLifeStats().synchronizeWithMaxStats();
+			if(item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
+				&& item.getEquipmentSlot() != ItemSlot.SUB_OFF_HAND.getSlotIdMask())
+				owner.getLifeStats().synchronizeWithMaxStats();
 		}
 	}
 
@@ -529,17 +532,75 @@ public class Equipment
 	 *
 	 * @return
 	 */
-	public boolean switchHands(int itemUniqueId, int slot)
+	public boolean switchHands()
 	{
-		@SuppressWarnings("unused")
 		Item mainHandItem = equipment.get(ItemSlot.MAIN_HAND.getSlotIdMask());
-		@SuppressWarnings("unused")
 		Item subHandItem = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
-		@SuppressWarnings("unused")
 		Item mainOffHandItem = equipment.get(ItemSlot.MAIN_OFF_HAND.getSlotIdMask());
-		@SuppressWarnings("unused")
 		Item subOffHandItem = equipment.get(ItemSlot.SUB_OFF_HAND.getSlotIdMask());
-		//TODO switch items
-		return false;
+
+		List<Item> equippedWeapon = new ArrayList<Item>();
+
+		if(mainHandItem != null)
+			equippedWeapon.add(mainHandItem);
+		if(subHandItem != null)
+			equippedWeapon.add(subHandItem);
+		if(mainOffHandItem != null)
+			equippedWeapon.add(mainOffHandItem);
+		if(subOffHandItem != null)
+			equippedWeapon.add(subOffHandItem);
+
+		for(Item item : equippedWeapon)
+		{
+			equipment.remove(item.getEquipmentSlot());
+			item.setEquipped(false);
+			PacketSendUtility.sendPacket(owner, new SM_UPDATE_ITEM(item, true));
+		}
+
+		if (owner.getGameStats() != null)
+		{
+			for(Item item : equippedWeapon)
+			{
+				if(item.getEquipmentSlot() == ItemSlot.MAIN_HAND.getSlotIdMask()
+					|| item.getEquipmentSlot() == ItemSlot.SUB_HAND.getSlotIdMask())
+					ItemEquipmentListener.onItemUnequipment(item, owner.getGameStats());
+			}
+		}
+
+		for(Item item : equippedWeapon)
+		{
+			if(item.getEquipmentSlot() == ItemSlot.MAIN_HAND.getSlotIdMask())
+				item.setEquipmentSlot(ItemSlot.MAIN_OFF_HAND.getSlotIdMask());
+
+			else if(item.getEquipmentSlot() == ItemSlot.SUB_HAND.getSlotIdMask())
+				item.setEquipmentSlot(ItemSlot.SUB_OFF_HAND.getSlotIdMask());
+
+			else if(item.getEquipmentSlot() == ItemSlot.MAIN_OFF_HAND.getSlotIdMask())
+				item.setEquipmentSlot(ItemSlot.MAIN_HAND.getSlotIdMask());
+
+			else if(item.getEquipmentSlot() == ItemSlot.SUB_OFF_HAND.getSlotIdMask())
+				item.setEquipmentSlot(ItemSlot.SUB_HAND.getSlotIdMask());
+		}
+
+		for(Item item : equippedWeapon)
+		{
+			equipment.put(item.getEquipmentSlot(), item);
+			item.setEquipped(true);
+			PacketSendUtility.sendPacket(owner, new SM_UPDATE_ITEM(item, true));
+		}
+
+		if (owner.getGameStats() != null)
+		{
+			for(Item item : equippedWeapon)
+			{
+				if(item.getEquipmentSlot() == ItemSlot.MAIN_HAND.getSlotIdMask()
+					|| item.getEquipmentSlot() == ItemSlot.SUB_HAND.getSlotIdMask())
+					ItemEquipmentListener.onItemEquipment(item, owner.getGameStats());
+			}
+		}
+
+		owner.getLifeStats().updateCurrentStats();
+
+		return true;
 	}
 }

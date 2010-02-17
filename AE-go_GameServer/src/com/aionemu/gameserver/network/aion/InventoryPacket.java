@@ -100,46 +100,67 @@ public abstract class InventoryPacket extends AionServerPacket
 	}
 
 	/**
+	 * Write weapon info for non weapon switch items
+	 * 
+	 * @param buf
+	 * @param item
+	 * @param isInventory
+	 */
+	protected void writeWeaponInfo(ByteBuffer buf, Item item, boolean isInventory)
+	{
+		this.writeWeaponInfo(buf, item, isInventory, false);
+	}
+	
+	/**
 	 *  For all weapon. Weapon is identified by weapon_type in xml
 	 *  
 	 * @param buf
 	 * @param item
 	 */
-	protected void writeWeaponInfo(ByteBuffer buf, Item item, boolean isInventory)
+	protected void writeWeaponInfo(ByteBuffer buf, Item item, boolean isInventory, boolean isWeaponSwitch)
 	{
 		int itemSlotId = item.getEquipmentSlot();
-		writeH(buf, 0x4B);
+		
+		if(isWeaponSwitch)
+			writeH(buf, 0x05); // next bytes count ??
+		else
+			writeH(buf, 0x4B); // next bytes count ??
+		
 		writeC(buf, 0x06);	
 		writeD(buf, item.isEquipped() ? itemSlotId : 0);
-		writeC(buf, 0x01);
-		writeD(buf,	ItemSlot.getSlotsFor(item.getItemTemplate().getItemSlot()).get(0).getSlotIdMask());
-		writeD(buf, 0x02);
-		writeH(buf, 0x0B); //? some details separator
-		writeC(buf, 0); //enchant (1-10)
-		writeD(buf, item.getItemTemplate().getItemId());
-		writeC(buf, 0);
+		
+		if(!isWeaponSwitch)
+		{
+			writeC(buf, 0x01);
+			writeD(buf,	ItemSlot.getSlotsFor(item.getItemTemplate().getItemSlot()).get(0).getSlotIdMask());
+			writeD(buf, 0x02);
+			writeH(buf, 0x0B); //? some details separator
+			writeC(buf, 0); //enchant (1-10)
+			writeD(buf, item.getItemTemplate().getItemId());
+			writeC(buf, 0);
 
-		writeItemStones(buf, item);
+			writeItemStones(buf, item);
 
 
-		writeC(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
+			writeC(buf, 0);
+			writeD(buf, 0);
+			writeD(buf, 0);
 
-		writeD(buf, 0);//unk 1.5.1.9
-		writeC(buf, 0);//unk 1.5.1.9
+			writeD(buf, 0);//unk 1.5.1.9
+			writeC(buf, 0);//unk 1.5.1.9
 
-		writeC(buf, 0x3E);
-		writeC(buf, 0x0A);
-		writeD(buf, item.getItemCount());
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeD(buf, 0);
-		writeH(buf, 0);
-		writeC(buf, 0);
-		writeH(buf, item.isEquipped() ? 255 : item.getEquipmentSlot()); // FF FF equipment
-		if(isInventory)
-			writeC(buf,  0);//item.isEquipped() ? 1 : 0
+			writeC(buf, 0x3E);
+			writeC(buf, 0x0A);
+			writeD(buf, item.getItemCount());
+			writeD(buf, 0);
+			writeD(buf, 0);
+			writeD(buf, 0);
+			writeH(buf, 0);
+			writeC(buf, 0);
+			writeH(buf, item.isEquipped() ? 255 : item.getEquipmentSlot()); // FF FF equipment
+			if(isInventory)
+				writeC(buf,  0);//item.isEquipped() ? 1 : 0
+		}
 	}
 
 	/**

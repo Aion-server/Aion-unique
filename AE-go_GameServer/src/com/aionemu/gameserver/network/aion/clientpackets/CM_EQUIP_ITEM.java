@@ -62,7 +62,7 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 				operationResult = equipment.unEquipItem(itemUniqueId, slotRead);
 				break;
 			case 2:
-				operationResult = equipment.switchHands(itemUniqueId, slotRead);
+				operationResult = equipment.switchHands();
 				break;
 		}
 
