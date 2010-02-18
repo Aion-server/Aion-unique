@@ -68,6 +68,12 @@ public class ItemTemplate
 	
 	@XmlAttribute(name = "ap")
 	private int					abyssPoints;
+	
+	@XmlAttribute(name = "ai")
+	private int					abyssItem;
+	
+	@XmlAttribute(name = "aic")
+	private int					abyssItemCount;
 
 	@XmlAttribute(name = "max_stack_count")
 	private int					maxStackCount;
@@ -208,6 +214,22 @@ public class ItemTemplate
 	public int getAbyssPoints()
 	{
 		return abyssPoints;
+	}
+
+	/**
+	 * @return the abyssItem
+	 */
+	public int getAbyssItem()
+	{
+		return abyssItem;
+	}
+
+	/**
+	 * @return the abyssItemCount
+	 */
+	public int getAbyssItemCount()
+	{
+		return abyssItemCount;
 	}
 
 	/**
