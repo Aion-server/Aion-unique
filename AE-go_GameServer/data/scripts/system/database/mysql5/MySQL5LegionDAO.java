@@ -29,6 +29,7 @@ import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.dao.LegionDAO;
 import com.aionemu.gameserver.model.legion.Legion;
+import com.aionemu.gameserver.model.legion.LegionEmblem;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 
@@ -158,7 +159,7 @@ public class MySQL5LegionDAO extends LegionDAO
 			}
 		});
 
-		log.info("[MySQL5LegionDAO] Loaded " + legion.getLegionId() + " legion.");
+		log.debug("[MySQL5LegionDAO] Loaded " + legion.getLegionId() + " legion.");
 
 		return success ? legion : null;
 	}
@@ -228,7 +229,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedHashMap<Timestamp, String> loadAnnouncementList(final Legion legion)
+	public LinkedHashMap<Timestamp, String> loadAnnouncementList(final int legionId)
 	{
 		final LinkedHashMap<Timestamp, String> announcementList = new LinkedHashMap<Timestamp, String>();
 
@@ -237,7 +238,7 @@ public class MySQL5LegionDAO extends LegionDAO
 				@Override
 				public void setParams(PreparedStatement stmt) throws SQLException
 				{
-					stmt.setInt(1, legion.getLegionId());
+					stmt.setInt(1, legionId);
 				}
 
 				@Override
@@ -253,7 +254,7 @@ public class MySQL5LegionDAO extends LegionDAO
 				}
 			});
 
-		log.debug("[MySQL5LegionDAO] Loaded announcementList " + legion.getLegionId() + " legion.");
+		log.debug("[MySQL5LegionDAO] Loaded announcementList " + legionId + " legion.");
 
 		return success ? announcementList : null;
 	}
@@ -295,5 +296,79 @@ public class MySQL5LegionDAO extends LegionDAO
 			}
 		});
 		return success;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void storeLegionEmblem(final int legionId, final int emblemId, final int red, final int green, final int blue)
+	{
+		DB
+		.insertUpdate(
+			"UPDATE legion_emblems SET emblem_id=?, color_r=?, color_g=?, color_b=? WHERE legion_id=?",
+			new IUStH(){
+				@Override
+				public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+				{
+					log.debug("[DAO: MySQL5LegionDAO] storing emblem for legion id: " + legionId);
+
+					stmt.setInt(1, emblemId);
+					stmt.setInt(2, red);
+					stmt.setInt(3, green);
+					stmt.setInt(4, blue);
+					stmt.setInt(5, legionId);
+					stmt.execute();
+				}
+			});		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean saveNewLegionEmblem(final int legionId)
+	{
+		boolean success = DB.insertUpdate("INSERT INTO legion_emblems(legion_id) " + "VALUES (?)", new IUStH(){
+			@Override
+			public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
+			{
+				log.debug("[DAO: MySQL5LegionDAO] saving new legion emblem: " + legionId);
+
+				preparedStatement.setInt(1, legionId);
+				preparedStatement.execute();
+			}
+		});
+		return success;		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public LegionEmblem loadLegionEmblem(final int legionId)
+	{
+		final LegionEmblem legionEmblem = new LegionEmblem();
+
+		boolean success = DB.select("SELECT * FROM legion_emblems WHERE legion_id=?", new ParamReadStH(){
+			@Override
+			public void setParams(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, legionId);
+			}
+
+			@Override
+			public void handleRead(ResultSet resultSet) throws SQLException
+			{
+				while(resultSet.next())
+				{
+					legionEmblem.setEmblem(resultSet.getInt("emblem_id"), resultSet.getInt("color_r"), resultSet.getInt("color_g"), resultSet.getInt("color_b"));
+				}
+			}
+		});
+
+		log.debug("[MySQL5LegionDAO] Loaded " + legionId + " legion emblem.");
+
+		return (success && !legionEmblem.isDefaultEmblem()) ? legionEmblem : null;
 	}
 }

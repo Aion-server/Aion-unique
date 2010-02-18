@@ -20,9 +20,7 @@ package mysql5;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
-
-import javolution.util.FastMap;
+import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
@@ -33,7 +31,7 @@ import com.aionemu.gameserver.dao.LegionMemberDAO;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.legion.LegionMember;
-import com.aionemu.gameserver.model.legion.OfflineLegionMember;
+import com.aionemu.gameserver.model.legion.LegionMemberEx;
 import com.aionemu.gameserver.services.LegionService;
 
 /**
@@ -80,20 +78,20 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 	@Override
 	public boolean saveNewLegionMember(final int playerObjId, final LegionMember legionMember)
 	{
-		boolean success = DB.insertUpdate("INSERT INTO legion_members(legion_id, `player_id`, `rank`) " + "VALUES (?, ?, ?)",
-			new IUStH(){
-				@Override
-				public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
-				{
-					log.debug("[DAO: MySQL5LegionDAO] saving new legion member: " + playerObjId + " "
-						+ legionMember.getLegion().getLegionId());
+		boolean success = DB.insertUpdate("INSERT INTO legion_members(legion_id, `player_id`, `rank`) "
+			+ "VALUES (?, ?, ?)", new IUStH(){
+			@Override
+			public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
+			{
+				log.debug("[DAO: MySQL5LegionDAO] saving new legion member: " + playerObjId + " "
+					+ legionMember.getLegion().getLegionId());
 
-					preparedStatement.setInt(1, legionMember.getLegion().getLegionId());
-					preparedStatement.setInt(2, playerObjId);
-					preparedStatement.setInt(3, legionMember.getRank());
-					preparedStatement.execute();
-				}
-			});
+				preparedStatement.setInt(1, legionMember.getLegion().getLegionId());
+				preparedStatement.setInt(2, playerObjId);
+				preparedStatement.setInt(3, legionMember.getRank());
+				preparedStatement.execute();
+			}
+		});
 		return success;
 	}
 
@@ -170,44 +168,48 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public OfflineLegionMember loadOfflineLegionMember(final int playerObjId, final LegionService legionService)
+	public LegionMemberEx loadOfflineLegionMember(final int playerObjId, final LegionService legionService)
 	{
-		final OfflineLegionMember legionMember = new OfflineLegionMember(playerObjId);
+		final LegionMemberEx legionMember = new LegionMemberEx(playerObjId);
 
 		log.debug(playerObjId + " so this means player is not empty");
 
-		boolean success = DB.select("SELECT players.name, players.exp, players.player_class, players.last_online, players.world_id, legion_members.* FROM players, legion_members WHERE id = ? AND players.id=legion_members.player_id", new ParamReadStH(){
-			@Override
-			public void setParams(PreparedStatement stmt) throws SQLException
-			{
-				stmt.setInt(1, playerObjId);
-			}
+		boolean success = DB
+			.select(
+				"SELECT players.name, players.exp, players.player_class, players.last_online, players.world_id, legion_members.* FROM players, legion_members WHERE id = ? AND players.id=legion_members.player_id",
+				new ParamReadStH(){
+					@Override
+					public void setParams(PreparedStatement stmt) throws SQLException
+					{
+						stmt.setInt(1, playerObjId);
+					}
 
-			@Override
-			public void handleRead(ResultSet resultSet)
-			{
-				try
-				{
-					resultSet.next();
-					legionMember.setName(resultSet.getString("players.name"));
-					legionMember.setExp(resultSet.getLong("players.exp"));
-					legionMember.setPlayerClass(PlayerClass.valueOf(resultSet.getString("players.player_class")));
-					legionMember.setLastOnline(resultSet.getTimestamp("players.last_online"));
-					legionMember.setWorldId(resultSet.getInt("players.world_id"));
-					
-					int legionId = resultSet.getInt("legion_members.legion_id");
-					legionMember.setRank(resultSet.getInt("legion_members.rank"));
-					legionMember.setNickname(resultSet.getString("legion_members.nickname"));
-					legionMember.setSelfIntro(resultSet.getString("legion_members.selfintro"));
+					@Override
+					public void handleRead(ResultSet resultSet)
+					{
+						try
+						{
+							resultSet.next();
+							legionMember.setName(resultSet.getString("players.name"));
+							legionMember.setExp(resultSet.getLong("players.exp"));
+							legionMember.setPlayerClass(PlayerClass
+								.valueOf(resultSet.getString("players.player_class")));
+							legionMember.setLastOnline(resultSet.getTimestamp("players.last_online"));
+							legionMember.setWorldId(resultSet.getInt("players.world_id"));
 
-					legionMember.setLegion(legionService.getLegion(legionId));
-				}
-				catch(SQLException sqlE)
-				{
-					log.debug("[DAO: MySQL5LegionMemberDAO] Player is not in a Legion");
-				}
-			}
-		});
+							int legionId = resultSet.getInt("legion_members.legion_id");
+							legionMember.setRank(resultSet.getInt("legion_members.rank"));
+							legionMember.setNickname(resultSet.getString("legion_members.nickname"));
+							legionMember.setSelfIntro(resultSet.getString("legion_members.selfintro"));
+
+							legionMember.setLegion(legionService.getLegion(legionId));
+						}
+						catch(SQLException sqlE)
+						{
+							log.debug("[DAO: MySQL5LegionMemberDAO] Player is not in a Legion");
+						}
+					}
+				});
 
 		if(success && legionMember.getLegion() != null)
 		{
@@ -221,44 +223,47 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public OfflineLegionMember loadOfflineLegionMember(final String playerName, final LegionService legionService)
+	public LegionMemberEx loadOfflineLegionMember(final String playerName, final LegionService legionService)
 	{
-		final OfflineLegionMember legionMember = new OfflineLegionMember(playerName);
+		final LegionMemberEx legionMember = new LegionMemberEx(playerName);
 
 		log.debug(playerName + " so this means player is not empty");
 
-		boolean success = DB.select("SELECT players.id, players.exp, players.player_class, players.last_online, players.world_id, legion_members.* FROM players, legion_members WHERE name = ? AND players.id=legion_members.player_id", new ParamReadStH(){
-			@Override
-			public void setParams(PreparedStatement stmt) throws SQLException
-			{
-				stmt.setString(1, playerName);
-			}
+		boolean success = DB
+			.select(
+				"SELECT players.id, players.exp, players.player_class, players.last_online, players.world_id, legion_members.* FROM players, legion_members WHERE name = ? AND players.id=legion_members.player_id",
+				new ParamReadStH(){
+					@Override
+					public void setParams(PreparedStatement stmt) throws SQLException
+					{
+						stmt.setString(1, playerName);
+					}
 
-			@Override
-			public void handleRead(ResultSet resultSet)
-			{
-				try
-				{
-					resultSet.next();
-					legionMember.setPlayerObjId(resultSet.getInt("id"));
-					legionMember.setExp(resultSet.getLong("exp"));
-					legionMember.setPlayerClass(PlayerClass.valueOf(resultSet.getString("player_class")));
-					legionMember.setLastOnline(resultSet.getTimestamp("last_online"));
-					legionMember.setWorldId(resultSet.getInt("world_id"));
-					
-					int legionId = resultSet.getInt("legion_id");
-					legionMember.setRank(resultSet.getInt("rank"));
-					legionMember.setNickname(resultSet.getString("nickname"));
-					legionMember.setSelfIntro(resultSet.getString("selfintro"));
+					@Override
+					public void handleRead(ResultSet resultSet)
+					{
+						try
+						{
+							resultSet.next();
+							legionMember.setObjectId(resultSet.getInt("id"));
+							legionMember.setExp(resultSet.getLong("exp"));
+							legionMember.setPlayerClass(PlayerClass.valueOf(resultSet.getString("player_class")));
+							legionMember.setLastOnline(resultSet.getTimestamp("last_online"));
+							legionMember.setWorldId(resultSet.getInt("world_id"));
 
-					legionMember.setLegion(legionService.getLegion(legionId));
-				}
-				catch(SQLException sqlE)
-				{
-					log.debug("[DAO: MySQL5LegionMemberDAO] Player is not in a Legion");
-				}
-			}
-		});
+							int legionId = resultSet.getInt("legion_id");
+							legionMember.setRank(resultSet.getInt("rank"));
+							legionMember.setNickname(resultSet.getString("nickname"));
+							legionMember.setSelfIntro(resultSet.getString("selfintro"));
+
+							legionMember.setLegion(legionService.getLegion(legionId));
+						}
+						catch(SQLException sqlE)
+						{
+							log.debug("[DAO: MySQL5LegionMemberDAO] Player is not in a Legion");
+						}
+					}
+				});
 
 		if(success && legionMember.getLegion() != null)
 		{
@@ -272,9 +277,9 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Map<Integer, LegionMember> loadLegionMembers(final int legionId)
+	public ArrayList<Integer> loadLegionMembers(final int legionId)
 	{
-		final Map<Integer, LegionMember> legionMembers = new FastMap<Integer, LegionMember>();
+		final ArrayList<Integer> legionMembers = new ArrayList<Integer>();
 
 		boolean success = DB.select("SELECT * FROM legion_members WHERE legion_id = ?", new ParamReadStH(){
 			@Override
@@ -291,8 +296,7 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 					while(resultSet.next())
 					{
 						int playerObjId = resultSet.getInt("player_id");
-						LegionMember legionMember = new LegionMember(playerObjId);
-						legionMembers.put(playerObjId, legionMember);
+						legionMembers.add(playerObjId);
 					}
 				}
 				catch(SQLException sqlE)
