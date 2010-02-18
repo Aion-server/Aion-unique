@@ -43,7 +43,7 @@ public class Legion
 	private int									centurionPermission2	= 0x00;
 	private int									disbandTime;
 	private LinkedHashMap<Timestamp, String>	announcementList		= new LinkedHashMap<Timestamp, String>();
-	private LegionEmblem						legionEmblem;
+	private LegionEmblem						legionEmblem			= new LegionEmblem();
 
 	/**
 	 * Only called when a legion is created!
