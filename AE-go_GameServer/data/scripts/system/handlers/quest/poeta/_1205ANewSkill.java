@@ -82,7 +82,7 @@ public class _1205ANewSkill extends QuestHandler
 	{
 		final Player player = env.getPlayer();
 		final QuestState qs = player.getQuestStateList().getQuestState(questId);
-		if(qs == null)
+		if(qs == null || qs.getStatus() != QuestStatus.REWARD)
 			return false;
 
 		int targetId = 0;

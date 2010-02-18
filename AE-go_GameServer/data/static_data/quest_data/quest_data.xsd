@@ -43,6 +43,7 @@
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:int" use="required" />
 		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="nameId" type="xs:int" />
 		<xs:attribute name="minlevel_permitted" type="xs:int" />
 		<xs:attribute name="max_repeat_count" type="xs:int" />
 		<xs:attribute name="cannot_share" type="xs:boolean"
