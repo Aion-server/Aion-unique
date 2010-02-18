@@ -25,20 +25,21 @@ import com.aionemu.gameserver.model.PlayerClass;
  * @author Simple
  * 
  */
-public class LegionMemberEx extends LegionMember
-{
-	private String		name;
-	private PlayerClass	playerClass;
-	private int			level;
-	private Timestamp	lastOnline;
-	private int			worldId;
-	private boolean		online = false;
+public class LegionMemberEx extends LegionMember {
+	private String name;
+	private PlayerClass playerClass;
+	private int level;
+	private Timestamp lastOnline;
+	private int worldId;
+	private boolean online = false;
 
 	/**
 	 * If player is immediately after this constructor is called
 	 */
-	public LegionMemberEx(int playerObjId, Legion legion, int rank, String nickname, String selfIntro, String name, PlayerClass playerClass, int level, Timestamp lastOnline, int worldId, boolean online)
-	{
+	public LegionMemberEx(int playerObjId, Legion legion, int rank,
+			String nickname, String selfIntro, String name,
+			PlayerClass playerClass, int level, Timestamp lastOnline,
+			int worldId, boolean online) {
 		super(playerObjId);
 		this.name = name;
 		this.playerClass = playerClass;
@@ -51,56 +52,47 @@ public class LegionMemberEx extends LegionMember
 		this.nickname = nickname;
 		this.selfIntro = selfIntro;
 	}
-	
+
 	/**
 	 * If player is defined later on this constructor is called
 	 */
-	public LegionMemberEx(int playerObjId)
-	{
+	public LegionMemberEx(int playerObjId) {
 		super(playerObjId);
 	}
 
 	/**
 	 * If player is defined later on this constructor is called
 	 */
-	public LegionMemberEx(String name)
-	{
+	public LegionMemberEx(String name) {
 		super();
 		this.name = name;
 	}
 
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
-	public void setName(String name)
-	{
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public PlayerClass getPlayerClass()
-	{
+	public PlayerClass getPlayerClass() {
 		return playerClass;
 	}
 
-	public void setPlayerClass(PlayerClass playerClass)
-	{
+	public void setPlayerClass(PlayerClass playerClass) {
 		this.playerClass = playerClass;
 	}
 
-	public Timestamp getLastOnline()
-	{
+	public Timestamp getLastOnline() {
 		return lastOnline;
 	}
 
-	public void setLastOnline(Timestamp timestamp)
-	{
+	public void setLastOnline(Timestamp timestamp) {
 		lastOnline = timestamp;
 	}
 
-	public int getLevel()
-	{
+	public int getLevel() {
 		return level;
 	}
 
@@ -110,54 +102,51 @@ public class LegionMemberEx extends LegionMember
 	 * @param admin
 	 *            : enable decrease level
 	 */
-	public void setExp(long exp)
-	{
+	public void setExp(long exp) {
 		// maxLevel is 51 but in game 50 should be shown with full XP bar
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
 
-		if(getPlayerClass() != null && getPlayerClass().isStartingClass())
+		if (getPlayerClass() != null && getPlayerClass().isStartingClass())
 			maxLevel = 10;
 
-		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
+		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE
+				.getStartExpForLevel(maxLevel);
 		int level = 1;
 
-		if(exp > maxExp)
-		{
+		if (exp > maxExp) {
 			exp = maxExp;
 		}
 
 		// make sure level is never larger than maxLevel-1
-		while((level + 1) != maxLevel && exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level + 1))
-		{
+		while ((level + 1) != maxLevel
+				&& exp >= DataManager.PLAYER_EXPERIENCE_TABLE
+						.getStartExpForLevel(level + 1)) {
 			level++;
 		}
 
 		this.level = level;
 	}
 
-	public int getWorldId()
-	{
+	public int getWorldId() {
 		return worldId;
 	}
 
-	public void setWorldId(int worldId)
-	{
+	public void setWorldId(int worldId) {
 		this.worldId = worldId;
 	}
 
 	/**
-	 * @param online the online to set
+	 * @param online
+	 *            the online to set
 	 */
-	public void setOnline(boolean online)
-	{
+	public void setOnline(boolean online) {
 		this.online = online;
 	}
 
 	/**
 	 * @return the online
 	 */
-	public boolean isOnline()
-	{
+	public boolean isOnline() {
 		return online;
 	}
 
@@ -166,12 +155,11 @@ public class LegionMemberEx extends LegionMember
 	 * 
 	 * @return true if LegionMemberEx is valid
 	 */
-	public boolean isValidLegionMemberEx()
-	{
-		if(getObjectId() > 0 && getName() != null && getPlayerClass() != null && getLevel() > 0
-			&& getLastOnline() != null && getWorldId() > 0 && getLegion() != null && getRank() != null
-			&& getNickname() != null && getSelfIntro() != null)
-		{
+	public boolean isValidLegionMemberEx() {
+		if (getObjectId() > 0 && getName() != null && getPlayerClass() != null
+				&& getLevel() > 0 && getLastOnline() != null
+				&& getWorldId() > 0 && getLegion() != null && getRank() > 0
+				&& getNickname() != null && getSelfIntro() != null) {
 			return true;
 		}
 		return false;

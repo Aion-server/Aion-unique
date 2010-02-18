@@ -1065,20 +1065,21 @@ public class LegionService
 		ArrayList<LegionMemberEx> legionMembers = new ArrayList<LegionMemberEx>();
 		for(Integer memberObjId : legion.getLegionMembers())
 		{
+			LegionMemberEx legionMemberEx;
 			Player memberPlayer;
 			if((memberPlayer = world.findPlayer(memberObjId)) != null)
 			{
-				final LegionMemberEx legionMemberEx = memberPlayer.getLegionMember();
-				LegionMemberEx legionMemberEx = new LegionMemberEx(memberObjId, legionMember.getLegion(), legionMember
+				final LegionMember legionMember = memberPlayer.getLegionMember();
+				legionMemberEx = new LegionMemberEx(memberObjId, legionMember.getLegion(), legionMember
 					.getRank(), legionMember.getNickname(), legionMember.getSelfIntro(), memberPlayer.getName(),
 					memberPlayer.getPlayerClass(), memberPlayer.getLevel(), memberPlayer.getCommonData()
 						.getLastOnline(), memberPlayer.getPosition().getMapId(), true);
 			}
 			else
 			{
-				final LegionMemberEx legionMemberEx = getOfflineLegionMember(memberObjId);
+				legionMemberEx = getOfflineLegionMember(memberObjId);
 			}
-			if(isValidLegionMemberEx())
+			if(legionMemberEx.isValidLegionMemberEx())
 				legionMembers.add(legionMemberEx);
 		}
 		return legionMembers;

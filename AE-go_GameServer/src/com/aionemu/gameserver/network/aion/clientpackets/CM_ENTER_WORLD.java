@@ -269,9 +269,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
 		sendPacket(new SM_LEGION_INFO(legion));
 
 		// Tell all legion members player has come online
-		legionService.updateMembersInfoByPacket(legion, new SM_LEGION_UPDATE_MEMBER(player, 0, ""));
+		legionService.updateMembersInfoByPacket(legion, new SM_LEGION_UPDATE_MEMBER(player));
 		// Notify legion members player has logged in
-		legionService.updateMembersInfoByPacket(legion, SM_SYSTEM_MESSAGE.STR_MSG_NOTIFY_LOGIN_GUILD(player.getName()));
+		//legionService.updateMembersInfoByPacket(legion, SM_SYSTEM_MESSAGE.STR_MSG_NOTIFY_LOGIN_GUILD(player.getName()));
 
 		// Send member list to player
 		sendPacket(new SM_LEGION_MEMBERLIST(legionService.loadLegionMemberExList(legion)));
