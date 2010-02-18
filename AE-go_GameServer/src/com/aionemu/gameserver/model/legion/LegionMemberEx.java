@@ -160,4 +160,20 @@ public class LegionMemberEx extends LegionMember
 	{
 		return online;
 	}
+
+	/**
+	 * Checks if a LegionMemberEx is valid or not
+	 * 
+	 * @return true if LegionMemberEx is valid
+	 */
+	public boolean isValidLegionMemberEx()
+	{
+		if(getObjectId() > 0 && getName() != null && getPlayerClass() != null && getLevel() > 0
+			&& getLastOnline() != null && getWorldId() > 0 && getLegion() != null && getRank() != null
+			&& getNickname() != null && getSelfIntro() != null)
+		{
+			return true;
+		}
+		return false;
+	}
 }

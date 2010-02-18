@@ -1073,14 +1073,13 @@ public class LegionService
 					.getRank(), legionMember.getNickname(), legionMember.getSelfIntro(), memberPlayer.getName(),
 					memberPlayer.getPlayerClass(), memberPlayer.getLevel(), memberPlayer.getCommonData()
 						.getLastOnline(), memberPlayer.getPosition().getMapId(), true);
-
-				legionMembers.add(legionMemberEx);
 			}
 			else
 			{
 				LegionMemberEx legionMemberEx = getOfflineLegionMember(memberObjId);
-				legionMembers.add(legionMemberEx);
 			}
+			if(isValidLegionMemberEx())
+				legionMembers.add(legionMemberEx);
 		}
 		return legionMembers;
 	}
