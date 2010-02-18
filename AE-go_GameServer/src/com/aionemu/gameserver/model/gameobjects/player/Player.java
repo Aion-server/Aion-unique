@@ -575,11 +575,7 @@ public class Player extends Creature
 	 */
 	public boolean isLegionMember()
 	{
-		if(legionMember != null)
-		{
-			return true;
-		}
-		return false;
+		return legionMember != null;
 	}
 
 	/**
