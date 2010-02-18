@@ -17,11 +17,13 @@
 package com.aionemu.gameserver.services;
 
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABYSS_RANK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABYSS_RANK_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.stats.StatFunctions;
 
 /**
  * @author ATracer
@@ -49,5 +51,21 @@ public class AbyssService
 		PacketSendUtility.sendPacket(winner, new SM_ABYSS_RANK(winner.getAbyssRank()));
 		PacketSendUtility.sendPacket(winner, SM_SYSTEM_MESSAGE.EARNED_ABYSS_POINT(String.valueOf(pointsGained)));
 		PacketSendUtility.sendPacket(victim, new SM_SYSTEM_MESSAGE(1340002, winner.getName()));
+	}
+	
+	/**
+	 * 
+	 * @param victim
+	 * @param winner
+	 */
+	public static void doReward(Creature victim, Player winner)
+	{
+		int apReward = StatFunctions.calculateSoloAPReward(winner, victim);
+		
+		winner.getAbyssRank().addAp(apReward);
+		PacketSendUtility.broadcastPacket(winner, new SM_ABYSS_RANK_UPDATE(winner));
+		winner.getAbyssRank().setAllKill();
+		PacketSendUtility.sendPacket(winner, new SM_ABYSS_RANK(winner.getAbyssRank()));
+		PacketSendUtility.sendPacket(winner, SM_SYSTEM_MESSAGE.EARNED_ABYSS_POINT(String.valueOf(apReward)));
 	}
 }

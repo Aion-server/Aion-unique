@@ -94,6 +94,20 @@ public class StatFunctions
 		return (int) Math.floor(baseDP * xpPercentage * Config.XP_RATE / 100);
 
 	}
+	
+	/**
+	 * 
+	 * @param player
+	 * @param target
+	 * @return
+	 */
+	public static int calculateSoloAPReward(Player player, Creature target) 
+	{
+		int playerLevel = player.getCommonData().getLevel();
+		int targetLevel = target.getLevel();								
+		int percentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
+		return (int) Math.floor(10 * percentage * Config.AP_RATE / 100);
+	}
 
 	public static int calculateGroupDPReward(Player player, Creature target)
 	{

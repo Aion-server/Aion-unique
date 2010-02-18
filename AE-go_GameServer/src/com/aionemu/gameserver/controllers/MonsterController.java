@@ -38,9 +38,11 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.services.AbyssService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.world.WorldMapType;
 
 /**
  * @author ATracer
@@ -63,7 +65,6 @@ public class MonsterController extends NpcController
 		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public void doReward(Creature creature)
 	{
@@ -82,11 +83,13 @@ public class MonsterController extends NpcController
 				int currentDp = player.getCommonData().getDp();
 				int dpReward = StatFunctions.calculateSoloDPReward(player, getOwner());
 				player.getCommonData().setDp(dpReward + currentDp);
-
+				//AP reward in abyss basic
+				if(player.getWorldId() == WorldMapType.RESHANTA.getId())
+					AbyssService.doReward(getOwner(), player);
 			}
 			else
 			{
-				Iterator pgit = player.getPlayerGroup().getGroupMemberIterator();
+				Iterator<Player> pgit = player.getPlayerGroup().getGroupMemberIterator();
 				while(pgit.hasNext())
 				{
 					Player member = (Player)pgit.next();
