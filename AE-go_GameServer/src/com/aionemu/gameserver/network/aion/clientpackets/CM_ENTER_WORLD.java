@@ -264,24 +264,24 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	private void handleLegionMemberInfo(Player player)
 	{
 		Legion legion = player.getLegionMember().getLegion();
-		if(!legion.isDisbanding())
+
+		// Send legion info packets
+		sendPacket(new SM_LEGION_INFO(legion));
+
+		// Tell all legion members player has come online
+		legionService.updateMembersInfoByPacket(legion, new SM_LEGION_UPDATE_MEMBER(player, 0, ""));
+		// Notify legion members player has logged in
+		legionService.updateMembersInfoByPacket(legion, SM_SYSTEM_MESSAGE.STR_MSG_NOTIFY_LOGIN_GUILD(player.getName()));
+
+		// Send member list to player
+		sendPacket(new SM_LEGION_MEMBERLIST(legionService.loadLegionMemberExList(legion)));
+
+		// Send current announcement to player
+		Entry<Timestamp, String> currentAnnouncement = legion.getCurrentAnnouncement();
+		if(currentAnnouncement != null)
 		{
-			// Send legion info packets
-			sendPacket(new SM_LEGION_INFO(legion));
-
-			// Tell all legion members player has come online
-			legionService.updateMembersInfoByPacket(legion, new SM_LEGION_UPDATE_MEMBER(player));
-
-			// Send member list to player
-			sendPacket(new SM_LEGION_MEMBERLIST(legionService.loadLegionMemberExList(legion)));
-
-			// Send current announcement to player
-			Entry<Timestamp, String> currentAnnouncement = legion.getCurrentAnnouncement();
-			if(currentAnnouncement != null)
-			{
-				sendPacket(SM_SYSTEM_MESSAGE.LEGION_DISPLAY_ANNOUNCEMENT(currentAnnouncement.getValue(),
-					(int) (currentAnnouncement.getKey().getTime() / 1000), 2));
-			}
+			sendPacket(SM_SYSTEM_MESSAGE.LEGION_DISPLAY_ANNOUNCEMENT(currentAnnouncement.getValue(),
+				(int) (currentAnnouncement.getKey().getTime() / 1000), 2));
 		}
 	}
 

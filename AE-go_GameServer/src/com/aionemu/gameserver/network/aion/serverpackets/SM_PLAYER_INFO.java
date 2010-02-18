@@ -104,19 +104,19 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeD(buf, pcd.getTitleId());
 		writeC(buf, 0x0);// if set 0x1 can't jump and fly..
 		writeH(buf, player.getCastingSkillId());
-		writeH(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+		writeH(buf, player.isLegionMember() ? player
 			.getLegionMember().getLegion().getLegionId() : 0);
 		writeH(buf, 0); // User Emblem related?
-		writeH(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+		writeH(buf, player.isLegionMember() ? player
 			.getLegionMember().getLegion().getLegionEmblem().getEmblemId() : 0);
 		writeC(buf, 0xFF); // User Emblem  or own emblem?
-		writeC(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+		writeC(buf, player.isLegionMember() ? player
 			.getLegionMember().getLegion().getLegionEmblem().getColor_r() : 0);
-		writeC(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+		writeC(buf, player.isLegionMember() ? player
 			.getLegionMember().getLegion().getLegionEmblem().getColor_g() : 0);
-		writeC(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+		writeC(buf, player.isLegionMember() ? player
 			.getLegionMember().getLegion().getLegionEmblem().getColor_b() : 0);
-		writeS(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+		writeS(buf, player.isLegionMember() ? player
 			.getLegionMember().getLegion().getLegionName() : "");
 
 		int maxHp = player.getGameStats().getCurrentStat(StatEnum.MAXHP);

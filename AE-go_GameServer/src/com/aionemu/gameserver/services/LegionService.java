@@ -258,31 +258,44 @@ public class LegionService
 		/** First check if our legion member already exists in our Cache **/
 		LegionMember legionMember = legionMembersCache.get(player.getObjectId());
 		if(legionMember != null)
-			return legionMember;
-
-		legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(player, this);
-
-		if(legionMember != null)
 		{
-			legionMembersCache.put(player.getObjectId(), legionMember);
 			final Legion legion = legionMember.getLegion();
-			if(legion.isDisbanding())
-			{
-				if((new Date().getTime() / 1000) > legion.getDisbandTime())
-				{
-					for(Integer memberObjId : legion.getLegionMembers())
-					{
-						legionMembersCache.remove(memberObjId);
-					}
-					deleteLegionFromDB(legion.getLegionId());
-					PacketSendUtility
-						.sendPacket(player, SM_SYSTEM_MESSAGE.LEGION_DISPERSE_DONE(legion.getLegionName()));
-					return null;
-				}
-			}
+			if(checkDisband(legionMember.getLegion()))
+				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.LEGION_DISPERSE_DONE(legion.getLegionName()));
+			return legionMember;
 		}
 
+		legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(player, this);
+		if(legionMember != null)
+		{
+			final Legion legion = legionMember.getLegion();
+			legionMembersCache.put(player.getObjectId(), legionMember);
+			if(checkDisband(legionMember.getLegion()))
+				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.LEGION_DISPERSE_DONE(legion.getLegionName()));
+		}
 		return legionMember;
+	}
+
+	/**
+	 * Method that checks if a legion is disbanding
+	 * @param legion
+	 * @return true if it's time to be deleted
+	 */
+	private boolean checkDisband(final Legion legion)
+	{
+		if(legion.isDisbanding())
+		{
+			if((new Date().getTime() / 1000) > legion.getDisbandTime())
+			{
+				for(Integer memberObjId : legion.getLegionMembers())
+				{
+					legionMembersCache.remove(memberObjId);
+				}
+				deleteLegionFromDB(legion.getLegionId());
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
