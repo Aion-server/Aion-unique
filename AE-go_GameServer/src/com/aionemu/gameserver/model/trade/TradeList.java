@@ -17,9 +17,12 @@
 package com.aionemu.gameserver.model.trade;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
@@ -31,6 +34,12 @@ public class TradeList
 	private int npcObjId;
 	
 	private List<TradeItem> tradeItems = new ArrayList<TradeItem>();
+	
+	private int requiredKinah;
+	
+	private int requiredAp;
+	
+	private Map<Integer, Integer> requiredItems  = new HashMap<Integer, Integer>();
 	
 	/**
 	 * 
@@ -64,28 +73,52 @@ public class TradeList
 	 * 
 	 * @return price TradeList sum price
 	 */
-	public int calculateBuyListPrice()
+	public boolean calculateBuyListPrice(Player player, int priceRate)
 	{
-		int price = 0;
+		int availableKinah = player.getInventory().getKinahItem().getItemCount();
+		requiredKinah = 0;
 		for(TradeItem tradeItem : tradeItems)
 		{
-			price += tradeItem.getItemTemplate().getPrice() * tradeItem.getCount();
+			requiredKinah += tradeItem.getItemTemplate().getPrice() * tradeItem.getCount() * priceRate;
 		}
-		return price;
+		
+		return availableKinah >= requiredKinah;
 	}
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public int calculateAbyssBuyListPrice()
+	public boolean calculateAbyssBuyListPrice(Player player)
 	{
-		int price = 0;
+		int ap = player.getAbyssRank().getAp();
+		
+		this.requiredAp = 0;
+		this.requiredItems.clear();
+		
 		for(TradeItem tradeItem : tradeItems)
 		{
-			price += tradeItem.getItemTemplate().getAbyssPoints() * tradeItem.getCount();
+			requiredAp += tradeItem.getItemTemplate().getAbyssPoints() * tradeItem.getCount();
+			int itemId = tradeItem.getItemTemplate().getAbyssItem();
+			
+			Integer alreadyAddedCount = requiredItems.get(itemId);
+			if(alreadyAddedCount == null)
+				requiredItems.put(itemId, tradeItem.getItemTemplate().getAbyssItemCount());
+			else
+				requiredItems.put(itemId, alreadyAddedCount + tradeItem.getItemTemplate().getAbyssItemCount());
+		}		
+		
+		if(ap < requiredAp)
+			return false;
+		
+		for(Integer itemId : requiredItems.keySet())
+		{
+			int count = player.getInventory().getItemCountByItemId(itemId);
+			if(count < requiredItems.get(itemId))
+				return false;
 		}
-		return price;
+		
+		return true;
 	}
 	
 	
@@ -116,5 +149,29 @@ public class TradeList
 	public void setNpcObjId(int npcObjId)
 	{
 		this.npcObjId = npcObjId;
+	}
+
+	/**
+	 * @return the requiredAp
+	 */
+	public int getRequiredAp()
+	{
+		return requiredAp;
+	}
+
+	/**
+	 * @return the requiredKinah
+	 */
+	public int getRequiredKinah()
+	{
+		return requiredKinah;
+	}
+
+	/**
+	 * @return the requiredItems
+	 */
+	public Map<Integer, Integer> getRequiredItems()
+	{
+		return requiredItems;
 	}
 }

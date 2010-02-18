@@ -48,7 +48,7 @@ public class MapRegion
 	/**
 	 * Objects on this map region.
 	 */
-	private final FastMap<Integer, VisibleObject> 	objects	= new FastMap<Integer, VisibleObject>();
+	private final FastMap<Integer, VisibleObject> 	objects	= new FastMap<Integer, VisibleObject>().setShared(true);
 
 	/**
 	 * Constructor.

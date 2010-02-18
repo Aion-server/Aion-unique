@@ -19,6 +19,7 @@ package com.aionemu.gameserver.services;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -78,17 +79,18 @@ public class TradeService
 		Storage inventory  = player.getInventory();
 		Item kinahItem = inventory.getKinahItem();
 
-		int freeSlots = inventory.getLimit() - inventory.getAllItems().size() + 1;
+		
 		//1. check kinah
-		int kinahCount = kinahItem.getItemCount();
-		int tradeListPrice = tradeList.calculateBuyListPrice() * 2;
-		if(kinahCount < tradeListPrice)
-			return false; //ban :)
-
+		if(!tradeList.calculateBuyListPrice(player, 2))
+			return false;
+		
 		//2. check free slots, need to check retail behaviour
+		int freeSlots = inventory.getLimit() - inventory.getAllItems().size() + 1;
 		if(freeSlots < tradeList.size())
 			return false; //TODO message
-
+		
+		int tradeListPrice = tradeList.getRequiredKinah();
+		
 		List<Item> addedItems = new ArrayList<Item>();
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
@@ -126,12 +128,12 @@ public class TradeService
 
 		Storage inventory  = player.getInventory();
 		int freeSlots = inventory.getLimit() - inventory.getAllItems().size() + 1;
-		//1. check kinah
 		AbyssRank rank = player.getAbyssRank();
-		int ap  = rank.getAp();
-		int tradeListPrice = tradeList.calculateAbyssBuyListPrice();
-		if(ap < tradeListPrice)
-			return false; //ban :)
+		
+		//1. check required items and ap
+		if(!tradeList.calculateAbyssBuyListPrice(player))
+			return false;
+
 
 		//2. check free slots, need to check retail behaviour
 		if(freeSlots < tradeList.size())
@@ -145,11 +147,17 @@ public class TradeService
 			{
 				log.warn(String.format("CHECKPOINT: itemservice couldnt add all items on buy: %d %d %d %d", player.getObjectId(), 
 					tradeItem.getItemTemplate().getItemId(), tradeItem.getCount(), count));
-				rank.addAp(-tradeListPrice);
+				rank.addAp(-tradeList.getRequiredAp());
 				return false;
 			}		
 		}
-		rank.addAp(-tradeListPrice);
+		rank.addAp(-tradeList.getRequiredAp());
+		Map<Integer, Integer> requiredItems = tradeList.getRequiredItems();
+		for(Integer itemId : requiredItems.keySet())
+		{
+			player.getInventory().removeFromBagByItemId(itemId, requiredItems.get(itemId));
+		}
+		
 		PacketSendUtility.sendPacket(player, new SM_ABYSS_RANK(rank));
 		PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(addedItems));
 		//TODO message
