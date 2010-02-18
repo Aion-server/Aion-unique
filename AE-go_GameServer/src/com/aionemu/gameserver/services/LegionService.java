@@ -1068,7 +1068,7 @@ public class LegionService
 			Player memberPlayer;
 			if((memberPlayer = world.findPlayer(memberObjId)) != null)
 			{
-				final LegionMember legionMember = memberPlayer.getLegionMember();
+				final LegionMember legionMemberEx = memberPlayer.getLegionMember();
 				LegionMemberEx legionMemberEx = new LegionMemberEx(memberObjId, legionMember.getLegion(), legionMember
 					.getRank(), legionMember.getNickname(), legionMember.getSelfIntro(), memberPlayer.getName(),
 					memberPlayer.getPlayerClass(), memberPlayer.getLevel(), memberPlayer.getCommonData()
