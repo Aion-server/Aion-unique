@@ -122,7 +122,14 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				break;
 			case 5:
 				// create legion
-				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 2));
+				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
+				{
+					sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 2));
+				}
+				else
+				{
+					sendPacket(SM_SYSTEM_MESSAGE.LEGION_CREATE_TOO_FAR_FROM_NPC());
+				}
 				break;
 			case 6:
 				// disband legion
