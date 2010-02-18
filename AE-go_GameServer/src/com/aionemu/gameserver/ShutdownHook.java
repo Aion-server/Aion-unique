@@ -20,6 +20,8 @@ import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.ShutdownHook.ShutdownManager.ShutdownMode;
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
@@ -36,10 +38,7 @@ import com.google.inject.Injector;
  */
 public class ShutdownHook extends Thread
 {
-	private static final Logger		log		= Logger.getLogger(ShutdownHook.class);
-
-	private static ShutdownMode		mode	= ShutdownMode.NONE;
-	private static ShutdownHook		hookInstance;
+	private static final Logger		log	= Logger.getLogger(ShutdownHook.class);
 
 	private static World			world;
 	private static PlayerService	playerService;
@@ -54,36 +53,13 @@ public class ShutdownHook extends Thread
 
 	public static ShutdownHook getInstance(Injector injector)
 	{
-		if(hookInstance == null)
-			hookInstance = new ShutdownHook(injector);
-
-		return hookInstance;
-	}
-
-	public static enum ShutdownMode
-	{
-		NONE("terminating"),
-		SHUTDOWN("shutting down"),
-		RESTART("restarting");
-
-		private final String	text;
-
-		private ShutdownMode(String text)
-		{
-			this.text = text;
-		}
-
-		private String getText()
-		{
-			return text;
-		}
+		return new ShutdownHook(injector);
 	}
 
 	@Override
 	public void run()
 	{
-		if(this == hookInstance)
-			shutdownHook(mode);
+		shutdownHook(Config.SHUTDOWN_HOOK_DELAY, 10);
 	}
 
 	private static void sendShutdownMessage(int seconds)
@@ -95,17 +71,36 @@ public class ShutdownHook extends Thread
 			onlinePlayers.next().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(seconds));
 	}
 
-	private static void sendShutdownStatus()
+	private static void sendShutdownStatus(boolean status)
 	{
 		Iterator<Player> onlinePlayers = world.getPlayersIterator();
 		if(!onlinePlayers.hasNext())
 			return;
 		while(onlinePlayers.hasNext())
-			onlinePlayers.next().getController().setInShutdownProgress(true);
+			onlinePlayers.next().getController().setInShutdownProgress(status);
 	}
 
-	private static void shutdownHook(ShutdownMode mode)
+	private static void shutdownHook(int duration, int interval)
 	{
+		for(int i = duration; i >= interval; i -= interval)
+		{
+			try
+			{
+				if(i > interval)
+				{
+					Thread.sleep(interval * 1000);
+				}
+				else
+				{
+					Thread.sleep(1000);
+				}
+			}
+			catch(InterruptedException e)
+			{
+				return;
+			}
+		}
+
 		try
 		{
 			loginServer.gameServerDisconnected();
@@ -120,15 +115,6 @@ public class ShutdownHook extends Thread
 		{
 			playerService.playerLoggedOut(onlinePlayers.next());
 			log.info("PlayerService: All players are disconnected...");
-		}
-
-		try
-		{
-			Thread.sleep(1000);
-		}
-		catch(InterruptedException e)
-		{
-			e.printStackTrace();
 		}
 
 		try
@@ -158,26 +144,105 @@ public class ShutdownHook extends Thread
 			t.printStackTrace();
 		}
 
-		log.info("Server is " + mode.getText() + " NOW!");
+		log.info("Runtime is closing now...");
 
-		if(mode == ShutdownMode.RESTART)
+		if(ShutdownManager.mode == ShutdownMode.RESTART)
 			Runtime.getRuntime().halt(2);
 		else
 			Runtime.getRuntime().halt(0);
 	}
 
-	public static void doShutdown(String initiator, int seconds, final ShutdownMode mode)
+	public static final class ShutdownManager extends Thread
 	{
-		log.warn(initiator + " issued shutdown command: " + mode.getText() + " in " + seconds + " seconds!");
-		sendShutdownMessage(seconds);
-		sendShutdownStatus();
-		ThreadPoolManager.getInstance().schedule(new Runnable(){
-			@Override
-			public void run()
+		private static int				counter	= Integer.MAX_VALUE;
+		private static ShutdownMode		mode	= ShutdownMode.NONE;
+
+		private static ShutdownManager	counterInstance;
+
+		private ShutdownManager()
+		{
+
+		}
+
+		@Override
+		public void run()
+		{
+			if(this == counterInstance)
+				countdown();
+		}
+
+		private void countdown()
+		{
+			while(counter > 0 && this == counterInstance)
 			{
-				ShutdownHook.mode = mode;
-				shutdownHook(mode);
+				if(counter <= 30 || counter <= 600 && counter % 60 == 0 || counter <= 3600 && counter % 300 == 0)
+					sendShutdownMessage(counter);
+
+				counter--;
+
+				try
+				{
+					Thread.sleep(1000);
+				}
+				catch(InterruptedException e)
+				{
+					e.printStackTrace();
+				}
 			}
-		}, seconds * 1000);
+
+			if(this != counterInstance)
+				return;
+
+			log.warn("Shutdown countdown is over: " + mode.getText() + " NOW!");
+
+			if(mode == ShutdownMode.RESTART)
+				System.exit(2);
+			else
+				System.exit(0);
+		}
+
+		public static enum ShutdownMode
+		{
+			NONE("terminating"),
+			SHUTDOWN("shutting down"),
+			RESTART("restarting");
+
+			private final String	text;
+
+			private ShutdownMode(String text)
+			{
+				this.text = text;
+			}
+
+			public String getText()
+			{
+				return text;
+			}
+		}
+
+		public static void doShutdown(String initiator, int seconds, ShutdownMode mode)
+		{
+			log.warn(initiator + " issued shutdown command: " + mode.getText() + " in " + seconds + " seconds!");
+
+			sendShutdownStatus(true);
+
+			counter = seconds;
+			ShutdownManager.mode = mode;
+
+			counterInstance = new ShutdownManager();
+			counterInstance.start();
+		}
+
+		public static void stopShutdown(String initiator)
+		{
+			log.warn(initiator + " issued shutdown abort: " + mode.getText() + " has been stopped!");
+
+			sendShutdownStatus(false);
+
+			counter = Integer.MAX_VALUE;
+			mode = ShutdownMode.NONE;
+
+			counterInstance = null;
+		}
 	}
 }

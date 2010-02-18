@@ -20,8 +20,8 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.aionemu.gameserver.ShutdownHook;
-import com.aionemu.gameserver.ShutdownHook.ShutdownMode;
+import com.aionemu.gameserver.ShutdownHook.ShutdownManager;
+import com.aionemu.gameserver.ShutdownHook.ShutdownManager.ShutdownMode;
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -83,14 +83,19 @@ public class AESystem extends AdminCommand
       else if (params[0].equals("shutdown"))
       {
     	  int val = Integer.parseInt(params[1]);
-    	  ShutdownHook.doShutdown(admin.getName(), val, ShutdownMode.SHUTDOWN);
+    	  ShutdownManager.doShutdown(admin.getName(), val, ShutdownMode.SHUTDOWN);
     	  PacketSendUtility.sendMessage(admin, "Server will be shutdown in " + val + " seconds.");
       }
       else if (params[0].equals("restart"))
       {
     	  int val = Integer.parseInt(params[1]);
-    	  ShutdownHook.doShutdown(admin.getName(), val, ShutdownMode.RESTART);
+    	  ShutdownManager.doShutdown(admin.getName(), val, ShutdownMode.RESTART);
     	  PacketSendUtility.sendMessage(admin, "Server will be restart in " + val + " seconds.");
+      }
+      else if (params[0].equals("stop"))
+      {
+    	  ShutdownManager.stopShutdown(admin.getName());
+    	  PacketSendUtility.sendMessage(admin, "Server shutdown/restart is stopped.");
       }
    }
    
