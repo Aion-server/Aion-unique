@@ -754,6 +754,12 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1310019);
 	}
+	public static SM_SYSTEM_MESSAGE QUEST_ACQUIRE_ERROR_INVENTORY_ITEM(int count)
+	{
+		return new SM_SYSTEM_MESSAGE(1300594, count);
+	}
+	
+	public static final SM_SYSTEM_MESSAGE	MSG_FULL_INVENTORY	= new SM_SYSTEM_MESSAGE(1300762);
 
 	private final int		code;
 	private final Object[]	params;

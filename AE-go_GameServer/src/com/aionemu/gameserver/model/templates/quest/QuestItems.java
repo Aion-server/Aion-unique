@@ -27,6 +27,19 @@ public class QuestItems {
     protected Integer count;
 
     /**
+	* Constructor used by unmarshaller
+	*/
+    public QuestItems()
+    {
+    }
+
+    public QuestItems(int itemId, int count)
+    {
+    	super();
+    	this.itemId = itemId;
+    	this.count = count;
+    }
+    /**
      * Gets the value of the itemId property.
      * 
      * @return

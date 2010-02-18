@@ -19,6 +19,7 @@ package quest.poeta;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
@@ -79,7 +80,8 @@ public class _1004NeutralizingOdium extends QuestHandler
 						return false;
 					case 10000:
 						if(player.getInventory().getItemCountByItemId(182200005) == 0)
-							QuestEngine.getInstance().addItem(player, 182200005, 1);
+							if (!QuestEngine.getInstance().addItem(player, new QuestItems(182200005, 1)))
+								return true;
 						qs.getQuestVars().setQuestVarById(0, var + 1);
 						updateQuestStatus(player, qs);
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()

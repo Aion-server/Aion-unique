@@ -18,6 +18,7 @@ package com.aionemu.gameserver.questEngine.handlers.template;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
@@ -68,8 +69,9 @@ public class ReportTo extends QuestHandler
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
 				else if(env.getDialogId() == 1002 && itemId != 0)
 				{
-					QuestEngine.getInstance().addItem(player, itemId, 1);
-					return defaultQuestStartDialog(env);
+					if (QuestEngine.getInstance().addItem(player, new QuestItems(itemId, 1)))
+						return defaultQuestStartDialog(env);
+					return true;
 				}
 				else
 					return defaultQuestStartDialog(env);

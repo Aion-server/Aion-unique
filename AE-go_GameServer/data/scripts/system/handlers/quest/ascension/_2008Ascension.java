@@ -27,6 +27,7 @@ import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.network.aion.SystemMessageId;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
@@ -238,7 +239,9 @@ public class _2008Ascension extends QuestHandler
 						if(var == 1)
 						{
 							if(player.getInventory().getItemCountByItemId(182203009) == 0)
-								QuestEngine.getInstance().addItem(player, 182203009, 1);
+								if (QuestEngine.getInstance().addItem(player, new QuestItems(182203009, 1)))
+									return true;
+								
 							qs.getQuestVars().setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
@@ -257,7 +260,8 @@ public class _2008Ascension extends QuestHandler
 						if(var == 2)
 						{
 							if(player.getInventory().getItemCountByItemId(182203010) == 0)
-								QuestEngine.getInstance().addItem(player, 182203010, 1);
+								if (!QuestEngine.getInstance().addItem(player, new QuestItems(182203010, 1)))
+									return true;
 							qs.getQuestVars().setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
@@ -276,7 +280,9 @@ public class _2008Ascension extends QuestHandler
 						if(var == 3)
 						{
 							if(player.getInventory().getItemCountByItemId(182203011) == 0)
-								QuestEngine.getInstance().addItem(player, 182203011, 1);
+								if (!QuestEngine.getInstance().addItem(player, new QuestItems(182203011, 1)))
+									return true;
+								
 							qs.getQuestVars().setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));

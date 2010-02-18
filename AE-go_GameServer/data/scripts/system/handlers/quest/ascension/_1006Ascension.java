@@ -28,6 +28,7 @@ import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.network.aion.SystemMessageId;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
@@ -145,7 +146,8 @@ public class _1006Ascension extends QuestHandler
 						if(var == 0)
 						{
 							if(player.getInventory().getItemCountByItemId(182200007) == 0)
-								QuestEngine.getInstance().addItem(player, 182200007, 1);
+								if (!QuestEngine.getInstance().addItem(player, new QuestItems(182200007, 1)))
+									return true;
 							qs.getQuestVars().setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
@@ -219,7 +221,7 @@ public class _1006Ascension extends QuestHandler
 						{
 							PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 14));
 							player.getInventory().removeFromBagByItemId(182200008, 1);
-							QuestEngine.getInstance().addItem(player, 182200009, 1);
+							QuestEngine.getInstance().addItem(player, new QuestItems(182200009, 1));
 						}
 						return false;
 					case 10001:
@@ -336,7 +338,7 @@ public class _1006Ascension extends QuestHandler
 			{
 				PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, id, 0, 1, 0), true);
 				player.getInventory().removeFromBagByObjectId(itemObjId, 1);
-				QuestEngine.getInstance().addItem(player, 182200008, 1);
+				QuestEngine.getInstance().addItem(player, new QuestItems(182200008, 1));
 				qs.getQuestVars().setQuestVarById(0, 2);
 				updateQuestStatus(player, qs);
 			}

@@ -21,6 +21,7 @@ import java.util.List;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
@@ -160,12 +161,13 @@ public class _1002RequestoftheElim extends QuestHandler
 				case 10001:
 					if(var == 1)
 					{
+						if(player.getInventory().getItemCountByItemId(182200002) == 0)
+							if (!QuestEngine.getInstance().addItem(player, new QuestItems(182200002, 1)))
+								return true;
 						qs.getQuestVars().setQuestVarById(0, var + 1);
 						updateQuestStatus(player, qs);
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),
 							10));
-						if(player.getInventory().getItemCountByItemId(182200002) == 0)
-							QuestEngine.getInstance().addItem(player, 182200002, 1);
 						return true;
 					}
 					return false;

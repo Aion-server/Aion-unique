@@ -19,6 +19,9 @@ package com.aionemu.gameserver.questEngine;
 import static com.aionemu.gameserver.configs.Config.QUEST_KINAH_RATE;
 import static com.aionemu.gameserver.configs.Config.QUEST_XP_RATE;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
@@ -141,32 +144,10 @@ public class Quest
 		if(qs == null || qs.getStatus() != QuestStatus.REWARD)
 			return false;
 
-		qs.setStatus(QuestStatus.COMPLITE);
-		qs.setCompliteCount(qs.getCompliteCount() + 1);
-		PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus(), qs.getQuestVars().getQuestVars()));
-		player.updateNearbyQuests();
-
 		Storage inventory = player.getInventory();
 		Rewards rewards = template.getRewards().get(reward);
-		if(rewards.getGold() != null)
-		{
-			inventory.increaseKinah(QUEST_KINAH_RATE * rewards.getGold());
-		}
-		if(rewards.getExp() != null)
-		{
-			int rewardExp = (QUEST_XP_RATE * rewards.getExp());
-			player.getCommonData().addExp(rewardExp);
-		}
-
-		if(rewards.getTitle() != null)
-		{
-			player.getTitleList().addTitle(rewards.getTitle());
-		}
-
-		for(QuestItems item : rewards.getRewardItem())
-		{
-			QuestEngine.getInstance().addItem(player, item.getItemId(), item.getCount());
-		}
+		List<QuestItems> questItems = new ArrayList<QuestItems>();
+		questItems.addAll(rewards.getRewardItem());
 
 		int dialogId = env.getDialogId();
 		if(dialogId != 17 && dialogId != 0)
@@ -203,21 +184,39 @@ public class Quest
 						break;
 				}
 				if (classRewardItem != null)
-					QuestEngine.getInstance().addItem(player, classRewardItem.getItemId(),
-						classRewardItem.getCount());
+					questItems.add(classRewardItem);
 			}
 			else
 			{
 				QuestItems selectebleRewardItem = rewards.getSelectableRewardItem().get(dialogId - 8);
 				if(selectebleRewardItem != null)
-				{
-					QuestEngine.getInstance().addItem(player, selectebleRewardItem.getItemId(),
-						selectebleRewardItem.getCount());
-				}
+					questItems.add(selectebleRewardItem);
 			}
 		}
+		if (QuestEngine.getInstance().addItems(player, questItems))
+		{
+			if(rewards.getGold() != null)
+			{
+				inventory.increaseKinah(QUEST_KINAH_RATE * rewards.getGold());
+			}
+			if(rewards.getExp() != null)
+			{
+				int rewardExp = (QUEST_XP_RATE * rewards.getExp());
+				player.getCommonData().addExp(rewardExp);
+			}
 
-		QuestEngine.getInstance().onLvlUp(env);
+			if(rewards.getTitle() != null)
+			{
+				player.getTitleList().addTitle(rewards.getTitle());
+			}
+
+			qs.setStatus(QuestStatus.COMPLITE);
+			qs.setCompliteCount(qs.getCompliteCount() + 1);
+			PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus(), qs.getQuestVars().getQuestVars()));
+			player.updateNearbyQuests();
+			QuestEngine.getInstance().onLvlUp(env);
+			return true;
+		}
 		return true;
 	}
 

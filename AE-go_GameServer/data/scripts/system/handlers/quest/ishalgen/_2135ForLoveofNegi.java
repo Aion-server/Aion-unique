@@ -18,6 +18,7 @@ package quest.ishalgen;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
@@ -58,8 +59,10 @@ public class _2135ForLoveofNegi extends QuestHandler
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
 				else if(env.getDialogId() == 1002)
 				{
-					QuestEngine.getInstance().addItem(player, 182203131, 1);
-					return defaultQuestStartDialog(env);
+					if (QuestEngine.getInstance().addItem(player, new QuestItems(182203131, 1)))
+						return defaultQuestStartDialog(env);
+					else
+						return true;
 				}
 				else
 					return defaultQuestStartDialog(env);
