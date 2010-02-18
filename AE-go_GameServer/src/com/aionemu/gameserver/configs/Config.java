@@ -153,6 +153,12 @@ public class Config
 	public static int				DROP_RATE;
 	
 	/*
+	 * Abyss points Rate
+	 */
+	@Property(key = "gameserver.rate.ap",defaultValue = "1")
+	public static float				AP_RATE;
+	
+	/*
 	 * Factions speaking mode
 	 */
 	@Property(key = "gameserver.factions.speaking.mode",defaultValue = "0")
