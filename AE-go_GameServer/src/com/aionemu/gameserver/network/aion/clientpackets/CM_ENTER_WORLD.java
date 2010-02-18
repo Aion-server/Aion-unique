@@ -30,7 +30,6 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.legion.Legion;
-import com.aionemu.gameserver.model.legion.OfflineLegionMember;
 import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -42,9 +41,9 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_FLY_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INFLUENCE_RATIO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGIONMEMBER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_MEMBER;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_MEMBERLIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_MEMBER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_ID;
@@ -62,7 +61,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -268,29 +266,16 @@ public class CM_ENTER_WORLD extends AionClientPacket
 		Legion legion = player.getLegionMember().getLegion();
 		if(!legion.isDisbanding())
 		{
-			sendPacket(new SM_LEGION_MEMBER(player));
+			// Send legion info packets
 			sendPacket(new SM_LEGION_INFO(legion));
 
-			for(Integer memberObjId : legion.getLegionMembers())
-			{
-				Player legionMember = world.findPlayer(memberObjId);
-				if(legionMember != null)
-				{
-					sendPacket(new SM_LEGIONMEMBER_INFO(legionMember));
-					if(player.getObjectId() != memberObjId)
-					{
-						PacketSendUtility.broadcastPacket(legionMember, new SM_LEGIONMEMBER_INFO(player), true);
-					}
-				}
-				else
-				{
-					OfflineLegionMember offlineLegionMember = legionService.getOfflineLegionMember(memberObjId);
-					if(offlineLegionMember != null)
-						sendPacket(new SM_LEGIONMEMBER_INFO(offlineLegionMember));
-					// else player mysteriously disappeared?
-				}
-			}
+			// Tell all legion members player has come online
+			legionService.updateMembersInfoByPacket(legion, new SM_LEGION_UPDATE_MEMBER(player));
 
+			// Send member list to player
+			sendPacket(new SM_LEGION_MEMBERLIST(legionService.loadLegionMemberExList(legion)));
+
+			// Send current announcement to player
 			Entry<Timestamp, String> currentAnnouncement = legion.getCurrentAnnouncement();
 			if(currentAnnouncement != null)
 			{

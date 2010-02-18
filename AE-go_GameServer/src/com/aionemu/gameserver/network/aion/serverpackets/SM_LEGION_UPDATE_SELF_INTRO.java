@@ -18,7 +18,6 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -27,35 +26,21 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author Simple
  * 
  */
-public class SM_LEGION_MEMBER extends AionServerPacket
+public class SM_LEGION_UPDATE_SELF_INTRO extends AionServerPacket
 {
-	private Player	player;
+	private String	selfintro;
+	private int		playerObjId;
 
-	public SM_LEGION_MEMBER(Player player)
+	public SM_LEGION_UPDATE_SELF_INTRO(int playerObjId, String selfintro)
 	{
-		this.player = player;
+		this.selfintro = selfintro;
+		this.playerObjId = playerObjId;
 	}
 
 	@Override
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, player.getObjectId());
-		writeS(buf, player.getName());
-		writeH(buf, 0x0100); // unk
-		writeC(buf, player.getCommonData().getPlayerClass().getClassId());
-		writeC(buf, player.getLevel());
-		writeD(buf, player.getPosition().getMapId());
-		writeD(buf, 0x00); // unk
-		writeH(buf, 0x00); // unk
+		writeD(buf, playerObjId);
+		writeS(buf, selfintro);
 	}
 }
-
-/*
- * Aion-Unique 8F 55 2C DC 8D 00 00 53 00 69 00 6D 00 70 00 6C .U,....S.i.m.p.l 00 65 00 00 00 00 01 00 01 90 9E 8E 06
- * 00 00 00 .e.............. 00 00 00 ... ...
- */
-
-/*
- * Retail 8F 55 2C 62 8D 00 00 53 00 63 00 68 00 69 00 7A .U,b...S.c.h.i.z 00 6F 00 70 00 68 00 72 00 65 00 6E 00 69 00
- * 61 .o.p.h.r.e.n.i.a 00 00 00 00 01 04 28 90 9E 8E 06 00 00 00 00 00 ......(......... 00 .
- */

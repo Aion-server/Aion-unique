@@ -65,6 +65,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UI_SETTINGS.class, 0x1E, idSet);
 		addPacketOpcode(SM_PLAYER_INFO.class, 0x20, idSet);
 		addPacketOpcode(SM_CASTSPELL.class, 0x21, idSet);
+		addPacketOpcode(SM_LEGION_UPDATE_NICKNAME.class, 0x23, idSet);
 		addPacketOpcode(SM_ENTER_WORLD_CHECK.class, 0x25, idSet);
 		addPacketOpcode(SM_STATUPDATE_DP.class, 0x26, idSet);
 		addPacketOpcode(SM_STATUPDATE_EXP.class, 0x28, idSet);
@@ -77,8 +78,8 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_ATTACK.class, 0x36, idSet);
 		addPacketOpcode(SM_MOVE.class, 0x37, idSet);
 		addPacketOpcode(SM_WEATHER.class, 0x3B, idSet);
-		addPacketOpcode(SM_SELL_ITEM.class, 0x3E, idSet);
 		addPacketOpcode(SM_PLAYER_STATE.class, 0x3C, idSet);
+		addPacketOpcode(SM_SELL_ITEM.class, 0x3E, idSet);
 		addPacketOpcode(SM_VIEW_PLAYER_DETAILS.class, 0x41, idSet);
 		addPacketOpcode(SM_SKILL_CANCEL.class, 0x42, idSet);
 		addPacketOpcode(SM_CASTSPELL_END.class, 0x43, idSet);
@@ -105,6 +106,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_QUEST_LIST.class, 0x73, idSet);
 		addPacketOpcode(SM_QUEST_ACCEPTED.class, 0x74, idSet);
 		addPacketOpcode(SM_QUEST_STEP.class, 0x75, idSet);
+		addPacketOpcode(SM_LEGION_UPDATE_SELF_INTRO.class, 0x77, idSet);
 		addPacketOpcode(SM_UNK7B.class, 0x7A, idSet);
 		addPacketOpcode(SM_FRIEND_LIST.class, 0x7C, idSet);
 		addPacketOpcode(SM_QUEST_DELETE.class, 0x7E, idSet);
@@ -113,25 +115,27 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_UNK5E.class, 0x87, idSet);
 		addPacketOpcode(SM_UPDATE_NOTE.class, 0x88, idSet);
 		addPacketOpcode(SM_PLAY_MOVIE.class, 0x89, idSet);
+		addPacketOpcode(SM_LEGION_UPDATE_TITLE.class, 0x8A, idSet);
 		addPacketOpcode(SM_PLAYER_ID.class, 0xA5, idSet);
-        addPacketOpcode(SM_ABYSS_RANK_UPDATE.class, 0xA8, idSet);
+		addPacketOpcode(SM_ABYSS_RANK_UPDATE.class, 0xA8, idSet);
 		addPacketOpcode(SM_MAY_LOGIN_INTO_GAME.class, 0xA9, idSet);
 		addPacketOpcode(SM_PONG.class, 0xAE, idSet);
-		addPacketOpcode(SM_DIE.class, 0xC1, idSet);
-		addPacketOpcode(SM_TITLE_UPDATE.class, 0xCB, idSet);
 		addPacketOpcode(SM_ITEM_USAGE_ANIMATION.class, 0xB7, idSet);
 		addPacketOpcode(SM_CUSTOM_SETTINGS.class, 0xB8, idSet);
 		addPacketOpcode(SM_DUEL.class, 0xB9, idSet);
 		addPacketOpcode(SM_TELEPORT_MAP.class, 0xBC, idSet);
 		addPacketOpcode(SM_USE_OBJECT.class, 0xBD, idSet);
+		addPacketOpcode(SM_DIE.class, 0xC1, idSet);
 		addPacketOpcode(SM_DELETE_WAREHOUSE_ITEM.class, 0xC2, idSet);
 		addPacketOpcode(SM_UPDATE_WAREHOUSE_ITEM.class, 0xC3, idSet);
 		addPacketOpcode(SM_WAREHOUSE_INFO.class, 0xC8, idSet);
 		addPacketOpcode(SM_WAREHOUSE_UPDATE.class, 0xC9, idSet);
+		addPacketOpcode(SM_TITLE_UPDATE.class, 0xCB, idSet);
 		addPacketOpcode(SM_TITLE_LIST.class, 0xD0, idSet);
 		addPacketOpcode(SM_TITLE_SET.class, 0xD1, idSet);
 		addPacketOpcode(SM_CHANNEL_INFO.class, 0xDD, idSet);
 		addPacketOpcode(SM_FRIEND_RESPONSE.class, 0xDE, idSet);
+		addPacketOpcode(SM_BLOCK_RESPONSE.class, 0xDF, idSet);
 		addPacketOpcode(SM_BLOCK_LIST.class, 0xE0, idSet);
 		addPacketOpcode(SM_FRIEND_NOTIFY.class, 0xE1, idSet);
 		addPacketOpcode(SM_DELETE_CHARACTER.class, 0xE2, idSet);
@@ -154,22 +158,17 @@ public class ServerPacketsOpcodes
 
 		addPacketOpcode(SM_CUSTOM_PACKET.class, 99999, idSet); // fake packet
 
-		addPacketOpcode(SM_BLOCK_RESPONSE.class, 0xDF, idSet);
-
 		addPacketOpcode(SM_RIFT_STATUS.class, 0xA4, idSet);
 
 		/** Legion server packets **/
-		addPacketOpcode(SM_CHANGE_NICKNAME.class, 0x23, idSet);
-		addPacketOpcode(SM_CHANGE_SELF_INTRODUCTION.class, 0x77, idSet);
-		addPacketOpcode(SM_UPDATE_LEGION_TITLE.class, 0x8A, idSet);
 		addPacketOpcode(SM_LEGION_INFO.class, 0x8E, idSet);
-		addPacketOpcode(SM_LEGION_MEMBER.class, 0x8F, idSet);
-		addPacketOpcode(SM_LEAVE_LEGION.class, 0x90, idSet);
-		addPacketOpcode(SM_DISBAND_LEGION.class, 0x91, idSet);
-		addPacketOpcode(SM_LEGIONMEMBER_INFO.class, 0x95, idSet);
+		addPacketOpcode(SM_LEGION_ADD_MEMBER.class, 0x8F, idSet);
+		addPacketOpcode(SM_LEGION_KICK_MEMBER.class, 0x90, idSet);
+		addPacketOpcode(SM_LEGION_UPDATE_MEMBER.class, 0x91, idSet);
+		addPacketOpcode(SM_LEGION_MEMBERLIST.class, 0x95, idSet);
 		addPacketOpcode(SM_EDIT_LEGION.class, 0x9E, idSet);
-		addPacketOpcode(SM_LEGION_CREATED.class, 0xD7, idSet);
-		//addPacketOpcode(SM_LEGION_MODIFY_EMBLEM.class, 0xA1, idSet);
+		addPacketOpcode(SM_LEGION_UPDATE_EMBLEM.class, 0xD7, idSet);
+		addPacketOpcode(SM_LEGION_SEND_EMBLEM.class, 0xED, idSet);
 
 		// Unrecognized Opcodes from 1.5.4:
 		// addPacketOpcode(SM_BUY_LIST.class, 0x7E, idSet);

@@ -22,41 +22,43 @@ package com.aionemu.gameserver.model.legion;
  */
 public class LegionMember
 {
-	// private Player player = null;
-	private int		playerObjId		= 0;
-	private Legion	legion			= null;
+	/** Static Legion Member information **/
+	private static final int BRIGADE_GENERAL_RANK = 0x00;
+	
+	private int		objectId		= 0;
+	protected Legion	legion			= null;
 	/*
 	 * Rank Information 0x00 = Brigade General => ALL RIGHTS 0x01 = Centurion => Only centurion rights 0x02 = Legionar
 	 * => Only legionar rights
 	 */
-	private int		rank			= 0x02;
-	private String	nickname		= "";
-	private String	selfIntro		= "";
+	protected int		rank			= 0x02;
+	protected String	nickname		= "";
+	protected String	selfIntro		= "";
 	private boolean	stateChanged	= false;
 
 	/**
 	 * If player is defined later on this constructor is called
 	 */
-	public LegionMember(int playerObjId)
+	public LegionMember(int objectId)
 	{
-		this.playerObjId = playerObjId;
+		this.objectId = objectId;
 	}
 
 	/**
 	 * If player is defined we can load the information from Player
 	 */
-	public LegionMember(int playerObjId, Legion legion)
+	public LegionMember(int objectId, Legion legion)
 	{
-		this.setPlayerObjId(playerObjId);
+		this.setObjectId(objectId);
 		this.setLegion(legion);
 	}
 
 	/**
 	 * This constructor is called when a legion is created
 	 */
-	public LegionMember(int playerObjId, Legion legion, int rank)
+	public LegionMember(int objectId, Legion legion, int rank)
 	{
-		this.setPlayerObjId(playerObjId);
+		this.setObjectId(objectId);
 		this.setLegion(legion);
 		this.setRank(rank);
 	}
@@ -103,6 +105,11 @@ public class LegionMember
 	{
 		return rank;
 	}
+	
+	public boolean isBrigadeGeneral()
+	{
+		return rank == BRIGADE_GENERAL_RANK;
+	}
 
 	/**
 	 * @param nickname
@@ -141,21 +148,21 @@ public class LegionMember
 	}
 
 	/**
-	 * @param playerObjId
-	 *            the playerObjId to set
+	 * @param objectId
+	 *            the objectId to set
 	 */
-	public void setPlayerObjId(int playerObjId)
+	public void setObjectId(int objectId)
 	{
-		this.playerObjId = playerObjId;
+		this.objectId = objectId;
 		this.setStateChanged(true);
 	}
 
 	/**
-	 * @return the playerObjId
+	 * @return the objectId
 	 */
-	public int getPlayerObjId()
+	public int getObjectId()
 	{
-		return playerObjId;
+		return objectId;
 	}
 
 	/**

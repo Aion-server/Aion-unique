@@ -43,6 +43,7 @@ public class Legion
 	private int									centurionPermission2	= 0x00;
 	private int									disbandTime;
 	private LinkedHashMap<Timestamp, String>	announcementList		= new LinkedHashMap<Timestamp, String>();
+	private LegionEmblem						legionEmblem;
 
 	/**
 	 * Only called when a legion is created!
@@ -431,5 +432,22 @@ public class Legion
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * @param legionEmblem
+	 *            the legionEmblem to set
+	 */
+	public void setLegionEmblem(LegionEmblem legionEmblem)
+	{
+		this.legionEmblem = legionEmblem;
+	}
+
+	/**
+	 * @return the legionEmblem
+	 */
+	public LegionEmblem getLegionEmblem()
+	{
+		return legionEmblem;
 	}
 }

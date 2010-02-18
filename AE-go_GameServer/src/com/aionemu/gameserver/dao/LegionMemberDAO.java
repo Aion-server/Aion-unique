@@ -17,11 +17,11 @@
 
 package com.aionemu.gameserver.dao;
 
-import java.util.Map;
+import java.util.ArrayList;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.legion.LegionMember;
-import com.aionemu.gameserver.model.legion.OfflineLegionMember;
+import com.aionemu.gameserver.model.legion.LegionMemberEx;
 import com.aionemu.gameserver.services.LegionService;
 
 /**
@@ -58,40 +58,39 @@ public abstract class LegionMemberDAO implements IDFactoryAwareDAO
 	public abstract void storeLegionMember(int playerObjId, LegionMember legionMember);
 
 	/**
-	 * This method is used to store only newly created characters
+	 * Loads a legion member
 	 * 
-	 * @param world
-	 * 
-	 * @param pcd
-	 *            player to save in database
-	 * @return true if every things went ok.
+	 * @param player
+	 * @param legionService
+	 * @return
 	 */
 	public abstract LegionMember loadLegionMember(Player player, LegionService legionService);
 
 	/**
+	 * Loads an off line legion member by id
+	 * 
 	 * @param playerObjId
 	 * @param legionService
 	 * @return
 	 */
-	public abstract OfflineLegionMember loadOfflineLegionMember(int playerObjId, LegionService legionService);
+	public abstract LegionMemberEx loadOfflineLegionMember(int playerObjId, LegionService legionService);
 
 	/**
+	 * Loads an off line legion member by name
+	 * 
 	 * @param playerName
 	 * @param legionService
 	 * @return
 	 */
-	public abstract OfflineLegionMember loadOfflineLegionMember(String playerName, LegionService legionService);
+	public abstract LegionMemberEx loadOfflineLegionMember(String playerName, LegionService legionService);
 
 	/**
-	 * This method is used to store only newly created characters
+	 * Loads all legion members of a legion
 	 * 
-	 * @param world
-	 * 
-	 * @param pcd
-	 *            player to save in database
-	 * @return a list of all legion members
+	 * @param legionId
+	 * @return
 	 */
-	public abstract Map<Integer, LegionMember> loadLegionMembers(int legionId);
+	public abstract ArrayList<Integer> loadLegionMembers(int legionId);
 
 	/**
 	 * Removes legion member and all related data (Done by CASCADE DELETION)

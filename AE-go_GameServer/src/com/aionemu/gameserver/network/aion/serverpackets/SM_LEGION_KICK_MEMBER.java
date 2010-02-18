@@ -26,24 +26,36 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author Simple
  * 
  */
-public class SM_LEGION_CREATED extends AionServerPacket
+public class SM_LEGION_KICK_MEMBER extends AionServerPacket
 {
-	private int	legionId;
+	private String	name;
+	private String	name1;
+	private int		playerObjId;
+	private int		msgId;
 
-	public SM_LEGION_CREATED(int legionId)
+	public SM_LEGION_KICK_MEMBER(int msgId, int playerObjId, String name)
 	{
-		this.legionId = legionId;
+		this.msgId = msgId;
+		this.playerObjId = playerObjId;
+		this.name = name;
+	}
+
+	public SM_LEGION_KICK_MEMBER(int msgId, int playerObjId, String name, String name1)
+	{
+		this.msgId = msgId;
+		this.playerObjId = playerObjId;
+		this.name = name;
+		this.name1 = name1;
 	}
 
 	@Override
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, legionId);
-		writeD(buf, 0x00); // unk1
-		writeH(buf, 0x00); // unk2
+		writeD(buf, playerObjId);
+		writeD(buf, 0x00);
+		writeC(buf, 0x00);
+		writeD(buf, msgId);
+		writeS(buf, name);
+		writeS(buf, name1);
 	}
 }
-
-/*
- * D7 55 94 C5 0F 00 00 00 00 00 00 00 00 .
- */

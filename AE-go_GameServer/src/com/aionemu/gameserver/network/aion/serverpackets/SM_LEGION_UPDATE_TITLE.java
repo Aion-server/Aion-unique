@@ -25,14 +25,14 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author sweetkr
  * 
  */
-public class SM_UPDATE_LEGION_TITLE extends AionServerPacket
+public class SM_LEGION_UPDATE_TITLE extends AionServerPacket
 {
 	private int		objectId;
 	private int		legionId;
 	private String	legionName;
 	private int		rank;
 
-	public SM_UPDATE_LEGION_TITLE(int objectId, int legionId, String legionName, int rank)
+	public SM_LEGION_UPDATE_TITLE(int objectId, int legionId, String legionName, int rank)
 	{
 		this.objectId = objectId;
 		this.legionId = legionId;

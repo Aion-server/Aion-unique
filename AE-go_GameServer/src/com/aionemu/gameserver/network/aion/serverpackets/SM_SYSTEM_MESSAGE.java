@@ -672,6 +672,16 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300304);
 	}
 
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGED_EMBLEM()
+	{
+		return new SM_SYSTEM_MESSAGE(1390137);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_NOT_ENOUGH_KINAH(int kinah)
+	{
+		return new SM_SYSTEM_MESSAGE(901285, kinah);
+	}
+
 	/**
 	 * You cannot fly in this area.
 	 */

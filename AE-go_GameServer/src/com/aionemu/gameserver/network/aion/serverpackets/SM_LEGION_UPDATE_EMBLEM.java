@@ -22,40 +22,40 @@ import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
- * 
  * @author Simple
  * 
  */
-public class SM_LEAVE_LEGION extends AionServerPacket
+public class SM_LEGION_UPDATE_EMBLEM extends AionServerPacket
 {
-	private String	name;
-	private String	name1;
-	private int		playerObjId;
-	private int		msgId;
+	/** Legion emblem information **/
+	private int	legionId;
+	private int emblemId;
+	private int	color_r;
+	private int	color_g;
+	private int	color_b;
 
-	public SM_LEAVE_LEGION(int msgId, int playerObjId, String name)
+	/**
+	 * This constructor will handle legion emblem info
+	 * 
+	 * @param legion
+	 */
+	public SM_LEGION_UPDATE_EMBLEM(int legionId, int emblemId, int color_r, int color_g, int color_b)
 	{
-		this.msgId = msgId;
-		this.playerObjId = playerObjId;
-		this.name = name;
-	}
-
-	public SM_LEAVE_LEGION(int msgId, int playerObjId, String name, String name1)
-	{
-		this.msgId = msgId;
-		this.playerObjId = playerObjId;
-		this.name = name;
-		this.name1 = name1;
+		this.legionId = legionId;
+		this.emblemId = emblemId;
+		this.color_r = color_r;
+		this.color_g = color_g;
+		this.color_b = color_b;
 	}
 
 	@Override
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, playerObjId);
-		writeD(buf, 0x00);
-		writeC(buf, 0x00);
-		writeD(buf, msgId);
-		writeS(buf, name);
-		writeS(buf, name1);
+		writeD(buf, legionId);
+		writeH(buf, emblemId);
+		writeC(buf, 0xFF);
+		writeC(buf, color_r);
+		writeC(buf, color_g);
+		writeC(buf, color_b);
 	}
 }

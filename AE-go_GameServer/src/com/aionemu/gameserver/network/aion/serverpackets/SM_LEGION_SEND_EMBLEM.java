@@ -17,54 +17,54 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.sql.Timestamp;
-import java.util.Map;
 
-import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
- * 
  * @author Simple
  * 
  */
-public class SM_LEGION_INFO extends AionServerPacket
+public class SM_LEGION_SEND_EMBLEM extends AionServerPacket
 {
 	/** Legion information **/
-	private Legion	legion;
+	private int	legionId;
+	private int emblemId;
+	private int color_r;
+	private int color_g;
+	private int color_b;
+	private String legionName;
 
 	/**
-	 * This constructor will handle legion info
-	 * @param legion
+	 * This constructor will handle legion emblem info
+	 * 
+	 * @param legionId
 	 */
-	public SM_LEGION_INFO(Legion legion)
+	public SM_LEGION_SEND_EMBLEM(int legionId, int emblemId, int color_r, int color_g, int color_b, String legionName)
 	{
-		this.legion = legion;
+		this.legionId = legionId;
+		this.emblemId = emblemId;
+		this.color_r = color_r;
+		this.color_g = color_g;
+		this.color_b = color_b;
+		this.legionName = legionName;
 	}
 
 	@Override
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeS(buf, legion.getLegionName());
-		writeC(buf, legion.getLegionLevel());
-		writeD(buf, legion.getLegionRank());
-		writeC(buf, legion.getCenturionPermission1());
-		writeC(buf, legion.getCenturionPermission2());
-		writeC(buf, legion.getLegionarPermission1());
-		writeC(buf, legion.getLegionarPermission2());
-		writeD(buf, legion.getLegionContribution());
-		writeD(buf, 0x00); // unk
-		writeD(buf, 0x00); // unk
-		writeD(buf, 0x00); // unk
+		writeD(buf, legionId);
+		writeD(buf, 0x00);
+		writeH(buf, emblemId);
+		writeC(buf, 0xFF); // unk
+		writeC(buf, color_r);
+		writeC(buf, color_g);
+		writeC(buf, color_b);
+		writeS(buf, legionName);
+		writeC(buf, 0x01);
 
-		/** Get Announcements List From DB By Legion **/
-		Map<Timestamp, String> announcementList = legion.getAnnouncementList();
-		for(Timestamp unixTime : announcementList.keySet())
-		{
-			writeS(buf, announcementList.get(unixTime));
-			writeD(buf, (int)(unixTime.getTime()/1000));
-		}
-		writeH(buf, 0x00); // unk
+		// ED 55 8A 6C 04 00 00 01 80 00 00 00 00 FF FF FF .U.l............
+		// FF 44 00 72 00 61 00 6B 00 65 00 73 00 00 00 01 .D.r.a.k.e.s....
+
 	}
 }

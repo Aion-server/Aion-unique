@@ -20,15 +20,12 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.legion.Legion;
-import com.aionemu.gameserver.model.legion.OfflineLegionMember;
+import com.aionemu.gameserver.model.legion.LegionMemberEx;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.utils.Util;
-import com.aionemu.gameserver.utils.Util;
-import com.aionemu.gameserver.utils.idfactory.IDFactory;
-import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -37,7 +34,6 @@ import com.google.inject.Inject;
  * @author Simple
  * 
  */
-@SuppressWarnings("unused")
 public class CM_LEGION extends AionClientPacket
 {
 	private static final Logger	log	= Logger.getLogger(CM_LEGION.class);
@@ -49,17 +45,10 @@ public class CM_LEGION extends AionClientPacket
 	@Inject
 	private World				world;
 
-	@Inject
-	@IDFactoryAionObject
-	private IDFactory			aionObjectsIDFactory;
-
 	/**
 	 * exOpcode and the rest
 	 */
 	private int					exOpcode;
-	private int					unk1;
-	private int					unk2;
-	private int					legionarPermission1;
 	private int					legionarPermission2;
 	private int					centurionPermission1;
 	private int					centurionPermission2;
@@ -92,27 +81,27 @@ public class CM_LEGION extends AionClientPacket
 		{
 			/** Create a legion **/
 			case 0x00:
-				unk2 = readD(); // time? 00 78 19 00 40
+				readD(); // time? 00 78 19 00 40
 				legionName = readS();
 				break;
 			/** Invite to legion **/
 			case 0x01:
-				unk1 = readD(); // empty
+				readD(); // empty
 				charName = readS();
 				break;
 			/** Leave legion **/
 			case 0x02:
-				unk1 = readD(); // empty
-				unk2 = readH(); // empty
+				readD(); // empty
+				readH(); // empty
 				break;
 			/** Kick member from legion **/
 			case 0x04:
-				unk1 = readD(); // empty
+				readD(); // empty
 				charName = readS();
 				break;
 			/** Appoint a new Brigade General **/
 			case 0x05:
-				unk2 = readD();
+				readD();
 				charName = readS();
 				break;
 			/** Appoint Centurion **/
@@ -122,7 +111,7 @@ public class CM_LEGION extends AionClientPacket
 				break;
 			/** Demote to Legionary **/
 			case 0x07:
-				unk2 = readD(); // char id? 00 78 19 00 40
+				readD(); // char id? 00 78 19 00 40
 				charName = readS();
 				break;
 			/** Refresh legion info **/
@@ -130,25 +119,25 @@ public class CM_LEGION extends AionClientPacket
 				break;
 			/** Edit announcements **/
 			case 0x09:
-				unk1 = readD(); // empty or char id?
+				readD(); // empty or char id?
 				announcement = readS();
 				break;
 			/** Change self introduction **/
 			case 0x0A:
-				unk1 = readD(); // empty char id?
+				readD(); // empty char id?
 				newSelfIntro = readS();
 				break;
 			/** Edit permissions **/
 			case 0x0D:
 				centurionPermission1 = readC(); // 0x60 - 0x7C
 				centurionPermission2 = readC(); // 0x00 - 0x0E
-				legionarPermission1 = readC(); // can't be set is static 0x40
+				readC(); // can't be set is static 0x40
 				legionarPermission2 = readC(); // 0x00 - 0x08
 				break;
 			/** Level legion up **/
 			case 0x0E:
-				unk1 = readD(); // empty
-				unk2 = readH(); // empty
+				readD(); // empty
+				readH(); // empty
 				break;
 			case 0x0F:
 				charName = readS();
@@ -194,7 +183,7 @@ public class CM_LEGION extends AionClientPacket
 						}
 						else
 						{
-							OfflineLegionMember offlineLegionMember = legionService.getOfflineLegionMemberByName(charName);
+							LegionMemberEx offlineLegionMember = legionService.getOfflineLegionMemberByName(charName);
 							if(offlineLegionMember != null)
 								legionService.kickPlayer(activePlayer, null, offlineLegionMember);
 						}
@@ -212,7 +201,7 @@ public class CM_LEGION extends AionClientPacket
 						break;
 					/** Appoint Centurion/Legionairy **/
 					case 0x06:
-						if(targetPlayer == null)
+						if(targetPlayer != null)
 						{
 							legionService.appointRank(activePlayer, targetPlayer, rank);
 						}
@@ -253,8 +242,9 @@ public class CM_LEGION extends AionClientPacket
 						break;
 					/** Edit permissions **/
 					case 0x0D:
-						legionService.changePermissions(legion, legionarPermission2, centurionPermission1,
-							centurionPermission2);
+						if(activePlayer.getLegionMember().isBrigadeGeneral())
+							legionService.changePermissions(legion, legionarPermission2, centurionPermission1,
+								centurionPermission2);
 						break;
 					/** Level legion up **/
 					case 0x0E:

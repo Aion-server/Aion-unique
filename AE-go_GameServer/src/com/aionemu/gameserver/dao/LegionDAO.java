@@ -21,6 +21,7 @@ import java.sql.Timestamp;
 import java.util.LinkedHashMap;
 
 import com.aionemu.gameserver.model.legion.Legion;
+import com.aionemu.gameserver.model.legion.LegionEmblem;
 
 /**
  * Class that is responsible for storing/loading legion data
@@ -55,18 +56,15 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	public abstract void storeLegion(Legion legion);
 
 	/**
-	 * This method is used to store only newly created characters
+	 * Loads a legion
 	 * 
 	 * @param legionId
-	 *            legionId from legion that has to be loaded
-	 * @param world
-	 * 
-	 * @return legion
+	 * @return
 	 */
 	public abstract Legion loadLegion(int legionId);
 
 	/**
-	 * Removes player and all related data (Done by CASCADE DELETION)
+	 * Removes legion and all related data (Done by CASCADE DELETION)
 	 * 
 	 * @param legionId
 	 *            legion to delete
@@ -79,12 +77,14 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	 * @param legion
 	 * @return announcementList
 	 */
-	public abstract LinkedHashMap<Timestamp, String> loadAnnouncementList(Legion legion);
+	public abstract LinkedHashMap<Timestamp, String> loadAnnouncementList(int legionId);
 
 	/**
-	 * Creates legion in DB
+	 * Creates announcement in DB
 	 * 
-	 * @param legion
+	 * @param legionId
+	 * @param message
+	 * @return
 	 */
 	public abstract boolean saveNewAnnouncement(int legionId, String message);
 
@@ -98,4 +98,30 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	{
 		return LegionDAO.class.getName();
 	}
+
+	/**
+	 * Stores a legion emblem in the database
+	 * 
+	 * @param legionId
+	 * @param emblemId
+	 * @param red
+	 * @param green
+	 * @param blue
+	 */
+	public abstract void storeLegionEmblem(int legionId, int emblemId, int red, int green, int blue);
+
+	/**
+	 * Saves a new legion emblem
+	 * 
+	 * @param legionId
+	 */
+	public abstract boolean saveNewLegionEmblem(int legionId);
+
+	/**
+	 * Loads a legion emblem
+	 * 
+	 * @param legion
+	 * @return
+	 */
+	public abstract LegionEmblem loadLegionEmblem(int legionId);
 }

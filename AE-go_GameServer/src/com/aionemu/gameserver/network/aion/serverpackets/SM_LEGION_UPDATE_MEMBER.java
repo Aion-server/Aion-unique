@@ -27,11 +27,13 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author Simple
  * 
  */
-public class SM_DISBAND_LEGION extends AionServerPacket
+public class SM_LEGION_UPDATE_MEMBER extends AionServerPacket
 {
-	private Player	player;
+	private static final int	OFFLINE	= 0x00;
+	private static final int	ONLINE	= 0x01;
+	private Player				player;
 
-	public SM_DISBAND_LEGION(Player player)
+	public SM_LEGION_UPDATE_MEMBER(Player player)
 	{
 		this.player = player;
 	}
@@ -39,12 +41,37 @@ public class SM_DISBAND_LEGION extends AionServerPacket
 	@Override
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, player.getObjectId()); // char ID
+		writeD(buf, player.getObjectId());
+		writeC(buf, player.getLegionMember().getRank());
 		writeC(buf, player.getCommonData().getPlayerClass().getClassId());
-		writeD(buf, player.getLevel());
+		writeC(buf, player.getLevel());
 		writeD(buf, player.getPosition().getMapId());
+		writeC(buf, player.isOnline() ? ONLINE : OFFLINE);
+		int lastLogin = (int) (player.getCommonData().getLastOnline().getTime() / 1000);
+		writeD(buf, player.isOnline() ? 0x00 : lastLogin);
 		writeD(buf, 0x00);
-		writeH(buf, 0x4FD7);
-		writeS(buf, player.getLegionMember().getLegion().getDisbandTime() + "");
+		writeH(buf, 0x00);
 	}
 }
+
+// MAP ID: 90 9E 8E 06
+// ONLINE: 00
+// 00 00 00 00
+// D8 74 7C 4B 00 00 4B 00 00
+
+// MAP ID: 90 9E 8E 06
+// ONLINE: 01
+// 00 00 00 00
+// 00 00 00 00
+
+// MAP ID: 90 9E 8E 06
+// ONLINE: 01
+// 00 00 00 00
+// 00 00 00 00
+// 00 00
+
+// ONLINE: 01
+// UNK: 00 00 00 00
+// MEMBER ID: 31 D7 13 00
+// MEMBER NAME: 40 00 60 00 60 00 00 00
+// but why is it longer?

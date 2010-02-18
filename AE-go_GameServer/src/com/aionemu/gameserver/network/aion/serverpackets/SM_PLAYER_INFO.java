@@ -106,11 +106,16 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeH(buf, player.getCastingSkillId());
 		writeH(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
 			.getLegionMember().getLegion().getLegionId() : 0);
-		writeH(buf, 0);
-		writeC(buf, 0);
-		writeH(buf, 0);
-		writeH(buf, 0);
-		writeC(buf, 0);
+		writeH(buf, 0); // User Emblem related?
+		writeH(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+			.getLegionMember().getLegion().getLegionEmblem().getEmblemId() : 0);
+		writeC(buf, 0xFF); // User Emblem  or own emblem?
+		writeC(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+			.getLegionMember().getLegion().getLegionEmblem().getColor_r() : 0);
+		writeC(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+			.getLegionMember().getLegion().getLegionEmblem().getColor_g() : 0);
+		writeC(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
+			.getLegionMember().getLegion().getLegionEmblem().getColor_b() : 0);
 		writeS(buf, (player.isLegionMember() && !player.getLegionMember().getLegion().isDisbanding()) ? player
 			.getLegionMember().getLegion().getLegionName() : "");
 

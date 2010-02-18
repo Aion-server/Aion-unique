@@ -25,18 +25,37 @@ import com.aionemu.gameserver.model.PlayerClass;
  * @author Simple
  * 
  */
-public class OfflineLegionMember extends LegionMember
+public class LegionMemberEx extends LegionMember
 {
-	private String			name		= "";
-	private PlayerClass		playerClass	= null;
-	private int				level		= 0;
-	private Timestamp		lastOnline	= null;
-	private int	worldId	= 0;
+	private String		name;
+	private PlayerClass	playerClass;
+	private int			level;
+	private Timestamp	lastOnline;
+	private int			worldId;
+	private boolean		online = false;
 
+	/**
+	 * If player is immediately after this constructor is called
+	 */
+	public LegionMemberEx(int playerObjId, Legion legion, int rank, String nickname, String selfIntro, String name, PlayerClass playerClass, int level, Timestamp lastOnline, int worldId, boolean online)
+	{
+		super(playerObjId);
+		this.name = name;
+		this.playerClass = playerClass;
+		this.level = level;
+		this.lastOnline = lastOnline;
+		this.worldId = worldId;
+		this.online = online;
+		this.legion = legion;
+		this.rank = rank;
+		this.nickname = nickname;
+		this.selfIntro = selfIntro;
+	}
+	
 	/**
 	 * If player is defined later on this constructor is called
 	 */
-	public OfflineLegionMember(int playerObjId)
+	public LegionMemberEx(int playerObjId)
 	{
 		super(playerObjId);
 	}
@@ -44,7 +63,7 @@ public class OfflineLegionMember extends LegionMember
 	/**
 	 * If player is defined later on this constructor is called
 	 */
-	public OfflineLegionMember(String name)
+	public LegionMemberEx(String name)
 	{
 		super();
 		this.name = name;
@@ -87,30 +106,32 @@ public class OfflineLegionMember extends LegionMember
 
 	/**
 	 * sets the exp value
-	 * @param admin: enable decrease level 
+	 * 
+	 * @param admin
+	 *            : enable decrease level
 	 */
 	public void setExp(long exp)
-	{		
-		//maxLevel is 51 but in game 50 should be shown with full XP bar
+	{
+		// maxLevel is 51 but in game 50 should be shown with full XP bar
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
-		
-		if (getPlayerClass() != null && getPlayerClass().isStartingClass())
+
+		if(getPlayerClass() != null && getPlayerClass().isStartingClass())
 			maxLevel = 10;
-		
+
 		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
 		int level = 1;
 
-		if (exp > maxExp)
+		if(exp > maxExp)
 		{
 			exp = maxExp;
 		}
 
-		//make sure level is never larger than maxLevel-1
-		while ((level + 1) != maxLevel && exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level + 1))
+		// make sure level is never larger than maxLevel-1
+		while((level + 1) != maxLevel && exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level + 1))
 		{
 			level++;
 		}
-		
+
 		this.level = level;
 	}
 
@@ -118,9 +139,25 @@ public class OfflineLegionMember extends LegionMember
 	{
 		return worldId;
 	}
-	
+
 	public void setWorldId(int worldId)
 	{
 		this.worldId = worldId;
+	}
+
+	/**
+	 * @param online the online to set
+	 */
+	public void setOnline(boolean online)
+	{
+		this.online = online;
+	}
+
+	/**
+	 * @return the online
+	 */
+	public boolean isOnline()
+	{
+		return online;
 	}
 }

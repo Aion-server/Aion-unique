@@ -26,21 +26,21 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author Simple
  * 
  */
-public class SM_CHANGE_SELF_INTRODUCTION extends AionServerPacket
+public class SM_LEGION_UPDATE_NICKNAME extends AionServerPacket
 {
-	private String	selfintro;
 	private int		playerObjId;
+	private String	newNickname;
 
-	public SM_CHANGE_SELF_INTRODUCTION(int playerObjId, String selfintro)
+	public SM_LEGION_UPDATE_NICKNAME(int playerObjId, String newNickname)
 	{
-		this.selfintro = selfintro;
 		this.playerObjId = playerObjId;
+		this.newNickname = newNickname;
 	}
 
 	@Override
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeD(buf, playerObjId);
-		writeS(buf, selfintro);
+		writeS(buf, newNickname);
 	}
 }

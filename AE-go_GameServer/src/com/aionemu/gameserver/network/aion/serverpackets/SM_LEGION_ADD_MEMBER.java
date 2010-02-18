@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -26,21 +27,26 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author Simple
  * 
  */
-public class SM_CHANGE_NICKNAME extends AionServerPacket
-{
-	private int		playerObjId;
-	private String	newNickname;
+public class SM_LEGION_ADD_MEMBER extends AionServerPacket
+{	
+	private Player	player;
 
-	public SM_CHANGE_NICKNAME(int playerObjId, String newNickname)
+	public SM_LEGION_ADD_MEMBER(Player player)
 	{
-		this.playerObjId = playerObjId;
-		this.newNickname = newNickname;
+		this.player = player;
 	}
 
 	@Override
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, playerObjId);
-		writeS(buf, newNickname);
+		writeD(buf, player.getObjectId());
+		writeS(buf, player.getName());
+		writeC(buf, player.getLegionMember().getRank());
+		writeC(buf, 0x00);// is New Member? rank?
+		writeC(buf, player.getCommonData().getPlayerClass().getClassId());
+		writeC(buf, player.getLevel());
+		writeD(buf, player.getPosition().getMapId());
+		writeD(buf, 0x00);
+		writeH(buf, 0x00);
 	}
 }

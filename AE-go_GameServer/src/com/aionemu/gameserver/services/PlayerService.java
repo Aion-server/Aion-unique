@@ -58,9 +58,8 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGIONMEMBER_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_MEMBER;
 import com.aionemu.gameserver.skillengine.SkillLearnService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
@@ -132,10 +131,10 @@ public class PlayerService
 	public boolean storeNewPlayer(Player player, String accountName, int accountId)
 	{
 		return DAOManager.getDAO(PlayerDAO.class).saveNewPlayer(player.getCommonData(), accountId, accountName)
-		&& DAOManager.getDAO(PlayerAppearanceDAO.class).store(player)
-		&& DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player)
-		&& DAOManager.getDAO(InventoryDAO.class).store(player)
-		&& DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
+			&& DAOManager.getDAO(PlayerAppearanceDAO.class).store(player)
+			&& DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player)
+			&& DAOManager.getDAO(InventoryDAO.class).store(player)
+			&& DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
 	}
 
 	/**
@@ -173,8 +172,6 @@ public class PlayerService
 		player = new Player(new PlayerController(), pcd, appereance);
 
 		LegionMember legionMember = legionService.getLegionMember(player);
-		// LegionMember legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(player, legionService,
-		// this);
 		if(legionMember != null)
 		{
 			player.setLegionMember(legionMember);
@@ -202,7 +199,8 @@ public class PlayerService
 		player.getController().updatePassiveStats();
 
 		player.setQuestStateList(DAOManager.getDAO(PlayerQuestListDAO.class).load(player));
-		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE), StorageType.CUBE);
+		player
+			.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE), StorageType.CUBE);
 		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.REGULAR_WAREHOUSE),
 			StorageType.REGULAR_WAREHOUSE);
 		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.ACCOUNT_WAREHOUSE),
@@ -332,8 +330,12 @@ public class PlayerService
 		player.getCommonData().setOnline(false);
 		player.getCommonData().setLastOnline(new Timestamp(System.currentTimeMillis()));
 
-		player.getController().delete();
 		player.setClientConnection(null);
+		
+		if(player.isLegionMember())
+			legionService.updateMembersInfoByPacket(player.getLegionMember().getLegion(), new SM_LEGION_UPDATE_MEMBER(player));
+
+		player.getController().delete();
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);
 
 		// TODO this is a temprorary solution till GroupService will be introduced
@@ -341,17 +343,6 @@ public class PlayerService
 		if(playerGroup != null)
 			playerGroup.removePlayerFromGroup(player);
 
-		if(player.isLegionMember())
-		{
-			for(Player onlineLegionMember : player.getLegionMember().getLegion().getOnlineLegionMembers(world))
-			{
-				if(onlineLegionMember.getObjectId() != player.getObjectId())
-				{
-					// TODO: Get proper packet
-					PacketSendUtility.broadcastPacket(onlineLegionMember, new SM_LEGIONMEMBER_INFO(player), true);
-				}
-			}
-		}
 		storePlayer(player);
 	}
 
