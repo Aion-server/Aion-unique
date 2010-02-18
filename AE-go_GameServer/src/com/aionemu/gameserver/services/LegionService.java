@@ -1068,7 +1068,7 @@ public class LegionService
 			Player memberPlayer;
 			if((memberPlayer = world.findPlayer(memberObjId)) != null)
 			{
-				final LegionMember legionMemberEx = memberPlayer.getLegionMember();
+				final LegionMemberEx legionMemberEx = memberPlayer.getLegionMember();
 				LegionMemberEx legionMemberEx = new LegionMemberEx(memberObjId, legionMember.getLegion(), legionMember
 					.getRank(), legionMember.getNickname(), legionMember.getSelfIntro(), memberPlayer.getName(),
 					memberPlayer.getPlayerClass(), memberPlayer.getLevel(), memberPlayer.getCommonData()
@@ -1076,7 +1076,7 @@ public class LegionService
 			}
 			else
 			{
-				LegionMemberEx legionMemberEx = getOfflineLegionMember(memberObjId);
+				final LegionMemberEx legionMemberEx = getOfflineLegionMember(memberObjId);
 			}
 			if(isValidLegionMemberEx())
 				legionMembers.add(legionMemberEx);
