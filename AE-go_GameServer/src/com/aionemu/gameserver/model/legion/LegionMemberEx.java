@@ -36,21 +36,18 @@ public class LegionMemberEx extends LegionMember {
 	/**
 	 * If player is immediately after this constructor is called
 	 */
-	public LegionMemberEx(int playerObjId, Legion legion, int rank,
-			String nickname, String selfIntro, String name,
-			PlayerClass playerClass, int level, Timestamp lastOnline,
-			int worldId, boolean online) {
-		super(playerObjId);
+	public LegionMemberEx(LegionMember legionMember, String name, PlayerClass playerClass, int level, Timestamp lastOnline, int worldId, boolean online)
+	{
+		super(legionMember.getObjectId(), legionMember.getLegion(), legionMember.getRank());
+		this.nickname = legionMember.getNickname();
+		this.selfIntro = legionMember.getSelfIntro();
+
 		this.name = name;
 		this.playerClass = playerClass;
 		this.level = level;
 		this.lastOnline = lastOnline;
 		this.worldId = worldId;
 		this.online = online;
-		this.legion = legion;
-		this.rank = rank;
-		this.nickname = nickname;
-		this.selfIntro = selfIntro;
 	}
 
 	/**

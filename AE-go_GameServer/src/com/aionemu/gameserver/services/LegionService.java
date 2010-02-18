@@ -1070,8 +1070,7 @@ public class LegionService
 			if((memberPlayer = world.findPlayer(memberObjId)) != null)
 			{
 				final LegionMember legionMember = memberPlayer.getLegionMember();
-				legionMemberEx = new LegionMemberEx(memberObjId, legionMember.getLegion(), legionMember
-					.getRank(), legionMember.getNickname(), legionMember.getSelfIntro(), memberPlayer.getName(),
+				legionMemberEx = new LegionMemberEx(legionMember, memberPlayer.getName(),
 					memberPlayer.getPlayerClass(), memberPlayer.getLevel(), memberPlayer.getCommonData()
 						.getLastOnline(), memberPlayer.getPosition().getMapId(), true);
 			}
