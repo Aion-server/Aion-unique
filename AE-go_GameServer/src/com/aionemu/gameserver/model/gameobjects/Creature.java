@@ -263,7 +263,7 @@ public abstract class Creature extends VisibleObject
 	
 	public boolean canPerformMove()
 	{
-		return !(isRooted || isSleep || isStumbled || isStunned);
+		return !(isRooted || isSleep || isStumbled || isStunned || !isSpawned());
 	}
 	
 	public boolean canAttack()

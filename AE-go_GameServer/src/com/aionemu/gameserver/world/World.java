@@ -31,6 +31,7 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.WorldMapTemplate;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
+import com.aionemu.gameserver.taskmanager.tasks.KnownListUpdateTask.KnownListUpdateMode;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.container.PlayerContainer;
@@ -266,7 +267,10 @@ public class World
 		}
 		
 		if(updateKnownList)
-			object.updateKnownlist();
+		{
+			//object.updateKnownlist();
+			object.addKnownListUpdateMask(KnownListUpdateMode.KNOWNLIST_UPDATE);
+		}
 	}
 
 	/**
@@ -346,7 +350,8 @@ public class World
 		if(object.getSpawn() != null)
 			object.getSpawn().setSpawned(true, object.getInstanceId());
 		object.getActiveRegion().add(object);
-		object.updateKnownlist();
+
+		object.addKnownListUpdateMask(KnownListUpdateMode.KNOWNLIST_UPDATE);
 	}
 
 	/**
@@ -363,7 +368,8 @@ public class World
 		object.getPosition().setIsSpawned(false);
 		if(object.getSpawn() != null)
 			object.getSpawn().setSpawned(false, object.getInstanceId());
-		object.clearKnownlist();
+
+		object.addKnownListUpdateMask(KnownListUpdateMode.KNOWNLIST_CLEAR);
 	}
 
 	/**

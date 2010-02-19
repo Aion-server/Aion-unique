@@ -83,14 +83,14 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 	 */
 	private ThreadPoolManager()
 	{
-		scheduledThreadPool = new ScheduledThreadPoolExecutorAE(4, new PriorityThreadFactory("ScheduledThreadPool",
+		scheduledThreadPool = new ScheduledThreadPoolExecutorAE(5, new PriorityThreadFactory("ScheduledThreadPool",
 			Thread.NORM_PRIORITY));
 		// scheduledThreadPool.setRemoveOnCancelPolicy(true);
 
 		effectsScheduledThreadPool = new ScheduledThreadPoolExecutorAE(6, new PriorityThreadFactory(
 			"EffectsScheduledThreadPool", Thread.NORM_PRIORITY));
 
-		aiScheduledThreadPool = new ScheduledThreadPoolExecutorAE(10, new PriorityThreadFactory(
+		aiScheduledThreadPool = new ScheduledThreadPoolExecutorAE(12, new PriorityThreadFactory(
 			"AiScheduledThreadPool", Thread.NORM_PRIORITY));
 
 		disconnectionScheduledThreadPool = new ScheduledThreadPoolExecutorAE(4, new PriorityThreadFactory(

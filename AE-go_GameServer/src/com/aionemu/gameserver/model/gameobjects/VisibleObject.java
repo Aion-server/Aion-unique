@@ -17,8 +17,11 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.controllers.VisibleObjectController;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
+import com.aionemu.gameserver.taskmanager.tasks.KnownListUpdateTask;
+import com.aionemu.gameserver.taskmanager.tasks.KnownListUpdateTask.KnownListUpdateMode;
 import com.aionemu.gameserver.world.KnownList;
 import com.aionemu.gameserver.world.MapRegion;
 import com.aionemu.gameserver.world.WorldPosition;
@@ -266,4 +269,35 @@ public abstract class VisibleObject extends AionObject
 	{
 		this.objectTemplate = objectTemplate;
 	}
+
+	/**
+	 * KnownListMask
+	 */
+	private volatile byte knownListUpdateMask;	
+	
+	/**
+	 * This is adding KnownList Update/clear to player.
+	 */
+	public final void addKnownListUpdateMask(KnownListUpdateMode mode)
+	{
+		knownListUpdateMask |= mode.mask();
+		KnownListUpdateTask.getInstance().add(this);		
+	}
+
+	/**
+	 * This is removing KnownList udpate/clear from player.
+	 */
+	public final void removeKnownListUpdateMask(KnownListUpdateMode mode)
+	{
+		knownListUpdateMask &= ~mode.mask();
+	}
+
+	/**
+	 * KnownList getter.
+	 */
+	public final byte getKnownListUpdateMask()
+	{
+		return knownListUpdateMask;
+	}
+
 }

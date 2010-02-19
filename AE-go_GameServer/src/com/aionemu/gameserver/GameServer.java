@@ -36,6 +36,7 @@ import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.taskmanager.tasks.GCTaskManager;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster;
+import com.aionemu.gameserver.taskmanager.tasks.KnownListUpdateTask;
 import com.aionemu.gameserver.utils.DeadlockDetector;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.ThreadUncaughtExceptionHandler;
@@ -58,7 +59,7 @@ public class GameServer
 	/** Logger for gameserver */
 	private static final Logger	log	= Logger.getLogger(GameServer.class);
 
-	private Injector			injector; 
+	private Injector			injector;	
 
 	/**
 	 * Creates instance of GameServer, which includes loading static data, initializing world.
@@ -100,6 +101,7 @@ public class GameServer
 		ZoneManager.getInstance().initializeZones();
 		QuestHandlersManager.init(gs.injector);
 		PacketBroadcaster.getInstance();
+		KnownListUpdateTask.getInstance();
 		if(Config.ALLOW_GC) 		
 			new Thread(new GCTaskManager(Config.GC_INTERVAL)).start();		
 		Util.printMemoryUsage(log);
@@ -142,7 +144,7 @@ public class GameServer
 
 		// Nio must go first
 		nioServer.connect();
-		loginServer.connect();
+		loginServer.connect();		
 	}
 
 	/**
@@ -190,11 +192,11 @@ public class GameServer
 		STARTUP_HOOKS = null;
 		
 		for (StartupHook hook : startupHooks)
-			hook.onStartup();
+			hook.onStartup();				
 	}
 	
 	public interface StartupHook
 	{
-		public void onStartup();
+		public void onStartup();		
 	}
 }

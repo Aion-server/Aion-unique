@@ -23,6 +23,7 @@ import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.MathUtil;
 
 /**
@@ -36,15 +37,22 @@ public class KnownList implements Iterable<VisibleObject>
 	/**
 	 * Visibility distance.
 	 */
-	private static final int					visibilityDistance	= 85;
+
+	// how far player will see visible object
+	private static final int						playerVisibilityDistance	= 90;
+
+	// how far any visible object will see other visible object
+	private static final int						npcVisibilityDistance		= 70;
+
 	/**
 	 * Owner of this KnownList.
 	 */
-	private final VisibleObject					owner;
+	private final VisibleObject						owner;
 	/**
 	 * List of objects that this KnownList owner known
 	 */
-	private final FastMap<Integer, VisibleObject>	knownObjects		= new FastMap<Integer, VisibleObject>().setShared(true);
+	private final FastMap<Integer, VisibleObject>	knownObjects				= new FastMap<Integer, VisibleObject>()
+																					.setShared(true);
 
 	/**
 	 * COnstructor.
@@ -135,11 +143,12 @@ public class KnownList implements Iterable<VisibleObject>
 	private void forgetObjects()
 	{
 		Iterator<VisibleObject> knownIt = iterator();
+
 		while(knownIt.hasNext())
 		{
 			VisibleObject obj = knownIt.next();
 
-			if(!MathUtil.isInRange(owner, obj, visibilityDistance))
+			if(!checkObjectInRange(owner, obj))
 			{
 				knownIt.remove();
 				owner.getController().notSee(obj);
@@ -154,6 +163,7 @@ public class KnownList implements Iterable<VisibleObject>
 	private void findVisibleObjects()
 	{
 		Iterator<MapRegion> neighboursIt = owner.getActiveRegion().getNeighboursIterator();
+
 		while(neighboursIt.hasNext())
 		{
 			MapRegion r = neighboursIt.next();
@@ -164,7 +174,7 @@ public class KnownList implements Iterable<VisibleObject>
 				if(newObject == owner || newObject == null)
 					continue;
 
-				if(!MathUtil.isInRange(owner, newObject, visibilityDistance))
+				if(!checkObjectInRange(owner, newObject))
 					continue;
 
 				/**
@@ -177,5 +187,13 @@ public class KnownList implements Iterable<VisibleObject>
 				}
 			}
 		}
+	}
+
+	private boolean checkObjectInRange(VisibleObject owner, VisibleObject newObject)
+	{
+		if(owner instanceof Player)
+			return MathUtil.isInRange(owner, newObject, playerVisibilityDistance);
+		else
+			return MathUtil.isInRange(owner, newObject, npcVisibilityDistance);
 	}
 }

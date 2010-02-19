@@ -52,6 +52,9 @@ public class PlayerRestrictions extends AbstractRestrictions
 		// TODO: We have to add the exception skills, 
 		// what's can be used on dead target.
 		
+		if(!player.canAttack())
+			return false;
+		
 		if(player.getController().isInShutdownProgress())
 		{
 			PacketSendUtility.sendMessage(player, "You cannot use skills in Shutdown progress!");
