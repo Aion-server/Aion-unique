@@ -26,6 +26,9 @@ public enum CreatureVisualState
 	HIDE1(1), // Hide I
 	HIDE2(2), // Hide II
 	HIDE3(3), // Hide by Artifact?
+	HIDE10(10), // Hide from Npc?
+	HIDE13(13), // Hide from Npc?
+	HIDE20(20), // Hide from Npc?
 	BLINKING(64); // Blinking when entering to zone
 
 	private int id;

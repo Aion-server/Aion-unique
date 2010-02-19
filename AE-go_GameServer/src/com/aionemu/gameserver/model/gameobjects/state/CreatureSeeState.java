@@ -23,8 +23,8 @@ package com.aionemu.gameserver.model.gameobjects.state;
 public enum CreatureSeeState
 {
 	NORMAL(0), // Normal
-	SEE_HIDE1(1), // See-Through: Hide I
-	SEE_HIDE2(2); // See-Through: Hide II
+	SEARCH1(1), // See-Through: Hide I
+	SEARCH2(2); // See-Through: Hide II
 
 	private int id;
 

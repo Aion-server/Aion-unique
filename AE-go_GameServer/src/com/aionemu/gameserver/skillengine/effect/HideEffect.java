@@ -71,6 +71,15 @@ public class HideEffect extends EffectTemplate
 			case 3:
 				visualState = CreatureVisualState.HIDE3;
 				break;
+			case 10:
+				visualState = CreatureVisualState.HIDE10;
+				break;
+			case 13:
+				visualState = CreatureVisualState.HIDE13;
+				break;
+			case 20:
+				visualState = CreatureVisualState.HIDE20;
+				break;
 			default:
 				visualState = CreatureVisualState.VISIBLE;
 				break;
@@ -101,6 +110,15 @@ public class HideEffect extends EffectTemplate
 				break;
 			case 3:
 				visualState = CreatureVisualState.HIDE3;
+				break;
+			case 10:
+				visualState = CreatureVisualState.HIDE10;
+				break;
+			case 13:
+				visualState = CreatureVisualState.HIDE13;
+				break;
+			case 20:
+				visualState = CreatureVisualState.HIDE20;
 				break;
 			default:
 				visualState = CreatureVisualState.VISIBLE;

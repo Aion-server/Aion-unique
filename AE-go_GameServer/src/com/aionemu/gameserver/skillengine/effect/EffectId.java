@@ -31,7 +31,7 @@ public enum EffectId
 	TRANSFORM(6),
 	POISON(7),
 	BLEED(8),
-	SEE_THROUGH(9);
+	SEARCH(9);
 	
 	private int effectId;
 	

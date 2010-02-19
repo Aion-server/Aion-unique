@@ -55,17 +55,17 @@ public class SearchEffect extends EffectTemplate
 	public void endEffect(Effect effect)
 	{
 		Creature effected = effect.getEffected();
-		effected.getEffectController().unsetAbnormal(EffectId.SEE_THROUGH.getEffectId());
+		effected.getEffectController().unsetAbnormal(EffectId.SEARCH.getEffectId());
 
 		CreatureSeeState seeState;
 
 		switch(value)
 		{
 			case 1:
-				seeState = CreatureSeeState.SEE_HIDE1;
+				seeState = CreatureSeeState.SEARCH1;
 				break;
 			case 2:
-				seeState = CreatureSeeState.SEE_HIDE2;
+				seeState = CreatureSeeState.SEARCH2;
 				break;
 			default:
 				seeState = CreatureSeeState.NORMAL;
@@ -83,17 +83,17 @@ public class SearchEffect extends EffectTemplate
 	public void startEffect(final Effect effect)
 	{
 		final Creature effected = effect.getEffected();
-		effected.getEffectController().setAbnormal(EffectId.SEE_THROUGH.getEffectId());
+		effected.getEffectController().setAbnormal(EffectId.SEARCH.getEffectId());
 
 		CreatureSeeState seeState;
 
 		switch(value)
 		{
 			case 1:
-				seeState = CreatureSeeState.SEE_HIDE1;
+				seeState = CreatureSeeState.SEARCH1;
 				break;
 			case 2:
-				seeState = CreatureSeeState.SEE_HIDE2;
+				seeState = CreatureSeeState.SEARCH2;
 				break;
 			default:
 				seeState = CreatureSeeState.NORMAL;
