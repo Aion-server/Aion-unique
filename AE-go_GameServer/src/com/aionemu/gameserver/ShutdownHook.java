@@ -105,6 +105,7 @@ public class ShutdownHook extends Thread
 		for(int i = duration; i >= interval; i -= interval)
 		{
 			sendShutdownMessage(i);
+			sendShutdownStatus(true);
 			try
 			{
 				if(i > interval)
@@ -240,9 +241,9 @@ public class ShutdownHook extends Thread
 			log.warn("Shutdown countdown is over: " + mode.getText() + " NOW!");
 
 			if(mode == ShutdownMode.RESTART)
-				System.exit(2);
+				Runtime.getRuntime().halt(2);
 			else
-				System.exit(0);
+				Runtime.getRuntime().halt(0);
 		}
 
 		public static void doShutdown(String initiator, int seconds, ShutdownMode mode)
