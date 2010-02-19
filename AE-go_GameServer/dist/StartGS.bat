@@ -3,7 +3,6 @@ title Aion-Unique GameServer Console
 
 REM Start...
 :start
-echo.
 echo Starting Aion-Unique Game Server.
 echo.
 REM -------------------------------------

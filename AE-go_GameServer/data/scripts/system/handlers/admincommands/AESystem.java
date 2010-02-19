@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.aionemu.gameserver.ShutdownHook.ShutdownManager;
-import com.aionemu.gameserver.ShutdownHook.ShutdownManager.ShutdownMode;
+import com.aionemu.gameserver.ShutdownHook.ShutdownMode;
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;

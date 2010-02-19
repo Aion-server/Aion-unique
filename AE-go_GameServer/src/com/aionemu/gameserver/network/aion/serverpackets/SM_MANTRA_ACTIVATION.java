@@ -27,6 +27,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_MANTRA_ACTIVATION extends AionServerPacket
 {
+	@SuppressWarnings("unused")
 	private Player player;
 	private int skillId;
 
