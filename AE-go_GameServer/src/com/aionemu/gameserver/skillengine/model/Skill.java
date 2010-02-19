@@ -17,11 +17,13 @@
 package com.aionemu.gameserver.skillengine.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.skillengine.action.Action;
 import com.aionemu.gameserver.skillengine.action.Actions;
@@ -115,7 +117,15 @@ public class Skill
 		if(!setProperties(skillTemplate.getSetproperties()))
 			return;
 		
-		if (!RestrictionsManager.canUseSkill(getEffector(), getFirstTarget()))
+		Iterator<Creature> effectedIter = effectedList.iterator();
+		while(effectedIter.hasNext())
+		{
+			Creature effected = effectedIter.next();
+			if (!RestrictionsManager.canUseSkill(getEffector(), effected))
+				effectedIter.remove();
+		}
+		
+		if(effectedList.size() == 0)
 			return;
 		
 		//temporary hook till i find permanent solution
@@ -128,11 +138,11 @@ public class Skill
 		
 		if(skillTemplate.getDuration() > 0)
 		{
-			schedule(skillTemplate.getDuration());
+			schedule(skillType, skillTemplate.getDuration());
 		}
 		else
 		{
-			endCast();
+			endCast(skillType);
 		}
 	}
 	
@@ -153,7 +163,7 @@ public class Skill
 	/**
 	 *  Apply effects and perform actions specified in skill template
 	 */
-	private void endCast()
+	private void endCast(SkillType skillType)
 	{
 		//stop casting must be before preUsageCheck()
 		effector.setCasting(null);
@@ -163,28 +173,59 @@ public class Skill
 		
 		int duration = 0;
 		
+		/**
+		 * Create effects and precalculate result
+		 */
+		List<Effect> effects = new ArrayList<Effect>();		 
 		if(skillTemplate.getEffects() != null)
 		{
-			for(EffectTemplate template : skillTemplate.getEffects().getEffects())
+			List<EffectTemplate> effectTemplates = skillTemplate.getEffects().getEffects();
+			for(EffectTemplate template : effectTemplates)
 			{
 				duration = duration > template.getDuration() ? duration : template.getDuration();
 			}
 
-			for(Creature creature : effectedList)
+			for(Creature effected : effectedList)
 			{
-				Effect effect = new Effect(effector, skillTemplate,	skillLevel, duration);	
-				
-				creature.getEffectController().addEffect(effect);
+				Effect effect = new Effect(effector, effected, skillTemplate,	skillLevel, duration);
+				for(EffectTemplate template : effectTemplates)
+				{
+					template.calculate(effect);
+				}
+				effects.add(effect);
 			}
 		}
 		
+		/**
+		 * If castspell - send SM_CASTSPELL_END packet
+		 */
+		if(skillType == SkillType.CAST)
+		{
+			PacketSendUtility.broadcastPacket(effector,
+				new SM_CASTSPELL_END(effector.getObjectId(), skillTemplate.getSkillId(), skillLevel,
+					firstTarget.getObjectId(), effects, skillTemplate.getCooldown()), true);
+		}
+		
+		/**
+		 * Perform necessary actions (use mp,dp items etc)
+		 */
 		Actions skillActions = skillTemplate.getActions();
 		if(skillActions != null)
 		{
 			for(Action action : skillActions.getActions())
-			{
-				
+			{	
 				action.act(this);
+			}
+		}
+		
+		/**
+		 * Apply effects to effected objects
+		 */
+		for(Effect effect : effects)
+		{
+			for(EffectTemplate template : skillTemplate.getEffects().getEffects())
+			{
+				template.applyEffect(effect);
 			}
 		}
 	}
@@ -192,13 +233,13 @@ public class Skill
 	/**
 	 *  Schedule actions/effects of skill (channeled skills)
 	 */
-	private void schedule(int delay)
+	private void schedule(final SkillType skillType, int delay)
 	{
 		ThreadPoolManager.getInstance().schedule(new Runnable() 
 		{
 			public void run() 
 			{
-				endCast();
+				endCast(skillType);
 			}   
 		}, delay);
 	}

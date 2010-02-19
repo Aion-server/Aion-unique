@@ -14,13 +14,14 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.action.modifier;
+package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.skillengine.model.Effect;
 
 
 /**
@@ -28,15 +29,21 @@ import com.aionemu.gameserver.skillengine.model.Skill;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ActionModifier")
-public abstract class ActionModifier {
+@XmlType(name = "ItemHealDpEffect")
+public class ItemHealDpEffect
+extends AbstractHealEffect
+{
 
-	/**
-	 *  For now just pass damage value
-	 *  Later probaly Context will be passed
-	 *  
-	 * @param originalValue
-	 * @return
-	 */
-	public abstract int analyze(Skill skill, int originalValue);
+	@Override
+	public void applyEffect(Effect effect)
+	{
+		((Player) effect.getEffected()).getCommonData().addDp(-effect.getReserved1());
+	}
+
+	@Override
+	public void calculate(Effect effect)
+	{
+		super.calculate(effect);
+		effect.increaseSuccessEffect();
+	}
 }

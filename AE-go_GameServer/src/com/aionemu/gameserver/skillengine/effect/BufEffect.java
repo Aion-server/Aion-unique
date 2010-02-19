@@ -16,21 +16,17 @@
  */
 package com.aionemu.gameserver.skillengine.effect;
 
-import java.util.List;
 import java.util.TreeSet;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
-import com.aionemu.gameserver.model.gameobjects.stats.StatEffectType;
-import com.aionemu.gameserver.model.gameobjects.stats.id.StatEffectId;
+import com.aionemu.gameserver.model.gameobjects.stats.id.SkillEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.AddModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.RateModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SetModifier;
@@ -43,23 +39,23 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BufEffect")
-public class BufEffect extends EffectTemplate
+public abstract class BufEffect extends EffectTemplate
 {
 	private static final Logger log = Logger.getLogger(BufEffect.class);
 
-	@XmlElements({
-		@XmlElement(name = "change", type = Change.class)
-	})
-	protected List<Change> changes;
-
-	/**
-	 * @return the changes
-	 */
-	public List<Change> getChanges()
+	@Override
+	public void applyEffect(Effect effect)
 	{
-		return changes;
+		effect.addToEffectedController();
 	}
 
+	
+	@Override
+	public void calculate(Effect effect)
+	{
+		effect.increaseSuccessEffect();
+	}
+	
 	/**
 	 * Will be called from effect controller when effect ends
 	 */
@@ -68,7 +64,7 @@ public class BufEffect extends EffectTemplate
 	{
 		Creature effected = effect.getEffected();
 		int skillId = effect.getSkillId();
-		effected.getGameStats().endEffect(StatEffectId.getInstance(skillId, StatEffectType.SKILL_EFFECT));
+		effected.getGameStats().endEffect(SkillEffectId.getInstance(skillId, effectid));
 	}
 	/**
 	 * Will be called from effect controller when effect starts
@@ -76,7 +72,7 @@ public class BufEffect extends EffectTemplate
 	@Override
 	public void startEffect(Effect effect)
 	{
-		if(changes == null)
+		if(change == null)
 			return;
 		Creature effected = effect.getEffected();
 		int skillId = effect.getSkillId();
@@ -85,33 +81,33 @@ public class BufEffect extends EffectTemplate
 		CreatureGameStats<? extends Creature> cgs = effected.getGameStats();
 		TreeSet<StatModifier> modifiers = new TreeSet<StatModifier> ();
 		
-		for(Change change : changes)
+		for(Change changeItem : change)
 		{
-			if(change.getStat() == null)
+			if(changeItem.getStat() == null)
 			{
 				log.warn("Skill stat has wrong name for skillid: " + skillId);
 				continue;
 			}
 
-			int valueWithDelta = change.getValue() + change.getDelta() * skillLvl;
+			int valueWithDelta = changeItem.getValue() + changeItem.getDelta() * skillLvl;
 
-			switch(change.getFunc())
+			switch(changeItem.getFunc())
 			{
 				case ADD:
-					modifiers.add(AddModifier.newInstance(change.getStat(),valueWithDelta,true));
+					modifiers.add(AddModifier.newInstance(changeItem.getStat(),valueWithDelta,true));
 					break;
 				case PERCENT:
-					modifiers.add(RateModifier.newInstance(change.getStat(),valueWithDelta,true));
+					modifiers.add(RateModifier.newInstance(changeItem.getStat(),valueWithDelta,true));
 					break;
 				case REPLACE:
-					modifiers.add(SetModifier.newInstance(change.getStat(),valueWithDelta, true));
+					modifiers.add(SetModifier.newInstance(changeItem.getStat(),valueWithDelta, true));
 					break;
 			}
 		}
 
 		if (modifiers.size()>0)
 		{
-			cgs.addModifiers(StatEffectId.getInstance(skillId, StatEffectType.SKILL_EFFECT), modifiers);
+			cgs.addModifiers(SkillEffectId.getInstance(skillId, effectid), modifiers);
 		}
 	}
 

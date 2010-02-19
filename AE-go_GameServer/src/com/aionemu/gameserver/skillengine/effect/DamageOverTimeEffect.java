@@ -36,14 +36,22 @@ import com.aionemu.gameserver.utils.stats.StatFunctions;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DamageOverTimeEffect")
-public class DamageOverTimeEffect extends EffectTemplate
+public class DamageOverTimeEffect extends DamageEffect
 {
 	@XmlAttribute(required = true)
 	protected int checktime;	
-	@XmlAttribute
-	protected int damage;
-	@XmlAttribute
-	protected int delta;
+
+	@Override
+	public void calculate(Effect effect)
+	{
+		effect.increaseSuccessEffect();	
+	}
+	
+	@Override
+	public void applyEffect(Effect effect)
+	{
+		effect.addToEffectedController();
+	}
 
 	@Override
 	public void endEffect(Effect effect)
@@ -57,7 +65,7 @@ public class DamageOverTimeEffect extends EffectTemplate
 	{
 		Creature effected = effect.getEffected();
 		Creature effector = effect.getEffector();
-		int valueWithDelta = damage + delta * effect.getSkillLevel();
+		int valueWithDelta = value + delta * effect.getSkillLevel();
 		int damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, valueWithDelta, SkillElement.NONE);
 		effected.getController().onAttack(effector, effect.getSkillId(), TYPE.DAMAGE, damage);			
 	}
@@ -66,7 +74,6 @@ public class DamageOverTimeEffect extends EffectTemplate
 	public void startEffect(final Effect effect)
 	{
 		final Creature effected = effect.getEffected();
-
 		effected.getEffectController().setAbnormal(EffectId.DAMAGE_OT.getEffectId());
 
 		Future<?> task = ThreadPoolManager.getInstance().scheduleEffectAtFixedRate(new Runnable(){
@@ -79,5 +86,4 @@ public class DamageOverTimeEffect extends EffectTemplate
 		}, checktime, checktime);
 		effect.setPeriodicTask(task);	
 	}
-
 }

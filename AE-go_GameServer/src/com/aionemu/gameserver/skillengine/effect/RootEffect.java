@@ -18,7 +18,6 @@ package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -34,9 +33,17 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 @XmlType(name = "RootEffect")
 public class RootEffect extends EffectTemplate
 {
-	/** duration is in seconds **/
-	@XmlAttribute(required = true)
-    protected int duration;
+	@Override
+	public void applyEffect(Effect effect)
+	{
+		effect.addToEffectedController();
+	}
+
+	@Override
+	public void calculate(Effect effect)
+	{
+		effect.increaseSuccessEffect();	
+	}
 
 	@Override
 	public void startEffect(Effect effect)
@@ -50,11 +57,5 @@ public class RootEffect extends EffectTemplate
 	public void endEffect(Effect effect)
 	{
 		effect.getEffected().setRooted(false);
-	}
-
-	@Override
-	public void onPeriodicAction(Effect effect)
-	{
-		// TODO Auto-generated method stub
 	}
 }

@@ -38,7 +38,7 @@ public class EffectController
 	private Creature owner;
 	
 	private Map<String, Effect> passiveEffectMap;
-	private ConcurrentMap<String, Effect> effectMap;
+	private ConcurrentMap<String, Effect> abnormalEffectMap;
 
 	private int abnormals;
 
@@ -46,7 +46,7 @@ public class EffectController
 	{
 		super();
 		this.owner = owner;
-		this.effectMap = new ConcurrentHashMap<String, Effect>();
+		this.abnormalEffectMap = new ConcurrentHashMap<String, Effect>();
 		this.passiveEffectMap = new HashMap<String, Effect>();
 	}
 
@@ -64,9 +64,7 @@ public class EffectController
 	 */
 	public void addEffect(Effect effect)
 	{
-		effect.setController(this);
-
-		Map<String, Effect> mapToUpdate = effect.isPassive() ? passiveEffectMap : effectMap;
+		Map<String, Effect> mapToUpdate = effect.isPassive() ? passiveEffectMap : abnormalEffectMap;
 		
 		if(mapToUpdate.containsKey(effect.getStack()))
 		{
@@ -104,7 +102,7 @@ public class EffectController
 	{	
 		PacketSendUtility.broadcastPacket(getOwner(),
 			new SM_ABNORMAL_EFFECT(getOwner().getObjectId(),
-				effectMap.values().toArray(new Effect[effectMap.size()])));	
+				abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()])));	
 	}
 
 	/**
@@ -115,7 +113,7 @@ public class EffectController
 	public void sendEffectIconsTo(Player player)
 	{
 		PacketSendUtility.sendPacket(player, new SM_ABNORMAL_EFFECT(getOwner().getObjectId(),
-			effectMap.values().toArray(new Effect[effectMap.size()])));
+			abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()])));
 	}
 
 	/**
@@ -124,7 +122,7 @@ public class EffectController
 	 */
 	public void removeEffect(Effect effect)
 	{
-		effectMap.remove(effect.getStack());
+		abnormalEffectMap.remove(effect.getStack());
 
 		broadCastEffects();
 		if(owner instanceof Player)
@@ -140,9 +138,9 @@ public class EffectController
 	 */
 	public void removeEffect(int skillid)
 	{
-		for(Effect effect : effectMap.values()){
+		for(Effect effect : abnormalEffectMap.values()){
 			if(effect.getSkillId()==skillid){
-				effectMap.remove(effect.getStack());
+				abnormalEffectMap.remove(effect.getStack());
 				effect.endEffect();
 			}
 		}
@@ -159,11 +157,11 @@ public class EffectController
 	 */
 	public void removeAllEffects()
 	{
-		for(Effect effect : effectMap.values())
+		for(Effect effect : abnormalEffectMap.values())
 		{
 			effect.endEffect();
 		}
-		effectMap.clear();
+		abnormalEffectMap.clear();
 	}
 
 	/**
@@ -193,6 +191,6 @@ public class EffectController
 	public void updatePlayerEffectIconsImpl()
 	{
 		PacketSendUtility.sendPacket((Player) owner,
-			new SM_ABNORMAL_STATE(effectMap.values().toArray(new Effect[effectMap.size()])));
+			new SM_ABNORMAL_STATE(abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()])));
 	}
 }

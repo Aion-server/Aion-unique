@@ -18,39 +18,43 @@ package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
+import com.aionemu.gameserver.skillengine.action.DamageType;
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author ATracer
- *
+ *  
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StunEffect")
-public class StunEffect extends EffectTemplate
+@XmlType(name = "DelayDamageEffect")
+public class DelayDamageEffect extends DamageEffect
 {
-	@Override
-	public void applyEffect(Effect effect)
-	{
-		effect.addToEffectedController();
-	}
+	
+	@XmlAttribute
+	protected int delay;
 
 	@Override
 	public void calculate(Effect effect)
 	{
+		super.calculate(effect, DamageType.MAGICAL);
 		effect.increaseSuccessEffect();
 	}
 
 	@Override
-	public void startEffect(Effect effect)
+	public void applyEffect(final Effect effect)
 	{
-		effect.getEffected().setStunned(true);
-	}
-
-	@Override
-	public void endEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(false);
+		ThreadPoolManager.getInstance().schedule(new Runnable(){		
+			@Override
+			public void run()
+			{				
+				effect.getEffected().getController().onAttack(effect.getEffector(), 
+					effect.getSkillId(), TYPE.REGULAR, effect.getReserved1());
+			}
+		}, delay);	
 	}
 }

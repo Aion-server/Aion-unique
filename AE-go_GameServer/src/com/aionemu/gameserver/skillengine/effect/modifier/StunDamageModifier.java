@@ -14,43 +14,35 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
+package com.aionemu.gameserver.skillengine.effect.modifier;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.skillengine.model.Effect;
 
+
 /**
  * @author ATracer
- *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StunEffect")
-public class StunEffect extends EffectTemplate
+@XmlType(name = "StunDamageModifier")
+public class StunDamageModifier
+extends ActionModifier
 {
-	@Override
-	public void applyEffect(Effect effect)
-	{
-		effect.addToEffectedController();
-	}
+
+	@XmlAttribute(required = true)
+	protected int delta;
+	@XmlAttribute(required = true)
+	protected int value;
 
 	@Override
-	public void calculate(Effect effect)
+	public int analyze(Effect skill, int originalValue)
 	{
-		effect.increaseSuccessEffect();
-	}
-
-	@Override
-	public void startEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(true);
-	}
-
-	@Override
-	public void endEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(false);
+		return skill.getEffected().isStunned() 
+			? originalValue + value + skill.getSkillLevel() * delta : originalValue;
 	}
 }

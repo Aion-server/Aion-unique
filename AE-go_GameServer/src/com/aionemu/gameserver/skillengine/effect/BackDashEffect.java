@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.skillengine.action.DamageType;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
@@ -27,30 +28,12 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StunEffect")
-public class StunEffect extends EffectTemplate
+@XmlType(name = "BackDashEffect")
+public class BackDashEffect extends DamageEffect
 {
-	@Override
-	public void applyEffect(Effect effect)
-	{
-		effect.addToEffectedController();
-	}
-
 	@Override
 	public void calculate(Effect effect)
 	{
-		effect.increaseSuccessEffect();
-	}
-
-	@Override
-	public void startEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(true);
-	}
-
-	@Override
-	public void endEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(false);
+		super.calculate(effect, DamageType.PHYSICAL);
 	}
 }

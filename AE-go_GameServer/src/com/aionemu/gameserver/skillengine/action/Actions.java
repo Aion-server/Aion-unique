@@ -37,25 +37,15 @@ import javax.xml.bind.annotation.XmlType;
 public class Actions
 {
     @XmlElements({
-        @XmlElement(name = "return", type = ReturnAction.class),
-        @XmlElement(name = "damage", type = DamageAction.class),
         @XmlElement(name = "itemuse", type = ItemUseAction.class),
         @XmlElement(name = "mpuse", type = MpUseAction.class),
         @XmlElement(name = "hpuse", type = HpUseAction.class),
-        @XmlElement(name = "dpuse", type = DpUseAction.class),
-        @XmlElement(name = "dummy", type = DummyAction.class),
-        @XmlElement(name = "itemheal", type = ItemHealAction.class),
-        @XmlElement(name = "itemhealmp", type = ItemHealMpAction.class),
-        @XmlElement(name = "itemhealdp", type = ItemHealDpAction.class),
-        @XmlElement(name = "heal", type = HealAction.class),
-        @XmlElement(name = "healmp", type = HealMpAction.class),
-        @XmlElement(name = "healdp", type = HealDpAction.class),
-        @XmlElement(name = "delaydamage", type = DelayDamageAction.class)
+        @XmlElement(name = "dpuse", type = DpUseAction.class)
     })
     protected List<Action> actions;
 
     /**
-     * Gets the value of the damageAndReturnAndHeal property.
+     * Gets the value of the actions property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
@@ -72,18 +62,10 @@ public class Actions
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ReturnAction }
-     * {@link DamageAction }
      * {@link ItemUseAction }
      * {@link MpUseAction }
      * {@link HpUseAction }
-     * {@link DummyAction }
-     * {@link ItemHealAction }
-     * {@link ItemHealMpAction }
-     * {@link ItemHealDpAction }
-     * {@link HealAction }
-     * {@link HealMpAction }
-     * {@link HealDpAction }
+     * {@link DpUseAction }
      * 
      */
     public List<Action> getActions() 

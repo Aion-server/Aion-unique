@@ -18,7 +18,6 @@ package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.skillengine.model.Effect;
@@ -31,9 +30,17 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 @XmlType(name = "SleepEffect")
 public class SleepEffect extends EffectTemplate
 {
-	/** duration is in seconds **/
-	@XmlAttribute(required = true)
-	protected int duration;
+	@Override
+	public void applyEffect(Effect effect)
+	{
+		effect.addToEffectedController();
+	}
+
+	@Override
+	public void calculate(Effect effect)
+	{
+		effect.increaseSuccessEffect();		
+	}
 
 	@Override
 	public void startEffect(Effect effect)
@@ -45,11 +52,5 @@ public class SleepEffect extends EffectTemplate
 	public void endEffect(Effect effect)
 	{
 		effect.getEffected().setSleep(false);
-	}
-
-	@Override
-	public void onPeriodicAction(Effect effect)
-	{
-		// TODO Auto-generated method stub
 	}
 }

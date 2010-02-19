@@ -30,13 +30,14 @@
 				maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="skill_id" type="skillId" use="required" />
-		<xs:attribute name="name" type="xs:string"/>
-		<xs:attribute name="nameId" type="xs:int"/>
-		<xs:attribute name="stack" type="xs:string"/>
-		<xs:attribute name="lvl" type="xs:int"/>
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="nameId" type="xs:int" />
+		<xs:attribute name="stack" type="xs:string" />
+		<xs:attribute name="lvl" type="xs:int" />
 		<xs:attribute name="skilltype" type="skillType" use="required" />
 		<xs:attribute name="skillsubtype" type="skillSubType"
 			use="required" />
+		<xs:attribute name="tslot" type="TargetSlot" />
 		<xs:attribute name="activation" type="activationAttribute"
 			use="required" />
 		<xs:attribute name="duration" type="xs:int" use="required" />
@@ -52,21 +53,71 @@
 				maxOccurs="1" />
 			<xs:element name="sleep" type="SleepEffect" minOccurs="0"
 				maxOccurs="1" />
-			<xs:element name="buf" type="BufEffect" minOccurs="0"
+			<xs:element name="snare" type="SnareEffect" minOccurs="0"
 				maxOccurs="1" />
-			<xs:element name="dot" type="DamageOverTimeEffect"
-				minOccurs="0" maxOccurs="1" />
+			<xs:element name="slow" type="SlowEffect" minOccurs="0"
+				maxOccurs="1" />
 			<xs:element name="poison" type="PoisonEffect" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="bleed" type="BleedEffect" minOccurs="0"
-				maxOccurs="1" />	
+				maxOccurs="1" />
+			<xs:element name="stumble" type="StumbleEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="spin" type="SpinEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="stagger" type="StaggerEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="openaerial" type="OpenAerialEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="closeaerial" type="CloseAerialEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="bind" type="BindEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="shield" type="ShieldEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="dispel" type="DispelEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="statup" type="StatupEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="statboost" type="StatboostEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="statdown" type="StatdownEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="dot" type="DamageOverTimeEffect"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="hot" type="HealOverTimeEffect"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="transform" type="TransformEffect"
 				minOccurs="0" maxOccurs="1" />
-			<xs:element name="hide" type="HideEffect"
+			<xs:element name="hide" type="HideEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="search" type="SearchEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="heal" type="HealEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="healmp" type="HealMpEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="healdp" type="HealDpEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="skillatk" type="SkillAttackEffect"
 				minOccurs="0" maxOccurs="1" />
-			<xs:element name="seethrough" type="SeeThroughEffect"
+			<xs:element name="spellatk" type="SpellAttackEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="dash" type="DashEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="backdash" type="BackDashEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="delaydamage" type="DelayDamageEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="return" type="ReturnEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="itemheal" type="ItemHealEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="itemhealmp" type="ItemHealMpEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="itemhealdp" type="ItemHealDpEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="carvesignet" type="CarveSignetEffect"
 				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
@@ -101,12 +152,6 @@
 
 	<xs:complexType name="Actions">
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
-			<xs:element name="damage" type="DamageAction" minOccurs="0"
-				maxOccurs="1" />
-			<xs:element name="delaydamage" type="DelayDamageAction" minOccurs="0"
-				maxOccurs="1" />
-			<xs:element name="return" type="ReturnAction" minOccurs="0"
-				maxOccurs="1" />
 			<xs:element name="itemuse" type="ItemUseAction" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="mpuse" type="MpUseAction" minOccurs="0"
@@ -115,86 +160,48 @@
 				maxOccurs="1" />
 			<xs:element name="dpuse" type="DpUseAction" minOccurs="0"
 				maxOccurs="1" />
-			<xs:element name="dummy" type="DummyAction" minOccurs="0"
-				maxOccurs="1" />
-			<xs:element name="itemheal" type="ItemHealAction"
-				minOccurs="0" maxOccurs="1" />
-			<xs:element name="itemhealmp" type="ItemHealMpAction"
-				minOccurs="0" maxOccurs="1" />
-			<xs:element name="itemhealdp" type="ItemHealDpAction"
-				minOccurs="0" maxOccurs="1" />
-			<xs:element name="heal" type="HealAction" minOccurs="0"
-				maxOccurs="1" />
-			<xs:element name="healmp" type="HealMpAction" minOccurs="0"
-				maxOccurs="1" />
-			<xs:element name="healdp" type="HealDpAction" minOccurs="0"
-				maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:complexType name="ActionModifiers">
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
-			<xs:element name="backdamage" type="BackDamageModifier" minOccurs="0"
-				maxOccurs="1" />
-			<xs:element name="frontdamage" type="FrontDamageModifier" minOccurs="0"
-				maxOccurs="1" />
-			<xs:element name="stundamage" type="StunDamageModifier" minOccurs="0"
-				maxOccurs="1" />
-			<xs:element name="stumbledamage" type="StumbleDamageModifier" minOccurs="0"
-				maxOccurs="1" />
-			<xs:element name="poisondamage" type="PoisonDamageModifier" minOccurs="0"
-				maxOccurs="1" />
+			<xs:element name="backdamage" type="BackDamageModifier"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="frontdamage" type="FrontDamageModifier"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="stundamage" type="StunDamageModifier"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="stumbledamage" type="StumbleDamageModifier"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="poisondamage" type="PoisonDamageModifier"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="Condition" abstract="true" />
-	
-	<xs:complexType name="Action" abstract="true">
-		<xs:sequence>
-			<xs:element name="modifiers" type="ActionModifiers" minOccurs="0"
-				maxOccurs="1" />
-		</xs:sequence>
-	</xs:complexType>
-	
+	<xs:complexType name="Action" abstract="true" />
+
 	<xs:complexType name="Effect" abstract="true">
-		<xs:attribute name="duration" type="xs:int" use="required" />
+		<xs:sequence>
+			<xs:element name="subeffect" type="SubEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="modifiers" type="ActionModifiers"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="change" type="Change" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="effectid" type="xs:int" />
+		<xs:attribute name="duration" type="xs:int" />
 	</xs:complexType>
+
 	<xs:complexType name="Property" abstract="true" />
 	<xs:complexType name="ActionModifier" abstract="true" />
 
+	<xs:complexType name="SubEffect">
+		<xs:attribute name="skill_id" type="skillId" />
+	</xs:complexType>
+
 	<!-- ACTIONS -->
-
-	<xs:complexType name="DamageAction">
-		<xs:complexContent>
-			<xs:extension base="Action">
-				<xs:attribute name="type" type="DamageType" />
-				<xs:attribute name="value" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" />
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	
-	<xs:complexType name="DelayDamageAction">
-		<xs:complexContent>
-			<xs:extension base="DamageAction">
-				<xs:attribute name="delay" type="xs:int" />
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:simpleType name="DamageType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="PHYSICAL" />
-			<xs:enumeration value="MAGICAL" />
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:complexType name="ReturnAction">
-		<xs:complexContent>
-			<xs:extension base="Action">
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 
 	<xs:complexType name="ItemUseAction">
 		<xs:complexContent>
@@ -221,7 +228,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="DpUseAction">
 		<xs:complexContent>
 			<xs:extension base="Action">
@@ -230,72 +237,8 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="DummyAction">
-		<xs:complexContent>
-			<xs:extension base="Action">
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:complexType name="ItemHealAction">
-		<xs:complexContent>
-			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" use="required" />
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:complexType name="ItemHealMpAction">
-		<xs:complexContent>
-			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" use="required" />
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	
-	<xs:complexType name="ItemHealDpAction">
-		<xs:complexContent>
-			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" use="required" />
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:complexType name="HealAction">
-		<xs:complexContent>
-			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" use="required" />
-				<xs:attribute name="percent" type="xs:boolean"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:complexType name="HealMpAction">
-		<xs:complexContent>
-			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" use="required" />
-				<xs:attribute name="percent" type="xs:boolean"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	
-	<xs:complexType name="HealDpAction">
-		<xs:complexContent>
-			<xs:extension base="Action">
-				<xs:attribute name="value" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" use="required" />
-				<xs:attribute name="percent" type="xs:boolean"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	
 	<!-- ACTION MODIFIERS -->
-	
+
 	<xs:complexType name="BackDamageModifier">
 		<xs:complexContent>
 			<xs:extension base="ActionModifier">
@@ -304,7 +247,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="FrontDamageModifier">
 		<xs:complexContent>
 			<xs:extension base="ActionModifier">
@@ -313,7 +256,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="StunDamageModifier">
 		<xs:complexContent>
 			<xs:extension base="ActionModifier">
@@ -322,7 +265,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="StumbleDamageModifier">
 		<xs:complexContent>
 			<xs:extension base="ActionModifier">
@@ -331,7 +274,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="PoisonDamageModifier">
 		<xs:complexContent>
 			<xs:extension base="ActionModifier">
@@ -343,43 +286,119 @@
 
 	<!-- EFFECTS -->
 
+	<xs:complexType name="HideEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="SearchEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="DispelEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:sequence minOccurs="0" maxOccurs="1">
+					<xs:element name="effectids" type="xs:int" minOccurs="0"
+						maxOccurs="unbounded" />
+				</xs:sequence>
+				<xs:attribute name="dispeltype" type="DispelType" />
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 	<xs:complexType name="RootEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="StunEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="SleepEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
-	<xs:complexType name="PoisonEffect">
+
+	<xs:complexType name="SnareEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
-				<xs:attribute name="checktime" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" />
-				<xs:attribute name="value" type="xs:int"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
-	<xs:complexType name="BleedEffect">
+
+	<xs:complexType name="SlowEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
-				<xs:attribute name="checktime" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="StumbleEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="StaggerEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="SpinEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="BindEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="OpenAerialEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CloseAerialEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ShieldEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="hitdelta" type="xs:int" />
+				<xs:attribute name="hitvalue" type="xs:int" />
 				<xs:attribute name="delta" type="xs:int" />
-				<xs:attribute name="value" type="xs:int"/>
+				<xs:attribute name="value" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -394,10 +413,20 @@
 		</xs:complexContent>
 	</xs:complexType>
 
+	<xs:complexType name="BleedEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="checktime" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" use="required" />
+				<xs:attribute name="value" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 	<xs:complexType name="HealOverTimeEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
-				<xs:attribute name="type" type="HopType" use="required" />
+				<xs:attribute name="type" type="HealType" use="required" />
 				<xs:attribute name="checktime" type="xs:int" use="required" />
 				<xs:attribute name="delta" type="xs:int" />
 				<xs:attribute name="value" type="xs:int" />
@@ -405,13 +434,40 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="BufEffect">
+	<xs:complexType name="PoisonEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
-				<xs:sequence>
-					<xs:element name="change" type="Change" minOccurs="1"
-						maxOccurs="unbounded" />
-				</xs:sequence>
+				<xs:attribute name="checktime" type="xs:int" use="required" />
+				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="BufEffect" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="StatupEffect">
+		<xs:complexContent>
+			<xs:extension base="BufEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="StatboostEffect">
+		<xs:complexContent>
+			<xs:extension base="BufEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="StatdownEffect">
+		<xs:complexContent>
+			<xs:extension base="BufEffect">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -424,18 +480,120 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="HideEffect">
+	<xs:complexType name="ItemHealEffect">
 		<xs:complexContent>
-			<xs:extension base="Effect">
-				<xs:attribute name="rank" type="HideRank" use="required" />
+			<xs:extension base="AbstractHealEffect">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="SeeThroughEffect">
+	<xs:complexType name="ItemHealMpEffect">
+		<xs:complexContent>
+			<xs:extension base="AbstractHealEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ItemHealDpEffect">
+		<xs:complexContent>
+			<xs:extension base="AbstractHealEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="AbstractHealEffect" abstract="true">
 		<xs:complexContent>
 			<xs:extension base="Effect">
-				<xs:attribute name="rank" type="HideRank" use="required" />
+				<xs:attribute name="percent" type="xs:boolean" />
+				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="value" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="HealEffect">
+		<xs:complexContent>
+			<xs:extension base="AbstractHealEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="HealMpEffect">
+		<xs:complexContent>
+			<xs:extension base="AbstractHealEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="HealDpEffect">
+		<xs:complexContent>
+			<xs:extension base="AbstractHealEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="DamageEffect" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="value" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="SkillAttackEffect">
+		<xs:complexContent>
+			<xs:extension base="DamageEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="SpellAttackEffect">
+		<xs:complexContent>
+			<xs:extension base="DamageEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="DashEffect">
+		<xs:complexContent>
+			<xs:extension base="DamageEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="BackDashEffect">
+		<xs:complexContent>
+			<xs:extension base="DamageEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CarveSignetEffect">
+		<xs:complexContent>
+			<xs:extension base="DamageEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="DelayDamageEffect">
+		<xs:complexContent>
+			<xs:extension base="DamageEffect">
+				<xs:attribute name="delay" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="DamageType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PHYSICAL" />
+			<xs:enumeration value="MAGICAL" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ReturnEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -495,11 +653,11 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="FirstTargetRangeProperty">
 		<xs:complexContent>
 			<xs:extension base="Property">
-				<xs:attribute name="value" type="xs:int"/>
+				<xs:attribute name="value" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -539,10 +697,29 @@
 	<xs:complexType name="Change">
 		<xs:attribute name="stat" type="modifiersenum" use="required" />
 		<xs:attribute name="func" type="StatFunc" use="required" />
-		<xs:attribute name="duration" type="xs:int" />
 		<xs:attribute name="value" type="xs:string" use="required" />
 		<xs:attribute name="delta" type="xs:int" />
 	</xs:complexType>
+
+	<xs:simpleType name="TargetSlot">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="BUFF" />
+			<xs:enumeration value="DEBUFF" />
+			<xs:enumeration value="SPEC" />
+			<xs:enumeration value="SPEC2" />
+			<xs:enumeration value="BOOST" />
+			<xs:enumeration value="NOSHOW" />
+			<xs:enumeration value="CHANT" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DispelType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EFFECTID" />
+			<xs:enumeration value="EFFECTTYPE" />
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:simpleType name="skillType">
 		<xs:restriction base="xs:string">
@@ -634,14 +811,14 @@
 			<xs:enumeration value="REPLACE" />
 		</xs:restriction>
 	</xs:simpleType>
-
-	<xs:simpleType name="HideRank">
+	
+	<xs:simpleType name="HealType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="HIDE1" />
-			<xs:enumeration value="HIDE2" />
-			<xs:enumeration value="HIDE3" />
+			<xs:enumeration value="HP" />
+			<xs:enumeration value="MP" />
+			<xs:enumeration value="DP" />
 		</xs:restriction>
 	</xs:simpleType>
-
+	
 </xs:schema>
 

@@ -14,16 +14,14 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-package com.aionemu.gameserver.skillengine.action.modifier;
+package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Skill;
-import com.aionemu.gameserver.utils.PositionUtil;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.skillengine.model.Effect;
 
 
 /**
@@ -31,22 +29,21 @@ import com.aionemu.gameserver.utils.PositionUtil;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "BackDamageModifier")
-public class BackDamageModifier
-extends ActionModifier
+@XmlType(name = "HealDpEffect")
+public class HealDpEffect
+	extends AbstractHealEffect
 {
 
-	@XmlAttribute(required = true)
-	protected int delta;
-	@XmlAttribute(required = true)
-	protected int value;
-
-
 	@Override
-	public int analyze(Skill skill, int originalValue)
+	public void applyEffect(Effect effect)
 	{
-		boolean isAtBack = PositionUtil.isBehindTarget(skill.getEffector(), skill.getEffectedList().get(0)); 	
-		return isAtBack ? originalValue + value + skill.getSkillLevel() * delta : originalValue;
+		((Player) effect.getEffected()).getCommonData().addDp(-effect.getReserved1());
 	}
 
+	@Override
+	public void calculate(Effect effect)
+	{
+		super.calculate(effect);
+		effect.increaseSuccessEffect();
+	}
 }

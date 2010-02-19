@@ -18,7 +18,7 @@ package com.aionemu.gameserver.skillengine.model;
 
 import java.util.concurrent.Future;
 
-import com.aionemu.gameserver.controllers.EffectController;
+import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
 import com.aionemu.gameserver.skillengine.effect.Effects;
@@ -39,16 +39,21 @@ public class Effect
 	private int endTime;
 	private boolean isPassive;
 
-	private EffectController controller;
 	private Effects effects;
 	private Creature effected;
 	private Creature effector;
 	private Future<?> task = null;
 	private Future<?> periodicTask = null;
-
-	public Effect(Creature effector, SkillTemplate skillTemplate, int skillLevel, int duration)
+	
+	private int reserved1;
+	private AttackStatus attackStatus = AttackStatus.NORMALHIT;
+	private boolean addedToController;
+	private int successEffect;
+	
+	public Effect(Creature effector, Creature effected, SkillTemplate skillTemplate, int skillLevel, int duration)
 	{
 		this.effector = effector;
+		this.effected = effected;
 		this.effectorId = effector.getObjectId();
 		this.skillId = skillTemplate.getSkillId();
 		this.stack = skillTemplate.getStack();
@@ -156,12 +161,48 @@ public class Effect
 	}
 
 	/**
-	 * @param controller the controller to set
+	 * @return the reserved1
 	 */
-	public void setController(EffectController controller)
+	public int getReserved1()
 	{
-		this.controller = controller;
-		this.effected = controller.getOwner();
+		return reserved1;
+	}
+
+	/**
+	 * @param reserved1 the reserved1 to set
+	 */
+	public void setReserved1(int reserved1)
+	{
+		this.reserved1 = reserved1;
+	}
+
+	/**
+	 * @return the attackStatus
+	 */
+	public AttackStatus getAttackStatus()
+	{
+		return attackStatus;
+	}
+
+	/**
+	 * @param attackStatus the attackStatus to set
+	 */
+	public void setAttackStatus(AttackStatus attackStatus)
+	{
+		this.attackStatus = attackStatus;
+	}
+
+	/**
+	 * @return the successEffect
+	 */
+	public int getSuccessEffect()
+	{
+		return successEffect;
+	}
+	
+	public void increaseSuccessEffect()
+	{
+		successEffect++;
 	}
 
 	public void startEffect()
@@ -183,7 +224,6 @@ public class Effect
 			{				
 				endEffect();
 			}
-
 		}), duration);
 	}
 
@@ -194,7 +234,7 @@ public class Effect
 		{
 			template.endEffect(this);
 		}
-		controller.removeEffect(this);
+		effected.getEffectController().removeEffect(this);
 		stopTasks();
 	}
 	
@@ -217,5 +257,17 @@ public class Effect
 	{
 		int elapsedTime = endTime - (int)System.currentTimeMillis();
 		return elapsedTime > 0 ? elapsedTime : 0;
+	}
+
+	/**
+	 * Try to add this effect to effected controller
+	 */
+	public void addToEffectedController()
+	{
+		if(!addedToController)
+		{
+			effected.getEffectController().addEffect(this);
+			addedToController = true;
+		}
 	}
 }

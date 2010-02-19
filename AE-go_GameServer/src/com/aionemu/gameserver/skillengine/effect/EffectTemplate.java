@@ -16,11 +16,16 @@
  */
 package com.aionemu.gameserver.skillengine.effect;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.skillengine.change.Change;
+import com.aionemu.gameserver.skillengine.effect.modifier.ActionModifier;
+import com.aionemu.gameserver.skillengine.effect.modifier.ActionModifiers;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
@@ -31,6 +36,10 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 @XmlType(name = "Effect")
 public abstract class EffectTemplate 
 {
+	protected ActionModifiers modifiers;
+    protected List<Change> change;
+    @XmlAttribute
+    protected int effectid;
 	@XmlAttribute(required = true)
 	protected int duration;
 	
@@ -41,11 +50,78 @@ public abstract class EffectTemplate
 	{
 		return duration;
 	}
-
-	public abstract void onPeriodicAction(Effect effect);
 	
-	public abstract void startEffect(Effect effect);
-	
-	public abstract void endEffect(Effect effect);
 
+	/**
+	 * @return the modifiers
+	 */
+	public ActionModifiers getModifiers()
+	{
+		return modifiers;
+	}
+
+
+	/**
+	 * @return the change
+	 */
+	public List<Change> getChange()
+	{
+		return change;
+	}
+
+	/**
+	 * @return the effectid
+	 */
+	public int getEffectid()
+	{
+		return effectid;
+	}
+	
+	/**
+	 * @param value
+	 * @return
+	 */
+	protected int applyActionModifiers(Effect effect, int value)
+	{	
+		if(modifiers == null)
+			return value;
+		
+		for(ActionModifier modifier : modifiers.getActionModifiers())
+		{
+			value = modifier.analyze(effect, value);
+		}
+		
+		return value;
+	}
+
+	/**
+	 *  Calculate effect result
+	 *  
+	 * @param effect
+	 */
+	public abstract void calculate(Effect effect);
+	/**
+	 *  Apply effect to effected 
+	 *  
+	 * @param effect
+	 */
+	public abstract void applyEffect(Effect effect);
+	/**
+	 *  Start effect on effected
+	 *  
+	 * @param effect
+	 */
+	public void startEffect(Effect effect){};
+	/**
+	 *  Do periodic effect on effected
+	 *  
+	 * @param effect
+	 */
+	public void onPeriodicAction(Effect effect){};
+	/**
+	 *  End effect on effected
+	 *  
+	 * @param effect
+	 */
+	public void endEffect(Effect effect){};
 }

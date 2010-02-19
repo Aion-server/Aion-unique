@@ -36,11 +36,21 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 @XmlType(name = "TransformEffect")
 public class TransformEffect extends EffectTemplate
 {
-	/** duration is in seconds **/
-	@XmlAttribute(required = true)
-    protected int duration;
 	@XmlAttribute
 	protected int model;
+	
+	@Override
+	public void applyEffect(Effect effect)
+	{
+		effect.addToEffectedController();
+	}
+
+	@Override
+	public void calculate(Effect effect)
+	{
+		//TODO calc probability
+		effect.increaseSuccessEffect();
+	}
 
 	@Override
 	public void endEffect(Effect effect)
@@ -71,11 +81,5 @@ public class TransformEffect extends EffectTemplate
 		{
 			PacketSendUtility.sendPacket((Player)effected, new SM_TRANSFORM(effected));
 		}
-	}
-
-	@Override
-	public void onPeriodicAction(Effect effect)
-	{
-		// TODO Auto-generated method stub
 	}
 }

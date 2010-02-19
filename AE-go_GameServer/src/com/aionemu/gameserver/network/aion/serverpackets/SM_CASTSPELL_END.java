@@ -17,12 +17,11 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * 
@@ -35,20 +34,17 @@ public class SM_CASTSPELL_END extends AionServerPacket
 	private int				targetObjectId;
 	private int				spellid;
 	private int				level;
-	@SuppressWarnings("unused")
-	private int				unk;													// can cast??
 	private int				cooldown;
-	List<SkillAttackResult>	skillAttackList	= new ArrayList<SkillAttackResult>();
+	private List<Effect>			effects;
 
-	public SM_CASTSPELL_END(int attackerobjectid, int spellid, int level, int unk, int targetObjectId,
-		List<SkillAttackResult> skillAttackList, int cooldown)
+	public SM_CASTSPELL_END(int attackerobjectid, int spellid, int level, int targetObjectId,
+		List<Effect> effects, int cooldown)
 	{
 		this.attackerobjectid = attackerobjectid;
 		this.targetObjectId = targetObjectId;
 		this.spellid = spellid;// empty
 		this.level = level;
-		this.unk = unk;
-		this.skillAttackList = skillAttackList;
+		this.effects = effects;
 		this.cooldown = cooldown * 10;
 	}
 
@@ -69,19 +65,18 @@ public class SM_CASTSPELL_END extends AionServerPacket
 		writeC(buf, 1); // unk??
 		writeD(buf, 8192); // chain 2
 
-		writeH(buf, skillAttackList.size());
-		for(SkillAttackResult skillAttack : skillAttackList)
+		writeH(buf, effects.size());
+		for(Effect effect : effects)
 		{
-			writeD(buf, skillAttack.getCreature().getObjectId());
+			writeD(buf, effect.getEffected().getObjectId());
 			writeH(buf, 3072); // unk?? abnormal eff id ??
 			writeH(buf, 100); // unk??
 			writeH(buf, 16); // unk??
 
 			writeH(buf, 1); // unk??
-			writeD(buf, skillAttack.getDamage()); // damage
-			writeC(buf, skillAttack.getAttackStatus().getId());
+			writeD(buf, effect.getReserved1()); // damage
+			writeC(buf, effect.getAttackStatus().getId());
 			writeC(buf, 0);
 		}
-
 	}
 }

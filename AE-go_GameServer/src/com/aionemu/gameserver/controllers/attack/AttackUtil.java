@@ -26,6 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
+import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 
 /**
@@ -194,16 +195,23 @@ public class AttackUtil
 		}
 		return damages;
 	}
-
-	public static SkillAttackResult calculatePhysicalSkillAttackResult(Creature attacker, Creature attacked, int skillDamage)
+	
+	/**
+	 * 
+	 * @param effect
+	 * @param skillDamage
+	 */
+	public static void calculatePhysicalSkillAttackResult(Effect effect, int skillDamage)
 	{
-		int damage = StatFunctions.calculatePhysicDamageToTarget(attacker, attacked, skillDamage);
+		Creature effector = effect.getEffector();
+		Creature effected = effect.getEffected();
+		int damage = StatFunctions.calculatePhysicDamageToTarget(effector, effected, skillDamage);
 
-		AttackStatus status = calculatePhysicalStatus(attacker, attacked);
+		AttackStatus status = calculatePhysicalStatus(effector, effected);
 		switch(status)
 		{
 			case BLOCK:
-				int shieldDamageReduce = ((Player)attacked).getGameStats().getCurrentStat(StatEnum.DAMAGE_REDUCE);
+				int shieldDamageReduce = ((Player)effected).getGameStats().getCurrentStat(StatEnum.DAMAGE_REDUCE);
 				damage -= Math.round((damage * shieldDamageReduce) / 100);
 				break;
 			case DODGE:
@@ -218,16 +226,24 @@ public class AttackUtil
 			default:
 				break;
 		}
-		SkillAttackResult skillAttackResult = new SkillAttackResult(attacked, damage, status);
-		return skillAttackResult;
+		effect.setReserved1(damage);
+		effect.setAttackStatus(status);		
 	}
 
-
-	public static SkillAttackResult calculateMagicalSkillAttackResult(Creature attacker, Creature attacked, int skillDamage, SkillElement element)
+	/**
+	 * 
+	 * @param effect
+	 * @param skillDamage
+	 * @param element
+	 */
+	public static void calculateMagicalSkillAttackResult(Effect effect, int skillDamage, SkillElement element)
 	{
-		int damage = StatFunctions.calculateMagicDamageToTarget(attacker, attacked, skillDamage, element);  //TODO SkillElement
+		Creature effector = effect.getEffector();
+		Creature effected = effect.getEffected();
+		
+		int damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, skillDamage, element);  //TODO SkillElement
 
-		AttackStatus status = calculateMagicalStatus(attacker, attacked);
+		AttackStatus status = calculateMagicalStatus(effector, effected);
 		switch(status)
 		{
 			case RESIST:
@@ -237,8 +253,8 @@ public class AttackUtil
 				break;
 		}
 
-		SkillAttackResult skillAttackResult = new SkillAttackResult(attacked, damage, status);
-		return skillAttackResult;
+		effect.setReserved1(damage);
+		effect.setAttackStatus(status);
 	}
 
 	/**

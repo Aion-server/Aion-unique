@@ -20,37 +20,13 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Effect;
-
 /**
  * @author ATracer
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StunEffect")
-public class StunEffect extends EffectTemplate
+@XmlType(name = "StatboostEffect")
+public class StatboostEffect extends BufEffect
 {
-	@Override
-	public void applyEffect(Effect effect)
-	{
-		effect.addToEffectedController();
-	}
 
-	@Override
-	public void calculate(Effect effect)
-	{
-		effect.increaseSuccessEffect();
-	}
-
-	@Override
-	public void startEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(true);
-	}
-
-	@Override
-	public void endEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(false);
-	}
 }

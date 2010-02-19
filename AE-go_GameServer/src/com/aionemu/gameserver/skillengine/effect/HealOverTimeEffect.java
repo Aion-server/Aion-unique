@@ -45,7 +45,19 @@ public class HealOverTimeEffect extends EffectTemplate
 	protected int delta;
 	@XmlAttribute
 	protected HopType type;
-	
+
+	@Override
+	public void applyEffect(Effect effect)
+	{
+		effect.addToEffectedController();
+	}
+
+	@Override
+	public void calculate(Effect effect)
+	{
+		effect.increaseSuccessEffect();
+	}
+
 	@Override
 	public void endEffect(Effect effect)
 	{

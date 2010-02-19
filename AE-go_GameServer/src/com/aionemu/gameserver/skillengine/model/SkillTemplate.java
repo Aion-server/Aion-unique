@@ -63,6 +63,8 @@ public class SkillTemplate
     protected SkillType type;
     @XmlAttribute(name = "skillsubtype", required = true)
     protected SkillSubType subType;
+    @XmlAttribute(name = "tslot")
+    protected SkillTargetSlot targetSlot;
     @XmlAttribute(name = "activation", required = true)
     protected ActivationAttribute activationAttribute;
     @XmlAttribute(required = true)
@@ -197,7 +199,15 @@ public class SkillTemplate
 	{
 		return subType;
 	}
-	
+
+	/**
+	 * @return the targetSlot
+	 */
+	public SkillTargetSlot getTargetSlot()
+	{
+		return targetSlot;
+	}
+
 	/**
 	 * @return the duration
 	 */

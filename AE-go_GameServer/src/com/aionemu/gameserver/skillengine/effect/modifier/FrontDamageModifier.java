@@ -14,14 +14,14 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.action.modifier;
+package com.aionemu.gameserver.skillengine.effect.modifier;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.utils.PositionUtil;
 
 
@@ -41,9 +41,9 @@ extends ActionModifier
 	protected int value;
 
 	@Override
-	public int analyze(Skill skill, int originalValue)
+	public int analyze(Effect effect, int originalValue)
 	{
-		boolean isAtBack = PositionUtil.isInFrontOfTarget(skill.getEffector(), skill.getEffectedList().get(0)); 	
-		return isAtBack ? originalValue + value + skill.getSkillLevel() * delta : originalValue;
+		boolean isAtBack = PositionUtil.isInFrontOfTarget(effect.getEffector(), effect.getEffected()); 	
+		return isAtBack ? originalValue + value + effect.getSkillLevel() * delta : originalValue;
 	}
 }

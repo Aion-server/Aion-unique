@@ -26,7 +26,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureSeeState;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.skillengine.model.Effect;
-import com.aionemu.gameserver.skillengine.model.HideRank;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -34,14 +33,23 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SeeThroughEffect")
-public class SeeThroughEffect extends EffectTemplate
+@XmlType(name = "SearchEffect")
+public class SearchEffect extends EffectTemplate
 {
-	/** duration is in seconds **/
-	@XmlAttribute(required = true)
-    protected int duration;
 	@XmlAttribute
-	protected HideRank rank;
+	protected int value;
+
+	@Override
+	public void applyEffect(Effect effect)
+	{
+		effect.addToEffectedController();
+	}
+
+	@Override
+	public void calculate(Effect effect)
+	{
+		effect.increaseSuccessEffect();
+	}
 
 	@Override
 	public void endEffect(Effect effect)
@@ -51,12 +59,12 @@ public class SeeThroughEffect extends EffectTemplate
 
 		CreatureSeeState seeState;
 
-		switch(rank)
+		switch(value)
 		{
-			case HIDE1:
+			case 1:
 				seeState = CreatureSeeState.SEE_HIDE1;
 				break;
-			case HIDE2:
+			case 2:
 				seeState = CreatureSeeState.SEE_HIDE2;
 				break;
 			default:
@@ -79,12 +87,12 @@ public class SeeThroughEffect extends EffectTemplate
 
 		CreatureSeeState seeState;
 
-		switch(rank)
+		switch(value)
 		{
-			case HIDE1:
+			case 1:
 				seeState = CreatureSeeState.SEE_HIDE1;
 				break;
-			case HIDE2:
+			case 2:
 				seeState = CreatureSeeState.SEE_HIDE2;
 				break;
 			default:
@@ -97,11 +105,5 @@ public class SeeThroughEffect extends EffectTemplate
 		{
 			PacketSendUtility.broadcastPacket((Player)effected, new SM_PLAYER_STATE((Player)effected), true);
 		}
-	}
-
-	@Override
-	public void onPeriodicAction(Effect effect)
-	{
-		// TODO Auto-generated method stub
 	}
 }

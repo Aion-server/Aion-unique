@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
+package com.aionemu.gameserver.skillengine.effect.modifier;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -22,35 +22,21 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.skillengine.model.Effect;
 
+
 /**
  * @author ATracer
- *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StunEffect")
-public class StunEffect extends EffectTemplate
-{
-	@Override
-	public void applyEffect(Effect effect)
-	{
-		effect.addToEffectedController();
-	}
+@XmlType(name = "ActionModifier")
+public abstract class ActionModifier {
 
-	@Override
-	public void calculate(Effect effect)
-	{
-		effect.increaseSuccessEffect();
-	}
-
-	@Override
-	public void startEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(true);
-	}
-
-	@Override
-	public void endEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(false);
-	}
+	/**
+	 *  For now just pass damage value
+	 *  Later probaly Context will be passed
+	 *  
+	 * @param originalValue
+	 * @return
+	 */
+	public abstract int analyze(Effect skill, int originalValue);
 }

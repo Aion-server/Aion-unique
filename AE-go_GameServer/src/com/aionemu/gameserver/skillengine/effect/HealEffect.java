@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.org>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -24,33 +24,24 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * @author ATracer
- *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StunEffect")
-public class StunEffect extends EffectTemplate
+@XmlType(name = "HealEffect")
+public class HealEffect
+	extends AbstractHealEffect
 {
+	
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		effect.addToEffectedController();
+		effect.getEffected().getLifeStats().increaseHp(-effect.getReserved1());
 	}
 
 	@Override
 	public void calculate(Effect effect)
 	{
+		super.calculate(effect);
 		effect.increaseSuccessEffect();
-	}
-
-	@Override
-	public void startEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(true);
-	}
-
-	@Override
-	public void endEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(false);
 	}
 }

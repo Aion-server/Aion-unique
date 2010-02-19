@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.action.modifier;
+package com.aionemu.gameserver.skillengine.effect.modifier;
 
 import java.util.ArrayList;
 import java.util.List;

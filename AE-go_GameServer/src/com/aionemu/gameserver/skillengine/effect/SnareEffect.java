@@ -14,35 +14,33 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.action.modifier;
+package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.model.Skill;
-
+import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * @author ATracer
- * 
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PoisonDamageModifier")
-public class PoisonDamageModifier
-    extends ActionModifier
+@XmlType(name = "SnareEffect")
+public class SnareEffect extends EffectTemplate
 {
 
-    @XmlAttribute(required = true)
-    protected int delta;
-    @XmlAttribute(required = true)
-    protected int value;
-    
-    @Override
-	public int analyze(Skill skill, int originalValue)
+	@Override
+	public void applyEffect(Effect effect)
 	{
-		return skill.getEffectedList().get(0).isPoisoned() 
-		? originalValue + value + skill.getSkillLevel() * delta : originalValue;
+		effect.addToEffectedController();
 	}
+
+	@Override
+	public void calculate(Effect effect)
+	{
+		effect.increaseSuccessEffect();
+	}
+
 }

@@ -20,8 +20,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.action.modifier.ActionModifier;
-import com.aionemu.gameserver.skillengine.action.modifier.ActionModifiers;
+import com.aionemu.gameserver.skillengine.effect.modifier.ActionModifiers;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
 
@@ -42,22 +41,5 @@ public abstract class Action
 	 */
 	public abstract void act(Skill skill);
 	
-	/**
-	 * @param value
-	 * @return
-	 */
-	protected int applyActionModifiers(Skill skill, int value)
-	{	
-		//TODO refactor with SkillResultList
-		if(modifiers == null)
-			return value;
-		
-		for(ActionModifier modifier : modifiers.getActionModifiers())
-		{
-			value = modifier.analyze(skill, value);
-		}
-		
-		return value;
-	}
-
+	
 }

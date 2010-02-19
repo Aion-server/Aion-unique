@@ -46,6 +46,20 @@ public class BleedEffect extends EffectTemplate
 	protected int delta;
 
 	@Override
+	public void applyEffect(Effect effect)
+	{
+		effect.addToEffectedController();
+	}
+
+	@Override
+	public void calculate(Effect effect)
+	{
+		// TODO Auto-generated method stub
+		//TODO calc probability
+		effect.increaseSuccessEffect();
+	}
+
+	@Override
 	public void endEffect(Effect effect)
 	{
 		Creature effected = effect.getEffected();

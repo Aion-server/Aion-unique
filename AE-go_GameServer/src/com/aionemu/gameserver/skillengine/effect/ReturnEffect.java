@@ -14,43 +14,35 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.action;
-
-import java.util.Collections;
+package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.controllers.attack.AttackStatus;
-import com.aionemu.gameserver.controllers.attack.SkillAttackResult;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
-import com.aionemu.gameserver.skillengine.model.Skill;
-import com.aionemu.gameserver.skillengine.model.SkillTemplate;
-import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * @author ATracer
- *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DummyAction")
-public class DummyAction extends Action
+@XmlType(name = "ReturnEffect")
+public class ReturnEffect
+extends EffectTemplate
 {
 
 	@Override
-	public void act(Skill skill)
+	public void applyEffect(Effect effect)
 	{
-		Player effector = skill.getEffector();
-		
-		SkillTemplate template = skill.getSkillTemplate();
-		
-		int unk = 0;
-		
-		PacketSendUtility.broadcastPacket(effector,
-			new SM_CASTSPELL_END(effector.getObjectId(), template.getSkillId(), skill.getSkillLevel(),
-				unk, skill.getFirstTarget().getObjectId(), Collections.singletonList(new SkillAttackResult(skill.getFirstTarget(), 0, AttackStatus.NORMALHIT)), template.getCooldown()), true);
+		((Player)effect.getEffector()).getController().moveToBindLocation(true);
 	}
 
+	@Override
+	public void calculate(Effect effect)
+	{
+		if(effect.getEffected().isSpawned())	
+			effect.increaseSuccessEffect();
+	}
 }

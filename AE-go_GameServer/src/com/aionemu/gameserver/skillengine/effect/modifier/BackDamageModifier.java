@@ -14,43 +14,39 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
+
+package com.aionemu.gameserver.skillengine.effect.modifier;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.utils.PositionUtil;
+
 
 /**
  * @author ATracer
- *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StunEffect")
-public class StunEffect extends EffectTemplate
+@XmlType(name = "BackDamageModifier")
+public class BackDamageModifier
+extends ActionModifier
 {
-	@Override
-	public void applyEffect(Effect effect)
-	{
-		effect.addToEffectedController();
-	}
+
+	@XmlAttribute(required = true)
+	protected int delta;
+	@XmlAttribute(required = true)
+	protected int value;
+
 
 	@Override
-	public void calculate(Effect effect)
+	public int analyze(Effect effect, int originalValue)
 	{
-		effect.increaseSuccessEffect();
+		boolean isAtBack = PositionUtil.isBehindTarget(effect.getEffector(), effect.getEffected()); 	
+		return isAtBack ? originalValue + value + effect.getSkillLevel() * delta : originalValue;
 	}
 
-	@Override
-	public void startEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(true);
-	}
-
-	@Override
-	public void endEffect(Effect effect)
-	{
-		effect.getEffected().setStunned(false);
-	}
 }
