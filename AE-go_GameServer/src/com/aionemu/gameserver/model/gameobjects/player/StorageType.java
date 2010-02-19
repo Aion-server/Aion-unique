@@ -13,8 +13,8 @@ public enum StorageType
 {
 	CUBE(0),
 	REGULAR_WAREHOUSE(1),
-	ACCOUNT_WAREHOUSE(2);
-	// TODO Legion Warehouse
+	ACCOUNT_WAREHOUSE(2),
+	LEGION_WAREHOUSE(3);
 
 	private int id;
 

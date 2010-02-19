@@ -182,22 +182,22 @@ public class MySQL5InventoryDAO extends InventoryDAO
 	 * @return
 	 */
 	@Override
-	public boolean store(final Item item, int playerId)
+	public boolean store(final Item item, int ownerId)
 	{   
 		boolean result = false;
 
 		if(item.getItemLocation() == StorageType.ACCOUNT_WAREHOUSE.getId())
 		{
-			playerId = getPlayerAccountId(playerId);
+			ownerId = getPlayerAccountId(ownerId);
 		}
 
 		switch(item.getPersistentState())
 		{
 			case NEW:
-				result = insertItem(item, playerId);
+				result = insertItem(item, ownerId);
 				break;
 			case UPDATE_REQUIRED:
-				result = updateItem(item, playerId);
+				result = updateItem(item, ownerId);
 				break;
 			case DELETED:
 				result = deleteItem(item);
@@ -212,7 +212,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 	 * @param playerId
 	 * @return
 	 */
-	private boolean insertItem(final Item item, final int playerId)
+	private boolean insertItem(final Item item, final int ownerId)
 	{
 		return DB.insertUpdate(INSERT_QUERY, new IUStH() {
 			@Override
@@ -222,7 +222,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 				stmt.setInt(2, item.getItemTemplate().getItemId());
 				stmt.setInt(3, item.getItemCount());
 				stmt.setInt(4, item.getItemColor());
-				stmt.setInt(5, playerId);
+				stmt.setInt(5, ownerId);
 				stmt.setBoolean(6, item.isEquipped());
 				stmt.setInt(7, item.getEquipmentSlot());
 				stmt.setInt(8, item.getItemLocation());
@@ -235,7 +235,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 	 * @param item
 	 * @return
 	 */
-	private boolean updateItem(final Item item,  final int playerId)
+	private boolean updateItem(final Item item,  final int ownerId)
 	{
 		return DB.insertUpdate(UPDATE_QUERY, new IUStH() {
 			@Override
@@ -243,7 +243,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 			{
 				stmt.setInt(1, item.getItemCount());
 				stmt.setInt(2, item.getItemColor());
-				stmt.setInt(3, playerId);
+				stmt.setInt(3, ownerId);
 				stmt.setBoolean(4, item.isEquipped());
 				stmt.setInt(5, item.getEquipmentSlot());
 				stmt.setInt(6, item.getItemLocation());

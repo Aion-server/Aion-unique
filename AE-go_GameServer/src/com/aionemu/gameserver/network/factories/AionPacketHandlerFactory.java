@@ -59,6 +59,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_GROUP_RESPONSE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_INVITE_TO_GROUP;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_L2AUTH_LOGIN_CHECK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_LEGION;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_LEGION_EDIT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_LEGION_MODIFY_EMBLEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_LEGION_SEND_EMBLEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_LEVEL_READY;
@@ -209,6 +210,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_LEGION(0x93), State.IN_GAME);
 		addPacket(new CM_LEGION_MODIFY_EMBLEM(0xA1), State.IN_GAME);
 		addPacket(new CM_LEGION_SEND_EMBLEM(0x86), State.IN_GAME);
+		addPacket(new CM_LEGION_EDIT(0xAD), State.IN_GAME);
 		// addPacket(new CM_LEGION_EMBLEM_SETTINGS(0x16), State.IN_GAME);
 		// addPacket(new CM_UPLOAD_LEGION_EMBLEM(0x17), State.IN_GAME); // client sends DDS format packets
 	}

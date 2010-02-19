@@ -381,27 +381,58 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	/**
 	 * Legion messages.
 	 */
+	/** NPC TOO FAR messages **/
+	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_TOO_FAR_FROM_NPC()
+	{
+		// You are too far from the NPC to disband the Legion.
+		return new SM_SYSTEM_MESSAGE(1300305);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CREATE_TOO_FAR_FROM_NPC()
+	{
+		// You are too far from the NPC to create a Legion.
+		return new SM_SYSTEM_MESSAGE(1300229);
+	}
+	/** Incorrect target / user offline	 **/
 	public static SM_SYSTEM_MESSAGE LEGION_INCORRECT_TARGET()
 	{
 		return new SM_SYSTEM_MESSAGE(1300627);
 	}
-
+	/** Announcement related **/
 	public static SM_SYSTEM_MESSAGE LEGION_DISPLAY_ANNOUNCEMENT(String announcement, long unixTime, int type)
 	{
 		return new SM_SYSTEM_MESSAGE(1400019, announcement, unixTime, type);
 	}
-
+	/** Done messages **/
 	public static SM_SYSTEM_MESSAGE LEGION_WRITE_NOTICE_DONE()
 	{
 		// The Legion Announcement has been modified.
 		return new SM_SYSTEM_MESSAGE(1300277);
 	}
-
+	/** Player online/kicked/left/joined **/
 	public static SM_SYSTEM_MESSAGE LEGION_MEMBER_ONLINE(String charName)
 	{
 		return new SM_SYSTEM_MESSAGE(1400133, charName);
 	}
 
+	public static SM_SYSTEM_MESSAGE NEW_MEMBER_JOINED(String charName)
+	{
+		// %0 has joined your Legion.
+		return new SM_SYSTEM_MESSAGE(1300260, charName);
+	}
+	
+	public static SM_SYSTEM_MESSAGE LEGION_MEMBER_LEFT(String charName)
+	{
+		// %0 has left the Legion.
+		return new SM_SYSTEM_MESSAGE(900699, charName);
+	}
+	
+	public static SM_SYSTEM_MESSAGE LEGION_NEW_MASTER()
+	{
+		// %0 was appointed as the new Legion Brigade General.
+		return new SM_SYSTEM_MESSAGE(900701);
+	}
+	/** Requests and their response **/
 	public static SM_SYSTEM_MESSAGE SEND_INVITE_REQUEST(String charName)
 	{
 		// You have sent a Legion invitation to %0.
@@ -413,19 +444,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// %0 has declined your Legion invitation.
 		return new SM_SYSTEM_MESSAGE(1300259, charName);
 	}
-
-	public static SM_SYSTEM_MESSAGE NEW_MEMBER_JOINED(String charName)
-	{
-		// %0 has joined your Legion.
-		return new SM_SYSTEM_MESSAGE(1300260, charName);
-	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_CREATED(String legionName)
-	{
-		// The %0 Legion has been created.
-		return new SM_SYSTEM_MESSAGE(1300235, legionName);
-	}
-
+	/** Name related messages **/
 	public static SM_SYSTEM_MESSAGE LEGION_CREATE_INVALID_NAME()
 	{
 		// That name is invalid. Please try another..
@@ -436,14 +455,36 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		// That name is invalid. Please try another.
 		return new SM_SYSTEM_MESSAGE(1300233);
-	}
+	}	
 
-	public static SM_SYSTEM_MESSAGE LEGION_CREATE_TOO_FAR_FROM_NPC()
+	public static SM_SYSTEM_MESSAGE LEGION_WRITE_INTRO_DONE()
 	{
-		// You are too far from the NPC to create a Legion.
-		return new SM_SYSTEM_MESSAGE(1300229);
+		// Your Character Information has been modified.
+		return new SM_SYSTEM_MESSAGE(1300282);
+	}	
+	/** Legion update related **/
+	public static SM_SYSTEM_MESSAGE LEGION_LEVEL_UP(int legionLevel)
+	{
+		// The Legion was leveled up to %0.
+		return new SM_SYSTEM_MESSAGE(900700, legionLevel);
 	}
 
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_LEVEL_CANT_LEVEL_UP()
+	{
+		// The Legion is already at the highest level.
+		return new SM_SYSTEM_MESSAGE(1300316);
+	}
+	
+	public static SM_SYSTEM_MESSAGE LEGION_CHANGED_EMBLEM()
+	{
+		return new SM_SYSTEM_MESSAGE(1390137);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_NOT_ENOUGH_KINAH(int kinah)
+	{
+		return new SM_SYSTEM_MESSAGE(901285, kinah);
+	}
+	/** Reponse to checks - CREATION **/
 	public static SM_SYSTEM_MESSAGE LEGION_CREATE_ALREADY_MEMBER()
 	{
 		// You cannot create a Legion as you are already a member of another Legion.
@@ -462,30 +503,12 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300234);
 	}
 
-	public static SM_SYSTEM_MESSAGE LEGION_MEMBER_JOINED()
+	public static SM_SYSTEM_MESSAGE LEGION_CREATED(String legionName)
 	{
-		// %0 has joined the Legion.
-		return new SM_SYSTEM_MESSAGE(900698);
+		// The %0 Legion has been created.
+		return new SM_SYSTEM_MESSAGE(1300235, legionName);
 	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_MEMBER_LEFT(String charName)
-	{
-		// %0 has left the Legion.
-		return new SM_SYSTEM_MESSAGE(900699, charName);
-	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_LEVEL_UP(int legionLevel)
-	{
-		// The Legion was leveled up to %0.
-		return new SM_SYSTEM_MESSAGE(900700, legionLevel);
-	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_LEVEL_CANT_LEVEL_UP()
-	{
-		// The Legion is already at the highest level.
-		return new SM_SYSTEM_MESSAGE(1300316);
-	}
-
+	/** Reponse to checks - LEVEL UP **/
 	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_LEVEL_NOT_ENOUGH_POINT()
 	{
 		// You do not have enough Contribution Points.
@@ -503,53 +526,17 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// You do not have enough Kinah.
 		return new SM_SYSTEM_MESSAGE(1300319);
 	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_NEW_MASTER()
-	{
-		// %0 was appointed as the new Legion Brigade General.
-		return new SM_SYSTEM_MESSAGE(900701);
-	}
-
+	/** Reponse to checks - INVITE **/
 	public static SM_SYSTEM_MESSAGE LEGION_TARGET_BUSY()
 	{
 		// The target is busy and cannot be invited at the moment.
 		return new SM_SYSTEM_MESSAGE(1300325);
 	}
 
-	public static SM_SYSTEM_MESSAGE LEGION_CANT_LEAVE_BEFORE_CHANGE_MASTER()
-	{
-		// You cannot leave your Legion unless you transfer Brigade General authority to someone else.
-		return new SM_SYSTEM_MESSAGE(1300238);
-	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_CANT_KICK_YOURSELF()
-	{
-		// You cannot kick yourself out from a Legion.
-		return new SM_SYSTEM_MESSAGE(1300243);
-	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_KICKED_BY(String charName)
-	{
-		// You have been kicked out from the %0 Legion.
-		return new SM_SYSTEM_MESSAGE(1300246, charName);
-	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_CANT_KICK_BRIGADE_GENERAL()
-	{
-		// You cannot kick out the Legion Brigade General.
-		return new SM_SYSTEM_MESSAGE(1300249);
-	}
-
 	public static SM_SYSTEM_MESSAGE LEGION_CANT_INVITE_WHILE_DEAD()
 	{
 		// You cannot issue a Legion invitation while you are dead.
 		return new SM_SYSTEM_MESSAGE(1300250);
-	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_NO_USER_TO_INVITE()
-	{
-		// There is no user to invite to your Legion.
-		return new SM_SYSTEM_MESSAGE(1300253);
 	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_CAN_NOT_INVITE_SELF()
@@ -575,7 +562,37 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// There is no room in the Legion for more members.
 		return new SM_SYSTEM_MESSAGE(1300257);
 	}
+	
+	public static SM_SYSTEM_MESSAGE LEGION_NO_USER_TO_INVITE()
+	{
+		// There is no user to invite to your Legion.
+		return new SM_SYSTEM_MESSAGE(1300253);
+	}
+	/** Reponse to checks - LEAVE **/
+	public static SM_SYSTEM_MESSAGE LEGION_CANT_LEAVE_BEFORE_CHANGE_MASTER()
+	{
+		// You cannot leave your Legion unless you transfer Brigade General authority to someone else.
+		return new SM_SYSTEM_MESSAGE(1300238);
+	}
+	/** Reponse to checks - KICK **/	
+	public static SM_SYSTEM_MESSAGE LEGION_CANT_KICK_YOURSELF()
+	{
+		// You cannot kick yourself out from a Legion.
+		return new SM_SYSTEM_MESSAGE(1300243);
+	}
 
+	public static SM_SYSTEM_MESSAGE LEGION_KICKED_BY(String charName)
+	{
+		// You have been kicked out from the %0 Legion.
+		return new SM_SYSTEM_MESSAGE(1300246, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE LEGION_CANT_KICK_BRIGADE_GENERAL()
+	{
+		// You cannot kick out the Legion Brigade General.
+		return new SM_SYSTEM_MESSAGE(1300249);
+	}
+	/** Reponse to checks - CHANGE RANK **/
 	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_DONT_HAVE_RIGHT()
 	{
 		// You cannot change the ranks of Legion members because you are not the Legion Brigade General.
@@ -593,25 +610,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// There is no one to change rank.
 		return new SM_SYSTEM_MESSAGE(1300264);
 	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_DONE_1_GUILD_MASTER(String charName)
-	{
-		// %0 has become the Legion Brigade General.
-		return new SM_SYSTEM_MESSAGE(1300266, charName);
-	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_DONE_2_GUILD_OFFICER(String charName)
-	{
-		// %0 has become a Legion Centurion.
-		return new SM_SYSTEM_MESSAGE(1300267, charName);
-	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_DONE_3_GUILD_MEMBER(String charName)
-	{
-		// %0 has become a Legionary.
-		return new SM_SYSTEM_MESSAGE(1300268, charName);
-	}
-
+	/** Reponse to checks - APPOINT BRIGADE GENERAL **/
 	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MASTER_ERROR_SELF()
 	{
 		// You are already the Legion Brigade General
@@ -641,7 +640,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// %0 has declined to become the Legion Brigade General.
 		return new SM_SYSTEM_MESSAGE(1300332, charName);
 	}
-
+	/** Reponse to checks - DISBAND **/
 	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_ONLY_MASTER_CAN_DISPERSE()
 	{
 		// You have no authority to disband the Legion.
@@ -652,12 +651,6 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		// The %0 Legion has been disbanded.
 		return new SM_SYSTEM_MESSAGE(1300302, legionName);
-	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_TOO_FAR_FROM_NPC()
-	{
-		// You are too far from the NPC to disband the Legion.
-		return new SM_SYSTEM_MESSAGE(1300305);
 	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_REQUESTED(int unixTime)
@@ -672,15 +665,25 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300304);
 	}
 
-	public static SM_SYSTEM_MESSAGE LEGION_CHANGED_EMBLEM()
+	public static SM_SYSTEM_MESSAGE LEGION_WAREHOUSE_CANT_USE_WHILE_DISPERSE()
 	{
-		return new SM_SYSTEM_MESSAGE(1390137);
+		// You cannot use the Legion warehouse during the disbandment waiting period.
+		return new SM_SYSTEM_MESSAGE(1300333);
 	}
 
-	public static SM_SYSTEM_MESSAGE LEGION_NOT_ENOUGH_KINAH(int kinah)
+	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_CANT_DISPERSE_GUILD_STORE_ITEM_IN_WAREHOUSE()
 	{
-		return new SM_SYSTEM_MESSAGE(901285, kinah);
+		// You cannot disband your Legion while you have items left in the Legion warehouse.
+		return new SM_SYSTEM_MESSAGE(1390212);
 	}
+
+	/**
+	 * Legion Message correct order from bottom
+	 */
+	public static SM_SYSTEM_MESSAGE STR_MSG_NOTIFY_LOGIN_GUILD(String charName)
+	{
+		return new SM_SYSTEM_MESSAGE(1400133, charName);
+	}	
 
 	/**
 	 * You cannot fly in this area.

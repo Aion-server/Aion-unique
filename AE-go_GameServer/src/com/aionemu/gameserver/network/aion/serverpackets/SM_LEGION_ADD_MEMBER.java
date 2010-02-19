@@ -30,10 +30,16 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_LEGION_ADD_MEMBER extends AionServerPacket
 {	
 	private Player	player;
+	private boolean isMember;
+	private int msgId;
+	private String text;
 
-	public SM_LEGION_ADD_MEMBER(Player player)
+	public SM_LEGION_ADD_MEMBER(Player player, boolean isMember, int msgId, String text)
 	{
 		this.player = player;
+		this.isMember = isMember;
+		this.msgId = msgId;
+		this.text = text;
 	}
 
 	@Override
@@ -41,12 +47,12 @@ public class SM_LEGION_ADD_MEMBER extends AionServerPacket
 	{
 		writeD(buf, player.getObjectId());
 		writeS(buf, player.getName());
-		writeC(buf, player.getLegionMember().getRank());
-		writeC(buf, 0x00);// is New Member? rank?
+		writeC(buf, player.getLegionMember().getRank().getRankId());
+		writeC(buf, isMember ? 0x01 : 0x00);// is New Member?
 		writeC(buf, player.getCommonData().getPlayerClass().getClassId());
 		writeC(buf, player.getLevel());
 		writeD(buf, player.getPosition().getMapId());
-		writeD(buf, 0x00);
-		writeH(buf, 0x00);
+		writeD(buf, msgId);
+		writeS(buf, text);
 	}
 }

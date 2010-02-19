@@ -22,6 +22,7 @@ import java.util.LinkedHashMap;
 
 import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionEmblem;
+import com.aionemu.gameserver.model.legion.LegionWarehouse;
 
 /**
  * Class that is responsible for storing/loading legion data
@@ -124,4 +125,12 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	 * @return
 	 */
 	public abstract LegionEmblem loadLegionEmblem(int legionId);
+
+	/**
+	 * Loads the warehouse of legions
+	 * 
+	 * @param legion
+	 * @return Storage
+	 */
+	public abstract LegionWarehouse loadLegionStorage(Legion legion);
 }

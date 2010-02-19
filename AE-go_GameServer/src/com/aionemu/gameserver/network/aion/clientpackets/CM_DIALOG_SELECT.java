@@ -133,7 +133,25 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 				break;
 			case 6:
 				// disband legion
-				legionService.disbandLegion(npc, player);
+				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
+				{
+					legionService.disbandLegion(npc, player);
+				}
+				else
+				{
+					sendPacket(SM_SYSTEM_MESSAGE.LEGION_DISPERSE_TOO_FAR_FROM_NPC());
+				}
+				break;
+			case 7:
+				// recreate legion
+				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
+				{
+					legionService.recreateLegion(npc, player);
+				}
+				else
+				{
+					sendPacket(SM_SYSTEM_MESSAGE.LEGION_DISPERSE_TOO_FAR_FROM_NPC());
+				}
 				break;
 			case 20:
 				// warehouse
@@ -217,6 +235,13 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 			case 41:
 				// expand cube
 				cubeExpandService.expandCube(player, npc);
+				break;
+			case 47:
+				// legion warehouse
+				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
+				{
+					legionService.openLegionWarehouse(player);
+				}
 				break;
 			case 50:
 				// WTF??? Quest dialog packet

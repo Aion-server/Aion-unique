@@ -258,6 +258,11 @@ public class PlayerController extends CreatureController<Player>
 
 	public void useSkill(int skillId)
 	{
+		Player player = getOwner();
+
+		if(!player.canAttack())
+			return;
+		
 		//check if is casting to avoid multicast exploit
 		//TODO retail-like message
 		//TODO cancel skill if other is used

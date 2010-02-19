@@ -14,44 +14,50 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects.state;
+package com.aionemu.gameserver.network.aion.clientpackets;
+
+import com.aionemu.gameserver.network.aion.AionClientPacket;
 
 /**
- * @author ATracer, Sweetkr
- *
+ * 
+ * @author Simple
+ * 
  */
-public enum CreatureState
+public class CM_LEGION_EDIT extends AionClientPacket
 {
-	NPC_IDLE(1<<6),//for npc
-	//confirmed in SM_EMOTION
-	ACTIVE(1),
-	FLYING(1<<1),
-	RESTING(1<<2),
-	DEAD(3<<1),
-	PRIVATE_SHOP(5<<1),
-	WEAPON_EQUIPPED(1<<5),
-	WALKING(1<<6),
-	POWERSHARD(1<<7);
 	/**
-	 * Standing, path flying, 
-	 * free flying, riding, 
-	 * sitting, sitting on chair, 
-	 * dead, fly dead, private shop, 
-	 * looting, fly looting, default
+	 * exOpcode and the rest
 	 */
+	@SuppressWarnings("unused")
+	private int	unk1;
+	@SuppressWarnings("unused")
+	private int	unk2;
 
-	private int id;
-
-	private CreatureState(int id)
+	/**
+	 * Constructs new instance of CM_LEGION packet
+	 * 
+	 * @param opcode
+	 */
+	public CM_LEGION_EDIT(int opcode)
 	{
-		this.id = id;
+		super(opcode);
 	}
 
 	/**
-	 * @return the id
+	 * {@inheritDoc}
 	 */
-	public int getId()
+	@Override
+	protected void readImpl()
 	{
-		return id;
+		unk1 = readD();
+		unk2 = readC();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void runImpl()
+	{
 	}
 }

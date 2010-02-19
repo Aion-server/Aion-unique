@@ -75,7 +75,7 @@ public class CM_LEGION_MODIFY_EMBLEM extends AionClientPacket
 			{
 				Legion legion = activePlayer.getLegionMember().getLegion();
 
-				if(legionId == legion.getLegionId())
+				if(legion.isMember(activePlayer.getObjectId()) && legionId == legion.getLegionId())
 				{
 					if(activePlayer.getInventory().getKinahItem().getItemCount() >= LegionConfig.LEGION_EMBLEM_REQUIRED_KINAH)
 					{

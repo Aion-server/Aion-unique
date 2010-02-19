@@ -37,11 +37,11 @@ public class Storage
 {
 	private Player owner;
 
-	private ItemStorage storage;
+	protected ItemStorage storage;
 
 	private Item kinahItem;
 
-	private int storageType;
+	protected int storageType;
 
 	/**
 	 *  Will be enhanced during development.
@@ -60,6 +60,10 @@ public class Storage
 				break;
 			case ACCOUNT_WAREHOUSE:
 				storage = new ItemStorage(16);
+				this.storageType = storageType.getId();
+				break;
+			case LEGION_WAREHOUSE:
+				storage = new ItemStorage(24);
 				this.storageType = storageType.getId();
 				break;
 		}

@@ -179,4 +179,16 @@ public class LegionConfig
 	 */
 	@Property(key = "gameserver.legion.level5maxmembers", defaultValue = "150")
 	public static int				LEGION_LEVEL5_MAX_MEMBERS;
+
+	/*
+	 * Enable/disable Legion Warehouse
+	 */
+	@Property(key = "gameserver.legion.warehouse", defaultValue = "false")
+	public static boolean			LEGION_WAREHOUSE;
+	
+	/*
+	 * Enable/disable Legion Invite Other Faction
+	 */
+	@Property(key = "gameserver.legion.inviteotherfaction", defaultValue = "false")
+	public static boolean			LEGION_INVITEOTHERFACTION;
 }

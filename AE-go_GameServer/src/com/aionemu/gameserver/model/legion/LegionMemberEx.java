@@ -18,78 +18,93 @@ package com.aionemu.gameserver.model.legion;
 
 import java.sql.Timestamp;
 
+import org.apache.log4j.Logger;
+
+import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * @author Simple
  * 
  */
-public class LegionMemberEx extends LegionMember {
-	private String name;
-	private PlayerClass playerClass;
-	private int level;
-	private Timestamp lastOnline;
-	private int worldId;
-	private boolean online = false;
+public class LegionMemberEx extends LegionMember
+{
+	private static Logger	log	= Logger.getLogger(PlayerController.class);
+
+	private String		name;
+	private PlayerClass	playerClass;
+	private int			level;
+	private Timestamp	lastOnline;
+	private int			worldId;
+	private boolean		online	= false;
 
 	/**
 	 * If player is immediately after this constructor is called
 	 */
-	public LegionMemberEx(LegionMember legionMember, String name, PlayerClass playerClass, int level, Timestamp lastOnline, int worldId, boolean online)
+	public LegionMemberEx(Player player, LegionMember legionMember)
 	{
-		super(legionMember.getObjectId(), legionMember.getLegion(), legionMember.getRank());
+		super(player.getObjectId(), legionMember.getLegion(), legionMember.getRank());
 		this.nickname = legionMember.getNickname();
 		this.selfIntro = legionMember.getSelfIntro();
-
-		this.name = name;
-		this.playerClass = playerClass;
-		this.level = level;
-		this.lastOnline = lastOnline;
-		this.worldId = worldId;
-		this.online = online;
+		this.name = player.getName();
+		this.playerClass = player.getPlayerClass();
+		this.level = player.getLevel();
+		this.lastOnline = player.getCommonData().getLastOnline();
+		this.worldId = player.getPosition().getMapId();
+		this.online = true;
 	}
 
 	/**
 	 * If player is defined later on this constructor is called
 	 */
-	public LegionMemberEx(int playerObjId) {
+	public LegionMemberEx(int playerObjId)
+	{
 		super(playerObjId);
 	}
 
 	/**
 	 * If player is defined later on this constructor is called
 	 */
-	public LegionMemberEx(String name) {
+	public LegionMemberEx(String name)
+	{
 		super();
 		this.name = name;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 
-	public PlayerClass getPlayerClass() {
+	public PlayerClass getPlayerClass()
+	{
 		return playerClass;
 	}
 
-	public void setPlayerClass(PlayerClass playerClass) {
+	public void setPlayerClass(PlayerClass playerClass)
+	{
 		this.playerClass = playerClass;
 	}
 
-	public Timestamp getLastOnline() {
+	public Timestamp getLastOnline()
+	{
 		return lastOnline;
 	}
 
-	public void setLastOnline(Timestamp timestamp) {
+	public void setLastOnline(Timestamp timestamp)
+	{
 		lastOnline = timestamp;
 	}
 
-	public int getLevel() {
+	public int getLevel()
+	{
 		return level;
 	}
 
@@ -99,36 +114,38 @@ public class LegionMemberEx extends LegionMember {
 	 * @param admin
 	 *            : enable decrease level
 	 */
-	public void setExp(long exp) {
+	public void setExp(long exp)
+	{
 		// maxLevel is 51 but in game 50 should be shown with full XP bar
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
 
-		if (getPlayerClass() != null && getPlayerClass().isStartingClass())
+		if(getPlayerClass() != null && getPlayerClass().isStartingClass())
 			maxLevel = 10;
 
-		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE
-				.getStartExpForLevel(maxLevel);
+		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
 		int level = 1;
 
-		if (exp > maxExp) {
+		if(exp > maxExp)
+		{
 			exp = maxExp;
 		}
 
 		// make sure level is never larger than maxLevel-1
-		while ((level + 1) != maxLevel
-				&& exp >= DataManager.PLAYER_EXPERIENCE_TABLE
-						.getStartExpForLevel(level + 1)) {
+		while((level + 1) != maxLevel && exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(level + 1))
+		{
 			level++;
 		}
 
 		this.level = level;
 	}
 
-	public int getWorldId() {
+	public int getWorldId()
+	{
 		return worldId;
 	}
 
-	public void setWorldId(int worldId) {
+	public void setWorldId(int worldId)
+	{
 		this.worldId = worldId;
 	}
 
@@ -136,15 +153,22 @@ public class LegionMemberEx extends LegionMember {
 	 * @param online
 	 *            the online to set
 	 */
-	public void setOnline(boolean online) {
+	public void setOnline(boolean online)
+	{
 		this.online = online;
 	}
 
 	/**
 	 * @return the online
 	 */
-	public boolean isOnline() {
+	public boolean isOnline()
+	{
 		return online;
+	}
+
+	public boolean sameObjectId(int objectId)
+	{
+		return getObjectId() == objectId;
 	}
 
 	/**
@@ -152,11 +176,50 @@ public class LegionMemberEx extends LegionMember {
 	 * 
 	 * @return true if LegionMemberEx is valid
 	 */
-	public boolean isValidLegionMemberEx() {
-		if (getObjectId() > 0 && getName() != null && getPlayerClass() != null
-				&& getLevel() > 0 && getLastOnline() != null
-				&& getWorldId() > 0 && getLegion() != null && getRank() > 0
-				&& getNickname() != null && getSelfIntro() != null) {
+	public boolean isValidLegionMemberEx()
+	{
+		if(getObjectId() < 1)
+		{
+			log.error("[LegionMemberEx] Player Object ID is empty.");			
+		}
+		else if (getName() == null)
+		{
+			log.error("[LegionMemberEx] Player Name is empty." + getObjectId());
+		}
+		else if (getPlayerClass() == null)
+		{
+			log.error("[LegionMemberEx] Player Class is empty." + getObjectId());
+		}
+		else if (getLevel() < 1)
+		{
+			log.error("[LegionMemberEx] Player Level is empty." + getObjectId());
+		}
+		else if (getLastOnline() == null)
+		{
+			log.error("[LegionMemberEx] Last Online is empty." + getObjectId());
+		}
+		else if (getWorldId() < 1)
+		{
+			log.error("[LegionMemberEx] World Id is empty." + getObjectId());
+		}
+		else if (getLegion() == null)
+		{
+			log.error("[LegionMemberEx] Legion is empty." + getObjectId());
+		}
+		else if (getRank() == null)
+		{
+			log.error("[LegionMemberEx] Rank is empty." + getObjectId());
+		}
+		else if (getNickname() == null)
+		{
+			log.error("[LegionMemberEx] Nickname is empty." + getObjectId());
+		}
+		else if (getSelfIntro() == null)
+		{
+			log.error("[LegionMemberEx] Self Intro is empty." + getObjectId());
+		}
+		else
+		{
 			return true;
 		}
 		return false;

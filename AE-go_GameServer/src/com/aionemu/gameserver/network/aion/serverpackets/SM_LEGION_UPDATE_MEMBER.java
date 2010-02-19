@@ -32,25 +32,29 @@ public class SM_LEGION_UPDATE_MEMBER extends AionServerPacket
 	private static final int	OFFLINE	= 0x00;
 	private static final int	ONLINE	= 0x01;
 	private Player				player;
+	private int					msgId;
+	private String				text;
 
-	public SM_LEGION_UPDATE_MEMBER(Player player)
+	public SM_LEGION_UPDATE_MEMBER(Player player, int msgId, String text)
 	{
 		this.player = player;
+		this.msgId = msgId;
+		this.text = text;
 	}
 
 	@Override
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeD(buf, player.getObjectId());
-		writeC(buf, player.getLegionMember().getRank());
+		writeC(buf, player.getLegionMember().getRank().getRankId());
 		writeC(buf, player.getCommonData().getPlayerClass().getClassId());
 		writeC(buf, player.getLevel());
 		writeD(buf, player.getPosition().getMapId());
 		writeC(buf, player.isOnline() ? ONLINE : OFFLINE);
 		int lastLogin = (int) (player.getCommonData().getLastOnline().getTime() / 1000);
 		writeD(buf, player.isOnline() ? 0x00 : lastLogin);
-		writeD(buf, 0x00);
-		writeH(buf, 0x00);
+		writeD(buf, msgId);
+		writeS(buf, text);
 	}
 }
 

@@ -23,8 +23,11 @@ import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionMemberEx;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_KICK_MEMBER;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_TITLE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.LegionService;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -161,7 +164,8 @@ public class CM_LEGION extends AionClientPacket
 			final Legion legion = activePlayer.getLegionMember().getLegion();
 			if(charName != null)
 			{
-				Player targetPlayer = world.findPlayer(Util.convertName(charName));
+				charName = Util.convertName(charName);
+				Player targetPlayer = world.findPlayer(charName);
 				switch(exOpcode)
 				{
 					/** Invite to legion **/
@@ -177,15 +181,15 @@ public class CM_LEGION extends AionClientPacket
 						break;
 					/** Kick member from legion **/
 					case 0x04:
-						if(targetPlayer != null)
+						LegionMemberEx legionMemberEx = legionService.getOfflineLegionMemberByName(charName);
+						if(legionService.kickPlayer(activePlayer, legionMemberEx))
 						{
-							legionService.kickPlayer(activePlayer, targetPlayer, null);
-						}
-						else
-						{
-							LegionMemberEx offlineLegionMember = legionService.getOfflineLegionMemberByName(charName);
-							if(offlineLegionMember != null)
-								legionService.kickPlayer(activePlayer, null, offlineLegionMember);
+							PacketSendUtility.broadcastPacket(targetPlayer, new SM_LEGION_UPDATE_TITLE(targetPlayer
+								.getObjectId(), 0, "", targetPlayer.getLegionMember().getRank().getRankId()), true);
+							targetPlayer.setLegionMember(null);
+							// TODO: Can not kick during a war!!
+							PacketSendUtility.sendPacket(targetPlayer, new SM_LEGION_KICK_MEMBER(1300246, 0, legion
+								.getLegionName()));
 						}
 						break;
 					/** Appoint a new Brigade General **/

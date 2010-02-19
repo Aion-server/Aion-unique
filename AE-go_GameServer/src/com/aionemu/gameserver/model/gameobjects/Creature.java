@@ -268,7 +268,7 @@ public abstract class Creature extends VisibleObject
 	
 	public boolean canAttack()
 	{
-		return !(isSleep || isStunned || isStumbled || isCasting());
+		return !(isSleep || isStunned || isStumbled || isCasting() || isInState(CreatureState.RESTING) || isInState(CreatureState.PRIVATE_SHOP));
 	}
 
 	/**

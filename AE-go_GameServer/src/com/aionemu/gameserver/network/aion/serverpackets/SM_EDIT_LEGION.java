@@ -33,11 +33,22 @@ public class SM_EDIT_LEGION extends AionServerPacket
 	private Legion				legion;
 	private int					unixTime;
 	private String				announcement;
-	private static final int	legionarPermission1	= 0x40;
 
 	public SM_EDIT_LEGION(int type)
 	{
 		this.type = type;
+	}
+
+	public SM_EDIT_LEGION(int type, Legion legion)
+	{
+		this.type = type;
+		this.legion = legion;
+	}
+
+	public SM_EDIT_LEGION(int type, int unixTime)
+	{
+		this.type = type;
+		this.unixTime = unixTime;
 	}
 
 	public SM_EDIT_LEGION(int type, int unixTime, String announcement)
@@ -45,12 +56,6 @@ public class SM_EDIT_LEGION extends AionServerPacket
 		this.type = type;
 		this.announcement = announcement;
 		this.unixTime = unixTime;
-	}
-
-	public SM_EDIT_LEGION(int type, Legion legion)
-	{
-		this.type = type;
-		this.legion = legion;
 	}
 
 	@Override
@@ -71,7 +76,7 @@ public class SM_EDIT_LEGION extends AionServerPacket
 			case 0x02:
 				writeC(buf, legion.getCenturionPermission1());
 				writeC(buf, legion.getCenturionPermission2());
-				writeC(buf, legionarPermission1);
+				writeC(buf, legion.getLegionarPermission1());
 				writeC(buf, legion.getLegionarPermission2());
 				break;
 			/** Change Legion Contributions **/
@@ -82,6 +87,13 @@ public class SM_EDIT_LEGION extends AionServerPacket
 			case 0x05:
 				writeS(buf, announcement);
 				writeD(buf, unixTime);
+				break;
+			/** Disband Legion **/
+			case 0x06:
+				writeD(buf, unixTime);
+				break;
+			/** Recover Legion **/
+			case 0x07:
 				break;
 			/** Refresh Legion Announcement? **/
 			case 0x08:

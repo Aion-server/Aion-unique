@@ -333,7 +333,7 @@ public class PlayerService
 		player.setClientConnection(null);
 		
 		if(player.isLegionMember())
-			legionService.updateMembersInfoByPacket(player.getLegionMember().getLegion(), new SM_LEGION_UPDATE_MEMBER(player));
+			legionService.updateMembersInfoByPacket(player.getLegionMember().getLegion(), new SM_LEGION_UPDATE_MEMBER(player, 0, ""));
 
 		player.getController().delete();
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);

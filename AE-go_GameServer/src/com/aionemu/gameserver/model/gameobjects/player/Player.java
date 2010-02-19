@@ -438,6 +438,9 @@ public class Player extends Creature
 		if(storageType == StorageType.ACCOUNT_WAREHOUSE.getId())
 			return accountWarehouse;
 
+		if(storageType == StorageType.LEGION_WAREHOUSE.getId())
+			return getLegionMember().getLegion().getLegionWarehouse();
+
 		if(storageType == StorageType.CUBE.getId())
 			return inventory;
 		else
@@ -593,5 +596,14 @@ public class Player extends Creature
 	public LegionMember getLegionMember()
 	{
 		return legionMember;
+	}
+	
+	/**
+	 * Checks if object id's are the same
+	 * @return true if the object id is the same
+	 */
+	public boolean sameObjectId(int objectId)
+	{
+		return this.getObjectId() == objectId;
 	}
 }

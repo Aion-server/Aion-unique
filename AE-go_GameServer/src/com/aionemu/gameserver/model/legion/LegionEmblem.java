@@ -98,7 +98,8 @@ public class LegionEmblem
 	}
 
 	/**
-	 * @param defaultEmblem the defaultEmblem to set
+	 * @param defaultEmblem
+	 *            the defaultEmblem to set
 	 */
 	public void setDefaultEmblem(boolean defaultEmblem)
 	{

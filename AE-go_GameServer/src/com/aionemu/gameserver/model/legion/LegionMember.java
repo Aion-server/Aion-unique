@@ -22,19 +22,12 @@ package com.aionemu.gameserver.model.legion;
  */
 public class LegionMember
 {
-	/** Static Legion Member information **/
-	private static final int BRIGADE_GENERAL_RANK = 0x00;
-	
-	private int		objectId		= 0;
-	protected Legion	legion			= null;
-	/*
-	 * Rank Information 0x00 = Brigade General => ALL RIGHTS 0x01 = Centurion => Only centurion rights 0x02 = Legionar
-	 * => Only legionar rights
-	 */
-	protected int		rank			= 0x02;
-	protected String	nickname		= "";
-	protected String	selfIntro		= "";
-	private boolean	stateChanged	= false;
+	private int				objectId	= 0;
+	protected Legion		legion		= null;
+	protected String		nickname	= "";
+	protected String		selfIntro	= "";
+
+	protected LegionRank	rank		= LegionRank.LEGIONARY;
 
 	/**
 	 * If player is defined later on this constructor is called
@@ -45,18 +38,9 @@ public class LegionMember
 	}
 
 	/**
-	 * If player is defined we can load the information from Player
-	 */
-	public LegionMember(int objectId, Legion legion)
-	{
-		this.setObjectId(objectId);
-		this.setLegion(legion);
-	}
-
-	/**
 	 * This constructor is called when a legion is created
 	 */
-	public LegionMember(int objectId, Legion legion, int rank)
+	public LegionMember(int objectId, Legion legion, LegionRank rank)
 	{
 		this.setObjectId(objectId);
 		this.setLegion(legion);
@@ -64,7 +48,7 @@ public class LegionMember
 	}
 
 	/**
-	 * This constructor is called when an offline legion member is called
+	 * This constructor is called when a LegionMemberEx is called
 	 */
 	public LegionMember()
 	{
@@ -77,7 +61,6 @@ public class LegionMember
 	public void setLegion(Legion legion)
 	{
 		this.legion = legion;
-		this.setStateChanged(true);
 	}
 
 	/**
@@ -92,23 +75,22 @@ public class LegionMember
 	 * @param rank
 	 *            the rank to set
 	 */
-	public void setRank(int rank)
+	public void setRank(LegionRank rank)
 	{
 		this.rank = rank;
-		this.setStateChanged(true);
 	}
 
 	/**
 	 * @return the rank
 	 */
-	public int getRank()
+	public LegionRank getRank()
 	{
 		return rank;
 	}
-	
+
 	public boolean isBrigadeGeneral()
 	{
-		return rank == BRIGADE_GENERAL_RANK;
+		return rank == LegionRank.BRIGADE_GENERAL;
 	}
 
 	/**
@@ -118,7 +100,6 @@ public class LegionMember
 	public void setNickname(String nickname)
 	{
 		this.nickname = nickname;
-		this.setStateChanged(true);
 	}
 
 	/**
@@ -136,7 +117,6 @@ public class LegionMember
 	public void setSelfIntro(String selfIntro)
 	{
 		this.selfIntro = selfIntro;
-		this.setStateChanged(true);
 	}
 
 	/**
@@ -154,7 +134,6 @@ public class LegionMember
 	public void setObjectId(int objectId)
 	{
 		this.objectId = objectId;
-		this.setStateChanged(true);
 	}
 
 	/**
@@ -165,20 +144,42 @@ public class LegionMember
 		return objectId;
 	}
 
-	/**
-	 * @param stateChanged
-	 *            the stateChanged to set
-	 */
-	public void setStateChanged(boolean stateChanged)
+	public boolean hasRights(int type)
 	{
-		this.stateChanged = stateChanged;
-	}
+		if(getRank() == LegionRank.BRIGADE_GENERAL)
+			return true;
 
-	/**
-	 * @return the stateChanged
-	 */
-	public boolean hasStateChanged()
-	{
-		return stateChanged;
+		int legionarPermission2 = getLegion().getLegionarPermission2();
+		int centurionPermission1 = getLegion().getCenturionPermission1();
+		int centurionPermission2 = getLegion().getCenturionPermission2();
+
+		switch(type)
+		{
+			case 1:
+				if(getRank().canInviteToLegion(centurionPermission1))
+					return true;
+
+			case 2:
+				if(getRank().canKickFromLegion(centurionPermission1))
+					return true;
+
+			case 3:
+				if(getRank().canUseLegionWarehouse(centurionPermission1))
+					return true;
+
+			case 4:
+				if(getRank().canEditAnnouncement(centurionPermission2))
+					return true;
+
+			case 5:
+				if(getRank().canUseArtifact(centurionPermission2))
+					return true;
+
+			case 6:
+				if(getRank().canUseGateGuardianStone(centurionPermission2, legionarPermission2))
+					return true;
+		}
+		return false;
+
 	}
 }

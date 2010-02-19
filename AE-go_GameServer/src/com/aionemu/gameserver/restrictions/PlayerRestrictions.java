@@ -98,7 +98,7 @@ public class PlayerRestrictions extends AbstractRestrictions
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.CANT_INVITE_OTHER_RACE());
 			return false;
 		}
-		else if(target.getObjectId() == player.getObjectId())
+		else if(target.sameObjectId(player.getObjectId()))
 		{
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.CANNOT_INVITE_YOURSELF());
 			return false;

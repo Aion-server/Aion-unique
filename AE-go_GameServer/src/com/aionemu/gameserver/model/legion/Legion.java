@@ -31,19 +31,29 @@ import com.aionemu.gameserver.world.World;
  */
 public class Legion
 {
-	private int									legionId				= 0;
-	private String								legionName				= "";
-	private int									legionLevel				= 1;
-	private int									legionRank				= 0;
-	private int									legionContribution		= 0;
-	private ArrayList<Integer>					legionMembers			= new ArrayList<Integer>();
-	private static final int					legionarPermission1		= 0x40;
-	private int									legionarPermission2		= 0x00;
-	private int									centurionPermission1	= 0x60;
-	private int									centurionPermission2	= 0x00;
+	/** Static Permission settings **/
+	private static final int					LP_CENT_NONE				= 0x60;
+	private static final int					PERMISSION1_MIN				= 0x60;
+	private static final int					PERMISSION2_MIN				= 0x00;
+	private static final int					LEGIONAR_PERMISSION2_MAX	= 0x08;
+	private static final int					CENTURION_PERMISSION1_MAX	= 0x7C;
+	private static final int					CENTURION_PERMISSION2_MAX	= 0x0E;
+
+	/** Legion Information **/
+	private int									legionId					= 0;
+	private String								legionName					= "";
+	private int									legionLevel					= 1;
+	private int									legionRank					= 0;
+	private int									legionContribution			= 0;
+	private ArrayList<Integer>					legionMembers				= new ArrayList<Integer>();
+	private static final int					legionarPermission1			= 0x40;
+	private int									legionarPermission2			= 0x00;
+	private int									centurionPermission1		= 0x60;
+	private int									centurionPermission2		= 0x00;
 	private int									disbandTime;
-	private LinkedHashMap<Timestamp, String>	announcementList		= new LinkedHashMap<Timestamp, String>();
-	private LegionEmblem						legionEmblem			= new LegionEmblem();
+	private LinkedHashMap<Timestamp, String>	announcementList			= new LinkedHashMap<Timestamp, String>();
+	private LegionEmblem						legionEmblem				= new LegionEmblem();
+	private LegionWarehouse						legionWarehouse;
 
 	/**
 	 * Only called when a legion is created!
@@ -175,15 +185,43 @@ public class Legion
 		setLegionMembers(newLegionMembers);
 	}
 
-	/**
-	 * @param legionarPermission1
-	 *            the legionarPermission1 to set
-	 */
-	public void setLegionarPermissions(int legionarPermission2, int centurionPermission1, int centurionPermission2)
+	public boolean setLegionarPermissions(int legionarPermission2, int centurionPermission1, int centurionPermission2)
 	{
-		this.legionarPermission2 = legionarPermission2;
-		this.centurionPermission1 = centurionPermission1;
-		this.centurionPermission2 = centurionPermission2;
+		if(checkPermissions(legionarPermission2, centurionPermission1, centurionPermission2))
+		{
+			this.legionarPermission2 = legionarPermission2;
+			this.centurionPermission1 = centurionPermission1;
+			this.centurionPermission2 = centurionPermission2;
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Check if all permissions are correct
+	 * 
+	 * @return true or false
+	 */
+	private boolean checkPermissions(int legionarPermission2, int centurionPermission1, int centurionPermission2)
+	{
+		/*
+		 * DEFAULT Centurion: 60 adds 0x04 (0x64) Invite to Legion => adds 0x08 (0x6c) Kick from Legion => adds 0x0F
+		 * (0x7C) ?!?!? DEFAULT: 00 Use Gate Guardian Stone => adds 0x08 (0x08) Use Artifact => adds 0x04 (0x0C) Edit
+		 * Announcement => adds 0x02 (0x0E)
+		 */
+		if(legionarPermission2 < PERMISSION2_MIN || legionarPermission2 > LEGIONAR_PERMISSION2_MAX)
+		{
+			return false;
+		}
+		if(centurionPermission1 < PERMISSION1_MIN || centurionPermission1 > CENTURION_PERMISSION1_MAX)
+		{
+			return false;
+		}
+		if(centurionPermission2 < PERMISSION2_MIN || centurionPermission2 > CENTURION_PERMISSION2_MAX)
+		{
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -207,7 +245,7 @@ public class Legion
 	 */
 	public int getCenturionPermission1()
 	{
-		return centurionPermission1;
+		return centurionPermission1 - LP_CENT_NONE;
 	}
 
 	/**
@@ -435,6 +473,17 @@ public class Legion
 	}
 
 	/**
+	 * This function checks if object id is in list
+	 * 
+	 * @param memberObjId
+	 * @return true if ID is found in the list
+	 */
+	public boolean isMember(int playerObjId)
+	{
+		return legionMembers.contains(playerObjId);
+	}
+
+	/**
 	 * @param legionEmblem
 	 *            the legionEmblem to set
 	 */
@@ -449,5 +498,40 @@ public class Legion
 	public LegionEmblem getLegionEmblem()
 	{
 		return legionEmblem;
+	}
+
+	/**
+	 * @param legionWarehouse
+	 *            the legionWarehouse to set
+	 */
+	public void setLegionWarehouse(LegionWarehouse legionWarehouse)
+	{
+		this.legionWarehouse = legionWarehouse;
+	}
+
+	/**
+	 * @return the legionWarehouse
+	 */
+	public LegionWarehouse getLegionWarehouse()
+	{
+		return legionWarehouse;
+	}
+
+	public int getWarehouseSlots()
+	{
+		switch(getLegionLevel())
+		{
+			case 1:
+				return 24;
+			case 2:
+				return 32;
+			case 3:
+				return 40;
+			case 4:
+				return 48;
+			case 5:
+				return 56;
+		}
+		return 24;
 	}
 }

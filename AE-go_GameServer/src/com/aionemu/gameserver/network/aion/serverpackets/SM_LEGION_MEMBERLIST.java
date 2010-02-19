@@ -49,15 +49,14 @@ public class SM_LEGION_MEMBERLIST extends AionServerPacket
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeC(buf, 0x01);
-		writeC(buf, (256 - legionMembers.size()));
-		writeC(buf, 0xFF);
+		writeH(buf, (65536 - legionMembers.size()));
 		for(LegionMemberEx legionMember : legionMembers)
 		{
 			writeD(buf, legionMember.getObjectId());
 			writeS(buf, legionMember.getName());
 			writeC(buf, legionMember.getPlayerClass().getClassId());
 			writeD(buf, legionMember.getLevel());
-			writeC(buf, legionMember.getRank());
+			writeC(buf, legionMember.getRank().getRankId());
 			writeD(buf, legionMember.getWorldId());
 			writeC(buf, legionMember.isOnline() ? ONLINE : OFFLINE);
 			writeS(buf, legionMember.getSelfIntro());

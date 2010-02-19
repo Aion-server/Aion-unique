@@ -16,9 +16,7 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import java.sql.Timestamp;
 import java.util.List;
-import java.util.Map.Entry;
 
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -29,7 +27,6 @@ import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
-import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -41,9 +38,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_FLY_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INFLUENCE_RATIO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_MEMBERLIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_MEMBER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_ID;
@@ -249,7 +243,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 				null, ChatType.ANNOUNCEMENTS));
 
 			if(player.isLegionMember())
-				handleLegionMemberInfo(player);
+				legionService.legionMemberOnLogin(player);
 
 			playerService.playerLoggedIn(player);
 
@@ -258,30 +252,6 @@ public class CM_ENTER_WORLD extends AionClientPacket
 		else
 		{
 			// TODO this is an client error - inform client.
-		}
-	}
-
-	private void handleLegionMemberInfo(Player player)
-	{
-		Legion legion = player.getLegionMember().getLegion();
-
-		// Send legion info packets
-		sendPacket(new SM_LEGION_INFO(legion));
-
-		// Tell all legion members player has come online
-		legionService.updateMembersInfoByPacket(legion, new SM_LEGION_UPDATE_MEMBER(player));
-		// Notify legion members player has logged in
-		//legionService.updateMembersInfoByPacket(legion, SM_SYSTEM_MESSAGE.STR_MSG_NOTIFY_LOGIN_GUILD(player.getName()));
-
-		// Send member list to player
-		sendPacket(new SM_LEGION_MEMBERLIST(legionService.loadLegionMemberExList(legion)));
-
-		// Send current announcement to player
-		Entry<Timestamp, String> currentAnnouncement = legion.getCurrentAnnouncement();
-		if(currentAnnouncement != null)
-		{
-			sendPacket(SM_SYSTEM_MESSAGE.LEGION_DISPLAY_ANNOUNCEMENT(currentAnnouncement.getValue(),
-				(int) (currentAnnouncement.getKey().getTime() / 1000), 2));
 		}
 	}
 
