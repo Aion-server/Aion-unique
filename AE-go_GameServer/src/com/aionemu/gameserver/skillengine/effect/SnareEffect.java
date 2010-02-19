@@ -28,7 +28,7 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SnareEffect")
-public class SnareEffect extends EffectTemplate
+public class SnareEffect extends BufEffect
 {
 
 	@Override

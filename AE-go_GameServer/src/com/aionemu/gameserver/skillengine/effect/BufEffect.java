@@ -64,7 +64,7 @@ public abstract class BufEffect extends EffectTemplate
 	{
 		Creature effected = effect.getEffected();
 		int skillId = effect.getSkillId();
-		effected.getGameStats().endEffect(SkillEffectId.getInstance(skillId, effectid));
+		effected.getGameStats().endEffect(SkillEffectId.getInstance(skillId, effectid, position));
 	}
 	/**
 	 * Will be called from effect controller when effect starts
@@ -107,7 +107,7 @@ public abstract class BufEffect extends EffectTemplate
 
 		if (modifiers.size()>0)
 		{
-			cgs.addModifiers(SkillEffectId.getInstance(skillId, effectid), modifiers);
+			cgs.addModifiers(SkillEffectId.getInstance(skillId, effectid, position), modifiers);
 		}
 	}
 

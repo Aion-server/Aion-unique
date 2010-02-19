@@ -42,6 +42,8 @@ public abstract class EffectTemplate
     protected int effectid;
 	@XmlAttribute(required = true)
 	protected int duration;
+	@XmlAttribute(name = "e")
+	protected int position;
 	
 	/**
 	 * @return the duration
@@ -76,7 +78,15 @@ public abstract class EffectTemplate
 	{
 		return effectid;
 	}
-	
+
+	/**
+	 * @return the position
+	 */
+	public int getPosition()
+	{
+		return position;
+	}
+
 	/**
 	 * @param value
 	 * @return

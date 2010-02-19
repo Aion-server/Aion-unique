@@ -3,6 +3,7 @@
 
 	<xs:include schemaLocation="../import.xsd" />
 	<xs:include schemaLocation="../modifiers.xsd" />
+	<xs:include schemaLocation="../items/item_templates.xsd" />
 
 	<xs:element name="skill_data" type="skillData" />
 
@@ -80,6 +81,8 @@
 			<xs:element name="statup" type="StatupEffect" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="statboost" type="StatboostEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="wpnmastery" type="WeaponMasteryEffect"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="statdown" type="StatdownEffect"
 				minOccurs="0" maxOccurs="1" />
@@ -190,6 +193,7 @@
 			<xs:element name="change" type="Change" minOccurs="0"
 				maxOccurs="unbounded" />
 		</xs:sequence>
+		<xs:attribute name="e" type="xs:int" />
 		<xs:attribute name="effectid" type="xs:int" />
 		<xs:attribute name="duration" type="xs:int" />
 	</xs:complexType>
@@ -405,41 +409,33 @@
 
 	<xs:complexType name="DamageOverTimeEffect">
 		<xs:complexContent>
-			<xs:extension base="Effect">
+			<xs:extension base="DamageEffect">
 				<xs:attribute name="checktime" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" use="required" />
-				<xs:attribute name="damage" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="BleedEffect">
 		<xs:complexContent>
-			<xs:extension base="Effect">
+			<xs:extension base="DamageEffect">
 				<xs:attribute name="checktime" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" use="required" />
-				<xs:attribute name="value" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="HealOverTimeEffect">
 		<xs:complexContent>
-			<xs:extension base="Effect">
+			<xs:extension base="AbstractHealEffect">
 				<xs:attribute name="type" type="HealType" use="required" />
 				<xs:attribute name="checktime" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" />
-				<xs:attribute name="value" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="PoisonEffect">
 		<xs:complexContent>
-			<xs:extension base="Effect">
+			<xs:extension base="DamageEffect">
 				<xs:attribute name="checktime" type="xs:int" use="required" />
-				<xs:attribute name="delta" type="xs:int" />
-				<xs:attribute name="value" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -461,6 +457,14 @@
 	<xs:complexType name="StatboostEffect">
 		<xs:complexContent>
 			<xs:extension base="BufEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="WeaponMasteryEffect">
+		<xs:complexContent>
+			<xs:extension base="BufEffect">
+				<xs:attribute name="weapon" type="weaponType" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

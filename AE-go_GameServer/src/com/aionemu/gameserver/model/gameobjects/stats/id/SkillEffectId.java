@@ -25,16 +25,18 @@ import com.aionemu.gameserver.model.gameobjects.stats.StatEffectType;
 public class SkillEffectId extends StatEffectId
 {
 	private int effectId;
+	private int effectOrder;
 
-	private SkillEffectId(int skillId, int effectId)
+	private SkillEffectId(int skillId, int effectId, int effectOrder)
 	{
 		super(skillId,StatEffectType.SKILL_EFFECT);
 		this.effectId = effectId;
+		this.effectOrder = effectOrder;
 	}
 
-	public static SkillEffectId getInstance(int skillId, int effectId)
+	public static SkillEffectId getInstance(int skillId, int effectId, int effectOrder)
 	{
-		return new SkillEffectId(skillId, effectId);
+		return new SkillEffectId(skillId, effectId, effectOrder);
 	}
 
 	@Override
@@ -44,6 +46,7 @@ public class SkillEffectId extends StatEffectId
 		result = (result)&&(o!=null);
 		result = (result)&&(o instanceof SkillEffectId);
 		result = (result)&&(((SkillEffectId)o).effectId==effectId);
+		result = (result)&&(((SkillEffectId)o).effectOrder==effectOrder);
 		return result;
 	}
 
@@ -53,9 +56,11 @@ public class SkillEffectId extends StatEffectId
 		int result = super.compareTo(o);
 		if (result==0)
 		{
-			if (o instanceof ItemStatEffectId)
+			if (o instanceof SkillEffectId)
 			{
 				result = effectId - ((SkillEffectId)o).effectId;
+				if(result == 0)
+					result = effectOrder - ((SkillEffectId)o).effectOrder;
 			}
 		}
 		return result;
@@ -64,12 +69,25 @@ public class SkillEffectId extends StatEffectId
 	@Override
 	public String toString()
 	{
-		final String str = super.toString()+",slot:"+effectId;
+		final String str = super.toString()+",effectId:"+effectId+",effectOrder:"+effectOrder;
 		return str;
 	}
 
-	public int getSlot()
+	/**
+	 * @return the effectId
+	 */
+	public int getEffectId()
 	{
 		return effectId;
 	}
+
+	/**
+	 * @return the effectOrder
+	 */
+	public int getEffectOrder()
+	{
+		return effectOrder;
+	}
+
+	
 }
