@@ -104,6 +104,7 @@ public class ShutdownHook extends Thread
 	{
 		for(int i = duration; i >= interval; i -= interval)
 		{
+			log.info("Runtime exit is called from console. System is closing in " + i + " seconds.");
 			sendShutdownMessage(i);
 			sendShutdownStatus(true);
 			try
