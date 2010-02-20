@@ -54,8 +54,8 @@ public class SM_LEGION_SEND_EMBLEM extends AionServerPacket
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeD(buf, legionId);
-		writeD(buf, 0x00);
 		writeH(buf, emblemId);
+		writeD(buf, 0x00);
 		writeC(buf, 0xFF); // unk
 		writeC(buf, color_r);
 		writeC(buf, color_g);
