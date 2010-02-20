@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
@@ -67,6 +68,10 @@ extends EffectTemplate
 			default:
 				AttackUtil.calculatePhysicalSkillAttackResult(effect, 0);
 		}	
+		
+		if(effect.getAttackStatus() != AttackStatus.RESIST 
+			&& effect.getAttackStatus() != AttackStatus.DODGE)
+			effect.increaseSuccessEffect();
 	}
 	
 }
