@@ -233,6 +233,12 @@ public class SkillList
 		for(SkillListEntry skillListEntry : getAllSkills())
 		{
 			SkillTemplate skillTemplate = DataManager.SKILL_DATA.getSkillTemplate(skillListEntry.getSkillId());
+			if(skillTemplate == null)
+			{
+				logger.warn("CHECKPOINT: no skill template found for " + skillListEntry.getSkillId());
+				continue;
+			}
+			
 			if(skillTemplate.isPassive())
 			{
 				if(skillTemplate.getEffects() == null)
