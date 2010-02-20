@@ -188,9 +188,14 @@ public class Skill
 			for(Creature effected : effectedList)
 			{
 				Effect effect = new Effect(effector, effected, skillTemplate,	skillLevel, duration);
+				int effectCounter = 0;
 				for(EffectTemplate template : effectTemplates)
 				{
+					if(effectCounter != effect.getSuccessEffect())
+						break;
+					
 					template.calculate(effect);
+					effectCounter++;
 				}
 				effects.add(effect);
 			}
@@ -223,9 +228,14 @@ public class Skill
 		 */
 		for(Effect effect : effects)
 		{
+			int effectCounter = 0;
 			for(EffectTemplate template : skillTemplate.getEffects().getEffects())
 			{
+				if(effectCounter == effect.getSuccessEffect())
+					break;
+				
 				template.applyEffect(effect);
+				effectCounter++;
 			}
 		}
 	}

@@ -22,6 +22,7 @@ import java.util.TreeSet;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.id.ItemStatEffectId;
@@ -29,6 +30,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.id.StoneStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
+import com.aionemu.gameserver.model.templates.item.WeaponType;
 
 /**
  * @author xavier
@@ -37,7 +39,13 @@ public class ItemEquipmentListener
 {
 	private static final Logger	log	= Logger.getLogger(ItemEquipmentListener.class);
 
-	public static void onItemEquipment(ItemTemplate itemTemplate, int slot, CreatureGameStats<?> cgs)
+	/**
+	 * 
+	 * @param itemTemplate
+	 * @param slot
+	 * @param cgs
+	 */
+	private static void onItemEquipment(ItemTemplate itemTemplate, int slot, CreatureGameStats<?> cgs)
 	{
 		TreeSet<StatModifier> modifiers = itemTemplate.getModifiers();
 		if (modifiers==null)
@@ -55,13 +63,44 @@ public class ItemEquipmentListener
 	 * @param item
 	 * @param cgs
 	 */
-	public static void onItemEquipment(Item item, CreatureGameStats<?> cgs)
+	public static void onItemEquipment(Item item, Player owner)
 	{
 		ItemTemplate itemTemplate = item.getItemTemplate();
-		onItemEquipment(itemTemplate,item.getEquipmentSlot(),cgs);
-		addStonesStats(item.getItemStones(), cgs);
+		onItemEquipment(itemTemplate,item.getEquipmentSlot(),owner.getGameStats());
+		addStonesStats(item.getItemStones(), owner.getGameStats());
+		recalculateWeaponMastery(owner);	
 	}
 	
+	/**
+	 * @param owner
+	 */
+	private static void recalculateWeaponMastery(Player owner)
+	{
+		//don't calculate for not initialized equipment
+		if(owner.getEquipment() == null)
+			return;
+		
+		for(WeaponType weaponType : WeaponType.values())
+		{
+			boolean masterySet = owner.getEffectController().isWeaponMasterySet(weaponType);
+			boolean weaponEquiped = owner.getEquipment().isWeaponEquipped(weaponType);
+			Integer skillId = owner.getSkillList().getWeaponMasterySkill(weaponType);
+			if(skillId == null)
+				continue;
+			//remove effect if no weapon is equiped
+			
+			if(masterySet && !weaponEquiped)
+			{
+				owner.getEffectController().removePassiveEffect(skillId);
+			}
+			//add effect if weapon is equiped
+			if(!masterySet && weaponEquiped)
+			{
+				owner.getController().useSkill(skillId);
+			}
+		}
+	}
+
 	/**
 	 * All modifiers of stones will be applied to character
 	 * 
@@ -98,7 +137,6 @@ public class ItemEquipmentListener
 				cgs.endEffect(StoneStatEffectId.getInstance(stone.getItemObjId(), stone.getSlot()));
 			}
 		}
-		
 	}
 	
 	/**
@@ -116,9 +154,10 @@ public class ItemEquipmentListener
 		}	
 	}
 
-	public static void onItemUnequipment(Item item, CreatureGameStats<?> cgs)
+	public static void onItemUnequipment(Item item, Player owner)
 	{
-		cgs.endEffect(ItemStatEffectId.getInstance(item.getItemTemplate().getItemId(), item.getEquipmentSlot()));
-		removeStoneStats(item.getItemStones(), cgs);
+		owner.getGameStats().endEffect(ItemStatEffectId.getInstance(item.getItemTemplate().getItemId(), item.getEquipmentSlot()));
+		removeStoneStats(item.getItemStones(), owner.getGameStats());
+		recalculateWeaponMastery(owner);
 	}
 }

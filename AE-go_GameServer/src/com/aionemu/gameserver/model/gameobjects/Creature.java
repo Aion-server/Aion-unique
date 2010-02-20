@@ -20,8 +20,8 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.controllers.CreatureController;
-import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.MoveController;
+import com.aionemu.gameserver.controllers.effect.EffectController;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureSeeState;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;

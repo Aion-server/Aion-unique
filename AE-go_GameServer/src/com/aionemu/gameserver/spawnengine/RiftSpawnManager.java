@@ -22,8 +22,8 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.utils.Rnd;
-import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.RiftController;
+import com.aionemu.gameserver.controllers.effect.EffectController;
 import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.templates.NpcTemplate;

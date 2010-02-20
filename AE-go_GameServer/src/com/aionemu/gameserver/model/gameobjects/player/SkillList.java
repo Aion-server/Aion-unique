@@ -22,8 +22,13 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
+import com.aionemu.gameserver.model.templates.item.WeaponType;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
+import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
+import com.aionemu.gameserver.skillengine.effect.WeaponMasteryEffect;
+import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -45,6 +50,8 @@ public class SkillList
 	 * Container of skilllist, position to xml.
 	 */
 	private final Map<Integer, SkillListEntry> skills;
+	
+	private final Map<WeaponType, Integer> weaponMasterySkills = new HashMap<WeaponType, Integer>();
 
 	/**
 	 * Creates an empty skill list
@@ -61,6 +68,7 @@ public class SkillList
 	public SkillList(Map<Integer, SkillListEntry> arg)
 	{
 		this.skills = arg;
+		calculateUsedWeaponMasterySkills();
 	}
 
 	/**
@@ -113,7 +121,14 @@ public class SkillList
 		}
 		if (msg)
 			sendMessage(player, skillId);
-
+		
+		SkillTemplate skillTemplate = DataManager.SKILL_DATA.getSkillTemplate(skillId);
+		
+		//do passive skills recalculations
+		if(skillTemplate.isPassive())
+		{
+			calculateUsedWeaponMasterySkills();
+		}
 		return true;
 	}
 
@@ -207,5 +222,39 @@ public class SkillList
 			default:
 				PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(player.getSkillList().getSkillEntry(skillId), 1300050));
 		}
+	}
+	
+	/**
+	 * Calculates weapon mastery skills that will used during equip
+	 */
+	private void calculateUsedWeaponMasterySkills()
+	{		
+		Map<WeaponType, Integer> skillLevels = new HashMap<WeaponType, Integer>();
+		for(SkillListEntry skillListEntry : getAllSkills())
+		{
+			SkillTemplate skillTemplate = DataManager.SKILL_DATA.getSkillTemplate(skillListEntry.getSkillId());
+			if(skillTemplate.isPassive())
+			{
+				if(skillTemplate.getEffects() == null)
+					continue;
+				
+				EffectTemplate template = null;
+				if((template = skillTemplate.getEffectTemplate(1)) instanceof WeaponMasteryEffect)
+				{
+					WeaponMasteryEffect wme = (WeaponMasteryEffect) template;
+					if(skillLevels.get(wme.getWeaponType()) == null
+						|| skillLevels.get(wme.getWeaponType()) < wme.getBasicLvl())
+					{
+						skillLevels.put(wme.getWeaponType(), wme.getBasicLvl());
+						weaponMasterySkills.put(wme.getWeaponType(), skillTemplate.getSkillId());
+					}
+				}
+			}
+		}
+	}
+	
+	public Integer getWeaponMasterySkill(WeaponType weaponType)
+	{
+		return weaponMasterySkills.get(weaponType);
 	}
 }

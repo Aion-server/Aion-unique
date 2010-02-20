@@ -44,6 +44,8 @@ public abstract class EffectTemplate
 	protected int duration;
 	@XmlAttribute(name = "e")
 	protected int position;
+	@XmlAttribute(name = "basiclvl")
+	protected int basicLvl;
 	
 	/**
 	 * @return the duration
@@ -86,6 +88,15 @@ public abstract class EffectTemplate
 	{
 		return position;
 	}
+
+	/**
+	 * @return the basicLvl
+	 */
+	public int getBasicLvl()
+	{
+		return basicLvl;
+	}
+
 
 	/**
 	 * @param value

@@ -18,7 +18,6 @@ package com.aionemu.gameserver.model.gameobjects.stats;
 
 import com.aionemu.commons.callbacks.EnhancedObject;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.StatChangeListener;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
@@ -32,11 +31,20 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class PlayerGameStats extends CreatureGameStats<Player>
 {
+	/**
+	 * 
+	 * @param owner
+	 */
 	public PlayerGameStats(Player owner)
 	{
 		super(owner);
 	}
 
+	/**
+	 * 
+	 * @param playerStatsData
+	 * @param owner
+	 */
 	public PlayerGameStats(PlayerStatsData playerStatsData, final Player owner)
 	{
 		super(owner);
@@ -44,17 +52,46 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 		initStats(pst, owner.getLevel());
 		log.debug("loading base game stats for player " + owner.getName() + " (id " + owner.getObjectId() + "): "
 			+ this);
-		//this is not 100% correct - emotion should be sent only on speed change
-		((EnhancedObject)this).addCallback(new StatChangeListener(){		
+
+		addRecomputeListener(owner);
+	}
+
+	/**
+	 *  Adds listener that will check SPEED or FLY_SPEED changes
+	 *  
+	 * @param owner
+	 */
+	private void addRecomputeListener(final Player owner)
+	{
+		((EnhancedObject)this).addCallback(new StatChangeListener(this){	
+			
+			private int currentRunSpeed = 0;
+			private int currentFlySpeed = 0;
+			
 			@Override
-			protected void onRecompute(CreatureGameStats<Creature> gameTime)
+			protected void onRecompute()
 			{
-				PacketSendUtility.sendPacket(owner, new SM_EMOTION(owner, 30, 0, 0));
+				int newRunSpeed = gameStats.getCurrentStat(StatEnum.SPEED);
+				int newFlySpeed = gameStats.getCurrentStat(StatEnum.FLY_SPEED);
+				
+				if(newRunSpeed != currentRunSpeed || currentFlySpeed != newFlySpeed)
+				{
+					PacketSendUtility.sendPacket(owner, new SM_EMOTION(owner, 30, 0, 0));					
+				}	
+				
 				PacketSendUtility.sendPacket(owner, new SM_STATS_INFO(owner));
+				
+				this.currentRunSpeed = newRunSpeed;
+				this.currentFlySpeed = newFlySpeed;
 			}
 		});
 	}
 
+	/**
+	 * 
+	 * @param pst
+	 * @param level
+	 */
 	private void initStats(PlayerStatsTemplate pst, int level)
 	{
 		super.initStats(pst.getMaxHp(), pst.getMaxMp(), pst.getPower(), pst.getHealth(), pst.getAgility(), pst
@@ -74,6 +111,11 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 
 	}
 
+	/**
+	 * 
+	 * @param playerStatsData
+	 * @param level
+	 */
 	public void doLevelUpgrade (PlayerStatsData playerStatsData, int level) {
 		PlayerStatsTemplate pst = playerStatsData.getTemplate(((Player)getOwner()).getPlayerClass(), level);
 		initStats(pst, level);

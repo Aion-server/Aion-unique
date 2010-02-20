@@ -193,6 +193,7 @@
 			<xs:element name="change" type="Change" minOccurs="0"
 				maxOccurs="unbounded" />
 		</xs:sequence>
+		<xs:attribute name="basiclvl" type="xs:int" />
 		<xs:attribute name="e" type="xs:int" />
 		<xs:attribute name="effectid" type="xs:int" />
 		<xs:attribute name="duration" type="xs:int" />

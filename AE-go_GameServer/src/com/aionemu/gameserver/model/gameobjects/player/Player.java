@@ -21,6 +21,7 @@ import java.util.List;
 
 import com.aionemu.commons.callbacks.Enhancable;
 import com.aionemu.gameserver.controllers.PlayerController;
+import com.aionemu.gameserver.controllers.effect.PlayerEffectController;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -540,6 +541,12 @@ public class Player extends Creature
 	public void setAbyssRank(AbyssRank abyssRank)
 	{
 		this.abyssRank = abyssRank;
+	}
+	
+	@Override
+	public PlayerEffectController getEffectController()
+	{
+		return (PlayerEffectController) super.getEffectController();
 	}
 
 	@Override

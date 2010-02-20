@@ -8,7 +8,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="16"/>
             </wpnmastery>
         </effects>
@@ -21,7 +21,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="25"/>
             </wpnmastery>
         </effects>
@@ -34,7 +34,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="20"/>
             </wpnmastery>
         </effects>
@@ -79,7 +79,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="24"/>
             </wpnmastery>
         </effects>
@@ -92,7 +92,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -105,7 +105,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="28"/>
             </wpnmastery>
         </effects>
@@ -150,7 +150,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_2H" effectid="104" e="1">
+            <wpnmastery weapon="SWORD_2H" effectid="104" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="4"/>
             </wpnmastery>
         </effects>
@@ -176,7 +176,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="2"/>
             </wpnmastery>
         </effects>
@@ -205,7 +205,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -218,7 +218,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -231,7 +231,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -276,7 +276,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_2H" effectid="104" e="1">
+            <wpnmastery weapon="SWORD_2H" effectid="104" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -297,7 +297,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="25"/>
             </wpnmastery>
         </effects>
@@ -310,7 +310,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="20"/>
             </wpnmastery>
         </effects>
@@ -323,7 +323,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="25"/>
             </wpnmastery>
         </effects>
@@ -360,7 +360,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -373,7 +373,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -386,7 +386,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -423,7 +423,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -436,7 +436,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -449,7 +449,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -486,7 +486,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="25"/>
             </wpnmastery>
         </effects>
@@ -499,7 +499,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="STAFF_2H" effectid="106" e="1">
+            <wpnmastery weapon="STAFF_2H" effectid="106" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="25"/>
             </wpnmastery>
         </effects>
@@ -536,7 +536,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -549,7 +549,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="STAFF_2H" effectid="106" e="1">
+            <wpnmastery weapon="STAFF_2H" effectid="106" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="10"/>
             </wpnmastery>
         </effects>
@@ -594,7 +594,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -607,7 +607,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="STAFF_2H" effectid="106" e="1">
+            <wpnmastery weapon="STAFF_2H" effectid="106" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -652,7 +652,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOOK_2H" effectid="107" e="1">
+            <wpnmastery weapon="BOOK_2H" effectid="107" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -665,7 +665,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="ORB_2H" effectid="108" e="1">
+            <wpnmastery weapon="ORB_2H" effectid="108" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="25"/>
             </wpnmastery>
         </effects>
@@ -694,7 +694,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="ORB_2H" effectid="108" e="1">
+            <wpnmastery weapon="ORB_2H" effectid="108" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -723,7 +723,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOOK_2H" effectid="107" e="1">
+            <wpnmastery weapon="BOOK_2H" effectid="107" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="2"/>
             </wpnmastery>
         </effects>
@@ -736,7 +736,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOOK_2H" effectid="107" e="1">
+            <wpnmastery weapon="BOOK_2H" effectid="107" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -765,7 +765,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="ORB_2H" effectid="108" e="1">
+            <wpnmastery weapon="ORB_2H" effectid="108" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="28"/>
             </wpnmastery>
         </effects>
@@ -3733,7 +3733,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -3746,7 +3746,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="35"/>
             </wpnmastery>
         </effects>
@@ -3759,7 +3759,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="34"/>
             </wpnmastery>
         </effects>
@@ -3772,7 +3772,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_2H" effectid="104" e="1">
+            <wpnmastery weapon="SWORD_2H" effectid="104" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="8"/>
             </wpnmastery>
         </effects>
@@ -3785,7 +3785,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="POLEARM_2H" effectid="105" e="1">
+            <wpnmastery weapon="POLEARM_2H" effectid="105" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="8"/>
             </wpnmastery>
         </effects>
@@ -3798,7 +3798,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="4"/>
             </wpnmastery>
         </effects>
@@ -3811,7 +3811,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="34"/>
             </wpnmastery>
         </effects>
@@ -3824,7 +3824,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -3837,7 +3837,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="38"/>
             </wpnmastery>
         </effects>
@@ -3850,7 +3850,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_2H" effectid="104" e="1">
+            <wpnmastery weapon="SWORD_2H" effectid="104" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="12"/>
             </wpnmastery>
         </effects>
@@ -3863,7 +3863,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="POLEARM_2H" effectid="105" e="1">
+            <wpnmastery weapon="POLEARM_2H" effectid="105" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="12"/>
             </wpnmastery>
         </effects>
@@ -3876,7 +3876,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="6"/>
             </wpnmastery>
         </effects>
@@ -4224,7 +4224,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="5">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="38"/>
             </wpnmastery>
         </effects>
@@ -4237,7 +4237,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="5">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="45"/>
             </wpnmastery>
         </effects>
@@ -4250,7 +4250,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="5">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="42"/>
             </wpnmastery>
         </effects>
@@ -4263,7 +4263,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_2H" effectid="104" e="1">
+            <wpnmastery weapon="SWORD_2H" effectid="104" e="1" basiclvl="5">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="15"/>
             </wpnmastery>
         </effects>
@@ -4276,7 +4276,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="POLEARM_2H" effectid="105" e="1">
+            <wpnmastery weapon="POLEARM_2H" effectid="105" e="1" basiclvl="5">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="15"/>
             </wpnmastery>
         </effects>
@@ -4289,7 +4289,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="5">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="8"/>
             </wpnmastery>
         </effects>
@@ -6363,7 +6363,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -6376,7 +6376,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -6389,7 +6389,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_2H" effectid="104" e="1">
+            <wpnmastery weapon="SWORD_2H" effectid="104" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -6402,7 +6402,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -6415,7 +6415,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -6428,7 +6428,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_2H" effectid="104" e="1">
+            <wpnmastery weapon="SWORD_2H" effectid="104" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -10127,7 +10127,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -10140,7 +10140,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -10153,7 +10153,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -10166,7 +10166,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -10179,7 +10179,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -10192,7 +10192,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -12566,7 +12566,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -12579,7 +12579,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -12592,7 +12592,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -12605,7 +12605,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -12618,7 +12618,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -12631,7 +12631,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -16266,7 +16266,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -16279,7 +16279,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="STAFF_2H" effectid="106" e="1">
+            <wpnmastery weapon="STAFF_2H" effectid="106" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="15"/>
             </wpnmastery>
         </effects>
@@ -16292,7 +16292,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -16305,7 +16305,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="STAFF_2H" effectid="106" e="1">
+            <wpnmastery weapon="STAFF_2H" effectid="106" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="20"/>
             </wpnmastery>
         </effects>
@@ -16545,7 +16545,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="STAFF_2H" effectid="106" e="1">
+            <wpnmastery weapon="STAFF_2H" effectid="106" e="1" basiclvl="5">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="25"/>
             </wpnmastery>
         </effects>
@@ -18751,7 +18751,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -18764,7 +18764,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="STAFF_2H" effectid="106" e="1">
+            <wpnmastery weapon="STAFF_2H" effectid="106" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -18777,7 +18777,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -18790,7 +18790,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="STAFF_2H" effectid="106" e="1">
+            <wpnmastery weapon="STAFF_2H" effectid="106" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -22392,7 +22392,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOOK_2H" effectid="107" e="1">
+            <wpnmastery weapon="BOOK_2H" effectid="107" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="4"/>
             </wpnmastery>
         </effects>
@@ -22405,7 +22405,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOOK_2H" effectid="107" e="1">
+            <wpnmastery weapon="BOOK_2H" effectid="107" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="6"/>
             </wpnmastery>
         </effects>
@@ -22901,7 +22901,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOOK_2H" effectid="107" e="1">
+            <wpnmastery weapon="BOOK_2H" effectid="107" e="1" basiclvl="5">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="8"/>
             </wpnmastery>
         </effects>
@@ -25691,7 +25691,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOOK_2H" effectid="107" e="1">
+            <wpnmastery weapon="BOOK_2H" effectid="107" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="40"/>
             </wpnmastery>
         </effects>
@@ -25704,7 +25704,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="ORB_2H" effectid="108" e="1">
+            <wpnmastery weapon="ORB_2H" effectid="108" e="1" basiclvl="3">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="34"/>
             </wpnmastery>
         </effects>
@@ -25717,7 +25717,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOOK_2H" effectid="107" e="1">
+            <wpnmastery weapon="BOOK_2H" effectid="107" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </wpnmastery>
         </effects>
@@ -25730,7 +25730,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="ORB_2H" effectid="108" e="1">
+            <wpnmastery weapon="ORB_2H" effectid="108" e="1" basiclvl="4">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="38"/>
             </wpnmastery>
         </effects>
@@ -26328,7 +26328,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="ORB_2H" effectid="108" e="1">
+            <wpnmastery weapon="ORB_2H" effectid="108" e="1" basiclvl="5">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="44"/>
             </wpnmastery>
         </effects>
@@ -41188,7 +41188,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -41217,7 +41217,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -41246,7 +41246,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="STAFF_2H" effectid="106" e="1">
+            <wpnmastery weapon="STAFF_2H" effectid="106" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -41259,7 +41259,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -41272,7 +41272,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOOK_2H" effectid="107" e="1">
+            <wpnmastery weapon="BOOK_2H" effectid="107" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -41293,7 +41293,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -41314,7 +41314,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="STAFF_2H" effectid="106" e="1">
+            <wpnmastery weapon="STAFF_2H" effectid="106" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -41327,7 +41327,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -41486,7 +41486,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="ORB_2H" effectid="108" e="1">
+            <wpnmastery weapon="ORB_2H" effectid="108" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -41512,7 +41512,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_2H" effectid="104" e="1">
+            <wpnmastery weapon="SWORD_2H" effectid="104" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -41525,7 +41525,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="0"/>
             </wpnmastery>
         </effects>
@@ -43570,7 +43570,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_1H" effectid="101" e="1">
+            <wpnmastery weapon="SWORD_1H" effectid="101" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="24"/>
             </wpnmastery>
         </effects>
@@ -43583,7 +43583,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1">
+            <wpnmastery weapon="DAGGER_1H" effectid="102" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </wpnmastery>
         </effects>
@@ -43596,7 +43596,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="MACE_1H" effectid="103" e="1">
+            <wpnmastery weapon="MACE_1H" effectid="103" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="28"/>
             </wpnmastery>
         </effects>
@@ -43609,7 +43609,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="SWORD_2H" effectid="104" e="1">
+            <wpnmastery weapon="SWORD_2H" effectid="104" e="1" basiclvl="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="4"/>
             </wpnmastery>
         </effects>
@@ -43635,7 +43635,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOW" effectid="109" e="1">
+            <wpnmastery weapon="BOW" effectid="109" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="2"/>
             </wpnmastery>
         </effects>
@@ -43648,7 +43648,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="STAFF_2H" effectid="106" e="1">
+            <wpnmastery weapon="STAFF_2H" effectid="106" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="10"/>
             </wpnmastery>
         </effects>
@@ -43661,7 +43661,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="BOOK_2H" effectid="107" e="1">
+            <wpnmastery weapon="BOOK_2H" effectid="107" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="2"/>
             </wpnmastery>
         </effects>
@@ -43674,7 +43674,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <wpnmastery weapon="ORB_2H" effectid="108" e="1">
+            <wpnmastery weapon="ORB_2H" effectid="108" e="1" basiclvl="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="28"/>
             </wpnmastery>
         </effects>

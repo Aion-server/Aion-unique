@@ -121,7 +121,7 @@ public class Equipment
 		item.setEquipmentSlot(slot);
 		if (owner.getGameStats()!=null)
 		{
-			ItemEquipmentListener.onItemEquipment(item, owner.getGameStats());
+			ItemEquipmentListener.onItemEquipment(item, owner);
 		}
 		owner.getLifeStats().updateCurrentStats();
 		PacketSendUtility.sendPacket(owner, new SM_UPDATE_ITEM(item));
@@ -190,7 +190,7 @@ public class Equipment
 		itemToUnequip.setEquipped(false);
 		if (owner.getGameStats()!=null)
 		{
-			ItemEquipmentListener.onItemUnequipment(itemToUnequip, owner.getGameStats());
+			ItemEquipmentListener.onItemUnequipment(itemToUnequip, owner);
 		}
 		owner.getLifeStats().updateCurrentStats();
 		itemToUnequip = owner.getInventory().putToBag(itemToUnequip, false);
@@ -397,7 +397,7 @@ public class Equipment
 		{
 			if(item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
 				&& item.getEquipmentSlot() != ItemSlot.SUB_OFF_HAND.getSlotIdMask())
-				ItemEquipmentListener.onItemEquipment(item, owner.getGameStats());
+				ItemEquipmentListener.onItemEquipment(item, owner);
 		}
 		if(owner.getLifeStats() != null)
 		{
@@ -563,7 +563,7 @@ public class Equipment
 			{
 				if(item.getEquipmentSlot() == ItemSlot.MAIN_HAND.getSlotIdMask()
 					|| item.getEquipmentSlot() == ItemSlot.SUB_HAND.getSlotIdMask())
-					ItemEquipmentListener.onItemUnequipment(item, owner.getGameStats());
+					ItemEquipmentListener.onItemUnequipment(item, owner);
 			}
 		}
 
@@ -595,12 +595,30 @@ public class Equipment
 			{
 				if(item.getEquipmentSlot() == ItemSlot.MAIN_HAND.getSlotIdMask()
 					|| item.getEquipmentSlot() == ItemSlot.SUB_HAND.getSlotIdMask())
-					ItemEquipmentListener.onItemEquipment(item, owner.getGameStats());
+					ItemEquipmentListener.onItemEquipment(item, owner);
 			}
 		}
 
 		owner.getLifeStats().updateCurrentStats();
 
 		return true;
+	}
+
+	/**
+	 * @param weaponType
+	 */
+	public boolean isWeaponEquipped(WeaponType weaponType)
+	{
+		if(equipment.get(ItemSlot.MAIN_HAND.getSlotIdMask()) != null &&
+			equipment.get(ItemSlot.MAIN_HAND.getSlotIdMask()).getItemTemplate().getWeaponType() == weaponType)
+		{
+			return true;
+		}
+		if(equipment.get(ItemSlot.SUB_HAND.getSlotIdMask()) != null &&
+			equipment.get(ItemSlot.SUB_HAND.getSlotIdMask()).getItemTemplate().getWeaponType() == weaponType)
+		{
+			return true;
+		}
+		return false;
 	}
 }

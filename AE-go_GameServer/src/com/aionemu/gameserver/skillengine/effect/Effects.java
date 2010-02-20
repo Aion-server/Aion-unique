@@ -52,6 +52,7 @@ public class Effects
 		@XmlElement(name = "statup", type = StatupEffect.class),
 		@XmlElement(name = "statdown", type = StatdownEffect.class),
 		@XmlElement(name = "statboost", type = StatboostEffect.class),
+		@XmlElement(name = "wpnmastery", type = WeaponMasteryEffect.class),
 		@XmlElement(name = "snare", type = SnareEffect.class),
 		//        @XmlElement(name = "slow", type = SlowEffect.class),
 		//        @XmlElement(name = "stumble", type = StumbleEffect.class),

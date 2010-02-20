@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.controllers;
+package com.aionemu.gameserver.controllers.effect;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -151,6 +151,21 @@ public class EffectController
 			updatePlayerEffectIcons();
 		}
 	}
+	
+	/**
+	 * Removes the effect by skillid.
+	 * 
+	 * @param skillid
+	 */
+	public void removePassiveEffect(int skillid)
+	{
+		for(Effect effect : passiveEffectMap.values()){
+			if(effect.getSkillId()==skillid){
+				abnormalEffectMap.remove(effect.getStack());
+				effect.endEffect();
+			}
+		}
+	}
 	/**
 	 * Removes all effects from controllers and ends them appropriately
 	 * Passive effect will not be removed
@@ -182,7 +197,7 @@ public class EffectController
 	{
 		return abnormals;
 	}
-	
+
 	public void updatePlayerEffectIcons()
 	{
 		getOwner().addPacketBroadcastMask(BroadcastMode.UPDATE_PLAYER_EFFECT_ICONS);

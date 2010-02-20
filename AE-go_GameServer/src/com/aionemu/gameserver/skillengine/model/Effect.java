@@ -16,12 +16,12 @@
  */
 package com.aionemu.gameserver.skillengine.model;
 
+import java.util.List;
 import java.util.concurrent.Future;
 
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
-import com.aionemu.gameserver.skillengine.effect.Effects;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
@@ -30,16 +30,11 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  */
 public class Effect
 {
-	private int effectorId;
-	private int skillId;
-	private String stack;
+	private SkillTemplate skillTemplate;
 	private int skillLevel;
-	private int skillStackLvl;
 	private int duration;
 	private int endTime;
-	private boolean isPassive;
 
-	private Effects effects;
 	private Creature effected;
 	private Creature effector;
 	private Future<?> task = null;
@@ -54,14 +49,9 @@ public class Effect
 	{
 		this.effector = effector;
 		this.effected = effected;
-		this.effectorId = effector.getObjectId();
-		this.skillId = skillTemplate.getSkillId();
-		this.stack = skillTemplate.getStack();
+		this.skillTemplate = skillTemplate;
 		this.skillLevel = skillLevel;
-		this.skillStackLvl = skillTemplate.getLvl();
 		this.duration = duration;
-		this.effects = skillTemplate.getEffects();
-		this.isPassive = skillTemplate.getActivationAttribute() == ActivationAttribute.PASSIVE;
 	}
 	
 	/**
@@ -69,7 +59,7 @@ public class Effect
 	 */
 	public int getEffectorId()
 	{
-		return effectorId;
+		return effector.getObjectId();
 	}
 
 	/**
@@ -77,7 +67,7 @@ public class Effect
 	 */
 	public int getSkillId()
 	{
-		return skillId;
+		return skillTemplate.getSkillId();
 	}
 
 	/**
@@ -85,7 +75,7 @@ public class Effect
 	 */
 	public String getStack()
 	{
-		return stack;
+		return skillTemplate.getStack();
 	}
 
 	/**
@@ -101,7 +91,7 @@ public class Effect
 	 */
 	public int getSkillStackLvl()
 	{
-		return skillStackLvl;
+		return skillTemplate.getLvl();
 	}
 
 	/**
@@ -133,7 +123,7 @@ public class Effect
 	 */
 	public boolean isPassive()
 	{
-		return isPassive;
+		return skillTemplate.getActivationAttribute() == ActivationAttribute.PASSIVE;
 	}
 
 	/**
@@ -204,10 +194,30 @@ public class Effect
 	{
 		successEffect++;
 	}
+	
+	public List<EffectTemplate> getEffectTemplates()
+	{
+		return skillTemplate.getEffects().getEffects();
+	}
+	
+	/**
+	 * 
+	 * @param effectId
+	 * @return
+	 */
+	public boolean containsEffectId(int effectId)
+	{
+		for(EffectTemplate template : getEffectTemplates())
+		{
+			if(template.getEffectid() == effectId)
+				return true;
+		}
+		return false;
+	}
 
 	public void startEffect()
 	{	
-		for(EffectTemplate template : effects.getEffects())
+		for(EffectTemplate template : getEffectTemplates())
 		{
 			template.startEffect(this);
 		}
@@ -230,7 +240,7 @@ public class Effect
 
 	public void endEffect()
 	{
-		for(EffectTemplate template : effects.getEffects())
+		for(EffectTemplate template : getEffectTemplates())
 		{
 			template.endEffect(this);
 		}

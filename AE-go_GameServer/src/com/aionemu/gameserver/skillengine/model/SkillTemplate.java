@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
+import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
 import com.aionemu.gameserver.skillengine.effect.Effects;
 import com.aionemu.gameserver.skillengine.properties.Properties;
 
@@ -223,6 +224,18 @@ public class SkillTemplate
 	{
 		return activationAttribute;
 	}
+	
+	/**
+	 * 
+	 * @param position
+	 * @return
+	 */
+	public EffectTemplate getEffectTemplate(int position)
+	{
+		return effects != null && effects.getEffects().size() >= position
+		? effects.getEffects().get(position - 1) : null;
+		
+	}
 
 	/**
      * Gets the value of the cooldown property.
@@ -239,5 +252,13 @@ public class SkillTemplate
             return cooldown;
         }
     }
+
+	/**
+	 * @return
+	 */
+	public boolean isPassive()
+	{
+		return activationAttribute == ActivationAttribute.PASSIVE;
+	}
 
 }

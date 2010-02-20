@@ -22,8 +22,8 @@ import java.util.List;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.CacheConfig;
 import com.aionemu.gameserver.configs.Config;
-import com.aionemu.gameserver.controllers.EffectController;
 import com.aionemu.gameserver.controllers.PlayerController;
+import com.aionemu.gameserver.controllers.effect.PlayerEffectController;
 import com.aionemu.gameserver.dao.AbyssRankDAO;
 import com.aionemu.gameserver.dao.BlockListDAO;
 import com.aionemu.gameserver.dao.FriendListDAO;
@@ -194,10 +194,7 @@ public class PlayerService
 		player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA, player));
 		player.setLifeStats(new PlayerLifeStats(player, player.getPlayerStatsTemplate().getMaxHp(), player
 			.getPlayerStatsTemplate().getMaxMp()));
-		player.setEffectController(new EffectController(player));
-
-		// update passive stats after effect controller and stats are initialized
-		player.getController().updatePassiveStats();
+		player.setEffectController(new PlayerEffectController(player));
 
 		player.setQuestStateList(DAOManager.getDAO(PlayerQuestListDAO.class).load(player));
 		player
@@ -223,6 +220,9 @@ public class PlayerService
 			kinahItem.setItemLocation(StorageType.ACCOUNT_WAREHOUSE.getId());
 			player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).onLoadHandler(kinahItem);
 		}
+		
+		// update passive stats after effect controller, stats and equipment are initialized
+		player.getController().updatePassiveStats();
 
 		if(player.getCommonData().getTitleId() > 0)
 		{

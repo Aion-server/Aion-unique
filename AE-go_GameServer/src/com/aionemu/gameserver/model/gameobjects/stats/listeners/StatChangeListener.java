@@ -26,13 +26,20 @@ import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
  *
  */
 public abstract class StatChangeListener implements Callback<CreatureGameStats<Creature>>
-{	
-	protected abstract void onRecompute(CreatureGameStats<Creature> gameTime);
+{		
+	protected CreatureGameStats<? extends Creature> gameStats;
 
+	public StatChangeListener(CreatureGameStats<? extends Creature> gameStats)
+	{
+		this.gameStats = gameStats;
+	}
+
+	protected abstract void onRecompute();
+	
 	@Override
 	public final CallbackResult<?> afterCall(CreatureGameStats<Creature> cgs, Object[] args, Object methodResult)
 	{
-		onRecompute(cgs);
+		onRecompute();
 		return CallbackResult.newContinue();
 	}
 

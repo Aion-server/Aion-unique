@@ -58,4 +58,12 @@ public enum WeaponType
 	{
 		return slots;
 	}
+
+	/**
+	 * @return
+	 */
+	public int getMask()
+	{
+		return this.ordinal() + 1;
+	}
 }
