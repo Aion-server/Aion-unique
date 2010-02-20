@@ -120,7 +120,7 @@ public class EffectController
 	 * 
 	 * @param effect
 	 */
-	public void removeEffect(Effect effect)
+	public void clearEffect(Effect effect)
 	{
 		abnormalEffectMap.remove(effect.getStack());
 

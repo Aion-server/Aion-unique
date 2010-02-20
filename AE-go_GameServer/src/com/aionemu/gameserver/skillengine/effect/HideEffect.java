@@ -21,6 +21,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.controllers.movement.ActionObserver;
+import com.aionemu.gameserver.controllers.movement.ActionObserver.ObserverType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
@@ -130,5 +132,16 @@ public class HideEffect extends EffectTemplate
 		{
 			PacketSendUtility.broadcastPacket((Player)effected, new SM_PLAYER_STATE((Player)effected), true);
 		}
+		
+		effected.getController().attach(
+			new ActionObserver(ObserverType.ATTACK)
+			{
+				@Override
+				public void attack()
+				{
+					effected.getEffectController().removeEffect(effect.getSkillId());
+				}			
+			}
+		);
 	}
 }

@@ -20,7 +20,31 @@ package com.aionemu.gameserver.controllers.movement;
  * @author ATracer
  *
  */
-public interface MoveObserver
+public class ActionObserver
 {
-	void moved();
+	public enum ObserverType
+	{
+		MOVE,
+		ATTACK,
+		ATTACKED
+	}
+	
+	private ObserverType observerType;
+	
+	public ActionObserver(ObserverType observerType)
+	{
+		this.observerType = observerType;
+	}
+	
+	/**
+	 * @return the observerType
+	 */
+	public ObserverType getObserverType()
+	{
+		return observerType;
+	}
+
+	public void moved(){};
+	public void attacked(){};
+	public void attack(){};
 }

@@ -19,7 +19,8 @@ package com.aionemu.gameserver.controllers;
 import java.util.List;
 
 import com.aionemu.commons.utils.Rnd;
-import com.aionemu.gameserver.controllers.movement.MoveObserver;
+import com.aionemu.gameserver.controllers.movement.ActionObserver;
+import com.aionemu.gameserver.controllers.movement.StartMovingListener;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
@@ -84,7 +85,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 		{
 			state = GatherState.GATHERING;
 			currentGatherer = player.getObjectId();
-			player.getController().attach(new MoveObserver(){
+			player.getController().attach(new StartMovingListener(){
 				
 				@Override
 				public void moved()

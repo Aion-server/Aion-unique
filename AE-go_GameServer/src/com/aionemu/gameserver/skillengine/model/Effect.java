@@ -244,7 +244,7 @@ public class Effect
 		{
 			template.endEffect(this);
 		}
-		effected.getEffectController().removeEffect(this);
+		effected.getEffectController().clearEffect(this);
 		stopTasks();
 	}
 	

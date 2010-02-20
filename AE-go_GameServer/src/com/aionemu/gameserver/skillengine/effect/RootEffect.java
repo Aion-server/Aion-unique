@@ -20,6 +20,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.controllers.movement.ActionObserver;
+import com.aionemu.gameserver.controllers.movement.ActionObserver.ObserverType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ROOT;
 import com.aionemu.gameserver.skillengine.model.Effect;
@@ -46,11 +48,22 @@ public class RootEffect extends EffectTemplate
 	}
 
 	@Override
-	public void startEffect(Effect effect)
+	public void startEffect(final Effect effect)
 	{
-		Creature effected = effect.getEffected();
-		effect.getEffected().setRooted(true);
+		final Creature effected = effect.getEffected();
+		effected.setRooted(true);
 		PacketSendUtility.broadcastPacket(effected, new SM_ROOT(effected));
+		
+		effected.getController().attach(
+			new ActionObserver(ObserverType.ATTACKED)
+			{
+				@Override
+				public void attacked()
+				{
+					effected.getEffectController().removeEffect(effect.getSkillId());
+				}			
+			}
+		);
 	}
 
 	@Override

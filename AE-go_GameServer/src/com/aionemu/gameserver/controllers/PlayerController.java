@@ -213,6 +213,8 @@ public class PlayerController extends CreatureController<Player>
 	@Override
 	public void attackTarget(int targetObjectId)
 	{
+		super.attackTarget(targetObjectId);
+		
 		Player player = getOwner();
 
 		if(!player.canAttack())
@@ -251,6 +253,10 @@ public class PlayerController extends CreatureController<Player>
 	@Override
 	public void onAttack(Creature creature, int skillId, TYPE type,  int damage)
 	{
+		if(getOwner().getLifeStats().isAlreadyDead())
+			return;
+		
+		super.onAttack(creature, skillId, type, damage);
 		lastAttacker = creature;
 		getOwner().getLifeStats().reduceHp(damage);
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), type, skillId, damage), true);	
@@ -262,15 +268,15 @@ public class PlayerController extends CreatureController<Player>
 
 		if(!player.canAttack())
 			return;
-		
+
 		//check if is casting to avoid multicast exploit
-		//TODO retail-like message
 		//TODO cancel skill if other is used
 		if(this.getOwner().isCasting())
-		{
-			//PacketSendUtility.sendMessage(this.getOwner(), "You must wait until cast time finished to use skill again.");
 			return;
-		}
+		
+		//later differentiate between skills
+		notifyAttackObservers();
+		
 		Skill skill = SkillEngine.getInstance().getSkillFor(getOwner(), skillId);
 		if(skill != null)
 		{

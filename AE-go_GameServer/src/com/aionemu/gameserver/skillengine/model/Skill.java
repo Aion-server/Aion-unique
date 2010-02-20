@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.aionemu.gameserver.controllers.movement.StartMovingListener;
+import com.aionemu.gameserver.controllers.movement.ActionObserver.ObserverType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
@@ -28,7 +30,6 @@ import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.skillengine.action.Action;
 import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.Condition;
-import com.aionemu.gameserver.skillengine.condition.ConditionChangeListener;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
 import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
 import com.aionemu.gameserver.skillengine.properties.Properties;
@@ -55,7 +56,7 @@ public class Skill
 	
 	private int skillStackLvl;
 	
-	private ConditionChangeListener conditionChangeListener;
+	private StartMovingListener conditionChangeListener;
 	
 	private SkillTemplate skillTemplate;
 	
@@ -89,7 +90,7 @@ public class Skill
 	public Skill(SkillTemplate skillTemplate, Player effector, World world, int skillLvl)
 	{
 		this.effectedList = new ArrayList<Creature>();
-		this.conditionChangeListener = new ConditionChangeListener();
+		this.conditionChangeListener = new StartMovingListener();
 		this.firstTarget = effector.getTarget() instanceof Creature ? (Creature) effector.getTarget() : null;
 		this.skillLevel = skillLvl;
 		this.skillStackLvl = skillTemplate.getLvl();
@@ -345,7 +346,7 @@ public class Skill
 	/**
 	 * @return the conditionChangeListener
 	 */
-	public ConditionChangeListener getConditionChangeListener()
+	public StartMovingListener getConditionChangeListener()
 	{
 		return conditionChangeListener;
 	}

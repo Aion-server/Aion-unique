@@ -14,17 +14,21 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.condition;
+package com.aionemu.gameserver.controllers.movement;
 
-import com.aionemu.gameserver.controllers.movement.MoveObserver;
 
 /**
  * @author ATracer
  *
  */
-public class ConditionChangeListener implements MoveObserver
+public class StartMovingListener extends ActionObserver
 {
 	private boolean effectorMoved = false;
+
+	public StartMovingListener()
+	{
+		super(ObserverType.MOVE);
+	}
 
 	/**
 	 * @return the effectorMoved
