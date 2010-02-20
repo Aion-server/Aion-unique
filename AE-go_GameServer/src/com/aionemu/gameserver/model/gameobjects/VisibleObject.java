@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.controllers.VisibleObjectController;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.taskmanager.tasks.KnownListUpdateTask;
@@ -174,16 +173,36 @@ public abstract class VisibleObject extends AionObject
 
 	/**
 	 * Update knownlist.
+	 * This is the broadcast sender.
 	 */
 	public void updateKnownlist()
+	{
+		addKnownListUpdateMask(KnownListUpdateMode.KNOWNLIST_UPDATE);
+	}
+	
+	/**
+	 * Update knownlist Impl.
+	 * This is the function, what is broadcasted.
+	 */
+	public void updateKnowlistImpl()
 	{
 		getKnownList().doUpdate();
 	}
 
 	/**
 	 * Clear knownlist.
+	 * This is the broadcast sender.
 	 */
 	public void clearKnownlist()
+	{
+		addKnownListUpdateMask(KnownListUpdateMode.KNOWNLIST_CLEAR);
+	}
+	
+	/**
+	 * Clear knownlist Impl.
+	 * This is the function, what is broadcasted.
+	 */
+	public void clearKnowlistImpl()
 	{
 		getKnownList().clear();
 	}

@@ -351,7 +351,7 @@ public class World
 			object.getSpawn().setSpawned(true, object.getInstanceId());
 		object.getActiveRegion().add(object);
 
-		object.addKnownListUpdateMask(KnownListUpdateMode.KNOWNLIST_UPDATE);
+		object.updateKnownlist();
 	}
 
 	/**
@@ -369,7 +369,7 @@ public class World
 		if(object.getSpawn() != null)
 			object.getSpawn().setSpawned(false, object.getInstanceId());
 
-		object.addKnownListUpdateMask(KnownListUpdateMode.KNOWNLIST_CLEAR);
+		object.clearKnownlist();
 	}
 
 	/**

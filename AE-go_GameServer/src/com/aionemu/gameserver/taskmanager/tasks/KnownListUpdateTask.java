@@ -47,7 +47,7 @@ public class KnownListUpdateTask extends AbstractPeriodicTaskManager<VisibleObje
 			@Override
 			public void knownListUpdate(VisibleObject visibleObject)
 			{
-				visibleObject.updateKnownlist();
+				visibleObject.updateKnowlistImpl();
 			}
 		},
 		KNOWNLIST_CLEAR
@@ -55,7 +55,7 @@ public class KnownListUpdateTask extends AbstractPeriodicTaskManager<VisibleObje
 			@Override
 			public void knownListUpdate(VisibleObject visibleObject)
 			{
-				visibleObject.clearKnownlist();
+				visibleObject.clearKnowlistImpl();
 			}
 		},
 
