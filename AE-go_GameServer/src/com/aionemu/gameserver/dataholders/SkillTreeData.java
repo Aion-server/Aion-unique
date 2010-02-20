@@ -27,8 +27,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.skillengine.model.learn.SkillClass;
@@ -42,10 +40,7 @@ import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
 @XmlRootElement(name = "skill_tree")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SkillTreeData
-{
-	@SuppressWarnings("unused")
-	private static final Logger log = Logger.getLogger(SkillTreeData.class);
-	
+{	
 	@XmlElement(name = "skill")
 	private List<SkillLearnTemplate> skillTemplates;
 	

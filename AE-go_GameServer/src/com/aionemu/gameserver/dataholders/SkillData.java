@@ -26,8 +26,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 
 /**
@@ -37,10 +35,7 @@ import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 @XmlRootElement(name = "skill_data")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SkillData
-{
-	@SuppressWarnings("unused")
-	private static final Logger log = Logger.getLogger(SkillData.class);
-	
+{	
 	@XmlElement(name = "skill_template")
 	private List<SkillTemplate> skillTemplates;
 	/**
