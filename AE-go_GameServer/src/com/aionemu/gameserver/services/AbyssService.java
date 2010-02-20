@@ -45,6 +45,8 @@ public class AbyssService
 		victim.getAbyssRank().addAp(-pointsLost);
 		PacketSendUtility.broadcastPacket(victim, new SM_ABYSS_RANK_UPDATE(victim));
 		winner.getAbyssRank().addAp(pointsGained);
+		if(winner.isLegionMember())
+			winner.getLegionService().addContributionPoints(winner.getLegion(), pointsGained);
 		PacketSendUtility.broadcastPacket(winner, new SM_ABYSS_RANK_UPDATE(winner));
 		winner.getAbyssRank().setAllKill();
 		PacketSendUtility.sendPacket(victim, new SM_ABYSS_RANK(victim.getAbyssRank()));
@@ -63,6 +65,8 @@ public class AbyssService
 		int apReward = StatFunctions.calculateSoloAPReward(winner, victim);
 		
 		winner.getAbyssRank().addAp(apReward);
+		if(winner.isLegionMember())
+			winner.getLegionService().addContributionPoints(winner.getLegion(), apReward);
 		PacketSendUtility.broadcastPacket(winner, new SM_ABYSS_RANK_UPDATE(winner));
 		winner.getAbyssRank().setAllKill();
 		PacketSendUtility.sendPacket(winner, new SM_ABYSS_RANK(winner.getAbyssRank()));

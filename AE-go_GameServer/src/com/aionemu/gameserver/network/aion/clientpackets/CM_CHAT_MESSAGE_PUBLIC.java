@@ -23,7 +23,6 @@ import com.aionemu.commons.objects.filter.ObjectFilter;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.group.PlayerGroup;
-import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
@@ -31,7 +30,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandler;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlerResponse;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlers;
-import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
@@ -59,9 +57,6 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 
 	@Inject
 	private ChatHandlers		chatHandlers;
-
-	@Inject
-	private World				world;
 
 	/**
 	 * Constructs new client packet instance.
@@ -163,13 +158,10 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 	 */
 	private void broadcastToLegionMembers(final Player player)
 	{
-		Legion legion = player.getLegionMember().getLegion();
-		if(legion != null)
+		if(player.isLegionMember())
 		{
-			for(Player legionMember : legion.getOnlineLegionMembers(world))
-			{
-				PacketSendUtility.sendPacket(legionMember, new SM_MESSAGE(player, message, type));
-			}
+			PacketSendUtility.broadcastPacketToLegion(player.getLegion(), new SM_MESSAGE(player, message, type), player
+				.getPosition().getWorld());
 		}
 	}
 }

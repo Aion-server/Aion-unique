@@ -20,6 +20,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import org.apache.log4j.Logger;
@@ -50,14 +51,17 @@ public class MySQL5LegionDAO extends LegionDAO
 	private static final String	INSERT_LEGION_QUERY				= "INSERT INTO legions(id, `name`) VALUES (?, ?)";
 	private static final String	SELECT_LEGION_QUERY				= "SELECT * FROM legions WHERE id=?";
 	private static final String	DELETE_LEGION_QUERY				= "DELETE FROM legions WHERE id = ?";
-	private static final String	UPDATE_LEGION_QUERY				= "UPDATE legions SET name=?, level=?, legionar_permission2=?, centurion_permission1=?, centurion_permission2=?, disband_time=? WHERE id=?";
+	private static final String	UPDATE_LEGION_QUERY				= "UPDATE legions SET name=?, level=?, contribution_points=?, legionar_permission2=?, centurion_permission1=?, centurion_permission2=?, disband_time=? WHERE id=?";
+
+	/** Legion Ranking Queries **/
+	private static final String	SELECT_LEGIONRANKING_QUERY		= "SELECT id, contribution_points FROM legions ORDER BY contribution_points DESC;";
 
 	/** Announcement Queries **/
 	private static final String	INSERT_ANNOUNCEMENT_QUERY		= "INSERT INTO legion_announcement_list(`legion_id`, `announcement`) VALUES (?, ?)";
 	private static final String	SELECT_ANNOUNCEMENTLIST_QUERY	= "SELECT * FROM legion_announcement_list WHERE legion_id=? ORDER BY date DESC";
 
 	/** Emblem Queries **/
-	private static final String INSERT_EMBLEM_QUERY				= "INSERT INTO legion_emblems(legion_id) VALUES (?)";
+	private static final String	INSERT_EMBLEM_QUERY				= "INSERT INTO legion_emblems(legion_id) VALUES (?)";
 	private static final String	UPDATE_EMBLEM_QUERY				= "UPDATE legion_emblems SET emblem_id=?, color_r=?, color_g=?, color_b=? WHERE legion_id=?";
 	private static final String	SELECT_EMBLEM_QUERY				= "SELECT * FROM legion_emblems WHERE legion_id=?";
 
@@ -125,11 +129,12 @@ public class MySQL5LegionDAO extends LegionDAO
 
 				stmt.setString(1, legion.getLegionName());
 				stmt.setInt(2, legion.getLegionLevel());
-				stmt.setInt(3, legion.getLegionarPermission2());
-				stmt.setInt(4, legion.getCenturionPermission1());
-				stmt.setInt(5, legion.getCenturionPermission2());
-				stmt.setInt(6, legion.getDisbandTime());
-				stmt.setInt(7, legion.getLegionId());
+				stmt.setInt(3, legion.getContributionPoints());
+				stmt.setInt(4, legion.getLegionarPermission2());
+				stmt.setInt(5, legion.getCenturionPermission1());
+				stmt.setInt(6, legion.getCenturionPermission2());
+				stmt.setInt(7, legion.getDisbandTime());
+				stmt.setInt(8, legion.getLegionId());
 				stmt.execute();
 			}
 		});
@@ -159,6 +164,7 @@ public class MySQL5LegionDAO extends LegionDAO
 				{
 					legion.setLegionName(resultSet.getString("name"));
 					legion.setLegionLevel(resultSet.getInt("level"));
+					legion.addContributionPoints(resultSet.getInt("contribution_points"));
 
 					legion.setLegionarPermissions(resultSet.getInt("legionar_permission2"), resultSet
 						.getInt("centurion_permission1"), resultSet.getInt("centurion_permission2"));
@@ -355,8 +361,6 @@ public class MySQL5LegionDAO extends LegionDAO
 			}
 		});
 
-		log.debug("[MySQL5LegionDAO] Loaded " + legionId + " legion emblem.");
-
 		return (success && !legionEmblem.isDefaultEmblem()) ? legionEmblem : null;
 	}
 
@@ -398,5 +402,39 @@ public class MySQL5LegionDAO extends LegionDAO
 			}
 		});
 		return inventory;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public HashMap<Integer, Integer> loadLegionRanking()
+	{
+		final HashMap<Integer, Integer> legionRanking = new HashMap<Integer, Integer>();
+
+		boolean success = DB.select(SELECT_LEGIONRANKING_QUERY, new ParamReadStH(){
+			@Override
+			public void setParams(PreparedStatement stmt) throws SQLException
+			{
+			}
+
+			@Override
+			public void handleRead(ResultSet resultSet) throws SQLException
+			{
+				int i = 1;
+				while(resultSet.next())
+				{
+					if(resultSet.getInt("contribution_points") > 0)
+					{
+						legionRanking.put(resultSet.getInt("id"), i);
+						i++;
+					}
+					else
+						legionRanking.put(resultSet.getInt("id"), 0);
+				}
+			}
+		});
+
+		return (success && legionRanking.size() != 0) ? legionRanking : null;
 	}
 }

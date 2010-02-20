@@ -248,6 +248,9 @@ public class PlayerCommonData extends VisibleObjectTemplate
 			DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
 			//save player at this point
 			DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
+			/** Check if player is in legion, if so update member list packet **/
+			if(player.isLegionMember())
+				player.getLegionService().updateMemberInfo(player);
 		}
 	}
 

@@ -23,6 +23,7 @@ import java.util.Map.Entry;
 
 import com.aionemu.gameserver.configs.LegionConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.world.World;
 
 /**
@@ -32,7 +33,6 @@ import com.aionemu.gameserver.world.World;
 public class Legion
 {
 	/** Static Permission settings **/
-	private static final int					LP_CENT_NONE				= 0x60;
 	private static final int					PERMISSION1_MIN				= 0x60;
 	private static final int					PERMISSION2_MIN				= 0x00;
 	private static final int					LEGIONAR_PERMISSION2_MAX	= 0x08;
@@ -44,7 +44,7 @@ public class Legion
 	private String								legionName					= "";
 	private int									legionLevel					= 1;
 	private int									legionRank					= 0;
-	private int									legionContribution			= 0;
+	private int									contributionPoints			= 0;
 	private ArrayList<Integer>					legionMembers				= new ArrayList<Integer>();
 	private static final int					legionarPermission1			= 0x40;
 	private int									legionarPermission2			= 0x00;
@@ -54,6 +54,7 @@ public class Legion
 	private LinkedHashMap<Timestamp, String>	announcementList			= new LinkedHashMap<Timestamp, String>();
 	private LegionEmblem						legionEmblem				= new LegionEmblem();
 	private LegionWarehouse						legionWarehouse;
+	private LegionService						legionService;
 
 	/**
 	 * Only called when a legion is created!
@@ -245,7 +246,7 @@ public class Legion
 	 */
 	public int getCenturionPermission1()
 	{
-		return centurionPermission1 - LP_CENT_NONE;
+		return centurionPermission1;
 	}
 
 	/**
@@ -290,20 +291,20 @@ public class Legion
 	}
 
 	/**
-	 * @param legionContribution
-	 *            the legionContribution to set
+	 * @param contributionPoints
+	 *            the contributionPoints to set
 	 */
-	public void setLegionContribution(int legionContribution)
+	public void addContributionPoints(int contributionPoints)
 	{
-		this.legionContribution = legionContribution;
+		this.contributionPoints = this.contributionPoints+contributionPoints;
 	}
 
 	/**
-	 * @return the legionContribution
+	 * @return the contributionPoints
 	 */
-	public int getLegionContribution()
+	public int getContributionPoints()
 	{
-		return legionContribution;
+		return contributionPoints;
 	}
 
 	public boolean hasRequiredMembers()
@@ -517,6 +518,10 @@ public class Legion
 		return legionWarehouse;
 	}
 
+	/**
+	 * Get warehouse slots
+	 * @return warehouse slots
+	 */
 	public int getWarehouseSlots()
 	{
 		switch(getLegionLevel())
@@ -533,5 +538,21 @@ public class Legion
 				return 56;
 		}
 		return 24;
+	}
+
+	/**
+	 * @param legionService the legionService to set
+	 */
+	public void setLegionService(LegionService legionService)
+	{
+		this.legionService = legionService;
+	}
+
+	/**
+	 * @return the legionService
+	 */
+	public LegionService getLegionService()
+	{
+		return legionService;
 	}
 }

@@ -53,7 +53,7 @@ public class SM_LEGION_INFO extends AionServerPacket
 		writeC(buf, legion.getCenturionPermission2());
 		writeC(buf, legion.getLegionarPermission1());
 		writeC(buf, legion.getLegionarPermission2());
-		writeD(buf, legion.getLegionContribution());
+		writeD(buf, legion.getContributionPoints());
 		writeD(buf, 0x00); // unk
 		writeD(buf, 0x00); // unk
 		writeD(buf, 0x00); // unk

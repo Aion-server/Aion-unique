@@ -73,7 +73,7 @@ public class CM_LEGION_MODIFY_EMBLEM extends AionClientPacket
 			Player activePlayer = getConnection().getActivePlayer();
 			if(activePlayer.isLegionMember())
 			{
-				Legion legion = activePlayer.getLegionMember().getLegion();
+				Legion legion = activePlayer.getLegion();
 
 				if(legion.isMember(activePlayer.getObjectId()) && legionId == legion.getLegionId())
 				{

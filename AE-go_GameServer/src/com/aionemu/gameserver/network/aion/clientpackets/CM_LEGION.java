@@ -161,7 +161,7 @@ public class CM_LEGION extends AionClientPacket
 		final Player activePlayer = getConnection().getActivePlayer();
 		if(activePlayer.isLegionMember())
 		{
-			final Legion legion = activePlayer.getLegionMember().getLegion();
+			final Legion legion = activePlayer.getLegion();
 			if(charName != null)
 			{
 				charName = Util.convertName(charName);
@@ -216,7 +216,7 @@ public class CM_LEGION extends AionClientPacket
 						break;
 					/** Set nickname **/
 					case 0x0F:
-						if(targetPlayer == null || targetPlayer.getLegionMember().getLegion() != legion)
+						if(targetPlayer == null || targetPlayer.getLegion() != legion)
 							// Player offline or NOT in same legion as player
 							return;
 						legionService.changeNickname(activePlayer, targetPlayer, newNickname);

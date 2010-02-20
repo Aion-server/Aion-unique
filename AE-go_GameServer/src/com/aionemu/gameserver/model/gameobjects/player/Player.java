@@ -32,12 +32,14 @@ import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.group.PlayerGroup;
+import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionMember;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
@@ -439,7 +441,7 @@ public class Player extends Creature
 			return accountWarehouse;
 
 		if(storageType == StorageType.LEGION_WAREHOUSE.getId())
-			return getLegionMember().getLegion().getLegionWarehouse();
+			return getLegion().getLegionWarehouse();
 
 		if(storageType == StorageType.CUBE.getId())
 			return inventory;
@@ -596,6 +598,22 @@ public class Player extends Creature
 	public LegionMember getLegionMember()
 	{
 		return legionMember;
+	}
+
+	/**
+	 * @return the legion
+	 */
+	public Legion getLegion()
+	{
+		return legionMember.getLegion();
+	}
+
+	/**
+	 * @return the legionService
+	 */
+	public LegionService getLegionService()
+	{
+		return legionMember.getLegion().getLegionService();
 	}
 	
 	/**

@@ -18,6 +18,7 @@
 package com.aionemu.gameserver.dao;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import com.aionemu.gameserver.model.legion.Legion;
@@ -133,4 +134,9 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	 * @return Storage
 	 */
 	public abstract LegionWarehouse loadLegionStorage(Legion legion);
+
+	/**
+	 * @return the legion ranking
+	 */
+	public abstract HashMap<Integer, Integer> loadLegionRanking();
 }

@@ -60,6 +60,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_MEMBER;
 import com.aionemu.gameserver.skillengine.SkillLearnService;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
@@ -331,9 +332,10 @@ public class PlayerService
 		player.getCommonData().setLastOnline(new Timestamp(System.currentTimeMillis()));
 
 		player.setClientConnection(null);
-		
+
 		if(player.isLegionMember())
-			legionService.updateMembersInfoByPacket(player.getLegionMember().getLegion(), new SM_LEGION_UPDATE_MEMBER(player, 0, ""));
+			PacketSendUtility.broadcastPacketToLegion(player.getLegion(),
+				new SM_LEGION_UPDATE_MEMBER(player, 0, ""), world);
 
 		player.getController().delete();
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);

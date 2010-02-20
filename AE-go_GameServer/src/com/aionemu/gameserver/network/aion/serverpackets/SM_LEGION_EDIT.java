@@ -27,31 +27,31 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author Simple
  * 
  */
-public class SM_EDIT_LEGION extends AionServerPacket
+public class SM_LEGION_EDIT extends AionServerPacket
 {
 	private int					type;
 	private Legion				legion;
 	private int					unixTime;
 	private String				announcement;
 
-	public SM_EDIT_LEGION(int type)
+	public SM_LEGION_EDIT(int type)
 	{
 		this.type = type;
 	}
 
-	public SM_EDIT_LEGION(int type, Legion legion)
+	public SM_LEGION_EDIT(int type, Legion legion)
 	{
 		this.type = type;
 		this.legion = legion;
 	}
 
-	public SM_EDIT_LEGION(int type, int unixTime)
+	public SM_LEGION_EDIT(int type, int unixTime)
 	{
 		this.type = type;
 		this.unixTime = unixTime;
 	}
 
-	public SM_EDIT_LEGION(int type, int unixTime, String announcement)
+	public SM_LEGION_EDIT(int type, int unixTime, String announcement)
 	{
 		this.type = type;
 		this.announcement = announcement;
@@ -81,7 +81,7 @@ public class SM_EDIT_LEGION extends AionServerPacket
 				break;
 			/** Change Legion Contributions **/
 			case 0x03:
-				writeC(buf, 0); // get Contributions
+				writeD(buf, legion.getContributionPoints()); // get Contributions
 				break;
 			/** Change Legion Announcement **/
 			case 0x05:

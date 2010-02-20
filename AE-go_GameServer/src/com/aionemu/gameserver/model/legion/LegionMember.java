@@ -22,12 +22,13 @@ package com.aionemu.gameserver.model.legion;
  */
 public class LegionMember
 {
-	private int				objectId	= 0;
-	protected Legion		legion		= null;
-	protected String		nickname	= "";
-	protected String		selfIntro	= "";
+	private static final int	LP_CENT_NONE	= 0x60;
+	private int					objectId		= 0;
+	protected Legion			legion			= null;
+	protected String			nickname		= "";
+	protected String			selfIntro		= "";
 
-	protected LegionRank	rank		= LegionRank.LEGIONARY;
+	protected LegionRank		rank			= LegionRank.LEGIONARY;
 
 	/**
 	 * If player is defined later on this constructor is called
@@ -150,7 +151,7 @@ public class LegionMember
 			return true;
 
 		int legionarPermission2 = getLegion().getLegionarPermission2();
-		int centurionPermission1 = getLegion().getCenturionPermission1();
+		int centurionPermission1 = getLegion().getCenturionPermission1() - LP_CENT_NONE;
 		int centurionPermission2 = getLegion().getCenturionPermission2();
 
 		switch(type)
