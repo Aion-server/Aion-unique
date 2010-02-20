@@ -62,7 +62,7 @@ public class Effects
 		//        @XmlElement(name = "closeaerial", type = CloseAeriaEffect.class),
 		//        @XmlElement(name = "shield", type = ShieldEffect.class),
 		//        @XmlElement(name = "bind", type = BindEffect.class),
-		//        @XmlElement(name = "dispel", type = DispelEffect.class)
+		@XmlElement(name = "dispel", type = DispelEffect.class),
 		@XmlElement(name = "skillatk", type = SkillAttackEffect.class),
 		@XmlElement(name = "spellatk", type = SpellAttackEffect.class),
 		@XmlElement(name = "dash", type = DashEffect.class),

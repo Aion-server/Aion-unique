@@ -153,6 +153,26 @@ public class EffectController
 	}
 	
 	/**
+	 * 
+	 * @param effectId
+	 */
+	public void removeEffectByEffectId(int effectId)
+	{
+		for(Effect effect : abnormalEffectMap.values()){
+			if(effect.containsEffectId(effectId)){
+				abnormalEffectMap.remove(effect.getStack());
+				effect.endEffect();
+			}
+		}
+		
+		broadCastEffects();
+		if(owner instanceof Player)
+		{
+			updatePlayerEffectIcons();
+		}
+	}
+	
+	/**
 	 * Removes the effect by skillid.
 	 * 
 	 * @param skillid
