@@ -28,19 +28,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  * 
  */
 public class PlayerRestrictions extends AbstractRestrictions
-{
-	@Override
-	public boolean canAttack(Player player, VisibleObject target)
-	{
-		if(player.getController().isInShutdownProgress())
-		{
-			PacketSendUtility.sendMessage(player, "You cannot attack in Shutdown progress!");
-			return false;
-		}
-		
-		return true;
-	}
-	
+{	
 	@Override
 	public boolean canUseSkill(Player player, VisibleObject target)
 	{
@@ -54,24 +42,6 @@ public class PlayerRestrictions extends AbstractRestrictions
 		
 		if(!player.canAttack())
 			return false;
-		
-		if(player.getController().isInShutdownProgress())
-		{
-			PacketSendUtility.sendMessage(player, "You cannot use skills in Shutdown progress!");
-			return false;
-		}
-		
-		return true;
-	}
-	
-	@Override
-	public boolean canChat(Player player)
-	{
-		if(player.getController().isInShutdownProgress())
-		{
-			PacketSendUtility.sendMessage(player, "You cannot chat in Shutdown progress!");
-			return false;
-		}
 		
 		return true;
 	}
@@ -119,12 +89,6 @@ public class PlayerRestrictions extends AbstractRestrictions
 		else if(target.getPlayerGroup() != null)
 		{
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.PLAYER_IN_ANOTHER_GROUP(target.getName()));
-			return false;
-		}
-		
-		if(player.getController().isInShutdownProgress())
-		{
-			PacketSendUtility.sendMessage(player, "You cannot invite members to group in Shutdown progress!");
 			return false;
 		}
 		

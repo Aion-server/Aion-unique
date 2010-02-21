@@ -19,7 +19,6 @@ package com.aionemu.gameserver.controllers;
 import java.util.List;
 
 import com.aionemu.commons.utils.Rnd;
-import com.aionemu.gameserver.controllers.movement.ActionObserver;
 import com.aionemu.gameserver.controllers.movement.StartMovingListener;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.player.Player;

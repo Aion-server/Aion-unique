@@ -174,7 +174,10 @@ public class RestrictionsManager
 
 	static
 	{
+		// This is the Restrictions when player is in normal game.
 		activate(new PlayerRestrictions());
+		// This is the Restrictions when player is in shutdown.
+		activate(new ShutdownRestrictions());
 	}
 	
 	/**

@@ -21,7 +21,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.aionemu.gameserver.controllers.movement.StartMovingListener;
-import com.aionemu.gameserver.controllers.movement.ActionObserver.ObserverType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
