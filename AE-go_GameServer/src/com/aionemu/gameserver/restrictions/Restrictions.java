@@ -32,4 +32,6 @@ public interface Restrictions
 	public boolean canChat(Player player);
 	
 	public boolean canInviteToGroup(Player player, Player target);
+	
+	public boolean canChangeEquip(Player player);
 }

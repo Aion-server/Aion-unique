@@ -21,17 +21,17 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.restrictions.RestrictionsManager;
 
 /**
  * 
- * @author Avol
- *  modified by ATracer
+ * @author Avol modified by ATracer
  */
 public class CM_EQUIP_ITEM extends AionClientPacket
 {
-	public int					slotRead;
-	public int					itemUniqueId;
-	public int					action;
+	public int	slotRead;
+	public int	itemUniqueId;
+	public int	action;
 
 	public CM_EQUIP_ITEM(int opcode)
 	{
@@ -48,11 +48,14 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 
 	@Override
 	protected void runImpl()
-	{	
+	{
 		final Player activePlayer = getConnection().getActivePlayer();
 		Equipment equipment = activePlayer.getEquipment();
 		boolean operationResult = false;
 
+		if(!RestrictionsManager.canChangeEquip(activePlayer))
+			return;
+		
 		switch(action)
 		{
 			case 0:
@@ -68,8 +71,9 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 
 		if(operationResult)
 		{
-			PacketSendUtility.broadcastPacket(activePlayer,
-				new SM_UPDATE_PLAYER_APPEARANCE(activePlayer.getObjectId(), equipment.getEquippedItems()), true);
+			PacketSendUtility.broadcastPacket(activePlayer, new SM_UPDATE_PLAYER_APPEARANCE(activePlayer.getObjectId(),
+				equipment.getEquippedItems()), true);
 		}
+
 	}
 }

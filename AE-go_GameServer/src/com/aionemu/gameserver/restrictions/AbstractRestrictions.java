@@ -73,4 +73,10 @@ public abstract class AbstractRestrictions implements Restrictions
 	{
 		throw new AbstractMethodError();
 	}
+	
+	@DisabledRestriction
+	public boolean canChangeEquip(Player player)
+	{
+		throw new AbstractMethodError();
+	}
 }

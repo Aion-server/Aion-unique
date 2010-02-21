@@ -73,4 +73,16 @@ public class ShutdownRestrictions extends AbstractRestrictions
 
 		return true;
 	}
+	
+	@Override
+	public boolean canChangeEquip(Player player)
+	{
+		if(player.getController().isInShutdownProgress())
+		{
+			PacketSendUtility.sendMessage(player, "You cannot equip / unequip item in Shutdown progress!");
+			return false;
+		}
+		
+		return true;
+	}
 }

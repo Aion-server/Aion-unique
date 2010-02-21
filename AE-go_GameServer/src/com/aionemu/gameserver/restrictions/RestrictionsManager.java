@@ -59,6 +59,7 @@ public class RestrictionsManager
 		canUseSkill,
 		canChat,
 		canInviteToGroup,
+		canChangeEquip,
 		// TODO
 		;
 
@@ -241,6 +242,22 @@ public class RestrictionsManager
 		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canInviteToGroup.ordinal()])
 		{
 			if(!restrictions.canInviteToGroup(player, target))
+				return false;
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * This function is created for enable/disable equip change.
+	 * 
+	 * @param player	 
+	 */
+	public static boolean canChangeEquip(Player player)
+	{
+		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canChangeEquip.ordinal()])
+		{
+			if(!restrictions.canChangeEquip(player))
 				return false;
 		}
 		

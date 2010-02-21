@@ -94,4 +94,5 @@ public class PlayerRestrictions extends AbstractRestrictions
 		
 		return true;
 	}
+
 }
