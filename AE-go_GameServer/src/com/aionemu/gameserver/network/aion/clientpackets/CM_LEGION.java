@@ -23,7 +23,7 @@ import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionMemberEx;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_KICK_MEMBER;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_LEAVE_MEMBER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_TITLE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.LegionService;
@@ -188,7 +188,7 @@ public class CM_LEGION extends AionClientPacket
 								.getObjectId(), 0, "", targetPlayer.getLegionMember().getRank().getRankId()), true);
 							targetPlayer.setLegionMember(null);
 							// TODO: Can not kick during a war!!
-							PacketSendUtility.sendPacket(targetPlayer, new SM_LEGION_KICK_MEMBER(1300246, 0, legion
+							PacketSendUtility.sendPacket(targetPlayer, new SM_LEGION_LEAVE_MEMBER(1300246, 0, legion
 								.getLegionName()));
 						}
 						break;

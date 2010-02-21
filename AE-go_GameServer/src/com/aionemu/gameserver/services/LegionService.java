@@ -40,7 +40,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_ADD_MEMBER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_EDIT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_KICK_MEMBER;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_LEAVE_MEMBER;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_MEMBERLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_EMBLEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_MEMBER;
@@ -661,12 +661,12 @@ public class LegionService
 		{
 			PacketSendUtility.broadcastPacket(activePlayer, new SM_LEGION_UPDATE_TITLE(activePlayer.getObjectId(), 0,
 				"", legionMember.getRank().getRankId()), true);
-			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_KICK_MEMBER(1300241, 0, legion.getLegionName()));
+			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_LEAVE_MEMBER(1300241, 0, legion.getLegionName()));
 			activePlayer.setLegionMember(null);
 			legion.deleteLegionMember(activePlayer.getObjectId());
 			deleteLegionMember(activePlayer.getObjectId());
 
-			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_KICK_MEMBER(900699, activePlayer
+			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_LEAVE_MEMBER(900699, activePlayer
 				.getObjectId(), activePlayer.getName()), world);
 		}
 	}
@@ -702,7 +702,7 @@ public class LegionService
 			legion.deleteLegionMember(legionMember.getObjectId());
 			deleteLegionMember(legionMember.getObjectId());
 
-			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_KICK_MEMBER(1300247, legionMember
+			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_LEAVE_MEMBER(1300247, legionMember
 				.getObjectId(), activePlayer.getName(), legionMember.getName()), world);
 
 			if(legionMember.isOnline())
