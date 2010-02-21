@@ -26,21 +26,21 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author Simple
  * 
  */
-public class SM_LEGION_KICK_MEMBER extends AionServerPacket
+public class SM_LEGION_LEAVE_MEMBER extends AionServerPacket
 {
 	private String	name;
 	private String	name1;
 	private int		playerObjId;
 	private int		msgId;
 
-	public SM_LEGION_KICK_MEMBER(int msgId, int playerObjId, String name)
+	public SM_LEGION_LEAVE_MEMBER(int msgId, int playerObjId, String name)
 	{
 		this.msgId = msgId;
 		this.playerObjId = playerObjId;
 		this.name = name;
 	}
 
-	public SM_LEGION_KICK_MEMBER(int msgId, int playerObjId, String name, String name1)
+	public SM_LEGION_LEAVE_MEMBER(int msgId, int playerObjId, String name, String name1)
 	{
 		this.msgId = msgId;
 		this.playerObjId = playerObjId;
@@ -52,8 +52,8 @@ public class SM_LEGION_KICK_MEMBER extends AionServerPacket
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
 		writeD(buf, playerObjId);
-		writeD(buf, 0x00);
-		writeC(buf, 0x00);
+		writeC(buf, 0x00); // isMember ? 1 : 0
+		writeD(buf, 0x00); // unix time for log off
 		writeD(buf, msgId);
 		writeS(buf, name);
 		writeS(buf, name1);

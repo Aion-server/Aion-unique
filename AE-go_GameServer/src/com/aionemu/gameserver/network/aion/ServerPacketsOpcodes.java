@@ -165,7 +165,7 @@ public class ServerPacketsOpcodes
 		/** Legion server packets **/
 		addPacketOpcode(SM_LEGION_INFO.class, 0x8E, idSet);
 		addPacketOpcode(SM_LEGION_ADD_MEMBER.class, 0x8F, idSet);
-		addPacketOpcode(SM_LEGION_KICK_MEMBER.class, 0x90, idSet);
+		addPacketOpcode(SM_LEGION_LEAVE_MEMBER.class, 0x90, idSet);
 		addPacketOpcode(SM_LEGION_UPDATE_MEMBER.class, 0x91, idSet);
 		addPacketOpcode(SM_LEGION_MEMBERLIST.class, 0x95, idSet);
 		addPacketOpcode(SM_LEGION_EDIT.class, 0x9E, idSet);

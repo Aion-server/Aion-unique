@@ -44,7 +44,7 @@ public class CM_LEGION_SEND_EMBLEM extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		legionId = readC();
+		legionId = readD();
 	}
 
 	/**
