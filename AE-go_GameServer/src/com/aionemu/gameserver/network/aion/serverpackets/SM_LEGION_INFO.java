@@ -65,5 +65,6 @@ public class SM_LEGION_INFO extends AionServerPacket
 			writeS(buf, announcementList.get(unixTime));
 			writeD(buf, (int)(unixTime.getTime()/1000));
 		}
+		writeH(buf, 0x00);
 	}
 }
