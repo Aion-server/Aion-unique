@@ -64,6 +64,6 @@ public enum WeaponType
 	 */
 	public int getMask()
 	{
-		return this.ordinal() + 1;
+		return 1 << this.ordinal();
 	}
 }
