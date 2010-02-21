@@ -328,7 +328,7 @@ public class Item extends AionObject
 	public void setItemLocation(int storageType)
 	{
 		this.itemLocation = storageType;
-       setPersistentState(PersistentState.UPDATE_REQUIRED);
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 
 	public int getItemLocation()

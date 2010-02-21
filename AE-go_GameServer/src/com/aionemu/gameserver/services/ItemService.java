@@ -31,6 +31,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.StorageType;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.items.ItemId;
+import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
@@ -132,14 +133,16 @@ public class ItemService
 			if(item.getItemTemplate().isArmor() || item.getItemTemplate().isWeapon())
 			{
 				item.setItemStones(DAOManager.getDAO(ItemStoneListDAO.class).load(item.getObjectId()));
-				//if item equipped - apply stats of item stone
-				if(item.isEquipped())
+
+				// if item equipped - apply stats of item stone
+				if(item.isEquipped() && item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
+					&& item.getEquipmentSlot() != ItemSlot.SUB_OFF_HAND.getSlotIdMask())
 				{
 					for(ItemStone itemStone : item.getItemStones())
 					{
 						ItemEquipmentListener.addStoneStats(itemStone, player.getGameStats());
 					}
-				}			
+				}
 			}
 		}
 	}
