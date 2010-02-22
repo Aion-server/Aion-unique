@@ -20,6 +20,7 @@ import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.utils.ExitCode;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -172,9 +173,9 @@ public class ShutdownHook extends Thread
 		log.info("Runtime is closing now...");
 
 		if(mode == ShutdownMode.RESTART)
-			Runtime.getRuntime().halt(2);
+			Runtime.getRuntime().halt(ExitCode.CODE_RESTART);
 		else
-			Runtime.getRuntime().halt(0);
+			Runtime.getRuntime().halt(ExitCode.CODE_NORMAL);
 	}
 
 	public static final class ShutdownManager extends Thread
@@ -242,9 +243,9 @@ public class ShutdownHook extends Thread
 			log.warn("Shutdown countdown is over: " + mode.getText() + " NOW!");
 
 			if(mode == ShutdownMode.RESTART)
-				Runtime.getRuntime().halt(2);
+				Runtime.getRuntime().halt(ExitCode.CODE_RESTART);
 			else
-				Runtime.getRuntime().halt(0);
+				Runtime.getRuntime().halt(ExitCode.CODE_NORMAL);
 		}
 
 		public static void doShutdown(String initiator, int seconds, ShutdownMode mode)
