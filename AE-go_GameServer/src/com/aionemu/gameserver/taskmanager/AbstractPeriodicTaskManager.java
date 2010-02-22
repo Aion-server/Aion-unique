@@ -21,6 +21,7 @@ import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.taskmanager.AbstractLockManager;
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.GameServer.StartupHook;
