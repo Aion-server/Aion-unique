@@ -61,7 +61,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	private static final String	SELECT_ANNOUNCEMENTLIST_QUERY	= "SELECT * FROM legion_announcement_list WHERE legion_id=? ORDER BY date DESC";
 
 	/** Emblem Queries **/
-	private static final String	INSERT_EMBLEM_QUERY				= "INSERT INTO legion_emblems(legion_id) VALUES (?)";
+	private static final String	INSERT_EMBLEM_QUERY				= "INSERT INTO legion_emblems(legion_id, emblem_id, color_r, color_g, color_b) VALUES (?, ?, ?, ?, ?)";
 	private static final String	UPDATE_EMBLEM_QUERY				= "UPDATE legion_emblems SET emblem_id=?, color_r=?, color_g=?, color_b=? WHERE legion_id=?";
 	private static final String	SELECT_EMBLEM_QUERY				= "SELECT * FROM legion_emblems WHERE legion_id=?";
 
@@ -298,7 +298,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void storeLegionEmblem(final int legionId, final int emblemId, final int red, final int green, final int blue)
+	public void storeLegionEmblem(final int legionId, final LegionEmblem legionEmblem)
 	{
 		DB.insertUpdate(UPDATE_EMBLEM_QUERY, new IUStH(){
 			@Override
@@ -306,10 +306,10 @@ public class MySQL5LegionDAO extends LegionDAO
 			{
 				log.debug("[DAO: MySQL5LegionDAO] storing emblem for legion id: " + legionId);
 
-				stmt.setInt(1, emblemId);
-				stmt.setInt(2, red);
-				stmt.setInt(3, green);
-				stmt.setInt(4, blue);
+				stmt.setInt(1, legionEmblem.getEmblemId());
+				stmt.setInt(2, legionEmblem.getColor_r());
+				stmt.setInt(3, legionEmblem.getColor_g());
+				stmt.setInt(4, legionEmblem.getColor_b());
 				stmt.setInt(5, legionId);
 				stmt.execute();
 			}
@@ -320,7 +320,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean saveNewLegionEmblem(final int legionId)
+	public boolean saveNewLegionEmblem(final int legionId, final LegionEmblem legionEmblem)
 	{
 		boolean success = DB.insertUpdate(INSERT_EMBLEM_QUERY, new IUStH(){
 			@Override
@@ -329,6 +329,10 @@ public class MySQL5LegionDAO extends LegionDAO
 				log.debug("[DAO: MySQL5LegionDAO] saving new legion emblem: " + legionId);
 
 				preparedStatement.setInt(1, legionId);
+				preparedStatement.setInt(2, legionEmblem.getEmblemId());
+				preparedStatement.setInt(3, legionEmblem.getColor_r());
+				preparedStatement.setInt(4, legionEmblem.getColor_g());
+				preparedStatement.setInt(5, legionEmblem.getColor_b());
 				preparedStatement.execute();
 			}
 		});

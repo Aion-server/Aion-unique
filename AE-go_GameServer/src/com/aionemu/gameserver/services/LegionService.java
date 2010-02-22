@@ -958,9 +958,10 @@ public class LegionService
 				newNickname), world);
 		}
 	}
-	
+
 	/**
 	 * This method will remove legion from all legion members online after a legion has been disbanded
+	 * 
 	 * @param legion
 	 */
 	public void updateAfterDisbandLegion(Legion legion)
@@ -968,10 +969,11 @@ public class LegionService
 		for(Player onlineLegionMember : legion.getOnlineLegionMembers(world))
 		{
 			onlineLegionMember.resetLegionMember();
-			PacketSendUtility.broadcastPacket(onlineLegionMember, new SM_LEGION_UPDATE_TITLE(onlineLegionMember.getObjectId(), 0,
-				"", onlineLegionMember.getLegionMember().getRank().getRankId()), true);
-			PacketSendUtility.sendPacket(onlineLegionMember, new SM_LEGION_LEAVE_MEMBER(1300302, 0, legion.getLegionName()));
-		}				
+			PacketSendUtility.broadcastPacket(onlineLegionMember, new SM_LEGION_UPDATE_TITLE(onlineLegionMember
+				.getObjectId(), 0, "", onlineLegionMember.getLegionMember().getRank().getRankId()), true);
+			PacketSendUtility.sendPacket(onlineLegionMember, new SM_LEGION_LEAVE_MEMBER(1300302, 0, legion
+				.getLegionName()));
+		}
 	}
 
 	/**
@@ -985,7 +987,8 @@ public class LegionService
 		for(Player onlineLegionMember : legion.getOnlineLegionMembers(world))
 		{
 			PacketSendUtility.broadcastPacket(onlineLegionMember, new SM_LEGION_UPDATE_EMBLEM(legion.getLegionId(),
-				legionEmblem.getEmblemId(), legionEmblem.getColor_r(), legionEmblem.getColor_g(), legionEmblem.getColor_b()), true);
+				legionEmblem.getEmblemId(), legionEmblem.getColor_r(), legionEmblem.getColor_g(), legionEmblem
+					.getColor_b()), true);
 		}
 	}
 
@@ -1030,11 +1033,16 @@ public class LegionService
 	 */
 	public void storeLegionEmblem(Legion legion, int emblemId, int color_r, int color_g, int color_b)
 	{
-		if(legion.getLegionEmblem().isDefaultEmblem())
-			DAOManager.getDAO(LegionDAO.class).saveNewLegionEmblem(legion.getLegionId());
-
-		legion.getLegionEmblem().setEmblem(emblemId, color_r, color_g, color_b);
-		DAOManager.getDAO(LegionDAO.class).storeLegionEmblem(legion.getLegionId(), emblemId, color_r, color_g, color_b);
+		final LegionEmblem legionEmblem = legion.getLegionEmblem();
+		
+		legionEmblem.setEmblem(emblemId, color_r, color_g, color_b);
+		if(legionEmblem.isDefaultEmblem())
+		{
+			legionEmblem.setDefaultEmblem(false);
+			DAOManager.getDAO(LegionDAO.class).saveNewLegionEmblem(legion.getLegionId(), legionEmblem);
+		}
+		else
+			DAOManager.getDAO(LegionDAO.class).storeLegionEmblem(legion.getLegionId(), legionEmblem);
 
 		updateMembersEmblem(legion);
 	}
@@ -1197,7 +1205,7 @@ public class LegionService
 	 * @param legion
 	 */
 	private void loadLegionRanking()
-	{		
+	{
 		if(legionRanking == null)
 		{
 			setLegionRanking(DAOManager.getDAO(LegionDAO.class).loadLegionRanking());
@@ -1213,7 +1221,7 @@ public class LegionService
 	{
 		setLegionRanking(null);
 		loadLegionRanking();
-		
+
 		for(Integer legionId : legionRanking.keySet())
 		{
 			Legion legion = getCachedLegion(legionId);

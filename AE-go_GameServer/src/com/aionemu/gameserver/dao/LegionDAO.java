@@ -110,14 +110,14 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	 * @param green
 	 * @param blue
 	 */
-	public abstract void storeLegionEmblem(int legionId, int emblemId, int red, int green, int blue);
+	public abstract void storeLegionEmblem(int legionId, LegionEmblem legionEmblem);
 
 	/**
 	 * Saves a new legion emblem
 	 * 
 	 * @param legionId
 	 */
-	public abstract boolean saveNewLegionEmblem(int legionId);
+	public abstract boolean saveNewLegionEmblem(int legionId, LegionEmblem legionEmblem);
 
 	/**
 	 * Loads a legion emblem

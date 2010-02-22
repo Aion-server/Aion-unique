@@ -62,7 +62,6 @@ public class LegionEmblem
 		this.color_r = color_r;
 		this.color_g = color_g;
 		this.color_b = color_b;
-		this.defaultEmblem = false;
 	}
 
 	/**
