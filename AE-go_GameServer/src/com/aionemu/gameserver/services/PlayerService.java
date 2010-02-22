@@ -174,9 +174,7 @@ public class PlayerService
 
 		LegionMember legionMember = legionService.getLegionMember(player);
 		if(legionMember != null)
-		{
 			player.setLegionMember(legionMember);
-		}
 
 		player.setMacroList(macroses);
 

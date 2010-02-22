@@ -487,34 +487,36 @@ public class LegionService
 		{
 			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CREATE_NOT_ENOUGH_KINAH());
 		}
-		else if(storeNewLegion(legion))
+		else
 		{
 			LegionEmblem legionEmblem = legion.getLegionEmblem();
 			activePlayer.getInventory().decreaseKinah(LegionConfig.LEGION_CREATE_REQUIRED_KINAH);
 			/**
-			 * Create a LegionMember and bind it to a Player
+			 * Create a LegionMember, add it to the legion and bind it to a Player
 			 */
 			LegionMember legionMember = new LegionMember(activePlayer.getObjectId(), legion, LegionRank.BRIGADE_GENERAL); // Leader
-			// Rank
-			activePlayer.setLegionMember(legionMember);
-			legion.addLegionMember(activePlayer.getObjectId());
-			storeNewLegionMember(activePlayer.getObjectId(), legionMember);
+			if(legion.addLegionMember(activePlayer.getObjectId()))
+			{
+				activePlayer.setLegionMember(legionMember);
+				storeNewLegion(legion);
+				storeNewLegionMember(activePlayer.getObjectId(), legionMember);
 
-			/**
-			 * Send required packets
-			 */
-			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_INFO(legion));
-			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_ADD_MEMBER(activePlayer, false, 0, ""));
-			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_UPDATE_EMBLEM(legion.getLegionId(), legionEmblem
-				.getEmblemId(), legionEmblem.getColor_r(), legionEmblem.getColor_g(), legionEmblem.getColor_b()));
-			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_EDIT(0x08));
+				/**
+				 * Send required packets
+				 */
+				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_INFO(legion));
+				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_ADD_MEMBER(activePlayer, false, 0, ""));
+				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_UPDATE_EMBLEM(legion.getLegionId(),
+					legionEmblem.getEmblemId(), legionEmblem.getColor_r(), legionEmblem.getColor_g(), legionEmblem
+						.getColor_b()));
+				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_EDIT(0x08));
 
-			PacketSendUtility.broadcastPacket(activePlayer, new SM_LEGION_UPDATE_TITLE(activePlayer.getObjectId(),
-				legion.getLegionId(), legion.getLegionName(), legionMember.getRank().getRankId()), true);
+				PacketSendUtility.broadcastPacket(activePlayer, new SM_LEGION_UPDATE_TITLE(activePlayer.getObjectId(),
+					legion.getLegionId(), legion.getLegionName(), legionMember.getRank().getRankId()), true);
 
-			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_MEMBERLIST(loadLegionMemberExList(legion)));
-			// 7A 55 39 00 00 34 00 00 00 03 02 00
-			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CREATED(legion.getLegionName()));
+				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_MEMBERLIST(loadLegionMemberExList(legion)));
+				PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CREATED(legion.getLegionName()));
+			}
 		}
 	}
 
@@ -1034,7 +1036,7 @@ public class LegionService
 	public void storeLegionEmblem(Legion legion, int emblemId, int color_r, int color_g, int color_b)
 	{
 		final LegionEmblem legionEmblem = legion.getLegionEmblem();
-		
+
 		legionEmblem.setEmblem(emblemId, color_r, color_g, color_b);
 		if(legionEmblem.isDefaultEmblem())
 		{
