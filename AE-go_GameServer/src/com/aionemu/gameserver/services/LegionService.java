@@ -970,11 +970,11 @@ public class LegionService
 	{
 		for(Player onlineLegionMember : legion.getOnlineLegionMembers(world))
 		{
-			onlineLegionMember.resetLegionMember();
 			PacketSendUtility.broadcastPacket(onlineLegionMember, new SM_LEGION_UPDATE_TITLE(onlineLegionMember
 				.getObjectId(), 0, "", onlineLegionMember.getLegionMember().getRank().getRankId()), true);
 			PacketSendUtility.sendPacket(onlineLegionMember, new SM_LEGION_LEAVE_MEMBER(1300302, 0, legion
 				.getLegionName()));
+			onlineLegionMember.resetLegionMember();
 		}
 	}
 
