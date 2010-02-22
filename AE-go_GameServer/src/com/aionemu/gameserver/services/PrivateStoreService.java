@@ -168,6 +168,7 @@ public class PrivateStoreService
 		if(getKinahAmount(buyer) > price)
 		{
 			decreaseKinahAmount(buyer, price);
+			increaseKinahAmount(seller, price);
 
 			/**
 			 * Remove item from private store
@@ -275,6 +276,17 @@ public class PrivateStoreService
 	private void decreaseKinahAmount(Player player, int price)
 	{
 		player.getInventory().decreaseKinah(price);
+	}
+
+	/**
+	 * This method will increase the kinah amount of a player
+	 * 
+	 * @param player
+	 * @param price
+	 */
+	private void increaseKinahAmount(Player player, int price)
+	{
+		player.getInventory().increaseKinah(price);
 	}
 
 	/**
