@@ -351,7 +351,7 @@ public class ExchangeService
 					break;
 			}
 			player.getInventory().putToBag(itemToPut);
-			itemService.udpateItem(player, itemToPut, true);
+			itemService.updateItem(player, itemToPut, true);
 		}	
 		player.getInventory().increaseKinah(exchange.getKinahCount());
 	}

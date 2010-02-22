@@ -169,7 +169,7 @@ public class TradeService
 	 */
 	private boolean validateBuyItems(TradeList tradeList)
 	{
-		Npc npc = (Npc) world.findAionObject(tradeList.getNpcObjId());
+		Npc npc = (Npc) world.findAionObject(tradeList.getSellerObjId());
 		TradeListTemplate tradeListTemplate = tradeListData.getTradeListTemplate(npc.getTemplate().getTemplateId());
 
 		Set<Integer> allowedItems = new HashSet<Integer>();

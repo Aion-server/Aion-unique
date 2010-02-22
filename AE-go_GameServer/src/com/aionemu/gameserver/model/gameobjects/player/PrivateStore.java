@@ -16,50 +16,83 @@
  */
 package com.aionemu.gameserver.model.gameobjects.player;
 
-import javolution.util.FastMap;
+import java.util.LinkedHashMap;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 
 /**
  * @author Xav
- * 
+ * Modified by Simple
  */
-public class PlayerStore
+public class PrivateStore
 {
 	private Player					owner;
-	private FastMap<Item, Integer>	items;
+	private LinkedHashMap<Item, Integer>	items;
+	private String					storeMessage;
 
-	public PlayerStore(Player owner)
+	/**
+	 * This method binds a player to the store and creates a list of items
+	 * @param owner
+	 */
+	public PrivateStore(Player owner)
 	{
 		this.owner = owner;
-		this.items = new FastMap<Item, Integer>();
+		this.items = new LinkedHashMap<Item, Integer>();
 	}
 
-	public void setOwner(Player owner)
-	{
-		this.owner = owner;
-	}
-
+	/**
+	 * This method will return the owner of the store
+	 * @return
+	 */
 	public Player getOwner()
 	{
 		return owner;
 	}
 
-	public FastMap<Item, Integer> getSoldItems()
+	/**
+	 * This method will return the items being sold
+	 * @return
+	 */
+	public LinkedHashMap<Item, Integer> getSoldItems()
 	{
 		return items;
 	}
 
+	/**
+	 * This method will add an item to the list and price
+	 * @param item
+	 * @param price
+	 */
 	public void addItemToSell(Item item, int price)
 	{
 		items.put(item, price);
 	}
 
+	/**
+	 * This method will remove an item from the list
+	 * @param item
+	 */
 	public void removeItem(Item item)
 	{
 		if(items.containsKey(item))
 		{
 			items.remove(item);
 		}
+	}
+
+	/**
+	 * @param storeMessage the storeMessage to set
+	 */
+	public void setStoreMessage(String storeMessage)
+	{
+		this.storeMessage = storeMessage;
+	}
+
+	/**
+	 * @return the storeMessage
+	 */
+	public String getStoreMessage()
+	{
+		return storeMessage;
 	}
 }

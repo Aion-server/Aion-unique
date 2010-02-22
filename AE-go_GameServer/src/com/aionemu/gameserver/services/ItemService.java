@@ -368,7 +368,7 @@ public class ItemService
 					count -= freeCount;
 				}
 
-				udpateItem(player, existingItem, false);
+				updateItem(player, existingItem, false);
 			}
 
 			/**
@@ -384,14 +384,14 @@ public class ItemService
 					item.setQuest(isQuestItem);
 					count -= maxStackCount;
 					inventory.putToBag(item);
-					udpateItem(player, item, true);
+					updateItem(player, item, true);
 				}
 				else
 				{
 					Item item = newItem(itemId, count);
 					item.setQuest(isQuestItem);
 					inventory.putToBag(item);
-					udpateItem(player, item, true);
+					updateItem(player, item, true);
 					count = 0;
 				}
 			}
@@ -470,7 +470,7 @@ public class ItemService
 	}
 
 
-	public void udpateItem(Player player, Item item, boolean isNew)
+	public void updateItem(Player player, Item item, boolean isNew)
 	{
 		if(isNew)
 			PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(Collections.singletonList(item)));

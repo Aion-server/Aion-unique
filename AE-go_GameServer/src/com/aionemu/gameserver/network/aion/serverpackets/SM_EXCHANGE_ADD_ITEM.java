@@ -60,11 +60,11 @@ public class SM_EXCHANGE_ADD_ITEM extends InventoryPacket
 		}
 		else if (itemTemplate.isArmor())
 		{
-			writeArmorInfo(buf,item, true);
+			writeArmorInfo(buf,item, true, false);
 		}
 		else
 		{				
-			writeGeneralItemInfo(buf, item, false);
+			writeGeneralItemInfo(buf, item, false, false);
 			writeC(buf, 0);
 		}
 	}

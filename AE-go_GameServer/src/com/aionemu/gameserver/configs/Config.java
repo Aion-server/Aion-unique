@@ -196,6 +196,9 @@ public class Config
 
 	@Property(key = "gameserver.ShutdownHookDelay", defaultValue = "60")
 	public static int				SHUTDOWN_HOOK_DELAY;
+
+	@Property(key = "gameserver.enable.privatestore",defaultValue = "true")
+	public static boolean			ENABLE_PRIVATE_STORE;
 	
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package

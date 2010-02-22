@@ -16,28 +16,16 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.model.ChatType;
-import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.controllers.NpcController;
+import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
-import com.aionemu.gameserver.model.gameobjects.player.StorageType;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_INFO;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.services.LegionService;
-import com.aionemu.gameserver.utils.MathUtil;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
 
 /**
@@ -61,6 +49,8 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	private CubeExpandService	cubeExpandService;
 	@Inject
 	private LegionService		legionService;
+	@Inject
+	private NpcController		npcController;
 
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
@@ -103,163 +93,18 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 			ClassChangeService.changeClassToSelection(player, dialogId);
 			return;
 		}
-		Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
 
-		if(QuestEngine.getInstance().onDialog(new QuestEnv(npc, player, questId, dialogId)))
-			return;
+		AionObject object = player.getActiveRegion().getWorld().findAionObject(targetObjectId);
 
-		switch(dialogId)
+		if(object instanceof Player)
 		{
-			case 2:
-				sendPacket(new SM_TRADELIST(npc));
-				break;
-			case 3:
-				sendPacket(new SM_SELL_ITEM(player, targetObjectId));
-				break;
-			case 4:
-				// stigma
-				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-				break;
-			case 5:
-				// create legion
-				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
-				{
-					sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 2));
-				}
-				else
-				{
-					sendPacket(SM_SYSTEM_MESSAGE.LEGION_CREATE_TOO_FAR_FROM_NPC());
-				}
-				break;
-			case 6:
-				// disband legion
-				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
-				{
-					legionService.disbandLegion(npc, player);
-				}
-				else
-				{
-					sendPacket(SM_SYSTEM_MESSAGE.LEGION_DISPERSE_TOO_FAR_FROM_NPC());
-				}
-				break;
-			case 7:
-				// recreate legion
-				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
-				{
-					legionService.recreateLegion(npc, player);
-				}
-				else
-				{
-					sendPacket(SM_SYSTEM_MESSAGE.LEGION_DISPERSE_TOO_FAR_FROM_NPC());
-				}
-				break;
-			case 20:
-				// warehouse
-				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
-				{
-					sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 26));
-					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems(), StorageType.REGULAR_WAREHOUSE.getId()));
-					sendPacket(new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE.getId())); // strange retail way of sending warehouse packets
-					sendPacket(new SM_WAREHOUSE_INFO(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems(), StorageType.ACCOUNT_WAREHOUSE.getId()));
-					sendPacket(new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE.getId()));
-				}
-				break;
-			case 27:
-				// Consign trade?? npc karinerk, koorunerk
-				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 13));
-				break;
-			case 29:
-				//soul healing
-				RequestResponseHandler responseHandler = new RequestResponseHandler(npc) 
-				{				
-					@Override
-					public void acceptRequest(Creature requester, Player responder)
-					{
-						Long lossexp = responder.getCommonData().getExpRecoverable();
-						if(player.getInventory().getKinahItem().getItemCount() > lossexp)
-						{
-							sendPacket(SM_SYSTEM_MESSAGE.EXP(String.valueOf(lossexp.intValue())));//TODO check SM_SYSTEM_MESSAGE
-							sendPacket(SM_SYSTEM_MESSAGE.SOUL_HEALED());
-							player.getCommonData().resetRecoverableExp();
-							player.getInventory().decreaseKinah(lossexp.intValue());
-						}
-						//TODO not enought kinah message
-					}
-
-					@Override
-					public void denyRequest(Creature requester, Player responder)
-					{
-						//no message
-					}
-				};
-				if(player.getCommonData().getExpRecoverable() > 0)
-				{
-					boolean result = player.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_SOUL_HEALING,responseHandler);
-					if(result)
-					{
-						PacketSendUtility.sendPacket(player, 
-							new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_SOUL_HEALING, 0, String.valueOf(player.getCommonData().getExpRecoverable())));
-					}
-				}
-				else sendPacket(SM_SYSTEM_MESSAGE.DONT_HAVE_RECOVERED_EXP());
-				break;
-			case 35:
-				// Godstone socketing
-				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 21));
-				break;
-			case 36:
-				// remove mana stone
-				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 20));
-				break;
-			case 37:
-				// modify appearance
-				sendPacket(new SM_DIALOG_WINDOW(targetObjectId, 19));
-				break;
-			case 38:
-				// flight and teleport
-				// if (player.getCommonData().isFlying() == true)
-				// {
-				// PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300696));
-				// return;
-				// }
-				sendPacket(new SM_TELEPORT_MAP(player, targetObjectId));
-				break;
-			case 39:
-				// improve extraction skill npc cornelius, jhaelas in sanctum
-				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-				break;
-			case 40:
-				// learn tailoring armor smithing etc...
-				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-				break;
-			case 41:
-				// expand cube
-				cubeExpandService.expandCube(player, npc);
-				break;
-			case 47:
-				// legion warehouse
-				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select packet
-				{
-					legionService.openLegionWarehouse(player);
-				}
-				break;
-			case 50:
-				// WTF??? Quest dialog packet
-				break;
-			case 52:
-				// work order from lerning npc in sanctum
-				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-				break;
-			case 53:
-				// coin reward
-				sendPacket(new SM_MESSAGE(0, null, "This feature is not available yet", null, ChatType.ANNOUNCEMENTS));
-				break;
-			default:
-				if(questId > 0)
-					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(targetObjectId, dialogId, questId));
-				else
-					sendPacket(new SM_DIALOG_WINDOW(targetObjectId, dialogId));
-				break;
+			final Player targetPlayer = (Player) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
+			player.getController().onDialogSelect(player, targetPlayer, dialogId);
+		}
+		else
+		{
+			final Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
+			npcController.onDialogSelect(player, npc, dialogId, questId, legionService, cubeExpandService);
 		}
 		// log.info("id: "+targetObjectId+" dialog type: " + unk1 +" other: " + unk2);
 	}

@@ -182,11 +182,12 @@ public class CM_LEGION extends AionClientPacket
 					/** Kick member from legion **/
 					case 0x04:
 						LegionMemberEx legionMemberEx = legionService.getOfflineLegionMemberByName(charName);
-						if(legionService.kickPlayer(activePlayer, legionMemberEx))
+						legionService.kickPlayer(activePlayer, legionMemberEx);
+						if(targetPlayer != null)
 						{
 							PacketSendUtility.broadcastPacket(targetPlayer, new SM_LEGION_UPDATE_TITLE(targetPlayer
 								.getObjectId(), 0, "", targetPlayer.getLegionMember().getRank().getRankId()), true);
-							targetPlayer.setLegionMember(null);
+							targetPlayer.resetLegionMember();
 							// TODO: Can not kick during a war!!
 							PacketSendUtility.sendPacket(targetPlayer, new SM_LEGION_LEAVE_MEMBER(1300246, 0, legion
 								.getLegionName()));

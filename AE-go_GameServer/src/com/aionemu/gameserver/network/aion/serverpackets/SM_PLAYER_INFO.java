@@ -109,7 +109,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeH(buf, 0); // User Emblem related?
 		writeH(buf, player.isLegionMember() ? player
 			.getLegion().getLegionEmblem().getEmblemId() : 0);
-		writeC(buf, 0xFF); // User Emblem  or own emblem?
+		writeC(buf, 0xFF);
 		writeC(buf, player.isLegionMember() ? player
 			.getLegion().getLegionEmblem().getColor_r() : 0);
 		writeC(buf, player.isLegionMember() ? player
@@ -220,7 +220,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeH(buf, player.getGameStats().getCurrentStat(StatEnum.ATTACK_SPEED));
 		writeC(buf, 0);
 
-		writeS(buf, "");// private store message
+		writeS(buf, player.hasStore() ? player.getStore().getStoreMessage() : "");// private store message
 		unk = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
 			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
 		writeB(buf, unk);

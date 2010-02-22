@@ -84,7 +84,7 @@ public class CM_LEGION_MODIFY_EMBLEM extends AionClientPacket
 					}
 					else
 					{						
-						sendPacket(SM_SYSTEM_MESSAGE.LEGION_NOT_ENOUGH_KINAH(LegionConfig.LEGION_EMBLEM_REQUIRED_KINAH));
+						sendPacket(SM_SYSTEM_MESSAGE.NOT_ENOUGH_KINAH(LegionConfig.LEGION_EMBLEM_REQUIRED_KINAH));
 					}
 				}
 			}

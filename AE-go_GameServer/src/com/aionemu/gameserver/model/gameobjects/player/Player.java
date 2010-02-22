@@ -56,37 +56,37 @@ import com.aionemu.gameserver.world.zone.ZoneInstance;
  */
 public class Player extends Creature
 {
-	private PlayerAppearance			playerAppearance;
-	private PlayerCommonData			playerCommonData;
-	private LegionMember				legionMember;
-	private MacroList					macroList;
-	private SkillList					skillList;
-	private FriendList					friendList;
-	private BlockList					blockList;
-	private ResponseRequester			requester;
-	private boolean						lookingForGroup	= false;
-	private Storage						inventory;
-	private Storage						regularWarehouse;
-	private Storage						accountWarehouse;
-	private Equipment					equipment;
-	private PlayerStore					store;
-	private PlayerStatsTemplate			playerStatsTemplate;
-	private TitleList					titleList;
-	private PlayerSettings				playerSettings;
+	private PlayerAppearance	playerAppearance;
+	private PlayerCommonData	playerCommonData;
+	private LegionMember		legionMember;
+	private MacroList			macroList;
+	private SkillList			skillList;
+	private FriendList			friendList;
+	private BlockList			blockList;
+	private ResponseRequester	requester;
+	private boolean				lookingForGroup	= false;
+	private Storage				inventory;
+	private Storage				regularWarehouse;
+	private Storage				accountWarehouse;
+	private Equipment			equipment;
+	private PrivateStore		store;
+	private PlayerStatsTemplate	playerStatsTemplate;
+	private TitleList			titleList;
+	private PlayerSettings		playerSettings;
 
-	private QuestStateList				questStateList;
-	private List<Integer>				nearbyQuestList	= new ArrayList<Integer>();
-	private ZoneInstance				zoneInstance;
-	private PlayerGroup					playerGroup;
-	private AbyssRank					abyssRank;
+	private QuestStateList		questStateList;
+	private List<Integer>		nearbyQuestList	= new ArrayList<Integer>();
+	private ZoneInstance		zoneInstance;
+	private PlayerGroup			playerGroup;
+	private AbyssRank			abyssRank;
 
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
-	private boolean						protectionActive;
+	private boolean				protectionActive;
 
 	/**
 	 * Connection of this Player.
 	 */
-	private AionConnection				clientConnection;
+	private AionConnection		clientConnection;
 
 	public Player(PlayerController controller, PlayerCommonData plCommonData, PlayerAppearance appereance)
 	{
@@ -331,7 +331,7 @@ public class Player extends Creature
 	/**
 	 * @return the player private store
 	 */
-	public PlayerStore getStore()
+	public PrivateStore getStore()
 	{
 		return store;
 	}
@@ -339,10 +339,9 @@ public class Player extends Creature
 	/**
 	 * @return the player private store
 	 */
-	public void setStore(PlayerStore store)
+	public void setStore(PrivateStore store)
 	{
 		this.store = store;
-		store.setOwner(this);
 	}
 
 	/**
@@ -542,7 +541,7 @@ public class Player extends Creature
 	{
 		this.abyssRank = abyssRank;
 	}
-	
+
 	@Override
 	public PlayerEffectController getEffectController()
 	{
@@ -622,13 +621,32 @@ public class Player extends Creature
 	{
 		return legionMember.getLegion().getLegionService();
 	}
-	
+
 	/**
 	 * Checks if object id's are the same
+	 * 
 	 * @return true if the object id is the same
 	 */
 	public boolean sameObjectId(int objectId)
 	{
 		return this.getObjectId() == objectId;
+	}
+
+	/**
+	 * @return true if a player has a store opened
+	 */
+	public boolean hasStore()
+	{
+		if(getStore() != null)
+			return true;
+		return false;
+	}
+
+	/**
+	 * Removes legion from player
+	 */
+	public void resetLegionMember()
+	{
+		setLegionMember(null);
 	}
 }

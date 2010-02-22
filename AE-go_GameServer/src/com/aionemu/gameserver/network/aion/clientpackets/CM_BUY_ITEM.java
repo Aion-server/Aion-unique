@@ -24,24 +24,24 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.TradeListTemplate;
 import com.aionemu.gameserver.model.trade.TradeList;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.services.PrivateStoreService;
 import com.aionemu.gameserver.services.TradeService;
 import com.google.inject.Inject;
 
 /**
  * 
- * @author orz
- * modified by ATracer
+ * @author orz modified by ATracer
  */
 public class CM_BUY_ITEM extends AionClientPacket
 {
-	private int npcObjId;
-	private int unk1; 
-	private int amount;
-	private int itemId;
-	private int count;
+	private int	sellerObjId;
+	private int	unk1;
+	private int	amount;
+	private int	itemId;
+	private int	count;
 
-	public int unk2;
-	
+	public int	unk2;
+
 	public CM_BUY_ITEM(int opcode)
 	{
 		super(opcode);
@@ -51,43 +51,45 @@ public class CM_BUY_ITEM extends AionClientPacket
 	 * Logger
 	 */
 	private static final Logger	log	= Logger.getLogger(CM_BUY_ITEM.class);
-	
+
 	@Inject
-	private TradeService tradeService;
-	
-	private TradeList	tradeList;
-	
+	private TradeService		tradeService;
+	@Inject
+	private PrivateStoreService	privateStoreService;
+
+	private TradeList			tradeList;
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void readImpl()
 	{
-		npcObjId = readD();
-		unk1	 = readH();
-		amount = readH(); //total no of items
+		sellerObjId = readD();
+		unk1 = readH();
+		amount = readH(); // total no of items
 
 		tradeList = new TradeList();
-		tradeList.setNpcObjId(npcObjId);
-		
-		for (int i = 0; i < amount; i++) 
+		tradeList.setSellerObjId(sellerObjId);
+
+		for(int i = 0; i < amount; i++)
 		{
 			itemId = readD();
-			count  = readD();
-			unk2   = readD();
-			
-			//prevent exploit packets
+			count = readD();
+			unk2 = readD();
+
+			// prevent exploit packets
 			if(count < 1)
 				continue;
-			
+
 			if(unk1 == 12 || unk1 == 13)
 			{
 				tradeList.addBuyItem(itemId, count);
 			}
-			else if(unk1 == 1)
+			else if(unk1 == 0 || unk1 == 1)
 			{
 				tradeList.addSellItem(itemId, count);
-			}		
+			}
 		}
 	}
 
@@ -98,28 +100,34 @@ public class CM_BUY_ITEM extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
-		Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(npcObjId);
-		if(npc == null)
-			return;
-		
-		TradeListTemplate tlist = DataManager.TRADE_LIST_DATA.getTradeListTemplate(npc.getNpcId());
-		if (unk1 == 12) //buy
+
+		switch(unk1)
 		{
-			tradeService.performBuyFromShop(player, tradeList);
+			case 0:
+				Player targetPlayer = (Player) player.getActiveRegion().getWorld().findAionObject(sellerObjId);
+				privateStoreService.sellStoreItem(targetPlayer, player, tradeList);
+				break;
+
+			case 1:
+				tradeService.performSellToShop(player, tradeList);
+				break;
+
+			case 12:
+				tradeService.performBuyFromShop(player, tradeList);
+				break;
+
+			case 13:
+				Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(sellerObjId);
+				TradeListTemplate tlist = DataManager.TRADE_LIST_DATA.getTradeListTemplate(npc.getNpcId());
+				if(tlist.isAbyss())
+					tradeService.performBuyFromAbyssShop(player, tradeList);
+				break;
+
+			default:
+				log.info(String.format("Unhandle shop action unk1: %d", unk1));
+				break;
 		}
-		else if (unk1 == 1) //sell
-		{
-			tradeService.performSellToShop(player, tradeList);
-		}
-		else if(unk1 == 13) //abyss buy
-		{
-			if(tlist.isAbyss())
-				tradeService.performBuyFromAbyssShop(player, tradeList);
-		}
-		else
-		{
-			log.info(String.format("Unhandle shop action unk1: %d", unk1));
-		}
+
 	}
 
 }

@@ -69,15 +69,15 @@ public class SM_UPDATE_ITEM extends InventoryPacket
 		}
 		else if (itemTemplate.isWeapon())
 		{
-			writeWeaponInfo(buf, item, true, isWeaponSwitch);
+			writeWeaponInfo(buf, item, true, isWeaponSwitch, false);
 		}
 		else if (itemTemplate.isArmor())
 		{
-			writeArmorInfo(buf,item, true);
+			writeArmorInfo(buf,item, true, false);
 		}
 		else
 		{
-			writeGeneralItemInfo(buf, item, item.isQuest());
+			writeGeneralItemInfo(buf, item, item.isQuest(), false);
 		}
 	}
 

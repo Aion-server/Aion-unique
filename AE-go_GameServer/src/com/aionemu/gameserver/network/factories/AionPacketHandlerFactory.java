@@ -78,6 +78,8 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_PING_REQUEST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_PLAYER_SEARCH;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_PLAYER_STATUS_INFO;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_PLAY_MOVIE_END;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_PRIVATE_STORE;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_PRIVATE_STORE_NAME;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUESTION_RESPONSE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_RECONNECT_AUTH;
@@ -213,6 +215,8 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_LEGION_EDIT(0xAD), State.IN_GAME);
 		// addPacket(new CM_LEGION_EMBLEM_SETTINGS(0x16), State.IN_GAME);
 		// addPacket(new CM_UPLOAD_LEGION_EMBLEM(0x17), State.IN_GAME); // client sends DDS format packets
+		addPacket(new CM_PRIVATE_STORE(0x6D), State.IN_GAME);
+		addPacket(new CM_PRIVATE_STORE_NAME(0x6E), State.IN_GAME);
 	}
 
 	public AionPacketHandler getPacketHandler()

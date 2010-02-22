@@ -121,6 +121,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_ABYSS_RANK_UPDATE.class, 0xA8, idSet);
 		addPacketOpcode(SM_MAY_LOGIN_INTO_GAME.class, 0xA9, idSet);
 		addPacketOpcode(SM_PONG.class, 0xAE, idSet);
+		addPacketOpcode(SM_PRIVATE_STORE_NAME.class, 0xB1, idSet);
 		addPacketOpcode(SM_ITEM_USAGE_ANIMATION.class, 0xB7, idSet);
 		addPacketOpcode(SM_CUSTOM_SETTINGS.class, 0xB8, idSet);
 		addPacketOpcode(SM_DUEL.class, 0xB9, idSet);
@@ -161,6 +162,8 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_CUSTOM_PACKET.class, 99999, idSet); // fake packet
 
 		addPacketOpcode(SM_RIFT_STATUS.class, 0xA4, idSet);
+		
+		addPacketOpcode(SM_PRIVATE_STORE.class, 0xA6, idSet);
 
 		/** Legion server packets **/
 		addPacketOpcode(SM_LEGION_INFO.class, 0x8E, idSet);
@@ -174,9 +177,6 @@ public class ServerPacketsOpcodes
 
 		// Unrecognized Opcodes from 1.5.4:
 		// addPacketOpcode(SM_BUY_LIST.class, 0x7E, idSet);
-		// addPacketOpcode(SM_GUILD_DETAILS.class, 0x24, idSet);
-		// addPacketOpcode(SM_GUILD_INFO.class, 0x86, idSet);
-		// addPacketOpcode(SM_GUILD_MEMBERS.class, 0x97, idSet);
 
 		// Unrecognized Opcodes from 1.5.0:
 		// addPacketOpcode(SM_VIRTUAL_AUTH.class, 0xE4, idSet);

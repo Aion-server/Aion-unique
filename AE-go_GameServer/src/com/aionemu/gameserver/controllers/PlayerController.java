@@ -49,6 +49,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PRIVATE_STORE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_CANCEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -623,5 +624,20 @@ public class PlayerController extends CreatureController<Player>
 	public void setInShutdownProgress(boolean isInShutdownProgress)
 	{
 		this.isInShutdownProgress = isInShutdownProgress;
+	}
+
+	/**
+	 * Handle dialog
+	 * 
+	 * @return true if target is player
+	 */
+	public void onDialogSelect(Player player, Player targetPlayer, int dialogId)
+	{
+		switch(dialogId)
+		{
+			case 2:
+				PacketSendUtility.sendPacket(player, new SM_PRIVATE_STORE(targetPlayer.getStore()));
+				break;
+		}
 	}
 }

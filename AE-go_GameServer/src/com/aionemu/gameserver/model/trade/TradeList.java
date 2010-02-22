@@ -31,7 +31,7 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
  */
 public class TradeList
 {
-	private int npcObjId;
+	private int sellerObjId;
 	
 	private List<TradeItem> tradeItems = new ArrayList<TradeItem>();
 	
@@ -40,7 +40,7 @@ public class TradeList
 	private int requiredAp;
 	
 	private Map<Integer, Integer> requiredItems  = new HashMap<Integer, Integer>();
-	
+
 	/**
 	 * 
 	 * @param itemId
@@ -56,6 +56,16 @@ public class TradeList
 			tradeItem.setItemTemplate(itemTemplate);
 			tradeItems.add(tradeItem);
 		}
+	}
+	/**
+	 * 
+	 * @param itemId
+	 * @param count
+	 */
+	public void addPSItem(int itemId, int count)
+	{
+		TradeItem tradeItem = new TradeItem(itemId, count);
+		tradeItems.add(tradeItem);
 	}
 	
 	/**
@@ -138,17 +148,17 @@ public class TradeList
 	/**
 	 * @return the npcId
 	 */
-	public int getNpcObjId()
+	public int getSellerObjId()
 	{
-		return npcObjId;
+		return sellerObjId;
 	}
 
 	/**
-	 * @param npcObjId the npcId to set
+	 * @param sellerObjId the npcId to set
 	 */
-	public void setNpcObjId(int npcObjId)
+	public void setSellerObjId(int npcObjId)
 	{
-		this.npcObjId = npcObjId;
+		this.sellerObjId = npcObjId;
 	}
 
 	/**

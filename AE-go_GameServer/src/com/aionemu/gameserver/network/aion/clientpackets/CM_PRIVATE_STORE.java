@@ -1,0 +1,111 @@
+/*
+ * This file is part of aion-unique <aion-unique.org>.
+ *
+ *  aion-unique is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  aion-unique is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package com.aionemu.gameserver.network.aion.clientpackets;
+
+import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.services.PrivateStoreService;
+import com.google.inject.Inject;
+
+/**
+ * @author Simple
+ */
+public class CM_PRIVATE_STORE extends AionClientPacket
+{
+	/**
+	 * Inject Private Store Service
+	 */
+	@Inject
+	PrivateStoreService	privateStoreService;
+
+	/**
+	 * Private store information
+	 */
+	private Player		activePlayer;
+	private int			itemCount;
+	private int[]		itemObjIds;
+	private int[]		itemIds;
+	private int[]		itemAmounts;
+	private int[]		itemPrices;
+
+	/**
+	 * Constructs new instance of <tt>CM_PRIVATE_STORE </tt> packet
+	 * 
+	 * @param opcode
+	 */
+	public CM_PRIVATE_STORE(int opcode)
+	{
+		super(opcode);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void readImpl()
+	{
+		/**
+		 * Define who wants to create a private store
+		 */
+		activePlayer = getConnection().getActivePlayer();
+
+		/**
+		 * Read the amount of items that need to be put into the player's store
+		 */
+		itemCount = readH();
+		itemObjIds = new int[itemCount];
+		itemIds = new int[itemCount];
+		itemAmounts = new int[itemCount];
+		itemPrices = new int[itemCount];
+		for(int i = 0; i < itemCount; i++)
+		{
+			/**
+			 * Read item packets
+			 */
+			itemObjIds[i] = readD();
+			itemIds[i] = readD();
+			itemAmounts[i] = readH();
+			itemPrices[i] = readD();
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void runImpl()
+	{
+		/**
+		 * Add a check for now if private store is enabled or not
+		 */
+		if(Config.ENABLE_PRIVATE_STORE)
+		{
+			/**
+			 * Let PrivateStoreService handle everything
+			 */
+			if(itemCount > 0)
+			{
+				privateStoreService.addItem(activePlayer, itemObjIds, itemIds, itemAmounts, itemPrices);
+			}
+			else
+			{
+				privateStoreService.closePrivateStore(activePlayer);
+			}
+		}
+	}
+}

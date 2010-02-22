@@ -479,11 +479,6 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1390137);
 	}
-
-	public static SM_SYSTEM_MESSAGE LEGION_NOT_ENOUGH_KINAH(int kinah)
-	{
-		return new SM_SYSTEM_MESSAGE(901285, kinah);
-	}
 	/** Reponse to checks - CREATION **/
 	public static SM_SYSTEM_MESSAGE LEGION_CREATE_ALREADY_MEMBER()
 	{
@@ -647,12 +642,6 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300300);
 	}
 
-	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_DONE(String legionName)
-	{
-		// The %0 Legion has been disbanded.
-		return new SM_SYSTEM_MESSAGE(1300302, legionName);
-	}
-
 	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_REQUESTED(int unixTime)
 	{
 		// The Brigade General has requested to disband the Legion. The expected time of disbanding is %DATETIME0.
@@ -762,6 +751,14 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300594, count);
 	}
 	
+	/**
+	 * Trading (Private Store, etc.)
+	 */
+	public static SM_SYSTEM_MESSAGE NOT_ENOUGH_KINAH(int kinah)
+	{
+		return new SM_SYSTEM_MESSAGE(901285, kinah);
+	}
+
 	public static final SM_SYSTEM_MESSAGE	MSG_FULL_INVENTORY	= new SM_SYSTEM_MESSAGE(1300762);
 
 	private final int		code;
