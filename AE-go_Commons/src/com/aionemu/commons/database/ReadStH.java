@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify

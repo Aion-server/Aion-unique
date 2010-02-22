@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.utils.i18n;
 
 import java.io.IOException;
@@ -31,7 +30,9 @@ import java.util.ResourceBundle;
 
 /**
  * This class allows us to read ResourceBundles with custom encodings, so we don't have write \\uxxxx symbols and use
- * utilities like native2ascii to convert files. <p/> <br>
+ * utilities like native2ascii to convert files.
+ * <p/>
+ * <br>
  * 
  * Usage: For instance we want to load resource bundle "test" from current deirectory and use english locale. If locale
  * not found, we will use default file (and ignore default locale).
@@ -42,7 +43,7 @@ import java.util.ResourceBundle;
  * ResourceBundle rb = ResourceBundle.getBundle(&quot;test&quot;, Locale.ENGLISH, loader, new ResourceBundleControl(&quot;UTF-8&quot;));
  * 
  * // English locale not found, use default
- * if (!rb.getLocale().equals(Locale.ENGLISH))
+ * if(!rb.getLocale().equals(Locale.ENGLISH))
  * {
  * 	rb = ResourceBundle.getBundle(&quot;test&quot;, Locale.ROOT, loader, new ResourceBundleControl(&quot;UTF-8&quot;));
  * }
@@ -54,7 +55,6 @@ import java.util.ResourceBundle;
  */
 public class ResourceBundleControl extends ResourceBundle.Control
 {
-
 	/**
 	 * Encoding which will be used to read resource bundle, by defaults it's 8859_1
 	 */
@@ -91,17 +91,17 @@ public class ResourceBundleControl extends ResourceBundle.Control
 	{
 		String bundleName = toBundleName(baseName, locale);
 		ResourceBundle bundle = null;
-		if (format.equals("java.class"))
+		if(format.equals("java.class"))
 		{
 			try
 			{
-				@SuppressWarnings({"unchecked"})
+				@SuppressWarnings( { "unchecked" })
 				Class<? extends ResourceBundle> bundleClass = (Class<? extends ResourceBundle>) loader
 					.loadClass(bundleName);
 
 				// If the class isn't a ResourceBundle subclass, throw a
 				// ClassCastException.
-				if (ResourceBundle.class.isAssignableFrom(bundleClass))
+				if(ResourceBundle.class.isAssignableFrom(bundleClass))
 				{
 					bundle = bundleClass.newInstance();
 				}
@@ -110,11 +110,11 @@ public class ResourceBundleControl extends ResourceBundle.Control
 					throw new ClassCastException(bundleClass.getName() + " cannot be cast to ResourceBundle");
 				}
 			}
-			catch (ClassNotFoundException ignored)
+			catch(ClassNotFoundException ignored)
 			{
 			}
 		}
-		else if (format.equals("java.properties"))
+		else if(format.equals("java.properties"))
 		{
 			final String resourceName = toResourceName(bundleName, "properties");
 			final ClassLoader classLoader = loader;
@@ -123,18 +123,18 @@ public class ResourceBundleControl extends ResourceBundle.Control
 			InputStream stream;
 			try
 			{
-				stream = AccessController.doPrivileged(new PrivilegedExceptionAction<InputStream>() {
+				stream = AccessController.doPrivileged(new PrivilegedExceptionAction<InputStream>(){
 					@Override
 					public InputStream run() throws IOException
 					{
 						InputStream is = null;
-						if (reloadFlag)
+						if(reloadFlag)
 						{
 							URL url = classLoader.getResource(resourceName);
-							if (url != null)
+							if(url != null)
 							{
 								URLConnection connection = url.openConnection();
-								if (connection != null)
+								if(connection != null)
 								{
 									// Disable caches to get fresh data for
 									// reloading.
@@ -150,16 +150,16 @@ public class ResourceBundleControl extends ResourceBundle.Control
 						return is;
 					}
 				});
-				if (stream != null)
+				if(stream != null)
 				{
 					isr = new InputStreamReader(stream, encoding);
 				}
 			}
-			catch (PrivilegedActionException e)
+			catch(PrivilegedActionException e)
 			{
 				throw (IOException) e.getException();
 			}
-			if (isr != null)
+			if(isr != null)
 			{
 				try
 				{

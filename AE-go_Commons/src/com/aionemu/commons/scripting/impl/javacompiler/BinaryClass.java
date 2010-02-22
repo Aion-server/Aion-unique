@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.impl.javacompiler;
 
 import java.io.ByteArrayInputStream;
@@ -79,7 +78,7 @@ public class BinaryClass extends BaseFileObject
 	 * Returns name of this class with ".class" suffix
 	 * 
 	 * @return name of this class with ".class" suffix
-	 *
+	 * 
 	 * @deprecated
 	 */
 	@Deprecated

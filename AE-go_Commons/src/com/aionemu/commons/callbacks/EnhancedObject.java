@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.callbacks;
 
 import java.util.List;
@@ -37,7 +36,6 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public interface EnhancedObject
 {
-
 	/**
 	 * Adds callback to this object.<br> {@link com.aionemu.commons.callbacks.EnhancedObject concurrency description}
 	 * 

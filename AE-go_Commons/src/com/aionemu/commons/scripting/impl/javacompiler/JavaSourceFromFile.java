@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.impl.javacompiler;
 
 import java.io.File;
@@ -31,7 +30,6 @@ import org.apache.commons.io.FileUtils;
  */
 public class JavaSourceFromFile extends SimpleJavaFileObject
 {
-
 	/**
 	 * Construct a JavaFileObject of the given kind and with the given File.
 	 * 

@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -15,8 +15,6 @@
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.commons.database;
-
-// Common SQL
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -38,7 +36,8 @@ import org.apache.log4j.Logger;
  * <br>
  * DB.java utilizes the class.<br>
  * <br>
- * <p/> This class depends on file {@value com.aionemu.commons.database.DatabaseConfig#CONFIG_FILE}.
+ * <p/>
+ * This class depends on file {@value com.aionemu.commons.database.DatabaseConfig#CONFIG_FILE}.
  * 
  * @author Disturbing
  * @author SoulKeeper
@@ -49,7 +48,7 @@ public class DatabaseFactory
 	/**
 	 * Logger for this class
 	 */
-	private static final Logger			log				= Logger.getLogger(DatabaseFactory.class);
+	private static final Logger			log	= Logger.getLogger(DatabaseFactory.class);
 
 	/**
 	 * Data Source Generates all Connections This variable is also used as indicator for "initialized" state of
@@ -84,7 +83,7 @@ public class DatabaseFactory
 	 */
 	public synchronized static void init()
 	{
-		if (dataSource != null)
+		if(dataSource != null)
 		{
 			return;
 		}
@@ -95,7 +94,7 @@ public class DatabaseFactory
 		{
 			DatabaseConfig.DATABASE_DRIVER.newInstance();
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			log.fatal("Error obtaining DB driver", e);
 			throw new Error("DB Driver doesnt exist!");
@@ -103,7 +102,7 @@ public class DatabaseFactory
 
 		connectionPool = new GenericObjectPool();
 
-		if (DatabaseConfig.DATABASE_CONNECTIONS_MIN > DatabaseConfig.DATABASE_CONNECTIONS_MAX)
+		if(DatabaseConfig.DATABASE_CONNECTIONS_MIN > DatabaseConfig.DATABASE_CONNECTIONS_MAX)
 		{
 			log.error("Please check your database configuration. Minimum amount of connections is > maximum");
 			DatabaseConfig.DATABASE_CONNECTIONS_MAX = DatabaseConfig.DATABASE_CONNECTIONS_MIN;
@@ -125,7 +124,7 @@ public class DatabaseFactory
 			databaseMinorVersion = dmd.getDatabaseMinorVersion();
 			c.close();
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			log.fatal("Error with connection string: " + DatabaseConfig.DATABASE_URL, e);
 			throw new Error("DatabaseFactory not initialized!");
@@ -202,7 +201,7 @@ public class DatabaseFactory
 		{
 			connectionPool.close();
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			log.warn("Failed to shutdown DatabaseFactory", e);
 		}

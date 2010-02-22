@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.impl.javacompiler;
 
 import java.io.File;
@@ -42,7 +41,6 @@ import com.aionemu.commons.scripting.ScriptCompiler;
  */
 public class ScriptCompilerImpl implements ScriptCompiler
 {
-
 	/**
 	 * Logger for this class
 	 */
@@ -73,9 +71,9 @@ public class ScriptCompilerImpl implements ScriptCompiler
 	{
 		this.javaCompiler = ToolProvider.getSystemJavaCompiler();
 
-		if (javaCompiler == null)
+		if(javaCompiler == null)
 		{
-			if (ToolProvider.getSystemJavaCompiler() != null)
+			if(ToolProvider.getSystemJavaCompiler() != null)
 			{
 				throw new RuntimeException(new InstantiationException("JavaCompiler is not aviable."));
 			}
@@ -140,14 +138,14 @@ public class ScriptCompilerImpl implements ScriptCompiler
 	public CompilationResult compile(String[] classNames, String[] sourceCode) throws IllegalArgumentException
 	{
 
-		if (classNames.length != sourceCode.length)
+		if(classNames.length != sourceCode.length)
 		{
 			throw new IllegalArgumentException("Amount of classes is not equal to amount of sources");
 		}
 
 		List<JavaFileObject> compilationUnits = new ArrayList<JavaFileObject>();
 
-		for (int i = 0; i < classNames.length; i++)
+		for(int i = 0; i < classNames.length; i++)
 		{
 			JavaFileObject compilationUnit = new JavaSourceFromString(classNames[i], sourceCode[i]);
 			compilationUnits.add(compilationUnit);
@@ -170,7 +168,7 @@ public class ScriptCompilerImpl implements ScriptCompiler
 	{
 		List<JavaFileObject> list = new ArrayList<JavaFileObject>();
 
-		for (File f : compilationUnits)
+		for(File f : compilationUnits)
 		{
 			list.add(new JavaSourceFromFile(f, JavaFileObject.Kind.SOURCE));
 		}
@@ -196,13 +194,13 @@ public class ScriptCompilerImpl implements ScriptCompiler
 		ClassFileManager manager = new ClassFileManager(javaCompiler, listener);
 		manager.setParentClassLoader(parentClassLoader);
 
-		if (libraries != null)
+		if(libraries != null)
 		{
 			try
 			{
 				manager.addLibraries(libraries);
 			}
-			catch (IOException e)
+			catch(IOException e)
 			{
 				log.error("Can't set libraries for compiler.", e);
 			}
@@ -211,7 +209,7 @@ public class ScriptCompilerImpl implements ScriptCompiler
 		JavaCompiler.CompilationTask task = javaCompiler.getTask(null, manager, listener, options, null,
 			compilationUnits);
 
-		if (!task.call())
+		if(!task.call())
 		{
 			throw new RuntimeException("Error while compiling classes");
 		}
@@ -238,14 +236,14 @@ public class ScriptCompilerImpl implements ScriptCompiler
 		Class<?>[] classes = new Class<?>[classNames.size()];
 
 		int i = 0;
-		for (String className : classNames)
+		for(String className : classNames)
 		{
 			try
 			{
 				Class<?> clazz = cl.loadClass(className);
 				classes[i] = clazz;
 			}
-			catch (ClassNotFoundException e)
+			catch(ClassNotFoundException e)
 			{
 				throw new RuntimeException(e);
 			}

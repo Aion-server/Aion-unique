@@ -33,7 +33,8 @@ import com.aionemu.commons.network.packet.BaseClientPacket;
  * time. - execute packets in received order.
  * 
  * @author -Nemesiss-
- * @param <T> AConnection - owner of client packets.
+ * @param <T>
+ *            AConnection - owner of client packets.
  * 
  */
 public class PacketProcessor<T extends AConnection>
@@ -91,15 +92,15 @@ public class PacketProcessor<T extends AConnection>
 	 */
 	public PacketProcessor(int minThreads, int maxThreads)
 	{
-		if (minThreads <= 0)
+		if(minThreads <= 0)
 			minThreads = 1;
-		if (maxThreads < minThreads)
+		if(maxThreads < minThreads)
 			maxThreads = minThreads;
 
 		this.minThreads = minThreads;
 		this.maxThreads = maxThreads;
 
-		if (minThreads != maxThreads)
+		if(minThreads != maxThreads)
 			startCheckerThread();
 
 		for(int i = 0; i < minThreads; i++)
@@ -122,7 +123,7 @@ public class PacketProcessor<T extends AConnection>
 	 */
 	private boolean newThread()
 	{
-		if (threads.size() >= maxThreads)
+		if(threads.size() >= maxThreads)
 			return false;
 
 		String name = "PacketProcessor:" + threads.size();
@@ -140,7 +141,7 @@ public class PacketProcessor<T extends AConnection>
 	 */
 	private void killThread()
 	{
-		if (threads.size() < minThreads)
+		if(threads.size() < minThreads)
 		{
 			Thread t = threads.remove((threads.size() - 1));
 			log.debug("Killing PacketProcessor Thread: " + t.getName());
@@ -176,16 +177,16 @@ public class PacketProcessor<T extends AConnection>
 	 */
 	private BaseClientPacket<T> getFirstAviable()
 	{
-		for (;;)
+		for(;;)
 		{
-			while (packets.isEmpty())
+			while(packets.isEmpty())
 				notEmpty.awaitUninterruptibly();
 
 			ListIterator<BaseClientPacket<T>> it = packets.listIterator();
-			while (it.hasNext())
+			while(it.hasNext())
 			{
 				BaseClientPacket<T> packet = it.next();
-				if (packet.getConnection().tryLockConnection())
+				if(packet.getConnection().tryLockConnection())
 				{
 					it.remove();
 					return packet;
@@ -211,16 +212,16 @@ public class PacketProcessor<T extends AConnection>
 		public void run()
 		{
 			BaseClientPacket<T> packet = null;
-			for (;;)
+			for(;;)
 			{
 				lock.lock();
 				try
 				{
-					if (packet != null)
+					if(packet != null)
 						packet.getConnection().unlockConnection();
 
 					/* thread killed */
-					if (Thread.interrupted())
+					if(Thread.interrupted())
 						return;
 
 					packet = getFirstAviable();
@@ -262,7 +263,7 @@ public class PacketProcessor<T extends AConnection>
 			{
 				Thread.sleep(sleepTime);
 			}
-			catch (InterruptedException e)
+			catch(InterruptedException e)
 			{
 				// we dont care
 			}
@@ -270,19 +271,22 @@ public class PacketProcessor<T extends AConnection>
 			/* Number of packets waiting for execution */
 			int sizeNow = packets.size();
 
-			if (sizeNow < lastSize)
+			if(sizeNow < lastSize)
 			{
-				if (sizeNow < reduceThreshold)
+				if(sizeNow < reduceThreshold)
 				{
 					// too much threads
 					killThread();
 				}
 			}
-			else if (sizeNow > lastSize && sizeNow > increaseThreshold)
+			else if(sizeNow > lastSize && sizeNow > increaseThreshold)
 			{
 				// too low threads
-				if(!newThread() && sizeNow >= increaseThreshold*3)
-					log.info("Lagg detected! ["+sizeNow+" client packets are waiting for execution]. You should consider increasing PacketProcessor maxThreads or hardware upgrade.");
+				if(!newThread() && sizeNow >= increaseThreshold * 3)
+					log
+						.info("Lagg detected! ["
+							+ sizeNow
+							+ " client packets are waiting for execution]. You should consider increasing PacketProcessor maxThreads or hardware upgrade.");
 			}
 			lastSize = sizeNow;
 		}

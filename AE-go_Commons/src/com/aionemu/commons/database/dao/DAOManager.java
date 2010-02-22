@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-emu.
+ * This file is part of aion-emu <aion-emu.com>.
  *
  * aion-emu is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.database.dao;
 
 import static com.aionemu.commons.database.DatabaseFactory.getDatabaseMajorVersion;
@@ -49,7 +48,7 @@ public class DAOManager
 	/**
 	 * This script manager is responsible for loading {@link com.aionemu.commons.database.dao.DAO} implementations
 	 */
-	private static ScriptManager 			scriptManager;
+	private static ScriptManager			scriptManager;
 
 	/**
 	 * Initializes DAOManager.
@@ -62,9 +61,10 @@ public class DAOManager
 			scriptManager.setGlobalClassListener(new DAOLoader());
 			scriptManager.load(DatabaseConfig.DATABASE_SCRIPTCONTEXT_DESCRIPTOR);
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
-			throw new Error("Can't load database script context: " + DatabaseConfig.DATABASE_SCRIPTCONTEXT_DESCRIPTOR, e);
+			throw new Error("Can't load database script context: " + DatabaseConfig.DATABASE_SCRIPTCONTEXT_DESCRIPTOR,
+				e);
 		}
 
 		log.info("Loaded " + daoMap.size() + " DAO implementations.");
@@ -101,7 +101,7 @@ public class DAOManager
 
 		DAO result = daoMap.get(clazz.getName());
 
-		if (result == null)
+		if(result == null)
 		{
 			String s = "DAO for class " + clazz.getName() + " not implemented";
 			log.error(s);
@@ -113,8 +113,9 @@ public class DAOManager
 
 	/**
 	 * Registers {@link DAO}.<br>
-	 * First it creates new instance of DAO, then invokes {@link DAO#supports(String, int, int)} <br>. If the result
-	 * was possitive - it associates DAO instance with {@link com.aionemu.commons.database.dao.DAO#getClassName()} <br>
+	 * First it creates new instance of DAO, then invokes {@link DAO#supports(String, int, int)} <br>
+	 * . If the result was possitive - it associates DAO instance with
+	 * {@link com.aionemu.commons.database.dao.DAO#getClassName()} <br>
 	 * If another DAO was registed - {@link com.aionemu.commons.database.dao.DAOAlreadyRegisteredException} will be
 	 * thrown
 	 * 
@@ -132,15 +133,15 @@ public class DAOManager
 	{
 		DAO dao = daoClass.newInstance();
 
-		if (!dao.supports(getDatabaseName(), getDatabaseMajorVersion(), getDatabaseMinorVersion()))
+		if(!dao.supports(getDatabaseName(), getDatabaseMajorVersion(), getDatabaseMinorVersion()))
 		{
 			return;
 		}
 
-		synchronized (DAOManager.class)
+		synchronized(DAOManager.class)
 		{
 			DAO oldDao = daoMap.get(dao.getClassName());
-			if (oldDao != null)
+			if(oldDao != null)
 			{
 				StringBuilder sb = new StringBuilder();
 				sb.append("DAO with className ").append(dao.getClassName()).append(" is used by ");
@@ -156,7 +157,7 @@ public class DAOManager
 			}
 		}
 
-		if (log.isDebugEnabled())
+		if(log.isDebugEnabled())
 			log.debug("DAO " + dao.getClassName() + " was successfuly registered.");
 	}
 
@@ -168,15 +169,15 @@ public class DAOManager
 	 */
 	public static void unregisterDAO(Class<? extends DAO> daoClass)
 	{
-		synchronized (DAOManager.class)
+		synchronized(DAOManager.class)
 		{
-			for (DAO dao : daoMap.values())
+			for(DAO dao : daoMap.values())
 			{
-				if (dao.getClass() == daoClass)
+				if(dao.getClass() == daoClass)
 				{
 					daoMap.remove(dao.getClassName());
 
-					if (log.isDebugEnabled())
+					if(log.isDebugEnabled())
 						log.debug("DAO " + dao.getClassName() + " was successfuly unregistered.");
 
 					break;
@@ -185,11 +186,8 @@ public class DAOManager
 		}
 	}
 
-	/**
-	 * 
-	 */
 	private DAOManager()
 	{
-		//empty
+		// empty
 	}
 }

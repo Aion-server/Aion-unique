@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -49,12 +49,12 @@ public class ServerCfg
 	/**
 	 * Constructor
 	 * 
-	 * @param hostName -
-	 *            Host Name on witch we will listen for connections.
-	 * @param port -
-	 *            Port number on witch we will listen for connections.
-	 * @param connectionName -
-	 *            only for logging purposes.
+	 * @param hostName
+	 *            - Host Name on witch we will listen for connections.
+	 * @param port
+	 *            - Port number on witch we will listen for connections.
+	 * @param connectionName
+	 *            - only for logging purposes.
 	 * @param factory
 	 *            <code>ConnectionFactory</code> that will create <code>AConection</code> object
 	 */

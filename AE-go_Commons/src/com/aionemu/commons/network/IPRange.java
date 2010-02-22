@@ -1,3 +1,19 @@
+/*
+ * This file is part of aion-emu <aion-emu.com>.
+ *
+ *  aion-emu is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  aion-emu is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package com.aionemu.commons.network;
 
 import java.util.Arrays;
@@ -5,7 +21,7 @@ import java.util.Arrays;
 /**
  * Utility class that is designed to check belongings of one address to the range.<br>
  * This class is designed in the way that we won't need any changes to external classes in case of migration to IPv6.
- *
+ * 
  * @author Taran
  * @author SoulKeeper
  */
@@ -14,23 +30,27 @@ public class IPRange
 	/**
 	 * Minimal ip address of the range
 	 */
-	private final long min;
+	private final long		min;
 
 	/**
 	 * Maximum ip address of the range
 	 */
-	private final long max;
+	private final long		max;
 
 	/**
 	 * Address that is host for this range
 	 */
-	private final byte[] address;
+	private final byte[]	address;
 
 	/**
 	 * Creates new IPRange object.
-	 * @param min minal ip address
-	 * @param max maximal ip address
-	 * @param address ip address that will be used as host for this range
+	 * 
+	 * @param min
+	 *            minal ip address
+	 * @param max
+	 *            maximal ip address
+	 * @param address
+	 *            ip address that will be used as host for this range
 	 */
 	public IPRange(String min, String max, String address)
 	{
@@ -41,9 +61,13 @@ public class IPRange
 
 	/**
 	 * Creates new IPRange object
-	 * @param min minimal ip address
-	 * @param max maximal ip address
-	 * @param address ip address that will be used as host for this range
+	 * 
+	 * @param min
+	 *            minimal ip address
+	 * @param max
+	 *            maximal ip address
+	 * @param address
+	 *            ip address that will be used as host for this range
 	 */
 	public IPRange(byte[] min, byte[] max, byte[] address)
 	{
@@ -54,7 +78,9 @@ public class IPRange
 
 	/**
 	 * Checks if address is in range
-	 * @param address address to check if is in range
+	 * 
+	 * @param address
+	 *            address to check if is in range
 	 * @return true if is in range, false in other case
 	 */
 	public boolean isInRange(String address)
@@ -65,6 +91,7 @@ public class IPRange
 
 	/**
 	 * Retuns address that is assigned to this range
+	 * 
 	 * @return address that is assigned to this range
 	 */
 	public byte[] getAddress()
@@ -74,6 +101,7 @@ public class IPRange
 
 	/**
 	 * Returns minimal ip address of the range
+	 * 
 	 * @return minimal ip address of the range
 	 */
 	public byte[] getMinAsByteArray()
@@ -83,6 +111,7 @@ public class IPRange
 
 	/**
 	 * Returns maximal ip address of the range
+	 * 
 	 * @return maximal ip address of the range
 	 */
 	public byte[] getMaxAsByteArray()
@@ -92,7 +121,9 @@ public class IPRange
 
 	/**
 	 * Converts IPv4 address to long
-	 * @param bytes byte array to convert
+	 * 
+	 * @param bytes
+	 *            byte array to convert
 	 * @return long that represents address
 	 */
 	private static long toLong(byte[] bytes)
@@ -107,7 +138,9 @@ public class IPRange
 
 	/**
 	 * Converts long to byte array
-	 * @param val long to convert
+	 * 
+	 * @param val
+	 *            long to convert
 	 * @return byte array
 	 */
 	private static byte[] toBytes(long val)
@@ -122,7 +155,9 @@ public class IPRange
 
 	/**
 	 * Convers IPv4 address to byte array
-	 * @param address String to convert
+	 * 
+	 * @param address
+	 *            String to convert
 	 * @return byte array that represents string
 	 */
 	public static byte[] toByteArray(String address)
@@ -139,14 +174,17 @@ public class IPRange
 
 	/**
 	 * Equals of IPRange object. Auto-Generated.
-	 * @param o object to compare with
+	 * 
+	 * @param o
+	 *            object to compare with
 	 * @return true if IPRanges are equal, false in other case
 	 */
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o) return true;
-		if (!(o instanceof IPRange))
+		if(this == o)
+			return true;
+		if(!(o instanceof IPRange))
 			return false;
 
 		IPRange ipRange = (IPRange) o;
@@ -155,6 +193,7 @@ public class IPRange
 
 	/**
 	 * Hashcode of IPRange object. Auto generated.
+	 * 
 	 * @return hashcode
 	 */
 	@Override

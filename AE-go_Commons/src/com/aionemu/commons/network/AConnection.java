@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -26,8 +26,8 @@ import com.aionemu.commons.options.Assertion;
 
 /**
  * Class that represent Connection with server socket. Connection is created by <code>ConnectionFactory</code> and
- * attached to <code>SelectionKey</code> key. Selection key is registered to one of Dispatchers <code>Selector</code>
- * to handle io read and write.
+ * attached to <code>SelectionKey</code> key. Selection key is registered to one of Dispatchers <code>Selector</code> to
+ * handle io read and write.
  * 
  * @author -Nemesiss-
  */
@@ -103,8 +103,7 @@ public abstract class AConnection
 	}
 
 	/**
-	 * Set selection key - result of registration this AConnection socketChannel to
-	 * one of dispatchers.
+	 * Set selection key - result of registration this AConnection socketChannel to one of dispatchers.
 	 * 
 	 * @param key
 	 */
@@ -112,12 +111,13 @@ public abstract class AConnection
 	{
 		this.key = key;
 	}
+
 	/**
 	 * Notify Dispatcher Selector that we want write some data here.
 	 */
 	protected final void enableWriteInterest()
 	{
-		if (key.isValid())
+		if(key.isValid())
 		{
 			key.interestOps(key.interestOps() | SelectionKey.OP_WRITE);
 			key.selector().wakeup();
@@ -150,9 +150,9 @@ public abstract class AConnection
 	 */
 	public final void close(boolean forced)
 	{
-		synchronized (guard)
+		synchronized(guard)
 		{
-			if (isWriteDisabled())
+			if(isWriteDisabled())
 				return;
 
 			isForcedClosing = forced;
@@ -171,16 +171,16 @@ public abstract class AConnection
 		/**
 		 * Test if this build should use assertion. If NetworkAssertion == false javac will remove this code block
 		 */
-		if (Assertion.NetworkAssertion)
+		if(Assertion.NetworkAssertion)
 			assert Thread.currentThread() == dispatcher;
 
-		synchronized (guard)
+		synchronized(guard)
 		{
-			if (closed)
+			if(closed)
 				return false;
 			try
 			{
-				if (socketChannel.isOpen())
+				if(socketChannel.isOpen())
 				{
 					socketChannel.close();
 					key.attach(null);
@@ -188,7 +188,7 @@ public abstract class AConnection
 				}
 				closed = true;
 			}
-			catch (IOException ignored)
+			catch(IOException ignored)
 			{
 			}
 		}
@@ -227,7 +227,7 @@ public abstract class AConnection
 	 */
 	boolean tryLockConnection()
 	{
-		if (locked)
+		if(locked)
 			return false;
 		return locked = true;
 	}

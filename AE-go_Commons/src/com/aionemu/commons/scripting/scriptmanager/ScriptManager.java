@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.scriptmanager;
 
 import java.io.File;
@@ -38,8 +37,7 @@ import com.aionemu.commons.scripting.scriptmanager.listener.ReloadListener;
 
 /**
  * Class that represents managers of script contexes. It loads, reloads and unload script contexes. In the future it may
- * be extended to support programatic manipulation of contexes, but for now it's not needed.
- * <br />
+ * be extended to support programatic manipulation of contexes, but for now it's not needed. <br />
  * Example:
  * 
  * <pre>
@@ -49,15 +47,16 @@ import com.aionemu.commons.scripting.scriptmanager.listener.ReloadListener;
  *      sm.shutdown();
  * </pre>
  * 
- * {@link ScriptContext} object creation listener can be added by using {@link com.aionemu.commons.scripting.scriptmanager.listener.ContextCreationListener}
- * {@link ScriptContext} object reload listener can be added by using {@link com.aionemu.commons.scripting.scriptmanager.listener.ContextReloadListener}
- * {@link ScriptManager} reload listener can be added by using {@link com.aionemu.commons.scripting.scriptmanager.listener.ReloadListener}
- *
+ * {@link ScriptContext} object creation listener can be added by using
+ * {@link com.aionemu.commons.scripting.scriptmanager.listener.ContextCreationListener} {@link ScriptContext} object
+ * reload listener can be added by using
+ * {@link com.aionemu.commons.scripting.scriptmanager.listener.ContextReloadListener} {@link ScriptManager} reload
+ * listener can be added by using {@link com.aionemu.commons.scripting.scriptmanager.listener.ReloadListener}
+ * 
  * @author SoulKeeper, Aquanox
  */
 public class ScriptManager
 {
-
 	/**
 	 * Logger for script context
 	 */
@@ -69,10 +68,10 @@ public class ScriptManager
 	private Set<ScriptContext>	contexts	= new HashSet<ScriptContext>();
 
 	/**
-	 * Global ClassListener instance. Autocatically setted for each new context.
-	 * Fires after each successful compilation.
+	 * Global ClassListener instance. Autocatically setted for each new context. Fires after each successful
+	 * compilation.
 	 */
-	private ClassListener globalClassListener;
+	private ClassListener		globalClassListener;
 
 	/**
 	 * Loads script contexes from descriptor
@@ -89,10 +88,10 @@ public class ScriptManager
 
 		ScriptList list = (ScriptList) u.unmarshal(scriptDescriptor);
 
-		for (ScriptInfo si : list.getScriptInfos())
+		for(ScriptInfo si : list.getScriptInfos())
 		{
 			ScriptContext context = createContext(si, null);
-			if (context != null)
+			if(context != null)
 			{
 				contexts.add(context);
 				context.init();
@@ -118,21 +117,21 @@ public class ScriptManager
 		context.setLibraries(si.getLibraries());
 		context.setCompilerClassName(si.getCompilerClass());
 
-		if (parent == null && contexts.contains(context))
+		if(parent == null && contexts.contains(context))
 		{
 			log.warn("Double root script context definition: " + si.getRoot().getAbsolutePath());
 			return null;
 		}
 
-		if (si.getScriptInfos() != null && !si.getScriptInfos().isEmpty())
+		if(si.getScriptInfos() != null && !si.getScriptInfos().isEmpty())
 		{
-			for (ScriptInfo child : si.getScriptInfos())
+			for(ScriptInfo child : si.getScriptInfos())
 			{
 				createContext(child, context);
 			}
 		}
 
-		if (parent == null && globalClassListener != null)
+		if(parent == null && globalClassListener != null)
 			context.setClassListener(globalClassListener);
 
 		return context;
@@ -143,7 +142,7 @@ public class ScriptManager
 	 */
 	public synchronized void shutdown()
 	{
-		for (ScriptContext context : contexts)
+		for(ScriptContext context : contexts)
 		{
 			context.shutdown();
 		}
@@ -157,7 +156,7 @@ public class ScriptManager
 	@Enhancable(callback = ReloadListener.class)
 	public synchronized void reload()
 	{
-		for (ScriptContext context : contexts)
+		for(ScriptContext context : contexts)
 		{
 			reloadContext(context);
 		}
@@ -165,7 +164,9 @@ public class ScriptManager
 
 	/**
 	 * Reloads specified context.
-	 * @param ctx Script context instance.
+	 * 
+	 * @param ctx
+	 *            Script context instance.
 	 */
 	@Enhancable(callback = ContextReloadListener.class)
 	public void reloadContext(ScriptContext ctx)
@@ -185,8 +186,9 @@ public class ScriptManager
 
 	/**
 	 * Set Global class listener instance.
-	 *
-	 * @param instance listener instance.
+	 * 
+	 * @param instance
+	 *            listener instance.
 	 */
 	public void setGlobalClassListener(ClassListener instance)
 	{

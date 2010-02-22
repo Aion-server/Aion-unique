@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting;
 
 import java.io.File;
@@ -29,7 +28,6 @@ import com.aionemu.commons.scripting.impl.ScriptContextImpl;
  */
 public final class ScriptContextFactory
 {
-
 	/**
 	 * Creates script context, sets the root context. Adds child context if needed
 	 * 
@@ -37,15 +35,14 @@ public final class ScriptContextFactory
 	 *            file that will be threated as root for compiler
 	 * @param parent
 	 *            parent of new ScriptContext
-	 * @return ScriptContext
-	 * 			  with presetted root file
+	 * @return ScriptContext with presetted root file
 	 * @throws InstantiationException
 	 *             if java compiler is not aviable
 	 */
 	public static ScriptContext getScriptContext(File root, ScriptContext parent) throws InstantiationException
 	{
 		ScriptContextImpl ctx;
-		if (parent == null)
+		if(parent == null)
 		{
 			ctx = new ScriptContextImpl(root);
 		}

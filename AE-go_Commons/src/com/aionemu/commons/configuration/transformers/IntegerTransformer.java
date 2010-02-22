@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.configuration.transformers;
 
 import java.lang.reflect.Field;
@@ -29,7 +28,6 @@ import com.aionemu.commons.configuration.TransformationException;
  */
 public class IntegerTransformer implements PropertyTransformer<Integer>
 {
-
 	/**
 	 * Shared instance of this transformer. It's thread-safe so no need of multiple instances
 	 */
@@ -53,7 +51,7 @@ public class IntegerTransformer implements PropertyTransformer<Integer>
 		{
 			return Integer.decode(value);
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			throw new TransformationException(e);
 		}

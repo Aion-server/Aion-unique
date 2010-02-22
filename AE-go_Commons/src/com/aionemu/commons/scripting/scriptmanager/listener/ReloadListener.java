@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.scriptmanager.listener;
 
 import com.aionemu.commons.callbacks.Callback;
@@ -22,9 +21,9 @@ import com.aionemu.commons.callbacks.CallbackResult;
 
 /**
  * ScriptManager reload listener
- *
- * @see com.aionemu.commons.scripting.scriptmanager.ScriptManager#reload() 
- *
+ * 
+ * @see com.aionemu.commons.scripting.scriptmanager.ScriptManager#reload()
+ * 
  * @author SoulKeeper, Aquanox
  */
 @SuppressWarnings("unchecked")
@@ -51,7 +50,7 @@ public abstract class ReloadListener implements Callback
 	 */
 	protected void beforeReload()
 	{
-		//empty
+		// empty
 	}
 
 	/**
@@ -59,7 +58,7 @@ public abstract class ReloadListener implements Callback
 	 */
 	protected void afterReload()
 	{
-		//empty
+		// empty
 	}
 
 	/** {@inheritDoc} */

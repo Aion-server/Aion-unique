@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.configuration.transformers;
 
 import java.lang.reflect.Field;
@@ -35,7 +34,6 @@ import com.aionemu.commons.configuration.TransformationException;
  */
 public class InetSocketAddressTransformer implements PropertyTransformer<InetSocketAddress>
 {
-
 	/**
 	 * Shared instance of this transformer. It's thread-safe so no need of multiple instances
 	 */
@@ -55,17 +53,16 @@ public class InetSocketAddressTransformer implements PropertyTransformer<InetSoc
 	@Override
 	public InetSocketAddress transform(String value, Field field) throws TransformationException
 	{
-
 		String[] parts = value.split(":");
 
-		if (parts.length != 2)
+		if(parts.length != 2)
 		{
 			throw new TransformationException("Can't transform property, must be in format \"address:port\"");
 		}
 
 		try
 		{
-			if ("*".equals(parts[0]))
+			if("*".equals(parts[0]))
 			{
 				return new InetSocketAddress(Integer.parseInt(parts[1]));
 			}
@@ -76,7 +73,7 @@ public class InetSocketAddressTransformer implements PropertyTransformer<InetSoc
 				return new InetSocketAddress(address, port);
 			}
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			throw new TransformationException(e);
 		}

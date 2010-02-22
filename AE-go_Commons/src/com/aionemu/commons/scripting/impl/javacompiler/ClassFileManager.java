@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.impl.javacompiler;
 
 import java.io.File;
@@ -44,7 +43,6 @@ import com.aionemu.commons.scripting.ScriptClassLoader;
  */
 public class ClassFileManager extends ForwardingJavaFileManager<JavaFileManager>
 {
-
 	/**
 	 * This map contains classes compiled for this classloader
 	 */
@@ -107,9 +105,9 @@ public class ClassFileManager extends ForwardingJavaFileManager<JavaFileManager>
 	@Override
 	public synchronized ScriptClassLoaderImpl getClassLoader(Location location)
 	{
-		if (loader == null)
+		if(loader == null)
 		{
-			if (parentClassLoader != null)
+			if(parentClassLoader != null)
 			{
 				loader = new ScriptClassLoaderImpl(this, parentClassLoader);
 			}
@@ -156,7 +154,7 @@ public class ClassFileManager extends ForwardingJavaFileManager<JavaFileManager>
 	 */
 	public void addLibraries(Iterable<File> files) throws IOException
 	{
-		for (File f : files)
+		for(File f : files)
 		{
 			addLibrary(f);
 		}
@@ -198,10 +196,10 @@ public class ClassFileManager extends ForwardingJavaFileManager<JavaFileManager>
 	{
 		Iterable<JavaFileObject> objects = super.list(location, packageName, kinds, recurse);
 
-		if (StandardLocation.CLASS_PATH.equals(location) && kinds.contains(Kind.CLASS))
+		if(StandardLocation.CLASS_PATH.equals(location) && kinds.contains(Kind.CLASS))
 		{
 			List<JavaFileObject> temp = new ArrayList<JavaFileObject>();
-			for (JavaFileObject object : objects)
+			for(JavaFileObject object : objects)
 			{
 				temp.add(object);
 			}

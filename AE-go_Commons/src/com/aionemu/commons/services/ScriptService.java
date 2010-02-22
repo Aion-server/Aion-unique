@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.services;
 
 import java.io.File;
@@ -36,11 +35,10 @@ import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
  */
 public class ScriptService
 {
-
 	/**
 	 * Logger
 	 */
-	private static final Logger						log	= Logger.getLogger(ScriptService.class);
+	private static final Logger				log	= Logger.getLogger(ScriptService.class);
 
 	/**
 	 * Container for ScriptManagers, sorted by file
@@ -70,11 +68,11 @@ public class ScriptService
 	 */
 	public void load(File file) throws RuntimeException
 	{
-		if (file.isFile())
+		if(file.isFile())
 		{
 			loadFile(file);
 		}
-		else if (file.isDirectory())
+		else if(file.isDirectory())
 		{
 			loadDir(file);
 		}
@@ -88,7 +86,7 @@ public class ScriptService
 	 */
 	private void loadFile(File file)
 	{
-		if (map.containsKey(file))
+		if(map.containsKey(file))
 		{
 			throw new IllegalArgumentException("ScriptManager by file:" + file + " already loaded");
 		}
@@ -98,7 +96,7 @@ public class ScriptService
 		{
 			sm.load(file);
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			log.error(e);
 			throw new RuntimeException(e);
@@ -115,7 +113,7 @@ public class ScriptService
 	 */
 	private void loadDir(File dir)
 	{
-		for (Object file : FileUtils.listFiles(dir, new String[] { "xml" }, false))
+		for(Object file : FileUtils.listFiles(dir, new String[] { "xml" }, false))
 		{
 			loadFile((File) file);
 		}
@@ -132,7 +130,7 @@ public class ScriptService
 	public void unload(File file) throws IllegalArgumentException
 	{
 		ScriptManager sm = map.remove(file);
-		if (sm == null)
+		if(sm == null)
 		{
 			throw new IllegalArgumentException("ScriptManager by file " + file + " is not loaded.");
 		}
@@ -151,7 +149,7 @@ public class ScriptService
 	public void reload(File file) throws IllegalArgumentException
 	{
 		ScriptManager sm = map.get(file);
-		if (sm == null)
+		if(sm == null)
 		{
 			throw new IllegalArgumentException("ScriptManager by file " + file + " is not loaded.");
 		}
@@ -162,9 +160,11 @@ public class ScriptService
 	/**
 	 * Adds script manager to script service.<br>
 	 * Should be used if scriptManager uses custom loading logic for scripts.
-	 *
-	 * @param scriptManager Script manager object
-	 * @param file script descriptor file
+	 * 
+	 * @param scriptManager
+	 *            Script manager object
+	 * @param file
+	 *            script descriptor file
 	 */
 	public void addScriptManager(ScriptManager scriptManager, File file)
 	{
@@ -191,17 +191,17 @@ public class ScriptService
 	 */
 	public void shutdown()
 	{
-		for (Iterator<Entry<File, ScriptManager>> it = this.map.entrySet().iterator(); it.hasNext();)
+		for(Iterator<Entry<File, ScriptManager>> it = this.map.entrySet().iterator(); it.hasNext();)
 		{
 			try
 			{
 				it.next().getValue().shutdown();
 			}
-			catch (Exception e)
+			catch(Exception e)
 			{
 				log.warn("An exception occured during shudown procedure.", e);
 			}
-			
+
 			it.remove();
 		}
 	}

@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-emu.
+ * This file is part of aion-emu <aion-emu.com>.
  *
  * aion-emu is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.database.dao;
 
 /**
@@ -28,7 +27,6 @@ package com.aionemu.commons.database.dao;
  */
 public interface DAO
 {
-
 	/**
 	 * Unique identifier for DAO class, all subclasses must have same identifiers. Must return {@link Class#getName()}
 	 * of abstract class

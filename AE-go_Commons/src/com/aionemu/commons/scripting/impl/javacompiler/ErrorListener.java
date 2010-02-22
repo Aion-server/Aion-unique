@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.impl.javacompiler;
 
 import java.util.Locale;
@@ -32,7 +31,6 @@ import org.apache.log4j.Logger;
  */
 public class ErrorListener implements DiagnosticListener<JavaFileObject>
 {
-
 	/**
 	 * Logger for this class
 	 */
@@ -48,11 +46,10 @@ public class ErrorListener implements DiagnosticListener<JavaFileObject>
 	public void report(Diagnostic<? extends JavaFileObject> diagnostic)
 	{
 		StringBuffer buffer = new StringBuffer();
-		buffer.append("Java Compiler ").append(diagnostic.getKind()).append(": ")
-				.append(diagnostic.getMessage(Locale.ENGLISH)).append("\n")
-				.append("Source: ").append(diagnostic.getSource().getName()).append("\n")
-				.append("Line: ").append(diagnostic.getLineNumber()).append("\n")
-				.append("Column: ").append(diagnostic.getColumnNumber());
+		buffer.append("Java Compiler ").append(diagnostic.getKind()).append(": ").append(
+			diagnostic.getMessage(Locale.ENGLISH)).append("\n").append("Source: ").append(
+			diagnostic.getSource().getName()).append("\n").append("Line: ").append(diagnostic.getLineNumber()).append(
+			"\n").append("Column: ").append(diagnostic.getColumnNumber());
 		log.error(buffer.toString());
 	}
 }

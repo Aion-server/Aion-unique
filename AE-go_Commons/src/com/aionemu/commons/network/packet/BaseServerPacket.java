@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -27,8 +27,9 @@ public abstract class BaseServerPacket extends BasePacket
 {
 	/**
 	 * Constructs a new server packet with specified id.
-	 *
-	 * @param opcode packet opcode.
+	 * 
+	 * @param opcode
+	 *            packet opcode.
 	 */
 	protected BaseServerPacket(int opcode)
 	{
@@ -43,7 +44,7 @@ public abstract class BaseServerPacket extends BasePacket
 	{
 		super(PacketType.SERVER);
 	}
-	
+
 	/**
 	 * Write int to buffer.
 	 * 
@@ -118,14 +119,14 @@ public abstract class BaseServerPacket extends BasePacket
 	 */
 	protected final void writeS(ByteBuffer buf, String text)
 	{
-		if (text == null)
+		if(text == null)
 		{
 			buf.putChar('\000');
 		}
 		else
 		{
 			final int len = text.length();
-			for (int i = 0; i < len; i++)
+			for(int i = 0; i < len; i++)
 				buf.putChar(text.charAt(i));
 			buf.putChar('\000');
 		}

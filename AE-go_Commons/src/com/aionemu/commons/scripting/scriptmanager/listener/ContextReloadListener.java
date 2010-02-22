@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.scriptmanager.listener;
 
 import com.aionemu.commons.callbacks.Callback;
@@ -23,9 +22,9 @@ import com.aionemu.commons.scripting.ScriptContext;
 
 /**
  * Context reload listener
- *
- * @see com.aionemu.commons.scripting.scriptmanager.ScriptManager#reloadContext(com.aionemu.commons.scripting.ScriptContext) 
- *
+ * 
+ * @see com.aionemu.commons.scripting.scriptmanager.ScriptManager#reloadContext(com.aionemu.commons.scripting.ScriptContext)
+ * 
  * @author SoulKeeper, Aquanox
  */
 @SuppressWarnings("unchecked")
@@ -51,20 +50,22 @@ public abstract class ContextReloadListener implements Callback
 
 	/**
 	 * Invoke before context reload procedure.
-	 * @param ctx 
+	 * 
+	 * @param ctx
 	 */
 	protected void beforeReload(ScriptContext ctx)
 	{
-		//empty
+		// empty
 	}
 
 	/**
 	 * Invoke after context reload procedure.
-	 * @param ctx 
+	 * 
+	 * @param ctx
 	 */
 	protected void afterReload(ScriptContext ctx)
 	{
-		//empty
+		// empty
 	}
 
 	/** {@inheritDoc} */

@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.configuration.transformers;
 
 import java.lang.reflect.Field;
@@ -27,7 +26,6 @@ import com.aionemu.commons.configuration.TransformationException;
  */
 public class CharTransformer implements PropertyTransformer<Character>
 {
-
 	/**
 	 * Shared instance of this transformer. It's thread-safe so no need of multiple instances
 	 */
@@ -47,18 +45,17 @@ public class CharTransformer implements PropertyTransformer<Character>
 	@Override
 	public Character transform(String value, Field field) throws TransformationException
 	{
-
 		try
 		{
 			char[] chars = value.toCharArray();
-			if (chars.length > 1)
+			if(chars.length > 1)
 			{
 				throw new TransformationException("To many characters in the value");
 			}
 
 			return chars[0];
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			throw new TransformationException(e);
 		}

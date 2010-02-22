@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.scriptmanager;
 
 import java.util.Set;
@@ -33,7 +32,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.NONE)
 public class ScriptList
 {
-
 	/**
 	 * List of Script descriptors
 	 */

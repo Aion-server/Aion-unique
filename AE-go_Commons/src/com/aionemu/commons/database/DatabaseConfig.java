@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.database;
 
 import java.io.File;
@@ -34,7 +33,6 @@ import com.aionemu.commons.utils.PropertiesUtils;
  */
 public class DatabaseConfig
 {
-
 	/**
 	 * Logger for database config
 	 */
@@ -98,7 +96,7 @@ public class DatabaseConfig
 		{
 			p = PropertiesUtils.load(CONFIG_FILE);
 		}
-		catch (IOException e)
+		catch(IOException e)
 		{
 			log.fatal("Can't load database configuration...");
 			throw new Error("Can't load " + CONFIG_FILE, e);

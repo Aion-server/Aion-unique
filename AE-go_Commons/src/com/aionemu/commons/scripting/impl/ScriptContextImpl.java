@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.impl;
 
 import java.io.File;
@@ -38,7 +37,6 @@ import com.aionemu.commons.scripting.classlistener.DefaultClassListener;
  */
 public class ScriptContextImpl implements ScriptContext
 {
-
 	/**
 	 * logger for this class
 	 */
@@ -108,12 +106,12 @@ public class ScriptContextImpl implements ScriptContext
 	 */
 	public ScriptContextImpl(File root, ScriptContext parent)
 	{
-		if (root == null)
+		if(root == null)
 		{
 			throw new NullPointerException("Root file must be specified");
 		}
 
-		if (!root.exists() || !root.isDirectory())
+		if(!root.exists() || !root.isDirectory())
 		{
 			throw new IllegalArgumentException("Root directory not exists or is not a directory");
 		}
@@ -129,7 +127,7 @@ public class ScriptContextImpl implements ScriptContext
 	public synchronized void init()
 	{
 
-		if (compilationResult != null)
+		if(compilationResult != null)
 		{
 			log.error(new Exception("Init request on initialized ScriptContext"));
 			return;
@@ -140,7 +138,7 @@ public class ScriptContextImpl implements ScriptContext
 		@SuppressWarnings("unchecked")
 		Collection<File> files = FileUtils.listFiles(root, scriptCompiler.getSupportedFileTypes(), true);
 
-		if (parentScriptContext != null)
+		if(parentScriptContext != null)
 		{
 			scriptCompiler.setParentClassLoader(parentScriptContext.getCompilationResult().getClassLoader());
 		}
@@ -150,9 +148,9 @@ public class ScriptContextImpl implements ScriptContext
 
 		getClassListener().postLoad(compilationResult.getCompiledClasses());
 
-		if (childScriptContexts != null)
+		if(childScriptContexts != null)
 		{
-			for (ScriptContext context : childScriptContexts)
+			for(ScriptContext context : childScriptContexts)
 			{
 				context.init();
 			}
@@ -166,15 +164,15 @@ public class ScriptContextImpl implements ScriptContext
 	public synchronized void shutdown()
 	{
 
-		if (compilationResult == null)
+		if(compilationResult == null)
 		{
 			log.error("Shutdown of not initialized stript context", new Exception());
 			return;
 		}
 
-		if (childScriptContexts != null)
+		if(childScriptContexts != null)
 		{
-			for (ScriptContext child : childScriptContexts)
+			for(ScriptContext child : childScriptContexts)
 			{
 				child.shutdown();
 			}
@@ -264,21 +262,21 @@ public class ScriptContextImpl implements ScriptContext
 	public void addChildScriptContext(ScriptContext context)
 	{
 
-		synchronized (this)
+		synchronized(this)
 		{
-			if (childScriptContexts == null)
+			if(childScriptContexts == null)
 			{
 				childScriptContexts = new HashSet<ScriptContext>();
 			}
 
-			if (childScriptContexts.contains(context))
+			if(childScriptContexts.contains(context))
 			{
 				log.error("Double child definition, root: " + root.getAbsolutePath() + ", child: "
 					+ context.getRoot().getAbsolutePath());
 				return;
 			}
 
-			if (isInitialized())
+			if(isInitialized())
 			{
 				context.init();
 			}
@@ -302,9 +300,9 @@ public class ScriptContextImpl implements ScriptContext
 	@Override
 	public ClassListener getClassListener()
 	{
-		if (classListener == null)
+		if(classListener == null)
 		{
-			if (getParentScriptContext() == null)
+			if(getParentScriptContext() == null)
 			{
 				setClassListener(new DefaultClassListener());
 				return classListener;
@@ -348,7 +346,7 @@ public class ScriptContextImpl implements ScriptContext
 	protected ScriptCompiler instantiateCompiler() throws RuntimeException
 	{
 		ClassLoader cl = getClass().getClassLoader();
-		if (getParentScriptContext() != null)
+		if(getParentScriptContext() != null)
 		{
 			cl = getParentScriptContext().getCompilationResult().getClassLoader();
 		}
@@ -358,7 +356,7 @@ public class ScriptContextImpl implements ScriptContext
 		{
 			sc = (ScriptCompiler) Class.forName(getCompilerClassName(), true, cl).newInstance();
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			RuntimeException e1 = new RuntimeException("Can't create instance of compiler", e);
 			log.error(e1);
@@ -374,14 +372,14 @@ public class ScriptContextImpl implements ScriptContext
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (!(obj instanceof ScriptContextImpl))
+		if(!(obj instanceof ScriptContextImpl))
 		{
 			return false;
 		}
 
 		ScriptContextImpl another = (ScriptContextImpl) obj;
 
-		if (parentScriptContext == null)
+		if(parentScriptContext == null)
 		{
 			return another.getRoot().equals(root);
 		}
@@ -408,7 +406,7 @@ public class ScriptContextImpl implements ScriptContext
 	@Override
 	public void finalize() throws Throwable
 	{
-		if (compilationResult != null)
+		if(compilationResult != null)
 		{
 			log.error("Finalization of initialized ScriptContext. Forcing context shutdown.");
 			shutdown();

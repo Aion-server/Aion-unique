@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.services;
 
 import java.io.File;
@@ -33,10 +32,12 @@ import com.aionemu.commons.log4j.ThrowableAsMessageAwareFactory;
 import com.aionemu.commons.log4j.exceptions.Log4jInitializationError;
 
 /**
- * This class represents simple wrapper for loggers that initializes logging system. <p/>
+ * This class represents simple wrapper for loggers that initializes logging system.
+ * <p/>
  * 
  * Default {@link org.apache.log4j.spi.LoggerFactory} can by configured by system property
- * {@value #LOGGER_FACTORY_CLASS_PROPERTY} <p/>
+ * {@value #LOGGER_FACTORY_CLASS_PROPERTY}
+ * <p/>
  * 
  * Default logger factory is {@link com.aionemu.commons.log4j.ThrowableAsMessageAwareFactory}
  * 
@@ -44,7 +45,6 @@ import com.aionemu.commons.log4j.exceptions.Log4jInitializationError;
  */
 public class LoggingService
 {
-
 	/**
 	 * Property that represents {@link org.apache.log4j.spi.LoggerFactory} class
 	 */
@@ -70,7 +70,7 @@ public class LoggingService
 	{
 		File f = new File(LOGGER_CONFIG_FILE);
 
-		if (!f.exists())
+		if(!f.exists())
 		{
 			throw new Log4jInitializationError("Missing file " + f.getPath());
 		}
@@ -79,7 +79,7 @@ public class LoggingService
 		{
 			init(f.toURI().toURL());
 		}
-		catch (MalformedURLException e)
+		catch(MalformedURLException e)
 		{
 			throw new Log4jInitializationError("Can't initalize logging", e);
 		}
@@ -95,9 +95,9 @@ public class LoggingService
 	 */
 	public static void init(URL url) throws Log4jInitializationError
 	{
-		synchronized (LoggingService.class)
+		synchronized(LoggingService.class)
 		{
-			if (initialized)
+			if(initialized)
 			{
 				return;
 			}
@@ -111,7 +111,7 @@ public class LoggingService
 		{
 			DOMConfigurator.configure(url);
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			throw new Log4jInitializationError("Can't initialize logging", e);
 		}
@@ -120,7 +120,7 @@ public class LoggingService
 
 		// Initialize JULI to Log4J bridge
 		Logger logger = LogManager.getLogManager().getLogger("");
-		for (Handler h : logger.getHandlers())
+		for(Handler h : logger.getHandlers())
 		{
 			logger.removeHandler(h);
 		}
@@ -129,10 +129,12 @@ public class LoggingService
 	}
 
 	/**
-	 * This method uses some reflection to hack default log4j log facrory. <p/>
+	 * This method uses some reflection to hack default log4j log facrory.
+	 * <p/>
 	 * 
 	 * Log4j uses this Hierarchy for loggers that don't have exact name match and element categoryFactory for loggers
-	 * with names that matches specified names in log4j.xml. <p/>
+	 * with names that matches specified names in log4j.xml.
+	 * <p/>
 	 * 
 	 * See log4j.xml for detailed description of Log4j behaviour.
 	 */
@@ -150,21 +152,21 @@ public class LoggingService
 			field.set(lr, c.newInstance());
 			field.setAccessible(false);
 		}
-		catch (NoSuchFieldException e)
+		catch(NoSuchFieldException e)
 		{
 			// never thrown
 			e.printStackTrace();
 		}
-		catch (IllegalAccessException e)
+		catch(IllegalAccessException e)
 		{
 			// never thrown
 			e.printStackTrace();
 		}
-		catch (ClassNotFoundException e)
+		catch(ClassNotFoundException e)
 		{
 			throw new Log4jInitializationError("Can't found log4j logger factory class", e);
 		}
-		catch (InstantiationException e)
+		catch(InstantiationException e)
 		{
 			throw new Log4jInitializationError("Can't instantiate log4j logger factory", e);
 		}

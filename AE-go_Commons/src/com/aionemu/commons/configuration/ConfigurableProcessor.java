@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.configuration;
 
 import java.lang.reflect.Field;
@@ -30,7 +29,6 @@ import org.apache.log4j.Logger;
  */
 public class ConfigurableProcessor
 {
-
 	/**
 	 * Logger
 	 */
@@ -54,7 +52,7 @@ public class ConfigurableProcessor
 	{
 		Class clazz;
 
-		if (object instanceof Class)
+		if(object instanceof Class)
 		{
 			clazz = (Class) object;
 			object = null;
@@ -86,16 +84,16 @@ public class ConfigurableProcessor
 		// Interfaces can't have any object fields, only static
 		// So there is no need to parse interfaces for instances of objects
 		// Only classes (static fields) can be located in interfaces
-		if (obj == null)
+		if(obj == null)
 		{
-			for (Class itf : clazz.getInterfaces())
+			for(Class itf : clazz.getInterfaces())
 			{
 				process(itf, obj, props);
 			}
 		}
 
 		Class superClass = clazz.getSuperclass();
-		if (superClass != null && superClass != Object.class)
+		if(superClass != null && superClass != Object.class)
 		{
 			process(superClass, obj, props);
 		}
@@ -115,27 +113,27 @@ public class ConfigurableProcessor
 	@SuppressWarnings("unchecked")
 	private static void processFields(Class clazz, Object obj, Properties[] props)
 	{
-		for (Field f : clazz.getDeclaredFields())
+		for(Field f : clazz.getDeclaredFields())
 		{
-
 			// Static fields should not be modified when processing object
-			if (Modifier.isStatic(f.getModifiers()) && obj != null)
+			if(Modifier.isStatic(f.getModifiers()) && obj != null)
 			{
 				continue;
 			}
 
 			// Not static field should not be processed when parsing class
-			if (!Modifier.isStatic(f.getModifiers()) && obj == null)
+			if(!Modifier.isStatic(f.getModifiers()) && obj == null)
 			{
 				continue;
 			}
 
-			if (f.isAnnotationPresent(Property.class))
+			if(f.isAnnotationPresent(Property.class))
 			{
 				// Final fields should not be processed
-				if (Modifier.isFinal(f.getModifiers()))
+				if(Modifier.isFinal(f.getModifiers()))
 				{
-					RuntimeException re = new RuntimeException("Attempt to proceed final field " + f.getName() + " of class " + clazz.getName());
+					RuntimeException re = new RuntimeException("Attempt to proceed final field " + f.getName()
+						+ " of class " + clazz.getName());
 					log.error(re);
 					throw re;
 				}
@@ -168,18 +166,19 @@ public class ConfigurableProcessor
 		try
 		{
 			Property property = f.getAnnotation(Property.class);
-			if (!Property.DEFAULT_VALUE.equals(property.defaultValue()) || isKeyPresent(property.key(), props))
+			if(!Property.DEFAULT_VALUE.equals(property.defaultValue()) || isKeyPresent(property.key(), props))
 			{
 				f.set(obj, getFieldValue(f, props));
 			}
-			else if (log.isDebugEnabled())
+			else if(log.isDebugEnabled())
 			{
 				log.debug("Field " + f.getName() + " of class " + f.getDeclaringClass().getName() + " wasn't modified");
 			}
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
-			RuntimeException re = new RuntimeException("Can't transform field " + f.getName() + " of class " + f.getDeclaringClass(), e);
+			RuntimeException re = new RuntimeException("Can't transform field " + f.getName() + " of class "
+				+ f.getDeclaringClass(), e);
 			log.error(re);
 			throw re;
 		}
@@ -207,7 +206,7 @@ public class ConfigurableProcessor
 		String key = property.key();
 		String value = null;
 
-		if (key.isEmpty())
+		if(key.isEmpty())
 		{
 			log.warn("Property " + field.getName() + " of class " + field.getDeclaringClass().getName()
 				+ " has empty key");
@@ -217,10 +216,10 @@ public class ConfigurableProcessor
 			value = findPropertyByKey(key, props);
 		}
 
-		if (value == null)
+		if(value == null)
 		{
 			value = defaultValue;
-			if (log.isDebugEnabled())
+			if(log.isDebugEnabled())
 			{
 				log.debug("Using default value for field " + field.getName() + " of class "
 					+ field.getDeclaringClass().getName());
@@ -243,9 +242,9 @@ public class ConfigurableProcessor
 	 */
 	private static String findPropertyByKey(String key, Properties[] props)
 	{
-		for (Properties p : props)
+		for(Properties p : props)
 		{
-			if (p.containsKey(key))
+			if(p.containsKey(key))
 			{
 				return p.getProperty(key);
 			}

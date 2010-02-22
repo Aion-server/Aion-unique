@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.log4j;
 
 import org.apache.log4j.Logger;
@@ -27,14 +26,14 @@ import org.apache.log4j.Priority;
  * org.apache.log4j.Logger#log(Throwable)
  * </pre>
  * 
- * <p/> In such cases this logger will take message from throwable and set it as message. Throwable will be threated as
- * real throwable, so no stacktraces would be lost.
+ * <p/>
+ * In such cases this logger will take message from throwable and set it as message. Throwable will be threated as real
+ * throwable, so no stacktraces would be lost.
  * 
  * @author SoulKeeper
  */
 public class ThrowableAsMessageLogger extends Logger
 {
-
 	/**
 	 * Creates new instance of this logger
 	 * 
@@ -63,7 +62,7 @@ public class ThrowableAsMessageLogger extends Logger
 	protected void forcedLog(String fqcn, Priority level, Object message, Throwable t)
 	{
 
-		if (message instanceof Throwable && t == null)
+		if(message instanceof Throwable && t == null)
 		{
 			t = (Throwable) message;
 			message = t.getLocalizedMessage();

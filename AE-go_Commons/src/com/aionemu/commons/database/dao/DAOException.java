@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-emu.
+ * This file is part of aion-emu <aion-emu.com>.
  *
  * aion-emu is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.database.dao;
 
 /**
@@ -25,20 +24,17 @@ package com.aionemu.commons.database.dao;
 public class DAOException extends RuntimeException
 {
 	/**
-	 * serial
+	 * SerialID
 	 */
-	private static final long serialVersionUID = 7637014806313099318L;
+	private static final long	serialVersionUID	= 7637014806313099318L;
 
-	/**
-	 * 
-	 */
 	public DAOException()
 	{
 	}
 
 	/**
 	 * 
-	 * @param message 
+	 * @param message
 	 */
 	public DAOException(String message)
 	{
@@ -46,8 +42,8 @@ public class DAOException extends RuntimeException
 	}
 
 	/**
-	 * @param message 
-	 * @param cause 
+	 * @param message
+	 * @param cause
 	 * 
 	 */
 	public DAOException(String message, Throwable cause)
@@ -56,7 +52,7 @@ public class DAOException extends RuntimeException
 	}
 
 	/**
-	 * @param cause 
+	 * @param cause
 	 * 
 	 */
 	public DAOException(Throwable cause)

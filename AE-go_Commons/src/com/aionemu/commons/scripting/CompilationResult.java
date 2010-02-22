@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting;
 
 import java.util.Arrays;
@@ -26,7 +25,6 @@ import java.util.Arrays;
  */
 public class CompilationResult
 {
-
 	/**
 	 * List of classes that were compiled by compiler
 	 */
@@ -82,7 +80,8 @@ public class CompilationResult
 		final StringBuilder sb = new StringBuilder();
 		sb.append("CompilationResult");
 		sb.append("{classLoader=").append(classLoader);
-		sb.append(", compiledClasses=").append(compiledClasses == null ? "null" : Arrays.asList(compiledClasses).toString());
+		sb.append(", compiledClasses=").append(
+			compiledClasses == null ? "null" : Arrays.asList(compiledClasses).toString());
 		sb.append('}');
 		return sb.toString();
 	}

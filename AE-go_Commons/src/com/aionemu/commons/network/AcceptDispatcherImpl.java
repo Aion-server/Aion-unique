@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -48,15 +48,15 @@ public class AcceptDispatcherImpl extends Dispatcher
 	@Override
 	void dispatch() throws IOException
 	{
-		if (selector.select() != 0)
+		if(selector.select() != 0)
 		{
 			Iterator<SelectionKey> selectedKeys = this.selector.selectedKeys().iterator();
-			while (selectedKeys.hasNext())
+			while(selectedKeys.hasNext())
 			{
 				SelectionKey key = selectedKeys.next();
 				selectedKeys.remove();
 
-				if (key.isValid())
+				if(key.isValid())
 					accept(key);
 			}
 		}

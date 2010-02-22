@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.database;
 
 import java.sql.Connection;
@@ -26,15 +25,15 @@ import org.apache.log4j.Logger;
 
 /**
  * This class allows easy manipulations with transactions, it should be used when critical or synchronized data should
- * be commited to two or more tables. This class allows us to avoid data synchronization problems in db. <p/> Class is
- * not designed to be thread-safe, should be synchronized externally.<br>
+ * be commited to two or more tables. This class allows us to avoid data synchronization problems in db.
+ * <p/>
+ * Class is not designed to be thread-safe, should be synchronized externally.<br>
  * Class is not fail-safe, if error happens - exception will be thrown.
  * 
  * @author SoulKeeper
  */
 public class Transaction
 {
-
 	/**
 	 * Logger for transactions
 	 */
@@ -87,7 +86,7 @@ public class Transaction
 	public void insertUpdate(String sql, IUStH iusth) throws SQLException
 	{
 		PreparedStatement statement = connection.prepareStatement(sql);
-		if (iusth != null)
+		if(iusth != null)
 		{
 			iusth.handleInsertUpdate(statement);
 		}
@@ -150,13 +149,13 @@ public class Transaction
 		{
 			connection.commit();
 		}
-		catch (SQLException e)
+		catch(SQLException e)
 		{
 			log.warn("Error while commiting transaction", e);
 
 			try
 			{
-				if (rollBackToOnError != null)
+				if(rollBackToOnError != null)
 				{
 					connection.rollback(rollBackToOnError);
 				}
@@ -165,7 +164,7 @@ public class Transaction
 					connection.rollback();
 				}
 			}
-			catch (SQLException e1)
+			catch(SQLException e1)
 			{
 				log.error("Can't rollback transaction", e1);
 			}

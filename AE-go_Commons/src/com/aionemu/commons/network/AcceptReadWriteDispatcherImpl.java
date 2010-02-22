@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -37,8 +37,7 @@ public class AcceptReadWriteDispatcherImpl extends Dispatcher
 	private final List<AConnection>	pendingClose	= new ArrayList<AConnection>();
 
 	/**
-	 * Constructor that accept <code>String</code> name and <code>DisconnectionThreadPool</code> dcPool as
-	 * parameter.
+	 * Constructor that accept <code>String</code> name and <code>DisconnectionThreadPool</code> dcPool as parameter.
 	 * 
 	 * @param name
 	 * @param dcPool
@@ -62,19 +61,19 @@ public class AcceptReadWriteDispatcherImpl extends Dispatcher
 
 		processPendingClose();
 
-		if (selected != 0)
+		if(selected != 0)
 		{
 			Iterator<SelectionKey> selectedKeys = this.selector.selectedKeys().iterator();
-			while (selectedKeys.hasNext())
+			while(selectedKeys.hasNext())
 			{
 				SelectionKey key = selectedKeys.next();
 				selectedKeys.remove();
 
-				if (!key.isValid())
+				if(!key.isValid())
 					continue;
 
 				/** Check what event is available and deal with it */
-				switch (key.readyOps())
+				switch(key.readyOps())
 				{
 					case SelectionKey.OP_ACCEPT:
 						this.accept(key);
@@ -87,7 +86,7 @@ public class AcceptReadWriteDispatcherImpl extends Dispatcher
 						break;
 					case SelectionKey.OP_READ | SelectionKey.OP_WRITE:
 						this.read(key);
-						if (key.isValid())
+						if(key.isValid())
 							this.write(key);
 						break;
 				}
@@ -96,15 +95,15 @@ public class AcceptReadWriteDispatcherImpl extends Dispatcher
 	}
 
 	/**
-	 * Add connection to pendingClose list, so this connection will be closed by this <code>Dispatcher</code> as soon
-	 * as possible.
+	 * Add connection to pendingClose list, so this connection will be closed by this <code>Dispatcher</code> as soon as
+	 * possible.
 	 * 
 	 * @see com.aionemu.commons.network.Dispatcher#closeConnection(com.aionemu.commons.network.AConnection)
 	 */
 	@Override
 	void closeConnection(AConnection con)
 	{
-		synchronized (pendingClose)
+		synchronized(pendingClose)
 		{
 			pendingClose.add(con);
 		}
@@ -115,9 +114,9 @@ public class AcceptReadWriteDispatcherImpl extends Dispatcher
 	 */
 	private void processPendingClose()
 	{
-		synchronized (pendingClose)
+		synchronized(pendingClose)
 		{
-			for (AConnection connection : pendingClose)
+			for(AConnection connection : pendingClose)
 				closeConnectionImpl(connection);
 			pendingClose.clear();
 		}

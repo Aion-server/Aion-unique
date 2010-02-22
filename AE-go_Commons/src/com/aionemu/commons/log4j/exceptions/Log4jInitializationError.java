@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.log4j.exceptions;
 
 /**
@@ -25,9 +24,9 @@ package com.aionemu.commons.log4j.exceptions;
 public class Log4jInitializationError extends Error
 {
 	/**
-	 * serial
+	 * SerialID
 	 */
-	private static final long serialVersionUID = -628697707807736993L;
+	private static final long	serialVersionUID	= -628697707807736993L;
 
 	/**
 	 * Creates new Error

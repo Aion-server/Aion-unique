@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.scriptmanager;
 
 import java.io.File;
@@ -62,7 +61,7 @@ public class ScriptInfo
 	 * Default compiler class name.
 	 */
 	@XmlElement(name = "compiler")
-	private String compilerClass = ScriptCompilerImpl.class.getName();
+	private String				compilerClass	= ScriptCompilerImpl.class.getName();
 
 	/**
 	 * Returns root of script context
@@ -129,7 +128,7 @@ public class ScriptInfo
 
 	/**
 	 * Returns compiler class name
-	 *
+	 * 
 	 * @return name of compiler class
 	 */
 	public String getCompilerClass()
@@ -139,9 +138,9 @@ public class ScriptInfo
 
 	/**
 	 * Sets compiler class name
-	 *
+	 * 
 	 * @param compilerClass
-	 * 						name of compiler class
+	 *            name of compiler class
 	 */
 	public void setCompilerClass(String compilerClass)
 	{
@@ -158,9 +157,9 @@ public class ScriptInfo
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
+		if(this == o)
 			return true;
-		if (o == null || getClass() != o.getClass())
+		if(o == null || getClass() != o.getClass())
 			return false;
 
 		ScriptInfo that = (ScriptInfo) o;

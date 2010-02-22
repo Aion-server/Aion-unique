@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.callbacks;
 
 import java.util.List;
@@ -31,7 +30,6 @@ import org.apache.log4j.Logger;
  */
 public class CallbackHelper
 {
-
 	/**
 	 * Logger
 	 */
@@ -63,7 +61,7 @@ public class CallbackHelper
 			object.getCallbackLock().lock();
 
 			List<Callback> list = cbMap.get(callback.getBaseClass());
-			if (list == null)
+			if(list == null)
 			{
 				list = new CopyOnWriteArrayList<Callback>();
 				cbMap.put(callback.getBaseClass(), list);
@@ -72,13 +70,13 @@ public class CallbackHelper
 			int callbackPriority = getCallbackPriority(callback);
 
 			// hand-made sorting, if needed to insert to the middle
-			for (int i = 0, n = list.size(); i < n; i++)
+			for(int i = 0, n = list.size(); i < n; i++)
 			{
 				Callback c = list.get(i);
 
 				int cPrio = getCallbackPriority(c);
 
-				if (callbackPriority < cPrio)
+				if(callbackPriority < cPrio)
 				{
 					list.add(i, callback);
 					return;
@@ -112,18 +110,17 @@ public class CallbackHelper
 			Map<Class<? extends Callback>, List<Callback>> cbMap = object.getCallbacks();
 
 			List<Callback> list = cbMap.get(callback.getBaseClass());
-			if (list == null || !list.remove(callback))
+			if(list == null || !list.remove(callback))
 			{
 				// noinspection ThrowableInstanceNeverThrown
 				log.error("Attempt to remove callback that doesn't exists", new RuntimeException());
 				return;
 			}
 
-			if (list.isEmpty())
+			if(list.isEmpty())
 			{
 				cbMap.remove(callback.getBaseClass());
 			}
-
 		}
 		finally
 		{
@@ -147,24 +144,24 @@ public class CallbackHelper
 	{
 		List<Callback> list = obj.getCallbacks().get(callbackClass);
 
-		if (list == null || list.isEmpty())
+		if(list == null || list.isEmpty())
 		{
 			return CallbackResult.newContinue();
 		}
 
 		CallbackResult<?> cr = null;
 
-		for (Callback c : list)
+		for(Callback c : list)
 		{
 			try
 			{
 				cr = c.beforeCall(obj, args);
-				if (cr.isBlockingCallbacks())
+				if(cr.isBlockingCallbacks())
 				{
 					break;
 				}
 			}
-			catch (Throwable t)
+			catch(Throwable t)
 			{
 				log.error("Uncaught exception in callback", t);
 			}
@@ -191,24 +188,24 @@ public class CallbackHelper
 	{
 		List<Callback> list = obj.getCallbacks().get(callbackClass);
 
-		if (list == null || list.isEmpty())
+		if(list == null || list.isEmpty())
 		{
 			return CallbackResult.newContinue();
 		}
 
 		CallbackResult<?> cr = null;
 
-		for (Callback c : list)
+		for(Callback c : list)
 		{
 			try
 			{
 				cr = c.afterCall(obj, args, result);
-				if (cr.isBlockingCallbacks())
+				if(cr.isBlockingCallbacks())
 				{
 					break;
 				}
 			}
-			catch (Throwable t)
+			catch(Throwable t)
 			{
 				log.error("Uncaught exception in callback", t);
 			}
@@ -235,7 +232,7 @@ public class CallbackHelper
 	@SuppressWarnings("unchecked")
 	private static int getCallbackPriority(Callback callback)
 	{
-		if (callback instanceof CallbackPriority)
+		if(callback instanceof CallbackPriority)
 		{
 			CallbackPriority instancePriority = (CallbackPriority) callback;
 			return CallbackPriority.DEFAULT_PRIORITY - instancePriority.getPriority();

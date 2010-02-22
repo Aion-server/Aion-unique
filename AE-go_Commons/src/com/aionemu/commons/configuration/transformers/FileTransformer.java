@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.configuration.transformers;
 
 import java.io.File;
@@ -30,7 +29,6 @@ import com.aionemu.commons.configuration.TransformationException;
  */
 public class FileTransformer implements PropertyTransformer<File>
 {
-
 	/**
 	 * Shared instance of this transformer. It's thread-safe so no need of multiple instances
 	 */

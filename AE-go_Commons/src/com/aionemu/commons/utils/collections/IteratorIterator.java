@@ -82,18 +82,18 @@ public class IteratorIterator<V> implements Iterator<V>
 	@Override
 	public boolean hasNext()
 	{
-		if (secondLevelIterator != null && secondLevelIterator.hasNext())
+		if(secondLevelIterator != null && secondLevelIterator.hasNext())
 			return true;
 
-		while (firstLevelIterator.hasNext())
+		while(firstLevelIterator.hasNext())
 		{
 			Iterable<V> iterable = firstLevelIterator.next();
 
-			if (iterable != null)
+			if(iterable != null)
 			{
 				secondLevelIterator = iterable.iterator();
 
-				if (secondLevelIterator.hasNext())
+				if(secondLevelIterator.hasNext())
 					return true;
 			}
 		}
@@ -107,7 +107,7 @@ public class IteratorIterator<V> implements Iterator<V>
 	@Override
 	public V next()
 	{
-		if (secondLevelIterator == null || !secondLevelIterator.hasNext())
+		if(secondLevelIterator == null || !secondLevelIterator.hasNext())
 			throw new NoSuchElementException();
 		return secondLevelIterator.next();
 	}

@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.log4j.filters;
 
 import org.apache.log4j.spi.Filter;
@@ -29,7 +28,6 @@ import org.apache.log4j.spi.ThrowableInformation;
  */
 public class ThrowablePresentFilter extends Filter
 {
-
 	/**
 	 * Decides what to do with logging event.<br>
 	 * This method accepts only log events that contain exceptions.
@@ -42,10 +40,9 @@ public class ThrowablePresentFilter extends Filter
 	@Override
 	public int decide(LoggingEvent loggingEvent)
 	{
-
 		Object message = loggingEvent.getMessage();
 
-		if (message instanceof Throwable)
+		if(message instanceof Throwable)
 		{
 			return ACCEPT;
 		}
@@ -53,7 +50,7 @@ public class ThrowablePresentFilter extends Filter
 		ThrowableInformation information = loggingEvent.getThrowableInformation();
 
 		// noinspection ThrowableResultOfMethodCallIgnored
-		if (information != null && information.getThrowable() != null)
+		if(information != null && information.getThrowable() != null)
 		{
 			return ACCEPT;
 		}

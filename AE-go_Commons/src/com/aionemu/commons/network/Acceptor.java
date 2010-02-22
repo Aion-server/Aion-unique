@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -24,8 +24,8 @@ import java.nio.channels.SocketChannel;
 /**
  * This class represents an <code>Acceptor</code> that will accept sockets<br>
  * connections dispatched by Accept <code>Dispatcher</code>. <code>Acceptor</code> is attachment<br>
- * of <code>ServerSocketChannel</code> <code>SelectionKey</code> registered on Accept
- * <code>Dispatcher</code> <code>Selector</code>.<br>
+ * of <code>ServerSocketChannel</code> <code>SelectionKey</code> registered on Accept <code>Dispatcher</code>
+ * <code>Selector</code>.<br>
  * <code>Acceptor</code> will create new <code>AConnection</code> object using
  * <code>ConnectionFactory.create(SocketChannel socket)</code><br>
  * representing accepted socket, register it into one of ReadWrite <code>Dispatcher</code><br>
@@ -82,8 +82,10 @@ public class Acceptor
 	 * New instance of <code>AConnection</code> will be created by <code>ConnectionFactory</code>,<br>
 	 * socket representing accepted connection will be register into<br>
 	 * one of ReadWrite <code>Dispatchers</code> <code>Selector as ready for io read operations.<br>
-	 * @param key <code>SelectionKey</code> representing <code>ServerSocketChannel</code> that is accepting<br>
-	 * new socket connection.
+	 * 
+	 * @param key
+	 *            <code>SelectionKey</code> representing <code>ServerSocketChannel</code> that is accepting<br>
+	 *            new socket connection.
 	 * @throws IOException
 	 * @see com.aionemu.commons.network.Dispatcher
 	 * @see java.nio.channels.ServerSocketChannel

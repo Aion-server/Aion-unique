@@ -1,18 +1,18 @@
-/**
- * This file is part of aion-emu.
+/*
+ * This file is part of aion-emu <aion-emu.com>.
  *
- *  aion-emu is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * aion-emu is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *  aion-emu is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * aion-emu is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ * You should have received a copy of the GNU General Public License
+ * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.commons.utils;
 
@@ -26,8 +26,8 @@ public class NetworkUtils
 	 * 
 	 * @param pattern
 	 *            *.*.*.* , 192.168.1.0-255 , *
-	 * @param address -
-	 *            192.168.1.1<BR>
+	 * @param address
+	 *            - 192.168.1.1<BR>
 	 *            <code>address = 10.2.88.12  pattern = *.*.*.*   result: true<BR>
 	 *                address = 10.2.88.12  pattern = *   result: true<BR>
 	 *                address = 10.2.88.12  pattern = 10.2.88.12-13   result: true<BR>
@@ -36,21 +36,21 @@ public class NetworkUtils
 	 */
 	public static boolean checkIPMatching(String pattern, String address)
 	{
-		if (pattern.equals("*.*.*.*") || pattern.equals("*"))
+		if(pattern.equals("*.*.*.*") || pattern.equals("*"))
 			return true;
 
 		String[] mask = pattern.split("\\.");
 		String[] ip_address = address.split("\\.");
-		for (int i = 0; i < mask.length; i++)
+		for(int i = 0; i < mask.length; i++)
 		{
-			if (mask[i].equals("*") || mask[i].equals(ip_address[i]))
+			if(mask[i].equals("*") || mask[i].equals(ip_address[i]))
 				continue;
-			else if (mask[i].contains("-"))
+			else if(mask[i].contains("-"))
 			{
 				byte min = Byte.parseByte(mask[i].split("-")[0]);
 				byte max = Byte.parseByte(mask[i].split("-")[1]);
 				byte ip = Byte.parseByte(ip_address[i]);
-				if (ip < min || ip > max)
+				if(ip < min || ip > max)
 					return false;
 			}
 			else

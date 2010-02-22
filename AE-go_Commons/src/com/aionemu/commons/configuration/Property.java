@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.configuration;
 
 import java.lang.annotation.Documented;
@@ -35,7 +34,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Property
 {
-
 	/**
 	 * This string shows to {@link com.aionemu.commons.configuration.ConfigurableProcessor} that init value of the
 	 * object should not be overriden.

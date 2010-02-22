@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.configuration.transformers;
 
 import java.lang.reflect.Field;
@@ -23,14 +22,15 @@ import com.aionemu.commons.configuration.PropertyTransformer;
 import com.aionemu.commons.configuration.TransformationException;
 
 /**
- * This class implements basic boolean transfromer. <p/> Boolean can be represented by "true/false" (case doen't matter)
- * or "1/0". In other cases {@link com.aionemu.commons.configuration.TransformationException} is thrown
+ * This class implements basic boolean transfromer.
+ * <p/>
+ * Boolean can be represented by "true/false" (case doen't matter) or "1/0". In other cases
+ * {@link com.aionemu.commons.configuration.TransformationException} is thrown
  * 
  * @author SoulKeeper
  */
 public class BooleanTransformer implements PropertyTransformer<Boolean>
 {
-
 	/**
 	 * Shared instance of this transformer, it's thread safe so no need to create multiple instances
 	 */
@@ -50,15 +50,14 @@ public class BooleanTransformer implements PropertyTransformer<Boolean>
 	@Override
 	public Boolean transform(String value, Field field) throws TransformationException
 	{
-
 		// We should have error here if value is not correct, default
 		// "Boolean.parseBoolean" returns false if string
 		// is not "true" ignoring case
-		if ("true".equalsIgnoreCase(value) || "1".equals(value))
+		if("true".equalsIgnoreCase(value) || "1".equals(value))
 		{
 			return true;
 		}
-		else if ("false".equalsIgnoreCase(value) || "0".equals(value))
+		else if("false".equalsIgnoreCase(value) || "0".equals(value))
 		{
 			return false;
 		}

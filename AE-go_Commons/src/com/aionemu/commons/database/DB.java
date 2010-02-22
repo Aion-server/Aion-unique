@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -53,7 +53,7 @@ import org.apache.log4j.Logger;
  * Example:
  * 
  * <pre>
- * DB.select(&quot;SELECT name FROM test_table WHERE id=?&quot;, new ParamReadStH() {
+ * DB.select(&quot;SELECT name FROM test_table WHERE id=?&quot;, new ParamReadStH(){
  * 	public void setParams(PreparedStatement stmt) throws SQLException
  * 	{
  * 		stmt.setInt(1, 50);
@@ -61,7 +61,7 @@ import org.apache.log4j.Logger;
  * 
  * 	public void handleRead(ResultSet rset) throws SQLException
  * 	{
- * 		while (rset.next())
+ * 		while(rset.next())
  * 		{
  * 			// Usually here in the custom class you would set it to your needed var.
  * 			var = rset.getString(&quot;name&quot;);
@@ -104,13 +104,13 @@ import org.apache.log4j.Logger;
  * <br>
  * 
  * <pre>
- * DB.insertUpdate(&quot;INSERT INTO test_table VALUES (?)&quot;, new IUStH() {
+ * DB.insertUpdate(&quot;INSERT INTO test_table VALUES (?)&quot;, new IUStH(){
  * 	public void handleInsertUpdate(PreparedStatement stmt)
  * 	{
  * 		// Usually this would be data from the custom class that implements IUSth
  * 		String[] batchTestVars = { &quot;bob&quot;, &quot;mike&quot;, &quot;joe&quot; };
  * 
- * 		for (String n : batchTestVars)
+ * 		for(String n : batchTestVars)
  * 		{
  * 			stmt.setString(1, n);
  * 			stmt.addBatch();
@@ -126,7 +126,7 @@ import org.apache.log4j.Logger;
  * <br>
  * 
  * <pre>
- * DB.insertUpdate(&quot;UPDATE test_table SET some_column=? WHERE other_column=?&quot;, new IUStH() {
+ * DB.insertUpdate(&quot;UPDATE test_table SET some_column=? WHERE other_column=?&quot;, new IUStH(){
  * 	public void handleInsertUpdate(PreparedStatement stmt)
  * 	{
  * 		stmt.setString(1, &quot;xxx&quot;);
@@ -144,7 +144,7 @@ import org.apache.log4j.Logger;
 public final class DB
 {
 	/** Logger */
-	protected static final Logger	log	= Logger.getLogger(DB.class.getName());
+	protected static final Logger	log	= Logger.getLogger(DB.class);
 
 	/**
 	 * Empty Constructor
@@ -184,14 +184,14 @@ public final class DB
 		{
 			con = DatabaseFactory.getConnection();
 			stmt = con.prepareStatement(query);
-			if (reader instanceof ParamReadStH)
+			if(reader instanceof ParamReadStH)
 				((ParamReadStH) reader).setParams(stmt);
 			rset = stmt.executeQuery();
 			reader.handleRead(rset);
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
-			if (errMsg == null)
+			if(errMsg == null)
 				log.warn("Error executing select query " + e, e);
 			else
 				log.warn(errMsg + " " + e, e);
@@ -201,12 +201,12 @@ public final class DB
 		{
 			try
 			{
-				if (con != null)
+				if(con != null)
 					con.close();
-				if (stmt != null)
+				if(stmt != null)
 					stmt.close();
 			}
-			catch (Exception e)
+			catch(Exception e)
 			{
 				log.warn("Failed to close DB connection " + e, e);
 			}
@@ -271,15 +271,15 @@ public final class DB
 		{
 			con = DatabaseFactory.getConnection();
 			stmt = con.prepareStatement(query);
-			if (batch != null)
+			if(batch != null)
 				batch.handleInsertUpdate(stmt);
 			else
 				stmt.executeUpdate();
 
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
-			if (errMsg == null)
+			if(errMsg == null)
 				log.warn("Failed to execute IU query " + e, e);
 			else
 				log.warn(errMsg + " " + e, e);
@@ -290,12 +290,12 @@ public final class DB
 		{
 			try
 			{
-				if (con != null)
+				if(con != null)
 					con.close();
-				if (stmt != null)
+				if(stmt != null)
 					stmt.close();
 			}
-			catch (Exception e)
+			catch(Exception e)
 			{
 				log.warn("Failed to close DB connection " + e, e);
 			}
@@ -355,16 +355,16 @@ public final class DB
 			c = DatabaseFactory.getConnection();
 			ps = c.prepareStatement(sql, resultSetType, resultSetConcurrency);
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			log.error("Can't create PreparedStatement for querry: " + sql, e);
-			if (c != null)
+			if(c != null)
 			{
 				try
 				{
 					c.close();
 				}
-				catch (SQLException e1)
+				catch(SQLException e1)
 				{
 					log.error("Can't close connection after exception", e1);
 				}
@@ -387,7 +387,7 @@ public final class DB
 		{
 			return statement.executeUpdate();
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			log.error("Can't execute update for PreparedStatement", e);
 		}
@@ -421,7 +421,7 @@ public final class DB
 		{
 			rs = statement.executeQuery();
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			log.error("Error while executing querry", e);
 		}
@@ -439,7 +439,7 @@ public final class DB
 
 		try
 		{
-			if (statement.isClosed())
+			if(statement.isClosed())
 			{
 				// noinspection ThrowableInstanceNeverThrown
 				log.warn("Attempt to close PreparedStatement that is closes already", new Exception());
@@ -450,7 +450,7 @@ public final class DB
 			statement.close();
 			c.close();
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			log.error("Error while closing PreparedStatement", e);
 		}

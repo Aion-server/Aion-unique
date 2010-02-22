@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -37,12 +37,12 @@ public class NioServer
 	/**
 	 * Logger for NioServer
 	 */
-	private static final Logger				log				= Logger.getLogger(NioServer.class.getName());
+	private static final Logger				log					= Logger.getLogger(NioServer.class.getName());
 
 	/**
 	 * The channels on which we'll accept connections
 	 */
-	private final List<SelectionKey>	serverChannelKeys	= new ArrayList<SelectionKey>();
+	private final List<SelectionKey>		serverChannelKeys	= new ArrayList<SelectionKey>();
 
 	/**
 	 * Dispatcher that will accept connections
@@ -65,21 +65,21 @@ public class NioServer
 	/**
 	 * 
 	 */
-	private int readWriteThreads;
+	private int								readWriteThreads;
 	/**
 	 * 
 	 */
-	private ServerCfg[] cfgs;
-	
+	private ServerCfg[]						cfgs;
+
 	/**
 	 * Constructor.
 	 * 
-	 * @param readWriteThreads -
-	 *            number of threads that will be used for handling read and write.
-	 * @param dcPool -
-	 *            ThreadPool on witch Disconnection tasks will be executed.
-	 * @param cfgs -
-	 *            Server Configurations
+	 * @param readWriteThreads
+	 *            - number of threads that will be used for handling read and write.
+	 * @param dcPool
+	 *            - ThreadPool on witch Disconnection tasks will be executed.
+	 * @param cfgs
+	 *            - Server Configurations
 	 */
 	public NioServer(int readWriteThreads, DisconnectionThreadPool dcPool, ServerCfg... cfgs)
 	{
@@ -87,11 +87,11 @@ public class NioServer
 		 * Test if this build should use assertion and enforce it. If NetworkAssertion == false javac will remove this
 		 * code block
 		 */
-		if (Assertion.NetworkAssertion)
+		if(Assertion.NetworkAssertion)
 		{
 			boolean assertionEnabled = false;
 			assert assertionEnabled = true;
-			if (!assertionEnabled)
+			if(!assertionEnabled)
 				throw new RuntimeException(
 					"This is unstable build. Assertion must be enabled! Add -ea to your start script or consider using stable build instead.");
 		}
@@ -100,9 +100,6 @@ public class NioServer
 		this.cfgs = cfgs;
 	}
 
-	/**
-	 * 
-	 */
 	public void connect()
 	{
 		try
@@ -110,14 +107,14 @@ public class NioServer
 			this.initDispatchers(readWriteThreads, dcPool);
 
 			/** Create a new non-blocking server socket channel for clients */
-			for (ServerCfg cfg : cfgs)
+			for(ServerCfg cfg : cfgs)
 			{
 				ServerSocketChannel serverChannel = ServerSocketChannel.open();
 				serverChannel.configureBlocking(false);
 
 				/** Bind the server socket to the specified address and port */
 				InetSocketAddress isa;
-				if ("*".equals(cfg.hostName))
+				if("*".equals(cfg.hostName))
 				{
 					isa = new InetSocketAddress(cfg.port);
 					log
@@ -135,16 +132,18 @@ public class NioServer
 				/**
 				 * Register the server socket channel, indicating an interest in accepting new connections
 				 */
-				SelectionKey acceptKey = getAcceptDispatcher().register(serverChannel, SelectionKey.OP_ACCEPT, new Acceptor(cfg.factory, this));
+				SelectionKey acceptKey = getAcceptDispatcher().register(serverChannel, SelectionKey.OP_ACCEPT,
+					new Acceptor(cfg.factory, this));
 				serverChannelKeys.add(acceptKey);
 			}
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			log.fatal("NioServer Initialization Error: " + e, e);
 			throw new Error("NioServer Initialization Error!");
 		}
 	}
+
 	/**
 	 * @return Accept Dispatcher.
 	 */
@@ -158,13 +157,13 @@ public class NioServer
 	 */
 	public final Dispatcher getReadWriteDispatcher()
 	{
-		if (readWriteDispatchers == null)
+		if(readWriteDispatchers == null)
 			return acceptDispatcher;
 
-		if (readWriteDispatchers.length == 1)
+		if(readWriteDispatchers.length == 1)
 			return readWriteDispatchers[0];
 
-		if (currentReadWriteDispatcher >= readWriteDispatchers.length)
+		if(currentReadWriteDispatcher >= readWriteDispatchers.length)
 			currentReadWriteDispatcher = 0;
 		return readWriteDispatchers[currentReadWriteDispatcher++];
 	}
@@ -178,7 +177,7 @@ public class NioServer
 	 */
 	private void initDispatchers(int readWriteThreads, DisconnectionThreadPool dcPool) throws IOException
 	{
-		if (readWriteThreads <= 0)
+		if(readWriteThreads <= 0)
 		{
 			acceptDispatcher = new AcceptReadWriteDispatcherImpl("AcceptReadWrite Dispatcher", dcPool);
 			acceptDispatcher.start();
@@ -189,7 +188,7 @@ public class NioServer
 			acceptDispatcher.start();
 
 			readWriteDispatchers = new Dispatcher[readWriteThreads];
-			for (int i = 0; i < readWriteDispatchers.length; i++)
+			for(int i = 0; i < readWriteDispatchers.length; i++)
 			{
 				readWriteDispatchers[i] = new AcceptReadWriteDispatcherImpl("ReadWrite-" + i + " Dispatcher", dcPool);
 				readWriteDispatchers[i].start();
@@ -203,9 +202,9 @@ public class NioServer
 	public final int getActiveConnections()
 	{
 		int count = 0;
-		if (readWriteDispatchers != null)
+		if(readWriteDispatchers != null)
 		{
-			for (Dispatcher d : readWriteDispatchers)
+			for(Dispatcher d : readWriteDispatchers)
 				count += d.selector().keys().size();
 		}
 		else
@@ -223,11 +222,11 @@ public class NioServer
 		log.info("Closing ServerChannels...");
 		try
 		{
-			for (SelectionKey key : serverChannelKeys)
+			for(SelectionKey key : serverChannelKeys)
 				key.cancel();
 			log.info("ServerChannel closed.");
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			log.error("Error during closing ServerChannel, " + e, e);
 		}
@@ -238,7 +237,7 @@ public class NioServer
 		{
 			Thread.sleep(5000);
 		}
-		catch (Throwable t)
+		catch(Throwable t)
 		{
 			log.warn("Nio thread was interrupted during shutdown", t);
 		}
@@ -257,7 +256,7 @@ public class NioServer
 		{
 			Thread.sleep(5000);
 		}
-		catch (Throwable t)
+		catch(Throwable t)
 		{
 			log.warn("Nio thread was interrupted during shutdown", t);
 		}
@@ -268,12 +267,12 @@ public class NioServer
 	 */
 	private void notifyServerClose()
 	{
-		if (readWriteDispatchers != null)
+		if(readWriteDispatchers != null)
 		{
-			for (Dispatcher d : readWriteDispatchers)
-				for (SelectionKey key : d.selector().keys())
+			for(Dispatcher d : readWriteDispatchers)
+				for(SelectionKey key : d.selector().keys())
 				{
-					if (key.attachment() instanceof AConnection)
+					if(key.attachment() instanceof AConnection)
 					{
 						((AConnection) key.attachment()).onServerClose();
 					}
@@ -281,9 +280,9 @@ public class NioServer
 		}
 		else
 		{
-			for (SelectionKey key : acceptDispatcher.selector().keys())
+			for(SelectionKey key : acceptDispatcher.selector().keys())
 			{
-				if (key.attachment() instanceof AConnection)
+				if(key.attachment() instanceof AConnection)
 				{
 					((AConnection) key.attachment()).onServerClose();
 				}
@@ -296,12 +295,12 @@ public class NioServer
 	 */
 	private void closeAll()
 	{
-		if (readWriteDispatchers != null)
+		if(readWriteDispatchers != null)
 		{
-			for (Dispatcher d : readWriteDispatchers)
-				for (SelectionKey key : d.selector().keys())
+			for(Dispatcher d : readWriteDispatchers)
+				for(SelectionKey key : d.selector().keys())
 				{
-					if (key.attachment() instanceof AConnection)
+					if(key.attachment() instanceof AConnection)
 					{
 						((AConnection) key.attachment()).close(true);
 					}
@@ -309,9 +308,9 @@ public class NioServer
 		}
 		else
 		{
-			for (SelectionKey key : acceptDispatcher.selector().keys())
+			for(SelectionKey key : acceptDispatcher.selector().keys())
 			{
-				if (key.attachment() instanceof AConnection)
+				if(key.attachment() instanceof AConnection)
 				{
 					((AConnection) key.attachment()).close(true);
 				}

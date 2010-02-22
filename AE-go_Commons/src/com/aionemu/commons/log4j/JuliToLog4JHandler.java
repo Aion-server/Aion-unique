@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.log4j;
 
 import java.util.logging.Handler;
@@ -38,14 +37,14 @@ import org.apache.log4j.helpers.LogLog;
  * <li>{@link java.util.logging.Level#FINEST} -> {@link org.apache.log4j.Level#TRACE}</li>
  * <li>{@link java.util.logging.Level#ALL} -> {@link org.apache.log4j.Level#ALL}</li>
  * </ul>
- * <p/> Custom levels are passed with the same integer priority. <br>
+ * <p/>
+ * Custom levels are passed with the same integer priority. <br>
  * TODO: Implement better handling of custom levels, we should convert int values of JULI to Log4j int values.
  * 
  * @author SoulKeeper
  */
 public class JuliToLog4JHandler extends Handler
 {
-
 	/**
 	 * Forwards JULI LogRecord to Log4J. This method resolves needed log4j level and fixes caller class issue so methods
 	 * and lines are correctly displayed by log4j.
@@ -56,9 +55,8 @@ public class JuliToLog4JHandler extends Handler
 	@Override
 	public void publish(LogRecord record)
 	{
-
 		String loggerName = record.getLoggerName();
-		if (loggerName == null)
+		if(loggerName == null)
 		{
 			loggerName = "";
 		}
@@ -79,31 +77,31 @@ public class JuliToLog4JHandler extends Handler
 	 */
 	protected org.apache.log4j.Level toLog4jLevel(Level juliLevel)
 	{
-		if (Level.OFF.equals(juliLevel))
+		if(Level.OFF.equals(juliLevel))
 		{
 			return org.apache.log4j.Level.OFF;
 		}
-		else if (Level.SEVERE.equals(juliLevel))
+		else if(Level.SEVERE.equals(juliLevel))
 		{
 			return org.apache.log4j.Level.ERROR;
 		}
-		else if (Level.WARNING.equals(juliLevel))
+		else if(Level.WARNING.equals(juliLevel))
 		{
 			return org.apache.log4j.Level.WARN;
 		}
-		else if (Level.INFO.equals(juliLevel))
+		else if(Level.INFO.equals(juliLevel))
 		{
 			return org.apache.log4j.Level.INFO;
 		}
-		else if (Level.CONFIG.equals(juliLevel) || Level.FINE.equals(juliLevel))
+		else if(Level.CONFIG.equals(juliLevel) || Level.FINE.equals(juliLevel))
 		{
 			return org.apache.log4j.Level.DEBUG;
 		}
-		else if (Level.FINER.equals(juliLevel) || Level.FINEST.equals(juliLevel))
+		else if(Level.FINER.equals(juliLevel) || Level.FINEST.equals(juliLevel))
 		{
 			return org.apache.log4j.Level.TRACE;
 		}
-		else if (Level.ALL.equals(juliLevel))
+		else if(Level.ALL.equals(juliLevel))
 		{
 			return org.apache.log4j.Level.ALL;
 		}
@@ -149,9 +147,9 @@ public class JuliToLog4JHandler extends Handler
 	protected static class CustomLog4jLevel extends org.apache.log4j.Level
 	{
 		/**
-		 * serial
+		 * SerialID
 		 */
-		private static final long serialVersionUID = 4014557380173323844L;
+		private static final long	serialVersionUID	= 4014557380173323844L;
 
 		/**
 		 * Creates new Level of logging for Log4J

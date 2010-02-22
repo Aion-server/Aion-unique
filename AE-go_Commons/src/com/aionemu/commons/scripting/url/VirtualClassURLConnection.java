@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.url;
 
 import java.io.ByteArrayInputStream;
@@ -35,7 +34,6 @@ import com.aionemu.commons.scripting.ScriptClassLoader;
  */
 public class VirtualClassURLConnection extends URLConnection
 {
-
 	/**
 	 * Input stream, is assigned from class
 	 */

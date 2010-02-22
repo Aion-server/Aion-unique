@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.log4j;
 
 import org.apache.log4j.Logger;
@@ -27,7 +26,6 @@ import org.apache.log4j.spi.LoggerFactory;
  */
 public class ThrowableAsMessageAwareFactory implements LoggerFactory
 {
-
 	/**
 	 * Creates new logger with given name
 	 * 

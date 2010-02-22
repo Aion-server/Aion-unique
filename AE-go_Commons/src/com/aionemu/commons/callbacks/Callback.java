@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.callbacks;
 
 /**
@@ -22,11 +21,10 @@ package com.aionemu.commons.callbacks;
  * Each enhanced method will call "beforeCall" and "afterCall" methods
  * 
  * @author SoulKeeper
- * @param <T> 
+ * @param <T>
  */
 public interface Callback<T>
 {
-
 	/**
 	 * Method that is called before actual method is invoked.<br>
 	 * <p/>

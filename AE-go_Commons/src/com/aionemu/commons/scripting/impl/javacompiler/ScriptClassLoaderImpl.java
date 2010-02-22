@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.impl.javacompiler;
 
 import java.io.IOException;
@@ -42,7 +41,6 @@ import com.aionemu.commons.utils.ClassUtils;
  */
 public class ScriptClassLoaderImpl extends ScriptClassLoader
 {
-
 	/**
 	 * Logger
 	 */
@@ -114,16 +112,16 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader
 
 		// load parent
 		ClassLoader parent = getParent();
-		if (parent instanceof ScriptClassLoaderImpl)
+		if(parent instanceof ScriptClassLoaderImpl)
 		{
 			ScriptClassLoaderImpl pscl = (ScriptClassLoaderImpl) parent;
 			result.addAll(pscl.getClassesForPackage(packageName));
 		}
 
 		// load current classloader compiled classes
-		for (String cn : classFileManager.getCompiledClasses().keySet())
+		for(String cn : classFileManager.getCompiledClasses().keySet())
 		{
-			if (ClassUtils.isPackageMember(cn, packageName))
+			if(ClassUtils.isPackageMember(cn, packageName))
 			{
 				BinaryClass bc = classFileManager.getCompiledClasses().get(cn);
 				result.add(bc);
@@ -131,9 +129,9 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader
 		}
 
 		// load libraries
-		for (String cn : libraryClasses)
+		for(String cn : libraryClasses)
 		{
-			if (ClassUtils.isPackageMember(cn, packageName))
+			if(ClassUtils.isPackageMember(cn, packageName))
 			{
 				BinaryClass bc = new BinaryClass(cn);
 				try
@@ -142,7 +140,7 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader
 					OutputStream os = bc.openOutputStream();
 					os.write(data);
 				}
-				catch (IOException e)
+				catch(IOException e)
 				{
 					log.error("Error while loading class from package " + packageName, e);
 					throw e;
@@ -175,20 +173,20 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader
 			is = resource.openStream();
 			clazz = IOUtils.toByteArray(is);
 		}
-		catch (IOException e)
+		catch(IOException e)
 		{
 			log.error("Error while loading class data", e);
 			throw e;
 		}
 		finally
 		{
-			if (is != null)
+			if(is != null)
 			{
 				try
 				{
 					is.close();
 				}
-				catch (IOException e)
+				catch(IOException e)
 				{
 					log.error("Error while closing stream", e);
 				}
@@ -216,7 +214,7 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader
 	public Class<?> getDefinedClass(String name)
 	{
 		BinaryClass bc = classFileManager.getCompiledClasses().get(name);
-		if (bc == null)
+		if(bc == null)
 		{
 			return null;
 		}
@@ -232,7 +230,7 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader
 	{
 		BinaryClass bc = classFileManager.getCompiledClasses().get(name);
 
-		if (bc == null)
+		if(bc == null)
 		{
 			throw new IllegalArgumentException("Attempt to set defined class for class that was not compiled?");
 		}

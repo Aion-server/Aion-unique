@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -17,48 +17,49 @@
 package com.aionemu.commons.network.packet;
 
 /**
- * Basic superclass for packets. 
+ * Basic superclass for packets.
  * <p/>
  * Created on: 29.06.2009 17:59:25
- *
+ * 
  * @author Aquanox
  */
 public abstract class BasePacket
 {
 	/**
 	 * Default packet string representation pattern.
-	 *
+	 * 
 	 * @see java.util.Formatter
 	 * @see String#format(String, Object[])
 	 */
-	public static final String TYPE_PATTERN = "[%s] 0x%02X %s";
+	public static final String	TYPE_PATTERN	= "[%s] 0x%02X %s";
 
 	/**
 	 * Packet type field.
 	 */
-	private final PacketType packetType;
+	private final PacketType	packetType;
 
 	/**
 	 * Packet opcode field
 	 */
-	private int opcode;
+	private int					opcode;
 
 	/**
 	 * Constructs a new packet with specified type and id.
-	 *
-	 * @param packetType    Type of packet
-	 * @param opcode        Id of packet
+	 * 
+	 * @param packetType
+	 *            Type of packet
+	 * @param opcode
+	 *            Id of packet
 	 */
 	protected BasePacket(PacketType packetType, int opcode)
 	{
 		this.packetType = packetType;
 		this.opcode = opcode;
 	}
-	
+
 	/**
 	 * Constructs a new packet with given type.<br>
-	 * If this constructor is used, then setOpcode() must be used
-	 * just after it. 
+	 * If this constructor is used, then setOpcode() must be used just after it.
 	 * 
 	 * @param packetType
 	 */
@@ -66,19 +67,21 @@ public abstract class BasePacket
 	{
 		this.packetType = packetType;
 	}
-	
+
 	/**
 	 * Sets opcode of this packet.<br>
 	 * <font color='red'>NOTICE: </font> Use only if BasePacket(PacketType) constructor was use
+	 * 
 	 * @param opcode
 	 */
 	protected void setOpcode(int opcode)
 	{
 		this.opcode = opcode;
 	}
+
 	/**
 	 * Returns packet opcode.
-	 *
+	 * 
 	 * @return packet id
 	 */
 	public final int getOpcode()
@@ -90,7 +93,7 @@ public abstract class BasePacket
 	 * Returns packet type.
 	 * 
 	 * @return type of this packet.
-	 *
+	 * 
 	 * @see com.aionemu.commons.network.packet.BasePacket.PacketType
 	 */
 	public final PacketType getPacketType()
@@ -99,11 +102,12 @@ public abstract class BasePacket
 	}
 
 	/**
-	 * Returns packet name. <p/>
+	 * Returns packet name.
+	 * <p/>
 	 * Actually packet name is a simple name of the underlying class.
 	 * 
 	 * @return packet name
-	 *
+	 * 
 	 * @see Class#getSimpleName()
 	 */
 	public String getPacketName()
@@ -118,14 +122,14 @@ public abstract class BasePacket
 	{
 		/** Server packet */
 		SERVER("S"),
-		
+
 		/** Client packet */
 		CLIENT("C");
 
 		/**
 		 * String representing packet type.
 		 */
-		private final String name;
+		private final String	name;
 
 		/**
 		 * Constructor.
@@ -149,10 +153,10 @@ public abstract class BasePacket
 	}
 
 	/**
-	 * Returns string representation of this packet based on  packet type, opcode and name.
-	 *
+	 * Returns string representation of this packet based on packet type, opcode and name.
+	 * 
 	 * @return packet type string
-	 *
+	 * 
 	 * @see #TYPE_PATTERN
 	 * @see java.util.Formatter
 	 * @see String#format(String, Object[])

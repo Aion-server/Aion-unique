@@ -14,18 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.classlistener;
 
 /**
  * This interface implements listener that is called post class load/before class unload.<br>
  * Default implementation is: {@link DefaultClassListener}
- *
+ * 
  * @author SoulKeeper
  */
 public interface ClassListener
 {
-
 	/**
 	 * This method is invoked after classes were loaded. As areguments are passes all loaded classes
 	 * 

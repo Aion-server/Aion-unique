@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.objects.filter;
 
 /**
@@ -32,6 +31,7 @@ public class AndObjectFilter<T> implements ObjectFilter<T>
 
 	/**
 	 * Constructs new <tt>AndObjectFilter</tt> object, that uses given filters.
+	 * 
 	 * @param filters
 	 */
 	public AndObjectFilter(ObjectFilter<? super T>... filters)
@@ -45,9 +45,9 @@ public class AndObjectFilter<T> implements ObjectFilter<T>
 	@Override
 	public boolean acceptObject(T object)
 	{
-		for (ObjectFilter<? super T> filter : filters)
+		for(ObjectFilter<? super T> filter : filters)
 		{
-			if (filter != null && !filter.acceptObject(object))
+			if(filter != null && !filter.acceptObject(object))
 				return false;
 		}
 		return true;

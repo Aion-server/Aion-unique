@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.configuration;
 
 /**
@@ -27,7 +26,7 @@ package com.aionemu.commons.configuration;
 public class TransformationException extends RuntimeException
 {
 	/**
-	 * serial
+	 * SerialID
 	 */
 	private static final long	serialVersionUID	= -6641235751743285902L;
 

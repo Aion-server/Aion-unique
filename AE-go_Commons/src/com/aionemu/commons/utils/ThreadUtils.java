@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.utils;
 
 import java.io.ByteArrayOutputStream;
@@ -27,7 +26,6 @@ import java.io.PrintStream;
  */
 public class ThreadUtils
 {
-
 	/**
 	 * Returns stacktrace of current thread represented as String
 	 * 

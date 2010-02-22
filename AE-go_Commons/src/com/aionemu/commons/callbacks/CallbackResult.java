@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.callbacks;
 
 /**
@@ -27,7 +26,6 @@ package com.aionemu.commons.callbacks;
 @SuppressWarnings("unchecked")
 public class CallbackResult<T>
 {
-
 	/**
 	 * Continue mask for callbacks, future invocation of method or other callbacks is not blocked
 	 */

@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting.url;
 
 import java.io.IOException;
@@ -31,16 +30,15 @@ import com.aionemu.commons.scripting.ScriptClassLoader;
  */
 public class VirtualClassURLStreamHandler extends URLStreamHandler
 {
-
 	/**
 	 * Script Handler protocol for classes compiled from source
 	 */
-	public static final String			HANDLER_PROTOCOL	= "aescript://";
+	public static final String		HANDLER_PROTOCOL	= "aescript://";
 
 	/**
 	 * Script class loader that loaded those classes
 	 */
-	private final ScriptClassLoader cl;
+	private final ScriptClassLoader	cl;
 
 	/**
 	 * Creates new instance of url stream handler with given classloader

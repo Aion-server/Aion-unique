@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.callbacks;
 
 import java.lang.annotation.Documented;
@@ -34,7 +33,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Enhancable
 {
-
 	/**
 	 * Returns callback class that will be used as listener
 	 * 

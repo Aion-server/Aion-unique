@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -27,7 +27,6 @@ import java.sql.SQLException;
  */
 public interface IUStH
 {
-
 	/**
 	 * Enables coder to manually modify statement or batch. Must execute batch or statement manually. Automatically
 	 * recycles connection.
@@ -36,5 +35,4 @@ public interface IUStH
 	 * @throws SQLException
 	 */
 	void handleInsertUpdate(PreparedStatement stmt) throws SQLException;
-
 }

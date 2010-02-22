@@ -1,3 +1,19 @@
+/*
+ * This file is part of aion-emu <aion-emu.com>.
+ *
+ * aion-emu is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * aion-emu is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package com.aionemu.commons.callbacks;
 
 import java.io.ByteArrayInputStream;
@@ -39,7 +55,6 @@ import com.aionemu.commons.utils.ExitCode;
  */
 public class JavaAgentEnhancer implements ClassFileTransformer
 {
-
 	/**
 	 * Logger
 	 */
@@ -89,13 +104,13 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 		try
 		{
 			// no need to scan whole jvm boot classpath
-			if (loader == null)
+			if(loader == null)
 			{
 				return null;
 			}
 
 			// classes from jvm ext dir, no need to modify
-			if (loader.getClass().getName().equals("sun.misc.Launcher$ExtClassLoader"))
+			if(loader.getClass().getName().equals("sun.misc.Launcher$ExtClassLoader"))
 			{
 				return null;
 			}
@@ -103,7 +118,7 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 			// actual class transformation
 			return transformClass(loader, classfileBuffer);
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 
 			Error e1 = new Error("Can't transform class " + className, e);
@@ -111,7 +126,7 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 
 			// if it is a class from core (not a script) - terminate server
 			// noinspection ConstantConditions
-			if (loader.getClass().getName().equals("sun.misc.Launcher$AppClassLoader"))
+			if(loader.getClass().getName().equals("sun.misc.Launcher$AppClassLoader"))
 			{
 				Runtime.getRuntime().halt(ExitCode.CODE_ERROR);
 			}
@@ -139,9 +154,9 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 
 		Set<CtMethod> methdosToEnhance = new HashSet<CtMethod>();
 
-		for (CtMethod method : clazz.getMethods())
+		for(CtMethod method : clazz.getMethods())
 		{
-			if (!isEnhancable(method))
+			if(!isEnhancable(method))
 			{
 				continue;
 			}
@@ -149,12 +164,12 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 			methdosToEnhance.add(method);
 		}
 
-		if (!methdosToEnhance.isEmpty())
+		if(!methdosToEnhance.isEmpty())
 		{
 			CtClass eo = cp.get(EnhancedObject.class.getName());
-			for (CtClass i : clazz.getInterfaces())
+			for(CtClass i : clazz.getInterfaces())
 			{
-				if (i.equals(eo))
+				if(i.equals(eo))
 				{
 					throw new RuntimeException("Class already implements EnhancedObject interface, WTF???");
 				}
@@ -162,7 +177,7 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 
 			writeEnhancedObjectImpl(clazz);
 
-			for (CtMethod method : methdosToEnhance)
+			for(CtMethod method : methdosToEnhance)
 			{
 				enhanceMethod(method);
 			}
@@ -192,9 +207,9 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 		method.addLocalVariable("___cbr", cp.get(CallbackResult.class.getName()));
 
 		Annotation enhancable = null;
-		for (Object o : method.getMethodInfo().getAttributes())
+		for(Object o : method.getMethodInfo().getAttributes())
 		{
-			if (o instanceof AnnotationsAttribute)
+			if(o instanceof AnnotationsAttribute)
 			{
 				AnnotationsAttribute attribute = (AnnotationsAttribute) o;
 				enhancable = attribute.getAnnotation(Enhancable.class.getName());
@@ -234,14 +249,14 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 		sb.append(EnhancedObject.class.getName());
 		sb.append(")this, Class.forName(\"");
 		sb.append(listenerClassName).append("\", true, getClass().getClassLoader()), ");
-		if (paramLength > 0)
+		if(paramLength > 0)
 		{
 			sb.append("new Object[]{");
-			for (int i = 1; i <= paramLength; i++)
+			for(int i = 1; i <= paramLength; i++)
 			{
 				sb.append("($w)$").append(i);
 
-				if (i < paramLength)
+				if(i < paramLength)
 				{
 					sb.append(',');
 				}
@@ -259,19 +274,19 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 		// Fake return due to javassist bug
 		// $r is not available in "insertBefore"
 		CtClass returnType = method.getReturnType();
-		if (returnType.equals(CtClass.voidType))
+		if(returnType.equals(CtClass.voidType))
 		{
 			sb.append("return");
 		}
-		else if (returnType.equals(CtClass.booleanType))
+		else if(returnType.equals(CtClass.booleanType))
 		{
 			sb.append("return false");
 		}
-		else if (returnType.equals(CtClass.charType))
+		else if(returnType.equals(CtClass.charType))
 		{
 			sb.append("return 'a'");
 		}
-		else if (returnType.equals(CtClass.byteType) || returnType.equals(CtClass.shortType)
+		else if(returnType.equals(CtClass.byteType) || returnType.equals(CtClass.shortType)
 			|| returnType.equals(CtClass.intType) || returnType.equals(CtClass.floatType)
 			|| returnType.equals(CtClass.longType) || returnType.equals(CtClass.longType))
 		{
@@ -302,7 +317,7 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 		sb.append('{');
 
 		// workaround for javassist bug, $r is not available in "insertBefore"
-		if (!method.getReturnType().equals(CtClass.voidType))
+		if(!method.getReturnType().equals(CtClass.voidType))
 		{
 			sb.append("if(___cbr.isBlockingCaller()){");
 			sb.append("$_ = ($r)($w)___cbr.getResult();");
@@ -312,14 +327,14 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 		sb.append("___cbr = ").append(CallbackHelper.class.getName()).append(".afterCall((");
 		sb.append(EnhancedObject.class.getName()).append(")this, Class.forName(\"");
 		sb.append(listenerClassName).append("\", true, getClass().getClassLoader()), ");
-		if (paramLength > 0)
+		if(paramLength > 0)
 		{
 			sb.append("new Object[]{");
-			for (int i = 1; i <= paramLength; i++)
+			for(int i = 1; i <= paramLength; i++)
 			{
 				sb.append("($w)$").append(i);
 
-				if (i < paramLength)
+				if(i < paramLength)
 				{
 					sb.append(',');
 				}
@@ -332,7 +347,7 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 		}
 		sb.append(", ($w)$_);");
 		sb.append("if(___cbr.isBlockingCaller()){");
-		if (method.getReturnType().equals(CtClass.voidType))
+		if(method.getReturnType().equals(CtClass.voidType))
 		{
 			sb.append("return;");
 		}
@@ -437,12 +452,12 @@ public class JavaAgentEnhancer implements ClassFileTransformer
 	 */
 	protected boolean isAnnotationPresent(CtMethod method, Class<? extends java.lang.annotation.Annotation> annotation)
 	{
-		for (Object o : method.getMethodInfo().getAttributes())
+		for(Object o : method.getMethodInfo().getAttributes())
 		{
-			if (o instanceof AnnotationsAttribute)
+			if(o instanceof AnnotationsAttribute)
 			{
 				AnnotationsAttribute attribute = (AnnotationsAttribute) o;
-				if (attribute.getAnnotation(annotation.getName()) != null)
+				if(attribute.getAnnotation(annotation.getName()) != null)
 				{
 					return true;
 				}

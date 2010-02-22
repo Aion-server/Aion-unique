@@ -1,4 +1,4 @@
-/**
+/*
  * This file is part of aion-emu <aion-emu.com>.
  *
  *  aion-emu is free software: you can redistribute it and/or modify
@@ -71,8 +71,8 @@ public abstract class Dispatcher extends Thread
 	}
 
 	/**
-	 * Add connection to pendingClose list, so this connection will be closed by this <code>Dispatcher</code> as soon
-	 * as possible.
+	 * Add connection to pendingClose list, so this connection will be closed by this <code>Dispatcher</code> as soon as
+	 * possible.
 	 * 
 	 * @param con
 	 * 
@@ -103,17 +103,17 @@ public abstract class Dispatcher extends Thread
 	@Override
 	public void run()
 	{
-		for (;;)
+		for(;;)
 		{
 			try
 			{
 				dispatch();
 
-				synchronized (gate)
+				synchronized(gate)
 				{
 				}
 			}
-			catch (Exception e)
+			catch(Exception e)
 			{
 				log.error("Dispatcher error! " + e, e);
 			}
@@ -121,8 +121,8 @@ public abstract class Dispatcher extends Thread
 	}
 
 	/**
-	 * Register new client connected to this Dispatcher and set SelectionKey
-	 * (result of registration) as this key of given AConnection.
+	 * Register new client connected to this Dispatcher and set SelectionKey (result of registration) as this key of
+	 * given AConnection.
 	 * 
 	 * @param ch
 	 * @param ops
@@ -131,7 +131,7 @@ public abstract class Dispatcher extends Thread
 	 */
 	public final void register(SelectableChannel ch, int ops, AConnection att) throws IOException
 	{
-		synchronized (gate)
+		synchronized(gate)
 		{
 			selector.wakeup();
 			att.setKey(ch.register(selector, ops, att));
@@ -139,8 +139,7 @@ public abstract class Dispatcher extends Thread
 	}
 
 	/**
-	 * Register new Acceptor this Dispatcher and return SelectionKey
-	 * (result of registration).
+	 * Register new Acceptor this Dispatcher and return SelectionKey (result of registration).
 	 * 
 	 * @param ch
 	 * @param ops
@@ -150,7 +149,7 @@ public abstract class Dispatcher extends Thread
 	 */
 	public final SelectionKey register(SelectableChannel ch, int ops, Acceptor att) throws IOException
 	{
-		synchronized (gate)
+		synchronized(gate)
 		{
 			selector.wakeup();
 			return ch.register(selector, ops, att);
@@ -168,7 +167,7 @@ public abstract class Dispatcher extends Thread
 		{
 			((Acceptor) key.attachment()).accept(key);
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			log.error("Error while accepting connection: +" + e, e);
 		}
@@ -190,7 +189,7 @@ public abstract class Dispatcher extends Thread
 		/**
 		 * Test if this build should use assertion. If NetworkAssertion == false javac will remove this code block
 		 */
-		if (Assertion.NetworkAssertion)
+		if(Assertion.NetworkAssertion)
 		{
 			assert con.readBuffer.hasRemaining();
 		}
@@ -201,13 +200,13 @@ public abstract class Dispatcher extends Thread
 		{
 			numRead = socketChannel.read(rb);
 		}
-		catch (IOException e)
+		catch(IOException e)
 		{
 			closeConnectionImpl(con);
 			return;
 		}
 
-		if (numRead == -1)
+		if(numRead == -1)
 		{
 			/**
 			 * Remote entity shut the socket down cleanly. Do the same from our end and cancel the channel.
@@ -215,30 +214,30 @@ public abstract class Dispatcher extends Thread
 			closeConnectionImpl(con);
 			return;
 		}
-		else if (numRead == 0)
+		else if(numRead == 0)
 		{
 			log.info("Read 0");
 			return;
 		}
 
 		rb.flip();
-		while (rb.remaining() > 2 && rb.remaining() >= rb.getShort(rb.position()))
+		while(rb.remaining() > 2 && rb.remaining() >= rb.getShort(rb.position()))
 		{
 			/** got full message */
-			if (!parse(con, rb))
+			if(!parse(con, rb))
 			{
 				closeConnectionImpl(con);
 				return;
 			}
 		}
-		if (rb.hasRemaining())
+		if(rb.hasRemaining())
 		{
 			con.readBuffer.compact();
 
 			/**
 			 * Test if this build should use assertion. If NetworkAssertion == false javac will remove this code block
 			 */
-			if (Assertion.NetworkAssertion)
+			if(Assertion.NetworkAssertion)
 			{
 				assert con.readBuffer.hasRemaining();
 			}
@@ -262,7 +261,7 @@ public abstract class Dispatcher extends Thread
 		try
 		{
 			sz = buf.getShort();
-			if (sz > 1)
+			if(sz > 1)
 				sz -= 2;
 			ByteBuffer b = (ByteBuffer) buf.slice().limit(sz);
 			b.order(ByteOrder.LITTLE_ENDIAN);
@@ -271,7 +270,7 @@ public abstract class Dispatcher extends Thread
 
 			return con.processData(b);
 		}
-		catch (IllegalArgumentException e)
+		catch(IllegalArgumentException e)
 		{
 			log.warn("Error on parsing input from client - account: " + con + " packet size: " + sz + " real size:"
 				+ buf.remaining(), e);
@@ -293,35 +292,35 @@ public abstract class Dispatcher extends Thread
 		int numWrite;
 		ByteBuffer wb = con.writeBuffer;
 		/** We have not writted data */
-		if (wb.hasRemaining())
+		if(wb.hasRemaining())
 		{
 			try
 			{
 				numWrite = socketChannel.write(wb);
 			}
-			catch (IOException e)
+			catch(IOException e)
 			{
 				closeConnectionImpl(con);
 				return;
 			}
 
-			if (numWrite == 0)
+			if(numWrite == 0)
 			{
 				log.info("Write " + numWrite + " ip: " + con.getIP());
 				return;
 			}
 
 			/** Again not all data was send */
-			if (wb.hasRemaining())
+			if(wb.hasRemaining())
 				return;
 		}
 
-		while (true)
+		while(true)
 		{
 			wb.clear();
 			boolean writeFailed = !con.writeData(wb);
 
-			if (writeFailed)
+			if(writeFailed)
 			{
 				wb.limit(0);
 				break;
@@ -332,27 +331,27 @@ public abstract class Dispatcher extends Thread
 			{
 				numWrite = socketChannel.write(wb);
 			}
-			catch (IOException e)
+			catch(IOException e)
 			{
 				closeConnectionImpl(con);
 				return;
 			}
 
-			if (numWrite == 0)
+			if(numWrite == 0)
 			{
 				log.info("Write " + numWrite + " ip: " + con.getIP());
 				return;
 			}
 
 			/** not all data was send */
-			if (wb.hasRemaining())
+			if(wb.hasRemaining())
 				return;
 		}
 
 		/**
 		 * Test if this build should use assertion. If NetworkAssertion == false javac will remove this code block
 		 */
-		if (Assertion.NetworkAssertion)
+		if(Assertion.NetworkAssertion)
 		{
 			assert !wb.hasRemaining();
 		}
@@ -363,7 +362,7 @@ public abstract class Dispatcher extends Thread
 		key.interestOps(key.interestOps() & ~SelectionKey.OP_WRITE);
 
 		/** We wrote all data so we can close connection that is "PandingClose" */
-		if (con.isPendingClose())
+		if(con.isPendingClose())
 			closeConnectionImpl(con);
 	}
 
@@ -379,10 +378,10 @@ public abstract class Dispatcher extends Thread
 		/**
 		 * Test if this build should use assertion. If NetworkAssertion == false javac will remove this code block
 		 */
-		if (Assertion.NetworkAssertion)
+		if(Assertion.NetworkAssertion)
 			assert Thread.currentThread() == this;
 
-		if (con.onlyClose())
+		if(con.onlyClose())
 			dcPool.scheduleDisconnection(new DisconnectionTask(con), con.getDisconnectionDelay());
 	}
 }

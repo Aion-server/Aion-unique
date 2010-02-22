@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting;
 
 import java.io.File;
@@ -43,7 +42,6 @@ import com.aionemu.commons.scripting.url.VirtualClassURLStreamHandler;
  */
 public abstract class ScriptClassLoader extends URLClassLoader
 {
-
 	/**
 	 * Logger
 	 */
@@ -115,12 +113,12 @@ public abstract class ScriptClassLoader extends URLClassLoader
 		JarFile jarFile = new JarFile(file);
 
 		Enumeration<JarEntry> entries = jarFile.entries();
-		while (entries.hasMoreElements())
+		while(entries.hasMoreElements())
 		{
 			JarEntry entry = entries.nextElement();
 
 			String name = entry.getName();
-			if (name.endsWith(".class"))
+			if(name.endsWith(".class"))
 			{
 				name = name.substring(0, name.length() - 6);
 				name = name.replace('/', '.');
@@ -137,7 +135,7 @@ public abstract class ScriptClassLoader extends URLClassLoader
 	@Override
 	public URL getResource(String name)
 	{
-		if (!name.endsWith(".class"))
+		if(!name.endsWith(".class"))
 		{
 			return super.getResource(name);
 		}
@@ -145,13 +143,13 @@ public abstract class ScriptClassLoader extends URLClassLoader
 		{
 			String newName = name.substring(0, name.length() - 6);
 			newName = newName.replace('/', '.');
-			if (getCompiledClasses().contains(newName))
+			if(getCompiledClasses().contains(newName))
 			{
 				try
 				{
 					return new URL(null, VirtualClassURLStreamHandler.HANDLER_PROTOCOL + newName, urlStreamHandler);
 				}
-				catch (MalformedURLException e)
+				catch(MalformedURLException e)
 				{
 					log.error("Can't create url for compiled class", e);
 				}
@@ -174,13 +172,13 @@ public abstract class ScriptClassLoader extends URLClassLoader
 	public Class<?> loadClass(String name) throws ClassNotFoundException
 	{
 		boolean isCompiled = getCompiledClasses().contains(name);
-		if (!isCompiled)
+		if(!isCompiled)
 		{
 			return super.loadClass(name, true);
 		}
 
 		Class<?> c = getDefinedClass(name);
-		if (c == null)
+		if(c == null)
 		{
 			byte[] b = getByteCode(name);
 			c = super.defineClass(name, b, 0, b.length);

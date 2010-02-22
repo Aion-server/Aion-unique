@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.log4j.exceptions;
 
 /**
@@ -26,9 +25,9 @@ package com.aionemu.commons.log4j.exceptions;
 public class AppenderInitializationError extends Error
 {
 	/**
-	 * serial
+	 * SerialID
 	 */
-	private static final long serialVersionUID = -6090251689433934051L;
+	private static final long	serialVersionUID	= -6090251689433934051L;
 
 	/**
 	 * Creates new Error

@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.commons.scripting;
 
 import java.io.File;
@@ -28,7 +27,6 @@ import java.io.File;
  */
 public interface ScriptCompiler
 {
-
 	/**
 	 * Sets parent class loader for this compiler.<br>
 	 * <br>
@@ -82,7 +80,7 @@ public interface ScriptCompiler
 
 	/**
 	 * Returns array of supported file types. This files will be threated as source files.
-	 *
+	 * 
 	 * @return array of supported file types.
 	 */
 	public String[] getSupportedFileTypes();
