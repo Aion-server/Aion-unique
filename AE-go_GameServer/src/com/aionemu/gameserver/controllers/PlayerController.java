@@ -341,6 +341,9 @@ public class PlayerController extends CreatureController<Player>
 			@Override
 			public void run()
 			{
+				if(player.getLifeStats().isAlreadyDead())
+					return;
+				
 				if(delay != 0)
 				{
 					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
