@@ -57,8 +57,7 @@ public class CM_LEGION_MODIFY_EMBLEM extends AionClientPacket
 	protected void readImpl()
 	{
 		legionId = readD();
-		emblemId = readC();
-		readC(); // 0x00 empty?
+		emblemId = readH();
 		readC(); // 0xFF color something?
 		red = readC();
 		green = readC();
