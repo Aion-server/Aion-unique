@@ -26,6 +26,8 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
+import com.aionemu.gameserver.services.CubeExpandService;
+import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -37,10 +39,10 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public abstract class CreatureController<T extends Creature> extends VisibleObjectController<Creature>
 {
-	//TODO revisit here later
-	protected Queue<ActionObserver> moveObservers = new ConcurrentLinkedQueue<ActionObserver>();
-	protected Queue<ActionObserver> attackObservers = new ConcurrentLinkedQueue<ActionObserver>();
-	protected Queue<ActionObserver> attackedObservers = new ConcurrentLinkedQueue<ActionObserver>();
+	// TODO revisit here later
+	protected Queue<ActionObserver>	moveObservers		= new ConcurrentLinkedQueue<ActionObserver>();
+	protected Queue<ActionObserver>	attackObservers		= new ConcurrentLinkedQueue<ActionObserver>();
+	protected Queue<ActionObserver>	attackedObservers	= new ConcurrentLinkedQueue<ActionObserver>();
 
 	/**
 	 * {@inheritDoc}
@@ -54,67 +56,66 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	}
 
 	/**
-	 *  Perform tasks on Creature starting to move
+	 * Perform tasks on Creature starting to move
 	 */
 	public void onStartMove()
 	{
 		notifyMoveObservers();
 	}
-	
+
 	/**
-	 *  Perform tasks on Creature move in progress
+	 * Perform tasks on Creature move in progress
 	 */
 	public void onMove()
 	{
 
 	}
-	
+
 	/**
-	 *  Perform tasks on Creature stop move
+	 * Perform tasks on Creature stop move
 	 */
 	public void onStopMove()
 	{
-			
+
 	}
-	
+
 	/**
-	 *  Perform tasks on Creature death
+	 * Perform tasks on Creature death
 	 */
 	public void onDie()
 	{
 		this.getOwner().getEffectController().removeAllEffects();
 		this.getOwner().getMoveController().stop();
 	}
-	
+
 	/**
-	 *  Perform tasks on Creature respawn
+	 * Perform tasks on Creature respawn
 	 */
 	@Override
 	public void onRespawn()
 	{
-		
+
 	}
-	
+
 	/**
-	 *  Perform tasks when Creature was attacked
-	 *  //TODO may be pass only Skill object - but need to add properties in it
+	 * Perform tasks when Creature was attacked //TODO may be pass only Skill object - but need to add properties in it
 	 */
 	public void onAttack(Creature creature, int skillId, TYPE type, int damage)
 	{
 		notifyAttackedObservers();
 	}
-	
+
 	/**
-	 *  Perform tasks when Creature was attacked
+	 * Perform tasks when Creature was attacked
 	 */
 	public void onAttack(Creature creature, int damage)
 	{
 		this.onAttack(creature, 0, TYPE.REGULAR, damage);
 	}
-	
+
 	/**
-	 *  Teleport Creature to the location using current heading and instanceId
-	 *  
+	 * Teleport Creature to the location using current heading and instanceId
+	 * 
 	 * @param worldId
 	 * @param x
 	 * @param y
@@ -123,15 +124,15 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @return
 	 */
 	public boolean teleportTo(int worldId, float x, float y, float z, int delay)
-	{		
-		int instanceId = 1;	
+	{
+		int instanceId = 1;
 		if(getOwner().getWorldId() == worldId)
 		{
 			instanceId = getOwner().getInstanceId();
 		}
 		return teleportTo(worldId, instanceId, x, y, z, delay);
 	}
-	
+
 	/**
 	 * 
 	 * @param worldId
@@ -143,13 +144,13 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @return
 	 */
 	public boolean teleportTo(int worldId, int instanceId, float x, float y, float z, int delay)
-	{		
+	{
 		return teleportTo(worldId, instanceId, x, y, z, getOwner().getHeading(), delay);
 	}
 
 	/**
-	 *  Teleport Creature to the location using specific heading
-	 *  
+	 * Teleport Creature to the location using specific heading
+	 * 
 	 * @param worldId
 	 * @param instanceId
 	 * @param x
@@ -160,10 +161,10 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @return
 	 */
 	public boolean teleportTo(int worldId, int instanceId, float x, float y, float z, byte heading, int delay)
-	{		
+	{
 		return true;
 	}
-	
+
 	public void onRestore(HopType hopType, int value)
 	{
 		switch(hopType)
@@ -176,33 +177,33 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 				break;
 		}
 	}
-	
+
 	/**
-	 *  Perform drop operation
+	 * Perform drop operation
 	 */
 	public void doDrop(Player player)
 	{
-		
+
 	}
-	
+
 	/**
 	 * Perform reward operation
 	 * 
 	 */
-	//TODO probably do reward on list of objects
+	// TODO probably do reward on list of objects
 	public void doReward(Creature creature)
 	{
-		
+
 	}
-	
+
 	/**
 	 * This method should be overriden in more specific controllers
 	 */
 	public void onDialogRequest(Player player)
 	{
-		
+
 	}
-	
+
 	/**
 	 * 
 	 * @param observer
@@ -222,9 +223,9 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 				break;
 		}
 	}
-	
+
 	/**
-	 *  notify that creature moved
+	 * notify that creature moved
 	 */
 	protected void notifyMoveObservers()
 	{
@@ -234,7 +235,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			observer.moved();
 		}
 	}
-	
+
 	/**
 	 * notify that creature attacking
 	 */
@@ -246,7 +247,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			observer.attack();
 		}
 	}
-	
+
 	/**
 	 * notify that creature attacked
 	 */
@@ -267,10 +268,10 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	{
 		notifyAttackObservers();
 	}
-	
+
 	/**
-	 *  Specifies whether this target is attackable
-	 *  
+	 * Specifies whether this target is attackable
+	 * 
 	 * @return
 	 */
 	public boolean isAttackable()
@@ -279,12 +280,23 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	}
 
 	/**
-	 *  Stops movements
+	 * Stops movements
 	 */
 	public void stopMoving()
 	{
 		Creature owner = getOwner();
-		owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(), owner.getHeading());			
-		PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0, owner.getHeading(), MovementType.MOVEMENT_STOP));	
+		owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(),
+			owner.getHeading());
+		PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0,
+			owner.getHeading(), MovementType.MOVEMENT_STOP));
+	}
+
+	/**
+	 * Handle Dialog_Select
+	 */
+	public void onDialogSelect(int dialogId, Player player, int questId, LegionService legionService, CubeExpandService cubeExpandService)
+	{
+		// TODO Auto-generated method stub
+
 	}
 }

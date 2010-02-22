@@ -16,9 +16,8 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
-import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.questEngine.QuestEngine;
@@ -38,19 +37,17 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	/**
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */
-	private int					targetObjectId;
-	private int					dialogId;
+	private int		targetObjectId;
+	private int		dialogId;
 	@SuppressWarnings("unused")
-	private int					unk1;
+	private int		unk1;
 	@SuppressWarnings("unused")
-	private int					lastPage;
-	private int					questId;
+	private int		lastPage;
+	private int		questId;
 	@Inject
-	private CubeExpandService	cubeExpandService;
+	LegionService	legionService;
 	@Inject
-	private LegionService		legionService;
-	@Inject
-	private NpcController		npcController;
+	CubeExpandService cubeExpandService;
 
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
@@ -96,15 +93,10 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 
 		AionObject object = player.getActiveRegion().getWorld().findAionObject(targetObjectId);
 
-		if(object instanceof Player)
+		if(object instanceof Creature)
 		{
-			final Player targetPlayer = (Player) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
-			player.getController().onDialogSelect(player, targetPlayer, dialogId);
-		}
-		else
-		{
-			final Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(targetObjectId);
-			npcController.onDialogSelect(player, npc, dialogId, questId, legionService, cubeExpandService);
+			Creature creature = (Creature) object;
+			creature.getController().onDialogSelect(dialogId, player, questId, legionService, cubeExpandService);
 		}
 		// log.info("id: "+targetObjectId+" dialog type: " + unk1 +" other: " + unk2);
 	}

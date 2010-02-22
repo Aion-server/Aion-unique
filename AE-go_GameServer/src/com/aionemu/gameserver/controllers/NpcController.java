@@ -135,9 +135,11 @@ public class NpcController extends CreatureController<Npc>
 	 * 
 	 * @return true if target is npc
 	 */
-	public void onDialogSelect(final Player player, Npc npc, int dialogId, int questId, LegionService legionService,
+	public void onDialogSelect(int dialogId, final Player player, int questId, LegionService legionService,
 		CubeExpandService cubeExpandService)
 	{
+
+		Npc npc = getOwner();
 		int targetObjectId = npc.getObjectId();
 
 		if(QuestEngine.getInstance().onDialog(new QuestEnv(npc, player, questId, dialogId)))
