@@ -67,6 +67,6 @@ public class Notice extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "parameters should be text and number");
 			return;
 		}
-		PacketSendUtility.broadcastPacket(admin, new SM_MESSAGE(0,null,"Information : " + message,null, ChatType.SYSTEM_NOTICE), true);
+		PacketSendUtility.broadcastPacket(admin, new SM_MESSAGE(0,null,"Information : " + message, ChatType.SYSTEM_NOTICE), true);
 	}
 }
