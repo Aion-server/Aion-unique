@@ -25,6 +25,7 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.services.LegionService;
+import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
@@ -48,6 +49,8 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	LegionService	legionService;
 	@Inject
 	CubeExpandService cubeExpandService;
+	@Inject
+	World world;
 
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
@@ -91,7 +94,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 			return;
 		}
 
-		AionObject object = player.getActiveRegion().getWorld().findAionObject(targetObjectId);
+		AionObject object = world.findAionObject(targetObjectId);
 
 		if(object instanceof Creature)
 		{
