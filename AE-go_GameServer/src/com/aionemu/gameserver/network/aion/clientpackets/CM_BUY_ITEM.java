@@ -26,14 +26,19 @@ import com.aionemu.gameserver.model.trade.TradeList;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.services.PrivateStoreService;
 import com.aionemu.gameserver.services.TradeService;
+import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
  * 
  * @author orz modified by ATracer
+ * modified by Simple
  */
 public class CM_BUY_ITEM extends AionClientPacket
 {
+	@Inject
+	World world;
+	
 	private int	sellerObjId;
 	private int	unk1;
 	private int	amount;
@@ -117,7 +122,7 @@ public class CM_BUY_ITEM extends AionClientPacket
 				break;
 
 			case 13:
-				Npc npc = (Npc) player.getActiveRegion().getWorld().findAionObject(sellerObjId);
+				Npc npc = (Npc) world.findAionObject(sellerObjId);
 				TradeListTemplate tlist = DataManager.TRADE_LIST_DATA.getTradeListTemplate(npc.getNpcId());
 				if(tlist.isAbyss())
 					tradeService.performBuyFromAbyssShop(player, tradeList);
