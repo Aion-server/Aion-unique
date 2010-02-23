@@ -135,7 +135,7 @@ public class Npc extends Creature
 			case ELYOS:
 				return DataManager.TRIBE_RELATIONS_DATA.isAggressiveRelation(currentTribe, "PC");
 			case ASMODIANS:
-				return DataManager.TRIBE_RELATIONS_DATA.isAggressiveRelation(currentTribe, "PC");
+				return DataManager.TRIBE_RELATIONS_DATA.isAggressiveRelation(currentTribe, "PC_DARK");
 		}
 		return false;
 	}
