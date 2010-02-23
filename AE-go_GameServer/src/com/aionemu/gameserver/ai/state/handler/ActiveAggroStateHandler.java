@@ -22,7 +22,6 @@ import com.aionemu.gameserver.ai.desires.impl.WalkDesire;
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.model.Race;
-import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -43,6 +42,7 @@ public class ActiveAggroStateHandler extends StateHandler
 	/**
 	 * State ACTIVE
 	 * AI AggressiveMonsterAi
+	 * AI GuardAi
 	 */
 	@Override
 	public void handleState(AIState state, AI<?> ai)
@@ -56,27 +56,19 @@ public class ActiveAggroStateHandler extends StateHandler
 		
 		//if there are players visible - add AggressionDesire filter
 		int playerCount = 0;
-		for(VisibleObject visibleObject : ai.getOwner().getKnownList())
+		for(VisibleObject visibleObject : owner.getKnownList())
 		{
 			if (visibleObject instanceof Player)
 			{
 				Race playerRace = ((Player) visibleObject).getCommonData().getRace();
-				switch(playerRace)
-				{
-					case ASMODIANS:
-						if(owner.isAggressiveTo("PC_DARK"))
-							playerCount++;
-						break;
-					case ELYOS:
-						if(owner.isAggressiveTo("PC"))
-							playerCount++;
-						break;
-				}
+				
+				if(owner.isAggressiveTo(playerRace))
+					playerCount++;
 			}
 		}
 		if(playerCount > 0)
 		{
-			ai.addDesire(new AggressionDesire((Monster) ai.getOwner(), AIState.ACTIVE.getPriority()));
+			ai.addDesire(new AggressionDesire(owner, AIState.ACTIVE.getPriority()));
 		}
 		
 		if(ai.desireQueueSize() == 0)

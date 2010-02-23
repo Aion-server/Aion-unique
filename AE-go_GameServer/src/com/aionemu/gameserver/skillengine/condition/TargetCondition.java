@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
@@ -61,7 +61,7 @@ public class TargetCondition
 		switch(value)
 		{
 			case NPC:
-				return skill.getFirstTarget() instanceof Monster;
+				return skill.getFirstTarget() instanceof Npc;
 			case PC:
 				return skill.getFirstTarget() instanceof Player;
 			default:

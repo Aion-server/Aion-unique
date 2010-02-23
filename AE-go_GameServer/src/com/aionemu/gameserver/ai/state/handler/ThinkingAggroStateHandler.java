@@ -18,7 +18,7 @@ package com.aionemu.gameserver.ai.state.handler;
 
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.state.AIState;
-import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 
 /**
  * @author ATracer
@@ -36,13 +36,14 @@ public class ThinkingAggroStateHandler extends StateHandler
 	/**
 	 * State THINKING
 	 * AI AggressiveMonsterAi
+	 * AI GuardAi
 	 */
 	@Override
 	public void handleState(AIState state, AI<?> ai)
 	{
 		ai.clearDesires();
 		
-		Monster owner = (Monster) ai.getOwner();
+		Npc owner = (Npc) ai.getOwner();
 		
 		if(owner.getAggroList().getMostHated() != null)
 		{

@@ -19,7 +19,7 @@ package com.aionemu.gameserver.controllers.attack;
 import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 
 /**
  * @author ATracer, KKnD
@@ -27,10 +27,9 @@ import com.aionemu.gameserver.model.gameobjects.Monster;
  */
 public class AggroList
 {
-	//TODO later for upper objects also
-	private Monster owner;
+	private Npc owner;
 	
-	public AggroList(Monster owner)
+	public AggroList(Npc owner)
 	{
 		super();
 		this.owner = owner;
@@ -53,7 +52,7 @@ public class AggroList
 	/**
 	 * @return the owner
 	 */
-	public Monster getOwner()
+	public Npc getOwner()
 	{
 		return owner;
 	}
@@ -61,7 +60,7 @@ public class AggroList
 	/**
 	 * @param owner the owner to set
 	 */
-	public void setOwner(Monster owner)
+	public void setOwner(Npc owner)
 	{
 		this.owner = owner;
 	}

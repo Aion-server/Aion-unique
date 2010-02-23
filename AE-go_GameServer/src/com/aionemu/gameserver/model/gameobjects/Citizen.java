@@ -16,7 +16,9 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
+import com.aionemu.gameserver.ai.npcai.GuardAi;
 import com.aionemu.gameserver.ai.npcai.CitizenAi;
+import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.controllers.CitizenController;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
@@ -53,7 +55,10 @@ public class Citizen extends Npc
 	@Override
 	public void initializeAi()
 	{
-		this.ai = new CitizenAi();
+		if(isAggressive() && !Config.DISABLE_MOB_AGGRO)
+			this.ai = new GuardAi();
+		else
+			this.ai = new CitizenAi();
 		ai.setOwner(this);
 	}
 }

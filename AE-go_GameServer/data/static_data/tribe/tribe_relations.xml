@@ -2,10 +2,18 @@
 <tribe_relations>
     <tribe name="PC"/>
     <tribe name="GENERAL"/>
-    <tribe name="GUARD"/>
+	<tribe name="GUARD">
+		<aggro>
+			<to>PC_DARK</to>
+		</aggro>
+	</tribe>
     <tribe name="PC_DARK"/>
     <tribe name="GENERAL_DARK"/>
-    <tribe name="GUARD_DARK"/>
+    <tribe name="GUARD_DARK">
+    	<aggro>
+            <to>PC</to>
+        </aggro>
+    </tribe>
     <tribe name="PC_DRAGON"/>
     <tribe name="GENERAL_DRAGON"/>
     <tribe name="GUARD_DRAGON"/>

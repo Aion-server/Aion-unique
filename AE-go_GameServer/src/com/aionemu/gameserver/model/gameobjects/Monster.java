@@ -20,21 +20,21 @@ import com.aionemu.gameserver.ai.npcai.AggressiveMonsterAi;
 import com.aionemu.gameserver.ai.npcai.MonsterAi;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.controllers.MonsterController;
-import com.aionemu.gameserver.controllers.attack.AggroList;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 
 public class Monster extends Npc
 {	
-	private AggroList aggroList;
-	
 	/**
-	 * @param template
+	 * 
+	 * @param objId
+	 * @param controller
+	 * @param spawn
+	 * @param objectTemplate
 	 */
 	public Monster(int objId, MonsterController controller, SpawnTemplate spawn, VisibleObjectTemplate objectTemplate)
 	{
 		super(objId, controller, spawn, objectTemplate);
-		this.aggroList = new AggroList(this);
 	}
 
 	@Override
@@ -58,13 +58,5 @@ public class Monster extends Npc
 			this.ai = new MonsterAi();
 		
 		ai.setOwner(this);	
-	}
-
-	/**
-	 * @return the aggroList
-	 */
-	public AggroList getAggroList()
-	{
-		return aggroList;
 	}
 }

@@ -21,7 +21,7 @@ import com.aionemu.gameserver.ai.desires.impl.AttackDesire;
 import com.aionemu.gameserver.ai.desires.impl.MoveToTargetDesire;
 import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -41,17 +41,18 @@ public class AttackingStateHandler extends StateHandler
 	/**
 	 * State ATTACKING
 	 * AI MonsterAi
+	 * AI GuardAi
 	 */
 	@Override
 	public void handleState(AIState state, AI<?> ai)
 	{
 		ai.clearDesires();
 		
-		Creature target = ((Monster)ai.getOwner()).getAggroList().getMostHated();
+		Creature target = ((Npc)ai.getOwner()).getAggroList().getMostHated();
 		if(target == null)
 			return;
 		
-		Monster owner = (Monster) ai.getOwner();
+		Npc owner = (Npc) ai.getOwner();
 		owner.setTarget(target);
 		
 		PacketSendUtility.broadcastPacket(owner,

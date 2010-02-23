@@ -17,31 +17,17 @@
 package com.aionemu.gameserver.controllers;
 
 import java.util.Iterator;
-import java.util.List;
 
-import com.aionemu.gameserver.ai.events.Event;
-import com.aionemu.gameserver.ai.npcai.MonsterAi;
-import com.aionemu.gameserver.ai.state.AIState;
-import com.aionemu.gameserver.controllers.attack.AttackResult;
-import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
-import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
-import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.AbyssService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
-import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldMapType;
 
 /**
@@ -54,13 +40,6 @@ public class MonsterController extends NpcController
 	public void doDrop(Player player)
 	{
 		super.doDrop(player);
-		/*		PlayerGroup pg = player.getPlayerGroup();
-		if(pg != null)
-		{
-			Player winner = pg.lootDistributionService(player);
-			dropService.registerDrop((Monster) getOwner() , winner);
-		}
-		else*/
 		dropService.registerDrop(getOwner() , player);			
 		PacketSendUtility.broadcastPacket(this.getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
 	}
@@ -73,7 +52,6 @@ public class MonsterController extends NpcController
 		if(creature instanceof Player)
 		{
 			Player player = (Player) creature;
-			//TODO may be introduce increaseExpBy method in PlayerCommonData
 			if(player.getPlayerGroup() == null) //solo
 			{
 				long xpReward = StatFunctions.calculateSoloExperienceReward(player, getOwner());				
@@ -111,129 +89,17 @@ public class MonsterController extends NpcController
 			QuestEngine.getInstance().onKill(new QuestEnv(getOwner(), player, 0 , 0));
 		}
 	}
-
-	@Override
-	public void onAttack(Creature creature, int skillId, TYPE type,  int damage)
-	{	
-		if(getOwner().getLifeStats().isAlreadyDead())
-			return;
-		
-		super.onAttack(creature, skillId, type, damage);
-
-		Monster monster = getOwner();
-		if (creature instanceof Player)
-			if (QuestEngine.getInstance().onAttack(new QuestEnv(monster, (Player)creature, 0 , 0)))
-				return;
-		monster.getAggroList().addDamageHate(creature, damage, 0);
-		monster.getLifeStats().reduceHp(damage);
-
-		MonsterAi monsterAi = monster.getAi();
-		monsterAi.handleEvent(Event.ATTACKED);
-		PacketSendUtility.broadcastPacket(monster, new SM_ATTACK_STATUS(monster, type, skillId, damage));
-	}
-
-	@Override
-	public void attackTarget(int targetObjectId)
-	{
-		Monster monster = getOwner();
-
-		if (monster == null || monster.getLifeStats().isAlreadyDead() || !monster.isSpawned())
-			return;
-		
-		if(!monster.canAttack())
-			return;
-		
-		MonsterAi monsterAi = monster.getAi();
-		CreatureGameStats<? extends Creature> npcGameStats = monster.getGameStats();
-
-		int attackType = 0; //TODO investigate attack types	(0 or 1)
-
-		World world = monster.getActiveRegion().getWorld();
-		//TODO refactor to possibility npc-npc fight
-		Player player = (Player) world.findAionObject(targetObjectId);
-		//if player disconnected - IDLE state
-		if(player == null || player.getLifeStats().isAlreadyDead())
-		{
-			monsterAi.setAiState(AIState.THINKING);
-			return;
-		}
-
-		List<AttackResult> attackList = AttackUtil.calculateAttackResult(monster, player);
-
-		int damage = 0;
-		for(AttackResult result : attackList)
-		{
-			damage += result.getDamage();
-		}
-
-		//wtf is 274 - invetigate
-		PacketSendUtility.broadcastPacket(player,
-			new SM_ATTACK(monster.getObjectId(), player.getObjectId(),
-				npcGameStats.getAttackCounter(), 274, attackType, attackList), true);
-
-		player.getController().onAttack(monster, damage);
-		npcGameStats.increaseAttackCounter();
-
-	}
-
-	@Override
-	public void onDie()
-	{
-		super.onDie();
-		//TODO move to creature controller after duel will be moved out of onDie
-		this.getOwner().setState(CreatureState.DEAD);
-		//TODO change - now reward is given to target only
-		Player target = (Player) this.getOwner().getTarget();
-
-		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(getOwner(), 13, 0, target == null?0:target.getObjectId()));
-
-		if(target == null)
-			target = (Player) getOwner().getAggroList().getMostHated();//TODO based on damage;
-
-		this.doReward(target);
-		this.doDrop(target);
-		this.getOwner().getAi().handleEvent(Event.DIED);
-
-		//deselect target at the end
-		getOwner().setTarget(null);
-	}
-
+	
 	@Override
 	public void onRespawn()
 	{
 		super.onRespawn();
 		dropService.unregisterDrop(getOwner());
-		getOwner().getAggroList().clear();
-		this.getOwner().getAi().handleEvent(Event.RESPAWNED);
 	}
 
 	@Override
 	public Monster getOwner()
 	{
 		return (Monster) super.getOwner();
-	}
-
-	@Override
-	public boolean isAttackable()
-	{
-		return true;
-	}
-
-	@Override
-	public void notSee(VisibleObject object)
-	{
-		super.notSee(object);
-		if (object instanceof Creature)
-			getOwner().getAggroList().remove((Creature)object);
-		if(object instanceof Player)
-			getOwner().getAi().handleEvent(Event.NOT_SEE_PLAYER);
-	}
-
-	@Override
-	public void see(VisibleObject object)
-	{
-		super.see(object);
-		if(object instanceof Player)
-			getOwner().getAi().handleEvent(Event.SEE_PLAYER);
 	}
 }

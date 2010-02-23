@@ -226,14 +226,10 @@ public class PlayerController extends CreatureController<Player>
 		if(!player.canAttack())
 			return;
 
-		PlayerGameStats gameStats = player.getGameStats();
-		long time = System.currentTimeMillis();
-		int attackType = 0; // TODO investigate attack types
+		PlayerGameStats gameStats = player.getGameStats();		
 
 		World world = player.getActiveRegion().getWorld();
 		Creature target = (Creature) world.findAionObject(targetObjectId);
-		if(target == null || !target.getController().isAttackable() || target.getLifeStats().isAlreadyDead())
-			return;
 
 		if(!RestrictionsManager.canAttack(player, target))
 			return;
@@ -245,7 +241,9 @@ public class PlayerController extends CreatureController<Player>
 		{
 			damage += result.getDamage();
 		}
-
+		
+		long time = System.currentTimeMillis();
+		int attackType = 0; // TODO investigate attack types
 		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), target.getObjectId(), gameStats
 			.getAttackCounter(), (int) time, attackType, attackResult), true);
 
@@ -526,12 +524,6 @@ public class PlayerController extends CreatureController<Player>
 	public Player getOwner()
 	{
 		return (Player) super.getOwner();
-	}
-
-	@Override
-	public boolean isAttackable()
-	{
-		return true;
 	}
 
 	/**

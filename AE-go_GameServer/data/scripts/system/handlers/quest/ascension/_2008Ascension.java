@@ -23,7 +23,6 @@ import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
-import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
@@ -101,10 +100,10 @@ public class _2008Ascension extends QuestHandler
 			{
 				qs.getQuestVars().setQuestVar(5);
 				updateQuestStatus(player, qs);
-				Monster mob = (Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205041, 301f, 259f, 205.5f, (byte) 0, true);
+				Npc mob = (Npc) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205041, 301f, 259f, 205.5f, (byte) 0, true);
 				// TODO: Tempt decrease P attack.
 				mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER) / 3);
-				(mob).getAggroList().addDamageHate(player, 1000, 0);
+				mob.getAggroList().addDamageHate(player, 1000, 0);
 				mob.getAi().handleEvent(Event.ATTACKED);
 				return true;
 			}
@@ -124,11 +123,11 @@ public class _2008Ascension extends QuestHandler
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
 		if(targetId != 205041)
 			return false;
-		Monster monster = (Monster) env.getVisibleObject();
-		if(monster.getLifeStats().getCurrentHp() < monster.getLifeStats().getMaxHp() / 2)
+		Npc npc = (Npc) env.getVisibleObject();
+		if(npc.getLifeStats().getCurrentHp() < npc.getLifeStats().getMaxHp() / 2)
 		{
 			PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 152));
-			monster.getController().onDelete();
+			npc.getController().onDelete();
 		}
 		return false;
 	}
@@ -306,16 +305,16 @@ public class _2008Ascension extends QuestHandler
 								{
 									qs.getQuestVars().setQuestVar(51);
 									updateQuestStatus(player, qs);
-									List<Monster> mobs = new ArrayList<Monster>();
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 294f, 277f, 207f, (byte) 0, true));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 305f, 279f, 206.5f, (byte) 0, true));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 298f, 253f, 205.7f, (byte) 0, true));
-									mobs.add((Monster) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 306f, 251f, 206f, (byte) 0, true));
-									for(Monster mob : mobs)
+									List<Npc> mobs = new ArrayList<Npc>();
+									mobs.add((Npc) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 294f, 277f, 207f, (byte) 0, true));
+									mobs.add((Npc) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 305f, 279f, 206.5f, (byte) 0, true));
+									mobs.add((Npc) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 298f, 253f, 205.7f, (byte) 0, true));
+									mobs.add((Npc) QuestEngine.getInstance().addNewSpawn(320010000, instanceId, 205040, 306f, 251f, 206f, (byte) 0, true));
+									for(Npc mob : mobs)
 									{
 										// TODO: Tempt decrease P attack.
 										mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER) / 3);
-										((Monster) mob).getAggroList().addDamageHate(player, 1000, 0);
+										mob.getAggroList().addDamageHate(player, 1000, 0);
 										mob.getAi().handleEvent(Event.ATTACKED);
 									}
 								}

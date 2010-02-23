@@ -19,7 +19,7 @@ package com.aionemu.gameserver.ai.state.handler;
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.desires.impl.MoveToHomeDesire;
 import com.aionemu.gameserver.ai.state.AIState;
-import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -39,17 +39,18 @@ public class MovingToHomeStateHandler extends StateHandler
 	/**
 	 * State MOVINGTOHOME
 	 * AI MonsterAi
+	 * AI GuardAi
 	 */
 	@Override
 	public void handleState(AIState state, AI<?> ai)
 	{
 		ai.clearDesires();
-		Monster monster = (Monster) ai.getOwner();
-		monster.setTarget(null);
-		monster.getAggroList().clear();
-		PacketSendUtility.broadcastPacket(monster, new SM_EMOTION(monster, 30, 0, 0));
-		PacketSendUtility.broadcastPacket(monster, new SM_EMOTION(monster, 20, 0, 0));
-		ai.addDesire(new MoveToHomeDesire(monster, AIState.MOVINGTOHOME.getPriority()));
+		Npc npc = (Npc) ai.getOwner();
+		npc.setTarget(null);
+		npc.getAggroList().clear();
+		PacketSendUtility.broadcastPacket(npc, new SM_EMOTION(npc, 30, 0, 0));
+		PacketSendUtility.broadcastPacket(npc, new SM_EMOTION(npc, 20, 0, 0));
+		ai.addDesire(new MoveToHomeDesire(npc, AIState.MOVINGTOHOME.getPriority()));
 		
 		ai.schedule();
 	}

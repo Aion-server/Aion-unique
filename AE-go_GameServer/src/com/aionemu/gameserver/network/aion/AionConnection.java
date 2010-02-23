@@ -146,12 +146,20 @@ public class AionConnection extends AConnection
 	@Override
 	protected final boolean processData(ByteBuffer data)
 	{
-		if(!crypt.decrypt(data))
+		try
 		{
-			log.warn("Decrypt fail!");
-			// return false;
+			if(!crypt.decrypt(data))
+			{
+				log.warn("Decrypt fail!");
+				return false;
+			}
 		}
-
+		catch(Exception ex)
+		{
+			log.error("Exception caught during decrypt!" + ex.getMessage());
+			return false;
+		}
+		
 		AionClientPacket pck = aionPacketHandler.handle(data, this);
 		log.debug("recived packet: " + pck);
 

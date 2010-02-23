@@ -20,7 +20,6 @@ import java.nio.ByteBuffer;
 import java.util.Map.Entry;
 
 import com.aionemu.gameserver.model.NpcType;
-import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemSlot;
@@ -55,9 +54,7 @@ public class SM_NPC_INFO extends AionServerPacket
 	public SM_NPC_INFO(Npc npc, Player player)
 	{
 		this.npc = npc;
-		
-		String playerTribe = player.getCommonData().getRace() == Race.ELYOS ? "PC" : "PC_DARK";
-		isAggressive = npc.isAggressiveTo(playerTribe);
+		isAggressive = npc.isAggressiveTo(player.getCommonData().getRace());
 	}
 
 	/**

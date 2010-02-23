@@ -270,16 +270,6 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	}
 
 	/**
-	 * Specifies whether this target is attackable
-	 * 
-	 * @return
-	 */
-	public boolean isAttackable()
-	{
-		return false;
-	}
-
-	/**
 	 * Stops movements
 	 */
 	public void stopMoving()

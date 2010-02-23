@@ -20,7 +20,7 @@ import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.desires.AbstractDesire;
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.utils.MathUtil;
 
 /**
@@ -39,7 +39,7 @@ public final class AttackDesire extends AbstractDesire
 	 */
 	protected Creature	target;
 	
-	protected Monster owner;
+	protected Npc owner;
 
 	/**
 	 * Creates new attack desire, target can't be changed
@@ -49,11 +49,11 @@ public final class AttackDesire extends AbstractDesire
 	 * @param desirePower
 	 *            initial attack power
 	 */
-	public AttackDesire(Monster owner, Creature target, int desirePower)
+	public AttackDesire(Npc npc, Creature target, int desirePower)
 	{
 		super(desirePower);
 		this.target = target;
-		this.owner = owner;
+		this.owner = npc;
 	}
 
 	/**

@@ -18,7 +18,9 @@ package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.controllers.NpcController;
+import com.aionemu.gameserver.controllers.attack.AggroList;
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
@@ -38,6 +40,8 @@ import com.aionemu.gameserver.world.WorldPosition;
 public class Npc extends Creature
 {
 
+	private AggroList aggroList;
+	
 	/**
 	 * Constructor creating instance of Npc.
 	 * 
@@ -54,15 +58,7 @@ public class Npc extends Creature
 		NpcStatsTemplate nst = getTemplate().getStatsTemplate();
 		super.setGameStats(new NpcGameStats(this,nst));
 		
-		//TODO probably its not simple addition of equipment stats
-//		NpcEquippedGear gear = template.getEquipment();
-//		if (gear!=null) 
-//		{
-//			for (Entry<ItemSlot,ItemTemplate> it : gear)
-//			{
-//				ItemEquipmentListener.onItemEquipment(it.getValue(), it.getKey().getSlotIdMask(), getGameStats());
-//			}
-//		}
+		this.aggroList = new AggroList(this);
 	}
 
 	public NpcTemplate getTemplate()
@@ -123,7 +119,7 @@ public class Npc extends Creature
 	
 	public boolean isAggressive()
 	{
-		return isAggressiveTo("PC") || isAggressiveTo("PC_DARK");
+		return isAggressiveTo(Race.ELYOS) || isAggressiveTo(Race.ASMODIANS);
 	}
 	/**
 	 *  //TODO refactore to npc-npc interations
@@ -131,10 +127,17 @@ public class Npc extends Creature
 	 * @param tribe
 	 * @return
 	 */
-	public boolean isAggressiveTo(String tribe)
+	public boolean isAggressiveTo(Race race)
 	{
 		String currentTribe = getTemplate().getTribe();
-		return DataManager.TRIBE_RELATIONS_DATA.isAggressiveRelation(currentTribe, tribe);
+		switch(race)
+		{
+			case ELYOS:
+				return DataManager.TRIBE_RELATIONS_DATA.isAggressiveRelation(currentTribe, "PC");
+			case ASMODIANS:
+				return DataManager.TRIBE_RELATIONS_DATA.isAggressiveRelation(currentTribe, "PC");
+		}
+		return false;
 	}
 	
 	public int getAggroRange()
@@ -157,5 +160,13 @@ public class Npc extends Creature
 	{
 		return MathUtil.getDistance(getSpawn().getX(), getSpawn().getY(), getSpawn().getZ(),
 			getX(), getY(), getZ()) < 3 ;
+	}
+	
+	/**
+	 * @return the aggroList
+	 */
+	public AggroList getAggroList()
+	{
+		return aggroList;
 	}
 }

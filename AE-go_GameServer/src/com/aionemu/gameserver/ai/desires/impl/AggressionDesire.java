@@ -24,7 +24,7 @@ import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
-import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
@@ -37,20 +37,20 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  */
 public final class AggressionDesire extends AbstractDesire
 {
-	protected  Monster	monster;
+	protected  Npc	npc;
 	
-	public AggressionDesire(Monster monster, int desirePower)
+	public AggressionDesire(Npc npc, int desirePower)
 	{
 		super(desirePower);
-		this.monster = monster;
+		this.npc = npc;
 	}
 	
 	@Override
 	public boolean handleDesire(AI<?> ai)
 	{
-		if (monster == null) return false;
+		if (npc == null) return false;
 		
-		for(VisibleObject visibleObject : monster.getKnownList())
+		for(VisibleObject visibleObject : npc.getKnownList())
 		{
 			if (visibleObject == null)
 				continue;
@@ -60,12 +60,12 @@ public final class AggressionDesire extends AbstractDesire
 				final Player player = (Player) visibleObject;
 				
 				if (!player.getLifeStats().isAlreadyDead() 
-					&& MathUtil.isInRange(monster, player, monster.getAggroRange()) 
-					&& (Math.abs(player.getZ() - monster.getZ()) < 30))
+					&& MathUtil.isInRange(npc, player, npc.getAggroRange()) 
+					&& (Math.abs(player.getZ() - npc.getZ()) < 30))
 				{
-					monster.getAi().setAiState(AIState.NONE);//TODO
+					npc.getAi().setAiState(AIState.NONE);//TODO
 					//ToDO proper aggro emotion on aggro range enter
-					PacketSendUtility.broadcastPacket(monster, new SM_ATTACK(monster.getObjectId(),
+					PacketSendUtility.broadcastPacket(npc, new SM_ATTACK(npc.getObjectId(),
 						player.getObjectId(), 0, 633, 0, 
 						Collections.singletonList(new AttackResult(0, AttackStatus.NORMALHIT))));
 					
@@ -74,8 +74,8 @@ public final class AggressionDesire extends AbstractDesire
 						@Override
 						public void run()
 						{
-							monster.getAggroList().addDamageHate(player, 0, 0);
-							monster.getAi().handleEvent(Event.ATTACKED);
+							npc.getAggroList().addDamageHate(player, 0, 0);
+							npc.getAi().handleEvent(Event.ATTACKED);
 						}
 					}, 1000);
 					break;

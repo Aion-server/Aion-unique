@@ -24,9 +24,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.Citizen;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
@@ -71,6 +71,9 @@ public class TargetRelationProperty
 				{
 					Creature nextEffected = iter.next();
 					
+					if(nextEffected instanceof Npc && ((Npc) nextEffected).isAggressiveTo(skill.getEffector().getCommonData().getRace()))
+						continue;
+					
 					if(nextEffected instanceof Monster)
 						continue;
 					
@@ -82,8 +85,6 @@ public class TargetRelationProperty
 						continue;
 					
 					iter.remove();
-					//need to implement in a more robust way
-					//TODO duel
 				}
 				break;
 			case FRIEND:		
@@ -102,7 +103,7 @@ public class TargetRelationProperty
 						&& lastAttacker.getObjectId() != nextEffected.getObjectId())
 						continue;
 					
-					if(nextEffected instanceof Citizen)
+					if(nextEffected instanceof Npc && !((Npc) nextEffected).isAggressiveTo(skill.getEffector().getCommonData().getRace()))
 						continue;
 					
 					iter.remove();			

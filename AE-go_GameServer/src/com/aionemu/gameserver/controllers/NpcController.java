@@ -16,19 +16,29 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import java.util.List;
 import java.util.concurrent.Future;
 
 import com.aionemu.gameserver.ai.events.Event;
+import com.aionemu.gameserver.ai.npcai.NpcAi;
+import com.aionemu.gameserver.ai.state.AIState;
+import com.aionemu.gameserver.controllers.attack.AttackResult;
+import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.gameobjects.player.StorageType;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
+import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcLifeStats;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
@@ -36,6 +46,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.CubeExpandService;
@@ -45,6 +56,7 @@ import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.World;
 
 /**
  * This class is for controlling Npc's
@@ -61,15 +73,37 @@ public class NpcController extends CreatureController<Npc>
 	{
 		this.dropService = dropService;
 	}
+	
+	@Override
+	public void notSee(VisibleObject object)
+	{
+		super.notSee(object);
+		if (object instanceof Creature)
+			getOwner().getAggroList().remove((Creature)object);
+		if(object instanceof Player && getOwner().getAi() != null)
+			getOwner().getAi().handleEvent(Event.NOT_SEE_PLAYER);
+	}
+
+	@Override
+	public void see(VisibleObject object)
+	{
+		super.see(object);
+		if(object instanceof Player && getOwner().getAi() != null)
+			getOwner().getAi().handleEvent(Event.SEE_PLAYER);
+	}
 
 	@Override
 	public void onRespawn()
 	{
 		this.decayTask = null;
-		// TODO based on template
-		this.getOwner().unsetState(CreatureState.DEAD);
-		this.getOwner().setState(CreatureState.NPC_IDLE);
-		this.getOwner().setLifeStats(new NpcLifeStats(getOwner()));
+		Npc owner = getOwner();
+		owner.unsetState(CreatureState.DEAD);
+		owner.setState(CreatureState.NPC_IDLE);
+		owner.setLifeStats(new NpcLifeStats(getOwner()));
+		owner.getAggroList().clear();
+		
+		if(owner.getAi() != null)
+			owner.getAi().handleEvent(Event.RESPAWNED);
 	}
 
 	public void onDespawn(boolean forced)
@@ -92,15 +126,35 @@ public class NpcController extends CreatureController<Npc>
 	public void onDie()
 	{
 		super.onDie();
+		Npc owner = getOwner();
+		
 		if(decayTask == null)
-		{
 			decayTask = DecayService.getInstance().scheduleDecayTask(this.getOwner());
-		}
+
 		int instanceId = getOwner().getInstanceId();
-		if(!getOwner().getSpawn().isNoRespawn(instanceId))
+		if(!owner.getSpawn().isNoRespawn(instanceId))
 		{
-			RespawnService.getInstance().scheduleRespawnTask(this.getOwner());
+			RespawnService.getInstance().scheduleRespawnTask(owner);
 		}
+		
+		//TODO move to creature controller after duel will be moved out of onDie
+		owner.setState(CreatureState.DEAD);
+		//TODO change - now reward is given to target only
+		Player target = (Player) owner.getTarget();
+
+		PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, 13, 0, target == null?0:target.getObjectId()));
+
+		if(target == null)
+			target = (Player) owner.getAggroList().getMostHated();//TODO based on damage;
+
+		this.doReward(target);
+		this.doDrop(target);
+		
+		if(owner.getAi() != null)
+			owner.getAi().handleEvent(Event.DIED);
+
+		//deselect target at the end
+		owner.setTarget(null);
 	}
 
 	@Override
@@ -319,4 +373,67 @@ public class NpcController extends CreatureController<Npc>
 				break;
 		}
 	}
+	
+	@Override
+	public void onAttack(Creature creature, int skillId, TYPE type,  int damage)
+	{	
+		if(getOwner().getLifeStats().isAlreadyDead())
+			return;
+		
+		super.onAttack(creature, skillId, type, damage);
+
+		Npc npc = getOwner();
+		if (creature instanceof Player)
+			if (QuestEngine.getInstance().onAttack(new QuestEnv(npc, (Player)creature, 0 , 0)))
+				return;
+		npc.getAggroList().addDamageHate(creature, damage, 0);
+		npc.getLifeStats().reduceHp(damage);
+
+		NpcAi ai = npc.getAi();
+		ai.handleEvent(Event.ATTACKED);
+		PacketSendUtility.broadcastPacket(npc, new SM_ATTACK_STATUS(npc, type, skillId, damage));
+	}
+	
+	@Override
+	public void attackTarget(int targetObjectId)
+	{
+		Npc npc = getOwner();
+
+		if (npc == null || npc.getLifeStats().isAlreadyDead() || !npc.isSpawned())
+			return;
+		
+		if(!npc.canAttack())
+			return;
+		
+		NpcAi ai = npc.getAi();
+		NpcGameStats gameStats = npc.getGameStats();
+
+		World world = npc.getActiveRegion().getWorld();
+
+		Creature creature = (Creature) world.findAionObject(targetObjectId);
+		//if player disconnected - IDLE state
+		if(creature == null || creature.getLifeStats().isAlreadyDead())
+		{
+			ai.setAiState(AIState.THINKING);
+			return;
+		}
+
+		List<AttackResult> attackList = AttackUtil.calculateAttackResult(npc, creature);
+
+		int damage = 0;
+		for(AttackResult result : attackList)
+		{
+			damage += result.getDamage();
+		}
+		
+		int attackType = 0; //TODO investigate attack types	(0 or 1)
+		PacketSendUtility.broadcastPacket(npc,
+			new SM_ATTACK(npc.getObjectId(), creature.getObjectId(),
+				gameStats.getAttackCounter(), 274, attackType, attackList));
+
+		creature.getController().onAttack(npc, damage);
+		gameStats.increaseAttackCounter();
+
+	}
+
 }

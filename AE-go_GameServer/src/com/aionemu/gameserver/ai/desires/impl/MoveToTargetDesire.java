@@ -20,7 +20,7 @@ import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.desires.AbstractDesire;
 import com.aionemu.gameserver.ai.desires.MoveDesire;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 
 /**
  * @author Pinguin, ATracer
@@ -28,14 +28,14 @@ import com.aionemu.gameserver.model.gameobjects.Monster;
  */
 public class MoveToTargetDesire extends AbstractDesire implements MoveDesire
 {
-	private Monster owner;
+	private Npc owner;
 	private Creature target;	
 	
 	/**
 	 * @param crt 
 	 * @param desirePower
 	 */
-	public MoveToTargetDesire(Monster owner, Creature target, int desirePower)
+	public MoveToTargetDesire(Npc owner, Creature target, int desirePower)
 	{
 		super(desirePower);
 		this.owner = owner;

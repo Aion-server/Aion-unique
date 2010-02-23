@@ -26,8 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
  *
  */
 public class RestoreHealthDesire extends AbstractDesire
-{
-	
+{	
 	private Creature owner;
 	private int restoreHpValue;
 
