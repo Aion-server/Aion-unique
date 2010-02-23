@@ -155,7 +155,7 @@ public class NpcController extends CreatureController<Npc>
 				break;
 			case 4:
 				// stigma
-				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet", null,
+				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet",
 					ChatType.ANNOUNCEMENTS));
 				break;
 			case 5:
@@ -278,12 +278,12 @@ public class NpcController extends CreatureController<Npc>
 				break;
 			case 39:
 				// improve extraction skill npc cornelius, jhaelas in sanctum
-				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet", null,
+				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet",
 					ChatType.ANNOUNCEMENTS));
 				break;
 			case 40:
 				// learn tailoring armor smithing etc...
-				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet", null,
+				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet",
 					ChatType.ANNOUNCEMENTS));
 				break;
 			case 41:
@@ -303,12 +303,12 @@ public class NpcController extends CreatureController<Npc>
 				break;
 			case 52:
 				// work order from lerning npc in sanctum
-				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet", null,
+				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet",
 					ChatType.ANNOUNCEMENTS));
 				break;
 			case 53:
 				// coin reward
-				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet", null,
+				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet",
 					ChatType.ANNOUNCEMENTS));
 				break;
 			default:

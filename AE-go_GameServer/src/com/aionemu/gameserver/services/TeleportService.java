@@ -158,7 +158,7 @@ public class TeleportService
 		if (!inventory.decreaseKinah(location.getPrice()))
 		{
 			// TODO using the correct system message
-			PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "You don't have enough Kinah", null, ChatType.ANNOUNCEMENTS));
+			PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "You don't have enough Kinah", ChatType.ANNOUNCEMENTS));
 			return false;
 		}
 		return true;

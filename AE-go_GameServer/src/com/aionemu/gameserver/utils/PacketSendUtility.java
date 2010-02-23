@@ -43,7 +43,7 @@ public class PacketSendUtility
 	 */
 	public static void sendMessage(Player player, String msg)
 	{
-		sendPacket(player, new SM_MESSAGE(0, null, msg, null, ChatType.ANNOUNCEMENTS));
+		sendPacket(player, new SM_MESSAGE(0, null, msg, ChatType.ANNOUNCEMENTS));
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class PacketSendUtility
 	 */
 	public static void sendSysMessage(Player player, String msg)
 	{
-		sendPacket(player, new SM_MESSAGE(0, null, msg, null, ChatType.SYSTEM_NOTICE));
+		sendPacket(player, new SM_MESSAGE(0, null, msg, ChatType.SYSTEM_NOTICE));
 	}
 
 	/**

@@ -58,7 +58,7 @@ public class CubeExpandService
 			final Item kinahItem = player.getInventory().getKinahItem();
 			if(price > kinahItem.getItemCount())
 			{
-				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "You don't have enough Kinah.", null, ChatType.ANNOUNCEMENTS));
+				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "You don't have enough Kinah.", ChatType.ANNOUNCEMENTS));
 				return;
 			}
 			
@@ -88,7 +88,7 @@ public class CubeExpandService
 		}
 		else
 		{
-			PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "NPC Template for this cube Expander is missing.", null, ChatType.ANNOUNCEMENTS));
+			PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "NPC Template for this cube Expander is missing.", ChatType.ANNOUNCEMENTS));
 		}
 	}
 	
@@ -113,7 +113,7 @@ public class CubeExpandService
 	private void expand(Player player, CubeExpandTemplate clist)
 	{
 		// wtf announcemnet?
-		PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "Cube Upgraded to Level "+(player.getCubeSize()+1)+".", null, ChatType.ANNOUNCEMENTS));
+		PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "Cube Upgraded to Level "+(player.getCubeSize()+1)+".", ChatType.ANNOUNCEMENTS));
 		PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300431, "9"));// 9 Slots added
 		player.setCubesize(player.getCubeSize()+1);
 		player.getInventory().setLimit(player.getInventory().getLimit()+9);

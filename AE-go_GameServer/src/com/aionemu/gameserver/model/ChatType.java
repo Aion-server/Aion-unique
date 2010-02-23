@@ -64,12 +64,22 @@ public enum ChatType
 	/**
 	 * Announce chat (yellow)
 	 */
-	ANNOUNCEMENTS(0x19),
+	ANNOUNCEMENTS(0x19, true),
+
+	/**
+	 * Periodically Notice chat (white)
+	 */
+	PERIOD_NOTICE(0x1C, true),
+
+	/**
+	 * Periodically Announce chat (yellow)
+	 */
+	PERIOD_ANNOUNCEMENTS(0x20, true),
 
 	/**
 	 * Notice chat (yellow with box over players head)
 	 */
-	SYSTEM_NOTICE(0x21);
+	SYSTEM_NOTICE(0x21, true);
 
 	/**
 	 * Chat type storage
@@ -77,14 +87,19 @@ public enum ChatType
 	private final int	intValue;
 
 	/**
+	 * Check whether all races can read chat
+	 */
+	private boolean	sysMsg;
+
+	/**
 	 * Constructor
 	 * 
-	 * @param i
+	 * @param intValue
 	 *            client chat type integer representation
 	 */
-	ChatType(int i)
+	private ChatType(int intValue)
 	{
-		intValue = i;
+		this(intValue, false);
 	}
 
 	/**
@@ -117,5 +132,20 @@ public enum ChatType
 		}
 
 		throw new IllegalArgumentException("Unsupported chat type: " + integerValue);
+	}
+
+	private ChatType(int intValue, boolean sysMsg)
+	{
+		this.intValue = intValue;
+		this.sysMsg = sysMsg;
+	}
+
+	/**
+	 * 
+	 * @return true if this is one of system message ( all races can read chat )
+	 */
+	public boolean isSysMsg()
+	{
+		return sysMsg;
 	}
 }

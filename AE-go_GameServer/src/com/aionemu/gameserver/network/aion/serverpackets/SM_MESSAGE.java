@@ -86,17 +86,14 @@ public class SM_MESSAGE extends AionServerPacket
 	 *            - used for shout ATM, can be null in other cases
 	 * @param message
 	 *            - actual text
-	 * @param race
-	 *            - sender race, if null - chat will be visible both for Eylos and Asmodians
 	 * @param chatType
 	 *            type of chat, Normal, Shout, Announcements, Etc...
 	 */
-	public SM_MESSAGE(int senderObjectId, String senderName, String message, Race race, ChatType chatType)
+	public SM_MESSAGE(int senderObjectId, String senderName, String message, ChatType chatType)
 	{
 		this.senderObjectId = senderObjectId;
 		this.senderName = senderName;
 		this.message = message;
-		this.race = race;
 		this.chatType = chatType;
 	}
 
@@ -110,27 +107,32 @@ public class SM_MESSAGE extends AionServerPacket
 
 		if(race != null)
 		{
-			canRead = race.equals(con.getActivePlayer().getCommonData().getRace())
+			canRead = chatType.isSysMsg() 
 				|| Config.FACTIONS_SPEAKING_MODE == 1;
 		}
 
 		writeC(buf, chatType.toInteger()); // type
-		writeC(buf, canRead ? 0 : 1); // is race valid? In other case we will get bullshit instead of valid chat;
+
+		/*
+		 * 0 : all
+		 * 1 : elyos
+		 * 2 : asmodians
+		 */
+		writeC(buf, canRead ? 0 : race.getRaceId() + 1);
 		writeD(buf, senderObjectId); // sender object id
 
 		switch(chatType)
 		{
-			case NORMAL: // normal chat
+			case NORMAL:
 			case UNKNOWN_0x18: // unknown, sent by official server
-			case ANNOUNCEMENTS: // announcements
+			case ANNOUNCEMENTS:
+			case PERIOD_NOTICE:
+			case PERIOD_ANNOUNCEMENTS:
+			case SYSTEM_NOTICE:
 				writeH(buf, 0x00); // unknown
 				writeS(buf, message);
 				break;
-			case SYSTEM_NOTICE: // system announcements
-				writeH(buf, 0x00); // unknown
-				writeS(buf, message);
-				break;
-			case SHOUT: // shout
+			case SHOUT:
 				writeS(buf, senderName);
 				writeS(buf, message);
 				writeD(buf, 0x00); // unknwon

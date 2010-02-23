@@ -240,7 +240,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 
 			sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME
 				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2010",
-				null, ChatType.ANNOUNCEMENTS));
+				ChatType.ANNOUNCEMENTS));
 
 			if(player.isLegionMember())
 				legionService.legionMemberOnLogin(player);
