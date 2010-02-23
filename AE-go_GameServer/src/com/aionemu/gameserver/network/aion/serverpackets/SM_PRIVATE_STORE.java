@@ -17,12 +17,13 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.LinkedHashMap;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PrivateStore;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
-import com.aionemu.gameserver.model.trade.TradeItem;
+import com.aionemu.gameserver.model.trade.TradePSItem;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.InventoryPacket;
 
@@ -45,14 +46,16 @@ public class SM_PRIVATE_STORE extends InventoryPacket
 		if(store != null)
 		{
 			Player storePlayer = store.getOwner();
+			LinkedHashMap<Integer, TradePSItem> soldItems = store.getSoldItems();
 			
 			writeD(buf, storePlayer.getObjectId());
-			writeH(buf, store.getSoldItems().size());
-			for(TradeItem tradeItem : store.getSoldItems().keySet())
+			writeH(buf, soldItems.size());
+			for(Integer itemObjId : soldItems.keySet())
 			{
-				Item item = storePlayer.getInventory().getItemByObjId(tradeItem.getItemId());
-				int price = store.getSoldItems().get(tradeItem);
-				writeD(buf, item.getObjectId());
+				Item item = storePlayer.getInventory().getItemByObjId(itemObjId);
+				TradePSItem tradeItem = store.getTradeItemById(itemObjId);
+				int price = tradeItem.getPrice();
+				writeD(buf, itemObjId);
 				writeD(buf, item.getItemTemplate().getItemId());
 				writeH(buf, tradeItem.getCount());
 				writeD(buf, price);

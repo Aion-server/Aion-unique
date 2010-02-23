@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.trade.TradePSItem;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.services.PrivateStoreService;
 import com.google.inject.Inject;
@@ -31,17 +32,14 @@ public class CM_PRIVATE_STORE extends AionClientPacket
 	 * Inject Private Store Service
 	 */
 	@Inject
-	PrivateStoreService	privateStoreService;
+	PrivateStoreService		privateStoreService;
 
 	/**
 	 * Private store information
 	 */
-	private Player		activePlayer;
-	private int			itemCount;
-	private int[]		itemObjIds;
-	private int[]		itemIds;
-	private int[]		itemAmounts;
-	private int[]		itemPrices;
+	private Player			activePlayer;
+	private TradePSItem[]	tradePSItems;
+	private int				itemCount;
 
 	/**
 	 * Constructs new instance of <tt>CM_PRIVATE_STORE </tt> packet
@@ -68,19 +66,10 @@ public class CM_PRIVATE_STORE extends AionClientPacket
 		 * Read the amount of items that need to be put into the player's store
 		 */
 		itemCount = readH();
-		itemObjIds = new int[itemCount];
-		itemIds = new int[itemCount];
-		itemAmounts = new int[itemCount];
-		itemPrices = new int[itemCount];
+		tradePSItems = new TradePSItem[itemCount];
 		for(int i = 0; i < itemCount; i++)
 		{
-			/**
-			 * Read item packets
-			 */
-			itemObjIds[i] = readD();
-			itemIds[i] = readD();
-			itemAmounts[i] = readH();
-			itemPrices[i] = readD();
+			tradePSItems[i] = new TradePSItem(readD(), readD(), readH(), readD());
 		}
 	}
 
@@ -100,7 +89,7 @@ public class CM_PRIVATE_STORE extends AionClientPacket
 			 */
 			if(itemCount > 0)
 			{
-				privateStoreService.addItem(activePlayer, itemObjIds, itemIds, itemAmounts, itemPrices);
+				privateStoreService.addItem(activePlayer, tradePSItems);
 			}
 			else
 			{

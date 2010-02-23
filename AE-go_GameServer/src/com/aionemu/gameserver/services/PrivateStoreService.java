@@ -26,6 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.trade.TradeItem;
 import com.aionemu.gameserver.model.trade.TradeList;
+import com.aionemu.gameserver.model.trade.TradePSItem;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
@@ -50,7 +51,7 @@ public class PrivateStoreService
 	 * @param itemAmount
 	 * @param itemPrice
 	 */
-	public void addItem(Player activePlayer, int[] itemObjIds, int[] itemIds, int[] itemAmounts, int[] itemPrices)
+	public void addItem(Player activePlayer, TradePSItem[] tradePSItems)
 	{
 		/**
 		 * Check if player already has a store, if not create one
@@ -66,18 +67,17 @@ public class PrivateStoreService
 		/**
 		 * Check if player owns itemObjId else don't add item
 		 */
-		for(int i = 0; i < itemObjIds.length; i++)
+		for(int i = 0; i < tradePSItems.length; i++)
 		{
-			Item item = getItemByObjId(activePlayer, itemObjIds[i]);
+			Item item = getItemByObjId(activePlayer, tradePSItems[i].getItemObjId());
 			if(item != null)
 			{
-				if(!validateItem(item, itemIds[i], itemAmounts[i]) && itemPrices[i] < 0)
+				if(!validateItem(item, tradePSItems[i].getItemId(), tradePSItems[i].getCount()))
 					return;
 				/**
 				 * Add item to private store
 				 */
-				TradeItem tradeItem = new TradeItem(item.getObjectId(), itemAmounts[i]);
-				store.addItemToSell(tradeItem, itemPrices[i]);
+				store.addItemToSell(tradePSItems[i].getItemObjId(), tradePSItems[i]);
 			}
 		}
 	}
@@ -169,15 +169,15 @@ public class PrivateStoreService
 			for(TradeItem tradeItem : tradeList.getTradeItems())
 			{
 				Item item = getItemByObjId(seller, tradeItem.getItemId());
-				TradeItem storeItem = store.getTradeItemById(tradeItem.getItemId());
 				if(item != null)
 				{
+					TradePSItem storeItem = store.getTradeItemById(tradeItem.getItemId());
 					/**
 					 * If the buyer wants to buy everything and it's everything in the sellers inventory
 					 */
 					if(item.getItemCount() == tradeItem.getCount())
 					{
-						removeItemFromPlayer(seller, store, item);
+						removeItemFromPlayer(seller, item);
 						buyer.getInventory().putToBag(item);
 						newItems.add(item);
 					}
@@ -185,9 +185,9 @@ public class PrivateStoreService
 					{
 						decreaseItemFromPlayer(seller, item, tradeItem);
 						itemService.addItem(buyer, item.getItemTemplate().getItemId(), tradeItem.getCount(), false);
-						
+
 						if(storeItem.getCount() == tradeItem.getCount())
-							store.removeItem(storeItem);							
+							store.removeItem(storeItem.getItemObjId());
 					}
 				}
 			}
@@ -217,27 +217,19 @@ public class PrivateStoreService
 	{
 		item.decreaseItemCount(tradeItem.getCount());
 		PacketSendUtility.sendPacket(seller, new SM_UPDATE_ITEM(item));
-		
-		for(TradeItem storeItem : seller.getStore().getSoldItems().keySet())
-		{
-			if(storeItem.getItemId() == tradeItem.getItemId())
-				storeItem.decreaseCount(tradeItem.getCount());
-		}
+		PrivateStore store = seller.getStore();
+		store.getTradeItemById(item.getObjectId()).decreaseCount(tradeItem.getCount());
 	}
 
 	/**
 	 * Remove item from store if count reached 0
 	 * 
 	 * @param seller
-	 * @param store
+	 * @param item
 	 */
-	private void removeItemFromPlayer(Player seller, PrivateStore store, Item item)
+	private void removeItemFromPlayer(Player seller, Item item)
 	{
-		for(TradeItem tradeItem : store.getSoldItems().keySet())
-		{
-			if(tradeItem.getItemId() == item.getObjectId())
-				store.removeItem(tradeItem);
-		}
+		seller.getStore().removeItem(item.getObjectId());
 		seller.getInventory().removeFromBag(item, false);
 		PacketSendUtility.sendPacket(seller, new SM_DELETE_ITEM(item.getObjectId()));
 	}
@@ -255,14 +247,10 @@ public class PrivateStoreService
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
 			int i = 0;
-			for(TradeItem item : store.getSoldItems().keySet())
+			for(int itemObjId : store.getSoldItems().keySet())
 			{
 				if(i == tradeItem.getItemId())
-				{
-					if(tradeItem.getCount() > item.getCount())
-						return null;
-					newTradeList.addPSItem(item.getItemId(), tradeItem.getCount());
-				}
+					newTradeList.addPSItem(itemObjId, tradeItem.getCount());
 				i++;
 			}
 		}
@@ -338,7 +326,7 @@ public class PrivateStoreService
 	 * This method will return the item in a inventory by object id
 	 * 
 	 * @param player
-	 * @param itemObjId
+	 * @param tradePSItems
 	 * @return
 	 */
 	private Item getItemByObjId(Player seller, int itemObjId)
@@ -358,11 +346,8 @@ public class PrivateStoreService
 		int totalprice = 0;
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
-			for(TradeItem item : store.getSoldItems().keySet())
-			{
-				if(item.getItemId() == tradeItem.getItemId())
-					totalprice += store.getSoldItems().get(item)*tradeItem.getCount();
-			}
+			TradePSItem item = store.getTradeItemById(tradeItem.getItemId());
+			totalprice += item.getPrice();
 		}
 		return totalprice;
 	}
@@ -377,13 +362,11 @@ public class PrivateStoreService
 			activePlayer.getStore().setStoreMessage(name);
 			PacketSendUtility.broadcastPacket(activePlayer,
 				new SM_PRIVATE_STORE_NAME(activePlayer.getObjectId(), name), true);
-			// PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.PRIVATE_STORE_START());
 		}
 		else
 		{
 			PacketSendUtility.broadcastPacket(activePlayer, new SM_PRIVATE_STORE_NAME(activePlayer.getObjectId(), ""),
 				true);
-			// PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.PRIVATE_STORE_STOP());
 		}
 	}
 }

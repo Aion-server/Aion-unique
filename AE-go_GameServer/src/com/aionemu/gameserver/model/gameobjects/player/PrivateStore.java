@@ -18,7 +18,7 @@ package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.util.LinkedHashMap;
 
-import com.aionemu.gameserver.model.trade.TradeItem;
+import com.aionemu.gameserver.model.trade.TradePSItem;
 
 /**
  * @author Xav Modified by Simple
@@ -26,7 +26,7 @@ import com.aionemu.gameserver.model.trade.TradeItem;
 public class PrivateStore
 {
 	private Player								owner;
-	private LinkedHashMap<TradeItem, Integer>	items;
+	private LinkedHashMap<Integer, TradePSItem>	items;
 	private String								storeMessage;
 
 	/**
@@ -37,7 +37,7 @@ public class PrivateStore
 	public PrivateStore(Player owner)
 	{
 		this.owner = owner;
-		this.items = new LinkedHashMap<TradeItem, Integer>();
+		this.items = new LinkedHashMap<Integer, TradePSItem>();
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class PrivateStore
 	 * 
 	 * @return
 	 */
-	public LinkedHashMap<TradeItem, Integer> getSoldItems()
+	public LinkedHashMap<Integer, TradePSItem> getSoldItems()
 	{
 		return items;
 	}
@@ -66,9 +66,9 @@ public class PrivateStore
 	 * @param tradeList
 	 * @param price
 	 */
-	public void addItemToSell(TradeItem tradeItem, int price)
+	public void addItemToSell(int itemObjId, TradePSItem tradeItem)
 	{
-		items.put(tradeItem, price);
+		items.put(itemObjId, tradeItem);
 	}
 
 	/**
@@ -76,18 +76,29 @@ public class PrivateStore
 	 * 
 	 * @param item
 	 */
-	public void removeItem(TradeItem tradeItem)
+	public void removeItem(int itemObjId)
 	{
-		if(items.containsKey(tradeItem))
+		if(items.containsKey(itemObjId))
 		{
-			LinkedHashMap<TradeItem, Integer> newItems = new LinkedHashMap<TradeItem, Integer>();
-			for(TradeItem item : items.keySet())
+			LinkedHashMap<Integer, TradePSItem> newItems = new LinkedHashMap<Integer, TradePSItem>();
+			for(int itemObjIds : items.keySet())
 			{
-				if(item != tradeItem)
-					newItems.put(item, items.get(item));
+				if(itemObjId != itemObjIds)
+					newItems.put(itemObjIds, items.get(itemObjIds));
 			}
 			this.items = newItems;
 		}
+	}
+
+	/**
+	 * @param itemId
+	 *            return tradeItem
+	 */
+	public TradePSItem getTradeItemById(int itemObjId)
+	{
+		if(items.containsKey(itemObjId))
+			return items.get(itemObjId);
+		return null;
 	}
 
 	/**
@@ -105,19 +116,5 @@ public class PrivateStore
 	public String getStoreMessage()
 	{
 		return storeMessage;
-	}
-
-	/**
-	 * @param itemId
-	 * return tradeItem
-	 */
-	public TradeItem getTradeItemById(int itemId)
-	{
-		for(TradeItem tradeItem : items.keySet())
-		{
-			if(tradeItem.getItemId() == itemId)
-				return tradeItem;
-		}
-		return null;
 	}
 }
