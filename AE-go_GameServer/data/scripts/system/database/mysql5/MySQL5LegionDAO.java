@@ -361,6 +361,7 @@ public class MySQL5LegionDAO extends LegionDAO
 				{
 					legionEmblem.setEmblem(resultSet.getInt("emblem_id"), resultSet.getInt("color_r"), resultSet
 						.getInt("color_g"), resultSet.getInt("color_b"));
+					legionEmblem.setDefaultEmblem(false);
 				}
 			}
 		});
