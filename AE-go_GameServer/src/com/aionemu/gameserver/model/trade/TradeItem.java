@@ -20,22 +20,21 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
  * @author ATracer
- *
+ * 
  */
 public class TradeItem
 {
-	private int itemId;
-	private int count;
-	private ItemTemplate itemTemplate;
-	
+	private int				itemId;
+	private int				count;
+	private ItemTemplate	itemTemplate;
+
 	public TradeItem(int itemId, int count)
 	{
 		super();
 		this.itemId = itemId;
 		this.count = count;
 	}
-	
-	
+
 	/**
 	 * @return the itemTemplate
 	 */
@@ -44,15 +43,14 @@ public class TradeItem
 		return itemTemplate;
 	}
 
-
 	/**
-	 * @param itemTemplate the itemTemplate to set
+	 * @param itemTemplate
+	 *            the itemTemplate to set
 	 */
 	public void setItemTemplate(ItemTemplate itemTemplate)
 	{
 		this.itemTemplate = itemTemplate;
 	}
-
 
 	/**
 	 * @return the itemId
@@ -61,11 +59,21 @@ public class TradeItem
 	{
 		return itemId;
 	}
+
 	/**
 	 * @return the count
 	 */
 	public int getCount()
 	{
 		return count;
+	}
+
+	/**
+	 * This method will decrease the current count
+	 */
+	public void decreaseCount(int decreaseCount)
+	{
+		if(decreaseCount < count)
+			this.count = count - decreaseCount;
 	}
 }

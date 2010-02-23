@@ -122,8 +122,8 @@ public abstract class PlayerInfo extends AionServerPacket
 		writeD(buf, 0);// unk 0x6f
 		writeD(buf, pbd.getLevel());// lvl confirmed
 		writeD(buf, -1);// unk -1 -1 = played 0 = neverplayed
-		writeD(buf, 0);// unk 0
-		writeD(buf, 0);// unk 41549824 can be 0
+		writeD(buf, 0);// Legion ID
+		writeD(buf, 0);// Legion Name WriteS NOT writeD
 		writeD(buf, 0);// unk 1 can be 0
 		writeD(buf, 0);// unk 25118405 elyos : 25642769
 		writeD(buf, 0);// unk 1

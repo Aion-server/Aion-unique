@@ -22,6 +22,7 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PrivateStore;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
+import com.aionemu.gameserver.model.trade.TradeItem;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.InventoryPacket;
 
@@ -47,12 +48,13 @@ public class SM_PRIVATE_STORE extends InventoryPacket
 			
 			writeD(buf, storePlayer.getObjectId());
 			writeH(buf, store.getSoldItems().size());
-			for(Item item : store.getSoldItems().keySet())
+			for(TradeItem tradeItem : store.getSoldItems().keySet())
 			{
-				int price = store.getSoldItems().get(item);
+				Item item = storePlayer.getInventory().getItemByObjId(tradeItem.getItemId());
+				int price = store.getSoldItems().get(tradeItem);
 				writeD(buf, item.getObjectId());
 				writeD(buf, item.getItemTemplate().getItemId());
-				writeH(buf, item.getItemCount());
+				writeH(buf, tradeItem.getCount());
 				writeD(buf, price);
 
 				ItemTemplate itemTemplate = item.getItemTemplate();

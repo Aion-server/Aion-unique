@@ -68,8 +68,6 @@ public class LegionService
 {
 	private CacheMap<Integer, Legion>		legionCache			= CacheMapFactory
 																	.createSoftCacheMap("Legion", "legion");
-	private CacheMap<Integer, LegionMember>	legionMembersCache	= CacheMapFactory.createSoftCacheMap("PlayerObjId",
-																	"legionMember");
 
 	private IDFactory						aionObjectsIDFactory;
 	private World							world;
@@ -183,7 +181,6 @@ public class LegionService
 	 */
 	public boolean storeNewLegionMember(int playerObjId, LegionMember legionMember)
 	{
-		legionMembersCache.put(playerObjId, legionMember);
 		return DAOManager.getDAO(LegionMemberDAO.class).saveNewLegionMember(playerObjId, legionMember);
 	}
 
@@ -222,6 +219,40 @@ public class LegionService
 	}
 
 	/**
+	 * Completely removes legion member from database
+	 * 
+	 * @param playerObjId
+	 *            Player Object Id
+	 */
+	public void deleteLegionMember(int playerObjId)
+	{
+		DAOManager.getDAO(LegionMemberDAO.class).deleteLegionMember(playerObjId);
+	}
+
+	/**
+	 * Completely removes legion from database
+	 * 
+	 * @param legionId
+	 *            id of legion to delete from db
+	 */
+	public void deleteLegionFromDB(int legionId)
+	{
+		if(legionCache.contains(legionId))
+			this.legionCache.remove(legionId);
+		DAOManager.getDAO(LegionDAO.class).deleteLegion(legionId);
+	}
+
+	/**
+	 * Gets a legion ONLY if he is in the cache
+	 * 
+	 * @return Legion or null if not cached
+	 */
+	public Legion getCachedLegion(int legionId)
+	{
+		return legionCache.get(legionId);
+	}
+
+	/**
 	 * Returns the legion with given legionId (if such legion exists)
 	 * 
 	 * @param legionId
@@ -232,7 +263,7 @@ public class LegionService
 		/**
 		 * First check if our legion already exists in our Cache
 		 */
-		Legion legion = legionCache.get(legionId);
+		Legion legion = getCachedLegion(legionId);
 		if(legion != null)
 			return legion;
 
@@ -267,7 +298,8 @@ public class LegionService
 		 * Load legion ranking system if not already set
 		 */
 		loadLegionRanking();
-		legion.setLegionRank(legionRanking.get(legion.getLegionId()));
+		if(legionRanking.size() > 0)
+			legion.setLegionRank(legionRanking.get(legion.getLegionId()));
 
 		/**
 		 * Set LegionService
@@ -291,6 +323,7 @@ public class LegionService
 	public LegionMember getLegionMember(Player player)
 	{
 		/** First check if our legion member already exists in our Cache **/
+		/**
 		LegionMember legionMember = legionMembersCache.get(player.getObjectId());
 		if(legionMember != null)
 		{
@@ -298,11 +331,12 @@ public class LegionService
 				return null;
 			return legionMember;
 		}
+		**/
 
-		legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(player, this);
+		LegionMember legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(player, this);
 		if(legionMember != null)
 		{
-			legionMembersCache.put(player.getObjectId(), legionMember);
+			//legionMembersCache.put(player.getObjectId(), legionMember);
 			if(checkDisband(legionMember.getLegion()))
 				return null;
 		}
@@ -321,10 +355,6 @@ public class LegionService
 		{
 			if((new Date().getTime() / 1000) > legion.getDisbandTime())
 			{
-				for(Integer memberObjId : legion.getLegionMembers())
-				{
-					legionMembersCache.remove(memberObjId);
-				}
 				updateAfterDisbandLegion(legion);
 				deleteLegionFromDB(legion.getLegionId());
 				return true;
@@ -362,39 +392,6 @@ public class LegionService
 	}
 
 	/**
-	 * Completely removes legion member from database
-	 * 
-	 * @param playerObjId
-	 *            Player Object Id
-	 */
-	public void deleteLegionMember(int playerObjId)
-	{
-		legionMembersCache.remove(playerObjId);
-		DAOManager.getDAO(LegionMemberDAO.class).deleteLegionMember(playerObjId);
-	}
-
-	/**
-	 * Completely removes legion from database
-	 * 
-	 * @param legionId
-	 *            id of legion to delete from db
-	 */
-	public void deleteLegionFromDB(int legionId)
-	{
-		DAOManager.getDAO(LegionDAO.class).deleteLegion(legionId);
-	}
-
-	/**
-	 * Gets a legion ONLY if he is in the cache
-	 * 
-	 * @return Legion or null if not cached
-	 */
-	public Legion getCachedLegion(int legionId)
-	{
-		return legionCache.get(legionId);
-	}
-
-	/**
 	 * @param legion
 	 */
 	public void renewAnnouncementList(Legion legion)
@@ -402,6 +399,11 @@ public class LegionService
 		legion.setAnnouncementList(DAOManager.getDAO(LegionDAO.class).loadAnnouncementList(legion.getLegionId()));
 	}
 
+	/**
+	 * This method will handle when disband request is called
+	 * @param npc
+	 * @param activePlayer
+	 */
 	public void disbandLegion(final Creature npc, final Player activePlayer)
 	{
 		final LegionMember legionMember = activePlayer.getLegionMember();
@@ -494,12 +496,12 @@ public class LegionService
 			/**
 			 * Create a LegionMember, add it to the legion and bind it to a Player
 			 */
-			LegionMember legionMember = new LegionMember(activePlayer.getObjectId(), legion, LegionRank.BRIGADE_GENERAL); // Leader
 			if(legion.addLegionMember(activePlayer.getObjectId()))
 			{
-				activePlayer.setLegionMember(legionMember);
+				activePlayer.setLegionMember(new LegionMember(activePlayer.getObjectId(), legion,
+					LegionRank.BRIGADE_GENERAL));
 				storeNewLegion(legion);
-				storeNewLegionMember(activePlayer.getObjectId(), legionMember);
+				storeNewLegionMember(activePlayer.getObjectId(), activePlayer.getLegionMember());
 
 				/**
 				 * Send required packets
@@ -511,8 +513,9 @@ public class LegionService
 						.getColor_b()));
 				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_EDIT(0x08));
 
-				PacketSendUtility.broadcastPacket(activePlayer, new SM_LEGION_UPDATE_TITLE(activePlayer.getObjectId(),
-					legion.getLegionId(), legion.getLegionName(), legionMember.getRank().getRankId()), true);
+				PacketSendUtility.broadcastPacket(activePlayer,
+					new SM_LEGION_UPDATE_TITLE(activePlayer.getObjectId(), legion.getLegionId(),
+						legion.getLegionName(), activePlayer.getLegionMember().getRank().getRankId()), true);
 
 				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_MEMBERLIST(loadLegionMemberExList(legion)));
 				PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CREATED(legion.getLegionName()));
@@ -573,11 +576,11 @@ public class LegionService
 					else
 					{
 						int playerObjId = targetPlayer.getObjectId();
-						targetPlayer.setLegionMember(new LegionMember(playerObjId, legion, LegionRank.LEGIONARY));
 						if(legion.addLegionMember(playerObjId))
 						{
-							// Save the new legion member
-							storeNewLegionMember(playerObjId, targetPlayer.getLegionMember());
+							// Bind LegionMember to Player
+							targetPlayer.setLegionMember(new LegionMember(playerObjId, legion, LegionRank.LEGIONARY));
+
 							// Tell all legion members a player joined the legion
 							PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.NEW_MEMBER_JOINED(targetPlayer
 								.getName()));
@@ -605,6 +608,9 @@ public class LegionService
 									.LEGION_DISPLAY_ANNOUNCEMENT(currentAnnouncement.getValue(),
 										(int) (currentAnnouncement.getKey().getTime() / 1000), 2));
 							}
+
+							// Save the new legion member
+							storeNewLegionMember(playerObjId, targetPlayer.getLegionMember());
 						}
 						else
 						{
@@ -663,12 +669,12 @@ public class LegionService
 			PacketSendUtility.broadcastPacket(activePlayer, new SM_LEGION_UPDATE_TITLE(activePlayer.getObjectId(), 0,
 				"", legionMember.getRank().getRankId()), true);
 			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_LEAVE_MEMBER(1300241, 0, legion.getLegionName()));
+			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_LEAVE_MEMBER(900699, activePlayer
+				.getObjectId(), activePlayer.getName()), world);
+
 			activePlayer.resetLegionMember();
 			legion.deleteLegionMember(activePlayer.getObjectId());
 			deleteLegionMember(activePlayer.getObjectId());
-
-			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_LEAVE_MEMBER(900699, activePlayer
-				.getObjectId(), activePlayer.getName()), world);
 		}
 	}
 
