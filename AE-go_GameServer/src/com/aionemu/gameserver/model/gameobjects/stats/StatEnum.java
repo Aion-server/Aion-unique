@@ -214,36 +214,41 @@ public enum StatEnum
 
 	public StatEnum getMainOrSubHandStat (ItemSlot slot) 
 	{
-		if (slot==null)
+		if(slot == null)
 			return this;
-		switch (this) {
+		switch(this)
+		{
 			case PHYSICAL_ATTACK:
 			case POWER:
-				switch (slot) {
+				switch(slot)
+				{
 					case SUB_HAND:
 						return OFF_HAND_POWER;
-					default:
+					case MAIN_HAND:
 						return MAIN_HAND_POWER;
 				}
 			case PHYSICAL_ACCURACY:
-				switch (slot) {
+				switch(slot)
+				{
 					case SUB_HAND:
 						return OFF_HAND_ACCURACY;
-					default:
+					case MAIN_HAND:
 						return MAIN_HAND_ACCURACY;
 				}
 			case PHYSICAL_CRITICAL:
-				switch (slot) {
+				switch(slot)
+				{
 					case SUB_HAND:
 						return OFF_HAND_CRITICAL;
-					default:
+					case MAIN_HAND:
 						return MAIN_HAND_CRITICAL;
 				}
 			case HIT_COUNT:
-				switch (slot) {
+				switch(slot)
+				{
 					case SUB_HAND:
 						return OFF_HAND_HITS;
-					default:
+					case MAIN_HAND:
 						return MAIN_HAND_HITS;
 				}
 			default:

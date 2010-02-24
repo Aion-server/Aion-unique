@@ -157,7 +157,7 @@ public class StatFunctions
 			int totalMin = ags.getCurrentStat(StatEnum.MIN_DAMAGES);
 			int totalMax = ags.getCurrentStat(StatEnum.MAX_DAMAGES);
 			int average = Math.round((totalMin + totalMax)/2);
-			int mainHandAttack = ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
+			int mainHandAttack = ags.getBaseStat(StatEnum.MAIN_HAND_POWER);
 
 			Equipment equipment = ((Player)attacker).getEquipment();
 
@@ -244,7 +244,7 @@ public class StatFunctions
 		int totalMin = ags.getCurrentStat(StatEnum.MIN_DAMAGES);
 		int totalMax = ags.getCurrentStat(StatEnum.MAX_DAMAGES);
 		int average = Math.round((totalMin + totalMax)/2);
-		int offHandAttack = ags.getCurrentStat(StatEnum.OFF_HAND_POWER);
+		int offHandAttack = ags.getBaseStat(StatEnum.OFF_HAND_POWER);
 
 		Equipment equipment = ((Player)attacker).getEquipment();
 
@@ -427,49 +427,98 @@ public class StatFunctions
 
 	}
 
-	public static int calculatePhysicalDodgeRate( Creature attacker, Creature attacked )
+	public static int calculatePhysicalDodgeRate(Creature attacker, Creature attacked)
 	{
-		int dodgeRate = ( attacked.getGameStats().getCurrentStat(StatEnum.EVASION) - attacker.getGameStats().getCurrentStat(StatEnum.ACCURACY) ) / 10;
-		//maximal dodge rate
-		if( dodgeRate > 30)
+		int accuracy;
+
+		if(attacker instanceof Player && ((Player) attacker).getEquipment().getOffHandWeaponType() != null)
+			accuracy = Math.round((attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_ACCURACY) + attacker
+				.getGameStats().getCurrentStat(StatEnum.OFF_HAND_ACCURACY)) / 2);
+		else
+			accuracy = attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_ACCURACY);
+
+		int dodgeRate = (attacked.getGameStats().getCurrentStat(StatEnum.EVASION) - accuracy) / 10;
+		// maximal dodge rate
+		if(dodgeRate > 30)
 			dodgeRate = 30;
+
+		if(dodgeRate <= 0)
+			return 1;
 
 		return dodgeRate;
 	}
 
-	public static int calculatePhysicalParryRate( Creature attacker, Creature attacked )
+	public static int calculatePhysicalParryRate(Creature attacker, Creature attacked)
 	{
-		int parryRate = ( attacked.getGameStats().getCurrentStat(StatEnum.PARRY) - attacker.getGameStats().getCurrentStat(StatEnum.ACCURACY) ) / 10;
-		//maximal parry rate
-		if( parryRate > 40)
+		int accuracy;
+
+		if(attacker instanceof Player && ((Player) attacker).getEquipment().getOffHandWeaponType() != null)
+			accuracy = Math.round((attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_ACCURACY) + attacker
+				.getGameStats().getCurrentStat(StatEnum.OFF_HAND_ACCURACY)) / 2);
+		else
+			accuracy = attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_ACCURACY);
+
+		int parryRate = (attacked.getGameStats().getCurrentStat(StatEnum.PARRY) - accuracy) / 10;
+		// maximal parry rate
+		if(parryRate > 40)
 			parryRate = 40;
+
+		if(parryRate <= 0)
+			return 1;
 
 		return parryRate;
 	}
 
-	public static int calculatePhysicalBlockRate( Creature attacker, Creature attacked )
+	public static int calculatePhysicalBlockRate(Creature attacker, Creature attacked)
 	{
-		int blockRate = ( attacked.getGameStats().getCurrentStat(StatEnum.BLOCK) - attacker.getGameStats().getCurrentStat(StatEnum.ACCURACY) ) / 10;
-		//maximal block rate
-		if( blockRate > 50 )
+		int accuracy;
+
+		if(attacker instanceof Player && ((Player) attacker).getEquipment().getOffHandWeaponType() != null)
+			accuracy = Math.round((attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_ACCURACY) + attacker
+				.getGameStats().getCurrentStat(StatEnum.OFF_HAND_ACCURACY)) / 2);
+		else
+			accuracy = attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_ACCURACY);
+
+		int blockRate = (attacked.getGameStats().getCurrentStat(StatEnum.BLOCK) - accuracy) / 10;
+		// maximal block rate
+		if(blockRate > 50)
 			blockRate = 50;
+
+		if(blockRate <= 0)
+			return 1;
 
 		return blockRate;
 	}
 
-	public static double calculatePhysicalCriticalRate( Creature attacker )
+	public static double calculatePhysicalCriticalRate(Creature attacker)
 	{
-		double criticalRate = 75d * Math.sin( ( ( 900 - attacker.getGameStats().getCurrentStat(StatEnum.PHYSICAL_CRITICAL) ) / 1800 ) * Math.PI );
-		//minimal critical rate
-		if(criticalRate < 0.1d)
-			criticalRate = 0.1d;
+		int critical;
 
-		return criticalRate * 100d;
+		if(attacker instanceof Player && ((Player) attacker).getEquipment().getOffHandWeaponType() != null)
+			critical = Math.round((attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_CRITICAL) + attacker
+				.getGameStats().getCurrentStat(StatEnum.OFF_HAND_CRITICAL)) / 2);
+		else
+			critical = attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_CRITICAL);
+
+		double criticalRate;
+
+		if(critical <= 440)
+			criticalRate = critical / 10;
+		else if(critical <= 600)
+			criticalRate = (440 / 10) + ((critical - 400) / 20);
+		else
+			criticalRate = (440 / 10) + (160 / 20) + ((critical - 600) / 40);
+		// minimal critical rate
+		if(criticalRate < 1d)
+			criticalRate = 1d;
+
+		return criticalRate;
 	}
 
-	public static int calculateMagicalResistRate( Creature attacker, Creature attacked )
+	public static int calculateMagicalResistRate(Creature attacker, Creature attacked)
 	{
-		int resistRate = Math.round((attacked.getGameStats().getCurrentStat(StatEnum.MAGICAL_RESIST) - attacker.getGameStats().getCurrentStat(StatEnum.MAGICAL_ACCURACY)) / 10);
+		int resistRate = Math.round((attacked.getGameStats().getCurrentStat(StatEnum.MAGICAL_RESIST) - attacker
+			.getGameStats().getCurrentStat(StatEnum.MAGICAL_ACCURACY)) / 10);
 
 		return resistRate;
 	}

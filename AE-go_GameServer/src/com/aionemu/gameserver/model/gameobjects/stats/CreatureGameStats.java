@@ -305,16 +305,19 @@ public class CreatureGameStats<T extends Creature>
 			}
 			List<ItemSlot> oSlots = ItemSlot.getSlotsFor(slots);
 
-			for (StatModifier modifier : modifiers.getValue())
-			{	
-				for (ItemSlot slot : oSlots)
+			for(StatModifier modifier : modifiers.getValue())
+			{
+				for(ItemSlot slot : oSlots)
 				{
 					StatEnum statToModify = modifier.getStat().getMainOrSubHandStat(slot);
-					if (!orderedModifiers.containsKey(statToModify))
+					if(!orderedModifiers.containsKey(statToModify))
 					{
 						orderedModifiers.put(statToModify, new StatModifiers());
 					}
 					orderedModifiers.get(statToModify).add(modifier);
+					// avoid applying non-dual weapon stats twice and more
+					if(statToModify == modifier.getStat())
+						break;
 				}
 			}
 		}

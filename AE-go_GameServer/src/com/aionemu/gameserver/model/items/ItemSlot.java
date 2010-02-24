@@ -47,10 +47,10 @@ public enum ItemSlot
 	MAIN_OFF_HAND(1<<17),
 	SUB_OFF_HAND(1<<18),
 	//combo
-	MAIN_OR_SUB(MAIN_HAND.slotIdMask & SUB_HAND.slotIdMask), // 3
-	EARRING_RIGHT_OR_LEFT(EARRINGS_LEFT.slotIdMask & EARRINGS_RIGHT.slotIdMask), //192
-	RING_RIGHT_OR_LEFT(RING_LEFT.slotIdMask & RING_RIGHT.slotIdMask), //768
-	SHARD_RIGHT_OR_LEFT(POWER_SHARD_LEFT.slotIdMask & POWER_SHARD_RIGHT.slotIdMask), //24576
+	MAIN_OR_SUB(MAIN_HAND.slotIdMask | SUB_HAND.slotIdMask), // 3
+	EARRING_RIGHT_OR_LEFT(EARRINGS_LEFT.slotIdMask | EARRINGS_RIGHT.slotIdMask), //192
+	RING_RIGHT_OR_LEFT(RING_LEFT.slotIdMask | RING_RIGHT.slotIdMask), //768
+	SHARD_RIGHT_OR_LEFT(POWER_SHARD_LEFT.slotIdMask | POWER_SHARD_RIGHT.slotIdMask), //24576
 	TORSO_GLOVE_FOOT_SHOULDER_LEG(0);//TODO
 
 	private int slotIdMask;
@@ -68,7 +68,6 @@ public enum ItemSlot
 	public static List<ItemSlot> getSlotsFor(int slotIdMask)
 	{
 		List<ItemSlot> slots = new ArrayList<ItemSlot>();
-		ItemSlot equalSlot = null;
 		for(ItemSlot itemSlot : values())
 		{
 			int sumMask = itemSlot.slotIdMask & slotIdMask;
@@ -76,20 +75,9 @@ public enum ItemSlot
 			 * possible values in this check
 			 * - one of combo slots (MAIN, RIGHT_RING etc)
 			 */
-			if(sumMask > 0 && sumMask < slotIdMask)
+			if(sumMask > 0 && sumMask <= slotIdMask && itemSlot!=ItemSlot.MAIN_OR_SUB)// TODO avoid adding any combos to slot list
 				slots.add(itemSlot);
-			/**
-			 * possible values for equalSlot:
-			 * - onlyone slots (TORSO etc)
-			 * - combo slots (MAIN_AND_SUB)
-			 */
-			if(sumMask == slotIdMask)
-				equalSlot = itemSlot;
 		}
-		
-		// add "onlyone" slots and don't add combo slots
-		if(slots.size() == 0 && equalSlot != null)
-			slots.add(equalSlot);
 		
 		if(slots.size() == 0)
 			throw new IllegalArgumentException("Invalid provided slotIdMask "+slotIdMask);
