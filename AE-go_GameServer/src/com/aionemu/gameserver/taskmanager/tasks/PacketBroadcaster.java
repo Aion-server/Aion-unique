@@ -19,6 +19,7 @@ package com.aionemu.gameserver.taskmanager.tasks;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.taskmanager.AbstractPeriodicTaskManager;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author lord_rex and MrPoke
@@ -88,11 +89,18 @@ public class PacketBroadcaster extends AbstractPeriodicTaskManager<Creature>
 
 		protected abstract void sendPacket(Creature creature);
 
-		protected final void trySendPacket(Creature creature, byte mask)
+		protected final void trySendPacket(final Creature creature, byte mask)
 		{
 			if((mask & mask()) == mask())
 			{
-				sendPacket(creature);
+				ThreadPoolManager.getInstance().scheduleTaskManager((new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						sendPacket(creature);
+					}
+				}), 0);
 
 				creature.removePacketBroadcastMask(this);
 			}

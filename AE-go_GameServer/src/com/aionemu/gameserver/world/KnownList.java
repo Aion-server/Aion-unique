@@ -42,7 +42,7 @@ public class KnownList implements Iterable<VisibleObject>
 	private static final int						playerVisibilityDistance	= 90;
 
 	// how far any visible object will see other visible object
-	private static final int						npcVisibilityDistance		= 70;
+	private static final int						npcVisibilityDistance		= 80;
 
 	/**
 	 * Owner of this KnownList.
@@ -162,6 +162,9 @@ public class KnownList implements Iterable<VisibleObject>
 	 */
 	private void findVisibleObjects()
 	{
+		if(owner == null || !owner.isSpawned())
+			return;
+		
 		Iterator<MapRegion> neighboursIt = owner.getActiveRegion().getNeighboursIterator();
 
 		while(neighboursIt.hasNext())

@@ -64,6 +64,11 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 	 * AI scheduled threads pool
 	 */
 	private ScheduledThreadPoolExecutorAE	aiScheduledThreadPool;
+	
+	/**
+	 * KnownListUpdate scheduled threads pool
+	 */
+	private ScheduledThreadPoolExecutorAE	taskManagerThreadPool;
 
 	/**
 	 * Thread manager for loginServer packets
@@ -100,6 +105,9 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 		loginServerPacketsThreadPool = new ThreadPoolExecutor(4, Integer.MAX_VALUE, 5L, TimeUnit.SECONDS,
 			new LinkedBlockingQueue<Runnable>(), new PriorityThreadFactory("Login Server Packet Pool",
 				Thread.NORM_PRIORITY + 3));
+		
+		taskManagerThreadPool = new ScheduledThreadPoolExecutorAE(10, new PriorityThreadFactory(
+				"ScheduledThreadPool", Thread.NORM_PRIORITY));
 	}
 
 	/**
@@ -317,6 +325,32 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 	}
 
 	/**
+	 * TaskManager schedulers
+	 * 
+	 * @param <T>
+	 *            Template for Runnable
+	 * @param r
+	 *            runnable task
+	 * @param delay
+	 *            wait before task execution
+	 * @return scheduled task
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends Runnable> ScheduledFuture<T> scheduleTaskManager(T r, long delay)
+	{
+		try
+		{
+			if(delay < 0)
+				delay = 0;
+			return (ScheduledFuture<T>) taskManagerThreadPool.schedule(r, delay, TimeUnit.MILLISECONDS);
+		}
+		catch(RejectedExecutionException e)
+		{
+			return null;
+		}
+	}	
+	
+	/**
 	 * Custom implementation of ThreadFactory to manage priorities
 	 * 
 	 * @author -Nemesiss-
@@ -373,6 +407,7 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 			effectsScheduledThreadPool.awaitTermination(2, TimeUnit.SECONDS);
 			aiScheduledThreadPool.awaitTermination(2, TimeUnit.SECONDS);
 			loginServerPacketsThreadPool.awaitTermination(2, TimeUnit.SECONDS);
+			taskManagerThreadPool.awaitTermination(2,TimeUnit.SECONDS);
 			log.info("All ThreadPools are stopped now.");
 		}
 		catch(InterruptedException e)

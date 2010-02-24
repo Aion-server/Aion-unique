@@ -184,7 +184,7 @@ public abstract class VisibleObject extends AionObject
 	 * Update knownlist Impl.
 	 * This is the function, what is broadcasted.
 	 */
-	public void updateKnowlistImpl()
+	public void updateKnownlistImpl()
 	{
 		getKnownList().doUpdate();
 	}
@@ -202,7 +202,7 @@ public abstract class VisibleObject extends AionObject
 	 * Clear knownlist Impl.
 	 * This is the function, what is broadcasted.
 	 */
-	public void clearKnowlistImpl()
+	public void clearKnownlistImpl()
 	{
 		getKnownList().clear();
 	}

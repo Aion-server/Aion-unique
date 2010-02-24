@@ -18,6 +18,7 @@ package com.aionemu.gameserver.taskmanager.tasks;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.taskmanager.AbstractPeriodicTaskManager;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author sphinx
@@ -45,17 +46,17 @@ public class KnownListUpdateTask extends AbstractPeriodicTaskManager<VisibleObje
 		KNOWNLIST_UPDATE
 		{
 			@Override
-			public void knownListUpdate(VisibleObject visibleObject)
+			public void knownListTask(VisibleObject visibleObject)
 			{
-				visibleObject.updateKnowlistImpl();
+				visibleObject.updateKnownlistImpl();
 			}
 		},
 		KNOWNLIST_CLEAR
 		{
 			@Override
-			public void knownListUpdate(VisibleObject visibleObject)
+			public void knownListTask(VisibleObject visibleObject)
 			{
-				visibleObject.clearKnowlistImpl();
+				visibleObject.clearKnownlistImpl();
 			}
 		},
 
@@ -73,14 +74,21 @@ public class KnownListUpdateTask extends AbstractPeriodicTaskManager<VisibleObje
 			return MASK;
 		}
 
-		protected abstract void knownListUpdate(VisibleObject visibleObject);
+		protected abstract void knownListTask(VisibleObject visibleObject);
 
-		protected final void tryUpdateKnownList(VisibleObject visibleObject, byte mask)
+		protected final void tryUpdateKnownList(final VisibleObject visibleObject, byte mask)
 		{
 			if((mask & mask()) == mask())
 			{
-				knownListUpdate(visibleObject);
-
+				ThreadPoolManager.getInstance().scheduleTaskManager((new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						knownListTask(visibleObject);
+					}
+				}), 0);
+				
 				visibleObject.removeKnownListUpdateMask(this);
 			}
 		}
