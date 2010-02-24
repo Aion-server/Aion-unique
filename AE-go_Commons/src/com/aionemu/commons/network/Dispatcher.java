@@ -216,7 +216,6 @@ public abstract class Dispatcher extends Thread
 		}
 		else if(numRead == 0)
 		{
-			log.info("Read 0");
 			return;
 		}
 
