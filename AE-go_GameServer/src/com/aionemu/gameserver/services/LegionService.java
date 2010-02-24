@@ -471,7 +471,6 @@ public class LegionService
 					// TODO: Can't disband legion with fortress or hideout!!
 					int unixTime = (int) ((System.currentTimeMillis() / 1000) + LegionConfig.LEGION_DISBAND_TIME);
 					legion.setDisbandTime(unixTime);
-					storeLegion(legion);
 					updateMembersOfDisbandLegion(legion, unixTime);
 				}
 
@@ -798,13 +797,11 @@ public class LegionService
 						{
 							// Demote Brigade General to Centurion
 							activePlayer.getLegionMember().setRank(LegionRank.CENTURION);
-							storeLegionMember(legionMember);
 							PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_UPDATE_MEMBER(activePlayer,
 								0, ""), world);
 
 							// Promote member to Brigade General
 							legionMember.setRank(LegionRank.BRIGADE_GENERAL);
-							storeLegionMember(legionMember);
 							PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_UPDATE_MEMBER(targetPlayer,
 								1300273, targetPlayer.getName()), world);
 						}
@@ -877,8 +874,6 @@ public class LegionService
 				legionMember.setRank(LegionRank.LEGIONARY);
 				msgId = 1300268;
 			}
-			/** Save new rank in database **/
-			storeLegionMember(legionMember);
 
 			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_UPDATE_MEMBER(targetPlayer, msgId,
 				targetPlayer.getName()), world);
@@ -919,7 +914,6 @@ public class LegionService
 		if(isValidSelfIntro(newSelfIntro))
 		{
 			legionMember.setSelfIntro(newSelfIntro);
-			storeLegionMember(legionMember);
 			PacketSendUtility.broadcastPacketToLegion(legionMember.getLegion(), new SM_LEGION_UPDATE_SELF_INTRO(
 				activePlayer.getObjectId(), newSelfIntro), world);
 			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_WRITE_INTRO_DONE());
@@ -935,7 +929,6 @@ public class LegionService
 	{
 		if(legion.setLegionarPermissions(lP2, cP1, cP2))
 		{
-			storeLegion(legion);
 			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_EDIT(0x02, legion), world);
 		}
 	}
@@ -971,7 +964,6 @@ public class LegionService
 		{
 			activePlayer.getInventory().decreaseKinah(levelKinahPrice);
 			legion.setLegionLevel(legion.getLegionLevel() + 1);
-			storeLegion(legion);
 			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_EDIT(0x00, legion), world);
 			PacketSendUtility.broadcastPacketToLegion(legion, SM_SYSTEM_MESSAGE
 				.LEGION_LEVEL_UP(legion.getLegionLevel()), world);
@@ -999,7 +991,6 @@ public class LegionService
 		{
 			final LegionMember targetLegionMember = targetPlayer.getLegionMember();
 			targetLegionMember.setNickname(newNickname);
-			storeLegionMember(targetLegionMember);
 			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_UPDATE_NICKNAME(targetPlayer.getObjectId(),
 				newNickname), world);
 		}
@@ -1205,8 +1196,6 @@ public class LegionService
 				public void acceptRequest(Creature requester, Player responder)
 				{
 					legion.setDisbandTime(0);
-					storeLegion(legion);
-
 					PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_EDIT(0x07), world);
 					updateMembersOfRecreateLegion(legion);
 				}
@@ -1299,7 +1288,6 @@ public class LegionService
 	public void addContributionPoints(Legion legion, int pointsGained)
 	{
 		legion.addContributionPoints(pointsGained);
-		storeLegion(legion);
 		PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_EDIT(0x03, legion), world);
 		reloadLegionRanking();
 	}

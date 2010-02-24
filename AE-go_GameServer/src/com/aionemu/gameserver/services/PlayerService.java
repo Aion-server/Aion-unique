@@ -53,6 +53,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.TitleChangeListener;
 import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.model.items.ItemSlot;
+import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionMember;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -332,8 +333,13 @@ public class PlayerService
 		player.setClientConnection(null);
 
 		if(player.isLegionMember())
-			PacketSendUtility.broadcastPacketToLegion(player.getLegion(),
+		{
+			final Legion legion = player.getLegion();
+			PacketSendUtility.broadcastPacketToLegion(legion,
 				new SM_LEGION_UPDATE_MEMBER(player, 0, ""), world);
+			legionService.storeLegion(legion);
+			legionService.storeLegionMember(player.getLegionMember());
+		}
 
 		player.getController().delete();
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);
