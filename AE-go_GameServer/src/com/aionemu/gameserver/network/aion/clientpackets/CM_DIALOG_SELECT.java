@@ -23,8 +23,6 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.ClassChangeService;
-import com.aionemu.gameserver.services.CubeExpandService;
-import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -45,10 +43,6 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	@SuppressWarnings("unused")
 	private int		lastPage;
 	private int		questId;
-	@Inject
-	LegionService	legionService;
-	@Inject
-	CubeExpandService cubeExpandService;
 	@Inject
 	World world;
 
@@ -99,7 +93,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 		if(object instanceof Creature)
 		{
 			Creature creature = (Creature) object;
-			creature.getController().onDialogSelect(dialogId, player, questId, legionService, cubeExpandService);
+			creature.getController().onDialogSelect(dialogId, player, questId);
 		}
 		// log.info("id: "+targetObjectId+" dialog type: " + unk1 +" other: " + unk2);
 	}

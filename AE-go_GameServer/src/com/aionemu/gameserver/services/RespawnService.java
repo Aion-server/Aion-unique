@@ -16,6 +16,9 @@
  */
 package com.aionemu.gameserver.services;
 
+import java.util.concurrent.Future;
+
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTime;
@@ -30,8 +33,28 @@ import com.aionemu.gameserver.world.World;
  */
 public class RespawnService
 {
-	private static RespawnService instance = new RespawnService();
-	
+	private static final int DECAY_DEFAULT_DELAY = 20000;
+
+	/**
+	 * 
+	 * @param npc
+	 * @return
+	 */
+	public Future<?> scheduleDecayTask(final Npc npc)
+	{
+		return ThreadPoolManager.getInstance().schedule(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				npc.getController().onDespawn(false);
+			}
+		}, DECAY_DEFAULT_DELAY);
+	}
+	/**
+	 * 
+	 * @param visibleObject
+	 */
 	public void scheduleRespawnTask(final VisibleObject visibleObject)
 	{
 		final World world = visibleObject.getPosition().getWorld();
@@ -75,10 +98,5 @@ public class RespawnService
 			}
 			
 		}, interval * 1000);
-	}
-	
-	public static RespawnService getInstance()
-	{
-		return instance;
 	}
 }

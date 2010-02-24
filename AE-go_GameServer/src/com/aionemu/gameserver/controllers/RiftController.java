@@ -24,8 +24,9 @@ import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RIFT_STATUS;
-import com.aionemu.gameserver.services.DecayService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.google.inject.Inject;
+import com.google.inject.assistedinject.Assisted;
 
 /**
  * @author ATracer
@@ -37,8 +38,8 @@ public class RiftController extends NpcController
 	private SpawnTemplate slaveSpawnTemplate;
 	private Npc slave;
 	
-	private int maxEntries;
-	private int maxLevel;
+	private Integer maxEntries;
+	private Integer maxLevel;
 	
 	private int usedEntries;
 	private boolean isAccepting;
@@ -55,7 +56,9 @@ public class RiftController extends NpcController
 	 * 
 	 * @param slaveSpawnTemplate
 	 */
-	public RiftController(Npc slave, int maxEntries, int maxLevel)
+	@Inject
+	public RiftController(@Assisted Npc slave, @Assisted("maxEntries") Integer maxEntries,
+		@Assisted("maxLevel") Integer maxLevel)
 	{
 		this.slave = slave;
 		this.slaveSpawnTemplate = slave.getSpawn();
@@ -91,8 +94,8 @@ public class RiftController extends NpcController
 				{
 					isAccepting = false;
 					
-					DecayService.getInstance().scheduleDecayTask(getOwner());
-					DecayService.getInstance().scheduleDecayTask(slave);
+					sp.getRespawnService().scheduleDecayTask(getOwner());
+					sp.getRespawnService().scheduleDecayTask(slave);
 				}
 				PacketSendUtility.broadcastPacket(getOwner(), 
 					new SM_RIFT_STATUS(getOwner().getObjectId(), usedEntries, maxEntries, maxLevel));

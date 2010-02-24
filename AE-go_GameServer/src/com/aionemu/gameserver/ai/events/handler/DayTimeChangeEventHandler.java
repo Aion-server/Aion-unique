@@ -22,7 +22,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.templates.spawn.SpawnGroup;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTime;
-import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.gametime.DayTime;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 
@@ -54,7 +53,7 @@ public class DayTimeChangeEventHandler extends EventHandler
 		DayTime dayTime = GameTimeManager.getGameTime().getDayTime();
 		if(spawnTime.isAllowedDuring(dayTime) && spawn.isResting(instanceId))
 		{
-			RespawnService.getInstance().scheduleRespawnTask(owner);
+			owner.getController().scheduleRespawn();
 			spawn.setResting(false, instanceId);
 		}
 		else if(!spawnTime.isAllowedDuring(dayTime) && !spawn.isResting(instanceId))

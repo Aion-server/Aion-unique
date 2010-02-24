@@ -24,6 +24,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.controllers.RiftController;
 import com.aionemu.gameserver.controllers.effect.EffectController;
+import com.aionemu.gameserver.controllers.factory.RiftControllerFactory;
 import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
@@ -53,6 +54,9 @@ public class RiftSpawnManager
 	private IDFactory aionObjectsIDFactory;
 	@Inject
 	private World	world;
+	
+	@Inject
+	private RiftControllerFactory objectControllerFactory;
 	
 	private static final int RIFT_RESPAWN_DELAY = 100 * 60 * 1000;
 	private static final int RIFT_LIFETIME = 26 * 60 * 1000;
@@ -107,7 +111,8 @@ public class RiftSpawnManager
 		for(int i = 1; i <= instanceCount; i++)
 		{
 			Npc slave = spawnInstance(i, masterGroup, slaveTemplate, new RiftController());
-			spawnInstance(i, masterGroup, masterTemplate, new RiftController(slave, rift.getEntries(), rift.getMaxLevel()));
+			spawnInstance(i, masterGroup, masterTemplate, objectControllerFactory.create(slave, rift
+				.getEntries(), rift.getMaxLevel()));
 		}		
 	}
 

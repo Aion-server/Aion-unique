@@ -337,11 +337,6 @@ public class LegionService
 			legion.setLegionRank(legionRanking.get(legion.getLegionId()));
 
 		/**
-		 * Set LegionService
-		 */
-		legion.setLegionService(this);
-
-		/**
 		 * Add our legion to the Cache
 		 */
 		addCachedLegion(legion);

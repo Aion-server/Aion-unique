@@ -43,7 +43,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	protected Queue<ActionObserver>	moveObservers		= new ConcurrentLinkedQueue<ActionObserver>();
 	protected Queue<ActionObserver>	attackObservers		= new ConcurrentLinkedQueue<ActionObserver>();
 	protected Queue<ActionObserver>	attackedObservers	= new ConcurrentLinkedQueue<ActionObserver>();
-
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -275,7 +275,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	public void stopMoving()
 	{
 		Creature owner = getOwner();
-		owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(),
+		sp.getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(),
 			owner.getHeading());
 		PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0,
 			owner.getHeading(), MovementType.MOVEMENT_STOP));
@@ -284,7 +284,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	/**
 	 * Handle Dialog_Select
 	 */
-	public void onDialogSelect(int dialogId, Player player, int questId, LegionService legionService, CubeExpandService cubeExpandService)
+	public void onDialogSelect(int dialogId, Player player, int questId)
 	{
 		// TODO Auto-generated method stub
 

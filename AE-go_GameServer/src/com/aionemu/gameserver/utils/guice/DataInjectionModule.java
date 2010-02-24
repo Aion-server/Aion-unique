@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver;
+package com.aionemu.gameserver.utils.guice;
 
 import com.aionemu.commons.services.ScriptService;
 import com.aionemu.gameserver.dataholders.BindPointData;
@@ -33,6 +33,7 @@ import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.dataholders.WalkerData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
+import com.aionemu.gameserver.services.AbyssService;
 import com.aionemu.gameserver.services.AccountService;
 import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.services.DropService;
@@ -41,7 +42,10 @@ import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.PrivateStoreService;
+import com.aionemu.gameserver.services.RespawnService;
+import com.aionemu.gameserver.services.ServiceProxy;
 import com.aionemu.gameserver.services.SocialService;
+import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.services.TradeService;
 import com.aionemu.gameserver.services.WeatherService;
 import com.aionemu.gameserver.spawnengine.RiftSpawnManager;
@@ -89,6 +93,11 @@ public class DataInjectionModule extends AbstractModule
 		bind(WeatherService.class).in(Scopes.SINGLETON);
 		bind(LegionService.class).in(Scopes.SINGLETON);
 		bind(PrivateStoreService.class).in(Scopes.SINGLETON);
+		bind(AbyssService.class).in(Scopes.SINGLETON);
+		bind(RespawnService.class).in(Scopes.SINGLETON);
+		bind(TeleportService.class).in(Scopes.SINGLETON);
+
+		bind(ServiceProxy.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides

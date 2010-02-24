@@ -20,28 +20,16 @@ import java.sql.Timestamp;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.dao.PlayerDAO;
-import com.aionemu.gameserver.dao.PlayerQuestListDAO;
-import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
-import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
-import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_DP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.questEngine.QuestEngine;
-import com.aionemu.gameserver.questEngine.model.QuestEnv;
-import com.aionemu.gameserver.services.ClassChangeService;
-import com.aionemu.gameserver.skillengine.SkillLearnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.WorldPosition;
 
@@ -226,31 +214,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 		Player player = this.getPlayer();
 		if(player != null)
 		{
-			PlayerStatsTemplate statsTemplate = DataManager.PLAYER_STATS_DATA.getTemplate(player);
-
-			player.getGameStats().doLevelUpgrade(DataManager.PLAYER_STATS_DATA, level);
-			player.setPlayerStatsTemplate(statsTemplate);
-			player.setLifeStats(new PlayerLifeStats(player, statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));		
-			player.getLifeStats().synchronizeWithMaxStats();
-
-			PacketSendUtility.broadcastPacket(player,
-				new SM_LEVEL_UPDATE(player.getObjectId(), 0, this.level),true);
-
-			//Temporal
-			ClassChangeService.showClassChangeDialog(player);
-
-			QuestEngine.getInstance().onLvlUp(new QuestEnv(null, player, 0, 0));
-
-			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-			//add new skills
-			SkillLearnService.addNewSkills(player, false);
-			DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
-			DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
-			//save player at this point
-			DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
-			/** Check if player is in legion, if so update member list packet **/
-			if(player.isLegionMember())
-				player.getLegionService().updateMemberInfo(player);
+			player.getController().upgradePlayer(level);
 		}
 	}
 

@@ -20,8 +20,12 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackUtil;
+import com.aionemu.gameserver.dao.PlayerDAO;
+import com.aionemu.gameserver.dao.PlayerQuestListDAO;
+import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.DuelResult;
@@ -36,6 +40,7 @@ import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.templates.BindPointTemplate;
+import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CHANNEL_INFO;
@@ -45,6 +50,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHERABLE_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
@@ -52,15 +58,15 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRIVATE_STORE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_CANCEL;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
-import com.aionemu.gameserver.services.AbyssService;
-import com.aionemu.gameserver.services.CubeExpandService;
-import com.aionemu.gameserver.services.LegionService;
+import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.skillengine.SkillEngine;
+import com.aionemu.gameserver.skillengine.SkillLearnService;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.Skill.SkillType;
@@ -212,7 +218,7 @@ public class PlayerController extends CreatureController<Player>
 		}
 		if(lastAttacker instanceof Player && isEnemy((Player) lastAttacker))
 		{
-			AbyssService.doReward(getOwner(), (Player) lastAttacker);
+			sp.getAbyssService().doReward(getOwner(), (Player) lastAttacker);
 		}
 	}
 
@@ -228,8 +234,7 @@ public class PlayerController extends CreatureController<Player>
 
 		PlayerGameStats gameStats = player.getGameStats();		
 
-		World world = player.getActiveRegion().getWorld();
-		Creature target = (Creature) world.findAionObject(targetObjectId);
+		Creature target = (Creature) sp.getWorld().findAionObject(targetObjectId);
 
 		if(!RestrictionsManager.canAttack(player, target))
 			return;
@@ -365,7 +370,7 @@ public class PlayerController extends CreatureController<Player>
 	private void changePosition(int worldId, int instanceId, float x, float y, float z, byte heading)
 	{
 		Player player = getOwner();
-		World world = player.getActiveRegion().getWorld();
+		World world = sp.getWorld();
 		if(player.getInstanceId() != instanceId || player.getWorldId() != worldId)
 		{
 			world.getWorldMap(player.getWorldId()).getWorldMapInstanceById(player.getInstanceId()).removePlayer(
@@ -532,7 +537,7 @@ public class PlayerController extends CreatureController<Player>
 	public void changeChannel(int channel)
 	{
 		Player player = getOwner();
-		World world = player.getActiveRegion().getWorld();
+		World world = sp.getWorld();
 		world.despawn(player);
 		world.setPosition(player, player.getWorldId(), channel + 1, player.getX(), player.getY(), player.getZ(), player
 			.getHeading());
@@ -567,8 +572,7 @@ public class PlayerController extends CreatureController<Player>
 		int worldId;
 		BindPointTemplate bplist;
 		Player player = getOwner();
-		World world = player.getActiveRegion().getWorld();
-
+		
 		LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
 
 		int bindPointId = player.getCommonData().getBindPoint();
@@ -595,6 +599,7 @@ public class PlayerController extends CreatureController<Player>
 		}
 		else
 		{
+			World world = sp.getWorld();
 			if(player.getInstanceId() != 1 || player.getWorldId() != worldId)
 			{
 				world.getWorldMap(player.getWorldId()).getWorldMapInstanceById(player.getInstanceId()).removePlayer(
@@ -635,7 +640,7 @@ public class PlayerController extends CreatureController<Player>
 	 * 
 	 * @return true if target is player
 	 */
-	public void onDialogSelect(int dialogId, Player player, int questId, LegionService legionService, CubeExpandService cubeExpandService)
+	public void onDialogSelect(int dialogId, Player player, int questId)
 	{
 		switch(dialogId)
 		{
@@ -643,5 +648,36 @@ public class PlayerController extends CreatureController<Player>
 				PacketSendUtility.sendPacket(player, new SM_PRIVATE_STORE(getOwner().getStore()));
 				break;
 		}
+	}
+
+	/**
+	 * @param level
+	 */
+	public void upgradePlayer(int level)
+	{
+		Player player = getOwner();
+		PlayerStatsTemplate statsTemplate = DataManager.PLAYER_STATS_DATA.getTemplate(player);
+
+		player.getGameStats().doLevelUpgrade(DataManager.PLAYER_STATS_DATA, level);
+		player.setPlayerStatsTemplate(statsTemplate);
+		player.setLifeStats(new PlayerLifeStats(player, statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
+		player.getLifeStats().synchronizeWithMaxStats();
+
+		PacketSendUtility.broadcastPacket(player, new SM_LEVEL_UPDATE(player.getObjectId(), 0, level), true);
+
+		// Temporal
+		ClassChangeService.showClassChangeDialog(player);
+
+		QuestEngine.getInstance().onLvlUp(new QuestEnv(null, player, 0, 0));
+
+		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+		// add new skills
+		SkillLearnService.addNewSkills(player, false);
+		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
+		DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
+		// save player at this point
+		DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
+		/** update member list packet **/
+		sp.getLegionService().updateMemberInfo(player);
 	}
 }

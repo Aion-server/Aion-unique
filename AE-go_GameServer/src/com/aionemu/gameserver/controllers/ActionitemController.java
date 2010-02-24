@@ -73,15 +73,15 @@ public class ActionitemController extends NpcController
 	@Override
 	public void doDrop(Player player)
 	{
-		dropService.registerDrop(getOwner() , player);
+		sp.getDropService().registerDrop(getOwner() , player);
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_LOOT_STATUS(this.getOwner().getObjectId(), 0));
-		dropService.requestDropList(player , getOwner().getObjectId());
+		sp.getDropService().requestDropList(player , getOwner().getObjectId());
 	}
 
 	@Override
 	public void onRespawn()
 	{
 		super.onRespawn();
-		dropService.unregisterDrop(getOwner());
+		sp.getDropService().unregisterDrop(getOwner());
 	}
 }

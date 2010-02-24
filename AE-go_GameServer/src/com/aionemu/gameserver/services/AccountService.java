@@ -23,7 +23,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.CacheConfig;
-import com.aionemu.gameserver.controllers.PlayerController;
+import com.aionemu.gameserver.controllers.factory.ControllerFactory;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
@@ -57,6 +57,8 @@ public class AccountService
 	private World						world;
 	@Inject
 	private PlayerService				playerService;
+	@Inject
+	private ControllerFactory			controllerFactory;
 
 	/**
 	 * Returns {@link Account} object that has given id.
@@ -128,7 +130,7 @@ public class AccountService
 		{
 			PlayerCommonData playerCommonData = playerDAO.loadPlayerCommonData(playerOid, world);
 			PlayerAppearance appereance = appereanceDAO.load(playerOid);
-			Player player = new Player(new PlayerController(),playerCommonData,appereance);
+			Player player = new Player(controllerFactory.createPlayerController(), playerCommonData,appereance);
 
 			Storage inventory = DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE);
 			Equipment equipment = DAOManager.getDAO(InventoryDAO.class).loadEquipment(player);

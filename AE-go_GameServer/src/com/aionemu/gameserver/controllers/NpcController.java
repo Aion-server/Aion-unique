@@ -49,14 +49,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
-import com.aionemu.gameserver.services.CubeExpandService;
-import com.aionemu.gameserver.services.DecayService;
-import com.aionemu.gameserver.services.DropService;
-import com.aionemu.gameserver.services.LegionService;
-import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.world.World;
 
 /**
  * This class is for controlling Npc's
@@ -66,13 +60,6 @@ import com.aionemu.gameserver.world.World;
 public class NpcController extends CreatureController<Npc>
 {
 	protected Future<?>		decayTask;
-
-	protected DropService	dropService;
-
-	public void setDropService(DropService dropService)
-	{
-		this.dropService = dropService;
-	}
 	
 	@Override
 	public void notSee(VisibleObject object)
@@ -118,7 +105,7 @@ public class NpcController extends CreatureController<Npc>
 		PacketSendUtility.broadcastPacket(owner, new SM_DELETE(owner));
 		if(owner.getAi() != null)
 			owner.getAi().handleEvent(Event.DESPAWN);
-		owner.getPosition().getWorld().despawn(owner);
+		sp.getWorld().despawn(owner);
 		decayTask = null;
 	}
 
@@ -129,13 +116,9 @@ public class NpcController extends CreatureController<Npc>
 		Npc owner = getOwner();
 		
 		if(decayTask == null)
-			decayTask = DecayService.getInstance().scheduleDecayTask(this.getOwner());
-
-		int instanceId = getOwner().getInstanceId();
-		if(!owner.getSpawn().isNoRespawn(instanceId))
-		{
-			RespawnService.getInstance().scheduleRespawnTask(owner);
-		}
+			decayTask = sp.getRespawnService().scheduleDecayTask(this.getOwner());
+		
+		scheduleRespawn();
 		
 		//TODO move to creature controller after duel will be moved out of onDie
 		owner.setState(CreatureState.DEAD);
@@ -189,8 +172,7 @@ public class NpcController extends CreatureController<Npc>
 	 * 
 	 * @return true if target is npc
 	 */
-	public void onDialogSelect(int dialogId, final Player player, int questId, LegionService legionService,
-		CubeExpandService cubeExpandService)
+	public void onDialogSelect(int dialogId, final Player player, int questId)
 	{
 
 		Npc npc = getOwner();
@@ -227,7 +209,7 @@ public class NpcController extends CreatureController<Npc>
 				// disband legion
 				if(MathUtil.isInRange(npc, player, 10)) // avoiding exploit with sending fake dialog_select packet
 				{
-					legionService.disbandLegion(npc, player);
+					sp.getLegionService().disbandLegion(npc, player);
 				}
 				else
 				{
@@ -239,7 +221,7 @@ public class NpcController extends CreatureController<Npc>
 				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select
 				// packet
 				{
-					legionService.recreateLegion(npc, player);
+					sp.getLegionService().recreateLegion(npc, player);
 				}
 				else
 				{
@@ -342,14 +324,14 @@ public class NpcController extends CreatureController<Npc>
 				break;
 			case 41:
 				// expand cube
-				cubeExpandService.expandCube(player, npc);
+				sp.getCubeExpandService().expandCube(player, npc);
 				break;
 			case 47:
 				// legion warehouse
 				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select
 				// packet
 				{
-					legionService.openLegionWarehouse(player);
+					sp.getLegionService().openLegionWarehouse(player);
 				}
 				break;
 			case 50:
@@ -408,9 +390,7 @@ public class NpcController extends CreatureController<Npc>
 		NpcAi ai = npc.getAi();
 		NpcGameStats gameStats = npc.getGameStats();
 
-		World world = npc.getActiveRegion().getWorld();
-
-		Creature creature = (Creature) world.findAionObject(targetObjectId);
+		Creature creature = (Creature) sp.getWorld().findAionObject(targetObjectId);
 		//if player disconnected - IDLE state
 		if(creature == null || creature.getLifeStats().isAlreadyDead())
 		{
@@ -433,7 +413,18 @@ public class NpcController extends CreatureController<Npc>
 
 		creature.getController().onAttack(npc, damage);
 		gameStats.increaseAttackCounter();
+	}
 
+	/**
+	 * 
+	 */
+	public void scheduleRespawn()
+	{
+		int instanceId = getOwner().getInstanceId();
+		if(!getOwner().getSpawn().isNoRespawn(instanceId))
+		{
+			sp.getRespawnService().scheduleRespawnTask(getOwner());
+		}	
 	}
 
 }

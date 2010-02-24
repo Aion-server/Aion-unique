@@ -26,11 +26,8 @@ import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.gather.Material;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
-import com.aionemu.gameserver.services.ItemService;
-import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.skillengine.task.GatheringTask;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.world.World;
 
 /**
  * @author ATracer
@@ -38,9 +35,6 @@ import com.aionemu.gameserver.world.World;
  */
 public class GatherableController extends VisibleObjectController<Gatherable>
 {
-
-	private ItemService itemService;
-	
 	private int gatherCount;
 	
 	private int currentGatherer;
@@ -55,14 +49,6 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	}
 
 	private GatherState state = GatherState.IDLE;
-
-	/**
-	 * @param itemService the itemService to set
-	 */
-	public void setItemService(ItemService itemService)
-	{
-		this.itemService = itemService;
-	}
 	
 	/**
 	 *  Start gathering process
@@ -138,7 +124,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	 */
 	public void addItem(Material material, Player player)
 	{
-		itemService.addItem(player, material.getItemid(), 1, false);
+		sp.getItemService().addItem(player, material.getItemid(), 1, false);
 	}
 	
 	public void rewardPlayer(Player player)
@@ -176,9 +162,8 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	{
 		Gatherable owner = getOwner();		
 		PacketSendUtility.broadcastPacket(owner, new SM_DELETE(owner));			
-		RespawnService.getInstance().scheduleRespawnTask(owner);
-		final World world = owner.getActiveRegion().getWorld();
-		world.despawn(owner);
+		sp.getRespawnService().scheduleRespawnTask(owner);
+		sp.getWorld().despawn(owner);
 	}
 
 

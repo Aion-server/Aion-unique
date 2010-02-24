@@ -24,6 +24,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ABYSS_RANK_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
+import com.google.inject.Inject;
 
 /**
  * @author ATracer
@@ -31,13 +32,16 @@ import com.aionemu.gameserver.utils.stats.StatFunctions;
  */
 public class AbyssService
 {
+	@Inject
+	private LegionService legionService;
+	
 	/**
 	 *  Very basic method for now
 	 *  
 	 * @param victim
 	 * @param winner
 	 */
-	public static void doReward(Player victim, Player winner)
+	public void doReward(Player victim, Player winner)
 	{
 		int pointsLost = Math.round(victim.getAbyssRank().getRank().getPointsLost() * Config.AP_RATE);
 		int pointsGained = Math.round(victim.getAbyssRank().getRank().getPointsGained() * Config.AP_RATE);
@@ -46,7 +50,7 @@ public class AbyssService
 		PacketSendUtility.broadcastPacket(victim, new SM_ABYSS_RANK_UPDATE(victim));
 		winner.getAbyssRank().addAp(pointsGained);
 		if(winner.isLegionMember())
-			winner.getLegionService().addContributionPoints(winner.getLegion(), pointsGained);
+			legionService.addContributionPoints(winner.getLegion(), pointsGained);
 		PacketSendUtility.broadcastPacket(winner, new SM_ABYSS_RANK_UPDATE(winner));
 		winner.getAbyssRank().setAllKill();
 		PacketSendUtility.sendPacket(victim, new SM_ABYSS_RANK(victim.getAbyssRank()));
@@ -60,13 +64,13 @@ public class AbyssService
 	 * @param victim
 	 * @param winner
 	 */
-	public static void doReward(Creature victim, Player winner)
+	public void doReward(Creature victim, Player winner)
 	{
 		int apReward = StatFunctions.calculateSoloAPReward(winner, victim);
 		
 		winner.getAbyssRank().addAp(apReward);
 		if(winner.isLegionMember())
-			winner.getLegionService().addContributionPoints(winner.getLegion(), apReward);
+			legionService.addContributionPoints(winner.getLegion(), apReward);
 		PacketSendUtility.broadcastPacket(winner, new SM_ABYSS_RANK_UPDATE(winner));
 		winner.getAbyssRank().setAllKill();
 		PacketSendUtility.sendPacket(winner, new SM_ABYSS_RANK(winner.getAbyssRank()));

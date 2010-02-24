@@ -42,6 +42,10 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.ThreadUncaughtExceptionHandler;
 import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
+import com.aionemu.gameserver.utils.guice.DataInjectionModule;
+import com.aionemu.gameserver.utils.guice.IDFactoriesInjectionModule;
+import com.aionemu.gameserver.utils.guice.NetworkInjectionModule;
+import com.aionemu.gameserver.utils.guice.ObjectControllerInjectionModule;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.zone.ZoneManager;
 import com.google.inject.Guice;
@@ -71,8 +75,9 @@ public class GameServer
 		// in InjectionModule with asEagerSingleton() call
 		DataInjectionModule dataIM = new DataInjectionModule();
 		NetworkInjectionModule networkIM = new NetworkInjectionModule();
+		ObjectControllerInjectionModule controllerIM = new ObjectControllerInjectionModule();
 		
-		injector = Guice.createInjector(dataIM,networkIM, new IDFactoriesInjectionModule());
+		injector = Guice.createInjector(dataIM,networkIM, new IDFactoriesInjectionModule(), controllerIM);
 		dataIM.setInjector(injector);
 		networkIM.setInjector(injector);
 	}

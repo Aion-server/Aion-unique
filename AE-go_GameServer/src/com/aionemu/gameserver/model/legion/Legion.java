@@ -23,7 +23,6 @@ import java.util.Map.Entry;
 
 import com.aionemu.gameserver.configs.LegionConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.world.World;
 
 /**
@@ -54,7 +53,6 @@ public class Legion
 	private LinkedHashMap<Timestamp, String>	announcementList			= new LinkedHashMap<Timestamp, String>();
 	private LegionEmblem						legionEmblem				= new LegionEmblem();
 	private LegionWarehouse						legionWarehouse;
-	private LegionService						legionService;
 
 	/**
 	 * Only called when a legion is created!
@@ -538,21 +536,5 @@ public class Legion
 				return 56;
 		}
 		return 24;
-	}
-
-	/**
-	 * @param legionService the legionService to set
-	 */
-	public void setLegionService(LegionService legionService)
-	{
-		this.legionService = legionService;
-	}
-
-	/**
-	 * @return the legionService
-	 */
-	public LegionService getLegionService()
-	{
-		return legionService;
 	}
 }

@@ -22,8 +22,8 @@ import java.util.List;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.CacheConfig;
 import com.aionemu.gameserver.configs.Config;
-import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.controllers.effect.PlayerEffectController;
+import com.aionemu.gameserver.controllers.factory.ControllerFactory;
 import com.aionemu.gameserver.dao.AbyssRankDAO;
 import com.aionemu.gameserver.dao.BlockListDAO;
 import com.aionemu.gameserver.dao.FriendListDAO;
@@ -88,15 +88,17 @@ public class PlayerService
 	private World						world;
 	private ItemService					itemService;
 	private LegionService				legionService;
+	private ControllerFactory			controllerFactory;
 
 	@Inject
 	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
-		LegionService legionService)
+		LegionService legionService, ControllerFactory controllerFactory)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
 		this.itemService = itemService;
 		this.legionService = legionService;
+		this.controllerFactory = controllerFactory;
 	}
 
 	/**
@@ -171,7 +173,7 @@ public class PlayerService
 		PlayerAppearance appereance = DAOManager.getDAO(PlayerAppearanceDAO.class).load(playerObjId);
 		MacroList macroses = DAOManager.getDAO(PlayerMacrossesDAO.class).restoreMacrosses(playerObjId);
 
-		player = new Player(new PlayerController(), pcd, appereance);
+		player = new Player(controllerFactory.createPlayerController(), pcd, appereance);
 
 		LegionMember legionMember = legionService.getLegionMember(player);
 		if(legionMember != null)
@@ -247,10 +249,9 @@ public class PlayerService
 		LocationData ld = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(playerCommonData.getRace());
 
 		WorldPosition position = world.createPosition(ld.getMapId(), ld.getX(), ld.getY(), ld.getZ(), ld.getHeading());
-
 		playerCommonData.setPosition(position);
 
-		Player newPlayer = new Player(new PlayerController(), playerCommonData, playerAppearance);
+		Player newPlayer = new Player(controllerFactory.createPlayerController(), playerCommonData, playerAppearance);
 
 		// Starting skills
 		SkillLearnService.addNewSkills(newPlayer, true);

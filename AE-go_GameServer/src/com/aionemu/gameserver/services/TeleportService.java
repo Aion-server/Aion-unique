@@ -41,8 +41,6 @@ public class TeleportService
 
 	private static final int TELEPORT_DEFAULT_DELAY = 2200;
 
-	private static TeleportService instance = new TeleportService();
-
 	/**
 	 *  Schedules teleport animation
 	 *  
@@ -55,12 +53,6 @@ public class TeleportService
 	public void scheduleTeleportTask(final Player activePlayer, final int mapid, final float x, final float y, final float z)
 	{
 		activePlayer.getController().teleportTo(mapid, x, y, z, TELEPORT_DEFAULT_DELAY);
-	}
-
-	// TODO injectable bean
-	public static TeleportService getInstance()
-	{
-		return instance;
 	}
 
 	/**

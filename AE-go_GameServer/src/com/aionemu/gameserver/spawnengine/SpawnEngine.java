@@ -24,14 +24,9 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.callbacks.EnhancedObject;
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.npcai.NpcAi;
-import com.aionemu.gameserver.controllers.ActionitemController;
 import com.aionemu.gameserver.controllers.BindpointController;
-import com.aionemu.gameserver.controllers.CitizenController;
-import com.aionemu.gameserver.controllers.GatherableController;
-import com.aionemu.gameserver.controllers.MonsterController;
-import com.aionemu.gameserver.controllers.NpcController;
-import com.aionemu.gameserver.controllers.PostboxController;
 import com.aionemu.gameserver.controllers.effect.EffectController;
+import com.aionemu.gameserver.controllers.factory.ControllerFactory;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.NpcData;
@@ -50,8 +45,6 @@ import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.WorldMapTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnGroup;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
-import com.aionemu.gameserver.services.DropService;
-import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.gametime.DayTime;
 import com.aionemu.gameserver.utils.gametime.GameTime;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
@@ -82,10 +75,6 @@ public class SpawnEngine
 	@Inject
 	private IDFactory aionObjectsIDFactory;
 	@Inject
-	private DropService dropService;
-	@Inject
-	private ItemService itemService;
-	@Inject
 	private SpawnsData spawnsData;
 	@Inject
 	private GatherableData gatherableData;
@@ -95,6 +84,8 @@ public class SpawnEngine
 	private RiftSpawnManager riftSpawnManager;
 	@Inject
 	private WorldMapsData worldMapsData;
+	@Inject
+	private ControllerFactory controllerFactory;
 
 	/** Counter counting number of npc spawns */
 	private int npcCounter		= 0;
@@ -136,28 +127,26 @@ public class SpawnEngine
 			{
 				case AGGRESSIVE:
 				case ATTACKABLE:
-					MonsterController mosnterController = new MonsterController();
-					mosnterController.setDropService(dropService);
-					npc = new Monster(aionObjectsIDFactory.nextId(), mosnterController, spawn, template);
+					npc = new Monster(aionObjectsIDFactory.nextId(), controllerFactory.createMonsterController(), spawn, template);
 					break;
 				case NON_ATTACKABLE:
-					npc = new Citizen(aionObjectsIDFactory.nextId(), new CitizenController(), spawn, template);
+					npc = new Citizen(aionObjectsIDFactory.nextId(), controllerFactory.createCitizenController(), spawn, template);
 					break;
 				case POSTBOX:
-					npc = new Npc(aionObjectsIDFactory.nextId(), new PostboxController(), spawn, template);
+					npc = new Npc(aionObjectsIDFactory.nextId(), controllerFactory.createPostboxController(), spawn, template);
 					break;
 				case RESURRECT:
-					BindpointController bindPointController = new BindpointController();
+					BindpointController bindPointController = controllerFactory.createBindpointController();
 					bindPointController.setBindPointTemplate(DataManager.BIND_POINT_DATA.getBindPointTemplate(objectId));
 					npc = new Npc(aionObjectsIDFactory.nextId(), bindPointController, spawn, template);
 					break;
 				case USEITEM:
-					ActionitemController  actionitemController = new ActionitemController();
-					actionitemController.setDropService(dropService);
-					npc = new Npc(aionObjectsIDFactory.nextId(), actionitemController, spawn, template);
+					npc = new Npc(aionObjectsIDFactory.nextId(), controllerFactory.createActionitemController(), spawn,
+						template);
 					break;
-				default: 
-					npc = new Npc(aionObjectsIDFactory.nextId(), new NpcController(), spawn, template);
+				default:
+					npc = new Npc(aionObjectsIDFactory.nextId(), controllerFactory.createNpcController(), spawn,
+						template);
 
 			}
 
@@ -169,9 +158,7 @@ public class SpawnEngine
 		}
 		else if(template instanceof GatherableTemplate)
 		{
-			GatherableController gatherableController = new GatherableController();
-			gatherableController.setItemService(itemService);
-			Gatherable gatherable = new Gatherable(spawn, template, aionObjectsIDFactory.nextId(), gatherableController);
+			Gatherable gatherable = new Gatherable(spawn, template, aionObjectsIDFactory.nextId(), controllerFactory.createGatherableController());
 			gatherable.setKnownlist(new KnownList(gatherable));
 			bringIntoWorld(gatherable, spawn, instanceIndex);
 			return gatherable;
@@ -269,13 +256,12 @@ public class SpawnEngine
 
 	public void spawnAll()
 	{
-
 		for(WorldMapTemplate worldMapTemplate : worldMapsData)
 		{
 			if (worldMapTemplate.isInstance())
 				continue;
 			int maxTwin = worldMapTemplate.getTwinCount();
-			int mapId = worldMapTemplate.getMapId();
+			final int mapId = worldMapTemplate.getMapId();
 			int numberToSpawn = maxTwin > 0 ? maxTwin : 1;				
 
 			for(int i = 1; i <= numberToSpawn; i++)

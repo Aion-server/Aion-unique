@@ -14,39 +14,26 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services;
+package com.aionemu.gameserver.controllers.factory;
 
-import java.util.concurrent.Future;
-
+import com.aionemu.gameserver.controllers.RiftController;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.google.inject.assistedinject.Assisted;
 
 /**
  * @author ATracer
- *
+ * 
  */
-public class DecayService
+public interface RiftControllerFactory
 {
-	private static final int DECAY_DEFAULT_DELAY = 20000;
-
-	private static DecayService instance = new DecayService();
+	/**
+	 * 
+	 * @param slave
+	 * @param maxEntries
+	 * @param maxLevel
+	 * @return
+	 */
+	public RiftController create(@Assisted Npc slave, @Assisted("maxEntries") Integer maxEntries,
+		@Assisted("maxLevel") Integer maxLevel);
 	
-	public Future<?> scheduleDecayTask(final Npc npc)
-	{
-		return ThreadPoolManager.getInstance().schedule(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				npc.getController().onDespawn(false);
-			}
-		}, DECAY_DEFAULT_DELAY);
-	}
-	
-	public static DecayService getInstance()
-	{
-		return instance;
-	}
-
 }
-

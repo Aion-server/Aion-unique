@@ -107,7 +107,7 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 				Thread.NORM_PRIORITY + 3));
 		
 		taskManagerThreadPool = new ScheduledThreadPoolExecutorAE(4, new PriorityThreadFactory(
-				"ScheduledThreadPool", Thread.NORM_PRIORITY));
+				"TaskManagerThreadPool", Thread.NORM_PRIORITY));
 	}
 
 	/**

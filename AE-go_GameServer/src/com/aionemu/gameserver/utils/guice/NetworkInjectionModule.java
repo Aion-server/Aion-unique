@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver;
+package com.aionemu.gameserver.utils.guice;
 
 import com.aionemu.commons.network.ConnectionFactory;
 import com.aionemu.commons.network.NioServer;

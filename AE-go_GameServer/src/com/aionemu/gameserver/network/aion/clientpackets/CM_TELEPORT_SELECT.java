@@ -19,12 +19,12 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.templates.teleport.TelelocationTemplate;
 import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 
 /**
  * @author ATracer, orz
@@ -41,6 +41,11 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 	public  TelelocationTemplate _tele;
 
 	private TeleporterTemplate teleport;
+	
+	@Inject
+	private TeleportService teleportService;
+	@Inject
+	private World world;
 
 	public CM_TELEPORT_SELECT(int opcode)
 	{
@@ -65,9 +70,7 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 	protected void runImpl()
 	{
 		Player activePlayer = getConnection().getActivePlayer();
-		@SuppressWarnings("unused")
-		Storage bag = activePlayer.getInventory();
-		World world = activePlayer.getActiveRegion().getWorld();
+
 		Npc npc = (Npc)world.findAionObject(targetObjectId);
 
 		if(activePlayer == null || activePlayer.getLifeStats().isAlreadyDead())
@@ -78,10 +81,10 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 		switch(teleport.getType())
 		{
 			case FLIGHT:
-				TeleportService.getInstance().flightTeleport(teleport, locId, activePlayer);
+				teleportService.flightTeleport(teleport, locId, activePlayer);
 				break;
 			case REGULAR:
-				TeleportService.getInstance().regularTeleport(teleport, locId, activePlayer);
+				teleportService.regularTeleport(teleport, locId, activePlayer);
 				break;
 			default:
 				//TODO
