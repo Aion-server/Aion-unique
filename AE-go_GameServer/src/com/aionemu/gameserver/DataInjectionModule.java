@@ -40,6 +40,7 @@ import com.aionemu.gameserver.services.ExchangeService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.services.PrivateStoreService;
 import com.aionemu.gameserver.services.SocialService;
 import com.aionemu.gameserver.services.TradeService;
 import com.aionemu.gameserver.services.WeatherService;
@@ -87,6 +88,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(ExchangeService.class).in(Scopes.SINGLETON);
 		bind(WeatherService.class).in(Scopes.SINGLETON);
 		bind(LegionService.class).in(Scopes.SINGLETON);
+		bind(PrivateStoreService.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides
