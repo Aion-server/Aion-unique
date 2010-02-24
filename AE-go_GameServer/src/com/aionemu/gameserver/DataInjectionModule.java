@@ -38,6 +38,7 @@ import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.services.DropService;
 import com.aionemu.gameserver.services.ExchangeService;
 import com.aionemu.gameserver.services.ItemService;
+import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.SocialService;
 import com.aionemu.gameserver.services.TradeService;
@@ -85,6 +86,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(RiftSpawnManager.class).in(Scopes.SINGLETON);
 		bind(ExchangeService.class).in(Scopes.SINGLETON);
 		bind(WeatherService.class).in(Scopes.SINGLETON);
+		bind(LegionService.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides
