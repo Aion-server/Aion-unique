@@ -21,7 +21,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.network.aion.serverpackets.SM_CONSUME_DP;
 import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
@@ -38,6 +40,11 @@ public class DpUseAction extends Action
 	public void act(Skill skill)
 	{
 		int currentDp = skill.getEffector().getCommonData().getDp();
+
+		if(currentDp <= 0 || currentDp < value)
+			return;
+
+		PacketSendUtility.sendPacket(skill.getEffector(), new SM_CONSUME_DP(skill.getEffector(), value));
 		skill.getEffector().getCommonData().setDp(currentDp - value);
 	}
 }
