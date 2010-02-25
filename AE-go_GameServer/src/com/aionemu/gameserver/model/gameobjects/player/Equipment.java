@@ -54,7 +54,9 @@ public class Equipment
 			//don't allow to wear items of higher level
 			if(item.getItemTemplate().getLevel() > owner.getCommonData().getLevel())
 			{
-				PacketSendUtility.sendPacket(owner, SM_SYSTEM_MESSAGE.STR_CANT_EQUIP(new DescriptionId(Integer.parseInt(item.getName()))));
+				PacketSendUtility.sendPacket(owner, 
+					SM_SYSTEM_MESSAGE.STR_CANNOT_USE_ITEM_TOO_LOW_LEVEL_MUST_BE_THIS_LEVEL(
+						item.getItemTemplate().getLevel(), new DescriptionId(Integer.parseInt(item.getName()))));
 				return false;
 			}
 

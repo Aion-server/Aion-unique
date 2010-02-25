@@ -777,9 +777,9 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	/**
 	 * cannot equip items if require level higher than character level
 	 */
-	public static SM_SYSTEM_MESSAGE STR_CANT_EQUIP(DescriptionId itemDescId)
+	public static SM_SYSTEM_MESSAGE STR_CANNOT_USE_ITEM_TOO_LOW_LEVEL_MUST_BE_THIS_LEVEL(int itemLevel, DescriptionId itemDescId)
 	{
-		return new SM_SYSTEM_MESSAGE(1300386, itemDescId);
+		return new SM_SYSTEM_MESSAGE(1300372, itemLevel, itemDescId);
 	}
 
 	private final int		code;
