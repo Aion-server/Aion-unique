@@ -82,6 +82,8 @@
 				maxOccurs="1" />
 			<xs:element name="statboost" type="StatboostEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="weaponstatboost" type="WeaponStatboostEffect"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="wpnmastery" type="WeaponMasteryEffect"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="statdown" type="StatdownEffect"
@@ -102,6 +104,8 @@
 				maxOccurs="1" />
 			<xs:element name="healdp" type="HealDpEffect" minOccurs="0"
 				maxOccurs="1" />
+			<xs:element name="healfp" type="HealFpEffect" minOccurs="0"
+				maxOccurs="1" />
 			<xs:element name="skillatk" type="SkillAttackEffect"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="spellatk" type="SpellAttackEffect"
@@ -120,7 +124,25 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="itemhealdp" type="ItemHealDpEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="itemhealfp" type="ItemHealFpEffect"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="carvesignet" type="CarveSignetEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="silence" type="SilenceEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="curse" type="CurseEffect" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="blind" type="BlindEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="desease" type="DeseaseEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="boosthate" type="BoostHateEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="hostileup" type="HostileUpEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="paralyze" type="ParalyzeEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="confuse" type="ConfuseEffect"
 				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
@@ -462,6 +484,13 @@
 		</xs:complexContent>
 	</xs:complexType>
 	
+	<xs:complexType name="WeaponStatboostEffect">
+		<xs:complexContent>
+			<xs:extension base="BufEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
 	<xs:complexType name="WeaponMasteryEffect">
 		<xs:complexContent>
 			<xs:extension base="BufEffect">
@@ -505,6 +534,13 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:complexType name="ItemHealFpEffect">
+		<xs:complexContent>
+			<xs:extension base="AbstractHealEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<xs:complexType name="AbstractHealEffect" abstract="true">
 		<xs:complexContent>
@@ -531,6 +567,13 @@
 	</xs:complexType>
 
 	<xs:complexType name="HealDpEffect">
+		<xs:complexContent>
+			<xs:extension base="AbstractHealEffect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="HealFpEffect">
 		<xs:complexContent>
 			<xs:extension base="AbstractHealEffect">
 			</xs:extension>
@@ -599,6 +642,72 @@
 	<xs:complexType name="ReturnEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SilenceEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="CurseEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="BlindEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="DeseaseEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="BoostHateEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="HostileUpEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="ParalyzeEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="ConfuseEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="value" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -822,6 +931,7 @@
 			<xs:enumeration value="HP" />
 			<xs:enumeration value="MP" />
 			<xs:enumeration value="DP" />
+			<xs:enumeration value="FP" />
 		</xs:restriction>
 	</xs:simpleType>
 	
