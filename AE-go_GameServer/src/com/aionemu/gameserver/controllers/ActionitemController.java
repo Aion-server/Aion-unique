@@ -59,18 +59,6 @@ public class ActionitemController extends NpcController
 	}
 
 	@Override
-	public void onDie()
-	{
-		super.onDie();
-		Player target = (Player) getOwner().getTarget();
-		PacketSendUtility.broadcastPacket(getOwner(), new SM_EMOTION(getOwner(), 13, 0, target == null?0:target.getObjectId()));
-		this.doDrop(target);
-		
-		//deselect target at the end
-		getOwner().setTarget(null);
-	}
-
-	@Override
 	public void doDrop(Player player)
 	{
 		sp.getDropService().registerDrop(getOwner() , player);
