@@ -680,6 +680,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public static SM_SYSTEM_MESSAGE	STR_FLYING_FORBIDDEN_HERE	= new SM_SYSTEM_MESSAGE(1300960);
 
 	/**
+	 * You cannot use teleport services when you flying
+	 */
+	public static SM_SYSTEM_MESSAGE	STR_CANNOT_USE_AIRPORT_WHEN_FLYING	= new SM_SYSTEM_MESSAGE(1300696);
+
+	/**
 	 * Binding Point Messages
 	 */
 	public static SM_SYSTEM_MESSAGE STR_CANNOT_REGISTER_RESURRECT_POINT_NOT_ENOUGH_FEE()
@@ -760,6 +765,22 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	}
 
 	public static final SM_SYSTEM_MESSAGE	MSG_FULL_INVENTORY	= new SM_SYSTEM_MESSAGE(1300762);
+
+	/**
+	 * Manastone Messages
+	 */
+	public static SM_SYSTEM_MESSAGE STR_GIVE_ITEM_OPTION_SUCCEED(DescriptionId itemDescId)
+	{
+		return new SM_SYSTEM_MESSAGE(1300462, itemDescId);
+	}
+
+	/**
+	 * cannot equip items if require level higher than character level
+	 */
+	public static SM_SYSTEM_MESSAGE STR_CANT_EQUIP(DescriptionId itemDescId)
+	{
+		return new SM_SYSTEM_MESSAGE(1300386, itemDescId);
+	}
 
 	private final int		code;
 	private final Object[]	params;

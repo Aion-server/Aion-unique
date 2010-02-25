@@ -305,11 +305,11 @@ public class NpcController extends CreatureController<Npc>
 				break;
 			case 38:
 				// flight and teleport
-				// if (player.getCommonData().isFlying() == true)
-				// {
-				// PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300696));
-				// return;
-				// }
+				if (player.isInState(CreatureState.FLYING))
+				{
+					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_CANNOT_USE_AIRPORT_WHEN_FLYING);
+					return;
+				}
 				PacketSendUtility.sendPacket(player, new SM_TELEPORT_MAP(player, targetObjectId));
 				break;
 			case 39:

@@ -19,6 +19,7 @@ package admincommands;
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
@@ -72,5 +73,6 @@ public class Speed extends AdminCommand
 
 		admin.getGameStats().setStat(StatEnum.SPEED, (speed + (speed * parameter) / 100));
 		admin.getGameStats().setStat(StatEnum.FLY_SPEED, (flyspeed + (flyspeed * parameter) / 100));
+		PacketSendUtility.broadcastPacket(admin, new SM_EMOTION(admin, 30, 0, 0), true);
 	}
 }

@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
@@ -49,7 +50,7 @@ public class EnchantItemAction extends AbstractItemAction {
 			public void run() 
 			{
 				PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem.getObjectId(), parentItem.getItemTemplate().getItemId(), 0, 1, 0));
-				PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300462));
+				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_GIVE_ITEM_OPTION_SUCCEED(new DescriptionId(Integer.parseInt(targetItem.getName()))));
 
 				ItemStone itemStone = targetItem.addItemStone(parentItem.getItemTemplate().getItemId());      
 				if(targetItem.isEquipped())

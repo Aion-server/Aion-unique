@@ -135,12 +135,9 @@ public class CM_EMOTION extends AionClientPacket
 				PacketSendUtility.broadcastPacket(player,
 					new SM_EMOTION(player, 30, 0, 0), true);
 				PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-
-				//player.getCommonData().setFlying(true);
 				break;
 			case 0x9:
 				player.unsetState(CreatureState.FLYING);
-				//player.getCommonData().setFlying(false);
 				break;
 			case 0x21:
 			case 0x13:
@@ -150,9 +147,10 @@ public class CM_EMOTION extends AionClientPacket
 			case 0x14:
 				player.unsetState(CreatureState.WEAPON_EQUIPPED);
 				break;
-				//				if (player.getCommonData().isFlying() == true)
-				//					return;
 			case 0x15:
+				// cannot toggle walk when you flying
+				if (player.isInState(CreatureState.FLYING))
+					return;
 				player.setState(CreatureState.WALKING);
 				break;
 			case 0x16:

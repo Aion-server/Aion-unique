@@ -13,6 +13,7 @@ import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
@@ -53,6 +54,7 @@ public class Equipment
 			//don't allow to wear items of higher level
 			if(item.getItemTemplate().getLevel() > owner.getCommonData().getLevel())
 			{
+				PacketSendUtility.sendPacket(owner, SM_SYSTEM_MESSAGE.STR_CANT_EQUIP(new DescriptionId(Integer.parseInt(item.getName()))));
 				return false;
 			}
 
