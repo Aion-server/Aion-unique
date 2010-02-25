@@ -205,6 +205,7 @@ public class PlayerService
 		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.ACCOUNT_WAREHOUSE),
 			StorageType.ACCOUNT_WAREHOUSE);
 		player.setEquipment(DAOManager.getDAO(InventoryDAO.class).loadEquipment(player));
+		player.getEquipment().onLoadApplyEquipmentStats();
 
 		itemService.loadItemStones(player);
 
@@ -292,6 +293,7 @@ public class PlayerService
 			else
 				playerInventory.onLoadHandler(item);
 		}
+		equipment.onLoadApplyEquipmentStats();
 
 		return newPlayer;
 	}

@@ -256,6 +256,21 @@ public enum StatEnum
 		}
 	}
 
+	public boolean isMainOrSubHandStat()
+	{
+		switch(this)
+		{
+			case PHYSICAL_ATTACK:
+			case POWER:
+			case PHYSICAL_ACCURACY:
+			case PHYSICAL_CRITICAL:
+				return true;
+
+			default:
+				return false;
+		}
+	}
+
 	public boolean isReplace () {
 		return replace;
 	}

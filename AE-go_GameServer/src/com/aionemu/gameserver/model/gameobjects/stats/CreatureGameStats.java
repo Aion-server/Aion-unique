@@ -27,6 +27,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.callbacks.Enhancable;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.id.ItemStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.id.StatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.StatChangeListener;
@@ -293,20 +294,33 @@ public class CreatureGameStats<T extends Creature>
 	{
 		resetStats();
 
-		FastMap<StatEnum,StatModifiers> orderedModifiers = new FastMap<StatEnum,StatModifiers>();
+		FastMap<StatEnum, StatModifiers> orderedModifiers = new FastMap<StatEnum, StatModifiers>();
 
-		for (Entry<StatEffectId,TreeSet<StatModifier>> modifiers : statsModifiers.entrySet())
+		for(Entry<StatEffectId, TreeSet<StatModifier>> modifiers : statsModifiers.entrySet())
 		{
 			StatEffectId eid = modifiers.getKey();
-			int slots = ItemSlot.MAIN_OR_SUB.getSlotIdMask();
-			if (eid instanceof ItemStatEffectId)
-			{
-				slots = ((ItemStatEffectId)eid).getSlot();
-			}
-			List<ItemSlot> oSlots = ItemSlot.getSlotsFor(slots);
+			int slots;
 
 			for(StatModifier modifier : modifiers.getValue())
 			{
+				slots = ItemSlot.NONE.getSlotIdMask();
+				if(eid instanceof ItemStatEffectId)
+				{
+					slots = ((ItemStatEffectId) eid).getSlot();
+				}
+
+				if(modifier.getStat().isMainOrSubHandStat() && owner instanceof Player)
+				{
+					if(slots != ItemSlot.MAIN_HAND.getSlotIdMask() && slots != ItemSlot.SUB_HAND.getSlotIdMask())
+					{
+						if(((Player) owner).getEquipment().getOffHandWeaponType() != null)
+							slots = ItemSlot.MAIN_OR_SUB.getSlotIdMask();
+						else
+							slots = ItemSlot.MAIN_HAND.getSlotIdMask();
+					}
+				}
+
+				List<ItemSlot> oSlots = ItemSlot.getSlotsFor(slots);
 				for(ItemSlot slot : oSlots)
 				{
 					StatEnum statToModify = modifier.getStat().getMainOrSubHandStat(slot);
@@ -315,16 +329,13 @@ public class CreatureGameStats<T extends Creature>
 						orderedModifiers.put(statToModify, new StatModifiers());
 					}
 					orderedModifiers.get(statToModify).add(modifier);
-					// avoid applying non-dual weapon stats twice and more
-					if(statToModify == modifier.getStat())
-						break;
 				}
 			}
 		}
 
-		for (Entry<StatEnum,StatModifiers> entry : orderedModifiers.entrySet())
+		for(Entry<StatEnum, StatModifiers> entry : orderedModifiers.entrySet())
 		{
-			applyModifiers(entry.getKey(),entry.getValue());
+			applyModifiers(entry.getKey(), entry.getValue());
 		}
 	}
 

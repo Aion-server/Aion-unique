@@ -13,6 +13,8 @@ import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
@@ -397,17 +399,28 @@ public class Equipment
 			return;
 		}
 		equipment.put(item.getEquipmentSlot(), item);
-		if (owner.getGameStats() != null)
+	}
+
+	/**
+	 * Should be called only when equipment object totaly constructed on player loading
+	 * Applies every equipped item stats modificators
+	 */
+	public void onLoadApplyEquipmentStats()
+	{
+		for(Item item : equipment.values())
 		{
-			if(item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
-				&& item.getEquipmentSlot() != ItemSlot.SUB_OFF_HAND.getSlotIdMask())
-				ItemEquipmentListener.onItemEquipment(item, owner);
-		}
-		if(owner.getLifeStats() != null)
-		{
-			if(item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
-				&& item.getEquipmentSlot() != ItemSlot.SUB_OFF_HAND.getSlotIdMask())
-				owner.getLifeStats().synchronizeWithMaxStats();
+			if (owner.getGameStats() != null)
+			{
+				if(item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
+					&& item.getEquipmentSlot() != ItemSlot.SUB_OFF_HAND.getSlotIdMask())
+					ItemEquipmentListener.onItemEquipment(item, owner);
+			}
+			if(owner.getLifeStats() != null)
+			{
+				if(item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
+					&& item.getEquipmentSlot() != ItemSlot.SUB_OFF_HAND.getSlotIdMask())
+					owner.getLifeStats().synchronizeWithMaxStats();
+			}
 		}
 	}
 
@@ -527,6 +540,7 @@ public class Equipment
 		{
 			equipment.remove(equippedItem.getEquipmentSlot());
 			PacketSendUtility.sendPacket(owner, new SM_DELETE_ITEM(equippedItem.getObjectId()));
+			DAOManager.getDAO(InventoryDAO.class).store(equippedItem, owner.getObjectId());
 		}
 
 		PacketSendUtility.sendPacket(owner, new SM_UPDATE_ITEM(equippedItem));

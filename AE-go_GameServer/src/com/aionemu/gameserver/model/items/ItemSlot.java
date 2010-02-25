@@ -46,18 +46,26 @@ public enum ItemSlot
 	WAIST(1<<16),
 	MAIN_OFF_HAND(1<<17),
 	SUB_OFF_HAND(1<<18),
+	NONE(1<<19),
 	//combo
-	MAIN_OR_SUB(MAIN_HAND.slotIdMask | SUB_HAND.slotIdMask), // 3
-	EARRING_RIGHT_OR_LEFT(EARRINGS_LEFT.slotIdMask | EARRINGS_RIGHT.slotIdMask), //192
-	RING_RIGHT_OR_LEFT(RING_LEFT.slotIdMask | RING_RIGHT.slotIdMask), //768
-	SHARD_RIGHT_OR_LEFT(POWER_SHARD_LEFT.slotIdMask | POWER_SHARD_RIGHT.slotIdMask), //24576
-	TORSO_GLOVE_FOOT_SHOULDER_LEG(0);//TODO
+	MAIN_OR_SUB(MAIN_HAND.slotIdMask | SUB_HAND.slotIdMask, true), // 3
+	EARRING_RIGHT_OR_LEFT(EARRINGS_LEFT.slotIdMask | EARRINGS_RIGHT.slotIdMask, true), //192
+	RING_RIGHT_OR_LEFT(RING_LEFT.slotIdMask | RING_RIGHT.slotIdMask, true), //768
+	SHARD_RIGHT_OR_LEFT(POWER_SHARD_LEFT.slotIdMask | POWER_SHARD_RIGHT.slotIdMask, true), //24576
+	TORSO_GLOVE_FOOT_SHOULDER_LEG(0, true);//TODO
 
 	private int slotIdMask;
+	private boolean combo;
 	
 	private ItemSlot(int mask)
 	{
+		this(mask, false);
+	}
+	
+	private ItemSlot(int mask, boolean combo)
+	{
 		this.slotIdMask = mask;
+		this.combo = combo;
 	}
 	
 	public int getSlotIdMask()
@@ -65,6 +73,14 @@ public enum ItemSlot
 		return slotIdMask;
 	}
 	
+	/**
+	 * @return the combo
+	 */
+	public boolean isCombo()
+	{
+		return combo;
+	}
+
 	public static List<ItemSlot> getSlotsFor(int slotIdMask)
 	{
 		List<ItemSlot> slots = new ArrayList<ItemSlot>();
@@ -75,8 +91,8 @@ public enum ItemSlot
 			 * possible values in this check
 			 * - one of combo slots (MAIN, RIGHT_RING etc)
 			 */
-			if(sumMask > 0 && sumMask <= slotIdMask && itemSlot!=ItemSlot.MAIN_OR_SUB)// TODO avoid adding any combos to slot list
-				slots.add(itemSlot);
+			if(sumMask > 0 && sumMask <= slotIdMask && !itemSlot.isCombo())
+					slots.add(itemSlot);
 		}
 		
 		if(slots.size() == 0)
