@@ -31,6 +31,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_DP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.stats.XPLossEnum;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -98,36 +99,44 @@ public class PlayerCommonData extends VisibleObjectTemplate
 		}			
 		return DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level + 1) - DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level);
 	}
+	
 	/**
 	 * calculate the lost experience
 	 * must be called before setexp
+	 * @author Jangan
 	 */
 	public void calculateExpLoss()
 	{
-		int unrecoverable = Math.round(this.getExpNeed() / 100 * 3);//TODO check the formula
+		long expLost = XPLossEnum.getExpLoss(this.level, this.getExpNeed()); // This Calculates all the exp lost when dieing.
+		int unrecoverable = (int) (expLost * 0.33333333); // This is 1000% Correct
+		int recoverable = (int) expLost - unrecoverable;// This is 1000% Correct
+		long allExpLost = recoverable + this.expRecoverable; // lol some crack headed formula ???
 
+		// This loops states that if the unrecoverable exp is bigger than your current exp
+		// we delete all your exp and go back to 0 pretty much.
 		if(this.getExpShown() > unrecoverable)
-			this.exp = this.exp - unrecoverable;
-		else this.exp = this.exp - this.getExpShown();
-
-		int recoverable = unrecoverable;//here will be some formula
-		long allexploss = recoverable + this.expRecoverable;
-
-		if(this.getExpShown() > allexploss)
 		{
-			this.expRecoverable = allexploss;
+			this.exp = this.exp - unrecoverable;
+		}
+		else
+		{
+			this.exp = this.exp - this.getExpShown();
+		}
+		if(this.getExpShown() > allExpLost)
+		{
+			this.expRecoverable = allExpLost;
 			this.exp = this.exp - recoverable;
 		}
 		else
 		{
 			this.expRecoverable = this.expRecoverable + this.getExpShown();
 			this.exp = this.exp - this.getExpShown();
-		}	
+		}
 
-		PacketSendUtility.sendPacket(this.getPlayer(),
-			new SM_STATUPDATE_EXP(this.getExpShown(), this.getExpRecoverable(), this.getExpNeed()));	
+		PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATUPDATE_EXP(this.getExpShown(), this
+			.getExpRecoverable(), this.getExpNeed()));
 	}
-
+	
 	public void setRecoverableExp(long expRecoverable)
 	{
 		this.expRecoverable = expRecoverable;
