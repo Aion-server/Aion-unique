@@ -145,6 +145,7 @@
 			<xs:element name="confuse" type="ConfuseEffect"
 				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
+		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
 
 	<xs:complexType name="Conditions">

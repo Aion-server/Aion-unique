@@ -44,7 +44,6 @@ public class EffectController
 
 	public EffectController(Creature owner)
 	{
-		super();
 		this.owner = owner;
 		this.abnormalEffectMap = new ConcurrentHashMap<String, Effect>();
 		this.passiveEffectMap = new HashMap<String, Effect>();

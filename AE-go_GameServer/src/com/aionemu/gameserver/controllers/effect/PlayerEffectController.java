@@ -18,6 +18,7 @@ package com.aionemu.gameserver.controllers.effect;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
+import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * @author ATracer
@@ -26,10 +27,40 @@ import com.aionemu.gameserver.model.templates.item.WeaponType;
 public class PlayerEffectController extends EffectController
 {
 	private int weaponeffects;
+	
+	private Effect foodEffect;
 
 	public PlayerEffectController(Creature owner)
 	{
 		super(owner);
+	}
+	
+	@Override
+	public void addEffect(Effect effect)
+	{
+		if(effect.isFood())
+			addFoodEffect(effect);
+		
+		super.addEffect(effect);
+	}
+	
+	@Override
+	public void clearEffect(Effect effect)
+	{
+		if(effect.isFood())
+			foodEffect = null;
+	
+		super.clearEffect(effect);
+	}
+
+	/**
+	 * @param effect
+	 */
+	private void addFoodEffect(Effect effect)
+	{
+		if(foodEffect != null)
+			foodEffect.endEffect();
+		foodEffect = effect;
 	}
 
 	/**

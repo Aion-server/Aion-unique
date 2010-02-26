@@ -37548,7 +37548,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -37563,7 +37563,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -37578,7 +37578,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="10" value="0"/>
             </statup>
@@ -37593,7 +37593,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -37608,7 +37608,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -37623,7 +37623,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="MAXMP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -37638,7 +37638,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="MAGICAL_ACCURACY" func="ADD" delta="5" value="0"/>
             </statup>
@@ -37653,7 +37653,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="MAGICAL_RESIST" func="ADD" delta="5" value="0"/>
             </statup>
@@ -37686,7 +37686,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -37704,7 +37704,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -37722,7 +37722,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -37740,7 +37740,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -37758,7 +37758,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -37776,7 +37776,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -37794,7 +37794,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -37842,7 +37842,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -37857,7 +37857,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -37872,7 +37872,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="10" value="0"/>
             </statup>
@@ -37887,7 +37887,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -37902,7 +37902,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -37917,7 +37917,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAXMP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -37932,7 +37932,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAGICAL_ACCURACY" func="ADD" delta="5" value="0"/>
             </statup>
@@ -37947,7 +37947,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAGICAL_RESIST" func="ADD" delta="5" value="0"/>
             </statup>
@@ -37980,7 +37980,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -37998,7 +37998,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38016,7 +38016,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38034,7 +38034,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38052,7 +38052,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38070,7 +38070,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -38088,7 +38088,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38106,7 +38106,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -38127,7 +38127,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38148,7 +38148,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38169,7 +38169,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38190,7 +38190,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38211,7 +38211,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -38232,7 +38232,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38253,7 +38253,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -38274,7 +38274,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38295,7 +38295,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38316,7 +38316,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38337,7 +38337,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38358,7 +38358,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -38379,7 +38379,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38430,7 +38430,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38445,7 +38445,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -38460,7 +38460,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38475,7 +38475,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -38490,7 +38490,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38505,7 +38505,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAXMP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -38520,7 +38520,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAGICAL_ACCURACY" func="ADD" delta="5" value="0"/>
             </statup>
@@ -38535,7 +38535,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAGICAL_RESIST" func="ADD" delta="5" value="0"/>
             </statup>
@@ -38568,7 +38568,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -38586,7 +38586,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38604,7 +38604,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38622,7 +38622,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38640,7 +38640,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38658,7 +38658,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -38676,7 +38676,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38694,7 +38694,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -38715,7 +38715,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38736,7 +38736,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38757,7 +38757,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38778,7 +38778,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38799,7 +38799,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -38820,7 +38820,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38841,7 +38841,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -38862,7 +38862,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38883,7 +38883,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38904,7 +38904,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38925,7 +38925,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -38946,7 +38946,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -38967,7 +38967,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -38988,7 +38988,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -39004,7 +39004,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39020,7 +39020,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39036,7 +39036,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39052,7 +39052,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39068,7 +39068,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAXMP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39084,7 +39084,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAGICAL_ACCURACY" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39100,7 +39100,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAGICAL_RESIST" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39116,7 +39116,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -39135,7 +39135,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39154,7 +39154,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39173,7 +39173,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39192,7 +39192,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39211,7 +39211,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAXMP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39230,7 +39230,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAGICAL_ACCURACY" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39249,7 +39249,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAGICAL_RESIST" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39268,7 +39268,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -39287,7 +39287,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39306,7 +39306,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39325,7 +39325,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39344,7 +39344,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39363,7 +39363,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAXMP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39382,7 +39382,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAGICAL_ACCURACY" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39401,7 +39401,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="MAGICAL_RESIST" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39420,7 +39420,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -39436,7 +39436,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39452,7 +39452,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39468,7 +39468,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39484,7 +39484,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39500,7 +39500,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAXMP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39516,7 +39516,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAGICAL_ACCURACY" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39532,7 +39532,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAGICAL_RESIST" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39548,7 +39548,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -39567,7 +39567,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39586,7 +39586,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39605,7 +39605,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39624,7 +39624,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39643,7 +39643,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAXMP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39662,7 +39662,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAGICAL_ACCURACY" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39681,7 +39681,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAGICAL_RESIST" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39700,7 +39700,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -39719,7 +39719,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39738,7 +39738,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39757,7 +39757,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="EVASION" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39776,7 +39776,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -39795,7 +39795,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAXMP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -39814,7 +39814,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAGICAL_ACCURACY" func="ADD" delta="5" value="0"/>
             </statup>
@@ -39833,7 +39833,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="MAGICAL_RESIST" func="ADD" delta="5" value="0"/>
             </statup>
@@ -40694,7 +40694,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1800000" effectid="10012" e="1">
                 <change stat="PHYSICAL_CRITICAL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -40712,7 +40712,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="2700000" effectid="10012" e="1">
                 <change stat="PHYSICAL_CRITICAL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -40858,7 +40858,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="1200000" effectid="10012" e="1">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>
@@ -40942,7 +40942,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="2">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="2" value="0"/>
             </statup>
@@ -40957,7 +40957,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="2">
                 <change stat="BOOST_MAGICAL_SKILL" func="ADD" delta="10" value="0"/>
             </statup>
@@ -40972,7 +40972,7 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
-        <effects>
+        <effects food="true">
             <statup duration="900000" effectid="10012" e="2">
                 <change stat="MAXHP" func="ADD" delta="40" value="0"/>
             </statup>

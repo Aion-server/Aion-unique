@@ -22,6 +22,7 @@ import java.util.concurrent.Future;
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
+import com.aionemu.gameserver.skillengine.effect.Effects;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
@@ -198,6 +199,12 @@ public class Effect
 	public List<EffectTemplate> getEffectTemplates()
 	{
 		return skillTemplate.getEffects().getEffects();
+	}
+	
+	public boolean isFood()
+	{
+		Effects effects = skillTemplate.getEffects();
+		return effects != null && effects.isFood();
 	}
 	
 	/**
