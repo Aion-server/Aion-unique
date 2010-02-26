@@ -28,7 +28,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.aionemu.gameserver.itemengine.actions.ItemActions;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
-import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
 
