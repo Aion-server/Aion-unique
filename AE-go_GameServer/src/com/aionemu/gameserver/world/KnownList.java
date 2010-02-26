@@ -18,8 +18,8 @@ package com.aionemu.gameserver.world;
 
 import java.util.Collection;
 import java.util.Iterator;
-
-import javolution.util.FastMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -51,8 +51,7 @@ public class KnownList implements Iterable<VisibleObject>
 	/**
 	 * List of objects that this KnownList owner known
 	 */
-	private final FastMap<Integer, VisibleObject>	knownObjects				= new FastMap<Integer, VisibleObject>()
-																					.setShared(true);
+	private final Map<Integer, VisibleObject>	knownObjects				= new ConcurrentHashMap<Integer, VisibleObject>();
 
 	/**
 	 * COnstructor.
