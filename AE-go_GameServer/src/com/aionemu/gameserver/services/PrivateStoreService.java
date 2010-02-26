@@ -89,10 +89,8 @@ public class PrivateStoreService
 	 */
 	private boolean validateItem(Item item, int itemId, int itemAmount)
 	{
-		if(item.getItemTemplate().getItemId() != itemId || itemAmount > item.getItemCount())
-			return false;
-		return true;
-	}
+        return !(item.getItemTemplate().getItemId() != itemId || itemAmount > item.getItemCount());
+    }
 
 	/**
 	 * This method will create the player's store

@@ -251,12 +251,14 @@ public class SM_EMOTION extends AionServerPacket
 				// looting start
 				writeH(buf, state); // state?
 				writeF(buf, speed); // speed (maybe not a player one)
-				break;
+				writeD(buf, targetObjectId);
+                break;
 			case 36:
 				// looting end
 				writeH(buf, state); // state?
 				writeF(buf, speed); // speed (maybe not a player one)
-				break;
+				writeD(buf, targetObjectId);
+                break;
 			case 37:
 				// looting start (quest)
 				writeH(buf, state); // state?
