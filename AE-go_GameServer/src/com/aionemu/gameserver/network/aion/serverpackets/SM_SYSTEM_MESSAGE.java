@@ -393,22 +393,26 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// You are too far from the NPC to create a Legion.
 		return new SM_SYSTEM_MESSAGE(1300229);
 	}
-	/** Incorrect target / user offline	 **/
+
+	/** Incorrect target / user offline **/
 	public static SM_SYSTEM_MESSAGE LEGION_INCORRECT_TARGET()
 	{
 		return new SM_SYSTEM_MESSAGE(1300627);
 	}
+
 	/** Announcement related **/
 	public static SM_SYSTEM_MESSAGE LEGION_DISPLAY_ANNOUNCEMENT(String announcement, long unixTime, int type)
 	{
 		return new SM_SYSTEM_MESSAGE(1400019, announcement, unixTime, type);
 	}
+
 	/** Done messages **/
 	public static SM_SYSTEM_MESSAGE LEGION_WRITE_NOTICE_DONE()
 	{
 		// The Legion Announcement has been modified.
 		return new SM_SYSTEM_MESSAGE(1300277);
 	}
+
 	/** Player online/kicked/left/joined **/
 	public static SM_SYSTEM_MESSAGE LEGION_MEMBER_ONLINE(String charName)
 	{
@@ -420,18 +424,19 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// %0 has joined your Legion.
 		return new SM_SYSTEM_MESSAGE(1300260, charName);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE LEGION_MEMBER_LEFT(String charName)
 	{
 		// %0 has left the Legion.
 		return new SM_SYSTEM_MESSAGE(900699, charName);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE LEGION_NEW_MASTER()
 	{
 		// %0 was appointed as the new Legion Brigade General.
 		return new SM_SYSTEM_MESSAGE(900701);
 	}
+
 	/** Requests and their response **/
 	public static SM_SYSTEM_MESSAGE SEND_INVITE_REQUEST(String charName)
 	{
@@ -444,6 +449,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// %0 has declined your Legion invitation.
 		return new SM_SYSTEM_MESSAGE(1300259, charName);
 	}
+
 	/** Name related messages **/
 	public static SM_SYSTEM_MESSAGE LEGION_CREATE_INVALID_NAME()
 	{
@@ -455,13 +461,14 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		// That name is invalid. Please try another.
 		return new SM_SYSTEM_MESSAGE(1300233);
-	}	
+	}
 
 	public static SM_SYSTEM_MESSAGE LEGION_WRITE_INTRO_DONE()
 	{
 		// Your Character Information has been modified.
 		return new SM_SYSTEM_MESSAGE(1300282);
-	}	
+	}
+
 	/** Legion update related **/
 	public static SM_SYSTEM_MESSAGE LEGION_LEVEL_UP(int legionLevel)
 	{
@@ -474,11 +481,12 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// The Legion is already at the highest level.
 		return new SM_SYSTEM_MESSAGE(1300316);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE LEGION_CHANGED_EMBLEM()
 	{
 		return new SM_SYSTEM_MESSAGE(1390137);
 	}
+
 	/** Reponse to checks - CREATION **/
 	public static SM_SYSTEM_MESSAGE LEGION_CREATE_ALREADY_MEMBER()
 	{
@@ -503,6 +511,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// The %0 Legion has been created.
 		return new SM_SYSTEM_MESSAGE(1300235, legionName);
 	}
+
 	/** Reponse to checks - LEVEL UP **/
 	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_LEVEL_NOT_ENOUGH_POINT()
 	{
@@ -521,6 +530,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// You do not have enough Kinah.
 		return new SM_SYSTEM_MESSAGE(1300319);
 	}
+
 	/** Reponse to checks - INVITE **/
 	public static SM_SYSTEM_MESSAGE LEGION_TARGET_BUSY()
 	{
@@ -557,19 +567,21 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// There is no room in the Legion for more members.
 		return new SM_SYSTEM_MESSAGE(1300257);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE LEGION_NO_USER_TO_INVITE()
 	{
 		// There is no user to invite to your Legion.
 		return new SM_SYSTEM_MESSAGE(1300253);
 	}
+
 	/** Reponse to checks - LEAVE **/
 	public static SM_SYSTEM_MESSAGE LEGION_CANT_LEAVE_BEFORE_CHANGE_MASTER()
 	{
 		// You cannot leave your Legion unless you transfer Brigade General authority to someone else.
 		return new SM_SYSTEM_MESSAGE(1300238);
 	}
-	/** Reponse to checks - KICK **/	
+
+	/** Reponse to checks - KICK **/
 	public static SM_SYSTEM_MESSAGE LEGION_CANT_KICK_YOURSELF()
 	{
 		// You cannot kick yourself out from a Legion.
@@ -587,6 +599,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// You cannot kick out the Legion Brigade General.
 		return new SM_SYSTEM_MESSAGE(1300249);
 	}
+
 	/** Reponse to checks - CHANGE RANK **/
 	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MEMBER_RANK_DONT_HAVE_RIGHT()
 	{
@@ -605,6 +618,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// There is no one to change rank.
 		return new SM_SYSTEM_MESSAGE(1300264);
 	}
+
 	/** Reponse to checks - APPOINT BRIGADE GENERAL **/
 	public static SM_SYSTEM_MESSAGE LEGION_CHANGE_MASTER_ERROR_SELF()
 	{
@@ -635,6 +649,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// %0 has declined to become the Legion Brigade General.
 		return new SM_SYSTEM_MESSAGE(1300332, charName);
 	}
+
 	/** Reponse to checks - DISBAND **/
 	public static SM_SYSTEM_MESSAGE LEGION_DISPERSE_ONLY_MASTER_CAN_DISPERSE()
 	{
@@ -672,12 +687,12 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public static SM_SYSTEM_MESSAGE STR_MSG_NOTIFY_LOGIN_GUILD(String charName)
 	{
 		return new SM_SYSTEM_MESSAGE(1400133, charName);
-	}	
+	}
 
 	/**
 	 * You cannot fly in this area.
 	 */
-	public static SM_SYSTEM_MESSAGE	STR_FLYING_FORBIDDEN_HERE	= new SM_SYSTEM_MESSAGE(1300960);
+	public static SM_SYSTEM_MESSAGE	STR_FLYING_FORBIDDEN_HERE			= new SM_SYSTEM_MESSAGE(1300960);
 
 	/**
 	 * You cannot use teleport services when you flying
@@ -751,11 +766,12 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1310019);
 	}
+
 	public static SM_SYSTEM_MESSAGE QUEST_ACQUIRE_ERROR_INVENTORY_ITEM(int count)
 	{
 		return new SM_SYSTEM_MESSAGE(1300594, count);
 	}
-	
+
 	/**
 	 * Trading (Private Store, etc.)
 	 */
@@ -777,9 +793,18 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	/**
 	 * cannot equip items if require level higher than character level
 	 */
-	public static SM_SYSTEM_MESSAGE STR_CANNOT_USE_ITEM_TOO_LOW_LEVEL_MUST_BE_THIS_LEVEL(int itemLevel, DescriptionId itemDescId)
+	public static SM_SYSTEM_MESSAGE STR_CANNOT_USE_ITEM_TOO_LOW_LEVEL_MUST_BE_THIS_LEVEL(int itemLevel,
+		DescriptionId itemDescId)
 	{
 		return new SM_SYSTEM_MESSAGE(1300372, itemLevel, itemDescId);
+	}
+
+	/**
+	 * Delete character messages
+	 */
+	public static SM_SYSTEM_MESSAGE STR_DELETE_CHARACTER_IN_LEGION()
+	{
+		return new SM_SYSTEM_MESSAGE(1300306);
 	}
 
 	private final int		code;
@@ -817,11 +842,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 
 		for(Object param : params)
 		{
-			if (param instanceof DescriptionId)
+			if(param instanceof DescriptionId)
 			{
 				writeH(buf, 0x24);
 				writeD(buf, ((DescriptionId) param).getValue());
-				writeH(buf, 0x00); //unk
+				writeH(buf, 0x00); // unk
 			}
 			else
 				writeS(buf, String.valueOf(param));

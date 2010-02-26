@@ -17,10 +17,13 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.account.PlayerAccountData;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_CHARACTER;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
 
 /**
@@ -69,13 +72,16 @@ public class CM_DELETE_CHARACTER extends AionClientPacket
 	protected void runImpl()
 	{
 		AionConnection client = getConnection();
+		Player activePlayer = client.getActivePlayer();
 		PlayerAccountData playerAccData = client.getAccount().getPlayerAccountData(chaOid);
-		if(playerAccData != null)
+		if(playerAccData != null && !activePlayer.isLegionMember())
 		{
 			playerService.deletePlayer(playerAccData);
 			client.sendPacket(new SM_DELETE_CHARACTER(chaOid, playerAccData.getDeletionTimeInSeconds()));
-
 		}
-		
+		else
+		{
+			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.STR_DELETE_CHARACTER_IN_LEGION());
+		}		
 	}
 }
