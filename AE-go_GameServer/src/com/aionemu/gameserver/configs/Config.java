@@ -196,6 +196,9 @@ public class Config
 
 	@Property(key = "gameserver.ShutdownHookDelay", defaultValue = "60")
 	public static int				SHUTDOWN_HOOK_DELAY;
+	
+	@Property(key = "gameserver.ShutdownAnnounceInterval", defaultValue = "1")
+	public static int				SHUTDOWN_ANNOUNCE_INTERVAL;
 
 	@Property(key = "gameserver.enable.privatestore",defaultValue = "true")
 	public static boolean			ENABLE_PRIVATE_STORE;

@@ -17,7 +17,7 @@
 package admincommands;
 
 import com.aionemu.commons.utils.AEInfos;
-import com.aionemu.gameserver.ShutdownHook.ShutdownManager;
+import com.aionemu.gameserver.ShutdownHook;
 import com.aionemu.gameserver.ShutdownHook.ShutdownMode;
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -32,7 +32,6 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  * @param //system gc - Garbage Collector
  * @param //system shutdown <seconds> - Shutdowner
  * @param //system restart <seconds> - Restarter
- * @param //system stop - Stopping Restarter/Shutdowner
  */
 public class AESystem extends AdminCommand
 {
@@ -88,19 +87,16 @@ public class AESystem extends AdminCommand
 		else if(params[0].equals("shutdown"))
 		{
 			int val = Integer.parseInt(params[1]);
-			ShutdownManager.doShutdown(admin.getName(), val, ShutdownMode.SHUTDOWN);
+			int announceInterval = Integer.parseInt(params[2]);
+			ShutdownHook.doShutdown(val, announceInterval, ShutdownMode.SHUTDOWN);
 			PacketSendUtility.sendMessage(admin, "Server will be shutdown in " + val + " seconds.");
 		}
 		else if(params[0].equals("restart"))
 		{
 			int val = Integer.parseInt(params[1]);
-			ShutdownManager.doShutdown(admin.getName(), val, ShutdownMode.RESTART);
+			int announceInterval = Integer.parseInt(params[2]);
+			ShutdownHook.doShutdown(val, announceInterval, ShutdownMode.RESTART);
 			PacketSendUtility.sendMessage(admin, "Server will be restart in " + val + " seconds.");
-		}
-		else if(params[0].equals("stop"))
-		{
-			ShutdownManager.stopShutdown(admin.getName());
-			PacketSendUtility.sendMessage(admin, "Server shutdown/restart is stopped.");
 		}
 	}
 }
