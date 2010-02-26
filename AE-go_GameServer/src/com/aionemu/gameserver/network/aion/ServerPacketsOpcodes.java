@@ -153,7 +153,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_FRIEND_NOTIFY.class, 0xE1, idSet);
 		addPacketOpcode(SM_DELETE_CHARACTER.class, 0xE2, idSet);
 		addPacketOpcode(SM_RESTORE_CHARACTER.class, 0xE3, idSet);
-		addPacketOpcode(SM_ROOT.class, 0xE4, idSet);
+		addPacketOpcode(SM_TARGET_IMMOBILIZE.class, 0xE4, idSet);
 		addPacketOpcode(SM_LOOT_STATUS.class, 0xE5, idSet);
 		addPacketOpcode(SM_L2AUTH_LOGIN_CHECK.class, 0xE7, idSet);
 		addPacketOpcode(SM_CHARACTER_LIST.class, 0xE8, idSet);

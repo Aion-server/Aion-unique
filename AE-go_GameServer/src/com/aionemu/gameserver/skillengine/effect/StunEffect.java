@@ -20,7 +20,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_IMMOBILIZE;
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
@@ -46,6 +48,7 @@ public class StunEffect extends EffectTemplate
 	public void startEffect(Effect effect)
 	{
 		effect.getEffected().setStunned(true);
+		PacketSendUtility.broadcastPacket(effect.getEffected(), new SM_TARGET_IMMOBILIZE(effect.getEffected()));
 	}
 
 	@Override
