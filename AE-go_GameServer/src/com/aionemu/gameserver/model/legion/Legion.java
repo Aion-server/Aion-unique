@@ -64,6 +64,7 @@ public class Legion
 	{
 		this.legionId = legionId;
 		this.legionName = legionName;
+		this.legionWarehouse = new LegionWarehouse(this);
 	}
 
 	/**
