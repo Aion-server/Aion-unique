@@ -165,20 +165,9 @@ public class StatFunctions
 
 			if(weaponType != null)
 			{
-
-				switch(weaponType)
-				{
-					case ORB_2H:
-					case BOOK_2H:
-						break;
-					case BOW:
-
-						equipment.useArrow();
-
-					default:
-						mainHandAttack -= 100;
-						break;
-				}
+				//TODO move to controller
+				if(weaponType == WeaponType.BOW)
+					equipment.useArrow();
 
 				int min = Math.round((((mainHandAttack * 100)/ average) * totalMin)/100);
 				int max = Math.round((((mainHandAttack * 100)/ average) * totalMax)/100);
@@ -248,19 +237,6 @@ public class StatFunctions
 
 		Equipment equipment = ((Player)attacker).getEquipment();
 
-		WeaponType weaponType = equipment.getOffHandWeaponType();
-
-		switch(weaponType)
-		{
-			case ORB_2H:
-			case BOOK_2H:
-				break;
-
-			default:
-				offHandAttack -= 100;
-				break;
-		}
-
 		int Damage = 0;
 		int min = Math.round((((offHandAttack * 100)/ average) * totalMin)/100);
 		int max = Math.round((((offHandAttack * 100)/ average) * totalMax)/100);
@@ -282,6 +258,15 @@ public class StatFunctions
 		}
 
 		Damage -= Math.round(tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE) * 0.10f);
+		
+		for(float i = 0.5f; i <= 1; i+=0.25f)
+		{
+			if(Rnd.get(0, 100) < 25)
+			{
+				Damage *= i;
+				break;
+			}
+		}
 
 		if (Damage<=0)
 			Damage=1;
@@ -503,14 +488,14 @@ public class StatFunctions
 		double criticalRate;
 
 		if(critical <= 440)
-			criticalRate = critical / 10;
+			criticalRate = critical * 0.1f;
 		else if(critical <= 600)
-			criticalRate = (440 / 10) + ((critical - 400) / 20);
+			criticalRate = (440 * 0.1f) + ((critical - 440) * 0.05f);
 		else
-			criticalRate = (440 / 10) + (160 / 20) + ((critical - 600) / 40);
+			criticalRate = (440 * 0.1f) + (160 * 0.05f) + ((critical - 600) * 0.02f);
 		// minimal critical rate
-		if(criticalRate < 1d)
-			criticalRate = 1d;
+		if(criticalRate < 1)
+			criticalRate = 1;
 
 		return criticalRate;
 	}

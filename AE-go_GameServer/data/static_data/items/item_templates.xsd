@@ -12,6 +12,13 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	
+	<xs:complexType name="Godstone">
+		<xs:attribute name="skillid" type="xs:int"/>
+		<xs:attribute name="skilllvl" type="xs:int"/>
+		<xs:attribute name="probability" type="xs:int"/>
+		<xs:attribute name="probabilityleft" type="xs:int"/>
+	</xs:complexType>
 
 	<xs:complexType name="itemTemplate">
 		<xs:sequence>
@@ -19,6 +26,8 @@
 				maxOccurs="unbounded" />
 			<xs:element name="actions" type="ItemActions" minOccurs="0"
 				maxOccurs="unbounded" />
+			<xs:element name="godstone" type="Godstone" minOccurs="0"
+				maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="equipment_type" type="equipType" />
 		<xs:attribute name="slot" type="xs:int" />

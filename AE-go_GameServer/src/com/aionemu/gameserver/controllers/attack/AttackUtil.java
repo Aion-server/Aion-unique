@@ -97,21 +97,12 @@ public class AttackUtil
 
 		for (int i=0; i < hitCount; i++) 
 		{
-			int damages;
-			if(hitCount > 1)
+			int damages = damage;
+
+			if (i!=0)
 			{
-				if (i==0)
-				{
-					damages = Math.round(damage * 0.75f);
-				}
-				else
-				{
-					damages = Math.round(damage/(hitCount-1));
-				}
-				damage -= damages;
+				damages = Math.round(damage * 0.1f);
 			}
-			else
-				damages = damage;
 
 			WeaponType weaponType;
 
