@@ -62,6 +62,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_MEMBER;
 import com.aionemu.gameserver.skillengine.SkillLearnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
@@ -353,6 +354,17 @@ public class PlayerService
 			playerGroup.removePlayerFromGroup(player);
 
 		storePlayer(player);
+	}
+	
+	public void playerLoggedOutDelay(final Player player, int delay)
+	{
+		ThreadPoolManager.getInstance().scheduleTaskManager(new Runnable(){		
+			@Override
+			public void run()
+			{				
+				playerLoggedOut(player);
+			}
+		}, delay);				
 	}
 
 	/**

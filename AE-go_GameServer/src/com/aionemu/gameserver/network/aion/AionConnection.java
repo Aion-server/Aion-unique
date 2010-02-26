@@ -216,7 +216,17 @@ public class AionConnection extends AConnection
 			loginServer.aionClientDisconnected(getAccount().getId());
 		if(getActivePlayer() != null)
 		{
-			playerService.playerLoggedOut(getActivePlayer());
+			Player player = getActivePlayer();
+			
+			if(player.getController().isInShutdownProgress())
+				playerService.playerLoggedOut(player);
+			
+			// prevent ctrl+alt+del / close window exploit
+			else
+			{
+				int delay = 10;
+				playerService.playerLoggedOutDelay(player, (delay * 1000));
+			}
 		}
 	}
 
