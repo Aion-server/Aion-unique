@@ -403,10 +403,7 @@ public class LegionService
 	 */
 	public LegionMemberEx getOfflineLegionMember(int playerObjId)
 	{
-		LegionMemberEx offlineLegionMember = DAOManager.getDAO(LegionMemberDAO.class).loadOfflineLegionMember(
-			playerObjId, this);
-
-		return offlineLegionMember;
+		return DAOManager.getDAO(LegionMemberDAO.class).loadOfflineLegionMember(playerObjId, this);
 	}
 
 	/**
@@ -494,24 +491,16 @@ public class LegionService
 	 */
 	public void createLegion(Player activePlayer, String legionName)
 	{
-		Legion legion = new Legion(aionObjectsIDFactory.nextId(), legionName);
-
 		/* Some reasons why legions can' be created */
-		if(!isValidName(legion.getLegionName()))
+		if(!isValidName(legionName))
 		{
-			aionObjectsIDFactory.releaseId(legion.getLegionId());
 			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CREATE_INVALID_NAME());
 			return;
 		}
-		else if(!isFreeName(legion.getLegionName()))
+		else if(!isFreeName(legionName))
 		{
-			aionObjectsIDFactory.releaseId(legion.getLegionId());
 			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CREATE_NAME_EXISTS());
 			return;
-		}
-		else if(legion.isDisbanding())
-		{
-			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CREATE_LAST_DAY_CHECK());
 		}
 		else if(activePlayer.isLegionMember())
 		{
@@ -523,35 +512,33 @@ public class LegionService
 		}
 		else
 		{
+			Legion legion = new Legion(aionObjectsIDFactory.nextId(), legionName, activePlayer.getObjectId());
+
 			LegionEmblem legionEmblem = legion.getLegionEmblem();
 			activePlayer.getInventory().decreaseKinah(LegionConfig.LEGION_CREATE_REQUIRED_KINAH);
 			/**
 			 * Create a LegionMember, add it to the legion and bind it to a Player
 			 */
-			if(legion.addLegionMember(activePlayer.getObjectId()))
-			{
-				activePlayer.setLegionMember(new LegionMember(activePlayer.getObjectId(), legion,
-					LegionRank.BRIGADE_GENERAL));
-				storeNewLegion(legion);
-				storeNewLegionMember(activePlayer.getLegionMember());
+			activePlayer.setLegionMember(new LegionMember(activePlayer.getObjectId(), legion,
+				LegionRank.BRIGADE_GENERAL));
+			storeNewLegion(legion);
+			storeNewLegionMember(activePlayer.getLegionMember());
 
-				/**
-				 * Send required packets
-				 */
-				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_INFO(legion));
-				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_ADD_MEMBER(activePlayer, false, 0, ""));
-				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_UPDATE_EMBLEM(legion.getLegionId(),
-					legionEmblem.getEmblemId(), legionEmblem.getColor_r(), legionEmblem.getColor_g(), legionEmblem
-						.getColor_b()));
-				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_EDIT(0x08));
+			/**
+			 * Send required packets
+			 */
+			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_INFO(legion));
+			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_ADD_MEMBER(activePlayer, false, 0, ""));
+			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_UPDATE_EMBLEM(legion.getLegionId(), legionEmblem
+				.getEmblemId(), legionEmblem.getColor_r(), legionEmblem.getColor_g(), legionEmblem.getColor_b()));
+			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_EDIT(0x08));
 
-				PacketSendUtility.broadcastPacket(activePlayer,
-					new SM_LEGION_UPDATE_TITLE(activePlayer.getObjectId(), legion.getLegionId(),
-						legion.getLegionName(), activePlayer.getLegionMember().getRank().getRankId()), true);
+			PacketSendUtility.broadcastPacket(activePlayer, new SM_LEGION_UPDATE_TITLE(activePlayer.getObjectId(),
+				legion.getLegionId(), legion.getLegionName(), activePlayer.getLegionMember().getRank().getRankId()),
+				true);
 
-				PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_MEMBERLIST(loadLegionMemberExList(legion)));
-				PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CREATED(legion.getLegionName()));
-			}
+			PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_MEMBERLIST(loadLegionMemberExList(legion)));
+			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CREATED(legion.getLegionName()));
 		}
 	}
 

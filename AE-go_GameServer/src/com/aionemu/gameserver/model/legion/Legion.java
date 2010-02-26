@@ -60,11 +60,12 @@ public class Legion
 	 * @param legionId
 	 * @param legionName
 	 */
-	public Legion(int legionId, String legionName)
+	public Legion(int legionId, String legionName, int playerObjId)
 	{
 		this.legionId = legionId;
 		this.legionName = legionName;
 		this.legionWarehouse = new LegionWarehouse(this);
+		addLegionMember(playerObjId);
 	}
 
 	/**
