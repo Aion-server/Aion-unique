@@ -347,7 +347,7 @@ public class PrivateStoreService
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
 			TradePSItem item = store.getTradeItemById(tradeItem.getItemId());
-			totalprice += item.getPrice();
+			totalprice += item.getPrice() * tradeItem.getCount();
 		}
 		return totalprice;
 	}
