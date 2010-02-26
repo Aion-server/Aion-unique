@@ -31,6 +31,7 @@ import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
+import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -613,6 +614,11 @@ public class PlayerController extends CreatureController<Player>
 	public boolean isEnemy(Player player)
 	{
 		return player.getCommonData().getRace() != getOwner().getCommonData().getRace();
+	}
+	
+	public boolean isEnemy(Npc npc)
+	{
+		return npc instanceof Monster || npc.isAggressiveTo(getOwner().getCommonData().getRace());
 	}
 
 	public void updateNearbyQuestList()

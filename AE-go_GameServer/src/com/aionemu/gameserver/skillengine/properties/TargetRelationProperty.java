@@ -58,10 +58,11 @@ public class TargetRelationProperty
     @Override
 	public boolean set(Skill skill)
 	{
-    	List<Creature> effectedList = skill.getEffectedList();
-    	
-    	Creature lastAttacker = skill.getEffector().getController().getLastAttacker();
-    	
+		List<Creature> effectedList = skill.getEffectedList();
+		
+		Creature lastAttacker = skill.getEffector().getController().getLastAttacker();
+		Player effector = skill.getEffector();
+		
 		switch(value)
 		{
 			case ALL:
@@ -71,10 +72,7 @@ public class TargetRelationProperty
 				{
 					Creature nextEffected = iter.next();
 					
-					if(nextEffected instanceof Npc && ((Npc) nextEffected).isAggressiveTo(skill.getEffector().getCommonData().getRace()))
-						continue;
-					
-					if(nextEffected instanceof Monster)
+					if(nextEffected instanceof Npc && ((Npc) nextEffected).isAggressiveTo(effector.getCommonData().getRace()))
 						continue;
 					
 					if(lastAttacker != null && lastAttacker.getObjectId() == nextEffected.getObjectId())
@@ -87,7 +85,7 @@ public class TargetRelationProperty
 					iter.remove();
 				}
 				break;
-			case FRIEND:		
+			case FRIEND:
 				for(Iterator<Creature> iter = effectedList.iterator(); iter.hasNext();)
 				{
 					Creature nextEffected = iter.next();
@@ -103,7 +101,7 @@ public class TargetRelationProperty
 						&& lastAttacker.getObjectId() != nextEffected.getObjectId())
 						continue;
 					
-					if(nextEffected instanceof Npc && !((Npc) nextEffected).isAggressiveTo(skill.getEffector().getCommonData().getRace()))
+					if(nextEffected instanceof Npc && !effector.getController().isEnemy((Npc) nextEffected))
 						continue;
 					
 					iter.remove();			
