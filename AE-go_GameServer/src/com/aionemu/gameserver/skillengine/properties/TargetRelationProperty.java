@@ -72,7 +72,7 @@ public class TargetRelationProperty
 				{
 					Creature nextEffected = iter.next();
 					
-					if(nextEffected instanceof Npc && ((Npc) nextEffected).isAggressiveTo(effector.getCommonData().getRace()))
+					if(nextEffected instanceof Npc && effector.getController().isEnemy((Npc) nextEffected))
 						continue;
 					
 					if(lastAttacker != null && lastAttacker.getObjectId() == nextEffected.getObjectId())
