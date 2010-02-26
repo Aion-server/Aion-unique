@@ -87,8 +87,8 @@
         <assassin_selectable_reward count="1" item_id="169500283"/>
         <wizard_selectable_reward count="1" item_id="169500525"/>
         <elementalist_selectable_reward count="1" item_id="169500616"/>
+        <priest_selectable_reward count="1" item_id="169500362"/>
         <chanter_selectable_reward count="1" item_id="169500449"/>
-        <chanter_selectable_reward count="1" item_id="169500362"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" nameId="2204025" name="Masked Loiterers" id="1012">
         <collect_items>
@@ -337,8 +337,8 @@
         <assassin_selectable_reward count="1" item_id="169500287"/>
         <wizard_selectable_reward count="1" item_id="169500528"/>
         <elementalist_selectable_reward count="1" item_id="169500619"/>
+        <priest_selectable_reward count="1" item_id="169500367"/>
         <chanter_selectable_reward count="1" item_id="169500451"/>
-        <chanter_selectable_reward count="1" item_id="169500367"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="99" nameId="2200801" name="Temporary" id="1045"/>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="99" nameId="2200801" name="Temporary" id="1046"/>
@@ -2053,8 +2053,8 @@
         <assassin_selectable_reward count="1" item_id="169500336"/>
         <wizard_selectable_reward count="1" item_id="169500584"/>
         <elementalist_selectable_reward count="1" item_id="169500692"/>
+        <priest_selectable_reward count="1" item_id="169500423"/>
         <chanter_selectable_reward count="1" item_id="169500495"/>
-        <chanter_selectable_reward count="1" item_id="169500423"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="99" nameId="2205033" name="[Group] Defeating Saendukal" id="1416">
         <collect_items>
@@ -3887,8 +3887,8 @@
         <wizard_selectable_reward count="1" item_id="100500525"/>
         <elementalist_selectable_reward count="1" item_id="100600563"/>
         <elementalist_selectable_reward count="1" item_id="100500525"/>
-        <chanter_selectable_reward count="1" item_id="100100525"/>
-        <chanter_selectable_reward count="1" item_id="101500523"/>
+        <priest_selectable_reward count="1" item_id="100100525"/>
+        <priest_selectable_reward count="1" item_id="101500523"/>
         <chanter_selectable_reward count="1" item_id="100100525"/>
         <chanter_selectable_reward count="1" item_id="101500523"/>
     </quest>
@@ -5096,8 +5096,8 @@
         <assassin_selectable_reward count="1" item_id="140000076"/>
         <wizard_selectable_reward count="1" item_id="140000131"/>
         <elementalist_selectable_reward count="1" item_id="140000147"/>
+        <priest_selectable_reward count="1" item_id="140000098"/>
         <chanter_selectable_reward count="1" item_id="140000112"/>
-        <chanter_selectable_reward count="1" item_id="140000098"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="32" nameId="2205861" name="Flame Sword" id="1930">
         <collect_items>
@@ -5506,11 +5506,11 @@
         <elementalist_selectable_reward count="1" item_id="112100790"/>
         <elementalist_selectable_reward count="1" item_id="113100843"/>
         <elementalist_selectable_reward count="1" item_id="110100931"/>
-        <chanter_selectable_reward count="1" item_id="114500837"/>
-        <chanter_selectable_reward count="1" item_id="111500821"/>
-        <chanter_selectable_reward count="1" item_id="112500774"/>
-        <chanter_selectable_reward count="1" item_id="113500827"/>
-        <chanter_selectable_reward count="1" item_id="110500849"/>
+        <priest_selectable_reward count="1" item_id="114500837"/>
+        <priest_selectable_reward count="1" item_id="111500821"/>
+        <priest_selectable_reward count="1" item_id="112500774"/>
+        <priest_selectable_reward count="1" item_id="113500827"/>
+        <priest_selectable_reward count="1" item_id="110500849"/>
         <chanter_selectable_reward count="1" item_id="114500837"/>
         <chanter_selectable_reward count="1" item_id="111500821"/>
         <chanter_selectable_reward count="1" item_id="112500774"/>
@@ -5542,9 +5542,9 @@
         <wizard_selectable_reward count="1" item_id="100500572"/>
         <elementalist_selectable_reward count="1" item_id="100600608"/>
         <elementalist_selectable_reward count="1" item_id="100500572"/>
-        <chanter_selectable_reward count="1" item_id="100100568"/>
-        <chanter_selectable_reward count="1" item_id="101500566"/>
-        <chanter_selectable_reward count="1" item_id="115000826"/>
+        <priest_selectable_reward count="1" item_id="100100568"/>
+        <priest_selectable_reward count="1" item_id="101500566"/>
+        <priest_selectable_reward count="1" item_id="115000826"/>
         <chanter_selectable_reward count="1" item_id="100100568"/>
         <chanter_selectable_reward count="1" item_id="101500566"/>
         <chanter_selectable_reward count="1" item_id="115000826"/>
@@ -5585,11 +5585,11 @@
         <elementalist_selectable_reward count="1" item_id="112100779"/>
         <elementalist_selectable_reward count="1" item_id="113100829"/>
         <elementalist_selectable_reward count="1" item_id="110100917"/>
-        <chanter_selectable_reward count="1" item_id="114500829"/>
-        <chanter_selectable_reward count="1" item_id="111500808"/>
-        <chanter_selectable_reward count="1" item_id="112500764"/>
-        <chanter_selectable_reward count="1" item_id="113500818"/>
-        <chanter_selectable_reward count="1" item_id="110500842"/>
+        <priest_selectable_reward count="1" item_id="114500829"/>
+        <priest_selectable_reward count="1" item_id="111500808"/>
+        <priest_selectable_reward count="1" item_id="112500764"/>
+        <priest_selectable_reward count="1" item_id="113500818"/>
+        <priest_selectable_reward count="1" item_id="110500842"/>
         <chanter_selectable_reward count="1" item_id="114500829"/>
         <chanter_selectable_reward count="1" item_id="111500808"/>
         <chanter_selectable_reward count="1" item_id="112500764"/>
@@ -5621,9 +5621,9 @@
         <wizard_selectable_reward count="1" item_id="100500558"/>
         <elementalist_selectable_reward count="1" item_id="100600595"/>
         <elementalist_selectable_reward count="1" item_id="100500558"/>
-        <chanter_selectable_reward count="1" item_id="100100556"/>
-        <chanter_selectable_reward count="1" item_id="101500556"/>
-        <chanter_selectable_reward count="1" item_id="115000827"/>
+        <priest_selectable_reward count="1" item_id="100100556"/>
+        <priest_selectable_reward count="1" item_id="101500556"/>
+        <priest_selectable_reward count="1" item_id="115000827"/>
         <chanter_selectable_reward count="1" item_id="100100556"/>
         <chanter_selectable_reward count="1" item_id="101500556"/>
         <chanter_selectable_reward count="1" item_id="115000827"/>
@@ -5859,8 +5859,8 @@
         <assassin_selectable_reward count="1" item_id="169500283"/>
         <wizard_selectable_reward count="1" item_id="169500525"/>
         <elementalist_selectable_reward count="1" item_id="169500616"/>
+        <priest_selectable_reward count="1" item_id="169500362"/>
         <chanter_selectable_reward count="1" item_id="169500449"/>
-        <chanter_selectable_reward count="1" item_id="169500362"/>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" nameId="2206225" name="Encroachers" id="2012">
         <rewards exp="6580" gold="600">
@@ -6104,8 +6104,8 @@
         <assassin_selectable_reward count="1" item_id="169500287"/>
         <wizard_selectable_reward count="1" item_id="169500528"/>
         <elementalist_selectable_reward count="1" item_id="169500619"/>
+        <priest_selectable_reward count="1" item_id="169500367"/>
         <chanter_selectable_reward count="1" item_id="169500451"/>
-        <chanter_selectable_reward count="1" item_id="169500367"/>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_giveup="true" cannot_share="true" max_repeat_count="19" minlevel_permitted="99" nameId="2206261" name="Temporary" id="2043">
         <rewards gold="2043"/>
@@ -8107,8 +8107,8 @@
         <assassin_selectable_reward count="1" item_id="169500336"/>
         <wizard_selectable_reward count="1" item_id="169500585"/>
         <elementalist_selectable_reward count="1" item_id="169500692"/>
+        <priest_selectable_reward count="1" item_id="169500423"/>
         <chanter_selectable_reward count="1" item_id="169500495"/>
-        <chanter_selectable_reward count="1" item_id="169500423"/>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="37" nameId="2207281" name="The Secret Ingredient" id="2440">
         <collect_items>
@@ -9530,8 +9530,8 @@
         <wizard_selectable_reward count="1" item_id="100500526"/>
         <elementalist_selectable_reward count="1" item_id="100600564"/>
         <elementalist_selectable_reward count="1" item_id="100500526"/>
-        <chanter_selectable_reward count="1" item_id="100100526"/>
-        <chanter_selectable_reward count="1" item_id="101500524"/>
+        <priest_selectable_reward count="1" item_id="101500524"/>
+        <priest_selectable_reward count="1" item_id="100100526"/>
         <chanter_selectable_reward count="1" item_id="100100526"/>
         <chanter_selectable_reward count="1" item_id="101500524"/>
     </quest>
@@ -10866,8 +10866,8 @@
         <assassin_selectable_reward count="1" item_id="140000076"/>
         <wizard_selectable_reward count="1" item_id="140000131"/>
         <elementalist_selectable_reward count="1" item_id="140000147"/>
+        <priest_selectable_reward count="1" item_id="140000098"/>
         <chanter_selectable_reward count="1" item_id="140000112"/>
-        <chanter_selectable_reward count="1" item_id="140000098"/>
     </quest>
     <quest race_permitted="ASMODIANS" use_class_reward="true" cannot_giveup="true" cannot_share="true" max_repeat_count="1" minlevel_permitted="9" nameId="2208203" name="Dispatch to Altgard" id="2901">
         <rewards exp="1500"/>
@@ -11545,11 +11545,11 @@
         <elementalist_selectable_reward count="1" item_id="112100790"/>
         <elementalist_selectable_reward count="1" item_id="113100843"/>
         <elementalist_selectable_reward count="1" item_id="110100931"/>
-        <chanter_selectable_reward count="1" item_id="114500837"/>
-        <chanter_selectable_reward count="1" item_id="111500821"/>
-        <chanter_selectable_reward count="1" item_id="112500774"/>
-        <chanter_selectable_reward count="1" item_id="113500827"/>
-        <chanter_selectable_reward count="1" item_id="110500849"/>
+        <priest_selectable_reward count="1" item_id="114500837"/>
+        <priest_selectable_reward count="1" item_id="111500821"/>
+        <priest_selectable_reward count="1" item_id="112500774"/>
+        <priest_selectable_reward count="1" item_id="113500827"/>
+        <priest_selectable_reward count="1" item_id="110500849"/>
         <chanter_selectable_reward count="1" item_id="114500837"/>
         <chanter_selectable_reward count="1" item_id="111500821"/>
         <chanter_selectable_reward count="1" item_id="112500774"/>
@@ -11581,9 +11581,9 @@
         <wizard_selectable_reward count="1" item_id="100500572"/>
         <elementalist_selectable_reward count="1" item_id="100600608"/>
         <elementalist_selectable_reward count="1" item_id="100500572"/>
-        <chanter_selectable_reward count="1" item_id="100100568"/>
-        <chanter_selectable_reward count="1" item_id="101500566"/>
-        <chanter_selectable_reward count="1" item_id="115000826"/>
+        <priest_selectable_reward count="1" item_id="100100568"/>
+        <priest_selectable_reward count="1" item_id="101500566"/>
+        <priest_selectable_reward count="1" item_id="115000826"/>
         <chanter_selectable_reward count="1" item_id="100100568"/>
         <chanter_selectable_reward count="1" item_id="101500566"/>
         <chanter_selectable_reward count="1" item_id="115000826"/>
@@ -11623,11 +11623,11 @@
         <elementalist_selectable_reward count="1" item_id="112100779"/>
         <elementalist_selectable_reward count="1" item_id="113100829"/>
         <elementalist_selectable_reward count="1" item_id="110100917"/>
-        <chanter_selectable_reward count="1" item_id="114500829"/>
-        <chanter_selectable_reward count="1" item_id="111500808"/>
-        <chanter_selectable_reward count="1" item_id="112500764"/>
-        <chanter_selectable_reward count="1" item_id="113500818"/>
-        <chanter_selectable_reward count="1" item_id="110500842"/>
+        <priest_selectable_reward count="1" item_id="114500829"/>
+        <priest_selectable_reward count="1" item_id="111500808"/>
+        <priest_selectable_reward count="1" item_id="112500764"/>
+        <priest_selectable_reward count="1" item_id="113500818"/>
+        <priest_selectable_reward count="1" item_id="110500842"/>
         <chanter_selectable_reward count="1" item_id="114500829"/>
         <chanter_selectable_reward count="1" item_id="111500808"/>
         <chanter_selectable_reward count="1" item_id="112500764"/>
@@ -11658,9 +11658,9 @@
         <wizard_selectable_reward count="1" item_id="100500558"/>
         <elementalist_selectable_reward count="1" item_id="100600595"/>
         <elementalist_selectable_reward count="1" item_id="100500558"/>
-        <chanter_selectable_reward count="1" item_id="100100556"/>
-        <chanter_selectable_reward count="1" item_id="101500556"/>
-        <chanter_selectable_reward count="1" item_id="115000827"/>
+        <priest_selectable_reward count="1" item_id="100100556"/>
+        <priest_selectable_reward count="1" item_id="101500556"/>
+        <priest_selectable_reward count="1" item_id="115000827"/>
         <chanter_selectable_reward count="1" item_id="100100556"/>
         <chanter_selectable_reward count="1" item_id="101500556"/>
         <chanter_selectable_reward count="1" item_id="115000827"/>
@@ -12850,9 +12850,9 @@
         <wizard_selectable_reward count="1" item_id="100500603"/>
         <elementalist_selectable_reward count="1" item_id="100600639"/>
         <elementalist_selectable_reward count="1" item_id="100500603"/>
-        <chanter_selectable_reward count="1" item_id="100100582"/>
-        <chanter_selectable_reward count="1" item_id="101500606"/>
-        <chanter_selectable_reward count="1" item_id="115000867"/>
+        <priest_selectable_reward count="1" item_id="100100582"/>
+        <priest_selectable_reward count="1" item_id="101500606"/>
+        <priest_selectable_reward count="1" item_id="115000867"/>
         <chanter_selectable_reward count="1" item_id="100100582"/>
         <chanter_selectable_reward count="1" item_id="101500606"/>
         <chanter_selectable_reward count="1" item_id="115000867"/>
@@ -12936,8 +12936,8 @@
         <assassin_selectable_reward count="1" item_id="125002001"/>
         <wizard_selectable_reward count="1" item_id="125002000"/>
         <elementalist_selectable_reward count="1" item_id="125002018"/>
+        <priest_selectable_reward count="1" item_id="125002002"/>
         <chanter_selectable_reward count="1" item_id="125002020"/>
-        <chanter_selectable_reward count="1" item_id="125002002"/>
     </quest>
     <quest race_permitted="ELYOS" max_repeat_count="1" minlevel_permitted="34" nameId="2206025" name="The Gladiator Preceptor's Task" id="3922">
         <rewards title="38" exp="506700"/>
@@ -13124,9 +13124,9 @@
         <wizard_selectable_reward count="1" item_id="100500558"/>
         <elementalist_selectable_reward count="1" item_id="100600595"/>
         <elementalist_selectable_reward count="1" item_id="100500558"/>
-        <chanter_selectable_reward count="1" item_id="100100556"/>
-        <chanter_selectable_reward count="1" item_id="101500556"/>
-        <chanter_selectable_reward count="1" item_id="115000827"/>
+        <priest_selectable_reward count="1" item_id="100100556"/>
+        <priest_selectable_reward count="1" item_id="101500556"/>
+        <priest_selectable_reward count="1" item_id="115000827"/>
         <chanter_selectable_reward count="1" item_id="100100556"/>
         <chanter_selectable_reward count="1" item_id="101500556"/>
         <chanter_selectable_reward count="1" item_id="115000827"/>
@@ -14473,9 +14473,9 @@
         <wizard_selectable_reward count="1" item_id="100500604"/>
         <elementalist_selectable_reward count="1" item_id="100600640"/>
         <elementalist_selectable_reward count="1" item_id="100500604"/>
-        <chanter_selectable_reward count="1" item_id="100100583"/>
-        <chanter_selectable_reward count="1" item_id="101500607"/>
-        <chanter_selectable_reward count="1" item_id="115000868"/>
+        <priest_selectable_reward count="1" item_id="100100583"/>
+        <priest_selectable_reward count="1" item_id="101500607"/>
+        <priest_selectable_reward count="1" item_id="115000868"/>
         <chanter_selectable_reward count="1" item_id="100100583"/>
         <chanter_selectable_reward count="1" item_id="101500607"/>
         <chanter_selectable_reward count="1" item_id="115000868"/>
@@ -14541,8 +14541,8 @@
         <assassin_selectable_reward count="1" item_id="125002009"/>
         <wizard_selectable_reward count="1" item_id="125002008"/>
         <elementalist_selectable_reward count="1" item_id="125002022"/>
+        <priest_selectable_reward count="1" item_id="125002010"/>
         <chanter_selectable_reward count="1" item_id="125002024"/>
-        <chanter_selectable_reward count="1" item_id="125002010"/>
     </quest>
     <quest race_permitted="ASMODIANS" cannot_share="true" max_repeat_count="1" minlevel_permitted="34" nameId="2208425" name="The Gladiator Preceptor's Test" id="4922">
         <rewards title="88" exp="506700"/>
@@ -14747,9 +14747,9 @@
         <wizard_selectable_reward count="1" item_id="100500559"/>
         <elementalist_selectable_reward count="1" item_id="100600596"/>
         <elementalist_selectable_reward count="1" item_id="100500559"/>
-        <chanter_selectable_reward count="1" item_id="100100557"/>
-        <chanter_selectable_reward count="1" item_id="101500557"/>
-        <chanter_selectable_reward count="1" item_id="115000829"/>
+        <priest_selectable_reward count="1" item_id="100100557"/>
+        <priest_selectable_reward count="1" item_id="101500557"/>
+        <priest_selectable_reward count="1" item_id="115000829"/>
         <chanter_selectable_reward count="1" item_id="100100557"/>
         <chanter_selectable_reward count="1" item_id="101500557"/>
         <chanter_selectable_reward count="1" item_id="115000829"/>
