@@ -2146,7 +2146,7 @@
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="1" value="35"/>
             </statboost>
             <statboost effectid="102512" e="2">
-                <change stat="PHYSICAL_DEFENSE" func="ADD" value="-360"/>
+                <change stat="PHYSICAL_DEFENSE" func="ADD" value="1"/>
             </statboost>
         </effects>
     </skill_template>

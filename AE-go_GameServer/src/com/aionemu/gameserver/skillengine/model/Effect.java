@@ -21,8 +21,11 @@ import java.util.concurrent.Future;
 
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_ACTIVATION;
 import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
 import com.aionemu.gameserver.skillengine.effect.Effects;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
@@ -38,6 +41,7 @@ public class Effect
 
 	private Creature effected;
 	private Creature effector;
+	private Future<?> checkTask = null;
 	private Future<?> task = null;
 	private Future<?> periodicTask = null;
 	
@@ -124,7 +128,7 @@ public class Effect
 	 */
 	public boolean isPassive()
 	{
-		return skillTemplate.getActivationAttribute() == ActivationAttribute.PASSIVE;
+		return skillTemplate.isPassive();
 	}
 
 	/**
@@ -207,6 +211,17 @@ public class Effect
 		return effects != null && effects.isFood();
 	}
 	
+
+	public boolean isToggle()
+	{
+		return skillTemplate.getActivationAttribute() == ActivationAttribute.TOGGLE;
+	}
+	
+	public int getTargetSlot()
+	{
+		return skillTemplate.getTargetSlot().ordinal();
+	}
+	
 	/**
 	 * 
 	 * @param effectId
@@ -229,6 +244,11 @@ public class Effect
 			template.startEffect(this);
 		}
 		
+		if(isToggle() && effector instanceof Player)
+		{
+			activateToggleSkill();			
+		}
+		
 		if(duration == 0)
 			return;
 		
@@ -243,24 +263,54 @@ public class Effect
 			}
 		}), duration);
 	}
-
-
+	
+	/**
+	 * Will activate toggle skill and start checking task
+	 */
+	private void activateToggleSkill()
+	{
+		PacketSendUtility.sendPacket((Player) effector, new SM_SKILL_ACTIVATION(getSkillId(), true));
+	}
+	
+	/**
+	 * Will deactivate toggle skill and stop checking task
+	 */
+	private void deactivateToggleSkill()
+	{
+		PacketSendUtility.sendPacket((Player) effector, new SM_SKILL_ACTIVATION(getSkillId(), false));
+	}
+	
+	/**
+	 * End effect and all effect actions
+	 */
 	public void endEffect()
 	{
 		for(EffectTemplate template : getEffectTemplates())
 		{
 			template.endEffect(this);
 		}
+		
+		if(isToggle() && effector instanceof Player)
+		{
+			deactivateToggleSkill();
+		}
+		
 		effected.getEffectController().clearEffect(this);
 		stopTasks();
 	}
-	
+
 	public void stopTasks()
 	{
 		if(task != null)
 		{
 			task.cancel(false);
 			task = null;
+		}
+		
+		if(checkTask != null)
+		{
+			checkTask.cancel(false);
+			checkTask = null;
 		}
 		
 		if(periodicTask != null)

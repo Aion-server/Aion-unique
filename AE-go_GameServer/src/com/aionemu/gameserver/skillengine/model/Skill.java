@@ -74,10 +74,10 @@ public class Skill
 	 * @param effector
 	 * @param world
 	 */
-	public Skill(SkillTemplate skillTemplate, Player effector, World world)
+	public Skill(SkillTemplate skillTemplate, Player effector, World world, Creature firstTarget)
 	{
 		this(skillTemplate, effector, world, 
-			effector.getSkillList().getSkillLevel(skillTemplate.getSkillId()));
+			effector.getSkillList().getSkillLevel(skillTemplate.getSkillId()), firstTarget);
 	}
 	
 	/**
@@ -86,11 +86,11 @@ public class Skill
 	 * @param effector
 	 * @param world
 	 */
-	public Skill(SkillTemplate skillTemplate, Player effector, World world, int skillLvl)
+	public Skill(SkillTemplate skillTemplate, Player effector, World world, int skillLvl, Creature firstTarget)
 	{
 		this.effectedList = new ArrayList<Creature>();
 		this.conditionChangeListener = new StartMovingListener();
-		this.firstTarget = effector.getTarget() instanceof Creature ? (Creature) effector.getTarget() : null;
+		this.firstTarget = firstTarget;
 		this.skillLevel = skillLvl;
 		this.skillStackLvl = skillTemplate.getLvl();
 		this.skillTemplate = skillTemplate;
@@ -101,11 +101,12 @@ public class Skill
 	/**
 	 *  Skill entry point
 	 */
-	public void useSkill(SkillType skillType)
+	public void useSkill()
 	{
-		//TODO OOP
-		ActivationAttribute activation = skillTemplate.getActivationAttribute();
-		if(activation != ActivationAttribute.ACTIVE && activation != ActivationAttribute.PASSIVE)
+		if(!skillTemplate.isActive() 
+			&& skillTemplate.isPassive()
+			&& skillTemplate.isProvoked()
+			&& skillTemplate.isToggle())
 			return;
 		
 		if(!setProperties(skillTemplate.getInitproperties()))
@@ -132,7 +133,7 @@ public class Skill
 		effector.setCasting(this);
 
 		//temporary hook till i find permanent solution
-		if(skillType == SkillType.CAST)
+		if(skillTemplate.isActive() || skillTemplate.isToggle())
 		{
 			startCast();
 		}
@@ -141,11 +142,11 @@ public class Skill
 		
 		if(skillTemplate.getDuration() > 0)
 		{
-			schedule(skillType, skillTemplate.getDuration());
+			schedule(skillTemplate.getDuration());
 		}
 		else
 		{
-			endCast(skillType);
+			endCast();
 		}
 	}
 	
@@ -164,7 +165,7 @@ public class Skill
 	/**
 	 *  Apply effects and perform actions specified in skill template
 	 */
-	private void endCast(SkillType skillType)
+	private void endCast()
 	{
 		if(!effector.isCasting())
 			return;
@@ -208,7 +209,7 @@ public class Skill
 		/**
 		 * If castspell - send SM_CASTSPELL_END packet
 		 */
-		if(skillType == SkillType.CAST)
+		if(skillTemplate.isActive() || skillTemplate.isToggle())
 		{
 			PacketSendUtility.broadcastPacket(effector,
 				new SM_CASTSPELL_END(effector.getObjectId(), skillTemplate.getSkillId(), skillLevel,
@@ -247,13 +248,13 @@ public class Skill
 	/**
 	 *  Schedule actions/effects of skill (channeled skills)
 	 */
-	private void schedule(final SkillType skillType, int delay)
+	private void schedule(int delay)
 	{
 		ThreadPoolManager.getInstance().schedule(new Runnable() 
 		{
 			public void run() 
 			{
-				endCast(skillType);
+				endCast();
 			}   
 		}, delay);
 	}

@@ -14,36 +14,40 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets;
+package com.aionemu.gameserver.network.aion.clientpackets;
 
-import java.nio.ByteBuffer;
-
-import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.AionServerPacket;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.AionClientPacket;
 
 /**
- * @author Sweetkr
+ * @author ATracer
+ *
  */
-public class SM_SKILL_ACTIVATION extends AionServerPacket
+public class CM_SKILL_DEACTIVATE extends AionClientPacket
 {
-
-	private boolean isActive;
 	private int skillId;
-
-	public SM_SKILL_ACTIVATION(int skillId, boolean isActive)
+	
+	public CM_SKILL_DEACTIVATE(int opcode)
 	{
-		this.skillId = skillId;
-		this.isActive = isActive;
+		super(opcode);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void writeImpl(AionConnection con, ByteBuffer buf)
+	protected void readImpl()
 	{
-		writeD(buf, skillId);
-		writeH(buf, 0x00);
-		writeC(buf, isActive ? 1 : 0);
+		skillId = readD();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void runImpl()
+	{
+		Player player = getConnection().getActivePlayer();
+		player.getEffectController().removeNoshowEffect(skillId);
 	}
 }

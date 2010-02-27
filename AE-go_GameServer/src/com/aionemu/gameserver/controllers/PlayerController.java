@@ -279,16 +279,16 @@ public class PlayerController extends CreatureController<Player>
 
 		// check if is casting to avoid multicast exploit
 		// TODO cancel skill if other is used
-		if(this.getOwner().isCasting())
+		if(player.isCasting())
 			return;
 
 		// later differentiate between skills
 		notifyAttackObservers();
 
-		Skill skill = SkillEngine.getInstance().getSkillFor(getOwner(), skillId);
+		Skill skill = SkillEngine.getInstance().getSkillFor(player, skillId, player.getTarget());
 		if(skill != null)
 		{
-			skill.useSkill(SkillType.CAST);
+			skill.useSkill();
 		}
 	}
 
@@ -516,12 +516,13 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void updatePassiveStats()
 	{
-		for(SkillListEntry skillEntry : getOwner().getSkillList().getAllSkills())
+		Player player = getOwner();
+		for(SkillListEntry skillEntry : player.getSkillList().getAllSkills())
 		{
-			Skill skill = SkillEngine.getInstance().getSkillFor(getOwner(), skillEntry.getSkillId());
+			Skill skill = SkillEngine.getInstance().getSkillFor(player, skillEntry.getSkillId(), player.getTarget());
 			if(skill != null && skill.isPassive())
 			{
-				skill.useSkill(SkillType.PASSIVE);
+				skill.useSkill();
 			}
 		}
 	}

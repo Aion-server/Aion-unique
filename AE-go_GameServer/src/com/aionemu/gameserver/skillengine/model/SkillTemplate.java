@@ -225,6 +225,26 @@ public class SkillTemplate
 		return activationAttribute;
 	}
 	
+	public boolean isPassive()
+	{
+		return activationAttribute == ActivationAttribute.PASSIVE;
+	}
+	
+	public boolean isToggle()
+	{
+		return activationAttribute == ActivationAttribute.TOGGLE;
+	}
+	
+	public boolean isProvoked()
+	{
+		return activationAttribute == ActivationAttribute.PROVOKED;
+	}
+	
+	public boolean isActive()
+	{
+		return activationAttribute == ActivationAttribute.ACTIVE;
+	}
+	
 	/**
 	 * 
 	 * @param position
@@ -252,13 +272,5 @@ public class SkillTemplate
             return cooldown;
         }
     }
-
-	/**
-	 * @return
-	 */
-	public boolean isPassive()
-	{
-		return activationAttribute == ActivationAttribute.PASSIVE;
-	}
 
 }

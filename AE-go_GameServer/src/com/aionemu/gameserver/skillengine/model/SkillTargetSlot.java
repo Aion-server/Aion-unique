@@ -28,12 +28,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum SkillTargetSlot
 {
-	NONE,
-    SPEC,
-    SPEC2,
-    BOOST,
-    NOSHOW,
-    DEBUFF,
-    BUFF,
-    CHANT;
+	BUFF,
+	DEBUFF,
+	CHANT,
+	SPEC,
+	SPEC2,
+	BOOST,
+	NOSHOW,
+	NONE;
 }

@@ -19,7 +19,6 @@ package com.aionemu.gameserver.controllers.effect;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -38,7 +37,8 @@ public class EffectController
 	private Creature owner;
 	
 	private Map<String, Effect> passiveEffectMap;
-	private ConcurrentMap<String, Effect> abnormalEffectMap;
+	private Map<String, Effect> noshowEffects;
+	private Map<String, Effect> abnormalEffectMap;
 
 	private int abnormals;
 
@@ -46,7 +46,8 @@ public class EffectController
 	{
 		this.owner = owner;
 		this.abnormalEffectMap = new ConcurrentHashMap<String, Effect>();
-		this.passiveEffectMap = new HashMap<String, Effect>();
+		this.passiveEffectMap = new ConcurrentHashMap<String, Effect>();
+		this.noshowEffects = new ConcurrentHashMap<String, Effect>();
 	}
 
 	/**
@@ -63,7 +64,7 @@ public class EffectController
 	 */
 	public void addEffect(Effect effect)
 	{
-		Map<String, Effect> mapToUpdate = effect.isPassive() ? passiveEffectMap : abnormalEffectMap;
+		Map<String, Effect> mapToUpdate = getMapForEffect(effect);
 		
 		if(mapToUpdate.containsKey(effect.getStack()))
 		{
@@ -92,6 +93,22 @@ public class EffectController
 			}
 			broadCastEffects();	
 		}	
+	}
+	
+	/**
+	 * 
+	 * @param effect
+	 * @return
+	 */
+	public Map<String, Effect> getMapForEffect(Effect effect)
+	{
+		if(effect.isPassive())
+			return passiveEffectMap;
+		
+		if(effect.isToggle())
+			return noshowEffects;
+		
+		return abnormalEffectMap;
 	}
 
 	/**
@@ -180,7 +197,21 @@ public class EffectController
 	{
 		for(Effect effect : passiveEffectMap.values()){
 			if(effect.getSkillId()==skillid){
-				abnormalEffectMap.remove(effect.getStack());
+				passiveEffectMap.remove(effect.getStack());
+				effect.endEffect();
+			}
+		}
+	}
+	
+	/**
+	 * 
+	 * @param skillid
+	 */
+	public void removeNoshowEffect(int skillid)
+	{
+		for(Effect effect : noshowEffects.values()){
+			if(effect.getSkillId()==skillid){
+				noshowEffects.remove(effect.getStack());
 				effect.endEffect();
 			}
 		}

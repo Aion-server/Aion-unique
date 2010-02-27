@@ -93,6 +93,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_BRAND;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_DIALOG;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_FRIENDLIST;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SHOW_MAP;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_SKILL_DEACTIVATE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_SPLIT_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_START_LOOT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TARGET_SELECT;
@@ -217,6 +218,7 @@ public class AionPacketHandlerFactory
 		// addPacket(new CM_UPLOAD_LEGION_EMBLEM(0x17), State.IN_GAME); // client sends DDS format packets
 		addPacket(new CM_PRIVATE_STORE(0x6D), State.IN_GAME);
 		addPacket(new CM_PRIVATE_STORE_NAME(0x6E), State.IN_GAME);
+		addPacket(new CM_SKILL_DEACTIVATE(0x88), State.IN_GAME);
 	}
 
 	public AionPacketHandler getPacketHandler()

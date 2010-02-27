@@ -19,7 +19,10 @@ package com.aionemu.gameserver.skillengine;
 import java.io.File;
 
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.skillengine.model.ActivationAttribute;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.world.World;
@@ -56,18 +59,26 @@ public class SkillEngine
 	 * @param skillId
 	 * @return
 	 */
-	public Skill getSkillFor(Player player, int skillId)
+	public Skill getSkillFor(Player player, int skillId, VisibleObject firstTarget)
 	{
 		SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(skillId);
 		
 		if(template == null)
 			return null;
 		
-		// player doesn't have such skill
-		if(!player.getSkillList().isSkillPresent(skillId))
-			return null;
+		// player doesn't have such skill and ist not provoked
+		if(template.getActivationAttribute() != ActivationAttribute.PROVOKED)
+		{
+			if(!player.getSkillList().isSkillPresent(skillId))
+				return null;
+		}
+		
+		
+		Creature target = null;
+		if(firstTarget instanceof Creature)
+			target = (Creature) firstTarget;
 
-		return new Skill(template, player, world);
+		return new Skill(template, player, world, target);
 	}
 	
 	/**
@@ -78,14 +89,17 @@ public class SkillEngine
 	 * @param skillLevel
 	 * @return
 	 */
-	public Skill getSkill(Player player, int skillId, int skillLevel)
+	public Skill getSkill(Player player, int skillId, int skillLevel, VisibleObject firstTarget)
 	{
 		SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(skillId);
 		
 		if(template == null)
 			return null;
-
-		return new Skill(template, player, world, skillLevel);
+		
+		Creature target = null;
+		if(firstTarget instanceof Creature)
+			target = (Creature) firstTarget;
+		return new Skill(template, player, world, skillLevel, target);
 	}
 
 	public static SkillEngine getInstance()
