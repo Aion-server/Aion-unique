@@ -59,7 +59,7 @@ public class AESystem extends AdminCommand
 		if(params[0].equals("info"))
 		{
 			// Time
-			PacketSendUtility.sendMessage(admin, AEInfos.getRealTime().toString());
+			PacketSendUtility.sendMessage(admin, "System Informations at: " + AEInfos.getRealTime().toString());
 			
 			// Version Infos
 			for(String line : AEVersions.getFullVersionInfo())
