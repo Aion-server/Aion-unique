@@ -5034,8 +5034,8 @@
         <rewards exp="1500"/>
         <finished_quest_conds>1007</finished_quest_conds>
         <class_permitted>CHANTER CLERIC</class_permitted>
+        <priest_selectable_reward count="1" item_id="169500374"/>
         <chanter_selectable_reward count="1" item_id="169500452"/>
-        <chanter_selectable_reward count="1" item_id="169500374"/>
     </quest>
     <quest race_permitted="ELYOS" cannot_share="true" max_repeat_count="1" minlevel_permitted="10" nameId="2205835" name="A Lingering Mystery" id="1917">
         <rewards exp="4350" gold="2400"/>
@@ -9530,8 +9530,8 @@
         <wizard_selectable_reward count="1" item_id="100500526"/>
         <elementalist_selectable_reward count="1" item_id="100600564"/>
         <elementalist_selectable_reward count="1" item_id="100500526"/>
-        <priest_selectable_reward count="1" item_id="101500524"/>
         <priest_selectable_reward count="1" item_id="100100526"/>
+        <priest_selectable_reward count="1" item_id="101500524"/>
         <chanter_selectable_reward count="1" item_id="100100526"/>
         <chanter_selectable_reward count="1" item_id="101500524"/>
     </quest>
@@ -10906,8 +10906,8 @@
         <quest_work_items>
             <quest_work_item count="1" item_id="182207004"/>
         </quest_work_items>
+        <priest_selectable_reward count="1" item_id="169500375"/>
         <chanter_selectable_reward count="1" item_id="169500453"/>
-        <chanter_selectable_reward count="1" item_id="169500375"/>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="10" nameId="2208211" name="[Craft] Elgar's Mistake" id="2905">
         <collect_items>
