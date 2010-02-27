@@ -99,15 +99,11 @@ extends Property
 				if(group == null)
 					return false;
 
-				Iterator<Player> it = group.getGroupMemberIterator();
-				while(it.hasNext() && counter < maxcount)
-				{
-					Player player = it.next();
-					
+				for(Player member : group.getMembers())
+				{					
 					//TODO: here value +4 till better move controller developed
-					if(MathUtil.isInRange(effector, player, distance + 4))						
-						effectedList.add(player);
-					
+					if(MathUtil.isInRange(effector, member, distance + 4))						
+						effectedList.add(member);
 					counter++;
 				}
 				break;

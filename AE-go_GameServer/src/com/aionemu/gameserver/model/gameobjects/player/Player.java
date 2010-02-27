@@ -640,4 +640,13 @@ public class Player extends Creature
 	{
 		setLegionMember(null);
 	}
+	
+	/**
+	 * This method will return true if player is in a group
+	 * @return true or false
+	 */
+	public boolean isInGroup()
+	{
+		return playerGroup != null;
+	}
 }
