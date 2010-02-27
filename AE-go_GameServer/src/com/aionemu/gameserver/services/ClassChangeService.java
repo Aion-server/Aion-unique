@@ -186,8 +186,6 @@ public class ClassChangeService
 	{
 		player.getCommonData().setPlayerClass(playerClass);
 		player.getCommonData().upgradePlayer();
-		player.getSkillList().removeSkill(30001);
-		PacketSendUtility.sendPacket(player,new SM_SKILL_LIST(player));
 		PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(0, 0, 0));
 	}
 }

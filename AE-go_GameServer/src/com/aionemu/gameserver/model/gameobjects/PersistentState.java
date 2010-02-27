@@ -25,5 +25,6 @@ public enum PersistentState
 	NEW,
 	UPDATE_REQUIRED,
 	UPDATED,
-	DELETED
+	DELETED,
+	NOACTION
 }

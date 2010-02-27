@@ -64,7 +64,7 @@ public class SkillListEntry
 	public void setSkillLvl(int skillLvl)
 	{
 		this.skillLvl = skillLvl;
-		persistentState = PersistentState.UPDATE_REQUIRED;
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 
 	/**
@@ -113,7 +113,19 @@ public class SkillListEntry
 	 */
 	public void setPersistentState(PersistentState persistentState)
 	{
-		this.persistentState = persistentState;
+		switch(persistentState)
+		{
+			case DELETED:
+				if(this.persistentState == PersistentState.NEW)
+					this.persistentState = PersistentState.NOACTION;
+			case UPDATE_REQUIRED:
+				if(this.persistentState == PersistentState.NEW)
+					break;
+			case NOACTION:
+				break;
+			default:
+				this.persistentState = persistentState;
+		}
 	}
 	
 }

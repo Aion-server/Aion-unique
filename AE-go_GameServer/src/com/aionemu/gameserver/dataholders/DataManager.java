@@ -103,7 +103,7 @@ public final class DataManager
 	 */
 	public static SkillData				SKILL_DATA;
 	
-	public static SkillTreeData			SKILL_TREE_DATA;
+	public SkillTreeData				SKILL_TREE_DATA;
 	
 	/**
 	 * 

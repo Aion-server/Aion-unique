@@ -50,6 +50,8 @@ public class ServiceProxy
 	private TradeService tradeService;
 	@Inject
 	private CubeExpandService cubeExpandService;
+	@Inject
+	private SkillLearnService skillLearnService;
 
 	/**
 	 * @return the world
@@ -128,5 +130,11 @@ public class ServiceProxy
 	{
 		return cubeExpandService;
 	}
-	
+	/**
+	 * @return the skillLearnService
+	 */
+	public SkillLearnService getSkillLearnService()
+	{
+		return skillLearnService;
+	}
 }

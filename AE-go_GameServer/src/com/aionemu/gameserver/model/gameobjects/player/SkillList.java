@@ -16,8 +16,9 @@
  */
 package com.aionemu.gameserver.model.gameobjects.player;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -51,6 +52,8 @@ public class SkillList
 	 */
 	private final Map<Integer, SkillListEntry> skills;
 	
+	private final List<SkillListEntry> deletedSkills;
+	
 	private final Map<WeaponType, Integer> weaponMasterySkills = new HashMap<WeaponType, Integer>();
 
 	/**
@@ -59,6 +62,7 @@ public class SkillList
 	public SkillList()
 	{
 		this.skills = new HashMap<Integer, SkillListEntry>();
+		this.deletedSkills = new ArrayList<SkillListEntry>();
 	}
 
 	/**
@@ -68,16 +72,8 @@ public class SkillList
 	public SkillList(Map<Integer, SkillListEntry> arg)
 	{
 		this.skills = arg;
+		this.deletedSkills = new ArrayList<SkillListEntry>();
 		calculateUsedWeaponMasterySkills();
-	}
-
-	/**
-	 * Returns map with all skilllist 
-	 * @return all skilllist
-	 */
-	public Map<Integer, SkillListEntry> getSkillMap()
-	{
-		return Collections.unmodifiableMap(skills);
 	}
 	
 	/**
@@ -87,6 +83,15 @@ public class SkillList
 	public SkillListEntry[] getAllSkills()
 	{
 		return skills.values().toArray(new SkillListEntry[skills.size()]);
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public SkillListEntry[] getDeletedSkills()
+	{
+		return deletedSkills.toArray(new SkillListEntry[deletedSkills.size()]);
 	}
 	
 	/**
@@ -108,9 +113,8 @@ public class SkillList
 		SkillListEntry existingSkill = skills.get(skillId);
 		if (existingSkill != null)
 		{
-			if(existingSkill.getSkillLevel() > skillLevel)
+			if(existingSkill.getSkillLevel() >= skillLevel)
 			{
-				logger.warn("Trying to add skill with lower skill level. ");
 				return false;
 			}
 			existingSkill.setSkillLvl(skillLevel);
@@ -186,7 +190,14 @@ public class SkillList
 	
 	public synchronized boolean removeSkill(int skillId)
 	{
-		return skills.remove(skillId) == null ? false : true;
+		SkillListEntry entry = skills.get(skillId);
+		if(entry != null)
+		{
+			entry.setPersistentState(PersistentState.DELETED);
+			deletedSkills.add(entry);
+			skills.remove(skillId);
+		}	
+		return entry != null;
 	}
 	/**
 	 * Returns count of available skillist.

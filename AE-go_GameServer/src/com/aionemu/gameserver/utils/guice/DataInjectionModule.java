@@ -27,6 +27,7 @@ import com.aionemu.gameserver.dataholders.PlayerExperienceTable;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.SkillData;
+import com.aionemu.gameserver.dataholders.SkillTreeData;
 import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.dataholders.TeleLocationData;
 import com.aionemu.gameserver.dataholders.TeleporterData;
@@ -44,6 +45,7 @@ import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.PrivateStoreService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.services.ServiceProxy;
+import com.aionemu.gameserver.services.SkillLearnService;
 import com.aionemu.gameserver.services.SocialService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.services.TradeService;
@@ -96,7 +98,8 @@ public class DataInjectionModule extends AbstractModule
 		bind(AbyssService.class).in(Scopes.SINGLETON);
 		bind(RespawnService.class).in(Scopes.SINGLETON);
 		bind(TeleportService.class).in(Scopes.SINGLETON);
-
+		bind(SkillLearnService.class).in(Scopes.SINGLETON);
+		
 		bind(ServiceProxy.class).in(Scopes.SINGLETON);
 	}
 
@@ -164,6 +167,12 @@ public class DataInjectionModule extends AbstractModule
 	SkillData provideSkillData(DataManager datamanager)
 	{
 		return datamanager.SKILL_DATA;
+	}
+	
+	@Provides
+	SkillTreeData provideSkillTreeData(DataManager datamanager)
+	{
+		return datamanager.SKILL_TREE_DATA;
 	}
 	
 	@SuppressWarnings("static-access")

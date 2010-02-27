@@ -79,8 +79,20 @@ public class MySQL5PlayerSkillListDAO extends PlayerSkillListDAO
 	@Override
 	public boolean storeSkills(Player player)
 	{
-		SkillListEntry[] skills = player.getSkillList().getAllSkills();
+		SkillListEntry[] skillsActive = player.getSkillList().getAllSkills();
+		SkillListEntry[] skillsDeleted = player.getSkillList().getDeletedSkills();
+		store(player, skillsActive);
+		store(player, skillsDeleted);
 		
+		return true;
+	}
+	/**
+	 * 
+	 * @param player
+	 * @param skills
+	 */
+	private void store(Player player, SkillListEntry[] skills)
+	{
 		for(int i = 0; i < skills.length ; i++)
 		{
 			SkillListEntry skill = skills[i];
@@ -98,7 +110,6 @@ public class MySQL5PlayerSkillListDAO extends PlayerSkillListDAO
 			}
 			skill.setPersistentState(PersistentState.UPDATED);
 		}
-		return true;
 	}
 	
 	/**

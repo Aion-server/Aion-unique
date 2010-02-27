@@ -59,6 +59,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRIVATE_STORE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_CANCEL;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
@@ -66,8 +67,8 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.services.ClassChangeService;
+import com.aionemu.gameserver.services.SkillLearnService;
 import com.aionemu.gameserver.skillengine.SkillEngine;
-import com.aionemu.gameserver.skillengine.SkillLearnService;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.Skill.SkillType;
@@ -677,9 +678,16 @@ public class PlayerController extends CreatureController<Player>
 		QuestEngine.getInstance().onLvlUp(new QuestEnv(null, player, 0, 0));
 
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+		
 		// add new skills
-		SkillLearnService.addNewSkills(player, false);
+		sp.getSkillLearnService().addNewSkills(player, false);
+		if(level == 10)
+		{
+			player.getSkillList().removeSkill(30001);
+			PacketSendUtility.sendPacket(player,new SM_SKILL_LIST(player));
+		}
 		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
+		
 		DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
 		// save player at this point
 		DAOManager.getDAO(PlayerDAO.class).storePlayer(player);

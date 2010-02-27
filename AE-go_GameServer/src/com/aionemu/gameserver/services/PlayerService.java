@@ -60,7 +60,6 @@ import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_MEMBER;
-import com.aionemu.gameserver.skillengine.SkillLearnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
@@ -90,16 +89,18 @@ public class PlayerService
 	private ItemService					itemService;
 	private LegionService				legionService;
 	private ControllerFactory			controllerFactory;
+	private SkillLearnService			skillLearnService;
 
 	@Inject
 	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
-		LegionService legionService, ControllerFactory controllerFactory)
+		LegionService legionService, ControllerFactory controllerFactory, SkillLearnService skillLearnService)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
 		this.itemService = itemService;
 		this.legionService = legionService;
 		this.controllerFactory = controllerFactory;
+		this.skillLearnService = skillLearnService;
 	}
 
 	/**
@@ -256,7 +257,7 @@ public class PlayerService
 		Player newPlayer = new Player(controllerFactory.createPlayerController(), playerCommonData, playerAppearance);
 
 		// Starting skills
-		SkillLearnService.addNewSkills(newPlayer, true);
+		skillLearnService.addNewSkills(newPlayer, true);
 
 		// Starting items
 		PlayerCreationData playerCreationData = DataManager.PLAYER_INITIAL_DATA.getPlayerCreationData(playerCommonData

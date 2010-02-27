@@ -31,7 +31,6 @@ import com.aionemu.gameserver.network.aion.SystemMessageId;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
@@ -404,8 +403,6 @@ public class _2008Ascension extends QuestHandler
 		player.getCommonData().upgradePlayer();
 		qs.setStatus(QuestStatus.REWARD);
 		updateQuestStatus(player, qs);
-		player.getSkillList().removeSkill(30001);
-		PacketSendUtility.sendPacket(player,new SM_SKILL_LIST(player));
 		sendQuestDialog(player, env.getVisibleObject().getObjectId(), 5);
 		return true;
 	}

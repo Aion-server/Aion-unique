@@ -51,6 +51,9 @@ public class AdminConfig
 	@Property(key = "gameserver.administration.command.goto", defaultValue = "3")
 	public static int			COMMAND_GOTO;
 	
+	@Property(key = "gameserver.administration.command.givemissingskills", defaultValue = "3")
+	public static int			COMMAND_GIVEMISSINGSKILLS;
+	
 	@Property(key = "gameserver.administration.command.heal", defaultValue = "3")
 	public static int			COMMAND_HEAL;
 	
