@@ -25,13 +25,13 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 /**
  * @author Sweetkr
  */
-public class SM_MANTRA_ACTIVATION extends AionServerPacket
+public class SM_SKILL_ACTIVATION extends AionServerPacket
 {
 	@SuppressWarnings("unused")
 	private Player player;
 	private int skillId;
 
-	public SM_MANTRA_ACTIVATION(Player player)
+	public SM_SKILL_ACTIVATION(Player player)
 	{
 		this.player = player;
 	}

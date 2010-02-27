@@ -92,7 +92,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_TARGET_SELECTED.class, 0x49, idSet);
 		addPacketOpcode(SM_ABNORMAL_EFFECT.class, 0x4A, idSet);
 		addPacketOpcode(SM_QUESTION_WINDOW.class, 0x4C, idSet);
-		addPacketOpcode(SM_MANTRA_ACTIVATION.class, 0x4E, idSet);
+		addPacketOpcode(SM_SKILL_ACTIVATION.class, 0x4E, idSet);
 		addPacketOpcode(SM_ABNORMAL_STATE.class, 0x51, idSet);
 		addPacketOpcode(SM_GROUP_INFO.class, 0x52, idSet);
 		addPacketOpcode(SM_GROUP_MEMBER_INFO.class, 0x53, idSet);
