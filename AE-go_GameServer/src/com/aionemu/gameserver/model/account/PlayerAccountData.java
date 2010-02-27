@@ -22,10 +22,12 @@ import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
+import com.aionemu.gameserver.model.legion.Legion;
+import com.aionemu.gameserver.model.legion.LegionMember;
 
 /**
  * This class is holding information about player, that is displayed on char selection screen, such as: player
- * commondata, player's appereance and creation/deletion time.
+ * commondata, player's appearance and creation/deletion time.
  * 
  * @see PlayerCommonData
  * @see PlayerAppearance
@@ -36,17 +38,20 @@ public class PlayerAccountData
 {
 	private PlayerCommonData	playerCommonData;
 	private PlayerAppearance	appereance;
-	private Storage			inventory;
-	private Equipment               equipment;
+	private Storage				inventory;
+	private Equipment			equipment;
 	private Timestamp			creationDate;
 	private Timestamp			deletionDate;
+	private LegionMember		legionMember;
 
-	public PlayerAccountData(PlayerCommonData playerCommonData, PlayerAppearance appereance, Storage inventory, Equipment equipment)
+	public PlayerAccountData(PlayerCommonData playerCommonData, PlayerAppearance appereance, Storage inventory,
+		Equipment equipment, LegionMember legionMember)
 	{
 		this.playerCommonData = playerCommonData;
 		this.appereance = appereance;
 		this.inventory = inventory;
 		this.equipment = equipment;
+		this.legionMember = legionMember;
 	}
 
 	public Timestamp getCreationDate()
@@ -113,5 +118,22 @@ public class PlayerAccountData
 	public void setCreationDate(Timestamp creationDate)
 	{
 		this.creationDate = creationDate;
+	}
+
+	/**
+	 * @return the legionMember
+	 */
+	public Legion getLegion()
+	{
+		return legionMember.getLegion();
+	}
+	
+	/**
+	 * Returns true if player is a legion member
+	 * @return true or false
+	 */
+	public boolean isLegionMember()
+	{
+		return legionMember != null;
 	}
 }

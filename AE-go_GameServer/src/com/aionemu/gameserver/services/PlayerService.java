@@ -177,7 +177,7 @@ public class PlayerService
 
 		player = new Player(controllerFactory.createPlayerController(), pcd, appereance);
 
-		LegionMember legionMember = legionService.getLegionMember(player);
+		LegionMember legionMember = legionService.getLegionMember(player.getObjectId());
 		if(legionMember != null)
 			player.setLegionMember(legionMember);
 
@@ -344,6 +344,7 @@ public class PlayerService
 				new SM_LEGION_UPDATE_MEMBER(player, 0, ""), world);
 			legionService.storeLegion(legion);
 			legionService.storeLegionMember(player.getLegionMember());
+			legionService.storeLegionMemberExInCache(player);
 		}
 
 		player.getController().delete();

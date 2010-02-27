@@ -208,7 +208,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 		}
 		else
 		{
-			PlayerAccountData accPlData = new PlayerAccountData(playerCommonData, playerAppearance, player.getInventory(), player.getEquipment());
+			PlayerAccountData accPlData = new PlayerAccountData(playerCommonData, playerAppearance, player.getInventory(), player.getEquipment(), null);
 			accPlData.setCreationDate(new Timestamp(System.currentTimeMillis()));
 
 			playerService.storeCreationTime(player.getObjectId(), accPlData.getCreationDate());

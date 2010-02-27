@@ -25,6 +25,7 @@ import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.CacheConfig;
 import com.aionemu.gameserver.controllers.factory.ControllerFactory;
 import com.aionemu.gameserver.dao.InventoryDAO;
+import com.aionemu.gameserver.dao.LegionMemberDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.model.account.Account;
@@ -36,6 +37,7 @@ import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.StorageType;
+import com.aionemu.gameserver.model.legion.LegionMember;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.world.World;
@@ -59,6 +61,8 @@ public class AccountService
 	private PlayerService				playerService;
 	@Inject
 	private ControllerFactory			controllerFactory;
+	@Inject
+	private LegionService				legionService;
 
 	/**
 	 * Returns {@link Account} object that has given id.
@@ -130,11 +134,12 @@ public class AccountService
 		{
 			PlayerCommonData playerCommonData = playerDAO.loadPlayerCommonData(playerOid, world);
 			PlayerAppearance appereance = appereanceDAO.load(playerOid);
-			Player player = new Player(controllerFactory.createPlayerController(), playerCommonData,appereance);
+			Player player = new Player(controllerFactory.createPlayerController(), playerCommonData, appereance);
 
 			Storage inventory = DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE);
 			Equipment equipment = DAOManager.getDAO(InventoryDAO.class).loadEquipment(player);
-			PlayerAccountData acData = new PlayerAccountData(playerCommonData, appereance, inventory, equipment);
+			LegionMember legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(player.getObjectId(), legionService);
+			PlayerAccountData acData = new PlayerAccountData(playerCommonData, appereance, inventory, equipment, legionMember);
 			playerDAO.setCreationDeletionTime(acData);
 
 			account.addPlayerAccountData(acData);

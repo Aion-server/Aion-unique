@@ -70,6 +70,8 @@ public class LegionService
 																			"legion");
 	private final CacheMap<Integer, LegionMember>	legionMemberCache	= CacheMapFactory.createSoftCacheMap(
 																			"LegionMember", "legionMember");
+	private final CacheMap<Integer, LegionMemberEx>	legionMemberExCache	= CacheMapFactory.createSoftCacheMap(
+																			"LegionMemberEx", "legionMemberEx");
 
 	private IDFactory								aionObjectsIDFactory;
 	private World									world;
@@ -182,7 +184,7 @@ public class LegionService
 	public boolean storeNewLegionMember(LegionMember legionMember)
 	{
 		addCachedLegionMember(legionMember);
-		return DAOManager.getDAO(LegionMemberDAO.class).saveNewLegionMember(legionMember.getObjectId(), legionMember);
+		return DAOManager.getDAO(LegionMemberDAO.class).saveNewLegionMember(legionMember);
 	}
 
 	/**
@@ -220,6 +222,32 @@ public class LegionService
 	}
 
 	/**
+	 * Stores legion member data into db
+	 * 
+	 * @param legionMemberEx
+	 */
+	public void storeLegionMemberExInCache(Player player)
+	{
+		if(legionMemberExCache.contains(player.getObjectId()))
+		{
+			LegionMemberEx legionMemberEx = legionMemberExCache.get(player.getObjectId());
+			legionMemberEx.setNickname(player.getLegionMember().getNickname());
+			legionMemberEx.setSelfIntro(player.getLegionMember().getSelfIntro());
+			legionMemberEx.setPlayerClass(player.getPlayerClass());
+			legionMemberEx.setExp(player.getCommonData().getExp());
+			legionMemberEx.setLastOnline(player.getCommonData().getLastOnline());
+			legionMemberEx.setWorldId(player.getPosition().getMapId());
+			legionMemberEx.setOnline(false);
+		}
+		else
+		{
+			LegionMemberEx legionMemberEx = new LegionMemberEx(player, player.getLegionMember());
+			legionMemberEx.setOnline(false);
+			addCachedLegionMemberEx(legionMemberEx);
+		}
+	}
+
+	/**
 	 * Gets a legion ONLY if he is in the cache
 	 * 
 	 * @return Legion or null if not cached
@@ -235,6 +263,14 @@ public class LegionService
 	public LegionMember getCachedLegionMember(int playerObjId)
 	{
 		return legionMemberCache.get(playerObjId);
+	}
+
+	/**
+	 * @return the legionMembersExCache
+	 */
+	public LegionMemberEx getCachedLegionMemberEx(int playerObjId)
+	{
+		return legionMemberExCache.get(playerObjId);
 	}
 
 	/**
@@ -257,6 +293,17 @@ public class LegionService
 	public void addCachedLegionMember(LegionMember legionMember)
 	{
 		legionMemberCache.put(legionMember.getObjectId(), legionMember);
+	}
+
+	/**
+	 * This method will add a new legion member to the cache
+	 * 
+	 * @param playerObjId
+	 * @param legionMemberEx
+	 */
+	public void addCachedLegionMemberEx(LegionMemberEx legionMemberEx)
+	{
+		legionMemberExCache.put(legionMemberEx.getObjectId(), legionMemberEx);
 	}
 
 	/**
@@ -350,14 +397,14 @@ public class LegionService
 	 * @param playerObjId
 	 * @return
 	 */
-	public LegionMember getLegionMember(Player player)
+	public LegionMember getLegionMember(int playerObjId)
 	{
 		LegionMember legionMember;
 		/** First check if our legion member already exists in our Cache **/
-		if(legionMemberCache.contains(player.getObjectId()))
-			legionMember = getCachedLegionMember(player.getObjectId());
+		if(legionMemberCache.contains(playerObjId))
+			legionMember = getCachedLegionMember(playerObjId);
 		else
-			legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(player, this);
+			legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(playerObjId, this);
 
 		if(legionMember != null)
 		{
@@ -403,7 +450,7 @@ public class LegionService
 	 */
 	public LegionMemberEx getOfflineLegionMember(int playerObjId)
 	{
-		return DAOManager.getDAO(LegionMemberDAO.class).loadOfflineLegionMember(playerObjId, this);
+		return DAOManager.getDAO(LegionMemberDAO.class).loadLegionMemberEx(playerObjId, this);
 	}
 
 	/**
@@ -414,10 +461,7 @@ public class LegionService
 	 */
 	public LegionMemberEx getOfflineLegionMemberByName(String playerName)
 	{
-		LegionMemberEx offlineLegionMember = DAOManager.getDAO(LegionMemberDAO.class).loadOfflineLegionMember(
-			playerName, this);
-
-		return offlineLegionMember;
+		return DAOManager.getDAO(LegionMemberDAO.class).loadLegionMemberEx(playerName, this);
 	}
 
 	/**
@@ -1082,7 +1126,13 @@ public class LegionService
 			}
 			else
 			{
-				legionMemberEx = getOfflineLegionMember(memberObjId);
+				if(legionMemberExCache.contains(memberObjId))
+					legionMemberEx = getCachedLegionMemberEx(memberObjId);
+				else
+				{
+					legionMemberEx = getOfflineLegionMember(memberObjId);
+					addCachedLegionMemberEx(legionMemberEx);
+				}
 			}
 			if(legionMemberEx.isValidLegionMemberEx())
 				legionMembers.add(legionMemberEx);

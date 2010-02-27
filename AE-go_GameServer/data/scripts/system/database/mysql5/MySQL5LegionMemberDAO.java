@@ -29,7 +29,6 @@ import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.dao.LegionMemberDAO;
 import com.aionemu.gameserver.model.PlayerClass;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.legion.LegionMember;
 import com.aionemu.gameserver.model.legion.LegionMemberEx;
 import com.aionemu.gameserver.model.legion.LegionRank;
@@ -87,14 +86,14 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean saveNewLegionMember(final int playerObjId, final LegionMember legionMember)
+	public boolean saveNewLegionMember(final LegionMember legionMember)
 	{
 		boolean success = DB.insertUpdate(INSERT_LEGIONMEMBER_QUERY, new IUStH(){
 			@Override
 			public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
 			{
 				preparedStatement.setInt(1, legionMember.getLegion().getLegionId());
-				preparedStatement.setInt(2, playerObjId);
+				preparedStatement.setInt(2, legionMember.getObjectId());
 				preparedStatement.setString(3, legionMember.getRank().toString());
 				preparedStatement.execute();
 			}
@@ -125,18 +124,18 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LegionMember loadLegionMember(final Player player, final LegionService legionService)
+	public LegionMember loadLegionMember(final int playerObjId, final LegionService legionService)
 	{
-		if(player == null)
+		if(playerObjId == 0)
 			return null;
 
-		final LegionMember legionMember = new LegionMember(player.getObjectId());
+		final LegionMember legionMember = new LegionMember(playerObjId);
 
 		boolean success = DB.select(SELECT_LEGIONMEMBER_QUERY, new ParamReadStH(){
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException
 			{
-				stmt.setInt(1, player.getObjectId());
+				stmt.setInt(1, playerObjId);
 			}
 
 			@Override
@@ -171,9 +170,9 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LegionMemberEx loadOfflineLegionMember(final int playerObjId, final LegionService legionService)
+	public LegionMemberEx loadLegionMemberEx(final int playerObjId, final LegionService legionService)
 	{
-		final LegionMemberEx legionMember = new LegionMemberEx(playerObjId);
+		final LegionMemberEx legionMemberEx = new LegionMemberEx(playerObjId);
 
 		boolean success = DB.select(SELECT_LEGIONMEMBEREX_QUERY, new ParamReadStH(){
 			@Override
@@ -188,18 +187,18 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 				try
 				{
 					resultSet.next();
-					legionMember.setName(resultSet.getString("players.name"));
-					legionMember.setExp(resultSet.getLong("players.exp"));
-					legionMember.setPlayerClass(PlayerClass.valueOf(resultSet.getString("players.player_class")));
-					legionMember.setLastOnline(resultSet.getTimestamp("players.last_online"));
-					legionMember.setWorldId(resultSet.getInt("players.world_id"));
+					legionMemberEx.setName(resultSet.getString("players.name"));
+					legionMemberEx.setExp(resultSet.getLong("players.exp"));
+					legionMemberEx.setPlayerClass(PlayerClass.valueOf(resultSet.getString("players.player_class")));
+					legionMemberEx.setLastOnline(resultSet.getTimestamp("players.last_online"));
+					legionMemberEx.setWorldId(resultSet.getInt("players.world_id"));
 
 					int legionId = resultSet.getInt("legion_members.legion_id");
-					legionMember.setRank(LegionRank.valueOf(resultSet.getString("legion_members.rank")));
-					legionMember.setNickname(resultSet.getString("legion_members.nickname"));
-					legionMember.setSelfIntro(resultSet.getString("legion_members.selfintro"));
+					legionMemberEx.setRank(LegionRank.valueOf(resultSet.getString("legion_members.rank")));
+					legionMemberEx.setNickname(resultSet.getString("legion_members.nickname"));
+					legionMemberEx.setSelfIntro(resultSet.getString("legion_members.selfintro"));
 
-					legionMember.setLegion(legionService.getLegion(legionId));
+					legionMemberEx.setLegion(legionService.getLegion(legionId));
 				}
 				catch(SQLException sqlE)
 				{
@@ -208,9 +207,9 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 			}
 		});
 
-		if(success && legionMember.getLegion() != null)
+		if(success && legionMemberEx.getLegion() != null)
 		{
-			return legionMember;
+			return legionMemberEx;
 		}
 		else
 			return null;
@@ -220,7 +219,7 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LegionMemberEx loadOfflineLegionMember(final String playerName, final LegionService legionService)
+	public LegionMemberEx loadLegionMemberEx(final String playerName, final LegionService legionService)
 	{
 		final LegionMemberEx legionMember = new LegionMemberEx(playerName);
 
