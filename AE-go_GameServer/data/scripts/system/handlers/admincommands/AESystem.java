@@ -97,17 +97,31 @@ public class AESystem extends AdminCommand
 		}
 		else if(params[0].equals("shutdown"))
 		{
-			int val = Integer.parseInt(params[1]);
-			int announceInterval = Integer.parseInt(params[2]);
-			ShutdownHook.doShutdown(val, announceInterval, ShutdownMode.SHUTDOWN);
-			PacketSendUtility.sendMessage(admin, "Server will be shutdown in " + val + " seconds.");
+			try
+			{
+				int val = Integer.parseInt(params[1]);
+				int announceInterval = Integer.parseInt(params[2]);
+				ShutdownHook.doShutdown(val, announceInterval, ShutdownMode.SHUTDOWN);
+				PacketSendUtility.sendMessage(admin, "Server will be shutdown in " + val + " seconds.");
+			}
+			catch(ArrayIndexOutOfBoundsException e)
+			{
+				PacketSendUtility.sendMessage(admin, "Numbers only!");
+			}
 		}
 		else if(params[0].equals("restart"))
 		{
-			int val = Integer.parseInt(params[1]);
-			int announceInterval = Integer.parseInt(params[2]);
-			ShutdownHook.doShutdown(val, announceInterval, ShutdownMode.RESTART);
-			PacketSendUtility.sendMessage(admin, "Server will be restart in " + val + " seconds.");
+			try
+			{
+				int val = Integer.parseInt(params[1]);
+				int announceInterval = Integer.parseInt(params[2]);
+				ShutdownHook.doShutdown(val, announceInterval, ShutdownMode.RESTART);
+				PacketSendUtility.sendMessage(admin, "Server will be restart in " + val + " seconds.");
+			}
+			catch(ArrayIndexOutOfBoundsException e)
+			{
+				PacketSendUtility.sendMessage(admin, "Numbers only!");
+			}
 		}
 	}
 }
