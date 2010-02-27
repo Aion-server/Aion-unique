@@ -175,13 +175,13 @@ public class StatFunctions
 				if(skillDamages != 0)
 				{
 					int base = Rnd.get(min,max);
-					Damage = base + Math.round(skillDamages * (ags.getCurrentStat(StatEnum.POWER)/100f));
+					Damage = base + ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + Math.round(skillDamages * (ags.getCurrentStat(StatEnum.POWER)/100f));
 				}
 				else
 				{
 					int base = Rnd.get(min,max);
 					Damage = Math.round(base + (ags.getBaseStat(StatEnum.MAIN_HAND_POWER)/ 2 + ags.getBaseStat(StatEnum.OFF_HAND_POWER)/ 2)/10f)
-					+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + ags.getStatBonus(StatEnum.OFF_HAND_POWER);
+					+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER);
 				}
 
 			}
@@ -189,7 +189,7 @@ public class StatFunctions
 			{
 				int base = Rnd.get(16,20);
 				Damage = Math.round(base + (ags.getBaseStat(StatEnum.MAIN_HAND_POWER)/ 2 + ags.getBaseStat(StatEnum.OFF_HAND_POWER)/ 2)/10f)
-				+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + ags.getStatBonus(StatEnum.OFF_HAND_POWER);
+				+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER);
 			}
 
 			//adjusting baseDamages according to attacker and target level
@@ -243,7 +243,7 @@ public class StatFunctions
 
 		int base = Rnd.get(min,max);
 		Damage = Math.round(base + (ags.getBaseStat(StatEnum.MAIN_HAND_POWER)/ 2 + ags.getBaseStat(StatEnum.OFF_HAND_POWER)/ 2)/10)
-		+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + ags.getStatBonus(StatEnum.OFF_HAND_POWER);
+		+ ags.getStatBonus(StatEnum.OFF_HAND_POWER);
 
 		Damage = adjustDamages(attacker, target, Damage);
 
