@@ -639,4 +639,14 @@ public class Equipment
 		}
 		return false;
 	}
+	
+	public Item getMainHandWeapon()
+	{
+		return equipment.get(ItemSlot.MAIN_HAND.getSlotIdMask());
+	}
+	
+	public Item getOffHandWeapon()
+	{
+		return equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
+	}
 }

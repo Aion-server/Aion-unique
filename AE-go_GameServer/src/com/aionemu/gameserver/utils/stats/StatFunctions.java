@@ -165,6 +165,15 @@ public class StatFunctions
 
 			if(weaponType != null)
 			{
+				if(average < 1)
+				{
+					average = 1;
+					log.warn("Weapon stat MIN_MAX_DAMAGE resulted average zero in main-hand calculation");
+					log.warn("Weapon ID: " + String.valueOf(equipment.getMainHandWeapon().getItemTemplate().getItemId()));
+					log.warn("MIN_DAMAGE = " + String.valueOf(totalMin));
+					log.warn("MAX_DAMAGE = " + String.valueOf(totalMax));
+				}
+				
 				//TODO move to controller
 				if(weaponType == WeaponType.BOW)
 					equipment.useArrow();
@@ -236,6 +245,15 @@ public class StatFunctions
 		int offHandAttack = ags.getBaseStat(StatEnum.OFF_HAND_POWER);
 
 		Equipment equipment = ((Player)attacker).getEquipment();
+		
+		if(average < 1)
+		{
+			average = 1;
+			log.warn("Weapon stat MIN_MAX_DAMAGE resulted average zero in off-hand calculation");
+			log.warn("Weapon ID: " + String.valueOf(equipment.getOffHandWeapon().getItemTemplate().getItemId()));
+			log.warn("MIN_DAMAGE = " + String.valueOf(totalMin));
+			log.warn("MAX_DAMAGE = " + String.valueOf(totalMax));
+		}
 
 		int Damage = 0;
 		int min = Math.round((((offHandAttack * 100)/ average) * totalMin)/100);
