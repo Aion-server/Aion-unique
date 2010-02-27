@@ -16,11 +16,7 @@
  */
 package com.aionemu.gameserver.utils;
 
-import java.lang.management.ManagementFactory;
-import java.lang.management.MemoryUsage;
 import java.nio.ByteBuffer;
-
-import org.apache.log4j.Logger;
 
 /**
  * @author -Nemesiss-
@@ -91,18 +87,6 @@ public class Util
 			else
 				result.append('.');
 		}
-	}
-
-	/**
-	 * Prings memory usage both for heap and non-heap memory.
-	 */
-	public static void printMemoryUsage(Logger log)
-	{
-		// Print memory usage
-		MemoryUsage hm = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage();
-		MemoryUsage nhm = ManagementFactory.getMemoryMXBean().getNonHeapMemoryUsage();
-		log.info("Heap Memory Usage: " + (hm.getUsed() / 1048576) + "/" + (hm.getMax() / 1048576) + " MB");
-		log.info("NonHeap Memory Usage: " + (nhm.getUsed() / 1048576) + "/" + (nhm.getMax() / 1048576) + " MB");
 	}
 
 	/**
