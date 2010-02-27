@@ -108,6 +108,10 @@ public class AESystem extends AdminCommand
 			{
 				PacketSendUtility.sendMessage(admin, "Numbers only!");
 			}
+			catch(NumberFormatException e)
+			{
+				PacketSendUtility.sendMessage(admin, "Numbers only!");
+			}
 		}
 		else if(params[0].equals("restart"))
 		{
