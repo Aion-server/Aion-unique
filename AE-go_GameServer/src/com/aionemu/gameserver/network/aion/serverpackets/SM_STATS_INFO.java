@@ -79,8 +79,11 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeD(buf, 0);// [unk]
 		writeH(buf, player.getLevel());// [level]
+
+		// something like very dynamic
 		writeH(buf, 0); // [unk]
-		writeD(buf, pls.getCurrentHp());// [current hp]
+		writeH(buf, 0);// [unk]
+		writeH(buf, 0);// [unk]
 
 		writeQ(buf, pcd.getExpNeed());// [xp till next lv]
 		writeQ(buf, pcd.getExpRecoverable()); // [recoverable exp]
@@ -96,11 +99,13 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, pgs.getCurrentStat(StatEnum.MAXDP));// [max dp]
 		writeH(buf, pcd.getDp());// [current dp]
 
-		writeD(buf, 0);// [unk]
+		writeD(buf, pgs.getCurrentStat(StatEnum.FLY_TIME));// [max fly time]
 
 		writeD(buf, pgs.getCurrentStat(StatEnum.FLY_TIME));// [current fly time]
 
-		writeH(buf, 0);// [unk]
+		// something like very dynamic
+		writeC(buf, 0);// [unk]
+		writeC(buf, 0);// [unk]
 
 		writeH(buf, pgs.getCurrentStat(StatEnum.MAIN_HAND_POWER)); // [current main hand attack]
 		writeH(buf, pgs.getCurrentStat(StatEnum.OFF_HAND_POWER)); // [off hand attack]
@@ -125,7 +130,7 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeH(buf, 0);// [unk]
 		writeH(buf, pgs.getCurrentStat(StatEnum.MAGICAL_ACCURACY));// [current magic accuracy]
-		writeH(buf, 0); // [unk]
+		writeH(buf, 0); // [current concentration]
 		writeH(buf, pgs.getCurrentStat(StatEnum.MAGICAL_ATTACK)+pgs.getCurrentStat(StatEnum.BOOST_MAGICAL_SKILL)); // [current magic boost]
 
 		writeH(buf, 0);// [unk]
@@ -181,7 +186,7 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeH(buf, 0); // [unk]
 
-		writeF(buf, pgs.getBaseStat(StatEnum.SPEED) / 1000f);// [speed]
+		writeF(buf, pgs.getCurrentStat(StatEnum.ATTACK_RANGE) / 1000f);// [current attack range]
 
 		writeH(buf, pgs.getBaseStat(StatEnum.EVASION)); // [base evasion]
 
