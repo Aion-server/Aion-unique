@@ -61,12 +61,23 @@
     <target name="jar"
             depends="compile"
             description="Create the jar file">
+    	
+    	<exec dir="." executable="svnversion" outputproperty="revision"
+    		failifexecutionfails="false">
+    		<arg line="-n ." />
+    	</exec>
+    	
+		<tstamp>
+			<format property="date" pattern="yyyy-MM-dd-HH:mm" />
+		</tstamp>
 
         <jar destfile="${build}/ae_commons.jar">
             <fileset dir="${build.classes}"/>
 
             <manifest>
                 <attribute name="Premain-Class" value="com.aionemu.commons.callbacks.JavaAgentEnhancer"/>
+            	<attribute name="Revision" value="${revision}"/>
+            	<attribute name="Date" value="${date}"/>
             </manifest>
         </jar>
 

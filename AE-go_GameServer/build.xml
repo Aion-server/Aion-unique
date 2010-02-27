@@ -73,11 +73,22 @@
     <target name="jar"
             depends="compile"
             description="Create the jar file">
+    	
+    	<exec dir="." executable="svnversion" outputproperty="revision"
+    		failifexecutionfails="false">
+    		<arg line="-n ." />
+    	</exec>
+    	
+		<tstamp>
+			<format property="date" pattern="yyyy-MM-dd-HH:mm" />
+		</tstamp>
 
         <jar destfile="${build}/ae_gameserver.jar">
             <fileset dir="${build.classes}"/>
             <manifest>
                 <attribute name="Main-Class" value="com.aionemu.gameserver.GameServer"/>
+            	<attribute name="Revision" value="${revision}"/>
+            	<attribute name="Date" value="${date}"/>
             </manifest>
         </jar>
 
