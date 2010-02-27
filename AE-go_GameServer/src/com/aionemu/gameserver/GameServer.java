@@ -38,6 +38,7 @@ import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.taskmanager.tasks.GCTaskManager;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster;
 import com.aionemu.gameserver.taskmanager.tasks.KnownListUpdateTask;
+import com.aionemu.gameserver.utils.AEVersions;
 import com.aionemu.gameserver.utils.DeadlockDetector;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.ThreadUncaughtExceptionHandler;
@@ -110,6 +111,7 @@ public class GameServer
 		if(Config.ALLOW_GC) 		
 			new Thread(new GCTaskManager(Config.GC_INTERVAL)).start();
 		
+		AEVersions.printFullVersionInfo();
 		AEInfos.printOSInfo();
 		AEInfos.printCPUInfo();
 		AEInfos.printMemoryInfo();
