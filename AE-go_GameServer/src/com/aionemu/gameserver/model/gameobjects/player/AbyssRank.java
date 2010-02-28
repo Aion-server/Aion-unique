@@ -130,7 +130,7 @@ public class AbyssRank
 
 	public enum AbyssRankTemplate
 	{
-		GRADE9_SOLDIER(1, 120, 40, 0),
+		GRADE9_SOLDIER(1, 120, 24, 0),
 		GRADE8_SOLDIER(2, 168, 37, 1200),
 		GRADE7_SOLDIER(3, 235, 58, 4220),
 		GRADE6_SOLDIER(4, 329, 91, 10990),
@@ -150,15 +150,15 @@ public class AbyssRank
 		SUPREME_COMMANDER(18, 9134, 13229, 800700);
 		
 		private int id;
-		private int pointsLost;
 		private int pointsGained;
+		private int pointsLost;		
 		private int required;
 		
-		private AbyssRankTemplate(int id, int pointsLost, int pointsGained, int required)
+		private AbyssRankTemplate(int id, int pointsGained, int pointsLost, int required)
 		{
 			this.id = id;
-			this.pointsLost = pointsLost;
 			this.pointsGained = pointsGained;
+			this.pointsLost = pointsLost;
 			this.required = required;
 		}
 
