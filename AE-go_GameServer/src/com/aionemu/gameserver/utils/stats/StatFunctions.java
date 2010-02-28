@@ -458,7 +458,10 @@ public class StatFunctions
 	public static int calculatePhysicalParryRate(Creature attacker, Creature attacked)
 	{
 		int accuracy;
-
+		
+		if(attacked.getObserveController().checkAttackStatus(AttackStatus.PARRY))
+			return 100;
+		
 		if(attacker instanceof Player && ((Player) attacker).getEquipment().getOffHandWeaponType() != null)
 			accuracy = Math.round((attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_ACCURACY) + attacker
 				.getGameStats().getCurrentStat(StatEnum.OFF_HAND_ACCURACY)) / 2);
@@ -523,7 +526,10 @@ public class StatFunctions
 	}
 
 	public static int calculateMagicalResistRate(Creature attacker, Creature attacked)
-	{
+	{		
+		if(attacked.getObserveController().checkAttackStatus(AttackStatus.RESIST))
+			return 100;
+		
 		int resistRate = Math.round((attacked.getGameStats().getCurrentStat(StatEnum.MAGICAL_RESIST) - attacker
 			.getGameStats().getCurrentStat(StatEnum.MAGICAL_ACCURACY)) / 10);
 

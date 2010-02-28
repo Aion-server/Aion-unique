@@ -2149,7 +2149,7 @@
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="1" value="35"/>
             </statboost>
             <statboost effectid="102512" e="2">
-                <change stat="PHYSICAL_DEFENSE" func="ADD" value="-360"/>
+                <change stat="PHYSICAL_DEFENSE" func="ADD" value="1"/>
             </statboost>
         </effects>
     </skill_template>
@@ -7844,6 +7844,7 @@
         </setproperties>
         <effects>
             <alwaysdodge value="1" duration="5000" effectid="142" e="1"/>
+            <alwaysresist value="1" duration="5000" effectid="204" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="573" name="STR_SKILL_SC_WhisperofWind_G2" nameId="564399" stack="SKILL_SC_WHISPEROFWIND" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="16" duration="0">
@@ -9645,6 +9646,7 @@
         </setproperties>
         <effects>
             <dispeldebuffphysical value="1" e="1"/>
+            <alwaysresist value="1" duration="10000" effectid="204" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="725" name="STR_SKILL_RA_SpoutArrow_G6" nameId="584345" stack="SKILL_RA_SPOUTARROW" lvl="6" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="18" duration="0">
@@ -12462,6 +12464,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <alwaysresist value="1" duration="30000" effectid="204" e="1"/>
             <statdown duration="30000" effectid="108821" e="2">
                 <change stat="PHYSICAL_DEFENSE" func="ADD" delta="0" value="-100"/>
             </statdown>
@@ -13040,6 +13043,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <alwaysresist value="1" duration="8000" effectid="204" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="921" name="STR_SKILL_AS_SpiralStab_G1" nameId="582717" stack="SKILL_AS_SPIRALSTAB" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="900" duration="0">
         <setproperties>
@@ -13115,6 +13121,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <alwaysresist value="1" duration="10000" effectid="204" e="1"/>
             <statdown duration="10000" effectid="109262" e="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="-50"/>
             </statdown>
@@ -26926,6 +26933,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <alwaysresist value="1" duration="30000" effectid="204" e="1"/>
+        </effects>
         <actions>
             <mpuse value="190" delta="0"/>
         </actions>
