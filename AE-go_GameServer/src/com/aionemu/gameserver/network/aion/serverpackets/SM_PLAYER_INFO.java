@@ -138,7 +138,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		{
 			if(item.getEquipmentSlot() < Short.MAX_VALUE * 2)
 			{
-				writeD(buf, item.getItemTemplate().getItemId());
+				writeD(buf, item.getItemTemplate().getTemplateId());
 				writeD(buf, 0); // GodStone ItemId
 				writeD(buf, item.getItemColor());
 			}

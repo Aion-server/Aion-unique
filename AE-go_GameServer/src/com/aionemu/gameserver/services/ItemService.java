@@ -187,7 +187,7 @@ public class ItemService
 
 
 
-		Item newItem = newItem(itemToSplit.getItemTemplate().getItemId(), splitAmount);
+		Item newItem = newItem(itemToSplit.getItemTemplate().getTemplateId(), splitAmount);
 		if(destinationStorage.putToBag(newItem) != null)
 		{
 			itemToSplit.decreaseItemCount(splitAmount);
@@ -265,7 +265,7 @@ public class ItemService
 		if(sourceItem == null || destinationItem == null)
 			return; //Invalid object id provided
 
-		if(sourceItem.getItemTemplate().getItemId() != destinationItem.getItemTemplate().getItemId())
+		if(sourceItem.getItemTemplate().getTemplateId() != destinationItem.getItemTemplate().getTemplateId())
 			return; //Invalid item type
 
 		if(sourceItem.getItemCount() < itemAmount)
@@ -410,7 +410,7 @@ public class ItemService
 		if(item == null)
 			return;
 
-		List<Item> existingItems = destinationStorage.getItemsByItemId(item.getItemTemplate().getItemId());
+		List<Item> existingItems = destinationStorage.getItemsByItemId(item.getItemTemplate().getTemplateId());
 
 		int count = item.getItemCount();
 		int maxStackCount = item.getItemTemplate().getMaxStackCount();
@@ -444,7 +444,7 @@ public class ItemService
 			if(count > maxStackCount)
 			{
 				count -= maxStackCount;
-				Item newitem = newItem(item.getItemTemplate().getItemId(), maxStackCount);
+				Item newitem = newItem(item.getItemTemplate().getTemplateId(), maxStackCount);
 				newitem = destinationStorage.putToBag(newitem);
 				sendStorageUpdatePacket(player, destinationStorageType, newitem);
 

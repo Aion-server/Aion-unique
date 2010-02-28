@@ -25,6 +25,7 @@ import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.controllers.PostboxController;
 import com.aionemu.gameserver.controllers.RiftController;
+import com.aionemu.gameserver.controllers.StaticObjectController;
 import com.aionemu.gameserver.controllers.factory.ActionitemControllerFactory;
 import com.aionemu.gameserver.controllers.factory.BindpointControllerFactory;
 import com.aionemu.gameserver.controllers.factory.CitizenControllerFactory;
@@ -35,6 +36,7 @@ import com.aionemu.gameserver.controllers.factory.NpcControllerFactory;
 import com.aionemu.gameserver.controllers.factory.PlayerControllerFactory;
 import com.aionemu.gameserver.controllers.factory.PostboxControllerFactory;
 import com.aionemu.gameserver.controllers.factory.RiftControllerFactory;
+import com.aionemu.gameserver.controllers.factory.StaticObjectControllerFactory;
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 import com.google.inject.assistedinject.FactoryProvider;
@@ -67,6 +69,8 @@ public class ObjectControllerInjectionModule extends AbstractModule
 			FactoryProvider.newFactory(RiftControllerFactory.class, RiftController.class));
 		bind(PostboxControllerFactory.class).toProvider(
 			FactoryProvider.newFactory(PostboxControllerFactory.class, PostboxController.class));
+		bind(StaticObjectControllerFactory.class).toProvider(
+			FactoryProvider.newFactory(StaticObjectControllerFactory.class, StaticObjectController.class));
 		
 		bind(ControllerFactory.class).in(Scopes.SINGLETON);
 	}

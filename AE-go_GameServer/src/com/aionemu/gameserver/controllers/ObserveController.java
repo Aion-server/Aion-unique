@@ -22,7 +22,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.apache.commons.lang.ArrayUtils;
 
 import com.aionemu.gameserver.controllers.movement.ActionObserver;
-import com.aionemu.gameserver.model.gameobjects.Creature;
 
 /**
  * @author ATracer

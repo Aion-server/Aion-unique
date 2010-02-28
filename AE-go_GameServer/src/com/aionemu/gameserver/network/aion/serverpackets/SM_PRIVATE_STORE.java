@@ -56,7 +56,7 @@ public class SM_PRIVATE_STORE extends InventoryPacket
 				TradePSItem tradeItem = store.getTradeItemById(itemObjId);
 				int price = tradeItem.getPrice();
 				writeD(buf, itemObjId);
-				writeD(buf, item.getItemTemplate().getItemId());
+				writeD(buf, item.getItemTemplate().getTemplateId());
 				writeH(buf, tradeItem.getCount());
 				writeD(buf, price);
 

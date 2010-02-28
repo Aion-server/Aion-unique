@@ -56,7 +56,7 @@ public class SM_UPDATE_PLAYER_APPEARANCE extends AionServerPacket
 
 		for(Item item : items)
 		{		
-			writeD(buf, item.getItemTemplate().getItemId());
+			writeD(buf, item.getItemTemplate().getTemplateId());
 			writeD(buf, 0); //unk
 			writeD(buf, item.getItemColor());
 		}

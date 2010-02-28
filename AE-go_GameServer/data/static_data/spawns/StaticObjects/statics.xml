@@ -1,0 +1,8 @@
+<!-- Craft factories spawns -->
+<spawns>
+	<!-- Pandaemonium -->
+	<!-- Weapon Forge -->
+	<spawn map="120010000" npcid="150000011" pool="1" handler="STATIC">
+		<object x="1195.2825" y="1597.2721" z="214.4068" h="0" staticid="109"/>
+	</spawn>
+</spawns>

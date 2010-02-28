@@ -166,7 +166,7 @@ public class ExchangeService
 			}
 			else
 			{
-				Item newItem = itemService.newItem(item.getItemTemplate().getItemId(), itemCount);
+				Item newItem = itemService.newItem(item.getItemTemplate().getTemplateId(), itemCount);
 				exchangeItem = new ExchangeItem(itemObjId, itemCount, newItem, item);
 				currentExchange.addItem(itemObjId, exchangeItem);
 				actuallAddCount = itemCount;			

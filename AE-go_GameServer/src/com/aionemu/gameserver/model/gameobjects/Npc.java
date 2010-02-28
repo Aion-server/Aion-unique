@@ -55,31 +55,31 @@ public class Npc extends Creature
 		super(objId, controller, spawnTemplate, objectTemplate, new WorldPosition());
 		controller.setOwner(this);
 		
-		NpcStatsTemplate nst = getTemplate().getStatsTemplate();
+		NpcStatsTemplate nst = getObjectTemplate().getStatsTemplate();
 		super.setGameStats(new NpcGameStats(this,nst));
 		
 		this.aggroList = new AggroList(this);
 	}
 
-	public NpcTemplate getTemplate()
+	public NpcTemplate getObjectTemplate()
 	{
 		return (NpcTemplate) objectTemplate;
 	}
 	@Override
 	public String getName()
 	{
-		return getTemplate().getName();
+		return getObjectTemplate().getName();
 	}
 
 	public int getNpcId()
 	{
-		return getTemplate().getTemplateId();
+		return getObjectTemplate().getTemplateId();
 	}
 
 	@Override
 	public byte getLevel()
 	{
-		return getTemplate().getLevel();
+		return getObjectTemplate().getLevel();
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class Npc extends Creature
 	 */
 	public boolean isAggressiveTo(Race race)
 	{
-		String currentTribe = getTemplate().getTribe();
+		String currentTribe = getObjectTemplate().getTribe();
 		switch(race)
 		{
 			case ELYOS:
@@ -142,7 +142,7 @@ public class Npc extends Creature
 	
 	public int getAggroRange()
 	{
-		return getTemplate().getAggroRange();
+		return getObjectTemplate().getAggroRange();
 	}
 	
 	@Override

@@ -52,11 +52,11 @@ public class ItemEquipmentListener
 		{
 			if (cgs instanceof PlayerGameStats)
 			{
-				log.debug("No effect was found for item "+itemTemplate.getItemId());
+				log.debug("No effect was found for item "+itemTemplate.getTemplateId());
 			}
 		}
 		
-		cgs.addModifiers(ItemStatEffectId.getInstance(itemTemplate.getItemId(), slot), modifiers);
+		cgs.addModifiers(ItemStatEffectId.getInstance(itemTemplate.getTemplateId(), slot), modifiers);
 	}
 	
 	/**
@@ -156,7 +156,7 @@ public class ItemEquipmentListener
 
 	public static void onItemUnequipment(Item item, Player owner)
 	{
-		owner.getGameStats().endEffect(ItemStatEffectId.getInstance(item.getItemTemplate().getItemId(), item.getEquipmentSlot()));
+		owner.getGameStats().endEffect(ItemStatEffectId.getInstance(item.getItemTemplate().getTemplateId(), item.getEquipmentSlot()));
 		removeStoneStats(item.getItemStones(), owner.getGameStats());
 		recalculateWeaponMastery(owner);
 	}

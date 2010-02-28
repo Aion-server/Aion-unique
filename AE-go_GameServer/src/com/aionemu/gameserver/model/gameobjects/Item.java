@@ -97,7 +97,7 @@ public class Item extends AionObject
 	{
 		//TODO
 		//item description should return probably string and not id
-		return String.valueOf(itemTemplate.getDescription());
+		return String.valueOf(itemTemplate.getNameId());
 	}
 
 	/**

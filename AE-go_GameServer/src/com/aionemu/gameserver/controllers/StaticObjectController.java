@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,30 +14,16 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.templates;
+package com.aionemu.gameserver.controllers;
+
+import com.aionemu.gameserver.model.gameobjects.StaticObject;
+
 
 /**
  * @author ATracer
  *
  */
-public abstract class VisibleObjectTemplate
+public class StaticObjectController extends VisibleObjectController<StaticObject>
 {
-	/**
-	 * For Npcs it will return npcid from templates xml
-	 * 
-	 * @return id of object template
-	 */
-	public abstract int getTemplateId();
-	/**
-	 * For Npcs it will return name from templates xml
-	 * 
-	 * @return name of object
-	 */
-	public abstract String getName();
-	
-	/**
-	 *  Name id of object template
-	 * @return
-	 */
-	public abstract int getNameId();
+
 }

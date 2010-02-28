@@ -404,4 +404,12 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	{
 		return 100000 + race.getRaceId()*2 + gender.getGenderId();
 	}
+
+	@Override
+	public int getNameId()
+	{
+		return 0;
+	}
+	
+	
 }

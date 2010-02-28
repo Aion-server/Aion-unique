@@ -219,7 +219,7 @@ public class MySQL5InventoryDAO extends InventoryDAO
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
 				stmt.setInt(1, item.getObjectId());
-				stmt.setInt(2, item.getItemTemplate().getItemId());
+				stmt.setInt(2, item.getItemTemplate().getTemplateId());
 				stmt.setInt(3, item.getItemCount());
 				stmt.setInt(4, item.getItemColor());
 				stmt.setInt(5, ownerId);

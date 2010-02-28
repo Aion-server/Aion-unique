@@ -18,8 +18,6 @@ package admincommands;
 
 import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.dataholders.SpawnsData;
-import com.aionemu.gameserver.model.gameobjects.Gatherable;
-import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
@@ -87,15 +85,7 @@ public class SpawnNpc extends AdminCommand
         }
 
         VisibleObject visibleObject = spawnEngine.spawnObject(spawn, 1);
-        String objectName = "";
-        if (visibleObject instanceof Npc)
-        {
-            objectName = ((Npc) visibleObject).getTemplate().getName();
-        }
-        else if (visibleObject instanceof Gatherable)
-        {
-            objectName = ((Gatherable) visibleObject).getTemplate().getName();
-        }
+        String objectName = visibleObject.getObjectTemplate().getName();
 
         PacketSendUtility.sendMessage(admin, objectName + " spawned");
     }

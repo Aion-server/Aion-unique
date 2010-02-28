@@ -51,6 +51,8 @@ public class SpawnTemplate
 	private float y;
 	@XmlAttribute(name = "x")
 	private float x;
+	@XmlAttribute(name = "staticid")
+	private int staticid;
 	
 	@XmlTransient
 	private BitSet spawnState = new BitSet();
@@ -185,5 +187,13 @@ public class SpawnTemplate
 	public void setNoRespawn(boolean noRespawn, int instance)
 	{
 		this.noRespawn.set(instance, noRespawn);
+	}
+
+	/**
+	 * @return the staticid
+	 */
+	public int getStaticid()
+	{
+		return staticid;
 	}
 }

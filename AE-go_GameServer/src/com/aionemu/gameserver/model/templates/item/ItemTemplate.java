@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.aionemu.gameserver.itemengine.actions.ItemActions;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.items.ItemId;
+import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
 
 /**
@@ -36,7 +37,7 @@ import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlRootElement(name = "item_templates")
-public class ItemTemplate
+public class ItemTemplate extends VisibleObjectTemplate
 {
 	@XmlAttribute(name = "id", required = true)
 	@XmlID
@@ -161,11 +162,6 @@ public class ItemTemplate
 	@XmlElement(name = "godstone")
 	private GodstoneInfo godstoneInfo;
 
-	public int getItemId()
-	{
-		return itemId;
-	}
-
 	public int getItemSlot()
 	{
 		return itemSlot;
@@ -278,9 +274,9 @@ public class ItemTemplate
 	/**
 	 * @return the description
 	 */
-	public String getDescription()
+	public int getNameId()
 	{
-		return description;
+		return Integer.parseInt(description);
 	}
 
 	/**
@@ -512,6 +508,18 @@ public class ItemTemplate
 	public GodstoneInfo getGodstoneInfo()
 	{
 		return godstoneInfo;
+	}
+
+	@Override
+	public String getName()
+	{
+		return "NONAME";
+	}
+
+	@Override
+	public int getTemplateId()
+	{
+		return itemId;
 	}
 	
 	

@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,8 +16,7 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
-import com.aionemu.gameserver.controllers.GatherableController;
-import com.aionemu.gameserver.model.templates.GatherableTemplate;
+import com.aionemu.gameserver.controllers.StaticObjectController;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.world.WorldPosition;
@@ -26,12 +25,12 @@ import com.aionemu.gameserver.world.WorldPosition;
  * @author ATracer
  *
  */
-public class Gatherable extends VisibleObject
+public class StaticObject extends VisibleObject
 {
-	
-	public Gatherable(SpawnTemplate spawnTemplate, VisibleObjectTemplate objectTemplate, int objId, GatherableController controller)
+	public StaticObject(int objectId, StaticObjectController controller,
+		SpawnTemplate spawnTemplate, VisibleObjectTemplate objectTemplate)
 	{
-		super(objId, controller, spawnTemplate, objectTemplate, new WorldPosition());
+		super(objectId, controller, spawnTemplate, objectTemplate, new WorldPosition());
 		controller.setOwner(this);
 	}
 
@@ -39,19 +38,5 @@ public class Gatherable extends VisibleObject
 	public String getName()
 	{
 		return objectTemplate.getName();
-	}
-
-	
-	@Override
-	public GatherableTemplate getObjectTemplate()
-	{
-		return (GatherableTemplate) objectTemplate;
-	}
-
-
-	@Override
-	public GatherableController getController()
-	{
-		return (GatherableController) super.getController();
 	}
 }

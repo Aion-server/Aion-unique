@@ -46,8 +46,8 @@ public class ExchangeItem
 		this.itemCount = itemCount;
 		this.newItem = newItem;
 		this.originalItem = originalItem;
-		this.itemId = newItem.getItemTemplate().getItemId();
-		this.itemDesc = Integer.parseInt(newItem.getItemTemplate().getDescription());
+		this.itemId = newItem.getItemTemplate().getTemplateId();
+		this.itemDesc = newItem.getItemTemplate().getNameId();
 		this.persistentState = PersistentState.NEW;
 	}
 
@@ -62,9 +62,9 @@ public class ExchangeItem
 		this.originalItem = item;
 		this.newItem = item;
 		this.itemObjId = item.getObjectId();
-		this.itemId = item.getItemTemplate().getItemId();
+		this.itemId = item.getItemTemplate().getTemplateId();
 		this.itemCount = item.getItemCount();
-		this.itemDesc = Integer.parseInt(item.getItemTemplate().getDescription());
+		this.itemDesc = item.getItemTemplate().getNameId();
 	}
 
 	/**

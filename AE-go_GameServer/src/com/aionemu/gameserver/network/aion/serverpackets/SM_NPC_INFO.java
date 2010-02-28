@@ -63,7 +63,7 @@ public class SM_NPC_INFO extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		NpcTemplate npcTemplate = npc.getTemplate();
+		NpcTemplate npcTemplate = npc.getObjectTemplate();
 		writeF(buf, npc.getX());// x
 		writeF(buf, npc.getY());// y
 		writeF(buf, npc.getZ());// z
@@ -94,7 +94,7 @@ public class SM_NPC_INFO extends AionServerPacket
 		writeC(buf, 0x00);// unk
 		writeC(buf, 100);// %hp
 
-		writeD(buf, npc.getTemplate().getStatsTemplate().getMaxHp());
+		writeD(buf, npc.getObjectTemplate().getStatsTemplate().getMaxHp());
 		writeC(buf, npc.getLevel());// lvl
 		
 		NpcEquippedGear gear = npcTemplate.getEquipment();
@@ -105,7 +105,7 @@ public class SM_NPC_INFO extends AionServerPacket
 			writeH(buf, gear.getItemsMask());
 			for(Entry<ItemSlot,ItemTemplate> item: gear) // getting it from template ( later if we make sure that npcs actually use items, we'll make Item from it )
 			{
-				writeD(buf, item.getValue().getItemId());
+				writeD(buf, item.getValue().getTemplateId());
 				writeD(buf, 0x00);
 				writeD(buf, 0x00);
 			}

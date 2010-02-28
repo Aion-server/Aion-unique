@@ -51,7 +51,7 @@ public class SM_UPDATE_ITEM extends InventoryPacket
 		writeD(buf, item.getObjectId());
 		ItemTemplate itemTemplate = item.getItemTemplate();
 		writeH(buf, 0x24);
-		writeD(buf, Integer.parseInt(itemTemplate.getDescription()));
+		writeD(buf, itemTemplate.getNameId());
 		writeH(buf, 0);
 	}
 
@@ -63,7 +63,7 @@ public class SM_UPDATE_ITEM extends InventoryPacket
 
 		ItemTemplate itemTemplate = item.getItemTemplate();
 
-		if(itemTemplate.getItemId() == ItemId.KINAH.value())
+		if(itemTemplate.getTemplateId() == ItemId.KINAH.value())
 		{
 			writeKinah(buf, item, true);
 		}

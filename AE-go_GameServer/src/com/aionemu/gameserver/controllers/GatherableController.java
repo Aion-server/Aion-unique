@@ -57,7 +57,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	public void onStartUse(final Player player)
 	{
 		//basic actions, need to improve here
-		final GatherableTemplate template = this.getOwner().getTemplate();
+		final GatherableTemplate template = this.getOwner().getObjectTemplate();
 		
 		if(!checkPlayerSkill(player, template))
 			return;
@@ -112,7 +112,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	{
 		state = GatherState.IDLE;
 		gatherCount++;
-		if(gatherCount == getOwner().getTemplate().getHarvestCount())
+		if(gatherCount == getOwner().getObjectTemplate().getHarvestCount())
 			onDie();
 	}
 	
@@ -131,11 +131,11 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	{
 		if(player != null)
 		{
-			int skillLvl = getOwner().getTemplate().getSkillLevel();
+			int skillLvl = getOwner().getObjectTemplate().getSkillLevel();
 			int xpReward = skillLvl * 10 + Rnd.get(0, skillLvl * 10/2);
 			player.getCommonData().addExp(xpReward);
 			
-			player.getSkillList().addSkillXp(player, getOwner().getTemplate().getHarvestSkill(), xpReward);
+			player.getSkillList().addSkillXp(player, getOwner().getObjectTemplate().getHarvestSkill(), xpReward);
 		}
 	}
 	
@@ -171,5 +171,11 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	public void onRespawn()
 	{
 		this.gatherCount = 0;
+	}
+
+	@Override
+	public Gatherable getOwner()
+	{
+		return (Gatherable) super.getOwner();
 	}
 }

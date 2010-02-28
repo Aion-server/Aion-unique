@@ -94,11 +94,11 @@ public class TradeService
 		List<Item> addedItems = new ArrayList<Item>();
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
-			int count = itemService.addItem(player, tradeItem.getItemTemplate().getItemId(), tradeItem.getCount(), false); // addToBag is old and have alot of bugs with item adding, suggest to remove it.
+			int count = itemService.addItem(player, tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(), false); // addToBag is old and have alot of bugs with item adding, suggest to remove it.
 			if(count != 0)
 			{
 				log.warn(String.format("CHECKPOINT: itemservice couldnt add all items on buy: %d %d %d %d", player.getObjectId(), 
-					tradeItem.getItemTemplate().getItemId(), tradeItem.getCount(), count));
+					tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(), count));
 				kinahItem.decreaseItemCount(tradeListPrice);
 				return false;
 			}		
@@ -142,11 +142,11 @@ public class TradeService
 		List<Item> addedItems = new ArrayList<Item>();
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
-			int count = itemService.addItem(player, tradeItem.getItemTemplate().getItemId(), tradeItem.getCount(), false); // addToBag is old and have alot of bugs with item adding, suggest to remove it.
+			int count = itemService.addItem(player, tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(), false); // addToBag is old and have alot of bugs with item adding, suggest to remove it.
 			if(count != 0)
 			{
 				log.warn(String.format("CHECKPOINT: itemservice couldnt add all items on buy: %d %d %d %d", player.getObjectId(), 
-					tradeItem.getItemTemplate().getItemId(), tradeItem.getCount(), count));
+					tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(), count));
 				rank.addAp(-tradeList.getRequiredAp());
 				return false;
 			}		
@@ -170,7 +170,7 @@ public class TradeService
 	private boolean validateBuyItems(TradeList tradeList)
 	{
 		Npc npc = (Npc) world.findAionObject(tradeList.getSellerObjId());
-		TradeListTemplate tradeListTemplate = tradeListData.getTradeListTemplate(npc.getTemplate().getTemplateId());
+		TradeListTemplate tradeListTemplate = tradeListData.getTradeListTemplate(npc.getObjectTemplate().getTemplateId());
 
 		Set<Integer> allowedItems = new HashSet<Integer>();
 		for(TradeTab tradeTab : tradeListTemplate.getTradeTablist())

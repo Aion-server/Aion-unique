@@ -22,6 +22,7 @@ import com.aionemu.gameserver.dataholders.CubeExpandData;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.GoodsListData;
+import com.aionemu.gameserver.dataholders.ItemData;
 import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.dataholders.PlayerExperienceTable;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
@@ -120,6 +121,13 @@ public class DataInjectionModule extends AbstractModule
 	NpcData provideNpcData(DataManager datamanager)
 	{
 		return datamanager.NPC_DATA;
+	}
+	
+	@SuppressWarnings("static-access")
+	@Provides
+	ItemData provideItemData(DataManager datamanager)
+	{
+		return datamanager.ITEM_DATA;
 	}
 	
 	@Provides

@@ -25,6 +25,7 @@ import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.controllers.PostboxController;
 import com.aionemu.gameserver.controllers.RiftController;
+import com.aionemu.gameserver.controllers.StaticObjectController;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.google.inject.Inject;
 
@@ -52,6 +53,8 @@ public class ControllerFactory
 	private PostboxControllerFactory postboxControllerFactory;
 	@Inject
 	private RiftControllerFactory riftControllerFactory;
+	@Inject
+	private StaticObjectControllerFactory staticObjectControllerFactory;
 	
 	/**
 	 * 
@@ -135,5 +138,14 @@ public class ControllerFactory
 	public RiftController createRiftController(Npc slave, int maxEntries, int maxLevel)
 	{
 		return riftControllerFactory.create(slave, maxEntries, maxLevel);
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StaticObjectController createStaticObjectController()
+	{
+		return staticObjectControllerFactory.create();
 	}
 }

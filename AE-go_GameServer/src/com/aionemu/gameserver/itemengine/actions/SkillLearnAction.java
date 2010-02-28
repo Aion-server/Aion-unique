@@ -60,7 +60,7 @@ public class SkillLearnAction extends AbstractItemAction
 		ItemTemplate itemTemplate = parentItem.getItemTemplate();
 		//PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.USE_ITEM(itemTemplate.getDescription()));
 		PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(),
-			parentItem.getObjectId(), itemTemplate.getItemId()), true);	
+			parentItem.getObjectId(), itemTemplate.getTemplateId()), true);	
 		//add skill
 		player.getSkillList().addSkill(player, skillid, 1, true);
 		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);

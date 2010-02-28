@@ -41,9 +41,9 @@ public abstract class InventoryPacket extends AionServerPacket
 	{
 		writeD(buf, item.getObjectId());
 		ItemTemplate itemTemplate = item.getItemTemplate();
-		writeD(buf, itemTemplate.getItemId());
+		writeD(buf, itemTemplate.getTemplateId());
 		writeH(buf, 0x24);
-		writeD(buf, Integer.parseInt(itemTemplate.getDescription()));
+		writeD(buf, itemTemplate.getNameId());
 		writeH(buf, 0);
 	}
 
@@ -136,7 +136,7 @@ public abstract class InventoryPacket extends AionServerPacket
 			writeD(buf, 0x02);
 			writeH(buf, 0x0B); //? some details separator
 			writeC(buf, 0); //enchant (1-10)
-			writeD(buf, item.getItemTemplate().getItemId());
+			writeD(buf, item.getItemTemplate().getTemplateId());
 			writeC(buf, 0);
 
 			writeItemStones(buf, item);
@@ -230,7 +230,7 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeD(buf, 0);
 		writeH(buf, 0x0B); //? some details separator
 		writeC(buf, 0); //enchant (1-10)
-		writeD(buf, item.getItemTemplate().getItemId());
+		writeD(buf, item.getItemTemplate().getTemplateId());
 
 		writeC(buf, 0);
 

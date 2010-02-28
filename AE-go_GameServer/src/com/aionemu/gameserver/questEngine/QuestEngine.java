@@ -157,7 +157,7 @@ public class QuestEngine
 
 	public boolean onItemUseEvent(QuestEnv env, Item item)
 	{
-		for(int questId : getQuestItemIds(item.getItemTemplate().getItemId()))
+		for(int questId : getQuestItemIds(item.getItemTemplate().getTemplateId()))
 		{
 			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
 			if(questHandler != null)

@@ -51,9 +51,9 @@ public class SM_VIEW_PLAYER_DETAILS extends AionServerPacket
 		for(Item item : items)
 		{	
 			//////general info/////////////
-			writeD(buf, item.getItemTemplate().getItemId());//itemId
+			writeD(buf, item.getItemTemplate().getTemplateId());//itemId
 			writeH(buf, 36); // 
-			writeD(buf, Integer.parseInt(item.getItemTemplate().getDescription()));// itemNameId
+			writeD(buf, item.getItemTemplate().getNameId());// itemNameId
 			writeH(buf, 0);
 			/////who knows/////////////
 			writeH(buf, 36);

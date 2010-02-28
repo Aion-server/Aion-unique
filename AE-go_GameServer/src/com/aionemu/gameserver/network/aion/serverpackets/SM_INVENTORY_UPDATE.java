@@ -56,7 +56,7 @@ public class SM_INVENTORY_UPDATE extends InventoryPacket
 
 			ItemTemplate itemTemplate = item.getItemTemplate();
 
-			if(itemTemplate.getItemId() == ItemId.KINAH.value())
+			if(itemTemplate.getTemplateId() == ItemId.KINAH.value())
 			{
 				writeKinah(buf, item, true);
 			}

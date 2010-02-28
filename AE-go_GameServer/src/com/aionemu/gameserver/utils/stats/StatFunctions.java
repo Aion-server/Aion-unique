@@ -84,7 +84,7 @@ public class StatFunctions
 	{
 		int playerLevel = player.getCommonData().getLevel();
 		int targetLevel = target.getLevel();
-		NpcRank npcRank = ((Npc) target).getTemplate().getRank();								
+		NpcRank npcRank = ((Npc) target).getObjectTemplate().getRank();
 
 		//TODO: fix to see monster Rank level, NORMAL lvl 1, 2 | ELITE lvl 1, 2 etc..
 		//look at: http://www.aionsource.com/forum/mechanic-analysis/42597-character-stats-xp-dp-origin-gerbator-team-july-2009-a.html
@@ -113,7 +113,7 @@ public class StatFunctions
 	{
 		int playerLevel = player.getCommonData().getLevel();
 		int targetLevel = target.getLevel();
-		NpcRank npcRank = ((Npc) target).getTemplate().getRank();								
+		NpcRank npcRank = ((Npc) target).getObjectTemplate().getRank();								
 
 		//TODO: fix to see monster Rank level, NORMAL lvl 1, 2 | ELITE lvl 1, 2 etc..
 		int baseDP = targetLevel * calculateRankMultipler(npcRank);
@@ -169,7 +169,7 @@ public class StatFunctions
 				{
 					average = 1;
 					log.warn("Weapon stat MIN_MAX_DAMAGE resulted average zero in main-hand calculation");
-					log.warn("Weapon ID: " + String.valueOf(equipment.getMainHandWeapon().getItemTemplate().getItemId()));
+					log.warn("Weapon ID: " + String.valueOf(equipment.getMainHandWeapon().getItemTemplate().getTemplateId()));
 					log.warn("MIN_DAMAGE = " + String.valueOf(totalMin));
 					log.warn("MAX_DAMAGE = " + String.valueOf(totalMax));
 				}
@@ -218,7 +218,7 @@ public class StatFunctions
 		}
 		else
 		{
-			NpcRank npcRank = ((Npc) attacker).getTemplate().getRank();
+			NpcRank npcRank = ((Npc) attacker).getObjectTemplate().getRank();
 			int multipler = calculateRankMultipler(npcRank);
 			Damage += ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
 			Damage = (Damage * multipler) + ((Damage*attacker.getLevel())/10);
@@ -250,7 +250,7 @@ public class StatFunctions
 		{
 			average = 1;
 			log.warn("Weapon stat MIN_MAX_DAMAGE resulted average zero in off-hand calculation");
-			log.warn("Weapon ID: " + String.valueOf(equipment.getOffHandWeapon().getItemTemplate().getItemId()));
+			log.warn("Weapon ID: " + String.valueOf(equipment.getOffHandWeapon().getItemTemplate().getTemplateId()));
 			log.warn("MIN_DAMAGE = " + String.valueOf(totalMin));
 			log.warn("MAX_DAMAGE = " + String.valueOf(totalMax));
 		}

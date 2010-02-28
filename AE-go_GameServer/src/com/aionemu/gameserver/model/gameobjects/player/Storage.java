@@ -375,7 +375,7 @@ public class Storage
 
 		for (Item item : storage.getStorageItems())
 		{
-			if(item.getItemTemplate().getItemId() == itemId)
+			if(item.getItemTemplate().getTemplateId() == itemId)
 				allItemsByItemId.add(item);
 		}
 		return allItemsByItemId;

@@ -89,7 +89,7 @@ public class _1107TheLostAxe extends QuestHandler
 	public boolean onItemUseEvent(QuestEnv env, Item item)
 	{
 		final Player player = env.getPlayer();
-		final int id = item.getItemTemplate().getItemId();
+		final int id = item.getItemTemplate().getTemplateId();
 		final int itemObjId = item.getObjectId();
 
 		if(id != 182200501)

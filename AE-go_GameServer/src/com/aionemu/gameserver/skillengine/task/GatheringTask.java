@@ -39,8 +39,8 @@ public class GatheringTask extends AbstractCraftTask
 	public GatheringTask(Player requestor, Gatherable gatherable, Material material)
 	{
 		super(requestor, gatherable,
-			gatherable.getTemplate().getSuccessAdj(), gatherable.getTemplate().getFailureAdj());
-		this.template = gatherable.getTemplate();
+			gatherable.getObjectTemplate().getSuccessAdj(), gatherable.getObjectTemplate().getFailureAdj());
+		this.template = gatherable.getObjectTemplate();
 		this.material = material;
 	}
 

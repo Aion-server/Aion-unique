@@ -280,7 +280,7 @@ public class PlayerService
 
 		for(ItemType itemType : items)
 		{
-			int itemId = itemType.getTemplate().getItemId();
+			int itemId = itemType.getTemplate().getTemplateId();
 			Item item = itemService.newItem(itemId, itemType.getCount());
 			if(item == null)
 				continue;

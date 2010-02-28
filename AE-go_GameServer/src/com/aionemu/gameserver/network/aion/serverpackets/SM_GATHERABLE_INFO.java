@@ -18,7 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import com.aionemu.gameserver.model.gameobjects.Gatherable;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -28,26 +28,26 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_GATHERABLE_INFO  extends AionServerPacket
 {
-	private Gatherable gatherable;
+	private VisibleObject visibleObject;
 
-	public SM_GATHERABLE_INFO(Gatherable gatherable)
+	public SM_GATHERABLE_INFO(VisibleObject visibleObject)
 	{
 		super();
-		this.gatherable = gatherable;
+		this.visibleObject = visibleObject;
 	}
 	
 	@Override
 	public void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeF(buf, gatherable.getX());
-		writeF(buf, gatherable.getY());
-		writeF(buf, gatherable.getZ());
-		writeD(buf, gatherable.getObjectId());
-		writeD(buf, 0); //unk
-		writeD(buf,gatherable.getTemplate().getTemplateId());
+		writeF(buf, visibleObject.getX());
+		writeF(buf, visibleObject.getY());
+		writeF(buf, visibleObject.getZ());
+		writeD(buf, visibleObject.getObjectId());
+		writeD(buf, visibleObject.getSpawn().getStaticid()); //unk
+		writeD(buf, visibleObject.getObjectTemplate().getTemplateId());
 		writeH(buf, 1); //unk
 		writeC(buf, 0);
-		writeD(buf, gatherable.getTemplate().getNameId());
+		writeD(buf, visibleObject.getObjectTemplate().getNameId());
 		writeH(buf, 0);
 		writeH(buf, 0);
 		writeH(buf, 0);

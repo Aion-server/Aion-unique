@@ -102,7 +102,7 @@ public class WalkDesire extends AbstractDesire implements MoveDesire
 		float destinationY = _route.getRouteSteps().get(_currentPos).getY();
 		float destinationZ = _route.getRouteSteps().get(_currentPos).getZ();
 		
-		float walkSpeed = owner.getTemplate().getStatsTemplate().getWalkSpeed();
+		float walkSpeed = owner.getObjectTemplate().getStatsTemplate().getWalkSpeed();
 		
 		double dist = MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), destinationX, destinationY, destinationZ);
 		//TODO refactor to new MoveController

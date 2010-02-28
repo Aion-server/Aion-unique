@@ -83,6 +83,8 @@ public class SpawnEngine
 	@Inject
 	private RiftSpawnManager riftSpawnManager;
 	@Inject
+	private StaticObjectSpawnManager staticObjectSpawnManager;
+	@Inject
 	private WorldMapsData worldMapsData;
 	@Inject
 	private ControllerFactory controllerFactory;
@@ -319,6 +321,8 @@ public class SpawnEngine
 					case RIFT:
 						riftSpawnManager.addRiftSpawnGroup(spawnGroup);
 						break;
+					case STATIC:
+						staticObjectSpawnManager.spawnGroup(spawnGroup, instanceIndex);
 					default:
 						break;
 				}

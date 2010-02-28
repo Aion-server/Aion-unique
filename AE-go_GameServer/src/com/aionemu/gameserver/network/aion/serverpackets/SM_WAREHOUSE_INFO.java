@@ -65,7 +65,7 @@ public class SM_WAREHOUSE_INFO extends InventoryPacket
 
 			ItemTemplate itemTemplate = item.getItemTemplate();
 
-			if(itemTemplate.getItemId() == ItemId.KINAH.value())
+			if(itemTemplate.getTemplateId() == ItemId.KINAH.value())
 				writeKinah(buf, item, false);
 
 			else if (itemTemplate.isWeapon())
@@ -84,10 +84,10 @@ public class SM_WAREHOUSE_INFO extends InventoryPacket
 	{
 		writeD(buf, item.getObjectId());
 		ItemTemplate itemTemplate = item.getItemTemplate();
-		writeD(buf, itemTemplate.getItemId());
+		writeD(buf, itemTemplate.getTemplateId());
 		writeC(buf, 0); //some item info (4 - weapon, 7 - armor, 8 - rings, 17 - bottles)
 		writeH(buf, 0x24);
-		writeD(buf, Integer.parseInt(itemTemplate.getDescription()));
+		writeD(buf, itemTemplate.getNameId());
 		writeH(buf, 0);
 	}
 

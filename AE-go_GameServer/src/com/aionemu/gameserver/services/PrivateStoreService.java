@@ -89,7 +89,7 @@ public class PrivateStoreService
 	 */
 	private boolean validateItem(Item item, int itemId, int itemAmount)
 	{
-        return !(item.getItemTemplate().getItemId() != itemId || itemAmount > item.getItemCount());
+        return !(item.getItemTemplate().getTemplateId() != itemId || itemAmount > item.getItemCount());
     }
 
 	/**
@@ -182,7 +182,7 @@ public class PrivateStoreService
 					else
 					{
 						decreaseItemFromPlayer(seller, item, tradeItem);
-						itemService.addItem(buyer, item.getItemTemplate().getItemId(), tradeItem.getCount(), false);
+						itemService.addItem(buyer, item.getItemTemplate().getTemplateId(), tradeItem.getCount(), false);
 
 						if(storeItem.getCount() == tradeItem.getCount())
 							store.removeItem(storeItem.getItemObjId());

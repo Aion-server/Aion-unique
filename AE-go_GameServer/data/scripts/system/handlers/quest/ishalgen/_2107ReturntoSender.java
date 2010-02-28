@@ -105,7 +105,7 @@ public class _2107ReturntoSender extends QuestHandler
 	@Override
 	public boolean onItemUseEvent(QuestEnv env, Item item)
 	{
-		final int id = item.getItemTemplate().getItemId();
+		final int id = item.getItemTemplate().getTemplateId();
 		final int itemObjId = item.getObjectId();
 
 		if(id != 182203107)

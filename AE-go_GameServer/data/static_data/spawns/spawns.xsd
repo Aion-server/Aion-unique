@@ -23,6 +23,7 @@
 					<xs:attribute name="h" type="Heading" />
 					<xs:attribute name="w" type="xs:int" />
 					<xs:attribute name="rw" type="xs:int" />
+					<xs:attribute name="staticid" type="xs:int" />
 				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
@@ -45,6 +46,7 @@
 	<xs:simpleType name="SpawnHandlerType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="RIFT" />
+			<xs:enumeration value="STATIC" />
 		</xs:restriction>
 	</xs:simpleType>
 

@@ -120,8 +120,8 @@ public class Equipment
 	{
 		if(equipment.get(slot) != null)
 			log.error("CHECKPOINT : putting item to already equiped slot. Info slot: " +
-				slot + " new item: " + item.getItemTemplate().getItemId() + " old item: "
-				+ equipment.get(slot).getItemTemplate().getItemId());
+				slot + " new item: " + item.getItemTemplate().getTemplateId() + " old item: "
+				+ equipment.get(slot).getItemTemplate().getTemplateId());
 
 		equipment.put(slot, item);
 		item.setEquipmentSlot(slot);
@@ -368,7 +368,7 @@ public class Equipment
 		List<Item> equippedItemsById = new ArrayList<Item>();
 		for(Item item : equipment.values())
 		{
-			if(item.getItemTemplate().getItemId() == value)
+			if(item.getItemTemplate().getTemplateId() == value)
 				equippedItemsById.add(item);
 		}
 		return equippedItemsById;
@@ -498,7 +498,7 @@ public class Equipment
 
 		if(powerShardItem.getItemCount() <= 0)
 		{// Search for next same power shards stack
-			List<Item> powerShardStacks = owner.getInventory().getItemsByItemId(powerShardItem.getItemTemplate().getItemId());
+			List<Item> powerShardStacks = owner.getInventory().getItemsByItemId(powerShardItem.getItemTemplate().getTemplateId());
 			if(powerShardStacks.size() != 0)
 			{
 				equipItem(powerShardStacks.get(0).getObjectId(), powerShardItem.getEquipmentSlot());

@@ -86,7 +86,7 @@ public class ItemStorage
 			if(item != null)
 			{
 				ItemTemplate itemTemplate = item.getItemTemplate();
-				if(itemTemplate.getItemId() == itemId)
+				if(itemTemplate.getTemplateId() == itemId)
 				{
 					return item;
 				}
@@ -111,7 +111,7 @@ public class ItemStorage
 			if(item != null)
 			{
 				ItemTemplate itemTemplate = item.getItemTemplate();
-				if(itemTemplate.getItemId() == itemId)
+				if(itemTemplate.getTemplateId() == itemId)
 				{
 					itemList.add(item);
 				}
@@ -148,7 +148,7 @@ public class ItemStorage
 			if(item != null)
 			{
 				ItemTemplate itemTemplate = item.getItemTemplate();
-				if(itemTemplate.getItemId() == itemId)
+				if(itemTemplate.getTemplateId() == itemId)
 				{
 					return item.getEquipmentSlot();
 				}
@@ -214,7 +214,7 @@ public class ItemStorage
 	 */
 	public Item addItemToStorage(Item item)
 	{
-		Item existingItem = getItemFromStorageByItemId(item.getItemTemplate().getItemId());
+		Item existingItem = getItemFromStorageByItemId(item.getItemTemplate().getTemplateId());
 
 		if(existingItem != null && existingItem.getItemCount() < existingItem.getItemTemplate().getMaxStackCount())
 		{

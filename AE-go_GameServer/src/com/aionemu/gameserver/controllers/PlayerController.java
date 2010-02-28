@@ -33,6 +33,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.StaticObject;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
@@ -70,7 +71,6 @@ import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.Skill;
-import com.aionemu.gameserver.skillengine.model.Skill.SkillType;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -133,9 +133,9 @@ public class PlayerController extends CreatureController<Player>
 			if(update)
 				updateNearbyQuestList();
 		}
-		else if(object instanceof Gatherable)
+		else if(object instanceof Gatherable || object instanceof StaticObject)
 		{
-			PacketSendUtility.sendPacket(getOwner(), new SM_GATHERABLE_INFO((Gatherable) object));
+			PacketSendUtility.sendPacket(getOwner(), new SM_GATHERABLE_INFO(object));
 		}
 	}
 

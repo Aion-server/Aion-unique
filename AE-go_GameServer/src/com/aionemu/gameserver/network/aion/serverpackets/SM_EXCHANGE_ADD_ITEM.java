@@ -50,7 +50,7 @@ public class SM_EXCHANGE_ADD_ITEM extends InventoryPacket
 
 		ItemTemplate itemTemplate = item.getItemTemplate();
 
-		if(itemTemplate.getItemId() == ItemId.KINAH.value())
+		if(itemTemplate.getTemplateId() == ItemId.KINAH.value())
 		{
 			writeKinah(buf, item, true);
 		}
@@ -73,10 +73,10 @@ public class SM_EXCHANGE_ADD_ITEM extends InventoryPacket
 	protected void writeGeneralInfo(ByteBuffer buf, Item item)
 	{	
 		ItemTemplate itemTemplate = item.getItemTemplate();
-		writeD(buf, itemTemplate.getItemId());
+		writeD(buf, itemTemplate.getTemplateId());
 		writeD(buf, item.getObjectId());
 		writeH(buf, 0x24);
-		writeD(buf, Integer.parseInt(itemTemplate.getDescription()));
+		writeD(buf, itemTemplate.getNameId());
 		writeH(buf, 0);
 	}
 }

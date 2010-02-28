@@ -46,7 +46,7 @@ public class ItemData
 		items = new TIntObjectHashMap<ItemTemplate>();
 		for(ItemTemplate it: its)
 		{
-			items.put(it.getItemId(), it);
+			items.put(it.getTemplateId(), it);
 		}
 		its = null;
 	}
