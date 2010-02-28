@@ -69,7 +69,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 		{
 			state = GatherState.GATHERING;
 			currentGatherer = player.getObjectId();
-			player.getController().attach(new StartMovingListener(){
+			player.getObserveController().attach(new StartMovingListener(){
 				
 				@Override
 				public void moved()

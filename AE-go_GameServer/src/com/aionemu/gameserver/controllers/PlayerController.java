@@ -283,7 +283,7 @@ public class PlayerController extends CreatureController<Player>
 			return;
 
 		// later differentiate between skills
-		notifyAttackObservers();
+		getOwner().getObserveController().notifyAttackObservers();
 
 		Skill skill = SkillEngine.getInstance().getSkillFor(player, skillId, player.getTarget());
 		if(skill != null)

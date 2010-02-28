@@ -21,6 +21,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.controllers.CreatureController;
 import com.aionemu.gameserver.controllers.MoveController;
+import com.aionemu.gameserver.controllers.ObserveController;
 import com.aionemu.gameserver.controllers.effect.EffectController;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureSeeState;
@@ -69,6 +70,7 @@ public abstract class Creature extends VisibleObject
 	private Skill castingSkill;
 	
 	private int transformedModelId;
+	private ObserveController 	observeController;
 
 	public Creature(int objId, CreatureController<? extends Creature> controller,
 		SpawnTemplate spawnTemplate, VisibleObjectTemplate objectTemplate, WorldPosition position)
@@ -76,6 +78,7 @@ public abstract class Creature extends VisibleObject
 		super(objId, controller, spawnTemplate, objectTemplate, position);
 		initializeAi();
 		this.moveController = new MoveController(this);
+		this.observeController = new ObserveController();
 	}
 
 	/**
@@ -425,5 +428,13 @@ public abstract class Creature extends VisibleObject
 	public final byte getPacketBroadcastMask()
 	{
 		return packetBroadcastMask;
+	}
+
+	/**
+	 * @return the observeController
+	 */
+	public ObserveController getObserveController()
+	{
+		return observeController;
 	}
 }

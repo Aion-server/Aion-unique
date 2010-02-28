@@ -16,7 +16,6 @@
  */
 package com.aionemu.gameserver.controllers.effect;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

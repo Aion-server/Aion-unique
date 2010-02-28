@@ -16,10 +16,6 @@
  */
 package com.aionemu.gameserver.controllers;
 
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
-
-import com.aionemu.gameserver.controllers.movement.ActionObserver;
 import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -37,10 +33,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public abstract class CreatureController<T extends Creature> extends VisibleObjectController<Creature>
 {
-	// TODO revisit here later
-	protected Queue<ActionObserver>	moveObservers		= new ConcurrentLinkedQueue<ActionObserver>();
-	protected Queue<ActionObserver>	attackObservers		= new ConcurrentLinkedQueue<ActionObserver>();
-	protected Queue<ActionObserver>	attackedObservers	= new ConcurrentLinkedQueue<ActionObserver>();
 	
 	/**
 	 * {@inheritDoc}
@@ -58,7 +50,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 */
 	public void onStartMove()
 	{
-		notifyMoveObservers();
+		getOwner().getObserveController().notifyMoveObservers();
 	}
 
 	/**
@@ -100,7 +92,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 */
 	public void onAttack(Creature creature, int skillId, TYPE type, int damage)
 	{
-		notifyAttackedObservers();
+		getOwner().getObserveController().notifyAttackedObservers();
 	}
 
 	/**
@@ -202,61 +194,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 
 	}
 
-	/**
-	 * 
-	 * @param observer
-	 */
-	public void attach(ActionObserver observer)
-	{
-		switch(observer.getObserverType())
-		{
-			case ATTACK:
-				attackObservers.add(observer);
-				break;
-			case ATTACKED:
-				attackedObservers.add(observer);
-				break;
-			case MOVE:
-				moveObservers.add(observer);
-				break;
-		}
-	}
-
-	/**
-	 * notify that creature moved
-	 */
-	protected void notifyMoveObservers()
-	{
-		while(!moveObservers.isEmpty())
-		{
-			ActionObserver observer = moveObservers.poll();
-			observer.moved();
-		}
-	}
-
-	/**
-	 * notify that creature attacking
-	 */
-	protected void notifyAttackObservers()
-	{
-		while(!attackObservers.isEmpty())
-		{
-			ActionObserver observer = attackObservers.poll();
-			observer.attack();
-		}
-	}
-
-	/**
-	 * notify that creature attacked
-	 */
-	protected void notifyAttackedObservers()
-	{
-		while(!attackedObservers.isEmpty())
-		{
-			ActionObserver observer = attackedObservers.poll();
-			observer.attacked();
-		}
-	}
+	
 
 	/**
 	 * 
@@ -264,7 +202,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 */
 	public void attackTarget(int targetObjectId)
 	{
-		notifyAttackObservers();
+		getOwner().getObserveController().notifyAttackObservers();
 	}
 
 	/**

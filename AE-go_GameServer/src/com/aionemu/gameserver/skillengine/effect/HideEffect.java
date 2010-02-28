@@ -133,7 +133,7 @@ public class HideEffect extends EffectTemplate
 			PacketSendUtility.broadcastPacket((Player)effected, new SM_PLAYER_STATE((Player)effected), true);
 		}
 		
-		effected.getController().attach(
+		effected.getObserveController().attach(
 			new ActionObserver(ObserverType.ATTACK)
 			{
 				@Override

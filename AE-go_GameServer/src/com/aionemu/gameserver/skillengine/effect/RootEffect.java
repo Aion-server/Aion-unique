@@ -54,7 +54,7 @@ public class RootEffect extends EffectTemplate
 		effected.setRooted(true);
 		PacketSendUtility.broadcastPacket(effected, new SM_TARGET_IMMOBILIZE(effected));
 		
-		effected.getController().attach(
+		effected.getObserveController().attach(
 			new ActionObserver(ObserverType.ATTACKED)
 			{
 				@Override

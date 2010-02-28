@@ -138,7 +138,7 @@ public class Skill
 			startCast();
 		}
 
-		effector.getController().attach(conditionChangeListener);
+		effector.getObserveController().attach(conditionChangeListener);
 		
 		if(skillTemplate.getDuration() > 0)
 		{

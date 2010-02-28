@@ -51,7 +51,7 @@ public class SleepEffect extends EffectTemplate
 		final Creature effected = effect.getEffected();
 		effected.setSleep(true);
 		
-		effected.getController().attach(
+		effected.getObserveController().attach(
 			new ActionObserver(ObserverType.ATTACKED)
 			{
 				@Override
