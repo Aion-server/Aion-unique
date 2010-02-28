@@ -16,8 +16,9 @@
  */
 package com.aionemu.gameserver.services;
 
-import java.util.ArrayList;
 import java.util.concurrent.ScheduledFuture;
+
+import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
@@ -375,25 +376,25 @@ public class GroupService
 	/**
 	 * @return
 	 */
-	public ArrayList<Integer> getMembersToRegistrateByRules(final Player player, final PlayerGroup group)
+	public FastMap<Integer, Boolean> getMembersToRegistrateByRules(final Player player, final PlayerGroup group)
 	{
 		final LootGroupRules lootRules = group.getLootGroupRules();
 		final LootRuleType lootRule = lootRules.getLootRule();
-		ArrayList<Integer> luckyMembers = new ArrayList<Integer>();
+		FastMap<Integer, Boolean> luckyMembers = new FastMap<Integer, Boolean>();
 
 		switch(lootRule)
 		{
 			case FREEFORALL:
 				for(int memberObjId : group.getMemberObjIds())
 				{
-					luckyMembers.add(memberObjId);
+					luckyMembers.put(memberObjId, false);
 				}
 				break;
 			case ROUNDROBIN:
-				luckyMembers.add(group.getRandomMember());
+				luckyMembers.put(group.getRandomMember(), false);
 				break;
 			case LEADER:
-				luckyMembers.add(group.getGroupLeader().getObjectId());
+				luckyMembers.put(group.getGroupLeader().getObjectId(), false);
 				break;
 		}
 		return luckyMembers;

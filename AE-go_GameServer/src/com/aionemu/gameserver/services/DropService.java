@@ -16,13 +16,14 @@
  */
 package com.aionemu.gameserver.services;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+
+import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
@@ -36,6 +37,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -47,17 +49,17 @@ import com.google.inject.Inject;
  */
 public class DropService
 {
-	private static final Logger					log					= Logger.getLogger(DropService.class);
+	private static final Logger						log					= Logger.getLogger(DropService.class);
 
-	private DropList							dropList;
+	private DropList								dropList;
 
-	private Map<Integer, Set<DropItem>>			currentDropMap		= Collections
-																		.synchronizedMap(new HashMap<Integer, Set<DropItem>>());
-	private Map<Integer, ArrayList<Integer>>	dropRegistrationMap	= new ConcurrentHashMap<Integer, ArrayList<Integer>>();
-	private ItemService							itemService;
-	private GroupService						groupService;
+	private Map<Integer, Set<DropItem>>				currentDropMap		= Collections
+																			.synchronizedMap(new HashMap<Integer, Set<DropItem>>());
+	private Map<Integer, FastMap<Integer, Boolean>>	dropRegistrationMap	= new ConcurrentHashMap<Integer, FastMap<Integer, Boolean>>();
+	private ItemService								itemService;
+	private GroupService							groupService;
 
-	private World								world;
+	private World									world;
 
 	@Inject
 	public DropService(ItemService itemService, World world, GroupService groupService)
@@ -126,8 +128,8 @@ public class DropService
 				}
 				else
 				{
-					ArrayList<Integer> singlePlayer = new ArrayList<Integer>();
-					singlePlayer.add(player.getObjectId());
+					FastMap<Integer, Boolean> singlePlayer = new FastMap<Integer, Boolean>();
+					singlePlayer.put(player.getObjectId(), false);
 					dropRegistrationMap.put(npcUniqueId, singlePlayer);
 				}
 			}
@@ -158,14 +160,23 @@ public class DropService
 	 */
 	public void requestDropList(Player player, int npcId)
 	{
-		// prevent stealing drop
-		if(player == null)
+		if(player == null || !dropRegistrationMap.containsKey(npcId))
 			return;
 
-		if(player != null && dropRegistrationMap.containsKey(npcId)
-			&& !dropRegistrationMap.get(npcId).contains(player.getObjectId()))
+		if(!dropRegistrationMap.get(npcId).containsKey(player.getObjectId()))
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_LOOT_NO_RIGHT());
 			return;
+		}
 
+		if(!dropRegistrationMap.get(npcId).containsValue(true))
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_LOOT_FAIL_ONLOOTING());
+			return;
+		}
+		
+		dropRegistrationMap.get(npcId).put(player.getObjectId(), true);
+		
 		Set<DropItem> dropItems = currentDropMap.get(npcId);
 
 		if(dropItems == null)

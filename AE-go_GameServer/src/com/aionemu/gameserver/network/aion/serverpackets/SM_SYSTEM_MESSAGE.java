@@ -808,6 +808,21 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300306);
 	}
 
+	/**
+	 * Loot
+	 */
+	public static SM_SYSTEM_MESSAGE STR_LOOT_NO_RIGHT()
+	{
+		// You are not authorized to examine the corpse.
+		return new SM_SYSTEM_MESSAGE(901338);
+	}
+	
+	public static SM_SYSTEM_MESSAGE STR_LOOT_FAIL_ONLOOTING()
+	{
+		// Someone is already looting that.
+		return new SM_SYSTEM_MESSAGE(1300829);
+	}
+
 	private final int		code;
 	private final Object[]	params;
 
