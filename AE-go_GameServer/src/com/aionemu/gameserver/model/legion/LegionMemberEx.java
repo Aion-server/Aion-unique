@@ -43,7 +43,7 @@ public class LegionMemberEx extends LegionMember
 	/**
 	 * If player is immediately after this constructor is called
 	 */
-	public LegionMemberEx(Player player, LegionMember legionMember)
+	public LegionMemberEx(Player player, LegionMember legionMember, boolean online)
 	{
 		super(player.getObjectId(), legionMember.getLegion(), legionMember.getRank());
 		this.nickname = legionMember.getNickname();
@@ -53,7 +53,7 @@ public class LegionMemberEx extends LegionMember
 		this.level = player.getLevel();
 		this.lastOnline = player.getCommonData().getLastOnline();
 		this.worldId = player.getPosition().getMapId();
-		this.online = true;
+		this.online = online;
 	}
 
 	/**

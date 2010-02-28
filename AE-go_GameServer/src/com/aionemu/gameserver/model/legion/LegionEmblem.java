@@ -27,6 +27,7 @@ public class LegionEmblem
 	private int		color_g			= 0x00;
 	private int		color_b			= 0x00;
 	private boolean	defaultEmblem	= true;
+	private boolean	isChanged		= false;
 
 	public LegionEmblem()
 	{
@@ -62,6 +63,7 @@ public class LegionEmblem
 		this.color_r = color_r;
 		this.color_g = color_g;
 		this.color_b = color_b;
+		this.isChanged = true;
 	}
 
 	/**
@@ -111,5 +113,13 @@ public class LegionEmblem
 	public boolean isDefaultEmblem()
 	{
 		return defaultEmblem;
+	}
+
+	/**
+	 * @return the isChanged
+	 */
+	public boolean isChanged()
+	{
+		return isChanged;
 	}
 }

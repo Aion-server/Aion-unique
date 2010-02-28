@@ -209,6 +209,8 @@ public class LegionService
 	public void storeLegion(Legion legion)
 	{
 		DAOManager.getDAO(LegionDAO.class).storeLegion(legion);
+		if(legion.getLegionEmblem().isChanged())
+			storeLegionEmblem(legion.getLegionId(), legion.getLegionEmblem());
 	}
 
 	/**
@@ -241,10 +243,18 @@ public class LegionService
 		}
 		else
 		{
-			LegionMemberEx legionMemberEx = new LegionMemberEx(player, player.getLegionMember());
-			legionMemberEx.setOnline(false);
+			LegionMemberEx legionMemberEx = new LegionMemberEx(player, player.getLegionMember(), false);
 			addCachedLegionMemberEx(legionMemberEx);
 		}
+	}
+
+	public void storeLegionEmblem(int legionId, LegionEmblem legionEmblem)
+	{
+		if(legionEmblem.isDefaultEmblem())
+			DAOManager.getDAO(LegionDAO.class).saveNewLegionEmblem(legionId, legionEmblem);
+
+		else
+			DAOManager.getDAO(LegionDAO.class).storeLegionEmblem(legionId, legionEmblem);
 	}
 
 	/**
@@ -367,9 +377,7 @@ public class LegionService
 		/**
 		 * Set legion emblem
 		 */
-		LegionEmblem legionEmblem = DAOManager.getDAO(LegionDAO.class).loadLegionEmblem(legionId);
-		if(legionEmblem != null)
-			legion.setLegionEmblem(legionEmblem);
+		legion.setLegionEmblem(DAOManager.getDAO(LegionDAO.class).loadLegionEmblem(legionId));
 
 		/**
 		 * Load Legion Warehouse
@@ -1097,16 +1105,7 @@ public class LegionService
 	public void storeLegionEmblem(Legion legion, int emblemId, int color_r, int color_g, int color_b)
 	{
 		final LegionEmblem legionEmblem = legion.getLegionEmblem();
-
 		legionEmblem.setEmblem(emblemId, color_r, color_g, color_b);
-		if(legionEmblem.isDefaultEmblem())
-		{
-			legionEmblem.setDefaultEmblem(false);
-			DAOManager.getDAO(LegionDAO.class).saveNewLegionEmblem(legion.getLegionId(), legionEmblem);
-		}
-		else
-			DAOManager.getDAO(LegionDAO.class).storeLegionEmblem(legion.getLegionId(), legionEmblem);
-
 		updateMembersEmblem(legion);
 	}
 
@@ -1122,7 +1121,7 @@ public class LegionService
 			Player memberPlayer = world.findPlayer(memberObjId);
 			if(memberPlayer != null)
 			{
-				legionMemberEx = new LegionMemberEx(memberPlayer, memberPlayer.getLegionMember());
+				legionMemberEx = new LegionMemberEx(memberPlayer, memberPlayer.getLegionMember(), true);
 			}
 			else
 			{
@@ -1145,27 +1144,35 @@ public class LegionService
 	 */
 	public void openLegionWarehouse(Player activePlayer)
 	{
-		final Legion legion = activePlayer.getLegion();
-		if(!activePlayer.getLegionMember().hasRights(WAREHOUSE))
+		if(activePlayer.isLegionMember())
 		{
-			// No warehouse rights
-		}
-		else if(legion.isDisbanding())
-		{
-			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_WAREHOUSE_CANT_USE_WHILE_DISPERSE());
-		}
-		else if(!LegionConfig.LEGION_WAREHOUSE)
-		{
-			// Legion Warehouse not enabled
+			final Legion legion = activePlayer.getLegion();
+			if(!activePlayer.getLegionMember().hasRights(WAREHOUSE))
+			{
+				// No warehouse rights
+			}
+			else if(legion.isDisbanding())
+			{
+				PacketSendUtility
+					.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_WAREHOUSE_CANT_USE_WHILE_DISPERSE());
+			}
+			else if(!LegionConfig.LEGION_WAREHOUSE)
+			{
+				// Legion Warehouse not enabled
+			}
+			else
+			{
+				PacketSendUtility.sendPacket(activePlayer, new SM_DIALOG_WINDOW(activePlayer.getObjectId(), 25));
+				PacketSendUtility.sendPacket(activePlayer, new SM_WAREHOUSE_INFO(legion.getLegionWarehouse()
+					.getStorageItems(), StorageType.LEGION_WAREHOUSE.getId()));
+				PacketSendUtility.sendPacket(activePlayer, new SM_WAREHOUSE_INFO(null, StorageType.LEGION_WAREHOUSE
+					.getId())); // strange retail way of sending
+				// warehouse packets
+			}
 		}
 		else
 		{
-			PacketSendUtility.sendPacket(activePlayer, new SM_DIALOG_WINDOW(activePlayer.getObjectId(), 25));
-			PacketSendUtility.sendPacket(activePlayer, new SM_WAREHOUSE_INFO(legion.getLegionWarehouse()
-				.getStorageItems(), StorageType.LEGION_WAREHOUSE.getId()));
-			PacketSendUtility.sendPacket(activePlayer,
-				new SM_WAREHOUSE_INFO(null, StorageType.LEGION_WAREHOUSE.getId())); // strange retail way of sending
-			// warehouse packets
+			// TODO: Message: Not in a legion
 		}
 	}
 

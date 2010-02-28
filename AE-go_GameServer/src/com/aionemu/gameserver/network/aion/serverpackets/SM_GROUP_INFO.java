@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.group.LootDistribution;
 import com.aionemu.gameserver.model.group.LootGroupRules;
 import com.aionemu.gameserver.model.group.LootRuleType;
 import com.aionemu.gameserver.model.group.PlayerGroup;
@@ -34,7 +35,7 @@ public class SM_GROUP_INFO extends AionServerPacket
 	private int leaderid;
 	private LootRuleType lootruletype; //0-free-for-all, 1-round-robin 2-leader
 	@SuppressWarnings("unused")
-	private int autodistribution;
+	private LootDistribution autodistribution;
 	//rare item distribution
 	//0-normal, 2-Roll-dice,3-bid
 	private int common_item_above;

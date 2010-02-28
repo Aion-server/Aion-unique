@@ -16,37 +16,27 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
-import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.restrictions.RestrictionsManager;
-import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.services.GroupService;
 import com.aionemu.gameserver.utils.Util;
-import com.aionemu.gameserver.utils.idfactory.IDFactory;
-import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
  * 
  * @author Lyahim, ATracer
- * 
+ * Modified by Simple
  */
 public class CM_INVITE_TO_GROUP extends AionClientPacket
 {
 	@Inject
-	private World world;
-
+	private World			world;
 	@Inject
-	@IDFactoryAionObject
-	private IDFactory aionObjectsIDFactory;		
+	private GroupService	groupService;
 
-	private String name;
+	private String			name;
 
 	public CM_INVITE_TO_GROUP(int opcode)
 	{
@@ -59,8 +49,8 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		readC();//unk
-		name = readS();		
+		readC();// unk
+		name = readS();
 	}
 
 	/**
@@ -73,42 +63,10 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 
 		final Player inviter = getConnection().getActivePlayer();
 		final Player invited = world.findPlayer(playerName);
-		final PlayerGroup group = inviter.getPlayerGroup();
-		
-		if(RestrictionsManager.canInviteToGroup(inviter, invited))
-		{
-			RequestResponseHandler responseHandler = new RequestResponseHandler(inviter) 
-			{				
-				@Override
-				public void acceptRequest(Creature requester, Player responder)
-				{
-					if(group != null && group.isFull())
-						return;
 
-					sendPacket(SM_SYSTEM_MESSAGE.REQUEST_GROUP_INVITE(playerName));
-					if(group != null)
-					{
-						inviter.getPlayerGroup().addPlayerToGroup(invited);
-					}					
-					else
-					{
-						new PlayerGroup(aionObjectsIDFactory, inviter);
-						inviter.getPlayerGroup().addPlayerToGroup(invited);
-					}
-				}
-
-				@Override
-				public void denyRequest(Creature requester, Player responder)
-				{
-					sendPacket(SM_SYSTEM_MESSAGE.REJECT_GROUP_INVITE(responder.getName()));
-				}
-			};
-
-			boolean result = invited.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_REQUEST_GROUP_INVITE,responseHandler);
-			if(result)
-			{
-				PacketSendUtility.sendPacket(invited, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_REQUEST_GROUP_INVITE, inviter.getObjectId(), inviter.getName()));
-			}
-		}
+		if(invited != null)
+			groupService.invitePlayerToGroup(inviter, invited);
+		else
+			inviter.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.PLAYER_IS_OFFLINE(name));
 	}
 }

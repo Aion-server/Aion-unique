@@ -31,6 +31,7 @@ import com.aionemu.gameserver.network.aion.SystemMessageId;
  * @author EvilSpirit
  * @author Luno :D
  * @author Avol!
+ * @author Simple :) 
  */
 public class SM_SYSTEM_MESSAGE extends AionServerPacket
 {

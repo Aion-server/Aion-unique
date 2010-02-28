@@ -16,20 +16,22 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import java.util.Iterator;
-
-import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SHOW_BRAND;
-import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.services.GroupService;
+import com.google.inject.Inject;
 
 /**
  * @author Sweetkr
+ * @author Simple
  */
 public class CM_SHOW_BRAND extends AionClientPacket
 {
-	private int		brandId;
-	private int		targetObjectId;
+	@Inject
+	private GroupService	groupService;
+
+	private int				brandId;
+	private int				targetObjectId;
 
 	/**
 	 * @param opcode
@@ -52,18 +54,12 @@ public class CM_SHOW_BRAND extends AionClientPacket
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	protected void runImpl()
 	{
-		Player player = getConnection().getActivePlayer();
+		PlayerGroup playerGroup = getConnection().getActivePlayer().getPlayerGroup();
 
-		Iterator pgit = player.getPlayerGroup().getGroupMemberIterator();
-		while (pgit.hasNext())
-		{
-			Player member = (Player)pgit.next();
-
-			PacketSendUtility.sendPacket(member, new SM_SHOW_BRAND(brandId, targetObjectId));
-		}
+		if(playerGroup != null)
+			groupService.showBrand(playerGroup, brandId, targetObjectId);
 	}
 }

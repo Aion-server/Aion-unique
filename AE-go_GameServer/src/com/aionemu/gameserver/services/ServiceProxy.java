@@ -52,6 +52,8 @@ public class ServiceProxy
 	private CubeExpandService cubeExpandService;
 	@Inject
 	private SkillLearnService skillLearnService;
+	@Inject
+	private GroupService groupService;
 
 	/**
 	 * @return the world
@@ -136,5 +138,12 @@ public class ServiceProxy
 	public SkillLearnService getSkillLearnService()
 	{
 		return skillLearnService;
+	}
+	/**
+	 * @return
+	 */
+	public GroupService getGroupService()
+	{
+		return groupService;
 	}
 }

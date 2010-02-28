@@ -53,6 +53,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_UI_SETTINGS;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 import com.aionemu.gameserver.services.ClassChangeService;
+import com.aionemu.gameserver.services.GroupService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.world.World;
@@ -76,6 +77,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	private PlayerService	playerService;
 	@Inject
 	private LegionService	legionService;
+	@Inject
+	private GroupService	groupService;
 
 	/**
 	 * Constructs new instance of <tt>CM_ENTER_WORLD </tt> packet
@@ -246,6 +249,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
 				legionService.legionMemberOnLogin(player);
 
 			playerService.playerLoggedIn(player);
+			
+			if(player.isInGroup())
+				groupService.groupMemberOnLogin(player);
 
 			ClassChangeService.showClassChangeDialog(player);
 		}

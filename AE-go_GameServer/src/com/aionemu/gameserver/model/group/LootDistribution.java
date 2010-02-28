@@ -30,7 +30,7 @@ public enum LootDistribution
 	
 	private int id;
 
-	private LootDistribution(int id)
+	LootDistribution(int id)
 	{
 		this.id = id;
 	}

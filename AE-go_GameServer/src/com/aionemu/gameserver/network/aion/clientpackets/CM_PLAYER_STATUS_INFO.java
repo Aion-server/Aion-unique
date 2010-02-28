@@ -16,28 +16,35 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.services.GroupService;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
- * Called when entering the world and during group menanement
+ * Called when entering the world and during group management
  * 
  * @author Lyahim
  * @author ATracer
+ * @author Simple
  */
 
 public class CM_PLAYER_STATUS_INFO extends AionClientPacket
 {
-	private static final Logger	log	= Logger.getLogger(CM_PLAYER_STATUS_INFO.class);
-	@Inject	
+	/**
+	 * Injections
+	 */
+	@Inject
 	private World			world;
+	@Inject
+	private GroupService	groupService;
 
-	private int status;
-	private int playerObjId;
+	/**
+	 * Definitions
+	 */
+	private int				status;
+	private int				playerObjId;
 
 	public CM_PLAYER_STATUS_INFO(int opcode)
 	{
@@ -51,34 +58,19 @@ public class CM_PLAYER_STATUS_INFO extends AionClientPacket
 		playerObjId = readD();
 	}
 
-
 	@Override
 	protected void runImpl()
-	{	
+	{
 		Player player = null;
-		
+
 		if(playerObjId == 0)
 			player = getConnection().getActivePlayer();
 		else
 			player = world.findPlayer(playerObjId);
-		
+
 		if(player == null || player.getPlayerGroup() == null)
 			return;
 
-		
-		switch(status)
-		{
-			case 2:
-				player.getPlayerGroup().removePlayerFromGroup(player);
-				break;
-			case 3:
-				player.getPlayerGroup().setGroupLeader(player);
-				break;
-			case 6:
-				player.getPlayerGroup().removePlayerFromGroup(player);
-				break;
-		}
-
-		log.info(String.valueOf(status));
+		groupService.playerStatusInfo(status, player);
 	}
 }

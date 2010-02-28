@@ -200,8 +200,17 @@ public class Config
 	@Property(key = "gameserver.ShutdownAnnounceInterval", defaultValue = "1")
 	public static int				SHUTDOWN_ANNOUNCE_INTERVAL;
 
+	/*
+	 * Private Store
+	 */
 	@Property(key = "gameserver.enable.privatestore",defaultValue = "true")
 	public static boolean			ENABLE_PRIVATE_STORE;
+	
+	/*
+	 * Group
+	 */
+	@Property(key = "gameserver.playergroup.removetime", defaultValue = "120")
+	public static int				GROUP_REMOVE_TIME;	
 	
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package

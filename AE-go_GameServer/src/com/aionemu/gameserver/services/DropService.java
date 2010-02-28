@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.services;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -46,21 +47,24 @@ import com.google.inject.Inject;
  */
 public class DropService
 {
-	private static final Logger log = Logger.getLogger(DropService.class);
+	private static final Logger					log					= Logger.getLogger(DropService.class);
 
-	private DropList dropList;
+	private DropList							dropList;
 
-	private Map<Integer, Set<DropItem>> currentDropMap = Collections.synchronizedMap(new HashMap<Integer, Set<DropItem>>());
-	private Map<Integer, Integer> dropRegistrationMap = new ConcurrentHashMap<Integer, Integer>();
-	private ItemService itemService;
+	private Map<Integer, Set<DropItem>>			currentDropMap		= Collections
+																		.synchronizedMap(new HashMap<Integer, Set<DropItem>>());
+	private Map<Integer, ArrayList<Integer>>	dropRegistrationMap	= new ConcurrentHashMap<Integer, ArrayList<Integer>>();
+	private ItemService							itemService;
+	private GroupService						groupService;
 
-	private World world;
+	private World								world;
 
 	@Inject
-	public DropService(ItemService itemService, World world)
+	public DropService(ItemService itemService, World world, GroupService groupService)
 	{
 		this.itemService = itemService;
 		this.world = world;
+		this.groupService = groupService;
 		dropList = DAOManager.getDAO(DropListDAO.class).load();
 		log.info(dropList.getSize() + " npc drops loaded");
 	}
@@ -75,6 +79,7 @@ public class DropService
 
 	/**
 	 * After NPC dies - it can register arbitrary drop
+	 * 
 	 * @param npc
 	 */
 	public void registerDrop(Npc npc, Player player)
@@ -92,12 +97,12 @@ public class DropService
 			{
 				DropItem dropItem = new DropItem(dropTemplate);
 				int questId = dropItem.getDropTemplate().getQuest();
-				if (questId != 0)
+				if(questId != 0)
 				{
-					if (player == null)
+					if(player == null)
 						continue;
 					QuestState qs = player.getQuestStateList().getQuestState(questId);
-					if (qs == null || qs.getStatus() != QuestStatus.START)
+					if(qs == null || qs.getStatus() != QuestStatus.START)
 						continue;
 				}
 				dropItem.calculateCount();
@@ -106,23 +111,33 @@ public class DropService
 				{
 					dropItem.setIndex(index++);
 					droppedItems.add(dropItem);
-				}		
+				}
 			}
 
 			currentDropMap.put(npcUniqueId, droppedItems);
 
-			//TODO player should not be null
+			// TODO player should not be null
 			if(player != null)
 			{
-				dropRegistrationMap.put(npcUniqueId, player.getObjectId());
+				if(player.isInGroup())
+				{
+					dropRegistrationMap.put(npcUniqueId, groupService.getMembersToRegistrateByRules(player, player
+						.getPlayerGroup()));
+				}
+				else
+				{
+					ArrayList<Integer> singlePlayer = new ArrayList<Integer>();
+					singlePlayer.add(player.getObjectId());
+					dropRegistrationMap.put(npcUniqueId, singlePlayer);
+				}
 			}
 
-		}		
+		}
 	}
 
 	/**
-	 *  After NPC respawns - drop should be unregistered
-	 *  //TODO more correct - on despawn
+	 * After NPC respawns - drop should be unregistered //TODO more correct - on despawn
+	 * 
 	 * @param npc
 	 */
 	public void unregisterDrop(Npc npc)
@@ -132,21 +147,23 @@ public class DropService
 		if(dropRegistrationMap.containsKey(npcUniqueId))
 		{
 			dropRegistrationMap.remove(npcUniqueId);
-		}	
+		}
 	}
 
 	/**
-	 *  When player clicks on dead NPC to request drop list
-	 *  
+	 * When player clicks on dead NPC to request drop list
+	 * 
 	 * @param player
 	 * @param npcId
 	 */
 	public void requestDropList(Player player, int npcId)
 	{
-		//prevent stealing drop 
-		if(player != null 
-			&& dropRegistrationMap.containsKey(npcId)
-			&& dropRegistrationMap.get(npcId) != player.getObjectId())
+		// prevent stealing drop
+		if(player == null)
+			return;
+
+		if(player != null && dropRegistrationMap.containsKey(npcId)
+			&& !dropRegistrationMap.get(npcId).contains(player.getObjectId()))
 			return;
 
 		Set<DropItem> dropItems = currentDropMap.get(npcId);
@@ -157,7 +174,7 @@ public class DropService
 		}
 
 		PacketSendUtility.sendPacket(player, new SM_LOOT_ITEMLIST(npcId, dropItems));
-		//PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, size > 0 ? size - 1 : size));
+		// PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, size > 0 ? size - 1 : size));
 		PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 2));
 		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 35, 0, 0), true);
 	}
@@ -166,13 +183,13 @@ public class DropService
 	{
 		Set<DropItem> dropItems = currentDropMap.get(npcId);
 
-		//drop was unregistered
+		// drop was unregistered
 		if(dropItems == null)
 		{
 			return;
 		}
 
-		//TODO prevent possible exploits
+		// TODO prevent possible exploits
 
 		DropItem requestedItem = null;
 
@@ -206,11 +223,10 @@ public class DropService
 				requestedItem.setCount(currentDropItemCount);
 			}
 
-			//show updated droplist
+			// show updated droplist
 			resendDropList(player, npcId, dropItems);
-		}	
+		}
 	}
-
 
 	private void resendDropList(Player player, int npcId, Set<DropItem> dropItems)
 	{

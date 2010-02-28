@@ -296,7 +296,7 @@ public class Legion
 	 */
 	public void addContributionPoints(int contributionPoints)
 	{
-		this.contributionPoints = this.contributionPoints+contributionPoints;
+		this.contributionPoints = this.contributionPoints + contributionPoints;
 	}
 
 	/**
@@ -520,6 +520,7 @@ public class Legion
 
 	/**
 	 * Get warehouse slots
+	 * 
 	 * @return warehouse slots
 	 */
 	public int getWarehouseSlots()

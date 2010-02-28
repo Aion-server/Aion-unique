@@ -39,6 +39,7 @@ import com.aionemu.gameserver.services.AccountService;
 import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.services.DropService;
 import com.aionemu.gameserver.services.ExchangeService;
+import com.aionemu.gameserver.services.GroupService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
@@ -99,8 +100,8 @@ public class DataInjectionModule extends AbstractModule
 		bind(RespawnService.class).in(Scopes.SINGLETON);
 		bind(TeleportService.class).in(Scopes.SINGLETON);
 		bind(SkillLearnService.class).in(Scopes.SINGLETON);
-		
 		bind(ServiceProxy.class).in(Scopes.SINGLETON);
+		bind(GroupService.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides

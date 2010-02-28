@@ -347,7 +347,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	{
 		final LegionEmblem legionEmblem = new LegionEmblem();
 
-		boolean success = DB.select(SELECT_EMBLEM_QUERY, new ParamReadStH(){
+		DB.select(SELECT_EMBLEM_QUERY, new ParamReadStH(){
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException
 			{
@@ -366,7 +366,7 @@ public class MySQL5LegionDAO extends LegionDAO
 			}
 		});
 
-		return (success && !legionEmblem.isDefaultEmblem()) ? legionEmblem : null;
+		return legionEmblem;
 	}
 
 	/**

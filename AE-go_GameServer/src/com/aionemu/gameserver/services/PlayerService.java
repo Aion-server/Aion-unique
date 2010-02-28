@@ -51,7 +51,6 @@ import com.aionemu.gameserver.model.gameobjects.player.StorageType;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.TitleChangeListener;
-import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionMember;
@@ -90,10 +89,11 @@ public class PlayerService
 	private LegionService				legionService;
 	private ControllerFactory			controllerFactory;
 	private SkillLearnService			skillLearnService;
+	private GroupService				groupService;
 
 	@Inject
 	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
-		LegionService legionService, ControllerFactory controllerFactory, SkillLearnService skillLearnService)
+		LegionService legionService, ControllerFactory controllerFactory, SkillLearnService skillLearnService, GroupService groupService)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
@@ -101,6 +101,7 @@ public class PlayerService
 		this.legionService = legionService;
 		this.controllerFactory = controllerFactory;
 		this.skillLearnService = skillLearnService;
+		this.groupService = groupService;
 	}
 
 	/**
@@ -180,6 +181,9 @@ public class PlayerService
 		LegionMember legionMember = legionService.getLegionMember(player.getObjectId());
 		if(legionMember != null)
 			player.setLegionMember(legionMember);
+		
+		if(groupService.isGroupMember(playerObjId))
+			groupService.setGroup(player);
 
 		player.setMacroList(macroses);
 
@@ -325,7 +329,7 @@ public class PlayerService
 	 * 
 	 * @param player
 	 */
-	public void playerLoggedOut(Player player)
+	public void playerLoggedOut(final Player player)
 	{
 		player.onLoggedOut();
 
@@ -346,14 +350,12 @@ public class PlayerService
 			legionService.storeLegionMember(player.getLegionMember());
 			legionService.storeLegionMemberExInCache(player);
 		}
+		
+		if(player.isInGroup())
+			groupService.scheduleRemove(player);
 
 		player.getController().delete();
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);
-
-		// TODO this is a temprorary solution till GroupService will be introduced
-		PlayerGroup playerGroup = player.getPlayerGroup();
-		if(playerGroup != null)
-			playerGroup.removePlayerFromGroup(player);
 
 		storePlayer(player);
 	}

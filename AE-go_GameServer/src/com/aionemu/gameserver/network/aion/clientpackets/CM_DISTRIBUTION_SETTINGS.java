@@ -18,19 +18,20 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.group.LootDistribution;
 import com.aionemu.gameserver.model.group.LootGroupRules;
 import com.aionemu.gameserver.model.group.LootRuleType;
 import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 
 /**
- * @author Lyahim
+ * @author Lyahim, Simple
  */
 public class CM_DISTRIBUTION_SETTINGS extends AionClientPacket
 {
 		
 	private LootRuleType lootrules; //0-free-for-all, 1-round-robin 2-leader
-	private int autodistribution;
+	private LootDistribution autodistribution;
 	//rare item distribution
 	//0-normal, 2-Roll-dice,3-bid
 	private int common_item_above;
@@ -61,7 +62,15 @@ public class CM_DISTRIBUTION_SETTINGS extends AionClientPacket
 			case 2:
 				this.lootrules = LootRuleType.LEADER;break;
 		}
-		this.autodistribution = readD();
+		switch(readD())
+		{
+			case 0:
+				this.autodistribution = LootDistribution.NORMAL;break;
+			case 2:
+				this.autodistribution = LootDistribution.ROLL_DICE;break;
+			case 3:
+				this.autodistribution = LootDistribution.BID;break;				
+		}
 		this.common_item_above = readD();
 		this.superior_item_above = readD();
 		this.heroic_item_above = readD();
