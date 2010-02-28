@@ -90,7 +90,8 @@ public class Effects
 		@XmlElement(name = "dispeldebuffphysical", type = DispelDebuffPhysicalEffect.class),
 		@XmlElement(name = "alwaysdodge", type = AlwaysDodgeEffect.class),
 		@XmlElement(name = "alwaysparry", type = AlwaysParryEffect.class),
-		@XmlElement(name = "alwaysresist", type = AlwaysResistEffect.class)
+		@XmlElement(name = "alwaysresist", type = AlwaysResistEffect.class),
+		@XmlElement(name = "alwaysblock", type = AlwaysBlockEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	

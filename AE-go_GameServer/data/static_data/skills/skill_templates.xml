@@ -2099,7 +2099,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <alwaysparry value="1" duration="30000" effectid="143" e="1"/>
+            <alwaysparry value="12" duration="30000" effectid="143" e="1"/>
         </effects>
         <actions>
             <mpuse value="79" delta="0"/>
@@ -5111,6 +5111,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <alwaysblock value="10" duration="30000" effectid="144" e="1"/>
+        </effects>
         <actions>
             <mpuse value="165" delta="0"/>
         </actions>
@@ -32240,6 +32243,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <alwaysblock value="100" duration="15000" effectid="144" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8466" name="STR_SKILL_KN_DivineJudgement_G2_Buff" nameId="581373" stack="SKILL_KN_DIVINEJUDGEMENT_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -32251,6 +32257,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <alwaysblock value="100" duration="15000" effectid="144" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8467" name="STR_SKILL_KN_DivineJudgement_G3_Buff" nameId="581377" stack="SKILL_KN_DIVINEJUDGEMENT_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -32262,6 +32271,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <alwaysblock value="100" duration="15000" effectid="144" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8468" name="STR_SKILL_KN_AbysalJudgement_G1_Buff" nameId="581393" stack="SKILL_KN_ABYSALJUDGEMENT_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -33065,6 +33077,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <alwaysblock value="100" duration="15000" effectid="144" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8517" name="STR_SKILL_CH_Chant_regeneration_G3_Effect" nameId="584283" stack="SKILL_CH_CHANT_REGENERATION_EFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -46455,6 +46470,7 @@
             <statup duration="5000" effectid="30152" e="1">
                 <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="1000"/>
             </statup>
+            <alwaysblock value="10" duration="5000" effectid="144" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16424" name="STR_SKILL_NKN_Helpcall" nameId="565707" stack="SKILL_NKN_HELPCALL" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="1000">

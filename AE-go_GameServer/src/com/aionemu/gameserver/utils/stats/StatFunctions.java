@@ -431,13 +431,21 @@ public class StatFunctions
 
 	}
 
+	/**
+	 *  Calculates DODGE chance
+	 *  
+	 * @param attacker
+	 * @param attacked
+	 * @return
+	 */
 	public static int calculatePhysicalDodgeRate(Creature attacker, Creature attacked)
 	{
-		int accuracy;
-		
+		//check always dodge
 		if(attacked.getObserveController().checkAttackStatus(AttackStatus.DODGE))
 			return 100;
 		
+		int accuracy;
+
 		if(attacker instanceof Player && ((Player) attacker).getEquipment().getOffHandWeaponType() != null)
 			accuracy = Math.round((attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_ACCURACY) + attacker
 				.getGameStats().getCurrentStat(StatEnum.OFF_HAND_ACCURACY)) / 2);
@@ -454,13 +462,21 @@ public class StatFunctions
 
 		return dodgeRate;
 	}
-
+	
+	/**
+	 *  Calculates PARRY chance
+	 *  
+	 * @param attacker
+	 * @param attacked
+	 * @return
+	 */
 	public static int calculatePhysicalParryRate(Creature attacker, Creature attacked)
 	{
-		int accuracy;
-		
+		//check always parry
 		if(attacked.getObserveController().checkAttackStatus(AttackStatus.PARRY))
 			return 100;
+		
+		int accuracy;
 		
 		if(attacker instanceof Player && ((Player) attacker).getEquipment().getOffHandWeaponType() != null)
 			accuracy = Math.round((attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_ACCURACY) + attacker
@@ -478,9 +494,20 @@ public class StatFunctions
 
 		return parryRate;
 	}
-
+	
+	/**
+	 *  Calculates BLOCK chance
+	 *  
+	 * @param attacker
+	 * @param attacked
+	 * @return
+	 */
 	public static int calculatePhysicalBlockRate(Creature attacker, Creature attacked)
 	{
+		//check always block
+		if(attacked.getObserveController().checkAttackStatus(AttackStatus.BLOCK))
+			return 100;
+		
 		int accuracy;
 
 		if(attacker instanceof Player && ((Player) attacker).getEquipment().getOffHandWeaponType() != null)
@@ -499,7 +526,13 @@ public class StatFunctions
 
 		return blockRate;
 	}
-
+	
+	/**
+	 *  Calculates CRITICAL chance
+	 *  
+	 * @param attacker
+	 * @return
+	 */
 	public static double calculatePhysicalCriticalRate(Creature attacker)
 	{
 		int critical;
@@ -524,7 +557,14 @@ public class StatFunctions
 
 		return criticalRate;
 	}
-
+	
+	/**
+	 *  Calculates RESIST chance
+	 *  
+	 * @param attacker
+	 * @param attacked
+	 * @return
+	 */
 	public static int calculateMagicalResistRate(Creature attacker, Creature attacked)
 	{		
 		if(attacked.getObserveController().checkAttackStatus(AttackStatus.RESIST))
