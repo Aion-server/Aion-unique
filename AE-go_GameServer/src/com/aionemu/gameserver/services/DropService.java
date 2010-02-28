@@ -169,7 +169,7 @@ public class DropService
 			return;
 		}
 
-		if(!dropRegistrationMap.get(npcId).containsValue(true))
+		if(dropRegistrationMap.get(npcId).containsValue(true))
 		{
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_LOOT_FAIL_ONLOOTING());
 			return;
