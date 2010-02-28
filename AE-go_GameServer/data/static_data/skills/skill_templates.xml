@@ -7839,6 +7839,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <alwaysdodge value="1" duration="5000" effectid="142" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="573" name="STR_SKILL_SC_WhisperofWind_G2" nameId="564399" stack="SKILL_SC_WHISPEROFWIND" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="16" duration="0">
         <startconditions>
@@ -7850,6 +7853,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <alwaysdodge value="1" duration="5000" effectid="142" e="1"/>
+        </effects>
         <actions>
             <mpuse value="7" delta="0"/>
         </actions>
@@ -7864,6 +7870,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <alwaysdodge value="1" duration="5000" effectid="142" e="1"/>
+        </effects>
         <actions>
             <mpuse value="7" delta="0"/>
         </actions>
@@ -7878,6 +7887,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <alwaysdodge value="10" duration="10000" effectid="142" e="1"/>
+        </effects>
         <actions>
             <dpuse value="2000"/>
         </actions>
@@ -9628,6 +9640,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <dispeldebuffphysical value="1" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="725" name="STR_SKILL_RA_SpoutArrow_G6" nameId="584345" stack="SKILL_RA_SPOUTARROW" lvl="6" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="18" duration="0">
         <startconditions>
@@ -14826,6 +14841,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <dispeldebuffphysical value="100" e="1"/>
+        </effects>
         <actions>
             <mpuse value="34" delta="0"/>
         </actions>
@@ -16780,6 +16798,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuffphysical value="2" e="1"/>
+        </effects>
         <actions>
             <mpuse value="36" delta="1"/>
         </actions>
@@ -16993,6 +17014,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <dispeldebuffphysical value="100" e="1"/>
+        </effects>
         <actions>
             <mpuse value="55" delta="0"/>
         </actions>
@@ -17007,6 +17031,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <dispeldebuffphysical value="100" e="1"/>
+        </effects>
         <actions>
             <mpuse value="70" delta="0"/>
         </actions>
@@ -20521,6 +20548,10 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <dispeldebuffphysical value="1" e="1"/>
+            <alwaysdodge value="3" duration="10000" effectid="142" e="2"/>
+        </effects>
         <actions>
             <mpuse value="269" delta="5"/>
         </actions>
@@ -35578,6 +35609,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuffphysical value="0" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8795" name="STR_ITEM_POTION_CURE_MENTAL" nameId="1404273" stack="ITEM_POTION_CURE_MENTAL" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -40833,6 +40867,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dispeldebuffphysical value="0" e="1"/>
             <hot value="97" delta="0" checktime="2000" type="HP" duration="20000" effectid="109582" e="2"/>
         </effects>
     </skill_template>
@@ -40846,6 +40881,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dispeldebuffphysical value="0" e="1"/>
             <hot value="128" delta="0" checktime="2000" type="MP" duration="20000" effectid="118232" e="2"/>
         </effects>
     </skill_template>
@@ -58980,6 +59016,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuffphysical value="12" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17219" name="STR_GPR_CureAll_Nr" nameId="579361" stack="GPR_CUREALL_NR" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1500">
         <setproperties>
@@ -61471,6 +61510,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuffphysical value="12" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17382" name="STR_DGPR_CureAll_Nr" nameId="580529" stack="DGPR_CUREALL_NR" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1500">
         <setproperties>
@@ -79518,6 +79560,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <alwaysdodge value="10" duration="20000" effectid="142" e="1"/>
             <statdown duration="5000" e="2">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </statdown>

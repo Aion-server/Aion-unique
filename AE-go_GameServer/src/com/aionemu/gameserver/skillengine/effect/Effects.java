@@ -86,12 +86,14 @@ public class Effects
 		@XmlElement(name = "boosthate", type = BoostHateEffect.class),
 		@XmlElement(name = "hostileup", type = HostileUpEffect.class),
 		@XmlElement(name = "paralyze", type = ParalyzeEffect.class),
-		@XmlElement(name = "confuse", type = ConfuseEffect.class)
+		@XmlElement(name = "confuse", type = ConfuseEffect.class),
+		@XmlElement(name = "dispeldebuffphysical", type = DispelDebuffPhysicalEffect.class),
+		@XmlElement(name = "alwaysdodge", type = AlwaysDodgeEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	
 	@XmlAttribute
-    protected boolean food;
+	protected boolean food;
 
 	/**
 	 * Gets the value of the effects property.

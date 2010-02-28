@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.concurrent.Future;
 
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
+import com.aionemu.gameserver.controllers.movement.AttackCalcObserver;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_ACTIVATION;
@@ -49,6 +50,7 @@ public class Effect
 	private AttackStatus attackStatus = AttackStatus.NORMALHIT;
 	private boolean addedToController;
 	private int successEffect;
+	private AttackCalcObserver attackCalcObserver;
 	
 	public Effect(Creature effector, Creature effected, SkillTemplate skillTemplate, int skillLevel, int duration)
 	{
@@ -221,7 +223,23 @@ public class Effect
 	{
 		return skillTemplate.getTargetSlot().ordinal();
 	}
-	
+
+	/**
+	 * @return the attackCalcObserver
+	 */
+	public AttackCalcObserver getAttackCalcObserver()
+	{
+		return attackCalcObserver;
+	}
+
+	/**
+	 * @param attackCalcObserver the attackCalcObserver to set
+	 */
+	public void setAttackCalcObserver(AttackCalcObserver attackCalcObserver)
+	{
+		this.attackCalcObserver = attackCalcObserver;
+	}
+
 	/**
 	 * 
 	 * @param effectId

@@ -144,6 +144,16 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="confuse" type="ConfuseEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="alwaysresist" type="AlwaysResistEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="alwaysblock" type="AlwaysBlockEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="alwaysparry" type="AlwaysParryEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="alwaysdodge" type="AlwaysDodgeEffect"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="dispeldebuffphysical" type="DispelDebuffPhysicalEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -708,6 +718,46 @@
 		<xs:complexContent>
 			<xs:extension base="Effect">
 				<xs:attribute name="delta" type="xs:int" />
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="AlwaysResistEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="AlwaysBlockEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="AlwaysParryEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="AlwaysDodgeEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="DispelDebuffPhysicalEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
 				<xs:attribute name="value" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>

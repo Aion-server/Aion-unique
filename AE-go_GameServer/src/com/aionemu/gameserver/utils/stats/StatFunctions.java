@@ -20,6 +20,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -433,7 +434,10 @@ public class StatFunctions
 	public static int calculatePhysicalDodgeRate(Creature attacker, Creature attacked)
 	{
 		int accuracy;
-
+		
+		if(attacked.getObserveController().checkAttackStatus(AttackStatus.DODGE))
+			return 100;
+		
 		if(attacker instanceof Player && ((Player) attacker).getEquipment().getOffHandWeaponType() != null)
 			accuracy = Math.round((attacker.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_ACCURACY) + attacker
 				.getGameStats().getCurrentStat(StatEnum.OFF_HAND_ACCURACY)) / 2);

@@ -21,7 +21,9 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.commons.lang.ArrayUtils;
 
+import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.movement.ActionObserver;
+import com.aionemu.gameserver.controllers.movement.AttackCalcObserver;
 
 /**
  * @author ATracer
@@ -35,6 +37,7 @@ public class ObserveController
 	protected Queue<ActionObserver>	attackedObservers	= new ConcurrentLinkedQueue<ActionObserver>();
 	
 	protected ActionObserver[] observers = new ActionObserver[0];
+	protected AttackCalcObserver[] attackCalcObservers = new AttackCalcObserver[0];
 	
 	/**
 	 * 
@@ -129,6 +132,18 @@ public class ObserveController
 	 * 
 	 * @param observer
 	 */
+	public void addAttackCalcObserver(AttackCalcObserver observer)
+	{
+		synchronized(attackCalcObservers)
+		{
+			attackCalcObservers = (AttackCalcObserver[]) ArrayUtils.add(attackCalcObservers, observer);
+		}
+	}
+	
+	/**
+	 * 
+	 * @param observer
+	 */
 	public void removeObserver(ActionObserver observer)
 	{
 		synchronized(observers)
@@ -137,4 +152,33 @@ public class ObserveController
 		}
 	}
 	
+	/**
+	 * 
+	 * @param observer
+	 */
+	public void removeAttackCalcObserver(AttackCalcObserver observer)
+	{
+		synchronized(attackCalcObservers)
+		{
+			attackCalcObservers = (AttackCalcObserver[]) ArrayUtils.removeElement(attackCalcObservers, observer);
+		}
+	}
+	
+	/**
+	 * 
+	 * @param status
+	 * @return
+	 */
+	public boolean checkAttackStatus(AttackStatus status)
+	{
+		synchronized(attackCalcObservers)
+		{
+			for(AttackCalcObserver observer : attackCalcObservers)
+			{
+				if(observer.check(status))
+					return true;
+			}
+		}
+		return false;
+	}
 }
