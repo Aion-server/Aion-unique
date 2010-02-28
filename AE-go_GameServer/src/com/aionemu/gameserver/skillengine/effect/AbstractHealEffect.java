@@ -51,8 +51,10 @@ public abstract class AbstractHealEffect extends EffectTemplate
 		int healValue = valueWithDelta;
 		if(percent)
 		{
-			healValue = 
-				effect.getEffected().getGameStats().getCurrentStat(StatEnum.MAXHP) * valueWithDelta / 100;
+			int currentHp = effect.getEffected().getLifeStats().getCurrentHp();
+			int maxHp = effect.getEffected().getGameStats().getCurrentStat(StatEnum.MAXHP);
+			int possibleHealValue = maxHp * valueWithDelta / 100;
+			healValue = maxHp - currentHp < possibleHealValue ? maxHp - currentHp : possibleHealValue;
 		}
 		effect.setReserved1(-healValue);
 	}
