@@ -392,15 +392,30 @@
 
 	<!-- TODO: 3311 [Group]AGustRisingintheUndergroundTemple -->
 
-	<!-- TODO: 1348 SeekingtheSeekers -->
+	<!-- SeekingtheSeekers -->
+	<monster_hunt start_npc_id="203966" id="1348">
+		<monster_infos var_id="0" npc_id="210928" max_kill="5"/>	
+	</monster_hunt>
 
 	<!-- TODO: 1349 TheKlaws'Secret -->
 
-	<!-- TODO: 1350 [Coin]DesertDangers -->
+	<!-- [Coin] Desert Dangers -->
+	<monster_hunt start_npc_id="204011" id="1350">
+		<monster_infos var_id="0" npc_id="210880" max_kill="10"/>
+		<monster_infos var_id="1" npc_id="210897" max_kill="9"/>
+		<monster_infos var_id="2" npc_id="210902" max_kill="9"/>
+	</monster_hunt>
 
-	<!-- TODO: 1351 [Group]EarningMarana'sRespect -->
 
-	<!-- TODO: 1352 [Group]SirenSong -->
+	<!-- [Group] Earning Marana's Respect -->
+	<item_collecting start_npc_id="203965" id="1351" />
+
+
+	<!-- [Group] Siren Song -->
+		<monster_hunt start_npc_id="203965" id="1352">
+		<monster_infos var_id="0" npc_id="211746" max_kill="5"/>
+		<monster_infos var_id="1" npc_id="211748" max_kill="3"/>
+	</monster_hunt>
 
 	<!-- TODO: 1354 PracticalAerobatics -->
 
