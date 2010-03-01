@@ -14,37 +14,15 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect.modifier;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
-
-import com.aionemu.gameserver.skillengine.model.Effect;
-
+package com.aionemu.gameserver.skillengine.model;
 
 /**
  * @author ATracer
- * 
+ *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ActionModifier")
-public abstract class ActionModifier {
-
-	/**
-	 *  Applies modifier to original value
-	 *   
-	 * @param effect  
-	 * @param originalValue
-	 * @return
-	 */
-	public abstract int analyze(Effect effect, int originalValue);
-	
-	/**
-	 * Performs check of condition
-	 * 
-	 * @param effect
-	 * @return
-	 */
-	public abstract boolean check(Effect effect);
+public enum SkillTargetRace
+{
+	ELYOS,
+	ASMODIANS
+	//TODO more coming
 }

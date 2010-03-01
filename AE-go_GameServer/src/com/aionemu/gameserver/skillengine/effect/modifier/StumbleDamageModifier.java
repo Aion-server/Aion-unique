@@ -42,8 +42,14 @@ extends ActionModifier
 	@Override
 	public int analyze(Effect effect, int originalValue)
 	{
-		return effect.getEffected().isStumbled() 
-			? originalValue + value + effect.getSkillLevel() * delta : originalValue;
+		return originalValue + value + effect.getSkillLevel() * delta;
 	}
+
+	@Override
+	public boolean check(Effect effect)
+	{
+		return effect.getEffected().isStumbled();
+	}
+	
 
 }

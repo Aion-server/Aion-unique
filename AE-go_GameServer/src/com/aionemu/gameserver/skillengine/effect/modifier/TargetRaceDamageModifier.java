@@ -21,34 +21,64 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.Race;
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Effect;
-
+import com.aionemu.gameserver.skillengine.model.SkillTargetRace;
 
 /**
  * @author ATracer
- * 
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StunDamageModifier")
-public class StunDamageModifier
-extends ActionModifier
+@XmlType(name = "TargetRaceDamageModifier")
+public class TargetRaceDamageModifier extends ActionModifier
 {
-
+	@XmlAttribute(name = "race")
+	private SkillTargetRace skillTargetRace;
 	@XmlAttribute(required = true)
 	protected int delta;
 	@XmlAttribute(required = true)
 	protected int value;
-
+	
 	@Override
 	public int analyze(Effect effect, int originalValue)
 	{
-		return originalValue + value + effect.getSkillLevel() * delta;
+		Creature effected = effect.getEffected();
+		
+		if(effected instanceof Player)
+		{
+			int newValue = originalValue + value + effect.getSkillLevel() * delta;
+			Player player = (Player) effected;
+			switch(skillTargetRace)
+			{
+				case ASMODIANS:
+					if(player.getCommonData().getRace() == Race.ASMODIANS)
+						return newValue;
+					break;
+				case ELYOS:
+					if(player.getCommonData().getRace() == Race.ELYOS)
+						return newValue;
+			}
+		}
+
+		return originalValue;	
 	}
 
 	@Override
 	public boolean check(Effect effect)
 	{
-		return effect.getEffected().isStunned();
+		Creature effected = effect.getEffected();
+		if(effected instanceof Player)
+		{
+			
+			Player player = (Player) effected;
+			Race race =  player.getCommonData().getRace();
+			return (race == Race.ASMODIANS && skillTargetRace == SkillTargetRace.ASMODIANS)
+				|| (race == Race.ELYOS && skillTargetRace == SkillTargetRace.ELYOS);
+		}
+		return false;
 	}
-	
+
 }

@@ -211,6 +211,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="poisondamage" type="PoisonDamageModifier"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="targetrace" type="TargetRaceDamageModifier"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -316,6 +318,16 @@
 	<xs:complexType name="PoisonDamageModifier">
 		<xs:complexContent>
 			<xs:extension base="ActionModifier">
+				<xs:attribute name="delta" type="xs:int" use="required" />
+				<xs:attribute name="value" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="TargetRaceDamageModifier">
+		<xs:complexContent>
+			<xs:extension base="ActionModifier">
+				<xs:attribute name="race" type="SkillTargetRace" use="required" />
 				<xs:attribute name="delta" type="xs:int" use="required" />
 				<xs:attribute name="value" type="xs:int" use="required" />
 			</xs:extension>
@@ -983,6 +995,14 @@
 			<xs:enumeration value="MP" />
 			<xs:enumeration value="DP" />
 			<xs:enumeration value="FP" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="SkillTargetRace">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ELYOS" />
+			<xs:enumeration value="ASMODIANS" />
+			<!-- TODO other races -->
 		</xs:restriction>
 	</xs:simpleType>
 	

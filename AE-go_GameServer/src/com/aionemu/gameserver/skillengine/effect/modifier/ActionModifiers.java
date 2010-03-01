@@ -38,7 +38,8 @@ public class ActionModifiers {
         @XmlElement(name = "frontdamage", type = FrontDamageModifier.class),
         @XmlElement(name = "backdamage", type = BackDamageModifier.class),
         @XmlElement(name = "stundamage", type = StunDamageModifier.class),
-        @XmlElement(name = "poisondamage", type = PoisonDamageModifier.class)
+        @XmlElement(name = "poisondamage", type = PoisonDamageModifier.class),
+        @XmlElement(name = "targetrace", type = TargetRaceDamageModifier.class)
     })
     protected List<ActionModifier> actionModifiers;
 
@@ -51,7 +52,7 @@ public class ActionModifiers {
      * {@link BackDamageModifier }
      * {@link StunDamageModifier }
      * {@link PoisonDamageModifier }
-     * 
+     * {@link TargetRaceDamageModifier }
      * 
      */
     public List<ActionModifier> getActionModifiers() {

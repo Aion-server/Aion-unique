@@ -43,7 +43,14 @@ extends ActionModifier
 	@Override
 	public int analyze(Effect effect, int originalValue)
 	{
-		boolean isAtBack = PositionUtil.isInFrontOfTarget(effect.getEffector(), effect.getEffected()); 	
-		return isAtBack ? originalValue + value + effect.getSkillLevel() * delta : originalValue;
+		return originalValue + value + effect.getSkillLevel() * delta;
 	}
+
+	@Override
+	public boolean check(Effect effect)
+	{
+		return PositionUtil.isInFrontOfTarget(effect.getEffector(), effect.getEffected());
+	}
+	
+	
 }

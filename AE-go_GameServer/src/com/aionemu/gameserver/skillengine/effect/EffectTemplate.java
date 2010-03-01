@@ -107,9 +107,13 @@ public abstract class EffectTemplate
 		if(modifiers == null)
 			return value;
 		
+		/**
+		 * Only one of modifiers will be applied now
+		 */
 		for(ActionModifier modifier : modifiers.getActionModifiers())
 		{
-			value = modifier.analyze(effect, value);
+			if(modifier.check(effect))
+				return modifier.analyze(effect, value);
 		}
 		
 		return value;

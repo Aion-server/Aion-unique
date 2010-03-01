@@ -13391,6 +13391,7 @@
             <skillatk value="920" delta="3" e="1">
                 <modifiers>
                     <backdamage value="920" delta="3"/>
+                    <targetrace value="920" delta="3" race="ASMODIANS"/>
                 </modifiers>
             </skillatk>
         </effects>
@@ -13412,6 +13413,7 @@
             <skillatk value="920" delta="3" e="1">
                 <modifiers>
                     <backdamage value="920" delta="3"/>
+                    <targetrace value="920" delta="3" race="ELYOS"/>
                 </modifiers>
             </skillatk>
         </effects>
@@ -20786,7 +20788,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1783" delta="32" e="1"/>
+            <spellatk value="1783" delta="32" e="1">
+                <modifiers>
+                    <targetrace value="764" delta="12" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
         <actions>
             <dpuse value="4000"/>
@@ -20803,7 +20809,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1783" delta="32" e="1"/>
+            <spellatk value="1783" delta="32" e="1">
+                <modifiers>
+                    <targetrace value="764" delta="13" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
         <actions>
             <dpuse value="4000"/>
@@ -23120,7 +23130,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1855" delta="40" e="1"/>
+            <spellatk value="1855" delta="40" e="1">
+                <modifiers>
+                    <targetrace value="790" delta="16" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
         <actions>
             <dpuse value="4000"/>
@@ -23137,7 +23151,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1855" delta="40" e="1"/>
+            <spellatk value="1855" delta="40" e="1">
+                <modifiers>
+                    <targetrace value="790" delta="16" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
         <actions>
             <dpuse value="4000"/>
@@ -71844,7 +71862,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="552" delta="28" e="1"/>
+            <spellatk value="552" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="276" delta="13" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18039" name="STR_NPC_SKILL_EL_Order_EtherEruption_G2_Air" nameId="586087" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -71858,7 +71880,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="948" delta="30" e="1"/>
+            <spellatk value="948" delta="30" e="1">
+                <modifiers>
+                    <targetrace value="473" delta="15" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18040" name="STR_NPC_SKILL_EL_Order_EtherEruption_G3_Air" nameId="586089" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -71872,7 +71898,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1303" delta="37" e="1"/>
+            <spellatk value="1303" delta="37" e="1">
+                <modifiers>
+                    <targetrace value="651" delta="18" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18041" name="STR_NPC_SKILL_EL_Order_EtherEruption_G4_Air" nameId="586091" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -71886,7 +71916,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1682" delta="31" e="1"/>
+            <spellatk value="1682" delta="31" e="1">
+                <modifiers>
+                    <targetrace value="841" delta="15" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18042" name="STR_NPC_SKILL_EL_Order_EtherEruption_G1_Fire" nameId="586093" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -71900,7 +71934,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="433" delta="26" e="1"/>
+            <spellatk value="433" delta="26" e="1">
+                <modifiers>
+                    <targetrace value="216" delta="12" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18043" name="STR_NPC_SKILL_EL_Order_EtherEruption_G2_Fire" nameId="586097" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -71914,7 +71952,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="745" delta="33" e="1"/>
+            <spellatk value="745" delta="33" e="1">
+                <modifiers>
+                    <targetrace value="372" delta="16" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18044" name="STR_NPC_SKILL_EL_Order_EtherEruption_G3_Fire" nameId="586099" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -71928,7 +71970,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1126" delta="35" e="1"/>
+            <spellatk value="1126" delta="35" e="1">
+                <modifiers>
+                    <targetrace value="562" delta="17" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18045" name="STR_NPC_SKILL_EL_Order_EtherEruption_G4_Fire" nameId="586101" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -71942,7 +71988,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1468" delta="36" e="1"/>
+            <spellatk value="1468" delta="36" e="1">
+                <modifiers>
+                    <targetrace value="733" delta="17" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18046" name="STR_NPC_SKILL_EL_Order_EtherEruption_G1_Earth" nameId="586103" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -71956,7 +72006,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="592" delta="26" e="1"/>
+            <spellatk value="592" delta="26" e="1">
+                <modifiers>
+                    <targetrace value="296" delta="12" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18047" name="STR_NPC_SKILL_EL_Order_EtherEruption_G2_Earth" nameId="586107" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -71970,7 +72024,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="966" delta="27" e="1"/>
+            <spellatk value="966" delta="27" e="1">
+                <modifiers>
+                    <targetrace value="482" delta="13" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18048" name="STR_NPC_SKILL_EL_Order_EtherEruption_G3_Earth" nameId="586109" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -71984,7 +72042,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1352" delta="28" e="1"/>
+            <spellatk value="1352" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="676" delta="13" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18049" name="STR_NPC_SKILL_EL_Order_EtherEruption_G4_Earth" nameId="586111" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -71998,7 +72060,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1082" delta="23" e="1"/>
+            <spellatk value="1082" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="541" delta="11" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18050" name="STR_NPC_SKILL_EL_Order_EtherEruption_G1_Water" nameId="586113" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72012,7 +72078,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="642" delta="32" e="1"/>
+            <spellatk value="642" delta="32" e="1">
+                <modifiers>
+                    <targetrace value="321" delta="16" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18051" name="STR_NPC_SKILL_EL_Order_EtherEruption_G2_Water" nameId="586117" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72026,7 +72096,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1015" delta="27" e="1"/>
+            <spellatk value="1015" delta="27" e="1">
+                <modifiers>
+                    <targetrace value="507" delta="13" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18052" name="STR_NPC_SKILL_EL_Order_EtherEruption_G3_Water" nameId="586119" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72040,7 +72114,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1346" delta="26" e="1"/>
+            <spellatk value="1346" delta="26" e="1">
+                <modifiers>
+                    <targetrace value="672" delta="12" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18053" name="STR_NPC_SKILL_EL_Order_EtherEruption_G1_Magma" nameId="586121" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_MAGMA" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72054,7 +72132,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1724" delta="29" e="1"/>
+            <spellatk value="1724" delta="29" e="1">
+                <modifiers>
+                    <targetrace value="862" delta="14" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18054" name="STR_NPC_SKILL_EL_Order_EtherEruption_G1_Tempest" nameId="586125" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_TEMPEST" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72068,7 +72150,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="2061" delta="35" e="1"/>
+            <spellatk value="2061" delta="35" e="1">
+                <modifiers>
+                    <targetrace value="1030" delta="17" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18055" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G1_Air" nameId="586129" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72082,7 +72168,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="552" delta="28" e="1"/>
+            <spellatk value="552" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="276" delta="13" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18056" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G2_Air" nameId="586133" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72096,7 +72186,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="948" delta="30" e="1"/>
+            <spellatk value="948" delta="30" e="1">
+                <modifiers>
+                    <targetrace value="473" delta="15" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18057" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G3_Air" nameId="586135" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72110,7 +72204,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1303" delta="37" e="1"/>
+            <spellatk value="1303" delta="37" e="1">
+                <modifiers>
+                    <targetrace value="651" delta="18" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18058" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G4_Air" nameId="586137" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72124,7 +72222,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1682" delta="31" e="1"/>
+            <spellatk value="1682" delta="31" e="1">
+                <modifiers>
+                    <targetrace value="841" delta="15" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18059" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G1_Fire" nameId="586139" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72138,7 +72240,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="433" delta="26" e="1"/>
+            <spellatk value="433" delta="26" e="1">
+                <modifiers>
+                    <targetrace value="216" delta="12" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18060" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G2_Fire" nameId="586143" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72152,7 +72258,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="745" delta="33" e="1"/>
+            <spellatk value="745" delta="33" e="1">
+                <modifiers>
+                    <targetrace value="372" delta="16" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18061" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G3_Fire" nameId="586145" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72166,7 +72276,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1126" delta="35" e="1"/>
+            <spellatk value="1126" delta="35" e="1">
+                <modifiers>
+                    <targetrace value="562" delta="17" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18062" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G4_Fire" nameId="586147" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72180,7 +72294,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1468" delta="36" e="1"/>
+            <spellatk value="1468" delta="36" e="1">
+                <modifiers>
+                    <targetrace value="733" delta="17" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18063" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G1_Earth" nameId="586149" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72194,7 +72312,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="592" delta="26" e="1"/>
+            <spellatk value="592" delta="26" e="1">
+                <modifiers>
+                    <targetrace value="296" delta="12" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18064" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G2_Earth" nameId="586153" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72208,7 +72330,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="966" delta="27" e="1"/>
+            <spellatk value="966" delta="27" e="1">
+                <modifiers>
+                    <targetrace value="482" delta="13" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18065" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G3_Earth" nameId="586155" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72222,7 +72348,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1352" delta="28" e="1"/>
+            <spellatk value="1352" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="676" delta="13" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18066" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G4_Earth" nameId="586157" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72236,7 +72366,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1082" delta="23" e="1"/>
+            <spellatk value="1082" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="541" delta="11" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18067" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G1_Water" nameId="586159" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72250,7 +72384,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="642" delta="32" e="1"/>
+            <spellatk value="642" delta="32" e="1">
+                <modifiers>
+                    <targetrace value="321" delta="16" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18068" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G2_Water" nameId="586163" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72264,7 +72402,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1015" delta="27" e="1"/>
+            <spellatk value="1015" delta="27" e="1">
+                <modifiers>
+                    <targetrace value="507" delta="13" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18069" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G3_Water" nameId="586165" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72278,7 +72420,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1346" delta="26" e="1"/>
+            <spellatk value="1346" delta="26" e="1">
+                <modifiers>
+                    <targetrace value="672" delta="12" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18070" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G1_Magma" nameId="586167" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_MAGMA" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72292,7 +72438,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="2061" delta="35" e="1"/>
+            <spellatk value="2061" delta="35" e="1">
+                <modifiers>
+                    <targetrace value="1030" delta="17" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18071" name="STR_NPC_SKILL_EL_Order_ShadowEruption_G1_Tempest" nameId="586171" stack="NPC_SKILL_EL_ORDER_SHADOWERUPTION_TEMPEST" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72306,7 +72456,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1649" delta="28" e="1"/>
+            <spellatk value="1649" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="824" delta="14" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18072" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G1_Air" nameId="586601" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72320,7 +72474,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="442" delta="23" e="1"/>
+            <spellatk value="442" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="221" delta="11" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18073" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G2_Air" nameId="586603" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72334,7 +72492,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="759" delta="24" e="1"/>
+            <spellatk value="759" delta="24" e="1">
+                <modifiers>
+                    <targetrace value="379" delta="12" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18074" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G3_Air" nameId="586605" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72348,7 +72510,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1043" delta="30" e="1"/>
+            <spellatk value="1043" delta="30" e="1">
+                <modifiers>
+                    <targetrace value="521" delta="15" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18075" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G4_Air" nameId="586607" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72362,7 +72528,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1346" delta="25" e="1"/>
+            <spellatk value="1346" delta="25" e="1">
+                <modifiers>
+                    <targetrace value="673" delta="12" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18076" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G1_Fire" nameId="586609" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72376,7 +72546,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="347" delta="21" e="1"/>
+            <spellatk value="347" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="173" delta="10" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18077" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G2_Fire" nameId="586611" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72390,7 +72564,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="596" delta="27" e="1"/>
+            <spellatk value="596" delta="27" e="1">
+                <modifiers>
+                    <targetrace value="298" delta="13" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18078" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G3_Fire" nameId="586613" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72404,7 +72582,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="901" delta="28" e="1"/>
+            <spellatk value="901" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="450" delta="14" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18079" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G4_Fire" nameId="586615" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72418,7 +72600,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1175" delta="29" e="1"/>
+            <spellatk value="1175" delta="29" e="1">
+                <modifiers>
+                    <targetrace value="587" delta="14" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18080" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G1_Earth" nameId="586617" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72432,7 +72618,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="474" delta="21" e="1"/>
+            <spellatk value="474" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="237" delta="10" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18081" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G2_Earth" nameId="586619" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72446,7 +72636,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="773" delta="22" e="1"/>
+            <spellatk value="773" delta="22" e="1">
+                <modifiers>
+                    <targetrace value="386" delta="11" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18082" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G3_Earth" nameId="586621" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72460,7 +72654,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1082" delta="23" e="1"/>
+            <spellatk value="1082" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="541" delta="11" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18083" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G4_Earth" nameId="586623" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72474,7 +72672,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1082" delta="23" e="1"/>
+            <spellatk value="1082" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="541" delta="11" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18084" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G1_Water" nameId="586625" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72488,7 +72690,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="514" delta="26" e="1"/>
+            <spellatk value="514" delta="26" e="1">
+                <modifiers>
+                    <targetrace value="257" delta="13" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18085" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G2_Water" nameId="586627" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72502,7 +72708,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="812" delta="22" e="1"/>
+            <spellatk value="812" delta="22" e="1">
+                <modifiers>
+                    <targetrace value="406" delta="11" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18086" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G3_Water" nameId="586629" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72516,7 +72726,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1077" delta="21" e="1"/>
+            <spellatk value="1077" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="538" delta="10" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18087" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G1_Magma" nameId="586631" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_MAGMA" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72530,7 +72744,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1724" delta="29" e="1"/>
+            <spellatk value="1724" delta="29" e="1">
+                <modifiers>
+                    <targetrace value="862" delta="14" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18088" name="STR_NPC_SKILL_EL_Stigma_Order_EtherEmission_G1_Tempest" nameId="586633" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHEREMISSION_TEMPEST" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72544,7 +72762,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1649" delta="28" e="1"/>
+            <spellatk value="1649" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="824" delta="14" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18089" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G1_Air" nameId="586635" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72558,7 +72780,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="442" delta="23" e="1"/>
+            <spellatk value="442" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="221" delta="11" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18090" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G2_Air" nameId="586637" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72572,7 +72798,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="759" delta="24" e="1"/>
+            <spellatk value="759" delta="24" e="1">
+                <modifiers>
+                    <targetrace value="379" delta="12" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18091" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G3_Air" nameId="586639" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72586,7 +72816,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1043" delta="30" e="1"/>
+            <spellatk value="1043" delta="30" e="1">
+                <modifiers>
+                    <targetrace value="521" delta="15" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18092" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G4_Air" nameId="586641" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72600,7 +72834,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1346" delta="25" e="1"/>
+            <spellatk value="1346" delta="25" e="1">
+                <modifiers>
+                    <targetrace value="673" delta="12" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18093" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G1_Fire" nameId="586643" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72614,7 +72852,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="347" delta="21" e="1"/>
+            <spellatk value="347" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="173" delta="10" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18094" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G2_Fire" nameId="586645" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72628,7 +72870,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="596" delta="27" e="1"/>
+            <spellatk value="596" delta="27" e="1">
+                <modifiers>
+                    <targetrace value="298" delta="13" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18095" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G3_Fire" nameId="586647" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72642,7 +72888,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="901" delta="28" e="1"/>
+            <spellatk value="901" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="450" delta="14" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18096" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G4_Fire" nameId="586649" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72656,7 +72906,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1175" delta="29" e="1"/>
+            <spellatk value="1175" delta="29" e="1">
+                <modifiers>
+                    <targetrace value="587" delta="14" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18097" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G1_Earth" nameId="586651" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72670,7 +72924,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="474" delta="21" e="1"/>
+            <spellatk value="474" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="237" delta="10" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18098" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G2_Earth" nameId="586653" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72684,7 +72942,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="773" delta="22" e="1"/>
+            <spellatk value="773" delta="22" e="1">
+                <modifiers>
+                    <targetrace value="386" delta="11" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18099" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G3_Earth" nameId="586655" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72698,7 +72960,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1082" delta="23" e="1"/>
+            <spellatk value="1082" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="541" delta="11" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18100" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G4_Earth" nameId="586657" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72712,7 +72978,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1082" delta="23" e="1"/>
+            <spellatk value="1082" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="541" delta="11" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18101" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G1_Water" nameId="586659" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72726,7 +72996,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="514" delta="26" e="1"/>
+            <spellatk value="514" delta="26" e="1">
+                <modifiers>
+                    <targetrace value="257" delta="13" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18102" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G2_Water" nameId="586661" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72740,7 +73014,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="812" delta="22" e="1"/>
+            <spellatk value="812" delta="22" e="1">
+                <modifiers>
+                    <targetrace value="406" delta="11" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18103" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G3_Water" nameId="586663" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72754,7 +73032,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1077" delta="21" e="1"/>
+            <spellatk value="1077" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="538" delta="10" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18104" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G1_Magma" nameId="586665" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_MAGMA" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72768,7 +73050,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1724" delta="29" e="1"/>
+            <spellatk value="1724" delta="29" e="1">
+                <modifiers>
+                    <targetrace value="862" delta="14" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18105" name="STR_NPC_SKILL_EL_Stigma_Order_EtherImpact_G1_Tempest" nameId="586667" stack="NPC_SKILL_EL_STIGMA_ORDER_ETHERIMPACT_TEMPEST" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -72782,7 +73068,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1649" delta="28" e="1"/>
+            <spellatk value="1649" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="824" delta="14" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18106" name="STR_BNAS_PoisonTrap_TA" nameId="586779" stack="BNAS_POISONTRAP_TA" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -75370,7 +75660,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="442" delta="23" e="1"/>
+            <spellatk value="442" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="221" delta="11" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18280" name="STR_NPC_SKILL_EL_Order_EtherEmission_G2_Air" nameId="584709" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75384,7 +75678,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="759" delta="24" e="1"/>
+            <spellatk value="759" delta="24" e="1">
+                <modifiers>
+                    <targetrace value="379" delta="12" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18281" name="STR_NPC_SKILL_EL_Order_EtherEmission_G3_Air" nameId="584711" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75398,7 +75696,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1043" delta="30" e="1"/>
+            <spellatk value="1043" delta="30" e="1">
+                <modifiers>
+                    <targetrace value="521" delta="15" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18282" name="STR_NPC_SKILL_EL_Order_EtherEmission_G4_Air" nameId="584713" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75412,7 +75714,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1346" delta="25" e="1"/>
+            <spellatk value="1346" delta="25" e="1">
+                <modifiers>
+                    <targetrace value="673" delta="12" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18283" name="STR_NPC_SKILL_EL_Order_EtherEmission_G1_Fire" nameId="584715" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75426,7 +75732,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="347" delta="21" e="1"/>
+            <spellatk value="347" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="173" delta="10" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18284" name="STR_NPC_SKILL_EL_Order_EtherEmission_G2_Fire" nameId="584717" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75440,7 +75750,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="596" delta="27" e="1"/>
+            <spellatk value="596" delta="27" e="1">
+                <modifiers>
+                    <targetrace value="298" delta="13" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18285" name="STR_NPC_SKILL_EL_Order_EtherEmission_G3_Fire" nameId="584719" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75454,7 +75768,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="901" delta="28" e="1"/>
+            <spellatk value="901" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="450" delta="14" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18286" name="STR_NPC_SKILL_EL_Order_EtherEmission_G4_Fire" nameId="584721" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75468,7 +75786,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1175" delta="29" e="1"/>
+            <spellatk value="1175" delta="29" e="1">
+                <modifiers>
+                    <targetrace value="587" delta="14" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18287" name="STR_NPC_SKILL_EL_Order_EtherEmission_G1_Earth" nameId="584723" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75482,7 +75804,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="474" delta="21" e="1"/>
+            <spellatk value="474" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="237" delta="10" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18288" name="STR_NPC_SKILL_EL_Order_EtherEmission_G2_Earth" nameId="584725" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75496,7 +75822,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="773" delta="22" e="1"/>
+            <spellatk value="773" delta="22" e="1">
+                <modifiers>
+                    <targetrace value="386" delta="11" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18289" name="STR_NPC_SKILL_EL_Order_EtherEmission_G3_Earth" nameId="584727" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75510,7 +75840,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1082" delta="23" e="1"/>
+            <spellatk value="1082" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="541" delta="11" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18290" name="STR_NPC_SKILL_EL_Order_EtherEmission_G4_Earth" nameId="584729" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75524,7 +75858,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1082" delta="23" e="1"/>
+            <spellatk value="1082" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="541" delta="11" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18291" name="STR_NPC_SKILL_EL_Order_EtherEmission_G1_Water" nameId="584731" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75538,7 +75876,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="514" delta="26" e="1"/>
+            <spellatk value="514" delta="26" e="1">
+                <modifiers>
+                    <targetrace value="257" delta="13" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18292" name="STR_NPC_SKILL_EL_Order_EtherEmission_G2_Water" nameId="584733" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75552,7 +75894,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="812" delta="22" e="1"/>
+            <spellatk value="812" delta="22" e="1">
+                <modifiers>
+                    <targetrace value="406" delta="11" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18293" name="STR_NPC_SKILL_EL_Order_EtherEmission_G3_Water" nameId="584735" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75566,7 +75912,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1077" delta="21" e="1"/>
+            <spellatk value="1077" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="538" delta="10" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18294" name="STR_NPC_SKILL_EL_Order_EtherEmission_G1_Magma" nameId="584737" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_MAGMA" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75580,7 +75930,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1724" delta="29" e="1"/>
+            <spellatk value="1724" delta="29" e="1">
+                <modifiers>
+                    <targetrace value="862" delta="14" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18295" name="STR_NPC_SKILL_EL_Order_EtherEmission_G1_Tempest" nameId="584739" stack="NPC_SKILL_EL_ORDER_ETHEREMISSION_TEMPEST" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75594,7 +75948,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1649" delta="28" e="1"/>
+            <spellatk value="1649" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="824" delta="14" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18296" name="STR_NPC_SKILL_EL_Order_EtherImpact_G1_Air" nameId="584741" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75608,7 +75966,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="442" delta="23" e="1"/>
+            <spellatk value="442" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="221" delta="11" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18297" name="STR_NPC_SKILL_EL_Order_EtherImpact_G2_Air" nameId="584743" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75622,7 +75984,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="759" delta="24" e="1"/>
+            <spellatk value="759" delta="24" e="1">
+                <modifiers>
+                    <targetrace value="379" delta="12" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18298" name="STR_NPC_SKILL_EL_Order_EtherImpact_G3_Air" nameId="584745" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75636,7 +76002,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1043" delta="30" e="1"/>
+            <spellatk value="1043" delta="30" e="1">
+                <modifiers>
+                    <targetrace value="521" delta="15" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18299" name="STR_NPC_SKILL_EL_Order_EtherImpact_G4_Air" nameId="584747" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75650,7 +76020,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1346" delta="25" e="1"/>
+            <spellatk value="1346" delta="25" e="1">
+                <modifiers>
+                    <targetrace value="673" delta="12" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18300" name="STR_NPC_SKILL_EL_Order_EtherImpact_G1_Fire" nameId="584749" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75664,7 +76038,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="347" delta="21" e="1"/>
+            <spellatk value="347" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="173" delta="10" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18301" name="STR_NPC_SKILL_EL_Order_EtherImpact_G2_Fire" nameId="584751" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75678,7 +76056,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="596" delta="27" e="1"/>
+            <spellatk value="596" delta="27" e="1">
+                <modifiers>
+                    <targetrace value="298" delta="13" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18302" name="STR_NPC_SKILL_EL_Order_EtherImpact_G3_Fire" nameId="584753" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75692,7 +76074,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="901" delta="28" e="1"/>
+            <spellatk value="901" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="450" delta="14" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18303" name="STR_NPC_SKILL_EL_Order_EtherImpact_G4_Fire" nameId="584755" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75706,7 +76092,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1175" delta="29" e="1"/>
+            <spellatk value="1175" delta="29" e="1">
+                <modifiers>
+                    <targetrace value="587" delta="14" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18304" name="STR_NPC_SKILL_EL_Order_EtherImpact_G1_Earth" nameId="584757" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75720,7 +76110,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="474" delta="21" e="1"/>
+            <spellatk value="474" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="237" delta="10" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18305" name="STR_NPC_SKILL_EL_Order_EtherImpact_G2_Earth" nameId="584759" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75734,7 +76128,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="773" delta="22" e="1"/>
+            <spellatk value="773" delta="22" e="1">
+                <modifiers>
+                    <targetrace value="386" delta="11" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18306" name="STR_NPC_SKILL_EL_Order_EtherImpact_G3_Earth" nameId="584761" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75748,7 +76146,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1082" delta="23" e="1"/>
+            <spellatk value="1082" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="541" delta="11" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18307" name="STR_NPC_SKILL_EL_Order_EtherImpact_G4_Earth" nameId="584763" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75762,7 +76164,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1082" delta="23" e="1"/>
+            <spellatk value="1082" delta="23" e="1">
+                <modifiers>
+                    <targetrace value="541" delta="11" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18308" name="STR_NPC_SKILL_EL_Order_EtherImpact_G1_Water" nameId="584765" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75776,7 +76182,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="514" delta="26" e="1"/>
+            <spellatk value="514" delta="26" e="1">
+                <modifiers>
+                    <targetrace value="257" delta="13" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18309" name="STR_NPC_SKILL_EL_Order_EtherImpact_G2_Water" nameId="584767" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75790,7 +76200,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="812" delta="22" e="1"/>
+            <spellatk value="812" delta="22" e="1">
+                <modifiers>
+                    <targetrace value="406" delta="11" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18310" name="STR_NPC_SKILL_EL_Order_EtherImpact_G3_Water" nameId="584769" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75804,7 +76218,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1077" delta="21" e="1"/>
+            <spellatk value="1077" delta="21" e="1">
+                <modifiers>
+                    <targetrace value="538" delta="10" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18311" name="STR_NPC_SKILL_EL_Order_EtherImpact_G1_Magma" nameId="584771" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_MAGMA" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75818,7 +76236,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1724" delta="29" e="1"/>
+            <spellatk value="1724" delta="29" e="1">
+                <modifiers>
+                    <targetrace value="862" delta="14" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18312" name="STR_NPC_SKILL_EL_Order_EtherImpact_G1_Tempest" nameId="584773" stack="NPC_SKILL_EL_ORDER_ETHERIMPACT_TEMPEST" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -75832,7 +76254,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="1649" delta="28" e="1"/>
+            <spellatk value="1649" delta="28" e="1">
+                <modifiers>
+                    <targetrace value="824" delta="14" race="ELYOS"/>
+                </modifiers>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18313" name="STR_BNAS_UpDodgeParry_Nr" nameId="588193" stack="BNAS_UPDODGEPARRY_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
