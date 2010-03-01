@@ -1,8 +1,103 @@
 <!-- Craft factories spawns -->
 <spawns>
 	<!-- Pandaemonium -->
-	<!-- Weapon Forge -->
-	<spawn map="120010000" npcid="150000011" pool="1" handler="STATIC">
+	<!-- Oven cooking -->
+	<spawn map="120010000" npcid="150000009" pool="6" handler="STATIC">
+		<object x="1179.2081" y="1539.116" z="214.10541" h="0" staticid="112"/>
+		<object x="1165.7308" y="1545.9945" z="214.10541" h="0" staticid="116"/>
+		<object x="1175.811" y="1549.4492" z="214.10541" h="0" staticid="115"/>
+		<object x="1169.7013" y="1535.2146" z="214.10541" h="0" staticid="111"/>
+		<object x="1159.4539" y="1531.8954" z="214.10541" h="0" staticid="3"/>
+		<object x="1156.1298" y="1542.0282" z="214.10541" h="0" staticid="117"/>
+	</spawn>
+	<!-- Armor Forge armor_craft -->
+	<spawn map="120010000" npcid="150000010" pool="4" handler="STATIC">
+		<object x="1163.6145" y="1585.3009" z="214.38696" h="0" staticid="1"/>
+		<object x="1178.2065" y="1572.9701" z="214.38696" h="0" staticid="107"/>
+		<object x="1169.3226" y="1569.6183" z="214.38696" h="0" staticid="106"/>
+		<object x="1172.4984" y="1588.6527" z="214.38696" h="0" staticid="105"/>
+	</spawn>
+	<!-- Weapon Forge weapon_craft -->
+	<spawn map="120010000" npcid="150000011" pool="4" handler="STATIC">
 		<object x="1195.2825" y="1597.2721" z="214.4068" h="0" staticid="109"/>
+		<object x="1203.9436" y="1600.5209" z="214.4068" h="0" staticid="108"/>
+		<object x="1209.5864" y="1584.9125" z="214.41411" h="0" staticid="141"/>
+		<object x="1200.9253" y="1581.6637" z="214.41411" h="0" staticid="110"/>
+	</spawn>
+	<!-- Workbench handiwork -->
+	<spawn map="120010000" npcid="150000012" pool="4" handler="STATIC">
+		<object x="1235.7001" y="1564.9832" z="214.54825" h="0" staticid="126"/>
+		<object x="1227.5007" y="1550.9772" z="214.54825" h="0" staticid="127"/>
+		<object x="1239.6045" y="1555.2542" z="214.54825" h="0" staticid="5"/>
+		<object x="1223.8743" y="1560.8359" z="214.54825" h="0" staticid="128"/>
+	</spawn>
+	<!-- Alchemist's Table alchemy-->
+	<spawn map="120010000" npcid="150000013" pool="6" handler="STATIC">
+		<object x="1175.9557" y="1502.3077" z="214.46156" h="0" staticid="137"/>
+		<object x="1186.1501" y="1520.8781" z="214.46156" h="0" staticid="120"/>
+		<object x="1183.4985" y="1504.686" z="214.46156" h="0" staticid="113"/>
+		<object x="1171.1726" y="1515.668" z="214.46156" h="0" staticid="118"/>
+		<object x="1178.4121" y="1518.6284" z="214.46156" h="0" staticid="119"/>
+		<object x="1190.8118" y="1507.4626" z="214.46156" h="0" staticid="114"/>
+	</spawn>
+	<!-- Loom tailoring -->
+	<spawn map="120010000" npcid="150000015" pool="6" handler="STATIC">
+		<object x="1201.551" y="1474.1918" z="214.55589" h="0" staticid="2"/>
+		<object x="1192.3896" y="1473.9055" z="214.55589" h="0" staticid="121"/>
+		<object x="1179.4219" y="1484.6416" z="214.55589" h="0" staticid="125"/>
+		<object x="1185.222" y="1468.4093" z="214.55589" h="0" staticid="122"/>
+		<object x="1188.1996" y="1485.5922" z="214.55589" h="0" staticid="124"/>
+		<object x="1195.6904" y="1490.3674" z="214.55589" h="0" staticid="123"/>
+	</spawn>
+
+	<!-- Sanctum -->
+	<!-- Oven cooking -->
+	<spawn map="110010000" npcid="150000009" pool="4" handler="STATIC">
+		<object x="1846.0309" y="1549.1423" z="590.02148" h="0" staticid="118"/>
+		<object x="1849.7878" y="1549.1372" z="590.02637" h="0" staticid="103"/>
+		<object x="1843.3987" y="1547.3662" z="590.02148" h="0" staticid="38"/>
+		<object x="1853.0854" y="1548.2163" z="590.02148" h="0" staticid="104"/>
+	</spawn>
+	
+	<!-- Armor Forge armor_craft -->
+	<spawn map="110010000" npcid="150000010" pool="6" handler="STATIC">
+		<object x="1893.3452" y="1560.7787" z="590.04059" h="0" staticid="21"/>
+		<object x="1882.2135" y="1555.2699" z="590.04059" h="0" staticid="19"/>
+		<object x="1893.3452" y="1555.3766" z="590.04059" h="0" staticid="18"/>
+		<object x="1882.3202" y="1581.1733" z="590.04059" h="0" staticid="97"/>
+		<object x="1893.2531" y="1581.3018" z="590.04059" h="0" staticid="96"/>
+		<object x="1893.2531" y="1575.8682" z="590.04059" h="0" staticid="129"/>
+	</spawn>
+		<!-- Weapon Forge weapon_craft -->
+	<spawn map="110010000" npcid="150000011" pool="4" handler="STATIC">
+		<object x="1195.2825" y="1597.2721" z="214.4068" h="0" staticid="109"/>
+		<object x="1203.9436" y="1600.5209" z="214.4068" h="0" staticid="108"/>
+		<object x="1209.5864" y="1584.9125" z="214.41411" h="0" staticid="141"/>
+		<object x="1200.9253" y="1581.6637" z="214.41411" h="0" staticid="110"/>
+	</spawn>
+	<!-- Workbench handiwork -->
+	<spawn map="110010000" npcid="150000012" pool="6" handler="STATIC">
+		<object x="1887.3801" y="1465.0891" z="590.39648" h="0" staticid="108"/>
+		<object x="1882.7554" y="1441.3763" z="590.45477" h="0" staticid="111"/>
+		<object x="1892.1791" y="1441.2928" z="590.45477" h="0" staticid="110"/>
+		<object x="1887.4399" y="1440.5883" z="590.43268" h="0" staticid="26"/>
+		<object x="1882.5326" y="1464.4315" z="590.41858" h="0" staticid="109"/>
+		<object x="1892.2434" y="1464.5739" z="590.41858" h="0" staticid="83"/>
+	</spawn>
+	<!-- Alchemist's Table alchemy-->
+	<spawn map="110010000" npcid="150000013" pool="6" handler="STATIC">
+		<object x="1845.1538" y="1461.951" z="590.40253" h="0" staticid="116"/>
+		<object x="1838.5863" y="1463.7037" z="590.39502" h="0" staticid="117"/>
+		<object x="1845.2549" y="1442.5184" z="590.37964" h="0" staticid="113"/>
+		<object x="1851.6121" y="1441.2504" z="590.38898" h="0" staticid="72"/>
+		<object x="1838.7076" y="1441.2889" z="590.37311" h="0" staticid="132"/>
+		<object x="1851.4091" y="1463.8853" z="590.40851" h="0" staticid="221"/>
+	</spawn>
+	<!-- Loom tailoring -->
+	<spawn map="110010000" npcid="150000015" pool="4" handler="STATIC">
+		<object x="1888.9756" y="1545.6428" z="590.01636" h="0" staticid="16"/>
+		<object x="1884.0739" y="1549.9908" z="590.02094" h="0" staticid="105"/>
+		<object x="1888.9772" y="1547.8295" z="590.02094" h="0" staticid="107"/>
+		<object x="1881.8536" y="1549.9908" z="590.02094" h="0" staticid="106"/>
 	</spawn>
 </spawns>
