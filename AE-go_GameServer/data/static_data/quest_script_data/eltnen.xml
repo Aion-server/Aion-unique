@@ -285,11 +285,17 @@
 
 	<!-- TODO: 1324 ConfidentialOrders -->
 
-	<!-- TODO: 1433 Girrinerk'sPotions -->
+	<!-- Girrinerk's Potions -->
+	<item_collecting start_npc_id="798050" id="1433" />
 
-	<!-- TODO: 1455 ADaeva'sReputation -->
 
-	<!-- TODO: 1480 KerubianWeapons -->
+	<!-- A Daeva's Reputation -->
+	<item_collecting start_npc_id="798049" id="1455" />
+
+
+	<!-- Kerubian Weapons -->
+	<item_collecting start_npc_id="203912" id="1480" />
+
 
 	<!-- TODO: 1489 MarfondaofDarkness -->
 
@@ -301,19 +307,28 @@
 
 	<!-- TODO: 1464 [Spy]AGiftofLove -->
 
-	<!-- TODO: 1440 FirstAid -->
+	<!-- FirstAid -->
+	<item_collecting start_npc_id="204009" id="1440" />
+
 
 	<!-- TODO: 1033 Sataloca'sHeart -->
 
-	<!-- TODO: 1327 WhenStatuesgoBad -->
+	<!-- When Statues go Bad -->
+	<monster_hunt start_npc_id="203939" id="1327">
+		<monster_infos var_id="0" npc_id="212003" max_kill="15"/>
+	</monster_hunt>
+
 
 	<!-- TODO: 1034 DisappearingAether -->
 
-	<!-- TODO: 1441 TheVitalIngredient -->
+	<!-- The Vital Ingredient -->
+	<item_collecting start_npc_id="203969" id="1441" />
 
 	<!-- TODO: 1490 ALepharistBox -->
 
-	<!-- TODO: 1465 [Spy]ThatOldElyosSpirit -->
+	<!-- [Spy] That Old Elyos Spirit -->
+	<report_to id="1465" start_npc_id="203903" end_npc_id="212649"/>
+
 
 	<!-- TODO: 1466 [Spy]RespectForDeltras -->
 
