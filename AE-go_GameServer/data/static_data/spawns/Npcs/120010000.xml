@@ -18,7 +18,7 @@ Pandaemonium -->
   </spawn>
   <!-- Tragi -->
   <spawn map="120010000" npcid="204050" pool="1" interval="105">
-    <object x="1257.2253" y="1215.7305" z="214.3585" h="92"/>
+    <object x="1258.1644" y="1215.6979" z="214.3585" h="92"/>
   </spawn>
   <!-- Aur -->
   <spawn map="120010000" npcid="204143" pool="1" interval="105">
@@ -26,7 +26,7 @@ Pandaemonium -->
   </spawn>
   <!-- Genoveva -->
   <spawn map="120010000" npcid="204060" pool="1" interval="105">
-    <object x="1257.3895" y="1205.1669" z="214.3585" h="30"/>
+    <object x="1258.4016" y="1205.2303" z="214.3585" h="30"/>
   </spawn>
   <!-- Air -->
   <spawn map="120010000" npcid="204147" pool="1" interval="105">
@@ -1036,4 +1036,58 @@ Pandaemonium -->
     <object x="1299.17" y="1373.54" z="209.09" h="0"/>
     <object x="1299.17" y="1117.54" z="209.09" h="0"/>
   </spawn>
+	<!-- Ninis -->
+	<spawn map="120010000" npcid="798385" pool="1" interval="105">
+		<object x="1638.019" y="1407.0615" z="193.12688" h="89"/>
+	</spawn>
+	<!-- Teleport Statue -->
+	<spawn map="120010000" npcid="730017" pool="1" interval="105">
+		<object x="1599.2881" y="1413.9429" z="193.12872" h="116"/>
+	</spawn>
+	<!-- Riegle -->
+	<spawn map="120010000" npcid="204288" pool="1" interval="105">
+		<object x="1256.3787" y="1215.7606" z="214.3585" h="89"/>
+	</spawn>
+	<!-- Mannheim -->
+	<spawn map="120010000" npcid="204287" pool="1" interval="105">
+		<object x="1256.5283" y="1205.158" z="214.3585" h="29"/>
+	</spawn>
+	<!-- Sinamara -->
+	<spawn map="120010000" npcid="204290" pool="1" interval="105">
+		<object x="1237.0892" y="1207.9963" z="214.66057" h="119"/>
+	</spawn>
+	<!-- Giles -->
+	<spawn map="120010000" npcid="204289" pool="1" interval="105">
+		<object x="1237.2872" y="1212.4445" z="214.66057" h="0"/>
+	</spawn>
+	<!-- Shadow Excecutor -->
+	<spawn map="120010000" npcid="204259" pool="2" interval="105">
+		<object x="1163.6471" y="1285.782" z="212.12813" h="3"/>
+		<object x="1163.8372" y="1297.871" z="212.12813" h="119"/>
+	</spawn>
+	<!-- Payrinrinerk -->
+	<spawn map="120010000" npcid="204286" pool="1" interval="105">
+		<object x="943.9204" y="1146.5964" z="195.88031" h="6"/>
+	</spawn>
+	<!-- Moorinerk -->
+	<spawn map="120010000" npcid="204283" pool="1" interval="105">
+		<object x="942.8132" y="1144.9828" z="195.8803" h="6"/>
+	</spawn>
+	<!-- Habirunerk -->
+	<spawn map="120010000" npcid="204284" pool="1" interval="105">
+		<object x="942.186" y="1147.9602" z="195.88031" h="6"/>
+	</spawn>
+	<!-- Raninerk -->
+	<spawn map="120010000" npcid="798379" pool="1" interval="105">
+		<object x="949.4451" y="1157.7664" z="195.88037" h="96"/>
+	</spawn>
+	<!-- Shugo Porter -->
+	<spawn map="120010000" npcid="798005" pool="2" interval="105">
+		<object x="1076.999" y="1070.2865" z="201.52081" h="37"/>
+		<object x="989.6973" y="1057.3513" z="201.4797" h="44"/>
+	</spawn>
+	<!-- Jotunmodr -->
+	<spawn map="120010000" npcid="204277" pool="1" interval="105">
+		<object x="1439.8033" y="1273.5919" z="202.03017" h="63"/>
+	</spawn>
 </spawns>
