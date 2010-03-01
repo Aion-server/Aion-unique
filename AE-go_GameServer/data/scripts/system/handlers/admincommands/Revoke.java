@@ -52,7 +52,7 @@ public class Revoke extends AdminCommand
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
-		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_REVOKE)
+		if(admin.getAccessLevel() < AdminConfig.COMMAND_REVOKE)
 		{
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;
@@ -70,8 +70,9 @@ public class Revoke extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "The specified player is not online.");
 			return;
 		}
-
-		player.getCommonData().setAdminRole(0);
+		
+		//TODO
+		//player.getCommonData().setAdminRole(0);
 		PacketSendUtility.sendMessage(admin, player.getName() + " Administrator status has been revoked");
 		PacketSendUtility.sendMessage(player, "Your Administrator status has been revoked.");
 	}

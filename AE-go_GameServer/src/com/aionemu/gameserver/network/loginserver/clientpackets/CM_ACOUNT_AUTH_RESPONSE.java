@@ -46,7 +46,14 @@ public class CM_ACOUNT_AUTH_RESPONSE extends LsClientPacket
 	 */
 	private String		accountName;
 	private AccountTime	accountTime;
-
+	/**
+	 * access level - regular/gm/admin
+	 */
+	private byte		accessLevel;
+	/**
+	 * Membership - regular/premium
+	 */
+	private byte		membership;
 	@Inject
 	private LoginServer	loginServer;
 	
@@ -75,6 +82,9 @@ public class CM_ACOUNT_AUTH_RESPONSE extends LsClientPacket
 
 			accountTime.setAccumulatedOnlineTime(readQ());
 			accountTime.setAccumulatedRestTime(readQ());
+			
+			accessLevel = (byte) readC();
+			membership = (byte) readC();
 		}
 	}
 
@@ -84,6 +94,6 @@ public class CM_ACOUNT_AUTH_RESPONSE extends LsClientPacket
 	@Override
 	protected void runImpl()
 	{
-		loginServer.accountAuthenticationResponse(accountId, accountName, result, accountTime);
+		loginServer.accountAuthenticationResponse(accountId, accountName, result, accountTime, accessLevel, membership);
 	}
 }

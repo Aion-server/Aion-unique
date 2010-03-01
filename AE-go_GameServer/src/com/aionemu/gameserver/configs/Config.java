@@ -121,43 +121,7 @@ public class Config
 	 */
 	@Property(key = "gameserver.mode",defaultValue = "1")
 	public static int				SERVER_MODE;
-	
-	/*
-	 * Xp Rate
-	 */
-	@Property(key = "gameserver.rate.xp",defaultValue = "1")
-	public static int				XP_RATE;
-	
-	/*
-	 * Group Xp Rate
-	 */
-	@Property(key = "gameserver.rate.groupxp",defaultValue = "1")
-	public static int				GROUPXP_RATE;
 
-	/*
-	 * Quest Xp Rate
-	 */
-	@Property(key = "gameserver.rate.quest.xp",defaultValue = "1")
-	public static int				QUEST_XP_RATE;
-	
-	/*
-	 * Quest Kinah Rate
-	 */
-	@Property(key = "gameserver.rate.quest.kinah",defaultValue = "1")
-	public static int				QUEST_KINAH_RATE;
-
-	/*
-	 * Drop Rate
-	 */
-	@Property(key = "gameserver.rate.drop",defaultValue = "1")
-	public static int				DROP_RATE;
-	
-	/*
-	 * Abyss points Rate
-	 */
-	@Property(key = "gameserver.rate.ap",defaultValue = "1")
-	public static float				AP_RATE;
-	
 	/*
 	 * Factions speaking mode
 	 */
@@ -225,6 +189,7 @@ public class Config
 			ConfigurableProcessor.process(CacheConfig.class, props);
 			ConfigurableProcessor.process(AdminConfig.class, props);
 			ConfigurableProcessor.process(LegionConfig.class, props);
+			ConfigurableProcessor.process(RateConfig.class, props);
 		}
 		catch(Exception e)
 		{

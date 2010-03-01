@@ -54,7 +54,7 @@ public class Set extends AdminCommand {
 
 		if (params[0].equals("class"))
 		{
-			if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_SETCLASS)
+			if(admin.getAccessLevel() < AdminConfig.COMMAND_SETCLASS)
 			{
 				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 				return;
@@ -76,7 +76,7 @@ public class Set extends AdminCommand {
 		}
 		else if (params[0].equals("exp"))
 		{
-			if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_SETEXP)
+			if(admin.getAccessLevel() < AdminConfig.COMMAND_SETEXP)
 			{
 				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 				return;
@@ -103,7 +103,7 @@ public class Set extends AdminCommand {
 		}
 		else if (params[0].equals("level"))
 		{
-			if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_SETLEVEL)
+			if(admin.getAccessLevel() < AdminConfig.COMMAND_SETLEVEL)
 			{
 				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 				return;
@@ -130,7 +130,7 @@ public class Set extends AdminCommand {
 		}
 		else if (params[0].equals("title"))
 		{
-			if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_SETTITLE)
+			if(admin.getAccessLevel() < AdminConfig.COMMAND_SETTITLE)
 			{
 				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 				return;

@@ -47,7 +47,7 @@ public class Promote extends AdminCommand
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
-		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_PROMOTE)
+		if(admin.getAccessLevel() < AdminConfig.COMMAND_PROMOTE)
 		{
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;
@@ -83,7 +83,8 @@ public class Promote extends AdminCommand
 			return;
 		}
 		
-		player.getCommonData().setAdminRole(mask);
+		//TODO
+		//player.getCommonData().setAdminRole(mask);
 		PacketSendUtility.sendMessage(admin, player.getName() + " has been promoted Administrator with role " + mask);
 		PacketSendUtility.sendMessage(player, "You have been promoted Administrator with role " + mask);
 	}

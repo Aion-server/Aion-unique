@@ -70,9 +70,11 @@ public class AccountService
 	 * @param accountId
 	 * @param accountTime
 	 * @param accountName
+	 * @param accessLevel
+	 * @param membership
 	 * @return
 	 */
-	public Account getAccount(int accountId, String accountName, AccountTime accountTime)
+	public Account getAccount(int accountId, String accountName, AccountTime accountTime, byte accessLevel, byte membership)
 	{
 		log.debug("[AS] request for account: " + accountId);
 
@@ -87,7 +89,9 @@ public class AccountService
 
 		account.setName(accountName);
 		account.setAccountTime(accountTime);
-
+		account.setAccessLevel(accessLevel);
+		account.setMembership(membership);
+		
 		removeDeletedCharacters(account);
 
 		return account;

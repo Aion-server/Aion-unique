@@ -44,7 +44,7 @@ public class DeleteSpawn extends AdminCommand
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
-		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_DELETESPAWN)
+		if(admin.getAccessLevel() < AdminConfig.COMMAND_DELETESPAWN)
 		{
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;

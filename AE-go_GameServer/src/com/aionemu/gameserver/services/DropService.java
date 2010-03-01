@@ -107,7 +107,7 @@ public class DropService
 					if(qs == null || qs.getStatus() != QuestStatus.START)
 						continue;
 				}
-				dropItem.calculateCount();
+				dropItem.calculateCount(player.getRates().getDropRate());
 
 				if(dropItem.getCount() > 0)
 				{

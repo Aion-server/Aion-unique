@@ -50,7 +50,7 @@ public class Weather extends AdminCommand
 	public void executeCommand(Player admin, String[] params)
 	{
 		// Check restriction level
-		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_WEATHER)
+		if(admin.getAccessLevel() < AdminConfig.COMMAND_WEATHER)
 		{
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;

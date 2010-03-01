@@ -39,6 +39,14 @@ public class Account implements Iterable<PlayerAccountData>
 	private final int						id;
 	/** Unique name of this account */
 	private String							name;
+	/**
+	 * Access level
+	 */
+	private byte							accessLevel;
+	/**
+	 * Membership of this account
+	 */
+	private byte							membership;
 	
 	private AccountTime						accountTime;
 
@@ -72,6 +80,38 @@ public class Account implements Iterable<PlayerAccountData>
 	public void setAccountTime(AccountTime accountTime)
 	{
 		this.accountTime = accountTime;
+	}
+
+	/**
+	 * @return the accessLevel
+	 */
+	public byte getAccessLevel()
+	{
+		return accessLevel;
+	}
+
+	/**
+	 * @param accessLevel the accessLevel to set
+	 */
+	public void setAccessLevel(byte accessLevel)
+	{
+		this.accessLevel = accessLevel;
+	}
+
+	/**
+	 * @return the membership
+	 */
+	public byte getMembership()
+	{
+		return membership;
+	}
+
+	/**
+	 * @param membership the membership to set
+	 */
+	public void setMembership(byte membership)
+	{
+		this.membership = membership;
 	}
 
 	@Override

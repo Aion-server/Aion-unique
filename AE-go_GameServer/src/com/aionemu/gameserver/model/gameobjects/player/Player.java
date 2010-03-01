@@ -42,6 +42,7 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.rates.Rates;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 
 /**
@@ -78,6 +79,7 @@ public class Player extends Creature
 	private ZoneInstance		zoneInstance;
 	private PlayerGroup			playerGroup;
 	private AbyssRank			abyssRank;
+	private Rates				rates;
 
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -648,5 +650,31 @@ public class Player extends Creature
 	public boolean isInGroup()
 	{
 		return playerGroup != null;
+	}
+	
+	/**
+	 *  Access level of this player
+	 *  
+	 * @return
+	 */
+	public byte getAccessLevel()
+	{
+		return getClientConnection().getAccount().getAccessLevel();
+	}
+
+	/**
+	 * @return the rates
+	 */
+	public Rates getRates()
+	{
+		return rates;
+	}
+
+	/**
+	 * @param rates the rates to set
+	 */
+	public void setRates(Rates rates)
+	{
+		this.rates = rates;
 	}
 }

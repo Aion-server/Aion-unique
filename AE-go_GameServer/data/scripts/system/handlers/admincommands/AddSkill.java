@@ -40,7 +40,7 @@ public class AddSkill extends AdminCommand
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
-		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_ADDSKILL)
+		if(admin.getAccessLevel() < AdminConfig.COMMAND_ADDSKILL)
 		{
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;

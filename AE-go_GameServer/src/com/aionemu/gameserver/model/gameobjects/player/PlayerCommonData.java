@@ -53,7 +53,6 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	private int				level = 0;
 	private long			exp = 0;
 	private long			expRecoverable = 0;
-	private int				adminRole;
 	private Gender			gender;
 	private Timestamp		lastOnline;
 	private boolean 		online;
@@ -256,16 +255,6 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	public void setPlayerClass(PlayerClass playerClass)
 	{
 		this.playerClass = playerClass;
-	}
-
-	public int getAdminRole()
-	{
-		return adminRole;
-	}
-
-	public void setAdminRole(int adminRole)
-	{
-		this.adminRole = adminRole;
 	}
 
 	public boolean isOnline() 

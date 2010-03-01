@@ -16,9 +16,6 @@
  */
 package com.aionemu.gameserver.questEngine;
 
-import static com.aionemu.gameserver.configs.Config.QUEST_KINAH_RATE;
-import static com.aionemu.gameserver.configs.Config.QUEST_XP_RATE;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -197,11 +194,11 @@ public class Quest
 		{
 			if(rewards.getGold() != null)
 			{
-				inventory.increaseKinah(QUEST_KINAH_RATE * rewards.getGold());
+				inventory.increaseKinah(player.getRates().getQuestKinahRate() * rewards.getGold());
 			}
 			if(rewards.getExp() != null)
 			{
-				int rewardExp = (QUEST_XP_RATE * rewards.getExp());
+				int rewardExp = (player.getRates().getQuestXpRate() * rewards.getExp());
 				player.getCommonData().addExp(rewardExp);
 			}
 

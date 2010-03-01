@@ -16,7 +16,6 @@
  */
 package com.aionemu.gameserver.services;
 
-import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABYSS_RANK;
@@ -43,8 +42,8 @@ public class AbyssService
 	 */
 	public void doReward(Player victim, Player winner)
 	{
-		int pointsLost = Math.round(victim.getAbyssRank().getRank().getPointsLost() * Config.AP_RATE);
-		int pointsGained = Math.round(victim.getAbyssRank().getRank().getPointsGained() * Config.AP_RATE);
+		int pointsLost = Math.round(victim.getAbyssRank().getRank().getPointsLost() * victim.getRates().getApRate());
+		int pointsGained = Math.round(victim.getAbyssRank().getRank().getPointsGained() * winner.getRates().getApRate());
 		
 		victim.getAbyssRank().addAp(-pointsLost);
 		PacketSendUtility.broadcastPacket(victim, new SM_ABYSS_RANK_UPDATE(victim));

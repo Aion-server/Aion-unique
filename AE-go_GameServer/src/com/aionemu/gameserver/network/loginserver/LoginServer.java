@@ -221,7 +221,7 @@ public class LoginServer
 	 * @param result
 	 * @param accountTime 
 	 */
-	public void accountAuthenticationResponse(int accountId, String accountName, boolean result, AccountTime accountTime)
+	public void accountAuthenticationResponse(int accountId, String accountName, boolean result, AccountTime accountTime, byte accessLevel, byte membership)
 	{
 		AionConnection client = loginRequests.remove(accountId);
 
@@ -233,7 +233,7 @@ public class LoginServer
 			client.setState(AionConnection.State.AUTHED);
 			loggedInAccounts.put(accountId, client);
 			log.info("Account authed: " + accountId + " = " + accountName);
-			client.setAccount(accountService.getAccount(accountId, accountName, accountTime));
+			client.setAccount(accountService.getAccount(accountId, accountName, accountTime, accessLevel, membership));
 			client.sendPacket(new SM_L2AUTH_LOGIN_CHECK(true));
 		}
 		else

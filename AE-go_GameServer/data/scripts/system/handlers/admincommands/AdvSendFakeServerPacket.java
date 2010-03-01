@@ -90,7 +90,7 @@ public class AdvSendFakeServerPacket extends AdminCommand
 	@Override
 	public void executeCommand(final Player admin, String[] params)
 	{
-		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_ADVSENDFAKESERVERPACKET)
+		if(admin.getAccessLevel() < AdminConfig.COMMAND_ADVSENDFAKESERVERPACKET)
 		{
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;

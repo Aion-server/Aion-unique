@@ -19,7 +19,7 @@ package com.aionemu.gameserver.utils.stats;
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.utils.Rnd;
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.RateConfig;
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -57,7 +57,7 @@ public class StatFunctions
 
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
 
-		return (int) Math.floor(baseXP * xpPercentage * Config.XP_RATE / 100);
+		return (int) Math.floor(baseXP * xpPercentage * player.getRates().getXpRate() / 100);
 	}
 
 	public static long calculateGroupExperienceReward(Player player, Creature target)
@@ -70,7 +70,7 @@ public class StatFunctions
 
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
 
-		return (int) Math.floor(baseXP * xpPercentage * Config.GROUPXP_RATE / 100);
+		return (int) Math.floor(baseXP * xpPercentage * RateConfig.GROUPXP_RATE / 100);
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class StatFunctions
 		int baseDP = targetLevel * calculateRankMultipler(npcRank);
 
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
-		return (int) Math.floor(baseDP * xpPercentage * Config.XP_RATE / 100);
+		return (int) Math.floor(baseDP * xpPercentage * player.getRates().getXpRate() / 100);
 
 	}
 	
@@ -107,7 +107,7 @@ public class StatFunctions
 		int playerLevel = player.getCommonData().getLevel();
 		int targetLevel = target.getLevel();								
 		int percentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
-		return (int) Math.floor(10 * percentage * Config.AP_RATE / 100);
+		return (int) Math.floor(10 * percentage * player.getRates().getApRate() / 100);
 	}
 
 	public static int calculateGroupDPReward(Player player, Creature target)
@@ -121,7 +121,7 @@ public class StatFunctions
 
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
 
-		return (int) Math.floor(baseDP * xpPercentage * Config.GROUPXP_RATE / 100);
+		return (int) Math.floor(baseDP * xpPercentage * RateConfig.GROUPXP_RATE / 100);
 	}	
 
 	/**

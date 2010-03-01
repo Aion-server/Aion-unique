@@ -52,7 +52,7 @@ public class MovePlayerToPlayer extends AdminCommand
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
-		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_MOVEPLAYERTOPLAYER)
+		if(admin.getAccessLevel() < AdminConfig.COMMAND_MOVEPLAYERTOPLAYER)
 		{
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;

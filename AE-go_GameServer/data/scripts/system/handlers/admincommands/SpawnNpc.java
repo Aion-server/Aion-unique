@@ -52,7 +52,7 @@ public class SpawnNpc extends AdminCommand
 
     @Override
     public void executeCommand(Player admin, String[] params) {
-        if (admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_SPAWNNPC)
+        if (admin.getAccessLevel() < AdminConfig.COMMAND_SPAWNNPC)
         {
             PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
             return;

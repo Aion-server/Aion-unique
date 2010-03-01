@@ -63,7 +63,7 @@ public class SaveSpawnData extends AdminCommand
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
-		if(admin.getCommonData().getAdminRole() < AdminConfig.COMMAND_SAVESPAWNDATA)
+		if(admin.getAccessLevel() < AdminConfig.COMMAND_SAVESPAWNDATA)
 		{
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 			return;
