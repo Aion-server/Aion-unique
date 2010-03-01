@@ -11067,7 +11067,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="14" delta="1" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="14" delta="1" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="808" name="STR_SKILL_AS_CarveSignet_G2" nameId="567301" stack="SKILL_AS_CARVESIGNET" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="7" duration="0">
@@ -11081,7 +11081,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="25" delta="1" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="25" delta="1" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="809" name="STR_SKILL_AS_CarveSignet_G3" nameId="567389" stack="SKILL_AS_CARVESIGNET" lvl="3" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="7" duration="0">
@@ -11095,7 +11095,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="35" delta="1" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="35" delta="1" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="810" name="STR_SKILL_AS_CarveSignetChain_G1" nameId="568457" stack="SKILL_AS_CARVESIGNETCHAIN" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
@@ -11109,7 +11109,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="18" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="18" delta="0" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="811" name="STR_SKILL_AS_CarveSignetChain_G2" nameId="571623" stack="SKILL_AS_CARVESIGNETCHAIN" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
@@ -11123,7 +11123,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="26" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="26" delta="0" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="812" name="STR_SKILL_AS_CarveSignetChain_G3" nameId="571627" stack="SKILL_AS_CARVESIGNETCHAIN" lvl="3" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
@@ -11137,7 +11137,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="30" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="30" delta="0" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="813" name="STR_SKILL_AS_ClearFocus_G1" nameId="567341" stack="SKILL_AS_CLEARFOCUS" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="120" duration="0">
@@ -11495,7 +11495,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="166" delta="7" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="166" delta="7" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="833" name="STR_SKILL_AS_SignetBurst_G1" nameId="567297" stack="SKILL_AS_SIGNETBURST" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="18" duration="0">
@@ -11579,7 +11579,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <carvesignet value="346" delta="8" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="346" delta="8" e="1"/>
         </effects>
         <actions>
             <mpuse value="124" delta="0"/>
@@ -11708,7 +11708,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <carvesignet value="34" delta="1" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="34" delta="1" e="1"/>
         </effects>
         <actions>
             <mpuse value="31" delta="0"/>
@@ -11731,7 +11731,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <carvesignet value="55" delta="1" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="55" delta="1" e="1"/>
         </effects>
         <actions>
             <mpuse value="42" delta="0"/>
@@ -11754,7 +11754,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <carvesignet value="78" delta="1" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="78" delta="1" e="1"/>
         </effects>
         <actions>
             <mpuse value="49" delta="0"/>
@@ -11797,7 +11797,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <carvesignet value="66" delta="1" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="66" delta="1" e="1"/>
         </effects>
         <actions>
             <mpuse value="42" delta="0"/>
@@ -11820,7 +11820,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <carvesignet value="95" delta="1" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="95" delta="1" e="1"/>
         </effects>
         <actions>
             <mpuse value="49" delta="0"/>
@@ -11843,7 +11843,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <carvesignet value="101" delta="1" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="101" delta="1" e="1"/>
         </effects>
         <actions>
             <mpuse value="49" delta="0"/>
@@ -12055,7 +12055,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <carvesignet value="291" delta="9" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="291" delta="9" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="861" name="STR_SKILL_AS_DashAttack_G4" nameId="573589" stack="SKILL_AS_DASHATTACK" lvl="4" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="40" duration="0">
@@ -12136,7 +12136,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="278" delta="8" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="278" delta="8" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="866" name="STR_SKILL_AS_TigerHook_G2" nameId="575539" stack="SKILL_AS_TIGERHOOK" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
@@ -12153,7 +12153,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <carvesignet value="362" delta="16" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="362" delta="16" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="867" name="STR_SKILL_AS_CarveSignet_G4" nameId="573569" stack="SKILL_AS_CARVESIGNET" lvl="4" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="7" duration="0">
@@ -12167,7 +12167,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="45" delta="1" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="45" delta="1" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="868" name="STR_SKILL_AS_SignetBurst_G4" nameId="575543" stack="SKILL_AS_SIGNETBURST" lvl="4" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="18" duration="0">
@@ -12305,7 +12305,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="35" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="35" delta="0" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="875" name="STR_SKILL_AS_TigerFang_G4" nameId="575547" stack="SKILL_AS_TIGERFANG" lvl="4" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="10" duration="0">
@@ -12322,7 +12322,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <carvesignet value="287" delta="9" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="287" delta="9" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="876" name="STR_SKILL_AS_SpectralWalk_G1" nameId="573649" stack="SKILL_AS_SPECTRALWALK" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="60" duration="0">
@@ -12621,7 +12621,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="100" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="100" delta="0" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="893" name="STR_SKILL_AS_CarveWave_G2" nameId="576909" stack="SKILL_AS_CARVEWAVE" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="1" duration="0">
@@ -12632,7 +12632,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="100" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="100" delta="0" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="894" name="STR_SKILL_AS_CarveRay_G1" nameId="576913" stack="SKILL_AS_CARVERAY" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="1" duration="0">
@@ -12643,7 +12643,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="100" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="100" delta="0" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="895" name="STR_SKILL_AS_CarveRay_G2" nameId="576917" stack="SKILL_AS_CARVERAY" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="1" duration="0">
@@ -12654,7 +12654,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="100" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="5" value="100" delta="0" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="896" name="STR_SKILL_AS_AssassinsGift_G1" nameId="576921" stack="SKILL_AS_ASSASSINSGIFT" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
@@ -12964,7 +12964,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="32" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="32" delta="0" e="1"/>
         </effects>
         <actions>
             <mpuse value="38" delta="0"/>
@@ -12984,7 +12984,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="39" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="39" delta="0" e="1"/>
         </effects>
         <actions>
             <mpuse value="41" delta="0"/>
@@ -13110,7 +13110,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="40" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="40" delta="0" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="926" name="STR_SKILL_AS_AlertStance_G1" nameId="584389" stack="SKILL_AS_ALERTSTANCE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="600" duration="0">
@@ -13237,7 +13237,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="360" delta="12" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="360" delta="12" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="933" name="STR_SKILL_AS_DrainBurst_G2" nameId="584419" stack="SKILL_AS_DRAINBURST" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="60" duration="0">
@@ -13268,7 +13268,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="44" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="44" delta="0" e="1"/>
         </effects>
         <actions>
             <mpuse value="42" delta="0"/>
@@ -13297,7 +13297,7 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <carvesignet value="45" delta="0" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="3" value="45" delta="0" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="937" name="STR_SKILL_AS_InstantRecall_G1" nameId="584433" stack="SKILL_AS_INSTANTRECALL" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="1800" duration="1000">
@@ -29968,7 +29968,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="8303" name="STR_SYSTEM_SKILL_SIGNET1_1" nameId="568145" stack="SYSTEM_SKILL_SIGNET1_1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8303" name="STR_SYSTEM_SKILL_SIGNET1_1" nameId="568145" stack="SYSTEM_SKILL_SIGNET1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -29981,8 +29981,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="24000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8304" name="STR_SYSTEM_SKILL_SIGNET1_2" nameId="568149" stack="SYSTEM_SKILL_SIGNET1_2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8304" name="STR_SYSTEM_SKILL_SIGNET1_2" nameId="568149" stack="SYSTEM_SKILL_SIGNET1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -29995,8 +29998,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="24000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8305" name="STR_SYSTEM_SKILL_SIGNET1_3" nameId="568153" stack="SYSTEM_SKILL_SIGNET1_3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8305" name="STR_SYSTEM_SKILL_SIGNET1_3" nameId="568153" stack="SYSTEM_SKILL_SIGNET1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -30009,8 +30015,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="24000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8306" name="STR_SYSTEM_SKILL_SIGNET1_4" nameId="568157" stack="SYSTEM_SKILL_SIGNET1_4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8306" name="STR_SYSTEM_SKILL_SIGNET1_4" nameId="568157" stack="SYSTEM_SKILL_SIGNET1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -30023,8 +30032,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="24000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8307" name="STR_SYSTEM_SKILL_SIGNET1_5" nameId="568161" stack="SYSTEM_SKILL_SIGNET1_5" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8307" name="STR_SYSTEM_SKILL_SIGNET1_5" nameId="568161" stack="SYSTEM_SKILL_SIGNET1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -30037,6 +30049,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="24000" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8308" name="STR_SYSTEM_SKILL_Test_SignetBurst2Effect" nameId="568385" stack="SYSTEM_SKILL_TEST_SIGNETBURST2EFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
@@ -32085,7 +32100,7 @@
             <transform model="280271" duration="60000" effectid="175" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8454" name="STR_SYSTEM_SKILL_SIGNET2_1" nameId="580627" stack="SYSTEM_SKILL_SIGNET2_1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8454" name="STR_SYSTEM_SKILL_SIGNET2_1" nameId="580627" stack="SYSTEM_SKILL_SIGNET2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32098,8 +32113,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="60000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8455" name="STR_SYSTEM_SKILL_SIGNET2_2" nameId="580631" stack="SYSTEM_SKILL_SIGNET2_2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8455" name="STR_SYSTEM_SKILL_SIGNET2_2" nameId="580631" stack="SYSTEM_SKILL_SIGNET2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32112,8 +32130,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="60000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8456" name="STR_SYSTEM_SKILL_SIGNET2_3" nameId="580635" stack="SYSTEM_SKILL_SIGNET2_3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8456" name="STR_SYSTEM_SKILL_SIGNET2_3" nameId="580635" stack="SYSTEM_SKILL_SIGNET2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32126,8 +32147,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="60000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8457" name="STR_SYSTEM_SKILL_SIGNET2_4" nameId="580639" stack="SYSTEM_SKILL_SIGNET2_4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8457" name="STR_SYSTEM_SKILL_SIGNET2_4" nameId="580639" stack="SYSTEM_SKILL_SIGNET2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32140,8 +32164,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="60000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8458" name="STR_SYSTEM_SKILL_SIGNET2_5" nameId="580643" stack="SYSTEM_SKILL_SIGNET2_5" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8458" name="STR_SYSTEM_SKILL_SIGNET2_5" nameId="580643" stack="SYSTEM_SKILL_SIGNET2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32154,6 +32181,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="60000" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8459" name="STR_SKILL_FI_DivineRage_G1_Buff" nameId="581339" stack="SKILL_FI_DIVINERAGE_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -32953,7 +32983,7 @@
             <hot value="25" delta="0" checktime="1000" type="MP" duration="1000" effectid="185061" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8507" name="STR_SYSTEM_SKILL_SIGNET3_1" nameId="583579" stack="SYSTEM_SKILL_SIGNET3_1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8507" name="STR_SYSTEM_SKILL_SIGNET3_1" nameId="583579" stack="SYSTEM_SKILL_SIGNET3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32966,8 +32996,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="180000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8508" name="STR_SYSTEM_SKILL_SIGNET3_2" nameId="583583" stack="SYSTEM_SKILL_SIGNET3_2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8508" name="STR_SYSTEM_SKILL_SIGNET3_2" nameId="583583" stack="SYSTEM_SKILL_SIGNET3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32980,8 +33013,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="180000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8509" name="STR_SYSTEM_SKILL_SIGNET3_3" nameId="583587" stack="SYSTEM_SKILL_SIGNET3_3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8509" name="STR_SYSTEM_SKILL_SIGNET3_3" nameId="583587" stack="SYSTEM_SKILL_SIGNET3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32994,8 +33030,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="180000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8510" name="STR_SYSTEM_SKILL_SIGNET3_4" nameId="583591" stack="SYSTEM_SKILL_SIGNET3_4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8510" name="STR_SYSTEM_SKILL_SIGNET3_4" nameId="583591" stack="SYSTEM_SKILL_SIGNET3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -33008,8 +33047,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="180000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8511" name="STR_SYSTEM_SKILL_SIGNET3_5" nameId="583595" stack="SYSTEM_SKILL_SIGNET3_5" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8511" name="STR_SYSTEM_SKILL_SIGNET3_5" nameId="583595" stack="SYSTEM_SKILL_SIGNET3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -33022,6 +33064,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="180000" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8512" name="STR_SKILL_FI_AbysalRage_G4_Buff" nameId="584145" stack="SKILL_FI_ABYSALRAGE_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -34415,7 +34460,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="8624" name="STR_SYSTEM_SKILL_SIGNET4_1" nameId="588371" stack="SYSTEM_SKILL_SIGNET4_1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8624" name="STR_SYSTEM_SKILL_SIGNET4_1" nameId="588371" stack="SYSTEM_SKILL_SIGNET4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -34428,8 +34473,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="60000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8625" name="STR_SYSTEM_SKILL_SIGNET4_2" nameId="588375" stack="SYSTEM_SKILL_SIGNET4_2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8625" name="STR_SYSTEM_SKILL_SIGNET4_2" nameId="588375" stack="SYSTEM_SKILL_SIGNET4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -34442,8 +34490,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="60000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8626" name="STR_SYSTEM_SKILL_SIGNET4_3" nameId="588379" stack="SYSTEM_SKILL_SIGNET4_3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8626" name="STR_SYSTEM_SKILL_SIGNET4_3" nameId="588379" stack="SYSTEM_SKILL_SIGNET4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -34456,8 +34507,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="60000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8627" name="STR_SYSTEM_SKILL_SIGNET4_4" nameId="588383" stack="SYSTEM_SKILL_SIGNET4_4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8627" name="STR_SYSTEM_SKILL_SIGNET4_4" nameId="588383" stack="SYSTEM_SKILL_SIGNET4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -34470,8 +34524,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="60000" e="1"/>
+        </effects>
     </skill_template>
-    <skill_template skill_id="8628" name="STR_SYSTEM_SKILL_SIGNET4_5" nameId="588387" stack="SYSTEM_SKILL_SIGNET4_5" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8628" name="STR_SYSTEM_SKILL_SIGNET4_5" nameId="588387" stack="SYSTEM_SKILL_SIGNET4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -34484,6 +34541,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signet duration="60000" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8629" name="STR_ITEM_SKILL_FOOD_PHYATTACK_G1" nameId="588431" stack="ITEM_SKILL_FOOD_PHYATTACK" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -43193,7 +43253,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <carvesignet value="9" delta="1" e="1"/>
+            <carvesignet signet="SYSTEM_SKILL_SIGNET1" signetid="8303" signetlvl="4" value="9" delta="1" e="1"/>
         </effects>
         <actions>
             <mpuse value="37" delta="0"/>

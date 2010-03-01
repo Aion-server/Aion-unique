@@ -99,7 +99,7 @@ public class EffectController
 	 * @param effect
 	 * @return
 	 */
-	public Map<String, Effect> getMapForEffect(Effect effect)
+	private Map<String, Effect> getMapForEffect(Effect effect)
 	{
 		if(effect.isPassive())
 			return passiveEffectMap;
@@ -108,6 +108,16 @@ public class EffectController
 			return noshowEffects;
 		
 		return abnormalEffectMap;
+	}
+	
+	/**
+	 * 
+	 * @param stack
+	 * @return
+	 */
+	public Effect getAnormalEffect(String stack)
+	{
+		return abnormalEffectMap.get(stack);
 	}
 
 	/**
