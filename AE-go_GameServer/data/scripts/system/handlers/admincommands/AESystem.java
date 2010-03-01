@@ -52,7 +52,7 @@ public class AESystem extends AdminCommand
 
 		if(params == null || params.length < 1)
 		{
-			PacketSendUtility.sendMessage(admin, "Usage: //system info | //system memory | //system gc");
+			PacketSendUtility.sendMessage(admin, "Usage: //sys info | //sys memory | //sys gc | //sys restart <countdown time> <announce delay> | //sys shutdown <countdown time> <announce delay>");
 			return;
 		}
 
@@ -102,7 +102,7 @@ public class AESystem extends AdminCommand
 				int val = Integer.parseInt(params[1]);
 				int announceInterval = Integer.parseInt(params[2]);
 				ShutdownHook.doShutdown(val, announceInterval, ShutdownMode.SHUTDOWN);
-				PacketSendUtility.sendMessage(admin, "Server will be shutdown in " + val + " seconds.");
+				PacketSendUtility.sendMessage(admin, "Server will shutdown in " + val + " seconds.");
 			}
 			catch(ArrayIndexOutOfBoundsException e)
 			{
@@ -120,7 +120,7 @@ public class AESystem extends AdminCommand
 				int val = Integer.parseInt(params[1]);
 				int announceInterval = Integer.parseInt(params[2]);
 				ShutdownHook.doShutdown(val, announceInterval, ShutdownMode.RESTART);
-				PacketSendUtility.sendMessage(admin, "Server will be restart in " + val + " seconds.");
+				PacketSendUtility.sendMessage(admin, "Server will restart in " + val + " seconds.");
 			}
 			catch(ArrayIndexOutOfBoundsException e)
 			{
