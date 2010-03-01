@@ -62,6 +62,7 @@ public class MySQL5AccountDAO extends AccountDAO
 				account.setName(name);
 				account.setPasswordHash(rs.getString("password"));
 				account.setAccessLevel(rs.getByte("access_level"));
+				account.setMembership(rs.getByte("membership"));
 				account.setActivated(rs.getByte("activated"));
 				account.setLastServer(rs.getByte("last_server"));
 				account.setLastIp(rs.getString("last_ip"));
@@ -146,17 +147,18 @@ public class MySQL5AccountDAO extends AccountDAO
 	{
 		int					result = 0;
 		PreparedStatement	st     =
-			DB.prepareStatement("INSERT INTO account_data(`name`, `password`, access_level, activated, last_server, last_ip, ip_force) VALUES (?, ?, ?, ?, ?, ?, ?)");
+			DB.prepareStatement("INSERT INTO account_data(`name`, `password`, access_level, membership, activated, last_server, last_ip, ip_force) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
 		try
 		{
 			st.setString(1, account.getName());
 			st.setString(2, account.getPasswordHash());
 			st.setByte(3, account.getAccessLevel());
-			st.setByte(4, account.getActivated());
-			st.setByte(5, account.getLastServer());
-			st.setString(6, account.getLastIp());
-			st.setString(7, account.getIpForce());
+			st.setByte(4, account.getMembership());
+			st.setByte(5, account.getActivated());
+			st.setByte(6, account.getLastServer());
+			st.setString(7, account.getLastIp());
+			st.setString(8, account.getIpForce());
 
 			result = st.executeUpdate();
 		}
@@ -185,17 +187,18 @@ public class MySQL5AccountDAO extends AccountDAO
 	{
 		int					result = 0;
 		PreparedStatement	st     =
-			DB.prepareStatement("UPDATE account_data SET `name` = ?, `password` = ?, access_level = ?, last_server = ?, last_ip = ?, ip_force = ? WHERE `id` = ?");
+			DB.prepareStatement("UPDATE account_data SET `name` = ?, `password` = ?, access_level = ?, membership = ?, last_server = ?, last_ip = ?, ip_force = ? WHERE `id` = ?");
 
 		try
 		{
 			st.setString(1, account.getName());
 			st.setString(2, account.getPasswordHash());
 			st.setByte(3, account.getAccessLevel());
-			st.setByte(4, account.getLastServer());
-			st.setString(5, account.getLastIp());
-			st.setString(6, account.getIpForce());
-			st.setInt(7, account.getId());
+			st.setByte(4, account.getMembership());
+			st.setByte(5, account.getLastServer());
+			st.setString(6, account.getLastIp());
+			st.setString(7, account.getIpForce());
+			st.setInt(8, account.getId());
 			st.executeUpdate();
 		}
 		catch (SQLException e)

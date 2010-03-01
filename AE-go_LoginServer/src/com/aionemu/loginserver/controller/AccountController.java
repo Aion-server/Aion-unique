@@ -102,12 +102,13 @@ public class AccountController
 				/**
 				 * Send response to GameServer
 				 */
-				gsConnection.sendPacket(new SM_ACCOUNT_AUTH_RESPONSE(key.accountId, true, acc.getName()));
+				gsConnection.sendPacket(new SM_ACCOUNT_AUTH_RESPONSE(key.accountId, true, acc.getName(), acc
+					.getAccessLevel(), acc.getMembership()));
 			}
 		}
 		else
 		{
-			gsConnection.sendPacket(new SM_ACCOUNT_AUTH_RESPONSE(key.accountId, false, null));
+			gsConnection.sendPacket(new SM_ACCOUNT_AUTH_RESPONSE(key.accountId, false, null, (byte)0, (byte) 0));
 		}
 	}
 
@@ -288,6 +289,7 @@ public class AccountController
 		account.setName(name);
 		account.setPasswordHash(passwordHash);
 		account.setAccessLevel((byte) 0);
+		account.setMembership((byte) 0);
 		account.setActivated((byte) 1);
 
 		if(getAccountDAO().insertAccount(account))

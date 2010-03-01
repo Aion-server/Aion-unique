@@ -46,6 +46,16 @@ public class SM_ACCOUNT_AUTH_RESPONSE extends GsServerPacket
 	 * account name
 	 */
 	private final String	accountName;
+	
+	/**
+	 * Access level
+	 */
+	private final byte		accessLevel;
+	
+	/**
+	 * Membership
+	 */
+	private final byte		membership;
 
 	/**
 	 * Constructor.
@@ -54,13 +64,15 @@ public class SM_ACCOUNT_AUTH_RESPONSE extends GsServerPacket
 	 * @param ok
 	 * @param accountName
 	 */
-	public SM_ACCOUNT_AUTH_RESPONSE(int accountId, boolean ok, String accountName)
+	public SM_ACCOUNT_AUTH_RESPONSE(int accountId, boolean ok, String accountName, byte accessLevel, byte membership)
 	{
 		super(0x01);
 
 		this.accountId   = accountId;
 		this.ok          = ok;
 		this.accountName = accountName;
+		this.accessLevel = accessLevel;
+		this.membership  = membership;
 	}
 
 	/**
@@ -81,6 +93,8 @@ public class SM_ACCOUNT_AUTH_RESPONSE extends GsServerPacket
 
 			writeQ(buf, accountTime.getAccumulatedOnlineTime());
 			writeQ(buf, accountTime.getAccumulatedRestTime());
+			writeC(buf, accessLevel);
+			writeC(buf, membership);
 		}
 	}
 }        

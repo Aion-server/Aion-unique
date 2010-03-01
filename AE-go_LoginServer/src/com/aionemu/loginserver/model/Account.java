@@ -43,6 +43,11 @@ public class Account
 	 * Access level of account 0 = regular user, > 0 = GM
 	 */
 	private byte		accessLevel;
+	
+	/**
+	 * Membership of this account (regular, premium etc)
+	 */
+	private byte		membership;
 
 	/**
 	 * Account activated
@@ -151,6 +156,22 @@ public class Account
 	public void setAccessLevel(byte accessLevel)
 	{
 		this.accessLevel = accessLevel;
+	}
+
+	/**
+	 * @return the membership
+	 */
+	public byte getMembership()
+	{
+		return membership;
+	}
+
+	/**
+	 * @param membership the membership to set
+	 */
+	public void setMembership(byte membership)
+	{
+		this.membership = membership;
 	}
 
 	/**
