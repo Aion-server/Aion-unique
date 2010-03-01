@@ -77,14 +77,14 @@ public class CreatureGameStats<T extends Creature>
 		initStat(StatEnum.ATTACK_SPEED, attackSpeed);
 		initStat(StatEnum.ATTACK_RANGE, attackRange);
 		initStat(StatEnum.PHYSICAL_DEFENSE, 0);
-		initStat(StatEnum.PARRY, Math.round(10 + ((agility - 80) / 5) * 16) + (12 * (int)owner.getLevel()));
-		initStat(StatEnum.EVASION, Math.round(10 + ((agility - 80) / 5) * 16) + (12 * (int)owner.getLevel()));
-		initStat(StatEnum.BLOCK, Math.round(10 + ((agility - 80) / 5) * 16) + (12 * (int)owner.getLevel()));
+		initStat(StatEnum.PARRY, Math.round(agility * 3.1f - 248.5f + 12.4f * (int)owner.getLevel()));
+		initStat(StatEnum.EVASION, Math.round(agility * 3.1f - 248.5f + 12.4f * (int)owner.getLevel()));
+		initStat(StatEnum.BLOCK, Math.round(agility * 3.1f - 248.5f + 12.4f * (int)owner.getLevel()));
 		initStat(StatEnum.DAMAGE_REDUCE, 0);
-		initStat(StatEnum.MAIN_HAND_ACCURACY, Math.round((190 * (accuracy / 100) + 8 * (int)owner.getLevel())));
-		initStat(StatEnum.OFF_HAND_ACCURACY, 0);
+		initStat(StatEnum.MAIN_HAND_ACCURACY, Math.round((accuracy * 2 - 10) + 8 * (int)owner.getLevel()));
+		initStat(StatEnum.OFF_HAND_ACCURACY, Math.round((accuracy * 2 - 10) + 8 * (int)owner.getLevel()));
 		initStat(StatEnum.MAGICAL_RESIST, Math.round(knowledge / 3.1f));
-		initStat(StatEnum.MAGICAL_ACCURACY, Math.round(will * 0.75f));
+		initStat(StatEnum.MAGICAL_ACCURACY, Math.round(14.26f * (int)owner.getLevel()));
 		initStat(StatEnum.SPEED, runSpeed);
 		initStat(StatEnum.FLY_SPEED, flySpeed);
 	}
@@ -316,8 +316,13 @@ public class CreatureGameStats<T extends Creature>
 						if(((Player) owner).getEquipment().getOffHandWeaponType() != null)
 							slots = ItemSlot.MAIN_OR_SUB.getSlotIdMask();
 						else
+						{
 							slots = ItemSlot.MAIN_HAND.getSlotIdMask();
+							setStat(StatEnum.OFF_HAND_ACCURACY, 0, false);
+						}
 					}
+					else if(slots == ItemSlot.MAIN_HAND.getSlotIdMask())
+						setStat(StatEnum.MAIN_HAND_POWER, 0);
 				}
 
 				List<ItemSlot> oSlots = ItemSlot.getSlotsFor(slots);
