@@ -118,10 +118,12 @@ public class SkillListEntry
 			case DELETED:
 				if(this.persistentState == PersistentState.NEW)
 					this.persistentState = PersistentState.NOACTION;
+				else
+					this.persistentState = PersistentState.DELETED;
+				break;
 			case UPDATE_REQUIRED:
-				if(this.persistentState == PersistentState.NEW)
-					break;
-			case NOACTION:
+				if(this.persistentState != PersistentState.NEW)
+					this.persistentState = PersistentState.UPDATE_REQUIRED;
 				break;
 			default:
 				this.persistentState = persistentState;
