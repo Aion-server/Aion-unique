@@ -237,7 +237,9 @@
 
 	<!-- TODO: 1430 ATeleportationExperiment -->
 
-	<!-- TODO: 1434 MedicinalRoots -->
+	<!--  MedicinalRoots -->
+
+	<item_collecting start_npc_id="203936" id="1434" />
 
 	<!-- TODO: 1031 TheManduri'sSecret -->
 
@@ -261,15 +263,29 @@
 
 	<!-- TODO: 1032 ARuler'sDuty -->
 
-	<!-- TODO: 1318 KerubianHorns -->
+
+	<!-- Kerubian Horns -->
+	
+	<item_collecting start_npc_id="730020" id="1318" />
 
 	<!-- TODO: 1322 ALeafFromLodas -->
 
 	<!-- TODO: 1323 LostJewelBox -->
 
-	<!-- TODO: 1320 KurinHunt -->
+	
+	<!-- Kurin Hunt -->
 
-	<!-- TODO: 1321 TheElimTragedy -->
+	<monster_hunt start_npc_id="730019" id="1320">
+		<monster_infos var_id="0" npc_id="210776" max_kill="12"/>
+	</monster_hunt>
+
+	
+	<!-- The Elim Tragedy -->
+
+	<monster_hunt start_npc_id="730019" id="1321">
+		<monster_infos var_id="0" npc_id="210793" max_kill="13"/>
+	</monster_hunt>
+
 
 	<!-- TODO: 1324 ConfidentialOrders -->
 
