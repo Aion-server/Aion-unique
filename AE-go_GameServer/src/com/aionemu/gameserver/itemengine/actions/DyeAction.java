@@ -45,7 +45,9 @@ public class DyeAction extends AbstractItemAction
 	{
 		if (targetItem.getItemTemplate().isItemDyePermitted())
 		{
-			targetItem.setItemColor(Integer.parseInt(color, 16));
+			int rgb = Integer.parseInt(color, 16);
+			int bgra = 0xFF | ((rgb & 0xFF) << 24) | ((rgb & 0xFF00) << 8) | ((rgb & 0xFF0000) >>> 8);
+			targetItem.setItemColor(bgra);
 			PacketSendUtility.sendPacket(player, new SM_UPDATE_PLAYER_APPEARANCE(player.getObjectId(), player.getEquipment().getEquippedItems()));
 			player.getInventory().removeFromBagByObjectId(parentItem.getObjectId(), 1);
 		}
