@@ -308,12 +308,11 @@ public class StatFunctions
 		log.debug("| Speller : "+sgs);
 		log.debug("| Target  : "+tgs);
 
-		// not yet used for now
-		//int magicalResistance = tgs.getCurrentStat(StatEnum.MAGICAL_RESIST);
-
+		int damages = baseDamages * ((sgs.getCurrentStat(StatEnum.KNOWLEDGE) / 100) + (sgs.getCurrentStat(StatEnum.BOOST_MAGICAL_SKILL) / 1000));
+		
 		//adjusting baseDamages according to attacker and target level
 		//
-		baseDamages = adjustDamages(speller, target, baseDamages);
+		damages = adjustDamages(speller, target, baseDamages);
 
 		// element resist: fire, wind, water, eath
 		//
@@ -322,20 +321,6 @@ public class StatFunctions
 		int elementaryDefenseBase = tgs.getMagicalDefenseFor(element);
 		int elementaryDefense = Math.round( (elementaryDefenseBase / 1000f) * baseDamages);
 		baseDamages -= elementaryDefense;
-
-		// then, add magical attack bonus..
-
-		// TODO: fix this to the correct Magical Attack formula
-		int magicAttBase = sgs.getCurrentStat(StatEnum.MAGICAL_ATTACK);
-		baseDamages += magicAttBase;
-
-		// magicBoost formula
-		// i think after researching in several forums, this is correct formula for magicBoost
-		//
-		int magicBoostBase = sgs.getCurrentStat(StatEnum.BOOST_MAGICAL_SKILL);
-		int magicBoost = Math.round(baseDamages * ((magicBoostBase / 12f) / 100f));
-
-		int damages = baseDamages + magicBoost;
 
 		// IMPORTANT NOTES
 		//

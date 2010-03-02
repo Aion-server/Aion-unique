@@ -83,7 +83,11 @@ public class CreatureGameStats<T extends Creature>
 		initStat(StatEnum.DAMAGE_REDUCE, 0);
 		initStat(StatEnum.MAIN_HAND_ACCURACY, Math.round((accuracy * 2 - 10) + 8 * (int)owner.getLevel()));
 		initStat(StatEnum.OFF_HAND_ACCURACY, Math.round((accuracy * 2 - 10) + 8 * (int)owner.getLevel()));
-		initStat(StatEnum.MAGICAL_RESIST, Math.round(knowledge / 3.1f));
+		initStat(StatEnum.MAGICAL_RESIST, 0);
+		initStat(StatEnum.WIND_RESISTANCE, 0);
+		initStat(StatEnum.FIRE_RESISTANCE, 0);
+		initStat(StatEnum.WATER_RESISTANCE, 0);
+		initStat(StatEnum.EARTH_RESISTANCE, 0);
 		initStat(StatEnum.MAGICAL_ACCURACY, Math.round(14.26f * (int)owner.getLevel()));
 		initStat(StatEnum.SPEED, runSpeed);
 		initStat(StatEnum.FLY_SPEED, flySpeed);
