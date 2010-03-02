@@ -308,19 +308,17 @@ public class StatFunctions
 		log.debug("| Speller : "+sgs);
 		log.debug("| Target  : "+tgs);
 
-		int damages = baseDamages * ((sgs.getCurrentStat(StatEnum.KNOWLEDGE) / 100) + (sgs.getCurrentStat(StatEnum.BOOST_MAGICAL_SKILL) / 1000));
+		int damages = Math.round(baseDamages * ((sgs.getCurrentStat(StatEnum.KNOWLEDGE) / 100) + (sgs.getCurrentStat(StatEnum.BOOST_MAGICAL_SKILL) / 1000)));
 		
 		//adjusting baseDamages according to attacker and target level
 		//
-		damages = adjustDamages(speller, target, baseDamages);
+		damages = adjustDamages(speller, target, damages);
 
 		// element resist: fire, wind, water, eath
 		//
 		// 10 elemental resist ~ 1% reduce of magical baseDamages
 		//
-		int elementaryDefenseBase = tgs.getMagicalDefenseFor(element);
-		int elementaryDefense = Math.round( (elementaryDefenseBase / 1000f) * baseDamages);
-		baseDamages -= elementaryDefense;
+		damages = damages * (1 - tgs.getMagicalDefenseFor(element) / 1000);
 
 		// IMPORTANT NOTES
 		//

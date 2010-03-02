@@ -89,6 +89,7 @@ public class CreatureGameStats<T extends Creature>
 		initStat(StatEnum.WATER_RESISTANCE, 0);
 		initStat(StatEnum.EARTH_RESISTANCE, 0);
 		initStat(StatEnum.MAGICAL_ACCURACY, Math.round(14.26f * (int)owner.getLevel()));
+		initStat(StatEnum.BOOST_MAGICAL_SKILL, 0);
 		initStat(StatEnum.SPEED, runSpeed);
 		initStat(StatEnum.FLY_SPEED, flySpeed);
 	}
