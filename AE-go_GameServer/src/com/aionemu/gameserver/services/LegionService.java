@@ -89,6 +89,10 @@ public class LegionService
 	@SuppressWarnings("unused")
 	private static final int						GATEGUARDIAN		= 6;
 
+	/** Static Emblem information **/
+	private static final int						MIN_EMBLEM_ID		= 0;
+	private static final int						MAX_EMBLEM_ID		= 10;
+
 	/**
 	 * Legion ranking system
 	 */
@@ -1102,11 +1106,34 @@ public class LegionService
 	 * @param emblemId
 	 * @param color
 	 */
-	public void storeLegionEmblem(Legion legion, int emblemId, int color_r, int color_g, int color_b)
+	public void storeLegionEmblem(Player activePlayer, int legionId, int emblemId, int color_r, int color_g, int color_b)
 	{
-		final LegionEmblem legionEmblem = legion.getLegionEmblem();
-		legionEmblem.setEmblem(emblemId, color_r, color_g, color_b);
-		updateMembersEmblem(legion);
+		final Legion legion = activePlayer.getLegion();
+
+		if(emblemId < MIN_EMBLEM_ID || emblemId > MAX_EMBLEM_ID)
+		{
+			// Not a valid emblemId
+		}
+		else if(legionId != legion.getLegionId())
+		{
+			// legion id not equal
+		}
+		else if(legion.getLegionLevel() < 2)
+		{
+			// legion level not high enough
+		}
+		else if(activePlayer.getInventory().getKinahItem().getItemCount() < LegionConfig.LEGION_EMBLEM_REQUIRED_KINAH)
+		{
+			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE
+				.NOT_ENOUGH_KINAH(LegionConfig.LEGION_EMBLEM_REQUIRED_KINAH));
+		}
+		else
+		{
+			activePlayer.getInventory().decreaseKinah(LegionConfig.LEGION_EMBLEM_REQUIRED_KINAH);
+			legion.getLegionEmblem().setEmblem(emblemId, color_r, color_g, color_b);
+			updateMembersEmblem(legion);
+			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_CHANGED_EMBLEM());
+		}
 	}
 
 	/**
@@ -1329,5 +1356,64 @@ public class LegionService
 		legion.addContributionPoints(pointsGained);
 		PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_EDIT(0x03, legion), world);
 		reloadLegionRanking();
+	}
+
+	/**
+	 * @param totalSize
+	 */
+	public void uploadEmblemInfo(Player activePlayer, int totalSize)
+	{
+		// TODO: System Messages
+		if(!activePlayer.getLegionMember().isBrigadeGeneral())
+		{
+			// Not legion leader
+		}
+		else if(activePlayer.getLegion().getLegionLevel() < 3)
+		{
+			// Legion level isn't high enough
+		}
+		else if(activePlayer.getLegion().getLegionEmblem().isUploading())
+		{
+			// Already uploading emblem, reset uploading
+			activePlayer.getLegion().getLegionEmblem().setUploading(false);
+		}
+		else
+		{
+			final LegionEmblem legionEmblem = activePlayer.getLegion().getLegionEmblem();
+			legionEmblem.setUploadSize(totalSize);
+			legionEmblem.setUploading(true);
+		}
+	}
+
+	/**
+	 * @param size
+	 * @param data
+	 */
+	public void uploadEmblemData(Player activePlayer, int size, byte[] data)
+	{
+		if(!activePlayer.getLegionMember().isBrigadeGeneral())
+		{
+			// Not legion leader
+		}
+		else if(activePlayer.getLegion().getLegionLevel() < 3)
+		{
+			// Legion level isn't high enough
+		}
+		else if(!activePlayer.getLegion().getLegionEmblem().isUploading())
+		{
+			// Not uploading emblem
+		}
+		else
+		{
+			final LegionEmblem legionEmblem = activePlayer.getLegion().getLegionEmblem();
+			legionEmblem.addUploadedSize(size);
+			legionEmblem.addUploadData(data);
+
+			if(legionEmblem.getUploadSize() == legionEmblem.getUploadedSize())
+			{
+				// Finished
+				legionEmblem.resetUploadSettings();
+			}
+		}
 	}
 }

@@ -16,11 +16,8 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.configs.LegionConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.LegionService;
 import com.google.inject.Inject;
 
@@ -32,18 +29,14 @@ public class CM_LEGION_MODIFY_EMBLEM extends AionClientPacket
 {
 	/** Legion based information **/
 	@Inject
-	private LegionService		legionService;
-
-	/** Static Emblem information **/
-	private static final int	MIN_EMBLEM_ID	= 0;
-	private static final int	MAX_EMBLEM_ID	= 10;
+	private LegionService	legionService;
 
 	/** Emblem related information **/
-	private int					legionId;
-	private int					emblemId;
-	private int					red;
-	private int					green;
-	private int					blue;
+	private int				legionId;
+	private int				emblemId;
+	private int				red;
+	private int				green;
+	private int				blue;
 
 	/**
 	 * @param opcode
@@ -67,27 +60,9 @@ public class CM_LEGION_MODIFY_EMBLEM extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		if(emblemId >= MIN_EMBLEM_ID && emblemId <= MAX_EMBLEM_ID)
-		{
-			Player activePlayer = getConnection().getActivePlayer();
-			if(activePlayer.isLegionMember())
-			{
-				Legion legion = activePlayer.getLegion();
+		Player activePlayer = getConnection().getActivePlayer();
 
-				if(legion.isMember(activePlayer.getObjectId()) && legionId == legion.getLegionId())
-				{
-					if(activePlayer.getInventory().getKinahItem().getItemCount() >= LegionConfig.LEGION_EMBLEM_REQUIRED_KINAH)
-					{
-						activePlayer.getInventory().decreaseKinah(LegionConfig.LEGION_EMBLEM_REQUIRED_KINAH);
-						legionService.storeLegionEmblem(legion, emblemId, red, green, blue);
-						sendPacket(SM_SYSTEM_MESSAGE.LEGION_CHANGED_EMBLEM());
-					}
-					else
-					{						
-						sendPacket(SM_SYSTEM_MESSAGE.NOT_ENOUGH_KINAH(LegionConfig.LEGION_EMBLEM_REQUIRED_KINAH));
-					}
-				}
-			}
-		}
+		if(activePlayer.isLegionMember())
+			legionService.storeLegionEmblem(activePlayer, legionId, emblemId, red, green, blue);
 	}
 }
