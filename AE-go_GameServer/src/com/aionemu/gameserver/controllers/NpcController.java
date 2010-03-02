@@ -19,6 +19,8 @@ package com.aionemu.gameserver.controllers;
 import java.util.List;
 import java.util.concurrent.Future;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.ai.state.AIState;
@@ -59,6 +61,8 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class NpcController extends CreatureController<Npc>
 {
+	private static final Logger log = Logger.getLogger(NpcController.class);
+	
 	protected Future<?>		decayTask;
 	
 	@Override
@@ -368,10 +372,18 @@ public class NpcController extends CreatureController<Npc>
 		if (creature instanceof Player)
 			if (QuestEngine.getInstance().onAttack(new QuestEnv(npc, (Player)creature, 0 , 0)))
 				return;
+		
+		NpcAi ai = npc.getAi();
+		if(ai == null)
+		{
+			log.warn("CHECKPOINT: npc attacked without ai " + npc.getObjectTemplate().getTemplateId());
+			return;
+		}
+		
 		npc.getAggroList().addDamageHate(creature, damage, 0);
 		npc.getLifeStats().reduceHp(damage);
 
-		NpcAi ai = npc.getAi();
+		
 		ai.handleEvent(Event.ATTACKED);
 		PacketSendUtility.broadcastPacket(npc, new SM_ATTACK_STATUS(npc, type, skillId, damage));
 	}

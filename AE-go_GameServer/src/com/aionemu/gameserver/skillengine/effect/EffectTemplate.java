@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.skillengine.change.Change;
 import com.aionemu.gameserver.skillengine.effect.modifier.ActionModifier;
 import com.aionemu.gameserver.skillengine.effect.modifier.ActionModifiers;
@@ -46,6 +47,8 @@ public abstract class EffectTemplate
 	protected int position;
 	@XmlAttribute(name = "basiclvl")
 	protected int basicLvl;
+	@XmlAttribute(name = "element")
+	protected SkillElement element = SkillElement.NONE;
 	
 	/**
 	 * @return the duration
@@ -97,6 +100,13 @@ public abstract class EffectTemplate
 		return basicLvl;
 	}
 
+	/**
+	 * @return the element
+	 */
+	public SkillElement getElement()
+	{
+		return element;
+	}
 
 	/**
 	 * @param value

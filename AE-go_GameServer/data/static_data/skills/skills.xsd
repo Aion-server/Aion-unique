@@ -230,6 +230,7 @@
 			<xs:element name="change" type="Change" minOccurs="0"
 				maxOccurs="unbounded" />
 		</xs:sequence>
+		<xs:attribute name="element" type="SkillElement" />
 		<xs:attribute name="basiclvl" type="xs:int" />
 		<xs:attribute name="e" type="xs:int" />
 		<xs:attribute name="effectid" type="xs:int" />
@@ -1015,6 +1016,15 @@
 			<xs:enumeration value="ELYOS" />
 			<xs:enumeration value="ASMODIANS" />
 			<!-- TODO other races -->
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="SkillElement">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FIRE" />
+			<xs:enumeration value="WIND" />
+			<xs:enumeration value="WATER" />
+			<xs:enumeration value="EARTH" />
 		</xs:restriction>
 	</xs:simpleType>
 	
