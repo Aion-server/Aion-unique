@@ -177,13 +177,16 @@ public class GroupService
 	 */
 	public void removePlayerFromGroup(Player player)
 	{
-		final PlayerGroup group = player.getPlayerGroup();
+		if(player.isInGroup())
+		{
+			final PlayerGroup group = player.getPlayerGroup();
 
-		group.removePlayerFromGroup(player);
-		removeGroupMemberFromCache(player.getObjectId());
+			group.removePlayerFromGroup(player);
+			removeGroupMemberFromCache(player.getObjectId());
 
-		if(group.size() < 2)
-			disbandGroup(group);
+			if(group.size() < 2)
+				disbandGroup(group);
+		}
 	}
 
 	/**
@@ -199,6 +202,7 @@ public class GroupService
 
 	/**
 	 * @param status
+	 * @param playerObjId
 	 * @param player
 	 */
 	public void playerStatusInfo(int status, Player player)
@@ -260,7 +264,7 @@ public class GroupService
 	{
 		for(Player member : playerGroup.getMembers())
 		{
-			if(MathUtil.isInRange(member, owner, Config.GROUP_MIN_DISTANCE) && member.isOnline())
+			if(MathUtil.isInRange(member, owner, Config.GROUP_MIN_DISTANCE))
 			{
 				long currentExp = member.getCommonData().getExp();
 
@@ -322,9 +326,10 @@ public class GroupService
 	 * @param playerGroupCache
 	 *            the playerGroupCache to set
 	 */
-	public void addPlayerGroupCache(CacheMap<Integer, ScheduledFuture<?>> playerGroupCache)
+	public void addPlayerGroupCache(int playerObjId, ScheduledFuture<?> future)
 	{
-		this.playerGroupCache = playerGroupCache;
+		if(!playerGroupCache.contains(playerObjId))
+			playerGroupCache.put(playerObjId, future);
 	}
 
 	/**
@@ -334,8 +339,11 @@ public class GroupService
 	 */
 	public void cancelScheduleRemove(int playerObjId)
 	{
-		playerGroupCache.get(playerObjId).cancel(true);
-		playerGroupCache.remove(playerObjId);
+		if(playerGroupCache.contains(playerObjId))
+		{
+			playerGroupCache.get(playerObjId).cancel(true);
+			playerGroupCache.remove(playerObjId);
+		}
 	}
 
 	/**
@@ -353,7 +361,7 @@ public class GroupService
 				playerGroupCache.remove(player.getObjectId());
 			}
 		}, Config.GROUP_REMOVE_TIME * 1000);
-		playerGroupCache.put(player.getObjectId(), future);
+		addPlayerGroupCache(player.getObjectId(), future);
 		player.getPlayerGroup().getMembers().remove(player.getObjectId());
 	}
 
