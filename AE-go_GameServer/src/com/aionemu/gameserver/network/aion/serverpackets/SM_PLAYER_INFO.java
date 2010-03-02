@@ -90,8 +90,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeC(buf, raceId); // race
 		writeC(buf, pcd.getPlayerClass().getClassId());
 		writeC(buf, genderId); // sex
-		writeC(buf, player.getState());
-		writeC(buf, 0x00); // unk 0 or 1
+		writeH(buf, player.getState());
 
 		byte[] unk = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
 			(byte) 0x00, (byte) 0x00 };
@@ -221,13 +220,14 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeC(buf, 0);
 
 		writeS(buf, player.hasStore() ? player.getStore().getStoreMessage() : "");// private store message
-		unk = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00,
-			(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };
-		writeB(buf, unk);
 
 		/**
 		 * Movement
 		 */
+		writeF(buf, 0);
+		writeF(buf, 0);
+		writeF(buf, 0);
+
 		writeF(buf, player.getX());// x
 		writeF(buf, player.getY());// y
 		writeF(buf, player.getZ());// z

@@ -28,7 +28,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 /**
  * Massage [chat, etc]
  * 
- * @author -Nemesiss-
+ * @author -Nemesiss-, Sweetkr
  * 
  */
 public class SM_MESSAGE extends AionServerPacket
@@ -59,6 +59,13 @@ public class SM_MESSAGE extends AionServerPacket
 	private ChatType	chatType;
 
 	/**
+	 * Sender coordinates
+	 */
+	private float	x;
+	private float	y;
+	private float	z;
+
+	/**
 	 * Constructs new <tt>SM_MESSAGE </tt> packet
 	 * 
 	 * @param player
@@ -75,6 +82,9 @@ public class SM_MESSAGE extends AionServerPacket
 		this.message = message;
 		this.race = player.getCommonData().getRace();
 		this.chatType = chatType;
+		this.x = player.getX();
+		this.y = player.getY();
+		this.z = player.getZ();
 	}
 
 	/**
@@ -135,25 +145,17 @@ public class SM_MESSAGE extends AionServerPacket
 			case SHOUT:
 				writeS(buf, senderName);
 				writeS(buf, message);
-				writeD(buf, 0x00); // unknwon
-				writeD(buf, 0x00); // unknown
-				writeD(buf, 0x00); // unknown
+				writeF(buf, x);
+				writeF(buf, y);
+				writeF(buf, z);
 				break;
 			case GROUP:
-				writeS(buf, this.senderName);
-				writeS(buf, this.message);
-				break;
 			case GROUP_LEADER:
-				writeS(buf, this.senderName);
-				writeS(buf, this.message);
-				break;
 			case LEGION:
-				writeS(buf, this.senderName);
-				writeS(buf, this.message);
-				break;
 			case WHISPER:
 				writeS(buf, senderName);
 				writeS(buf, message);
+				break;
 		}
 	}
 }

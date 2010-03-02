@@ -32,7 +32,6 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_LOOT_ITEMLIST extends AionServerPacket
 {
-	
 	private int	targetObjectId;
 	private DropItem[] dropItems;
 	private int size;
@@ -41,27 +40,24 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 	{
 		this.targetObjectId = targetObjectId;
 		this.dropItems = dropItems.toArray(new DropItem[dropItems.size()]);
-		size = this.dropItems.length;	
+		size = this.dropItems.length;
 	}
 
 	/**
 	 * {@inheritDoc} dc
 	 */
-	
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf) 
 	{
 		writeD(buf, targetObjectId);
 		writeC(buf, size);
-	
+
 		for(DropItem dropItem : dropItems)
 		{
 			writeC(buf, dropItem.getIndex()); // index in droplist
 			writeD(buf, dropItem.getDropTemplate().getItemId());
-			writeD(buf, dropItem.getCount());
-			writeH(buf, 0);		
+			writeH(buf, dropItem.getCount());
+			writeD(buf, 0);
 		}
-		
-		writeH(buf, 0);	
-	}	
+	}
 }

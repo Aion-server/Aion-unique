@@ -187,7 +187,11 @@ public class DropService
 		PacketSendUtility.sendPacket(player, new SM_LOOT_ITEMLIST(npcId, dropItems));
 		// PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, size > 0 ? size - 1 : size));
 		PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 2));
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 35, 0, 0), true);
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 35, 0, npcId), true);
+
+		// if dropitems is empty, resend droplist for close loot
+		if (dropItems.size() == 0)
+			resendDropList(player, npcId, dropItems);
 	}
 
 	public void requestDropItem(Player player, int npcId, int itemIndex)
@@ -249,7 +253,7 @@ public class DropService
 		else
 		{
 			PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 3));
-			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 36, 0, 0), true);
+			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 36, 0, npcId), true);
 			Npc npc = (Npc) world.findAionObject(npcId);
 			if(npc != null)
 			{

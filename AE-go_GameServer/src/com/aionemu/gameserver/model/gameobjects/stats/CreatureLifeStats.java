@@ -97,7 +97,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 * @return maxHp of creature according to stats
 	 */
-	public int getMaxHp () 
+	public int getMaxHp()
 	{
 		return this.getOwner().getGameStats().getCurrentStat(StatEnum.MAXHP);
 	}
@@ -105,7 +105,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 * @return maxMp of creature according to stats
 	 */
-	public int getMaxMp () 
+	public int getMaxMp()
 	{
 		return this.getOwner().getGameStats().getCurrentStat(StatEnum.MAXMP);
 	}
