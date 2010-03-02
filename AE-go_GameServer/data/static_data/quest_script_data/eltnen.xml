@@ -338,66 +338,108 @@
 
 	<!-- TODO: 1345 BearerofBadNews -->
 
-	<!-- TODO: 1446 LikeMotherUsedtoMake -->
+	<!-- Like Mother Used to Make -->
+	<item_collecting start_npc_id="203945" id="1446" />
 
-	<!-- TODO: 1449 LettertoOphelos -->
+	<!-- Letter to Ophelos -->
+	<report_to id="1449" start_npc_id="790004" end_npc_id="203992"/>
 
-	<!-- TODO: 1496 [Group]EnemyintheKaidanMine -->
+	<!-- Enemy in the Kaidan Mine -->
+	<item_collecting start_npc_id="204045" id="1496" />
 
-	<!-- TODO: 1497 [Group]EnemyMiner -->
+	<!-- Enemy Miner -->
+	<monster_hunt start_npc_id="204045" id="1497">
+		<monster_infos var_id="0" npc_id="211831" max_kill="7"/>
+		<monster_infos var_id="1" npc_id="212070" max_kill="7"/>
+		
+	</monster_hunt>
 
-	<!-- TODO: 1498 [Group]GeologistinJeopardy -->
+	<!-- [Group] Geologist in Jeopardy -->
+	<item_collecting start_npc_id="204045" id="1498" />
 
-	<!-- TODO: 1358 SpringWaterEssence -->
+	<!-- Spring Water Essence -->
+	<item_collecting start_npc_id="798055" id="1358" />
 
-	<!-- TODO: 1344 ReportingtoCastor -->
+	<!-- Reporting to Castor -->
+	<report_to id="1344" start_npc_id="212917" end_npc_id="204006"/>
 
 	<!-- TODO: 1036 KaidanPrisoner -->
 
 	<!-- TODO: 1361 FindingDrinkingWater -->
 
-	<!-- TODO: 1362 Mother'sKeepsake -->
+	<!-- Mother's Keepsake -->
+	<item_collecting start_npc_id="203944" id="1362" />
 
-	<!-- TODO: 1380 DrakieHunt -->
+	<!-- Drakie Hunt -->
+	<monster_hunt start_npc_id="203993" id="1380">
+		<monster_infos var_id="0" npc_id="210851" max_kill="8"/>
+		
+	</monster_hunt>
 
-	<!-- TODO: 1382 GimmeShelter -->
+	<!-- Gimme Shelter -->
+	<report_to id="1382" start_npc_id="203993" end_npc_id="203943"/>
 
 	<!-- TODO: 1363 ThankingMabangtah -->
 
 	<!-- TODO: 1364 JourneytoAgairon -->
 
-	<!-- TODO: 1365 Mabangtah'sFirstTest -->
+	<!-- Mabangtah's First Test -->
+	<monster_hunt start_npc_id="204020" id="1365">
+		<monster_infos var_id="0" npc_id="211633" max_kill="5"/>
+		<monster_infos var_id="1" npc_id="210913" max_kill="5"/>
+		
+	</monster_hunt>
 
 	<!-- TODO: 1422 ABetterSword -->
 
 	<!-- TODO: 1037 SecretsoftheTemple -->
 
-	<!-- TODO: 1359 APainintheNyerk -->
+	<!-- A Pain in the Nyerk TODO: ITEM-->
+	report_to id="1359" start_npc_id="798055" end_npc_id="798051"/>
 
-	<!-- TODO: 1346 KillingforCastor -->
+	<!-- Killing for Castor -->
+	<monster_hunt start_npc_id="203966" id="1467">
+		<monster_infos var_id="0" npc_id="210844" max_kill="15"/>
+		<monster_infos var_id="1" npc_id="210878" max_kill="20"/>
+		
+	</monster_hunt>
 
 	<!-- TODO: 1467 [Group]TheFourLeaders -->
 
-	<!-- TODO: 1450 OreforHannet -->
+	<!-- Ore for Hannet -->
+	<item_collecting start_npc_id="203992" id="1450" />
 
-	<!-- TODO: 1451 DeliveryforHannet -->
+	<!-- Delivery for Hannet -->
+	<report_to id="1451" start_npc_id="203992" end_npc_id="790004"/>
 
-	<!-- TODO: 1445 DeliveryForVulcanus -->
+	<!-- Delivery For Vulcanus -->
+	<report_to id="1445" start_npc_id="204013" end_npc_id="203790"/>
 
-	<!-- TODO: 1457 MagicalShugoGrass -->
+	<!-- Magical Shugo Grass -->
+	<item_collecting start_npc_id="798102" id="1457" />
 
-	<!-- TODO: 1443 UntouchableAetherCrystals -->
+	<!-- Untouchable Aether Crystals -->
+	<item_collecting start_npc_id="798047" id="1443" />
 
-	<!-- TODO: 3310 [Group]Marana'sWorry -->
+	<!-- [Group] Marana's Worry -->
+	<item_collecting start_npc_id="203983" id="3310" />
 
-	<!-- TODO: 3311 [Group]AGustRisingintheUndergroundTemple -->
+	<!-- [Group] A Gust Rising in the UndergroundTemple -->
+	<monster_hunt start_npc_id="203983" id="3311">
+		<monster_infos var_id="0" npc_id="211738" max_kill="7"/>
+		<monster_infos var_id="1" npc_id="211751" max_kill="4"/>
+		
+	</monster_hunt>
 
-	<!-- SeekingtheSeekers -->
+	<!-- Seeking the Seekers -->
 	<monster_hunt start_npc_id="203966" id="1348">
 		<monster_infos var_id="0" npc_id="210928" max_kill="5"/>	
 	</monster_hunt>
 
-	<!-- TODO: 1349 TheKlaws'Secret -->
+	<!-- The Klaws'Secret -->
+	<monster_hunt start_npc_id="203966" id="1349">
+		<monster_infos var_id="0" npc_id="700169" max_kill="4"/>	
+	</monster_hunt>
 
 	<!-- [Coin] Desert Dangers -->
 	<monster_hunt start_npc_id="204011" id="1350">
