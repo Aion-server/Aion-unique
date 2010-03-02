@@ -56,9 +56,7 @@ import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.GroupService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
-import com.aionemu.gameserver.utils.rates.PremiumRates;
 import com.aionemu.gameserver.utils.rates.Rates;
-import com.aionemu.gameserver.utils.rates.RegularRates;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 

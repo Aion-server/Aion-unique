@@ -163,6 +163,9 @@ public class Config
 	
 	@Property(key = "gameserver.ShutdownAnnounceInterval", defaultValue = "1")
 	public static int				SHUTDOWN_ANNOUNCE_INTERVAL;
+	
+	@Property(key = "gameserver.ShutdownHookMode", defaultValue = "1")
+	public static int				SHUTDOWN_HOOK_MODE;
 
 	/*
 	 * Private Store

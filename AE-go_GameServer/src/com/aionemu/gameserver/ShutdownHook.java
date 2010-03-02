@@ -57,7 +57,10 @@ public class ShutdownHook extends Thread
 	@Override
 	public void run()
 	{
-		shutdownHook(Config.SHUTDOWN_HOOK_DELAY, Config.SHUTDOWN_ANNOUNCE_INTERVAL, ShutdownMode.SHUTDOWN);
+		if(Config.SHUTDOWN_HOOK_MODE == 1)
+			shutdownHook(Config.SHUTDOWN_HOOK_DELAY, Config.SHUTDOWN_ANNOUNCE_INTERVAL, ShutdownMode.SHUTDOWN);
+		else if(Config.SHUTDOWN_HOOK_MODE == 2)
+			shutdownHook(Config.SHUTDOWN_HOOK_DELAY, Config.SHUTDOWN_ANNOUNCE_INTERVAL, ShutdownMode.RESTART);
 	}
 
 	public static enum ShutdownMode
@@ -106,6 +109,12 @@ public class ShutdownHook extends Thread
 			sendShutdownStatus(true);
 			try
 			{
+				if(!world.getPlayersIterator().hasNext())
+				{
+					log.info("Counter is stopped because there are no players in the server.");
+					break;
+				}
+
 				if(i > interval)
 				{
 					Thread.sleep(interval * 1000);
