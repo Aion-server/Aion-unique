@@ -60,6 +60,9 @@ import com.aionemu.gameserver.utils.rates.Rates;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
+import com.aionemu.gameserver.utils.rates.PremiumRates;
+import com.aionemu.gameserver.utils.rates.RegularRates; 
+
 /**
  * In this packets aion client is asking if given char [by oid] may login into game [ie start playing].
  * 

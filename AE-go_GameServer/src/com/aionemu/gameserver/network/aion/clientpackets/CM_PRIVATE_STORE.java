@@ -82,19 +82,18 @@ public class CM_PRIVATE_STORE extends AionClientPacket
 		/**
 		 * Add a check for now if private store is enabled or not
 		 */
-		if(Config.ENABLE_PRIVATE_STORE)
+
+		/**
+		 * Let PrivateStoreService handle everything
+		 */
+		if(itemCount > 0)
 		{
-			/**
-			 * Let PrivateStoreService handle everything
-			 */
-			if(itemCount > 0)
-			{
-				privateStoreService.addItem(activePlayer, tradePSItems);
-			}
-			else
-			{
-				privateStoreService.closePrivateStore(activePlayer);
-			}
+			privateStoreService.addItem(activePlayer, tradePSItems);
 		}
+		else
+		{
+			privateStoreService.closePrivateStore(activePlayer);
+		}
+
 	}
 }
