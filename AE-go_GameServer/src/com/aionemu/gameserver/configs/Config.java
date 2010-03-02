@@ -168,12 +168,6 @@ public class Config
 	public static int				SHUTDOWN_HOOK_MODE;
 
 	/*
-	 * Private Store
-	 */
-	@Property(key = "gameserver.enable.privatestore",defaultValue = "true")
-	public static boolean			ENABLE_PRIVATE_STORE;
-	
-	/*
 	 * Group
 	 */
 	@Property(key = "gameserver.playergroup.removetime", defaultValue = "120")
