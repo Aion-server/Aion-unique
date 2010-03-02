@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.model.legion;
 
+
 /**
  * @author Simple
  * 
@@ -28,6 +29,11 @@ public class LegionEmblem
 	private int		color_b			= 0x00;
 	private boolean	defaultEmblem	= true;
 	private boolean	isChanged		= false;
+
+	private boolean	isUploading		= false;
+	private int		uploadSize		= 0;
+	private int		uploadedSize	= 0;
+	private byte[]	uploadData;
 
 	public LegionEmblem()
 	{
@@ -121,5 +127,94 @@ public class LegionEmblem
 	public boolean isChanged()
 	{
 		return isChanged;
+	}
+
+	/**
+	 * @param isUploading
+	 *            the isUploading to set
+	 */
+	public void setUploading(boolean isUploading)
+	{
+		this.isUploading = isUploading;
+	}
+
+	/**
+	 * @return the isUploading
+	 */
+	public boolean isUploading()
+	{
+		return isUploading;
+	}
+
+	/**
+	 * @param emblemSize
+	 *            the emblemSize to set
+	 */
+	public void setUploadSize(int emblemSize)
+	{
+		this.uploadSize = emblemSize;
+	}
+
+	/**
+	 * @return the emblemSize
+	 */
+	public int getUploadSize()
+	{
+		return uploadSize;
+	}
+
+	/**
+	 * @param uploadData
+	 *            the uploadData to set
+	 */
+	public void addUploadData(byte[] data)
+	{
+		byte[] newData = new byte[uploadedSize];
+		int i = 0;
+		for(byte dataByte : uploadData)
+		{
+			newData[i] = dataByte;
+			i++;
+		}
+		for(byte dataByte : data)
+		{
+			newData[i] = dataByte;
+			i++;
+		}
+		this.uploadData = newData;
+	}
+
+	/**
+	 * @return the uploadData
+	 */
+	public byte[] getUploadData()
+	{
+		return this.uploadData;
+	}
+
+	/**
+	 * @param uploadedSize
+	 *            the uploadedSize to set
+	 */
+	public void addUploadedSize(int uploadedSize)
+	{
+		this.uploadedSize += uploadedSize;
+	}
+
+	/**
+	 * @return the uploadedSize
+	 */
+	public int getUploadedSize()
+	{
+		return uploadedSize;
+	}
+	
+	/**
+	 * This method will clear out all upload data
+	 */
+	public void resetUploadSettings()
+	{
+		this.isUploading = false;
+		this.uploadedSize = 0;
 	}
 }
