@@ -318,7 +318,7 @@ public class StatFunctions
 		//
 		// 10 elemental resist ~ 1% reduce of magical baseDamages
 		//
-		damages = damages * (1 - tgs.getMagicalDefenseFor(element) / 1000);
+		damages = Math.round(damages * (1 - tgs.getMagicalDefenseFor(element) / 1000f));
 
 		// IMPORTANT NOTES
 		//

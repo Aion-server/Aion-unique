@@ -23,7 +23,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.skillengine.model.Effect;
@@ -72,7 +71,7 @@ public class BleedEffect extends EffectTemplate
 		Creature effected = effect.getEffected();
 		Creature effector = effect.getEffector();
 		int valueWithDelta = value + delta * effect.getSkillLevel();
-		int damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, valueWithDelta, SkillElement.NONE);
+		int damage = StatFunctions.calculateMagicDamageToTarget(effector, effected, valueWithDelta, getElement());
 		effected.getController().onAttack(effector, effect.getSkillId(), TYPE.DAMAGE, damage);			
 	}
 

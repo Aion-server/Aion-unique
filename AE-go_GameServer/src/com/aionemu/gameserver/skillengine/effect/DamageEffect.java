@@ -23,7 +23,6 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.attack.AttackUtil;
-import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.skillengine.action.DamageType;
 import com.aionemu.gameserver.skillengine.model.Effect;
@@ -63,7 +62,7 @@ extends EffectTemplate
 				AttackUtil.calculatePhysicalSkillAttackResult(effect, valueWithDelta);
 				break;
 			case MAGICAL:
-				AttackUtil.calculateMagicalSkillAttackResult(effect, valueWithDelta, SkillElement.NONE);
+				AttackUtil.calculateMagicalSkillAttackResult(effect, valueWithDelta, getElement());
 				break;
 			default:
 				AttackUtil.calculatePhysicalSkillAttackResult(effect, 0);
