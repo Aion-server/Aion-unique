@@ -7912,7 +7912,10 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <statup duration="10000" effectid="105611" e="1"/>
+            <statup duration="10000" effectid="105611" e="1">
+                <change stat="EVASION" func="PERCENT" delta="0" value="100"/>
+                <change stat="PARRY" func="PERCENT" delta="0" value="100"/>
+            </statup>
             <statup duration="10000" effectid="105612" e="2" element="FIRE">
                 <change stat="WATER_RESISTANCE" func="PERCENT" delta="0" value="100"/>
                 <change stat="WIND_RESISTANCE" func="PERCENT" delta="0" value="100"/>
@@ -17554,7 +17557,10 @@
             <targetrelation value="MYPARTY"/>
         </setproperties>
         <effects>
-            <statup duration="15000" effectid="112241" e="1"/>
+            <statup duration="15000" effectid="112241" e="1">
+                <change stat="EVASION" func="ADD" delta="0" value="100"/>
+                <change stat="PARRY" func="ADD" delta="0" value="100"/>
+            </statup>
             <statup duration="15000" effectid="112242" e="2">
                 <change stat="WATER_RESISTANCE" func="ADD" delta="0" value="100"/>
                 <change stat="WIND_RESISTANCE" func="ADD" delta="0" value="100"/>
@@ -18572,7 +18578,10 @@
             <targetrelation value="MYPARTY"/>
         </setproperties>
         <effects>
-            <statup duration="15000" effectid="112241" e="1"/>
+            <statup duration="15000" effectid="112241" e="1">
+                <change stat="EVASION" func="ADD" delta="0" value="100"/>
+                <change stat="PARRY" func="ADD" delta="0" value="100"/>
+            </statup>
             <statup duration="15000" effectid="112242" e="2">
                 <change stat="WATER_RESISTANCE" func="ADD" delta="0" value="10"/>
                 <change stat="WIND_RESISTANCE" func="ADD" delta="0" value="10"/>
@@ -19239,7 +19248,10 @@
             <targetrelation value="MYPARTY"/>
         </setproperties>
         <effects>
-            <statup duration="15000" effectid="112241" e="1"/>
+            <statup duration="15000" effectid="112241" e="1">
+                <change stat="EVASION" func="ADD" delta="0" value="100"/>
+                <change stat="PARRY" func="ADD" delta="0" value="100"/>
+            </statup>
             <statup duration="15000" effectid="112242" e="2">
                 <change stat="WATER_RESISTANCE" func="ADD" delta="0" value="10"/>
                 <change stat="WIND_RESISTANCE" func="ADD" delta="0" value="10"/>
@@ -32895,7 +32907,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <statup duration="6500" effectid="184931" e="1"/>
+            <statup duration="6500" effectid="184931" e="1">
+                <change stat="EVASION" func="ADD" delta="0" value="100"/>
+                <change stat="PARRY" func="ADD" delta="0" value="100"/>
+            </statup>
             <statup duration="6500" effectid="184932" e="2">
                 <change stat="WATER_RESISTANCE" func="ADD" delta="0" value="10"/>
                 <change stat="WIND_RESISTANCE" func="ADD" delta="0" value="10"/>
@@ -32915,7 +32930,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <statup duration="6500" effectid="184931" e="1"/>
+            <statup duration="6500" effectid="184931" e="1">
+                <change stat="EVASION" func="ADD" delta="0" value="200"/>
+                <change stat="PARRY" func="ADD" delta="0" value="200"/>
+            </statup>
             <statup duration="6500" effectid="184932" e="2">
                 <change stat="WATER_RESISTANCE" func="ADD" delta="0" value="200"/>
                 <change stat="WIND_RESISTANCE" func="ADD" delta="0" value="200"/>
@@ -32935,7 +32953,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <statup duration="6500" effectid="184931" e="1"/>
+            <statup duration="6500" effectid="184931" e="1">
+                <change stat="EVASION" func="ADD" delta="0" value="300"/>
+                <change stat="PARRY" func="ADD" delta="0" value="300"/>
+            </statup>
             <statup duration="6500" effectid="184932" e="2">
                 <change stat="WATER_RESISTANCE" func="ADD" delta="0" value="200"/>
                 <change stat="WIND_RESISTANCE" func="ADD" delta="0" value="200"/>
@@ -51227,7 +51248,10 @@
                 <change stat="FIRE_RESISTANCE" func="ADD" delta="0" value="500"/>
                 <change stat="EARTH_RESISTANCE" func="ADD" delta="0" value="500"/>
             </statup>
-            <statup duration="10000" effectid="10166903" e="3"/>
+            <statup duration="10000" effectid="10166903" e="3">
+                <change stat="EVASION" func="PERCENT" delta="0" value="35"/>
+                <change stat="PARRY" func="PERCENT" delta="0" value="35"/>
+            </statup>
         </effects>
     </skill_template>
     <skill_template skill_id="16691" name="STR_NWI_SpellKD_Fire" nameId="571427" stack="NWI_SPELLKD_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
@@ -74600,7 +74624,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <statup duration="5000" effectid="10181671" e="1"/>
+            <statup duration="5000" effectid="10181671" e="1">
+                <change stat="EVASION" func="PERCENT" delta="0" value="90"/>
+                <change stat="PARRY" func="PERCENT" delta="0" value="90"/>
+            </statup>
         </effects>
     </skill_template>
     <skill_template skill_id="18168" name="STR_NGR_XDrakanBuff_No" nameId="587561" stack="NGR_XDRAKANBUFF_NO" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
