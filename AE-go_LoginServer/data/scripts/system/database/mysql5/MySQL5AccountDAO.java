@@ -147,7 +147,7 @@ public class MySQL5AccountDAO extends AccountDAO
 	{
 		int					result = 0;
 		PreparedStatement	st     =
-			DB.prepareStatement("INSERT INTO account_data(`name`, `password`, access_level, membership, activated, last_server, last_ip, ip_force) VALUES (?, ?, ?, ?, ?, ?, ?)");
+			DB.prepareStatement("INSERT INTO account_data(`name`, `password`, access_level, membership, activated, last_server, last_ip, ip_force) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
 		try
 		{
