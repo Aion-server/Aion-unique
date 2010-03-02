@@ -159,9 +159,8 @@ public class PlayerGroup
 
 	public void onGroupMemberLogIn(Player player)
 	{
+		groupMembers.remove(player.getObjectId());
 		groupMembers.put(player.getObjectId(), player);
-		PacketSendUtility.sendPacket(player, new SM_GROUP_INFO(this));
-		// eventToSubjective(player, GroupEvent.ENTER);
 	}
 
 	/**

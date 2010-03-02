@@ -260,7 +260,7 @@ public class GroupService
 	{
 		for(Player member : playerGroup.getMembers())
 		{
-			if(MathUtil.isInRange(member, owner, Config.GROUP_MIN_DISTANCE))
+			if(MathUtil.isInRange(member, owner, Config.GROUP_MIN_DISTANCE) && member.isOnline())
 			{
 				long currentExp = member.getCommonData().getExp();
 
@@ -370,7 +370,10 @@ public class GroupService
 			return;
 		}
 		player.setPlayerGroup(group);
+		group.onGroupMemberLogIn(player);
 		cancelScheduleRemove(player.getObjectId());
+		if(group.getGroupLeader().getObjectId() == player.getObjectId())
+			group.setGroupLeader(player);
 	}
 
 	/**
@@ -398,5 +401,25 @@ public class GroupService
 				break;
 		}
 		return luckyMembers;
+	}
+
+	/**
+	 * @param player
+	 */
+	public Player getLuckyPlayer(Player player)
+	{
+		final PlayerGroup group = player.getPlayerGroup();
+		switch(group.getLootGroupRules().getAutodistribution())
+		{
+			case NORMAL:
+				return player;
+			case ROLL_DICE:
+				// NOT FINISHED YET
+				return player;
+			case BID:
+				// NOT FINISHED YET
+				return player;
+		}
+		return player;
 	}
 }
