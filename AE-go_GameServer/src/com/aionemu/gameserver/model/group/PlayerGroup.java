@@ -108,9 +108,10 @@ public class PlayerGroup
 	 */
 	public int getRandomMember()
 	{
-		if(pickedLootMembers.size() == size())
+		if(pickedLootMembers.size() >= size())
 			pickedLootMembers.clear();
-
+		
+		//TODO need rework logic here
 		Random random = new Random();
 		int pickedMemberObjId = 0;
 		while(pickedMemberObjId == 0)
