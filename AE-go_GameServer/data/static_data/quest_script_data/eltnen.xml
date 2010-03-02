@@ -395,7 +395,7 @@
 	<!-- TODO: 1037 SecretsoftheTemple -->
 
 	<!-- A Pain in the Nyerk TODO: ITEM-->
-	report_to id="1359" start_npc_id="798055" end_npc_id="798051"/>
+	<report_to id="1359" start_npc_id="798055" end_npc_id="798051"/>
 
 	<!-- Killing for Castor -->
 	<monster_hunt start_npc_id="203966" id="1467">
