@@ -130,6 +130,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="signet" type="SignetEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="signetburst" type="SignetBurstEffect"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="silence" type="SilenceEffect" minOccurs="0"
 				maxOccurs="1" />
 			<xs:element name="curse" type="CurseEffect" minOccurs="0"
@@ -656,6 +658,15 @@
 	<xs:complexType name="SignetEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SignetBurstEffect">
+		<xs:complexContent>
+			<xs:extension base="DamageEffect">
+				<xs:attribute name="signet" type="xs:string" use="required" />
+				<xs:attribute name="signetlvl" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

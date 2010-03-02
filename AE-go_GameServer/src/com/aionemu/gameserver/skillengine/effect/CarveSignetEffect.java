@@ -59,7 +59,7 @@ public class CarveSignetEffect extends DamageEffect
 			placedSignet.endEffect();
 		}
 		Skill skill = SkillEngine.getInstance().getSkill((Player) effect.getEffector(),
-			signetid + nextSignetlvl - 1, 1,  effected);
+			signetid + nextSignetlvl - 1, nextSignetlvl,  effected);
 		if(skill != null)
 		{
 			skill.useSkill();

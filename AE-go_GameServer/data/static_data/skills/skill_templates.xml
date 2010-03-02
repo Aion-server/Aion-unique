@@ -11290,6 +11290,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="604" delta="16" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="69" delta="0"/>
         </actions>
@@ -11348,6 +11351,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="684" delta="33" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="76" delta="0"/>
         </actions>
@@ -11365,6 +11371,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="345" delta="10" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="81" delta="0"/>
         </actions>
@@ -11382,6 +11391,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="503" delta="14" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="98" delta="0"/>
         </actions>
@@ -11444,6 +11456,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="924" delta="18" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="81" delta="0"/>
         </actions>
@@ -11458,6 +11473,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1014" delta="40" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="83" delta="0"/>
         </actions>
@@ -11531,6 +11549,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="319" delta="15" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="68" delta="0"/>
         </actions>
@@ -11545,6 +11566,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="594" delta="18" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="97" delta="0"/>
         </actions>
@@ -11559,6 +11583,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="874" delta="26" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="118" delta="0"/>
         </actions>
@@ -11943,6 +11970,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="648" delta="17" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="104" delta="0"/>
         </actions>
@@ -12208,6 +12238,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1111" delta="25" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="124" delta="0"/>
         </actions>
@@ -12440,6 +12473,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="118" delta="2" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="61" delta="0"/>
         </actions>
@@ -12541,6 +12577,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="395" delta="5" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="136" delta="0"/>
         </actions>
@@ -12925,6 +12964,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="502" delta="15" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="95" delta="0"/>
         </actions>
@@ -12974,6 +13016,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="931" delta="19" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="102" delta="0"/>
         </actions>
@@ -13278,6 +13323,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="701" delta="12" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="104" delta="0"/>
         </actions>
@@ -13387,6 +13435,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1500" delta="23" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="144" delta="0"/>
         </actions>
@@ -13401,6 +13452,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="500" delta="23" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="165" delta="0"/>
         </actions>
@@ -13459,6 +13513,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1500" delta="23" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="144" delta="0"/>
         </actions>
@@ -13473,6 +13530,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="500" delta="23" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="144" delta="0"/>
         </actions>
@@ -13487,6 +13547,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1713" delta="26" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="165" delta="0"/>
         </actions>
@@ -13501,6 +13564,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="571" delta="23" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="165" delta="0"/>
         </actions>
@@ -27943,6 +28009,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="100" delta="0" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1912" name="STR_SKILL_Test_ReturnPoint" nameId="582741" stack="SKILL_TEST_RETURNPOINT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="1" duration="0">
         <setproperties>
@@ -30097,7 +30166,7 @@
             <signet duration="24000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8304" name="STR_SYSTEM_SKILL_SIGNET1_2" nameId="568149" stack="SYSTEM_SKILL_SIGNET1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8304" name="STR_SYSTEM_SKILL_SIGNET1_2" nameId="568149" stack="SYSTEM_SKILL_SIGNET1" lvl="2" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -30114,7 +30183,7 @@
             <signet duration="24000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8305" name="STR_SYSTEM_SKILL_SIGNET1_3" nameId="568153" stack="SYSTEM_SKILL_SIGNET1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8305" name="STR_SYSTEM_SKILL_SIGNET1_3" nameId="568153" stack="SYSTEM_SKILL_SIGNET1" lvl="3" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -30131,7 +30200,7 @@
             <signet duration="24000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8306" name="STR_SYSTEM_SKILL_SIGNET1_4" nameId="568157" stack="SYSTEM_SKILL_SIGNET1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8306" name="STR_SYSTEM_SKILL_SIGNET1_4" nameId="568157" stack="SYSTEM_SKILL_SIGNET1" lvl="4" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -30148,7 +30217,7 @@
             <signet duration="24000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8307" name="STR_SYSTEM_SKILL_SIGNET1_5" nameId="568161" stack="SYSTEM_SKILL_SIGNET1" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8307" name="STR_SYSTEM_SKILL_SIGNET1_5" nameId="568161" stack="SYSTEM_SKILL_SIGNET1" lvl="5" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32234,7 +32303,7 @@
             <signet duration="60000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8455" name="STR_SYSTEM_SKILL_SIGNET2_2" nameId="580631" stack="SYSTEM_SKILL_SIGNET2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8455" name="STR_SYSTEM_SKILL_SIGNET2_2" nameId="580631" stack="SYSTEM_SKILL_SIGNET2" lvl="2" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32251,7 +32320,7 @@
             <signet duration="60000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8456" name="STR_SYSTEM_SKILL_SIGNET2_3" nameId="580635" stack="SYSTEM_SKILL_SIGNET2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8456" name="STR_SYSTEM_SKILL_SIGNET2_3" nameId="580635" stack="SYSTEM_SKILL_SIGNET2" lvl="3" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32268,7 +32337,7 @@
             <signet duration="60000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8457" name="STR_SYSTEM_SKILL_SIGNET2_4" nameId="580639" stack="SYSTEM_SKILL_SIGNET2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8457" name="STR_SYSTEM_SKILL_SIGNET2_4" nameId="580639" stack="SYSTEM_SKILL_SIGNET2" lvl="4" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -32285,7 +32354,7 @@
             <signet duration="60000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8458" name="STR_SYSTEM_SKILL_SIGNET2_5" nameId="580643" stack="SYSTEM_SKILL_SIGNET2" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8458" name="STR_SYSTEM_SKILL_SIGNET2_5" nameId="580643" stack="SYSTEM_SKILL_SIGNET2" lvl="5" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -33146,7 +33215,7 @@
             <signet duration="180000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8508" name="STR_SYSTEM_SKILL_SIGNET3_2" nameId="583583" stack="SYSTEM_SKILL_SIGNET3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8508" name="STR_SYSTEM_SKILL_SIGNET3_2" nameId="583583" stack="SYSTEM_SKILL_SIGNET3" lvl="2" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -33163,7 +33232,7 @@
             <signet duration="180000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8509" name="STR_SYSTEM_SKILL_SIGNET3_3" nameId="583587" stack="SYSTEM_SKILL_SIGNET3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8509" name="STR_SYSTEM_SKILL_SIGNET3_3" nameId="583587" stack="SYSTEM_SKILL_SIGNET3" lvl="3" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -33180,7 +33249,7 @@
             <signet duration="180000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8510" name="STR_SYSTEM_SKILL_SIGNET3_4" nameId="583591" stack="SYSTEM_SKILL_SIGNET3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8510" name="STR_SYSTEM_SKILL_SIGNET3_4" nameId="583591" stack="SYSTEM_SKILL_SIGNET3" lvl="4" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -33197,7 +33266,7 @@
             <signet duration="180000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8511" name="STR_SYSTEM_SKILL_SIGNET3_5" nameId="583595" stack="SYSTEM_SKILL_SIGNET3" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8511" name="STR_SYSTEM_SKILL_SIGNET3_5" nameId="583595" stack="SYSTEM_SKILL_SIGNET3" lvl="5" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -34628,7 +34697,7 @@
             <signet duration="60000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8625" name="STR_SYSTEM_SKILL_SIGNET4_2" nameId="588375" stack="SYSTEM_SKILL_SIGNET4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8625" name="STR_SYSTEM_SKILL_SIGNET4_2" nameId="588375" stack="SYSTEM_SKILL_SIGNET4" lvl="2" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -34645,7 +34714,7 @@
             <signet duration="60000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8626" name="STR_SYSTEM_SKILL_SIGNET4_3" nameId="588379" stack="SYSTEM_SKILL_SIGNET4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8626" name="STR_SYSTEM_SKILL_SIGNET4_3" nameId="588379" stack="SYSTEM_SKILL_SIGNET4" lvl="3" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -34662,7 +34731,7 @@
             <signet duration="60000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8627" name="STR_SYSTEM_SKILL_SIGNET4_4" nameId="588383" stack="SYSTEM_SKILL_SIGNET4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8627" name="STR_SYSTEM_SKILL_SIGNET4_4" nameId="588383" stack="SYSTEM_SKILL_SIGNET4" lvl="4" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -34679,7 +34748,7 @@
             <signet duration="60000" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="8628" name="STR_SYSTEM_SKILL_SIGNET4_5" nameId="588387" stack="SYSTEM_SKILL_SIGNET4" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
+    <skill_template skill_id="8628" name="STR_SYSTEM_SKILL_SIGNET4_5" nameId="588387" stack="SYSTEM_SKILL_SIGNET4" lvl="5" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -43718,6 +43787,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="62" delta="1" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="174" delta="0"/>
         </actions>
@@ -43777,6 +43849,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="157" delta="3" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="342" delta="0"/>
         </actions>
@@ -55555,6 +55630,7 @@
             <skillatk value="150" delta="0" e="1">
                 <subeffect skill_id="8218"/>
             </skillatk>
+            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET1" value="100" delta="0" e="3"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16957" name="STR_Test_GB_Stance0_RF" nameId="577261" stack="TEST_GB_STANCE0_RF" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="3000">
@@ -55571,6 +55647,7 @@
             <skillatk value="100" delta="0" e="1">
                 <subeffect skill_id="8218"/>
             </skillatk>
+            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET1" value="100" delta="0" e="3"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16958" name="STR_Test_GB_Stance0_TH" nameId="577263" stack="TEST_GB_STANCE0_TH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="30" duration="4000">
@@ -61364,6 +61441,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET2" value="570" delta="130" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17332" name="STR_DGAS_Satk_Nr" nameId="580279" stack="DGAS_SATK_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
@@ -63097,6 +63177,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET2" value="570" delta="41" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17445" name="STR_GNAS_SignetBurLongTA_No" nameId="580713" stack="GNAS_SIGNETBURLONGTA_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -63108,6 +63191,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET2" value="570" delta="41" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17446" name="STR_GNCH_SatkAtkTA_Chain2" nameId="580721" stack="GNCH_SATKATKTA_CHAIN2" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="500">
         <setproperties>
@@ -70472,8 +70558,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <transform model="213176" duration="5000" effectid="175" e="2"/>
-            <confuse duration="5000" effectid="20104" e="3"/>
+            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET2" value="570" delta="41" e="1" element="FIRE"/>
+            <transform model="213176" duration="5000" effectid="175" e="2" element="EARTH"/>
+            <confuse duration="5000" effectid="20104" e="3" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17913" name="STR_BNAS_SignetBurstTA40_No_AddSuAtt2" nameId="583337" stack="BNAS_SIGNETBURSTTA40_NO_ADDSUATT2" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
@@ -70486,6 +70573,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET2" value="570" delta="41" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17914" name="STR_BNAS_ConZomC2HTA20_Nr" nameId="583319" stack="BNAS_CONZOMC2HTA20_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="5000">
         <setproperties>
@@ -70498,8 +70588,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <transform model="213176" duration="5000" effectid="175" e="2"/>
-            <confuse duration="5000" effectid="20104" e="3"/>
+            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET2" value="570" delta="41" e="1" element="FIRE"/>
+            <transform model="213176" duration="5000" effectid="175" e="2" element="EARTH"/>
+            <confuse duration="5000" effectid="20104" e="3" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17915" name="STR_GNAS_SatkC3TA15Skel_Nr" nameId="583511" stack="GNAS_SATKC3TA15SKEL_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
@@ -71111,6 +71202,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET3" value="570" delta="41" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17956" name="STR_NAS_SatkAimBackTA5_Po" nameId="583667" stack="NAS_SATKAIMBACKTA5_PO" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -75173,6 +75267,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET4" value="580" delta="0" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18202" name="STR_BNFI_PullSnareTA_Captain" nameId="587933" stack="BNFI_PULLSNARETA_CAPTAIN" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -75918,6 +76015,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET4" value="570" delta="75" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18255" name="STR_BNAS_SatkBleedCurse_TA" nameId="588187" stack="BNAS_SATKBLEEDCURSE_TA" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -80958,6 +81058,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET4" value="570" delta="41" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18590" name="STR_BNWI_Meteor_TA" nameId="588459" stack="BNWI_METEOR_TA" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="4000">
         <setproperties>

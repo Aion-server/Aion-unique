@@ -81,6 +81,7 @@ public class Effects
 		@XmlElement(name = "itemhealfp", type = ItemHealFpEffect.class),
 		@XmlElement(name = "carvesignet", type = CarveSignetEffect.class),
 		@XmlElement(name = "signet", type = SignetEffect.class),
+		@XmlElement(name = "signetburst", type = SignetBurstEffect.class),
 		@XmlElement(name = "silence", type = SilenceEffect.class),
 		@XmlElement(name = "curse", type = CurseEffect.class),
 		@XmlElement(name = "blind", type = BlindEffect.class),
