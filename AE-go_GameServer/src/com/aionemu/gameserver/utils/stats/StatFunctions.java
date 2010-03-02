@@ -308,7 +308,7 @@ public class StatFunctions
 		log.debug("| Speller : "+sgs);
 		log.debug("| Target  : "+tgs);
 
-		int damages = Math.round(baseDamages * ((sgs.getCurrentStat(StatEnum.KNOWLEDGE) / 100) + (sgs.getCurrentStat(StatEnum.BOOST_MAGICAL_SKILL) / 1000)));
+		int damages = Math.round(baseDamages * ((sgs.getCurrentStat(StatEnum.KNOWLEDGE) / 100f) + (sgs.getCurrentStat(StatEnum.BOOST_MAGICAL_SKILL) / 1000f)));
 		
 		//adjusting baseDamages according to attacker and target level
 		//
