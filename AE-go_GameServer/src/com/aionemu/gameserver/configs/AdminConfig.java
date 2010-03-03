@@ -140,4 +140,7 @@ public class AdminConfig
     
     @Property(key = "gameserver.administration.command.zone", defaultValue = "3")
     public static int           COMMAND_ZONE;
+    
+    @Property(key = "gameserver.administration.command.legion", defaultValue = "3")
+    public static int           COMMAND_LEGION;
 }

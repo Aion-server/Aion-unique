@@ -213,7 +213,7 @@ public class NpcController extends CreatureController<Npc>
 				// disband legion
 				if(MathUtil.isInRange(npc, player, 10)) // avoiding exploit with sending fake dialog_select packet
 				{
-					sp.getLegionService().disbandLegion(npc, player);
+					sp.getLegionService().requestDisbandLegion(npc, player);
 				}
 				else
 				{

@@ -166,7 +166,7 @@ public class MySQL5LegionDAO extends LegionDAO
 					legion.setLegionLevel(resultSet.getInt("level"));
 					legion.addContributionPoints(resultSet.getInt("contribution_points"));
 
-					legion.setLegionarPermissions(resultSet.getInt("legionar_permission2"), resultSet
+					legion.setLegionPermissions(resultSet.getInt("legionar_permission2"), resultSet
 						.getInt("centurion_permission1"), resultSet.getInt("centurion_permission2"));
 
 					legion.setDisbandTime(resultSet.getInt("disband_time"));

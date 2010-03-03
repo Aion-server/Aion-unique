@@ -186,7 +186,15 @@ public class Legion
 		setLegionMembers(newLegionMembers);
 	}
 
-	public boolean setLegionarPermissions(int legionarPermission2, int centurionPermission1, int centurionPermission2)
+	/**
+	 * This method will set the permissions
+	 * 
+	 * @param legionarPermission2
+	 * @param centurionPermission1
+	 * @param centurionPermission2
+	 * @return
+	 */
+	public boolean setLegionPermissions(int legionarPermission2, int centurionPermission1, int centurionPermission2)
 	{
 		if(checkPermissions(legionarPermission2, centurionPermission1, centurionPermission2))
 		{
@@ -205,23 +213,12 @@ public class Legion
 	 */
 	private boolean checkPermissions(int legionarPermission2, int centurionPermission1, int centurionPermission2)
 	{
-		/*
-		 * DEFAULT Centurion: 60 adds 0x04 (0x64) Invite to Legion => adds 0x08 (0x6c) Kick from Legion => adds 0x0F
-		 * (0x7C) ?!?!? DEFAULT: 00 Use Gate Guardian Stone => adds 0x08 (0x08) Use Artifact => adds 0x04 (0x0C) Edit
-		 * Announcement => adds 0x02 (0x0E)
-		 */
 		if(legionarPermission2 < PERMISSION2_MIN || legionarPermission2 > LEGIONAR_PERMISSION2_MAX)
-		{
 			return false;
-		}
 		if(centurionPermission1 < PERMISSION1_MIN || centurionPermission1 > CENTURION_PERMISSION1_MAX)
-		{
 			return false;
-		}
 		if(centurionPermission2 < PERMISSION2_MIN || centurionPermission2 > CENTURION_PERMISSION2_MAX)
-		{
 			return false;
-		}
 		return true;
 	}
 
@@ -300,6 +297,14 @@ public class Legion
 	}
 
 	/**
+	 * @param newPoints
+	 */
+	public void setContributionPoints(int contributionPoints)
+	{
+		this.contributionPoints = contributionPoints;
+	}
+
+	/**
 	 * @return the contributionPoints
 	 */
 	public int getContributionPoints()
@@ -307,6 +312,11 @@ public class Legion
 		return contributionPoints;
 	}
 
+	/**
+	 * This method will check whether a legion has enough members to level up
+	 * 
+	 * @return
+	 */
 	public boolean hasRequiredMembers()
 	{
 		switch(getLegionLevel())
@@ -331,6 +341,11 @@ public class Legion
 		return false;
 	}
 
+	/**
+	 * This method will return the kinah price required to level up
+	 * 
+	 * @return
+	 */
 	public int getKinahPrice()
 	{
 		switch(getLegionLevel())
@@ -347,6 +362,11 @@ public class Legion
 		return 0;
 	}
 
+	/**
+	 * This method will return the contribution points required to level up
+	 * 
+	 * @return
+	 */
 	public int getContributionPrice()
 	{
 		switch(getLegionLevel())
@@ -363,6 +383,11 @@ public class Legion
 		return 0;
 	}
 
+	/**
+	 * This method will return true if a legion is able to add a member
+	 * 
+	 * @return
+	 */
 	private boolean canAddMember()
 	{
 		switch(getLegionLevel())
@@ -395,15 +420,6 @@ public class Legion
 	 * @param announcementList
 	 *            the announcementList to set
 	 */
-	/*
-	 * public void addAnnouncement(int unixTime, String message) { LinkedHashMap<Integer, String> newAnnouncementList =
-	 * new LinkedHashMap<Integer, String>(); for announcementList.put(unixTime, message); this.setStateChanged(true); }
-	 */
-
-	/**
-	 * @param announcementList
-	 *            the announcementList to set
-	 */
 	public void setAnnouncementList(LinkedHashMap<Timestamp, String> announcementList)
 	{
 		this.announcementList = announcementList;
@@ -422,26 +438,16 @@ public class Legion
 	 */
 	public Entry<Timestamp, String> getCurrentAnnouncement()
 	{
+		Entry<Timestamp, String> currentAnnouncement = null;
 		if(announcementList.size() > 0)
 		{
-			Entry<Timestamp, String> currentAnnouncement = null;
 			for(Entry<Timestamp, String> unixTime : announcementList.entrySet())
 			{
 				if(currentAnnouncement == null)
-				{
 					currentAnnouncement = unixTime;
-				}
-				else
-				{
-					// if(currentAnnouncement.getKey() < unixTime.getKey())
-					// {
-					// currentAnnouncement = unixTime;
-					// }
-				}
 			}
-			return currentAnnouncement;
 		}
-		return null;
+		return currentAnnouncement;
 	}
 
 	/**

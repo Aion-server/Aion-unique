@@ -181,7 +181,7 @@ public class CM_LEGION extends AionClientPacket
 						break;
 					/** Kick member from legion **/
 					case 0x04:
-						LegionMemberEx legionMemberEx = legionService.getOfflineLegionMemberByName(charName);
+						LegionMemberEx legionMemberEx = legionService.getLegionMemberEx(charName);
 						legionService.kickPlayer(activePlayer, legionMemberEx);
 						if(targetPlayer != null)
 						{
@@ -253,7 +253,7 @@ public class CM_LEGION extends AionClientPacket
 						break;
 					/** Level legion up **/
 					case 0x0E:
-						legionService.changeLevel(activePlayer, activePlayer.getInventory().getKinahItem()
+						legionService.requestChangeLevel(activePlayer, activePlayer.getInventory().getKinahItem()
 							.getItemCount());
 						break;
 				}
