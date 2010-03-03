@@ -264,7 +264,7 @@ public class GroupService
 	{
 		for(Player member : playerGroup.getMembers())
 		{
-			if(MathUtil.isInRange(member, owner, Config.GROUP_MIN_DISTANCE))
+			if(MathUtil.isInRange(member, owner, Config.GROUP_MAX_DISTANCE))
 			{
 				long currentExp = member.getCommonData().getExp();
 

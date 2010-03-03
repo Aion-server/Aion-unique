@@ -178,8 +178,8 @@ public class Config
 	 */
 	@Property(key = "gameserver.playergroup.removetime", defaultValue = "120")
 	public static int				GROUP_REMOVE_TIME;	
-	@Property(key = "gameserver.playergroup.mindistance", defaultValue = "70")
-	public static int				GROUP_MIN_DISTANCE;	
+	@Property(key = "gameserver.playergroup.maxdistance", defaultValue = "70")
+	public static int				GROUP_MAX_DISTANCE;	
 	
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
