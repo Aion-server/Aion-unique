@@ -179,6 +179,8 @@ public class RestrictionsManager
 		activate(new PlayerRestrictions());
 		// This is the Restrictions when player is in shutdown.
 		activate(new ShutdownRestrictions());
+		// This is the Restrictions when player is in prison.
+		activate(new PrisonRestrictions());
 	}
 	
 	/**

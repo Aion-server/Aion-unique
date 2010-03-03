@@ -18,7 +18,7 @@ package com.aionemu.gameserver.world;
 
 public enum WorldMapType
 {
-	//Asmodea
+	// Asmodea
 	PANDAEMONIUM(120010000),
 	ISHALGEN(220010000),
 	MORHEIM(220020000),
@@ -26,13 +26,16 @@ public enum WorldMapType
 	BELUSLAN(220040000),
 	BRUSTHONIN(220050000),
 
-	//Elysia
+	// Elysia
 	SANCTUM(110010000),
 	POETA(210010000),
 	VERTERON(210030000),
 	ELTNEN(210020000),
 	HEIRON(210040000),
 	THEOMOBOS(210060000),
+	
+	// Prison
+	PRISON(510010000),
 
 	RESHANTA(400010000);
 

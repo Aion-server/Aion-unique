@@ -31,6 +31,7 @@ import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
+import com.aionemu.gameserver.dao.PlayerPunishmentsDAO;
 import com.aionemu.gameserver.dao.PlayerRecipesDAO;
 import com.aionemu.gameserver.dao.PlayerQuestListDAO;
 import com.aionemu.gameserver.dao.PlayerSettingsDAO;
@@ -159,6 +160,7 @@ public class PlayerService
 		DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
 		DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
 		DAOManager.getDAO(AbyssRankDAO.class).storeAbyssRank(player);
+		DAOManager.getDAO(PlayerPunishmentsDAO.class).storePlayerPunishments(player);
 	}
 
 	/**
@@ -212,6 +214,8 @@ public class PlayerService
 		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.ACCOUNT_WAREHOUSE),
 			StorageType.ACCOUNT_WAREHOUSE);
 		player.setEquipment(DAOManager.getDAO(InventoryDAO.class).loadEquipment(player));
+		
+		DAOManager.getDAO(PlayerPunishmentsDAO.class).loadPlayerPunishments(player);
 		player.getEquipment().onLoadApplyEquipmentStats();
 
 		itemService.loadItemStones(player);
@@ -357,6 +361,8 @@ public class PlayerService
 
 		player.getController().delete();
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);
+		
+		player.getPunishmentController().stopPrisonTask(true);
 
 		storePlayer(player);
 	}

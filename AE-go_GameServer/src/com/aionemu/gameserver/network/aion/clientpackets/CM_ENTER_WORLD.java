@@ -250,6 +250,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
 				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2010",
 				ChatType.ANNOUNCEMENTS));
 
+			if(player.getPunishmentController().isInPrison())
+				player.getPunishmentController().updatePrisonStatus();
+			
 			if(player.isLegionMember())
 				legionService.legionMemberOnLogin(player);
 

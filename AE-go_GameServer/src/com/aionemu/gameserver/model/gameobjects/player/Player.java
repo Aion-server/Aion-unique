@@ -21,6 +21,7 @@ import java.util.List;
 
 import com.aionemu.commons.callbacks.Enhancable;
 import com.aionemu.gameserver.controllers.PlayerController;
+import com.aionemu.gameserver.controllers.PunishmentController;
 import com.aionemu.gameserver.controllers.effect.PlayerEffectController;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
@@ -84,6 +85,8 @@ public class Player extends Creature
 
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
+	
+	private PunishmentController punishmentController = new PunishmentController(this);
 
 	/**
 	 * Connection of this Player.
@@ -687,5 +690,10 @@ public class Player extends Creature
 	public void setRates(Rates rates)
 	{
 		this.rates = rates;
+	}
+
+	public PunishmentController getPunishmentController()
+	{
+		return punishmentController;
 	}
 }
