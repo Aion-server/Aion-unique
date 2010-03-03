@@ -17,6 +17,8 @@
 package admincommands;
 
 import java.util.NoSuchElementException;
+
+import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.Util;
@@ -41,7 +43,7 @@ public class SendToPrison extends AdminCommand
 	@Override
 	public void executeCommand(Player admin, String[] params)
 	{
-		if(admin.getAccessLevel() < 3)
+		if(admin.getAccessLevel() < AdminConfig.COMMAND_PRISON)
 		{
 			PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command!");
 			return;

@@ -23,7 +23,6 @@ import com.aionemu.commons.configuration.Property;
  */
 public class AdminConfig
 {
-
 	@Property(key = "gameserver.administration.command.add", defaultValue = "3")
 	public static int			COMMAND_ADD;
 	
@@ -143,4 +142,7 @@ public class AdminConfig
     
     @Property(key = "gameserver.administration.command.legion", defaultValue = "3")
     public static int           COMMAND_LEGION;
+    
+    @Property(key = "gameserver.administration.command.prison", defaultValue = "3")
+    public static int			COMMAND_PRISON;
 }
