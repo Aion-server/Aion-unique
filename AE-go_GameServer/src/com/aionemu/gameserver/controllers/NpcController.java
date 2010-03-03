@@ -317,14 +317,10 @@ public class NpcController extends CreatureController<Npc>
 				PacketSendUtility.sendPacket(player, new SM_TELEPORT_MAP(player, targetObjectId));
 				break;
 			case 39:
-				// improve extraction skill npc cornelius, jhaelas in sanctum
-				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet",
-					ChatType.ANNOUNCEMENTS));
-				break;
+				// improve extraction
 			case 40:
 				// learn tailoring armor smithing etc...
-				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet",
-					ChatType.ANNOUNCEMENTS));
+				sp.getCraftSkillUpdateService().learnSkill(player, npc);
 				break;
 			case 41:
 				// expand cube

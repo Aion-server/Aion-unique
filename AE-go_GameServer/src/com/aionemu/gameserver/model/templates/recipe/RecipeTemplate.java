@@ -24,6 +24,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
+
 
 /**
  * @author ATracer
@@ -49,7 +51,7 @@ public class RecipeTemplate {
     @XmlAttribute
     protected int skillpoint;
     @XmlAttribute
-    protected String race;
+    protected SkillRace race;
     @XmlAttribute
     protected int skillid;
     @XmlAttribute
@@ -180,7 +182,7 @@ public class RecipeTemplate {
      *     {@link String }
      *     
      */
-    public String getRace() {
+    public SkillRace getRace() {
         return race;
     }
 

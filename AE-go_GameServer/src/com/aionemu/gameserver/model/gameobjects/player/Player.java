@@ -80,6 +80,7 @@ public class Player extends Creature
 	private PlayerGroup			playerGroup;
 	private AbyssRank			abyssRank;
 	private Rates				rates;
+	private RecipeList					recipeList;
 
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -405,6 +406,16 @@ public class Player extends Creature
 	public List<Integer> getNearbyQuests()
 	{
 		return nearbyQuestList;
+	}
+
+	public RecipeList getRecipeList()
+	{
+		return recipeList;
+	}
+
+	public void setRecipeList(RecipeList recipeList)
+	{
+		this.recipeList = recipeList;
 	}
 
 	/**

@@ -37,6 +37,7 @@ import com.aionemu.gameserver.dataholders.WalkerData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.services.AbyssService;
 import com.aionemu.gameserver.services.AccountService;
+import com.aionemu.gameserver.services.CraftSkillUpdateService;
 import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.services.DropService;
 import com.aionemu.gameserver.services.ExchangeService;
@@ -103,6 +104,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(SkillLearnService.class).in(Scopes.SINGLETON);
 		bind(ServiceProxy.class).in(Scopes.SINGLETON);
 		bind(GroupService.class).in(Scopes.SINGLETON);
+		bind(CraftSkillUpdateService.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides

@@ -51,6 +51,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_NICKNAME_CHECK_RESPONSE.class, 0x09, idSet);
 		addPacketOpcode(SM_FLY_TIME.class, 0x0C, idSet);
 		addPacketOpcode(SM_FRIEND_UPDATE.class, 0x10, idSet);
+		addPacketOpcode(SM_LEARN_RECIPE.class, 0x11, idSet);
 		addPacketOpcode(SM_INVENTORY_INFO.class, 0x12, idSet);
 		addPacketOpcode(SM_INVENTORY_UPDATE.class, 0x13, idSet);
 		addPacketOpcode(SM_DELETE_ITEM.class, 0x14, idSet);
@@ -161,6 +162,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_PLAYER_SEARCH.class, 0xEB, idSet);
 		addPacketOpcode(SM_LEGION_SEND_EMBLEM.class, 0xED, idSet);
 		addPacketOpcode(SM_LOOT_ITEMLIST.class, 0xEE, idSet);
+		addPacketOpcode(SM_RECIPE_LIST.class, 0xEF, idSet);
 		addPacketOpcode(SM_MANTRA_EFFECT.class, 0xF0, idSet);
 		addPacketOpcode(SM_PRICES.class, 0xF4, idSet);
 		addPacketOpcode(SM_TRADELIST.class, 0xF5, idSet);

@@ -44,6 +44,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_ID;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRICES;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_RECIPE_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SET_BIND_POINT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
@@ -61,7 +62,7 @@ import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 import com.aionemu.gameserver.utils.rates.PremiumRates;
-import com.aionemu.gameserver.utils.rates.RegularRates; 
+import com.aionemu.gameserver.utils.rates.RegularRates;
 
 /**
  * In this packets aion client is asking if given char [by oid] may login into game [ie start playing].
@@ -136,6 +137,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNKC8());
 
 			client.sendPacket(new SM_QUEST_LIST(player));
+			
+			client.sendPacket(new SM_RECIPE_LIST(player.getRecipeList().getRecipeList()));
 
 			/*
 			 * Needed

@@ -31,6 +31,7 @@ import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
+import com.aionemu.gameserver.dao.PlayerRecipesDAO;
 import com.aionemu.gameserver.dao.PlayerQuestListDAO;
 import com.aionemu.gameserver.dao.PlayerSettingsDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
@@ -204,8 +205,8 @@ public class PlayerService
 		player.setEffectController(new PlayerEffectController(player));
 
 		player.setQuestStateList(DAOManager.getDAO(PlayerQuestListDAO.class).load(player));
-		player
-			.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE), StorageType.CUBE);
+		player.setRecipeList(DAOManager.getDAO(PlayerRecipesDAO.class).load(player.getObjectId()));
+		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE), StorageType.CUBE);
 		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.REGULAR_WAREHOUSE),
 			StorageType.REGULAR_WAREHOUSE);
 		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.ACCOUNT_WAREHOUSE),
