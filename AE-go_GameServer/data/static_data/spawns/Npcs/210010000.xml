@@ -193,7 +193,7 @@ Poeta -->
     <object x="524.0951" y="1584.8158" z="112.4141" h="0"/>
   </spawn>
   <!-- Namus -->
-  <spawn map="210010000" npcid="203075" pool="1" interval="105" time="NIGHT">
+  <spawn map="210010000" npcid="203075" pool="1" interval="105">
     <object x="558.4866" y="1379.1592" z="120.5159" h="0"/>
   </spawn>
   <!-- Protector of Daminu -->
@@ -314,7 +314,7 @@ Poeta -->
     <object x="289.65" y="1017.06" z="132.03" h="0"/>
   </spawn>
   <!-- Seirenia -->
-  <spawn map="210010000" npcid="203175" pool="1" interval="105">
+  <spawn map="210010000" npcid="203175" pool="1" interval="105" time="NIGHT">
     <object x="477.88" y="1558.32" z="105.513" h="0"/>
   </spawn>
   <!-- Mercenary lvl 9 -->

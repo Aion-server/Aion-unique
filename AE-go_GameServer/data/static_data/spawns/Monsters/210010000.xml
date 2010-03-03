@@ -8,10 +8,6 @@ Poeta -->
   <spawn map="210010000" npcid="210673" pool="1" interval="1800">
     <object x="647.9125" y="891.6571" z="103.625" h="83" />
   </spawn>
-  <!-- Ancient Cube -->
-  <spawn map="210010000" npcid="700001" pool="1" interval="105">
-    <object x="231.6" y="2006.1" z="150.65" h="66" />
-  </spawn>
   <!-- Digging Kerub -->
   <spawn map="210010000" npcid="210664" pool="11" interval="105">
     <object x="924.1846" y="1115.4253" z="103.238464" h="47" />
