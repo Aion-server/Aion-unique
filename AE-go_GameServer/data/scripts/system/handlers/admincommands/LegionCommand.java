@@ -53,7 +53,7 @@ public class LegionCommand extends AdminCommand
 
 		if(params.length < 2)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //legion <disband|setlevel|setpoints> <legion name> <value>");
+			PacketSendUtility.sendMessage(admin, "syntax //legion <disband|setlevel|setpoints|setname> <legion name> <value>");
 			return;
 		}
 		Legion legion = legionService.getCachedLegion(params[1].toLowerCase());
