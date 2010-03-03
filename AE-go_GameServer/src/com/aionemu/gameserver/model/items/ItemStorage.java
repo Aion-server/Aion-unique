@@ -17,6 +17,8 @@
 package com.aionemu.gameserver.model.items;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -24,21 +26,23 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
  * @author ATracer
+ * reimplemented by RotO
  */
 public class ItemStorage
 {
+	public static final int FIRST_AVAILABLE_SLOT = 65535;
 
 	/**
-	 * In current implementation storageItems might contain Item object or null
+	 * LinkedList storageItems
 	 */
-	private Item[] storageItems ;
+	private List<Item> storageItems;
 
 	private int limit = 0;
 
 	public ItemStorage(int limit)
 	{
 		this.limit = limit;
-		storageItems = new Item[limit];
+		storageItems = new LinkedList<Item>();
 	}
 
 	/**
@@ -47,16 +51,7 @@ public class ItemStorage
 	 */
 	public List<Item> getStorageItems()
 	{
-		List<Item> readOnlyList = new ArrayList<Item>();
-		for(Item item : storageItems)
-		{
-			if(item != null)
-			{
-				readOnlyList.add(item);
-			}
-		}
-
-		return readOnlyList;
+		return Collections.unmodifiableList(storageItems);
 	}
 
 	/**
@@ -83,15 +78,11 @@ public class ItemStorage
 	{
 		for(Item item : storageItems)
 		{
-			if(item != null)
+			ItemTemplate itemTemplate = item.getItemTemplate();
+			if(itemTemplate.getTemplateId() == itemId)
 			{
-				ItemTemplate itemTemplate = item.getItemTemplate();
-				if(itemTemplate.getTemplateId() == itemId)
-				{
-					return item;
-				}
+				return item;
 			}
-
 		}
 
 		return null;
@@ -108,13 +99,10 @@ public class ItemStorage
 		
 		for(Item item : storageItems)
 		{
-			if(item != null)
+			ItemTemplate itemTemplate = item.getItemTemplate();
+			if(itemTemplate.getTemplateId() == itemId)
 			{
-				ItemTemplate itemTemplate = item.getItemTemplate();
-				if(itemTemplate.getTemplateId() == itemId)
-				{
-					itemList.add(item);
-				}
+				itemList.add(item);
 			}
 		}
 
@@ -129,7 +117,7 @@ public class ItemStorage
 	{
 		for(Item item : storageItems)
 		{
-			if(item != null && item.getObjectId() == itemObjId)
+			if(item.getObjectId() == itemObjId)
 			{
 				return item;
 			}
@@ -145,13 +133,10 @@ public class ItemStorage
 	{
 		for(Item item : storageItems)
 		{
-			if(item != null)
+			ItemTemplate itemTemplate = item.getItemTemplate();
+			if(itemTemplate.getTemplateId() == itemId)
 			{
-				ItemTemplate itemTemplate = item.getItemTemplate();
-				if(itemTemplate.getTemplateId() == itemId)
-				{
-					return item.getEquipmentSlot();
-				}
+				return item.getEquipmentSlot();
 			}
 		}
 		return -1;
@@ -165,12 +150,9 @@ public class ItemStorage
 	{
 		for(Item item : storageItems)
 		{
-			if(item != null)
+			if(item.getObjectId() == objId)
 			{
-				if(item.getObjectId() == objId)
-				{
-					return item.getEquipmentSlot();
-				}
+				return item.getEquipmentSlot();
 			}
 		}
 
@@ -184,21 +166,7 @@ public class ItemStorage
 	 */
 	public int getNextAvailableSlot()
 	{
-		int size = storageItems.length;
-		for(int slot = 0; slot < size; slot++)
-		{
-			if(storageItems[slot] == null && slot < limit)
-			{
-				return slot;
-			}
-		}
-		
-		return -1;
-	}
-
-	public boolean isSlotEmpty(int slot)
-	{
-		return slot <= limit && storageItems[slot] == null;
+		return FIRST_AVAILABLE_SLOT;
 	}
 
 	/**
@@ -237,38 +205,12 @@ public class ItemStorage
 	 */
 	public Item putToNextAvailableSlot(Item item)
 	{
-		int availableSlot = getNextAvailableSlot();
-		if(availableSlot != -1)
-		{
-			storageItems[availableSlot] =  item;
-			item.setEquipmentSlot(availableSlot);
+		if (!isFull() && storageItems.add(item))
 			return item;
-		}
-		return null;
-	}
-	
-	/**
-	 *  This method will try  to put item to its predefined slot
-	 *  (usefull while loading from db)
-	 *  If this slot already busy - will try to put to next available one
-	 *  
-	 * @param item
-	 * @return item or null in case all slots are busy
-	 */
-	public Item putToDefinedOrNextAvaiableSlot(Item item)
-	{
-		int itemSlot = item.getEquipmentSlot();
-		if(isSlotEmpty(itemSlot))
-		{
-			storageItems[itemSlot] = item;
-			return item;
-		}
 		else
-		{
-			return putToNextAvailableSlot(item);
-		}
+			return null;
 	}
-	
+
 	/**
 	 *  Return true if remove operation is successful
 	 *  Return false if remove encountered some problems
@@ -278,13 +220,12 @@ public class ItemStorage
 	 */
 	public boolean removeItemFromStorage(Item item)
 	{
-		int slot = getSlotIdByObjId(item.getObjectId());
-		if(slot != -1 && !item.isEquipped())
-		{
-			storageItems[slot] = null;
-			return true;
-		}	
-		return false;
+		return storageItems.remove(item);
+	}
+
+	public boolean isFull()
+	{
+		return storageItems.size() >= limit;
 	}
 
 	/**
@@ -292,7 +233,6 @@ public class ItemStorage
 	 */
 	public int getNumberOfFreeSlots()
 	{
-		return limit - getStorageItems().size(); //TODO optimize here
+		return limit - storageItems.size();
 	}
-
 }

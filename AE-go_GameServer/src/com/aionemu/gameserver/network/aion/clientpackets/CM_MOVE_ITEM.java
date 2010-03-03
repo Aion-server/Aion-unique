@@ -38,7 +38,6 @@ public class CM_MOVE_ITEM extends AionClientPacket
 	private int					targetObjectId;
 	private int					source;
 	private int                                     destination;
-	@SuppressWarnings("unused")
 	private int					slot;
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
@@ -68,10 +67,7 @@ public class CM_MOVE_ITEM extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
-		//TODO this is incorrect - cause this packet called on each equip action
-		//Is called when item is dragged to cube
-		if(source != destination)
-			itemService.moveItem(player, targetObjectId, source, destination);
+		itemService.moveItem(player, targetObjectId, source, destination, slot);
 
 		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player,36,0,0));
 

@@ -24,6 +24,7 @@ import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.items.ItemStone;
+import com.aionemu.gameserver.model.items.ItemStorage;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
@@ -39,7 +40,7 @@ public class Item extends AionObject
 
 	private boolean isEquipped = false;
 
-	private int equipmentSlot = 0;
+	private int equipmentSlot = ItemStorage.FIRST_AVAILABLE_SLOT;
 
 	private boolean isQuest;
 

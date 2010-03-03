@@ -188,6 +188,7 @@ public class ItemService
 
 
 		Item newItem = newItem(itemToSplit.getItemTemplate().getTemplateId(), splitAmount);
+		newItem.setEquipmentSlot(slotNum);
 		if(destinationStorage.putToBag(newItem) != null)
 		{
 			itemToSplit.decreaseItemCount(splitAmount);
@@ -306,6 +307,12 @@ public class ItemService
 		if(replaceItem == null)
 			return;
 
+		int sourceSlot = sourceItem.getEquipmentSlot();
+		int replaceSlot = replaceItem.getEquipmentSlot();
+
+		sourceItem.setEquipmentSlot(replaceSlot);
+		replaceItem.setEquipmentSlot(sourceSlot);
+
 		sourceStorage.removeFromBag(sourceItem, false);
 		replaceStorage.removeFromBag(replaceItem, false);
 
@@ -400,16 +407,20 @@ public class ItemService
 		}
 	}
 
-	public void moveItem(Player player, int itemObjId, int sourceStorageType, int destinationStorageType)
+	public void moveItem(Player player, int itemObjId, int sourceStorageType, int destinationStorageType, int slot)
 	{
 		Storage sourceStorage = player.getStorage(sourceStorageType);
-		Storage destinationStorage = player.getStorage(destinationStorageType);
-
 		Item item = player.getStorage(sourceStorageType).getItemByObjId(itemObjId);
 
 		if(item == null)
 			return;
 
+		item.setEquipmentSlot(slot);
+
+		if (sourceStorageType == destinationStorageType)
+			return;
+
+		Storage destinationStorage = player.getStorage(destinationStorageType);
 		List<Item> existingItems = destinationStorage.getItemsByItemId(item.getItemTemplate().getTemplateId());
 
 		int count = item.getItemCount();

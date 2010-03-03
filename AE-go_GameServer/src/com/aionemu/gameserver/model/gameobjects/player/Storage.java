@@ -163,7 +163,7 @@ public class Storage
 		}
 		else
 		{
-			storage.putToDefinedOrNextAvaiableSlot(item);
+			storage.putToNextAvailableSlot(item);
 		}	
 	}
 
@@ -431,7 +431,7 @@ public class Storage
 	 */
 	public boolean isFull()
 	{
-		return storage.getNextAvailableSlot() == -1;
+		return storage.isFull();
 	}
 
 	public int getNumberOfFreeSlots()
