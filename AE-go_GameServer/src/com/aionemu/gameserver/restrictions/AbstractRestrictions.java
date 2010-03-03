@@ -79,4 +79,16 @@ public abstract class AbstractRestrictions implements Restrictions
 	{
 		throw new AbstractMethodError();
 	}
+	
+	@DisabledRestriction
+	public boolean canUseWarehouse(Player player)
+	{
+		throw new AbstractMethodError();
+	}
+
+	@DisabledRestriction
+	public boolean canTrade(Player player)
+	{
+		throw new AbstractMethodError();
+	}
 }

@@ -703,11 +703,11 @@ public class PlayerController extends CreatureController<Player>
 
 		if (player.isInState(CreatureState.FLYING) && !player.isInState(CreatureState.GLIDING))
 		{
-			player.getCommonData().setFlyState(1);
+			player.setFlyState(1);
 		}
 		else if (player.isInState(CreatureState.GLIDING))
 		{
-			player.getCommonData().setFlyState(2);
+			player.setFlyState(2);
 		}
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 
@@ -720,11 +720,11 @@ public class PlayerController extends CreatureController<Player>
 
 		if (player.isInState(CreatureState.FLYING))
 		{
-			player.getCommonData().setFlyState(1);
+			player.setFlyState(1);
 		}
 		else
 		{
-			player.getCommonData().setFlyState(0);
+			player.setFlyState(0);
 		}
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 

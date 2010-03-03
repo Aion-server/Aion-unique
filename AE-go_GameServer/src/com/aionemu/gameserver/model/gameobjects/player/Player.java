@@ -81,11 +81,13 @@ public class Player extends Creature
 	private PlayerGroup			playerGroup;
 	private AbyssRank			abyssRank;
 	private Rates				rates;
-	private RecipeList					recipeList;
+	private RecipeList			recipeList;
+	
 
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
-	
+	private int					flyState = 0;
+	private boolean				isTrading;
 	private PunishmentController punishmentController = new PunishmentController(this);
 
 	/**
@@ -695,5 +697,34 @@ public class Player extends Creature
 	public PunishmentController getPunishmentController()
 	{
 		return punishmentController;
+	}
+	
+	/**
+	 * 0: regular, 1: fly, 2: glide
+	 */
+	public int getFlyState()
+	{
+		return this.flyState;
+	}
+
+	public void setFlyState(int flyState)
+	{
+		this.flyState = flyState;
+	}
+
+	/**
+	 * @return the isTrading
+	 */
+	public boolean isTrading()
+	{
+		return isTrading;
+	}
+
+	/**
+	 * @param isTrading the isTrading to set
+	 */
+	public void setTrading(boolean isTrading)
+	{
+		this.isTrading = isTrading;
 	}
 }

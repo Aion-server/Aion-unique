@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.services.GroupService;
 import com.google.inject.Inject;
 
@@ -56,8 +57,10 @@ public class CM_GROUP_DISTRIBUTION extends AionClientPacket
 			return;
 
 		Player player = getConnection().getActivePlayer();
+		
+		if(!RestrictionsManager.canTrade(player))
+			return;
 
-		if(player != null)
-			groupService.groupDistribution(player, amount);
+		groupService.groupDistribution(player, amount);
 	}
 }

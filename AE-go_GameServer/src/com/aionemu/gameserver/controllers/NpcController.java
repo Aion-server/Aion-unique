@@ -51,6 +51,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -237,6 +238,9 @@ public class NpcController extends CreatureController<Npc>
 				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select
 				// packet
 				{
+					if(!RestrictionsManager.canUseWarehouse(player))
+						return;
+					
 					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(targetObjectId, 26));
 					PacketSendUtility.sendPacket(player,
 						new SM_WAREHOUSE_INFO(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId())

@@ -34,4 +34,8 @@ public interface Restrictions
 	public boolean canInviteToGroup(Player player, Player target);
 	
 	public boolean canChangeEquip(Player player);
+	
+	public boolean canUseWarehouse(Player player);
+	
+	public boolean canTrade(Player player);
 }

@@ -104,7 +104,7 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeD(buf, pgs.getCurrentStat(StatEnum.FLY_TIME));// [current fly time]
 
-		writeC(buf, pcd.getFlyState());// [fly state]
+		writeC(buf, player.getFlyState());// [fly state]
 		writeC(buf, 0);// [unk]
 
 		writeH(buf, pgs.getCurrentStat(StatEnum.MAIN_HAND_POWER)); // [current main hand attack]

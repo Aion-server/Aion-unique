@@ -122,4 +122,31 @@ public class PlayerRestrictions extends AbstractRestrictions
 		}
 		return true;
 	}
+
+	@Override
+	public boolean canUseWarehouse(Player player)
+	{
+		if(player == null || !player.isOnline())
+			return false;
+		
+		//TODO retail message to requestor and player
+		if(player.isTrading())
+			return false;
+		
+		return true;
+	}
+
+	@Override
+	public boolean canTrade(Player player)
+	{
+		if(player == null || !player.isOnline())
+			return false;
+		
+		//TODO retail message to requestor and player
+		if(player.isTrading())
+			return false;
+		
+		return true;
+	}
+	
 }

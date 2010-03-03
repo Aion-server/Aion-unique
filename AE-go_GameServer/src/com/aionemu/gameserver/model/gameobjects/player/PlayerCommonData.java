@@ -62,7 +62,6 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	private int			    bindPoint;
 	private int             titleId = -1;
 	private int				dp = 0;
-	private int				flyState = 0;
 
 	public PlayerCommonData(int objId)
 	{
@@ -401,18 +400,5 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	public int getNameId()
 	{
 		return 0;
-	}
-
-	/**
-	 * 0: regular, 1: fly, 2: glide
-	 */
-	public int getFlyState()
-	{
-		return this.flyState;
-	}
-
-	public void setFlyState(int flyState)
-	{
-		this.flyState = flyState;
 	}
 }

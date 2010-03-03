@@ -60,6 +60,8 @@ public class RestrictionsManager
 		canChat,
 		canInviteToGroup,
 		canChangeEquip,
+		canTrade,
+		canUseWarehouse,
 		// TODO
 		;
 
@@ -260,6 +262,40 @@ public class RestrictionsManager
 		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canChangeEquip.ordinal()])
 		{
 			if(!restrictions.canChangeEquip(player))
+				return false;
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * Check whether player can perform trade
+	 * 
+	 * @param player
+	 * @return
+	 */
+	public static boolean canTrade(Player player)
+	{
+		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canTrade.ordinal()])
+		{
+			if(!restrictions.canTrade(player))
+				return false;
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * Check whether player can use warehouse
+	 * 
+	 * @param player
+	 * @return
+	 */
+	public static boolean canUseWarehouse(Player player)
+	{
+		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canUseWarehouse.ordinal()])
+		{
+			if(!restrictions.canUseWarehouse(player))
 				return false;
 		}
 		

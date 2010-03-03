@@ -74,10 +74,6 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 					@Override
 					public void acceptRequest(Creature requester, Player responder)
 					{
-						//TODO some message here - already trading
-						if(exchangeService.isPlayerInExchange(activePlayer))
-							return;
-						
 						exchangeService.registerExchange(activePlayer, targetPlayer);
 					}
 

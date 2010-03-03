@@ -31,6 +31,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_KINAH;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_CONFIRMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_REQUEST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
+import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
 
@@ -53,7 +54,10 @@ public class ExchangeService
 	{
 		if(!validateParticipants(player1, player2))
 			return;
-
+		
+		player1.setTrading(true);
+		player2.setTrading(true);
+		
 		exchanges.put(player1.getObjectId(), new Exchange(player1, player2));
 		exchanges.put(player2.getObjectId(), new Exchange(player2, player1));
 
@@ -61,17 +65,13 @@ public class ExchangeService
 		PacketSendUtility.sendPacket(player1, new SM_EXCHANGE_REQUEST(player2.getName()));
 	}
 
-	public boolean isPlayerInExchange(Player player)
-	{
-		return exchanges.containsKey(player.getObjectId());
-	}
 	/**
 	 * @param player1
 	 * @param player2
 	 */
 	private boolean validateParticipants(Player player1, Player player2)
 	{
-		return player1 != null && player2 != null && player1.isOnline() && player2.isOnline();
+		return RestrictionsManager.canTrade(player1) && RestrictionsManager.canTrade(player2);
 	}
 
 	public Player getCurrentParter(Player player)
@@ -273,12 +273,24 @@ public class ExchangeService
 		putItemToInventory(activePlayer, exchange2);	
 	}
 
+	/**
+	 * 
+	 * @param activePlayer
+	 * @param currentPartner
+	 */
 	private void cleanupExchanges(Player activePlayer, Player currentPartner)
 	{
 		if(activePlayer != null)
+		{
 			exchanges.remove(activePlayer.getObjectId());
+			activePlayer.setTrading(false);
+		}
+			
 		if(currentPartner != null)
+		{
 			exchanges.remove(currentPartner.getObjectId());
+			currentPartner.setTrading(false);
+		}
 	}
 
 	/**
