@@ -1,0 +1,417 @@
+<quest_scripts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="quest_script_data.xsd">
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+        <!-- TODO: A Chain of Debt -->
+  
+        <!-- A Feast For A Son  -->
+        <report_to start_npc_id="204242" end_npc_id="204127" id="2955" />
+
+        <!-- TODO: A Future Threat -->
+
+        <!-- TODO: A Heartfelt Confession -->
+        
+        <!-- TODO: A Helmet Gone Astray -->
+        
+        <!-- TODO: A Robe Gone Astray -->
+        
+        <!-- A Rose Will Bloom -->
+        <item_collecting start_npc_id="798058" id="2923"/>
+        
+        <!-- A Secret Request -->
+        <report_to start_npc_id="204055" end_npc_id="204253" id="2961" />
+        
+        <!-- TODO: A Staff Gone Astray -->
+        
+        <!-- TODO: A Sword Gone Astray -->
+        
+        <!-- TODO: A Token of Lost Love -->
+        
+        <!-- TODO: Advice of Destiny -->
+        
+        <!-- TODO: An Expert's Reward //script ? -->
+        
+        <!-- TODO: Ancient Weapons -->
+        
+        <!-- TODO: Arekedil's Heritage -->
+        
+        <!-- TODO: Book of Oblivion -->
+        
+        <!-- TODO: Chopirunerk's Reward -->
+        
+        <!-- Cloth for Bacht -->
+        <report_to start_npc_id="204110" end_npc_id="278011" item_id="182207032" id="2944" />
+        
+        <!-- TODO: Combat Potions -->
+        
+        <!-- TODO: Combat Rations -->
+        
+        <!-- TODO: Deep Maternal Love -->
+        
+        <!-- TODO: Deliver the Taming Manual -->
+        
+        <!-- Delivering Odella Juice //not sure need improvement:TODO:talk back to Doman before get reward -->
+        <report_to start_npc_id="204191" end_npc_id="204221" id="2954" />
+        
+        
+        <!-- TODO: Delivering Supply Request -->
+        
+        <!-- TODO: Elementary, My Dear Daeva -->
+        
+        <!-- TODO: Enlightenment of Destiny -->
+        
+        <!-- TODO: Epilogue -->
+        
+        <!-- TODO: Fascinating Gift -->
+        
+        <!-- TODO: Flowers for the Banquet -->
+        
+        <!-- TODO: Follow the Ribbon -->
+        
+        <!-- Fried Chikra -->
+        <report_to start_npc_id="204100" end_npc_id="278007" item_id="182207030" id="2942" />
+        
+        <!-- Heart in Love -->
+        <item_collecting start_npc_id="204261" id="2926" />
+        
+        <!-- TODO: Helping Apellbine -->
+        
+        <!-- Homebody Honir -->
+        <report_to start_npc_id="204102" end_npc_id="278010" item_id="182207032" id="2943" />
+        
+        <!-- TODO: Huron's Letter // need script -->
+        
+        <!-- TODO: Information Collector Chopirunerk // need script -->
+        
+        <!-- Ingredients for Dye -->
+        <report_to start_npc_id="204138" end_npc_id="204121" item_id="182207064" id="2984" />
+        
+        <!-- TODO: Intention of Lord Marchutan -->
+        
+        <!-- TODO: Interviewing the Veterans -->
+        
+        <!-- TODO: Jafnhar's Whereabouts -->
+        
+        <!-- Just Dye, Already -->
+        <item_collecting start_npc_id="204121" id="2949" />
+        
+        <!-- TODO: Kalsten's Recommendation -->
+        
+        <!-- TODO: Kinterun's Package -->
+        
+        <!-- TODO: Last Minute Worries -->
+        
+        <!-- Lifeform Remodeling Report -->
+        
+        <!-- Looking for Garkbinerk -->
+        <report_to start_npc_id="798059" end_npc_id="279006" id="2951" />
+        
+        <!-- TODO: Love at First Sight -->
+        
+        <!-- TODO: Lyfjaberga's Recommendation -->
+        
+        <!-- TODO: Man in the Long Black Robe -->
+        
+        <!-- Materials for 100-slot Cube -->
+        <item_collecting start_npc_id="798059" id="2950" />
+        
+        <!-- TODO: Moorinerk's Offer -->
+        
+        <!-- TODO: No Escaping Destiny // Mission type need script -->
+        
+        <!-- TODO: On Behalf of a Friend // will be scripted -->
+        
+        <!-- TODO: Payrinrinerk's Information -->
+        
+        <!-- Peace Offering -->
+        <item_collecting start_npc_id="204164" id="2960" />
+        
+        <!-- TODO: Power of Love -->
+        
+        <!-- Preparing the Banquet -->
+        <item_collecting start_npc_id="204127" id="2956" />
+        
+        <!-- Salix Staff Handle -->
+        <report_to start_npc_id="204108" end_npc_id="278010" item_id="182207029" id="2941" />
+        
+        <!-- TODO: Secret Library Access -->
+        
+        <!-- TODO: Secretive Communication -->
+        
+        <!-- Siel's Tears -->
+        <item_collecting start_npc_id="204108" id="2924" />
+        
+        <!-- Song of Blessing // need test and maybe tweak quest_data.xml -->
+        <report_to start_npc_id="204079" end_npc_id="204193"  id="2911"/>
+        
+        <!-- TODO: Striking at Shadows -->
+        
+        <!-- TODO: Tales of Heroes -->
+        
+        <!-- TODO: Teachings of Destiny -->
+        
+        <!-- TODO: The Assassin Preceptor's Test -->
+        
+        <!-- TODO: The Chanter Preceptor's Test -->
+        
+        <!-- TODO: The Cleric Preceptor's Test -->
+        
+        <!-- TODO: The Gladiator Preceptor's Test -->
+        
+        <!-- TODO: The Ranger Preceptor's Test -->
+        
+        <!-- TODO: The Sorcerer Preceptor's Test -->
+        
+        <!-- TODO: The Spiritmaster Preceptor's Test -->
+        
+        <!-- TODO: The Templar Preceptor's Test -->
+        
+        <!-- Thialfi's Recommendation //need test-->
+        <report_to start_npc_id="204081" end_npc_id="204057" item_id="182207068" id="4902"/>
+        
+        <!-- Unexpected Reward // need test-->
+        <report_to start_npc_id="204092" end_npc_id="798059" id="2937" />
+        
+        <!-- Ve's Recommendation //need test-->
+        <report_to start_npc_id="204082" end_npc_id="204058" item_id="182207069" id="4903" />
+        
+        <!-- Weapon for Fraiban -->
+        <report_to start_npc_id="204104" end_npc_id="278010" item_id="182207027" id="2939"/>
+        
+        <!-- Winning Vindachinerk's Favor -->
+        <item_collecting start_npc_id="279006" end_npc_id="279016" id="2952"/>
+        
+        <!-- You Never Call, You Never Write -->
+        <report_to start_npc_id="204211" end_npc_id="204164" id="2959"/>
+        
+        <!-- [Craft] Cooking Commitment -->
+        <item_collecting start_npc_id="204100" id="2907" />
+        
+        <!-- [Craft] Elgar's Mistake -->
+        <item_collecting start_npc_id="204104" id="2905"/>
+        
+        <!-- [Craft] Ingots for Armor -->
+        <item_collecting start_npc_id="204106" id="2906"/>
+        
+        <!-- [Craft] The Basics of Alchemy -->
+        <item_collecting start_npc_id="204102" id="2909"/>
+        
+        <!-- [Craft] The Governor's Chair -->
+        <item_collecting start_npc_id="204108" id="2908"/>
+        
+        <!-- [Craft] Wasted Materials -->
+        <item_collecting start_npc_id="204110" id="2910"/>
+        
+        <!-- [Event] Runaway Invitations //need test-->
+        <item_collecting start_npc_id="204209" id="9552"/>
+        
+        <!-- TODO: [Event] Solorius Festival -->
+        
+        <!-- TODO: [Event] Solorius Romance//need script -->
+        
+        <!-- [Event] The Lost Contract //need test-->
+        <item_collecting start_npc_id="204209" id="9551"/>
+        
+        <!-- TODO: [Event] The Taste of Success -->
+        
+        <!-- [Expert] Alchemist's Final Exam -->
+        <item_collecting start_npc_id="204102" id="2981" />
+        
+        <!-- [Expert] Alchemist's Test -->
+        <item_collecting start_npc_id="204102" id="2980" />
+        
+        <!-- [Expert] Alchemy Expert //need test-->
+        <report_to start_npc_id="204102" end_npc_id="204052" id="1945" />
+        
+        <!-- [Expert] Armorsmith's Final Exam -->
+        <item_collecting start_npc_id="204106" id="2975"/>
+        
+        <!-- [Expert] Armorsmith's Test -->
+        <item_collecting start_npc_id="204106" id="2974"/>
+        
+        <!-- [Expert] Armorsmithing Expert -->
+        <report_to start_npc_id="204106" end_npc_id="204052" id="1942" />
+        
+        <!-- [Expert] Cook's Final Exam -->
+        <item_collecting start_npc_id="204100" id="2979"/>
+        
+        <!-- [Expert] Cook's Test -->
+        <item_collecting start_npc_id="204100" id="2978"/>
+        
+        <!-- [Expert] Cooking Expert -->
+        <report_to start_npc_id="204100" end_npc_id="204052" id="1944" />
+        
+        <!-- [Expert] Handicrafter's Final Exam -->
+        <item_collecting start_npc_id="204108" id="2977" />
+        
+        <!-- [Expert] Handicrafter's Test -->
+        <item_collecting start_npc_id="204108" id="2976" />
+        
+        <!-- [Expert] Handicrafting Expert -->
+        <report_to start_npc_id="204108" end_npc_id="204052" id="1943" />
+        
+        <!-- [Expert] Tailor's Final Exam -->
+        <item_collecting start_npc_id="204110" id="2983"/>
+        
+        <!-- [Expert] Tailor's Test -->
+        <item_collecting start_npc_id="204110" id="2982"/>
+        
+        <!-- [Expert] Tailoring Expert -->
+        <report_to start_npc_id="204110" end_npc_id="204052" id="1946" />
+        
+        <!-- [Expert] Weaponsmith's Final Exam -->
+        <item_collecting start_npc_id="204104" id="2973" />
+        
+        <!-- [Expert] Weaponsmith's Test -->
+        <item_collecting start_npc_id="204104" id="2972" />
+        
+        <!-- [Expert] Weaponsmithing Expert -->
+        <report_to start_npc_id="204104" end_npc_id="204052" id="1941" />
+        
+        <!-- [Group] A Present for Father -->
+        <item_collecting start_npc_id="204282" id="4216"/>
+        
+        <!-- [Group] Acquiring the Drana -->
+        <item_collecting start_npc_id="203385" id="4916"/>
+        
+        <!-- [Group] Acquiring the Drazma -->
+        <item_collecting start_npc_id="798358" id="4919"/>
+        
+        <!-- [Group] Anikiki's Taming Manual -->
+        <item_collecting start_npc_id="204283" id="4203"/>
+        
+        <!-- [Group] Black Cloud Ledgers -->
+        <item_collecting start_npc_id="204284" id="4214"/>
+        
+        <!-- [Group] Gathering the Surkana -->
+        <item_collecting start_npc_id="798358" id="4918"/>
+        
+        <!-- [Group] Hat of the Steel Beard Pirates -->
+        <item_collecting start_npc_id="204285" id="4206"/>
+        
+        <!-- [Group] Hilt of Agrif's Rage -->
+        <item_collecting start_npc_id="798317" id="4911"/>
+        
+        <!-- [Group] Log of the Steel Rake -->
+        <item_collecting start_npc_id="204284" id="4207"/>
+        
+        <!-- TODO: [Group] Making the Activated Surkana  /need test-->
+        <report_to start_npc_id="730212" end_npc_id="798358" id="4920" />
+        
+        <!-- TODO: [Group] Missing Haorunerk -->
+        
+        <!-- TODO: [Group] Missing Sidrunerk -->
+        
+        <!-- TODO: [Group] Mysterious Amabille -->
+        
+        <!-- [Group] Obtaining the Dragel -->
+        <item_collecting start_npc_id="203385" id="4915"/>
+        
+        <!-- [Group] Rendezvous with the Spy //need test-->
+        <report_to start_npc_id="204284" end_npc_id="798331" id="4209"/>
+        
+        <!-- [Group] Request of a Wine Lover -->
+        <item_collecting start_npc_id="204173" id="4202"/>
+        
+        <!-- TODO: [Group] Sandblossom Wine -->
+        
+        <!-- TODO: [Group] The Curse of Agrif's Rage -->
+        <item_collecting start_npc_id="798317" id="4912"/>
+        
+        <!-- [Group] The Medicine Thief -->
+        <item_collecting start_npc_id="204072" id="4215"/>
+        
+        <!-- [Group] Three Fragments of Agrif's Rage -->
+        <item_collecting start_npc_id="798317" id="4909"/>
+        
+        <!-- [Group] Two Fragments of Agrif's Rage -->
+        <item_collecting start_npc_id="798317" id="4910"/>
+        
+        <!-- [Group] Unlucky Nekai -->
+        <monster_hunt start_npc_id="204202" id="4213" >
+                <monster_infos npc_id="215032" var_id="0" max_kill="4"/>
+                <monster_infos npc_id="215038" var_id="1" max_kill="4"/>
+        </monster_hunt>
+        
+        <!-- TODO: [Growth] Ninis's First Charm -->
+        
+        <!-- TODO: [Growth] Ninis's Fourth Charm -->
+        
+        <!-- TODO: [Growth] Ninis's Second Charm -->
+        
+        <!-- TODO: [Growth] Ninis's Third Charm -->
+        
+        <!-- [Spy/Group] A Many-Splendored Ring -->
+        <item_collecting start_npc_id="204235" end_npc_id="204261"  id="2927" />
+        
+        <!-- [Spy/Group] Lepharists in Elysea //need test-->
+        <item_collecting start_npc_id="204208" action_item_id="700511" id="4907"/>
+        
+        <!-- [Top Expert] Alchemy Expert -->
+        <report_to start_npc_id="204102" end_npc_id="204052" id="4959" />
+        
+        <!-- [Top Expert] Alchemy Expert Qualification -->
+        <item_collecting start_npc_id="204102" id="4958" />
+        
+        <!-- [Top Expert] Alchemy Expertise -->
+        <item_collecting start_npc_id="204102" id="4957" />
+        
+        <!-- [Top Expert] Armorsmithing Expert -->
+        <report_to start_npc_id="204106" end_npc_id="204052" id="3946" />
+        
+        <!-- [Top Expert] Armorsmithing Expert Qualification -->
+        <item_collecting start_npc_id="204106" id="4949" />
+        
+        <!-- [Top Expert] Armorsmithing Expertise -->
+        <item_collecting start_npc_id="204106" id="4948" />
+        
+        <!-- [Top Expert] Cooking Expert -->
+        <report_to start_npc_id="204100" end_npc_id="204052" id="4954"/>
+        
+        <!-- [Top Expert] Cooking Expert Qualification -->
+        <item_collecting start_npc_id="204100" id="4955" />
+        
+        <!-- [Top Expert] Cooking Expertise -->
+        <item_collecting start_npc_id="204100" id="4954" />
+        
+        <!-- [Top Expert] Handicrafting Expert -->
+        <report_to start_npc_id="204108" end_npc_id="204052" id="3949"/>
+        
+        <!-- [Top Expert] Handicrafting Expert Qualification -->
+        <item_collecting start_npc_id="204108" id="4952"/>
+        
+        <!-- [Top Expert] Handicrafting Expertise -->
+        <item_collecting start_npc_id="204108" id="4951"/>
+        
+        <!-- [Top Expert] Tailoring Expert -->
+        <report_to start_npc_id="204110" end_npc_id="204052" id="4962" />
+        
+        <!-- [Top Expert] Tailoring Expert Qualification -->
+        <item_collecting start_npc_id="204110" id="4961" />
+        
+        <!-- [Top Expert] Tailoring Expertise -->
+        <item_collecting start_npc_id="204110" id="4960" />
+        
+        <!-- [Top Expert] Weaponsmithing Expert -->
+        <report_to start_npc_id="204104" end_npc_id="204052" id="3943"/>
+        
+        <!-- [Top Expert] Weaponsmithing Expert Qualification -->
+        <item_collecting start_npc_id="204104" id="4946" />
+        
+        <!-- [Top Expert] Weaponsmithing Expertise -->
+        <item_collecting start_npc_id="204104" id="4945" />
+</quest_scripts>
