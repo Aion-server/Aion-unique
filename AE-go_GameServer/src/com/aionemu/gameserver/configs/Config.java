@@ -85,6 +85,12 @@ public class Config
 	 */
 	@Property(key = "gameserver.network.nio.threads.write", defaultValue = "0")
 	public static int				NIO_WRITE_THREADS;
+
+	/**
+	 * Number of Threads that will handle io write (>= 0)
+	 */
+	@Property(key = "gameserver.network.display.unknownpackets", defaultValue = "false")
+	public static boolean				DISPLAY_UNKNOWNPACKETS;
 	
 	/**
 	 * Interval for deadlock detector run schedule
