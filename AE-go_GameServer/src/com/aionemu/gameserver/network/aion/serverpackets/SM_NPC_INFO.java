@@ -86,14 +86,21 @@ public class SM_NPC_INFO extends AionServerPacket
 		
 		writeC(buf, npc.getHeading());
 		writeD(buf, npcTemplate.getNameId());
-
 		writeD(buf, npcTemplate.getTitleId());// titleID
-		writeD(buf, 0x00);// unk
-		writeD(buf, 0x00);// unk
-		writeD(buf, 0x00);// unk
-		writeC(buf, 0x00);// unk
-		writeC(buf, 100);// %hp
 
+		writeH(buf, 0x00);// unk
+		writeC(buf, 0x00);// unk
+		writeD(buf, 0x00);// unk
+
+		/*
+		 * Master Info (Summon, Kisk, Etc)
+		 */
+		writeD(buf, 0);// masterObjectId
+		writeS(buf, "");// masterName
+
+		int maxHp = npc.getLifeStats().getMaxHp();
+		int currHp = npc.getLifeStats().getCurrentHp();
+		writeC(buf, 100 * currHp / maxHp);// %hp
 		writeD(buf, npc.getObjectTemplate().getStatsTemplate().getMaxHp());
 		writeC(buf, npc.getLevel());// lvl
 		
@@ -112,8 +119,8 @@ public class SM_NPC_INFO extends AionServerPacket
 		}
 	
 	
-		writeD(buf, 1051931443);// unk
-		writeF(buf, npcTemplate.getHeight());// 0x3F7AE148
+		writeF(buf, 1.5f);// unk
+		writeF(buf, npcTemplate.getHeight());
 		writeF(buf, 0.3f);// speed
 
 		writeH(buf, 2000);// 0x834 (depends on speed ? )
@@ -141,7 +148,13 @@ public class SM_NPC_INFO extends AionServerPacket
 		writeC(buf, 0);
 		writeC(buf, npc.getVisualState()); // visualState
 
-		writeH(buf, 1);// unk
+		/**
+		 * 1 : normal (kisk too)
+		 * 2 : summon
+		 * 32 : trap
+		 * 1024 : holy servant, noble energy
+		 */		
+		writeH(buf, 1);
 		writeC(buf, 0x00);// unk
 		if (npc.getTarget() == null)
 		{

@@ -696,4 +696,38 @@ public class PlayerController extends CreatureController<Player>
 		if(player.isLegionMember())
 			sp.getLegionService().updateMemberInfo(player);
 	}
+
+	public void startFly()
+	{
+		Player player = getOwner();
+
+		if (player.isInState(CreatureState.FLYING) && !player.isInState(CreatureState.GLIDING))
+		{
+			player.getCommonData().setFlyState(1);
+		}
+		else if (player.isInState(CreatureState.GLIDING))
+		{
+			player.getCommonData().setFlyState(2);
+		}
+		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+
+		//TODO: period task for fly time decrease
+	}
+
+	public void endFly()
+	{
+		Player player = getOwner();
+
+		if (player.isInState(CreatureState.FLYING))
+		{
+			player.getCommonData().setFlyState(1);
+		}
+		else
+		{
+			player.getCommonData().setFlyState(0);
+		}
+		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+
+		//TODO: period task for fly time increase
+	}
 }

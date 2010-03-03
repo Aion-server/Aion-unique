@@ -112,56 +112,54 @@ public class SM_EMOTION extends AionServerPacket
 		{
 			case 0:
 				// select target
-				writeH(buf, state); // state? (1=normal,2=flyteleport,3=flightmode,7=die,33=attacking,65=walk)
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 1:
 				// jump
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 2:
 				// sit
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 3:
 				// stand
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 4:
 				// sit (chair)
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 5:
 				// stand (chair)
-				writeH(buf, 0x01); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 6:
 				// fly teleport (start)
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				writeD(buf, emotion); // teleport Id
-				writeC(buf, 0x00); // unknown
-				writeC(buf, 0x00); // unknown
 				break;
 			case 7:
 				// fly teleport (land)
-				writeH(buf, 0x01); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 8:
 				// toggle flight mode
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 9:
 				// toggle land mode
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 10:
 				// ??
@@ -169,8 +167,8 @@ public class SM_EMOTION extends AionServerPacket
 				writeF(buf, speed);
 			case 13:
 				// die
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed (for npc & player both ?)
+				writeH(buf, state);
+				writeF(buf, speed);
 				writeD(buf, targetObjectId);
 				break;
 			case 15:
@@ -179,101 +177,101 @@ public class SM_EMOTION extends AionServerPacket
 				writeF(buf, speed);
 			case 16:
 				// emote
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				writeD(buf, targetObjectId);
 				writeH(buf, emotion);
 				writeC(buf, 1);
 				break;
 			case 17:
 				// unknown
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 19:
 				// toggle attack mode (moving)
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 20:
 				// toggle normal mode (moving)
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 21:
 				// toggle walk
-				writeH(buf, state); // state?
-				writeF(buf, (speed - (speed * 75f) / 100f)); // speed (for npc & player both ?)
+				writeH(buf, state);
+				writeF(buf, (speed - (speed * 75f) / 100f));
 				break;
 			case 22:
 				// toggle run
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 28:
 				// private shop open
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 29:
 				// private shop close
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 30:
 				// emote startloop
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
-				writeH(buf, 2142); // unknown
-				writeH(buf, 2142); // unknown
+				writeH(buf, state);
+				writeF(buf, speed);
+				writeH(buf, 2142); // attack speed?
+				writeH(buf, 2142); // attack speed?
 				break;
 			case 31:
 				// powershard on
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 32:
 				// powershard off
-				writeH(buf, 0x01); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 33:
 				// toggle attack mode
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 34:
 				// toggle normal mode
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 35:
 				// looting start
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed (maybe not a player one)
+				writeH(buf, state);
+				writeF(buf, speed);
 				writeD(buf, targetObjectId);
                 break;
 			case 36:
 				// looting end
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed (maybe not a player one)
+				writeH(buf, state);
+				writeF(buf, speed);
 				writeD(buf, targetObjectId);
                 break;
 			case 37:
 				// looting start (quest)
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				writeD(buf, targetObjectId);
 				break;
 			case 38:
 				// looting end (quest)
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				writeD(buf, targetObjectId);
 				break;
 			default:
-				writeH(buf, state); // state?
-				writeF(buf, speed); // speed
+				writeH(buf, state);
+				writeF(buf, speed);
 				if(targetObjectId != 0)
 				{
 					writeD(buf, targetObjectId);

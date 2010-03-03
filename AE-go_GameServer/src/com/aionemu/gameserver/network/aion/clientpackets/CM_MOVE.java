@@ -20,8 +20,10 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -90,6 +92,22 @@ public class CM_MOVE extends AionClientPacket
 				player.getController().onStartMove();
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);
 				break;
+			case MOVEMENT_START_GLIDE:
+				readC();
+				break;
+			case VALIDATE_GLIDE:
+				x2 = readF();
+				y2 = readF();
+				z2 = readF();
+				readC();
+
+				world.updatePosition(player, x, y, z, heading);
+				player.getController().onStartMove();
+				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);
+
+				player.setState(CreatureState.GLIDING);
+				player.getController().startFly();
+				break;
 			case VALIDATE_MOUSE:
 			case VALIDATE_KEYBOARD:
 				player.getController().onMove();
@@ -99,6 +117,9 @@ public class CM_MOVE extends AionClientPacket
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);
 				world.updatePosition(player, x, y, z, heading);
 				player.getController().onStopMove();
+
+				player.unsetState(CreatureState.GLIDING);
+				player.getController().endFly();
 				break;
 			case UNKNOWN:
 				StringBuilder sb = new StringBuilder();

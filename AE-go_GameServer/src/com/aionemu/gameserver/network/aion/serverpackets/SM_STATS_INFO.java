@@ -76,8 +76,9 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, pgs.getCurrentStat(StatEnum.WIND_RESISTANCE));// [current wind]
 		writeH(buf, pgs.getCurrentStat(StatEnum.EARTH_RESISTANCE));// [current earth]
 		writeH(buf, pgs.getCurrentStat(StatEnum.FIRE_RESISTANCE));// [current fire]
+		writeH(buf, 0);// [current unknown resistance]
+		writeH(buf, 0);// [current unknown resistance]
 
-		writeD(buf, 0);// [unk]
 		writeH(buf, player.getLevel());// [level]
 
 		// something like very dynamic
@@ -103,8 +104,7 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeD(buf, pgs.getCurrentStat(StatEnum.FLY_TIME));// [current fly time]
 
-		// something like very dynamic
-		writeC(buf, 0);// [unk]
+		writeC(buf, pcd.getFlyState());// [fly state]
 		writeC(buf, 0);// [unk]
 
 		writeH(buf, pgs.getCurrentStat(StatEnum.MAIN_HAND_POWER)); // [current main hand attack]

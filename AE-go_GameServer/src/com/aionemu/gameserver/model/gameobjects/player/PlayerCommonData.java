@@ -62,6 +62,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	private int			    bindPoint;
 	private int             titleId = -1;
 	private int				dp = 0;
+	private int				flyState = 0;
 
 	public PlayerCommonData(int objId)
 	{
@@ -98,7 +99,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 		}			
 		return DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level + 1) - DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level);
 	}
-	
+
 	/**
 	 * calculate the lost experience
 	 * must be called before setexp
@@ -135,7 +136,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 		PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATUPDATE_EXP(this.getExpShown(), this
 			.getExpRecoverable(), this.getExpNeed()));
 	}
-	
+
 	public void setRecoverableExp(long expRecoverable)
 	{
 		this.expRecoverable = expRecoverable;
@@ -152,7 +153,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	{
 		return this.expRecoverable;
 	}
-	
+
 	/**
 	 * 
 	 * @param value
@@ -174,10 +175,10 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	{
 		//maxLevel is 51 but in game 50 should be shown with full XP bar
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
-		
+
 		if (getPlayerClass() != null && getPlayerClass().isStartingClass())
 			maxLevel = 10;
-		
+
 		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
 		int level = 1;
 
@@ -333,6 +334,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	{
 		this.titleId = titleId;
 	}
+
 	/**
 	 * This method should be called exactly once after creating object of this class
 	 * @param position
@@ -364,6 +366,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	{
 		setDp(this.dp + dp);
 	}
+
 	/**
 	 *  //TODO move to lifestats -> db save?
 	 *  
@@ -399,6 +402,17 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	{
 		return 0;
 	}
-	
-	
+
+	/**
+	 * 0: regular, 1: fly, 2: glide
+	 */
+	public int getFlyState()
+	{
+		return this.flyState;
+	}
+
+	public void setFlyState(int flyState)
+	{
+		this.flyState = flyState;
+	}
 }

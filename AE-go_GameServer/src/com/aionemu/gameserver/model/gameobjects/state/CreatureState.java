@@ -22,16 +22,19 @@ package com.aionemu.gameserver.model.gameobjects.state;
  */
 public enum CreatureState
 {
-	NPC_IDLE(1<<6),//for npc
+	NPC_IDLE(1<<6), // 64 (for npc)
+
 	//confirmed in SM_EMOTION
-	ACTIVE(1),
-	FLYING(1<<1),
-	RESTING(1<<2),
-	DEAD(3<<1),
-	PRIVATE_SHOP(5<<1),
-	WEAPON_EQUIPPED(1<<5),
-	WALKING(1<<6),
-	POWERSHARD(1<<7);
+	ACTIVE(1), // basic 1
+	FLY_TELEPORT(1), // 1
+	FLYING(1<<1), // 2
+	RESTING(1<<2), // 4
+	DEAD(3<<1), // 6
+	PRIVATE_SHOP(5<<1), // 10
+	WEAPON_EQUIPPED(1<<5), // 32
+	WALKING(1<<6), // 64
+	POWERSHARD(1<<7), // 128
+	GLIDING(1<<9); // 512
 	/**
 	 * Standing, path flying, 
 	 * free flying, riding, 
