@@ -63,6 +63,8 @@ public class SM_ACCOUNT_AUTH_RESPONSE extends GsServerPacket
 	 * @param accountId
 	 * @param ok
 	 * @param accountName
+	 * @param accessLevel 
+	 * @param membership 
 	 */
 	public SM_ACCOUNT_AUTH_RESPONSE(int accountId, boolean ok, String accountName, byte accessLevel, byte membership)
 	{
