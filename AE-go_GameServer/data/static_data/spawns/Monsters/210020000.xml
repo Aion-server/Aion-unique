@@ -3148,7 +3148,7 @@ Eltnen -->
     <object x="173.5984" y="245.3668" z="215.1611" h="92" />
   </spawn>
   <!-- Moss Spirit -->
-  <spawn map="210020000" npcid="210756" pool="18" interval="105">
+  <spawn map="210020000" npcid="210756" pool="18" interval="105" time="NIGHT">
     <object x="434.2139" y="2042.894" z="243.3591" h="8" />
     <object x="445.0207" y="2044.625" z="244.00781" h="21" />
     <object x="526.7606" y="2136.639" z="218.56757" h="89" />

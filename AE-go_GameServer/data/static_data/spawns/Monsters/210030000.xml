@@ -1907,7 +1907,7 @@ Verteron -->
     <object x="1760.58" y="2492.28" z="152.55" h="86" />
   </spawn>
   <!-- Earth spirit -->
-  <spawn map="210030000" npcid="210709" pool="24" interval="105">
+  <spawn map="210030000" npcid="210709" pool="24" interval="105" time="NIGHT">
     <object x="2125.93" y="2372.17" z="258.3" h="0" />
     <object x="2150.9517" y="2358.9407" z="253.875" h="117" />
     <object x="2062.15" y="2336.03" z="260.96" h="0" />

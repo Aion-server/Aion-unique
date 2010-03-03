@@ -373,7 +373,7 @@ Verteron -->
     <object x="891.90875" y="2024.2031" z="166.28307" h="0"/>
   </spawn>
   <!-- Eninte -->
-  <spawn map="210030000" npcid="203161" pool="1" interval="105">
+  <spawn map="210030000" npcid="203161" pool="1" interval="105" time="DAY">
     <object x="1977.17" y="2632.55" z="302.0" h="0"/>
   </spawn>
   <!-- Neltonia -->
