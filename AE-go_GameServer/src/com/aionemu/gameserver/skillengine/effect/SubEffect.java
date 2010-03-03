@@ -18,43 +18,25 @@ package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-
-import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * @author ATracer
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ItemHealFpEffect")
-public class ItemHealFpEffect extends AbstractHealEffect
+@XmlType(name = "SubEffect")
+public class SubEffect
 {
+	@XmlAttribute(name = "skill_id")
+	private int skillId;
 
-	@Override
-	public void applyEffect(Effect effect)
+	/**
+	 * @return the skillId
+	 */
+	public int getSkillId()
 	{
-		// TODO Auto-generated method stub
+		return skillId;
 	}
-
-	@Override
-	public void calculate(Effect effect)
-	{
-		effect.increaseSuccessEffect();
-	}
-
-	@Override
-	protected int getCurrentStatValue(Effect effect)
-	{
-		// TODO Auto-generated method stub
-		return super.getCurrentStatValue(effect);
-	}
-
-	@Override
-	protected int getMaxStatValue(Effect effect)
-	{
-		// TODO Auto-generated method stub
-		return super.getMaxStatValue(effect);
-	}
-
 }

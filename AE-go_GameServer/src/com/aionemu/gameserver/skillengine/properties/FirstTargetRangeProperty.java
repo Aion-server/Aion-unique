@@ -43,6 +43,9 @@ public class FirstTargetRangeProperty extends Property
 	@Override
 	public boolean set(Skill skill)
 	{
+		if(!skill.isFirstTargetRangeCheck())
+			return true;
+		
 		Creature effector = skill.getEffector();
 		Creature firstTarget = skill.getFirstTarget();
 		if(firstTarget == null)

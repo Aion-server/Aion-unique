@@ -25,7 +25,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.ActivationAttribute;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
-import com.aionemu.gameserver.world.World;
 
 /**
  * @author ATracer
@@ -37,19 +36,12 @@ public class SkillEngine
 	
 	public static final SkillEngine skillEngine = new SkillEngine();
 	
-	private World world;
-	
 	/**
 	 * should not be instantiated directly
 	 */
 	private SkillEngine()
 	{	
 		
-	}
-	
-	public void setWorld(World world)
-	{
-		this.world = world;
 	}
 	
 	/**
@@ -78,7 +70,7 @@ public class SkillEngine
 		if(firstTarget instanceof Creature)
 			target = (Creature) firstTarget;
 
-		return new Skill(template, player, world, target);
+		return new Skill(template, player, target);
 	}
 	
 	/**
@@ -99,7 +91,7 @@ public class SkillEngine
 		Creature target = null;
 		if(firstTarget instanceof Creature)
 			target = (Creature) firstTarget;
-		return new Skill(template, player, world, skillLevel, target);
+		return new Skill(template, player, skillLevel, target);
 	}
 
 	public static SkillEngine getInstance()

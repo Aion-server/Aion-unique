@@ -2895,7 +2895,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="67" delta="1" e="1"/>
+            <skillatk value="67" delta="1" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
         <actions>
             <mpuse value="36" delta="0"/>
@@ -3024,7 +3026,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <skillatk value="162" delta="3" e="1"/>
+            <skillatk value="162" delta="3" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
         <actions>
             <mpuse value="46" delta="0"/>
@@ -6976,7 +6980,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <skillatk value="0" delta="0" e="1"/>
+            <skillatk value="0" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
             <snare duration="10000" effectid="20007" e="2" element="EARTH">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
@@ -7018,7 +7024,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="0" delta="0" e="1"/>
+            <skillatk value="0" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
         <actions>
             <dpuse value="4000"/>
@@ -11372,7 +11380,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="345" delta="10" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="345" delta="10" e="1" element="FIRE">
+                <subeffect skill_id="8224"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="81" delta="0"/>
@@ -11392,7 +11402,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="503" delta="14" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="503" delta="14" e="1" element="FIRE">
+                <subeffect skill_id="8224"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="98" delta="0"/>
@@ -11550,7 +11562,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="319" delta="15" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="319" delta="15" e="1" element="FIRE">
+                <subeffect skill_id="8383"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="68" delta="0"/>
@@ -11567,7 +11581,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="594" delta="18" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="594" delta="18" e="1" element="FIRE">
+                <subeffect skill_id="8383"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="97" delta="0"/>
@@ -11584,7 +11600,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="874" delta="26" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="874" delta="26" e="1" element="FIRE">
+                <subeffect skill_id="8383"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="118" delta="0"/>
@@ -11971,7 +11989,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="648" delta="17" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="648" delta="17" e="1" element="FIRE">
+                <subeffect skill_id="8224"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="104" delta="0"/>
@@ -12239,7 +12259,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1111" delta="25" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1111" delta="25" e="1" element="FIRE">
+                <subeffect skill_id="8383"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="124" delta="0"/>
@@ -12474,7 +12496,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="118" delta="2" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="118" delta="2" e="1" element="FIRE">
+                <subeffect skill_id="8412"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="61" delta="0"/>
@@ -12578,7 +12602,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="395" delta="5" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="395" delta="5" e="1" element="FIRE">
+                <subeffect skill_id="8413"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="136" delta="0"/>
@@ -12965,7 +12991,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="502" delta="15" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="502" delta="15" e="1" element="FIRE">
+                <subeffect skill_id="8482"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="95" delta="0"/>
@@ -13324,7 +13352,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="701" delta="12" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="701" delta="12" e="1" element="FIRE">
+                <subeffect skill_id="8523"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="104" delta="0"/>
@@ -13436,7 +13466,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1500" delta="23" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1500" delta="23" e="1" element="FIRE">
+                <subeffect skill_id="8527"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="144" delta="0"/>
@@ -13453,7 +13485,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="500" delta="23" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="500" delta="23" e="1" element="FIRE">
+                <subeffect skill_id="8528"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="165" delta="0"/>
@@ -13514,7 +13548,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1500" delta="23" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1500" delta="23" e="1" element="FIRE">
+                <subeffect skill_id="8527"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="144" delta="0"/>
@@ -13531,7 +13567,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="500" delta="23" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="500" delta="23" e="1" element="FIRE">
+                <subeffect skill_id="8528"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="144" delta="0"/>
@@ -13548,7 +13586,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1713" delta="26" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="1713" delta="26" e="1" element="FIRE">
+                <subeffect skill_id="8572"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="165" delta="0"/>
@@ -13565,7 +13605,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="571" delta="23" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="571" delta="23" e="1" element="FIRE">
+                <subeffect skill_id="8573"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="165" delta="0"/>
@@ -27931,7 +27973,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="67" delta="1" e="1"/>
+            <skillatk value="67" delta="1" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
     </skill_template>
     <skill_template skill_id="1906" name="STR_SKILL_Test_DispelHide" nameId="581747" stack="SKILL_TEST_DISPELHIDE" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="1" duration="1000">
@@ -28010,7 +28054,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="100" delta="0" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="100" delta="0" e="1" element="FIRE">
+                <subeffect skill_id="8472"/>
+            </signetburst>
         </effects>
     </skill_template>
     <skill_template skill_id="1912" name="STR_SKILL_Test_ReturnPoint" nameId="582741" stack="SKILL_TEST_RETURNPOINT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="1" duration="0">
@@ -43299,7 +43345,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="97" delta="3" e="1"/>
+            <skillatk value="97" delta="3" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
         <actions>
             <mpuse value="144" delta="0"/>
@@ -43788,7 +43836,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="62" delta="1" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="62" delta="1" e="1" element="FIRE">
+                <subeffect skill_id="8363"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="174" delta="0"/>
@@ -43850,7 +43900,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="157" delta="3" e="1" element="FIRE"/>
+            <signetburst signetlvl="5" signet="SYSTEM_SKILL_SIGNET1" value="157" delta="3" e="1" element="FIRE">
+                <subeffect skill_id="8218"/>
+            </signetburst>
         </effects>
         <actions>
             <mpuse value="342" delta="0"/>
@@ -51845,7 +51897,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="21" delta="0" e="1" element="FIRE"/>
+            <spellatk value="21" delta="0" e="1" element="FIRE">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="16723" name="STR_NPEL_Spell_Fire" nameId="571555" stack="NPEL_SPELL_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
@@ -52046,7 +52100,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="21" delta="0" e="1" element="FIRE"/>
+            <spellatk value="21" delta="0" e="1" element="FIRE">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="16736" name="STR_GNFI_SKnockdown_Nr" nameId="573243" stack="GNFI_SKNOCKDOWN_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2000">
@@ -55630,7 +55686,7 @@
             <skillatk value="150" delta="0" e="1">
                 <subeffect skill_id="8218"/>
             </skillatk>
-            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET1" value="100" delta="0" e="3"/>
+            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET1" value="150" delta="0" e="3"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16957" name="STR_Test_GB_Stance0_RF" nameId="577261" stack="TEST_GB_STANCE0_RF" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="3000">
@@ -57263,7 +57319,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="17" delta="0" e="1" element="FIRE"/>
+            <spellatk value="17" delta="0" e="1" element="FIRE">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17065" name="STR_GFI_WingBlade_Root" nameId="578337" stack="GFI_WINGBLADE_ROOT" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1500">
@@ -57675,7 +57733,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="0" delta="0" e="1"/>
+            <skillatk value="0" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
             <snare duration="4000" effectid="20007" e="2" element="WATER">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
@@ -59351,7 +59411,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="300" delta="0" e="1" element="FIRE"/>
+            <spellatk value="300" delta="0" e="1" element="FIRE">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17196" name="STR_AGC_SummonTA_Mid" nameId="583765" stack="AGC_SUMMONTA_MID" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -59365,7 +59427,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="400" delta="0" e="1" element="FIRE"/>
+            <spellatk value="400" delta="0" e="1" element="FIRE">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17197" name="STR_AGC_SummonTA_Lr" nameId="583767" stack="AGC_SUMMONTA_LR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -59379,7 +59443,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="500" delta="0" e="1" element="FIRE"/>
+            <spellatk value="500" delta="0" e="1" element="FIRE">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17198" name="STR_GWI_SummonGate_Commander" nameId="579201" stack="GWI_SUMMONGATE_COMMANDER" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2000">
@@ -60983,7 +61049,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="10" delta="0" e="1"/>
+            <skillatk value="10" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17303" name="STR_DGFI_Summon_TA" nameId="580135" stack="DGFI_SUMMON_TA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
@@ -60997,7 +61065,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="10" delta="0" e="1"/>
+            <skillatk value="10" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17304" name="STR_DGFI_KnockDown_Nr" nameId="580141" stack="DGFI_KNOCKDOWN_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
@@ -63479,7 +63549,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <skillatk value="0" delta="0" e="1"/>
+            <skillatk value="0" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17463" name="STR_GNFI_PullNoSkillHTA_No" nameId="580807" stack="GNFI_PULLNOSKILLHTA_NO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -63496,7 +63568,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="0" delta="0" e="1"/>
+            <skillatk value="0" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
             <bind duration="6000" effectid="20014" e="2" element="WIND"/>
             <silence duration="6000" effectid="20101" e="3" element="WIND"/>
         </effects>
@@ -64079,7 +64153,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="23" delta="0" e="1" element="EARTH"/>
+            <spellatk value="23" delta="0" e="1" element="EARTH">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17498" name="STR_NEL_ConfuDeform_drake" nameId="580997" stack="NEL_CONFUDEFORM_DRAKE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
@@ -64637,7 +64713,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="28" delta="0" e="1" element="FIRE"/>
+            <spellatk value="28" delta="0" e="1" element="FIRE">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17533" name="STR_AGFI_Summon_TA" nameId="581125" stack="AGFI_SUMMON_TA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1500">
@@ -64651,7 +64729,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="18" delta="0" e="1" element="FIRE"/>
+            <spellatk value="18" delta="0" e="1" element="FIRE">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17534" name="STR_AGFI_SatkKnockDown_Nr" nameId="581127" stack="AGFI_SATKKNOCKDOWN_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2000">
@@ -67269,7 +67349,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="28" delta="0" e="1" element="FIRE"/>
+            <spellatk value="28" delta="0" e="1" element="FIRE">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17699" name="STR_DGWI_H_Satk_Mid" nameId="581565" stack="DGWI_H_SATK_MID" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
@@ -69558,7 +69640,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <spellatk value="23" delta="0" e="1" element="EARTH"/>
+            <spellatk value="23" delta="0" e="1" element="EARTH">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17846" name="STR_GNKN_KDFallNoFly_AddGuard_Lc" nameId="582969" stack="GNKN_KDFALLNOFLY_ADDGUARD_LC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
@@ -69600,7 +69684,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <spellatk value="49" delta="0" e="1" element="WATER"/>
+            <spellatk value="49" delta="0" e="1" element="WATER">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17849" name="STR_NWI_ParalyzeFaNoflyHSA20_Thunder" nameId="582987" stack="NWI_PARALYZEFANOFLYHSA20_THUNDER" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -70375,7 +70461,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="23" delta="0" e="1" element="WIND"/>
+            <spellatk value="23" delta="0" e="1" element="WIND">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17900" name="STR_BNPR_SpellDrainShrBlindTA15_ch1_No" nameId="583493" stack="BNPR_SPELLDRAINSHRBLINDTA15_CH1_NO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
@@ -71345,7 +71433,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <skillatk value="0" delta="0" e="1"/>
+            <skillatk value="0" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17965" name="STR_BNKN_SatkKDTA30_AddShield_No" nameId="584909" stack="BNKN_SATKKDTA30_ADDSHIELD_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
@@ -71587,7 +71677,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="28" delta="0" e="1" element="EARTH"/>
+            <spellatk value="28" delta="0" e="1" element="EARTH">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="17980" name="STR_NWI_SpellStun_Thunder_NC_No" nameId="585005" stack="NWI_SPELLSTUN_THUNDER_NC_NO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -74532,7 +74624,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="0" delta="0" e="1"/>
+            <skillatk value="0" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18157" name="STR_NMA_SpellStrongTA7_Nr" nameId="587587" stack="NMA_SPELLSTRONGTA7_NR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
@@ -75159,7 +75253,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="0" delta="0" e="1"/>
+            <skillatk value="0" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
             <snare duration="30000" effectid="20007" e="2" element="EARTH">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
@@ -75282,7 +75378,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="500" delta="0" e="1"/>
+            <skillatk value="500" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
             <snare duration="30000" effectid="20007" e="2" element="EARTH">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-80"/>
             </snare>
@@ -75316,7 +75414,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="500" delta="0" e="1" element="FIRE"/>
+            <spellatk value="500" delta="0" e="1" element="FIRE">
+                <subeffect skill_id="8441"/>
+            </spellatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18205" name="STR_AGC_KnockDown_TA" nameId="583769" stack="AGC_KNOCKDOWN_TA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
@@ -75637,7 +75737,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="35" delta="0" e="1"/>
+            <skillatk value="35" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18228" name="STR_BNKN_SpellAtkKDStrongHTA25_No" nameId="587959" stack="BNKN_SPELLATKKDSTRONGHTA25_NO" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2000">
@@ -78775,7 +78877,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <skillatk value="0" delta="0" e="1"/>
+            <skillatk value="0" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18437" name="STR_Chf_SatkTA30Stun_Area" nameId="586301" stack="CHF_SATKTA30STUN_AREA" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
@@ -79710,7 +79814,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="0" delta="0" e="1"/>
+            <skillatk value="0" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
             <snare duration="4000" effectid="20007" e="2" element="EARTH">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
@@ -80117,7 +80223,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <skillatk value="17" delta="0" e="1"/>
+            <skillatk value="17" delta="0" e="1">
+                <subeffect skill_id="8441"/>
+            </skillatk>
         </effects>
     </skill_template>
     <skill_template skill_id="18524" name="STR_BNEL_StunSA7_Nr" nameId="587467" stack="BNEL_STUNSA7_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">

@@ -35,7 +35,6 @@ import com.aionemu.gameserver.skillengine.properties.Properties;
 import com.aionemu.gameserver.skillengine.properties.Property;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
-import com.aionemu.gameserver.world.World;
 
 /**
  * @author ATracer
@@ -49,8 +48,6 @@ public class Skill
 	
 	private Player effector;
 	
-	private World world;
-	
 	private int skillLevel;
 	
 	private int skillStackLvl;
@@ -58,6 +55,8 @@ public class Skill
 	private StartMovingListener conditionChangeListener;
 	
 	private SkillTemplate skillTemplate;
+
+	private boolean	firstTargetRangeCheck = true;
 	
 	public enum SkillType
 	{
@@ -74,9 +73,9 @@ public class Skill
 	 * @param effector
 	 * @param world
 	 */
-	public Skill(SkillTemplate skillTemplate, Player effector, World world, Creature firstTarget)
+	public Skill(SkillTemplate skillTemplate, Player effector, Creature firstTarget)
 	{
-		this(skillTemplate, effector, world, 
+		this(skillTemplate, effector,
 			effector.getSkillList().getSkillLevel(skillTemplate.getSkillId()), firstTarget);
 	}
 	
@@ -86,7 +85,7 @@ public class Skill
 	 * @param effector
 	 * @param world
 	 */
-	public Skill(SkillTemplate skillTemplate, Player effector, World world, int skillLvl, Creature firstTarget)
+	public Skill(SkillTemplate skillTemplate, Player effector, int skillLvl, Creature firstTarget)
 	{
 		this.effectedList = new ArrayList<Creature>();
 		this.conditionChangeListener = new StartMovingListener();
@@ -95,7 +94,6 @@ public class Skill
 		this.skillStackLvl = skillTemplate.getLvl();
 		this.skillTemplate = skillTemplate;
 		this.effector = effector;
-		this.world = world;
 	}
 
 	/**
@@ -240,6 +238,7 @@ public class Skill
 					break;
 				
 				template.applyEffect(effect);
+				template.startSubEffect(effect);
 				effectCounter++;
 			}
 		}
@@ -324,14 +323,6 @@ public class Skill
 	}
 
 	/**
-	 * @return the world
-	 */
-	public World getWorld()
-	{
-		return world;
-	}
-
-	/**
 	 * @return the skillLevel
 	 */
 	public int getSkillLevel()
@@ -385,5 +376,21 @@ public class Skill
 	public boolean isPassive()
 	{
 		return skillTemplate.getActivationAttribute() == ActivationAttribute.PASSIVE;
+	}
+
+	/**
+	 * @return the firstTargetRangeCheck
+	 */
+	public boolean isFirstTargetRangeCheck()
+	{
+		return firstTargetRangeCheck;
+	}
+
+	/**
+	 * @param firstTargetRangeCheck the firstTargetRangeCheck to set
+	 */
+	public void setFirstTargetRangeCheck(boolean firstTargetRangeCheck)
+	{
+		this.firstTargetRangeCheck = firstTargetRangeCheck;
 	}
 }

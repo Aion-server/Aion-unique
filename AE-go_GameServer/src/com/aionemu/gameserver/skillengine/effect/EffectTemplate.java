@@ -21,13 +21,17 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.SkillElement;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.change.Change;
 import com.aionemu.gameserver.skillengine.effect.modifier.ActionModifier;
 import com.aionemu.gameserver.skillengine.effect.modifier.ActionModifiers;
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
  * @author ATracer
@@ -49,6 +53,8 @@ public abstract class EffectTemplate
 	protected int basicLvl;
 	@XmlAttribute(name = "element")
 	protected SkillElement element = SkillElement.NONE;
+	@XmlElement(name = "subeffect")
+	protected SubEffect subEffect;
 	
 	/**
 	 * @return the duration
@@ -147,6 +153,21 @@ public abstract class EffectTemplate
 	 * @param effect
 	 */
 	public void startEffect(Effect effect){};
+	
+	/**
+	 * 
+	 * @param effect
+	 */
+	public void startSubEffect(Effect effect)
+	{
+		if(subEffect == null)
+			return;
+		
+		Skill skill = SkillEngine.getInstance().getSkill((Player) effect.getEffector(), subEffect.getSkillId(),
+			1, effect.getEffected());
+		skill.setFirstTargetRangeCheck(false);
+		skill.useSkill();
+	}
 	/**
 	 *  Do periodic effect on effected
 	 *  

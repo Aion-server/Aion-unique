@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 
@@ -46,4 +47,17 @@ extends AbstractHealEffect
 		super.calculate(effect);
 		effect.increaseSuccessEffect();
 	}
+
+	@Override
+	protected int getCurrentStatValue(Effect effect)
+	{
+		return ((Player) effect.getEffected()).getCommonData().getDp();
+	}
+
+	@Override
+	protected int getMaxStatValue(Effect effect)
+	{
+		return effect.getEffected().getGameStats().getCurrentStat(StatEnum.MAXDP);
+	}
+
 }

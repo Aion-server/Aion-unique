@@ -51,6 +51,7 @@ public class Effect
 	private boolean addedToController;
 	private int successEffect;
 	private AttackCalcObserver attackCalcObserver;
+	private boolean launchSubEffect = true;
 	
 	public Effect(Creature effector, Creature effected, SkillTemplate skillTemplate, int skillLevel, int duration)
 	{
@@ -241,6 +242,22 @@ public class Effect
 	}
 
 	/**
+	 * @return the launchSubEffect
+	 */
+	public boolean isLaunchSubEffect()
+	{
+		return launchSubEffect;
+	}
+
+	/**
+	 * @param launchSubEffect the launchSubEffect to set
+	 */
+	public void setLaunchSubEffect(boolean launchSubEffect)
+	{
+		this.launchSubEffect = launchSubEffect;
+	}
+
+	/**
 	 * 
 	 * @param effectId
 	 * @return
@@ -254,7 +271,14 @@ public class Effect
 		}
 		return false;
 	}
-
+	
+	/**
+	 * Start effect which includes:
+	 * - start effect defined in template
+	 * - start subeffect if possible
+	 * - activate toogle skill if needed
+	 * - schedule end of effect
+	 */
 	public void startEffect()
 	{	
 		for(EffectTemplate template : getEffectTemplates())
