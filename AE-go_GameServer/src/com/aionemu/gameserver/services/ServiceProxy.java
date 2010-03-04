@@ -16,11 +16,6 @@
  */
 package com.aionemu.gameserver.services;
 
-import com.aionemu.gameserver.dataholders.BindPointData;
-import com.aionemu.gameserver.dataholders.PlayerInitialData;
-import com.aionemu.gameserver.dataholders.PlayerStatsData;
-import com.aionemu.gameserver.dataholders.TeleporterData;
-import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -63,15 +58,7 @@ public class ServiceProxy
 	@Inject
 	private WarehouseExpandService	warehouseExpandService;
 	@Inject
-	private BindPointData			bindPointData;
-	@Inject
-	private TradeListData			tradeListData;
-	@Inject
-	private TeleporterData			teleporterData;
-	@Inject
-	private PlayerStatsData			playerStatsData;
-	@Inject
-	private PlayerInitialData		playerInitialData;
+	private PlayerService			playerService;
 
 	/**
 	 * @return the world
@@ -194,42 +181,10 @@ public class ServiceProxy
 	}
 
 	/**
-	 * @return bindPointData
+	 * @return the playerService
 	 */
-	public BindPointData getBindPointData()
+	public PlayerService getPlayerService()
 	{
-		return bindPointData;
-	}
-
-	/**
-	 * @return tradeListData
-	 */
-	public TradeListData getTradeListData()
-	{
-		return tradeListData;
-	}
-
-	/**
-	 * @return teleporterData
-	 */
-	public TeleporterData getTeleporterData()
-	{
-		return teleporterData;
-	}
-
-	/**
-	 * @return the playerStatsData
-	 */
-	public PlayerStatsData getPlayerStatsData()
-	{
-		return playerStatsData;
-	}
-
-	/**
-	 * @return the playerInitialData
-	 */
-	public PlayerInitialData getPlayerInitialData()
-	{
-		return playerInitialData;
+		return playerService;
 	}
 }

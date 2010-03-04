@@ -19,6 +19,7 @@ package com.aionemu.gameserver.services;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.TeleLocationData;
+import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
@@ -34,34 +35,37 @@ import com.google.inject.Inject;
 
 /**
  * @author ATracer , orz
- *
+ * 
  */
 public class TeleportService
 {
-	private static final Logger log = Logger.getLogger(TeleportService.class);
+	private static final Logger	log						= Logger.getLogger(TeleportService.class);
 
-	private static final int TELEPORT_DEFAULT_DELAY = 2200;
-	
+	private static final int	TELEPORT_DEFAULT_DELAY	= 2200;
+
 	@Inject
-	TeleLocationData teleLocationData;
+	private TeleLocationData	teleLocationData;
+	@Inject
+	private TeleporterData		teleporterData;
 
 	/**
-	 *  Schedules teleport animation
-	 *  
+	 * Schedules teleport animation
+	 * 
 	 * @param activePlayer
 	 * @param mapid
 	 * @param x
 	 * @param y
 	 * @param z
 	 */
-	public void scheduleTeleportTask(final Player activePlayer, final int mapid, final float x, final float y, final float z)
+	public void scheduleTeleportTask(final Player activePlayer, final int mapid, final float x, final float y,
+		final float z)
 	{
 		activePlayer.getController().teleportTo(mapid, x, y, z, TELEPORT_DEFAULT_DELAY);
 	}
 
 	/**
-	 *  Performs flight teleportation
-	 *  
+	 * Performs flight teleportation
+	 * 
 	 * @param template
 	 * @param locId
 	 * @param player
@@ -70,24 +74,28 @@ public class TeleportService
 	{
 		if(template.getTeleLocIdData() == null)
 		{
-			log.info(String.format("Missing locId for this teleporter at teleporter_templates.xml with locId: %d", locId));
-			PacketSendUtility.sendMessage(player, "Missing locId for this teleporter at teleporter_templates.xml with locId: "+locId);
+			log.info(String.format("Missing locId for this teleporter at teleporter_templates.xml with locId: %d",
+				locId));
+			PacketSendUtility.sendMessage(player,
+				"Missing locId for this teleporter at teleporter_templates.xml with locId: " + locId);
 			return;
 		}
 
 		TeleportLocation location = template.getTeleLocIdData().getTeleportLocation(locId);
 		if(location == null)
 		{
-			log.info(String.format("Missing locId for this teleporter at teleporter_templates.xml with locId: %d", locId));
-			PacketSendUtility.sendMessage(player, "Missing locId for this teleporter at teleporter_templates.xml with locId: "+locId);
+			log.info(String.format("Missing locId for this teleporter at teleporter_templates.xml with locId: %d",
+				locId));
+			PacketSendUtility.sendMessage(player,
+				"Missing locId for this teleporter at teleporter_templates.xml with locId: " + locId);
 			return;
-		}			
+		}
 
 		TelelocationTemplate locationTemplate = teleLocationData.getTelelocationTemplate(locId);
 		if(locationTemplate == null)
 		{
 			log.info(String.format("Missing info at teleport_location.xml with locId: %d", locId));
-			PacketSendUtility.sendMessage(player, "Missing info at teleport_location.xml with locId: "+locId);
+			PacketSendUtility.sendMessage(player, "Missing info at teleport_location.xml with locId: " + locId);
 			return;
 		}
 
@@ -99,8 +107,8 @@ public class TeleportService
 	}
 
 	/**
-	 *  Performs regular teleportation
-	 *  
+	 * Performs regular teleportation
+	 * 
 	 * @param template
 	 * @param locId
 	 * @param player
@@ -110,16 +118,20 @@ public class TeleportService
 
 		if(template.getTeleLocIdData() == null)
 		{
-			log.info(String.format("Missing locId for this teleporter at teleporter_templates.xml with locId: %d", locId));
-			PacketSendUtility.sendMessage(player, "Missing locId for this teleporter at teleporter_templates.xml with locId: "+locId);
+			log.info(String.format("Missing locId for this teleporter at teleporter_templates.xml with locId: %d",
+				locId));
+			PacketSendUtility.sendMessage(player,
+				"Missing locId for this teleporter at teleporter_templates.xml with locId: " + locId);
 			return;
 		}
 
 		TeleportLocation location = template.getTeleLocIdData().getTeleportLocation(locId);
 		if(location == null)
 		{
-			log.info(String.format("Missing locId for this teleporter at teleporter_templates.xml with locId: %d", locId));
-			PacketSendUtility.sendMessage(player, "Missing locId for this teleporter at teleporter_templates.xml with locId: "+locId);
+			log.info(String.format("Missing locId for this teleporter at teleporter_templates.xml with locId: %d",
+				locId));
+			PacketSendUtility.sendMessage(player,
+				"Missing locId for this teleporter at teleporter_templates.xml with locId: " + locId);
 			return;
 		}
 
@@ -127,22 +139,22 @@ public class TeleportService
 		if(locationTemplate == null)
 		{
 			log.info(String.format("Missing info at teleport_location.xml with locId: %d", locId));
-			PacketSendUtility.sendMessage(player, "Missing info at teleport_location.xml with locId: "+locId);
+			PacketSendUtility.sendMessage(player, "Missing info at teleport_location.xml with locId: " + locId);
 			return;
 		}
 
 		if(!checkKinahForTransportation(location, player))
 			return;
 
-		PacketSendUtility.sendPacket(player, new SM_TELEPORT_LOC(locationTemplate.getMapId(),
-			locationTemplate.getX(), locationTemplate.getY(), locationTemplate.getZ()));
-		scheduleTeleportTask(player, locationTemplate.getMapId(),
-			locationTemplate.getX(), locationTemplate.getY(), locationTemplate.getZ());
+		PacketSendUtility.sendPacket(player, new SM_TELEPORT_LOC(locationTemplate.getMapId(), locationTemplate.getX(),
+			locationTemplate.getY(), locationTemplate.getZ()));
+		scheduleTeleportTask(player, locationTemplate.getMapId(), locationTemplate.getX(), locationTemplate.getY(),
+			locationTemplate.getZ());
 	}
 
 	/**
-	 *  Check kinah in inventory for teleportation
-	 *  
+	 * Check kinah in inventory for teleportation
+	 * 
 	 * @param location
 	 * @param player
 	 * @return
@@ -151,14 +163,22 @@ public class TeleportService
 	{
 		Storage inventory = player.getInventory();
 
-		if (!inventory.decreaseKinah(location.getPrice()))
+		if(!inventory.decreaseKinah(location.getPrice()))
 		{
 			// TODO using the correct system message
-			PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "You don't have enough Kinah", ChatType.ANNOUNCEMENTS));
+			PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "You don't have enough Kinah",
+				ChatType.ANNOUNCEMENTS));
 			return false;
 		}
 		return true;
 	}
 
-}
+	/**
+	 * @return the teleporterData
+	 */
+	public TeleporterData getTeleporterData()
+	{
+		return teleporterData;
+	}
 
+}

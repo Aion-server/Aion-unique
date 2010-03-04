@@ -62,16 +62,16 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class NpcController extends CreatureController<Npc>
 {
-	private static final Logger log = Logger.getLogger(NpcController.class);
-	
-	protected Future<?>		decayTask;
-	
+	private static final Logger	log	= Logger.getLogger(NpcController.class);
+
+	protected Future<?>			decayTask;
+
 	@Override
 	public void notSee(VisibleObject object)
 	{
 		super.notSee(object);
-		if (object instanceof Creature)
-			getOwner().getAggroList().remove((Creature)object);
+		if(object instanceof Creature)
+			getOwner().getAggroList().remove((Creature) object);
 		if(object instanceof Player && getOwner().getAi() != null)
 			getOwner().getAi().handleEvent(Event.NOT_SEE_PLAYER);
 	}
@@ -93,7 +93,7 @@ public class NpcController extends CreatureController<Npc>
 		owner.setState(CreatureState.NPC_IDLE);
 		owner.setLifeStats(new NpcLifeStats(getOwner()));
 		owner.getAggroList().clear();
-		
+
 		if(owner.getAi() != null)
 			owner.getAi().handleEvent(Event.RESPAWNED);
 	}
@@ -119,29 +119,30 @@ public class NpcController extends CreatureController<Npc>
 	{
 		super.onDie();
 		Npc owner = getOwner();
-		
+
 		if(decayTask == null)
 			decayTask = sp.getRespawnService().scheduleDecayTask(this.getOwner());
-		
+
 		scheduleRespawn();
-		
-		//TODO move to creature controller after duel will be moved out of onDie
+
+		// TODO move to creature controller after duel will be moved out of onDie
 		owner.setState(CreatureState.DEAD);
-		//TODO change - now reward is given to target only
+		// TODO change - now reward is given to target only
 		Player target = (Player) owner.getTarget();
 
-		PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, 13, 0, target == null?0:target.getObjectId()));
+		PacketSendUtility.broadcastPacket(owner,
+			new SM_EMOTION(owner, 13, 0, target == null ? 0 : target.getObjectId()));
 
 		if(target == null)
-			target = (Player) owner.getAggroList().getMostHated();//TODO based on damage;
+			target = (Player) owner.getAggroList().getMostHated();// TODO based on damage;
 
 		this.doReward(target);
 		this.doDrop(target);
-		
+
 		if(owner.getAi() != null)
 			owner.getAi().handleEvent(Event.DIED);
 
-		//deselect target at the end
+		// deselect target at the end
 		owner.setTarget(null);
 	}
 
@@ -187,7 +188,8 @@ public class NpcController extends CreatureController<Npc>
 		switch(dialogId)
 		{
 			case 2:
-				PacketSendUtility.sendPacket(player, new SM_TRADELIST(npc, sp.getTradeListData().getTradeListTemplate(npc.getNpcId())));
+				PacketSendUtility.sendPacket(player, new SM_TRADELIST(npc, sp.getTradeService().getTradeListData()
+					.getTradeListTemplate(npc.getNpcId())));
 				break;
 			case 3:
 				PacketSendUtility.sendPacket(player, new SM_SELL_ITEM(player, targetObjectId));
@@ -238,18 +240,20 @@ public class NpcController extends CreatureController<Npc>
 				{
 					if(!RestrictionsManager.canUseWarehouse(player))
 						return;
-					
+
 					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(targetObjectId, 26));
-					PacketSendUtility.sendPacket(player,
-						new SM_WAREHOUSE_INFO(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId())
-							.getStorageItems(), StorageType.REGULAR_WAREHOUSE.getId(), player.getWarehouseSize()));
+					PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(
+						StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems(),
+						StorageType.REGULAR_WAREHOUSE.getId(), player.getWarehouseSize()));
 					PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE
 						.getId(), player.getWarehouseSize())); // strange
 					// retail
 					// way of sending
 					// warehouse packets
-					PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(
-						StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems(), StorageType.ACCOUNT_WAREHOUSE.getId(), 0));
+					PacketSendUtility
+						.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(
+							StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems(),
+							StorageType.ACCOUNT_WAREHOUSE.getId(), 0));
 					PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE
 						.getId(), 0));
 				}
@@ -311,12 +315,13 @@ public class NpcController extends CreatureController<Npc>
 				break;
 			case 38:
 				// flight and teleport
-				if (player.isInState(CreatureState.FLYING))
+				if(player.isInState(CreatureState.FLYING))
 				{
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_CANNOT_USE_AIRPORT_WHEN_FLYING);
 					return;
 				}
-				PacketSendUtility.sendPacket(player, new SM_TELEPORT_MAP(player, targetObjectId, sp.getTeleporterData().getTeleporterTemplate(npc.getNpcId())));
+				PacketSendUtility.sendPacket(player, new SM_TELEPORT_MAP(player, targetObjectId, sp
+					.getTeleportService().getTeleporterData().getTeleporterTemplate(npc.getNpcId())));
 				break;
 			case 39:
 				// improve extraction
@@ -360,51 +365,50 @@ public class NpcController extends CreatureController<Npc>
 				break;
 		}
 	}
-	
+
 	@Override
-	public void onAttack(Creature creature, int skillId, TYPE type,  int damage)
-	{	
+	public void onAttack(Creature creature, int skillId, TYPE type, int damage)
+	{
 		if(getOwner().getLifeStats().isAlreadyDead())
 			return;
-		
+
 		super.onAttack(creature, skillId, type, damage);
 
 		Npc npc = getOwner();
-		if (creature instanceof Player)
-			if (QuestEngine.getInstance().onAttack(new QuestEnv(npc, (Player)creature, 0 , 0)))
+		if(creature instanceof Player)
+			if(QuestEngine.getInstance().onAttack(new QuestEnv(npc, (Player) creature, 0, 0)))
 				return;
-		
+
 		NpcAi ai = npc.getAi();
 		if(ai == null)
 		{
 			log.warn("CHECKPOINT: npc attacked without ai " + npc.getObjectTemplate().getTemplateId());
 			return;
 		}
-		
+
 		npc.getAggroList().addDamageHate(creature, damage, 0);
 		npc.getLifeStats().reduceHp(damage);
 
-		
 		ai.handleEvent(Event.ATTACKED);
 		PacketSendUtility.broadcastPacket(npc, new SM_ATTACK_STATUS(npc, type, skillId, damage));
 	}
-	
+
 	@Override
 	public void attackTarget(int targetObjectId)
 	{
 		Npc npc = getOwner();
 
-		if (npc == null || npc.getLifeStats().isAlreadyDead() || !npc.isSpawned())
+		if(npc == null || npc.getLifeStats().isAlreadyDead() || !npc.isSpawned())
 			return;
-		
+
 		if(!npc.canAttack())
 			return;
-		
+
 		NpcAi ai = npc.getAi();
 		NpcGameStats gameStats = npc.getGameStats();
 
 		Creature creature = (Creature) sp.getWorld().findAionObject(targetObjectId);
-		//if player disconnected - IDLE state
+		// if player disconnected - IDLE state
 		if(creature == null || creature.getLifeStats().isAlreadyDead())
 		{
 			ai.setAiState(AIState.THINKING);
@@ -418,11 +422,10 @@ public class NpcController extends CreatureController<Npc>
 		{
 			damage += result.getDamage();
 		}
-		
-		int attackType = 0; //TODO investigate attack types	(0 or 1)
-		PacketSendUtility.broadcastPacket(npc,
-			new SM_ATTACK(npc.getObjectId(), creature.getObjectId(),
-				gameStats.getAttackCounter(), 274, attackType, attackList));
+
+		int attackType = 0; // TODO investigate attack types (0 or 1)
+		PacketSendUtility.broadcastPacket(npc, new SM_ATTACK(npc.getObjectId(), creature.getObjectId(), gameStats
+			.getAttackCounter(), 274, attackType, attackList));
 
 		creature.getController().onAttack(npc, damage);
 		gameStats.increaseAttackCounter();
@@ -437,7 +440,7 @@ public class NpcController extends CreatureController<Npc>
 		if(!getOwner().getSpawn().isNoRespawn(instanceId))
 		{
 			sp.getRespawnService().scheduleRespawnTask(getOwner());
-		}	
+		}
 	}
 
 }

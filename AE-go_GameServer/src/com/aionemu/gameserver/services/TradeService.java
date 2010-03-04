@@ -46,20 +46,20 @@ import com.google.inject.Inject;
 
 /**
  * @author ATracer
- *
+ * 
  */
 public class TradeService
 {
-	private static final Logger log = Logger.getLogger(TradeService.class);
+	private static final Logger	log	= Logger.getLogger(TradeService.class);
 
 	@Inject
-	private ItemService itemService;
+	private ItemService			itemService;
 	@Inject
-	private World world;
+	private World				world;
 	@Inject
-	private TradeListData tradeListData;
+	private TradeListData		tradeListData;
 	@Inject
-	private GoodsListData goodsListData;
+	private GoodsListData		goodsListData;
 
 	/**
 	 * 
@@ -76,43 +76,43 @@ public class TradeService
 			return false;
 		}
 
-		Storage inventory  = player.getInventory();
+		Storage inventory = player.getInventory();
 		Item kinahItem = inventory.getKinahItem();
 
-		
-		//1. check kinah
+		// 1. check kinah
 		if(!tradeList.calculateBuyListPrice(player, 2))
 			return false;
-		
-		//2. check free slots, need to check retail behaviour
+
+		// 2. check free slots, need to check retail behaviour
 		int freeSlots = inventory.getLimit() - inventory.getAllItems().size() + 1;
 		if(freeSlots < tradeList.size())
-			return false; //TODO message
-		
+			return false; // TODO message
+
 		int tradeListPrice = tradeList.getRequiredKinah();
-		
+
 		List<Item> addedItems = new ArrayList<Item>();
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
-			int count = itemService.addItem(player, tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(), false); // addToBag is old and have alot of bugs with item adding, suggest to remove it.
+			int count = itemService.addItem(player, tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(),
+				false); // addToBag is old and have alot of bugs with item adding, suggest to remove it.
 			if(count != 0)
 			{
-				log.warn(String.format("CHECKPOINT: itemservice couldnt add all items on buy: %d %d %d %d", player.getObjectId(), 
-					tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(), count));
+				log.warn(String.format("CHECKPOINT: itemservice couldnt add all items on buy: %d %d %d %d", player
+					.getObjectId(), tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(), count));
 				kinahItem.decreaseItemCount(tradeListPrice);
 				return false;
-			}		
+			}
 		}
 		kinahItem.decreaseItemCount(tradeListPrice);
 		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(kinahItem));
 		PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(addedItems));
-		//TODO message
+		// TODO message
 		return true;
 	}
 
 	/**
-	 *  Probably later merge with regular buy
-	 *  
+	 * Probably later merge with regular buy
+	 * 
 	 * @param player
 	 * @param tradeList
 	 * @return true or false
@@ -126,30 +126,30 @@ public class TradeService
 			return false;
 		}
 
-		Storage inventory  = player.getInventory();
+		Storage inventory = player.getInventory();
 		int freeSlots = inventory.getLimit() - inventory.getAllItems().size() + 1;
 		AbyssRank rank = player.getAbyssRank();
-		
-		//1. check required items and ap
+
+		// 1. check required items and ap
 		if(!tradeList.calculateAbyssBuyListPrice(player))
 			return false;
 
-
-		//2. check free slots, need to check retail behaviour
+		// 2. check free slots, need to check retail behaviour
 		if(freeSlots < tradeList.size())
-			return false; //TODO message
+			return false; // TODO message
 
 		List<Item> addedItems = new ArrayList<Item>();
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
-			int count = itemService.addItem(player, tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(), false); // addToBag is old and have alot of bugs with item adding, suggest to remove it.
+			int count = itemService.addItem(player, tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(),
+				false); // addToBag is old and have alot of bugs with item adding, suggest to remove it.
 			if(count != 0)
 			{
-				log.warn(String.format("CHECKPOINT: itemservice couldnt add all items on buy: %d %d %d %d", player.getObjectId(), 
-					tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(), count));
+				log.warn(String.format("CHECKPOINT: itemservice couldnt add all items on buy: %d %d %d %d", player
+					.getObjectId(), tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(), count));
 				rank.addAp(-tradeList.getRequiredAp());
 				return false;
-			}		
+			}
 		}
 		rank.addAp(-tradeList.getRequiredAp());
 		Map<Integer, Integer> requiredItems = tradeList.getRequiredItems();
@@ -157,10 +157,10 @@ public class TradeService
 		{
 			player.getInventory().removeFromBagByItemId(itemId, requiredItems.get(itemId));
 		}
-		
+
 		PacketSendUtility.sendPacket(player, new SM_ABYSS_RANK(rank));
 		PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(addedItems));
-		//TODO message
+		// TODO message
 		return true;
 	}
 
@@ -170,7 +170,8 @@ public class TradeService
 	private boolean validateBuyItems(TradeList tradeList)
 	{
 		Npc npc = (Npc) world.findAionObject(tradeList.getSellerObjId());
-		TradeListTemplate tradeListTemplate = tradeListData.getTradeListTemplate(npc.getObjectTemplate().getTemplateId());
+		TradeListTemplate tradeListTemplate = tradeListData.getTradeListTemplate(npc.getObjectTemplate()
+			.getTemplateId());
 
 		Set<Integer> allowedItems = new HashSet<Integer>();
 		for(TradeTab tradeTab : tradeListTemplate.getTradeTablist())
@@ -179,7 +180,7 @@ public class TradeService
 			if(goodsList != null && goodsList.getItemIdList() != null)
 			{
 				allowedItems.addAll(goodsList.getItemIdList());
-			}				
+			}
 		}
 
 		for(TradeItem tradeItem : tradeList.getTradeItems())
@@ -200,7 +201,7 @@ public class TradeService
 	{
 		Storage inventory = player.getInventory();
 
-		int kinahReward = 0;		
+		int kinahReward = 0;
 		for(TradeItem tradeItem : tradeList.getTradeItems())
 		{
 			Item item = inventory.getItemByObjId(tradeItem.getItemId());
@@ -210,22 +211,25 @@ public class TradeService
 
 			if(item.getItemCount() - tradeItem.getCount() == 0)
 			{
-				inventory.removeFromBag(item, true);    // need to be here to avoid exploit by sending packet with many items with same unique ids
+				inventory.removeFromBag(item, true); // need to be here to avoid exploit by sending packet with many
+														// items with same unique ids
 				kinahReward += item.getItemTemplate().getPrice() * item.getItemCount();
-				//TODO check retail packet here
+				// TODO check retail packet here
 				PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(item.getObjectId()));
 			}
 			else if(item.getItemCount() - tradeItem.getCount() > 0)
 			{
 				if(item.decreaseItemCount(tradeItem.getCount()))
 				{
-					//TODO check retail packet here
+					// TODO check retail packet here
 					kinahReward += item.getItemTemplate().getPrice() * tradeItem.getCount();
 					PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));
 				}
-				else return false;
+				else
+					return false;
 			}
-			else return false;
+			else
+				return false;
 		}
 
 		Item kinahItem = inventory.getKinahItem();
@@ -234,4 +238,13 @@ public class TradeService
 
 		return true;
 	}
+	
+	/**
+	 * @return the tradeListData
+	 */
+	public TradeListData getTradeListData()
+	{
+		return tradeListData;
+	}
+	
 }

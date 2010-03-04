@@ -75,7 +75,7 @@ public class BindpointController extends NpcController
 						float x,y,z;
 						if (responder.getCommonData().getBindPoint() != 0)
 						{
-							BindPointTemplate bplist = sp.getBindPointData().getBindPointTemplate2(bindPointTemplate.getBindId());
+							BindPointTemplate bplist = sp.getPlayerService().getBindPointData().getBindPointTemplate2(bindPointTemplate.getBindId());
 							
 							worldId = bplist.getZoneId();
 							x = bplist.getX();
@@ -84,7 +84,7 @@ public class BindpointController extends NpcController
 						}
 						else
 						{
-							LocationData locationData = sp.getPlayerInitialData().getSpawnLocation(responder.getCommonData().getRace());
+							LocationData locationData = sp.getPlayerService().getPlayerInitialData().getSpawnLocation(responder.getCommonData().getRace());
 							worldId = locationData.getMapId();
 							x = locationData.getX();
 							y = locationData.getY();

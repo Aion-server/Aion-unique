@@ -574,12 +574,12 @@ public class PlayerController extends CreatureController<Player>
 		BindPointTemplate bplist;
 		Player player = getOwner();
 
-		LocationData locationData = sp.getPlayerInitialData().getSpawnLocation(player.getCommonData().getRace());
+		LocationData locationData = sp.getPlayerService().getPlayerInitialData().getSpawnLocation(player.getCommonData().getRace());
 
 		int bindPointId = player.getCommonData().getBindPoint();
 		if(bindPointId != 0)
 		{
-			bplist = sp.getBindPointData().getBindPointTemplate2(bindPointId);
+			bplist = sp.getPlayerService().getBindPointData().getBindPointTemplate2(bindPointId);
 			worldId = bplist.getZoneId();
 			x = bplist.getX();
 			y = bplist.getY();
@@ -587,7 +587,7 @@ public class PlayerController extends CreatureController<Player>
 		}
 		else
 		{
-			locationData = sp.getPlayerInitialData().getSpawnLocation(player.getCommonData().getRace());
+			locationData = sp.getPlayerService().getPlayerInitialData().getSpawnLocation(player.getCommonData().getRace());
 			worldId = locationData.getMapId();
 			x = locationData.getX();
 			y = locationData.getY();
@@ -660,9 +660,9 @@ public class PlayerController extends CreatureController<Player>
 	public void upgradePlayer(int level)
 	{
 		Player player = getOwner();
-		PlayerStatsTemplate statsTemplate = sp.getPlayerStatsData().getTemplate(player);
+		PlayerStatsTemplate statsTemplate = sp.getPlayerService().getPlayerStatsData().getTemplate(player);
 
-		player.getGameStats().doLevelUpgrade(sp.getPlayerStatsData(), level);
+		player.getGameStats().doLevelUpgrade(sp.getPlayerService().getPlayerStatsData(), level);
 		player.setPlayerStatsTemplate(statsTemplate);
 		player.setLifeStats(new PlayerLifeStats(player, statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
 		player.getLifeStats().synchronizeWithMaxStats();

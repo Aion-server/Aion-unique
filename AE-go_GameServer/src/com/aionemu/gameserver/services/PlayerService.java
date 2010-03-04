@@ -37,6 +37,7 @@ import com.aionemu.gameserver.dao.PlayerRecipesDAO;
 import com.aionemu.gameserver.dao.PlayerSettingsDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.dao.PlayerTitleListDAO;
+import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
@@ -95,11 +96,12 @@ public class PlayerService
 	private GroupService				groupService;
 	private PlayerStatsData				playerStatsData;
 	private PlayerInitialData			playerInitialData;
+	private BindPointData				bindPointData;
 
 	@Inject
 	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
 		LegionService legionService, ControllerFactory controllerFactory, SkillLearnService skillLearnService,
-		GroupService groupService, PlayerStatsData playerStatsData, PlayerInitialData playerInitialData)
+		GroupService groupService, PlayerStatsData playerStatsData, PlayerInitialData playerInitialData, BindPointData bindPointData)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
@@ -110,6 +112,7 @@ public class PlayerService
 		this.groupService = groupService;
 		this.playerStatsData = playerStatsData;
 		this.playerInitialData = playerInitialData;
+		this.bindPointData = bindPointData;
 	}
 
 	/**
@@ -181,7 +184,8 @@ public class PlayerService
 		if(player != null)
 			return player;
 
-		PlayerCommonData pcd = DAOManager.getDAO(PlayerDAO.class).loadPlayerCommonData(playerObjId, world, playerInitialData);
+		PlayerCommonData pcd = DAOManager.getDAO(PlayerDAO.class).loadPlayerCommonData(playerObjId, world,
+			playerInitialData);
 		PlayerAppearance appereance = DAOManager.getDAO(PlayerAppearanceDAO.class).load(playerObjId);
 		MacroList macroses = DAOManager.getDAO(PlayerMacrossesDAO.class).restoreMacrosses(playerObjId);
 
@@ -498,5 +502,29 @@ public class PlayerService
 	public Player getCachedPlayer(int playerObjectId)
 	{
 		return playerCache.get(playerObjectId);
+	}
+
+	/**
+	 * @return the playerStatsData
+	 */
+	public PlayerStatsData getPlayerStatsData()
+	{
+		return playerStatsData;
+	}
+
+	/**
+	 * @return the playerInitialData
+	 */
+	public PlayerInitialData getPlayerInitialData()
+	{
+		return playerInitialData;
+	}
+
+	/**
+	 * @return the bindPointData
+	 */
+	public BindPointData getBindPointData()
+	{
+		return bindPointData;
 	}
 }
