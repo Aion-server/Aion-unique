@@ -1764,7 +1764,7 @@ Eltnen -->
 		<object x="1747.773" y="1787.702" z="330.12057" h="93"/>
 	</spawn>
 	<!-- Griffonix -->
-	<spawn map="210020000" npcid="212057" pool="1" interval="105">
+	<spawn map="210020000" npcid="212057" pool="1" interval="105" time="NIGHT">
 		<object x="1872.033" y="2798.739" z="360.9212" h="118"/>
 	</spawn>
 	<!-- Grove Vespine -->
@@ -3440,7 +3440,7 @@ Eltnen -->
 		<object x="1959.438" y="2038.643" z="361.625" h="25"/>
 	</spawn>
 	<!-- Raging Obscura -->
-	<spawn map="210020000" npcid="211844" pool="14" interval="105">
+	<spawn map="210020000" npcid="211844" pool="14" interval="105" time="NIGHT">
 		<object x="1520.051" y="439.1868" z="360.92264" h="16"/>
 		<object x="1414.908" y="447.7085" z="364.2115" h="9"/>
 		<object x="1473.96" y="390.1295" z="367.1119" h="98"/>
@@ -4095,7 +4095,7 @@ Eltnen -->
 		<object x="2442.827" y="2628.631" z="271.96613" h="73"/>
 	</spawn>
 	<!-- Speartail Skyray -->
-	<spawn map="210020000" npcid="211843" pool="20" interval="105">
+	<spawn map="210020000" npcid="211843" pool="20" interval="105" time="DAY">
 		<object x="1482.92" y="491.78" z="359.27374" h="107"/>
 		<object x="1481.09" y="484.73" z="359.98877" h="69"/>
 		<object x="1502.6" y="459.45" z="360.6219" h="48"/>

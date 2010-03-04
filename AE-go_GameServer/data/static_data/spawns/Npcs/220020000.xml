@@ -1062,7 +1062,7 @@ Morheim -->
 		<object x="2536.109" y="1815.609" z="96.48237" h="9"/>
 	</spawn>
 	<!-- Sentinel Leader -->
-	<spawn map="220020000" npcid="207587" pool="1" interval="105">
+	<spawn map="220020000" npcid="207587" pool="6" interval="105">
 		<object x="320.865" y="2343.208" z="443.20242" h="0"/>
 		<object x="293.5142" y="2334.119" z="443.31723" h="7"/>
 		<object x="303.992" y="2293.257" z="448.91205" h="38"/>

@@ -52,10 +52,6 @@ Eltnen -->
 	<spawn map="210020000" npcid="203957" pool="1" interval="105">
 		<object x="1963.007" y="2004.2339" z="361.45255" h="0"/>
 	</spawn>
-	<!-- Harumonerk -->
-	<spawn map="210020000" npcid="798126" pool="1" interval="105">
-		<object x="409.34952" y="1838.173" z="245.0" h="0"/>
-	</spawn>
 	<!-- Biadri -->
 	<spawn map="210020000" npcid="730022" pool="1" interval="105">
 		<object x="405.10693" y="2708.5078" z="174.81348" h="0"/>
@@ -293,8 +289,12 @@ Eltnen -->
 		<object x="296.8656" y="2765.7383" z="263.52408" h="0"/>
 	</spawn>
 	<!-- Harumonerk -->
-	<spawn map="210020000" npcid="798126" pool="1" interval="105">
+	<spawn map="210020000" npcid="798126" pool="1" interval="105" time="NIGHT">
 		<object x="752.76135" y="1010.5063" z="285.0" h="0"/>
+	</spawn>
+	<!-- Harumonerk -->
+	<spawn map="210020000" npcid="798126" pool="1" interval="105" time="DAY">
+		<object x="409.34952" y="1838.173" z="245.0" h="0"/>
 	</spawn>
 	<!-- Navilreas -->
 	<spawn map="210020000" npcid="203986" pool="1" interval="105">
@@ -473,20 +473,14 @@ Eltnen -->
 		<object x="1946.1946" y="2049.2566" z="361.725" h="0"/>
 	</spawn>
 	<!-- Ramorunerk -->
-	<spawn map="210020000" npcid="798047" pool="1" interval="105">
+	<spawn map="210020000" npcid="798047" pool="1" interval="105" time="DAY">
 		<object x="374.0" y="403.0" z="41.33752" h="0"/>
+		<object x="239.77" y="94.93" z="46.889374" h="0"/>		
 	</spawn>
 	<!-- Ramorunerk -->
-	<spawn map="210020000" npcid="798047" pool="1" interval="105">
-		<object x="239.77" y="94.93" z="46.889374" h="0"/>
-	</spawn>
-	<!-- Ramorunerk -->
-	<spawn map="210020000" npcid="798047" pool="1" interval="105">
+	<spawn map="210020000" npcid="798047" pool="1" interval="105" time="NIGHT">
 		<object x="233.0" y="95.0" z="49.0" h="0"/>
-	</spawn>
-	<!-- Ramorunerk -->
-	<spawn map="210020000" npcid="798047" pool="1" interval="105">
-		<object x="102.0" y="289.0" z="45.875" h="0"/>
+		<object x="102.0" y="289.0" z="45.875" h="0"/>		
 	</spawn>
 	<!-- Gyabrunerk -->
 	<spawn map="210020000" npcid="798053" pool="1" interval="105">
@@ -609,7 +603,7 @@ Eltnen -->
 		<object x="2032.5281" y="1400.7535" z="429.84723" h="0"/>
 	</spawn>
 	<!-- Griffonix of Fire -->
-	<spawn map="210020000" npcid="204028" pool="1" interval="105">
+	<spawn map="210020000" npcid="204028" pool="1" interval="105" time="DAY">
 		<object x="1871.1079" y="2819.2961" z="361.125" h="0"/>
 	</spawn>
 	<!-- Dalanius -->

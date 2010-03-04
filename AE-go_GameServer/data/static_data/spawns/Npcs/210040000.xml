@@ -1017,4 +1017,9 @@ Heiron -->
 	<spawn map="210040000" npcid="204656" pool="1" interval="105">
 		<object x="2019.486" y="1470.973" z="127.4919" h="0"/>
 	</spawn>
+	<!-- Tabrinerk -->
+	<spawn map="210040000" npcid="798097" pool="2" interval="105" time="DAY">
+		<object x="2658.74" y="1825.85" z="142.87" h="85"/>
+		<object x="2360.38" y="2256.56" z="142.39" h="64"/>
+	</spawn>
 </spawns>
