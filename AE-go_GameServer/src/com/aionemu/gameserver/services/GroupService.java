@@ -110,7 +110,7 @@ public class GroupService
 	 * Returns the player's group
 	 * 
 	 * @param playerObjId
-	 * @return
+	 * @return PlayerGroup
 	 */
 	public PlayerGroup getGroup(int playerObjId)
 	{
@@ -385,7 +385,7 @@ public class GroupService
 	}
 
 	/**
-	 * @return
+	 * @return FastMap<Integer, Boolean>
 	 */
 	public FastMap<Integer, Boolean> getMembersToRegistrateByRules(final Player player, final PlayerGroup group)
 	{

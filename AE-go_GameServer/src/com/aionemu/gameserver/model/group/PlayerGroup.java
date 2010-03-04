@@ -166,7 +166,7 @@ public class PlayerGroup
 	/**
 	 * Checks whether group is full
 	 * 
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isFull()
 	{
