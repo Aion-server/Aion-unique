@@ -124,7 +124,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	{
 		boolean success = DB.insertUpdate(
 			"INSERT INTO players(id, `name`, account_id, account_name, x, y, z, heading, world_id, gender, race, player_class , cube_size, warehouse_size, online) " +
-			"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)",
+			"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)",
 			new IUStH(){
 				@Override
 				public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
@@ -198,6 +198,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				cd.setCubesize(resultSet.getInt("cube_size"));
 				cd.setBindPoint(resultSet.getInt("bind_point"));
 				cd.setTitleId(resultSet.getInt("title_id"));
+				cd.setWarehouseSize(resultSet.getInt("warehouse_size"));
 
 				float x = resultSet.getFloat("x");
 				float y = resultSet.getFloat("y");
