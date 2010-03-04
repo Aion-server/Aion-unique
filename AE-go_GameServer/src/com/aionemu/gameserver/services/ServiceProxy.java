@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.services;
 
 import com.aionemu.gameserver.dataholders.BindPointData;
+import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.world.World;
@@ -63,9 +64,11 @@ public class ServiceProxy
 	@Inject
 	private BindPointData			bindPointData;
 	@Inject
-	public TradeListData			tradeListData;
+	private TradeListData			tradeListData;
 	@Inject
-	public TeleporterData			teleporterData;
+	private TeleporterData			teleporterData;
+	@Inject
+	private PlayerStatsData			playerStatsData;
 
 	/**
 	 * @return the world
@@ -209,5 +212,13 @@ public class ServiceProxy
 	public TeleporterData getTeleporterData()
 	{
 		return teleporterData;
+	}
+
+	/**
+	 * @return the playerStatsData
+	 */
+	public PlayerStatsData getPlayerStatsData()
+	{
+		return playerStatsData;
 	}
 }

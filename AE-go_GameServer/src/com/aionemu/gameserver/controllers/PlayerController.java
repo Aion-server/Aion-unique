@@ -233,7 +233,7 @@ public class PlayerController extends CreatureController<Player>
 		if(!player.canAttack())
 			return;
 
-		PlayerGameStats gameStats = player.getGameStats();		
+		PlayerGameStats gameStats = player.getGameStats();
 
 		Creature target = (Creature) sp.getWorld().findAionObject(targetObjectId);
 
@@ -247,7 +247,7 @@ public class PlayerController extends CreatureController<Player>
 		{
 			damage += result.getDamage();
 		}
-		
+
 		long time = System.currentTimeMillis();
 		int attackType = 0; // TODO investigate attack types
 		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), target.getObjectId(), gameStats
@@ -347,7 +347,7 @@ public class PlayerController extends CreatureController<Player>
 			{
 				if(player.getLifeStats().isAlreadyDead())
 					return;
-				
+
 				if(delay != 0)
 				{
 					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
@@ -574,7 +574,7 @@ public class PlayerController extends CreatureController<Player>
 		int worldId;
 		BindPointTemplate bplist;
 		Player player = getOwner();
-		
+
 		LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
 
 		int bindPointId = player.getCommonData().getBindPoint();
@@ -616,7 +616,7 @@ public class PlayerController extends CreatureController<Player>
 	{
 		return player.getCommonData().getRace() != getOwner().getCommonData().getRace();
 	}
-	
+
 	public boolean isEnemy(Npc npc)
 	{
 		return npc instanceof Monster || npc.isAggressiveTo(getOwner().getCommonData().getRace());
@@ -661,9 +661,9 @@ public class PlayerController extends CreatureController<Player>
 	public void upgradePlayer(int level)
 	{
 		Player player = getOwner();
-		PlayerStatsTemplate statsTemplate = DataManager.PLAYER_STATS_DATA.getTemplate(player);
+		PlayerStatsTemplate statsTemplate = sp.getPlayerStatsData().getTemplate(player);
 
-		player.getGameStats().doLevelUpgrade(DataManager.PLAYER_STATS_DATA, level);
+		player.getGameStats().doLevelUpgrade(sp.getPlayerStatsData(), level);
 		player.setPlayerStatsTemplate(statsTemplate);
 		player.setLifeStats(new PlayerLifeStats(player, statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
 		player.getLifeStats().synchronizeWithMaxStats();
@@ -676,20 +676,20 @@ public class PlayerController extends CreatureController<Player>
 		QuestEngine.getInstance().onLvlUp(new QuestEnv(null, player, 0, 0));
 
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-		
+
 		// add new skills
 		sp.getSkillLearnService().addNewSkills(player, false);
 		if(level == 10)
 		{
 			player.getSkillList().removeSkill(30001);
-			PacketSendUtility.sendPacket(player,new SM_SKILL_LIST(player));
+			PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(player));
 		}
 		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
-		
+
 		DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
 		// save player at this point
 		DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
-		
+
 		/** update member list packet if player is legion member **/
 		if(player.isLegionMember())
 			sp.getLegionService().updateMemberInfo(player);
@@ -699,24 +699,24 @@ public class PlayerController extends CreatureController<Player>
 	{
 		Player player = getOwner();
 
-		if (player.isInState(CreatureState.FLYING) && !player.isInState(CreatureState.GLIDING))
+		if(player.isInState(CreatureState.FLYING) && !player.isInState(CreatureState.GLIDING))
 		{
 			player.setFlyState(1);
 		}
-		else if (player.isInState(CreatureState.GLIDING))
+		else if(player.isInState(CreatureState.GLIDING))
 		{
 			player.setFlyState(2);
 		}
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 
-		//TODO: period task for fly time decrease
+		// TODO: period task for fly time decrease
 	}
 
 	public void endFly()
 	{
 		Player player = getOwner();
 
-		if (player.isInState(CreatureState.FLYING))
+		if(player.isInState(CreatureState.FLYING))
 		{
 			player.setFlyState(1);
 		}
@@ -726,6 +726,6 @@ public class PlayerController extends CreatureController<Player>
 		}
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 
-		//TODO: period task for fly time increase
+		// TODO: period task for fly time increase
 	}
 }

@@ -38,6 +38,7 @@ import com.aionemu.gameserver.dao.PlayerSettingsDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.dao.PlayerTitleListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.ItemType;
@@ -92,10 +93,12 @@ public class PlayerService
 	private ControllerFactory			controllerFactory;
 	private SkillLearnService			skillLearnService;
 	private GroupService				groupService;
+	private PlayerStatsData				playerStatsData;
 
 	@Inject
 	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
-		LegionService legionService, ControllerFactory controllerFactory, SkillLearnService skillLearnService, GroupService groupService)
+		LegionService legionService, ControllerFactory controllerFactory, SkillLearnService skillLearnService,
+		GroupService groupService, PlayerStatsData playerStatsData)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
@@ -104,6 +107,7 @@ public class PlayerService
 		this.controllerFactory = controllerFactory;
 		this.skillLearnService = skillLearnService;
 		this.groupService = groupService;
+		this.playerStatsData = playerStatsData;
 	}
 
 	/**
@@ -184,7 +188,7 @@ public class PlayerService
 		LegionMember legionMember = legionService.getLegionMember(player.getObjectId());
 		if(legionMember != null)
 			player.setLegionMember(legionMember);
-		
+
 		if(groupService.isGroupMember(playerObjId))
 			groupService.setGroup(player);
 
@@ -199,22 +203,23 @@ public class PlayerService
 		DAOManager.getDAO(PlayerSettingsDAO.class).loadSettings(player);
 		DAOManager.getDAO(AbyssRankDAO.class).loadAbyssRank(player);
 
-		player.setPlayerStatsTemplate(DataManager.PLAYER_STATS_DATA.getTemplate(player));
+		player.setPlayerStatsTemplate(playerStatsData.getTemplate(player));
 
-		player.setGameStats(new PlayerGameStats(DataManager.PLAYER_STATS_DATA, player));
+		player.setGameStats(new PlayerGameStats(playerStatsData, player));
 		player.setLifeStats(new PlayerLifeStats(player, player.getPlayerStatsTemplate().getMaxHp(), player
 			.getPlayerStatsTemplate().getMaxMp()));
 		player.setEffectController(new PlayerEffectController(player));
 
 		player.setQuestStateList(DAOManager.getDAO(PlayerQuestListDAO.class).load(player));
 		player.setRecipeList(DAOManager.getDAO(PlayerRecipesDAO.class).load(player.getObjectId()));
-		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE), StorageType.CUBE);
+		player
+			.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE), StorageType.CUBE);
 		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.REGULAR_WAREHOUSE),
 			StorageType.REGULAR_WAREHOUSE);
 		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.ACCOUNT_WAREHOUSE),
 			StorageType.ACCOUNT_WAREHOUSE);
 		player.setEquipment(DAOManager.getDAO(InventoryDAO.class).loadEquipment(player));
-		
+
 		DAOManager.getDAO(PlayerPunishmentsDAO.class).loadPlayerPunishments(player);
 		player.getEquipment().onLoadApplyEquipmentStats();
 
@@ -233,7 +238,7 @@ public class PlayerService
 			kinahItem.setItemLocation(StorageType.ACCOUNT_WAREHOUSE.getId());
 			player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).onLoadHandler(kinahItem);
 		}
-		
+
 		// update passive stats after effect controller, stats and equipment are initialized
 		player.getController().updatePassiveStats();
 
@@ -349,33 +354,32 @@ public class PlayerService
 		if(player.isLegionMember())
 		{
 			final Legion legion = player.getLegion();
-			PacketSendUtility.broadcastPacketToLegion(legion,
-				new SM_LEGION_UPDATE_MEMBER(player, 0, ""), world);
+			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_UPDATE_MEMBER(player, 0, ""), world);
 			legionService.storeLegion(legion);
 			legionService.storeLegionMember(player.getLegionMember());
 			legionService.storeLegionMemberExInCache(player);
 		}
-		
+
 		if(player.isInGroup())
 			groupService.scheduleRemove(player);
 
 		player.getController().delete();
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);
-		
+
 		player.getPunishmentController().stopPrisonTask(true);
 
 		storePlayer(player);
 	}
-	
+
 	public void playerLoggedOutDelay(final Player player, int delay)
 	{
-		ThreadPoolManager.getInstance().scheduleTaskManager(new Runnable(){		
+		ThreadPoolManager.getInstance().scheduleTaskManager(new Runnable(){
 			@Override
 			public void run()
-			{				
+			{
 				playerLoggedOut(player);
 			}
-		}, delay);				
+		}, delay);
 	}
 
 	/**

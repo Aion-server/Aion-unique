@@ -158,13 +158,6 @@ public class DataInjectionModule extends AbstractModule
 	{
 		return datamanager.BIND_POINT_DATA;
 	}
-
-	@SuppressWarnings("static-access")
-	@Provides
-	PlayerExperienceTable providePlayerExpTable(DataManager datamanager)
-	{
-		return datamanager.PLAYER_EXPERIENCE_TABLE;
-	}
 	
 	@Provides
 	@Singleton
@@ -172,38 +165,11 @@ public class DataInjectionModule extends AbstractModule
 	{
 		return new ChatHandlersFactory(injector).createChatHandlers();
 	}
-
-	@SuppressWarnings("static-access")
-	@Provides
-	PlayerStatsData providePlayerStatsData(DataManager datamanager)
-	{
-		return datamanager.PLAYER_STATS_DATA;
-	}
-
-	@SuppressWarnings("static-access")
-	@Provides
-	PlayerInitialData providePlayerInitialData(DataManager datamanager)
-	{
-		return datamanager.PLAYER_INITIAL_DATA;
-	}
 	
 	@Provides
 	TradeListData provideTradeListData(DataManager datamanager)
 	{
 		return datamanager.TRADE_LIST_DATA;
-	}
-	
-	@SuppressWarnings("static-access")
-	@Provides
-	SkillData provideSkillData(DataManager datamanager)
-	{
-		return datamanager.SKILL_DATA;
-	}
-	
-	@Provides
-	SkillTreeData provideSkillTreeData(DataManager datamanager)
-	{
-		return datamanager.SKILL_TREE_DATA;
 	}
 	
 	@Provides
@@ -218,16 +184,49 @@ public class DataInjectionModule extends AbstractModule
 		return datamanager.TELELOCATION_DATA;
 	}
 	
+	@Provides
+	GoodsListData provideGoodsListData(DataManager datamanager)
+	{
+		return datamanager.GOODSLIST_DATA;
+	}
+	
+	@Provides
+	SkillTreeData provideSkillTreeData(DataManager datamanager)
+	{
+		return datamanager.SKILL_TREE_DATA;
+	}
+	
+	@SuppressWarnings("static-access")
+	@Provides
+	SkillData provideSkillData(DataManager datamanager)
+	{
+		return datamanager.SKILL_DATA;
+	}
+	
 	@SuppressWarnings("static-access")
 	@Provides
 	WalkerData provideWalkerData(DataManager datamanager)
 	{
 		return datamanager.WALKER_DATA;
 	}
-	
+
+	@SuppressWarnings("static-access")
 	@Provides
-	GoodsListData provideGoodsListData(DataManager datamanager)
+	PlayerExperienceTable providePlayerExpTable(DataManager datamanager)
 	{
-		return datamanager.GOODSLIST_DATA;
+		return datamanager.PLAYER_EXPERIENCE_TABLE;
+	}
+
+	@Provides
+	PlayerStatsData providePlayerStatsData(DataManager datamanager)
+	{
+		return datamanager.PLAYER_STATS_DATA;
+	}
+
+	@SuppressWarnings("static-access")
+	@Provides
+	PlayerInitialData providePlayerInitialData(DataManager datamanager)
+	{
+		return datamanager.PLAYER_INITIAL_DATA;
 	}
 }
