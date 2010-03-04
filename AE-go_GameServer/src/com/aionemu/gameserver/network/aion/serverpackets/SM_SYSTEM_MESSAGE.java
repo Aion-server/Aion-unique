@@ -825,9 +825,9 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1300829);
 	}
 
-	public static SM_SYSTEM_MESSAGE CRAFT_RECIPE_LEARN(String name)
+	public static SM_SYSTEM_MESSAGE CRAFT_RECIPE_LEARN(DescriptionId nameId)
 	{
-		return new SM_SYSTEM_MESSAGE(1330061, name);
+		return new SM_SYSTEM_MESSAGE(1330061, nameId);
 	}
 
 	private final int		code;

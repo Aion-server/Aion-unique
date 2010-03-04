@@ -29,7 +29,7 @@
 		<xs:attribute name="race" type="skillRace"/>
 		<xs:attribute name="skillid" type="xs:int" />
 		<xs:attribute name="itemid" type="xs:int" />
-		<xs:attribute name="desc" type="xs:string" />
+		<xs:attribute name="nameid" type="xs:int" />
 		<xs:attribute name="id" type="xs:int"/>
 	</xs:complexType>
 	

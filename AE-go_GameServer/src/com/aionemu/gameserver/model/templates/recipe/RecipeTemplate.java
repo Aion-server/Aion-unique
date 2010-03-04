@@ -57,7 +57,7 @@ public class RecipeTemplate {
     @XmlAttribute
     protected int itemid;
     @XmlAttribute
-    protected String desc;
+    protected int nameid;
     @XmlAttribute
     protected int id;
 
@@ -211,18 +211,14 @@ public class RecipeTemplate {
     }
 
     /**
-     * Gets the value of the desc property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDesc() {
-        return desc;
-    }
+	 * @return the nameid
+	 */
+	public int getNameid()
+	{
+		return nameid;
+	}
 
-    /**
+	/**
      * Gets the value of the id property.
      * 
      * @return
