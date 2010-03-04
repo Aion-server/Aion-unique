@@ -62,6 +62,8 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_LEGION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_LEGION_EDIT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_LEGION_MODIFY_EMBLEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_LEGION_SEND_EMBLEM;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_LEGION_UPLOAD_EMBLEM;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_LEGION_UPLOAD_INFO;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_LEVEL_READY;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_LOOT_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_MACRO_CREATE;
@@ -214,8 +216,8 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_LEGION_MODIFY_EMBLEM(0xA1), State.IN_GAME);
 		addPacket(new CM_LEGION_SEND_EMBLEM(0x86), State.IN_GAME);
 		addPacket(new CM_LEGION_EDIT(0xAD), State.IN_GAME);
-		// addPacket(new CM_LEGION_EMBLEM_SETTINGS(0x16), State.IN_GAME);
-		// addPacket(new CM_UPLOAD_LEGION_EMBLEM(0x17), State.IN_GAME); // client sends DDS format packets
+		addPacket(new CM_LEGION_UPLOAD_INFO(0x16), State.IN_GAME);
+		addPacket(new CM_LEGION_UPLOAD_EMBLEM(0x17), State.IN_GAME);
 		addPacket(new CM_PRIVATE_STORE(0x6D), State.IN_GAME);
 		addPacket(new CM_PRIVATE_STORE_NAME(0x6E), State.IN_GAME);
 		addPacket(new CM_SKILL_DEACTIVATE(0x88), State.IN_GAME);
