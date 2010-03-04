@@ -33,7 +33,7 @@ public abstract class Condition
 	/**
 	 *  Verify condition specified in template
 	 * @param env
-	 * @return
+	 * @return true or false
 	 */
 	public abstract boolean verify(Skill env);
 }

@@ -174,8 +174,6 @@ public class NpcController extends CreatureController<Npc>
 
 	/**
 	 * Handle dialog
-	 * 
-	 * @return true if target is npc
 	 */
 	public void onDialogSelect(int dialogId, final Player player, int questId)
 	{

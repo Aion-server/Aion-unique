@@ -34,9 +34,8 @@ public class LegionCommand extends AdminCommand
 	private LegionService	legionService;
 
 	/**
-	 * @param commandName
+	 * The constructor of Legion Command
 	 */
-
 	public LegionCommand()
 	{
 		super("legion");

@@ -34,7 +34,7 @@ public abstract class Property
 	/**
 	 * 
 	 * @param env
-	 * @return
+	 * @return true or false
 	 */
 	public abstract boolean set(Skill skill);
 }

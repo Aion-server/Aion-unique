@@ -38,8 +38,8 @@ public class Zone extends AdminCommand
     /**
      * Execute admin command represented by this class, with a given list of parametrs.
      *
-     * @param admin
-     * @param params
+     * @param admin the player of the admin that requests the command
+     * @param params the parameters of the command
      */
     @Override
     public void executeCommand(Player admin, String[] params) {

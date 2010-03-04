@@ -40,14 +40,14 @@ public interface CacheMap<K, V>
 	 * Returns cached value correlated to given key.
 	 * 
 	 * @param key
-	 * @return
+	 * @return V
 	 */
 	public V get(K key);
 	
 	/**
 	 * Checks whether this map contains a value related to given key.
 	 * @param key
-	 * @return
+	 * @return true or false
 	 */
 	public boolean contains(K key);
 	

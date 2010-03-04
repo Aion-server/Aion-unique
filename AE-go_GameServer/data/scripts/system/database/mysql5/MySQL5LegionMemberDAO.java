@@ -35,7 +35,7 @@ import com.aionemu.gameserver.model.legion.LegionRank;
 import com.aionemu.gameserver.services.LegionService;
 
 /**
- * Class that that is responsible for loading/storing {@link com.aionemu.gameserver.model.legions.LegionMember} object
+ * Class that that is responsible for loading/storing {@link com.aionemu.gameserver.model.legion.LegionMember} object
  * from MySQL 5.
  * 
  * @author Simple

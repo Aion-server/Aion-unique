@@ -111,7 +111,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @param y
 	 * @param z
 	 * @param delay
-	 * @return
+	 * @return true or false
 	 */
 	public boolean teleportTo(int worldId, float x, float y, float z, int delay)
 	{
@@ -131,7 +131,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @param y
 	 * @param z
 	 * @param delay
-	 * @return
+	 * @return true or false
 	 */
 	public boolean teleportTo(int worldId, int instanceId, float x, float y, float z, int delay)
 	{
@@ -148,7 +148,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @param z
 	 * @param heading
 	 * @param delay
-	 * @return
+	 * @return true or false
 	 */
 	public boolean teleportTo(int worldId, int instanceId, float x, float y, float z, byte heading, int delay)
 	{

@@ -28,11 +28,11 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 /**
  * @author lord_rex
  * 
- * @param //sys info - System Informations
- * @param //sys memory - Memory Informations
- * @param //sys gc - Garbage Collector
- * @param //sys shutdown <seconds> <announceInterval> - Shutdowner
- * @param //sys restart <seconds> <announceInterval> - Restarter
+ * //sys info - System Informations
+ * //sys memory - Memory Informations
+ * //sys gc - Garbage Collector
+ * //sys shutdown <seconds> <announceInterval> - Shutdowner
+ * //sys restart <seconds> <announceInterval> - Restarter
  */
 public class AESystem extends AdminCommand
 {

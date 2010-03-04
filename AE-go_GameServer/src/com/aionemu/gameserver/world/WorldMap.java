@@ -77,7 +77,7 @@ public class WorldMap
 	
 	/**
 	 * 
-	 * @return
+	 * @return int
 	 */
 	public int getInstanceCount()
 	{
@@ -89,7 +89,7 @@ public class WorldMap
 	 *  Will create new instance if there are not free yet and spawn according to xml data
 	 *  //TODO limit
 	 *  //TODO dispose unused instances (lifecycle)
-	 * @return
+	 * @return WorldMapInstance
 	 */
 	public synchronized WorldMapInstance getNextFreeInstance()
 	{	
@@ -144,7 +144,7 @@ public class WorldMap
 	 *  This method return WorldMapInstance by specified instanceId
 	 *  
 	 * @param instanceId
-	 * @return
+	 * @return WorldMapInstance
 	 */
 	public WorldMapInstance getWorldMapInstanceById(int instanceId)
 	{

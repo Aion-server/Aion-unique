@@ -99,7 +99,7 @@ public class RecipeData
 	}
 
 	/**
-	 * @return
+	 * @return recipeData.size()
 	 */
 	public int size()
 	{

@@ -361,7 +361,7 @@ public class LegionService
 	 * Returns the legion with given legionId (if such legion exists)
 	 * 
 	 * @param legionId
-	 * @return
+	 * @return Legion
 	 */
 	public Legion getLegion(int legionId)
 	{
@@ -418,7 +418,7 @@ public class LegionService
 	 * Returns the legion with given legionId (if such legion exists)
 	 * 
 	 * @param playerObjId
-	 * @return
+	 * @return LegionMember
 	 */
 	public LegionMember getLegionMember(int playerObjId)
 	{
@@ -477,7 +477,7 @@ public class LegionService
 	 * Returns the offline legion member with given playerId (if such member exists)
 	 * 
 	 * @param playerObjId
-	 * @return
+	 * @return LegionMemberEx
 	 */
 	public LegionMemberEx getLegionMemberEx(int playerObjId)
 	{
@@ -488,7 +488,7 @@ public class LegionService
 	 * Returns the offline legion member with given playerId (if such member exists)
 	 * 
 	 * @param playerObjId
-	 * @return
+	 * @return LegionMemberEx
 	 */
 	public LegionMemberEx getLegionMemberEx(String playerName)
 	{

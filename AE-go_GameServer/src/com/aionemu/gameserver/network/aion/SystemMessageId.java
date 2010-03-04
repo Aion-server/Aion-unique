@@ -19,7 +19,6 @@ package com.aionemu.gameserver.network.aion;
 /**
 *
 * @author  KKnD
-* @param $1,$2,$3
 */
 public enum SystemMessageId
 {

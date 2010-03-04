@@ -41,9 +41,8 @@ public class ReloadSpawns extends AdminCommand
 	private SpawnEngine	spawnEngine;
 
 	/**
-	 * @param commandName
+	 * The constructor of Reload Spawns Command
 	 */
-
 	public ReloadSpawns()
 	{
 		super("reload_spawn");

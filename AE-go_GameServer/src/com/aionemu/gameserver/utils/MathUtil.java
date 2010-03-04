@@ -303,7 +303,7 @@ public class MathUtil
 	 * @param obj1Y
 	 * @param obj2X
 	 * @param obj2Y
-	 * @return
+	 * @return float
 	 */
 	public final static float calculateAngleFrom(float obj1X, float obj1Y, float obj2X, float obj2Y)
 	{
@@ -317,7 +317,7 @@ public class MathUtil
 	 * 
 	 * @param obj1
 	 * @param obj2
-	 * @return
+	 * @return float
 	 */
 	public static float calculateAngleFrom(VisibleObject obj1, VisibleObject obj2)
 	{
@@ -327,7 +327,7 @@ public class MathUtil
 	/**
 	 * 
 	 * @param clientHeading
-	 * @return
+	 * @return float
 	 */
 	public final static float convertHeadingToDegree(byte clientHeading)
 	{

@@ -111,7 +111,7 @@ public class ItemStorage
 	
 	/**
 	 * @param itemObjId
-	 * @return
+	 * @return Item
 	 */
 	public Item getItemFromStorageByItemObjId(int itemObjId)
 	{
@@ -127,7 +127,7 @@ public class ItemStorage
 
 	/**
 	 * @param itemId
-	 * @return
+	 * @return int
 	 */
 	public int getSlotIdByItemId(int itemId)
 	{
@@ -144,7 +144,7 @@ public class ItemStorage
 	
 	/**
 	 * @param objId
-	 * @return
+	 * @return int
 	 */
 	public int getSlotIdByObjId(int objId)
 	{
@@ -178,7 +178,7 @@ public class ItemStorage
 	 *  - Return Item as the result of successful operation
 	 *  
 	 * @param item
-	 * @return
+	 * @return Item
 	 */
 	public Item addItemToStorage(Item item)
 	{
@@ -201,7 +201,7 @@ public class ItemStorage
 	 *  - If no slot available - return null
 	 *  
 	 * @param item
-	 * @return
+	 * @return Item
 	 */
 	public Item putToNextAvailableSlot(Item item)
 	{
@@ -216,7 +216,7 @@ public class ItemStorage
 	 *  Return false if remove encountered some problems
 	 *  
 	 * @param item
-	 * @return
+	 * @return true or false
 	 */
 	public boolean removeItemFromStorage(Item item)
 	{
@@ -229,7 +229,7 @@ public class ItemStorage
 	}
 
 	/**
-	 * @return
+	 * @return int
 	 */
 	public int getNumberOfFreeSlots()
 	{

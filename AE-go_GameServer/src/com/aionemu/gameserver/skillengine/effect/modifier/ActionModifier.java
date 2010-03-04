@@ -36,7 +36,7 @@ public abstract class ActionModifier {
 	 *   
 	 * @param effect  
 	 * @param originalValue
-	 * @return
+	 * @return int
 	 */
 	public abstract int analyze(Effect effect, int originalValue);
 	
@@ -44,7 +44,7 @@ public abstract class ActionModifier {
 	 * Performs check of condition
 	 * 
 	 * @param effect
-	 * @return
+	 * @return true or false
 	 */
 	public abstract boolean check(Effect effect);
 }

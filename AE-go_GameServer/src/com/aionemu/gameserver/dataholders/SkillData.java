@@ -53,7 +53,7 @@ public class SkillData
 	
 	/** 
 	 * @param skillId
-	 * @return
+	 * @return SkillTemplate
 	 */
 	public SkillTemplate getSkillTemplate(int skillId)
 	{
@@ -61,13 +61,16 @@ public class SkillData
 	}
 	
 	/**
-	 * @return
+	 * @return List<SkillTemplate>
 	 */
 	public List<SkillTemplate> getSkillTemplates()
 	{
 		return skillTemplates;
 	}
 	
+	/**
+	 * @return skillData.size()
+	 */
 	public int size()
 	{
 		return skillData.size();

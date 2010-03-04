@@ -37,7 +37,7 @@ public abstract class VisibleObjectTemplate
 	
 	/**
 	 *  Name id of object template
-	 * @return
+	 * @return int
 	 */
 	public abstract int getNameId();
 }

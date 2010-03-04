@@ -167,7 +167,7 @@ public class ObserveController
 	/**
 	 * 
 	 * @param status
-	 * @return
+	 * @return true or false
 	 */
 	public boolean checkAttackStatus(AttackStatus status)
 	{

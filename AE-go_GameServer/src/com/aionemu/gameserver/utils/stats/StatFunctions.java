@@ -100,7 +100,7 @@ public class StatFunctions
 	 * 
 	 * @param player
 	 * @param target
-	 * @return
+	 * @return int
 	 */
 	public static int calculateSoloAPReward(Player player, Creature target) 
 	{
@@ -419,7 +419,7 @@ public class StatFunctions
 	 *  
 	 * @param attacker
 	 * @param attacked
-	 * @return
+	 * @return int
 	 */
 	public static int calculatePhysicalDodgeRate(Creature attacker, Creature attacked)
 	{
@@ -451,7 +451,7 @@ public class StatFunctions
 	 *  
 	 * @param attacker
 	 * @param attacked
-	 * @return
+	 * @return int
 	 */
 	public static int calculatePhysicalParryRate(Creature attacker, Creature attacked)
 	{
@@ -483,7 +483,7 @@ public class StatFunctions
 	 *  
 	 * @param attacker
 	 * @param attacked
-	 * @return
+	 * @return int
 	 */
 	public static int calculatePhysicalBlockRate(Creature attacker, Creature attacked)
 	{
@@ -514,7 +514,7 @@ public class StatFunctions
 	 *  Calculates CRITICAL chance
 	 *  
 	 * @param attacker
-	 * @return
+	 * @return double
 	 */
 	public static double calculatePhysicalCriticalRate(Creature attacker)
 	{
@@ -546,7 +546,7 @@ public class StatFunctions
 	 *  
 	 * @param attacker
 	 * @param attacked
-	 * @return
+	 * @return int
 	 */
 	public static int calculateMagicalResistRate(Creature attacker, Creature attacked)
 	{		

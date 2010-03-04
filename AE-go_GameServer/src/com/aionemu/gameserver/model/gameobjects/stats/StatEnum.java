@@ -198,7 +198,7 @@ public enum StatEnum
 	 *  Used to find specific StatEnum by its item stone mask
 	 *   
 	 * @param mask
-	 * @return
+	 * @return StatEnum
 	 */
 	public static StatEnum findByItemStoneMask(int mask)
 	{

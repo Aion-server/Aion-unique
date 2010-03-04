@@ -89,7 +89,7 @@ public class SkillTreeData
 	 * @param playerClass
 	 * @param level
 	 * @param race
-	 * @return
+	 * @return SkillLearnTemplate[]
 	 */
 	public SkillLearnTemplate[] getTemplatesFor(PlayerClass playerClass, int level, Race race)
 	{

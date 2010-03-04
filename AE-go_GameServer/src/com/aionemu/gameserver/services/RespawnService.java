@@ -38,7 +38,7 @@ public class RespawnService
 	/**
 	 * 
 	 * @param npc
-	 * @return
+	 * @return Future<?>
 	 */
 	public Future<?> scheduleDecayTask(final Npc npc)
 	{

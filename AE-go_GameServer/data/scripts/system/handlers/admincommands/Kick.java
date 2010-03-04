@@ -37,9 +37,8 @@ public class Kick extends AdminCommand
 	private World	world;
 
 	/**
-	 * @param commandName
+	 * Constructor of Kick
 	 */
-
 	public Kick()
 	{
 		super("kick");

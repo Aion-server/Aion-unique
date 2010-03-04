@@ -122,7 +122,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 *  This method is called whenever caller wants to absorb creatures's HP
 	 * @param value
-	 * @return
+	 * @return int
 	 */
 	public int reduceHp(int value)
 	{
@@ -159,7 +159,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 *  This method is called whenever caller wants to absorb creatures's HP
 	 * @param value
-	 * @return
+	 * @return int
 	 */
 	public int reduceMp(int value)
 	{
@@ -200,7 +200,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 *  This method is called whenever caller wants to restore creatures's HP
 	 * @param value
-	 * @return
+	 * @return int
 	 */
 	public int increaseHp(int value)
 	{
@@ -232,7 +232,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 * This method is called whenever caller wants to restore creatures's MP
 	 * @param value
-	 * @return
+	 * @return int
 	 */
 	public int increaseMp(int value)
 	{
@@ -305,7 +305,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	
 	/**
 	 * 
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isFullyRestored()
 	{

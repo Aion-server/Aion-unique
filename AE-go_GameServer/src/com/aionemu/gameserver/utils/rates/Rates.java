@@ -34,7 +34,7 @@ public abstract class Rates
 
 	/**
 	 * @param membership
-	 * @return
+	 * @return Rates
 	 */
 	public static Rates getRatesFor(byte membership)
 	{

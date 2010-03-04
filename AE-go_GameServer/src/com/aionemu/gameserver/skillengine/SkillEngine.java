@@ -49,7 +49,7 @@ public class SkillEngine
 	 *  
 	 * @param player
 	 * @param skillId
-	 * @return
+	 * @return Skill
 	 */
 	public Skill getSkillFor(Player player, int skillId, VisibleObject firstTarget)
 	{
@@ -79,7 +79,7 @@ public class SkillEngine
 	 * @param player
 	 * @param skillId
 	 * @param skillLevel
-	 * @return
+	 * @return Skill
 	 */
 	public Skill getSkill(Player player, int skillId, int skillLevel, VisibleObject firstTarget)
 	{

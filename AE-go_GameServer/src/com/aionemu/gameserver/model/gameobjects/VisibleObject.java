@@ -239,7 +239,7 @@ public abstract class VisibleObject extends AionObject
 	
 	/**
 	 * 
-	 * @return
+	 * @return VisibleObject
 	 */
 	public VisibleObject getTarget()
 	{
@@ -258,7 +258,7 @@ public abstract class VisibleObject extends AionObject
 	/**
 	 *  Return spawn template of this VisibleObject
 	 *  
-	 * @return
+	 * @return SpawnTemplate
 	 */
 	public SpawnTemplate getSpawn()
 	{

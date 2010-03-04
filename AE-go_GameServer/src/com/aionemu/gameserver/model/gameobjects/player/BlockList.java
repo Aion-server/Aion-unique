@@ -109,7 +109,7 @@ public class BlockList implements Iterable<BlockedPlayer>
 	
 	/**
 	 * Returns the number of blocked players in this list
-	 * @return
+	 * @return blockedList.size()
 	 */
 	public int getSize()
 	{

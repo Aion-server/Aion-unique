@@ -96,8 +96,7 @@ public class TradeList
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return true or false
 	 */
 	public boolean calculateAbyssBuyListPrice(Player player)
 	{

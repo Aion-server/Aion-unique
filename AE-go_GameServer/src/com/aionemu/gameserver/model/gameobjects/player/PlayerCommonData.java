@@ -169,7 +169,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 
 	/**
 	 * sets the exp value
-	 * @param admin: enable decrease level 
+	 * @param exp
 	 */
 	public void setExp(long exp)
 	{

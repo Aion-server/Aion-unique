@@ -30,13 +30,13 @@ public abstract class InventoryDAO implements IDFactoryAwareDAO
 	/**
 	 * @param player
 	 * @param StorageType
-	 * @return
+	 * @return Storage
 	 */
 	public abstract Storage loadStorage(Player player, StorageType storageType);
 
 	/**
 	 * @param player
-	 * @return
+	 * @return Equipment
 	 */
 	public abstract Equipment loadEquipment(Player player);
 

@@ -196,7 +196,7 @@ public class Storage
 	 *  
 	 * @param item
 	 * @param persistImmediately
-	 * @return
+	 * @return Item
 	 */
 	public Item putToBag(Item item, boolean persistImmediately)
 	{
@@ -214,7 +214,7 @@ public class Storage
 	 * Every put operation using this method is persisted immediately
 	 * 
 	 * @param item
-	 * @return
+	 * @return Item
 	 */
 	public Item putToBag(Item item)
 	{
@@ -249,7 +249,7 @@ public class Storage
 	 *  
 	 * @param itemId
 	 * @param count
-	 * @return
+	 * @return true or false
 	 */
 	public boolean removeFromBagByItemId(int itemId, int count)
 	{
@@ -273,7 +273,7 @@ public class Storage
 	 * 
 	 * @param itemObjId
 	 * @param count
-	 * @return
+	 * @return true or false
 	 */
 	public boolean removeFromBagByObjectId(int itemObjId, int count)
 	{
@@ -289,7 +289,7 @@ public class Storage
 	 *  
 	 * @param itemObjId
 	 * @param count
-	 * @return
+	 * @return true or false
 	 */
 	public boolean removeFromBagByObjectId(int itemObjId, int count, boolean persist)
 	{
@@ -353,7 +353,7 @@ public class Storage
 	/**
 	 *  Method primarily used when saving to DB
 	 *  
-	 * @return
+	 * @return List<Item>
 	 */
 	public List<Item> getAllItems()
 	{
@@ -367,7 +367,7 @@ public class Storage
 	 *  Searches for item with specified itemId in equipment and cube
 	 *  
 	 * @param itemId
-	 * @return
+	 * @return List<Item>
 	 */
 	public List<Item> getAllItemsByItemId(int itemId)
 	{
@@ -391,7 +391,7 @@ public class Storage
 	 *  Will look item in default item bag
 	 *  
 	 * @param value
-	 * @return
+	 * @return Item
 	 */
 	public Item getItemByObjId(int value)
 	{
@@ -401,7 +401,7 @@ public class Storage
 	/**
 	 * 
 	 * @param value
-	 * @return
+	 * @return List<Item>
 	 */
 	public List<Item> getItemsByItemId(int value)
 	{
@@ -427,7 +427,7 @@ public class Storage
 	/**
 	 *  Checks whether default cube is full
 	 *  
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isFull()
 	{

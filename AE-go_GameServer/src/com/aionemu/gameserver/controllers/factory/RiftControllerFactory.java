@@ -31,7 +31,7 @@ public interface RiftControllerFactory
 	 * @param slave
 	 * @param maxEntries
 	 * @param maxLevel
-	 * @return
+	 * @return riftControllerFactory
 	 */
 	public RiftController create(@Assisted Npc slave, @Assisted("maxEntries") Integer maxEntries,
 		@Assisted("maxLevel") Integer maxLevel);

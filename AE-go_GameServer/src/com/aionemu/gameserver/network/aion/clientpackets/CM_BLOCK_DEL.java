@@ -38,7 +38,6 @@ public class CM_BLOCK_DEL extends AionClientPacket
 	private String			targetName;
 
 	/**
-	 * {@inheritDoc}
 	 * @param opcode
 	 */
 	public CM_BLOCK_DEL(int opcode)

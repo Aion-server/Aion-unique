@@ -275,7 +275,7 @@ public abstract class Creature extends VisibleObject
 	}
 
 	/**
-	 * @return
+	 * @return state
 	 */
 	public int getState()
 	{
@@ -306,7 +306,7 @@ public abstract class Creature extends VisibleObject
 	}
 
 	/**
-	 * @return
+	 * @return visualState
 	 */
 	public int getVisualState()
 	{
@@ -337,7 +337,7 @@ public abstract class Creature extends VisibleObject
 	}
 
 	/**
-	 * @return
+	 * @return seeState
 	 */
 	public int getSeeState()
 	{

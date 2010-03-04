@@ -34,7 +34,7 @@ public enum SpawnTime
 
 	/**
 	 * @param dayTime
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isAllowedDuring(DayTime dayTime)
 	{

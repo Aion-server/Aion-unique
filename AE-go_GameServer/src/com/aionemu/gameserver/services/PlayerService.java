@@ -167,7 +167,7 @@ public class PlayerService
 	 * Returns the player with given objId (if such player exists)
 	 * 
 	 * @param playerObjId
-	 * @return
+	 * @return Player
 	 */
 	public Player getPlayer(int playerObjId)
 	{
@@ -253,7 +253,7 @@ public class PlayerService
 	 * 
 	 * @param playerCommonData
 	 * @param playerAppearance
-	 * @return
+	 * @return Player
 	 */
 	public Player newPlayer(PlayerCommonData playerCommonData, PlayerAppearance playerAppearance)
 	{

@@ -57,7 +57,7 @@ public class ItemData
 	}
 
 	/**
-	 * @return
+	 * @return items.size()
 	 */
 	public int size()
 	{

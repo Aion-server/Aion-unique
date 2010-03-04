@@ -68,7 +68,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return 
+	 * @return int
 	 */
 	public static int getHealthFor(PlayerClass playerClass)
 	{
@@ -77,7 +77,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getAgilityFor(PlayerClass playerClass)
 	{
@@ -86,7 +86,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getAccuracyFor(PlayerClass playerClass)
 	{
@@ -95,7 +95,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getKnowledgeFor(PlayerClass playerClass)
 	{
@@ -104,7 +104,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getWillFor(PlayerClass playerClass)
 	{
@@ -113,7 +113,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getMainHandAttackFor(PlayerClass playerClass)
 	{
@@ -122,7 +122,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getMainHandCritRateFor(PlayerClass playerClass)
 	{
@@ -131,7 +131,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getMainHandAccuracyFor(PlayerClass playerClass)
 	{
@@ -140,7 +140,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getWaterResistFor(PlayerClass playerClass)
 	{
@@ -149,7 +149,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getWindResistFor(PlayerClass playerClass)
 	{
@@ -158,7 +158,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getEarthResistFor(PlayerClass playerClass)
 	{
@@ -167,7 +167,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getFireResistFor(PlayerClass playerClass)
 	{
@@ -176,7 +176,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getMagicAccuracyFor(PlayerClass playerClass)
 	{
@@ -185,7 +185,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getEvasionFor(PlayerClass playerClass)
 	{
@@ -194,7 +194,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getBlockFor(PlayerClass playerClass)
 	{
@@ -203,7 +203,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getParryFor(PlayerClass playerClass)
 	{
@@ -212,7 +212,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getAttackRangeFor(PlayerClass playerClass)
 	{
@@ -221,7 +221,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getAttackSpeedFor(PlayerClass playerClass)
 	{
@@ -230,7 +230,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getFlySpeedFor(PlayerClass playerClass)
 	{
@@ -239,7 +239,7 @@ public class ClassStats
 	
 	/**
 	 * @param playerClass
-	 * @return
+	 * @return int
 	 */
 	public static int getSpeedFor(PlayerClass playerClass)
 	{

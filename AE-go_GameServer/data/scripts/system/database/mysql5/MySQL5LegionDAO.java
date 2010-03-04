@@ -37,7 +37,7 @@ import com.aionemu.gameserver.model.legion.LegionEmblem;
 import com.aionemu.gameserver.model.legion.LegionWarehouse;
 
 /**
- * Class that that is responsible for loading/storing {@link com.aionemu.gameserver.model.legions.legion} object from
+ * Class that that is responsible for loading/storing {@link com.aionemu.gameserver.model.legion.Legion} object from
  * MySQL 5.
  * 
  * @author Simple

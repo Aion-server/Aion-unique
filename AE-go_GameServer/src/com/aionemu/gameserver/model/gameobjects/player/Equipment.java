@@ -139,7 +139,7 @@ public class Equipment
 	 *
 	 * @param itemUniqueId
 	 * @param slot
-	 * @return
+	 * @return true or false
 	 */
 	public boolean unEquipItem(int itemUniqueId, int slot)
 	{
@@ -346,7 +346,7 @@ public class Equipment
 	 *  Will look item in equipment item set
 	 *
 	 * @param value
-	 * @return
+	 * @return Item
 	 */
 	public Item getEquippedItemByObjId(int value)
 	{
@@ -361,7 +361,7 @@ public class Equipment
 	/**
 	 * 
 	 * @param value
-	 * @return
+	 * @return List<Item>
 	 */
 	public List<Item> getEquippedItemsByItemId(int value)
 	{
@@ -376,7 +376,7 @@ public class Equipment
 
 	/**
 	 * 
-	 * @return
+	 * @return List<Item>
 	 */
 	public List<Item> getEquippedItems()
 	{
@@ -425,7 +425,7 @@ public class Equipment
 	}
 
 	/**
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isShieldEquipped()
 	{
@@ -548,7 +548,7 @@ public class Equipment
 
 	/**
 	 *
-	 * @return
+	 * @return true or false
 	 */
 	public boolean switchHands()
 	{

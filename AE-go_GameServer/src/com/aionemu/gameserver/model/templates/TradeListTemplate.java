@@ -60,7 +60,7 @@ public class TradeListTemplate
 	
 	/**
 	 * 
-	 * @return
+	 * @return List<TradeTab>
 	 */
 	public List<TradeTab> getTradeTablist() {
         if (tradeTablist == null) {

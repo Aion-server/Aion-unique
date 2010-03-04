@@ -272,7 +272,7 @@ public class RestrictionsManager
 	 * Check whether player can perform trade
 	 * 
 	 * @param player
-	 * @return
+	 * @return true or false
 	 */
 	public static boolean canTrade(Player player)
 	{
@@ -289,7 +289,7 @@ public class RestrictionsManager
 	 * Check whether player can use warehouse
 	 * 
 	 * @param player
-	 * @return
+	 * @return true or false
 	 */
 	public static boolean canUseWarehouse(Player player)
 	{

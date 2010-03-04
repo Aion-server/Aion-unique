@@ -56,7 +56,7 @@ public enum LegionRank
 	/**
 	 * Returns client-side id for this
 	 * 
-	 * @return
+	 * @return byte
 	 */
 	public byte getRankId()
 	{

@@ -138,8 +138,8 @@ public class MySQL5PlayerQuestListDAO extends PlayerQuestListDAO
 	}
 
 	/**
-	 * @param playerId
-	 * @param questId
+	 * @param playerId The playerObjectId of the player who's quest needs to be deleted
+	 * @param questId The questId that needs to be deleted
 	 */
 	public void deleteQuest(final int playerId, final int questId)
 	{

@@ -472,7 +472,7 @@ public class ItemTemplate extends VisibleObjectTemplate
 	}
 
 	/**
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isWeapon()
 	{
@@ -480,7 +480,7 @@ public class ItemTemplate extends VisibleObjectTemplate
 	}
 
 	/**
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isArmor()
 	{

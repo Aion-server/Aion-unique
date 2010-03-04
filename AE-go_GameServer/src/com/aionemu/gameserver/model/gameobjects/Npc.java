@@ -125,7 +125,7 @@ public class Npc extends Creature
 	 *  //TODO refactore to npc-npc interations
 	 *  
 	 * @param tribe
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isAggressiveTo(Race race)
 	{
@@ -154,7 +154,7 @@ public class Npc extends Creature
 	/**
 	 *  Check whether npc located at initial spawn location
 	 *  
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isAtSpawnLocation()
 	{

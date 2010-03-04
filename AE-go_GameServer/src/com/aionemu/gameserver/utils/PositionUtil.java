@@ -30,7 +30,7 @@ public class PositionUtil
 	 * 
 	 * @param object1
 	 * @param object2
-	 * @return
+	 * @return true or false
 	 */
 	public static boolean isBehindTarget(VisibleObject object1, VisibleObject object2)
 	{
@@ -47,7 +47,7 @@ public class PositionUtil
 	 * 
 	 * @param object1
 	 * @param object2
-	 * @return
+	 * @return true or false
 	 */
 	public static boolean isInFrontOfTarget(VisibleObject object1, VisibleObject object2)
 	{

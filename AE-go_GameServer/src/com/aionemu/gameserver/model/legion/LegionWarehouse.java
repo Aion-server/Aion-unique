@@ -59,7 +59,7 @@ public class LegionWarehouse extends Storage
 	 * 
 	 * @param item
 	 * @param persistImmediately
-	 * @return
+	 * @return Item
 	 */
 	@Override
 	public Item putToBag(Item item, boolean persistImmediately)

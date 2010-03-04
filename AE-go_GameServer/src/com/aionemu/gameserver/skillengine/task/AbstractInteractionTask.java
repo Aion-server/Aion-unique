@@ -116,7 +116,7 @@ public abstract class AbstractInteractionTask
 	
 	/**
 	 * 
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isInProgress()
 	{
@@ -124,7 +124,7 @@ public abstract class AbstractInteractionTask
 	}
 	/**
 	 * 
-	 * @return
+	 * @return true or false
 	 */
 	public boolean validateParticipants()
 	{

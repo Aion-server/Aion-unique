@@ -93,7 +93,7 @@ public class Util
 	 * Converts name to valid pattern For example : "atracer" -> "Atracer"
 	 * 
 	 * @param name
-	 * @return
+	 * @return String
 	 */
 	public static String convertName(String name)
 	{

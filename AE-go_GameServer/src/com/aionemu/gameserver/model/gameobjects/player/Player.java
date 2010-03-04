@@ -194,7 +194,7 @@ public class Player extends Creature
 	/**
 	 * Gets this players Friend List
 	 * 
-	 * @return
+	 * @return FriendList
 	 */
 	public FriendList getFriendList()
 	{
@@ -204,7 +204,7 @@ public class Player extends Creature
 	/**
 	 * Is this player looking for a group
 	 * 
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isLookingForGroup()
 	{
@@ -281,7 +281,7 @@ public class Player extends Creature
 	/**
 	 * Gets the ResponseRequester for this player
 	 * 
-	 * @return
+	 * @return ResponseRequester
 	 */
 	public ResponseRequester getResponseRequester()
 	{
@@ -348,7 +348,7 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @return the player private store
+	 * @param store the store that needs to be set
 	 */
 	public void setStore(PrivateStore store)
 	{
@@ -677,7 +677,7 @@ public class Player extends Creature
 	/**
 	 * Access level of this player
 	 * 
-	 * @return
+	 * @return byte
 	 */
 	public byte getAccessLevel()
 	{
@@ -704,7 +704,7 @@ public class Player extends Creature
 	/**
 	 * This method will return the punishment controller for players
 	 * 
-	 * @return
+	 * @return PunishmentController
 	 */
 	public PunishmentController getPunishmentController()
 	{

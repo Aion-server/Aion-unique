@@ -34,10 +34,6 @@ import com.aionemu.gameserver.world.World;
  */
 public class SM_TELEPORT_MAP extends AionServerPacket
 {
-
-	/**
-	* {@inheritDoc}
-	*/
 	private int	targetObjectId;
 	private Player	player;
 	private TeleporterTemplate teleport;

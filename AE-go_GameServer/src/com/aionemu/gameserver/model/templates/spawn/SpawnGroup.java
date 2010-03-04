@@ -166,7 +166,7 @@ public class SpawnGroup
 	 *  Returns next template to spawn
 	 *  
 	 * @param instance
-	 * @return
+	 * @return SpawnTemplate
 	 */
 	public SpawnTemplate getNextAvailableTemplate(int instance)
 	{

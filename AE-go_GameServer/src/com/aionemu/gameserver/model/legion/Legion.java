@@ -192,7 +192,7 @@ public class Legion
 	 * @param legionarPermission2
 	 * @param centurionPermission1
 	 * @param centurionPermission2
-	 * @return
+	 * @return true or false
 	 */
 	public boolean setLegionPermissions(int legionarPermission2, int centurionPermission1, int centurionPermission2)
 	{
@@ -315,7 +315,7 @@ public class Legion
 	/**
 	 * This method will check whether a legion has enough members to level up
 	 * 
-	 * @return
+	 * @return true or false
 	 */
 	public boolean hasRequiredMembers()
 	{
@@ -344,7 +344,7 @@ public class Legion
 	/**
 	 * This method will return the kinah price required to level up
 	 * 
-	 * @return
+	 * @return int
 	 */
 	public int getKinahPrice()
 	{
@@ -365,7 +365,7 @@ public class Legion
 	/**
 	 * This method will return the contribution points required to level up
 	 * 
-	 * @return
+	 * @return int
 	 */
 	public int getContributionPrice()
 	{

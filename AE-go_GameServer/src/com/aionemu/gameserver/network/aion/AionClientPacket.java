@@ -97,7 +97,7 @@ public abstract class AionClientPacket extends BaseClientPacket<AionConnection> 
 	/**
 	 * Clones this packet object.
 	 * 
-	 * @return
+	 * @return AionClientPacket
 	 */
 	public AionClientPacket clonePacket()
 	{

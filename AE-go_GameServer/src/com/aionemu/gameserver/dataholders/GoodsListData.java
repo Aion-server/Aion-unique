@@ -59,7 +59,7 @@ public class GoodsListData
 	}
 
 	/**
-	 * @return
+	 * @return goodListData.size()
 	 */
 	public int size()
 	{

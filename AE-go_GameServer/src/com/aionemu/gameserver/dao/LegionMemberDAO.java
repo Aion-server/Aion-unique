@@ -60,7 +60,7 @@ public abstract class LegionMemberDAO implements IDFactoryAwareDAO
 	 * 
 	 * @param playerObjId
 	 * @param legionService
-	 * @return
+	 * @return LegionMember
 	 */
 	public abstract LegionMember loadLegionMember(int playerObjId, LegionService legionService);
 
@@ -69,7 +69,7 @@ public abstract class LegionMemberDAO implements IDFactoryAwareDAO
 	 * 
 	 * @param playerObjId
 	 * @param legionService
-	 * @return
+	 * @return LegionMemberEx
 	 */
 	public abstract LegionMemberEx loadLegionMemberEx(int playerObjId, LegionService legionService);
 
@@ -78,7 +78,7 @@ public abstract class LegionMemberDAO implements IDFactoryAwareDAO
 	 * 
 	 * @param playerName
 	 * @param legionService
-	 * @return
+	 * @return LegionMemberEx
 	 */
 	public abstract LegionMemberEx loadLegionMemberEx(String playerName, LegionService legionService);
 
@@ -86,7 +86,7 @@ public abstract class LegionMemberDAO implements IDFactoryAwareDAO
 	 * Loads all legion members of a legion
 	 * 
 	 * @param legionId
-	 * @return
+	 * @return ArrayList<Integer>
 	 */
 	public abstract ArrayList<Integer> loadLegionMembers(int legionId);
 

@@ -65,7 +65,7 @@ public class TradeService
 	 * 
 	 * @param player
 	 * @param tradeList
-	 * @return
+	 * @return true or false
 	 */
 	public boolean performBuyFromShop(Player player, TradeList tradeList)
 	{
@@ -115,7 +115,7 @@ public class TradeService
 	 *  
 	 * @param player
 	 * @param tradeList
-	 * @return
+	 * @return true or false
 	 */
 	public boolean performBuyFromAbyssShop(Player player, TradeList tradeList)
 	{
@@ -194,7 +194,7 @@ public class TradeService
 	 * 
 	 * @param player
 	 * @param tradeList
-	 * @return
+	 * @return true or false
 	 */
 	public boolean performSellToShop(Player player, TradeList tradeList)
 	{

@@ -174,7 +174,7 @@ public class SpawnTemplate
 
 	/**
 	 * @param instance
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isNoRespawn(int instance)
 	{		

@@ -34,7 +34,7 @@ public class CacheMapFactory
 	 * 
 	 * @param cacheName - The name for this cache map
 	 * @param valueName - Mnemonic name for values stored in the cache
-	 * @return
+	 * @return CacheMap<K, V>
 	 */
 	public static <K, V> CacheMap<K, V> createCacheMap(String cacheName, String valueName)
 	{
@@ -52,7 +52,7 @@ public class CacheMapFactory
 	 * 
 	 * @param cacheName - The name for this cache map
 	 * @param valueName - Mnemonic name for values stored in the cache
-	 * @return
+	 * @return CacheMap<K, V>
 	 */
 	public static <K, V> CacheMap<K, V> createSoftCacheMap(String cacheName, String valueName)
 	{
@@ -67,7 +67,7 @@ public class CacheMapFactory
 	 * 
 	 * @param cacheName - The name for this cache map
 	 * @param valueName - Mnemonic name for values stored in the cache
-	 * @return
+	 * @return CacheMap<K, V>
 	 */
 	public static <K, V> CacheMap<K, V> createWeakCacheMap(String cacheName, String valueName)
 	{

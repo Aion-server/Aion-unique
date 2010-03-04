@@ -58,7 +58,7 @@ public class ControllerFactory
 	
 	/**
 	 * 
-	 * @return
+	 * @return actionitemControllerFactory
 	 */
 	public ActionitemController createActionitemController()
 	{
@@ -67,7 +67,7 @@ public class ControllerFactory
 	
 	/**
 	 * 
-	 * @return
+	 * @return bindpointControllerFactory
 	 */
 	public BindpointController createBindpointController()
 	{
@@ -75,8 +75,7 @@ public class ControllerFactory
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return citizenControllerFactory
 	 */
 	public CitizenController createCitizenController()
 	{
@@ -84,8 +83,7 @@ public class ControllerFactory
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return gatherableControllerFactory
 	 */
 	public GatherableController createGatherableController()
 	{
@@ -93,8 +91,7 @@ public class ControllerFactory
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return monsterControllerFactory
 	 */
 	public MonsterController createMonsterController()
 	{
@@ -102,8 +99,7 @@ public class ControllerFactory
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return npcControllerFactory
 	 */
 	public NpcController createNpcController()
 	{
@@ -111,8 +107,7 @@ public class ControllerFactory
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return playerControllerFactory
 	 */
 	public PlayerController createPlayerController()
 	{
@@ -120,8 +115,7 @@ public class ControllerFactory
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return postboxControllerFactory
 	 */
 	public PostboxController createPostboxController()
 	{
@@ -133,7 +127,7 @@ public class ControllerFactory
 	 * @param slave
 	 * @param maxEntries
 	 * @param maxLevel
-	 * @return
+	 * @return riftControllerFactory
 	 */
 	public RiftController createRiftController(Npc slave, int maxEntries, int maxLevel)
 	{
@@ -141,8 +135,7 @@ public class ControllerFactory
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return staticObjectControllerFactory
 	 */
 	public StaticObjectController createStaticObjectController()
 	{

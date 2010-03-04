@@ -60,7 +60,7 @@ public enum WeaponType
 	}
 
 	/**
-	 * @return
+	 * @return int
 	 */
 	public int getMask()
 	{

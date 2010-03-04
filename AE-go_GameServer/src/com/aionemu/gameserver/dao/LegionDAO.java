@@ -61,7 +61,7 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	 * Loads a legion
 	 * 
 	 * @param legionId
-	 * @return
+	 * @return Legion
 	 */
 	public abstract Legion loadLegion(int legionId);
 
@@ -86,7 +86,7 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	 * 
 	 * @param legionId
 	 * @param message
-	 * @return
+	 * @return true or false
 	 */
 	public abstract boolean saveNewAnnouncement(int legionId, String message);
 
@@ -123,7 +123,7 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	 * Loads a legion emblem
 	 * 
 	 * @param legion
-	 * @return
+	 * @return LegionEmblem
 	 */
 	public abstract LegionEmblem loadLegionEmblem(int legionId);
 

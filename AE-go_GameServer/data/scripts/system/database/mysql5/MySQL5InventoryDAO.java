@@ -177,9 +177,9 @@ public class MySQL5InventoryDAO extends InventoryDAO
 	}
 
 	/**
-	 * @param item
-	 * @param playerId
-	 * @return
+	 * @param item The item that needs to be stored
+	 * @param ownerId The playerObjectId of the owner of the item
+	 * @return true if storing succeeded
 	 */
 	@Override
 	public boolean store(final Item item, int ownerId)

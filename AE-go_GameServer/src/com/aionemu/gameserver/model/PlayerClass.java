@@ -65,7 +65,7 @@ public enum PlayerClass
 	/**
 	 * Returns client-side id for this PlayerClass
 	 * 
-	 * @return
+	 * @return classID
 	 */
 	public byte getClassId()
 	{

@@ -43,7 +43,7 @@ public class PrivateStore
 	/**
 	 * This method will return the owner of the store
 	 * 
-	 * @return
+	 * @return Player
 	 */
 	public Player getOwner()
 	{
@@ -53,7 +53,7 @@ public class PrivateStore
 	/**
 	 * This method will return the items being sold
 	 * 
-	 * @return
+	 * @return LinkedHashMap<Integer, TradePSItem>
 	 */
 	public LinkedHashMap<Integer, TradePSItem> getSoldItems()
 	{

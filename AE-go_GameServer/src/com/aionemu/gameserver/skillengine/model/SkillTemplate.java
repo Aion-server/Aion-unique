@@ -248,7 +248,7 @@ public class SkillTemplate
 	/**
 	 * 
 	 * @param position
-	 * @return
+	 * @return EffectTemplate
 	 */
 	public EffectTemplate getEffectTemplate(int position)
 	{

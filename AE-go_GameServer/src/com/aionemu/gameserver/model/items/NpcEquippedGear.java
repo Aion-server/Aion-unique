@@ -45,7 +45,7 @@ public class NpcEquippedGear implements Iterable<Entry<ItemSlot,ItemTemplate>>
 	}
 
 	/**
-	 * @return
+	 * @return short
 	 */
 	public short getItemsMask()
 	{

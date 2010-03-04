@@ -78,7 +78,7 @@ public class SpawnsData implements Iterable<SpawnGroup>
 	 *  Used in quick location of objects
 	 *  
 	 * @param npcId
-	 * @return
+	 * @return SpawnTemplate
 	 */
 	public SpawnTemplate getFirstSpawnByNpcId(int npcId)
 	{
@@ -113,7 +113,7 @@ public class SpawnsData implements Iterable<SpawnGroup>
 	}
 
 	/**
-	 * @return
+	 * @return counter
 	 */
 	public int size()
 	{

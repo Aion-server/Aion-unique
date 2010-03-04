@@ -127,10 +127,9 @@ public class SocialService
 	}
 	
 	/**
-	 * Adds two players to eachothers friend lists, and updates the database<br />
+	 * Adds two players to each others friend lists, and updates the database<br />
 	 * @param friend1
 	 * @param friend2
-	 * @return Successs
 	 */
 	public void makeFriends(Player friend1, Player friend2)
 	{

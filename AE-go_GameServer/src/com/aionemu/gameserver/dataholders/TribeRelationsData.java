@@ -52,7 +52,7 @@ public class TribeRelationsData
 	}
 
 	/**
-	 * @return
+	 * @return tribeNameMap.size()
 	 */
 	public int size()
 	{

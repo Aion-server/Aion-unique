@@ -205,7 +205,7 @@ public class World
 	/**
 	 * 
 	 * @param worldId
-	 * @return
+	 * @return WorldMapInstance
 	 */
 	public WorldMapInstance getNextAvailableInstance(int worldId)
 	{
@@ -323,7 +323,7 @@ public class World
 	 * @param y
 	 * @param z
 	 * @param heading
-	 * @return
+	 * @return WorldPosition
 	 */
 	public WorldPosition createPosition(int mapId, float x, float y, float z, byte heading)
 	{
@@ -360,7 +360,6 @@ public class World
 	 * 
 	 * @throws NullPointerException
 	 *             if object is already despawned
-	 * @param object
 	 */
 	public void despawn(VisibleObject object)
 	{

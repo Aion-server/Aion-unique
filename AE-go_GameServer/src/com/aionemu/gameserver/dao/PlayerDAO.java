@@ -84,7 +84,7 @@ public abstract class PlayerDAO implements IDFactoryAwareDAO
 	 * Returns a list of objectId of players that are on the account with given accountId
 	 * 
 	 * @param accountId
-	 * @return
+	 * @return List<Integer>
 	 */
 	public abstract List<Integer> getPlayerOidsOnAccount(int accountId);
 
@@ -98,7 +98,8 @@ public abstract class PlayerDAO implements IDFactoryAwareDAO
 	/**
 	 * Store online or offline player status
 	 * 
-	 * @param player, online
+	 * @param player
+	 * @param online
 	 */
 	public abstract void onlinePlayer(final Player player, final boolean online);
 	

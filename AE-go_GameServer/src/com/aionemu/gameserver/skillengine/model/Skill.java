@@ -371,7 +371,7 @@ public class Skill
 	}
 
 	/**
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isPassive()
 	{

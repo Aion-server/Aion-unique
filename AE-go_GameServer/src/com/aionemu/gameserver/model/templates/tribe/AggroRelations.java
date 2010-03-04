@@ -36,7 +36,7 @@ public class AggroRelations
 	protected List<String> to;
 
 	/**
-	 * @return
+	 * @return List<String>
 	 */
 	public List<String> getTo() 
 	{

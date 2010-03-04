@@ -31,7 +31,7 @@ public abstract class BlockListDAO implements DAO
 	/**
 	 * Loads the blocklist for the player given
 	 * @param player
-	 * @return
+	 * @return BlockList
 	 */
 	public abstract BlockList load(Player player, World world);
 	
@@ -60,7 +60,7 @@ public abstract class BlockListDAO implements DAO
 	 * 			Object ID of the player whos reason is being edited
 	 * @param reason
 	 * 			The reason to be set
-	 * @return
+	 * @return true or false
 	 */
 	public abstract boolean setReason(int playerObjId, int blockedObjId, String reason);
 	

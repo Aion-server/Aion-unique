@@ -41,7 +41,7 @@ public class AttackUtil
 	/**
 	 * @param attacker
 	 * @param attacked
-	 * @return
+	 * @return List<AttackResult>
 	 */
 	public static List<AttackResult> calculateAttackResult(Creature attacker, Creature attacked)
 	{
@@ -250,8 +250,8 @@ public class AttackUtil
 
 	/**
 	 * Manage attack status rate
-	 * @see http://www.aionsource.com/forum/mechanic-analysis/42597-character-stats-xp-dp-origin-gerbator-team-july-2009-a.html
-	 * @return
+	 * @source http://www.aionsource.com/forum/mechanic-analysis/42597-character-stats-xp-dp-origin-gerbator-team-july-2009-a.html
+	 * @return AttackStatus
 	 */
 	public static AttackStatus calculatePhysicalStatus(Creature attacker, Creature attacked)
 	{		

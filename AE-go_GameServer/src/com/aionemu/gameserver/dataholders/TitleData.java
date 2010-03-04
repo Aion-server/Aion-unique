@@ -57,7 +57,7 @@ public class TitleData
 	}
 
 	/**
-	 * @return
+	 * @return titles.size()
 	 */
 	public int size()
 	{

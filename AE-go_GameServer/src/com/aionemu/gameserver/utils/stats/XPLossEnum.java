@@ -64,7 +64,7 @@ public enum XPLossEnum
 	 * 
 	 * @param level
 	 * @param expNeed
-	 * @return
+	 * @return long
 	 */
 	public static long getExpLoss(int level, long expNeed)
 	{

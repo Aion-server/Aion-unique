@@ -45,7 +45,7 @@ public class ChatHandlersFactory
 	/**
 	 * Creates and return object of {@link ChatHandlers} class
 	 * 
-	 * @return
+	 * @return ChatHandlers
 	 */
 	public ChatHandlers createChatHandlers()
 	{

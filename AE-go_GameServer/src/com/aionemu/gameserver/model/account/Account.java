@@ -140,7 +140,7 @@ public class Account implements Iterable<PlayerAccountData>
 
 	/**
 	 * @param chaOid
-	 * @return
+	 * @return PlayerAccountData
 	 */
 	public PlayerAccountData getPlayerAccountData(int chaOid)
 	{

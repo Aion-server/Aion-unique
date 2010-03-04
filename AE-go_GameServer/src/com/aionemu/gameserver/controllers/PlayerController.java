@@ -644,8 +644,6 @@ public class PlayerController extends CreatureController<Player>
 
 	/**
 	 * Handle dialog
-	 * 
-	 * @return true if target is player
 	 */
 	public void onDialogSelect(int dialogId, Player player, int questId)
 	{

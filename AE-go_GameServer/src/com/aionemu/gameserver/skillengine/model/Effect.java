@@ -260,7 +260,7 @@ public class Effect
 	/**
 	 * 
 	 * @param effectId
-	 * @return
+	 * @return true or false
 	 */
 	public boolean containsEffectId(int effectId)
 	{

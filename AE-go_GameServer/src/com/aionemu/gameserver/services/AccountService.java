@@ -72,7 +72,7 @@ public class AccountService
 	 * @param accountName
 	 * @param accessLevel
 	 * @param membership
-	 * @return
+	 * @return Account
 	 */
 	public Account getAccount(int accountId, String accountName, AccountTime accountTime, byte accessLevel, byte membership)
 	{

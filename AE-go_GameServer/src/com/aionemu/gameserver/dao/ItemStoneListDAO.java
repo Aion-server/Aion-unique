@@ -31,7 +31,7 @@ public abstract class ItemStoneListDAO implements DAO
 	 *  Loads stones of item
 	 *  
 	 * @param itemObjId
-	 * @return
+	 * @return List<ItemStone>
 	 */
 	public abstract List<ItemStone> load(int itemObjId);
 	

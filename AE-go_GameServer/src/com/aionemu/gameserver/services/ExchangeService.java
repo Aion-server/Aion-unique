@@ -82,7 +82,7 @@ public class ExchangeService
 	/**
 	 * 
 	 * @param player
-	 * @return
+	 * @return Exchange
 	 */
 	public Exchange getCurrentExchange(Player player)
 	{
@@ -92,7 +92,7 @@ public class ExchangeService
 	/**
 	 * 
 	 * @param player
-	 * @return
+	 * @return Exchange
 	 */
 	public Exchange getCurrentParnterExchange(Player player)
 	{

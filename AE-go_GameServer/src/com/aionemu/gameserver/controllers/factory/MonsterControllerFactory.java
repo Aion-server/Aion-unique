@@ -25,8 +25,7 @@ import com.aionemu.gameserver.controllers.MonsterController;
 public interface MonsterControllerFactory
 {
 	/**
-	 * 
-	 * @return
+	 * @return monsterControllerFactory
 	 */
 	public MonsterController create();
 }

@@ -35,7 +35,7 @@ public interface LoginServerConnectionFactory
 	 * 
 	 * @param sc
 	 * @param d
-	 * @return
+	 * @return LoginServerConnection
 	 * @throws IOException
 	 */
 	public LoginServerConnection createConnection(SocketChannel sc, Dispatcher d)

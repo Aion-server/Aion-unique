@@ -25,34 +25,21 @@ package com.aionemu.gameserver.utils.idfactory;
 @SuppressWarnings("serial")
 public class IDFactoryError extends Error
 {
-
-	/**
-	 * {@inheritDoc}
-	 */
 	public IDFactoryError()
 	{
 		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public IDFactoryError(String message)
 	{
 		super(message);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public IDFactoryError(String message, Throwable cause)
 	{
 		super(message, cause);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public IDFactoryError(Throwable cause)
 	{
 		super(cause);

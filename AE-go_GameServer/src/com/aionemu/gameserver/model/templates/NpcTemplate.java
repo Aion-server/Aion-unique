@@ -89,7 +89,7 @@ public class NpcTemplate extends VisibleObjectTemplate
 	}
 
 	/**
-	 * @return
+	 * @return float
 	 */
 	public float getHeight()
 	{

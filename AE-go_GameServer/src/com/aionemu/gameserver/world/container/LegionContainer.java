@@ -91,7 +91,7 @@ public class LegionContainer implements Iterable<Legion>
 	 * Returns true if legion is in cached by id
 	 * 
 	 * @param legionId
-	 * @return
+	 * @return true or false
 	 */
 	public boolean contains(int legionId)
 	{
@@ -102,7 +102,7 @@ public class LegionContainer implements Iterable<Legion>
 	 * Returns true if legion is in cached by name
 	 * 
 	 * @param name
-	 * @return
+	 * @return true or false
 	 */
 	public boolean contains(String name)
 	{

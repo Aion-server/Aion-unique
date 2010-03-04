@@ -37,7 +37,7 @@ public class StoneStatEffectId extends StatEffectId
 	 * 
 	 * @param id
 	 * @param slot
-	 * @return
+	 * @return StoneStatEffectId
 	 */
 	public static StoneStatEffectId getInstance (int id, int slot)
 	{

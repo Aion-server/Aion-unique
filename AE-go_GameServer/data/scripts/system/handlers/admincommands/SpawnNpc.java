@@ -39,8 +39,8 @@ public class SpawnNpc extends AdminCommand
     private final SpawnEngine spawnEngine;
 
     /**
-     * @param spawnData
-     * @param spawnService
+     * @param spawnsData the data of a spawn
+     * @param spawnEngine the spawn service that needs to take care of everything
      */
 
     @Inject

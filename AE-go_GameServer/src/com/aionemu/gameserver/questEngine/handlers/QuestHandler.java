@@ -41,7 +41,6 @@ public class QuestHandler
 
 	/**
 	 * @param questId
-	 * @return 
 	 */
 	protected QuestHandler(Integer questId)
 	{

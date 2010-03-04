@@ -56,8 +56,6 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 
 	/**
 	 * Busy in game
-	 * 
-	 * @return
 	 */
 	public static final SM_SYSTEM_MESSAGE	BUDDYLIST_BUSY	= new SM_SYSTEM_MESSAGE(900847);
 
@@ -146,8 +144,6 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 
 	/**
 	 * You cannot block a character who is currently on your Friends List.
-	 * 
-	 * @return
 	 */
 	public static SM_SYSTEM_MESSAGE	BLOCKLIST_NO_BUDDY			= new SM_SYSTEM_MESSAGE(1300891);
 

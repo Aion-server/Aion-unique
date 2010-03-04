@@ -79,7 +79,7 @@ public class FriendList implements Iterable<Friend>
 	 * Gets the friend with this objId<br />
 	 * Returns null if it is not our friend
 	 * @param objId objId of friend
-	 * @return 
+	 * @return Friend
 	 */
 	public Friend getFriend(int objId) 
 	{
@@ -129,7 +129,6 @@ public class FriendList implements Iterable<Friend>
 	 * <li>Note: Sends the packet to update the client automatically</li>
 	 * <li>Note: You should use requestDel to delete from both lists</li></ul>
 	 * @param friend
-	 * @return
 	 */
 	public void delFriend(int friendOid)
 	{
@@ -227,7 +226,7 @@ public class FriendList implements Iterable<Friend>
 		 * Gets the Status from its int value<br />
 		 * Returns null if out of range
 		 * @param value range 0-2
-		 * @return
+		 * @return Status
 		 */
 		public static Status getByValue(int value)
 		{

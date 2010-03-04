@@ -25,8 +25,7 @@ import com.aionemu.gameserver.controllers.NpcController;
 public interface NpcControllerFactory
 {
 	/**
-	 * 
-	 * @return
+	 * @return npcControllerFactory
 	 */
 	public NpcController create();
 }

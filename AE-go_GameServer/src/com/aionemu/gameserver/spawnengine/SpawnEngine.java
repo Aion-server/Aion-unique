@@ -206,7 +206,7 @@ public class SpawnEngine
 	 * @param walkerid
 	 * @param randomwalk
 	 * @param noRespawn
-	 * @return
+	 * @return SpawnTemplate
 	 */
 	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, float x, float y, float z, byte heading, int walkerid, int randomwalk, boolean noRespawn)
 	{
@@ -226,7 +226,7 @@ public class SpawnEngine
 	 * @param randomwalk
 	 * @param noRespawn
 	 * @param isNewSpawn
-	 * @return
+	 * @return SpawnTemplate
 	 */
 	public SpawnTemplate addNewSpawn(int worldId, int instanceId, int objectId, 
 		float x, float y, float z, byte heading, int walkerid, int randomwalk,

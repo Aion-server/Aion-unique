@@ -53,7 +53,7 @@ public class WorldMapsData implements Iterable<WorldMapTemplate>
 	/**
 	 * Returns the count of maps.
 	 * 
-	 * @return
+	 * @return worldMaps.size()
 	 */
 	public int size()
 	{

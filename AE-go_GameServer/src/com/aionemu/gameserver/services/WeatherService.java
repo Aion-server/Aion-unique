@@ -112,7 +112,7 @@ public class WeatherService
 		 * Returns <code>true</code> if the key is out of date relating to constant WEATHER_DURATION, <code>false</code>
 		 * either
 		 * 
-		 * @return
+		 * @return true or false
 		 */
 		public boolean isOutDated()
 		{

@@ -53,7 +53,7 @@ public enum WorldMapType
 	
 	/**
 	 * @param id of world
-	 * @return
+	 * @return WorldMapType
 	 */
 	public static WorldMapType getWorld(int id)
 	{

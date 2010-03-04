@@ -78,7 +78,7 @@ public class SkillList
 	
 	/**
 	 * Returns array with all skills
-	 * @return
+	 * @return SkillListEntry[]
 	 */
 	public SkillListEntry[] getAllSkills()
 	{
@@ -87,7 +87,7 @@ public class SkillList
 	
 	/**
 	 * 
-	 * @return
+	 * @return SkillListEntry[]
 	 */
 	public SkillListEntry[] getDeletedSkills()
 	{
@@ -96,7 +96,7 @@ public class SkillList
 	
 	/**
 	 * @param skillId
-	 * @return
+	 * @return SkillListEntry
 	 */
 	public SkillListEntry getSkillEntry(int skillId)
 	{
@@ -171,7 +171,7 @@ public class SkillList
 	 * Checks whether player have skill with specified skillId
 	 * 
 	 * @param skillId
-	 * @return
+	 * @return true or false
 	 */
 	public boolean isSkillPresent(int skillId)
 	{

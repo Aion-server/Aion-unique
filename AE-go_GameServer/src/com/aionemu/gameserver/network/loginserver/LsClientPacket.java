@@ -72,7 +72,7 @@ public abstract class LsClientPacket extends BaseClientPacket<LoginServerConnect
 	/**
 	 * Clones this packet object.
 	 * 
-	 * @return
+	 * @return LsClientPacket
 	 */
 	public LsClientPacket clonePacket()
 	{
