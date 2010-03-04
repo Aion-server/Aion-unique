@@ -256,6 +256,15 @@ public class SkillTemplate
 		? effects.getEffects().get(position - 1) : null;
 		
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getEffectsDuration()
+	{
+		return effects != null ? effects.getEffectsDuration() : 0;
+	}
 
 	/**
      * Gets the value of the cooldown property.

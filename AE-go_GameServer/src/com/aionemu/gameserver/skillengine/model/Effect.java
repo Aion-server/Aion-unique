@@ -273,6 +273,54 @@ public class Effect
 	}
 	
 	/**
+	 * Correct lifecycle of Effect
+	 *  - INITIALIZE
+	 *  - APPLY
+	 *  - START
+	 *  - END
+	 */
+	
+	
+	/**
+	 * Do initialization with proper calculations
+	 */
+	public void initialize()
+	{
+		if(skillTemplate.getEffects() == null)
+			return;
+		
+		int effectCounter = 0;
+		for(EffectTemplate template : getEffectTemplates())
+		{
+			if(effectCounter != successEffect)
+				break;
+			
+			template.calculate(this);
+			effectCounter++;
+		}
+	}
+	
+	/**
+	 * Apply all effect templates
+	 */
+	public void applyEffect()
+	{
+		if(skillTemplate.getEffects() == null)
+			return;
+		
+		int effectCounter = 0;
+		for(EffectTemplate template : getEffectTemplates())
+		{
+			if(effectCounter == successEffect)
+				break;
+			
+			template.applyEffect(this);
+			template.startSubEffect(this);
+			effectCounter++;
+		}
+	}
+	
+	/**
 	 * Start effect which includes:
 	 * - start effect defined in template
 	 * - start subeffect if possible

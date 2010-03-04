@@ -154,7 +154,6 @@ public class DataInjectionModule extends AbstractModule
 	}
 	
 	@Provides
-	@Singleton
 	BindPointData provideBindPointData(DataManager datamanager)
 	{
 		return datamanager.BIND_POINT_DATA;
@@ -168,14 +167,12 @@ public class DataInjectionModule extends AbstractModule
 	}
 	
 	@Provides
-	@Singleton
 	TradeListData provideTradeListData(DataManager datamanager)
 	{
 		return datamanager.TRADE_LIST_DATA;
 	}
 	
 	@Provides
-	@Singleton
 	TeleporterData provideTeleporterData(DataManager datamanager)
 	{
 		return datamanager.TELEPORTER_DATA;
@@ -221,7 +218,6 @@ public class DataInjectionModule extends AbstractModule
 	}
 
 	@Provides
-	@Singleton
 	PlayerStatsData providePlayerStatsData(DataManager datamanager)
 	{
 		return datamanager.PLAYER_STATS_DATA;

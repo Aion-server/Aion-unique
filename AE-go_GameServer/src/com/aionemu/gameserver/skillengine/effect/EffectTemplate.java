@@ -24,14 +24,13 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.SkillElement;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.change.Change;
 import com.aionemu.gameserver.skillengine.effect.modifier.ActionModifier;
 import com.aionemu.gameserver.skillengine.effect.modifier.ActionModifiers;
 import com.aionemu.gameserver.skillengine.model.Effect;
-import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 
 /**
  * @author ATracer
@@ -163,10 +162,11 @@ public abstract class EffectTemplate
 		if(subEffect == null)
 			return;
 		
-		Skill skill = SkillEngine.getInstance().getSkill((Player) effect.getEffector(), subEffect.getSkillId(),
-			1, effect.getEffected());
-		skill.setFirstTargetRangeCheck(false);
-		skill.useSkill();
+		SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(subEffect.getSkillId());
+		int duration = template.getEffectsDuration();
+		Effect newEffect = new Effect(effect.getEffector(), effect.getEffected(), template, template.getLvl(), duration);
+		newEffect.initialize();
+		newEffect.applyEffect();
 	}
 	/**
 	 *  Do periodic effect on effected

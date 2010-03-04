@@ -30,7 +30,6 @@ import com.aionemu.gameserver.skillengine.action.Action;
 import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.Condition;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
-import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
 import com.aionemu.gameserver.skillengine.properties.Properties;
 import com.aionemu.gameserver.skillengine.properties.Property;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -173,33 +172,19 @@ public class Skill
 		
 		if(!preUsageCheck())
 			return;
-		
-		int duration = 0;
-		
+
 		/**
 		 * Create effects and precalculate result
 		 */
 		List<Effect> effects = new ArrayList<Effect>();		 
 		if(skillTemplate.getEffects() != null)
 		{
-			List<EffectTemplate> effectTemplates = skillTemplate.getEffects().getEffects();
-			for(EffectTemplate template : effectTemplates)
-			{
-				duration = duration > template.getDuration() ? duration : template.getDuration();
-			}
+			int duration = skillTemplate.getEffects().getEffectsDuration();
 
 			for(Creature effected : effectedList)
 			{
 				Effect effect = new Effect(effector, effected, skillTemplate,	skillLevel, duration);
-				int effectCounter = 0;
-				for(EffectTemplate template : effectTemplates)
-				{
-					if(effectCounter != effect.getSuccessEffect())
-						break;
-					
-					template.calculate(effect);
-					effectCounter++;
-				}
+				effect.initialize();
 				effects.add(effect);
 			}
 		}
@@ -231,16 +216,7 @@ public class Skill
 		 */
 		for(Effect effect : effects)
 		{
-			int effectCounter = 0;
-			for(EffectTemplate template : skillTemplate.getEffects().getEffects())
-			{
-				if(effectCounter == effect.getSuccessEffect())
-					break;
-				
-				template.applyEffect(effect);
-				template.startSubEffect(effect);
-				effectCounter++;
-			}
+			effect.applyEffect();
 		}
 	}
 	

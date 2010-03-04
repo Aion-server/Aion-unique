@@ -131,4 +131,18 @@ public class Effects
 	{
 		return food;
 	}
+
+	/**
+	 *
+	 * @return
+	 */
+	public int getEffectsDuration()
+	{
+		int duration = 0;
+		for(EffectTemplate template : getEffects())
+		{
+			duration = duration > template.getDuration() ? duration : template.getDuration();
+		}
+		return duration;
+	}
 }

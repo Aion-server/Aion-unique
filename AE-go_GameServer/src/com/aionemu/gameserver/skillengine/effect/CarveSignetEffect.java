@@ -21,12 +21,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.action.DamageType;
 import com.aionemu.gameserver.skillengine.model.Effect;
-import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 
 /**
  * @author ATracer
@@ -58,10 +57,12 @@ public class CarveSignetEffect extends DamageEffect
 				return;
 			placedSignet.endEffect();
 		}
-		Skill skill = SkillEngine.getInstance().getSkill((Player) effect.getEffector(),
-			signetid + nextSignetlvl - 1, nextSignetlvl,  effected);
-		skill.setFirstTargetRangeCheck(false);		
-		skill.useSkill();
+
+		SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(signetid + nextSignetlvl - 1);
+		int effectsDuration = template.getEffectsDuration();
+		Effect newEffect = new Effect(effect.getEffector(), effect.getEffected(), template, nextSignetlvl, effectsDuration);
+		newEffect.initialize();
+		newEffect.applyEffect();
 	}
 
 	@Override
