@@ -77,6 +77,9 @@ public class StaticData
 	@XmlElement(name = "cube_expander")
 	public CubeExpandData			cubeExpandData;
 
+	@XmlElement(name = "warehouse_expander")
+	public WarehouseExpandData			warehouseExpandData;
+
 	@XmlElement(name = "player_titles")
 	public TitleData				titleData;
 
@@ -117,6 +120,7 @@ public class StaticData
 		DataManager.log.info("Loaded " + skillData.size() + " skill templates");
 		DataManager.log.info("Loaded " + skillTreeData.size() + " skill learn entries");
 		DataManager.log.info("Loaded " + cubeExpandData.size() + " cube expand entries");
+		DataManager.log.info("Loaded " + warehouseExpandData.size() + " warehouse expand entries");
 		DataManager.log.info("Loaded " + bindPointData.size() + " bind point entries");
 		DataManager.log.info("Loaded " + questData.size() + " quest data entries");	
 		DataManager.log.info("Loaded " + gatherableData.size() + " gatherable entries");

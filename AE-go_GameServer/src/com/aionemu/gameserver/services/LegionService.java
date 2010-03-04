@@ -1217,11 +1217,12 @@ public class LegionService
 			}
 			else
 			{
+				// TODO: ADD WAREHOUSE EXPAND TO LEGION!!!
 				PacketSendUtility.sendPacket(activePlayer, new SM_DIALOG_WINDOW(activePlayer.getObjectId(), 25));
 				PacketSendUtility.sendPacket(activePlayer, new SM_WAREHOUSE_INFO(legion.getLegionWarehouse()
-					.getStorageItems(), StorageType.LEGION_WAREHOUSE.getId()));
+					.getStorageItems(), StorageType.LEGION_WAREHOUSE.getId(), 0));
 				PacketSendUtility.sendPacket(activePlayer, new SM_WAREHOUSE_INFO(null, StorageType.LEGION_WAREHOUSE
-					.getId())); // strange retail way of sending
+					.getId(), 0)); // strange retail way of sending
 				// warehouse packets
 			}
 		}

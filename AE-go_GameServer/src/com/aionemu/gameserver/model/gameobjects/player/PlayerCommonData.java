@@ -59,6 +59,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	private String 			note;
 	private WorldPosition	position;
 	private int 			cubeSize = 0;
+	private int 			warehouseSize = 0;
 	private int			    bindPoint;
 	private int             titleId = -1;
 	private int				dp = 0;
@@ -400,5 +401,21 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	public int getNameId()
 	{
 		return 0;
+	}
+
+	/**
+	 * @param warehouseSize the warehouseSize to set
+	 */
+	public void setWarehouseSize(int warehouseSize)
+	{
+		this.warehouseSize = warehouseSize;
+	}
+
+	/**
+	 * @return the warehouseSize
+	 */
+	public int getWarehouseSize()
+	{
+		return warehouseSize;
 	}
 }

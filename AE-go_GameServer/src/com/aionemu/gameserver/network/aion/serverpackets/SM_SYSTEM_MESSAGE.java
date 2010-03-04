@@ -783,6 +783,8 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 
 	public static final SM_SYSTEM_MESSAGE	MSG_FULL_INVENTORY	= new SM_SYSTEM_MESSAGE(1300762);
 
+	public static final AionServerPacket	CUBEEXPAND_NOT_ENOUGH_KINAH	= new SM_SYSTEM_MESSAGE(1300831);
+
 	/**
 	 * Manastone Messages
 	 */

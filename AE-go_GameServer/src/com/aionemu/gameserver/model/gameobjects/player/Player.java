@@ -57,24 +57,23 @@ import com.aionemu.gameserver.world.zone.ZoneInstance;
  */
 public class Player extends Creature
 {
-	private PlayerAppearance	playerAppearance;
-	private PlayerCommonData	playerCommonData;
-	private LegionMember		legionMember;
-	private MacroList			macroList;
-	private SkillList			skillList;
-	private FriendList			friendList;
-	private BlockList			blockList;
-	private ResponseRequester	requester;
-	private boolean				lookingForGroup	= false;
-	private Storage				inventory;
-	private Storage				regularWarehouse;
-	private Storage				accountWarehouse;
-	private Equipment			equipment;
-	private PrivateStore		store;
-	private PlayerStatsTemplate	playerStatsTemplate;
-	private TitleList			titleList;
-	private PlayerSettings		playerSettings;
-
+	private PlayerAppearance		playerAppearance;
+	private PlayerCommonData		playerCommonData;
+	private LegionMember			legionMember;
+	private MacroList				macroList;
+	private SkillList				skillList;
+	private FriendList				friendList;
+	private BlockList				blockList;
+	private ResponseRequester		requester;
+	private boolean					lookingForGroup			= false;
+	private Storage					inventory;
+	private Storage					regularWarehouse;
+	private Storage					accountWarehouse;
+	private Equipment				equipment;
+	private PrivateStore			store;
+	private PlayerStatsTemplate		playerStatsTemplate;
+	private TitleList				titleList;
+	private PlayerSettings			playerSettings;
 	private QuestStateList		questStateList;
 	private List<Integer>		nearbyQuestList	= new ArrayList<Integer>();
 	private ZoneInstance		zoneInstance;
@@ -82,7 +81,6 @@ public class Player extends Creature
 	private AbyssRank			abyssRank;
 	private Rates				rates;
 	private RecipeList			recipeList;
-	
 
 	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
 	private boolean				protectionActive;
@@ -91,9 +89,15 @@ public class Player extends Creature
 	private PunishmentController punishmentController = new PunishmentController(this);
 
 	/**
+	 * Static information for players
+	 */
+	private static final int		CUBE_SPACE				= 9;
+	private static final int		WAREHOUSE_SPACE			= 8;
+
+	/**
 	 * Connection of this Player.
 	 */
-	private AionConnection		clientConnection;
+	private AionConnection			clientConnection;
 
 	public Player(PlayerController controller, PlayerCommonData plCommonData, PlayerAppearance appereance)
 	{
@@ -478,6 +482,7 @@ public class Player extends Creature
 	public void setCubesize(int cubesize)
 	{
 		this.playerCommonData.setCubesize(cubesize);
+		getInventory().setLimit(getInventory().getLimit() + (cubesize * CUBE_SPACE));
 	}
 
 	/**
@@ -658,19 +663,20 @@ public class Player extends Creature
 	{
 		setLegionMember(null);
 	}
-	
+
 	/**
 	 * This method will return true if player is in a group
+	 * 
 	 * @return true or false
 	 */
 	public boolean isInGroup()
 	{
 		return playerGroup != null;
 	}
-	
+
 	/**
-	 *  Access level of this player
-	 *  
+	 * Access level of this player
+	 * 
 	 * @return
 	 */
 	public byte getAccessLevel()
@@ -687,16 +693,47 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @param rates the rates to set
+	 * @param rates
+	 *            the rates to set
 	 */
 	public void setRates(Rates rates)
 	{
 		this.rates = rates;
 	}
 
+	/**
+	 * This method will return the punishment controller for players
+	 * 
+	 * @return
+	 */
 	public PunishmentController getPunishmentController()
 	{
 		return punishmentController;
+	}
+
+	/**
+	 * @return warehouse size
+	 */
+	public int getWarehouseSize()
+	{
+		return this.playerCommonData.getWarehouseSize();
+	}
+
+	/**
+	 * @param warehouseSize
+	 */
+	public void setWarehouseSize(int warehouseSize)
+	{
+		this.playerCommonData.setWarehouseSize(warehouseSize);
+		getWarehouse().setLimit(getWarehouse().getLimit() + (warehouseSize * WAREHOUSE_SPACE));
+	}
+
+	/**
+	 * @return regularWarehouse
+	 */
+	public Storage getWarehouse()
+	{
+		return regularWarehouse;
 	}
 	
 	/**

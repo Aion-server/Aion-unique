@@ -55,7 +55,7 @@ public class Storage
 				this.storageType = storageType.getId();
 				break;
 			case REGULAR_WAREHOUSE:
-				storage = new ItemStorage(24); // max 96, with expanding
+				storage = new ItemStorage(104);
 				this.storageType = storageType.getId();
 				break;
 			case ACCOUNT_WAREHOUSE:
@@ -63,7 +63,7 @@ public class Storage
 				this.storageType = storageType.getId();
 				break;
 			case LEGION_WAREHOUSE:
-				storage = new ItemStorage(24);
+				storage = new ItemStorage(24); // TODO: FIND OUT WHAT MAX IS
 				this.storageType = storageType.getId();
 				break;
 		}

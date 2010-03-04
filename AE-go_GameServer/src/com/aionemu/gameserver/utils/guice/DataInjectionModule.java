@@ -34,6 +34,7 @@ import com.aionemu.gameserver.dataholders.TeleLocationData;
 import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.dataholders.WalkerData;
+import com.aionemu.gameserver.dataholders.WarehouseExpandData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.services.AbyssService;
 import com.aionemu.gameserver.services.AccountService;
@@ -52,6 +53,7 @@ import com.aionemu.gameserver.services.SkillLearnService;
 import com.aionemu.gameserver.services.SocialService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.services.TradeService;
+import com.aionemu.gameserver.services.WarehouseExpandService;
 import com.aionemu.gameserver.services.WeatherService;
 import com.aionemu.gameserver.spawnengine.RiftSpawnManager;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
@@ -105,6 +107,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(ServiceProxy.class).in(Scopes.SINGLETON);
 		bind(GroupService.class).in(Scopes.SINGLETON);
 		bind(CraftSkillUpdateService.class).in(Scopes.SINGLETON);
+		bind(WarehouseExpandService.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides
@@ -130,6 +133,18 @@ public class DataInjectionModule extends AbstractModule
 	ItemData provideItemData(DataManager datamanager)
 	{
 		return datamanager.ITEM_DATA;
+	}
+
+	@Provides
+	CubeExpandData provideCubeExpand(DataManager datamanager)
+	{
+		return datamanager.CUBEEXPANDER_DATA;
+	}
+
+	@Provides
+	WarehouseExpandData provideWarehouseExpand(DataManager datamanager)
+	{
+		return datamanager.WAREHOUSEEXPANDER_DATA;
 	}
 	
 	@Provides
@@ -200,12 +215,12 @@ public class DataInjectionModule extends AbstractModule
 		return datamanager.TELELOCATION_DATA;
 	}	
 	
-	@SuppressWarnings("static-access")
-	@Provides
-	CubeExpandData provideCubeExpandData(DataManager datamanager)
-	{
-		return datamanager.CUBEEXPANDER_DATA;
-	}
+	//@SuppressWarnings("static-access")
+	//@Provides
+	//CubeExpandData provideCubeExpandData(DataManager datamanager)
+	//{
+	//	return datamanager.CUBEEXPANDER_DATA;
+	//}
 	
 	@SuppressWarnings("static-access")
 	@Provides

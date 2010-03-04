@@ -244,16 +244,16 @@ public class NpcController extends CreatureController<Npc>
 					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(targetObjectId, 26));
 					PacketSendUtility.sendPacket(player,
 						new SM_WAREHOUSE_INFO(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId())
-							.getStorageItems(), StorageType.REGULAR_WAREHOUSE.getId()));
+							.getStorageItems(), StorageType.REGULAR_WAREHOUSE.getId(), player.getWarehouseSize()));
 					PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE
-						.getId())); // strange
+						.getId(), player.getWarehouseSize())); // strange
 					// retail
 					// way of sending
 					// warehouse packets
 					PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(
-						StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems(), StorageType.ACCOUNT_WAREHOUSE.getId()));
+						StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems(), StorageType.ACCOUNT_WAREHOUSE.getId(), 0));
 					PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE
-						.getId()));
+						.getId(), 0));
 				}
 				break;
 			case 27:
@@ -329,6 +329,9 @@ public class NpcController extends CreatureController<Npc>
 			case 41:
 				// expand cube
 				sp.getCubeExpandService().expandCube(player, npc);
+				break;
+			case 42:
+				sp.getWarehouseExpandService().expandWarehouse(player, npc);
 				break;
 			case 47:
 				// legion warehouse

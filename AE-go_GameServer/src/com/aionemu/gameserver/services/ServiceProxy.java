@@ -56,6 +56,8 @@ public class ServiceProxy
 	private GroupService groupService;
 	@Inject
 	private CraftSkillUpdateService craftSkillUpdateService;
+	@Inject
+	private WarehouseExpandService warehouseExpandService;
 
 	/**
 	 * @return the world
@@ -154,5 +156,12 @@ public class ServiceProxy
 	public CraftSkillUpdateService getCraftSkillUpdateService()
 	{
 		return craftSkillUpdateService;
+	}
+	/**
+	 * @return
+	 */
+	public WarehouseExpandService getWarehouseExpandService()
+	{
+		return warehouseExpandService;
 	}
 }

@@ -78,7 +78,9 @@ public final class DataManager
 	
 	public static TeleLocationData		TELELOCATION_DATA;
 	
-	public static CubeExpandData 		CUBEEXPANDER_DATA;
+	public CubeExpandData 		CUBEEXPANDER_DATA;
+	
+	public WarehouseExpandData 		WAREHOUSEEXPANDER_DATA;
 	
 	public static BindPointData 		BIND_POINT_DATA;
 	
@@ -149,6 +151,7 @@ public final class DataManager
 		TELEPORTER_DATA = data.teleporterData;	
 		TELELOCATION_DATA = data.teleLocationData;	
 		CUBEEXPANDER_DATA = data.cubeExpandData;
+		WAREHOUSEEXPANDER_DATA = data.warehouseExpandData;
 		BIND_POINT_DATA = data.bindPointData;
 		QUEST_DATA = data.questData;
 		ZONE_DATA = data.zoneData;	

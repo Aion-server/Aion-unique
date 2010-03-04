@@ -35,10 +35,12 @@ public class SM_WAREHOUSE_INFO extends InventoryPacket
 	private int warehouseType;
 	private List<Item> itemList;
 	private int haveItems;
+	private int expandLv;
 
-	public SM_WAREHOUSE_INFO(List<Item> items, int warehouseType)
+	public SM_WAREHOUSE_INFO(List<Item> items, int warehouseType, int Lv)
 	{
 		this.warehouseType = warehouseType;
+		this.expandLv = Lv;
 		if(items == null)
 		{
 			this.itemList = new ArrayList<Item>();
@@ -56,7 +58,7 @@ public class SM_WAREHOUSE_INFO extends InventoryPacket
 	{
 		writeC(buf, warehouseType);
 		writeC(buf, haveItems);
-		writeC(buf, 0); //warehouse expand (0 - 9)
+		writeC(buf, expandLv); //warehouse expand (0 - 9)
 		writeH(buf, 0);
 		writeH(buf, itemList.size());
 		for(Item item : itemList)
