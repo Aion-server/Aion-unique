@@ -104,7 +104,7 @@ public class CubeExpandService
 	}
 
 	/**
-	 * 
+	 * Expands the cubes
 	 * @param player
 	 */
 	private void expand(Player player)
