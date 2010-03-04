@@ -99,7 +99,7 @@ public class PlayerService
 	@Inject
 	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
 		LegionService legionService, ControllerFactory controllerFactory, SkillLearnService skillLearnService,
-		GroupService groupService, PlayerStatsData playerStatsData)
+		GroupService groupService, PlayerStatsData playerStatsData, PlayerInitialData playerInitialData)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
@@ -109,6 +109,7 @@ public class PlayerService
 		this.skillLearnService = skillLearnService;
 		this.groupService = groupService;
 		this.playerStatsData = playerStatsData;
+		this.playerInitialData = playerInitialData;
 	}
 
 	/**
