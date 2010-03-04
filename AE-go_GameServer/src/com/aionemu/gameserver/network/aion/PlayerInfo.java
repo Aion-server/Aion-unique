@@ -119,9 +119,9 @@ public abstract class PlayerInfo extends AionServerPacket
 		writeF(buf, pbd.getPosition().getX());
 		writeF(buf, pbd.getPosition().getY());
 		writeF(buf, pbd.getPosition().getZ());
-		writeD(buf, 0);// unk 0x6f
+		writeD(buf, pbd.getPosition().getHeading());
 		writeD(buf, pbd.getLevel());// lvl confirmed
-		writeD(buf, -1);// unk -1 -1 = played 0 = neverplayed
+		writeD(buf, pbd.getTitleId());
 		writeD(buf, accPlData.isLegionMember() ? accPlData.getLegion().getLegionId() : 0);
 		writeD(buf, 0);// Legion Name WriteS NOT writeD
 		writeD(buf, 0);// unk 1 can be 0
