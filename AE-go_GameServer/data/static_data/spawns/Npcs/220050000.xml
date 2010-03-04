@@ -4,787 +4,787 @@ map npcid pool interval
 object x y z h
 Brusthonin -->
 <spawns>
-  <!-- Noe -->
-  <spawn map="220050000" npcid="205129" pool="1" interval="105">
-    <object x="2920.958" y="2428.008" z="15.306137" h="42"/>
-  </spawn>
-  <!-- Randet -->
-  <spawn map="220050000" npcid="205128" pool="1" interval="105">
-    <object x="2920.5945" y="2426.176" z="15.048157" h="45"/>
-  </spawn>
-  <!-- Dehen -->
-  <spawn map="220050000" npcid="205131" pool="1" interval="105">
-    <object x="2892.5105" y="2444.5334" z="17.25" h="15"/>
-  </spawn>
-  <!-- Klokka -->
-  <spawn map="220050000" npcid="205125" pool="1" interval="105">
-    <object x="2927.9404" y="2408.451" z="15.0" h="39"/>
-  </spawn>
-  <!-- Tusen -->
-  <spawn map="220050000" npcid="205124" pool="1" interval="105">
-    <object x="2916.6401" y="2415.5159" z="15.245249" h="22"/>
-  </spawn>
-  <!-- Blume -->
-  <spawn map="220050000" npcid="205120" pool="1" interval="105">
-    <object x="2937.0046" y="2426.0222" z="15.506943" h="58"/>
-  </spawn>
-  <!-- Lugo -->
-  <spawn map="220050000" npcid="730103" pool="1" interval="105">
-    <object x="2533.0" y="2313.0" z="16.3125" h="2"/>
-  </spawn>
-  <!-- Archon Sentinel -->
-  <spawn map="220050000" npcid="205140" pool="1" interval="105">
-    <object x="1985.2228" y="1928.4219" z="25.201424" h="16"/>
-  </spawn>
-  <!-- Vidohunir -->
-  <spawn map="220050000" npcid="205142" pool="1" interval="105">
-    <object x="1961.2681" y="2452.9004" z="11.387238" h="116"/>
-  </spawn>
-  <!-- Virhu -->
-  <spawn map="220050000" npcid="730104" pool="1" interval="105">
-    <object x="2021.8462" y="2252.968" z="22.0" h="86"/>
-  </spawn>
-  <!-- Vehova -->
-  <spawn map="220050000" npcid="205123" pool="1" interval="105">
-    <object x="2928.378" y="2434.2346" z="16.668991" h="72"/>
-  </spawn>
-  <!-- Kunne -->
-  <spawn map="220050000" npcid="205134" pool="1" interval="105">
-    <object x="2887.62" y="2447.1355" z="17.375" h="18"/>
-  </spawn>
-  <!-- Veien -->
-  <spawn map="220050000" npcid="205135" pool="1" interval="105">
-    <object x="2895.4739" y="2463.2705" z="17.11229" h="90"/>
-  </spawn>
-  <!-- Parica -->
-  <spawn map="220050000" npcid="205141" pool="1" interval="105">
-    <object x="1764.7834" y="2310.1516" z="11.566559" h="16"/>
-  </spawn>
-  <!-- Snill -->
-  <spawn map="220050000" npcid="205133" pool="1" interval="105">
-    <object x="2914.5498" y="2438.8213" z="16.034363" h="46"/>
-  </spawn>
-  <!-- Asmodian Worker's Corpse -->
-  <spawn map="220050000" npcid="730107" pool="1" interval="105">
-    <object x="2536.2544" y="1726.113" z="23.5932" h="84"/>
-  </spawn>
-  <!-- Dettil -->
-  <spawn map="220050000" npcid="205132" pool="1" interval="105">
-    <object x="2910.7283" y="2435.66" z="15.829483" h="45"/>
-  </spawn>
-  <!-- Tala -->
-  <spawn map="220050000" npcid="205127" pool="1" interval="105">
-    <object x="2922.8398" y="2428.1196" z="15.567444" h="47"/>
-  </spawn>
-  <!-- Parica -->
-  <spawn map="220050000" npcid="205141" pool="1" interval="105">
-    <object x="1982.323" y="1935.6166" z="25.101036" h="11"/>
-  </spawn>
-  <!-- Dunkel -->
-  <spawn map="220050000" npcid="205122" pool="1" interval="105">
-    <object x="2934.267" y="2417.5964" z="14.875" h="54"/>
-  </spawn>
-  <!-- Jarnsaxa -->
-  <spawn map="220050000" npcid="205121" pool="1" interval="105">
-    <object x="2928.4934" y="2416.5078" z="15.093414" h="47"/>
-  </spawn>
-  <!-- Archon Sentinel -->
-  <spawn map="220050000" npcid="205140" pool="1" interval="105">
-    <object x="1763.4475" y="2315.6123" z="11.308762" h="21"/>
-  </spawn>
-  <!-- Vitda -->
-  <spawn map="220050000" npcid="205126" pool="1" interval="105">
-    <object x="2923.9775" y="2424.6384" z="15.125" h="46"/>
-  </spawn>
-  <!-- Obelisk (settlersCampsite) -->
-  <spawn map="220050000" npcid="700258" pool="1" interval="105">
-    <object x="2929.0583" y="2432.0798" z="17.00346" h="70"/>
-  </spawn>
-  <!-- Obelisk (baltasarHillVillage) -->
-  <spawn map="220050000" npcid="700259" pool="1" interval="105">
-    <object x="1387.059" y="2025.4006" z="51.843422" h="0"/>
-  </spawn>
-  <!-- Obelisk (buBuVillage) -->
-  <spawn map="220050000" npcid="700260" pool="1" interval="105">
-    <object x="443.3006" y="853.76495" z="75.33362" h="0"/>
-  </spawn>
-  <!-- Angeiya -->
-  <spawn map="220050000" npcid="205209" pool="1" interval="105">
-    <object x="1242.52" y="2637.42" z="95.56693" h="11"/>
-  </spawn>
-  <!-- Asustri -->
-  <spawn map="220050000" npcid="205204" pool="1" interval="105">
-    <object x="864.2107" y="633.2987" z="67.97583" h="7"/>
-  </spawn>
-  <!-- Banes -->
-  <spawn map="220050000" npcid="205146" pool="1" interval="105">
-    <object x="1297.1447" y="2012.3213" z="46.846592" h="111"/>
-  </spawn>
-  <!-- Barche -->
-  <spawn map="220050000" npcid="205213" pool="1" interval="105">
-    <object x="1321.05" y="2608.35" z="95.632614" h="56"/>
-  </spawn>
-  <!-- Bern -->
-  <spawn map="220050000" npcid="205162" pool="1" interval="105">
-    <object x="1412.6018" y="2040.0823" z="52.58089" h="61"/>
-  </spawn>
-  <!-- Bert -->
-  <spawn map="220050000" npcid="205214" pool="1" interval="105">
-    <object x="1312.78" y="2593.04" z="95.6" h="61"/>
-  </spawn>
-  <!-- Bielia -->
-  <spawn map="220050000" npcid="205151" pool="1" interval="105">
-    <object x="1399.1127" y="1907.6836" z="48.247246" h="25"/>
-  </spawn>
-  <!-- Billeten -->
-  <spawn map="220050000" npcid="205145" pool="1" interval="105">
-    <object x="1414.34" y="2014.242" z="51.668358" h="57"/>
-  </spawn>
-  <!-- Birgia -->
-  <spawn map="220050000" npcid="205148" pool="1" interval="105">
-    <object x="1305.7" y="1998.917" z="46.25" h="107"/>
-  </spawn>
-  <!-- Bonarunerk -->
-  <spawn map="220050000" npcid="205181" pool="1" interval="105">
-    <object x="462.6866" y="878.0801" z="76.25" h="86"/>
-  </spawn>
-  <!-- Bran -->
-  <spawn map="220050000" npcid="205173" pool="1" interval="105">
-    <object x="445.9009" y="852.4988" z="75.0" h="21"/>
-  </spawn>
-  <!-- BuBu Chan -->
-  <spawn map="220050000" npcid="205197" pool="1" interval="105">
-    <object x="79.01057" y="1060.589" z="139.375" h="101"/>
-  </spawn>
-  <!-- BuBu Chap -->
-  <spawn map="220050000" npcid="205171" pool="1" interval="105">
-    <object x="447.2138" y="886.5577" z="78.321686" h="93"/>
-  </spawn>
-  <!-- BuBu Chi -->
-  <spawn map="220050000" npcid="205202" pool="1" interval="105">
-    <object x="404.6688" y="1750.446" z="305.93073" h="113"/>
-  </spawn>
-  <!-- BuBu Don -->
-  <spawn map="220050000" npcid="205165" pool="1" interval="105">
-    <object x="433.4493" y="780.8697" z="63.199295" h="16"/>
-  </spawn>
-  <!-- BuBu Jin -->
-  <spawn map="220050000" npcid="205166" pool="1" interval="105">
-    <object x="404.2872" y="763.0383" z="58.67885" h="27"/>
-  </spawn>
-  <!-- BuBu Jo -->
-  <spawn map="220050000" npcid="205170" pool="1" interval="105">
-    <object x="478.4066" y="841.869" z="75.65041" h="44"/>
-  </spawn>
-  <!-- BuBu Khaaan -->
-  <spawn map="220050000" npcid="205164" pool="1" interval="105">
-    <object x="481.3426" y="898.1279" z="76.25" h="84"/>
-  </spawn>
-  <!-- BuBu Lin -->
-  <spawn map="220050000" npcid="205179" pool="1" interval="105">
-    <object x="476.4756" y="800.9914" z="70.311966" h="47"/>
-  </spawn>
-  <!-- BuBu Mep -->
-  <spawn map="220050000" npcid="205172" pool="1" interval="105">
-    <object x="421.8461" y="835.3343" z="68.875" h="102"/>
-  </spawn>
-  <!-- BuBu Paan -->
-  <spawn map="220050000" npcid="205180" pool="1" interval="105">
-    <object x="459.8961" y="770.685" z="63.242973" h="44"/>
-  </spawn>
-  <!-- BuBu Resident -->
-  <spawn map="220050000" npcid="205168" pool="20" interval="105">
-    <object x="417.75" y="785.75" z="61.265625" h="69"/>
-    <object x="417.25" y="784.25" z="60.890625" h="88"/>
-    <object x="426.75" y="756.84" z="62.133137" h="4"/>
-    <object x="417.75" y="786.75" z="61.453125" h="56"/>
-    <object x="411.79" y="768.59" z="58.752495" h="51"/>
-    <object x="416.25" y="789.25" z="61.546875" h="43"/>
-    <object x="401.25" y="757.75" z="58.86" h="59"/>
-    <object x="416.25" y="770.25" z="58.828125" h="8"/>
-    <object x="401.61" y="768.04" z="58.75" h="28"/>
-    <object x="398.25" y="795.25" z="58.640625" h="65"/>
-    <object x="423.75" y="769.75" z="61.0" h="74"/>
-    <object x="386.75" y="771.25" z="58.46875" h="6"/>
-    <object x="410.24" y="763.71" z="58.955" h="1"/>
-    <object x="425.75" y="763.75" z="62.453125" h="102"/>
-    <object x="402.25" y="753.75" z="58.734375" h="29"/>
-    <object x="394.25" y="793.75" z="58.671875" h="49"/>
-    <object x="385.75" y="779.75" z="58.546875" h="119"/>
-    <object x="385.88" y="784.65" z="58.6325" h="4"/>
-    <object x="409.75" y="746.75" z="58.875" h="21"/>
-    <object x="409.0" y="776.17" z="58.8125" h="59"/>
-  </spawn>
-  <!-- BuBu Taan -->
-  <spawn map="220050000" npcid="205167" pool="1" interval="105">
-    <object x="404.5401" y="781.552" z="58.72627" h="60"/>
-  </spawn>
-  <!-- Cayron -->
-  <spawn map="220050000" npcid="205198" pool="1" interval="105">
-    <object x="472.8864" y="1647.091" z="219.875" h="34"/>
-  </spawn>
-  <!-- Chourunerk -->
-  <spawn map="220050000" npcid="205223" pool="1" interval="105">
-    <object x="1335.7247" y="2038.7267" z="46.8004" h="97"/>
-  </spawn>
-  <!-- Duryodana -->
-  <spawn map="220050000" npcid="205195" pool="1" interval="105">
-    <object x="1268.448" y="1075.061" z="49.308685" h="25"/>
-  </spawn>
-  <!-- Erna -->
-  <spawn map="220050000" npcid="205210" pool="1" interval="105">
-    <object x="1275.1" y="2662.44" z="95.5916" h="90"/>
-  </spawn>
-  <!-- Ervin -->
-  <spawn map="220050000" npcid="205156" pool="1" interval="105">
-    <object x="1397.886" y="1958.787" z="44.466248" h="64"/>
-  </spawn>
-  <!-- Fadinar -->
-  <spawn map="220050000" npcid="205193" pool="1" interval="105">
-    <object x="1274.997" y="1081.46" z="49.436928" h="40"/>
-  </spawn>
-  <!-- Flazetta -->
-  <spawn map="220050000" npcid="205185" pool="1" interval="105">
-    <object x="517.8292" y="863.9831" z="76.145294" h="80"/>
-  </spawn>
-  <!-- Forseti -->
-  <spawn map="220050000" npcid="205186" pool="1" interval="105">
-    <object x="515.9061" y="865.4335" z="76.66138" h="76"/>
-  </spawn>
-  <!-- Groznak's Skull -->
-  <spawn map="220050000" npcid="730155" pool="1" interval="105">
-    <object x="1076.378" y="2730.454" z="124.17701" h="11"/>
-  </spawn>
-  <!-- Guenon -->
-  <spawn map="220050000" npcid="205226" pool="1" interval="105">
-    <object x="2310.395" y="170.67787" z="246.44734" h="61"/>
-  </spawn>
-  <!-- Harne -->
-  <spawn map="220050000" npcid="205200" pool="1" interval="105">
-    <object x="471.8657" y="1652.764" z="219.875" h="26"/>
-  </spawn>
-  <!-- Heavy Bukmir -->
-  <spawn map="220050000" npcid="730152" pool="1" interval="105">
-    <object x="422.2942" y="901.7137" z="73.82306" h="73"/>
-  </spawn>
-  <!-- Heintz -->
-  <spawn map="220050000" npcid="205155" pool="1" interval="105">
-    <object x="1363.682" y="1976.358" z="42.625" h="73"/>
-  </spawn>
-  <!-- Heirnir -->
-  <spawn map="220050000" npcid="205187" pool="1" interval="105">
-    <object x="978.0" y="2265.0" z="87.0625" h="111"/>
-  </spawn>
-  <!-- Helmut -->
-  <spawn map="220050000" npcid="205157" pool="1" interval="105">
-    <object x="1293.808" y="1908.577" z="51.25" h="7"/>
-  </spawn>
-  <!-- Hilebard -->
-  <spawn map="220050000" npcid="205178" pool="1" interval="105">
-    <object x="436.934" y="838.3608" z="68.875" h="79"/>
-  </spawn>
-  <!-- Hjuki -->
-  <spawn map="220050000" npcid="205221" pool="1" interval="105">
-    <object x="1322.033" y="2024.059" z="45.125" h="107"/>
-  </spawn>
-  <!-- Holekk -->
-  <spawn map="220050000" npcid="205158" pool="1" interval="105">
-    <object x="1353.93" y="1901.861" z="46.125" h="35"/>
-  </spawn>
-  <!-- Hort -->
-  <spawn map="220050000" npcid="205143" pool="1" interval="105">
-    <object x="1410.7035" y="2046.1313" z="52.61644" h="81"/>
-  </spawn>
-  <!-- Hristi -->
-  <spawn map="220050000" npcid="205205" pool="1" interval="105">
-    <object x="859.8797" y="636.7714" z="68.0" h="6"/>
-  </spawn>
-  <!-- Huvat -->
-  <spawn map="220050000" npcid="205161" pool="1" interval="105">
-    <object x="1401.6986" y="2039.3903" z="52.58089" h="108"/>
-  </spawn>
-  <!-- Jackdaw -->
-  <spawn map="220050000" npcid="205203" pool="1" interval="105">
-    <object x="516.1452" y="468.5562" z="6.8220863" h="14"/>
-  </spawn>
-  <!-- Jadorunerk -->
-  <spawn map="220050000" npcid="205218" pool="2" interval="105">
-    <object x="391.6197" y="2277.872" z="329.5631" h="105"/>
-    <object x="784.8708" y="1014.646" z="45.834625" h="50"/>
-  </spawn>
-  <!-- Krodos -->
-  <spawn map="220050000" npcid="205201" pool="1" interval="105">
-    <object x="478.3309" y="1645.261" z="219.875" h="20"/>
-  </spawn>
-  <!-- Levinard -->
-  <spawn map="220050000" npcid="798373" pool="1" interval="105">
-    <object x="969.2115" y="2417.284" z="104.44804" h="53"/>
-  </spawn>
-  <!-- Lidimtas -->
-  <spawn map="220050000" npcid="205199" pool="1" interval="105">
-    <object x="468.838" y="1643.58" z="219.875" h="26"/>
-  </spawn>
-  <!-- Lukmann -->
-  <spawn map="220050000" npcid="205225" pool="1" interval="105">
-    <object x="2310.4917" y="168.56853" z="246.44734" h="62"/>
-  </spawn>
-  <!-- Mobirunerk -->
-  <spawn map="220050000" npcid="205219" pool="1" interval="105">
-    <object x="1334.386" y="2038.0662" z="46.804947" h="96"/>
-  </spawn>
-  <!-- Nagel -->
-  <spawn map="220050000" npcid="205160" pool="1" interval="105">
-    <object x="1404.6962" y="2044.4592" z="52.58089" h="104"/>
-  </spawn>
-  <!-- Needham -->
-  <spawn map="220050000" npcid="798371" pool="1" interval="105">
-    <object x="2819.148" y="1716.668" z="11.796265" h="116"/>
-  </spawn>
-  <!-- Neligor -->
-  <spawn map="220050000" npcid="205159" pool="1" interval="105">
-    <object x="1428.385" y="1998.509" z="49.99225" h="35"/>
-  </spawn>
-  <!-- Phyper -->
-  <spawn map="220050000" npcid="798300" pool="1" interval="105">
-    <object x="1297.792" y="1941.168" z="51.125" h="117"/>
-  </spawn>
-  <!-- Pogel -->
-  <spawn map="220050000" npcid="205184" pool="1" interval="105">
-    <object x="513.4352" y="835.675" z="75.875" h="47"/>
-  </spawn>
-  <!-- Reaper Squaddie -->
-  <spawn map="220050000" npcid="205153" pool="17" interval="105">
-    <object x="1328.8193" y="1917.6246" z="45.546043" h="78"/>
-    <object x="1393.29" y="2011.344" z="51.5" h="77"/>
-    <object x="1272.417" y="1824.703" z="45.508186" h="68"/>
-    <object x="1243.947" y="2001.778" z="53.409378" h="1"/>
-    <object x="1393.257" y="2024.141" z="51.5" h="80"/>
-    <object x="1256.771" y="1829.608" z="45.100502" h="111"/>
-    <object x="1394.94" y="1921.473" z="48.138145" h="38"/>
-    <object x="1400.06" y="2020.163" z="51.496246" h="84"/>
-    <object x="1306.77" y="1979.64" z="46.201874" h="5"/>
-    <object x="1370.127" y="2014.681" z="47.34037" h="68"/>
-    <object x="1391.017" y="1918.448" z="48.138145" h="50"/>
-    <object x="1368.417" y="1972.487" z="42.625" h="78"/>
-    <object x="1222.421" y="2031.232" z="51.25" h="27"/>
-    <object x="1228.453" y="2034.123" z="51.36731" h="48"/>
-    <object x="1409.4414" y="2034.9326" z="52.580894" h="61"/>
-    <object x="1326.407" y="1982.794" z="43.24907" h="106"/>
-    <object x="1311.61" y="1935.496" z="51.180878" h="14"/>
-  </spawn>
-  <!-- Runaway Saam -->
-  <spawn map="220050000" npcid="205169" pool="20" interval="105">
-    <object x="414.25" y="785.75" z="60.515625" h="55"/>
-    <object x="415.57" y="767.84" z="58.705624" h="46"/>
-    <object x="405.7914" y="756.2128" z="58.96061" h="12"/>
-    <object x="401.25" y="761.75" z="58.859375" h="17"/>
-    <object x="413.25" y="781.25" z="59.640625" h="60"/>
-    <object x="402.37" y="768.8" z="58.73" h="31"/>
-    <object x="402.25" y="757.75" z="58.953125" h="30"/>
-    <object x="391.75" y="790.75" z="58.953125" h="61"/>
-    <object x="423.05" y="750.02" z="58.63" h="46"/>
-    <object x="424.25" y="762.75" z="61.359375" h="47"/>
-    <object x="414.25" y="784.25" z="60.234375" h="72"/>
-    <object x="425.44" y="757.47" z="61.46" h="47"/>
-    <object x="414.11" y="790.14" z="61.18" h="46"/>
-    <object x="389.75" y="789.25" z="58.671875" h="95"/>
-    <object x="399.75" y="757.25" z="58.640625" h="41"/>
-    <object x="411.1" y="779.49" z="59.2" h="55"/>
-    <object x="390.25" y="767.75" z="58.671875" h="21"/>
-    <object x="408.25" y="750.25" z="58.671875" h="31"/>
-    <object x="416.12158" y="767.7238" z="58.66352" h="31"/>
-    <object x="424.07" y="766.17" z="61.168755" h="61"/>
-  </spawn>
-  <!-- Sahnu -->
-  <spawn map="220050000" npcid="205192" pool="1" interval="105">
-    <object x="1505.136" y="963.6873" z="36.125" h="21"/>
-  </spawn>
-  <!-- Sandvika -->
-  <spawn map="220050000" npcid="205147" pool="1" interval="105">
-    <object x="1284.6157" y="1928.5999" z="51.66002" h="0"/>
-  </spawn>
-  <!-- Sarkad -->
-  <spawn map="220050000" npcid="205196" pool="1" interval="105">
-    <object x="1274.132" y="1073.391" z="49.274742" h="106"/>
-  </spawn>
-  <!-- Senere -->
-  <spawn map="220050000" npcid="205144" pool="1" interval="105">
-    <object x="1385.098" y="2024.046" z="51.5" h="97"/>
-  </spawn>
-  <!-- Seznec -->
-  <spawn map="220050000" npcid="205190" pool="1" interval="105">
-    <object x="1039.0" y="2906.0" z="153.0" h="97"/>
-  </spawn>
-  <!-- Sigma -->
-  <spawn map="220050000" npcid="205183" pool="1" interval="105">
-    <object x="511.1374" y="835.139" z="75.875" h="43"/>
-  </spawn>
-  <!-- Sirh -->
-  <spawn map="220050000" npcid="205212" pool="1" interval="105">
-    <object x="1314.2211" y="2645.4312" z="95.52203" h="74"/>
-  </spawn>
-  <!-- Sjazi -->
-  <spawn map="220050000" npcid="205149" pool="1" interval="105">
-    <object x="1303.222" y="1949.402" z="51.125" h="107"/>
-  </spawn>
-  <!-- Skald -->
-  <spawn map="220050000" npcid="205182" pool="1" interval="105">
-    <object x="461.2596" y="804.3664" z="70.375" h="19"/>
-  </spawn>
-  <!-- Skurv Guard -->
-  <spawn map="220050000" npcid="205175" pool="14" interval="105">
-    <object x="420.6776" y="893.6223" z="74.25691" h="35"/>
-    <object x="435.4469" y="868.8834" z="76.625" h="36"/>
-    <object x="453.3034" y="804.7512" z="70.25342" h="58"/>
-    <object x="416.733" y="903.711" z="73.21663" h="67"/>
-    <object x="451.9431" y="843.3801" z="74.9577" h="38"/>
-    <object x="366.56888" y="830.88464" z="53.771626" h="87"/>
-    <object x="382.6839" y="820.7652" z="55.09888" h="61"/>
-    <object x="413.0148" y="804.9451" z="63.258057" h="33"/>
-    <object x="490.4746" y="885.1696" z="77.038124" h="85"/>
-    <object x="373.4322" y="795.2084" z="66.86209" h="38"/>
-    <object x="470.9882" y="886.0319" z="76.25" h="85"/>
-    <object x="407.6838" y="893.3245" z="74.20839" h="34"/>
-    <object x="412.5254" y="819.3306" z="63.405186" h="88"/>
-    <object x="368.8621" y="813.0082" z="51.795773" h="35"/>
-  </spawn>
-  <!-- Sridi -->
-  <spawn map="220050000" npcid="205152" pool="1" interval="105">
-    <object x="1403.599" y="1910.7291" z="48.247246" h="56"/>
-  </spawn>
-  <!-- Surdi -->
-  <spawn map="220050000" npcid="205208" pool="1" interval="105">
-    <object x="1254.63" y="2588.33" z="95.92552" h="13"/>
-  </spawn>
-  <!-- Surt -->
-  <spawn map="220050000" npcid="205150" pool="1" interval="105">
-    <object x="1402.366" y="1907.9933" z="48.200768" h="42"/>
-  </spawn>
-  <!-- Suttung -->
-  <spawn map="220050000" npcid="205220" pool="1" interval="105">
-    <object x="1321.919" y="2021.918" z="45.125" h="0"/>
-  </spawn>
-  <!-- Svan -->
-  <spawn map="220050000" npcid="205174" pool="1" interval="105">
-    <object x="528.4921" y="848.13" z="76.08503" h="77"/>
-  </spawn>
-  <!-- Theia -->
-  <spawn map="220050000" npcid="205188" pool="1" interval="105">
-    <object x="1283.843" y="2588.772" z="95.1748" h="92"/>
-  </spawn>
-  <!-- Ullur -->
-  <spawn map="220050000" npcid="205207" pool="1" interval="105">
-    <object x="2916.089" y="2419.295" z="15.24525" h="33"/>
-  </spawn>
-  <!-- Valdomus -->
-  <spawn map="220050000" npcid="205194" pool="1" interval="105">
-    <object x="1266.855" y="1081.081" z="49.25" h="52"/>
-  </spawn>
-  <!-- Vilmar -->
-  <spawn map="220050000" npcid="205177" pool="1" interval="105">
-    <object x="507.1956" y="877.7239" z="80.15802" h="72"/>
-  </spawn>
-  <!-- Vinduer -->
-  <spawn map="220050000" npcid="205130" pool="1" interval="105">
-    <object x="2898.32" y="2455.8" z="16.854996" h="64"/>
-  </spawn>
-  <!-- Vorena -->
-  <spawn map="220050000" npcid="205189" pool="2" interval="105">
-    <object x="1285.62" y="2570.291" z="95.12836" h="89"/>
-    <object x="1266.438" y="2664.417" z="94.75" h="89"/>
-  </spawn>
-  <!-- Abandoned Heap of Ore -->
-  <spawn map="220050000" npcid="700451" pool="20" interval="105">
-    <object x="730.25" y="2439.32" z="105.3531" h="10"/>
-    <object x="651.17" y="2453.1" z="108.20874" h="9"/>
-    <object x="682.31" y="2545.5" z="101.43437" h="119"/>
-    <object x="665.33" y="2492.13" z="100.01877" h="20"/>
-    <object x="666.75" y="2454.5" z="101.890625" h="34"/>
-    <object x="697.49" y="2517.18" z="98.67937" h="106"/>
-    <object x="844.86" y="2536.56" z="94.0" h="82"/>
-    <object x="677.98" y="2514.21" z="102.32" h="105"/>
-    <object x="866.76" y="2540.27" z="100.36188" h="97"/>
-    <object x="708.67" y="2530.21" z="97.8519" h="7"/>
-    <object x="855.94" y="2611.41" z="127.23811" h="78"/>
-    <object x="826.45" y="2603.72" z="112.686874" h="105"/>
-    <object x="753.96" y="2412.02" z="103.64249" h="10"/>
-    <object x="661.53" y="2466.7" z="102.286865" h="114"/>
-    <object x="690.15" y="2547.92" z="97.1" h="119"/>
-    <object x="670.97" y="2474.11" z="99.35811" h="114"/>
-    <object x="672.79" y="2449.97" z="102.69" h="27"/>
-    <object x="813.45" y="2556.27" z="98.196884" h="69"/>
-    <object x="666.99" y="2508.96" z="102.561874" h="105"/>
-    <object x="701.35" y="2454.81" z="101.65936" h="27"/>
-  </spawn>
-  <!-- Adma Stronghold Entrance -->
-  <spawn map="220050000" npcid="730165" pool="1" interval="105">
-    <object x="2345.68" y="160.37" z="246.45" h="60"/>
-  </spawn>
-  <!-- Adma Stronghold Secret Passage -->
-  <spawn map="220050000" npcid="730151" pool="1" interval="105">
-    <object x="1840.48" y="887.51" z="59.108303" h="32"/>
-  </spawn>
-  <!-- Angeiya's Tombstone -->
-  <spawn map="220050000" npcid="730158" pool="1" interval="105">
-    <object x="1242.52" y="2637.42" z="95.56693" h="110"/>
-  </spawn>
-  <!-- Barche's Tombstone -->
-  <spawn map="220050000" npcid="730162" pool="1" interval="105">
-    <object x="1321.05" y="2608.35" z="95.632614" h="54"/>
-  </spawn>
-  <!-- Bert's Tombstone -->
-  <spawn map="220050000" npcid="730163" pool="1" interval="105">
-    <object x="1312.78" y="2593.04" z="95.59516" h="45"/>
-  </spawn>
-  <!-- Book of Brohum -->
-  <spawn map="220050000" npcid="730174" pool="1" interval="105">
-    <object x="806.42" y="2970.94" z="274.34937" h="99"/>
-  </spawn>
-  <!-- Bouquet -->
-  <spawn map="220050000" npcid="700215" pool="1" interval="105">
-    <object x="1169.0" y="2321.0" z="70.25" h="99"/>
-  </spawn>
-  <!-- Brohum Fur Ball -->
-  <spawn map="220050000" npcid="700386" pool="19" interval="105">
-    <object x="442.02" y="2916.85" z="246.63" h="87"/>
-    <object x="583.82" y="2961.41" z="250.875" h="1"/>
-    <object x="855.43" y="2892.75" z="274.0" h="68"/>
-    <object x="826.36" y="2957.0" z="274.0" h="84"/>
-    <object x="708.72" y="2853.17" z="257.375" h="18"/>
-    <object x="577.12" y="2935.5" z="249.41501" h="8"/>
-    <object x="876.01" y="2812.44" z="268.03" h="68"/>
-    <object x="800.55" y="2958.91" z="273.88" h="111"/>
-    <object x="399.98" y="2929.59" z="246.65187" h="102"/>
-    <object x="480.28" y="2709.86" z="265.125" h="16"/>
-    <object x="787.72" y="2913.15" z="273.88" h="111"/>
-    <object x="422.74" y="2928.14" z="246.625" h="87"/>
-    <object x="536.37" y="2755.73" z="277.1931" h="102"/>
-    <object x="456.29" y="2744.31" z="265.125" h="10"/>
-    <object x="445.74" y="2763.73" z="265.125" h="0"/>
-    <object x="600.6" y="2975.95" z="251.675" h="98"/>
-    <object x="622.61" y="2972.62" z="249.92375" h="94"/>
-    <object x="469.14" y="2727.51" z="265.125" h="28"/>
-    <object x="377.68" y="2922.04" z="246.2575" h="110"/>
-  </spawn>
-  <!-- BuBu Chap's Treasure Box -->
-  <spawn map="220050000" npcid="700384" pool="1" interval="105">
-    <object x="710.85" y="1519.14" z="36.80375" h="112"/>
-  </spawn>
-  <!-- Clotted Contaminant -->
-  <spawn map="220050000" npcid="700383" pool="20" interval="105">
-    <object x="1610.81" y="1236.82" z="36.43" h="0"/>
-    <object x="1306.63" y="1549.48" z="36.38" h="0"/>
-    <object x="1466.32" y="1267.92" z="36.25" h="0"/>
-    <object x="1015.57" y="1520.7" z="36.125" h="0"/>
-    <object x="1328.72" y="1267.46" z="36.25" h="0"/>
-    <object x="1379.09" y="1357.76" z="36.38" h="0"/>
-    <object x="1479.58" y="1162.44" z="36.25" h="0"/>
-    <object x="1383.08" y="1446.54" z="36.25" h="0"/>
-    <object x="1177.15" y="1322.87" z="36.25" h="0"/>
-    <object x="1318.58" y="1454.6" z="36.26" h="0"/>
-    <object x="1240.92" y="1431.29" z="36.317497" h="0"/>
-    <object x="1579.93" y="1307.5" z="36.25" h="0"/>
-    <object x="1577.26" y="1187.04" z="36.38" h="0"/>
-    <object x="1140.29" y="1751.72" z="36.25" h="0"/>
-    <object x="1388.17" y="1653.61" z="36.37" h="0"/>
-    <object x="1205.46" y="1196.38" z="36.4" h="0"/>
-    <object x="984.69" y="1473.86" z="36.24125" h="0"/>
-    <object x="1293.87" y="1682.69" z="36.38" h="0"/>
-    <object x="1155.38" y="1687.48" z="36.25" h="0"/>
-    <object x="1098.42" y="1478.27" z="36.25" h="0"/>
-  </spawn>
-  <!-- Corpse in the Stone Coffin -->
-  <spawn map="220050000" npcid="700342" pool="3" interval="105">
-    <object x="1877.08" y="2603.38" z="38.57016" h="28"/>
-    <object x="1849.1" y="2595.85" z="37.988194" h="0"/>
-    <object x="1853.39" y="2609.4" z="41.347782" h="32"/>
-  </spawn>
-  <!-- Dug-up Grave -->
-  <spawn map="220050000" npcid="700394" pool="1" interval="105">
-    <object x="1240.94" y="2599.52" z="95.36689" h="8"/>
-  </spawn>
-  <!-- Earth Mound -->
-  <spawn map="220050000" npcid="700340" pool="25" interval="105">
-    <object x="2445.334" y="2378.27" z="16.874878" h="0"/>
-    <object x="2662.182" y="2196.501" z="17.545471" h="0"/>
-    <object x="2731.245" y="2008.575" z="23.355606" h="0"/>
-    <object x="2557.708" y="2164.262" z="18.145126" h="0"/>
-    <object x="2507.019" y="2426.824" z="22.75" h="0"/>
-    <object x="2399.4" y="2404.757" z="16.362518" h="0"/>
-    <object x="2537.134" y="2306.796" z="15.491241" h="0"/>
-    <object x="2578.346" y="2086.77" z="21.620117" h="0"/>
-    <object x="2648.385" y="1998.221" z="20.539001" h="0"/>
-    <object x="2484.156" y="2359.805" z="16.8945" h="0"/>
-    <object x="2583.6" y="2113.854" z="21.73413" h="0"/>
-    <object x="2588.388" y="2168.069" z="18.317871" h="0"/>
-    <object x="2738.198" y="2124.758" z="28.102371" h="0"/>
-    <object x="2740.475" y="2157.432" z="25.404694" h="0"/>
-    <object x="2794.975" y="2158.284" z="28.674423" h="0"/>
-    <object x="2404.391" y="2411.246" z="16.29889" h="0"/>
-    <object x="2617.347" y="2379.66" z="26.877548" h="0"/>
-    <object x="2623.259" y="2057.978" z="23.96762" h="0"/>
-    <object x="2568.899" y="2361.011" z="18.056183" h="0"/>
-    <object x="2677.204" y="2006.029" z="20.602585" h="0"/>
-    <object x="2620.829" y="2223.258" z="17.52501" h="0"/>
-    <object x="2690.563" y="2076.802" z="22.789688" h="0"/>
-    <object x="2722.051" y="2211.196" z="20.53749" h="0"/>
-    <object x="2555.555" y="2418.76" z="22.7025" h="0"/>
-    <object x="2614.997" y="2432.051" z="27.25" h="0"/>
-  </spawn>
-  <!-- Erna's Tombstone -->
-  <spawn map="220050000" npcid="730159" pool="1" interval="105">
-    <object x="1275.28" y="2662.27" z="95.590195" h="93"/>
-  </spawn>
-  <!-- Faded Letter -->
-  <spawn map="220050000" npcid="730139" pool="1" interval="105">
-    <object x="2295.54" y="2185.99" z="39.685486" h="62"/>
-  </spawn>
-  <!-- First Streetlight -->
-  <spawn map="220050000" npcid="700428" pool="1" interval="105">
-    <object x="1215.94" y="1602.94" z="45.32" h="43"/>
-  </spawn>
-  <!-- Genta's Tombstone -->
-  <spawn map="220050000" npcid="730160" pool="1" interval="105">
-    <object x="1297.39" y="2658.71" z="95.84" h="86"/>
-  </spawn>
-  <!-- Green Pouch of Herbs -->
-  <spawn map="220050000" npcid="700431" pool="1" interval="105">
-    <object x="1025.19" y="2605.74" z="109.315" h="20"/>
-  </spawn>
-  <!-- Intact Skeleton -->
-  <spawn map="220050000" npcid="700381" pool="1" interval="105">
-    <object x="1168.3364" y="2407.016" z="75.16256" h="44"/>
-  </spawn>
-  <!-- Light of Luck -->
-  <spawn map="220050000" npcid="700538" pool="5" interval="105">
-    <object x="610.656" y="1283.159" z="66.39812" h="48"/>
-    <object x="2797.251" y="2777.75" z="6.952759" h="48"/>
-    <object x="2103.127" y="459.2388" z="200.42258" h="71"/>
-    <object x="181.0764" y="1303.051" z="129.375" h="48"/>
-    <object x="143.0" y="2441.0" z="82.125" h="100"/>
-  </spawn>
-  <!-- Muddy Skeleton -->
-  <spawn map="220050000" npcid="700382" pool="1" interval="105">
-    <object x="1083.227" y="2400.2222" z="81.26032" h="51"/>
-  </spawn>
-  <!-- Old Wooden Box -->
-  <spawn map="220050000" npcid="700395" pool="1" interval="105">
-    <object x="1813.98" y="884.0" z="58.85354" h="51"/>
-  </spawn>
-  <!-- Postaro's Tomb -->
-  <spawn map="220050000" npcid="700379" pool="1" interval="105">
-    <object x="1168.76" y="2321.34" z="70.25" h="56"/>
-  </spawn>
-  <!-- Red pouch of Herbs -->
-  <spawn map="220050000" npcid="700430" pool="1" interval="105">
-    <object x="1046.56" y="2768.65" z="128.72517" h="111"/>
-  </spawn>
-  <!-- Second Streetlight -->
-  <spawn map="220050000" npcid="700427" pool="1" interval="105">
-    <object x="1137.57" y="1320.04" z="38.52688" h="81"/>
-  </spawn>
-  <!-- Sirh's Tombstone -->
-  <spawn map="220050000" npcid="730161" pool="1" interval="105">
-    <object x="1314.18" y="2645.35" z="95.521645" h="68"/>
-  </spawn>
-  <!-- Sticky Web -->
-  <spawn map="220050000" npcid="700387" pool="6" interval="105">
-    <object x="1027.7552" y="2610.4797" z="109.218" h="13"/>
-    <object x="1500.67" y="2594.44" z="83.98752" h="70"/>
-    <object x="1177.0062" y="2274.7593" z="68.58834" h="27"/>
-    <object x="1157.11" y="2271.83" z="70.15373" h="53"/>
-    <object x="1029.36" y="2595.68" z="111.46198" h="13"/>
-    <object x="1153.52" y="2247.5" z="70.618744" h="69"/>
-  </spawn>
-  <!-- Sudri's Tombstone -->
-  <spawn map="220050000" npcid="730156" pool="1" interval="105">
-    <object x="1254.63" y="2588.33" z="95.92552" h="16"/>
-  </spawn>
-  <!-- Third Streetlight -->
-  <spawn map="220050000" npcid="700429" pool="1" interval="105">
-    <object x="1211.17" y="1133.22" z="42.87812" h="16"/>
-  </spawn>
-  <!-- Villaire's Tombstone -->
-  <spawn map="220050000" npcid="730157" pool="1" interval="105">
-    <object x="1244.77" y="2602.03" z="95.04" h="7"/>
-  </spawn>
-  <!-- Virkel's Tombstone -->
-  <spawn map="220050000" npcid="730164" pool="1" interval="105">
-    <object x="1281.27" y="2617.32" z="97.69546" h="94"/>
-  </spawn>
-  <!-- Weathered Skeleton -->
-  <spawn map="220050000" npcid="700380" pool="1" interval="105">
-    <object x="1047.7991" y="2497.6392" z="92.30711" h="89"/>
-  </spawn>
-  <!-- Wild Frightcorn -->
-  <spawn map="220050000" npcid="700341" pool="35" interval="105">
-    <object x="2063.899" y="2098.328" z="27.25" h="3"/>
-    <object x="1947.346" y="2365.575" z="16.75" h="49"/>
-    <object x="2034.656" y="2265.132" z="21.832" h="49"/>
-    <object x="1923.935" y="2594.742" z="38.875" h="3"/>
-    <object x="2057.891" y="2092.667" z="27.15982" h="49"/>
-    <object x="2049.138" y="2136.242" z="24.821121" h="3"/>
-    <object x="1977.063" y="2494.055" z="18.131866" h="3"/>
-    <object x="1953.842" y="2601.564" z="39.14238" h="86"/>
-    <object x="2060.506" y="2139.773" z="24.89244" h="3"/>
-    <object x="2024.544" y="2295.217" z="18.006866" h="3"/>
-    <object x="1843.577" y="2524.459" z="24.793442" h="23"/>
-    <object x="1825.071" y="2542.526" z="24.56694" h="3"/>
-    <object x="1878.112" y="2551.903" z="29.625" h="49"/>
-    <object x="2032.823" y="2506.931" z="23.756744" h="49"/>
-    <object x="2049.356" y="2513.818" z="23.875" h="49"/>
-    <object x="1869.5" y="2319.254" z="19.625" h="49"/>
-    <object x="2011.167" y="2330.905" z="13.729126" h="49"/>
-    <object x="1928.751" y="2470.303" z="17.25" h="48"/>
-    <object x="1898.242" y="2495.819" z="17.25" h="49"/>
-    <object x="1910.916" y="2270.323" z="15.280685" h="49"/>
-    <object x="1897.606" y="2537.922" z="29.485107" h="3"/>
-    <object x="1958.008" y="2576.74" z="39.375" h="3"/>
-    <object x="1960.005" y="2527.902" z="25.624062" h="3"/>
-    <object x="1874.791" y="2429.263" z="13.822754" h="3"/>
-    <object x="1988.2" y="2491.021" z="18.512497" h="86"/>
-    <object x="2011.346" y="2264.109" z="22.0" h="3"/>
-    <object x="2027.688" y="2237.948" z="22.0" h="49"/>
-    <object x="1924.868" y="2488.989" z="17.186813" h="49"/>
-    <object x="1853.256" y="2489.724" z="18.17424" h="3"/>
-    <object x="1875.321" y="2338.28" z="19.625" h="3"/>
-    <object x="1935.281" y="2262.717" z="15.0" h="49"/>
-    <object x="1817.73" y="2515.438" z="24.625" h="3"/>
-    <object x="1935.785" y="2370.727" z="16.70456" h="3"/>
-    <object x="1833.227" y="2472.472" z="18.674423" h="49"/>
-    <object x="1847.812" y="2428.445" z="14.448685" h="3"/>
-  </spawn>
-  <!-- Wild Ginseng -->
-  <spawn map="220050000" npcid="700385" pool="20" interval="105">
-    <object x="160.84" y="1696.95" z="272.52625" h="14"/>
-    <object x="465.55" y="2212.88" z="298.735" h="115"/>
-    <object x="569.8" y="2080.94" z="275.94626" h="87"/>
-    <object x="507.01" y="1858.25" z="257.73438" h="115"/>
-    <object x="666.55" y="1982.24" z="282.49564" h="103"/>
-    <object x="241.8" y="1739.36" z="276.5875" h="39"/>
-    <object x="337.02" y="1883.95" z="257.0094" h="70"/>
-    <object x="159.16" y="1907.65" z="268.75" h="1"/>
-    <object x="181.99" y="1672.85" z="268.05374" h="25"/>
-    <object x="624.17" y="1709.77" z="261.09" h="37"/>
-    <object x="582.24" y="1711.54" z="264.15375" h="37"/>
-    <object x="672.48" y="1839.42" z="259.14" h="37"/>
-    <object x="702.32" y="1908.62" z="289.315" h="52"/>
-    <object x="667.4" y="1731.98" z="257.85" h="37"/>
-    <object x="150.15" y="1753.82" z="268.66812" h="31"/>
-    <object x="398.57" y="1770.95" z="299.08374" h="37"/>
-    <object x="590.92" y="1779.33" z="259.17" h="37"/>
-    <object x="613.55" y="1750.64" z="257.17" h="37"/>
-    <object x="686.48" y="1825.17" z="260.75" h="37"/>
-    <object x="272.33" y="1977.43" z="255.62251" h="70"/>
-  </spawn>
-  <!-- Yellow Pouch of Herbs -->
-  <spawn map="220050000" npcid="700432" pool="1" interval="105">
-    <object x="1175.25" y="2272.8" z="69.075" h="20"/>
-  </spawn>
-  <!-- Mailbox -->
-  <spawn map="220050000" npcid="700000" pool="3" interval="105">
-    <object x="487.95" y="883.99" z="76.87" h="82"/>
-    <object x="1403.0" y="2020.79" z="51.375" h="82"/>
-    <object x="2915.01" y="2438.98" z="16.063126" h="45"/>
-  </spawn>
+	<!-- Noe -->
+	<spawn map="220050000" npcid="205129" pool="1" interval="105">
+		<object x="2920.958" y="2428.008" z="15.306137" h="42"/>
+	</spawn>
+	<!-- Randet -->
+	<spawn map="220050000" npcid="205128" pool="1" interval="105">
+		<object x="2920.5945" y="2426.176" z="15.048157" h="45"/>
+	</spawn>
+	<!-- Dehen -->
+	<spawn map="220050000" npcid="205131" pool="1" interval="105">
+		<object x="2892.5105" y="2444.5334" z="17.25" h="15"/>
+	</spawn>
+	<!-- Klokka -->
+	<spawn map="220050000" npcid="205125" pool="1" interval="105">
+		<object x="2927.9404" y="2408.451" z="15.0" h="39"/>
+	</spawn>
+	<!-- Tusen -->
+	<spawn map="220050000" npcid="205124" pool="1" interval="105">
+		<object x="2916.6401" y="2415.5159" z="15.245249" h="22"/>
+	</spawn>
+	<!-- Blume -->
+	<spawn map="220050000" npcid="205120" pool="1" interval="105">
+		<object x="2937.0046" y="2426.0222" z="15.506943" h="58"/>
+	</spawn>
+	<!-- Lugo -->
+	<spawn map="220050000" npcid="730103" pool="1" interval="105">
+		<object x="2533.0" y="2313.0" z="16.3125" h="2"/>
+	</spawn>
+	<!-- Archon Sentinel -->
+	<spawn map="220050000" npcid="205140" pool="1" interval="105">
+		<object x="1985.2228" y="1928.4219" z="25.201424" h="16"/>
+	</spawn>
+	<!-- Vidohunir -->
+	<spawn map="220050000" npcid="205142" pool="1" interval="105">
+		<object x="1961.2681" y="2452.9004" z="11.387238" h="116"/>
+	</spawn>
+	<!-- Virhu -->
+	<spawn map="220050000" npcid="730104" pool="1" interval="105">
+		<object x="2021.8462" y="2252.968" z="22.0" h="86"/>
+	</spawn>
+	<!-- Vehova -->
+	<spawn map="220050000" npcid="205123" pool="1" interval="105">
+		<object x="2928.378" y="2434.2346" z="16.668991" h="72"/>
+	</spawn>
+	<!-- Kunne -->
+	<spawn map="220050000" npcid="205134" pool="1" interval="105">
+		<object x="2887.62" y="2447.1355" z="17.375" h="18"/>
+	</spawn>
+	<!-- Veien -->
+	<spawn map="220050000" npcid="205135" pool="1" interval="105">
+		<object x="2895.4739" y="2463.2705" z="17.11229" h="90"/>
+	</spawn>
+	<!-- Parica -->
+	<spawn map="220050000" npcid="205141" pool="1" interval="105">
+		<object x="1764.7834" y="2310.1516" z="11.566559" h="16"/>
+	</spawn>
+	<!-- Snill -->
+	<spawn map="220050000" npcid="205133" pool="1" interval="105">
+		<object x="2914.5498" y="2438.8213" z="16.034363" h="46"/>
+	</spawn>
+	<!-- Asmodian Worker's Corpse -->
+	<spawn map="220050000" npcid="730107" pool="1" interval="105">
+		<object x="2536.2544" y="1726.113" z="23.5932" h="84"/>
+	</spawn>
+	<!-- Dettil -->
+	<spawn map="220050000" npcid="205132" pool="1" interval="105">
+		<object x="2910.7283" y="2435.66" z="15.829483" h="45"/>
+	</spawn>
+	<!-- Tala -->
+	<spawn map="220050000" npcid="205127" pool="1" interval="105">
+		<object x="2922.8398" y="2428.1196" z="15.567444" h="47"/>
+	</spawn>
+	<!-- Parica -->
+	<spawn map="220050000" npcid="205141" pool="1" interval="105">
+		<object x="1982.323" y="1935.6166" z="25.101036" h="11"/>
+	</spawn>
+	<!-- Dunkel -->
+	<spawn map="220050000" npcid="205122" pool="1" interval="105">
+		<object x="2934.267" y="2417.5964" z="14.875" h="54"/>
+	</spawn>
+	<!-- Jarnsaxa -->
+	<spawn map="220050000" npcid="205121" pool="1" interval="105">
+		<object x="2928.4934" y="2416.5078" z="15.093414" h="47"/>
+	</spawn>
+	<!-- Archon Sentinel -->
+	<spawn map="220050000" npcid="205140" pool="1" interval="105">
+		<object x="1763.4475" y="2315.6123" z="11.308762" h="21"/>
+	</spawn>
+	<!-- Vitda -->
+	<spawn map="220050000" npcid="205126" pool="1" interval="105">
+		<object x="2923.9775" y="2424.6384" z="15.125" h="46"/>
+	</spawn>
+	<!-- Obelisk (settlersCampsite) -->
+	<spawn map="220050000" npcid="700258" pool="1" interval="105">
+		<object x="2929.0583" y="2432.0798" z="17.00346" h="70"/>
+	</spawn>
+	<!-- Obelisk (baltasarHillVillage) -->
+	<spawn map="220050000" npcid="700259" pool="1" interval="105">
+		<object x="1387.059" y="2025.4006" z="51.843422" h="0"/>
+	</spawn>
+	<!-- Obelisk (buBuVillage) -->
+	<spawn map="220050000" npcid="700260" pool="1" interval="105">
+		<object x="443.3006" y="853.76495" z="75.33362" h="0"/>
+	</spawn>
+	<!-- Angeiya -->
+	<spawn map="220050000" npcid="205209" pool="1" interval="105">
+		<object x="1242.52" y="2637.42" z="95.56693" h="11"/>
+	</spawn>
+	<!-- Asustri -->
+	<spawn map="220050000" npcid="205204" pool="1" interval="105">
+		<object x="864.2107" y="633.2987" z="67.97583" h="7"/>
+	</spawn>
+	<!-- Banes -->
+	<spawn map="220050000" npcid="205146" pool="1" interval="105">
+		<object x="1297.1447" y="2012.3213" z="46.846592" h="111"/>
+	</spawn>
+	<!-- Barche -->
+	<spawn map="220050000" npcid="205213" pool="1" interval="105">
+		<object x="1321.05" y="2608.35" z="95.632614" h="56"/>
+	</spawn>
+	<!-- Bern -->
+	<spawn map="220050000" npcid="205162" pool="1" interval="105">
+		<object x="1412.6018" y="2040.0823" z="52.58089" h="61"/>
+	</spawn>
+	<!-- Bert -->
+	<spawn map="220050000" npcid="205214" pool="1" interval="105">
+		<object x="1312.78" y="2593.04" z="95.6" h="61"/>
+	</spawn>
+	<!-- Bielia -->
+	<spawn map="220050000" npcid="205151" pool="1" interval="105">
+		<object x="1399.1127" y="1907.6836" z="48.247246" h="25"/>
+	</spawn>
+	<!-- Billeten -->
+	<spawn map="220050000" npcid="205145" pool="1" interval="105">
+		<object x="1414.34" y="2014.242" z="51.668358" h="57"/>
+	</spawn>
+	<!-- Birgia -->
+	<spawn map="220050000" npcid="205148" pool="1" interval="105">
+		<object x="1305.7" y="1998.917" z="46.25" h="107"/>
+	</spawn>
+	<!-- Bonarunerk -->
+	<spawn map="220050000" npcid="205181" pool="1" interval="105">
+		<object x="462.6866" y="878.0801" z="76.25" h="86"/>
+	</spawn>
+	<!-- Bran -->
+	<spawn map="220050000" npcid="205173" pool="1" interval="105">
+		<object x="445.9009" y="852.4988" z="75.0" h="21"/>
+	</spawn>
+	<!-- BuBu Chan -->
+	<spawn map="220050000" npcid="205197" pool="1" interval="105">
+		<object x="79.01057" y="1060.589" z="139.375" h="101"/>
+	</spawn>
+	<!-- BuBu Chap -->
+	<spawn map="220050000" npcid="205171" pool="1" interval="105">
+		<object x="447.2138" y="886.5577" z="78.321686" h="93"/>
+	</spawn>
+	<!-- BuBu Chi -->
+	<spawn map="220050000" npcid="205202" pool="1" interval="105">
+		<object x="404.6688" y="1750.446" z="305.93073" h="113"/>
+	</spawn>
+	<!-- BuBu Don -->
+	<spawn map="220050000" npcid="205165" pool="1" interval="105">
+		<object x="433.4493" y="780.8697" z="63.199295" h="16"/>
+	</spawn>
+	<!-- BuBu Jin -->
+	<spawn map="220050000" npcid="205166" pool="1" interval="105">
+		<object x="404.2872" y="763.0383" z="58.67885" h="27"/>
+	</spawn>
+	<!-- BuBu Jo -->
+	<spawn map="220050000" npcid="205170" pool="1" interval="105">
+		<object x="478.4066" y="841.869" z="75.65041" h="44"/>
+	</spawn>
+	<!-- BuBu Khaaan -->
+	<spawn map="220050000" npcid="205164" pool="1" interval="105">
+		<object x="481.3426" y="898.1279" z="76.25" h="84"/>
+	</spawn>
+	<!-- BuBu Lin -->
+	<spawn map="220050000" npcid="205179" pool="1" interval="105">
+		<object x="476.4756" y="800.9914" z="70.311966" h="47"/>
+	</spawn>
+	<!-- BuBu Mep -->
+	<spawn map="220050000" npcid="205172" pool="1" interval="105">
+		<object x="421.8461" y="835.3343" z="68.875" h="102"/>
+	</spawn>
+	<!-- BuBu Paan -->
+	<spawn map="220050000" npcid="205180" pool="1" interval="105">
+		<object x="459.8961" y="770.685" z="63.242973" h="44"/>
+	</spawn>
+	<!-- BuBu Resident -->
+	<spawn map="220050000" npcid="205168" pool="20" interval="105">
+		<object x="417.75" y="785.75" z="61.265625" h="69"/>
+		<object x="417.25" y="784.25" z="60.890625" h="88"/>
+		<object x="426.75" y="756.84" z="62.133137" h="4"/>
+		<object x="417.75" y="786.75" z="61.453125" h="56"/>
+		<object x="411.79" y="768.59" z="58.752495" h="51"/>
+		<object x="416.25" y="789.25" z="61.546875" h="43"/>
+		<object x="401.25" y="757.75" z="58.86" h="59"/>
+		<object x="416.25" y="770.25" z="58.828125" h="8"/>
+		<object x="401.61" y="768.04" z="58.75" h="28"/>
+		<object x="398.25" y="795.25" z="58.640625" h="65"/>
+		<object x="423.75" y="769.75" z="61.0" h="74"/>
+		<object x="386.75" y="771.25" z="58.46875" h="6"/>
+		<object x="410.24" y="763.71" z="58.955" h="1"/>
+		<object x="425.75" y="763.75" z="62.453125" h="102"/>
+		<object x="402.25" y="753.75" z="58.734375" h="29"/>
+		<object x="394.25" y="793.75" z="58.671875" h="49"/>
+		<object x="385.75" y="779.75" z="58.546875" h="119"/>
+		<object x="385.88" y="784.65" z="58.6325" h="4"/>
+		<object x="409.75" y="746.75" z="58.875" h="21"/>
+		<object x="409.0" y="776.17" z="58.8125" h="59"/>
+	</spawn>
+	<!-- BuBu Taan -->
+	<spawn map="220050000" npcid="205167" pool="1" interval="105">
+		<object x="404.5401" y="781.552" z="58.72627" h="60"/>
+	</spawn>
+	<!-- Cayron -->
+	<spawn map="220050000" npcid="205198" pool="1" interval="105">
+		<object x="472.8864" y="1647.091" z="219.875" h="34"/>
+	</spawn>
+	<!-- Chourunerk -->
+	<spawn map="220050000" npcid="205223" pool="1" interval="105">
+		<object x="1335.7247" y="2038.7267" z="46.8004" h="97"/>
+	</spawn>
+	<!-- Duryodana -->
+	<spawn map="220050000" npcid="205195" pool="1" interval="105">
+		<object x="1268.448" y="1075.061" z="49.308685" h="25"/>
+	</spawn>
+	<!-- Erna -->
+	<spawn map="220050000" npcid="205210" pool="1" interval="105">
+		<object x="1275.1" y="2662.44" z="95.5916" h="90"/>
+	</spawn>
+	<!-- Ervin -->
+	<spawn map="220050000" npcid="205156" pool="1" interval="105">
+		<object x="1397.886" y="1958.787" z="44.466248" h="64"/>
+	</spawn>
+	<!-- Fadinar -->
+	<spawn map="220050000" npcid="205193" pool="1" interval="105">
+		<object x="1274.997" y="1081.46" z="49.436928" h="40"/>
+	</spawn>
+	<!-- Flazetta -->
+	<spawn map="220050000" npcid="205185" pool="1" interval="105">
+		<object x="517.8292" y="863.9831" z="76.145294" h="80"/>
+	</spawn>
+	<!-- Forseti -->
+	<spawn map="220050000" npcid="205186" pool="1" interval="105">
+		<object x="515.9061" y="865.4335" z="76.66138" h="76"/>
+	</spawn>
+	<!-- Groznak's Skull -->
+	<spawn map="220050000" npcid="730155" pool="1" interval="105">
+		<object x="1076.378" y="2730.454" z="124.17701" h="11"/>
+	</spawn>
+	<!-- Guenon -->
+	<spawn map="220050000" npcid="205226" pool="1" interval="105">
+		<object x="2310.395" y="170.67787" z="246.44734" h="61"/>
+	</spawn>
+	<!-- Harne -->
+	<spawn map="220050000" npcid="205200" pool="1" interval="105">
+		<object x="471.8657" y="1652.764" z="219.875" h="26"/>
+	</spawn>
+	<!-- Heavy Bukmir -->
+	<spawn map="220050000" npcid="730152" pool="1" interval="105">
+		<object x="422.2942" y="901.7137" z="73.82306" h="73"/>
+	</spawn>
+	<!-- Heintz -->
+	<spawn map="220050000" npcid="205155" pool="1" interval="105">
+		<object x="1363.682" y="1976.358" z="42.625" h="73"/>
+	</spawn>
+	<!-- Heirnir -->
+	<spawn map="220050000" npcid="205187" pool="1" interval="105">
+		<object x="978.0" y="2265.0" z="87.0625" h="111"/>
+	</spawn>
+	<!-- Helmut -->
+	<spawn map="220050000" npcid="205157" pool="1" interval="105">
+		<object x="1293.808" y="1908.577" z="51.25" h="7"/>
+	</spawn>
+	<!-- Hilebard -->
+	<spawn map="220050000" npcid="205178" pool="1" interval="105">
+		<object x="436.934" y="838.3608" z="68.875" h="79"/>
+	</spawn>
+	<!-- Hjuki -->
+	<spawn map="220050000" npcid="205221" pool="1" interval="105">
+		<object x="1322.033" y="2024.059" z="45.125" h="107"/>
+	</spawn>
+	<!-- Holekk -->
+	<spawn map="220050000" npcid="205158" pool="1" interval="105">
+		<object x="1353.93" y="1901.861" z="46.125" h="35"/>
+	</spawn>
+	<!-- Hort -->
+	<spawn map="220050000" npcid="205143" pool="1" interval="105">
+		<object x="1410.7035" y="2046.1313" z="52.61644" h="81"/>
+	</spawn>
+	<!-- Hristi -->
+	<spawn map="220050000" npcid="205205" pool="1" interval="105">
+		<object x="859.8797" y="636.7714" z="68.0" h="6"/>
+	</spawn>
+	<!-- Huvat -->
+	<spawn map="220050000" npcid="205161" pool="1" interval="105">
+		<object x="1401.6986" y="2039.3903" z="52.58089" h="108"/>
+	</spawn>
+	<!-- Jackdaw -->
+	<spawn map="220050000" npcid="205203" pool="1" interval="105">
+		<object x="516.1452" y="468.5562" z="6.8220863" h="14"/>
+	</spawn>
+	<!-- Jadorunerk -->
+	<spawn map="220050000" npcid="205218" pool="2" interval="105">
+		<object x="391.6197" y="2277.872" z="329.5631" h="105"/>
+		<object x="784.8708" y="1014.646" z="45.834625" h="50"/>
+	</spawn>
+	<!-- Krodos -->
+	<spawn map="220050000" npcid="205201" pool="1" interval="105">
+		<object x="478.3309" y="1645.261" z="219.875" h="20"/>
+	</spawn>
+	<!-- Levinard -->
+	<spawn map="220050000" npcid="798373" pool="1" interval="105">
+		<object x="969.2115" y="2417.284" z="104.44804" h="53"/>
+	</spawn>
+	<!-- Lidimtas -->
+	<spawn map="220050000" npcid="205199" pool="1" interval="105">
+		<object x="468.838" y="1643.58" z="219.875" h="26"/>
+	</spawn>
+	<!-- Lukmann -->
+	<spawn map="220050000" npcid="205225" pool="1" interval="105">
+		<object x="2310.4917" y="168.56853" z="246.44734" h="62"/>
+	</spawn>
+	<!-- Mobirunerk -->
+	<spawn map="220050000" npcid="205219" pool="1" interval="105">
+		<object x="1334.386" y="2038.0662" z="46.804947" h="96"/>
+	</spawn>
+	<!-- Nagel -->
+	<spawn map="220050000" npcid="205160" pool="1" interval="105">
+		<object x="1404.6962" y="2044.4592" z="52.58089" h="104"/>
+	</spawn>
+	<!-- Needham -->
+	<spawn map="220050000" npcid="798371" pool="1" interval="105">
+		<object x="2819.148" y="1716.668" z="11.796265" h="116"/>
+	</spawn>
+	<!-- Neligor -->
+	<spawn map="220050000" npcid="205159" pool="1" interval="105">
+		<object x="1428.385" y="1998.509" z="49.99225" h="35"/>
+	</spawn>
+	<!-- Phyper -->
+	<spawn map="220050000" npcid="798300" pool="1" interval="105">
+		<object x="1297.792" y="1941.168" z="51.125" h="117"/>
+	</spawn>
+	<!-- Pogel -->
+	<spawn map="220050000" npcid="205184" pool="1" interval="105">
+		<object x="513.4352" y="835.675" z="75.875" h="47"/>
+	</spawn>
+	<!-- Reaper Squaddie -->
+	<spawn map="220050000" npcid="205153" pool="17" interval="105">
+		<object x="1328.8193" y="1917.6246" z="45.546043" h="78"/>
+		<object x="1393.29" y="2011.344" z="51.5" h="77"/>
+		<object x="1272.417" y="1824.703" z="45.508186" h="68"/>
+		<object x="1243.947" y="2001.778" z="53.409378" h="1"/>
+		<object x="1393.257" y="2024.141" z="51.5" h="80"/>
+		<object x="1256.771" y="1829.608" z="45.100502" h="111"/>
+		<object x="1394.94" y="1921.473" z="48.138145" h="38"/>
+		<object x="1400.06" y="2020.163" z="51.496246" h="84"/>
+		<object x="1306.77" y="1979.64" z="46.201874" h="5"/>
+		<object x="1370.127" y="2014.681" z="47.34037" h="68"/>
+		<object x="1391.017" y="1918.448" z="48.138145" h="50"/>
+		<object x="1368.417" y="1972.487" z="42.625" h="78"/>
+		<object x="1222.421" y="2031.232" z="51.25" h="27"/>
+		<object x="1228.453" y="2034.123" z="51.36731" h="48"/>
+		<object x="1409.4414" y="2034.9326" z="52.580894" h="61"/>
+		<object x="1326.407" y="1982.794" z="43.24907" h="106"/>
+		<object x="1311.61" y="1935.496" z="51.180878" h="14"/>
+	</spawn>
+	<!-- Runaway Saam -->
+	<spawn map="220050000" npcid="205169" pool="20" interval="105">
+		<object x="414.25" y="785.75" z="60.515625" h="55"/>
+		<object x="415.57" y="767.84" z="58.705624" h="46"/>
+		<object x="405.7914" y="756.2128" z="58.96061" h="12"/>
+		<object x="401.25" y="761.75" z="58.859375" h="17"/>
+		<object x="413.25" y="781.25" z="59.640625" h="60"/>
+		<object x="402.37" y="768.8" z="58.73" h="31"/>
+		<object x="402.25" y="757.75" z="58.953125" h="30"/>
+		<object x="391.75" y="790.75" z="58.953125" h="61"/>
+		<object x="423.05" y="750.02" z="58.63" h="46"/>
+		<object x="424.25" y="762.75" z="61.359375" h="47"/>
+		<object x="414.25" y="784.25" z="60.234375" h="72"/>
+		<object x="425.44" y="757.47" z="61.46" h="47"/>
+		<object x="414.11" y="790.14" z="61.18" h="46"/>
+		<object x="389.75" y="789.25" z="58.671875" h="95"/>
+		<object x="399.75" y="757.25" z="58.640625" h="41"/>
+		<object x="411.1" y="779.49" z="59.2" h="55"/>
+		<object x="390.25" y="767.75" z="58.671875" h="21"/>
+		<object x="408.25" y="750.25" z="58.671875" h="31"/>
+		<object x="416.12158" y="767.7238" z="58.66352" h="31"/>
+		<object x="424.07" y="766.17" z="61.168755" h="61"/>
+	</spawn>
+	<!-- Sahnu -->
+	<spawn map="220050000" npcid="205192" pool="1" interval="105">
+		<object x="1505.136" y="963.6873" z="36.125" h="21"/>
+	</spawn>
+	<!-- Sandvika -->
+	<spawn map="220050000" npcid="205147" pool="1" interval="105">
+		<object x="1284.6157" y="1928.5999" z="51.66002" h="0"/>
+	</spawn>
+	<!-- Sarkad -->
+	<spawn map="220050000" npcid="205196" pool="1" interval="105">
+		<object x="1274.132" y="1073.391" z="49.274742" h="106"/>
+	</spawn>
+	<!-- Senere -->
+	<spawn map="220050000" npcid="205144" pool="1" interval="105">
+		<object x="1385.098" y="2024.046" z="51.5" h="97"/>
+	</spawn>
+	<!-- Seznec -->
+	<spawn map="220050000" npcid="205190" pool="1" interval="105">
+		<object x="1039.0" y="2906.0" z="153.0" h="97"/>
+	</spawn>
+	<!-- Sigma -->
+	<spawn map="220050000" npcid="205183" pool="1" interval="105">
+		<object x="511.1374" y="835.139" z="75.875" h="43"/>
+	</spawn>
+	<!-- Sirh -->
+	<spawn map="220050000" npcid="205212" pool="1" interval="105">
+		<object x="1314.2211" y="2645.4312" z="95.52203" h="74"/>
+	</spawn>
+	<!-- Sjazi -->
+	<spawn map="220050000" npcid="205149" pool="1" interval="105">
+		<object x="1303.222" y="1949.402" z="51.125" h="107"/>
+	</spawn>
+	<!-- Skald -->
+	<spawn map="220050000" npcid="205182" pool="1" interval="105">
+		<object x="461.2596" y="804.3664" z="70.375" h="19"/>
+	</spawn>
+	<!-- Skurv Guard -->
+	<spawn map="220050000" npcid="205175" pool="14" interval="105">
+		<object x="420.6776" y="893.6223" z="74.25691" h="35"/>
+		<object x="435.4469" y="868.8834" z="76.625" h="36"/>
+		<object x="453.3034" y="804.7512" z="70.25342" h="58"/>
+		<object x="416.733" y="903.711" z="73.21663" h="67"/>
+		<object x="451.9431" y="843.3801" z="74.9577" h="38"/>
+		<object x="366.56888" y="830.88464" z="53.771626" h="87"/>
+		<object x="382.6839" y="820.7652" z="55.09888" h="61"/>
+		<object x="413.0148" y="804.9451" z="63.258057" h="33"/>
+		<object x="490.4746" y="885.1696" z="77.038124" h="85"/>
+		<object x="373.4322" y="795.2084" z="66.86209" h="38"/>
+		<object x="470.9882" y="886.0319" z="76.25" h="85"/>
+		<object x="407.6838" y="893.3245" z="74.20839" h="34"/>
+		<object x="412.5254" y="819.3306" z="63.405186" h="88"/>
+		<object x="368.8621" y="813.0082" z="51.795773" h="35"/>
+	</spawn>
+	<!-- Sridi -->
+	<spawn map="220050000" npcid="205152" pool="1" interval="105">
+		<object x="1403.599" y="1910.7291" z="48.247246" h="56"/>
+	</spawn>
+	<!-- Surdi -->
+	<spawn map="220050000" npcid="205208" pool="1" interval="105">
+		<object x="1254.63" y="2588.33" z="95.92552" h="13"/>
+	</spawn>
+	<!-- Surt -->
+	<spawn map="220050000" npcid="205150" pool="1" interval="105">
+		<object x="1402.366" y="1907.9933" z="48.200768" h="42"/>
+	</spawn>
+	<!-- Suttung -->
+	<spawn map="220050000" npcid="205220" pool="1" interval="105">
+		<object x="1321.919" y="2021.918" z="45.125" h="0"/>
+	</spawn>
+	<!-- Svan -->
+	<spawn map="220050000" npcid="205174" pool="1" interval="105">
+		<object x="528.4921" y="848.13" z="76.08503" h="77"/>
+	</spawn>
+	<!-- Theia -->
+	<spawn map="220050000" npcid="205188" pool="1" interval="105">
+		<object x="1283.843" y="2588.772" z="95.1748" h="92"/>
+	</spawn>
+	<!-- Ullur -->
+	<spawn map="220050000" npcid="205207" pool="1" interval="105">
+		<object x="2916.089" y="2419.295" z="15.24525" h="33"/>
+	</spawn>
+	<!-- Valdomus -->
+	<spawn map="220050000" npcid="205194" pool="1" interval="105">
+		<object x="1266.855" y="1081.081" z="49.25" h="52"/>
+	</spawn>
+	<!-- Vilmar -->
+	<spawn map="220050000" npcid="205177" pool="1" interval="105">
+		<object x="507.1956" y="877.7239" z="80.15802" h="72"/>
+	</spawn>
+	<!-- Vinduer -->
+	<spawn map="220050000" npcid="205130" pool="1" interval="105">
+		<object x="2898.32" y="2455.8" z="16.854996" h="64"/>
+	</spawn>
+	<!-- Vorena -->
+	<spawn map="220050000" npcid="205189" pool="2" interval="105">
+		<object x="1285.62" y="2570.291" z="95.12836" h="89"/>
+		<object x="1266.438" y="2664.417" z="94.75" h="89"/>
+	</spawn>
+	<!-- Abandoned Heap of Ore -->
+	<spawn map="220050000" npcid="700451" pool="20" interval="105">
+		<object x="730.25" y="2439.32" z="105.3531" h="10"/>
+		<object x="651.17" y="2453.1" z="108.20874" h="9"/>
+		<object x="682.31" y="2545.5" z="101.43437" h="119"/>
+		<object x="665.33" y="2492.13" z="100.01877" h="20"/>
+		<object x="666.75" y="2454.5" z="101.890625" h="34"/>
+		<object x="697.49" y="2517.18" z="98.67937" h="106"/>
+		<object x="844.86" y="2536.56" z="94.0" h="82"/>
+		<object x="677.98" y="2514.21" z="102.32" h="105"/>
+		<object x="866.76" y="2540.27" z="100.36188" h="97"/>
+		<object x="708.67" y="2530.21" z="97.8519" h="7"/>
+		<object x="855.94" y="2611.41" z="127.23811" h="78"/>
+		<object x="826.45" y="2603.72" z="112.686874" h="105"/>
+		<object x="753.96" y="2412.02" z="103.64249" h="10"/>
+		<object x="661.53" y="2466.7" z="102.286865" h="114"/>
+		<object x="690.15" y="2547.92" z="97.1" h="119"/>
+		<object x="670.97" y="2474.11" z="99.35811" h="114"/>
+		<object x="672.79" y="2449.97" z="102.69" h="27"/>
+		<object x="813.45" y="2556.27" z="98.196884" h="69"/>
+		<object x="666.99" y="2508.96" z="102.561874" h="105"/>
+		<object x="701.35" y="2454.81" z="101.65936" h="27"/>
+	</spawn>
+	<!-- Adma Stronghold Entrance -->
+	<spawn map="220050000" npcid="730165" pool="1" interval="105">
+		<object x="2345.68" y="160.37" z="246.45" h="60"/>
+	</spawn>
+	<!-- Adma Stronghold Secret Passage -->
+	<spawn map="220050000" npcid="730151" pool="1" interval="105">
+		<object x="1840.48" y="887.51" z="59.108303" h="32"/>
+	</spawn>
+	<!-- Angeiya's Tombstone -->
+	<spawn map="220050000" npcid="730158" pool="1" interval="105">
+		<object x="1242.52" y="2637.42" z="95.56693" h="110"/>
+	</spawn>
+	<!-- Barche's Tombstone -->
+	<spawn map="220050000" npcid="730162" pool="1" interval="105">
+		<object x="1321.05" y="2608.35" z="95.632614" h="54"/>
+	</spawn>
+	<!-- Bert's Tombstone -->
+	<spawn map="220050000" npcid="730163" pool="1" interval="105">
+		<object x="1312.78" y="2593.04" z="95.59516" h="45"/>
+	</spawn>
+	<!-- Book of Brohum -->
+	<spawn map="220050000" npcid="730174" pool="1" interval="105">
+		<object x="806.42" y="2970.94" z="274.34937" h="99"/>
+	</spawn>
+	<!-- Bouquet -->
+	<spawn map="220050000" npcid="700215" pool="1" interval="105">
+		<object x="1169.0" y="2321.0" z="70.25" h="99"/>
+	</spawn>
+	<!-- Brohum Fur Ball -->
+	<spawn map="220050000" npcid="700386" pool="19" interval="105">
+		<object x="442.02" y="2916.85" z="246.63" h="87"/>
+		<object x="583.82" y="2961.41" z="250.875" h="1"/>
+		<object x="855.43" y="2892.75" z="274.0" h="68"/>
+		<object x="826.36" y="2957.0" z="274.0" h="84"/>
+		<object x="708.72" y="2853.17" z="257.375" h="18"/>
+		<object x="577.12" y="2935.5" z="249.41501" h="8"/>
+		<object x="876.01" y="2812.44" z="268.03" h="68"/>
+		<object x="800.55" y="2958.91" z="273.88" h="111"/>
+		<object x="399.98" y="2929.59" z="246.65187" h="102"/>
+		<object x="480.28" y="2709.86" z="265.125" h="16"/>
+		<object x="787.72" y="2913.15" z="273.88" h="111"/>
+		<object x="422.74" y="2928.14" z="246.625" h="87"/>
+		<object x="536.37" y="2755.73" z="277.1931" h="102"/>
+		<object x="456.29" y="2744.31" z="265.125" h="10"/>
+		<object x="445.74" y="2763.73" z="265.125" h="0"/>
+		<object x="600.6" y="2975.95" z="251.675" h="98"/>
+		<object x="622.61" y="2972.62" z="249.92375" h="94"/>
+		<object x="469.14" y="2727.51" z="265.125" h="28"/>
+		<object x="377.68" y="2922.04" z="246.2575" h="110"/>
+	</spawn>
+	<!-- BuBu Chap's Treasure Box -->
+	<spawn map="220050000" npcid="700384" pool="1" interval="105">
+		<object x="710.85" y="1519.14" z="36.80375" h="112"/>
+	</spawn>
+	<!-- Clotted Contaminant -->
+	<spawn map="220050000" npcid="700383" pool="20" interval="105">
+		<object x="1610.81" y="1236.82" z="36.43" h="0"/>
+		<object x="1306.63" y="1549.48" z="36.38" h="0"/>
+		<object x="1466.32" y="1267.92" z="36.25" h="0"/>
+		<object x="1015.57" y="1520.7" z="36.125" h="0"/>
+		<object x="1328.72" y="1267.46" z="36.25" h="0"/>
+		<object x="1379.09" y="1357.76" z="36.38" h="0"/>
+		<object x="1479.58" y="1162.44" z="36.25" h="0"/>
+		<object x="1383.08" y="1446.54" z="36.25" h="0"/>
+		<object x="1177.15" y="1322.87" z="36.25" h="0"/>
+		<object x="1318.58" y="1454.6" z="36.26" h="0"/>
+		<object x="1240.92" y="1431.29" z="36.317497" h="0"/>
+		<object x="1579.93" y="1307.5" z="36.25" h="0"/>
+		<object x="1577.26" y="1187.04" z="36.38" h="0"/>
+		<object x="1140.29" y="1751.72" z="36.25" h="0"/>
+		<object x="1388.17" y="1653.61" z="36.37" h="0"/>
+		<object x="1205.46" y="1196.38" z="36.4" h="0"/>
+		<object x="984.69" y="1473.86" z="36.24125" h="0"/>
+		<object x="1293.87" y="1682.69" z="36.38" h="0"/>
+		<object x="1155.38" y="1687.48" z="36.25" h="0"/>
+		<object x="1098.42" y="1478.27" z="36.25" h="0"/>
+	</spawn>
+	<!-- Corpse in the Stone Coffin -->
+	<spawn map="220050000" npcid="700342" pool="3" interval="105">
+		<object x="1877.08" y="2603.38" z="38.57016" h="28"/>
+		<object x="1849.1" y="2595.85" z="37.988194" h="0"/>
+		<object x="1853.39" y="2609.4" z="41.347782" h="32"/>
+	</spawn>
+	<!-- Dug-up Grave -->
+	<spawn map="220050000" npcid="700394" pool="1" interval="105">
+		<object x="1240.94" y="2599.52" z="95.36689" h="8"/>
+	</spawn>
+	<!-- Earth Mound -->
+	<spawn map="220050000" npcid="700340" pool="25" interval="105">
+		<object x="2445.334" y="2378.27" z="16.874878" h="0"/>
+		<object x="2662.182" y="2196.501" z="17.545471" h="0"/>
+		<object x="2731.245" y="2008.575" z="23.355606" h="0"/>
+		<object x="2557.708" y="2164.262" z="18.145126" h="0"/>
+		<object x="2507.019" y="2426.824" z="22.75" h="0"/>
+		<object x="2399.4" y="2404.757" z="16.362518" h="0"/>
+		<object x="2537.134" y="2306.796" z="15.491241" h="0"/>
+		<object x="2578.346" y="2086.77" z="21.620117" h="0"/>
+		<object x="2648.385" y="1998.221" z="20.539001" h="0"/>
+		<object x="2484.156" y="2359.805" z="16.8945" h="0"/>
+		<object x="2583.6" y="2113.854" z="21.73413" h="0"/>
+		<object x="2588.388" y="2168.069" z="18.317871" h="0"/>
+		<object x="2738.198" y="2124.758" z="28.102371" h="0"/>
+		<object x="2740.475" y="2157.432" z="25.404694" h="0"/>
+		<object x="2794.975" y="2158.284" z="28.674423" h="0"/>
+		<object x="2404.391" y="2411.246" z="16.29889" h="0"/>
+		<object x="2617.347" y="2379.66" z="26.877548" h="0"/>
+		<object x="2623.259" y="2057.978" z="23.96762" h="0"/>
+		<object x="2568.899" y="2361.011" z="18.056183" h="0"/>
+		<object x="2677.204" y="2006.029" z="20.602585" h="0"/>
+		<object x="2620.829" y="2223.258" z="17.52501" h="0"/>
+		<object x="2690.563" y="2076.802" z="22.789688" h="0"/>
+		<object x="2722.051" y="2211.196" z="20.53749" h="0"/>
+		<object x="2555.555" y="2418.76" z="22.7025" h="0"/>
+		<object x="2614.997" y="2432.051" z="27.25" h="0"/>
+	</spawn>
+	<!-- Erna's Tombstone -->
+	<spawn map="220050000" npcid="730159" pool="1" interval="105">
+		<object x="1275.28" y="2662.27" z="95.590195" h="93"/>
+	</spawn>
+	<!-- Faded Letter -->
+	<spawn map="220050000" npcid="730139" pool="1" interval="105">
+		<object x="2295.54" y="2185.99" z="39.685486" h="62"/>
+	</spawn>
+	<!-- First Streetlight -->
+	<spawn map="220050000" npcid="700428" pool="1" interval="105">
+		<object x="1215.94" y="1602.94" z="45.32" h="43"/>
+	</spawn>
+	<!-- Genta's Tombstone -->
+	<spawn map="220050000" npcid="730160" pool="1" interval="105">
+		<object x="1297.39" y="2658.71" z="95.84" h="86"/>
+	</spawn>
+	<!-- Green Pouch of Herbs -->
+	<spawn map="220050000" npcid="700431" pool="1" interval="105">
+		<object x="1025.19" y="2605.74" z="109.315" h="20"/>
+	</spawn>
+	<!-- Intact Skeleton -->
+	<spawn map="220050000" npcid="700381" pool="1" interval="105">
+		<object x="1168.3364" y="2407.016" z="75.16256" h="44"/>
+	</spawn>
+	<!-- Light of Luck -->
+	<spawn map="220050000" npcid="700538" pool="5" interval="105">
+		<object x="610.656" y="1283.159" z="66.39812" h="48"/>
+		<object x="2797.251" y="2777.75" z="6.952759" h="48"/>
+		<object x="2103.127" y="459.2388" z="200.42258" h="71"/>
+		<object x="181.0764" y="1303.051" z="129.375" h="48"/>
+		<object x="143.0" y="2441.0" z="82.125" h="100"/>
+	</spawn>
+	<!-- Muddy Skeleton -->
+	<spawn map="220050000" npcid="700382" pool="1" interval="105">
+		<object x="1083.227" y="2400.2222" z="81.26032" h="51"/>
+	</spawn>
+	<!-- Old Wooden Box -->
+	<spawn map="220050000" npcid="700395" pool="1" interval="105">
+		<object x="1813.98" y="884.0" z="58.85354" h="51"/>
+	</spawn>
+	<!-- Postaro's Tomb -->
+	<spawn map="220050000" npcid="700379" pool="1" interval="105">
+		<object x="1168.76" y="2321.34" z="70.25" h="56"/>
+	</spawn>
+	<!-- Red pouch of Herbs -->
+	<spawn map="220050000" npcid="700430" pool="1" interval="105">
+		<object x="1046.56" y="2768.65" z="128.72517" h="111"/>
+	</spawn>
+	<!-- Second Streetlight -->
+	<spawn map="220050000" npcid="700427" pool="1" interval="105">
+		<object x="1137.57" y="1320.04" z="38.52688" h="81"/>
+	</spawn>
+	<!-- Sirh's Tombstone -->
+	<spawn map="220050000" npcid="730161" pool="1" interval="105">
+		<object x="1314.18" y="2645.35" z="95.521645" h="68"/>
+	</spawn>
+	<!-- Sticky Web -->
+	<spawn map="220050000" npcid="700387" pool="6" interval="105">
+		<object x="1027.7552" y="2610.4797" z="109.218" h="13"/>
+		<object x="1500.67" y="2594.44" z="83.98752" h="70"/>
+		<object x="1177.0062" y="2274.7593" z="68.58834" h="27"/>
+		<object x="1157.11" y="2271.83" z="70.15373" h="53"/>
+		<object x="1029.36" y="2595.68" z="111.46198" h="13"/>
+		<object x="1153.52" y="2247.5" z="70.618744" h="69"/>
+	</spawn>
+	<!-- Sudri's Tombstone -->
+	<spawn map="220050000" npcid="730156" pool="1" interval="105">
+		<object x="1254.63" y="2588.33" z="95.92552" h="16"/>
+	</spawn>
+	<!-- Third Streetlight -->
+	<spawn map="220050000" npcid="700429" pool="1" interval="105">
+		<object x="1211.17" y="1133.22" z="42.87812" h="16"/>
+	</spawn>
+	<!-- Villaire's Tombstone -->
+	<spawn map="220050000" npcid="730157" pool="1" interval="105">
+		<object x="1244.77" y="2602.03" z="95.04" h="7"/>
+	</spawn>
+	<!-- Virkel's Tombstone -->
+	<spawn map="220050000" npcid="730164" pool="1" interval="105">
+		<object x="1281.27" y="2617.32" z="97.69546" h="94"/>
+	</spawn>
+	<!-- Weathered Skeleton -->
+	<spawn map="220050000" npcid="700380" pool="1" interval="105">
+		<object x="1047.7991" y="2497.6392" z="92.30711" h="89"/>
+	</spawn>
+	<!-- Wild Frightcorn -->
+	<spawn map="220050000" npcid="700341" pool="35" interval="105">
+		<object x="2063.899" y="2098.328" z="27.25" h="3"/>
+		<object x="1947.346" y="2365.575" z="16.75" h="49"/>
+		<object x="2034.656" y="2265.132" z="21.832" h="49"/>
+		<object x="1923.935" y="2594.742" z="38.875" h="3"/>
+		<object x="2057.891" y="2092.667" z="27.15982" h="49"/>
+		<object x="2049.138" y="2136.242" z="24.821121" h="3"/>
+		<object x="1977.063" y="2494.055" z="18.131866" h="3"/>
+		<object x="1953.842" y="2601.564" z="39.14238" h="86"/>
+		<object x="2060.506" y="2139.773" z="24.89244" h="3"/>
+		<object x="2024.544" y="2295.217" z="18.006866" h="3"/>
+		<object x="1843.577" y="2524.459" z="24.793442" h="23"/>
+		<object x="1825.071" y="2542.526" z="24.56694" h="3"/>
+		<object x="1878.112" y="2551.903" z="29.625" h="49"/>
+		<object x="2032.823" y="2506.931" z="23.756744" h="49"/>
+		<object x="2049.356" y="2513.818" z="23.875" h="49"/>
+		<object x="1869.5" y="2319.254" z="19.625" h="49"/>
+		<object x="2011.167" y="2330.905" z="13.729126" h="49"/>
+		<object x="1928.751" y="2470.303" z="17.25" h="48"/>
+		<object x="1898.242" y="2495.819" z="17.25" h="49"/>
+		<object x="1910.916" y="2270.323" z="15.280685" h="49"/>
+		<object x="1897.606" y="2537.922" z="29.485107" h="3"/>
+		<object x="1958.008" y="2576.74" z="39.375" h="3"/>
+		<object x="1960.005" y="2527.902" z="25.624062" h="3"/>
+		<object x="1874.791" y="2429.263" z="13.822754" h="3"/>
+		<object x="1988.2" y="2491.021" z="18.512497" h="86"/>
+		<object x="2011.346" y="2264.109" z="22.0" h="3"/>
+		<object x="2027.688" y="2237.948" z="22.0" h="49"/>
+		<object x="1924.868" y="2488.989" z="17.186813" h="49"/>
+		<object x="1853.256" y="2489.724" z="18.17424" h="3"/>
+		<object x="1875.321" y="2338.28" z="19.625" h="3"/>
+		<object x="1935.281" y="2262.717" z="15.0" h="49"/>
+		<object x="1817.73" y="2515.438" z="24.625" h="3"/>
+		<object x="1935.785" y="2370.727" z="16.70456" h="3"/>
+		<object x="1833.227" y="2472.472" z="18.674423" h="49"/>
+		<object x="1847.812" y="2428.445" z="14.448685" h="3"/>
+	</spawn>
+	<!-- Wild Ginseng -->
+	<spawn map="220050000" npcid="700385" pool="20" interval="105">
+		<object x="160.84" y="1696.95" z="272.52625" h="14"/>
+		<object x="465.55" y="2212.88" z="298.735" h="115"/>
+		<object x="569.8" y="2080.94" z="275.94626" h="87"/>
+		<object x="507.01" y="1858.25" z="257.73438" h="115"/>
+		<object x="666.55" y="1982.24" z="282.49564" h="103"/>
+		<object x="241.8" y="1739.36" z="276.5875" h="39"/>
+		<object x="337.02" y="1883.95" z="257.0094" h="70"/>
+		<object x="159.16" y="1907.65" z="268.75" h="1"/>
+		<object x="181.99" y="1672.85" z="268.05374" h="25"/>
+		<object x="624.17" y="1709.77" z="261.09" h="37"/>
+		<object x="582.24" y="1711.54" z="264.15375" h="37"/>
+		<object x="672.48" y="1839.42" z="259.14" h="37"/>
+		<object x="702.32" y="1908.62" z="289.315" h="52"/>
+		<object x="667.4" y="1731.98" z="257.85" h="37"/>
+		<object x="150.15" y="1753.82" z="268.66812" h="31"/>
+		<object x="398.57" y="1770.95" z="299.08374" h="37"/>
+		<object x="590.92" y="1779.33" z="259.17" h="37"/>
+		<object x="613.55" y="1750.64" z="257.17" h="37"/>
+		<object x="686.48" y="1825.17" z="260.75" h="37"/>
+		<object x="272.33" y="1977.43" z="255.62251" h="70"/>
+	</spawn>
+	<!-- Yellow Pouch of Herbs -->
+	<spawn map="220050000" npcid="700432" pool="1" interval="105">
+		<object x="1175.25" y="2272.8" z="69.075" h="20"/>
+	</spawn>
+	<!-- Mailbox -->
+	<spawn map="220050000" npcid="700000" pool="3" interval="105">
+		<object x="487.95" y="883.99" z="76.87" h="82"/>
+		<object x="1403.0" y="2020.79" z="51.375" h="82"/>
+		<object x="2915.01" y="2438.98" z="16.063126" h="45"/>
+	</spawn>
 </spawns>

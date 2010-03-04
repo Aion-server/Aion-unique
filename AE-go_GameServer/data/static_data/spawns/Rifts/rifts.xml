@@ -44,7 +44,7 @@
 	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_GS">
 		<object x="2930.681" y="879.490" z="370.00906" h="0"/>
 	</spawn>
-		<!-- Rift Heiron Master-->
+	<!-- Rift Heiron Master-->
 	<spawn map="210040000" npcid="700137" pool="1" handler="RIFT" anchor="HEIRON_AM">
 		<object x="2662.011" y="434.266" z="398.71674" h="0"/>
 	</spawn>
@@ -88,7 +88,7 @@
 	<spawn map="220040000" npcid="700137" pool="1" handler="RIFT" anchor="BELUSLAN_GS">
 		<object x="1744.005" y="1900.656" z="589.0837" h="0"/>
 	</spawn>
-			<!-- Rift Morheim Master-->
+	<!-- Rift Morheim Master-->
 	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_AM">
 		<object x="450" y="2350" z="439" h="0"/>
 	</spawn>
@@ -132,7 +132,7 @@
 	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_GS">
 		<object x="2586.272" y="651.752" z="463.625" h="0"/>
 	</spawn>
-				<!-- Rift Beluslan Master-->
+	<!-- Rift Beluslan Master-->
 	<spawn map="220040000" npcid="700137" pool="1" handler="RIFT" anchor="BELUSLAN_AM">
 		<object x="233.323" y="150.91" z="240.881" h="0"/>
 	</spawn>
