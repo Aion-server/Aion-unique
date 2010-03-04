@@ -48,9 +48,9 @@ public class RecipeList
 	public void addRecipe(Player player, RecipeTemplate recipeTemplate)
 	{
 		int recipeId = recipeTemplate.getId();
-		recipeList.add(recipeId);
 		if (!player.getRecipeList().isRecipePresent(recipeId))
 		{
+			recipeList.add(recipeId);
 			DAOManager.getDAO(PlayerRecipesDAO.class).addRecipe(player.getObjectId(), recipeId);
 			PacketSendUtility.sendPacket(player, new SM_LEARN_RECIPE(recipeId));
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.CRAFT_RECIPE_LEARN(new DescriptionId(recipeTemplate.getNameid())));
