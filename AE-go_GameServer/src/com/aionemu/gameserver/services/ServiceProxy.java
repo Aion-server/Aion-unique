@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.services;
 
+import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -58,6 +59,8 @@ public class ServiceProxy
 	private CraftSkillUpdateService craftSkillUpdateService;
 	@Inject
 	private WarehouseExpandService warehouseExpandService;
+	@Inject
+	private BindPointData bindPointData;
 
 	/**
 	 * @return the world
@@ -144,7 +147,7 @@ public class ServiceProxy
 		return skillLearnService;
 	}
 	/**
-	 * @return
+	 * @return groupService
 	 */
 	public GroupService getGroupService()
 	{
@@ -158,10 +161,17 @@ public class ServiceProxy
 		return craftSkillUpdateService;
 	}
 	/**
-	 * @return
+	 * @return warehouseExpandService
 	 */
 	public WarehouseExpandService getWarehouseExpandService()
 	{
 		return warehouseExpandService;
+	}
+	/**
+	 * @return bindPointData
+	 */
+	public BindPointData getBindPointData()
+	{
+		return bindPointData;
 	}
 }

@@ -27,7 +27,7 @@ import com.aionemu.gameserver.ai.npcai.NpcAi;
 import com.aionemu.gameserver.controllers.BindpointController;
 import com.aionemu.gameserver.controllers.effect.EffectController;
 import com.aionemu.gameserver.controllers.factory.ControllerFactory;
-import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.dataholders.SpawnsData;
@@ -88,6 +88,8 @@ public class SpawnEngine
 	private WorldMapsData worldMapsData;
 	@Inject
 	private ControllerFactory controllerFactory;
+	@Inject
+	private BindPointData bindPointData;
 
 	/** Counter counting number of npc spawns */
 	private int npcCounter		= 0;
@@ -139,7 +141,7 @@ public class SpawnEngine
 					break;
 				case RESURRECT:
 					BindpointController bindPointController = controllerFactory.createBindpointController();
-					bindPointController.setBindPointTemplate(DataManager.BIND_POINT_DATA.getBindPointTemplate(objectId));
+					bindPointController.setBindPointTemplate(bindPointData.getBindPointTemplate(objectId));
 					npc = new Npc(aionObjectsIDFactory.nextId(), bindPointController, spawn, template);
 					break;
 				case USEITEM:

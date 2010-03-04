@@ -44,8 +44,10 @@ public final class AttackDesire extends AbstractDesire
 	/**
 	 * Creates new attack desire, target can't be changed
 	 * 
-	 * @param crt
-	 *            whom to attack
+	 * @param npc
+	 *            The Npc that's attacking
+	 * @param target
+	 * 			  whom to attack
 	 * @param desirePower
 	 *            initial attack power
 	 */

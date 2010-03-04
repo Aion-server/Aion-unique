@@ -56,7 +56,7 @@ public abstract class AI<T extends Creature> implements Runnable
 	
 	/**
 	 * 
-	 * @param event
+	 * @param event The event that needs to be handled
 	 */
 	public void handleEvent(Event event)
 	{
@@ -79,7 +79,8 @@ public abstract class AI<T extends Creature> implements Runnable
 	}
 	
 	/**
-	 * @return owner of this AI
+	 * of the AI
+	 * @param owner the owner of the AI
 	 */
 	public void setOwner(Creature owner)
 	{

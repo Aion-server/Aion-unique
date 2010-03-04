@@ -43,7 +43,7 @@ public final class DataManager
 	 * @see NpcData
 	 */
 	public final NpcData				NPC_DATA;
-	
+
 	/**
 	 * Gatherable data is keeping information about all gatherables.
 	 * 
@@ -71,19 +71,19 @@ public final class DataManager
 	 * @see PlayerExperienceTable
 	 */
 	public static TradeListData			TRADE_LIST_DATA;
-	
+
 	public static PlayerExperienceTable	PLAYER_EXPERIENCE_TABLE;
 
 	public static TeleporterData		TELEPORTER_DATA;
-	
+
 	public static TeleLocationData		TELELOCATION_DATA;
-	
-	public CubeExpandData 		CUBEEXPANDER_DATA;
-	
-	public WarehouseExpandData 		WAREHOUSEEXPANDER_DATA;
-	
-	public static BindPointData 		BIND_POINT_DATA;
-	
+
+	public CubeExpandData				CUBEEXPANDER_DATA;
+
+	public WarehouseExpandData			WAREHOUSEEXPANDER_DATA;
+
+	public BindPointData				BIND_POINT_DATA;
+
 	public static QuestsData			QUEST_DATA;
 	/**
 	 * 
@@ -91,33 +91,33 @@ public final class DataManager
 	public static PlayerStatsData		PLAYER_STATS_DATA;
 
 	public static ItemData				ITEM_DATA;
-	
+
 	public static TitleData				TITLE_DATA;
 
 	/**
 	 * Player initial data table.<br />
 	 * Contains initial player settings.
 	 */
-	public static PlayerInitialData 	PLAYER_INITIAL_DATA;
-	
+	public static PlayerInitialData		PLAYER_INITIAL_DATA;
+
 	/**
 	 * 
 	 */
 	public static SkillData				SKILL_DATA;
-	
+
 	public SkillTreeData				SKILL_TREE_DATA;
-	
+
 	/**
 	 * 
 	 */
 	public static WalkerData			WALKER_DATA;
-	
+
 	public static ZoneData				ZONE_DATA;
-	
+
 	public GoodsListData				GOODSLIST_DATA;
-	
+
 	public static TribeRelationsData	TRIBE_RELATIONS_DATA;
-	
+
 	public static RecipeData			RECIPE_DATA;
 
 	/**
@@ -127,8 +127,6 @@ public final class DataManager
 	public DataManager()
 	{
 		log.info("##### STATIC DATA [section beginning] #####");
-
-		
 
 		XmlDataLoader loader = new XmlDataLoader();
 
@@ -144,22 +142,22 @@ public final class DataManager
 		GATHERABLE_DATA = data.gatherableData;
 		PLAYER_INITIAL_DATA = data.playerInitialData;
 		SKILL_DATA = data.skillData;
-		SKILL_TREE_DATA = data.skillTreeData;	
+		SKILL_TREE_DATA = data.skillTreeData;
 		SPAWNS_DATA = data.spawnsData;
 		TITLE_DATA = data.titleData;
 		TRADE_LIST_DATA = data.tradeListData;
-		TELEPORTER_DATA = data.teleporterData;	
-		TELELOCATION_DATA = data.teleLocationData;	
+		TELEPORTER_DATA = data.teleporterData;
+		TELELOCATION_DATA = data.teleLocationData;
 		CUBEEXPANDER_DATA = data.cubeExpandData;
 		WAREHOUSEEXPANDER_DATA = data.warehouseExpandData;
 		BIND_POINT_DATA = data.bindPointData;
 		QUEST_DATA = data.questData;
-		ZONE_DATA = data.zoneData;	
+		ZONE_DATA = data.zoneData;
 		WALKER_DATA = data.walkerData;
 		GOODSLIST_DATA = data.goodsListData;
 		TRIBE_RELATIONS_DATA = data.tribeRelationsData;
 		RECIPE_DATA = data.recipeData;
-		
+
 		// some sexy time message
 		long seconds = time / 1000;
 
@@ -167,7 +165,6 @@ public final class DataManager
 
 		log.info("##### [load time: " + timeMsg + "] #####");
 		log.info("##### STATIC DATA [section end] #####");
-	
-		
+
 	}
 }

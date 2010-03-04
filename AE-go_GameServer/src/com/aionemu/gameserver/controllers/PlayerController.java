@@ -580,7 +580,7 @@ public class PlayerController extends CreatureController<Player>
 		int bindPointId = player.getCommonData().getBindPoint();
 		if(bindPointId != 0)
 		{
-			bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate2(bindPointId);
+			bplist = sp.getBindPointData().getBindPointTemplate2(bindPointId);
 			worldId = bplist.getZoneId();
 			x = bplist.getX();
 			y = bplist.getY();

@@ -113,7 +113,7 @@ public class EffectController
 	/**
 	 * 
 	 * @param stack
-	 * @return
+	 * @return abnormalEffectMap
 	 */
 	public Effect getAnormalEffect(String stack)
 	{

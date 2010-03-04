@@ -90,8 +90,6 @@ public interface Desire extends Comparable<Desire>
 	
 	/**
 	 *  Used in desire filters
-	 *  
-	 * @return
 	 */
 	boolean isReadyToRun();
 	

@@ -19,6 +19,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import java.util.List;
 
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.ChatType;
@@ -60,9 +61,6 @@ import com.aionemu.gameserver.utils.rates.Rates;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
-import com.aionemu.gameserver.utils.rates.PremiumRates;
-import com.aionemu.gameserver.utils.rates.RegularRates;
-
 /**
  * In this packets aion client is asking if given char [by oid] may login into game [ie start playing].
  * 
@@ -83,6 +81,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	private LegionService	legionService;
 	@Inject
 	private GroupService	groupService;
+	@Inject
+	private BindPointData	bindPointData;
 
 	/**
 	 * Constructs new instance of <tt>CM_ENTER_WORLD </tt> packet
@@ -136,7 +136,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// sendPacket(new SM_UNKC8());
 
 			client.sendPacket(new SM_QUEST_LIST(player));
-			
+
 			client.sendPacket(new SM_RECIPE_LIST(player.getRecipeList().getRecipeList()));
 
 			/*
@@ -200,8 +200,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			float x, y, z;
 			if(player.getCommonData().getBindPoint() != 0)
 			{
-				BindPointTemplate bplist = DataManager.BIND_POINT_DATA.getBindPointTemplate2(player.getCommonData()
-					.getBindPoint());
+				BindPointTemplate bplist = bindPointData.getBindPointTemplate2(player.getCommonData().getBindPoint());
 				worldId = bplist.getZoneId();
 				x = bplist.getX();
 				y = bplist.getY();
@@ -252,15 +251,15 @@ public class CM_ENTER_WORLD extends AionClientPacket
 
 			if(player.getPunishmentController().isInPrison())
 				player.getPunishmentController().updatePrisonStatus();
-			
+
 			if(player.isLegionMember())
 				legionService.legionMemberOnLogin(player);
 
 			playerService.playerLoggedIn(player);
-			
+
 			if(player.isInGroup())
 				groupService.groupMemberOnLogin(player);
-			
+
 			player.setRates(Rates.getRatesFor(client.getAccount().getMembership()));
 
 			ClassChangeService.showClassChangeDialog(player);

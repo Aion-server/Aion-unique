@@ -152,6 +152,12 @@ public class DataInjectionModule extends AbstractModule
 	{
 		return datamanager.GATHERABLE_DATA;
 	}
+	
+	@Provides
+	BindPointData provideBindPointData(DataManager datamanager)
+	{
+		return datamanager.BIND_POINT_DATA;
+	}
 
 	@SuppressWarnings("static-access")
 	@Provides
@@ -213,20 +219,6 @@ public class DataInjectionModule extends AbstractModule
 	TeleLocationData provideTeleLocationData(DataManager datamanager)
 	{
 		return datamanager.TELELOCATION_DATA;
-	}	
-	
-	//@SuppressWarnings("static-access")
-	//@Provides
-	//CubeExpandData provideCubeExpandData(DataManager datamanager)
-	//{
-	//	return datamanager.CUBEEXPANDER_DATA;
-	//}
-	
-	@SuppressWarnings("static-access")
-	@Provides
-	BindPointData provideBindPointData(DataManager datamanager)
-	{
-		return datamanager.BIND_POINT_DATA;
 	}
 	
 	@SuppressWarnings("static-access")
