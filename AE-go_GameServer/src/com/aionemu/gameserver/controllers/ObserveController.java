@@ -16,11 +16,13 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.commons.lang.ArrayUtils;
 
+import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.movement.ActionObserver;
 import com.aionemu.gameserver.controllers.movement.AttackCalcObserver;
@@ -175,10 +177,24 @@ public class ObserveController
 		{
 			for(AttackCalcObserver observer : attackCalcObservers)
 			{
-				if(observer.check(status))
+				if(observer.checkStatus(status))
 					return true;
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * @param attackList
+	 */
+	public void checShieldStatus(List<AttackResult> attackList)
+	{
+		synchronized(attackCalcObservers)
+		{
+			for(AttackCalcObserver observer : attackCalcObservers)
+			{
+				observer.checkShield(attackList);
+			}
+		}
 	}
 }

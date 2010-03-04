@@ -26,6 +26,8 @@ public class AttackResult
 	
 	private AttackStatus attackStatus;
 	
+	private int shieldType;
+	
 	public AttackResult(int damage, AttackStatus attackStatus)
 	{
 		this.damage = damage;
@@ -41,10 +43,34 @@ public class AttackResult
 	}
 
 	/**
+	 * @param damage the damage to set
+	 */
+	public void setDamage(int damage)
+	{
+		this.damage = damage;
+	}
+
+	/**
 	 * @return the attackStatus
 	 */
 	public AttackStatus getAttackStatus()
 	{
 		return attackStatus;
+	}
+
+	/**
+	 * @return the shieldType
+	 */
+	public int getShieldType()
+	{
+		return shieldType;
+	}
+
+	/**
+	 * @param shieldType the shieldType to set
+	 */
+	public void setShieldType(int shieldType)
+	{
+		this.shieldType = shieldType;
 	}
 }

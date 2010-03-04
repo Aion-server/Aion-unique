@@ -158,6 +158,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="dispeldebuffphysical" type="DispelDebuffPhysicalEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="dispeldebuff" type="DispelDebuffEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -795,6 +797,13 @@
 		<xs:complexContent>
 			<xs:extension base="Effect">
 				<xs:attribute name="value" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="DispelDebuffEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

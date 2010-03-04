@@ -18,30 +18,63 @@ package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.controllers.movement.AttackCalcObserver;
+import com.aionemu.gameserver.controllers.movement.AttackShieldObserver;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * @author ATracer
- *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ShieldEffect")
 public class ShieldEffect extends EffectTemplate
 {
 
+	@XmlAttribute
+	protected int	hitdelta;
+	@XmlAttribute
+	protected int	hitvalue;
+	@XmlAttribute
+	protected int	delta;
+	@XmlAttribute
+	protected int	value;
+
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		// TODO Auto-generated method stub
-
+		effect.addToEffectedController();
 	}
 
 	@Override
 	public void calculate(Effect effect)
 	{
+		int skillLvl = effect.getSkillLevel();
+		int valueWithDelta = value + delta * skillLvl;
+		int hitValueWithDelta = hitvalue + hitdelta * skillLvl;
+		effect.setReserved2(valueWithDelta);
+		effect.setReserved3(hitValueWithDelta);
 		effect.increaseSuccessEffect();
+	}
+
+	@Override
+	public void startEffect(final Effect effect)
+	{
+		AttackShieldObserver asObserver = new AttackShieldObserver(effect.getReserved3(),
+			effect.getReserved2(), effect);
+		
+		effect.getEffected().getObserveController().addAttackCalcObserver(asObserver);
+		effect.setAttackShieldObserver(asObserver);
+	}
+
+	@Override
+	public void endEffect(Effect effect)
+	{
+		AttackCalcObserver acObserver = effect.getAttackShieldObserver();
+		effect.getEffected().getObserveController().removeAttackCalcObserver(acObserver);
 	}
 
 }

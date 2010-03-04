@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.movement.AttackCalcObserver;
+import com.aionemu.gameserver.controllers.movement.AttackStatusObserver;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
@@ -51,11 +52,11 @@ public class AlwaysParryEffect extends EffectTemplate
 	@Override
 	public void startEffect(final Effect effect)
 	{
-		AttackCalcObserver acObserver = new AttackCalcObserver(value, AttackStatus.PARRY)
+		AttackCalcObserver acObserver = new AttackStatusObserver(value, AttackStatus.PARRY)
 		{
 
 			@Override
-			public boolean check(AttackStatus status)
+			public boolean checkStatus(AttackStatus status)
 			{
 				if(status == AttackStatus.PARRY && value > 0)
 				{
@@ -67,13 +68,13 @@ public class AlwaysParryEffect extends EffectTemplate
 			
 		};
 		effect.getEffected().getObserveController().addAttackCalcObserver(acObserver);
-		effect.setAttackCalcObserver(acObserver);
+		effect.setAttackStatusObserver(acObserver);
 	}
 	
 	@Override
 	public void endEffect(Effect effect)
 	{
-		AttackCalcObserver acObserver = effect.getAttackCalcObserver();
+		AttackCalcObserver acObserver = effect.getAttackStatusObserver();
 		effect.getEffected().getObserveController().removeAttackCalcObserver(acObserver);
 	}
 }

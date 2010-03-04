@@ -16,33 +16,25 @@
  */
 package com.aionemu.gameserver.controllers.movement;
 
-import java.util.List;
-
-import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
-
 
 /**
  * @author ATracer
  *
  */
-public class AttackCalcObserver
+public class AttackStatusObserver extends AttackCalcObserver
 {
-	/**
-	 * @param status
-	 * @return false
-	 */
-	public boolean checkStatus(AttackStatus status)
-	{
-		return false;
-	}
+	protected int value;
+	protected AttackStatus status;
 	
 	/**
+	 * 
 	 * @param value
-	 * @return value
+	 * @param status
 	 */
-	public void checkShield(List<AttackResult> attackList)
+	public AttackStatusObserver(int value, AttackStatus status)
 	{
-		
+		this.value = value;
+		this.status = status;
 	}
 }

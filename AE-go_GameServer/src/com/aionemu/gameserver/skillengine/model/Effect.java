@@ -46,11 +46,27 @@ public class Effect
 	private Future<?> task = null;
 	private Future<?> periodicTask = null;
 	
+	/**
+	 * Used for damage/heal values
+	 */
 	private int reserved1;
+	/**
+	 * Used for shield total hit damage;
+	 */
+	private int reserved2;
+	/**
+	 * Used for shield hit damage
+	 */
+	private int reserved3;
+	
 	private AttackStatus attackStatus = AttackStatus.NORMALHIT;
+	private int shieldDefense;
+	
 	private boolean addedToController;
 	private int successEffect;
-	private AttackCalcObserver attackCalcObserver;
+	private AttackCalcObserver attackStatusObserver;
+	private AttackCalcObserver attackShieldObserver;
+	
 	private boolean launchSubEffect = true;
 	
 	public Effect(Creature effector, Creature effected, SkillTemplate skillTemplate, int skillLevel, int duration)
@@ -175,6 +191,38 @@ public class Effect
 	}
 
 	/**
+	 * @return the reserved2
+	 */
+	public int getReserved2()
+	{
+		return reserved2;
+	}
+
+	/**
+	 * @param reserved2 the reserved2 to set
+	 */
+	public void setReserved2(int reserved2)
+	{
+		this.reserved2 = reserved2;
+	}
+
+	/**
+	 * @return the reserved3
+	 */
+	public int getReserved3()
+	{
+		return reserved3;
+	}
+
+	/**
+	 * @param reserved3 the reserved3 to set
+	 */
+	public void setReserved3(int reserved3)
+	{
+		this.reserved3 = reserved3;
+	}
+
+	/**
 	 * @return the attackStatus
 	 */
 	public AttackStatus getAttackStatus()
@@ -228,17 +276,33 @@ public class Effect
 	/**
 	 * @return the attackCalcObserver
 	 */
-	public AttackCalcObserver getAttackCalcObserver()
+	public AttackCalcObserver getAttackStatusObserver()
 	{
-		return attackCalcObserver;
+		return attackStatusObserver;
 	}
 
 	/**
-	 * @param attackCalcObserver the attackCalcObserver to set
+	 * @param attackStatusObserver the attackCalcObserver to set
 	 */
-	public void setAttackCalcObserver(AttackCalcObserver attackCalcObserver)
+	public void setAttackStatusObserver(AttackCalcObserver attackStatusObserver)
 	{
-		this.attackCalcObserver = attackCalcObserver;
+		this.attackStatusObserver = attackStatusObserver;
+	}
+
+	/**
+	 * @return the attackShieldObserver
+	 */
+	public AttackCalcObserver getAttackShieldObserver()
+	{
+		return attackShieldObserver;
+	}
+
+	/**
+	 * @param attackShieldObserver the attackShieldObserver to set
+	 */
+	public void setAttackShieldObserver(AttackCalcObserver attackShieldObserver)
+	{
+		this.attackShieldObserver = attackShieldObserver;
 	}
 
 	/**
@@ -255,6 +319,22 @@ public class Effect
 	public void setLaunchSubEffect(boolean launchSubEffect)
 	{
 		this.launchSubEffect = launchSubEffect;
+	}
+
+	/**
+	 * @return the shieldDefense
+	 */
+	public int getShieldDefense()
+	{
+		return shieldDefense;
+	}
+
+	/**
+	 * @param shieldDefense the shieldDefense to set
+	 */
+	public void setShieldDefense(int shieldDefense)
+	{
+		this.shieldDefense = shieldDefense;
 	}
 
 	/**

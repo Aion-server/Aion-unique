@@ -83,7 +83,8 @@ public class SM_ATTACK extends AionServerPacket
 		for (AttackResult attack : attackList)
 		{
 			writeD(buf, attack.getDamage()); // damage
-			writeH(buf, attack.getAttackStatus().getId()); // attack status
+			writeC(buf, attack.getAttackStatus().getId()); // attack status
+			writeC(buf, attack.getShieldType());
 		}
 
 		writeC(buf, 0);

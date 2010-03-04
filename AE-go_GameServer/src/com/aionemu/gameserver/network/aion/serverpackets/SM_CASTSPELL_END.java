@@ -76,7 +76,7 @@ public class SM_CASTSPELL_END extends AionServerPacket
 			writeH(buf, 1); // unk??
 			writeD(buf, effect.getReserved1()); // damage
 			writeC(buf, effect.getAttackStatus().getId());
-			writeC(buf, 0);
+			writeC(buf, effect.getShieldDefense());
 		}
 	}
 }

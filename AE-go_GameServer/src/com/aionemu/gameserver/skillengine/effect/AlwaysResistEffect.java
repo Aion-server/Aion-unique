@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.movement.AttackCalcObserver;
+import com.aionemu.gameserver.controllers.movement.AttackStatusObserver;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
@@ -46,11 +47,11 @@ public class AlwaysResistEffect extends EffectTemplate
 	@Override
 	public void startEffect(final Effect effect)
 	{
-		AttackCalcObserver acObserver = new AttackCalcObserver(value, AttackStatus.RESIST)
+		AttackCalcObserver acObserver = new AttackStatusObserver(value, AttackStatus.RESIST)
 		{
 
 			@Override
-			public boolean check(AttackStatus status)
+			public boolean checkStatus(AttackStatus status)
 			{
 				if(status == AttackStatus.RESIST && value > 0)
 				{
@@ -62,13 +63,13 @@ public class AlwaysResistEffect extends EffectTemplate
 			
 		};
 		effect.getEffected().getObserveController().addAttackCalcObserver(acObserver);
-		effect.setAttackCalcObserver(acObserver);
+		effect.setAttackStatusObserver(acObserver);
 	}
 	
 	@Override
 	public void endEffect(Effect effect)
 	{
-		AttackCalcObserver acObserver = effect.getAttackCalcObserver();
+		AttackCalcObserver acObserver = effect.getAttackStatusObserver();
 		effect.getEffected().getObserveController().removeAttackCalcObserver(acObserver);
 	}
 }

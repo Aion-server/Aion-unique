@@ -19,30 +19,51 @@ package com.aionemu.gameserver.controllers.movement;
 import java.util.List;
 
 import com.aionemu.gameserver.controllers.attack.AttackResult;
-import com.aionemu.gameserver.controllers.attack.AttackStatus;
+import com.aionemu.gameserver.skillengine.model.Effect;
 
 
 /**
  * @author ATracer
  *
  */
-public class AttackCalcObserver
+public class AttackShieldObserver extends AttackCalcObserver
 {
-	/**
-	 * @param status
-	 * @return false
-	 */
-	public boolean checkStatus(AttackStatus status)
-	{
-		return false;
-	}
+
+	private int hit;
+	private int totalHit;
+	private Effect effect;
 	
 	/**
 	 * @param value
-	 * @return value
+	 * @param status
 	 */
+	public AttackShieldObserver(int hit, int totalHit, Effect effect)
+	{
+		this.hit = hit;
+		this.totalHit = totalHit;
+		this.effect = effect;
+	}
+
+	@Override
 	public void checkShield(List<AttackResult> attackList)
 	{
-		
+		for(AttackResult attackResult : attackList)
+		{
+			int damage = attackResult.getDamage();
+			
+			int absorbedDamage = damage >= hit ? hit : damage;
+			absorbedDamage = absorbedDamage >= totalHit ? totalHit : absorbedDamage;
+			totalHit -= absorbedDamage;
+			
+			if(absorbedDamage > 0)
+				attackResult.setShieldType(2);//TODO investigate other shield types
+			attackResult.setDamage(damage - absorbedDamage);
+			
+			if(totalHit <=0)
+			{
+				effect.endEffect();
+				return;
+			}
+		}	
 	}
 }

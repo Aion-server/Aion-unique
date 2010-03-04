@@ -2149,7 +2149,7 @@
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="1" value="35"/>
             </statboost>
             <statboost effectid="102512" e="2" element="FIRE">
-                <change stat="PHYSICAL_DEFENSE" func="ADD" value="1"/>
+                <change stat="PHYSICAL_DEFENSE" func="ADD" value="-360"/>
             </statboost>
         </effects>
     </skill_template>
@@ -5360,6 +5360,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <dispeldebuff e="1"/>
             <shield value="10000000" delta="0" hitvalue="50" hitdelta="0" duration="30000" effectid="154" e="2"/>
         </effects>
         <actions>
@@ -6245,9 +6246,10 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <dispeldebuff e="1"/>
             <statup duration="30000" effectid="104752" e="2"/>
             <shield value="10000000" delta="0" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="3"/>
-            <statdown duration="30000" effectid="104754" e="4">
+            <statdown duration="30000" effectid="104754" e="4" element="FIRE">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="-50"/>
             </statdown>
         </effects>
@@ -6263,9 +6265,10 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <dispeldebuff e="1"/>
             <statup duration="30000" effectid="104762" e="2"/>
             <shield value="10000000" delta="0" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="3"/>
-            <statdown duration="30000" effectid="104764" e="4">
+            <statdown duration="30000" effectid="104764" e="4" element="FIRE">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="-50"/>
             </statdown>
         </effects>
@@ -14627,6 +14630,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dispeldebuff e="1"/>
             <hot value="3650" delta="56" checktime="1000" type="HP" duration="1000" effectid="110422" e="2"/>
         </effects>
         <actions>
@@ -16710,6 +16714,7 @@
             <targetrelation value="MYPARTY"/>
         </setproperties>
         <effects>
+            <dispeldebuff e="1"/>
             <hot value="20" delta="0" checktime="2000" type="HP" duration="10000" effectid="111652" e="2"/>
         </effects>
         <actions>
@@ -36323,6 +36328,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuff e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8819" name="STR_ITEM_POTION_HP_MP_ALL" nameId="1404319" stack="ITEM_POTION_HP_MP_ALL" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -36604,6 +36612,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuff e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8838" name="STR_ITEM_shield_all_20A" nameId="1426581" stack="ITEM_SHIELD_ALL_20A" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -46884,6 +46895,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <dispeldebuff e="1"/>
             <shield value="20000" delta="0" hitvalue="100" hitdelta="0" duration="10000" effectid="154" e="2"/>
             <hide value="2" duration="10000" effectid="165" e="3">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
@@ -49309,6 +49321,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuff e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16567" name="STR_NCH_SatkSDownPydef_Nr" nameId="568881" stack="NCH_SATKSDOWNPYDEF_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -50451,6 +50466,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuff e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16636" name="STR_GNCH_SatkSDownPydef_Nr" nameId="569491" stack="GNCH_SATKSDOWNPYDEF_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -52235,13 +52253,14 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dispeldebuff e="1"/>
             <statup duration="10000" effectid="30151" e="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="35"/>
             </statup>
-            <snare duration="10000" effectid="20007" e="3">
+            <snare duration="10000" effectid="20007" e="3" element="WATER">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-30"/>
             </snare>
-            <snare effectid="20008" e="4"/>
+            <snare effectid="20008" e="4" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16744" name="STR_GNRA_SatkMiddle_Na" nameId="573295" stack="GNRA_SATKMIDDLE_NA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
@@ -56480,6 +56499,7 @@
         <effects>
             <spellatk value="49" delta="0" e="1" element="EARTH"/>
             <dot checktime="2000" value="10" delta="1" duration="8100" effectid="10170102" e="2" element="EARTH"/>
+            <dispeldebuff e="3"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17011" name="STR_BNEL_Hide_DF2Ch" nameId="577655" stack="BNEL_HIDE_DF2CH" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -59759,6 +59779,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuff e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17220" name="STR_BNWA_SatkLrTA_Df1Ch" nameId="579471" stack="BNWA_SATKLRTA_DF1CH" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -62270,6 +62293,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuff e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17383" name="STR_DGFI_SUpPyDef_TA" nameId="580537" stack="DGFI_SUPPYDEF_TA" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
@@ -63054,6 +63080,7 @@
         </useconditions>
         <effects>
             <heal value="145" delta="11" e="1"/>
+            <dispeldebuff e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17433" name="STR_NPC_Order_Decaying_G1_Fire" nameId="581949" stack="NPC_ORDER_DECAYING_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -65741,6 +65768,7 @@
         </useconditions>
         <effects>
             <heal value="285" delta="14" e="1"/>
+            <dispeldebuff e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17598" name="STR_NPC_Order_Decaying_G3_Fire" nameId="581977" stack="NPC_ORDER_DECAYING_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -66212,6 +66240,7 @@
         </useconditions>
         <effects>
             <heal value="467" delta="18" e="1"/>
+            <dispeldebuff e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17626" name="STR_NPC_SKILL_Order_ElementalField_G4_Fire" nameId="575781" stack="NPC_SKILL_ORDER_ELEMENTALFIELD_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -66292,6 +66321,7 @@
         </useconditions>
         <effects>
             <heal value="467" delta="18" e="1"/>
+            <dispeldebuff e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17630" name="STR_NPC_SKILL_Order_ElementalField_G1_Tempest" nameId="575797" stack="NPC_SKILL_ORDER_ELEMENTALFIELD_TEMPEST" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -77075,6 +77105,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <dispeldebuff e="1"/>
             <shield value="1000000" delta="0" hitvalue="50" hitdelta="0" duration="12000" effectid="154" e="2"/>
         </effects>
     </skill_template>
