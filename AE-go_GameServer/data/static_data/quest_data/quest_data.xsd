@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
 	<xs:element name="quests" type="Quests" />
 
 	<xs:complexType name="Quests">
@@ -53,6 +52,8 @@
 		<xs:attribute name="use_class_reward" type="xs:boolean"
 			default="false" />
 		<xs:attribute name="race_permitted" type="Race" />
+		<xs:attribute name="combineskill" type="xs:int" />
+		<xs:attribute name="combine_skillpoint" type="xs:int" />
 	</xs:complexType>
 
 	<xs:complexType name="CollectItems">

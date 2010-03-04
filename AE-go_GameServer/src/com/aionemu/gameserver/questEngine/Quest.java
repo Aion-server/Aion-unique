@@ -21,6 +21,7 @@ import java.util.List;
 
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.CollectItem;
@@ -83,6 +84,16 @@ public class Quest
 			QuestState qs = player.getQuestStateList().getQuestState(questId);
 			if(qs == null || qs.getStatus() != QuestStatus.COMPLITE)
 				return false;
+		}
+		
+		if (template.getCombineSkill() != null)
+		{
+			SkillListEntry skill = player.getSkillList().getSkillEntry(template.getCombineSkill());
+			if (skill == null)
+				return false;
+			if (skill.getSkillLevel() < template.getCombineSkillPoint())
+				return false;
+			return true;
 		}
 
 		QuestState qs = player.getQuestStateList().getQuestState(template.getId());

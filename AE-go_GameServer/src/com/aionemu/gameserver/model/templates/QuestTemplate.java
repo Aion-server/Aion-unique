@@ -93,6 +93,10 @@ public class QuestTemplate
 	protected Boolean			useClassReward;
 	@XmlAttribute(name = "race_permitted")
 	protected Race				racePermitted;
+	@XmlAttribute
+	protected Integer			combineskill;
+	@XmlAttribute(name = "combine_skillpoint")
+	protected Integer			combineSkillpoint;
 
 	/**
 	 * Gets the value of the collectItems property.
@@ -573,5 +577,27 @@ public class QuestTemplate
 	public Race getRacePermitted()
 	{
 		return racePermitted;
+	}
+
+	/**
+	 * Gets the value of the combineskill property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getCombineSkill()
+	{
+		return combineskill;
+	}
+
+	/**
+	 * Gets the value of the combineSkillpoint property.
+	 * 
+	 * @return possible object is {@link Integer }
+	 * 
+	 */
+	public Integer getCombineSkillPoint()
+	{
+		return combineSkillpoint;
 	}
 }
