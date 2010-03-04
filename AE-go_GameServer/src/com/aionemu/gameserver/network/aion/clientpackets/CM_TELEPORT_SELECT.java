@@ -16,7 +16,7 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.teleport.TelelocationTemplate;
@@ -46,6 +46,8 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 	private TeleportService teleportService;
 	@Inject
 	private World world;
+	@Inject
+	private TeleporterData teleporterData;
 
 	public CM_TELEPORT_SELECT(int opcode)
 	{
@@ -76,7 +78,7 @@ public class CM_TELEPORT_SELECT extends AionClientPacket
 		if(activePlayer == null || activePlayer.getLifeStats().isAlreadyDead())
 			return;
 
-		teleport = DataManager.TELEPORTER_DATA.getTeleporterTemplate(npc.getNpcId());
+		teleport = teleporterData.getTeleporterTemplate(npc.getNpcId());
 
 		switch(teleport.getType())
 		{

@@ -76,7 +76,7 @@ public final class DataManager
 
 	public static TeleporterData		TELEPORTER_DATA;
 
-	public static TeleLocationData		TELELOCATION_DATA;
+	public TeleLocationData				TELELOCATION_DATA;
 
 	public CubeExpandData				CUBEEXPANDER_DATA;
 

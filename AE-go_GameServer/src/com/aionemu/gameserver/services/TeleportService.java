@@ -18,7 +18,7 @@ package com.aionemu.gameserver.services;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.TeleLocationData;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
@@ -30,6 +30,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_LOC;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.google.inject.Inject;
 
 /**
  * @author ATracer , orz
@@ -40,6 +41,9 @@ public class TeleportService
 	private static final Logger log = Logger.getLogger(TeleportService.class);
 
 	private static final int TELEPORT_DEFAULT_DELAY = 2200;
+	
+	@Inject
+	TeleLocationData teleLocationData;
 
 	/**
 	 *  Schedules teleport animation
@@ -79,7 +83,7 @@ public class TeleportService
 			return;
 		}			
 
-		TelelocationTemplate locationTemplate = DataManager.TELELOCATION_DATA.getTelelocationTemplate(locId);
+		TelelocationTemplate locationTemplate = teleLocationData.getTelelocationTemplate(locId);
 		if(locationTemplate == null)
 		{
 			log.info(String.format("Missing info at teleport_location.xml with locId: %d", locId));
@@ -119,7 +123,7 @@ public class TeleportService
 			return;
 		}
 
-		TelelocationTemplate locationTemplate = DataManager.TELELOCATION_DATA.getTelelocationTemplate(locId);
+		TelelocationTemplate locationTemplate = teleLocationData.getTelelocationTemplate(locId);
 		if(locationTemplate == null)
 		{
 			log.info(String.format("Missing info at teleport_location.xml with locId: %d", locId));

@@ -214,7 +214,6 @@ public class DataInjectionModule extends AbstractModule
 		return datamanager.TELEPORTER_DATA;
 	}
 	
-	@SuppressWarnings("static-access")
 	@Provides
 	TeleLocationData provideTeleLocationData(DataManager datamanager)
 	{
