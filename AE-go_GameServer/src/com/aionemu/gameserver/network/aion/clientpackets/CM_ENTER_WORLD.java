@@ -20,7 +20,7 @@ import java.util.List;
 
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.dataholders.BindPointData;
-import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.account.AccountTime;
@@ -72,17 +72,19 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	/**
 	 * Object Id of player that is entering world
 	 */
-	private int				objectId;
+	private int					objectId;
 	@Inject
-	private World			world;
+	private World				world;
 	@Inject
-	private PlayerService	playerService;
+	private PlayerService		playerService;
 	@Inject
-	private LegionService	legionService;
+	private LegionService		legionService;
 	@Inject
-	private GroupService	groupService;
+	private GroupService		groupService;
 	@Inject
-	private BindPointData	bindPointData;
+	private BindPointData		bindPointData;
+	@Inject
+	private PlayerInitialData	playerInitialData;
 
 	/**
 	 * Constructs new instance of <tt>CM_ENTER_WORLD </tt> packet
@@ -208,8 +210,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			}
 			else
 			{
-				LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData()
-					.getRace());
+				LocationData locationData = playerInitialData.getSpawnLocation(player.getCommonData().getRace());
 				worldId = locationData.getMapId();
 				x = locationData.getX();
 				y = locationData.getY();

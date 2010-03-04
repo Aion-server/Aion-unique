@@ -22,6 +22,7 @@ import java.util.List;
 
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.world.World;
 
@@ -58,7 +59,7 @@ public abstract class PlayerDAO implements IDFactoryAwareDAO
 	 */
 	public abstract boolean saveNewPlayer(PlayerCommonData pcd, int accountId, String accountName);
 
-	public abstract PlayerCommonData loadPlayerCommonData(int playerObjId, World world);
+	public abstract PlayerCommonData loadPlayerCommonData(int playerObjId, World world, PlayerInitialData playerInitialData);
 
 	/**
 	 * Removes player and all related data (Done by CASCADE DELETION)

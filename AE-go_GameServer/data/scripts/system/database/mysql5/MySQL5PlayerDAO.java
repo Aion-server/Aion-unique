@@ -31,7 +31,7 @@ import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.configs.CacheConfig;
 import com.aionemu.gameserver.dao.PlayerDAO;
-import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
@@ -161,7 +161,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public PlayerCommonData loadPlayerCommonData(final int playerObjId, final World world)
+	public PlayerCommonData loadPlayerCommonData(final int playerObjId, final World world, final PlayerInitialData playerInitialData)
 	{
 
 		PlayerCommonData cached = playerCommonData.get(playerObjId);
@@ -209,7 +209,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				if(z < -1000)
 				{
 					//unstuck unlucky characters :)
-					LocationData ld = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(cd.getRace());
+					LocationData ld = playerInitialData.getSpawnLocation(cd.getRace());
 					x = ld.getX();
 					y = ld.getY();
 					z = ld.getZ();

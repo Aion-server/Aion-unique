@@ -32,12 +32,12 @@ import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
 import com.aionemu.gameserver.dao.PlayerPunishmentsDAO;
-import com.aionemu.gameserver.dao.PlayerRecipesDAO;
 import com.aionemu.gameserver.dao.PlayerQuestListDAO;
+import com.aionemu.gameserver.dao.PlayerRecipesDAO;
 import com.aionemu.gameserver.dao.PlayerSettingsDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.dao.PlayerTitleListDAO;
-import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
@@ -94,6 +94,7 @@ public class PlayerService
 	private SkillLearnService			skillLearnService;
 	private GroupService				groupService;
 	private PlayerStatsData				playerStatsData;
+	private PlayerInitialData			playerInitialData;
 
 	@Inject
 	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
@@ -179,7 +180,7 @@ public class PlayerService
 		if(player != null)
 			return player;
 
-		PlayerCommonData pcd = DAOManager.getDAO(PlayerDAO.class).loadPlayerCommonData(playerObjId, world);
+		PlayerCommonData pcd = DAOManager.getDAO(PlayerDAO.class).loadPlayerCommonData(playerObjId, world, playerInitialData);
 		PlayerAppearance appereance = DAOManager.getDAO(PlayerAppearanceDAO.class).load(playerObjId);
 		MacroList macroses = DAOManager.getDAO(PlayerMacrossesDAO.class).restoreMacrosses(playerObjId);
 
@@ -196,8 +197,8 @@ public class PlayerService
 
 		player.setSkillList(DAOManager.getDAO(PlayerSkillListDAO.class).loadSkillList(playerObjId));
 		player.setKnownlist(new KnownList(player));
-		player.setFriendList(DAOManager.getDAO(FriendListDAO.class).load(player, world));
-		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player, world));
+		player.setFriendList(DAOManager.getDAO(FriendListDAO.class).load(player, world, playerInitialData));
+		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player, world, playerInitialData));
 		player.setTitleList(DAOManager.getDAO(PlayerTitleListDAO.class).loadTitleList(playerObjId));
 
 		DAOManager.getDAO(PlayerSettingsDAO.class).loadSettings(player);
@@ -263,7 +264,7 @@ public class PlayerService
 	public Player newPlayer(PlayerCommonData playerCommonData, PlayerAppearance playerAppearance)
 	{
 		// TODO values should go from template
-		LocationData ld = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(playerCommonData.getRace());
+		LocationData ld = playerInitialData.getSpawnLocation(playerCommonData.getRace());
 
 		WorldPosition position = world.createPosition(ld.getMapId(), ld.getX(), ld.getY(), ld.getZ(), ld.getHeading());
 		playerCommonData.setPosition(position);
@@ -274,7 +275,7 @@ public class PlayerService
 		skillLearnService.addNewSkills(newPlayer, true);
 
 		// Starting items
-		PlayerCreationData playerCreationData = DataManager.PLAYER_INITIAL_DATA.getPlayerCreationData(playerCommonData
+		PlayerCreationData playerCreationData = playerInitialData.getPlayerCreationData(playerCommonData
 			.getPlayerClass());
 
 		List<ItemType> items = playerCreationData.getItems();

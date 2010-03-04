@@ -223,7 +223,6 @@ public class DataInjectionModule extends AbstractModule
 		return datamanager.PLAYER_STATS_DATA;
 	}
 
-	@SuppressWarnings("static-access")
 	@Provides
 	PlayerInitialData providePlayerInitialData(DataManager datamanager)
 	{

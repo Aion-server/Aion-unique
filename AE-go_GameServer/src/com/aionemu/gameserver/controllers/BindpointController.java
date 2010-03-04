@@ -18,7 +18,6 @@ package com.aionemu.gameserver.controllers;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -85,7 +84,7 @@ public class BindpointController extends NpcController
 						}
 						else
 						{
-							LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(responder.getCommonData().getRace());
+							LocationData locationData = sp.getPlayerInitialData().getSpawnLocation(responder.getCommonData().getRace());
 							worldId = locationData.getMapId();
 							x = locationData.getX();
 							y = locationData.getY();

@@ -26,7 +26,6 @@ import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerQuestListDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
-import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -575,7 +574,7 @@ public class PlayerController extends CreatureController<Player>
 		BindPointTemplate bplist;
 		Player player = getOwner();
 
-		LocationData locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
+		LocationData locationData = sp.getPlayerInitialData().getSpawnLocation(player.getCommonData().getRace());
 
 		int bindPointId = player.getCommonData().getBindPoint();
 		if(bindPointId != 0)
@@ -588,7 +587,7 @@ public class PlayerController extends CreatureController<Player>
 		}
 		else
 		{
-			locationData = DataManager.PLAYER_INITIAL_DATA.getSpawnLocation(player.getCommonData().getRace());
+			locationData = sp.getPlayerInitialData().getSpawnLocation(player.getCommonData().getRace());
 			worldId = locationData.getMapId();
 			x = locationData.getX();
 			y = locationData.getY();

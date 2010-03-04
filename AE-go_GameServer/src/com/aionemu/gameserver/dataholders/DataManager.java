@@ -70,11 +70,11 @@ public final class DataManager
 	 * 
 	 * @see PlayerExperienceTable
 	 */
-	public TradeListData			TRADE_LIST_DATA;
+	public TradeListData				TRADE_LIST_DATA;
 
 	public static PlayerExperienceTable	PLAYER_EXPERIENCE_TABLE;
 
-	public TeleporterData		TELEPORTER_DATA;
+	public TeleporterData				TELEPORTER_DATA;
 
 	public TeleLocationData				TELELOCATION_DATA;
 
@@ -88,7 +88,7 @@ public final class DataManager
 	/**
 	 * 
 	 */
-	public PlayerStatsData		PLAYER_STATS_DATA;
+	public PlayerStatsData				PLAYER_STATS_DATA;
 
 	public static ItemData				ITEM_DATA;
 
@@ -98,7 +98,7 @@ public final class DataManager
 	 * Player initial data table.<br />
 	 * Contains initial player settings.
 	 */
-	public static PlayerInitialData		PLAYER_INITIAL_DATA;
+	public PlayerInitialData			PLAYER_INITIAL_DATA;
 
 	/**
 	 * 
