@@ -70,11 +70,11 @@ public final class DataManager
 	 * 
 	 * @see PlayerExperienceTable
 	 */
-	public static TradeListData			TRADE_LIST_DATA;
+	public TradeListData			TRADE_LIST_DATA;
 
 	public static PlayerExperienceTable	PLAYER_EXPERIENCE_TABLE;
 
-	public static TeleporterData		TELEPORTER_DATA;
+	public TeleporterData		TELEPORTER_DATA;
 
 	public TeleLocationData				TELELOCATION_DATA;
 

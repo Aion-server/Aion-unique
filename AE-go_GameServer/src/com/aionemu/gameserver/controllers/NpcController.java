@@ -189,7 +189,7 @@ public class NpcController extends CreatureController<Npc>
 		switch(dialogId)
 		{
 			case 2:
-				PacketSendUtility.sendPacket(player, new SM_TRADELIST(npc));
+				PacketSendUtility.sendPacket(player, new SM_TRADELIST(npc, sp.getTradeListData().getTradeListTemplate(npc.getNpcId())));
 				break;
 			case 3:
 				PacketSendUtility.sendPacket(player, new SM_SELL_ITEM(player, targetObjectId));
@@ -318,7 +318,7 @@ public class NpcController extends CreatureController<Npc>
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_CANNOT_USE_AIRPORT_WHEN_FLYING);
 					return;
 				}
-				PacketSendUtility.sendPacket(player, new SM_TELEPORT_MAP(player, targetObjectId));
+				PacketSendUtility.sendPacket(player, new SM_TELEPORT_MAP(player, targetObjectId, sp.getTeleporterData().getTeleporterTemplate(npc.getNpcId())));
 				break;
 			case 39:
 				// improve extraction

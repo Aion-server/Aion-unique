@@ -20,7 +20,6 @@ import java.nio.ByteBuffer;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
@@ -47,14 +46,14 @@ public class SM_TELEPORT_MAP extends AionServerPacket
 	private static final Logger	log	= Logger.getLogger(SM_TELEPORT_MAP.class);
 
 	
-	public SM_TELEPORT_MAP(Player player, int targetObjectId)
+	public SM_TELEPORT_MAP(Player player, int targetObjectId, TeleporterTemplate teleport)
 	{
 		this.player = player;
 		this.targetObjectId = targetObjectId;
 		
 		World world = player.getActiveRegion().getWorld();
 		this.npc = (Npc)world.findAionObject(targetObjectId);
-		this.teleport = DataManager.TELEPORTER_DATA.getTeleporterTemplate(npc.getNpcId());
+		this.teleport = teleport;
 	}
 	
 	@Override

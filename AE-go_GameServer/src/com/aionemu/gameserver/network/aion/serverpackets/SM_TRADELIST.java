@@ -18,7 +18,6 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.templates.TradeListTemplate;
 import com.aionemu.gameserver.model.templates.TradeListTemplate.TradeTab;
@@ -36,10 +35,10 @@ public class SM_TRADELIST extends AionServerPacket
 	private int	targetObjectId;
 	private TradeListTemplate tlist;
 
-	public SM_TRADELIST(Npc npc)
+	public SM_TRADELIST(Npc npc, TradeListTemplate tlist)
 	{
 		this.targetObjectId = npc.getObjectId();
-		tlist = DataManager.TRADE_LIST_DATA.getTradeListTemplate(npc.getNpcId());
+		this.tlist = tlist;
 	}
 
 	@Override

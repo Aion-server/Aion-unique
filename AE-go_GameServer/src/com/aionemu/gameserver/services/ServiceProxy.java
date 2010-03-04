@@ -17,50 +17,55 @@
 package com.aionemu.gameserver.services;
 
 import com.aionemu.gameserver.dataholders.BindPointData;
+import com.aionemu.gameserver.dataholders.TeleporterData;
+import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
- *  This service is used in object controllers
- *  as injecting all services one by one is overhead.
+ * This service is used in object controllers as injecting all services one by one is overhead.
  * 
  * @author ATracer
- *
+ * 
  */
 public class ServiceProxy
 {
 	@Inject
-	private World world;
+	private World					world;
 	@Inject
-	private AbyssService abyssService;
+	private AbyssService			abyssService;
 	@Inject
-	private DropService dropService;
+	private DropService				dropService;
 	@Inject
-	private ExchangeService exchangeService;
+	private ExchangeService			exchangeService;
 	@Inject
-	private ItemService itemService;
+	private ItemService				itemService;
 	@Inject
-	private LegionService legionService;
+	private LegionService			legionService;
 	@Inject
-	private PrivateStoreService privateStoreService;
+	private PrivateStoreService		privateStoreService;
 	@Inject
-	private RespawnService respawnService;
+	private RespawnService			respawnService;
 	@Inject
-	private TeleportService teleportService;
+	private TeleportService			teleportService;
 	@Inject
-	private TradeService tradeService;
+	private TradeService			tradeService;
 	@Inject
-	private CubeExpandService cubeExpandService;
+	private CubeExpandService		cubeExpandService;
 	@Inject
-	private SkillLearnService skillLearnService;
+	private SkillLearnService		skillLearnService;
 	@Inject
-	private GroupService groupService;
+	private GroupService			groupService;
 	@Inject
-	private CraftSkillUpdateService craftSkillUpdateService;
+	private CraftSkillUpdateService	craftSkillUpdateService;
 	@Inject
-	private WarehouseExpandService warehouseExpandService;
+	private WarehouseExpandService	warehouseExpandService;
 	@Inject
-	private BindPointData bindPointData;
+	private BindPointData			bindPointData;
+	@Inject
+	public TradeListData			tradeListData;
+	@Inject
+	public TeleporterData			teleporterData;
 
 	/**
 	 * @return the world
@@ -69,6 +74,7 @@ public class ServiceProxy
 	{
 		return world;
 	}
+
 	/**
 	 * @return the abyssService
 	 */
@@ -76,6 +82,7 @@ public class ServiceProxy
 	{
 		return abyssService;
 	}
+
 	/**
 	 * @return the dropService
 	 */
@@ -83,6 +90,7 @@ public class ServiceProxy
 	{
 		return dropService;
 	}
+
 	/**
 	 * @return the exchangeService
 	 */
@@ -90,6 +98,7 @@ public class ServiceProxy
 	{
 		return exchangeService;
 	}
+
 	/**
 	 * @return the itemService
 	 */
@@ -97,6 +106,7 @@ public class ServiceProxy
 	{
 		return itemService;
 	}
+
 	/**
 	 * @return the legionService
 	 */
@@ -104,6 +114,7 @@ public class ServiceProxy
 	{
 		return legionService;
 	}
+
 	/**
 	 * @return the privateStoreService
 	 */
@@ -111,6 +122,7 @@ public class ServiceProxy
 	{
 		return privateStoreService;
 	}
+
 	/**
 	 * @return the respawnService
 	 */
@@ -118,6 +130,7 @@ public class ServiceProxy
 	{
 		return respawnService;
 	}
+
 	/**
 	 * @return the teleportService
 	 */
@@ -125,6 +138,7 @@ public class ServiceProxy
 	{
 		return teleportService;
 	}
+
 	/**
 	 * @return the tradeService
 	 */
@@ -132,6 +146,7 @@ public class ServiceProxy
 	{
 		return tradeService;
 	}
+
 	/**
 	 * @return the cubeExpandService
 	 */
@@ -139,6 +154,7 @@ public class ServiceProxy
 	{
 		return cubeExpandService;
 	}
+
 	/**
 	 * @return the skillLearnService
 	 */
@@ -146,6 +162,7 @@ public class ServiceProxy
 	{
 		return skillLearnService;
 	}
+
 	/**
 	 * @return groupService
 	 */
@@ -153,6 +170,7 @@ public class ServiceProxy
 	{
 		return groupService;
 	}
+
 	/**
 	 * @return the craftSkillUpdateService
 	 */
@@ -160,6 +178,7 @@ public class ServiceProxy
 	{
 		return craftSkillUpdateService;
 	}
+
 	/**
 	 * @return warehouseExpandService
 	 */
@@ -167,11 +186,28 @@ public class ServiceProxy
 	{
 		return warehouseExpandService;
 	}
+
 	/**
 	 * @return bindPointData
 	 */
 	public BindPointData getBindPointData()
 	{
 		return bindPointData;
+	}
+
+	/**
+	 * @return tradeListData
+	 */
+	public TradeListData getTradeListData()
+	{
+		return tradeListData;
+	}
+
+	/**
+	 * @return teleporterData
+	 */
+	public TeleporterData getTeleporterData()
+	{
+		return teleporterData;
 	}
 }

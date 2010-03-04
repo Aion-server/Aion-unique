@@ -187,7 +187,6 @@ public class DataInjectionModule extends AbstractModule
 		return datamanager.PLAYER_INITIAL_DATA;
 	}
 	
-	@SuppressWarnings("static-access")
 	@Provides
 	TradeListData provideTradeListData(DataManager datamanager)
 	{
@@ -207,7 +206,6 @@ public class DataInjectionModule extends AbstractModule
 		return datamanager.SKILL_TREE_DATA;
 	}
 	
-	@SuppressWarnings("static-access")
 	@Provides
 	TeleporterData provideTeleporterData(DataManager datamanager)
 	{
