@@ -5578,7 +5578,7 @@ Eltnen -->
     <object x="2224.99" y="457.58" z="446.72" h="51" />
   </spawn>
   <!-- Treasure Box -->
-  <spawn map="210020000" npcid="210596" pool="12" interval="105">
+  <spawn map="210020000" npcid="210596" pool="1" interval="14400">
     <object x="513.94" y="2699.89" z="152.86" h="68" />
     <object x="114.34" y="2676.92" z="152.98" h="25" />
     <object x="506.37" y="2868.52" z="153.31" h="33" />
