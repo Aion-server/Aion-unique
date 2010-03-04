@@ -23,7 +23,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -60,22 +59,22 @@ public class CM_MOVE extends AionClientPacket
 	protected void readImpl()
 	{
 		Player player = getConnection().getActivePlayer();
-		
+
 		if(!player.isSpawned())
 			return;
 
 		float x, y, z, x2 = 0, y2 = 0, z2 = 0;
 		x = readF();
 		y = readF();
-		z = readF();	
-		
-		//falling characters
+		z = readF();
+
+		// falling characters
 		if(z < 0)
 		{
 			player.getController().moveToBindLocation(true);
 			return;
-		}	
-		
+		}
+
 		byte heading = (byte) readC();
 		byte movementType = (byte) readC();
 		MovementType type = MovementType.getMovementTypeById(movementType);
@@ -90,7 +89,8 @@ public class CM_MOVE extends AionClientPacket
 
 				world.updatePosition(player, x, y, z, heading);
 				player.getController().onStartMove();
-				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);
+				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type),
+					false);
 				break;
 			case MOVEMENT_START_GLIDE:
 				readC();
@@ -103,7 +103,8 @@ public class CM_MOVE extends AionClientPacket
 
 				world.updatePosition(player, x, y, z, heading);
 				player.getController().onStartMove();
-				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);
+				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type),
+					false);
 
 				player.setState(CreatureState.GLIDING);
 				player.getController().startFly();
@@ -114,7 +115,8 @@ public class CM_MOVE extends AionClientPacket
 				world.updatePosition(player, x, y, z, heading);
 				break;
 			case MOVEMENT_STOP:
-				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);
+				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type),
+					false);
 				world.updatePosition(player, x, y, z, heading);
 				player.getController().onStopMove();
 

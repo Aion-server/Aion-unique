@@ -24,7 +24,6 @@ import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
@@ -44,15 +43,16 @@ public class CM_EMOTION extends AionClientPacket
 	/**
 	 * Emotion number
 	 */
-	int emotionType;
+	int							emotionType;
 
 	/**
 	 * Emotion number
 	 */
-	int emotion;
+	int							emotion;
 
 	/**
 	 * Constructs new client packet instance.
+	 * 
 	 * @param opcode
 	 */
 	public CM_EMOTION(int opcode)
@@ -69,24 +69,24 @@ public class CM_EMOTION extends AionClientPacket
 		emotionType = readC();
 		switch(emotionType)
 		{
-			case 0x0://select target
+			case 0x0:// select target
 			case 0x01:// jump
 			case 0x02:// resting
 			case 0x03:// end resting
-			case 0x4://Sit (Nothing to do) ?? check
-			case 0x5://standing (Nothing to do) ?? check
-			case 0x7: //fly teleport land
+			case 0x4:// Sit (Nothing to do) ?? check
+			case 0x5:// standing (Nothing to do) ?? check
+			case 0x7: // fly teleport land
 			case 0x8:// fly up
 			case 0x9:// land
 			case 0x11:// Nothing here
-			case 0x13://emotion = readH();
+			case 0x13:// emotion = readH();
 			case 0x14:// duel end
 			case 0x15:// walk on
 			case 0x16:// walk off
-			case 0x1F://powershard on
-			case 0x20://powershard off
-			case 0x21://get equip weapon
-			case 0x22://remove equip weapon
+			case 0x1F:// powershard on
+			case 0x20:// powershard off
+			case 0x21:// get equip weapon
+			case 0x22:// remove equip weapon
 				break;
 			case 0x10:
 				emotion = readH();
@@ -96,7 +96,6 @@ public class CM_EMOTION extends AionClientPacket
 				break;
 		}
 	}
-
 
 	/**
 	 * Send emotion packet
@@ -119,8 +118,8 @@ public class CM_EMOTION extends AionClientPacket
 				PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
 				ZoneManager.getInstance().findZoneInCurrentMap(player);
 				break;
-			case 0x8:				
-				//TODO move to player controller? but after states working
+			case 0x8:
+				// TODO move to player controller? but after states working
 				ZoneInstance currentZone = player.getZoneInstance();
 				if(currentZone != null)
 				{
@@ -131,8 +130,7 @@ public class CM_EMOTION extends AionClientPacket
 						return;
 					}
 				}
-				PacketSendUtility.broadcastPacket(player,
-					new SM_EMOTION(player, 30, 0, 0), true);
+				PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 30, 0, 0), true);
 				player.setState(CreatureState.FLYING);
 				player.getController().startFly();
 				break;
@@ -150,7 +148,7 @@ public class CM_EMOTION extends AionClientPacket
 				break;
 			case 0x15:
 				// cannot toggle walk when you flying
-				if (player.isInState(CreatureState.FLYING))
+				if(player.isInState(CreatureState.FLYING))
 					return;
 				player.setState(CreatureState.WALKING);
 				break;
@@ -171,6 +169,7 @@ public class CM_EMOTION extends AionClientPacket
 				player.unsetState(CreatureState.POWERSHARD);
 				break;
 		}
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, emotionType, emotion, player.getTarget()== null?0:player.getTarget().getObjectId()), true);
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, emotionType, emotion,
+			player.getTarget() == null ? 0 : player.getTarget().getObjectId()), true);
 	}
 }
