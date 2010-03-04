@@ -98,6 +98,10 @@
 		<import file="cube_expander" skipRoot="true" />
 	</cube_expander>
 	
+	<warehouse_expander>
+		<import file="warehouse_expander" skipRoot="true" />
+	</warehouse_expander>
+	
 	<gatherable_templates>
 		<import file="gatherables" skipRoot="true" />
 	</gatherable_templates>

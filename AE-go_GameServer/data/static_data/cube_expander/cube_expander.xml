@@ -11,15 +11,37 @@
 	-->
 	
 	<!-- Poeta -->
-	<cube_npc id="798008" name="Baevrunerk" min_level="0" max_level="0" price01="1000" />
+ 	<cube_npc id="798008" name="Baevrunerk">
+ 		<expand level="1" price="1000" />
+ 	</cube_npc>
 	<!-- Ishalgen -->
-	<cube_npc id="798037" name="Bacorerk" min_level="0" max_level="0" price01="1000" />
+ 	<cube_npc id="798037" name="Bacorerk">
+ 		<expand level="1" price="1000" />
+ 	</cube_npc>
 	<!-- Pandaemonium -->
-	<cube_npc id="798058" name="Ondarinerk" min_level="1" max_level="3" price02="12000" price03="80000" price04="180000" />
-	<cube_npc id="798059" name="Nekorunerk" min_level="1" max_level="3" price02="12000" price03="80000" price04="180000" />
+ 	<cube_npc id="798058" name="Ondarinerk">
+ 		<expand level="2" price="12000" />
+ 		<expand level="3" price="80000" />
+ 		<expand level="4" price="180000" />
+ 	</cube_npc>
+ 	<cube_npc id="798059" name="Nekorunerk">
+ 		<expand level="2" price="12000" />
+ 		<expand level="3" price="80000" />
+ 		<expand level="4" price="180000" />
+ 	</cube_npc>
 	<!-- Sanctum -->
-	<cube_npc id="798011" name="Heerunerk" min_level="1" max_level="3" price02="12000" price03="80000" price04="180000" />
-	<cube_npc id="798012" name="Yiehmonerk" min_level="1" max_level="3" price02="12000" price03="80000" price04="180000" />
+ 	<cube_npc id="798011" name="Heerunerk">
+ 		<expand level="2" price="12000" />
+ 		<expand level="3" price="80000" />
+ 		<expand level="4" price="180000" />
+ 	</cube_npc>
+ 	<cube_npc id="798012" name="Yiehmonerk">
+ 		<expand level="2" price="12000" />
+ 		<expand level="3" price="80000" />
+ 		<expand level="4" price="180000" />
+ 	</cube_npc>
 	<!-- Abyss, Tigraki Island -->
-	<cube_npc id="279022" name="Jarumonerk" min_level="3" max_level="3" price04="356103" />
+ 	<cube_npc id="279022" name="Jarumonerk">
+ 		<expand level="4" price="356103" />
+ 	</cube_npc>
 </cube_expander>

@@ -18,6 +18,7 @@
 	<xs:include schemaLocation="skill_tree/skill_tree.xsd"/>
 	<xs:include schemaLocation="bind_points/bind_points.xsd" />
 	<xs:include schemaLocation="cube_expander/cube_expander.xsd" />
+	<xs:include schemaLocation="warehouse_expander/warehouse_expander.xsd" />
 	<xs:include schemaLocation="gatherables/gatherable_templates.xsd" />
 	<xs:include schemaLocation="quest_data/quest_data.xsd" />
 	<xs:include schemaLocation="quest_script_data/quest_script_data.xsd" />
@@ -47,6 +48,7 @@
 				<xs:element ref="skill_tree" minOccurs="0" />
 				<xs:element ref="bind_points" minOccurs="0" />
 				<xs:element ref="cube_expander" minOccurs="0" />
+				<xs:element ref="warehouse_expander" minOccurs="0" />
 				<xs:element ref="gatherable_templates" minOccurs="0" />
 				<xs:element ref="quests" minOccurs="0" />
 				<xs:element ref="quest_scripts" minOccurs="0" />

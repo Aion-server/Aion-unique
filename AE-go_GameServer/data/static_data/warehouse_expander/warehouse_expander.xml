@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<warehouse_expander xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="warehouse_expander.xsd">
+
+	<!-- Instructions 
+		min_level and max_level reflects current cube expansion level. By default it is 0 (not yet expanded)
+		price01 - is the price to expand to level 1 from level 0
+		..
+		price09 - is the price to expand to level 9 from level 8
+		
+		The difference (max_level - min_level  1) should be equal to number of prices specified
+	-->
+
+ <!-- Pandaemonium -->
+
+ <!-- Sanctum -->
+ <warehouse_npc id="203749" name="Bustant">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="203750" name="Lukania">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="203199" name="Nesia">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="204047" name="Hageni">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="204632" name="Sarina">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="798139" name="Tiesansanerk">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="204073" name="Grer">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="204072" name="Roskva">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="203687" name="Naiern">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="204377" name="Grall">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="204780" name="Droston">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="205122" name="Dunkel">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="278525" name="Lavinia">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="278509" name="Obel">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="278009" name="Kirhenzar">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc>
+ <warehouse_npc id="278025" name="Vernio">
+ 	<expand level="1" price="1200" />
+ 	<expand level="2" price="24000" />
+ 	<expand level="3" price="72600" />
+ 	<expand level="4" price="181500" />
+ 	<expand level="5" price="363000" />
+ 	<expand level="6" price="2000000000" />
+ 	<expand level="7" price="2000000000" />
+ 	<expand level="8" price="2000000000" />
+ 	<expand level="9" price="2000000000" />
+ 	<expand level="10" price="2000000000" />
+ </warehouse_npc> 
+</warehouse_expander>

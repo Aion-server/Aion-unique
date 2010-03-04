@@ -90,7 +90,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	@Override
 	public void storePlayer(final Player player)
 	{
-		DB.insertUpdate("UPDATE players SET name=?, exp=?, recoverexp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, cube_size=?, note=?, bind_point=?, title_id=? WHERE id=?", new IUStH(){
+		DB.insertUpdate("UPDATE players SET name=?, exp=?, recoverexp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, cube_size=?, warehouse_size=?, note=?, bind_point=?, title_id=? WHERE id=?", new IUStH(){
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
@@ -107,10 +107,11 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				stmt.setString(9, player.getCommonData().getPlayerClass().toString());
 				stmt.setTimestamp(10, player.getCommonData().getLastOnline());
 				stmt.setInt(11, player.getCubeSize());
-				stmt.setString(12,player.getCommonData().getNote());
-				stmt.setInt(13, player.getCommonData().getBindPoint());
-				stmt.setInt(14, player.getCommonData().getTitleId());
-				stmt.setInt(15, player.getObjectId());
+				stmt.setInt(12, player.getWarehouseSize());
+				stmt.setString(13,player.getCommonData().getNote());
+				stmt.setInt(14, player.getCommonData().getBindPoint());
+				stmt.setInt(15, player.getCommonData().getTitleId());
+				stmt.setInt(16, player.getObjectId());
 				stmt.execute();
 			}
 		});
@@ -122,7 +123,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	public boolean saveNewPlayer(final PlayerCommonData pcd, final int accountId, final String accountName)
 	{
 		boolean success = DB.insertUpdate(
-			"INSERT INTO players(id, `name`, account_id, account_name, x, y, z, heading, world_id, gender, race, player_class , cube_size, online) " +
+			"INSERT INTO players(id, `name`, account_id, account_name, x, y, z, heading, world_id, gender, race, player_class , cube_size, warehouse_size, online) " +
 			"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)",
 			new IUStH(){
 				@Override
@@ -143,6 +144,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 					preparedStatement.setString(11, pcd.getRace().toString());
 					preparedStatement.setString(12, pcd.getPlayerClass().toString());
 					preparedStatement.setInt(13, pcd.getCubeSize());
+					preparedStatement.setInt(14, pcd.getWarehouseSize());
 					preparedStatement.execute();
 				}
 			});
