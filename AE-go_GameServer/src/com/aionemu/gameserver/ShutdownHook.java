@@ -113,14 +113,17 @@ public class ShutdownHook extends Thread
 	{
 		for(int i = duration; i >= interval; i -= interval)
 		{
-			log.info("System is closing in " + i + " seconds.");
-			sendShutdownMessage(i);
-			sendShutdownStatus(true);
 			try
-			{
-				if(!world.getPlayersIterator().hasNext())
+			{	
+				if(world.getPlayersIterator().hasNext())
 				{
-					log.info("Counter is stopped because there are no players in the server.");
+					log.info("Runtime is closing in " + i + " seconds.");
+					sendShutdownMessage(i);
+					sendShutdownStatus(true);
+				}
+				else
+				{					
+					log.info("Runtime is closing now ...");
 					break;
 				}
 
