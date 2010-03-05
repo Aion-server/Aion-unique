@@ -352,6 +352,8 @@ public class PlayerService
 		if(player.getLifeStats().isAlreadyDead())
 			teleportService.moveToBindLocation(player, false);
 
+		punishmentService.stopPrisonTask(player, true);
+
 		player.getCommonData().setOnline(false);
 		player.getCommonData().setLastOnline(new Timestamp(System.currentTimeMillis()));
 
@@ -371,8 +373,6 @@ public class PlayerService
 
 		player.getController().delete();
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);
-
-		punishmentService.stopPrisonTask(player, true);
 
 		storePlayer(player);
 	}
