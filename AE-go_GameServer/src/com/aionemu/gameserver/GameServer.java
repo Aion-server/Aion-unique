@@ -28,6 +28,7 @@ import com.aionemu.commons.network.NioServer;
 import com.aionemu.commons.services.LoggingService;
 import com.aionemu.commons.utils.AEInfos;
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.main.TaskManagerConfig;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.questEngine.QuestEngine;
@@ -103,8 +104,8 @@ public class GameServer
 		QuestHandlersManager.init(gs.injector);
 		PacketBroadcaster.getInstance();
 		KnownListUpdateTask.getInstance();
-		if(Config.ALLOW_GC) 		
-			new Thread(new GCTaskManager(Config.GC_INTERVAL)).start();
+		if(TaskManagerConfig.ALLOW_GC) 		
+			new Thread(new GCTaskManager(TaskManagerConfig.GC_INTERVAL)).start();
 		
 		AEVersions.printFullVersionInfo();
 		AEInfos.printOSInfo();
@@ -118,10 +119,10 @@ public class GameServer
 		gs.startServers();
 		GameTimeManager.startClock();
 		
-		if(Config.DEADLOCK_DETECTOR_ENABLED)
+		if(TaskManagerConfig.DEADLOCK_DETECTOR_ENABLED)
 		{
 			log.info("Starting deadlock detector");
-			new Thread(new DeadlockDetector(Config.DEADLOCK_DETECTOR_INTERVAL)).start();
+			new Thread(new DeadlockDetector(TaskManagerConfig.DEADLOCK_DETECTOR_INTERVAL)).start();
 		}
 		
 		

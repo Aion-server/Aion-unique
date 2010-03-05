@@ -18,7 +18,8 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.main.GSConfig;
+import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -36,7 +37,7 @@ public class SM_VERSION_CHECK extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		switch(Config.SERVER_COUNTRY_CODE)
+		switch(GSConfig.SERVER_COUNTRY_CODE)
 		{
 			case 1:
 				//only here check of Server Mode (OneRace, MultiRace)
@@ -55,7 +56,7 @@ public class SM_VERSION_CHECK extends AionServerPacket
 
 	private void writeCountryCode_1(AionConnection con, ByteBuffer buf)
 	{
-		if(Config.SERVER_MODE ==0)
+		if(GSConfig.SERVER_MODE ==0)
 		{
 			writeH(buf, 256);// unk
 			writeD(buf, 0);// unk
@@ -82,16 +83,16 @@ public class SM_VERSION_CHECK extends AionServerPacket
 		else
 		{
 			writeC(buf, 0x00);
-			writeC(buf, Config.GAMESERVER_ID);
+			writeC(buf, NetworkConfig.GAMESERVER_ID);
 			writeD(buf, 0x15FFA);// unk
 			writeD(buf, 0x15FFA);// unk
 			writeD(buf, 0x00);
 			writeD(buf, 0x15FFA);// unk
 			writeD(buf, 0x4A4CEC02);// unk
 			writeC(buf, 0x00);
-			writeC(buf, Config.SERVER_COUNTRY_CODE); // Server country code (cc)
+			writeC(buf, GSConfig.SERVER_COUNTRY_CODE); // Server country code (cc)
 			writeC(buf, 0x00);
-			writeC(buf, Config.SERVER_MODE); // Server mode : 0x00 = one race / 0x01 = free race / 0x22 = Character Reservation
+			writeC(buf, GSConfig.SERVER_MODE); // Server mode : 0x00 = one race / 0x01 = free race / 0x22 = Character Reservation
 			writeD(buf, (int) (System.currentTimeMillis() / 1000));// ServerTime in seconds
 			writeD(buf, 0x0001015E);
 			writeD(buf, 0x9C7FCE00);

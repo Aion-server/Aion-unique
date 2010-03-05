@@ -1,6 +1,6 @@
 package admincommands;
 
-import com.aionemu.gameserver.configs.AdminConfig;
+import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;

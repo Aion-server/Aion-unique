@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.configs;
+package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
 import com.aionemu.gameserver.model.account.Account;

@@ -16,7 +16,7 @@
  */
 package com.aionemu.gameserver.services;
 
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.dataholders.SkillTreeData;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
@@ -117,7 +117,7 @@ public class SkillLearnService
 	 */
 	private boolean checkLearnIsPossible(SkillList playerSkillList, SkillLearnTemplate template)
 	{
-		if(Config.SKILL_AUTOLEARN || playerSkillList.isSkillPresent(template.getSkillId()))
+		if(CustomConfig.SKILL_AUTOLEARN || playerSkillList.isSkillPresent(template.getSkillId()))
 			return true;
 		
 		if(template.isAutolearn())

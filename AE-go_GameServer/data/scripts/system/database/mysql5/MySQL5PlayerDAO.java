@@ -29,7 +29,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
-import com.aionemu.gameserver.configs.CacheConfig;
+import com.aionemu.gameserver.configs.main.CacheConfig;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;

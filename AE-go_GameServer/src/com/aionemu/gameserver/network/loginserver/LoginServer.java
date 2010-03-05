@@ -25,7 +25,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.network.Dispatcher;
 import com.aionemu.commons.network.NioServer;
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_L2AUTH_LOGIN_CHECK;
@@ -99,10 +99,10 @@ public class LoginServer
 		for(;;)
 		{
 			loginServer = null;
-			log.info("Connecting to LoginServer: " + Config.LOGIN_ADDRESS);
+			log.info("Connecting to LoginServer: " + NetworkConfig.LOGIN_ADDRESS);
 			try
 			{
-				sc = SocketChannel.open(Config.LOGIN_ADDRESS);
+				sc = SocketChannel.open(NetworkConfig.LOGIN_ADDRESS);
 				sc.configureBlocking(false);
 				Dispatcher d = nioServer.getReadWriteDispatcher();
 				loginServer = lscFactory.createConnection(sc, d);

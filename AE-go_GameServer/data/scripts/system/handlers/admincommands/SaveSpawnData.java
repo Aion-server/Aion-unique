@@ -29,7 +29,7 @@ import javax.xml.validation.SchemaFactory;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
-import com.aionemu.gameserver.configs.AdminConfig;
+import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aionemu.gameserver.ai.events.Event;
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -58,7 +58,7 @@ public class _2008Ascension extends QuestHandler
 	{
 		super(questId);
 		this.world = world;
-		if(Config.ENABLE_SIMPLE_2NDCLASS)
+		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
 		QuestEngine.getInstance().setNpcQuestData(203550).addOnTalkEvent(questId);

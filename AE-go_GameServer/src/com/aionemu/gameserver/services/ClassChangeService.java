@@ -18,7 +18,7 @@ package com.aionemu.gameserver.services;
 
 import java.util.Arrays;
 
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -42,7 +42,7 @@ public class ClassChangeService
 	 */
 	public static void showClassChangeDialog(Player player)
 	{
-		if(Config.ENABLE_SIMPLE_2NDCLASS)
+		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 		{
 			PlayerClass playerClass = player.getPlayerClass();
 			Race playerRace = player.getCommonData().getRace();
@@ -95,7 +95,7 @@ public class ClassChangeService
 	 */
 	public static void changeClassToSelection(final Player player, final int dialogId)
 	{
-		if(Config.ENABLE_SIMPLE_2NDCLASS)
+		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 		{
 			Race playerRace = player.getCommonData().getRace();
 			if(playerRace.ordinal() == 0)

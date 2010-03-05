@@ -17,7 +17,7 @@
 
 package admincommands;
 
-import com.aionemu.gameserver.configs.AdminConfig;
+import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;

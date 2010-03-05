@@ -19,7 +19,7 @@ package com.aionemu.gameserver.utils.stats;
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.utils.Rnd;
-import com.aionemu.gameserver.configs.RateConfig;
+import com.aionemu.gameserver.configs.main.RateConfig;
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;

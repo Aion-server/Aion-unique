@@ -21,7 +21,7 @@ import java.sql.SQLException;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
-import com.aionemu.gameserver.configs.AdminConfig;
+import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.drop.DropList;
 import com.aionemu.gameserver.model.drop.DropTemplate;
 import com.aionemu.gameserver.model.gameobjects.player.Player;

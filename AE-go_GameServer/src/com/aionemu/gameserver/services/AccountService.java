@@ -22,7 +22,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.configs.CacheConfig;
+import com.aionemu.gameserver.configs.main.CacheConfig;
 import com.aionemu.gameserver.controllers.factory.ControllerFactory;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.LegionMemberDAO;

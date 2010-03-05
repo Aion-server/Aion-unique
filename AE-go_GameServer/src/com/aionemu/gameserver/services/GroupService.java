@@ -22,7 +22,7 @@ import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.main.GroupConfig;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -264,7 +264,7 @@ public class GroupService
 	{
 		for(Player member : playerGroup.getMembers())
 		{
-			if(MathUtil.isInRange(member, owner, Config.GROUP_MAX_DISTANCE))
+			if(MathUtil.isInRange(member, owner, GroupConfig.GROUP_MAX_DISTANCE))
 			{
 				long currentExp = member.getCommonData().getExp();
 
@@ -360,7 +360,7 @@ public class GroupService
 				removePlayerFromGroup(player);
 				playerGroupCache.remove(player.getObjectId());
 			}
-		}, Config.GROUP_REMOVE_TIME * 1000);
+		}, GroupConfig.GROUP_REMOVE_TIME * 1000);
 		addPlayerGroupCache(player.getObjectId(), future);
 		player.getPlayerGroup().getMembers().remove(player.getObjectId());
 	}

@@ -18,7 +18,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.util.List;
 
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
@@ -246,7 +246,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			sendPacket(new SM_PLAYER_ID(player));
 			sendPacket(new SM_ABYSS_RANK(player.getAbyssRank()));
 
-			sendPacket(new SM_MESSAGE(0, null, "Welcome to " + Config.SERVER_NAME
+			sendPacket(new SM_MESSAGE(0, null, "Welcome to " + GSConfig.SERVER_NAME
 				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2010",
 				ChatType.ANNOUNCEMENTS));
 

@@ -20,8 +20,8 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.configs.CacheConfig;
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.main.CacheConfig;
+import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.controllers.effect.PlayerEffectController;
 import com.aionemu.gameserver.controllers.factory.ControllerFactory;
 import com.aionemu.gameserver.dao.AbyssRankDAO;
@@ -136,7 +136,7 @@ public class PlayerService
 	 */
 	public boolean isValidName(String name)
 	{
-		return Config.CHAR_NAME_PATTERN.matcher(name).matches();
+		return GSConfig.CHAR_NAME_PATTERN.matcher(name).matches();
 	}
 
 	/**

@@ -37,7 +37,7 @@ import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
-import com.aionemu.gameserver.configs.AdminConfig;
+import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.dataholders.StaticData;

@@ -20,8 +20,8 @@ import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * 

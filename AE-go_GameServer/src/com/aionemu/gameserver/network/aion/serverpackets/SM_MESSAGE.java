@@ -18,7 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -118,7 +118,7 @@ public class SM_MESSAGE extends AionServerPacket
 		if(race != null)
 		{
 			canRead = chatType.isSysMsg() 
-				|| Config.FACTIONS_SPEAKING_MODE == 1;
+				|| CustomConfig.FACTIONS_SPEAKING_MODE == 1;
 		}
 
 		writeC(buf, chatType.toInteger()); // type

@@ -126,6 +126,24 @@
 			</fileset>
 		</copy>
 
+        <copy todir="${build.dist.gs}/config/administration">
+    		<fileset dir="config/administration">
+    			<include name="*.*"/>
+    		</fileset>
+    	</copy>
+    		
+        <copy todir="${build.dist.gs}/config/main">
+    		<fileset dir="config/main">
+    			<include name="*.*"/>
+    		</fileset>
+    	</copy>
+    	
+    	<copy todir="${build.dist.gs}/config/network">
+			<fileset dir="config/network">
+				<include name="*.*"/>
+			</fileset>
+		</copy>
+    	
         <copy todir="${build.dist.gs}/data">
             <fileset dir="data">
                 <include name="**/*"/>

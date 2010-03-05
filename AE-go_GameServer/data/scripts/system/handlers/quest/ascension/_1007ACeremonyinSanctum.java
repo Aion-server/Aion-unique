@@ -16,7 +16,7 @@
  */
 package quest.ascension;
 
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -41,7 +41,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 	public _1007ACeremonyinSanctum()
 	{
 		super(questId);
-		if(Config.ENABLE_SIMPLE_2NDCLASS)
+		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
 		QuestEngine.getInstance().setNpcQuestData(790001).addOnTalkEvent(questId);

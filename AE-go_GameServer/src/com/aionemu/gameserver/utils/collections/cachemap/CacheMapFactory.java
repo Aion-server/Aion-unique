@@ -16,7 +16,7 @@
  */
 package com.aionemu.gameserver.utils.collections.cachemap;
 
-import com.aionemu.gameserver.configs.CacheConfig;
+import com.aionemu.gameserver.configs.main.CacheConfig;
 
 /**
  * @author Luno

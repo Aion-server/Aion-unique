@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
-import com.aionemu.gameserver.configs.LegionConfig;
+import com.aionemu.gameserver.configs.main.LegionConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.world.World;
 

@@ -20,8 +20,8 @@ import java.nio.ByteBuffer;
 import java.util.List;
 
 import com.aionemu.commons.network.IPRange;
-import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.configs.IPConfig;
+import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.network.loginserver.LoginServerConnection;
 import com.aionemu.gameserver.network.loginserver.LsServerPacket;
 
@@ -49,7 +49,7 @@ public class SM_GS_AUTH extends LsServerPacket
 	protected void writeImpl(LoginServerConnection con, ByteBuffer buf)
 	{
 		writeC(buf, getOpcode());
-		writeC(buf, Config.GAMESERVER_ID);
+		writeC(buf, NetworkConfig.GAMESERVER_ID);
 		writeC(buf, IPConfig.getDefaultAddress().length);
 		writeB(buf, IPConfig.getDefaultAddress());
 
@@ -69,8 +69,8 @@ public class SM_GS_AUTH extends LsServerPacket
 			writeB(buf, ipRange.getAddress());
 		}
 
-		writeH(buf, Config.GAME_PORT);
-		writeD(buf, Config.MAX_ONLINE_PLAYERS);
-		writeS(buf, Config.LOGIN_PASSWORD);
+		writeH(buf, NetworkConfig.GAME_PORT);
+		writeD(buf, NetworkConfig.MAX_ONLINE_PLAYERS);
+		writeS(buf, NetworkConfig.LOGIN_PASSWORD);
 	}
 }

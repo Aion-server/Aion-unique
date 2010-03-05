@@ -19,7 +19,7 @@ package com.aionemu.gameserver.utils.guice;
 import com.aionemu.commons.network.ConnectionFactory;
 import com.aionemu.commons.network.NioServer;
 import com.aionemu.commons.network.ServerCfg;
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionPacketHandler;
 import com.aionemu.gameserver.network.factories.AionPacketHandlerFactory;
@@ -80,7 +80,7 @@ public class NetworkInjectionModule extends AbstractModule
 	@Singleton
 	NioServer provideNioServer(ConnectionFactory connectionFactory)
 	{
-		ServerCfg aion = new ServerCfg(Config.GAME_BIND_ADDRESS, Config.GAME_PORT, "Aion Connections",
+		ServerCfg aion = new ServerCfg(NetworkConfig.GAME_BIND_ADDRESS, NetworkConfig.GAME_PORT, "Aion Connections",
 			connectionFactory);
 
 		return new NioServer(1, ThreadPoolManager.getInstance(), aion);

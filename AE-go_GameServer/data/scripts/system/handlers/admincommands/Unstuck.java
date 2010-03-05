@@ -16,8 +16,8 @@
  */
 package admincommands;
 
-import com.aionemu.gameserver.configs.AdminConfig;
-import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.administration.AdminConfig;
+import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
@@ -51,6 +51,6 @@ public class Unstuck extends AdminCommand
             PacketSendUtility.sendMessage(admin, "You dont have execute this command. You die");
             return;
         }
-        admin.getController().moveToBindLocation(true, Config.UNSTUCK_DELAY);
+        admin.getController().moveToBindLocation(true, CustomConfig.UNSTUCK_DELAY);
     }
 }

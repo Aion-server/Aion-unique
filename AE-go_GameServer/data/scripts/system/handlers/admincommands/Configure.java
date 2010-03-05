@@ -18,8 +18,8 @@ package admincommands;
 
 import java.lang.reflect.Field;
 
-import com.aionemu.gameserver.configs.AdminConfig;
 import com.aionemu.gameserver.configs.Config;
+import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;

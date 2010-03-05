@@ -15,7 +15,7 @@
  *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aionemu.gameserver.configs;
+package com.aionemu.gameserver.configs.main;
 
 import java.util.regex.Pattern;
 

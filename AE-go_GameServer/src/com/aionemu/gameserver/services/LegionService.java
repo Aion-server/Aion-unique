@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.configs.LegionConfig;
+import com.aionemu.gameserver.configs.main.LegionConfig;
 import com.aionemu.gameserver.dao.LegionDAO;
 import com.aionemu.gameserver.dao.LegionMemberDAO;
 import com.aionemu.gameserver.model.gameobjects.Creature;
