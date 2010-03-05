@@ -84,9 +84,10 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		log.info(String.format("Public Message: %s, Type: %s", message, type));
 
 		final Player player = getConnection().getActivePlayer();
+
+		log.info(String.format("Public Message [%s]: %s, Type: %s", player.getName(), message, type));
 
 		for(ChatHandler chatHandler : chatHandlers)
 		{

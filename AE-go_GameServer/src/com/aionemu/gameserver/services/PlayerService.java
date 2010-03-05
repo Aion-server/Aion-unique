@@ -378,7 +378,10 @@ public class PlayerService
 	}
 
 	public void playerLoggedOutDelay(final Player player, int delay)
-	{
+	{		
+		//force stop movement of player
+		player.getController().stopMoving();
+
 		ThreadPoolManager.getInstance().scheduleTaskManager(new Runnable(){
 			@Override
 			public void run()

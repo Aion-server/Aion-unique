@@ -82,10 +82,11 @@ public class CM_CHAT_MESSAGE_WHISPER extends AionClientPacket
 	protected void runImpl()
 	{
 		String formatname = Util.convertName(name);
-		
-		log.info(String.format("Whisper To: %s, Message: %s", formatname, message));
+
 		Player sender = getConnection().getActivePlayer();
 		Player receiver = world.findPlayer(formatname);
+
+		log.info(String.format("[%s] Whisper To: %s, Message: %s", sender.getName(), formatname, message));
 
 		if(receiver == null)
 		{

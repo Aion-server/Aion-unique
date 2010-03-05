@@ -224,7 +224,7 @@ public class AionConnection extends AConnection
 			// prevent ctrl+alt+del / close window exploit
 			else
 			{
-				int delay = 10;
+				int delay = 15;
 				playerService.playerLoggedOutDelay(player, (delay * 1000));
 			}
 		}
