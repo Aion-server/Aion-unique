@@ -5361,7 +5361,7 @@
         </setproperties>
         <effects>
             <dispeldebuff e="1"/>
-            <shield value="10000000" delta="0" hitvalue="50" hitdelta="0" duration="30000" effectid="154" e="2"/>
+            <shield value="10000000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="30000" effectid="154" e="2"/>
         </effects>
         <actions>
             <mpuse value="122" delta="0"/>
@@ -6248,7 +6248,7 @@
         <effects>
             <dispeldebuff e="1"/>
             <statup duration="30000" effectid="104752" e="2"/>
-            <shield value="10000000" delta="0" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="3"/>
+            <shield value="10000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="3"/>
             <statdown duration="30000" effectid="104754" e="4" element="FIRE">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="-50"/>
             </statdown>
@@ -6267,7 +6267,7 @@
         <effects>
             <dispeldebuff e="1"/>
             <statup duration="30000" effectid="104762" e="2"/>
-            <shield value="10000000" delta="0" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="3"/>
+            <shield value="10000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="3"/>
             <statdown duration="30000" effectid="104764" e="4" element="FIRE">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="-50"/>
             </statdown>
@@ -16363,7 +16363,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="100000000" delta="0" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="1"/>
+            <shield value="100000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="1"/>
             <bind duration="30000" effectid="20014" e="2" element="FIRE"/>
             <silence duration="30000" effectid="20101" e="3" element="FIRE"/>
         </effects>
@@ -16479,7 +16479,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="0" hitvalue="100" hitdelta="0" duration="60000" effectid="154" e="1"/>
+            <shield value="10000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="60000" effectid="154" e="1"/>
             <root duration="60000" effectid="20003" e="2" element="EARTH"/>
         </effects>
     </skill_template>
@@ -16493,7 +16493,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="0" hitvalue="100" hitdelta="0" duration="60000" effectid="154" e="1"/>
+            <shield value="10000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="60000" effectid="154" e="1"/>
             <root duration="60000" effectid="20003" e="2" element="EARTH"/>
         </effects>
     </skill_template>
@@ -17270,7 +17270,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="5000" delta="0" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="5000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
             <hot value="442" delta="6" checktime="3000" type="HP" duration="15000" effectid="111972" e="2"/>
         </effects>
         <actions>
@@ -17288,7 +17288,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="5000" delta="0" hitvalue="60" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="5000" delta="0" percent="true" hitvalue="60" hitdelta="0" duration="15000" effectid="154" e="1"/>
         </effects>
         <actions>
             <mpuse value="615" delta="7"/>
@@ -17305,7 +17305,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="5000" delta="0" hitvalue="40" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="5000" delta="0" percent="true" hitvalue="40" hitdelta="0" duration="15000" effectid="154" e="1"/>
             <hot value="327" delta="4" checktime="3000" type="HP" duration="15000" effectid="113442" e="2"/>
         </effects>
         <actions>
@@ -17323,7 +17323,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="5000" delta="0" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="5000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
         </effects>
         <actions>
             <mpuse value="500" delta="0"/>
@@ -17340,7 +17340,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="100000000" delta="0" hitvalue="30" hitdelta="0" duration="10000" effectid="154" e="1"/>
+            <shield value="100000000" delta="0" percent="true" hitvalue="30" hitdelta="0" duration="10000" effectid="154" e="1"/>
         </effects>
         <actions>
             <mpuse value="74" delta="3"/>
@@ -17357,7 +17357,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="100000000" delta="0" hitvalue="33" hitdelta="0" duration="10000" effectid="154" e="1"/>
+            <shield value="100000000" delta="0" percent="true" hitvalue="33" hitdelta="0" duration="10000" effectid="154" e="1"/>
         </effects>
         <actions>
             <mpuse value="97" delta="3"/>
@@ -17374,7 +17374,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="100000000" delta="0" hitvalue="36" hitdelta="0" duration="10000" effectid="154" e="1"/>
+            <shield value="100000000" delta="0" percent="true" hitvalue="36" hitdelta="0" duration="10000" effectid="154" e="1"/>
         </effects>
         <actions>
             <mpuse value="122" delta="2"/>
@@ -17407,7 +17407,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="100000000" delta="0" hitvalue="39" hitdelta="0" duration="10000" effectid="154" e="1"/>
+            <shield value="100000000" delta="0" percent="true" hitvalue="39" hitdelta="0" duration="10000" effectid="154" e="1"/>
         </effects>
         <actions>
             <mpuse value="139" delta="3"/>
@@ -17448,7 +17448,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="100000000" delta="0" hitvalue="42" hitdelta="0" duration="10000" effectid="154" e="1"/>
+            <shield value="100000000" delta="0" percent="true" hitvalue="42" hitdelta="0" duration="10000" effectid="154" e="1"/>
         </effects>
         <actions>
             <mpuse value="156" delta="3"/>
@@ -19752,7 +19752,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="5000" delta="0" hitvalue="40" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="5000" delta="0" percent="true" hitvalue="40" hitdelta="0" duration="15000" effectid="154" e="1"/>
             <hot value="327" delta="4" checktime="3000" type="HP" duration="15000" effectid="113442" e="2"/>
         </effects>
         <actions>
@@ -19770,7 +19770,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="5000" delta="0" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="5000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
         </effects>
         <actions>
             <mpuse value="500" delta="0"/>
@@ -20834,7 +20834,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="100000000" delta="0" hitvalue="100" hitdelta="0" duration="5000" effectid="154" e="1"/>
+            <shield value="100000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="5000" effectid="154" e="1"/>
             <statup duration="5000" effectid="114452" e="2"/>
         </effects>
         <actions>
@@ -27756,7 +27756,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="0" hitvalue="50" hitdelta="0" duration="900000" effectid="154" e="1"/>
+            <shield value="10000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="900000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="1861" name="STR_SKILL_Q_SpeedUp" nameId="576299" stack="SKILL_Q_SPEEDUP" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="1" duration="0">
@@ -31357,7 +31357,7 @@
             <statup duration="180000" effectid="183873" e="3">
                 <change stat="SPEED" func="PERCENT" delta="0" value="20"/>
             </statup>
-            <shield value="10000000" delta="0" hitvalue="100" hitdelta="0" duration="180000" effectid="154" e="4" element="FIRE"/>
+            <shield value="10000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="180000" effectid="154" e="4" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8388" name="STR_SYSTEM_SKILL_KN_Proc_Guardian_G4" nameId="575375" stack="SYSTEM_SKILL_KN_PROC_GUARDIAN" lvl="4" skilltype="MAGICAL" skillsubtype="NONE" tslot="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -31636,7 +31636,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="0" hitvalue="20" hitdelta="0" duration="6500" effectid="154" e="1"/>
+            <shield value="10000" delta="0" percent="true" hitvalue="20" hitdelta="0" duration="6500" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8408" name="STR_SYSTEM_SKILL_CH_Jihad_G1_Effect" nameId="575673" stack="SYSTEM_SKILL_CH_JIHAD_EFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
@@ -32213,7 +32213,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="1900" delta="100" hitvalue="50" hitdelta="0" duration="30000" effectid="154" e="1"/>
+            <shield value="1900" delta="100" percent="true" hitvalue="50" hitdelta="0" duration="30000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8444" name="STR_SYSTEM_SKILL_Stigma_ImbueEarth_G1_Proc" nameId="577971" stack="SYSTEM_SKILL_STIGMA_IMBUEEARTH_PROC" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -32571,7 +32571,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="0" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="10000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8469" name="STR_SKILL_KN_AbysalJudgement_G2_Buff" nameId="581397" stack="SKILL_KN_ABYSALJUDGEMENT_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -32585,7 +32585,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="0" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="10000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8470" name="STR_SKILL_KN_AbysalJudgement_G3_Buff" nameId="581401" stack="SKILL_KN_ABYSALJUDGEMENT_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -32599,7 +32599,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="0" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="10000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8471" name="STR_SKILL_WI_FrozenSeal_G1_Proc" nameId="581463" stack="SKILL_WI_FROZENSEAL_PROC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -33377,7 +33377,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="0" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="10000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8515" name="STR_SKILL_KN_BreakPower_G3_Buff" nameId="584157" stack="SKILL_KN_BREAKPOWER_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -34306,7 +34306,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="100000000" delta="0" hitvalue="100" hitdelta="0" duration="6000" effectid="154" e="1"/>
+            <shield value="100000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="6000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8577" name="STR_SKILL_IndunNoGlide_Low" nameId="586405" stack="SKILL_INDUNNOGLIDE_LOW" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NOSHOW" activation="PROVOKED" cooldown="0" duration="0">
@@ -41935,7 +41935,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000000" delta="0" hitvalue="50" hitdelta="0" duration="600000" effectid="154" e="2"/>
+            <shield value="10000000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="600000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="9203" name="STR_DARK_AVATAR_BUFF_SHIELD_01" nameId="591295" stack="DARK_AVATAR_BUFF_SHIELD_01" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -41949,7 +41949,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000000" delta="0" hitvalue="50" hitdelta="0" duration="600000" effectid="154" e="2"/>
+            <shield value="10000000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="600000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="9204" name="STR_EVENT_DISH_CAKE_01" nameId="1505601" stack="EVENT_DISH_CAKE_01" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="SPEC" activation="ACTIVE" cooldown="0" duration="0">
@@ -45763,7 +45763,7 @@
             <statup duration="300000" effectid="197872" e="2">
                 <change stat="PHYSICAL_DEFENSE" func="ADD" delta="0" value="5000"/>
             </statup>
-            <shield value="10000000" delta="0" hitvalue="50" hitdelta="8" duration="300000" effectid="154" e="3" element="FIRE"/>
+            <shield value="10000000" delta="0" percent="true" hitvalue="50" hitdelta="8" duration="300000" effectid="154" e="3" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="9910" name="STR_SKILL_Abyss_Artifact_LegendofPhantom2_G1" nameId="579755" stack="SKILL_ABYSS_ARTIFACT_LEGENDOFPHANTOM2" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -46219,7 +46219,7 @@
             <statup duration="300000" effectid="197872" e="2">
                 <change stat="PHYSICAL_DEFENSE" func="ADD" delta="0" value="5000"/>
             </statup>
-            <shield value="10000000" delta="0" hitvalue="50" hitdelta="8" duration="300000" effectid="154" e="3" element="FIRE"/>
+            <shield value="10000000" delta="0" percent="true" hitvalue="50" hitdelta="8" duration="300000" effectid="154" e="3" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="9937" name="STR_SKILL_Abyss_Artifact_JudgmentofDeath_G2" nameId="585509" stack="SKILL_ABYSS_ARTIFACT_JUDGMENTOFDEATH" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -46243,7 +46243,7 @@
             <statup duration="180000" effectid="183873" e="3">
                 <change stat="SPEED" func="PERCENT" delta="0" value="20"/>
             </statup>
-            <shield value="10000000" delta="0" hitvalue="100" hitdelta="0" duration="180000" effectid="154" e="4" element="FIRE"/>
+            <shield value="10000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="180000" effectid="154" e="4" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="9938" name="STR_SKILL_Abyss_Artifact_LegendofPhantom2_G2" nameId="585513" stack="SKILL_ABYSS_ARTIFACT_LEGENDOFPHANTOM2" lvl="2" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -46836,7 +46836,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="10000" delta="100" hitvalue="25" hitdelta="2" duration="6000" effectid="154" e="1"/>
+            <shield value="10000" delta="100" percent="true" hitvalue="25" hitdelta="2" duration="6000" effectid="154" e="1"/>
             <statup duration="6000" effectid="10174022" e="2">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="0" value="50"/>
                 <change stat="MAGICAL_ATTACK" func="ADD" delta="0" value="50"/>
@@ -46873,7 +46873,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="10000" delta="100" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
+            <shield value="10000" delta="100" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16410" name="STR_NPR_HealInsS_Self" nameId="581099" stack="NPR_HEALINSS_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -46896,7 +46896,7 @@
         </setproperties>
         <effects>
             <dispeldebuff e="1"/>
-            <shield value="20000" delta="0" hitvalue="100" hitdelta="0" duration="10000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="10000" effectid="154" e="2"/>
             <hide value="2" duration="10000" effectid="165" e="3">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </hide>
@@ -46963,7 +46963,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="10000000" delta="0" hitvalue="90" hitdelta="0" duration="500000" effectid="154" e="1"/>
+            <shield value="10000000" delta="0" percent="true" hitvalue="90" hitdelta="0" duration="500000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16416" name="STR_SKILL_NFI_SmallBlow_Pierce" nameId="565689" stack="SKILL_NFI_SMALLBLOW_PIERCE" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
@@ -48547,7 +48547,7 @@
             <statup duration="5000" effectid="10165181" e="1">
                 <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="20000" delta="0" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16519" name="STR_NWA_SatkLr_Nr" nameId="569253" stack="NWA_SATKLR_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
@@ -48607,7 +48607,7 @@
             <statup duration="5000" effectid="10165221" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="20000" delta="0" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16523" name="STR_NWA_SDownSlow_Nr" nameId="569257" stack="NWA_SDOWNSLOW_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1500">
@@ -49556,7 +49556,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="100" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
+            <shield value="10000" delta="100" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16580" name="STR_NWI_RootSTA_Water" nameId="569297" stack="NWI_ROOTSTA_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -49675,7 +49675,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="100" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
+            <shield value="10000" delta="100" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16587" name="STR_NEL_PetSUpPyatt_FireAir" nameId="568941" stack="NEL_PETSUPPYATT_FIREAIR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -49964,7 +49964,7 @@
             <statup duration="5000" effectid="10166041" e="1">
                 <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="20000" delta="0" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16605" name="STR_GNWA_SatkLr_Nr" nameId="569359" stack="GNWA_SATKLR_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
@@ -50453,7 +50453,7 @@
         </useconditions>
         <effects>
             <heal value="15" delta="0" percent="true" e="1"/>
-            <shield value="20000" delta="0" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16635" name="STR_GNPR_DispelDebuff_Nr" nameId="569489" stack="GNPR_DISPELDEBUFF_NR" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
@@ -50622,7 +50622,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="100" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
+            <shield value="10000" delta="100" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16645" name="STR_GNWI_RootSTA_Air" nameId="569529" stack="GNWI_ROOTSTA_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
@@ -51424,7 +51424,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="100" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
+            <shield value="10000" delta="100" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16693" name="STR_NWI_DotDelaySpell_Fire" nameId="571391" stack="NWI_DOTDELAYSPELL_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -55286,7 +55286,7 @@
             <statup duration="5000" effectid="30152" e="1">
                 <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="90"/>
             </statup>
-            <shield value="20000" delta="0" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16931" name="STR_NKN_GuardianphyattackST_short" nameId="576531" stack="NKN_GUARDIANPHYATTACKST_SHORT" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -55514,7 +55514,7 @@
             <hide value="1" duration="20000" effectid="165" e="1">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </hide>
-            <shield value="20000" delta="0" hitvalue="100" hitdelta="0" duration="20000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="20000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16945" name="STR_NKN_SUpAttSDDef_LF3Boss" nameId="576633" stack="NKN_SUPATTSDDEF_LF3BOSS" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -55705,7 +55705,7 @@
             <skillatk value="150" delta="0" e="1">
                 <subeffect skill_id="8218"/>
             </skillatk>
-            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET1" value="150" delta="0" e="3"/>
+            <signetburst signetlvl="1" signet="SYSTEM_SKILL_SIGNET1" value="100" delta="0" e="3"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16957" name="STR_Test_GB_Stance0_RF" nameId="577261" stack="TEST_GB_STANCE0_RF" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="3000">
@@ -56788,7 +56788,7 @@
             <statup duration="5000" effectid="10170291" e="1">
                 <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="20000" delta="0" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17030" name="STR_NWA_SUpPyDefShortP_Nr" nameId="577745" stack="NWA_SUPPYDEFSHORTP_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -56805,7 +56805,7 @@
             <statup duration="5000" effectid="10170301" e="1">
                 <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="20000" delta="0" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17031" name="STR_NRA_SatkLongTA_chain1" nameId="577767" stack="NRA_SATKLONGTA_CHAIN1" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
@@ -57142,7 +57142,7 @@
             <statup duration="5000" effectid="10170511" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </statup>
-            <shield value="20000" delta="0" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17052" name="STR_NGR_TribalBuffR_DefChStrong" nameId="578223" stack="NGR_TRIBALBUFFR_DEFCHSTRONG" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -59844,7 +59844,7 @@
             <statup duration="5000" effectid="10172231" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="20000" delta="0" hitvalue="100" hitdelta="0" duration="5000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17224" name="STR_BNWI_SpellDotTA_Lf1Ch" nameId="579479" stack="BNWI_SPELLDOTTA_LF1CH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -60328,7 +60328,7 @@
             <statup duration="5000" effectid="30152" e="1">
                 <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="90"/>
             </statup>
-            <shield value="20000" delta="0" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17255" name="STR_NAS_BlindDis_Nr" nameId="579809" stack="NAS_BLINDDIS_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -60553,7 +60553,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="5000" hitvalue="57" hitdelta="3" duration="0" effectid="154" e="1"/>
+            <shield value="10000" delta="5000" percent="true" hitvalue="57" hitdelta="3" duration="0" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17270" name="STR_Ab_test_SpellATK" nameId="570991" stack="AB_TEST_SPELLATK" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2000">
@@ -60879,7 +60879,7 @@
             <statup duration="5000" effectid="10178841" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="75" hitdelta="2" duration="10000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="75" hitdelta="2" duration="10000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17290" name="STR_GFI_SUpPyDefTA_Mid" nameId="580077" stack="GFI_SUPPYDEFTA_MID" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="1500">
@@ -60896,7 +60896,7 @@
             <statup duration="5000" effectid="10178841" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="100" hitdelta="2" duration="10000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="100" hitdelta="2" duration="10000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17291" name="STR_DGFI_WingBlade_Nr" nameId="580081" stack="DGFI_WINGBLADE_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
@@ -61175,7 +61175,7 @@
             <statup duration="5000" effectid="10178841" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="75" hitdelta="2" duration="10000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="75" hitdelta="2" duration="10000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17309" name="STR_DGFI_SUpPyDef_Mid" nameId="580159" stack="DGFI_SUPPYDEF_MID" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2000">
@@ -61192,7 +61192,7 @@
             <statup duration="5000" effectid="10178841" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="100" hitdelta="2" duration="10000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="100" hitdelta="2" duration="10000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17310" name="STR_DGFI_SUpPyDef_Big" nameId="580161" stack="DGFI_SUPPYDEF_BIG" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -61209,7 +61209,7 @@
             <statup duration="5000" effectid="10178841" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="125" hitdelta="2" duration="10000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="125" hitdelta="2" duration="10000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17311" name="STR_DGFI_ShieldStun_Nr" nameId="580169" stack="DGFI_SHIELDSTUN_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
@@ -62311,7 +62311,7 @@
             <statup duration="5000" effectid="10178841" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="75" hitdelta="2" duration="10000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="75" hitdelta="2" duration="10000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17384" name="STR_DGFI_SUpPyDefMid_TA" nameId="580539" stack="DGFI_SUPPYDEFMID_TA" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -62328,7 +62328,7 @@
             <statup duration="5000" effectid="10178841" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="100" hitdelta="2" duration="10000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="100" hitdelta="2" duration="10000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17385" name="STR_DGFI_SUpPyDefBig_TA" nameId="580541" stack="DGFI_SUPPYDEFBIG_TA" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="3000">
@@ -62345,7 +62345,7 @@
             <statup duration="5000" effectid="10178841" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="125" hitdelta="2" duration="10000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="125" hitdelta="2" duration="10000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17386" name="STR_DGFI_WingBlade_Root" nameId="580561" stack="DGFI_WINGBLADE_ROOT" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2000">
@@ -64986,7 +64986,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="20000" delta="0" hitvalue="100" hitdelta="0" duration="86400000" effectid="154" e="1"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="86400000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17548" name="STR_AGWI_SpellLong_Fire" nameId="581205" stack="AGWI_SPELLLONG_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
@@ -68789,7 +68789,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="5000" hitvalue="57" hitdelta="3" duration="0" effectid="154" e="1"/>
+            <shield value="10000" delta="5000" percent="true" hitvalue="57" hitdelta="3" duration="0" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17786" name="STR_GNWI_Spellatk_LC_Po_Carrier" nameId="577197" stack="GNWI_SPELLATK_LC_PO_CARRIER" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2000">
@@ -69967,7 +69967,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="20000" delta="0" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="1"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="1"/>
             <statdown duration="30000" effectid="10178642" e="2" element="WATER">
                 <change stat="ATTACK_SPEED" func="PERCENT" delta="0" value="70"/>
             </statdown>
@@ -69999,7 +69999,7 @@
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="10"/>
                 <change stat="MAGICAL_ATTACK" func="PERCENT" delta="0" value="10"/>
             </statup>
-            <shield value="90" delta="4" hitvalue="100" hitdelta="0" duration="360000" effectid="154" e="2"/>
+            <shield value="90" delta="4" percent="true" hitvalue="100" hitdelta="0" duration="360000" effectid="154" e="2"/>
             <hide value="20" duration="360000" effectid="165" e="3">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </hide>
@@ -70267,7 +70267,7 @@
             <statup duration="5000" effectid="10178831" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="100" hitdelta="2" duration="10000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="100" hitdelta="2" duration="10000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17884" name="STR_NWA_SUpPyAttShort_Nr" nameId="569269" stack="NWA_SUPPYATTSHORT_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="4500">
@@ -70284,7 +70284,7 @@
             <statup duration="5000" effectid="10178841" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="100" hitdelta="2" duration="10000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="100" hitdelta="2" duration="10000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17885" name="STR_NWI_ParalyzeSA_Water" nameId="571399" stack="NWI_PARALYZESA_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4500">
@@ -70432,7 +70432,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="20000" delta="0" hitvalue="50" hitdelta="0" duration="5000" effectid="154" e="1"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="5000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17896" name="STR_BNFI_SStunNoFlyTA40_Ch_Po" nameId="583409" stack="BNFI_SSTUNNOFLYTA40_CH_PO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
@@ -70587,7 +70587,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="20000" delta="0" hitvalue="100" hitdelta="0" duration="10000" effectid="154" e="1"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="10000" effectid="154" e="1"/>
             <hide value="1" duration="10000" effectid="165" e="2">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </hide>
@@ -73894,7 +73894,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="50000000" delta="0" hitvalue="100" hitdelta="0" duration="86400000" effectid="154" e="1"/>
+            <shield value="50000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="86400000" effectid="154" e="1"/>
             <statup duration="86400000" effectid="131" e="2"/>
         </effects>
     </skill_template>
@@ -74285,7 +74285,7 @@
             <statup duration="86400000" effectid="10181321" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="10"/>
             </statup>
-            <shield value="5000000" delta="0" hitvalue="25" hitdelta="0" duration="86400000" effectid="154" e="2"/>
+            <shield value="5000000" delta="0" percent="true" hitvalue="25" hitdelta="0" duration="86400000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18133" name="STR_BNKN_OldShulackDebuffA_Nr" nameId="587401" stack="BNKN_OLDSHULACKDEBUFFA_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -74453,7 +74453,7 @@
             <statup duration="15000" effectid="10181431" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="0" value="20"/>
             </statup>
-            <shield value="20000" delta="0" hitvalue="500" hitdelta="0" duration="15000" effectid="154" e="2"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="500" hitdelta="0" duration="15000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18144" name="STR_APR_StatupAr_Lr_Nr_OfficerF" nameId="579981" stack="APR_STATUPAR_LR_NR_OFFICERF" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2000">
@@ -74561,7 +74561,7 @@
             <statup duration="5000" effectid="10181501" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="2000" hitdelta="2" duration="5000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="2000" hitdelta="2" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18151" name="STR_NWA_SUpPyAttShort_Nr" nameId="569269" stack="NWA_SUPPYATTSHORT_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -74578,7 +74578,7 @@
             <statup duration="5000" effectid="10181511" e="1">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="70"/>
             </statup>
-            <shield value="200000" delta="0" hitvalue="2000" hitdelta="2" duration="5000" effectid="154" e="2"/>
+            <shield value="200000" delta="0" percent="true" hitvalue="2000" hitdelta="2" duration="5000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18152" name="STR_NEL_Curse_Nr" nameId="568917" stack="NEL_CURSE_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -75197,7 +75197,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="90000000" delta="0" hitvalue="100" hitdelta="0" duration="86400000" effectid="154" e="1"/>
+            <shield value="90000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="86400000" effectid="154" e="1"/>
             <statup duration="86400000" effectid="10181902" e="2"/>
             <statup duration="86400000" e="3">
                 <change stat="PHYSICAL_DEFENSE" func="ADD" delta="0" value="65000"/>
@@ -75232,7 +75232,7 @@
                 <change stat="PHYSICAL_DEFENSE" func="ADD" delta="0" value="65000"/>
                 <change stat="MAGICAL_RESIST" func="ADD" delta="0" value="65000"/>
             </statup>
-            <shield value="50000000" delta="0" hitvalue="100" hitdelta="0" duration="86400000" effectid="154" e="4"/>
+            <shield value="50000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="86400000" effectid="154" e="4"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18192" name="STR_BNFI_ActivateStigmaStone_Captain" nameId="587879" stack="BNFI_ACTIVATESTIGMASTONE_CAPTAIN" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2000">
@@ -75316,7 +75316,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="90000000" delta="0" hitvalue="33" hitdelta="0" duration="12000" effectid="154" e="1"/>
+            <shield value="90000000" delta="0" percent="true" hitvalue="33" hitdelta="0" duration="12000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18197" name="STR_BNFI_SatkSnareTA_Captain" nameId="587907" stack="BNFI_SATKSNARETA_CAPTAIN" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
@@ -75593,7 +75593,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="90000000" delta="0" hitvalue="100" hitdelta="0" duration="6000" effectid="154" e="1"/>
+            <shield value="90000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="6000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18215" name="STR_BNWI_SeifShield25S100P_Nr" nameId="588109" stack="BNWI_SEIFSHIELD25S100P_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -75604,7 +75604,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="90000000" delta="0" hitvalue="100" hitdelta="0" duration="25000" effectid="154" e="1"/>
+            <shield value="90000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="25000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18216" name="STR_NCL_Healins10P_Self" nameId="588083" stack="NCL_HEALINS10P_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -77106,7 +77106,7 @@
         </useconditions>
         <effects>
             <dispeldebuff e="1"/>
-            <shield value="1000000" delta="0" hitvalue="50" hitdelta="0" duration="12000" effectid="154" e="2"/>
+            <shield value="1000000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="12000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18316" name="STR_GKN_ConverHeal_Command" nameId="585019" stack="GKN_CONVERHEAL_COMMAND" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2000">
@@ -77966,7 +77966,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="20000" delta="0" hitvalue="100" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="15000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18374" name="STR_GPR_ShieldTA_Divine" nameId="585577" stack="GPR_SHIELDTA_DIVINE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="3000">
@@ -77980,7 +77980,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="30000" delta="0" hitvalue="100" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <shield value="30000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="15000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18375" name="STR_GNPR_SpStunTA_AddSUatt_Stu" nameId="585595" stack="GNPR_SPSTUNTA_ADDSUATT_STU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="500">
@@ -78083,7 +78083,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="20000" delta="0" hitvalue="100" hitdelta="0" duration="10000" effectid="154" e="1"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="10000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18382" name="STR_BNAS_SatkNoFlyHTA35_75D_no" nameId="585631" stack="BNAS_SATKNOFLYHTA35_75D_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="5000">
@@ -78784,7 +78784,7 @@
             <statup duration="15000" effectid="10184261" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="0" value="20"/>
             </statup>
-            <shield value="30000" delta="0" hitvalue="750" hitdelta="0" duration="15000" effectid="154" e="2"/>
+            <shield value="30000" delta="0" percent="true" hitvalue="750" hitdelta="0" duration="15000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18427" name="STR_DGFI_OneShotOneKill_Door_G4" nameId="586245" stack="DGFI_ONESHOTONEKILL_DOOR" lvl="4" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2000">
@@ -78851,7 +78851,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="10000000" delta="0" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="1"/>
+            <shield value="10000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18432" name="STR_Chf_SuAtt_Self" nameId="586355" stack="CHF_SUATT_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -79477,7 +79477,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="20000" delta="0" hitvalue="100" hitdelta="0" duration="5000" effectid="154" e="1"/>
+            <shield value="20000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="5000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18475" name="STR_NGR_ShapeUndeadTA7_Nr" nameId="586505" stack="NGR_SHAPEUNDEADTA7_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -79586,7 +79586,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <shield value="50000000" delta="0" hitvalue="100" hitdelta="0" duration="86400000" effectid="154" e="1"/>
+            <shield value="50000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="86400000" effectid="154" e="1"/>
             <statup duration="86400000" effectid="131" e="2"/>
             <statup duration="86400000" effectid="10184813" e="3">
                 <change stat="MAXHP" func="ADD" delta="0" value="500000"/>
@@ -79651,7 +79651,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="50000000" delta="0" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="1"/>
+            <shield value="50000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="1"/>
             <statup duration="30000" effectid="131" e="2"/>
         </effects>
     </skill_template>
@@ -80484,7 +80484,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="10000" delta="100" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
+            <shield value="10000" delta="100" percent="true" hitvalue="25" hitdelta="2" duration="5000" effectid="154" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18539" name="STR_NFI_SatkKD_Chain_Nr" nameId="588133" stack="NFI_SATKKD_CHAIN_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
@@ -80697,7 +80697,7 @@
                 <change stat="PHYSICAL_DEFENSE" func="ADD" delta="0" value="65000"/>
                 <change stat="MAGICAL_RESIST" func="ADD" delta="0" value="65000"/>
             </statup>
-            <shield value="50000000" delta="0" hitvalue="100" hitdelta="0" duration="15000" effectid="154" e="4"/>
+            <shield value="50000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="15000" effectid="154" e="4"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18553" name="STR_BNWI_PhyReflector_Self" nameId="588237" stack="BNWI_PHYREFLECTOR_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -81270,7 +81270,7 @@
             <statup duration="12000" effectid="10185941" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="0" value="5"/>
             </statup>
-            <shield value="1000000" delta="0" hitvalue="33" hitdelta="0" duration="12000" effectid="154" e="2"/>
+            <shield value="1000000" delta="0" percent="true" hitvalue="33" hitdelta="0" duration="12000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18595" name="STR_DGFI_SUpPyDef_Rwd" nameId="588489" stack="DGFI_SUPPYDEF_RWD" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2000">
@@ -81287,7 +81287,7 @@
             <statup duration="12000" effectid="10185951" e="1">
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="0" value="5"/>
             </statup>
-            <shield value="1000000" delta="0" hitvalue="20" hitdelta="0" duration="12000" effectid="154" e="2"/>
+            <shield value="1000000" delta="0" percent="true" hitvalue="20" hitdelta="0" duration="12000" effectid="154" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18600" name="STR_Q_Buff_Invincible" nameId="588515" stack="Q_BUFF_INVINCIBLE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -81301,7 +81301,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <shield value="50000000" delta="0" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="1"/>
+            <shield value="50000000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="30000" effectid="154" e="1"/>
             <statup duration="30000" effectid="10186002" e="2">
                 <change stat="WATER_RESISTANCE" func="ADD" delta="0" value="1000"/>
                 <change stat="WIND_RESISTANCE" func="ADD" delta="0" value="1000"/>

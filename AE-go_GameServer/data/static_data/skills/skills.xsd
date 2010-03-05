@@ -454,6 +454,7 @@
 			<xs:extension base="Effect">
 				<xs:attribute name="hitdelta" type="xs:int" />
 				<xs:attribute name="hitvalue" type="xs:int" />
+				<xs:attribute name="percent" type="xs:boolean" />
 				<xs:attribute name="delta" type="xs:int" />
 				<xs:attribute name="value" type="xs:int" />
 			</xs:extension>

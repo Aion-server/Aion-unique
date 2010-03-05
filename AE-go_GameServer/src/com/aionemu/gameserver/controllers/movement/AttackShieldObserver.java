@@ -32,16 +32,19 @@ public class AttackShieldObserver extends AttackCalcObserver
 	private int hit;
 	private int totalHit;
 	private Effect effect;
+	private boolean percent;
 	
 	/**
+	 * @param percent 
 	 * @param value
 	 * @param status
 	 */
-	public AttackShieldObserver(int hit, int totalHit, Effect effect)
+	public AttackShieldObserver(int hit, int totalHit, boolean percent, Effect effect)
 	{
 		this.hit = hit;
 		this.totalHit = totalHit;
 		this.effect = effect;
+		this.percent = percent;
 	}
 
 	@Override
@@ -51,7 +54,12 @@ public class AttackShieldObserver extends AttackCalcObserver
 		{
 			int damage = attackResult.getDamage();
 			
-			int absorbedDamage = damage >= hit ? hit : damage;
+			int absorbedDamage = 0;
+			if(percent)
+				absorbedDamage = damage * hit / 100;
+			else
+				absorbedDamage = damage >= hit ? hit : damage;
+				
 			absorbedDamage = absorbedDamage >= totalHit ? totalHit : absorbedDamage;
 			totalHit -= absorbedDamage;
 			
