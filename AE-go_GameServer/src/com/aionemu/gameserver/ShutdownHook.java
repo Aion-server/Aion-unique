@@ -132,23 +132,23 @@ public class ShutdownHook extends Thread
 				if(world.getPlayersIterator().hasNext())
 				{
 
-					log.info("Runtime is closing in " + i + " seconds.");
+					log.info("Runtime is " + mode.getText() + " in " + i + " seconds.");
 					sendShutdownMessage(i);
 					sendShutdownStatus(true);
 				}
 				else
 				{
-					log.info("Runtime is closing now ...");
+					log.info("Runtime is " + mode.getText() + " now ...");
 					break; // fast exit.
 				}
 
 				if(i > interval)
 				{
-					Thread.sleep(interval * 1000);
+					sleep(interval * 1000);
 				}
 				else
 				{
-					Thread.sleep(1000);
+					sleep(1000);
 				}
 			}
 			catch(InterruptedException e)
@@ -187,7 +187,7 @@ public class ShutdownHook extends Thread
 		else
 			Runtime.getRuntime().halt(ExitCode.CODE_NORMAL);
 
-		log.info("Runtime is closing now...");
+		log.info("Runtime is " + mode.getText() + " now...");
 	}
 
 	public static void doShutdown(int delay, int announceInterval, ShutdownMode mode)
