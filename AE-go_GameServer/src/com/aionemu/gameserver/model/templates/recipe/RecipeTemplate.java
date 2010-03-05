@@ -36,6 +36,7 @@ import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
 public class RecipeTemplate {
 
     protected List<Component> component;
+    protected List<ComboProduct> comboproduct;
     @XmlAttribute
     protected int tasktype;
     @XmlAttribute

@@ -18,6 +18,8 @@
 		<xs:sequence>
 			<xs:element name="component" type="Component" minOccurs="0"
 					maxOccurs="unbounded"/>
+			<xs:element name="comboproduct" type="ComboProduct" minOccurs="0"
+					maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="tasktype" type="xs:int"/>
 		<xs:attribute name="componentquantity" type="xs:int" />
@@ -36,6 +38,10 @@
 	<xs:complexType name="Component">
 		<xs:attribute name="itemid" type="xs:int"/>
 		<xs:attribute name="quantity" type="xs:int"/>
+	</xs:complexType>
+	
+	<xs:complexType name="ComboProduct">
+		<xs:attribute name="itemid" type="xs:int"/>
 	</xs:complexType>
 
 </xs:schema>
