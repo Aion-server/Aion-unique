@@ -27,7 +27,9 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -35,12 +37,14 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class _1007ACeremonyinSanctum extends QuestHandler
 {
-
+	private final TeleportService teleportService;
 	private final static int	questId	= 1007;
 
-	public _1007ACeremonyinSanctum()
+	@Inject
+	public _1007ACeremonyinSanctum(TeleportService teleportService)
 	{
 		super(questId);
+		this.teleportService = teleportService;
 		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
@@ -82,7 +86,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),0));
 							
-							player.getController().teleportTo(110010000, 1, 1313, 1512, 568, 0);
+							teleportService.teleportTo(player, 110010000, 1, 1313, 1512, 568, 0);
 							return true;
 						}
 				}

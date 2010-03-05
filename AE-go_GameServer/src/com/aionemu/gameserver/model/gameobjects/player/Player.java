@@ -21,7 +21,6 @@ import java.util.List;
 
 import com.aionemu.commons.callbacks.Enhancable;
 import com.aionemu.gameserver.controllers.PlayerController;
-import com.aionemu.gameserver.controllers.PunishmentController;
 import com.aionemu.gameserver.controllers.effect.PlayerEffectController;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
@@ -86,8 +85,9 @@ public class Player extends Creature
 	private boolean				protectionActive;
 	private int					flyState = 0;
 	private boolean				isTrading;
-	private PunishmentController punishmentController = new PunishmentController(this);
-
+	private boolean				isInPrison = false;
+	private long				prisonTimer = 0;
+	
 	/**
 	 * Static information for players
 	 */
@@ -702,16 +702,6 @@ public class Player extends Creature
 	}
 
 	/**
-	 * This method will return the punishment controller for players
-	 * 
-	 * @return PunishmentController
-	 */
-	public PunishmentController getPunishmentController()
-	{
-		return punishmentController;
-	}
-
-	/**
 	 * @return warehouse size
 	 */
 	public int getWarehouseSize()
@@ -763,5 +753,37 @@ public class Player extends Creature
 	public void setTrading(boolean isTrading)
 	{
 		this.isTrading = isTrading;
+	}
+
+	/**
+	 * @param isInPrison the isInPrison to set
+	 */
+	public void setInPrison(boolean isInPrison)
+	{
+		this.isInPrison = isInPrison;
+	}
+
+	/**
+	 * @return the isInPrison
+	 */
+	public boolean isInPrison()
+	{
+		return isInPrison;
+	}
+
+	/**
+	 * @param prisonTimer the prisonTimer to set
+	 */
+	public void setPrisonTimer(long prisonTimer)
+	{
+		this.prisonTimer = prisonTimer;
+	}
+
+	/**
+	 * @return the prisonTimer
+	 */
+	public long getPrisonTimer()
+	{
+		return prisonTimer;
 	}
 }

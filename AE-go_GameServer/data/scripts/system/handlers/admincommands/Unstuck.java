@@ -19,8 +19,10 @@ package admincommands;
 import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
+import com.google.inject.Inject;
 
 /**
  * @author Nemiroff
@@ -28,6 +30,9 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  */
 public class Unstuck extends AdminCommand
 {
+	@Inject
+	TeleportService teleportService;
+	
     public Unstuck() {
         super("unstuck");
     }
@@ -51,6 +56,6 @@ public class Unstuck extends AdminCommand
             PacketSendUtility.sendMessage(admin, "You dont have execute this command. You die");
             return;
         }
-        admin.getController().moveToBindLocation(true, CustomConfig.UNSTUCK_DELAY);
+        teleportService.moveToBindLocation(admin, true, CustomConfig.UNSTUCK_DELAY);
     }
 }

@@ -45,7 +45,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SELL_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRADELIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
@@ -314,13 +313,7 @@ public class NpcController extends CreatureController<Npc>
 				break;
 			case 38:
 				// flight and teleport
-				if(player.isInState(CreatureState.FLYING))
-				{
-					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_CANNOT_USE_AIRPORT_WHEN_FLYING);
-					return;
-				}
-				PacketSendUtility.sendPacket(player, new SM_TELEPORT_MAP(player, targetObjectId, sp
-					.getTeleportService().getTeleporterData().getTeleporterTemplate(npc.getNpcId())));
+				sp.getTeleportService().showMap(player, targetObjectId, npc.getNpcId());
 				break;
 			case 39:
 				// improve extraction
@@ -337,11 +330,8 @@ public class NpcController extends CreatureController<Npc>
 				break;
 			case 47:
 				// legion warehouse
-				if(MathUtil.isInRange(npc, player, 10)) // voiding exploit with sending fake client dialog_select
-				// packet
-				{
+				if(MathUtil.isInRange(npc, player, 10))
 					sp.getLegionService().openLegionWarehouse(player);
-				}
 				break;
 			case 50:
 				// WTF??? Quest dialog packet

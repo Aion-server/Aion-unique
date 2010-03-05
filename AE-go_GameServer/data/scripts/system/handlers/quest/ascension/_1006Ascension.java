@@ -39,6 +39,7 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
@@ -56,12 +57,14 @@ public class _1006Ascension extends QuestHandler
 {
 	private final static int	questId	= 1006;
 	private final World				world;
+	private final TeleportService	teleportService;
 
 	@Inject
-	public _1006Ascension(World world)
+	public _1006Ascension(World world, TeleportService teleportService)
 	{
 		super(questId);
 		this.world = world;
+		this.teleportService = teleportService;
 		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
@@ -160,7 +163,7 @@ public class _1006Ascension extends QuestHandler
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
 							WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstance(310010000);
 							newInstance.setDestroyTime(60 * 20);
-							player.getController().teleportTo(310010000, newInstance.getInstanceId(), 52, 174, 229, 0);
+							teleportService.teleportTo(player, 310010000, newInstance.getInstanceId(), 52, 174, 229, 0);
 							return true;
 						}
 					case 10003:
@@ -408,10 +411,10 @@ public class _1006Ascension extends QuestHandler
 					qs.getQuestVars().setQuestVar(3);
 					updateQuestStatus(player, qs);
 					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(questId).getName()));
-					player.getController().teleportTo(210010000, 1, 244f, 1639f, 100.5f, 1000);
+					teleportService.teleportTo(player, 210010000, 1, 244f, 1639f, 100.5f, 1000);
 				}
 				else if(id != instanceId)
-					player.getController().changeChannel(id-1);
+					teleportService.changeChannel(player, id-1);
 			}
 		}
 		return false;

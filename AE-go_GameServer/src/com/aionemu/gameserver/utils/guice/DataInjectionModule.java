@@ -47,6 +47,7 @@ import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.PrivateStoreService;
+import com.aionemu.gameserver.services.PunishmentService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.services.ServiceProxy;
 import com.aionemu.gameserver.services.SkillLearnService;
@@ -108,6 +109,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(GroupService.class).in(Scopes.SINGLETON);
 		bind(CraftSkillUpdateService.class).in(Scopes.SINGLETON);
 		bind(WarehouseExpandService.class).in(Scopes.SINGLETON);
+		bind(PunishmentService.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides

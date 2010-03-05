@@ -31,9 +31,11 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.WorldMapInstance;
+import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -41,12 +43,14 @@ import com.aionemu.gameserver.world.WorldMapInstance;
  */
 public class _1002RequestoftheElim extends QuestHandler
 {
-
+	private final TeleportService teleportService;
 	private final static int	questId	= 1002;
 
-	public _1002RequestoftheElim()
+	@Inject
+	public _1002RequestoftheElim(TeleportService teleportService)
 	{
 		super(questId);
+		this.teleportService = teleportService;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
 		QuestEngine.getInstance().setNpcQuestData(203076).addOnTalkEvent(questId);
 		QuestEngine.getInstance().setNpcQuestData(730007).addOnTalkEvent(questId);
@@ -261,7 +265,7 @@ public class _1002RequestoftheElim extends QuestHandler
 							0));
 						WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstance(310010000);
 						newInstance.setDestroyTime(60 * 5);
-						player.getController().teleportTo(310010000, newInstance.getInstanceId(), 52, 174, 229, 0);
+						teleportService.teleportTo(player, 310010000, newInstance.getInstanceId(), 52, 174, 229, 0);
 						return true;
 					}
 					return false;
@@ -293,7 +297,7 @@ public class _1002RequestoftheElim extends QuestHandler
 							{
 								qs.getQuestVars().setQuestVarById(0, 14);
 								updateQuestStatus(player, qs);
-								player.getController().teleportTo(210010000, 1, 603, 1537, 116, (byte) 20, 0);
+								teleportService.teleportTo(player, 210010000, 1, 603, 1537, 116, (byte) 20, 0);
 							}
 						}, 43000);
 						return true;

@@ -37,7 +37,6 @@ import com.aionemu.gameserver.dao.PlayerRecipesDAO;
 import com.aionemu.gameserver.dao.PlayerSettingsDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.dao.PlayerTitleListDAO;
-import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
@@ -91,28 +90,29 @@ public class PlayerService
 	private World						world;
 	private ItemService					itemService;
 	private LegionService				legionService;
+	private TeleportService				teleportService;
 	private ControllerFactory			controllerFactory;
 	private SkillLearnService			skillLearnService;
 	private GroupService				groupService;
+	private PunishmentService			punishmentService;
 	private PlayerStatsData				playerStatsData;
 	private PlayerInitialData			playerInitialData;
-	private BindPointData				bindPointData;
 
 	@Inject
 	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
-		LegionService legionService, ControllerFactory controllerFactory, SkillLearnService skillLearnService,
-		GroupService groupService, PlayerStatsData playerStatsData, PlayerInitialData playerInitialData, BindPointData bindPointData)
+		LegionService legionService, TeleportService teleportService, ControllerFactory controllerFactory, SkillLearnService skillLearnService,
+		GroupService groupService, PlayerStatsData playerStatsData, PlayerInitialData playerInitialData)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
 		this.itemService = itemService;
 		this.legionService = legionService;
+		this.teleportService = teleportService;
 		this.controllerFactory = controllerFactory;
 		this.skillLearnService = skillLearnService;
 		this.groupService = groupService;
 		this.playerStatsData = playerStatsData;
 		this.playerInitialData = playerInitialData;
-		this.bindPointData = bindPointData;
 	}
 
 	/**
@@ -350,7 +350,7 @@ public class PlayerService
 		player.onLoggedOut();
 
 		if(player.getLifeStats().isAlreadyDead())
-			player.getController().moveToBindLocation(false);
+			teleportService.moveToBindLocation(player, false);
 
 		player.getCommonData().setOnline(false);
 		player.getCommonData().setLastOnline(new Timestamp(System.currentTimeMillis()));
@@ -372,7 +372,7 @@ public class PlayerService
 		player.getController().delete();
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, false);
 
-		player.getPunishmentController().stopPrisonTask(true);
+		punishmentService.stopPrisonTask(player, true);
 
 		storePlayer(player);
 	}
@@ -521,13 +521,5 @@ public class PlayerService
 	public PlayerInitialData getPlayerInitialData()
 	{
 		return playerInitialData;
-	}
-
-	/**
-	 * @return the bindPointData
-	 */
-	public BindPointData getBindPointData()
-	{
-		return bindPointData;
 	}
 }

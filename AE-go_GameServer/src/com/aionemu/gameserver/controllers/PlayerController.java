@@ -26,7 +26,6 @@ import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerQuestListDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
-import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
@@ -40,22 +39,18 @@ import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
-import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_CHANNEL_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHERABLE_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRIVATE_STORE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_CANCEL;
@@ -72,8 +67,6 @@ import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
-import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneManager;
 
@@ -326,63 +319,6 @@ public class PlayerController extends CreatureController<Player>
 		super.onStartMove();
 	}
 
-	@Override
-	public boolean teleportTo(final int worldId, final int instanceId, final float x, final float y, final float z,
-		final byte heading, final int delay)
-	{
-		final Player player = getOwner();
-
-		if(delay == 0)
-		{
-			changePosition(worldId, instanceId, x, y, z, heading);
-			return true;
-		}
-
-		PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, 0, delay, 0, 0));
-		ThreadPoolManager.getInstance().schedule(new Runnable(){
-			@Override
-			public void run()
-			{
-				if(player.getLifeStats().isAlreadyDead())
-					return;
-
-				if(delay != 0)
-				{
-					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
-				}
-				changePosition(worldId, instanceId, x, y, z, heading);
-			}
-		}, delay);
-
-		return true;
-	}
-
-	/**
-	 * 
-	 * @param worldId
-	 * @param instanceId
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @param heading
-	 */
-	private void changePosition(int worldId, int instanceId, float x, float y, float z, byte heading)
-	{
-		Player player = getOwner();
-		World world = sp.getWorld();
-		if(player.getInstanceId() != instanceId || player.getWorldId() != worldId)
-		{
-			world.getWorldMap(player.getWorldId()).getWorldMapInstanceById(player.getInstanceId()).removePlayer(
-				player.getObjectId());
-			world.getWorldMap(worldId).getWorldMapInstanceById(instanceId).addPlayer(player.getObjectId());
-		}
-		world.despawn(player);
-		world.setPosition(player, worldId, instanceId, x, y, z, heading);
-		player.setProtectionActive(true);
-		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
-		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
-	}
-
 	/**
 	 * Send the duel request to the owner
 	 * 
@@ -531,21 +467,6 @@ public class PlayerController extends CreatureController<Player>
 		return (Player) super.getOwner();
 	}
 
-	/**
-	 * @param channel
-	 */
-	public void changeChannel(int channel)
-	{
-		Player player = getOwner();
-		World world = sp.getWorld();
-		world.despawn(player);
-		world.setPosition(player, player.getWorldId(), channel + 1, player.getX(), player.getY(), player.getZ(), player
-			.getHeading());
-		player.setProtectionActive(true);
-		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
-		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
-	}
-
 	@Override
 	public void onRestore(HopType hopType, int value)
 	{
@@ -555,58 +476,6 @@ public class PlayerController extends CreatureController<Player>
 			case DP:
 				getOwner().getCommonData().addDp(value);
 				break;
-		}
-	}
-
-	public void moveToBindLocation(boolean useTeleport)
-	{
-		this.moveToBindLocation(useTeleport, 0);
-	}
-
-	/**
-	 * @param useTeleport
-	 */
-	public void moveToBindLocation(boolean useTeleport, int delay)
-	{
-		float x, y, z;
-		int worldId;
-		BindPointTemplate bplist;
-		Player player = getOwner();
-
-		LocationData locationData = sp.getPlayerService().getPlayerInitialData().getSpawnLocation(player.getCommonData().getRace());
-
-		int bindPointId = player.getCommonData().getBindPoint();
-		if(bindPointId != 0)
-		{
-			bplist = sp.getPlayerService().getBindPointData().getBindPointTemplate2(bindPointId);
-			worldId = bplist.getZoneId();
-			x = bplist.getX();
-			y = bplist.getY();
-			z = bplist.getZ();
-		}
-		else
-		{
-			locationData = sp.getPlayerService().getPlayerInitialData().getSpawnLocation(player.getCommonData().getRace());
-			worldId = locationData.getMapId();
-			x = locationData.getX();
-			y = locationData.getY();
-			z = locationData.getZ();
-		}
-
-		if(useTeleport)
-		{
-			teleportTo(worldId, x, y, z, delay);
-		}
-		else
-		{
-			World world = sp.getWorld();
-			if(player.getInstanceId() != 1 || player.getWorldId() != worldId)
-			{
-				world.getWorldMap(player.getWorldId()).getWorldMapInstanceById(player.getInstanceId()).removePlayer(
-					player.getObjectId());
-				world.getWorldMap(worldId).getWorldMapInstanceById(1).addPlayer(player.getObjectId());
-			}
-			world.setPosition(player, worldId, x, y, z, player.getHeading());
 		}
 	}
 
@@ -725,5 +594,14 @@ public class PlayerController extends CreatureController<Player>
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 
 		// TODO: period task for fly time increase
+	}
+
+	/**
+	 * TODO: REMOVE THIS AND FIX FOR RETURNEFFECT AND WORLDSCRIPTSOMETHING
+	 * @param b
+	 */
+	public void moveToBindLocation(boolean b)
+	{
+		sp.getTeleportService().moveToBindLocation(getOwner(), b);
 	}
 }

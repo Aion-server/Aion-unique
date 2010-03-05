@@ -24,15 +24,17 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.services.TeleportService;
+import com.google.inject.Inject;
 
 /**
- * @author ATracer, orz, avol
+ * @author ATracer, orz, avol, Simple
  *
  */
 public class CM_REVIVE extends AionClientPacket
 {
-	@SuppressWarnings("unused")
-	private int		  worldId;
+	@Inject
+	private TeleportService teleportService;
 	
 	/**
 	 * Constructs new instance of <tt>CM_REVIVE </tt> packet
@@ -73,6 +75,6 @@ public class CM_REVIVE extends AionClientPacket
 		sendPacket(new SM_STATS_INFO(activePlayer));
 		sendPacket(new SM_PLAYER_INFO(activePlayer, false));
 
-		activePlayer.getController().moveToBindLocation(true);
+		teleportService.moveToBindLocation(activePlayer, true);
 	}
 }

@@ -19,6 +19,7 @@ package admincommands;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
@@ -35,16 +36,18 @@ public class MoveTo extends AdminCommand
 {
 	@SuppressWarnings("unused")
 	private final World		world;
+	private TeleportService teleportService;
 
 	/**
 	 * Constructor.
 	 */
 
 	@Inject
-	public MoveTo(World world)
+	public MoveTo(World world, TeleportService teleportService)
 	{
 		super("moveto");
 		this.world = world; 
+		this.teleportService = teleportService;
 	}
 
 	/**
@@ -88,7 +91,7 @@ public class MoveTo extends AdminCommand
 		}
 		else
 		{
-			admin.getController().teleportTo(worldId, x, y, z, 0);
+			teleportService.teleportTo(admin, worldId, x, y, z, 0);
 			PacketSendUtility.sendMessage(admin, "Teleported to " + x + " " + y + " " + z + " [" + worldId + "]");
 		}
 	}

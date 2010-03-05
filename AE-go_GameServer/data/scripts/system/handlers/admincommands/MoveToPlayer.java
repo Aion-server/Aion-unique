@@ -19,6 +19,7 @@ package admincommands;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
@@ -33,6 +34,8 @@ import com.google.inject.Inject;
 
 public class MoveToPlayer extends AdminCommand
 {
+	@Inject
+	private TeleportService teleportService;
 	@Inject
 	private World	world;
 
@@ -77,7 +80,7 @@ public class MoveToPlayer extends AdminCommand
 			return;
 		}
 
-		admin.getController().teleportTo(player.getWorldId(), player.getInstanceId(), player.getX(), player.getY(), player.getZ(), player.getHeading(), 0);
+		teleportService.teleportTo(admin, player.getWorldId(), player.getInstanceId(), player.getX(), player.getY(), player.getZ(), player.getHeading(), 0);
 		PacketSendUtility.sendMessage(admin, "Teleported to player " + player.getName() + ".");
 	}
 }

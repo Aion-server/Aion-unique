@@ -57,6 +57,7 @@ import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.GroupService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.services.PunishmentService;
 import com.aionemu.gameserver.utils.rates.Rates;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -81,6 +82,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	private LegionService		legionService;
 	@Inject
 	private GroupService		groupService;
+	@Inject
+	private PunishmentService	punishmentService;
 	@Inject
 	private BindPointData		bindPointData;
 	@Inject
@@ -250,8 +253,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 				+ " server\nPowered by aion-unique software\ndeveloped by www.aion-unique.org team.\nCopyright 2010",
 				ChatType.ANNOUNCEMENTS));
 
-			if(player.getPunishmentController().isInPrison())
-				player.getPunishmentController().updatePrisonStatus();
+			if(player.isInPrison())
+				punishmentService.updatePrisonStatus(player);
 
 			if(player.isLegionMember())
 				legionService.legionMemberOnLogin(player);

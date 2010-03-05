@@ -20,6 +20,7 @@ import java.util.NoSuchElementException;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.services.PunishmentService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
@@ -32,6 +33,8 @@ import com.google.inject.Inject;
  */
 public class SendToPrison extends AdminCommand
 {
+	@Inject
+	private PunishmentService punishmentService;
 	@Inject
 	private World	world;
 
@@ -62,7 +65,7 @@ public class SendToPrison extends AdminCommand
 
 			if(playerToPrison != null)
 			{
-				playerToPrison.getPunishmentController().setIsInPrison(true, delay);
+				punishmentService.setIsInPrison(playerToPrison, true, delay);
 				PacketSendUtility.sendMessage(admin, "Player " + playerToPrison.getName() + " sent to prison for "
 					+ delay + ".");
 			}

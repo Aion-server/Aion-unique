@@ -23,6 +23,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
+import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -39,6 +40,9 @@ public class CM_MOVE extends AionClientPacket
 	 * logger for this class
 	 */
 	private static final Logger	log	= Logger.getLogger(CM_MOVE.class);
+	@Inject
+	private TeleportService		teleportService;
+	
 	@Inject
 	private World				world;
 
@@ -71,7 +75,7 @@ public class CM_MOVE extends AionClientPacket
 		// falling characters
 		if(z < 0)
 		{
-			player.getController().moveToBindLocation(true);
+			teleportService.moveToBindLocation(player, true);
 			return;
 		}
 

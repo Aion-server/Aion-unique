@@ -75,7 +75,7 @@ public class BindpointController extends NpcController
 						float x,y,z;
 						if (responder.getCommonData().getBindPoint() != 0)
 						{
-							BindPointTemplate bplist = sp.getPlayerService().getBindPointData().getBindPointTemplate2(bindPointTemplate.getBindId());
+							BindPointTemplate bplist = sp.getTeleportService().getBindPointTemplate2(bindPointTemplate.getBindId());
 							
 							worldId = bplist.getZoneId();
 							x = bplist.getX();

@@ -52,13 +52,13 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO
 			{
 				while(rs.next())
 				{
-					player.getPunishmentController().setIsInPrison(rs.getInt("punishment_status") == 1);
-					player.getPunishmentController().setPrisonTimer(rs.getLong("punishment_timer"));
+					player.setInPrison(rs.getInt("punishment_status") == 1);
+					player.setPrisonTimer(rs.getLong("punishment_timer"));
 
-					if(player.getPunishmentController().isInPrison())
-						player.getPunishmentController().setPrisonTimer(rs.getLong("punishment_timer"));
+					if(player.isInPrison())
+						player.setPrisonTimer(rs.getLong("punishment_timer"));
 					else
-						player.getPunishmentController().setPrisonTimer(0);
+						player.setPrisonTimer(0);
 				}
 			}
 		});
@@ -72,8 +72,8 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO
 			public void handleInsertUpdate(PreparedStatement ps) throws SQLException
 			{
 				ps.setInt(1, player.getObjectId());
-				ps.setInt(2, player.getPunishmentController().isInPrison() ? 1 : 0);
-				ps.setLong(3, player.getPunishmentController().getPrisonTimer());
+				ps.setInt(2, player.isInPrison() ? 1 : 0);
+				ps.setLong(3, player.getPrisonTimer());
 				ps.execute();
 			}
 		});
@@ -88,7 +88,7 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO
 			{
 				ps.setInt(1, player.getObjectId());
 				ps.setInt(2, mode);
-				ps.setLong(3, player.getPunishmentController().getPrisonTimer());
+				ps.setLong(3, player.getPrisonTimer());
 				ps.execute();
 			}
 		});

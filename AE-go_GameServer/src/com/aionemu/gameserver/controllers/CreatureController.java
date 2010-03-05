@@ -33,7 +33,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public abstract class CreatureController<T extends Creature> extends VisibleObjectController<Creature>
 {
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -103,58 +103,6 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		this.onAttack(creature, 0, TYPE.REGULAR, damage);
 	}
 
-	/**
-	 * Teleport Creature to the location using current heading and instanceId
-	 * 
-	 * @param worldId
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @param delay
-	 * @return true or false
-	 */
-	public boolean teleportTo(int worldId, float x, float y, float z, int delay)
-	{
-		int instanceId = 1;
-		if(getOwner().getWorldId() == worldId)
-		{
-			instanceId = getOwner().getInstanceId();
-		}
-		return teleportTo(worldId, instanceId, x, y, z, delay);
-	}
-
-	/**
-	 * 
-	 * @param worldId
-	 * @param instanceId
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @param delay
-	 * @return true or false
-	 */
-	public boolean teleportTo(int worldId, int instanceId, float x, float y, float z, int delay)
-	{
-		return teleportTo(worldId, instanceId, x, y, z, getOwner().getHeading(), delay);
-	}
-
-	/**
-	 * Teleport Creature to the location using specific heading
-	 * 
-	 * @param worldId
-	 * @param instanceId
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @param heading
-	 * @param delay
-	 * @return true or false
-	 */
-	public boolean teleportTo(int worldId, int instanceId, float x, float y, float z, byte heading, int delay)
-	{
-		return true;
-	}
-
 	public void onRestore(HopType hopType, int value)
 	{
 		switch(hopType)
@@ -194,8 +142,6 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 
 	}
 
-	
-
 	/**
 	 * 
 	 * @param targetObjectId
@@ -211,8 +157,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	public void stopMoving()
 	{
 		Creature owner = getOwner();
-		sp.getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(),
-			owner.getHeading());
+		sp.getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(), owner.getHeading());
 		PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0,
 			owner.getHeading(), MovementType.MOVEMENT_STOP));
 	}

@@ -27,8 +27,10 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.WorldMapType;
+import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -36,12 +38,14 @@ import com.aionemu.gameserver.world.WorldMapType;
  */
 public class _2009ACeremonyinPandaemonium extends QuestHandler
 {
-
+	private final TeleportService teleportService;
 	private final static int	questId	= 2009;
 
-	public _2009ACeremonyinPandaemonium()
+	@Inject
+	public _2009ACeremonyinPandaemonium(TeleportService teleportService)
 	{
 		super(questId);
+		this.teleportService = teleportService;
 		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
@@ -83,7 +87,7 @@ public class _2009ACeremonyinPandaemonium extends QuestHandler
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),0));
 							
-							player.getController().teleportTo(WorldMapType.PANDAEMONIUM.getId(), 1, 1685, 1400, 195, 0);
+							teleportService.teleportTo(player, WorldMapType.PANDAEMONIUM.getId(), 1, 1685, 1400, 195, 0);
 							return true;
 						}
 				}

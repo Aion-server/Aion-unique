@@ -87,7 +87,7 @@ public class RiftController extends NpcController
 				float y = slaveSpawnTemplate.getY();
 				float z = slaveSpawnTemplate.getZ();
 				
-				responder.getController().teleportTo(worldId, x, y, z, 0);
+				sp.getTeleportService().teleportTo(responder, worldId, x, y, z, 0);
 				usedEntries++;
 				
 				if(usedEntries >= maxEntries)
