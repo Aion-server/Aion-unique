@@ -17,6 +17,7 @@
 package com.aionemu.gameserver;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import org.apache.log4j.Logger;
 
@@ -84,29 +85,42 @@ public class ShutdownHook extends Thread
 
 	private static void sendShutdownMessage(int seconds)
 	{
-		Iterator<Player> onlinePlayers = world.getPlayersIterator();
-		if(!onlinePlayers.hasNext())
-			return;
-		while(onlinePlayers.hasNext())
+		try
 		{
-			Player player = onlinePlayers.next();
-			if(player != null && player.getClientConnection() != null)
-				player.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(seconds));
+			Iterator<Player> onlinePlayers = world.getPlayersIterator();
+			if(!onlinePlayers.hasNext())
+				return;
+			while(onlinePlayers.hasNext())
+			{
+				Player player = onlinePlayers.next();
+				if(player != null && player.getClientConnection() != null)
+					player.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(seconds));
+			}
 		}
-			
+		catch(NoSuchElementException e)
+		{
+
+		}
 	}
-	
+
 	private static void sendShutdownStatus(boolean status)
 	{
-		Iterator<Player> onlinePlayers = world.getPlayersIterator();
-		if(!onlinePlayers.hasNext())
-			return;
-		while(onlinePlayers.hasNext())
+		try
 		{
-			Player player = onlinePlayers.next();
-			if(player != null && player.getClientConnection() != null)
-				onlinePlayers.next().getController().setInShutdownProgress(status);
-		}			
+			Iterator<Player> onlinePlayers = world.getPlayersIterator();
+			if(!onlinePlayers.hasNext())
+				return;
+			while(onlinePlayers.hasNext())
+			{
+				Player player = onlinePlayers.next();
+				if(player != null && player.getClientConnection() != null)
+					onlinePlayers.next().getController().setInShutdownProgress(status);
+			}
+		}
+		catch(NoSuchElementException e)
+		{
+
+		}
 	}
 
 	private static void shutdownHook(int duration, int interval, ShutdownMode mode)
@@ -114,17 +128,18 @@ public class ShutdownHook extends Thread
 		for(int i = duration; i >= interval; i -= interval)
 		{
 			try
-			{	
+			{
 				if(world.getPlayersIterator().hasNext())
 				{
+
 					log.info("Runtime is closing in " + i + " seconds.");
 					sendShutdownMessage(i);
 					sendShutdownStatus(true);
 				}
 				else
-				{					
+				{
 					log.info("Runtime is closing now ...");
-					break;
+					break; // fast exit.
 				}
 
 				if(i > interval)
@@ -155,11 +170,11 @@ public class ShutdownHook extends Thread
 			{
 				playerService.playerLoggedOut(activePlayer);
 			}
-			catch (Exception e) 
+			catch(Exception e)
 			{
 				log.error("Error while saving player " + e.getMessage());
 			}
-			
+
 		}
 		log.info("All players are disconnected...");
 
