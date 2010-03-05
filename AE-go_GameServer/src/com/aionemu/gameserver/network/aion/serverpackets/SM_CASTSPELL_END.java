@@ -19,29 +19,30 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 import java.nio.ByteBuffer;
 import java.util.List;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * 
- * @author alexa026
+ * @author alexa026, Sweetkr
  * 
  */
 public class SM_CASTSPELL_END extends AionServerPacket
 {
-	private int				attackerobjectid;
-	private int				targetObjectId;
+	private Creature		attacker;
+	private Creature		target;
 	private int				spellid;
 	private int				level;
 	private int				cooldown;
 	private List<Effect>			effects;
 
-	public SM_CASTSPELL_END(int attackerobjectid, int spellid, int level, int targetObjectId,
+	public SM_CASTSPELL_END(Creature attacker, int spellid, int level, Creature target,
 		List<Effect> effects, int cooldown)
 	{
-		this.attackerobjectid = attackerobjectid;
-		this.targetObjectId = targetObjectId;
+		this.attacker = attacker;
+		this.target = target;
 		this.spellid = spellid;// empty
 		this.level = level;
 		this.effects = effects;
@@ -55,28 +56,109 @@ public class SM_CASTSPELL_END extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, attackerobjectid);
+		writeD(buf, attacker.getObjectId());
 		writeC(buf, 0);
-		writeD(buf, targetObjectId);
+		writeD(buf, target.getObjectId());
 		writeH(buf, spellid);
 		writeC(buf, level);
 		writeD(buf, cooldown);
-		writeC(buf, 0xFE); // unk??
-		writeC(buf, 1); // unk??
-		writeD(buf, 8192); // chain 2
+		writeH(buf, 560); // time?
+		writeC(buf, 0); // unk
+		writeH(buf, 32); // unk
+
+		/**
+		 * Dash Type
+		 * 
+		 * 1 : teleport to back (1463)
+		 * 2 : dash (816)
+		 * 4 : assault (803)
+		 */
+		writeC(buf, 0);
+
+	// TODO refactor skill engine
+	/*	switch(attacker.getDashType().getId())
+		{
+			case 1:
+			case 2:
+			case 4:
+				writeC(buf, heading);
+				writeF(buf, x);
+				writeF(buf, y);
+				writeF(buf, z);
+				break;
+			default:
+				break;
+		}*/
 
 		writeH(buf, effects.size());
 		for(Effect effect : effects)
 		{
 			writeD(buf, effect.getEffected().getObjectId());
-			writeH(buf, 3072); // unk?? abnormal eff id ??
-			writeH(buf, 100); // unk??
-			writeH(buf, 16); // unk??
+			writeC(buf, 0); // unk
 
-			writeH(buf, 1); // unk??
+			int attackerMaxHp = attacker.getLifeStats().getMaxHp();
+			int attackerCurrHp = attacker.getLifeStats().getCurrentHp();
+			int targetMaxHp = target.getLifeStats().getMaxHp();
+			int targetCurrHp = target.getLifeStats().getCurrentHp();
+
+			writeC(buf, 100 * targetCurrHp / targetMaxHp); // target %hp
+			writeC(buf, 100 * attackerCurrHp / attackerMaxHp); // attacker %hp
+			
+			/**
+			 * Spell Status
+			 * 
+			 * 1 : stumble
+			 * 2 : knockback
+			 * 4 : open aerial
+			 * 8 : close aerial
+			 * 16 : spin
+			 * 32 : block
+			 * 64 : parry
+			 * 128 : dodge
+			 * 256 : resist
+			 */
+			writeC(buf, 0);
+
+		// TODO refactor skill engine
+		/*	switch(effect.getSpellStatus().getId())
+			{
+				case 1:
+				case 2:
+				case 4:
+				case 8:
+					writeF(buf, x);
+					writeF(buf, y);
+					writeF(buf, z);
+					break;
+				case 16:
+					writeC(buf, heading);
+					break;
+				default:
+					break;
+			}*/
+
+			writeC(buf, 16); // unk
+			writeC(buf, 0); // current carve signet count
+
+			writeC(buf, 1); // unk always 1
+			writeC(buf, 0); // be 1 - when use Mana Treatment
 			writeD(buf, effect.getReserved1()); // damage
 			writeC(buf, effect.getAttackStatus().getId());
 			writeC(buf, effect.getShieldDefense());
+
+			switch(effect.getShieldDefense())
+			{
+				case 1: // reflect shield
+					writeD(buf, 0x00);
+					writeD(buf, 0x00);
+					writeD(buf, 0x00);
+					writeD(buf, 0x00); // reflect damage
+					writeD(buf, 0x00); // skill id
+					break;
+				case 2: // normal shield
+				default:
+					break;
+			}
 		}
 	}
 }

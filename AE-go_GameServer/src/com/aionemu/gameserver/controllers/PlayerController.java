@@ -249,7 +249,7 @@ public class PlayerController extends CreatureController<Player>
 
 		long time = System.currentTimeMillis();
 		int attackType = 0; // TODO investigate attack types
-		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player.getObjectId(), target.getObjectId(), gameStats
+		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player, target, gameStats
 			.getAttackCounter(), (int) time, attackType, attackResult), true);
 
 		target.getController().onAttack(player, damage);

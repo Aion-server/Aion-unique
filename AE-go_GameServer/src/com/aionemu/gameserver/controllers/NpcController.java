@@ -424,7 +424,7 @@ public class NpcController extends CreatureController<Npc>
 		}
 
 		int attackType = 0; // TODO investigate attack types (0 or 1)
-		PacketSendUtility.broadcastPacket(npc, new SM_ATTACK(npc.getObjectId(), creature.getObjectId(), gameStats
+		PacketSendUtility.broadcastPacket(npc, new SM_ATTACK(npc, creature, gameStats
 			.getAttackCounter(), 274, attackType, attackList));
 
 		creature.getController().onAttack(npc, damage);

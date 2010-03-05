@@ -20,27 +20,28 @@ import java.nio.ByteBuffer;
 import java.util.List;
 
 import com.aionemu.gameserver.controllers.attack.AttackResult;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
  * 
- * @author -Nemesiss-
+ * @author -Nemesiss-, Sweetkr
  * 
  */
 public class SM_ATTACK extends AionServerPacket
 {
-	private int attackerobjectid;
-	private int	targetObjectId;
 	private int	attackno;
 	private int	time;
 	private int	type;
 	private List<AttackResult> attackList;
+	private Creature attacker;
+	private Creature target;
 
-	public SM_ATTACK(int attackerobjectid ,int targetObjectId, int attackno, int time, int type, List<AttackResult> attackList)
+	public SM_ATTACK(Creature attacker, Creature target, int attackno, int time, int type, List<AttackResult> attackList)
 	{
-		this.attackerobjectid = attackerobjectid;
-		this.targetObjectId = targetObjectId;
+		this.attacker = attacker;
+		this.target = target;
 		this.attackno = attackno;// empty
 		this.time = time ;// empty
 		this.type = type;// empty
@@ -50,43 +51,68 @@ public class SM_ATTACK extends AionServerPacket
 	/**
 	 * {@inheritDoc}
 	 */
-
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
-	{		
-		//attacker
-		writeD(buf, attackerobjectid);
+	{
+		writeD(buf, attacker.getObjectId());
 		writeC(buf, attackno); // unknown
 		writeH(buf, time); // unknown
-		writeC(buf, type); // unknown
-		//defender
-		writeD(buf, targetObjectId);
-		writeC(buf, 0); //unknown
-		writeC(buf, 84); // unknown
-		
+		writeC(buf, type); // 0, 1, 2
+		writeD(buf, target.getObjectId());
+
+		int attackerMaxHp = attacker.getLifeStats().getMaxHp();
+		int attackerCurrHp = attacker.getLifeStats().getCurrentHp();
+		int targetMaxHp = target.getLifeStats().getMaxHp();
+		int targetCurrHp = target.getLifeStats().getCurrentHp();
+
+		writeC(buf, 100 * targetCurrHp / targetMaxHp); // target %hp
+		writeC(buf, 100 * attackerCurrHp / attackerMaxHp); // attacker %hp
+
+		// TODO refactor attack controller
 		switch(attackList.get(0).getAttackStatus().getId())    // Counter skills
 		{
+			case -60:  // case CRITICAL_BLOCK
 			case 4:  // case BLOCK
-				writeC(buf, 32);    // Shield counter attack skill activation
+				writeH(buf, 32);
 				break;
+			case -62:  // case CRITICAL_PARRY
+			case 2:  // case PARRY
+				writeH(buf, 64);
+				break;
+			case -64:  // case CRITICAL_DODGE
 			case 0:  // case DODGE
-				writeC(buf, 128);    // Scout counter attack skill activation
+				writeH(buf, 128);
+				break;
+			case -58:  // case CRITICAL_RESIST
+			case 6:  // case RESIST
+				writeH(buf, 256); // need more info becuz sometimes 0
 				break;
 			default:
-				writeC(buf, 0);
+				writeH(buf, 0);
 				break;
 		}
-
-		writeC(buf, 0); // unknown
 
 		writeC(buf, attackList.size());
 		for (AttackResult attack : attackList)
 		{
-			writeD(buf, attack.getDamage()); // damage
-			writeC(buf, attack.getAttackStatus().getId()); // attack status
+			writeD(buf, attack.getDamage());
+			writeC(buf, attack.getAttackStatus().getId());
 			writeC(buf, attack.getShieldType());
-		}
 
+			switch(attack.getShieldType())
+			{
+				case 1: // reflect shield
+					writeD(buf, 0x00);
+					writeD(buf, 0x00);
+					writeD(buf, 0x00);
+					writeD(buf, 0); // reflect damage
+					writeD(buf, 0); // skill id
+					break;
+				case 2: // normal shield
+				default:
+					break;
+			}
+		}
 		writeC(buf, 0);
-	}	
+	}
 }

@@ -118,7 +118,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeS(buf, player.isLegionMember() ? player
 			.getLegion().getLegionName() : "");
 
-		int maxHp = player.getGameStats().getCurrentStat(StatEnum.MAXHP);
+		int maxHp = player.getLifeStats().getMaxHp();
 		int currHp = player.getLifeStats().getCurrentHp();
 		writeC(buf, 100 * currHp / maxHp);// %hp
 		writeH(buf, pcd.getDp());// current dp

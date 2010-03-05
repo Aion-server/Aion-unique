@@ -195,8 +195,8 @@ public class Skill
 		if(skillTemplate.isActive() || skillTemplate.isToggle())
 		{
 			PacketSendUtility.broadcastPacket(effector,
-				new SM_CASTSPELL_END(effector.getObjectId(), skillTemplate.getSkillId(), skillLevel,
-					firstTarget.getObjectId(), effects, skillTemplate.getCooldown()), true);
+				new SM_CASTSPELL_END(effector, skillTemplate.getSkillId(), skillLevel,
+					firstTarget, effects, skillTemplate.getCooldown()), true);
 		}
 		
 		/**

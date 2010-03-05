@@ -68,7 +68,7 @@ public final class AggressionDesire extends AbstractDesire
 
 					npc.getAi().setAiState(AIState.NONE);// TODO
 					// ToDO proper aggro emotion on aggro range enter
-					PacketSendUtility.broadcastPacket(npc, new SM_ATTACK(npc.getObjectId(), player.getObjectId(), 0,
+					PacketSendUtility.broadcastPacket(npc, new SM_ATTACK(npc, player, 0,
 						633, 0, Collections.singletonList(new AttackResult(0, AttackStatus.NORMALHIT))));
 
 					ThreadPoolManager.getInstance().schedule(new Runnable(){
