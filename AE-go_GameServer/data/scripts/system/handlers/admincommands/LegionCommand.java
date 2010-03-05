@@ -52,13 +52,14 @@ public class LegionCommand extends AdminCommand
 
 		if(params.length < 2)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //legion <disband|setlevel|setpoints|setname> <legion name> <value>");
+			PacketSendUtility.sendMessage(admin,
+				"syntax //legion <disband|setlevel|setpoints|setname> <legion name> <value>");
 			return;
 		}
-		Legion legion = legionService.getCachedLegion(params[1].toLowerCase());
+		Legion legion = legionService.getLegion(params[1].toLowerCase());
 		if(legion == null)
 		{
-			PacketSendUtility.sendMessage(admin, "The specified legion is not in cached.");
+			PacketSendUtility.sendMessage(admin, "The " + params[1].toLowerCase() + " legion does not exist.");
 			return;
 		}
 
@@ -76,8 +77,9 @@ public class LegionCommand extends AdminCommand
 				PacketSendUtility.sendMessage(admin, "Please use a valid legion level. (1 - 5)");
 				return;
 			}
-			legionService.changeLevel(legion, newLevel);
-			PacketSendUtility.sendMessage(admin, "The " + legion.getLegionName() + " legion has been leveled up to " + newLevel);
+			legionService.changeLevel(legion, newLevel, true);
+			PacketSendUtility.sendMessage(admin, "The " + legion.getLegionName() + " legion has been leveled up to "
+				+ newLevel);
 		}
 		else if(params[0].toLowerCase().equals("setpoints"))
 		{
@@ -88,8 +90,9 @@ public class LegionCommand extends AdminCommand
 				PacketSendUtility.sendMessage(admin, "Please use valid points amount. (0 - 2.000.000.000)");
 				return;
 			}
-			legionService.setContributionPoints(legion, newPoints);
-			PacketSendUtility.sendMessage(admin, "The " + legion.getLegionName() + " legion points have been changed to " + newPoints);
+			legionService.setContributionPoints(legion, newPoints, true);
+			PacketSendUtility.sendMessage(admin, "The " + legion.getLegionName()
+				+ " legion points have been changed to " + newPoints);
 		}
 		else if(params[0].toLowerCase().equals("setname"))
 		{
@@ -100,8 +103,9 @@ public class LegionCommand extends AdminCommand
 				PacketSendUtility.sendMessage(admin, "Please use a valid legion name!");
 				return;
 			}
-			legionService.setLegionName(legion, newLegionName);
-			PacketSendUtility.sendMessage(admin, "The " + legion.getLegionName() + " legion's name has been changed to " + newLegionName);
+			legionService.setLegionName(legion, newLegionName, true);
+			PacketSendUtility.sendMessage(admin, "The " + legion.getLegionName()
+				+ " legion's name has been changed to " + newLegionName);
 		}
 
 	}

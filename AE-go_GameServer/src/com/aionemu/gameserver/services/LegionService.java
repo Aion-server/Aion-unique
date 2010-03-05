@@ -363,6 +363,39 @@ public class LegionService
 	 * @param legionId
 	 * @return Legion
 	 */
+	public Legion getLegion(String legionName)
+	{
+		/**
+		 * First check if our legion already exists in our Cache
+		 */
+		if(allCachedLegions.contains(legionName))
+		{
+			Legion legion = getCachedLegion(legionName);
+			return legion;
+		}
+
+		/**
+		 * Else load the legion information from the database
+		 */
+		Legion legion = DAOManager.getDAO(LegionDAO.class).loadLegion(legionName);
+
+		/**
+		 * This will handle the rest of the information that needs to be loaded
+		 */
+		getLegionInfo(legion);
+
+		/**
+		 * Return the legion
+		 */
+		return legion;
+	}
+
+	/**
+	 * Returns the legion with given legionId (if such legion exists)
+	 * 
+	 * @param legionId
+	 * @return Legion
+	 */
 	public Legion getLegion(int legionId)
 	{
 		/**
@@ -380,19 +413,43 @@ public class LegionService
 		Legion legion = DAOManager.getDAO(LegionDAO.class).loadLegion(legionId);
 
 		/**
+		 * This will handle the rest of the information that needs to be loaded
+		 */
+		getLegionInfo(legion);
+
+		/**
+		 * Return the legion
+		 */
+		return legion;
+	}
+
+	/**
+	 * This method will load the legion information
+	 * 
+	 * @param legion
+	 */
+	private void getLegionInfo(Legion legion)
+	{
+		/**
+		 * Check if legion is not null
+		 */
+		if(legion == null)
+			return;
+
+		/**
 		 * Load and add the legion members to legion
 		 */
-		legion.setLegionMembers(DAOManager.getDAO(LegionMemberDAO.class).loadLegionMembers(legionId));
+		legion.setLegionMembers(DAOManager.getDAO(LegionMemberDAO.class).loadLegionMembers(legion.getLegionId()));
 
 		/**
 		 * Load and set the announcement list
 		 */
-		legion.setAnnouncementList(DAOManager.getDAO(LegionDAO.class).loadAnnouncementList(legionId));
+		legion.setAnnouncementList(DAOManager.getDAO(LegionDAO.class).loadAnnouncementList(legion.getLegionId()));
 
 		/**
 		 * Set legion emblem
 		 */
-		legion.setLegionEmblem(DAOManager.getDAO(LegionDAO.class).loadLegionEmblem(legionId));
+		legion.setLegionEmblem(DAOManager.getDAO(LegionDAO.class).loadLegionEmblem(legion.getLegionId()));
 
 		/**
 		 * Load Legion Warehouse
@@ -410,8 +467,6 @@ public class LegionService
 		 * Add our legion to the Cache
 		 */
 		addCachedLegion(legion);
-
-		return legion;
 	}
 
 	/**
@@ -1020,7 +1075,7 @@ public class LegionService
 		else
 		{
 			activePlayer.getInventory().decreaseKinah(levelKinahPrice);
-			changeLevel(legion, legion.getLegionLevel() + 1);
+			changeLevel(legion, legion.getLegionLevel() + 1, false);
 		}
 	}
 
@@ -1029,11 +1084,13 @@ public class LegionService
 	 * 
 	 * @param legion
 	 */
-	public void changeLevel(Legion legion, int newLevel)
+	public void changeLevel(Legion legion, int newLevel, boolean save)
 	{
 		legion.setLegionLevel(newLevel);
 		PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_EDIT(0x00, legion), world);
 		PacketSendUtility.broadcastPacketToLegion(legion, SM_SYSTEM_MESSAGE.LEGION_LEVEL_UP(newLevel), world);
+		if(save)
+			storeLegion(legion);
 	}
 
 	/**
@@ -1393,11 +1450,13 @@ public class LegionService
 	 * @param legion
 	 * @param newPoints
 	 */
-	public void setContributionPoints(Legion legion, int newPoints)
+	public void setContributionPoints(Legion legion, int newPoints, boolean save)
 	{
 		legion.setContributionPoints(newPoints);
 		PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_EDIT(0x03, legion), world);
 		reloadLegionRanking();
+		if(save)
+			storeLegion(legion);
 	}
 
 	/**
@@ -1463,16 +1522,18 @@ public class LegionService
 	 * @param legion
 	 * @param newLegionName
 	 */
-	public void setLegionName(Legion legion, String newLegionName)
+	public void setLegionName(Legion legion, String newLegionName, boolean save)
 	{
 		legion.setLegionName(newLegionName);
 		PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_INFO(legion), world);
-		
+
 		for(Player legionMember : legion.getOnlineLegionMembers(world))
 		{
 			PacketSendUtility.broadcastPacket(legionMember, new SM_LEGION_UPDATE_TITLE(legionMember.getObjectId(),
-				legion.getLegionId(), legion.getLegionName(), legionMember.getLegionMember().getRank()
-					.getRankId()), true);			
+				legion.getLegionId(), legion.getLegionName(), legionMember.getLegionMember().getRank().getRankId()),
+				true);
 		}
+		if(save)
+			storeLegion(legion);
 	}
 }

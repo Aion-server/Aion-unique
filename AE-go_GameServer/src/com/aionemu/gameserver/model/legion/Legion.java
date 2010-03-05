@@ -80,6 +80,14 @@ public class Legion
 	}
 
 	/**
+	 * @param legionName2
+	 */
+	public Legion(String legionName)
+	{
+		this.legionName = legionName;
+	}
+
+	/**
 	 * @param legionId
 	 *            the legionId to set
 	 */

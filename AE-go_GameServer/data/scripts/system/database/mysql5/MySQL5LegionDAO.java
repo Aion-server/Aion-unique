@@ -49,7 +49,8 @@ public class MySQL5LegionDAO extends LegionDAO
 
 	/** Legion Queries */
 	private static final String	INSERT_LEGION_QUERY				= "INSERT INTO legions(id, `name`) VALUES (?, ?)";
-	private static final String	SELECT_LEGION_QUERY				= "SELECT * FROM legions WHERE id=?";
+	private static final String	SELECT_LEGION_QUERY1				= "SELECT * FROM legions WHERE id=?";
+	private static final String	SELECT_LEGION_QUERY2				= "SELECT * FROM legions WHERE name=?";
 	private static final String	DELETE_LEGION_QUERY				= "DELETE FROM legions WHERE id = ?";
 	private static final String	UPDATE_LEGION_QUERY				= "UPDATE legions SET name=?, level=?, contribution_points=?, legionar_permission2=?, centurion_permission1=?, centurion_permission2=?, disband_time=? WHERE id=?";
 
@@ -140,7 +141,42 @@ public class MySQL5LegionDAO extends LegionDAO
 		});
 	}
 
-	// private Object pcdLock = new Object();
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Legion loadLegion(final String legionName)
+	{
+		final Legion legion = new Legion(legionName);
+
+		boolean success = DB.select(SELECT_LEGION_QUERY2, new ParamReadStH(){
+			@Override
+			public void setParams(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setString(1, legionName);
+			}
+
+			@Override
+			public void handleRead(ResultSet resultSet) throws SQLException
+			{
+				while(resultSet.next())
+				{
+					legion.setLegionId(resultSet.getInt("id"));
+					legion.setLegionLevel(resultSet.getInt("level"));
+					legion.addContributionPoints(resultSet.getInt("contribution_points"));
+
+					legion.setLegionPermissions(resultSet.getInt("legionar_permission2"), resultSet
+						.getInt("centurion_permission1"), resultSet.getInt("centurion_permission2"));
+
+					legion.setDisbandTime(resultSet.getInt("disband_time"));
+				}
+			}
+		});
+
+		log.debug("[MySQL5LegionDAO] Loaded " + legion.getLegionId() + " legion.");
+
+		return (success && legion.getLegionId() != 0) ? legion : null;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -150,7 +186,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	{
 		final Legion legion = new Legion(legionId);
 
-		boolean success = DB.select(SELECT_LEGION_QUERY, new ParamReadStH(){
+		boolean success = DB.select(SELECT_LEGION_QUERY1, new ParamReadStH(){
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException
 			{
@@ -176,7 +212,7 @@ public class MySQL5LegionDAO extends LegionDAO
 
 		log.debug("[MySQL5LegionDAO] Loaded " + legion.getLegionId() + " legion.");
 
-		return success ? legion : null;
+		return (success && legion.getLegionName() != "") ? legion : null;
 	}
 
 	/**

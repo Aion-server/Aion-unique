@@ -60,6 +60,14 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	/**
 	 * Loads a legion
 	 * 
+	 * @param legionName
+	 * @return
+	 */
+	public abstract Legion loadLegion(String legionName);
+
+	/**
+	 * Loads a legion
+	 * 
 	 * @param legionId
 	 * @return Legion
 	 */
