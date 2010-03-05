@@ -34,8 +34,7 @@ public class SilenceEffect extends EffectTemplate
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		// TODO Auto-generated method stub
-
+		effect.addToEffectedController();
 	}
 
 	@Override
@@ -43,5 +42,19 @@ public class SilenceEffect extends EffectTemplate
 	{
 		effect.increaseSuccessEffect();
 	}
+
+	@Override
+	public void startEffect(Effect effect)
+	{
+		effect.getEffected().getEffectController().setAbnormal(EffectId.SILENCE.getEffectId());
+	}
+	
+	@Override
+	public void endEffect(Effect effect)
+	{
+		effect.getEffected().getEffectController().unsetAbnormal(EffectId.SILENCE.getEffectId());
+	}
+	
+	
 
 }

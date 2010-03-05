@@ -31,6 +31,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
+import com.aionemu.gameserver.skillengine.effect.EffectId;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
@@ -60,12 +61,6 @@ public abstract class Creature extends VisibleObject
 	private int state = CreatureState.ACTIVE.getId();
 	private int visualState = CreatureVisualState.VISIBLE.getId();
 	private int seeState = CreatureSeeState.NORMAL.getId();
-	
-	private boolean isRooted;
-	private boolean isSleep;
-	private boolean isPoisoned;
-	private boolean isStumbled;
-	private boolean isStunned;
 	
 	private Skill castingSkill;
 	
@@ -166,88 +161,6 @@ public abstract class Creature extends VisibleObject
 	{
 		this.ai = ai;
 	}
-
-	
-
-	/**
-	 * @return the isRooted
-	 */
-	public boolean isRooted()
-	{
-		return isRooted;
-	}
-
-	/**
-	 * @param isRooted the isRooted to set
-	 */
-	public void setRooted(boolean isRooted)
-	{
-		this.isRooted = isRooted;
-	}
-
-	/**
-	 * @return the isSleep
-	 */
-	public boolean isSleep()
-	{
-		return isSleep;
-	}
-
-	/**
-	 * @param isSleep the isSleep to set
-	 */
-	public void setSleep(boolean isSleep)
-	{
-		this.isSleep = isSleep;
-	}
-
-	/**
-	 * @return the isPoisoned
-	 */
-	public boolean isPoisoned()
-	{
-		return isPoisoned;
-	}
-
-	/**
-	 * @param isPoisoned the isPoisoned to set
-	 */
-	public void setPoisoned(boolean isPoisoned)
-	{
-		this.isPoisoned = isPoisoned;
-	}
-
-	/**
-	 * @return the isStumbled
-	 */
-	public boolean isStumbled()
-	{
-		return isStumbled;
-	}
-
-	/**
-	 * @param isStumbled the isStumbled to set
-	 */
-	public void setStumbled(boolean isStumbled)
-	{
-		this.isStumbled = isStumbled;
-	}
-
-	/**
-	 * @return the isStunned
-	 */
-	public boolean isStunned()
-	{
-		return isStunned;
-	}
-
-	/**
-	 * @param isStunned the isStunned to set
-	 */
-	public void setStunned(boolean isStunned)
-	{
-		this.isStunned = isStunned;
-	}
 	
 	public boolean isCasting()
 	{
@@ -264,14 +177,23 @@ public abstract class Creature extends VisibleObject
 		return castingSkill != null ? castingSkill.getSkillTemplate().getSkillId() : 0;
 	}
 	
+	/**
+	 * All abnormal effects are checked that disable movements
+	 * 
+	 * @return
+	 */
 	public boolean canPerformMove()
 	{
-		return !(isRooted || isSleep || isStumbled || isStunned || !isSpawned());
+		return !(getEffectController().isAbnormalState(EffectId.CANT_MOVE_STATE) || !isSpawned());
 	}
 	
+	/**
+	 * All abnormal effects are checked that disable attack
+	 * @return
+	 */
 	public boolean canAttack()
 	{
-		return !(isSleep || isStunned || isStumbled || isCasting() || isInState(CreatureState.RESTING) || isInState(CreatureState.PRIVATE_SHOP));
+		return !(getEffectController().isAbnormalState(EffectId.CANT_ATTACK_STATE) || isCasting() || isInState(CreatureState.RESTING) || isInState(CreatureState.PRIVATE_SHOP));
 	}
 
 	/**

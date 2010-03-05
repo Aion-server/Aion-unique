@@ -2149,7 +2149,7 @@
                 <change stat="PHYSICAL_ATTACK" func="ADD" delta="1" value="35"/>
             </statboost>
             <statboost effectid="102512" e="2" element="FIRE">
-                <change stat="PHYSICAL_DEFENSE" func="ADD" value="-360"/>
+                <change stat="PHYSICAL_DEFENSE" func="ADD" value="1"/>
             </statboost>
         </effects>
     </skill_template>
@@ -28901,7 +28901,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <stumble duration="0" effectid="20011" e="1" element="WIND"/>
+            <stumble duration="2000" effectid="20011" e="1" element="WIND"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8219" name="STR_Skill_StumbleStun" nameId="563199" stack="SKILL_STUMBLESTUN" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="ACTIVE" cooldown="0" duration="3000">

@@ -18,6 +18,7 @@ package com.aionemu.gameserver.restrictions;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -39,7 +40,7 @@ public class PrisonRestrictions extends AbstractRestrictions
 	}
 
 	@Override
-	public boolean canUseSkill(Player player, VisibleObject target)
+	public boolean canUseSkill(Player player, Skill skill)
 	{
 		if(player.getPunishmentController().isInPrison())
 		{
@@ -47,6 +48,13 @@ public class PrisonRestrictions extends AbstractRestrictions
 			return false;
 		}
 
+		return true;
+	}
+	
+	
+	@Override
+	public boolean canAffectBySkill(Player player, VisibleObject target)
+	{
 		return true;
 	}
 

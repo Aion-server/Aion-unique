@@ -49,7 +49,7 @@ public class SleepEffect extends EffectTemplate
 	public void startEffect(final Effect effect)
 	{
 		final Creature effected = effect.getEffected();
-		effected.setSleep(true);
+		effected.getEffectController().setAbnormal(EffectId.SLEEP.getEffectId());
 		
 		effected.getObserveController().attach(
 			new ActionObserver(ObserverType.ATTACKED)
@@ -66,6 +66,6 @@ public class SleepEffect extends EffectTemplate
 	@Override
 	public void endEffect(Effect effect)
 	{
-		effect.getEffected().setSleep(false);
+		effect.getEffected().getEffectController().unsetAbnormal(EffectId.SLEEP.getEffectId());
 	}
 }

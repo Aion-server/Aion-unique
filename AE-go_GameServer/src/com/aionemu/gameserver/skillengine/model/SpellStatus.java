@@ -14,31 +14,44 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.restrictions;
-
-import com.aionemu.gameserver.model.gameobjects.VisibleObject;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.skillengine.model.Skill;
+package com.aionemu.gameserver.skillengine.model;
 
 /**
- * @author lord_rex
- * 
+ * @author ATracer
+ *
  */
-public interface Restrictions
+public enum SpellStatus
 {
-	public boolean canAttack(Player player, VisibleObject target);
+	/**
+	 * Spell Status
+	 * 
+	 * 1 : stumble
+	 * 2 : knockback
+	 * 4 : open aerial
+	 * 8 : close aerial
+	 * 16 : spin
+	 * 32 : block
+	 * 64 : parry
+	 * 128 : dodge
+	 * 256 : resist
+	 */
+	NONE(0),
+	STUMBLE(1);
 	
-	public boolean canAffectBySkill(Player player, VisibleObject target);
+	private int id;
+
+	private SpellStatus(int id)
+	{
+		this.id = id;
+	}
+	/**
+	 * @return the id
+	 */
+	public int getId()
+	{
+		return id;
+	}
 	
-	public boolean canUseSkill(Player player, Skill skill);
 	
-	public boolean canChat(Player player);
-	
-	public boolean canInviteToGroup(Player player, Player target);
-	
-	public boolean canChangeEquip(Player player);
-	
-	public boolean canUseWarehouse(Player player);
-	
-	public boolean canTrade(Player player);
+
 }

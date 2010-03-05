@@ -51,7 +51,8 @@ public class RootEffect extends EffectTemplate
 	public void startEffect(final Effect effect)
 	{
 		final Creature effected = effect.getEffected();
-		effected.setRooted(true);
+		effect.getEffected().getEffectController().setAbnormal(EffectId.ROOT.getEffectId());
+		
 		PacketSendUtility.broadcastPacket(effected, new SM_TARGET_IMMOBILIZE(effected));
 		
 		effected.getObserveController().attach(
@@ -69,6 +70,6 @@ public class RootEffect extends EffectTemplate
 	@Override
 	public void endEffect(Effect effect)
 	{
-		effect.getEffected().setRooted(false);
+		effect.getEffected().getEffectController().unsetAbnormal(EffectId.ROOT.getEffectId());
 	}
 }

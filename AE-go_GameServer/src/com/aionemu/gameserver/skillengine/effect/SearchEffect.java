@@ -55,7 +55,6 @@ public class SearchEffect extends EffectTemplate
 	public void endEffect(Effect effect)
 	{
 		Creature effected = effect.getEffected();
-		effected.getEffectController().unsetAbnormal(EffectId.SEARCH.getEffectId());
 
 		CreatureSeeState seeState;
 
@@ -83,7 +82,6 @@ public class SearchEffect extends EffectTemplate
 	public void startEffect(final Effect effect)
 	{
 		final Creature effected = effect.getEffected();
-		effected.getEffectController().setAbnormal(EffectId.SEARCH.getEffectId());
 
 		CreatureSeeState seeState;
 

@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.skillengine.effect.EffectId;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 
@@ -48,7 +49,7 @@ public class PoisonDamageModifier
 	@Override
 	public boolean check(Effect effect)
 	{
-		return effect.getEffected().isPoisoned();
+		return effect.getEffected().getEffectController().isAbnoramlSet(EffectId.POISON);
 	}
     
     

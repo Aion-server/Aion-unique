@@ -47,13 +47,13 @@ public class StunEffect extends EffectTemplate
 	@Override
 	public void startEffect(Effect effect)
 	{
-		effect.getEffected().setStunned(true);
+		effect.getEffected().getEffectController().setAbnormal(EffectId.STUN.getEffectId());
 		PacketSendUtility.broadcastPacket(effect.getEffected(), new SM_TARGET_IMMOBILIZE(effect.getEffected()));
 	}
 
 	@Override
 	public void endEffect(Effect effect)
 	{
-		effect.getEffected().setStunned(false);
+		effect.getEffected().getEffectController().unsetAbnormal(EffectId.STUN.getEffectId());
 	}
 }

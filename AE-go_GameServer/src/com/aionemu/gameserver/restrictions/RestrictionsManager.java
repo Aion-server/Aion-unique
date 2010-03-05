@@ -24,6 +24,7 @@ import org.apache.commons.lang.ArrayUtils;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
  * @author lord_rex
@@ -56,6 +57,7 @@ public class RestrictionsManager
 	private static enum RestrictionMode implements Comparator<Restrictions>
 	{
 		canAttack,
+		canAffectBySkill,
 		canUseSkill,
 		canChat,
 		canInviteToGroup,
@@ -203,16 +205,34 @@ public class RestrictionsManager
 	}
 
 	/**
-	 * This function is created for enable/disable skill use.
+	 * This function is created for enable/disable on specific target.
 	 * 
 	 * @param player
 	 * @param target
 	 */
-	public static boolean canUseSkill(Player player, VisibleObject target)
+	public static boolean canAffectBySkill(Player player, VisibleObject target)
+	{
+		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canAffectBySkill.ordinal()])
+		{
+			if(!restrictions.canAffectBySkill(player, target))
+				return false;
+		}
+
+		return true;
+	}
+	
+	/**
+	 * Check whether player can use such skill
+	 * 
+	 * @param player
+	 * @param skill
+	 * @return
+	 */
+	public static boolean canUseSkill(Player player, Skill skill)
 	{
 		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.canUseSkill.ordinal()])
 		{
-			if(!restrictions.canUseSkill(player, target))
+			if(!restrictions.canUseSkill(player, skill))
 				return false;
 		}
 

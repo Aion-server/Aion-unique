@@ -61,8 +61,7 @@ public class HealOverTimeEffect extends EffectTemplate
 	@Override
 	public void endEffect(Effect effect)
 	{
-		Creature effected = effect.getEffected();
-		effected.getEffectController().unsetAbnormal(EffectId.HEAL_OT.getEffectId());
+		//nothing todo
 	}
 
 	@Override
@@ -76,10 +75,6 @@ public class HealOverTimeEffect extends EffectTemplate
 	@Override
 	public void startEffect(final Effect effect)
 	{
-		final Creature effected = effect.getEffected();
-
-		effected.getEffectController().setAbnormal(EffectId.HEAL_OT.getEffectId());
-
 		Future<?> task = ThreadPoolManager.getInstance().scheduleEffectAtFixedRate(new Runnable(){
 
 			@Override

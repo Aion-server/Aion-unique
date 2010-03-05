@@ -56,7 +56,7 @@ public class TransformEffect extends EffectTemplate
 	public void endEffect(Effect effect)
 	{
 		Creature effected = effect.getEffected();
-		effected.getEffectController().unsetAbnormal(EffectId.TRANSFORM.getEffectId());
+		effected.getEffectController().unsetAbnormal(EffectId.SHAPECHANGE.getEffectId());
 
 		if(effected instanceof Npc)
 		{
@@ -74,7 +74,7 @@ public class TransformEffect extends EffectTemplate
 	public void startEffect(final Effect effect)
 	{
 		final Creature effected = effect.getEffected();
-		effected.getEffectController().setAbnormal(EffectId.TRANSFORM.getEffectId());
+		effected.getEffectController().setAbnormal(EffectId.SHAPECHANGE.getEffectId());
 		effected.setTransformedModelId(model);
 		PacketSendUtility.broadcastPacket(effected, new SM_TRANSFORM(effected));
 		if(effected instanceof Player)

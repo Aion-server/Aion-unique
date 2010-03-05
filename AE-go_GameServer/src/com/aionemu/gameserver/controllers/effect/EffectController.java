@@ -23,6 +23,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_EFFECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
+import com.aionemu.gameserver.skillengine.effect.EffectId;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -126,7 +127,7 @@ public class EffectController
 	public void broadCastEffects()
 	{	
 		PacketSendUtility.broadcastPacket(getOwner(),
-			new SM_ABNORMAL_EFFECT(getOwner().getObjectId(),
+			new SM_ABNORMAL_EFFECT(getOwner().getObjectId(), abnormals,
 				abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()])));	
 	}
 
@@ -138,7 +139,7 @@ public class EffectController
 	public void sendEffectIconsTo(Player player)
 	{
 		PacketSendUtility.sendPacket(player, new SM_ABNORMAL_EFFECT(getOwner().getObjectId(),
-			abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()])));
+			abnormals, abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()])));
 	}
 
 	/**
@@ -237,6 +238,17 @@ public class EffectController
 		}
 		abnormalEffectMap.clear();
 	}
+	
+	public void updatePlayerEffectIcons()
+	{
+		getOwner().addPacketBroadcastMask(BroadcastMode.UPDATE_PLAYER_EFFECT_ICONS);
+	}
+	
+	public void updatePlayerEffectIconsImpl()
+	{
+		PacketSendUtility.sendPacket((Player) owner,
+			new SM_ABNORMAL_STATE(abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()])));
+	}
 
 	/**
 	 *  ABNORMAL EFFECTS
@@ -251,20 +263,33 @@ public class EffectController
 	{
 		abnormals &= ~mask;
 	}
+	
+	/**
+	 *  Used for checking unique abnormal states
+	 *  
+	 * @param effectId
+	 * @return
+	 */
+	public boolean isAbnoramlSet(EffectId effectId)
+	{
+		return (abnormals & effectId.getEffectId()) == effectId.getEffectId();
+	}
+	
+	/**
+	 *  Used for compound abnormal state checks
+	 *  
+	 * @param effectId
+	 * @return
+	 */
+	public boolean isAbnormalState(EffectId effectId)
+	{
+		int state = abnormals & effectId.getEffectId();
+		return state > 0 && state <= effectId.getEffectId();
+	}
 
 	public int getAbnormals()
 	{
 		return abnormals;
 	}
 
-	public void updatePlayerEffectIcons()
-	{
-		getOwner().addPacketBroadcastMask(BroadcastMode.UPDATE_PLAYER_EFFECT_ICONS);
-	}
-	
-	public void updatePlayerEffectIconsImpl()
-	{
-		PacketSendUtility.sendPacket((Player) owner,
-			new SM_ABNORMAL_STATE(abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()])));
-	}
 }

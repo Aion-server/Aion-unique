@@ -119,7 +119,7 @@ public class Skill
 		while(effectedIter.hasNext())
 		{
 			Creature effected = effectedIter.next();
-			if (!RestrictionsManager.canUseSkill(getEffector(), effected))
+			if (!RestrictionsManager.canAffectBySkill(getEffector(), effected))
 				effectedIter.remove();
 		}
 		
@@ -176,6 +176,8 @@ public class Skill
 		/**
 		 * Create effects and precalculate result
 		 */
+		int spellStatus = 0;
+		
 		List<Effect> effects = new ArrayList<Effect>();		 
 		if(skillTemplate.getEffects() != null)
 		{
@@ -185,6 +187,7 @@ public class Skill
 			{
 				Effect effect = new Effect(effector, effected, skillTemplate,	skillLevel, duration);
 				effect.initialize();
+				spellStatus = effect.getSpellStatus().getId();
 				effects.add(effect);
 			}
 		}
@@ -196,7 +199,7 @@ public class Skill
 		{
 			PacketSendUtility.broadcastPacket(effector,
 				new SM_CASTSPELL_END(effector, skillTemplate.getSkillId(), skillLevel,
-					firstTarget, effects, skillTemplate.getCooldown()), true);
+					firstTarget, effects, skillTemplate.getCooldown(), spellStatus), true);
 		}
 		
 		/**

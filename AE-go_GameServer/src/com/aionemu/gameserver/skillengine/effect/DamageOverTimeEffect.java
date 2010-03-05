@@ -55,8 +55,7 @@ public class DamageOverTimeEffect extends DamageEffect
 	@Override
 	public void endEffect(Effect effect)
 	{
-		Creature effected = effect.getEffected();
-		effected.getEffectController().unsetAbnormal(EffectId.DAMAGE_OT.getEffectId());
+		//nothing todo
 	}
 
 	@Override
@@ -72,9 +71,6 @@ public class DamageOverTimeEffect extends DamageEffect
 	@Override
 	public void startEffect(final Effect effect)
 	{
-		final Creature effected = effect.getEffected();
-		effected.getEffectController().setAbnormal(EffectId.DAMAGE_OT.getEffectId());
-
 		Future<?> task = ThreadPoolManager.getInstance().scheduleEffectAtFixedRate(new Runnable(){
 
 			@Override

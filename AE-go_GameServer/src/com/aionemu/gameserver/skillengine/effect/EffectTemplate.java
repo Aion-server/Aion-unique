@@ -166,6 +166,7 @@ public abstract class EffectTemplate
 		int duration = template.getEffectsDuration();
 		Effect newEffect = new Effect(effect.getEffector(), effect.getEffected(), template, template.getLvl(), duration);
 		newEffect.initialize();
+		effect.setSpellStatus(newEffect.getSpellStatus());
 		newEffect.applyEffect();
 	}
 	/**

@@ -28,11 +28,13 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 public class SM_ABNORMAL_EFFECT extends AionServerPacket
 {	
 	private int effectedId;
+	private int abnormals;
 	private Effect[] effects;
 	
-	public SM_ABNORMAL_EFFECT(int effectedId, Effect[] effects)
+	public SM_ABNORMAL_EFFECT(int effectedId, int abnormals,  Effect[] effects)
 	{
 		this.effects = effects;
+		this.abnormals = abnormals;
 		this.effectedId = effectedId;
 	}
 
@@ -42,7 +44,7 @@ public class SM_ABNORMAL_EFFECT extends AionServerPacket
 		writeD(buf, effectedId); 
 		writeC(buf, 1); //unk isdebuff
 		writeD(buf, 0); //unk
-		writeD(buf, 0); //unk
+		writeD(buf, abnormals); //unk
 
 		writeH(buf, effects.length); //effects size
 		

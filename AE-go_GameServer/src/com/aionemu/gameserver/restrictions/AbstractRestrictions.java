@@ -18,6 +18,7 @@ package com.aionemu.gameserver.restrictions;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
  * @author lord_rex
@@ -57,7 +58,13 @@ public abstract class AbstractRestrictions implements Restrictions
 	}
 
 	@DisabledRestriction
-	public boolean canUseSkill(Player player, VisibleObject target)
+	public boolean canAffectBySkill(Player player, VisibleObject target)
+	{
+		throw new AbstractMethodError();
+	}
+
+	@DisabledRestriction
+	public boolean canUseSkill(Player player, Skill skill)
 	{
 		throw new AbstractMethodError();
 	}

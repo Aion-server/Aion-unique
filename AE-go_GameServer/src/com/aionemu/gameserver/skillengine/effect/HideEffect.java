@@ -58,7 +58,7 @@ public class HideEffect extends EffectTemplate
 	public void endEffect(Effect effect)
 	{
 		Creature effected = effect.getEffected();
-		effected.getEffectController().unsetAbnormal(EffectId.HIDE.getEffectId());
+		effected.getEffectController().unsetAbnormal(EffectId.INVISIBLE_RELATED.getEffectId());
 
 		CreatureVisualState visualState;
 
@@ -98,7 +98,7 @@ public class HideEffect extends EffectTemplate
 	public void startEffect(final Effect effect)
 	{
 		final Creature effected = effect.getEffected();
-		effected.getEffectController().setAbnormal(EffectId.HIDE.getEffectId());
+		effected.getEffectController().setAbnormal(EffectId.INVISIBLE_RELATED.getEffectId());
 
 		CreatureVisualState visualState;
 

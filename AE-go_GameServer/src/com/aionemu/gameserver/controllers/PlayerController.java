@@ -268,25 +268,24 @@ public class PlayerController extends CreatureController<Player>
 		getOwner().getLifeStats().reduceHp(damage);
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), type, skillId, damage), true);
 	}
-
+	
+	/**
+	 * 
+	 * @param skillId
+	 */
 	public void useSkill(int skillId)
 	{
 		Player player = getOwner();
 
-		if(!player.canAttack())
-			return;
-
-		// check if is casting to avoid multicast exploit
-		// TODO cancel skill if other is used
-		if(player.isCasting())
-			return;
-
-		// later differentiate between skills
-		getOwner().getObserveController().notifyAttackObservers();
-
 		Skill skill = SkillEngine.getInstance().getSkillFor(player, skillId, player.getTarget());
 		if(skill != null)
 		{
+			if(!RestrictionsManager.canUseSkill(player, skill))
+				return;
+			
+			// later differentiate between skills
+			getOwner().getObserveController().notifyAttackObservers();
+			
 			skill.useSkill();
 		}
 	}

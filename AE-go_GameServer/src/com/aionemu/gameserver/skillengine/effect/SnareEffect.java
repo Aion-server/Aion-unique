@@ -43,4 +43,20 @@ public class SnareEffect extends BufEffect
 		effect.increaseSuccessEffect();
 	}
 
+	@Override
+	public void endEffect(Effect effect)
+	{
+		super.endEffect(effect);
+		effect.getEffected().getEffectController().unsetAbnormal(EffectId.SNARE.getEffectId());
+	}
+
+	@Override
+	public void startEffect(Effect effect)
+	{
+		super.startEffect(effect);
+		effect.getEffected().getEffectController().setAbnormal(EffectId.SNARE.getEffectId());
+	}
+	
+	
+
 }

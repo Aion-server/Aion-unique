@@ -23,6 +23,9 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.skillengine.effect.EffectId;
+import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.skillengine.model.SkillType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -32,7 +35,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class PlayerRestrictions extends AbstractRestrictions
 {	
 	@Override
-	public boolean canUseSkill(Player player, VisibleObject target)
+	public boolean canAffectBySkill(Player player, VisibleObject target)
 	{
 		if(((Creature) target).getLifeStats().isAlreadyDead())
 		{
@@ -48,6 +51,24 @@ public class PlayerRestrictions extends AbstractRestrictions
 		return true;
 	}
 	
+	@Override
+	public boolean canUseSkill(Player player, Skill skill)
+	{
+		// check if is casting to avoid multicast exploit
+		// TODO cancel skill if other is used
+		if(player.isCasting())
+			return false;
+		
+		if(!player.canAttack())
+			return false;
+		
+		if(skill.getSkillTemplate().getType() == SkillType.MAGICAL 
+			&& player.getEffectController().isAbnoramlSet(EffectId.SILENCE))
+			return false;
+
+		return true;
+	}
+
 	@Override
 	public boolean canInviteToGroup(Player player, Player target)
 	{

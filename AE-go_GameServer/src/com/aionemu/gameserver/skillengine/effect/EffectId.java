@@ -23,15 +23,38 @@ package com.aionemu.gameserver.skillengine.effect;
 public enum EffectId
 {
 	BUFF(0),
-	ROOT(1),
-	SLEEP(2),
-	HIDE(3),
-	HEAL_OT(4),
-	DAMAGE_OT(5),
-	TRANSFORM(6),
-	POISON(7),
-	BLEED(8),
-	SEARCH(9);
+	POISON(1),
+	BLEED(2),
+	PARALYZE(4),
+	SLEEP(8),
+	ROOT(16), // ?? cannot move ?
+	BLIND(32),
+	UNKNOWN(64),
+	DISEASE(128),
+	SILENCE(256),
+	FEAR(512), //Fear I
+	CURSE(1024),
+	CHAOS(2056),
+	STUN(4096),
+	PETRIFICATION(8192),
+	STUMBLE(16384),
+	STAGGER(32768),
+	OPENAERIAL(65536),
+	SNARE(131072),
+	SLOW(262144),
+	ROTATION(524288),
+	BLOCKADE(1048576),
+	UNKNOWN2(2097152), //(Curse of Roots I, Fear I)
+	CANNOT_MOVE(4194304), //(Inescapable Judgment I)
+	SHAPECHANGE(8388608), //cannot fly
+	KNOCKBACK(16777216),
+	INVISIBLE_RELATED(33554432),//hide
+	
+	/**
+	 * Compound abnormal states
+	 */
+	CANT_ATTACK_STATE(SLEEP.effectId | STUN.effectId | STUMBLE.effectId),
+	CANT_MOVE_STATE(ROOT.effectId | SLEEP.effectId | STUMBLE.effectId | STUN.effectId);
 	
 	private int effectId;
 	

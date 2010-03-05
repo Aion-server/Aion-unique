@@ -61,7 +61,6 @@ public class PoisonEffect extends EffectTemplate
 	{
 		Creature effected = effect.getEffected();
 		effected.getEffectController().unsetAbnormal(EffectId.POISON.getEffectId());
-		effected.setPoisoned(false);
 	}
 
 	@Override
@@ -80,7 +79,6 @@ public class PoisonEffect extends EffectTemplate
 		final Creature effected = effect.getEffected();
 
 		effected.getEffectController().setAbnormal(EffectId.POISON.getEffectId());
-		effected.setPoisoned(true);
 		
 		Future<?> task = ThreadPoolManager.getInstance().scheduleEffectAtFixedRate(new Runnable(){
 

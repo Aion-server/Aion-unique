@@ -36,10 +36,12 @@ public class SM_CASTSPELL_END extends AionServerPacket
 	private int				spellid;
 	private int				level;
 	private int				cooldown;
-	private List<Effect>			effects;
+	private List<Effect>	effects;
+	private int 			spellStatus;
+
 
 	public SM_CASTSPELL_END(Creature attacker, int spellid, int level, Creature target,
-		List<Effect> effects, int cooldown)
+		List<Effect> effects, int cooldown, int spellStatus)
 	{
 		this.attacker = attacker;
 		this.target = target;
@@ -47,6 +49,7 @@ public class SM_CASTSPELL_END extends AionServerPacket
 		this.level = level;
 		this.effects = effects;
 		this.cooldown = cooldown * 10;
+		this.spellStatus = spellStatus;
 	}
 
 	/**
@@ -104,6 +107,7 @@ public class SM_CASTSPELL_END extends AionServerPacket
 			writeC(buf, 100 * targetCurrHp / targetMaxHp); // target %hp
 			writeC(buf, 100 * attackerCurrHp / attackerMaxHp); // attacker %hp
 			
+			
 			/**
 			 * Spell Status
 			 * 
@@ -117,7 +121,7 @@ public class SM_CASTSPELL_END extends AionServerPacket
 			 * 128 : dodge
 			 * 256 : resist
 			 */
-			writeC(buf, 0);
+			writeC(buf, this.spellStatus);
 
 		// TODO refactor skill engine
 		/*	switch(effect.getSpellStatus().getId())

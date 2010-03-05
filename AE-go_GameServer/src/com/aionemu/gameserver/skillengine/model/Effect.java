@@ -59,6 +59,21 @@ public class Effect
 	 */
 	private int reserved3;
 	
+	/**
+	 * Spell Status
+	 * 
+	 * 1 : stumble
+	 * 2 : knockback
+	 * 4 : open aerial
+	 * 8 : close aerial
+	 * 16 : spin
+	 * 32 : block
+	 * 64 : parry
+	 * 128 : dodge
+	 * 256 : resist
+	 */
+	private SpellStatus spellStatus = SpellStatus.NONE;
+	
 	private AttackStatus attackStatus = AttackStatus.NORMALHIT;
 	private int shieldDefense;
 	
@@ -335,6 +350,22 @@ public class Effect
 	public void setShieldDefense(int shieldDefense)
 	{
 		this.shieldDefense = shieldDefense;
+	}
+
+	/**
+	 * @return the spellStatus
+	 */
+	public SpellStatus getSpellStatus()
+	{
+		return spellStatus;
+	}
+
+	/**
+	 * @param spellStatus the spellStatus to set
+	 */
+	public void setSpellStatus(SpellStatus spellStatus)
+	{
+		this.spellStatus = spellStatus;
 	}
 
 	/**
