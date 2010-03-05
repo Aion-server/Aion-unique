@@ -29,6 +29,7 @@ import com.aionemu.gameserver.questEngine.handlers.models.ItemCollectingData;
 import com.aionemu.gameserver.questEngine.handlers.models.MonsterHuntData;
 import com.aionemu.gameserver.questEngine.handlers.models.QuestScriptData;
 import com.aionemu.gameserver.questEngine.handlers.models.ReportToData;
+import com.aionemu.gameserver.questEngine.handlers.models.WorkOrdersData;
 
 /**
  * @author MrPoke
@@ -40,7 +41,8 @@ public class QuestScriptsData
 {
 	@XmlElements( { @XmlElement(name = "report_to", type = ReportToData.class),
 		@XmlElement(name = "monster_hunt", type = MonsterHuntData.class),
-		@XmlElement(name = "item_collecting", type = ItemCollectingData.class) })
+		@XmlElement(name = "item_collecting", type = ItemCollectingData.class),
+		@XmlElement(name = "work_order", type = WorkOrdersData.class)})
 	protected List<QuestScriptData>	data;
 
 	void afterUnmarshal(Unmarshaller u, Object parent)

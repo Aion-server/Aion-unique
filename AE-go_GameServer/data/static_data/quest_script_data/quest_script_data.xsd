@@ -1,5 +1,7 @@
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+	<xs:include schemaLocation="../quest_data/quest_data.xsd" />
+	
 	<xs:element name="quest_scripts" type="QuestScripts" />
 	
 	<xs:complexType name="QuestScripts">
@@ -7,6 +9,7 @@
 			<xs:element name="item_collecting" type="ItemCollectingData" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="report_to" type="ReportToData" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="monster_hunt" type="MonsterHuntData" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="work_order" type="WorkOrdersData" minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -49,5 +52,17 @@
 		<xs:attribute name="var_id" type="xs:int" use="required"/>
 		<xs:attribute name="max_kill" type="xs:int" use="required"/>
 		<xs:attribute name="npc_id" type="xs:int" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="WorkOrdersData">
+		<xs:complexContent>
+			<xs:extension base="QuestScriptData">
+				<xs:sequence>
+					<xs:element name="give_component" type="QuestItems" minOccurs="1" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="start_npc_id" type="xs:int" use="required"/>
+				<xs:attribute name="recipe_id" type="xs:int" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 </xs:schema>

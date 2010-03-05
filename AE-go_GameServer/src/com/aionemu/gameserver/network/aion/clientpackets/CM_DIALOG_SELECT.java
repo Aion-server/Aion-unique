@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -46,6 +48,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	@Inject
 	World world;
 
+	private static final Logger log = Logger.getLogger(CM_DIALOG_SELECT.class);
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
 	 * 
@@ -95,6 +98,6 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 			Creature creature = (Creature) object;
 			creature.getController().onDialogSelect(dialogId, player, questId);
 		}
-		// log.info("id: "+targetObjectId+" dialog type: " + unk1 +" other: " + unk2);
+		log.info("id: "+targetObjectId+" dialogId: " + dialogId +" unk1: " + unk1 + " questId: "+questId);
 	}
 }

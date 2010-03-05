@@ -184,7 +184,6 @@ public class NpcController extends CreatureController<Npc>
 
 		if(QuestEngine.getInstance().onDialog(new QuestEnv(npc, player, questId, dialogId)))
 			return;
-
 		switch(dialogId)
 		{
 			case 2:
@@ -348,9 +347,10 @@ public class NpcController extends CreatureController<Npc>
 				// WTF??? Quest dialog packet
 				break;
 			case 52:
-				// work order from lerning npc in sanctum
-				PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "This feature is not available yet",
-					ChatType.ANNOUNCEMENTS));
+				if(MathUtil.isInRange(npc, player, 10)) // avoiding exploit with sending fake dialog_select packet
+				{
+					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(targetObjectId, 28));
+				}
 				break;
 			case 53:
 				// coin reward

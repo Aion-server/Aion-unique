@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "QuestScriptData")
-@XmlSeeAlso( { ReportToData.class, MonsterHuntData.class, ItemCollectingData.class })
+@XmlSeeAlso( { ReportToData.class, MonsterHuntData.class, ItemCollectingData.class, WorkOrdersData.class })
 public abstract class QuestScriptData
 {
 
