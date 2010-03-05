@@ -114,7 +114,7 @@ public class ShutdownHook extends Thread
 			{
 				Player player = onlinePlayers.next();
 				if(player != null && player.getClientConnection() != null)
-					onlinePlayers.next().getController().setInShutdownProgress(status);
+					player.getController().setInShutdownProgress(status);
 			}
 		}
 		catch(NoSuchElementException e)
