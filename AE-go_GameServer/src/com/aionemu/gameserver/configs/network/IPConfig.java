@@ -15,7 +15,7 @@
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aionemu.gameserver.configs;
+package com.aionemu.gameserver.configs.network;
 
 import java.io.File;
 import java.net.InetAddress;
@@ -51,7 +51,7 @@ public class IPConfig
 	/**
 	 * Location of config file
 	 */
-	private static final String			CONFIG_FILE	= "./config/ipconfig.xml";
+	private static final String			CONFIG_FILE	= "./config/network/ipconfig.xml";
 
 	/**
 	 * List of all ip ranges
@@ -66,7 +66,7 @@ public class IPConfig
 	/**
 	 * Method that loads IPConfig
 	 */
-	static void load()
+	public static void load()
 	{
 		try
 		{

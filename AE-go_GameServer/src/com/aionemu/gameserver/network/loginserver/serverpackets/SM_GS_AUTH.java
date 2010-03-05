@@ -20,7 +20,7 @@ import java.nio.ByteBuffer;
 import java.util.List;
 
 import com.aionemu.commons.network.IPRange;
-import com.aionemu.gameserver.configs.IPConfig;
+import com.aionemu.gameserver.configs.network.IPConfig;
 import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.network.loginserver.LoginServerConnection;
 import com.aionemu.gameserver.network.loginserver.LsServerPacket;
