@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-    <classpathentry kind="src" path="src" />
-    <classpathentry kind="src" path="test" />
-    <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" />
-    <classpathentry kind="lib" path="lib/log4j-1.2.15.jar" sourcepath="libsrc/log4j-1.2.5-src.zip" />
-    <classpathentry kind="lib" path="lib/commons-io-1.4.jar" sourcepath="libsrc/commons-io-1.4-sources.jar" />
-    <classpathentry kind="lib" path="lib/javac.jar" sourcepath="libsrc/javac.zip" />
-    <classpathentry kind="lib" path="lib/commons-pool-1.5.2.jar" sourcepath="libsrc/commons-pool-1.5.2-sources.jar" />
-    <classpathentry kind="lib" path="lib/mysql-connector-java-5.1.8-bin.jar" sourcepath="libsrc/mysql-connector-java-5.1.8-src.zip" />
-    <classpathentry kind="lib" path="lib/javassist-3.11.0-GA.jar" sourcepath="libsrc/javassist-3.11.0-GA-src.zip" />
-    <classpathentry kind="lib" path="lib/commons-dbcp-1.3-SNAPSHOT-r796150-jdbc4.jar" sourcepath="libsrc/commons-dbcp-1.3-SNAPSHOT-r796150-jdbc4-src.zip" />
-    <classpathentry kind="lib" path="testlib/junit-4.6.jar" sourcepath="testlibsrc/junit-4.6-src.jar" />
-    <classpathentry kind="output" path="bin" />
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="config/network"/>
+	<classpathentry excluding="network/" kind="src" path="config"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.15.jar" sourcepath="libsrc/log4j-1.2.5-src.zip"/>
+	<classpathentry kind="lib" path="lib/commons-io-1.4.jar" sourcepath="libsrc/commons-io-1.4-sources.jar"/>
+	<classpathentry kind="lib" path="lib/javac.jar" sourcepath="libsrc/javac.zip"/>
+	<classpathentry kind="lib" path="lib/commons-pool-1.5.2.jar" sourcepath="libsrc/commons-pool-1.5.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.8-bin.jar" sourcepath="libsrc/mysql-connector-java-5.1.8-src.zip"/>
+	<classpathentry kind="lib" path="lib/javassist-3.11.0-GA.jar" sourcepath="libsrc/javassist-3.11.0-GA-src.zip"/>
+	<classpathentry kind="lib" path="lib/commons-dbcp-1.3-SNAPSHOT-r796150-jdbc4.jar" sourcepath="libsrc/commons-dbcp-1.3-SNAPSHOT-r796150-jdbc4-src.zip"/>
+	<classpathentry kind="lib" path="testlib/junit-4.6.jar" sourcepath="testlibsrc/junit-4.6-src.jar"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
-

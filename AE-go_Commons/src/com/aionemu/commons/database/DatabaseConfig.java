@@ -41,7 +41,7 @@ public class DatabaseConfig
 	/**
 	 * Config file location
 	 */
-	public static final String	CONFIG_FILE	= "config/database.properties";
+	public static final String	CONFIG_FILE	= "config/network/database.properties";
 
 	/**
 	 * Default database url.
