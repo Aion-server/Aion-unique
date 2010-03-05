@@ -16,15 +16,20 @@
   ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-	<!-- TODO: Symbol of the Chosen -->
+	<!-- Symbol of the Chosen -->
+	<report_to id="9510" start_npc_id="203752" end_npc_id="203711"/>
 	
-	<!-- TODO: A Ring Imbued With Aether -->
+	<!-- A Ring Imbued With Aether -->
+	<report_to id="1900" start_npc_id="203739" end_npc_id="203830" item_id="122000885"/>
 	
-	<!-- TODO: A Song Of Praise -->
-
-	<!-- TODO: Delivery for the Outer Port -->
+	<!-- A Song Of Praise -->
+	<report_to id="1909" start_npc_id="203726" end_npc_id="203099"/>
 	
-	<!-- TODO: Krallic Language Potion -->
+	<!-- Delivery for the Outer Port -->
+	<report_to id="1963" start_npc_id="203726" end_npc_id="203726"/>
+	
+	<!-- Krallic Language Potion -->
+	<report_to id="1901" start_npc_id="798026" end_npc_id="203864"/>
 	
 	<!-- TODO: Ulaguru Speaks -->
 
