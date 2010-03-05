@@ -88,16 +88,25 @@ public class ShutdownHook extends Thread
 		if(!onlinePlayers.hasNext())
 			return;
 		while(onlinePlayers.hasNext())
-			onlinePlayers.next().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(seconds));
+		{
+			Player player = onlinePlayers.next();
+			if(player != null && player.getClientConnection() != null)
+				player.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(seconds));
+		}
+			
 	}
-
+	
 	private static void sendShutdownStatus(boolean status)
 	{
 		Iterator<Player> onlinePlayers = world.getPlayersIterator();
 		if(!onlinePlayers.hasNext())
 			return;
 		while(onlinePlayers.hasNext())
-			onlinePlayers.next().getController().setInShutdownProgress(status);
+		{
+			Player player = onlinePlayers.next();
+			if(player != null && player.getClientConnection() != null)
+				onlinePlayers.next().getController().setInShutdownProgress(status);
+		}			
 	}
 
 	private static void shutdownHook(int duration, int interval, ShutdownMode mode)
@@ -139,7 +148,15 @@ public class ShutdownHook extends Thread
 		while(onlinePlayers.hasNext())
 		{
 			Player activePlayer = onlinePlayers.next();
-			playerService.playerLoggedOut(activePlayer);
+			try
+			{
+				playerService.playerLoggedOut(activePlayer);
+			}
+			catch (Exception e) 
+			{
+				log.error("Error while saving player " + e.getMessage());
+			}
+			
 		}
 		log.info("All players are disconnected...");
 
