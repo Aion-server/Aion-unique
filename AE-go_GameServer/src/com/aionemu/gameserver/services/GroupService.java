@@ -16,9 +16,9 @@
  */
 package com.aionemu.gameserver.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ScheduledFuture;
-
-import javolution.util.FastMap;
 
 import org.apache.log4j.Logger;
 
@@ -387,26 +387,43 @@ public class GroupService
 	/**
 	 * @return FastMap<Integer, Boolean>
 	 */
-	public FastMap<Integer, Boolean> getMembersToRegistrateByRules(final Player player, final PlayerGroup group)
+	public List<Integer> getMembersToRegistrateByRules(final Player player, final PlayerGroup group)
 	{
 		final LootGroupRules lootRules = group.getLootGroupRules();
 		final LootRuleType lootRule = lootRules.getLootRule();
-		FastMap<Integer, Boolean> luckyMembers = new FastMap<Integer, Boolean>();
+		List<Integer> luckyMembers = new ArrayList<Integer>();
 
 		switch(lootRule)
 		{
 			case FREEFORALL:
-				for(int memberObjId : group.getMemberObjIds())
-				{
-					luckyMembers.put(memberObjId, false);
-				}
+				luckyMembers = getGroupMembers(group, false);
 				break;
 			case ROUNDROBIN:
-				luckyMembers.put(group.getRandomMember(), false);
+				luckyMembers.add(group.getRandomMember());
 				break;
 			case LEADER:
-				luckyMembers.put(group.getGroupLeader().getObjectId(), false);
+				luckyMembers.add(group.getGroupLeader().getObjectId());
 				break;
+		}
+		return luckyMembers;
+	}
+
+	/**
+	 * This method will get all group members
+	 * @param group
+	 * @param except
+	 * @return list of group members
+	 */
+	public List<Integer> getGroupMembers(final PlayerGroup group, boolean except)
+	{
+		List<Integer> luckyMembers = new ArrayList<Integer>();
+		for(int memberObjId : group.getMemberObjIds())
+		{
+			if(except)
+				if(group.getGroupLeader().getObjectId() != memberObjId)
+					luckyMembers.add(memberObjId);
+				else
+					luckyMembers.add(memberObjId);
 		}
 		return luckyMembers;
 	}

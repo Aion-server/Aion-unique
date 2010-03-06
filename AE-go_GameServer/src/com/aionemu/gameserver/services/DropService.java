@@ -16,12 +16,13 @@
  */
 package com.aionemu.gameserver.services;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 import javolution.util.FastMap;
 
@@ -32,6 +33,7 @@ import com.aionemu.gameserver.dao.DropListDAO;
 import com.aionemu.gameserver.model.drop.DropItem;
 import com.aionemu.gameserver.model.drop.DropList;
 import com.aionemu.gameserver.model.drop.DropTemplate;
+import com.aionemu.gameserver.model.gameobjects.DropNpc;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
@@ -49,17 +51,18 @@ import com.google.inject.Inject;
  */
 public class DropService
 {
-	private static final Logger						log					= Logger.getLogger(DropService.class);
+	private static final Logger			log					= Logger.getLogger(DropService.class);
 
-	private DropList								dropList;
+	private DropList					dropList;
 
-	private Map<Integer, Set<DropItem>>				currentDropMap		= Collections
-																			.synchronizedMap(new HashMap<Integer, Set<DropItem>>());
-	private Map<Integer, FastMap<Integer, Boolean>>	dropRegistrationMap	= new ConcurrentHashMap<Integer, FastMap<Integer, Boolean>>();
-	private ItemService								itemService;
-	private GroupService							groupService;
+	private Map<Integer, Set<DropItem>>	currentDropMap		= Collections
+																.synchronizedMap(new HashMap<Integer, Set<DropItem>>());
+	private Map<Integer, DropNpc>		dropRegistrationMap	= new FastMap<Integer, DropNpc>();
 
-	private World									world;
+	private ItemService					itemService;
+	private GroupService				groupService;
+
+	private World						world;
 
 	@Inject
 	public DropService(ItemService itemService, World world, GroupService groupService)
@@ -123,14 +126,14 @@ public class DropService
 			{
 				if(player.isInGroup())
 				{
-					dropRegistrationMap.put(npcUniqueId, groupService.getMembersToRegistrateByRules(player, player
-						.getPlayerGroup()));
+					dropRegistrationMap.put(npcUniqueId, new DropNpc(groupService.getMembersToRegistrateByRules(player,
+						player.getPlayerGroup())));
 				}
 				else
 				{
-					FastMap<Integer, Boolean> singlePlayer = new FastMap<Integer, Boolean>();
-					singlePlayer.put(player.getObjectId(), false);
-					dropRegistrationMap.put(npcUniqueId, singlePlayer);
+					List<Integer> singlePlayer = new ArrayList<Integer>();
+					singlePlayer.add(player.getObjectId());
+					dropRegistrationMap.put(npcUniqueId, new DropNpc(singlePlayer));
 				}
 			}
 
@@ -163,20 +166,21 @@ public class DropService
 		if(player == null || !dropRegistrationMap.containsKey(npcId))
 			return;
 
-		if(!dropRegistrationMap.get(npcId).containsKey(player.getObjectId()))
+		DropNpc dropNpc = dropRegistrationMap.get(npcId);
+		if(!dropNpc.containsKey(player.getObjectId()))
 		{
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_LOOT_NO_RIGHT());
 			return;
 		}
 
-		if(dropRegistrationMap.get(npcId).containsValue(true))
+		if(dropNpc.isBeingLooted())
 		{
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_LOOT_FAIL_ONLOOTING());
 			return;
 		}
-		
-		dropRegistrationMap.get(npcId).put(player.getObjectId(), true);
-		
+
+		dropNpc.setBeingLooted(player.getObjectId());
+
 		Set<DropItem> dropItems = currentDropMap.get(npcId);
 
 		if(dropItems == null)
@@ -190,8 +194,29 @@ public class DropService
 		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 35, 0, npcId), true);
 
 		// if dropitems is empty, resend droplist for close loot
-		if (dropItems.size() == 0)
+		if(dropItems.size() == 0)
 			resendDropList(player, npcId, dropItems);
+	}
+
+	/**
+	 * This method will change looted corpse to not in use
+	 * @param player
+	 * @param npcId
+	 * @param close
+	 */
+	public void requestDropList(Player player, int npcId, boolean close)
+	{
+		if(!dropRegistrationMap.containsKey(npcId))
+			return;
+
+		DropNpc dropNpc = dropRegistrationMap.get(npcId);
+		dropNpc.setBeingLooted(0);
+		
+		if(player.isInGroup())
+		{
+			if(player.getPlayerGroup().getGroupLeader().getObjectId() == player.getObjectId())
+				dropRegistrationMap.put(npcId, new DropNpc(groupService.getGroupMembers(player.getPlayerGroup(), true)));
+		}
 	}
 
 	public void requestDropItem(Player player, int npcId, int itemIndex)

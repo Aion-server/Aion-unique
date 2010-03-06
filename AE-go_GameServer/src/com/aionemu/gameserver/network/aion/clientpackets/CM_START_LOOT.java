@@ -71,7 +71,7 @@ public class CM_START_LOOT extends AionClientPacket
 		}
 		else if(action == 1) //close
 		{
-			//TODO discard loot?
+			dropService.requestDropList(player, targetObjectId, true);
 		}
 	}
 }
