@@ -249,17 +249,22 @@
 
 	<!-- TODO: 1309 Manduri's Diary -->
 
-	<!-- TODO: 1432 Stalking the Wily Lapia -->
+	<!-- Stalking the Wily Lapia -->
+	<item_collecting start_npc_id="203328" id="1432"/>
 
 	<!-- TODO: 1482 [Spy] A Teleportation Adventure -->
 
-	<!-- TODO: 1479 HelpingMemnes -->
+	<!-- Helping Memnes -->
+	<report_to id="1479" start_npc_id="730020" end_npc_id="203912"/>
+	
+	<!-- [Spy]Celestine'sAntidote -->
+	<item_collecting start_npc_id="204030" id="1462"/>
 
-	<!-- TODO: 1462 [Spy] Celestine's Antidote -->
+	<!-- Desert Fess -->
+	<item_collecting start_npc_id="203923" id="1436"/>
 
-	<!-- TODO: 1436 Desert Fess -->
-
-	<!-- TODO: 1437 Worth Your Weight in Gold -->
+	<!-- Worth Your Weight in Gold -->
+	<item_collecting start_npc_id="203922" id="1437"/>
 
 	<!-- TODO: 1032 A Ruler's Duty -->
 
@@ -299,9 +304,11 @@
 
 	<!-- TODO: 1489 Marfonda of Darkness -->
 
-	<!-- TODO: 1483 Harumonerk's Request -->
+	<!-- Harumonerk'sRequest -->
+	<report_to id="1483" start_npc_id="798126" end_npc_id="203940"/>
 
-	<!-- TODO: 1484 Chiyorinrinerk's Request -->
+	<!-- 1484 Chiyorinrinerk's Request -->
+	<report_to id="1484" start_npc_id="798127" end_npc_id="204045"/>
 
 	<!-- TODO: 1463 [Spy] Message to a Spy -->
 
@@ -332,7 +339,8 @@
 
 	<!-- TODO: 1466 [Spy] Respect For Deltras -->
 
-	<!-- TODO: 1458 ADaeva's Reputation (II) -->
+	<!-- 1458 A Daeva's Reputation (II) -->
+	<item_collecting id="1458" start_npc_id="798049" />
 
 	<!-- TODO: 1336 Scouting for Demokritos -->
 
@@ -350,6 +358,7 @@
 	<!-- Enemy Miner -->
 	<monster_hunt start_npc_id="204045" id="1497">
 		<monster_infos var_id="0" npc_id="211831" max_kill="7"/>
+				<monster_infos npc_id="211830"  var_id="0" max_kill="7"/>
 		<monster_infos var_id="1" npc_id="212070" max_kill="7"/>
 		
 	</monster_hunt>
@@ -379,7 +388,8 @@
 	<!-- Gimme Shelter -->
 	<report_to id="1382" start_npc_id="203993" end_npc_id="203943"/>
 
-	<!-- TODO: 1363 Thanking Mabangtah -->
+	<!-- 1363 Thanking Mabangtah -->
+	<report_to id="1363" start_npc_id="203943" end_npc_id="203943" item_id="182201330"/>
 
 	<!-- TODO: 1364 Journey to Agairon -->
 
@@ -390,21 +400,27 @@
 		
 	</monster_hunt>
 
-	<!-- TODO: 1422 A Better Sword -->
+	<!-- 1422 A Better Sword -->
+	<item_collecting id="1422" start_npc_id="203334" />
 
 	<!-- TODO: 1037 Secrets of the Temple -->
 
 	<!-- A Pain in the Nyerk -->
 	<report_to id="1359" start_npc_id="798055" end_npc_id="798051" item_id="182201324" />
 
-	<!-- Killing for Castor -->
-	<monster_hunt start_npc_id="203966" id="1467">
-		<monster_infos var_id="0" npc_id="210844" max_kill="15"/>
-		<monster_infos var_id="1" npc_id="210878" max_kill="20"/>
-		
+	<!-- 1346 Killing for Castor -->
+	<monster_hunt id="1346" start_npc_id="203966">
+		<monster_infos npc_id="210844"  var_id="0" max_kill="15"/>
+		<monster_infos npc_id="210878"  var_id="1" max_kill="20"/>
 	</monster_hunt>
 
-	<!-- TODO: 1467 [Group] The Four Leaders -->
+	<!-- 1467 [Group]The Four Leaders -->
+	<monster_hunt id="1467" start_npc_id="204045">
+		<monster_infos npc_id="211696"  var_id="0" max_kill="1"/>
+		<monster_infos npc_id="211697"  var_id="1" max_kill="1"/>
+		<monster_infos npc_id="211698"  var_id="2" max_kill="1"/>
+		<monster_infos npc_id="211699"  var_id="3" max_kill="1"/>
+	</monster_hunt>
 
 	<!-- Ore for Hannet -->
 	<item_collecting start_npc_id="203992" id="1450" />
@@ -516,25 +532,38 @@
 	
 	<!-- TODO: 1385 RescuingGriffo -->
 
-	<!-- TODO: 1386 Sentinel Viragos -->
+	<!-- 1386 Sentinel Viragos -->
+	<item_collecting id="1386" start_npc_id="204040" />
 
-	<!-- TODO: 1387 Corpse-Hunting Viragos -->
+	<!-- 1387 Corpse-Hunting Viragos -->
+	<monster_hunt id="1387" start_npc_id="204040">
+		<monster_infos npc_id="210953"  var_id="0" max_kill="12"/>
+	</monster_hunt>
 
-	<!-- TODO: 1388 Shumerunerk's Trade -->
+	<!-- 1388 Shumerunerk's Trade -->
+	<item_collecting id="1388" start_npc_id="798054" />
 
-	<!-- TODO: 1370 Isson's Betrayal -->
+	<!-- 1370 Isson's Betrayal -->
+	<monster_hunt id="1370" start_npc_id="203949">
+		<monster_infos npc_id="210970"  var_id="0" max_kill="1"/>
+	</monster_hunt>
 
-	<!-- TODO: 1371 Flowers for Isson -->
+	<!-- 1371 Flowers for Isson -->
+	<item_collecting id="1371" start_npc_id="203949" />
 
-	<!-- TODO: 1374 Warning to Laquepin -->
+	<!-- 1374 Warning to Laquepin -->
+	<report_to id="1374" start_npc_id="203946" end_npc_id="203992" />
 
-	<!-- TODO: 1389 Suspicious Pretors -->
+	<!-- 1389 Suspicious Pretors -->
+	<item_collecting id="1389" start_npc_id="203993" />
 
-	<!-- TODO: 1390 Delivery to the Lyceum -->
+	<!-- 1390 Delivery to the Lyceum -->
+	<report_to id="1390" start_npc_id="203993" end_npc_id="203761" item_id="182201368"/>
 
 	<!-- TODO: 1391 RM-12b -->
 
-	<!-- TODO: 1392 A Mysterious Crystal -->
+	<!-- 1392 A Mysterious Crystal -->
+	<report_to id="1392" start_npc_id="203992" end_npc_id="203994" item_id="182201369"/>
 
 	<!-- TODO: 1393 NewFlight Path -->
 
@@ -544,61 +573,108 @@
 
 	<!-- TODO: 1039 Something in the Water -->
 
-	<!-- TODO: 1456 Garnets For Krato -->
+	<!-- 1456 Garnets For Krato -->
+	<item_collecting id="1456" start_npc_id="203923" />
 
-	<!-- TODO: 1459 Krato Needs Lapis -->
+	<!-- 1459 Krato Needs Lapis -->
+	<item_collecting id="1459" start_npc_id="203923" />
 
 	<!-- TODO: 1469 [Spy/Group] Finding Denlavis -->
 
-	<!-- TODO: 1444 Combat Preparation -->
+	<!-- 1444 Combat Preparation -->
+	<item_collecting id="1444" start_npc_id="204013" />
 
-	<!-- TODO: 1394 Reporting the New Flight Path -->
+	<!-- TODO: 1394 Reporting the New Flight Path (!!! QUEST WORKING PARTLY !!!) -->
+	<report_to id="1394" start_npc_id="204041" end_npc_id="204039"/>
 
-	<!-- TODO: 1375 Arming the Watch -->
+	<!-- 1375 Arming the Watch -->
+	<item_collecting id="1375" start_npc_id="203947" />
 
-	<!-- TODO: 1376 A Mountain of Trouble -->
+	<!-- 1376 A Mountain of Trouble -->
+	<monster_hunt id="1376" start_npc_id="203947">
+		<monster_infos npc_id="210986"  var_id="0" max_kill="7"/>
+		<monster_infos npc_id="210976"  var_id="0" max_kill="7"/>
+	</monster_hunt>
 
-	<!-- TODO: 1377 [Coin] Kerubsin Kuriullu -->
+	<!-- 1377 [Coin] Kerubsin Kuriullu -->
+	<monster_hunt id="1377" start_npc_id="203964">
+		<monster_infos npc_id="210976"  var_id="0" max_kill="12"/>
+		<monster_infos npc_id="210977"  var_id="1" max_kill="17"/>
+	</monster_hunt>
 
-	<!-- TODO: 1420 Trespassersat the Observatory -->
+	<!-- 1420 Trespassersat the Observatory -->
+	<item_collecting id="1420" start_npc_id="285972" />
 
-	<!-- TODO: 1400 Paion's Worry -->
+	<!-- 1400 Paion's Worry -->
+	<monster_hunt id="1400" start_npc_id="203941">
+		<monster_infos npc_id="210979"  var_id="0" max_kill="7"/>
+		<monster_infos npc_id="211671"  var_id="1" max_kill="3"/>
+	</monster_hunt>
 
-	<!-- TODO: 1402 Specialty Hides -->
+	<!-- 1402 Specialty Hides -->
+	<item_collecting id="1402" start_npc_id="203942" />
 
-	<!-- TODO: 1403 Heart of the Mamut -->
+	<!-- 1403 Heart of the Mamut -->
+	<item_collecting id="1403" start_npc_id="203942" />
 
-	<!-- TODO: 1404 A Head Starton Hylas -->
+	<!-- 1404 A Head Starton Hylas -->
+	<monster_hunt id="1404" start_npc_id="203995">
+		<monster_infos npc_id="210982"  var_id="0" max_kill="9"/>
+	</monster_hunt>
 
-	<!-- TODO: 1408 Trespassersat the Observatory -->
+	<!-- 1408 Trespassersat the Observatory -->
+	<item_collecting id="1408" start_npc_id="285972" />
 
-	<!-- TODO: 1405 Crystals for Hylas -->
+	<!-- 1405 Crystals for Hylas -->
+	<item_collecting id="1405" start_npc_id="203995" />
 
-	<!-- TODO: 1406 Tigrics of IllOmen -->
+	<!-- 1406 Tigrics of IllOmen -->
+	<monster_hunt id="1406" start_npc_id="203990">
+		<monster_infos npc_id="210989"  var_id="0" max_kill="7"/>
+	</monster_hunt>
 
-	<!-- TODO: 1407 Encountering Akeras -->
+	<!-- Encountering Akeras -->
+	<monster_hunt id="1407" start_npc_id="203990">
+		<monster_infos npc_id="210999"  var_id="0" max_kill="1"/>
+	</monster_hunt>
 
-	<!-- TODO: 1378 Supplies for Hylas -->
+	<!-- 1378 Supplies for Hylas -->
+	<report_to id="1378" start_npc_id="203948" end_npc_id="203995" item_id="182201339"/>
 
 	<!-- TODO: 1040 Scouting the Scouts -->
 
 	<!-- TODO: 1373 Water The rapy -->
 
-	<!-- TODO: 1401 A Lie Begetsa Lie -->
+	<!-- 1401 A Lie Begetsa Lie -->
+	<monster_hunt id="1401" start_npc_id="203941">
+		<monster_infos npc_id="211000"  var_id="0" max_kill="3"/>
+		<monster_infos npc_id="211673"  var_id="1" max_kill="2"/>
+	</monster_hunt>
 
-	<!-- TODO: 1409 [Group] Mamaki Patrol -->
+	<!-- 1409 [Group] Mamaki Patrol -->
+	<monster_hunt id="1409" start_npc_id="203990">
+		<monster_infos npc_id="211005"  var_id="0" max_kill="7"/>
+		<monster_infos npc_id="211006"  var_id="1" max_kill="7"/>
+		<monster_infos npc_id="211004"  var_id="2" max_kill="5"/>
+	</monster_hunt>
 
-	<!-- TODO: 1410 Tumblusen's Call -->
-
-	<!-- TODO: 1411 [Group]The Kaidan Surge -->
+	<!-- Tumblusen's Call -->
+	<report_to id="1410" start_npc_id="203989" end_npc_id="203989"/>
+	
+	<!-- [Group] The Kaidan Surge -->
+	<item_collecting start_npc_id="203989" id="1411"/>
 
 	<!-- TODO: 1412 A Dangerous Potion -->
 
-	<!-- TODO: 1470 [Spy/Group] Hannet's Vengeance -->
+	<!-- 1470 [Spy/Group] Hannet's Vengeance -->
+	<monster_hunt id="1470" start_npc_id="790004">
+		<monster_infos npc_id="212846"  var_id="0" max_kill="1"/>
+	</monster_hunt>
 
 	<!-- TODO: 1471 Fake Stigma -->
 
-	<!-- TODO: 1481 Troll Hammers -->
+	<!-- 1481 Troll Hammers -->
+	<item_collecting start_npc_id="203898" id="1481"/>
 
 	<!-- TODO: 3303 Mysterious Water Source -->
 
@@ -610,21 +686,40 @@
 
 	<!-- TODO: 3307 [Group] Important Targets -->
 
-	<!-- TODO: 1491 [Group] Korumonerkin Danger -->
+	<!-- [Group] Korumonerk in Danger -->
+	<item_collecting start_npc_id="798151" id="1491"/>
 
-	<!-- TODO: 1492 [Group] The Lost Glove Box -->
+	<!-- [Group] The Lost Glove Box -->
+	<item_collecting start_npc_id="798151" id="1492"/>
 
-	<!-- TODO: 1417 The Kaidan Report -->
+	<!-- The Kaidan Report -->
+	<report_to id="1417" start_npc_id="203989" end_npc_id="203901"/>
 
-	<!-- TODO: 1395 A Wrenchin the Works -->
+	<!-- 1395 A Wrenchin the Works -->
+	<monster_hunt id="1395" start_npc_id="204042">
+		<monster_infos npc_id="211012"  var_id="0" max_kill="7"/>
+		<monster_infos npc_id="211665"  var_id="1" max_kill="9"/>
+		<monster_infos npc_id="211666"  var_id="2" max_kill="11"/>
+	</monster_hunt>
 
 	<!-- TODO: 1041 A Dangerous Artifact -->
 
-	<!-- TODO: 1396 Pressing the Advantage -->
+	<!-- 1396 Pressing the Advantage -->
+	<monster_hunt id="1396" start_npc_id="204042">
+		<monster_infos npc_id="211025"  var_id="0" max_kill="7"/>
+		<monster_infos npc_id="211024"  var_id="1" max_kill="9"/>
+		<monster_infos npc_id="211023"  var_id="2" max_kill="12"/>
+		<monster_infos npc_id="211031"  var_id="3" max_kill="3"/>
+	</monster_hunt>
 
-	<!-- TODO: 1397 Lepharists Amok -->
+	<!-- 1397 Lepharists Amok -->
+	<monster_hunt id="1397" start_npc_id="204042">
+		<monster_infos npc_id="211718"  var_id="0" max_kill="10"/>
+		<monster_infos npc_id="211723"  var_id="1" max_kill="10"/>
+	</monster_hunt>
 
-	<!-- TODO: 1413 Infiltrate the Kaidan -->
+	<!-- 1413 Infiltrate the Kaidan -->
+	<report_to id="1413" start_npc_id="203901" end_npc_id="203989"/>
 
 	<!-- TODO: 1414 [Group] Operation Windmill -->
 
