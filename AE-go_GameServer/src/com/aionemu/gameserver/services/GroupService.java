@@ -410,6 +410,7 @@ public class GroupService
 
 	/**
 	 * This method will get all group members
+	 * 
 	 * @param group
 	 * @param except
 	 * @return list of group members
@@ -420,10 +421,12 @@ public class GroupService
 		for(int memberObjId : group.getMemberObjIds())
 		{
 			if(except)
+			{
 				if(group.getGroupLeader().getObjectId() != memberObjId)
 					luckyMembers.add(memberObjId);
-				else
-					luckyMembers.add(memberObjId);
+			}
+			else
+				luckyMembers.add(memberObjId);
 		}
 		return luckyMembers;
 	}
