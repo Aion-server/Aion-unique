@@ -1,0 +1,386 @@
+<quest_scripts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="quest_script_data.xsd">
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+        <!-- TODO: A Bloom in Brusthonin -->
+        
+        <!-- A Bribe for the Chieftain -->
+        <item_collecting id="4084" start_npc_id="205164" />
+        
+        <!-- A Family's Memento -->
+        <item_collecting id="4091" start_npc_id="205156" />
+        
+        <!-- TODO: A Light Through the Trees -->
+        
+        <!-- A Thing for Ginseng -->
+        <item_collecting id="4047" start_npc_id="205167" />
+        
+        <!-- Abandoned Mithril -->
+        <item_collecting id="4099" start_npc_id="205149" />
+        
+        <!-- TODO: Alas, Poor Groznak -->
+        
+        <!-- TODO: An Old Settler's Letter -->
+        
+        <!-- Baltasar's Wish -->
+        <item_collecting id="4034" start_npc_id="205156" />
+        
+        <!-- Big Mother Sauramam -->
+        <monster_hunt id="4103" start_npc_id="205193">
+                <monster_infos npc_id="215381" var_id="0" max_kill="1" />
+        </monster_hunt>
+        
+        <!-- Brohum's Ornamental Bow //need test-->
+        <item_collecting id="4050" start_npc_id="205172" />
+        
+        <!-- BuBu Mep's Wedding Preparation -->
+        <item_collecting id="4046" start_npc_id="205172" />
+        
+        <!-- TODO: Bukmir's Old Friend -->
+        
+        <!-- TODO: Bukmir's Worry -->
+        
+        <!-- Captain's Hat -->
+        <item_collecting id="4056" start_npc_id="205203" />
+        
+        <!-- Carnivores Run Amok //need careful test-->
+        <monster_hunt id="4031" start_npc_id="205151" >
+                <monster_infos npc_id="214365" var_id="0" max_kill="20" />
+                <monster_infos npc_id="214366" var_id="0" max_kill="20" />
+                <monster_infos npc_id="214369" var_id="1" max_kill="30" />
+                <monster_infos npc_id="214370" var_id="1" max_kill="30" />
+        </monster_hunt>
+        
+        <!-- TODO:Check on the Settlers -->
+        
+        <!-- Cleansing the Forest -->
+        <monster_hunt id="4096" start_npc_id="205201">
+                <monster_infos npc_id="214550" var_id="0" max_kill="10" />
+                <monster_infos npc_id="214551" var_id="0" max_kill="10" />
+        </monster_hunt>
+        
+        <!-- Clearing the Fields -->
+        <monster_hunt id="4007" start_npc_id="205128">
+                <monster_infos npc_id="213859" var_id="0" max_kill="11" />
+                <monster_infos npc_id="213860" var_id="0" max_kill="11" />
+                <monster_infos npc_id="213861" var_id="1" max_kill="11" />
+                <monster_infos npc_id="213862" var_id="1" max_kill="11" />
+        </monster_hunt>
+        
+        <!-- Contamination Sample -->
+        <item_collecting id="4059" start_npc_id="205204" />
+        
+        <!-- TODO: Elim of Brusthonin -->
+        
+        <!-- Elim's Goodwill -->
+        <monster_hunt id="4039" start_npc_id="205193">
+                <monster_infos npc_id="214413" var_id="0" max_kill="30" />
+                <monster_infos npc_id="214414" var_id="0" max_kill="30" />
+                <monster_infos npc_id="214415" var_id="1" max_kill="18" />
+        </monster_hunt>
+        
+        <!-- Elim's Smile //need careful test-->
+        <report_to start_npc_id="205159" end_npc_id="205159" id="4104"/>
+        
+        <!-- Everyone Has a Secret -->
+        <item_collecting id="4019" start_npc_id="205127" />
+        
+        <!-- For Virhu //need test-->
+        <report_to start_npc_id="205158" end_npc_id="730104" id="4097" />
+        
+        <!-- For the BuBu Tribe -->
+        <monster_hunt id="4049" start_npc_id="205166">
+                <monster_infos npc_id="214463" var_id="0" max_kill="25" />
+                <monster_infos npc_id="214464" var_id="0" max_kill="25" />
+                <monster_infos npc_id="214465" var_id="1" max_kill="35" />
+                <monster_infos npc_id="214466" var_id="1" max_kill="35" />
+        </monster_hunt>
+        
+        <!-- Frightcorn-ucopia -->
+        <item_collecting id="4006" start_npc_id="205121" />
+        
+        <!-- TODO: Gathering the Herb Pouches //need careful test maybe tweak xsd files for different action_item_id for each item_collect -->
+        <item_collecting id="4082" start_npc_id="205190" action_item_id="700430" />
+        <item_collecting id="4082" start_npc_id="205190" action_item_id="700431" />
+        <item_collecting id="4082" start_npc_id="205190" action_item_id="700432" />
+        
+        <!-- Ginseng Gone Wild -->
+        <item_collecting id="4045" start_npc_id="205165" action_item_id="700385" />
+        
+        <!-- TODO: Glossy Hoe -->
+        
+        <!-- TODO: Graves of the Red Sky Legion //compaign type-->
+        
+        <!-- TODO: Heirnir Wants to Rest -->
+        
+        <!-- Horn of Purification -->
+        <item_collecting id="4054" start_npc_id="205193" />
+        
+        <!-- I Hate Brohum -->
+        <monster_hunt id="4048" start_npc_id="205166">
+                <monster_infos npc_id="214554" var_id="0" max_kill="20" />
+                <monster_infos npc_id="214457" var_id="0" max_kill="20" />
+                <monster_infos npc_id="214458" var_id="0" max_kill="20" />
+                <monster_infos npc_id="214460" var_id="1" max_kill="30" />
+                <monster_infos npc_id="214461" var_id="1" max_kill="30" />
+        </monster_hunt>
+        
+        <!-- I Wanna Pecku -->
+        <item_collecting id="4085" start_npc_id="205164"/>
+        
+        <!-- If I Only Had a Master -->
+        <report_to id="4010" start_npc_id="730104" end_npc_id="205142" />
+        
+        <!-- Imowen's Request -->
+        <item_collecting id="4095" start_npc_id="205206" />
+        
+        <!-- Incessant Pain //need tweak xsd file :end_npc_id="205193" for monster_hunt-->
+        <monster_hunt id="4102" start_npc_id="205195">
+                <monster_infos npc_id="214416" var_id="0" max_kill="23"/>
+                <monster_infos npc_id="214417" var_id="0" max_kill="23"/>
+                <monster_infos npc_id="214418" var_id="1" max_kill="20"/>
+        </monster_hunt>
+        
+        <!-- Jackdaw's Liquor -->
+        <report_to id="4088" start_npc_id="798063" end_npc_id="205203" item_id="182209047"/>
+        
+        <!-- Jackdaw's Request -->
+        <monster_hunt id="4055" start_npc_id="205203">
+                <monster_infos npc_id="214480" var_id="0" max_kill="10" />
+                <monster_infos npc_id="214481" var_id="0" max_kill="10" />
+                <monster_infos npc_id="214478" var_id="1" max_kill="20" />
+                <monster_infos npc_id="214479" var_id="1" max_kill="20" />
+        </monster_hunt>
+        
+        <!-- Lobnites on the Half-Shell -->
+        <item_collecting id="4089" start_npc_id="205203"/>
+        
+        <!-- Lost Compass -->
+        <item_collecting id="4057" start_npc_id="205203"/>
+        
+        <!-- Lost Gift -->
+        <item_collecting id="4044" start_npc_id="205171" action_item_id="700384"/>
+        
+        <!-- Lukmann's Justice -->
+        <item_collecting id="4092" start_npc_id="205225" />
+        
+        <!-- TODO: Meet the Reapers //compaign type-->
+        
+        <!-- TODO: Message in a Bottle -->
+        
+        <!-- Mission of the Reaper Squad -->
+        <monster_hunt id="4032" start_npc_id="205152">
+                <monster_infos npc_id="214376" var_id="0" max_kill="24"/>
+                <monster_infos npc_id="214377" var_id="0" max_kill="24"/>
+                <monster_infos npc_id="214378" var_id="1" max_kill="20"/>
+                <monster_infos npc_id="214379" var_id="1" max_kill="20"/>
+        </monster_hunt>
+        
+        <!-- TODO: No Ordinary Branch -->
+        
+        <!-- Obstacle to Cultivation -->
+        <monster_hunt id="4013" start_npc_id="205123">
+                <monster_infos npc_id="213879" var_id="0" max_kill="5" />
+                <monster_infos npc_id="213880" var_id="0" max_kill="5" />
+                <monster_infos npc_id="213884" var_id="1" max_kill="3" />
+                <monster_infos npc_id="213883" var_id="2" max_kill="3" />
+                <monster_infos npc_id="213881" var_id="3" max_kill="3" />
+                <monster_infos npc_id="213882" var_id="3" max_kill="3" />
+        </monster_hunt>
+        
+        <!-- TODO: Parica's Special Order -->
+        
+        <!-- Petrahulk: Smash! -->
+        <monster_hunt id="4058" start_npc_id="205204">
+                <monster_infos npc_id="214497" var_id="0" max_kill="30"/>
+                <monster_infos npc_id="214498" var_id="0" max_kill="30"/>
+        </monster_hunt>
+        
+        <!-- Plague-spreading Porgus -->
+        <monster_hunt id="4008" start_npc_id="205131">
+                <monster_infos npc_id="213865" var_id="0" max_kill="10"/>
+                <monster_infos npc_id="213866" var_id="0" max_kill="10"/>
+        </monster_hunt>
+        
+        <!-- Plant for Filling -->
+        <item_collecting id="4076" start_npc_id="205158" />
+        
+        <!-- Pollution Solution -->
+        <item_collecting id="4009" start_npc_id="205122"/>
+        
+        <!-- TODO: Porgus Roundup -->
+        
+        <!-- Retrieving the Contaminated Seeds -->
+        <item_collecting id="4041" start_npc_id="205193" />
+        
+        <!-- Return to Aether's Flow -->
+        <item_collecting id="4090" start_npc_id="205205"/>
+        
+        <!-- Samples for Investigation -->
+        <item_collecting id="4002" start_npc_id="205126"/>
+        
+        <!-- Scarecrow's Request -->
+        <monster_hunt id="4005" start_npc_id="730103">
+                <monster_infos npc_id="213847" var_id="0" max_kill="10" />
+                <monster_infos npc_id="213848" var_id="0" max_kill="10" />
+        </monster_hunt>
+        
+        <!-- Scared of Undeads -->
+        <monster_hunt id="4018" start_npc_id="205132">
+                <monster_infos npc_id="211093" var_id="0" max_kill="20" />
+                <monster_infos npc_id="211968" var_id="0" max_kill="20" />
+                <monster_infos npc_id="213869" var_id="1" max_kill="15" />
+                <monster_infos npc_id="213870" var_id="1" max_kill="15" />
+        </monster_hunt>
+        
+        <!-- Something For Heirnir -->
+        <item_collecting id="4037" start_npc_id="205190" end_npc_id="205187"/>
+        
+        <!-- Southern Region Status Report //neet test-->
+        <report_to id="4075" start_npc_id="205128" end_npc_id="205151" />
+        
+        <!-- The Alpha Cordilnus -->
+        <monster_hunt id="4040" start_npc_id="205193">
+                <monster_infos npc_id="214588" var_id="0" max_kill="1" />
+        </monster_hunt>
+        
+        <!-- TODO: The Bribed Chieftain -->
+        
+        <!-- The Elyos of Brusthonin -->
+        <item_collecting id="4016" start_npc_id="205130"/>
+        
+        <!-- The Fields are Infested -->
+        <monster_hunt id="4003" start_npc_id="205131">
+                <monster_infos npc_id="213849" var_id="0" max_kill="5" />
+                <monster_infos npc_id="213850" var_id="0" max_kill="5" />
+                <monster_infos npc_id="213853" var_id="1" max_kill="5" />
+                <monster_infos npc_id="213896" var_id="1" max_kill="5" />
+        </monster_hunt>
+        
+        <!-- The Ikelus Manhunt -->
+        <monster_hunt id="4017" start_npc_id="205130">
+                <monster_infos npc_id="213931" var_id="0" max_kill="1" />
+        </monster_hunt>
+        
+        <!-- TODO: The Missing Laborers -->
+        
+        <!-- TODO: The Secret Passage //compaign type-->
+        
+        <!-- TODO: The Secret of Adma Stronghold //compaign type-->
+        
+        <!-- TODO: The Seeds of Hope -->
+        
+        <!-- The Unforgivable One -->
+        <monster_hunt id="4093" start_npc_id="205225">
+                <monster_infos npc_id="214696" var_id="0" max_kill="1" />
+        </monster_hunt>
+        
+        <!-- TODO: The Zombie's Descendant -->
+        
+        <!-- They're Bugging Me -->
+        <monster_hunt id="4106" start_npc_id="205156">
+                <monster_infos npc_id="214363" var_id="0" max_kill="25" />
+                <monster_infos npc_id="214364" var_id="0" max_kill="25" />
+                <monster_infos npc_id="214406" var_id="1" max_kill="20" />
+                <monster_infos npc_id="214407" var_id="1" max_kill="20" />
+                <monster_infos npc_id="214409" var_id="2" max_kill="15" />
+                <monster_infos npc_id="214410" var_id="2" max_kill="15" />
+        </monster_hunt>
+        
+        <!-- Those Pesky Mosks -->
+        <monster_hunt id="4083" start_npc_id="205195">
+                <monster_infos npc_id="214411" var_id="0" max_kill="23" />
+                <monster_infos npc_id="214412" var_id="0" max_kill="23" />
+        </monster_hunt>
+        
+        <!-- Treasures of the Adma Stronghold -->
+        <item_collecting id="4094" start_npc_id="205226" />
+        
+        <!-- Troublesome Promise -->
+        <item_collecting id="4012" start_npc_id="205142" end_npc_id="730104" action_item_id="700342" />
+        
+        <!-- Unforgivable Balaur -->
+        <monster_hunt id="4079" start_npc_id="205156">
+                <monster_infos npc_id="214404" var_id="0" max_kill="20" />
+                <monster_infos npc_id="214405" var_id="0" max_kill="20" />
+                <monster_infos npc_id="214402" var_id="1" max_kill="30" />
+                <monster_infos npc_id="214403" var_id="1" max_kill="30" />
+        </monster_hunt>
+        
+        <!-- Unusual Ingredients -->
+        <item_collecting id="4081" start_npc_id="205190" />
+        
+        <!-- Vanes's Epochal Work -->
+        <item_collecting id="4105" start_npc_id="205146"/>
+        
+        <!-- Wandering Undead -->
+        <item_collecting id="4080" start_npc_id="205156" />
+        
+        <!-- Warehouse Keeper's Greed -->
+        <item_collecting id="4100" start_npc_id="205149" />
+        
+        <!-- Wrath of Sahnu -->
+        <monster_hunt id="4043" start_npc_id="205192">
+                <monster_infos npc_id="214435" var_id="0" max_kill="20" />
+                <monster_infos npc_id="214436" var_id="0" max_kill="20" />
+                <monster_infos npc_id="214437" var_id="1" max_kill="23" />
+                <monster_infos npc_id="214438" var_id="1" max_kill="23" />
+        </monster_hunt>
+        
+        <!-- [Coin] For the Future Settlers -->
+        <item_collecting id="4062" start_npc_id="205205" />
+        
+        <!-- [Coin] Mopping up the Brohum -->
+        <item_collecting id="4063" start_npc_id="205184" />
+        
+        <!-- [Coin] Purification of Soul -->
+        <item_collecting id="4061" start_npc_id="205160" />
+        
+        <!-- [Group] The Lingering Ghost -->
+        <monster_hunt id="4014" start_npc_id="205128">
+                <monster_infos npc_id="213930" var_id="0" max_kill="1" />
+        </monster_hunt>
+        
+        <!-- [Manastone] Manastone Recycling -->
+        <item_collecting id="4073" start_npc_id="205148" />
+        
+        <!-- [Manastone] Manastone Research -->
+        <item_collecting id="4072" start_npc_id="205148" />
+        
+        <!-- [Repeat] Clearing Out the Contaminants -->
+        <item_collecting id="4035" start_npc_id="205151" action_item_id="700383"/>
+        
+        <!-- TODO: [Spend Coin] Gain or Lose -->
+        
+        <!-- TODO: [Spend Coin] Platinum (Mage 46) -->
+        
+        <!-- TODO: [Spend Coin] Platinum (Mage 48) -->
+        
+        <!-- TODO: [Spend Coin] Platinum (Priest 46) -->
+        
+        <!-- TODO: [Spend Coin] Platinum (Priest 48) -->
+        
+        <!-- TODO: [Spend Coin] Platinum (Scout 46) -->
+        
+        <!-- TODO: [Spend Coin] Platinum (Scout 48) -->
+        
+        <!-- TODO: [Spend Coin] Platinum (Warrior 46) -->
+        
+        <!-- TODO: [Spend Coin] Platinum (Warrior 48) -->
+        
+        <!-- [Spy] A True Rest -->
+        <item_collecting id="4098" start_npc_id="205187"/>
+</quest_scripts>
