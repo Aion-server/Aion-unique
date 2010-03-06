@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.skillengine.model.SpellStatus;
 
 /**
  * @author ATracer
@@ -34,13 +35,27 @@ public class StaggerEffect extends EffectTemplate
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		// TODO Auto-generated method stub
-
+		effect.addToEffectedController();
 	}
 
 	@Override
 	public void calculate(Effect effect)
 	{
 		effect.increaseSuccessEffect();	
+		effect.setSpellStatus(SpellStatus.STAGGER);
 	}
+
+	@Override
+	public void startEffect(Effect effect)
+	{
+		effect.getEffected().getEffectController().setAbnormal(EffectId.STAGGER.getEffectId());
+	}
+	
+	@Override
+	public void endEffect(Effect effect)
+	{
+		effect.getEffected().getEffectController().unsetAbnormal(EffectId.STAGGER.getEffectId());
+	}
+	
+	
 }

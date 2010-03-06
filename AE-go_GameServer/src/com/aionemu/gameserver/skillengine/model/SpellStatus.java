@@ -36,7 +36,8 @@ public enum SpellStatus
 	 * 256 : resist
 	 */
 	NONE(0),
-	STUMBLE(1);
+	STUMBLE(1),
+	STAGGER(2);
 	
 	private int id;
 

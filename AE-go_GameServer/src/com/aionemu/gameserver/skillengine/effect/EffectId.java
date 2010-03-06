@@ -53,8 +53,8 @@ public enum EffectId
 	/**
 	 * Compound abnormal states
 	 */
-	CANT_ATTACK_STATE(SLEEP.effectId | STUN.effectId | STUMBLE.effectId),
-	CANT_MOVE_STATE(ROOT.effectId | SLEEP.effectId | STUMBLE.effectId | STUN.effectId);
+	CANT_ATTACK_STATE(SLEEP.effectId | STUN.effectId | STUMBLE.effectId | STAGGER.effectId),
+	CANT_MOVE_STATE(ROOT.effectId | SLEEP.effectId | STUMBLE.effectId | STUN.effectId | STAGGER.effectId);
 	
 	private int effectId;
 	
