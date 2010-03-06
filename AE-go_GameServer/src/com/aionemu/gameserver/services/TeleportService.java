@@ -295,23 +295,6 @@ public class TeleportService
 	}
 
 	/**
-	 * Teleport Creature to the location using specific heading
-	 * 
-	 * @param worldId
-	 * @param instanceId
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @param heading
-	 * @param delay
-	 * @return true or false
-	 */
-	public boolean teleportTo(int worldId, int instanceId, float x, float y, float z, byte heading, int delay)
-	{
-		return true;
-	}
-
-	/**
 	 * @return the teleporterData
 	 */
 	public TeleporterTemplate getTeleporterTemplate(int npcId)
