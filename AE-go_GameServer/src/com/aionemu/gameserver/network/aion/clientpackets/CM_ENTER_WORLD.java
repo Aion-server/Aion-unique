@@ -122,7 +122,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 		if(player != null && client.setActivePlayer(player))
 		{
 			player.setClientConnection(client);
-			player.setProtectionActive(true);
+			player.getController().startProtectionActiveTask();
 			/*
 			 * Store player into World.
 			 */

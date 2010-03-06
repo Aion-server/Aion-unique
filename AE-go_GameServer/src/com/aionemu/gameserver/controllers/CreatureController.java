@@ -16,6 +16,10 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Future;
+
 import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -33,7 +37,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public abstract class CreatureController<T extends Creature> extends VisibleObjectController<Creature>
 {
-
+	private Map<Integer, Future<?>> tasks = new ConcurrentHashMap<Integer, Future<?>>();
 	/**
 	 * {@inheritDoc}
 	 */
@@ -164,10 +168,47 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 
 	/**
 	 * Handle Dialog_Select
+	 * 
+	 * @param dialogId
+	 * @param player
+	 * @param questId
 	 */
 	public void onDialogSelect(int dialogId, Player player, int questId)
 	{
 		// TODO Auto-generated method stub
-
+	}
+	
+	/**
+	 * 
+	 * @param taskId
+	 * @return
+	 */
+	public Future<?> getTask(int taskId)
+	{
+		return tasks.get(taskId);
+	}
+	
+	/**
+	 * 
+	 * @param taskId
+	 */
+	public void cancelTask(int taskId)
+	{
+		Future<?> task = tasks.remove(taskId);
+		if(task != null)
+		{
+			task.cancel(false);
+		}
+	}
+	
+	/**
+	 * 
+	 * @param taskId
+	 * @param task
+	 */
+	public void addTask(int taskId, Future<?> task)
+	{
+		cancelTask(taskId);
+		tasks.put(taskId, task);
 	}
 }

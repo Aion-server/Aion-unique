@@ -150,9 +150,6 @@ public class CM_MOVE extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		Player player = getConnection().getActivePlayer();
 
-		if(player.isProtectionActive())
-			player.setProtectionActive(false);
 	}
 }

@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.controllers;
 
 import java.util.List;
+import java.util.concurrent.Future;
 
 import org.apache.log4j.Logger;
 
@@ -27,6 +28,7 @@ import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerQuestListDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.model.DuelResult;
+import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Monster;
@@ -37,6 +39,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
@@ -51,6 +54,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NEARBY_QUESTS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRIVATE_STORE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_CANCEL;
@@ -67,6 +71,7 @@ import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneManager;
 
@@ -281,12 +286,6 @@ public class PlayerController extends CreatureController<Player>
 			
 			skill.useSkill();
 		}
-	}
-
-	@Override
-	public void doDrop(Player player)
-	{
-		super.doDrop(player);
 	}
 
 	@Override
@@ -603,5 +602,30 @@ public class PlayerController extends CreatureController<Player>
 	public void moveToBindLocation(boolean b)
 	{
 		sp.getTeleportService().moveToBindLocation(getOwner(), b);
+	}
+	
+	/**
+	 * After entering game player char is "blinking" which means that it's in under some protection, after making an
+	 * action char stops blinking.
+	 * - Starts protection active
+	 * - Schedules task to end protection
+	 */
+	public void startProtectionActiveTask()
+	{
+		getOwner().setVisualState(CreatureVisualState.BLINKING);
+		Future<?> task = ThreadPoolManager.getInstance().schedule(new Runnable(){
+			
+			@Override
+			public void run()
+			{
+				Player player = getOwner();
+				if(player != null && player.isSpawned())
+				{
+					player.unsetVisualState(CreatureVisualState.BLINKING);
+					PacketSendUtility.broadcastPacket(player, new SM_PLAYER_STATE(player), true);
+				}	
+			}
+		}, 10000);
+		addTask(TaskId.PROTECTION_ACTIVE.ordinal(), task);
 	}
 }

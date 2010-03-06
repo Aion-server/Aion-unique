@@ -289,7 +289,7 @@ public class TeleportService
 		}
 		world.despawn(player);
 		world.setPosition(player, worldId, instanceId, x, y, z, heading);
-		player.setProtectionActive(true);
+		player.getController().startProtectionActiveTask();
 		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
 		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
 	}
@@ -318,7 +318,7 @@ public class TeleportService
 		world.despawn(player);
 		world.setPosition(player, player.getWorldId(), channel + 1, player.getX(), player.getY(), player.getZ(), player
 			.getHeading());
-		player.setProtectionActive(true);
+		player.getController().startProtectionActiveTask();
 		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
 		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
 	}

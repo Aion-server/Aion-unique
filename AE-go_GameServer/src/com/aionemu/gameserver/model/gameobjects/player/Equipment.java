@@ -35,7 +35,7 @@ public class Equipment
 {
 	private SortedMap<Integer, Item>	equipment	= new TreeMap<Integer, Item>();
 	private Player						owner;
-	private static final Logger log = Logger.getLogger(Storage.class);
+	private static final Logger			log			= Logger.getLogger(Equipment.class);
 
 	public Equipment(Player player)
 	{
@@ -62,8 +62,6 @@ public class Equipment
 			}
 
 			int itemSlotToEquip = 0;
-
-			
 
 			switch(item.getItemTemplate().getEquipmentType())
 			{

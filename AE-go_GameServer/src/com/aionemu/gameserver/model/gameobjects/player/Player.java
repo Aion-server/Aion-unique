@@ -29,7 +29,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
-import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.group.PlayerGroup;
@@ -37,11 +36,9 @@ import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionMember;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.PlayerService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.rates.Rates;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 
@@ -56,23 +53,23 @@ import com.aionemu.gameserver.world.zone.ZoneInstance;
  */
 public class Player extends Creature
 {
-	private PlayerAppearance		playerAppearance;
-	private PlayerCommonData		playerCommonData;
-	private LegionMember			legionMember;
-	private MacroList				macroList;
-	private SkillList				skillList;
-	private FriendList				friendList;
-	private BlockList				blockList;
-	private ResponseRequester		requester;
-	private boolean					lookingForGroup			= false;
-	private Storage					inventory;
-	private Storage					regularWarehouse;
-	private Storage					accountWarehouse;
-	private Equipment				equipment;
-	private PrivateStore			store;
-	private PlayerStatsTemplate		playerStatsTemplate;
-	private TitleList				titleList;
-	private PlayerSettings			playerSettings;
+	private PlayerAppearance	playerAppearance;
+	private PlayerCommonData	playerCommonData;
+	private LegionMember		legionMember;
+	private MacroList			macroList;
+	private SkillList			skillList;
+	private FriendList			friendList;
+	private BlockList			blockList;
+	private ResponseRequester	requester;
+	private boolean				lookingForGroup	= false;
+	private Storage				inventory;
+	private Storage				regularWarehouse;
+	private Storage				accountWarehouse;
+	private Equipment			equipment;
+	private PrivateStore		store;
+	private PlayerStatsTemplate	playerStatsTemplate;
+	private TitleList			titleList;
+	private PlayerSettings		playerSettings;
 	private QuestStateList		questStateList;
 	private List<Integer>		nearbyQuestList	= new ArrayList<Integer>();
 	private ZoneInstance		zoneInstance;
@@ -80,13 +77,10 @@ public class Player extends Creature
 	private AbyssRank			abyssRank;
 	private Rates				rates;
 	private RecipeList			recipeList;
-
-	/** When player enters game its char is in kind of "protection" state, when is blinking etc */
-	private boolean				protectionActive;
-	private int					flyState = 0;
+	private int					flyState		= 0;
 	private boolean				isTrading;
-	private boolean				isInPrison = false;
-	private long				prisonTimer = 0;
+	private boolean				isInPrison		= false;
+	private long				prisonTimer		= 0;
 	
 	/**
 	 * Static information for players
@@ -148,27 +142,6 @@ public class Player extends Creature
 	public AionConnection getClientConnection()
 	{
 		return this.clientConnection;
-	}
-
-	public boolean isProtectionActive()
-	{
-		return protectionActive;
-	}
-
-	/**
-	 * After entering game player char is "blinking" which means that it's in under some protection, after making an
-	 * action char stops blinking.
-	 * 
-	 * @param protectionActive
-	 */
-	public void setProtectionActive(boolean protectionActive)
-	{
-		this.protectionActive = protectionActive;
-		if(!protectionActive)
-		{
-			this.unsetVisualState(CreatureVisualState.BLINKING);
-			PacketSendUtility.broadcastPacket(this, new SM_PLAYER_STATE(this), true);
-		}
 	}
 
 	public MacroList getMacroList()
