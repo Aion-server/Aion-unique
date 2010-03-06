@@ -124,8 +124,11 @@ public class CM_MOVE extends AionClientPacket
 				world.updatePosition(player, x, y, z, heading);
 				player.getController().onStopMove();
 
-				player.unsetState(CreatureState.GLIDING);
-				player.getController().endFly();
+				if(player.isInState(CreatureState.FLYING) || player.isInState(CreatureState.GLIDING))
+				{
+					player.unsetState(CreatureState.GLIDING);
+					player.getController().endFly();
+				}
 				break;
 			case UNKNOWN:
 				StringBuilder sb = new StringBuilder();
