@@ -19,16 +19,12 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import java.util.List;
 
 import com.aionemu.gameserver.configs.main.GSConfig;
-import com.aionemu.gameserver.dataholders.BindPointData;
-import com.aionemu.gameserver.dataholders.PlayerInitialData;
-import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
-import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABYSS_RANK;
@@ -45,7 +41,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRICES;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RECIPE_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SET_BIND_POINT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -58,6 +53,7 @@ import com.aionemu.gameserver.services.GroupService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.PunishmentService;
+import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.rates.Rates;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -83,11 +79,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	@Inject
 	private GroupService		groupService;
 	@Inject
+	private TeleportService		teleportService;
+	@Inject
 	private PunishmentService	punishmentService;
-	@Inject
-	private BindPointData		bindPointData;
-	@Inject
-	private PlayerInitialData	playerInitialData;
 
 	/**
 	 * Constructs new instance of <tt>CM_ENTER_WORLD </tt> packet
@@ -201,25 +195,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			client.sendPacket(new SM_STATS_INFO(player));
 			sendPacket(new SM_UNK7B());
 
-			int worldId;
-			float x, y, z;
-			if(player.getCommonData().getBindPoint() != 0)
-			{
-				BindPointTemplate bplist = bindPointData.getBindPointTemplate2(player.getCommonData().getBindPoint());
-				worldId = bplist.getZoneId();
-				x = bplist.getX();
-				y = bplist.getY();
-				z = bplist.getZ();
-			}
-			else
-			{
-				LocationData locationData = playerInitialData.getSpawnLocation(player.getCommonData().getRace());
-				worldId = locationData.getMapId();
-				x = locationData.getX();
-				y = locationData.getY();
-				z = locationData.getZ();
-			}
-			sendPacket(new SM_SET_BIND_POINT(worldId, x, y, z));
+			teleportService.sendSetBindPoint(player);
+			
 			// sendPacket(new SM_UNKE1());
 			sendPacket(new SM_MACRO_LIST(player));
 
@@ -227,7 +204,6 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			player.updateNearbyQuests();
 
 			sendPacket(new SM_TITLE_LIST(player));
-			sendPacket(SM_SYSTEM_MESSAGE.REMAINING_PLAYING_TIME(12043));
 
 			/**
 			 * Player's accumulated time; params are: - 0h 12m - play time (1st and 2nd string-params) - 1h 26m - rest

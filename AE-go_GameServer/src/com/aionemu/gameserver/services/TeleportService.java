@@ -19,6 +19,7 @@ package com.aionemu.gameserver.services;
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.BindPointData;
+import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.TeleLocationData;
 import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
@@ -35,6 +36,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SET_BIND_POINT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_LOC;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
@@ -63,6 +65,8 @@ public class TeleportService
 	private TeleporterData		teleporterData;
 	@Inject
 	private BindPointData		bindPointData;
+	@Inject
+	private PlayerInitialData	playerInitialData;
 
 	/**
 	 * Schedules teleport animation
@@ -391,5 +395,32 @@ public class TeleportService
 			}
 			world.setPosition(player, worldId, x, y, z, player.getHeading());
 		}
+	}
+	
+	/**
+	 * This method will send the set bind point packet
+	 * @param player
+	 */
+	public void sendSetBindPoint(Player player)
+	{
+		int worldId;
+		float x, y, z;
+		if(player.getCommonData().getBindPoint() != 0)
+		{
+			BindPointTemplate bplist = bindPointData.getBindPointTemplate2(player.getCommonData().getBindPoint());
+			worldId = bplist.getZoneId();
+			x = bplist.getX();
+			y = bplist.getY();
+			z = bplist.getZ();
+		}
+		else
+		{
+			LocationData locationData = playerInitialData.getSpawnLocation(player.getCommonData().getRace());
+			worldId = locationData.getMapId();
+			x = locationData.getX();
+			y = locationData.getY();
+			z = locationData.getZ();
+		}
+		PacketSendUtility.sendPacket(player, new SM_SET_BIND_POINT(worldId, x, y, z));
 	}
 }

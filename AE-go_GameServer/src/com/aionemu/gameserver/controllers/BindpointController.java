@@ -18,14 +18,12 @@ package com.aionemu.gameserver.controllers;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.templates.BindPointTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SET_BIND_POINT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -71,28 +69,9 @@ public class BindpointController extends NpcController
 				{
 					if (responder.getInventory().getKinahItem().getItemCount()>= bindPointTemplate.getPrice())
 					{
-						int worldId;
-						float x,y,z;
-						if (responder.getCommonData().getBindPoint() != 0)
-						{
-							BindPointTemplate bplist = sp.getTeleportService().getBindPointTemplate2(bindPointTemplate.getBindId());
-							
-							worldId = bplist.getZoneId();
-							x = bplist.getX();
-							y = bplist.getY();
-							z = bplist.getZ();
-						}
-						else
-						{
-							LocationData locationData = sp.getPlayerService().getPlayerInitialData().getSpawnLocation(responder.getCommonData().getRace());
-							worldId = locationData.getMapId();
-							x = locationData.getX();
-							y = locationData.getY();
-							z = locationData.getZ();
-						}
 						responder.getInventory().decreaseKinah(bindPointTemplate.getPrice());
 						responder.getCommonData().setBindPoint(bindPointTemplate.getBindId());
-						PacketSendUtility.sendPacket(responder, new SM_SET_BIND_POINT(worldId, x, y, z));
+						sp.getTeleportService().sendSetBindPoint(responder);
 						PacketSendUtility.broadcastPacket(responder, new SM_LEVEL_UPDATE(responder.getObjectId(), 2, responder.getCommonData().getLevel()), true);
 						PacketSendUtility.sendPacket(responder, SM_SYSTEM_MESSAGE.STR_DEATH_REGISTER_RESURRECT_POINT());
 					}
