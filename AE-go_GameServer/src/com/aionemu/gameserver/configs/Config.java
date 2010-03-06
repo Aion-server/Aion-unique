@@ -57,23 +57,37 @@ public class Config
 			ConfigurableProcessor.process(Config.class, props);
 			
 			// Administration
-			Properties[] adminProps = PropertiesUtils.loadAllFromDirectory("./config/administration");
+			String administration = "./config/administration";
+			Properties[] adminProps = PropertiesUtils.loadAllFromDirectory(administration);
 			ConfigurableProcessor.process(AdminConfig.class, adminProps);
+			log.info("Loading: " + administration + "/admin.properties");
 			
 			// Main
-			Properties[] mainProps = PropertiesUtils.loadAllFromDirectory("./config/main");
+			String main = "./config/main";
+			Properties[] mainProps = PropertiesUtils.loadAllFromDirectory(main);
 			ConfigurableProcessor.process(LegionConfig.class, mainProps);
+			log.info("Loading: " + main + "/legion.properties");
 			ConfigurableProcessor.process(RateConfig.class, mainProps);
+			log.info("Loading: " + main + "/rates.properties");
 			ConfigurableProcessor.process(CacheConfig.class, mainProps);
+			log.info("Loading: " + main + "/cache.properties");
 			ConfigurableProcessor.process(ShutdownConfig.class, mainProps);
+			log.info("Loading: " + main + "/shutdown.properties");
 			ConfigurableProcessor.process(TaskManagerConfig.class, mainProps);
+			log.info("Loading: " + main + "/taskmanager.properties");
 			ConfigurableProcessor.process(GroupConfig.class, mainProps);
+			log.info("Loading: " + main + "/group.properties");
 			ConfigurableProcessor.process(CustomConfig.class, mainProps);
+			log.info("Loading: " + main + "/custom.properties");
 			ConfigurableProcessor.process(GSConfig.class, mainProps);
+			log.info("Loading: " + main + "/gameserver.properties");
 			
 			// Network
-			Properties[] networkProps = PropertiesUtils.loadAllFromDirectory("./config/network");
+			String network = "./config/network";
+			Properties[] networkProps = PropertiesUtils.loadAllFromDirectory(network);
 			ConfigurableProcessor.process(NetworkConfig.class, networkProps);
+			log.info("Loading: " + network + "/database.properties");
+			log.info("Loading: " + network + "/network.properties");
 		}
 		catch(Exception e)
 		{
