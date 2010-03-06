@@ -29,6 +29,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.group.PlayerGroup;
@@ -758,5 +759,13 @@ public class Player extends Creature
 	public long getPrisonTimer()
 	{
 		return prisonTimer;
+	}
+
+	/**
+	 * @return
+	 */
+	public boolean isProtectionActive()
+	{
+		return isInVisualState(CreatureVisualState.BLINKING);
 	}
 }

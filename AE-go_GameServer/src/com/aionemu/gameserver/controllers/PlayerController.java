@@ -618,14 +618,23 @@ public class PlayerController extends CreatureController<Player>
 			@Override
 			public void run()
 			{
-				Player player = getOwner();
-				if(player != null && player.isSpawned())
-				{
-					player.unsetVisualState(CreatureVisualState.BLINKING);
-					PacketSendUtility.broadcastPacket(player, new SM_PLAYER_STATE(player), true);
-				}	
+				stopProtectionActiveTask();
 			}
-		}, 10000);
+		}, 60000);
 		addTask(TaskId.PROTECTION_ACTIVE.ordinal(), task);
+	}
+	
+	/**
+	 * Stops protection active task after first move or use skill
+	 */
+	public void stopProtectionActiveTask()
+	{
+		cancelTask(TaskId.PROTECTION_ACTIVE.ordinal());
+		Player player = getOwner();
+		if(player != null && player.isSpawned())
+		{
+			player.unsetVisualState(CreatureVisualState.BLINKING);
+			PacketSendUtility.broadcastPacket(player, new SM_PLAYER_STATE(player), true);
+		}	
 	}
 }

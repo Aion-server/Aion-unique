@@ -46,6 +46,8 @@ public class CM_MOVE extends AionClientPacket
 	@Inject
 	private World				world;
 
+	private MovementType		type;
+
 	/**
 	 * Constructs new instance of <tt>CM_MOVE </tt> packet
 	 * 
@@ -81,7 +83,14 @@ public class CM_MOVE extends AionClientPacket
 
 		byte heading = (byte) readC();
 		byte movementType = (byte) readC();
-		MovementType type = MovementType.getMovementTypeById(movementType);
+		type = MovementType.getMovementTypeById(movementType);
+		
+		if(!player.canPerformMove())
+		{
+			//TODO retail investigation
+			//PacketSendUtility.sendPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, MovementType.MOVEMENT_STOP));
+			return;
+		}
 
 		switch(type)
 		{
@@ -150,6 +159,10 @@ public class CM_MOVE extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-
+		Player player = getConnection().getActivePlayer();
+		if(type != MovementType.MOVEMENT_STOP && player.isProtectionActive())
+		{
+			player.getController().stopProtectionActiveTask();
+		}
 	}
 }

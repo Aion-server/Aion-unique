@@ -56,6 +56,12 @@ public class CM_CASTSPELL extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
+		
+		if(player.isProtectionActive())
+		{
+			player.getController().stopProtectionActiveTask();
+		}
+		
 		if(!player.getLifeStats().isAlreadyDead())
 		{
 			player.getController().useSkill(spellid);
