@@ -100,8 +100,9 @@ public class PlayerService
 
 	@Inject
 	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
-		LegionService legionService, TeleportService teleportService, ControllerFactory controllerFactory, SkillLearnService skillLearnService,
-		GroupService groupService, PlayerStatsData playerStatsData, PlayerInitialData playerInitialData)
+		LegionService legionService, TeleportService teleportService, ControllerFactory controllerFactory,
+		SkillLearnService skillLearnService, GroupService groupService, PunishmentService punishmentService,
+		PlayerStatsData playerStatsData, PlayerInitialData playerInitialData)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
@@ -111,6 +112,7 @@ public class PlayerService
 		this.controllerFactory = controllerFactory;
 		this.skillLearnService = skillLearnService;
 		this.groupService = groupService;
+		this.punishmentService = punishmentService;
 		this.playerStatsData = playerStatsData;
 		this.playerInitialData = playerInitialData;
 	}
@@ -378,8 +380,8 @@ public class PlayerService
 	}
 
 	public void playerLoggedOutDelay(final Player player, int delay)
-	{		
-		//force stop movement of player
+	{
+		// force stop movement of player
 		player.getController().stopMoving();
 
 		ThreadPoolManager.getInstance().scheduleTaskManager(new Runnable(){
