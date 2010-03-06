@@ -110,7 +110,7 @@ public abstract class StatModifier implements Comparable<StatModifier>
 		return sb.toString();
 	}
 	
-	public abstract int apply (int value);
+	public abstract int apply (int baseValue, int currentValue);
 	
 	public abstract StatModifierPriority getPriority();
 }

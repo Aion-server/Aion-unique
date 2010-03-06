@@ -38,9 +38,9 @@ public class MeanModifier extends StatModifier
 	private int max;
 	
 	@Override
-	public int apply(int stat)
+	public int apply(int baseStat, int currentStat)
 	{
-		return stat+Math.round((min+max)/2.0f);
+		return baseStat + Math.round((min+max)/2.0f);
 	}
 	
 	@Override

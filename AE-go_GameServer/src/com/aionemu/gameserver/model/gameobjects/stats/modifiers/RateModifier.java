@@ -27,22 +27,81 @@ import com.aionemu.gameserver.model.gameobjects.stats.StatModifierPriority;
 public class RateModifier extends SimpleModifier
 {
 	@Override
-	public int apply(int stat)
+	public int apply(int baseStat, int currentStat)
 	{
+		int minLimit = 0;
+		int maxLimit = 0;
+		int chkValue;
+		
+		switch(getStat())
+		{
+			case ATTACK_SPEED:
+			case SPEED:
+			case FLY_SPEED:
+				minLimit = 600;
+				maxLimit = 12000;
+				break;			
+		}
+		
 		if(isBonus())
 		{
-			return Math.round(value * stat / 100f);
+			chkValue = Math.round(value * baseStat / 100f);
+			if(minLimit == 0 && maxLimit == 0)
+			{
+			
+				if(chkValue + currentStat < 0)
+					return -currentStat;
+				else
+					return chkValue;
+			}
+			else
+			{
+				if(chkValue + currentStat < minLimit)
+				{
+					chkValue = currentStat - minLimit;
+					return -chkValue;
+				}
+				else if (chkValue + currentStat > maxLimit)
+				{
+					chkValue = maxLimit - currentStat;
+					return chkValue;
+				}
+				else
+					return chkValue;
+			}
 		}
 		else
 		{
-			return Math.round(stat * (1 + value / 100f));
+			chkValue = Math.round(baseStat * (1 + value / 100f));			
+			if(minLimit == 0 && maxLimit == 0)
+			{
+				if(chkValue < 0)
+					return 0;
+				else
+					return chkValue;
+			}
+			else
+			{
+				if(chkValue + currentStat < minLimit)
+				{
+					chkValue = currentStat - minLimit;
+					return -chkValue;
+				}
+				else if (chkValue + currentStat > maxLimit)
+				{
+					chkValue = maxLimit - currentStat;
+					return chkValue;
+				}
+				else
+					return chkValue;
+			}
 		}
 	}
 
 	@Override
 	public StatModifierPriority getPriority()
 	{
-		return StatModifierPriority.MEDIUM;
+		return StatModifierPriority.LOW;
 	}
 	
 	public static RateModifier newInstance (StatEnum stat, int value, boolean isBonus)

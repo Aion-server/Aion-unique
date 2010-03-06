@@ -25,7 +25,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.StatModifierPriority;
 public class SubModifier extends SimpleModifier
 {
 	@Override
-	public int apply(int stat)
+	public int apply(int baseStat, int currentStat)
 	{
 		if(isBonus())
 		{
@@ -33,7 +33,7 @@ public class SubModifier extends SimpleModifier
 		}
 		else
 		{
-			return Math.round(stat - value);
+			return Math.round(baseStat - value);
 		}
 	}
 	

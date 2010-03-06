@@ -26,7 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.StatModifierPriority;
 public class SetModifier extends SimpleModifier
 {	
 	@Override
-	public int apply(int stat)
+	public int apply(int baseStat, int currentStat)
 	{
 		return value;
 	}

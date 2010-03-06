@@ -253,11 +253,7 @@ public class CreatureGameStats<T extends Creature>
 		{
 			for(StatModifier modifier : modifiers.getModifiers(priority))
 			{
-				int newValue = 0;
-				if(modifier.isBonus())
-					newValue = modifier.apply(oStat.getCurrent());
-				else
-					newValue = modifier.apply(oStat.getBase());
+				int newValue = modifier.apply(oStat.getBase(), oStat.getCurrent());
 				
 				if((this instanceof PlayerGameStats) && (log.isDebugEnabled()))
 				{
