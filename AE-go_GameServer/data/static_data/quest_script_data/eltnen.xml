@@ -465,39 +465,56 @@
 
 	<!-- TODO: 1423 Expert Advice -->
 
-	<!-- TODO: 1366 Mabangtah's SecondTest -->
+	<!-- 1366 Mabangtah's Second Test -->
+	<item_collecting id="1366" start_npc_id="204020" />
 
-	<!-- TODO: 1367 Mabangtah's Feast -->
+	<!-- 1367 Mabangtah's Feast -->
+	<item_collecting id="1367" start_npc_id="204023" />
 
-	<!-- TODO: 1369 Mabangtah's Message -->
+	<!-- 1369 Mabangtah's Message -->
+	<report_to id="1369" start_npc_id="204020" end_npc_id="203949" />
 
-	<!-- TODO: 1372 Food For Agairon Village -->
+	<!-- 1372 Food For Agairon Village -->
+	<item_collecting id="1372" start_npc_id="203947" />
 
-	<!-- TODO: 1368 A Secret Recipe -->
+	<!-- 1368 A Secret Recipe -->
+	<item_collecting id="1368" start_npc_id="210332" />
 
-	<!-- TODO: 1383 Griffon's Threat -->
+	<!-- 1383 Griffon's Threat -->
+	<monster_hunt id="1383" start_npc_id="204039">
+		<monster_infos npc_id="210940"  var_id="0" max_kill="7"/>
+	</monster_hunt>
 
-	<!-- TODO: 1384 FireFeather -->
+	<!-- 1384 Fire Feather -->
+	<item_collecting id="1384" start_npc_id="204028" />
 
-	<!-- TODO: 1356 A Gift for Acteon -->
+	<!-- 1356 A Gift for Acteon -->
+	<report_to id="1456" start_npc_id="203969" end_npc_id="203933" item_id="182201367"/>
 
 	<!-- TODO: 3312 [Group]A Gust Hindering the Flying Test -->
 
-	<!-- TODO: 1447 A Tender Concern -->
+	<!-- 1447 A Tender Concern -->
+	<item_collecting id="1447" start_npc_id="203947" />
 
-	<!-- TODO: 1468 Hannet's Lost Love -->
+	<!-- 1468 Hannet'sLostLove-->
+	<report_to id="1468" start_npc_id="790004" end_npc_id="203184" />
 
-	<!-- TODO: 1448 Mace Making Materials -->
+	<!-- 1448 Mace Making Materials -->
+	<item_collecting id="1448" start_npc_id="790004" end_npc_id="203934" />
 
-	<!-- TODO: 1452 Doubtful Characters -->
+	<!-- TODO: 1452 Doubtful Characters-->
 
-	<!-- TODO: 1454 Arkel's Signposts -->
+	<!-- 1454 Arkel's Signposts -->
+	<item_collecting id="1454" start_npc_id="203948" />
 
 	<!-- TODO: 1460 A Strange Turn of Phrase -->
 
-	<!-- TODO: 1357 InterferingS kyrays -->
-
-	<!-- TODO: 1385 Rescuing Griffo -->
+	<!-- 1357 Interfering Skyrays -->
+	<monster_hunt id="1357" start_npc_id="203933">
+		<monster_infos npc_id="211843"  var_id="0" max_kill="7"/>
+	</monster_hunt>
+	
+	<!-- TODO: 1385 RescuingGriffo -->
 
 	<!-- TODO: 1386 Sentinel Viragos -->
 
