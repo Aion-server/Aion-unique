@@ -77,6 +77,11 @@ public class LegionCommand extends AdminCommand
 				PacketSendUtility.sendMessage(admin, "Please use a valid legion level. (1 - 5)");
 				return;
 			}
+			else if(legion.getLegionLevel() == newLevel)
+			{
+				PacketSendUtility.sendMessage(admin, "Level of legion already is " + newLevel);
+				return;
+			}
 			legionService.changeLevel(legion, newLevel, true);
 			PacketSendUtility.sendMessage(admin, "The " + legion.getLegionName() + " legion has been leveled up to "
 				+ newLevel);
@@ -90,6 +95,11 @@ public class LegionCommand extends AdminCommand
 				PacketSendUtility.sendMessage(admin, "Please use valid points amount. (0 - 2.000.000.000)");
 				return;
 			}
+			else if(legion.getContributionPoints() == newPoints)
+			{
+				PacketSendUtility.sendMessage(admin, "Contribution Points of legion already is " + newPoints);
+				return;
+			}
 			legionService.setContributionPoints(legion, newPoints, true);
 			PacketSendUtility.sendMessage(admin, "The " + legion.getLegionName()
 				+ " legion points have been changed to " + newPoints);
@@ -101,6 +111,11 @@ public class LegionCommand extends AdminCommand
 			if(!legionService.isValidName(newLegionName))
 			{
 				PacketSendUtility.sendMessage(admin, "Please use a valid legion name!");
+				return;
+			}
+			else if(legion.getLegionName().toLowerCase() == newLegionName.toLowerCase())
+			{
+				PacketSendUtility.sendMessage(admin, "Name of legion already is " + newLegionName);
 				return;
 			}
 			legionService.setLegionName(legion, newLegionName, true);
