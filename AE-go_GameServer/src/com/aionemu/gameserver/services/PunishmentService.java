@@ -19,14 +19,14 @@ package com.aionemu.gameserver.services;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+import javolution.util.FastMap;
+
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerPunishmentsDAO;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
-import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
-import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.world.WorldMapType;
 import com.google.inject.Inject;
 
@@ -38,12 +38,11 @@ public class PunishmentService
 	@Inject
 	TeleportService teleportService;
 	
-	private CacheMap<Integer, ScheduledFuture<?>>	prisonTasks	= CacheMapFactory.createSoftCacheMap(
-		"PlayerObjId", "PrisonTask");
+	private FastMap<Integer, ScheduledFuture<?>>	prisonTasks	= new FastMap<Integer, ScheduledFuture<?>>();
 	
 	private void cancelPrisonTask(int playerObjId)
 	{
-		if(prisonTasks.contains(playerObjId))
+		if(prisonTasks.containsKey(playerObjId))
 		{
 			prisonTasks.get(playerObjId).cancel(false);
 			prisonTasks.remove(playerObjId);
@@ -81,7 +80,7 @@ public class PunishmentService
 
 	public void stopPrisonTask(Player player, boolean save)
 	{
-		if(prisonTasks.contains(player.getObjectId()))
+		if(prisonTasks.containsKey(player.getObjectId()))
 		{
 			ScheduledFuture<?> prisonTask = prisonTasks.get(player.getObjectId());
 			if(save)
