@@ -1304,7 +1304,7 @@ public class LegionService
 
 		// Notify legion members player has logged in
 		PacketSendUtility.broadcastPacketToLegion(legion, SM_SYSTEM_MESSAGE.STR_MSG_NOTIFY_LOGIN_GUILD(activePlayer
-			.getName()), world);
+			.getName()), world, activePlayer.getObjectId());
 
 		// Send member add to player
 		PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_ADD_MEMBER(activePlayer, true, 0, ""));

@@ -149,4 +149,13 @@ public class PacketSendUtility
 			sendPacket(onlineLegionMember, packet);
 		}
 	}
+
+	public static void broadcastPacketToLegion(Legion legion, AionServerPacket packet, World world, int playerObjId)
+	{
+		for(Player onlineLegionMember : legion.getOnlineLegionMembers(world))
+		{
+			if(onlineLegionMember.getObjectId() != playerObjId)
+				sendPacket(onlineLegionMember, packet);
+		}
+	}
 }
