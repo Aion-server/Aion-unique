@@ -16,7 +16,6 @@
  */
 package com.aionemu.gameserver.model.legion;
 
-
 /**
  * @author Simple
  * 
@@ -171,10 +170,13 @@ public class LegionEmblem
 	{
 		byte[] newData = new byte[uploadedSize];
 		int i = 0;
-		for(byte dataByte : uploadData)
+		if(uploadData.length > 0)
 		{
-			newData[i] = dataByte;
-			i++;
+			for(byte dataByte : uploadData)
+			{
+				newData[i] = dataByte;
+				i++;
+			}
 		}
 		for(byte dataByte : data)
 		{
@@ -208,7 +210,7 @@ public class LegionEmblem
 	{
 		return uploadedSize;
 	}
-	
+
 	/**
 	 * This method will clear out all upload data
 	 */
