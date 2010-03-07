@@ -247,7 +247,7 @@ public class EffectController
 	public void updatePlayerEffectIconsImpl()
 	{
 		PacketSendUtility.sendPacket((Player) owner,
-			new SM_ABNORMAL_STATE(abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()])));
+			new SM_ABNORMAL_STATE(abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()]), abnormals));
 	}
 
 	/**

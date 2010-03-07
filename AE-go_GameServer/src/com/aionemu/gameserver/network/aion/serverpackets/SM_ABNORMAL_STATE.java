@@ -28,25 +28,27 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 public class SM_ABNORMAL_STATE extends AionServerPacket
 {
-	public int action;
 	private Effect[] effects;
+	private int abnormals;
 	
-	public SM_ABNORMAL_STATE(Effect[] effects)
+	public SM_ABNORMAL_STATE(Effect[] effects, int abnormals)
 	{
 		this.effects = effects;
+		this.abnormals = abnormals;
 	}
 
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, 0); // abnormal TODO
+		writeD(buf, abnormals);
 		writeH(buf, effects.length); 
 		
 		for(Effect effect : effects)
 		{
 			writeD(buf, effect.getEffectorId());
 			writeH(buf, effect.getSkillId());
-			writeH(buf, effect.getSkillLevel());
+			writeC(buf, effect.getSkillLevel());
+			writeC(buf, effect.getTargetSlot());
 			writeD(buf, effect.getElapsedTime());
 		}
 	}
