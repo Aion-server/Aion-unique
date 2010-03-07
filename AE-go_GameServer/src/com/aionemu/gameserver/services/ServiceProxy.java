@@ -61,6 +61,8 @@ public class ServiceProxy
 	private PlayerService			playerService;
 	@Inject
 	private ZoneService				zoneService;
+	@Inject
+	private DuelService				duelService;
 
 	/**
 	 * @return the world
@@ -196,5 +198,13 @@ public class ServiceProxy
 	public ZoneService getZoneService()
 	{
 		return zoneService;
+	}
+
+	/**
+	 * @return the duelService
+	 */
+	public DuelService getDuelService()
+	{
+		return duelService;
 	}
 }

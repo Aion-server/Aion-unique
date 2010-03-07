@@ -19,15 +19,12 @@ package com.aionemu.gameserver.controllers;
 import java.util.List;
 import java.util.concurrent.Future;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerQuestListDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
-import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
@@ -36,7 +33,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.StaticObject;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
@@ -47,7 +43,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHERABLE_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
@@ -56,7 +51,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRIVATE_STORE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_CANCEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
@@ -83,8 +77,6 @@ import com.aionemu.gameserver.world.zone.ZoneInstance;
  */
 public class PlayerController extends CreatureController<Player>
 {
-	private static Logger	log	= Logger.getLogger(PlayerController.class);
-
 	// TEMP till player AI introduced
 	private Creature		lastAttacker;
 
@@ -101,6 +93,14 @@ public class PlayerController extends CreatureController<Player>
 	public Creature getLastAttacker()
 	{
 		return lastAttacker;
+	}
+	
+	/**
+	 * @param the lastAttacker
+	 */
+	public void setLastAttacker(Creature lastAttacker)
+	{
+		this.lastAttacker = lastAttacker;
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class PlayerController extends CreatureController<Player>
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * Shoul only be triggered from one place (life stats)
+	 * Should only be triggered from one place (life stats)
 	 */
 	@Override
 	public void onDie()
@@ -202,11 +202,9 @@ public class PlayerController extends CreatureController<Player>
 		super.onDie();
 		// TODO probably introduce variable - last attack creature in player AI
 		Player player = this.getOwner();
-		// TODO move to DuelController
 		if(lastAttacker instanceof Player && !isEnemy((Player) lastAttacker))
 		{
-			this.lostDuelWith((Player) lastAttacker);
-			((Player) lastAttacker).getController().wonDuelWith(player);
+			sp.getDuelService().onDie(player, (Player) lastAttacker);
 		}
 		else
 		{
@@ -219,6 +217,7 @@ public class PlayerController extends CreatureController<Player>
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
 			QuestEngine.getInstance().onDie(new QuestEnv(null, player, 0, 0));
 		}
+		// TODO: Add check if player in Abyss?
 		if(lastAttacker instanceof Player && isEnemy((Player) lastAttacker))
 		{
 			sp.getAbyssService().doReward(getOwner(), (Player) lastAttacker);
@@ -316,132 +315,6 @@ public class PlayerController extends CreatureController<Player>
 			PacketSendUtility.sendPacket(this.getOwner(), SM_SYSTEM_MESSAGE.STR_SKILL_CANCELED());
 		}
 		super.onStartMove();
-	}
-
-	/**
-	 * Send the duel request to the owner
-	 * 
-	 * @param requester
-	 *            the player who requested the duel
-	 */
-	public void onDuelRequest(Player requester)
-	{
-		log.debug("[Duel] Player " + this.getOwner().getName() + " has been requested for a duel by "
-			+ requester.getName());
-		RequestResponseHandler rrh = new RequestResponseHandler(requester){
-			@Override
-			public void denyRequest(Creature requester, Player responder)
-			{
-				responder.getController().rejectDuelRequest((Player) requester);
-			}
-
-			@Override
-			public void acceptRequest(Creature requester, Player responder)
-			{
-				responder.getController().startDuelWith((Player) requester);
-				((Player) requester).getController().startDuelWith(responder);
-			}
-		};
-		this.getOwner().getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_ACCEPT_DUEL, rrh);
-		PacketSendUtility.sendPacket(this.getOwner(), new SM_QUESTION_WINDOW(
-			SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_ACCEPT_DUEL, requester.getObjectId(), requester.getName()));
-		PacketSendUtility.sendPacket(this.getOwner(), SM_SYSTEM_MESSAGE.DUEL_ASKED_BY(requester.getName()));
-	}
-
-	/**
-	 * Asks confirmation for the duel request
-	 * 
-	 * @param target
-	 *            the player whose the duel was requested
-	 */
-	public void confirmDuelWith(Player target)
-	{
-		log.debug("[Duel] Player " + this.getOwner().getName() + " has to confirm his duel with " + target.getName());
-		RequestResponseHandler rrh = new RequestResponseHandler(target){
-			@Override
-			public void denyRequest(Creature requester, Player responder)
-			{
-				log.debug("[Duel] Player " + responder.getName() + " confirmed his duel with " + requester.getName());
-			}
-
-			@Override
-			public void acceptRequest(Creature requester, Player responder)
-			{
-				responder.getController().cancelDuelRequest((Player) requester);
-			}
-		};
-		this.getOwner().getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_CONFIRM_DUEL, rrh);
-		PacketSendUtility.sendPacket(this.getOwner(), new SM_QUESTION_WINDOW(
-			SM_QUESTION_WINDOW.STR_DUEL_DO_YOU_CONFIRM_DUEL, target.getObjectId(), target.getName()));
-		PacketSendUtility.sendPacket(this.getOwner(), SM_SYSTEM_MESSAGE.DUEL_ASKED_TO(target.getName()));
-	}
-
-	/**
-	 * Rejects the duel request
-	 * 
-	 * @param requester
-	 *            the duel requester
-	 */
-	public void rejectDuelRequest(Player requester)
-	{
-		log.debug("[Duel] Player " + this.getOwner().getName() + " rejected duel request from " + requester.getName());
-		requester.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_REJECTED_BY(this.getOwner().getName()));
-		this.getOwner().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_REJECT_DUEL_OF(requester.getName()));
-	}
-
-	/**
-	 * Cancels the duel request
-	 * 
-	 * @param target
-	 *            the duel target
-	 */
-	public void cancelDuelRequest(Player target)
-	{
-		log
-			.debug("[Duel] Player " + this.getOwner().getName() + " cancelled his duel request with "
-				+ target.getName());
-		target.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_BY(this.getOwner().getName()));
-		this.getOwner().getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_WITH(target.getName()));
-	}
-
-	/**
-	 * Starts the duel
-	 * 
-	 * @param player
-	 *            the player to start duel with
-	 */
-	public void startDuelWith(Player player)
-	{
-		log.debug("[Duel] Player " + this.getOwner().getName() + " start duel with " + player.getName());
-		PacketSendUtility.sendPacket(getOwner(), SM_DUEL.SM_DUEL_STARTED(player.getObjectId()));
-		lastAttacker = player;
-	}
-
-	/**
-	 * Won the duel
-	 * 
-	 * @param attacker
-	 *            the other player
-	 */
-	public void wonDuelWith(Player attacker)
-	{
-		log.debug("[Duel] Player " + attacker.getName() + " won duel against " + this.getOwner().getName());
-		PacketSendUtility.sendPacket(getOwner(), SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_WON, attacker.getName()));
-	}
-
-	/**
-	 * Lost the duel
-	 * 
-	 * @param attacker
-	 *            the other player
-	 */
-	public void lostDuelWith(Player attacker)
-	{
-		log.debug("[Duel] Player " + attacker.getName() + " lost duel against " + this.getOwner().getName());
-		PacketSendUtility.sendPacket(getOwner(), SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_LOST, attacker.getName()));
-		PlayerLifeStats pls = getOwner().getLifeStats();
-		getOwner().setLifeStats(new PlayerLifeStats(getOwner(), 1, pls.getCurrentMp()));
-		getOwner().getLifeStats().triggerRestoreTask();
 	}
 
 	/**

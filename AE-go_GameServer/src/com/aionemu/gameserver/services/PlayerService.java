@@ -95,6 +95,7 @@ public class PlayerService
 	private SkillLearnService			skillLearnService;
 	private GroupService				groupService;
 	private PunishmentService			punishmentService;
+	private DuelService					duelService;
 	private PlayerStatsData				playerStatsData;
 	private PlayerInitialData			playerInitialData;
 
@@ -102,7 +103,7 @@ public class PlayerService
 	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
 		LegionService legionService, TeleportService teleportService, ControllerFactory controllerFactory,
 		SkillLearnService skillLearnService, GroupService groupService, PunishmentService punishmentService,
-		PlayerStatsData playerStatsData, PlayerInitialData playerInitialData)
+		DuelService duelService, PlayerStatsData playerStatsData, PlayerInitialData playerInitialData)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
@@ -113,6 +114,7 @@ public class PlayerService
 		this.skillLearnService = skillLearnService;
 		this.groupService = groupService;
 		this.punishmentService = punishmentService;
+		this.duelService = duelService;
 		this.playerStatsData = playerStatsData;
 		this.playerInitialData = playerInitialData;
 	}
@@ -353,6 +355,10 @@ public class PlayerService
 
 		if(player.getLifeStats().isAlreadyDead())
 			teleportService.moveToBindLocation(player, false);
+
+		if(duelService.isDueling(player.getObjectId()))
+			duelService.wonDuelWith((Player) player.getController().getLastAttacker(), player.getObjectId(), player
+				.getName());
 
 		punishmentService.stopPrisonTask(player, true);
 

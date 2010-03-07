@@ -20,6 +20,7 @@ import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.services.DuelService;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -33,9 +34,11 @@ public class CM_DUEL_REQUEST extends AionClientPacket
 	/**
 	 * Target object id that client wants to start duel with
 	 */
-	private int		objectId;
+	private int			objectId;
 	@Inject
-	private World	world;
+	private DuelService	duelService;
+	@Inject
+	private World		world;
 
 	/**
 	 * Constructs new instance of <tt>CM_DUEL_REQUEST</tt> packet
@@ -61,15 +64,18 @@ public class CM_DUEL_REQUEST extends AionClientPacket
 	{
 		Player activePlayer = getConnection().getActivePlayer();
 		AionObject target = world.findAionObject(objectId);
-		
+
 		if(target == null)
 			return;
-		
-		if (target instanceof Player) {
-			Player targetPlayer = (Player)target;
-			targetPlayer.getController().onDuelRequest(activePlayer);
-			activePlayer.getController().confirmDuelWith(targetPlayer);
-		} else{
+
+		if(target instanceof Player)
+		{
+			Player targetPlayer = (Player) target;
+			duelService.onDuelRequest(activePlayer, targetPlayer);
+			duelService.confirmDuelWith(activePlayer, targetPlayer);
+		}
+		else
+		{
 			sendPacket(SM_SYSTEM_MESSAGE.DUEL_PARTNER_INVALID(target.getName()));
 		}
 	}
