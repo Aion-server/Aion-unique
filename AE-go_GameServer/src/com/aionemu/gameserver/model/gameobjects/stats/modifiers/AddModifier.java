@@ -36,10 +36,13 @@ public class AddModifier extends SimpleModifier
 		{
 			case ATTACK_SPEED:
 			case SPEED:
-			case FLY_SPEED:
 				minLimit = 600;
 				maxLimit = 12000;
-				break;			
+				break;
+			case FLY_SPEED:
+				minLimit = 600;
+				maxLimit = 16000;
+				break;					
 		}
 		
 		if(isBonus())
