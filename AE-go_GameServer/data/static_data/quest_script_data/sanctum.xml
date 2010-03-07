@@ -15,7 +15,6 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
 	<!-- Symbol of the Chosen -->
 	<report_to id="9510" start_npc_id="203752" end_npc_id="203711"/>
 	
@@ -31,25 +30,26 @@
 	<!-- Krallic Language Potion -->
 	<report_to id="1901" start_npc_id="798026" end_npc_id="203864"/>
 	
-	<!-- TODO: Ulaguru Speaks -->
+	<!-- Ulaguru Speaks -->
+      <report_to id="1908" start_npc_id="203864" end_npc_id="203864"/>
 
 	<!-- [Craft] A Betua Wood Offering -->
-	<item_collecting id="1905" start_npc_id="203792" />
+	<item_collecting id="1905" start_npc_id="203792"/>
 
 	<!-- [Craft] A Token of Respect -->
-	<item_collecting id="1906" start_npc_id="203786" />
+	<item_collecting id="1906" start_npc_id="203786"/>
 
 	<!-- [Craft] Crafting Ingots -->
-	<item_collecting id="1902" start_npc_id="203788" />
+	<item_collecting id="1902" start_npc_id="203788"/>
 
 	<!-- [Craft] First Steps in Tailoring -->
-	<item_collecting id="1907" start_npc_id="203793" />
+	<item_collecting id="1907" start_npc_id="203793"/>
 
 	<!-- [Craft] Ingot Ingredients -->
-	<item_collecting id="1903" start_npc_id="203701" />
+	<item_collecting id="1903" start_npc_id="203701"/>
 
 	<!-- [Craft] Roasting Inina -->
-	<item_collecting id="1904" start_npc_id="203784" />
+	<item_collecting id="1904" start_npc_id="203784"/>
 
 	<!-- TODO: [Event] Chasing the Grankers -->
 	
@@ -57,42 +57,51 @@
 	
 	<!-- TODO: [Event] Solorius Donations -->
 
-	<!-- TODO: [Event] Solorius Invitations -->
-	
+	<!-- [Event] Solorius Invitations -->
+	<report_to id="9550" start_npc_id="798010" end_npc_id="203738"/>
+
 	<!-- TODO: [Event] Thirst for Invention! -->
 	
-	<!-- TODO: A Lingering Mystery -->
+	<!-- A Lingering Mystery -->
+      <report_to id="1917" start_npc_id="203835" end_npc_id="203835"/>
 
-	<!-- TODO: An Ax For Namus -->
-	
+	<!-- An Ax For Namus -->
+	<report_to id="9558" start_npc_id="203966" end_npc_id="798377"/>
+
 	<!-- The Seed of Evil -->
-	<item_collecting id="1910" start_npc_id="203833" />
+	<item_collecting id="1910" start_npc_id="203833"/>
 
 	<!-- Marmeia's Krall Research -->
-	<item_collecting id="1911" start_npc_id="203864" />
+	<item_collecting id="1911" start_npc_id="203864"/>
 
 	<!-- Familiar Food -->
-	<item_collecting id="1912" start_npc_id="203864" />
+	<item_collecting id="1912" start_npc_id="203864"/>
 
-	<!-- TODO: Guide of Life -->
-	
-	<!-- TODO: Intention of Lady Yustiel -->
+	<!-- Guide of Life -->
+	<report_to id="3909" start_npc_id="203761" end_npc_id="203761"/>
 
-	<!-- TODO: Meaning of Life -->
-	
+	<!-- Intention of Lady Yustiel -->
+      <report_to id="3912" start_npc_id="203707" end_npc_id="203707"/>
+
+	<!-- Meaning of Life -->
+	<report_to id="3910" start_npc_id="749110" end_npc_id="203707"/>
+
 	<!-- TODO: Teachings of Life -->
 	
-	<!-- TODO: A Souvenir For Noris -->
+	<!-- A Souvenir For Noris -->
+      <report_to id="1964" start_npc_id="203726" end_npc_id="203726"/>
 
 	<!-- A Costume on Consignment -->
-	<report_to id="1986" start_npc_id="798009" end_npc_id="203810" />
+	<report_to id="1986" start_npc_id="798009" end_npc_id="203810"/>
 
-	<!-- TODO: Chasing a Criminal -->
-	
-	<!-- TODO: Secret Library Access -->
+	<!-- Chasing a Criminal -->
+	<report_to id="1928" start_npc_id="203845" end_npc_id="798150"/>
+
+	<!-- Secret Library Access -->
+      <report_to id="1926" start_npc_id="203894" end_npc_id="203894"/>
 
 	<!-- D'yer Ma'ker -->
-	<item_collecting id="1971" start_npc_id="203812" />
+	<item_collecting id="1971" start_npc_id="203812"/>
 
 	<!-- TODO: A Helmet Gone Astray -->
 	
@@ -115,67 +124,89 @@
 	<!-- TODO: Esoteric Freedom Book -->
 	
 	<!-- A Mended Robe -->
-	<report_to id="1956" start_npc_id="203793" end_npc_id="278511" item_id="182206029" />
+	<report_to id="1956" start_npc_id="203793" end_npc_id="278511" item_id="182206029"/>
 
-	<!-- TODO: A Package From Vulcanus -->
+	<!-- A Package From Vulcanus -->
+      <report_to id="1952" start_npc_id="203790" end_npc_id="278511"/>
 
 	<!-- Getting a Grip -->
-	<report_to id="1953" start_npc_id="203792" end_npc_id="278510" item_id="182206026" />
+	<report_to id="1953" start_npc_id="203792" end_npc_id="278510" item_id="182206026"/>
 
 	<!-- Never Short of Steel -->
-	<report_to id="1951" start_npc_id="203788" end_npc_id="278510" item_id="182206024" />
+	<report_to id="1951" start_npc_id="203788" end_npc_id="278510" item_id="182206024"/>
 
 	<!-- Nuts to Denegos -->
-	<report_to id="1954" start_npc_id="203784" end_npc_id="278510" item_id="182206027" />
+	<report_to id="1954" start_npc_id="203784" end_npc_id="278510" item_id="182206027"/>
 
 	<!-- Spellbook Express -->
-	<report_to id="1955" start_npc_id="203786" end_npc_id="278510" item_id="182206028" />
+	<report_to id="1955" start_npc_id="203786" end_npc_id="278510" item_id="182206028"/>
 
-	<!-- TODO: A Letter to Medea -->
+	<!-- A Letter to Medea -->
+      <report_to id="1950" start_npc_id="204424" end_npc_id="204424"/>
 
-	<!-- TODO: A Bigger Warehouse -->
+	<!-- A Bigger Warehouse -->
+      <report_to id="1987" start_npc_id="203700" end_npc_id="203749"/>
 
 	<!-- A Lucky Day -->
-	<report_to id="1947" start_npc_id="203795" end_npc_id="798012" />
+	<report_to id="1947" start_npc_id="203795" end_npc_id="798012"/>
 
-	<!-- TODO: Wings of Mastery -->
+	<!-- Wings of Mastery -->
+      <report_to id="1940" start_npc_id="203879" end_npc_id="203879"/>
 
-	<!-- TODO: A Passion For Tailoring -->
+	<!-- A Passion For Tailoring -->
+      <report_to id="1982" start_npc_id="203786" end_npc_id="203786"/>
 
-	<!-- TODO: Alchemy Expert -->
+	<!-- Alchemy Expert -->
+      <report_to id="1945" start_npc_id="203786" end_npc_id="203700"/>
 
-	<!-- TODO: Armorsmithing Expert -->
+	<!-- Armorsmithing Expert -->
+      <report_to id="1942" start_npc_id="203790" end_npc_id="203700"/>
 
-	<!-- TODO: Cooking Expert -->
+	<!-- Cooking Expert -->
+      <report_to id="1944" start_npc_id="203784" end_npc_id="203700"/>
 
-	<!-- TODO: Handicrafting Expert -->
+	<!-- Handicrafting Expert -->
+      <report_to id="1943" start_npc_id="203792" end_npc_id="203700"/>
 
-	<!-- TODO: Passion for Alchemy -->
+	<!-- Passion for Alchemy -->
+      <report_to id="1980" start_npc_id="203786" end_npc_id="203786"/>
 
-	<!-- TODO: Passion for Armorsmithing -->
+	<!-- Passion for Armorsmithing -->
+      <report_to id="1974" start_npc_id="203790" end_npc_id="203790"/>
 
-	<!-- TODO: Passion for Cooking -->
+	<!-- Passion for Cooking -->
+      <report_to id="1978" start_npc_id="203784" end_npc_id="203784"/>
 
-	<!-- TODO: Passion for Handicrafting -->
+	<!-- Passion for Handicrafting -->
+      <report_to id="1976" start_npc_id="203792" end_npc_id="203792"/>
 
-	<!-- TODO: Passion for Weaponsmithing -->
+	<!-- Passion for Weaponsmithing -->
+      <report_to id="1972" start_npc_id="203788" end_npc_id="203788"/>
 
-	<!-- TODO: Requirements For Tailoring Expert -->
+	<!-- Requirements For Tailoring Expert -->
+      <report_to id="1983" start_npc_id="203793" end_npc_id="203793"/>
 
-	<!-- TODO: Requirements for Alchemy Expert -->
+	<!-- Requirements for Alchemy Expert -->
+      <report_to id="1981" start_npc_id="203786" end_npc_id="203786"/>
 
-	<!-- TODO: Requirements for Armorsmithing Expert -->
+	<!-- Requirements for Armorsmithing Expert -->
+      <report_to id="1975" start_npc_id="203790" end_npc_id="203790"/>
 
-	<!-- TODO: Requirements for Cooking Expert -->
+	<!-- Requirements for Cooking Expert -->
+      <report_to id="1979" start_npc_id="203784" end_npc_id="203784"/>
 
-	<!-- TODO: Requirements for Handicrafting Expert -->
+	<!-- Requirements for Handicrafting Expert -->
+      <report_to id="1977" start_npc_id="203792" end_npc_id="203792"/>
 
-	<!-- TODO: Requirements for Weaponsmithing Expert -->
+	<!-- Requirements for Weaponsmithing Expert -->
+      <report_to id="1973" start_npc_id="203788" end_npc_id="203788"/>
 
-	<!-- TODO: Tailoring Expert -->
+	<!-- Tailoring Expert -->
+      <report_to id="1946" start_npc_id="203793" end_npc_id="203700"/>
 
-	<!-- TODO: [Expert] Weaponsmithing Expert -->
-	
+	<!-- [Expert] Weaponsmithing Expert -->
+	<report_to id="1941" start_npc_id="203788" end_npc_id="203700"/>
+
 	<!-- TODO: [Top Expert] Alchemy Expert -->
 	
 	<!-- TODO: [Top Expert] Armorsmithing Expert -->
@@ -228,46 +259,56 @@
 	
 	<!-- TODO: The Templar Preceptor's Task -->
 	
-	<!-- TODO: To Catch a Dragon -->
+	<!-- To Catch a Dragon -->
+      <report_to id="3905" start_npc_id="798316" end_npc_id="798316"/>
 
 	<!-- TODO: [Growth] Flora's First Charm -->
 	
 	<!-- A Gift For Vindachinerk -->
-	<item_collecting id="1949" start_npc_id="279006" />
+	<item_collecting id="1949" start_npc_id="279006"/>
 
-	<!-- TODO: Where's Vindachinerk? -->
+	<!-- Where's Vindachinerk? -->
+      <report_to id="1948" start_npc_id="798012" end_npc_id="279006"/>
 
-	<!-- TODO: Black Cloud Fakery -->
-	
+	<!-- Black Cloud Fakery -->
+	<report_to id="1938" start_npc_id="203703" end_npc_id="203703"/>
+
 	<!-- Flame Sword -->
-	<item_collecting id="1930" start_npc_id="203767" />
+	<item_collecting id="1930" start_npc_id="203767"/>
 
-	<!-- TODO: Going out of Business -->
+	<!-- Going out of Business -->
+      <report_to id="1939" start_npc_id="203703" end_npc_id="700265"/>
 
 	<!-- TODO: A Matter of Reputation -->
-	
+	<report_to id="1932" start_npc_id="203893" end_npc_id="203893"/>
+
 	<!-- TODO: [Growth] Flora's Second Charm -->
 
 	<!-- TODO: Shameless Peperinrinerk -->
 	
 	<!-- TODO: [Group] A Promise to a Customer -->
 	
-	<!-- TODO: Hairpin Ahoy! -->
+	<!-- Hairpin Ahoy! -->
+      <report_to id="3206" start_npc_id="798321" end_npc_id="798321"/>
 
 	<!-- TODO: Rules of Alchemy and Life -->
 
-	<!-- TODO: [Group] Snow Blessing -->
-	
+	<!-- [Group] Snow Blessing -->
+	<report_to id="3201" start_npc_id="798318" end_npc_id="203852"/>
+
 	<!-- TODO: The Manduri Imperative -->
 
-	<!-- TODO: The Pirates' Log -->
+	<!-- The Pirates Log -->
+      <report_to id="3207" start_npc_id="798320" end_npc_id="798320"/>
 
-	<!-- TODO: A Disturbing Report -->
+	<!-- A Disturbing Report -->
+      <report_to id="1933" start_npc_id="203833" end_npc_id="203833"/>
 
-	<!-- TODO: Tissue? I Don't Even Know You! -->
+	<!-- Tissue? I Don't Even Know You! -->
+      <report_to id="1935" start_npc_id="203833" end_npc_id="203833"/>
 
 	<!-- What Nerison Saw -->
-	<report_to id="1936" start_npc_id="203833" end_npc_id="204573" />
+	<report_to id="1936" start_npc_id="203833" end_npc_id="204573"/>
 
 	<!-- TODO: RM-78c -->
 
@@ -290,7 +331,7 @@
 	<!-- TODO: The Pirates' Pouch -->
 
 	<!-- Goodwill of Kuruminerk -->
-	<report_to id="3960" start_npc_id="798322" end_npc_id="203711" />
+	<report_to id="3960" start_npc_id="798322" end_npc_id="203711"/>
 
 	<!-- TODO: Destruction and Rebirth -->
 
@@ -301,7 +342,7 @@
 	<!-- TODO: [Group] To Master the Dragon -->
 	
 	<!-- A Secret Summons -->
-	<report_to id="3913" start_npc_id="203752" end_npc_id="278536" />
+	<report_to id="3913" start_npc_id="203752" end_npc_id="278536"/>
 
 	<!-- TODO: Epilogue -->
 	
@@ -324,6 +365,4 @@
 	<!-- TODO: [Group] The Secret of Surkana -->
 	
 	<!-- TODO: [Growth] Flora's Fourth Charm -->
-
-
 </quest_scripts>
