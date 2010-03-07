@@ -78,19 +78,20 @@ public class _1122DeliveringPernossRobe extends QuestHandler
 				{
 					case 25:
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
-					case 10003:
-						itemCount = player.getInventory().getItemCountByItemId(182200220);
+					case 10000:
+						itemCount = player.getInventory().getItemCountByItemId(182200218);
 						if (itemCount > 0)
 						{
-							qs.getQuestVars().setQuestVar(1);
+							qs.getQuestVars().setQuestVar(3);
 							qs.setStatus(QuestStatus.REWARD);
 							updateQuestStatus(player, qs);
-							player.getInventory().removeFromBagByItemId(182200220, 1);
-							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1353);
+							player.getInventory().removeFromBagByItemId(182200218, 1);
+							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1523);
 						}
 						else
 							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1608);
-					case 10002:
+
+					case 10001:
 						itemCount = player.getInventory().getItemCountByItemId(182200219);
 						if (itemCount > 0)
 						{
@@ -102,15 +103,15 @@ public class _1122DeliveringPernossRobe extends QuestHandler
 						}
 						else
 							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1608);
-					case 10001:
-						itemCount = player.getInventory().getItemCountByItemId(182200218);
+					case 10002:
+						itemCount = player.getInventory().getItemCountByItemId(182200220);
 						if (itemCount > 0)
 						{
-							qs.getQuestVars().setQuestVar(3);
+							qs.getQuestVars().setQuestVar(1);
 							qs.setStatus(QuestStatus.REWARD);
 							updateQuestStatus(player, qs);
-							player.getInventory().removeFromBagByItemId(182200218, 1);
-							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1523);
+							player.getInventory().removeFromBagByItemId(182200220, 1);
+							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1353);
 						}
 						else
 							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1608);
