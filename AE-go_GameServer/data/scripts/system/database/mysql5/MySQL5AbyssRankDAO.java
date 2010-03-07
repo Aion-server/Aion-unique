@@ -85,6 +85,7 @@ public class MySQL5AbyssRankDAO extends AbyssRankDAO
 			case UPDATE_REQUIRED:
 				return updateRank(player.getObjectId(), rank);
 		}
+		rank.setPersistentState(PersistentState.UPDATED);
 		return false;
 	}
 
@@ -103,8 +104,8 @@ public class MySQL5AbyssRankDAO extends AbyssRankDAO
 				stmt.setInt(2, rank.getAp());
 				stmt.setInt(3, rank.getRank().getId());
 				stmt.setInt(4, rank.getAllKill());
-                stmt.setInt(5, rank.getMaxRank());
-                stmt.execute();
+				stmt.setInt(5, rank.getMaxRank());
+				stmt.execute();
 			}
 		});
 	}
@@ -122,10 +123,10 @@ public class MySQL5AbyssRankDAO extends AbyssRankDAO
 			{
 				stmt.setInt(1, rank.getAp());
 				stmt.setInt(2, rank.getRank().getId());
-                stmt.setInt(3, rank.getAllKill());
-                stmt.setInt(4, rank.getMaxRank());
+				stmt.setInt(3, rank.getAllKill());
+				stmt.setInt(4, rank.getMaxRank());
 				stmt.setInt(5, objectId);
-                stmt.execute();
+				stmt.execute();
 			}
 		});
 	}
