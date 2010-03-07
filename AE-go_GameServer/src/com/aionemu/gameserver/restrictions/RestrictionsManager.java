@@ -188,6 +188,18 @@ public class RestrictionsManager
 		activate(new PrisonRestrictions());
 	}
 	
+	/**
+	 * This function can be used for activate one restriction.
+	 * Example:
+	 * 
+	 * public static boolean startAppleEatingEvent(Player player)
+	 * {
+	 * 		if(RestrictionsManager.isRestricted(player, AppleEatingEventRestriction.class))
+	 * 			return false;
+	 * 
+	 * 		return true;
+	 * }
+	 */
 	public static boolean isRestricted(Player player, Class<? extends Restrictions> callingRestriction)
 	{
 		if(player == null)
