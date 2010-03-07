@@ -29,6 +29,8 @@ import com.google.inject.Inject;
 
 /**
  * @author lord_rex
+ * Command: //rprison <player>
+ * This command is removing player from prison.
  * 
  */
 public class RemoveFromPrison extends AdminCommand

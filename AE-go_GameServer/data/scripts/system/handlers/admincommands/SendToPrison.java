@@ -29,6 +29,8 @@ import com.google.inject.Inject;
 
 /**
  * @author lord_rex
+ * Command: //sprison <player> <delay>(minutes)
+ * This command is sending player to prison.
  * 
  */
 public class SendToPrison extends AdminCommand
