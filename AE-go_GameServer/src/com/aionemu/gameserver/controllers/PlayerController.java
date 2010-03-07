@@ -264,9 +264,13 @@ public class PlayerController extends CreatureController<Player>
 	{
 		if(getOwner().getLifeStats().isAlreadyDead())
 			return;
-
+		
 		super.onAttack(creature, skillId, type, damage);
 		lastAttacker = creature;
+		
+		 if (getOwner().isInvul())
+			damage = 0;
+		 
 		getOwner().getLifeStats().reduceHp(damage);
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), type, skillId, damage), true);
 	}
