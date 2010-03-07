@@ -18,7 +18,6 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -27,15 +26,15 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * @author Sweetkr
  * 
  */
-public class SM_CONSUME_DP extends AionServerPacket
+public class SM_DP_INFO extends AionServerPacket
 {
-	private Player	 player;
-	private int	dpUsage;
+	private int		playerObjectId;
+	private int		currentDp;
 
-	public SM_CONSUME_DP(Player player, int dpUsage)
+	public SM_DP_INFO(int playerObjectId, int currentDp)
 	{
-		this.player = player;
-		this.dpUsage = dpUsage;
+		this.playerObjectId = playerObjectId;
+		this.currentDp = currentDp;
 	}
 
 	/**
@@ -44,8 +43,8 @@ public class SM_CONSUME_DP extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeH(buf, player.getObjectId());
-		writeH(buf, dpUsage);
+		writeD(buf, playerObjectId);
+		writeH(buf, currentDp);
 	}
 
 }

@@ -71,7 +71,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_ENTER_WORLD_CHECK.class, 0x25, idSet);
 		addPacketOpcode(SM_STATUPDATE_DP.class, 0x26, idSet);
 		addPacketOpcode(SM_STATUPDATE_EXP.class, 0x28, idSet);
-		addPacketOpcode(SM_CONSUME_DP.class, 0x29, idSet);
+		addPacketOpcode(SM_DP_INFO.class, 0x29, idSet);
 		addPacketOpcode(SM_TELEPORT_LOC.class, 0x2C, idSet);
 		addPacketOpcode(SM_NPC_INFO.class, 0x2E, idSet);
 		addPacketOpcode(SM_PLAYER_SPAWN.class, 0x2F, idSet);

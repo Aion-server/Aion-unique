@@ -27,6 +27,8 @@ import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_DP_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_DP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -378,6 +380,9 @@ public class PlayerCommonData extends VisibleObjectTemplate
 		{
 			int maxDp = getPlayer().getGameStats().getCurrentStat(StatEnum.MAXDP);
 			this.dp = dp > maxDp ? maxDp : dp;
+
+			PacketSendUtility.broadcastPacket(getPlayer(), new SM_DP_INFO(playerObjId, this.dp), true);
+			PacketSendUtility.sendPacket(getPlayer(), new SM_STATS_INFO(getPlayer()));
 			PacketSendUtility.sendPacket(getPlayer(), new SM_STATUPDATE_DP(this.dp));
 		}
 		else
