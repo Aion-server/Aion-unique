@@ -18,13 +18,15 @@ package com.aionemu.gameserver.controllers;
 
 import java.util.List;
 
-import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.controllers.movement.StartMovingListener;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.gather.Material;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.skillengine.task.GatheringTask;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -132,10 +134,13 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 		if(player != null)
 		{
 			int skillLvl = getOwner().getObjectTemplate().getSkillLevel();
-			int xpReward = skillLvl * 10 + Rnd.get(0, skillLvl * 10/2);
-			player.getCommonData().addExp(xpReward);
+			int xpReward = (int)(0.008*(skillLvl+100)*(skillLvl+100)+60);
 			
-			player.getSkillList().addSkillXp(player, getOwner().getObjectTemplate().getHarvestSkill(), xpReward);
+			if (player.getSkillList().addSkillXp(player, getOwner().getObjectTemplate().getHarvestSkill(), xpReward))
+				player.getCommonData().addExp(xpReward);
+			else
+				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.MSG_DONT_GET_PRODUCTION_EXP(new DescriptionId(DataManager.SKILL_DATA.getSkillTemplate(getOwner().getObjectTemplate().getHarvestSkill()).getNameId())));
+				
 		}
 	}
 	

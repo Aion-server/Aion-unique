@@ -136,14 +136,14 @@ public class SkillList
 		return true;
 	}
 
-	public void addSkillXp(Player player, int skillId, int xpReward)
+	public boolean addSkillXp(Player player, int skillId, int xpReward)
 	{
 		SkillListEntry  skillEntry =  getSkillEntry(skillId);
 		switch(skillEntry.getSkillId())
 		{
 			case 30001:
 				if(skillEntry.getSkillLevel() == 49)
-					return;
+					return false;
 			case 30002:
 			case 30003:
 			case 40001:
@@ -159,13 +159,13 @@ public class SkillList
 					case 299:
 					case 399:
 					case 450:
-						//TODO system message
-						return;
+						return false;
 				}
 		}
 		boolean updateSkill = skillEntry.addSkillXp(xpReward);
 		if (updateSkill)
 			sendMessage(player, skillId);
+		return true;
 	}
 	/**
 	 * Checks whether player have skill with specified skillId

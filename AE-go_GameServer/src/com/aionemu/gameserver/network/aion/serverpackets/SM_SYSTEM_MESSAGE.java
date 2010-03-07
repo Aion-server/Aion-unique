@@ -825,6 +825,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1330061, nameId);
 	}
+	
+	public static SM_SYSTEM_MESSAGE MSG_DONT_GET_PRODUCTION_EXP(DescriptionId nameId)
+	{
+		return new SM_SYSTEM_MESSAGE(1390221, nameId);
+	}
 
 	private final int		code;
 	private final Object[]	params;

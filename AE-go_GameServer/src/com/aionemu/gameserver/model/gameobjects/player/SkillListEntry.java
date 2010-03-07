@@ -84,14 +84,13 @@ public class SkillListEntry
 	}
 	
 	/**
-	 *  Later will be moved to DB
 	 *  
 	 * @param xp
 	 */
 	public boolean addSkillXp(int xp)
 	{
 		this.currentXp += xp;
-		if(currentXp > (skillLvl + 1) * (skillLvl+1) * 10)
+		if(currentXp > (int)(0.25*(skillLvl+15)*(skillLvl+15)+500))
 		{
 			currentXp = 0;
 			setSkillLvl(skillLvl + 1);
