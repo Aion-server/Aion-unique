@@ -80,7 +80,6 @@ public class Player extends Creature
 	private RecipeList			recipeList;
 	private int					flyState		= 0;
 	private boolean				isTrading;
-	private boolean				isInPrison		= false;
 	private long				prisonTimer		= 0;
 	
 	/**
@@ -730,19 +729,11 @@ public class Player extends Creature
 	}
 
 	/**
-	 * @param isInPrison the isInPrison to set
-	 */
-	public void setInPrison(boolean isInPrison)
-	{
-		this.isInPrison = isInPrison;
-	}
-
-	/**
 	 * @return the isInPrison
 	 */
 	public boolean isInPrison()
 	{
-		return isInPrison;
+		return prisonTimer != 0;
 	}
 
 	/**

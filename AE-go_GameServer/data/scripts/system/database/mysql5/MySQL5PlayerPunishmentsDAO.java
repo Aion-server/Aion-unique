@@ -52,7 +52,6 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO
 			{
 				while(rs.next())
 				{
-					player.setInPrison(rs.getInt("punishment_status") == 1);
 					player.setPrisonTimer(rs.getLong("punishment_timer"));
 
 					if(player.isInPrison())

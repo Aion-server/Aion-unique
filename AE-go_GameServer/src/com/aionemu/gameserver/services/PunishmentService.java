@@ -60,6 +60,7 @@ public class PunishmentService
 		else
 		{
 			PacketSendUtility.sendMessage(player, "You removed from prison!");
+			player.setPrisonTimer(0);
 
 			if(player.getCommonData().getRace() == Race.ELYOS)
 				teleportService.teleportTo(player, WorldMapType.POETA.getId(), 806, 1242, 119, 0);
