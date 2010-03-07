@@ -24,8 +24,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.WeatherService;
+import com.aionemu.gameserver.services.ZoneService.ZoneUpdateMode;
 import com.aionemu.gameserver.world.World;
-import com.aionemu.gameserver.world.zone.ZoneManager;
 import com.google.inject.Inject;
 
 /**
@@ -79,11 +79,8 @@ public class CM_LEVEL_READY extends AionClientPacket
 		 * Spawn player into the world.
 		 */
 		world.spawn(activePlayer);
-
-		/**
-		 * Find zone in current map
-		 */
-		ZoneManager.getInstance().findZoneInCurrentMap(activePlayer);
+		
+		activePlayer.getController().addZoneUpdateMask(ZoneUpdateMode.ZONE_REFRESH);
 
 		/**
 		 * Loading weather for the player's region

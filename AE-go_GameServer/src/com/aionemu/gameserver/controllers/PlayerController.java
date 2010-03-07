@@ -66,6 +66,7 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.services.ClassChangeService;
+import com.aionemu.gameserver.services.ZoneService.ZoneUpdateMode;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.Skill;
@@ -73,7 +74,6 @@ import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
-import com.aionemu.gameserver.world.zone.ZoneManager;
 
 /**
  * This class is for controlling players.
@@ -89,6 +89,11 @@ public class PlayerController extends CreatureController<Player>
 	private Creature		lastAttacker;
 
 	private boolean			isInShutdownProgress;
+	
+	/**
+	 * Zone update mask
+	 */
+	private volatile byte zoneUpdateMask;
 
 	/**
 	 * @return the lastAttacker
@@ -292,12 +297,7 @@ public class PlayerController extends CreatureController<Player>
 	public void onMove()
 	{
 		super.onMove();
-		PlayerGameStats pgs = getOwner().getGameStats();
-		pgs.increaseMoveCounter();
-		if(pgs.getMoveCounter() % 5 == 0)
-		{
-			ZoneManager.getInstance().checkZone(getOwner());
-		}
+		addZoneUpdateMask(ZoneUpdateMode.ZONE_UPDATE);
 	}
 
 	@Override
@@ -636,5 +636,54 @@ public class PlayerController extends CreatureController<Player>
 			player.unsetVisualState(CreatureVisualState.BLINKING);
 			PacketSendUtility.broadcastPacket(player, new SM_PLAYER_STATE(player), true);
 		}	
+	}
+
+	/**
+	 *  When player arrives at destination point of flying teleport
+	 */
+	public void onFlyTeleportEnd()
+	{
+		Player player = getOwner();
+		player.unsetState(CreatureState.FLYING);
+		player.setState(CreatureState.ACTIVE);
+		PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
+		addZoneUpdateMask(ZoneUpdateMode.ZONE_REFRESH);
+	}
+	
+	/**
+	 * Zone update mask management
+	 * 
+	 * @param mode
+	 */
+	public final void addZoneUpdateMask(ZoneUpdateMode mode)
+	{
+		zoneUpdateMask |= mode.mask();
+		sp.getZoneService().add(getOwner());
+	}
+
+	public final void removeZoneUpdateMask(ZoneUpdateMode mode)
+	{
+		zoneUpdateMask &= ~mode.mask();
+	}
+
+	public final byte getZoneUpdateMask()
+	{
+		return zoneUpdateMask;
+	}
+
+	/**
+	 * Update zone taking into account the current zone
+	 */
+	public void updateZoneImpl()
+	{
+		sp.getZoneService().checkZone(getOwner());
+	}
+
+	/**
+	 * Refresh completely zone irrespective of the current zone
+	 */
+	public void refreshZoneImpl()
+	{
+		sp.getZoneService().findZoneInCurrentMap(getOwner());
 	}
 }

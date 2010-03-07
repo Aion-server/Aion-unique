@@ -117,7 +117,7 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 	 * @param level
 	 */
 	public void doLevelUpgrade (PlayerStatsData playerStatsData, int level) {
-		PlayerStatsTemplate pst = playerStatsData.getTemplate(((Player)getOwner()).getPlayerClass(), level);
+		PlayerStatsTemplate pst = playerStatsData.getTemplate(owner.getPlayerClass(), level);
 		initStats(pst, level);
 		recomputeStats();
 	}

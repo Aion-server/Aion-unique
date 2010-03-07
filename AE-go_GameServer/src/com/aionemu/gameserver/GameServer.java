@@ -47,7 +47,6 @@ import com.aionemu.gameserver.utils.guice.DataInjectionModule;
 import com.aionemu.gameserver.utils.guice.IDFactoriesInjectionModule;
 import com.aionemu.gameserver.utils.guice.NetworkInjectionModule;
 import com.aionemu.gameserver.utils.guice.ObjectControllerInjectionModule;
-import com.aionemu.gameserver.world.zone.ZoneManager;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
@@ -100,7 +99,6 @@ public class GameServer
 		gs.spawnMonsters();
 		
 		QuestEngine.getInstance().setItemService(gs.injector.getInstance(ItemService.class), gs.injector.getInstance(SpawnEngine.class));
-		ZoneManager.getInstance().initializeZones();
 		QuestHandlersManager.init(gs.injector);
 		PacketBroadcaster.getInstance();
 		KnownListUpdateTask.getInstance();

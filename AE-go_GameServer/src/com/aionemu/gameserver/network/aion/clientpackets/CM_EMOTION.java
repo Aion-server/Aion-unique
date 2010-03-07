@@ -23,11 +23,9 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
-import com.aionemu.gameserver.world.zone.ZoneManager;
 
 /**
  * @author SoulKeeper
@@ -113,10 +111,7 @@ public class CM_EMOTION extends AionClientPacket
 				player.unsetState(CreatureState.RESTING);
 				break;
 			case 0x7:
-				player.unsetState(CreatureState.FLYING);
-				player.setState(CreatureState.ACTIVE);
-				PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
-				ZoneManager.getInstance().findZoneInCurrentMap(player);
+				player.getController().onFlyTeleportEnd();
 				break;
 			case 0x8:
 				// TODO move to player controller? but after states working

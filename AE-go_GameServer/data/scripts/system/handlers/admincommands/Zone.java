@@ -18,10 +18,11 @@ package admincommands;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.services.ZoneService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
-import com.aionemu.gameserver.world.zone.ZoneManager;
+import com.google.inject.Inject;
 
 /**
  * @author ATracer
@@ -29,7 +30,9 @@ import com.aionemu.gameserver.world.zone.ZoneManager;
  */
 public class Zone extends AdminCommand 
 {
-
+	@Inject
+	private ZoneService zoneService;
+	
     public Zone() {
         super("zone");
     }
@@ -64,7 +67,7 @@ public class Zone extends AdminCommand
         }
         else if("refresh".equalsIgnoreCase(params[0]))
         {
-        	ZoneManager.getInstance().findZoneInCurrentMap(admin);
+        	zoneService.findZoneInCurrentMap(admin);
         }
     }
 }

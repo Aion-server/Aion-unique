@@ -115,7 +115,7 @@ public class CM_MOVE extends AionClientPacket
 				readC();
 
 				world.updatePosition(player, x, y, z, heading);
-				player.getController().onStartMove();
+				player.getController().onMove();
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type),
 					false);
 

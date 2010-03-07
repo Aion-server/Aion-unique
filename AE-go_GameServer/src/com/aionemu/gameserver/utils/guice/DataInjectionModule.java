@@ -36,6 +36,7 @@ import com.aionemu.gameserver.dataholders.TradeListData;
 import com.aionemu.gameserver.dataholders.WalkerData;
 import com.aionemu.gameserver.dataholders.WarehouseExpandData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
+import com.aionemu.gameserver.dataholders.ZoneData;
 import com.aionemu.gameserver.services.AbyssService;
 import com.aionemu.gameserver.services.AccountService;
 import com.aionemu.gameserver.services.CraftSkillUpdateService;
@@ -56,6 +57,7 @@ import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.services.TradeService;
 import com.aionemu.gameserver.services.WarehouseExpandService;
 import com.aionemu.gameserver.services.WeatherService;
+import com.aionemu.gameserver.services.ZoneService;
 import com.aionemu.gameserver.spawnengine.RiftSpawnManager;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.chathandlers.ChatHandlers;
@@ -104,12 +106,13 @@ public class DataInjectionModule extends AbstractModule
 		bind(AbyssService.class).in(Scopes.SINGLETON);
 		bind(RespawnService.class).in(Scopes.SINGLETON);
 		bind(TeleportService.class).in(Scopes.SINGLETON);
-		bind(SkillLearnService.class).in(Scopes.SINGLETON);
-		bind(ServiceProxy.class).in(Scopes.SINGLETON);
+		bind(SkillLearnService.class).in(Scopes.SINGLETON);	
 		bind(GroupService.class).in(Scopes.SINGLETON);
 		bind(CraftSkillUpdateService.class).in(Scopes.SINGLETON);
 		bind(WarehouseExpandService.class).in(Scopes.SINGLETON);
 		bind(PunishmentService.class).in(Scopes.SINGLETON);
+		bind(ZoneService.class).in(Scopes.SINGLETON);		
+		bind(ServiceProxy.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides
@@ -229,5 +232,11 @@ public class DataInjectionModule extends AbstractModule
 	PlayerInitialData providePlayerInitialData(DataManager datamanager)
 	{
 		return datamanager.PLAYER_INITIAL_DATA;
+	}
+	
+	@Provides
+	ZoneData provideZoneData(DataManager datamanager)
+	{
+		return datamanager.ZONE_DATA;
 	}
 }

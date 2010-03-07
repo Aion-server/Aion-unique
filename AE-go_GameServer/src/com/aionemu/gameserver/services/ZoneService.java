@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.world.zone;
+package com.aionemu.gameserver.services;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,30 +22,118 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.ZoneData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.zone.ZoneTemplate;
+import com.aionemu.gameserver.taskmanager.AbstractPeriodicTaskManager;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.MapRegion;
 import com.aionemu.gameserver.world.WorldPosition;
+import com.aionemu.gameserver.world.zone.ZoneInstance;
+import com.aionemu.gameserver.world.zone.ZoneName;
+import com.google.inject.Inject;
 
 /**
  * @author ATracer
  *
  */
-public class ZoneManager
+public class ZoneService extends AbstractPeriodicTaskManager<Player>
 {
 	private Map<ZoneName, ZoneInstance> zoneMap = new HashMap<ZoneName, ZoneInstance>();
 	private Map<Integer, List<ZoneInstance>> zoneByMapIdMap = new HashMap<Integer, List<ZoneInstance>>();
-
-	private static final ZoneManager instance = new ZoneManager();
 	
+	private ZoneData zoneData;
+	
+	@Inject
+	public ZoneService(ZoneData zoneData)
+	{
+		super(4000);
+		this.zoneData = zoneData;
+		initializeZones();
+	}
+	
+
+	@Override
+	protected void callTask(Player player)
+	{
+		if(player != null)
+		{
+			for(byte mask; (mask = player.getController().getZoneUpdateMask()) != 0;)
+			{
+				for(ZoneUpdateMode mode : VALUES)
+				{
+					mode.tryUpdateZone(player, mask);
+				}
+			}
+		}
+	}
+	
+	private static final ZoneUpdateMode[]	VALUES	= ZoneUpdateMode.values();
+	
+	/**
+	 *  Zone update can be either partial (ZONE_UPDATE) or complete (ZONE_REFRESH)
+	 */
+	public static enum ZoneUpdateMode
+	{
+		ZONE_UPDATE
+		{
+			@Override
+			public void zoneTask(Player player)
+			{
+				player.getController().updateZoneImpl();
+			}
+		},
+		ZONE_REFRESH
+		{
+			@Override
+			public void zoneTask(Player player)
+			{
+				player.getController().refreshZoneImpl();
+			}
+		},
+
+		;
+
+		private final byte	MASK;
+
+		private ZoneUpdateMode()
+		{
+			MASK = (byte) (1 << ordinal());
+		}
+
+		public byte mask()
+		{
+			return MASK;
+		}
+
+		protected abstract void zoneTask(Player player);
+
+		protected final void tryUpdateZone(final Player player, byte mask)
+		{
+			if((mask & mask()) == mask())
+			{
+				ThreadPoolManager.getInstance().scheduleTaskManager((new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						zoneTask(player);
+					}
+				}), 0);
+				
+				player.getController().removeZoneUpdateMask(this);
+			}
+		}
+	}
+
+
 	/**
 	 *  Initializes zone instances using zone templates from xml
 	 *  Adds neighbors to each zone instance using lookup by ZoneName
 	 */
 	public void initializeZones()
 	{
-		Iterator<ZoneTemplate> iterator = DataManager.ZONE_DATA.iterator();
+		Iterator<ZoneTemplate> iterator = zoneData.iterator();
 		while(iterator.hasNext())
 		{
 			ZoneTemplate template = iterator.next();
@@ -169,10 +257,5 @@ public class ZoneManager
 		}
 
 		return inside;
-	}
-	
-	public static ZoneManager getInstance()
-	{
-		return instance;
 	}
 }

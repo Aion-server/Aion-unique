@@ -759,4 +759,5 @@ public class Player extends Creature
 	{
 		return isInVisualState(CreatureVisualState.BLINKING);
 	}
+
 }

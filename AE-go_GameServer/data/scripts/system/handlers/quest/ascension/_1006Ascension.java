@@ -40,12 +40,12 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.services.TeleportService;
+import com.aionemu.gameserver.services.ZoneService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldMap;
 import com.aionemu.gameserver.world.WorldMapInstance;
-import com.aionemu.gameserver.world.zone.ZoneManager;
 import com.aionemu.gameserver.world.zone.ZoneName;
 import com.google.inject.Inject;
 
@@ -55,16 +55,18 @@ import com.google.inject.Inject;
  */
 public class _1006Ascension extends QuestHandler
 {
-	private final static int	questId	= 1006;
+	private final static int		questId	= 1006;
 	private final World				world;
 	private final TeleportService	teleportService;
+	private final ZoneService		zoneService;
 
 	@Inject
-	public _1006Ascension(World world, TeleportService teleportService)
+	public _1006Ascension(World world, TeleportService teleportService, ZoneService zoneService)
 	{
 		super(questId);
 		this.world = world;
 		this.teleportService = teleportService;
+		this.zoneService = zoneService;
 		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
@@ -327,7 +329,7 @@ public class _1006Ascension extends QuestHandler
 
 		if(id != 182200007)
 			return false;
-		if(!ZoneManager.getInstance().isInsideZone(player, ZoneName.ITEMUSE_Q1006))
+		if(!zoneService.isInsideZone(player, ZoneName.ITEMUSE_Q1006))
 			return false;
 		final QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null)

@@ -48,8 +48,7 @@ public class CreatureGameStats<T extends Creature>
 	private FastMap<StatEffectId, TreeSet<StatModifier>>			statsModifiers;
 
 	private int											attackCounter		= 0;
-	private int											moveCounter			= 0;
-	private T											owner				= null;
+	protected T											owner				= null;
 
 	protected CreatureGameStats(T owner)
 	{
@@ -144,14 +143,6 @@ public class CreatureGameStats<T extends Creature>
 	}
 
 	/**
-	 * @return the moveCounter
-	 */
-	public int getMoveCounter()
-	{
-		return moveCounter;
-	}
-
-	/**
 	 * @param atcount
 	 *            the atcount to set
 	 */
@@ -177,11 +168,6 @@ public class CreatureGameStats<T extends Creature>
 		{
 			this.attackCounter++;
 		}
-	}
-
-	public void increaseMoveCounter()
-	{
-		this.moveCounter++;
 	}
 
 	public int getBaseStat(StatEnum stat)
@@ -349,23 +335,6 @@ public class CreatureGameStats<T extends Creature>
 	{
 		statsModifiers.remove(id);
 		recomputeStats();
-	}
-
-	/**
-	 * @return the owner
-	 */
-	public Creature getOwner()
-	{
-		return owner;
-	}
-
-	/**
-	 * @param Creature
-	 *            the owner
-	 */
-	public void setOwner(T owner)
-	{
-		this.owner = owner;
 	}
 
 	public int getMagicalDefenseFor(SkillElement element)
