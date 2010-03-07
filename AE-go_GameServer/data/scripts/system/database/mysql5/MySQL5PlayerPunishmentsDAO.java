@@ -71,9 +71,9 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO
 			@Override
 			public void handleInsertUpdate(PreparedStatement ps) throws SQLException
 			{
-				ps.setInt(1, player.getObjectId());
-				ps.setInt(2, player.isInPrison() ? 1 : 0);
-				ps.setLong(3, player.getPrisonTimer());
+				ps.setInt(1, player.isInPrison() ? 1 : 0);
+				ps.setLong(2, player.getPrisonTimer());
+				ps.setInt(3, player.getObjectId());
 				ps.execute();
 			}
 		});

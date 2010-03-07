@@ -16,14 +16,12 @@
  */
 package com.aionemu.gameserver.services;
 
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-
-import javolution.util.FastMap;
+import java.util.concurrent.Future;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerPunishmentsDAO;
 import com.aionemu.gameserver.model.Race;
+import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -38,18 +36,12 @@ public class PunishmentService
 	@Inject
 	TeleportService teleportService;
 	
-	private FastMap<Integer, ScheduledFuture<?>>	prisonTasks	= new FastMap<Integer, ScheduledFuture<?>>();
-	
-	private void cancelPrisonTask(int playerObjId)
-	{
-		if(prisonTasks.containsKey(playerObjId))
-		{
-			prisonTasks.get(playerObjId).cancel(false);
-			prisonTasks.remove(playerObjId);
-		}
-	}
-
-
+	/**
+	 * This method will handle moving or removing a player from prison
+	 * @param player
+	 * @param state
+	 * @param delayInMinutes
+	 */
 	public void setIsInPrison(Player player, boolean state, long delayInMinutes)
 	{
 		stopPrisonTask(player, false);
@@ -78,22 +70,30 @@ public class PunishmentService
 		}
 	}
 
+	/**
+	 * This method will stop the prison task
+	 * @param playerObjId
+	 */
 	public void stopPrisonTask(Player player, boolean save)
 	{
-		if(prisonTasks.containsKey(player.getObjectId()))
+		Future<?> prisonTask = player.getController().getTask(TaskId.PRISON.ordinal());
+		if(prisonTask != null)
 		{
-			ScheduledFuture<?> prisonTask = prisonTasks.get(player.getObjectId());
 			if(save)
 			{
-				long delay = prisonTask.getDelay(TimeUnit.MILLISECONDS);
+				long delay = player.getPrisonTimer();
 				if(delay < 0)
 					delay = 0;
 				player.setPrisonTimer(delay);
 			}
-			cancelPrisonTask(player.getObjectId());
+			player.getController().cancelTask(TaskId.PRISON.ordinal());
 		}
 	}
 
+	/**
+	 * This method will update the prison status
+	 * @param player
+	 */
 	public void updatePrisonStatus(Player player)
 	{
 		if(player.isInPrison())
@@ -110,14 +110,20 @@ public class PunishmentService
 		}
 	}
 
+	/**
+	 * This method will schedule a prison task
+	 * @param player
+	 * @param prisonTimer
+	 */
 	private void schedulePrisonTask(final Player player, long prisonTimer)
 	{
-		ThreadPoolManager.getInstance().schedule(new Runnable(){
+		player.setPrisonTimer(prisonTimer);
+		player.getController().addTask(TaskId.PRISON.ordinal(), ThreadPoolManager.getInstance().schedule(new Runnable(){
 			@Override
 			public void run()
 			{
 				setIsInPrison(player, false, 0);
 			}
-		}, prisonTimer);
+		}, prisonTimer));
 	}
 }
