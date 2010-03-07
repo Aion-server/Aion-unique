@@ -20,8 +20,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.network.aion.serverpackets.SM_FORCED_MOVE;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.SpellStatus;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author ATracer
@@ -49,6 +51,7 @@ public class StumbleEffect extends EffectTemplate
 	public void startEffect(Effect effect)
 	{
 		effect.getEffected().getEffectController().setAbnormal(EffectId.STUMBLE.getEffectId());
+		PacketSendUtility.broadcastPacket(effect.getEffector(), new SM_FORCED_MOVE(effect.getEffector(), effect.getEffected()));
 	}
 
 	@Override

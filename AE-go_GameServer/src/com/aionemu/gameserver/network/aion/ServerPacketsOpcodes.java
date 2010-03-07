@@ -136,6 +136,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_ITEM_USAGE_ANIMATION.class, 0xB7, idSet);
 		addPacketOpcode(SM_CUSTOM_SETTINGS.class, 0xB8, idSet);
 		addPacketOpcode(SM_DUEL.class, 0xB9, idSet);
+		addPacketOpcode(SM_FORCED_MOVE.class, 0xBB, idSet);
 		addPacketOpcode(SM_TELEPORT_MAP.class, 0xBC, idSet);
 		addPacketOpcode(SM_USE_OBJECT.class, 0xBD, idSet);
 		addPacketOpcode(SM_DIE.class, 0xC1, idSet);

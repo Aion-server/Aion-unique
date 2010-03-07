@@ -67,7 +67,13 @@ public class SM_CASTSPELL_END extends AionServerPacket
 		writeD(buf, cooldown);
 		writeH(buf, 560); // time?
 		writeC(buf, 0); // unk
-		writeH(buf, 32); // unk
+
+		/**
+		 * 0 : chain skill (counter too)
+		 * 16 : no damage to all target like dodge, resist or effect size is 0
+		 * 32 : regular
+		 */
+		writeH(buf, 32);
 
 		/**
 		 * Dash Type
@@ -123,23 +129,23 @@ public class SM_CASTSPELL_END extends AionServerPacket
 			 */
 			writeC(buf, this.spellStatus);
 
-		// TODO refactor skill engine
-		/*	switch(effect.getSpellStatus().getId())
+			// TODO refactor skill engine
+			switch(this.spellStatus)
 			{
 				case 1:
 				case 2:
 				case 4:
 				case 8:
-					writeF(buf, x);
-					writeF(buf, y);
-					writeF(buf, z);
+					writeF(buf, target.getX());
+					writeF(buf, target.getY());
+					writeF(buf, target.getZ());
 					break;
 				case 16:
-					writeC(buf, heading);
+					writeC(buf, target.getHeading());
 					break;
 				default:
 					break;
-			}*/
+			}
 
 			writeC(buf, 16); // unk
 			writeC(buf, 0); // current carve signet count
