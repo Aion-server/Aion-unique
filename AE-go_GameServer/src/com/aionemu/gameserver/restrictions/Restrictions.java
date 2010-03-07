@@ -26,6 +26,8 @@ import com.aionemu.gameserver.skillengine.model.Skill;
  */
 public interface Restrictions
 {
+	public boolean isRestricted(Player player, Class<? extends Restrictions> callingRestriction);
+	
 	public boolean canAttack(Player player, VisibleObject target);
 	
 	public boolean canAffectBySkill(Player player, VisibleObject target);

@@ -56,6 +56,7 @@ public class RestrictionsManager
 
 	private static enum RestrictionMode implements Comparator<Restrictions>
 	{
+		isRestricted,
 		canAttack,
 		canAffectBySkill,
 		canUseSkill,
@@ -185,6 +186,20 @@ public class RestrictionsManager
 		activate(new ShutdownRestrictions());
 		// This is the Restrictions when player is in prison.
 		activate(new PrisonRestrictions());
+	}
+	
+	public static boolean isRestricted(Player player, Class<? extends Restrictions> callingRestriction)
+	{
+		if(player == null)
+			return true;
+		
+		for(Restrictions restrictions : RESTRICTIONS[RestrictionMode.isRestricted.ordinal()])
+		{
+			if(!restrictions.isRestricted(player, callingRestriction))
+				return false;
+		}
+		
+		return false;
 	}
 	
 	/**

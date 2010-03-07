@@ -52,6 +52,12 @@ public abstract class AbstractRestrictions implements Restrictions
 	}
 	
 	@DisabledRestriction
+	public boolean isRestricted(Player player, Class<? extends Restrictions> callingRestriction)
+	{
+		throw new AbstractMethodError();
+	}
+	
+	@DisabledRestriction
 	public boolean canAttack(Player player, VisibleObject target)
 	{
 		throw new AbstractMethodError();
