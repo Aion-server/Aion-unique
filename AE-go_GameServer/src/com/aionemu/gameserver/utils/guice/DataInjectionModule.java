@@ -48,6 +48,7 @@ import com.aionemu.gameserver.services.GroupService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.services.PlayerUpdateService;
 import com.aionemu.gameserver.services.PrivateStoreService;
 import com.aionemu.gameserver.services.PunishmentService;
 import com.aionemu.gameserver.services.RespawnService;
@@ -91,6 +92,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(DataManager.class).asEagerSingleton();
 		bind(World.class).asEagerSingleton();
 		bind(SpawnEngine.class).asEagerSingleton();
+		bind(PlayerUpdateService.class).asEagerSingleton();
 		bind(PlayerService.class).in(Scopes.SINGLETON);
 		bind(AccountService.class).in(Scopes.SINGLETON);
 		bind(SocialService.class).in(Scopes.SINGLETON);

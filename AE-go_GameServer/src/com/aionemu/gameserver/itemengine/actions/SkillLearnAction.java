@@ -63,7 +63,6 @@ public class SkillLearnAction extends AbstractItemAction
 			parentItem.getObjectId(), itemTemplate.getTemplateId()), true);	
 		//add skill
 		player.getSkillList().addSkill(player, skillid, 1, true);
-		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
 		//remove book from inventory (assuming its not stackable)
 		Item item = player.getInventory().getItemByObjId(parentItem.getObjectId());
 		player.getInventory().removeFromBag(item, true);

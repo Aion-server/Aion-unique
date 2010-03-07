@@ -423,11 +423,6 @@ public class PlayerController extends CreatureController<Player>
 			player.getSkillList().removeSkill(30001);
 			PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(player));
 		}
-		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
-
-		DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
-		// save player at this point
-		DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
 
 		/** update member list packet if player is legion member **/
 		if(player.isLegionMember())

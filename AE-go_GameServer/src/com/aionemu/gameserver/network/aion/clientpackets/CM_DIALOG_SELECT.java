@@ -97,6 +97,6 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 			Creature creature = (Creature) object;
 			creature.getController().onDialogSelect(dialogId, player, questId);
 		}
-		log.info("id: "+targetObjectId+" dialogId: " + dialogId +" unk1: " + unk1 + " questId: "+questId);
+		//log.info("id: "+targetObjectId+" dialogId: " + dialogId +" unk1: " + unk1 + " questId: "+questId);
 	}
 }
