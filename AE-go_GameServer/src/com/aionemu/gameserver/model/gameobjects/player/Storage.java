@@ -168,29 +168,6 @@ public class Storage
 	}
 
 	/**
-	 * 	Return is the result of add operation. It can be null if item was not stored, it can be existing 
-	 *  item reference if stack count was increased or new item in bag
-	 *  
-	 *  
-	 *  Every add operation is persisted immediately now
-	 *  
-	 *  DEPRECATED
-	 *  
-	 * @param item
-	 */
-	public Item addToBag(Item item)  // addToBag is old and have alot of bugs with item adding, suggest to remove it.
-	{
-		Item resultItem = storage.addItemToStorage(item);
-
-		if(resultItem != null)
-		{
-			resultItem.setItemLocation(storageType);
-			DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
-		}
-		return resultItem;
-	}
-
-	/**
 	 *  Used to put item into storage cube at first avaialble slot (no check for existing item)
 	 *  During unequip/equip process persistImmediately should be false
 	 *  

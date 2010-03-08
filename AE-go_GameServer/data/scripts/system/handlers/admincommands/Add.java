@@ -75,37 +75,15 @@ public class Add extends AdminCommand
 			PacketSendUtility.sendMessage(admin, "Parameters need to be an integer.");
 			return;
 		}
+		
+		int count = itemService.addItem(admin, itemId, itemCount, false);
 
-		Item item  = itemService.newItem(itemId, itemCount);
-
-		if(item == null)
+		if(count == 0)
 		{
-			PacketSendUtility.sendMessage(admin, "Item template was not found for this itemId");
-			return;
-		}
-
-		Storage inventory = admin.getInventory();
-		Item addedItem = null;
-
-		if(itemId == ItemId.KINAH.value())
-		{
-			addedItem = inventory.getKinahItem();
-			addedItem.increaseItemCount(itemCount);
-			itemService.releaseItemId(item);
-		}
-		else
-		{
-			addedItem = inventory.addToBag(item);
-		}
-
-		if(addedItem != null)
-		{
-			PacketSendUtility.sendPacket(admin, new SM_INVENTORY_UPDATE(Collections.singletonList(addedItem)));
 			PacketSendUtility.sendMessage(admin, "Item added successfully");
 		}
 		else
 		{
-			itemService.releaseItemId(item);
 			PacketSendUtility.sendMessage(admin, "Item couldn't be added");
 		}
 	}
