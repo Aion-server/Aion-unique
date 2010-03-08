@@ -70,10 +70,12 @@
 	</spawn>
 		<!-- Weapon Forge weapon_craft -->
 	<spawn map="110010000" npcid="150000011" pool="4" handler="STATIC">
-		<object x="1195.2825" y="1597.2721" z="214.4068" h="0" staticid="109"/>
-		<object x="1203.9436" y="1600.5209" z="214.4068" h="0" staticid="108"/>
-		<object x="1209.5864" y="1584.9125" z="214.41411" h="0" staticid="141"/>
-		<object x="1200.9253" y="1581.6637" z="214.41411" h="0" staticid="110"/>
+		<object x="1851.0808" y="1556.1912" z="590.06122" h="0" staticid="102"/>
+		<object x="1850.9467" y="1580.5425" z="590.06122" h="0" staticid="98"/>
+		<object x="1838.614" y="1581.3358" z="590.06122" h="0" staticid="17"/>
+		<object x="1839.3802" y="1555.4882" z="590.06122" h="0" staticid="100"/>
+		<object x="1838.6677" y="1576.1267" z="590.06122" h="0" staticid="99"/>
+		<object x="1839.4536" y="1560.8826" z="590.06122" h="0" staticid="101"/>
 	</spawn>
 	<!-- Workbench handiwork -->
 	<spawn map="110010000" npcid="150000012" pool="6" handler="STATIC">
