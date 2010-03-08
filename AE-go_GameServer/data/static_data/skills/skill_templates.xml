@@ -1601,6 +1601,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="1000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -1623,6 +1626,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="1000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -2552,6 +2558,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="272" name="STR_SKILL_FI_RampageMode_G1" nameId="572479" stack="SKILL_FI_RAMPAGEMODE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="1800" duration="0">
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -3914,6 +3923,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -3933,6 +3945,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -3952,6 +3967,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -4149,6 +4167,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -4168,6 +4189,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -4187,6 +4211,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -4206,6 +4233,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -4394,6 +4424,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -4413,6 +4446,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -4647,6 +4683,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="390" name="STR_SKILL_FI_Crusade_G1" nameId="584063" stack="SKILL_FI_CRUSADE" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="BUFF" activation="ACTIVE" cooldown="3600" duration="0">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -4671,6 +4710,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="391" name="STR_SKILL_FI_Berserk_G1" nameId="584069" stack="SKILL_FI_BERSERK" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="3600" duration="0">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <targetrange value="ONLYONE"/>
@@ -6247,6 +6289,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="475" name="STR_SKILL_KN_AvataAdvent_G1" nameId="574137" stack="SKILL_KN_AVATAADVENT" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="3600" duration="0">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -6266,6 +6311,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="476" name="STR_SKILL_KN_DemonicAdvent_G1" nameId="574169" stack="SKILL_KN_DEMONICADVENT" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="3600" duration="0">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -6559,6 +6607,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -6577,6 +6628,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -6595,6 +6649,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -6860,6 +6917,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -6927,6 +6987,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -6945,6 +7008,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -6963,6 +7029,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -7025,6 +7094,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="15"/>
@@ -7158,6 +7230,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -7176,6 +7251,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -7907,6 +7985,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -7924,6 +8005,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -9062,6 +9146,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="689" name="STR_SKILL_RA_WildRoar_G4" nameId="584317" stack="SKILL_RA_WILDROAR" lvl="4" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -9085,6 +9172,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="690" name="STR_SKILL_RA_SabageRoar_G4" nameId="584319" stack="SKILL_RA_SABAGEROAR" lvl="4" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -9879,6 +9969,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="735" name="STR_SKILL_RA_Dark_DestructionTrap_G2" nameId="584775" stack="SKILL_RA_DARK_DESTRUCTIONTRAP" lvl="2" skilltype="MAGICAL" skillsubtype="SUMMONTRAP" tslot="NONE" activation="ACTIVE" cooldown="1800" duration="2000">
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -10379,6 +10472,7 @@
         </initproperties>
         <startconditions>
             <arrowcheck/>
+            <dp value="4000"/>
         </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
@@ -10594,6 +10688,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="780" name="STR_SKILL_RA_SabageRoar_G1" nameId="582313" stack="SKILL_RA_SABAGEROAR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -10617,6 +10714,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="781" name="STR_SKILL_RA_SabageRoar_G2" nameId="582319" stack="SKILL_RA_SABAGEROAR" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -10640,6 +10740,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="782" name="STR_SKILL_RA_SabageRoar_G3" nameId="582321" stack="SKILL_RA_SABAGEROAR" lvl="3" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -10783,6 +10886,9 @@
         </effects>
     </skill_template>
     <skill_template skill_id="789" name="STR_SKILL_RA_WildRoar_G1" nameId="582343" stack="SKILL_RA_WILDROAR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -10806,6 +10912,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="790" name="STR_SKILL_RA_WildRoar_G2" nameId="582349" stack="SKILL_RA_WILDROAR" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -10829,6 +10938,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="791" name="STR_SKILL_RA_WildRoar_G3" nameId="582351" stack="SKILL_RA_WILDROAR" lvl="3" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -10949,6 +11061,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="798" name="STR_SKILL_RA_Light_DestructionTrap_G1" nameId="584367" stack="SKILL_RA_LIGHT_DESTRUCTIONTRAP" lvl="1" skilltype="MAGICAL" skillsubtype="SUMMONTRAP" tslot="NONE" activation="ACTIVE" cooldown="1800" duration="2000">
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -10963,6 +11078,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="799" name="STR_SKILL_RA_Dark_DestructionTrap_G1" nameId="584371" stack="SKILL_RA_DARK_DESTRUCTIONTRAP" lvl="1" skilltype="MAGICAL" skillsubtype="SUMMONTRAP" tslot="NONE" activation="ACTIVE" cooldown="1800" duration="2000">
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -10977,6 +11095,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="800" name="STR_SKILL_RA_Light_DestructionTrap_G2" nameId="584375" stack="SKILL_RA_LIGHT_DESTRUCTIONTRAP" lvl="2" skilltype="MAGICAL" skillsubtype="SUMMONTRAP" tslot="NONE" activation="ACTIVE" cooldown="1800" duration="2000">
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -11959,6 +12080,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="851" name="STR_SKILL_AS_WindWalk_G1" nameId="571739" stack="SKILL_AS_WINDWALK" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="1800" duration="0">
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -12102,6 +12226,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="858" name="STR_SKILL_AS_WindWalk_G2" nameId="573661" stack="SKILL_AS_WINDWALK" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="1800" duration="0">
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -12899,6 +13026,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -12916,6 +13046,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -12933,6 +13066,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -12950,6 +13086,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -12967,6 +13106,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -12984,6 +13126,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -13169,6 +13314,9 @@
         </effects>
     </skill_template>
     <skill_template skill_id="921" name="STR_SKILL_AS_SpiralStab_G1" nameId="582717" stack="SKILL_AS_SPIRALSTAB" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="900" duration="0">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -13314,6 +13462,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -13331,6 +13482,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -13514,6 +13668,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -13536,6 +13693,9 @@
         <initproperties>
             <addweaponrange/>
         </initproperties>
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="1"/>
@@ -14268,6 +14428,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="983" name="STR_SKILL_CL_CeletialBarrier_G1" nameId="573507" stack="SKILL_CL_CELETIALBARRIER" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="6" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -14282,6 +14445,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="984" name="STR_SKILL_CL_PandemoniumRegrowth_G1" nameId="573513" stack="SKILL_CL_PANDEMONIUMREGROWTH" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="6" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -16394,6 +16560,9 @@
         </useconditions>
     </skill_template>
     <skill_template skill_id="1141" name="STR_SKILL_PR_ImmortalBlessing_G1" nameId="574349" stack="SKILL_PR_IMMORTALBLESSING" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="1800" duration="3000">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="15"/>
@@ -16412,6 +16581,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1142" name="STR_SKILL_PR_DemonicBlessing_G1" nameId="574313" stack="SKILL_PR_DEMONICBLESSING" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="BUFF" activation="ACTIVE" cooldown="1800" duration="3000">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="15"/>
@@ -16704,6 +16876,9 @@
         </setproperties>
     </skill_template>
     <skill_template skill_id="1164" name="STR_SKILL_PR_HolyCircle_G1" nameId="582473" stack="SKILL_PR_HOLYCIRCLE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="3600" duration="0">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -16721,6 +16896,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1165" name="STR_SKILL_PR_HolyGrail_G1" nameId="582479" stack="SKILL_PR_HOLYGRAIL" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="BUFF" activation="ACTIVE" cooldown="1800" duration="0">
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -16736,6 +16914,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1166" name="STR_SKILL_PR_HolyPrecept_G1" nameId="582485" stack="SKILL_PR_HOLYPRECEPT" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="60" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -16825,6 +17006,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1171" name="STR_SKILL_PR_SecretPrecept_G1" nameId="582509" stack="SKILL_PR_SECRETPRECEPT" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="NONE" activation="ACTIVE" cooldown="60" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -16890,6 +17074,9 @@
         </effects>
     </skill_template>
     <skill_template skill_id="1176" name="STR_SKILL_PR_GodsVoice_G1" nameId="584203" stack="SKILL_PR_GODSVOICE" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="3600" duration="0">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -19168,6 +19355,9 @@
         </effects>
     </skill_template>
     <skill_template skill_id="1304" name="STR_SKILL_CH_HolyGloria_G1" nameId="582515" stack="SKILL_CH_HOLYGLORIA" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="60" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -19184,6 +19374,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1305" name="STR_SKILL_CH_AbyssGloria_G1" nameId="582521" stack="SKILL_CH_ABYSSGLORIA" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="60" duration="0">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -19422,6 +19615,9 @@
         </setproperties>
     </skill_template>
     <skill_template skill_id="1323" name="STR_SKILL_CH_Tremor_G1" nameId="582625" stack="SKILL_CH_TREMOR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="0">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -19494,6 +19690,9 @@
         </setproperties>
     </skill_template>
     <skill_template skill_id="1328" name="STR_SKILL_CH_Providence_G1" nameId="582651" stack="SKILL_CH_PROVIDENCE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="1800" duration="0">
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -19746,6 +19945,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1343" name="STR_SKILL_CH_EternalSeal_G1" nameId="584265" stack="SKILL_CH_ETERNALSEAL" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="3600" duration="0">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -20398,6 +20600,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1381" name="STR_SKILL_MA_CeletialOdd_G1" nameId="573519" stack="SKILL_MA_CELETIALODD" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="60" duration="2000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -20415,6 +20620,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1382" name="STR_SKILL_MA_PandemoniumFocus_G1" nameId="573523" stack="SKILL_MA_PANDEMONIUMFOCUS" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="60" duration="2000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -20580,6 +20788,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1391" name="STR_SKILL_MA_CeletialOdd_G2" nameId="583309" stack="SKILL_MA_CELETIALODD" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="60" duration="2000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -20597,6 +20808,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1392" name="STR_SKILL_MA_CeletialOdd_G3" nameId="583311" stack="SKILL_MA_CELETIALODD" lvl="3" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="60" duration="2000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -20614,6 +20828,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1393" name="STR_SKILL_MA_PandemoniumFocus_G2" nameId="583313" stack="SKILL_MA_PANDEMONIUMFOCUS" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="60" duration="2000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -20631,6 +20848,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1394" name="STR_SKILL_MA_PandemoniumFocus_G3" nameId="583315" stack="SKILL_MA_PANDEMONIUMFOCUS" lvl="3" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="60" duration="2000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -20979,6 +21199,9 @@
         </useconditions>
     </skill_template>
     <skill_template skill_id="1452" name="STR_SKILL_WI_DivineSlayer_G1" nameId="584461" stack="SKILL_WI_DIVINESLAYER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="2000">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -21000,6 +21223,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1453" name="STR_SKILL_WI_AbysalSlayer_G1" nameId="584467" stack="SKILL_WI_ABYSALSLAYER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="2000">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -21878,6 +22104,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1497" name="STR_SKILL_WI_SleepingCloud_G1" nameId="567749" stack="SKILL_WI_SLEEPINGCLOUD" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="1800" duration="2000">
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -23346,6 +23575,9 @@
         </effects>
     </skill_template>
     <skill_template skill_id="1581" name="STR_SKILL_WI_DivineStalker_G1" nameId="584487" stack="SKILL_WI_DIVINESTALKER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="2000">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -23367,6 +23599,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1582" name="STR_SKILL_WI_AbysalStalker_G1" nameId="584493" stack="SKILL_WI_ABYSALSTALKER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="2000">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -23534,6 +23769,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1591" name="STR_SKILL_MA_CeletialOdd_G4" nameId="584529" stack="SKILL_MA_CELETIALODD" lvl="4" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="60" duration="2000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -23551,6 +23789,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1592" name="STR_SKILL_MA_PandemoniumFocus_G4" nameId="584531" stack="SKILL_MA_PANDEMONIUMFOCUS" lvl="4" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="60" duration="2000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -24183,6 +24424,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1627" name="STR_SKILL_EL_Disenchantment_G1" nameId="567929" stack="SKILL_EL_DISENCHANTMENT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="1800" duration="500">
+        <startconditions>
+            <dp value="3000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -25929,6 +26173,9 @@
         </useconditions>
     </skill_template>
     <skill_template skill_id="1727" name="STR_SKILL_EL_Light_Summon_TempestElemental_G1" nameId="573945" stack="SKILL_EL_LIGHT_SUMMON_TEMPESTELEMENTAL" lvl="1" skilltype="MAGICAL" skillsubtype="SUMMON" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="4500">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -25943,6 +26190,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1728" name="STR_SKILL_EL_Dark_Summon_MagmaElemental_G1" nameId="573873" stack="SKILL_EL_DARK_SUMMON_MAGMAELEMENTAL" lvl="1" skilltype="MAGICAL" skillsubtype="SUMMON" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="4500">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -26443,6 +26693,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1760" name="STR_SKILL_EL_EtherInfusion_G1" nameId="581907" stack="SKILL_EL_ETHERINFUSION" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="30" duration="1000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="MYPET"/>
             <firsttargetrange value="25"/>
@@ -26470,6 +26723,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1761" name="STR_SKILL_EL_EtherInfusion_G2" nameId="581913" stack="SKILL_EL_ETHERINFUSION" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="30" duration="1000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="MYPET"/>
             <firsttargetrange value="25"/>
@@ -26497,6 +26753,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1762" name="STR_SKILL_EL_EtherInfusion_G3" nameId="581919" stack="SKILL_EL_ETHERINFUSION" lvl="3" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="30" duration="1000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="MYPET"/>
             <firsttargetrange value="25"/>
@@ -26580,6 +26839,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1766" name="STR_SKILL_EL_ShadowInfusion_G1" nameId="582207" stack="SKILL_EL_SHADOWINFUSION" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="30" duration="1000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="MYPET"/>
             <firsttargetrange value="25"/>
@@ -26607,6 +26869,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1767" name="STR_SKILL_EL_ShadowInfusion_G2" nameId="582213" stack="SKILL_EL_SHADOWINFUSION" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="30" duration="1000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="MYPET"/>
             <firsttargetrange value="25"/>
@@ -26634,6 +26899,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1768" name="STR_SKILL_EL_ShadowInfusion_G3" nameId="582219" stack="SKILL_EL_SHADOWINFUSION" lvl="3" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="30" duration="1000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="MYPET"/>
             <firsttargetrange value="25"/>
@@ -26757,6 +27025,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1774" name="STR_SKILL_EL_PlagueSwam_G1" nameId="582729" stack="SKILL_EL_PLAGUESWAM" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="3600" duration="1500">
+        <startconditions>
+            <dp value="4000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -26945,6 +27216,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1786" name="STR_SKILL_EL_EtherInfusion_G4" nameId="584595" stack="SKILL_EL_ETHERINFUSION" lvl="4" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="30" duration="1000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="MYPET"/>
             <firsttargetrange value="25"/>
@@ -26972,6 +27246,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1787" name="STR_SKILL_EL_ShadowInfusion_G4" nameId="584601" stack="SKILL_EL_SHADOWINFUSION" lvl="4" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="30" duration="1000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="MYPET"/>
             <firsttargetrange value="25"/>
@@ -27288,6 +27565,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1806" name="STR_SKILL_Angel_FI_DP_DeathBlow" nameId="565795" stack="SKILL_ANGEL_FI_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="6" duration="3900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -27302,6 +27582,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1807" name="STR_SKILL_Angel_KN_DP_DeathBlow" nameId="565799" stack="SKILL_ANGEL_KN_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="6" duration="3900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -27318,6 +27601,7 @@
     <skill_template skill_id="1808" name="STR_SKILL_Angel_RA_DP_DeathBlow" nameId="565803" stack="SKILL_ANGEL_RA_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="0">
         <startconditions>
             <arrowcheck/>
+            <dp value="4000"/>
         </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
@@ -27336,6 +27620,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1809" name="STR_SKILL_Angel_AS_DP_DeathBlow" nameId="565807" stack="SKILL_ANGEL_AS_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="6" duration="3900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -27350,6 +27637,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1810" name="STR_SKILL_Angel_PR_DP_DeathBlow" nameId="565811" stack="SKILL_ANGEL_PR_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="10" duration="5900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -27364,6 +27654,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1811" name="STR_SKILL_Angel_CH_DP_DeathBlow" nameId="565815" stack="SKILL_ANGEL_CH_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="10" duration="5900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -27378,6 +27671,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1812" name="STR_SKILL_Angel_WI_DP_DeathBlow" nameId="565819" stack="SKILL_ANGEL_WI_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="10" duration="5900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="15"/>
@@ -27392,6 +27688,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1813" name="STR_SKILL_Angel_EL_DP_DeathBlow" nameId="565823" stack="SKILL_ANGEL_EL_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="10" duration="4000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="15"/>
@@ -27406,6 +27705,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1814" name="STR_SKILL_Devil_FI_DP_DeathBlow" nameId="565827" stack="SKILL_DEVIL_FI_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="6" duration="3900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -27420,6 +27722,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1815" name="STR_SKILL_Devil_KN_DP_DeathBlow" nameId="565831" stack="SKILL_DEVIL_KN_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="6" duration="3900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -27436,6 +27741,7 @@
     <skill_template skill_id="1816" name="STR_SKILL_Devil_RA_DP_DeathBlow" nameId="565835" stack="SKILL_DEVIL_RA_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="0">
         <startconditions>
             <arrowcheck/>
+            <dp value="4000"/>
         </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
@@ -27454,6 +27760,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1817" name="STR_SKILL_Devil_AS_DP_DeathBlow" nameId="565839" stack="SKILL_DEVIL_AS_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="6" duration="3900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -27468,6 +27777,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1818" name="STR_SKILL_Devil_PR_DP_DeathBlow" nameId="565843" stack="SKILL_DEVIL_PR_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="10" duration="5900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -27482,6 +27794,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1819" name="STR_SKILL_Devil_CH_DP_DeathBlow" nameId="565847" stack="SKILL_DEVIL_CH_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="10" duration="5900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="ME"/>
             <firsttargetrange value="1"/>
@@ -27496,6 +27811,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1820" name="STR_SKILL_Devil_WI_DP_DeathBlow" nameId="565851" stack="SKILL_DEVIL_WI_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="10" duration="5900">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="15"/>
@@ -27510,6 +27828,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1821" name="STR_SKILL_Devil_EL_DP_DeathBlow" nameId="565855" stack="SKILL_DEVIL_EL_DP_DEATHBLOW" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="10" duration="4000">
+        <startconditions>
+            <dp value="2000"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="15"/>
@@ -27526,6 +27847,7 @@
     <skill_template skill_id="1822" name="STR_SKILL_DP_Transfer" nameId="565891" stack="SKILL_DP_TRANSFER" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="10" duration="0">
         <startconditions>
             <target value="PC"/>
+            <dp value="1"/>
         </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
@@ -28131,6 +28453,9 @@
         </actions>
     </skill_template>
     <skill_template skill_id="1915" name="STR_SKILL_Test_Buff_Magical_Resist_2" nameId="585251" stack="SKILL_TEST_BUFF_MAGICAL_RESIST_2" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
+        <startconditions>
+            <dp value="290"/>
+        </startconditions>
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="20"/>
@@ -44533,6 +44858,7 @@
     <skill_template skill_id="9357" name="STR_SKILL_StigmaI_Order_Assail_G1" nameId="579651" stack="SKILL_STIGMAI_ORDER_ASSAIL" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="30" duration="1000">
         <startconditions>
             <mp value="639" delta="6"/>
+            <dp value="200"/>
         </startconditions>
         <setproperties>
             <firsttarget value="MYPET"/>

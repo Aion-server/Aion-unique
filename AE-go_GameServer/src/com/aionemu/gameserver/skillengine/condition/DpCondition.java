@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -28,20 +28,16 @@ import com.aionemu.gameserver.skillengine.model.Skill;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MpCondition")
-public class MpCondition extends Condition
+@XmlType(name = "DpCondition")
+public class DpCondition extends Condition
 {
 
 	@XmlAttribute(required = true)
 	protected int	value;
 
-	@XmlAttribute
-	protected int	delta;
-
 	@Override
 	public boolean verify(Skill skill)
 	{
-		int valueWithDelta = value + delta * skill.getSkillLevel();
-		return skill.getEffector().getLifeStats().getCurrentMp() > valueWithDelta;
+		return skill.getEffector().getCommonData().getDp() >= value;
 	}
 }

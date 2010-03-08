@@ -37,6 +37,7 @@ public class Conditions
     @XmlElements({
         @XmlElement(name = "target", type = TargetCondition.class),
         @XmlElement(name = "mp", type = MpCondition.class),
+        @XmlElement(name = "dp", type = DpCondition.class),
         @XmlElement(name = "playermove", type = PlayerMovedCondition.class),
         @XmlElement(name = "arrowcheck", type = ArrowCheckCondition.class)
     })
