@@ -23,9 +23,9 @@ import com.aionemu.gameserver.ai.events.Event;
  * @author ATracer
  *
  */
-public abstract class EventHandler
+public interface EventHandler
 {
-	public abstract Event getEvent();
+	public Event getEvent();
 	
-	public abstract void handleEvent(Event event, AI<?> ai);
+	public void handleEvent(Event event, AI<?> ai);
 }

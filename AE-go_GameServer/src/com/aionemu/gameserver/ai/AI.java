@@ -29,6 +29,7 @@ import com.aionemu.gameserver.ai.events.handler.EventHandler;
 import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.ai.state.handler.StateHandler;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 public abstract class AI<T extends Creature> implements Runnable
@@ -68,6 +69,16 @@ public abstract class AI<T extends Creature> implements Runnable
 		EventHandler eventHandler = eventHandlers.get(event);
 		if(eventHandler != null)
 			eventHandler.handleEvent(event, this);
+	}
+	
+	/**
+	 *  Talking with player can be overriden in AI scripts
+	 *  
+	 * @param player
+	 */
+	public void handleTalk(Player player)
+	{
+		
 	}
 	
 	/**

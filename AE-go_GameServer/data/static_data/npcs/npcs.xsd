@@ -62,6 +62,7 @@
 			<xs:enumeration value="POSTBOX" />
 			<xs:enumeration value="RESURRECT" />
 			<xs:enumeration value="USEITEM" />
+			<xs:enumeration value="PORTAL" />
 			<xs:enumeration value="NON_ATTACKABLE" />
 		</xs:restriction>
 	</xs:simpleType>

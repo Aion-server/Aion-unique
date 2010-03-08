@@ -23,7 +23,7 @@ import com.aionemu.gameserver.ai.events.Event;
  * @author ATracer
  *
  */
-public class DespawnEventHandler extends EventHandler
+public class DespawnEventHandler implements EventHandler
 {
 
 	@Override

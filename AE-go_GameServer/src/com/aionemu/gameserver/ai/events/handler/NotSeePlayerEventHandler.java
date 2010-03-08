@@ -26,7 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
  * @author ATracer
  *
  */
-public class NotSeePlayerEventHandler extends EventHandler
+public class NotSeePlayerEventHandler implements EventHandler
 {
 
 	@Override

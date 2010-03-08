@@ -27,6 +27,7 @@ import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.dataholders.PlayerExperienceTable;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
+import com.aionemu.gameserver.dataholders.PortalData;
 import com.aionemu.gameserver.dataholders.SkillData;
 import com.aionemu.gameserver.dataholders.SkillTreeData;
 import com.aionemu.gameserver.dataholders.SpawnsData;
@@ -242,5 +243,11 @@ public class DataInjectionModule extends AbstractModule
 	ZoneData provideZoneData(DataManager datamanager)
 	{
 		return datamanager.ZONE_DATA;
+	}
+	
+	@Provides
+	PortalData providePortalData(DataManager datamanager)
+	{
+		return datamanager.PORTAL_DATA;
 	}
 }

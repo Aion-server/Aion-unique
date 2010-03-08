@@ -37,7 +37,11 @@ public enum WorldMapType
 	// Prison
 	PRISON(510010000),
 
-	RESHANTA(400010000);
+	RESHANTA(400010000),
+	
+	//Instances
+	NOCHSANA_TRAINING_CAMP(300030000),
+	FIRE_TEMPLE(320100000);
 
 	private final int worldId;
 

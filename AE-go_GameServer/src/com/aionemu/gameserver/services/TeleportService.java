@@ -245,6 +245,9 @@ public class TeleportService
 	public boolean teleportTo(final Player player, final int worldId, final int instanceId, final float x,
 		final float y, final float z, final byte heading, final int delay)
 	{
+		if(player.getLifeStats().isAlreadyDead())
+			return false;
+		
 		if(delay == 0)
 		{
 			changePosition(player, worldId, instanceId, x, y, z, heading);

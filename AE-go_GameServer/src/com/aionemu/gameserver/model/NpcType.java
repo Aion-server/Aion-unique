@@ -33,7 +33,9 @@ public enum NpcType
 	/** Mail boxes **/
 	POSTBOX(38),
 	/** Action item **/
-	USEITEM(38);
+	USEITEM(38),
+	/** Portals **/
+	PORTAL(38);
 	
 	private int someClientSideId;
 	

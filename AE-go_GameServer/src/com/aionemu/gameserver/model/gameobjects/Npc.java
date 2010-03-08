@@ -16,7 +16,9 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
+import com.aionemu.gameserver.ai.npcai.AggressiveAi;
 import com.aionemu.gameserver.ai.npcai.NpcAi;
+import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.controllers.attack.AggroList;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -148,7 +150,11 @@ public class Npc extends Creature
 	@Override
 	public void initializeAi()
 	{
-
+		if(isAggressive() && !CustomConfig.DISABLE_MOB_AGGRO)
+			this.ai = new AggressiveAi();
+		else
+			this.ai = new NpcAi();
+		ai.setOwner(this);
 	}
 
 	/**

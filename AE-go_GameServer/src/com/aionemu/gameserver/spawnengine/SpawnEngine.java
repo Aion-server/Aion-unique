@@ -34,7 +34,6 @@ import com.aionemu.gameserver.dataholders.SpawnsData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.model.NpcType;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
-import com.aionemu.gameserver.model.gameobjects.Citizen;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -133,9 +132,6 @@ public class SpawnEngine
 				case ATTACKABLE:
 					npc = new Monster(aionObjectsIDFactory.nextId(), controllerFactory.createMonsterController(), spawn, template);
 					break;
-				case NON_ATTACKABLE:
-					npc = new Citizen(aionObjectsIDFactory.nextId(), controllerFactory.createCitizenController(), spawn, template);
-					break;
 				case POSTBOX:
 					npc = new Npc(aionObjectsIDFactory.nextId(), controllerFactory.createPostboxController(), spawn, template);
 					break;
@@ -148,7 +144,11 @@ public class SpawnEngine
 					npc = new Npc(aionObjectsIDFactory.nextId(), controllerFactory.createActionitemController(), spawn,
 						template);
 					break;
-				default:
+				case PORTAL:
+					npc = new Npc(aionObjectsIDFactory.nextId(), controllerFactory.createPortalController(), spawn,
+						template);
+					break;
+				default: //NON_ATTACKABLE
 					npc = new Npc(aionObjectsIDFactory.nextId(), controllerFactory.createNpcController(), spawn,
 						template);
 

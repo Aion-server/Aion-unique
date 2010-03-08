@@ -28,6 +28,7 @@
 	<xs:include schemaLocation="spawns/spawns.xsd" />
 	<xs:include schemaLocation="tribe/tribe_relations.xsd" />
 	<xs:include schemaLocation="recipe/recipe_templates.xsd" />
+	<xs:include schemaLocation="portals/portal_templates.xsd" />
 	
 	<xs:element name="ae_static_data">
 		<xs:complexType>
@@ -57,6 +58,7 @@
 				<xs:element ref="spawns" minOccurs="0" />
 				<xs:element ref="tribe_relations" minOccurs="0" />
 				<xs:element ref="recipe_templates" minOccurs="0" />
+				<xs:element ref="portal_templates" minOccurs="0" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

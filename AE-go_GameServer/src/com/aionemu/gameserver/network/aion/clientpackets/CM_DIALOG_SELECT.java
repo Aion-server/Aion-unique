@@ -40,6 +40,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	 */
 	private int		targetObjectId;
 	private int		dialogId;
+	@SuppressWarnings("unused")
 	private int		unk1;
 	@SuppressWarnings("unused")
 	private int		lastPage;

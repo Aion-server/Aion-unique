@@ -29,7 +29,7 @@ import com.aionemu.gameserver.utils.gametime.GameTimeManager;
  * @author ATracer
  *
  */
-public class DayTimeChangeEventHandler extends EventHandler
+public class DayTimeChangeEventHandler implements EventHandler
 {
 	@Override
 	public Event getEvent()

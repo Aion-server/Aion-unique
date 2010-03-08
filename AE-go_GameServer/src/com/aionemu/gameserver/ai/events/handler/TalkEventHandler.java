@@ -25,7 +25,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
  * @author ATracer
  *
  */
-public class TalkEventHandler extends EventHandler
+public class TalkEventHandler implements EventHandler
 {
 
 	@Override

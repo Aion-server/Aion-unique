@@ -24,7 +24,7 @@ import com.aionemu.gameserver.ai.state.AIState;
  * @author ATracer
  *
  */
-public class BackHomeEventHandler extends EventHandler
+public class BackHomeEventHandler implements EventHandler
 {
 
 	@Override

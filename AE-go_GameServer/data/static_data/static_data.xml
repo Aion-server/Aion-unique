@@ -133,5 +133,9 @@
 	<recipe_templates>
 		<import file="recipe" skipRoot="true"/>
 	</recipe_templates>
+	
+	<portal_templates>
+		<import file="portals" skipRoot="true"/>
+	</portal_templates>
 
 </ae_static_data>

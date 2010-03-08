@@ -24,7 +24,7 @@ import com.aionemu.gameserver.ai.state.AIState;
  * @author ATracer
  *
  */
-public class SeePlayerEventHandler extends EventHandler
+public class SeePlayerEventHandler implements EventHandler
 {
 
 	@Override

@@ -38,11 +38,13 @@ public class NpcAi extends AI<Npc>
 		this.addEventHandler(EventHandlers.DIED_EH.getHandler());
 		this.addEventHandler(EventHandlers.DESPAWN_EH.getHandler());
 		this.addEventHandler(EventHandlers.DAYTIMECHANGE_EH.getHandler());
+		this.addEventHandler(EventHandlers.TALK_EH.getHandler());
 		
 		/**
 		 * State Handlers
 		 */
 		this.addStateHandler(StateHandlers.ACTIVE_NPC_SH.getHandler());
+		this.addStateHandler(StateHandlers.TALKING_SH.getHandler());
 	}
 
 }

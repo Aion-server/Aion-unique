@@ -24,7 +24,7 @@ import com.aionemu.gameserver.ai.state.AIState;
  * @author ATracer
  *
  */
-public class NothingTodoEventHandler extends EventHandler
+public class NothingTodoEventHandler implements EventHandler
 {
 
 	@Override

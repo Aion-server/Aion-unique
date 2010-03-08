@@ -16,9 +16,9 @@
  */
 package com.aionemu.gameserver.restrictions;
 
-import com.aionemu.gameserver.model.gameobjects.Citizen;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Monster;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.group.PlayerGroup;
@@ -135,10 +135,10 @@ public class PlayerRestrictions extends AbstractRestrictions
 		if(creature instanceof Monster)
 			return true;
 		
-		if(creature instanceof Citizen)
+		if(creature instanceof Npc)
 		{
-			Citizen citizen = (Citizen) creature;
-			if(!citizen.isAggressiveTo(player.getCommonData().getRace()))
+			Npc npc = (Npc) creature;
+			if(!npc.isAggressiveTo(player.getCommonData().getRace()))
 				return false;
 		}
 		return true;

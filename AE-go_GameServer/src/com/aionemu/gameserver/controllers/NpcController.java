@@ -154,6 +154,9 @@ public class NpcController extends CreatureController<Npc>
 	@Override
 	public void onDialogRequest(Player player)
 	{
+		if(getOwner().getAi() != null)
+			getOwner().getAi().handleEvent(Event.TALK);
+		
 		if(QuestEngine.getInstance().onDialog(new QuestEnv(getOwner(), player, 0, -1)))
 			return;
 		// TODO need check here

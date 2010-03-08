@@ -18,11 +18,11 @@ package com.aionemu.gameserver.controllers.factory;
 
 import com.aionemu.gameserver.controllers.ActionitemController;
 import com.aionemu.gameserver.controllers.BindpointController;
-import com.aionemu.gameserver.controllers.CitizenController;
 import com.aionemu.gameserver.controllers.GatherableController;
 import com.aionemu.gameserver.controllers.MonsterController;
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.controllers.PlayerController;
+import com.aionemu.gameserver.controllers.PortalController;
 import com.aionemu.gameserver.controllers.PostboxController;
 import com.aionemu.gameserver.controllers.RiftController;
 import com.aionemu.gameserver.controllers.StaticObjectController;
@@ -40,8 +40,6 @@ public class ControllerFactory
 	@Inject
 	private BindpointControllerFactory bindpointControllerFactory;	
 	@Inject
-	private CitizenControllerFactory citizenControllerFactory;	
-	@Inject
 	private GatherableControllerFactory gatherableControllerFactory;
 	@Inject
 	private MonsterControllerFactory monsterControllerFactory;
@@ -55,6 +53,8 @@ public class ControllerFactory
 	private RiftControllerFactory riftControllerFactory;
 	@Inject
 	private StaticObjectControllerFactory staticObjectControllerFactory;
+	@Inject
+	private PortalControllerFactory portalControllerFactory;
 	
 	/**
 	 * 
@@ -72,14 +72,6 @@ public class ControllerFactory
 	public BindpointController createBindpointController()
 	{
 		return bindpointControllerFactory.create();
-	}
-	
-	/**
-	 * @return citizenControllerFactory
-	 */
-	public CitizenController createCitizenController()
-	{
-		return citizenControllerFactory.create();
 	}
 	
 	/**
@@ -140,5 +132,13 @@ public class ControllerFactory
 	public StaticObjectController createStaticObjectController()
 	{
 		return staticObjectControllerFactory.create();
+	}
+
+	/**
+	 * @return the portalControllerFactory
+	 */
+	public PortalController createPortalController()
+	{
+		return portalControllerFactory.create();
 	}
 }

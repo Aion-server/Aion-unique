@@ -15,6 +15,7 @@
 	<map id="220040000" name="Beluslan" />
 	
 	<map id="300010000" name="IDAbPro" />
+	<map id="300030000" name="NochsanaTrainingCamp" instance="true" />
 	<map id="310010000" name="IDAbProL1" instance="true" />
 	<map id="310020000" name="IDAbProL2" instance="true" />
 	<map id="310030000" name="IDAbGateL1" />

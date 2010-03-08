@@ -16,7 +16,7 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
-import com.aionemu.gameserver.ai.npcai.AggressiveMonsterAi;
+import com.aionemu.gameserver.ai.npcai.AggressiveAi;
 import com.aionemu.gameserver.ai.npcai.MonsterAi;
 import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.controllers.MonsterController;
@@ -53,7 +53,7 @@ public class Monster extends Npc
 	public void initializeAi()
 	{
 		if(isAggressive() && !CustomConfig.DISABLE_MOB_AGGRO)
-			this.ai = new AggressiveMonsterAi();
+			this.ai = new AggressiveAi();
 		else
 			this.ai = new MonsterAi();
 		
