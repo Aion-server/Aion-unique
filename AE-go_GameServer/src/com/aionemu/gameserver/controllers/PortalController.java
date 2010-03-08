@@ -19,11 +19,17 @@ package com.aionemu.gameserver.controllers;
 import java.util.Collection;
 import java.util.Collections;
 
+import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.dataholders.PortalData;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.model.templates.portal.PortalTemplate;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_USE_OBJECT;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.world.WorldMapInstance;
 import com.google.inject.Inject;
 
 /**
@@ -52,7 +58,7 @@ public class PortalController extends NpcController
 		if(portalTemplate == null)
 			return;
 		
-		if(portalTemplate.isInstance())
+		if(portalTemplate.isInstance() && CustomConfig.ENABLE_INSTANCES)
 			portGroup(player);
 		else
 			port(player);
@@ -94,7 +100,28 @@ public class PortalController extends NpcController
 	 */
 	private void transfer(final Player leader, final Collection<Player> players)
 	{
+		final int defaultUseTime = 3000;
+		PacketSendUtility.sendPacket(leader, new SM_USE_OBJECT(leader.getObjectId(), 
+			getOwner().getObjectId(), defaultUseTime, 1));
+		PacketSendUtility.broadcastPacket(leader, new SM_EMOTION(leader, 37, 0, getOwner().getObjectId()), true);
 		
+		ThreadPoolManager.getInstance().schedule(new Runnable(){
+			@Override
+			public void run()
+			{
+				PacketSendUtility.sendPacket(leader, new SM_USE_OBJECT(leader.getObjectId(), 
+					getOwner().getObjectId(), defaultUseTime, 0));
+				
+				WorldMapInstance newInstance = sp.getWorld().getNextAvailableInstance(portalTemplate.getMapId());
+				newInstance.setDestroyTime(60 * 30);
+				
+				for(Player player : players)
+				{
+					sp.getTeleportService().teleportTo(player, portalTemplate.getMapId(), newInstance.getInstanceId(),
+						portalTemplate.getX(), portalTemplate.getY(), portalTemplate.getZ(), 0);
+				}
+			}
+		}, defaultUseTime);
 	}
 
 	

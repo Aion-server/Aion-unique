@@ -47,7 +47,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	private int		questId;
 	@Inject
 	World world;
-
+	@SuppressWarnings("unused")
 	private static final Logger log = Logger.getLogger(CM_DIALOG_SELECT.class);
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet

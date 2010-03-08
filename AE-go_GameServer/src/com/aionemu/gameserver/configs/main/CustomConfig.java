@@ -49,4 +49,10 @@ public class CustomConfig
 	 */
 	@Property(key = "gameserver.unstuck.delay",defaultValue = "3600")
 	public static int				UNSTUCK_DELAY;
+	
+	/**
+	 * Unstuck delay
+	 */
+	@Property(key = "gameserver.instances.enable",defaultValue = "true")
+	public static boolean				ENABLE_INSTANCES;
 }
