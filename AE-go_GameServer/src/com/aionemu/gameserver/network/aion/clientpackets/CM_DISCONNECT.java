@@ -1,43 +1,51 @@
-/*
- * This file is part of aion-unique <aion-unique.org>.
+/**
+ * This file is part of aion-emu <aion-emu.com>.
  *
- *  aion-unique is free software: you can redistribute it and/or modify
+ *  aion-emu is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
  *
- *  aion-unique is distributed in the hope that it will be useful,
+ *  aion-emu is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.AionConnection;
 
 /**
- * @author Lyahim
+ * In this packets aion client is notify quit. ie after this packet client will close connection.
+ * 
+ * @author -Nemesiss-
+ * 
  */
 public class CM_DISCONNECT extends AionClientPacket
-{	
-	@SuppressWarnings("unused")
-	private int unk;
-	
+{
+
+    boolean unk;
+
+    /**
+	 * Constructs new instance of <tt>CM_DISCONNECT </tt> packet
+	 * @param opcode
+	 */
 	public CM_DISCONNECT(int opcode)
 	{
 		super(opcode);
 	}
 
-	/**
+    /**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void readImpl()
 	{
-		unk = readC();
+		unk = readC() == 0;
 	}
 
 	/**
@@ -46,6 +54,14 @@ public class CM_DISCONNECT extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		
+
+        if (unk)
+        {
+            AionConnection client = getConnection();
+            /**
+             * We should close connection but not forced
+             */
+            client.close(false);
+        }
 	}
 }

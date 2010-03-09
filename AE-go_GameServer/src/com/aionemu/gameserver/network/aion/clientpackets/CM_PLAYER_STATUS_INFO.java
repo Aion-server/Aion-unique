@@ -61,16 +61,24 @@ public class CM_PLAYER_STATUS_INFO extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		Player player = null;
+		switch(status)
+        {
+            case 9:
+                getConnection().getActivePlayer().setLookingForGroup(playerObjId == 2);
+                break;
+            default:
+                Player player = null;
 
-		if(playerObjId == 0)
-			player = getConnection().getActivePlayer();
-		else
-			player = world.findPlayer(playerObjId);
+                if(playerObjId == 0)
+                    player = getConnection().getActivePlayer();
+                else
+                    player = world.findPlayer(playerObjId);
 
-		if(player == null || player.getPlayerGroup() == null)
-			return;
+                if(player == null || player.getPlayerGroup() == null)
+                    return;
 
-		groupService.playerStatusInfo(status, player);
+                groupService.playerStatusInfo(status, player);
+                break;
+        }
 	}
 }

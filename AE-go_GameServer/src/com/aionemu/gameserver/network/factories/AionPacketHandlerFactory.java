@@ -153,7 +153,6 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_MAC_ADDRESS2(0x24), State.IN_GAME);
 		addPacket(new CM_MAC_ADDRESS(0x23), State.CONNECTED, State.AUTHED, State.IN_GAME);
 		addPacket(new CM_MAY_QUIT(0xEA), State.AUTHED, State.IN_GAME);
-		// addPacket(new CM_LOGIN_OUT(0xE8), State.AUTHED, State.IN_GAME);
 		addPacket(new CM_LEVEL_READY(0xFF), State.IN_GAME);
 		addPacket(new CM_FRIEND_STATUS(0x10), State.IN_GAME);// 1.5.x
 		addPacket(new CM_FRIEND_ADD(0x65), State.IN_GAME);// 1.5.x
