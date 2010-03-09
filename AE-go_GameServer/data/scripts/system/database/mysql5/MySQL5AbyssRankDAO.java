@@ -58,8 +58,8 @@ public class MySQL5AbyssRankDAO extends AbyssRankDAO
 				{
 					int ap = rset.getInt("ap");
 					int rank = rset.getInt("rank");
-                    int all_kill = rset.getInt("all_kill");
-                    int max_rank = rset.getInt("max_rank");
+					int all_kill = rset.getInt("all_kill");
+					int max_rank = rset.getInt("max_rank");
 					AbyssRank abyssRank = new AbyssRank(ap, rank, all_kill, max_rank);
 					abyssRank.setPersistentState(PersistentState.UPDATED);
 					player.setAbyssRank(abyssRank);
@@ -78,15 +78,18 @@ public class MySQL5AbyssRankDAO extends AbyssRankDAO
 	public boolean storeAbyssRank(Player player)
 	{
 		AbyssRank rank = player.getAbyssRank();
+		boolean result = false;
 		switch(rank.getPersistentState())
 		{
 			case NEW:
-				 return addRank(player.getObjectId(), rank);
+				result =  addRank(player.getObjectId(), rank);
+				break;
 			case UPDATE_REQUIRED:
-				return updateRank(player.getObjectId(), rank);
+				result = updateRank(player.getObjectId(), rank);
+				break;
 		}
 		rank.setPersistentState(PersistentState.UPDATED);
-		return false;
+		return result;
 	}
 
 	/**

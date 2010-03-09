@@ -250,7 +250,7 @@ public class Equipment
 					unEquip(ItemSlot.MAIN_HAND.getSlotIdMask());
 				}
 				//check 2h weapon in main hand
-				if(itemInMainHand != null && itemInMainHand.getItemTemplate().getWeaponType().getRequiredSlots() == 2)
+				else if(itemInMainHand != null && itemInMainHand.getItemTemplate().getWeaponType().getRequiredSlots() == 2)
 				{
 					if(owner.getInventory().getNumberOfFreeSlots() < 1)
 						return false;
