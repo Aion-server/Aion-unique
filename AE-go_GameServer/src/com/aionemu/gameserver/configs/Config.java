@@ -28,6 +28,7 @@ import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.configs.main.GroupConfig;
 import com.aionemu.gameserver.configs.main.LegionConfig;
+import com.aionemu.gameserver.configs.main.PeriodicSaveConfig;
 import com.aionemu.gameserver.configs.main.RateConfig;
 import com.aionemu.gameserver.configs.main.ShutdownConfig;
 import com.aionemu.gameserver.configs.main.TaskManagerConfig;
@@ -81,6 +82,8 @@ public class Config
 			log.info("Loading: " + main + "/custom.properties");
 			ConfigurableProcessor.process(GSConfig.class, mainProps);
 			log.info("Loading: " + main + "/gameserver.properties");
+			ConfigurableProcessor.process(PeriodicSaveConfig.class, mainProps);
+			log.info("Loading: " + main + "/periodicsave.properties");
 			
 			// Network
 			String network = "./config/network";

@@ -18,9 +18,9 @@ package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
-import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.items.ItemStorage;
@@ -42,6 +42,13 @@ public class Storage
 	private Item kinahItem;
 
 	protected int storageType;
+	
+	protected Queue<Item> deletedItems = new ConcurrentLinkedQueue<Item>();
+	
+	/**
+	 * Can be of 2 types: UPDATED and UPDATE_REQUIRED
+	 */
+	private PersistentState persistentState = PersistentState.UPDATED;
 
 	/**
 	 *  Will be enhanced during development.
@@ -114,13 +121,13 @@ public class Storage
 	public void increaseKinah(int amount)
 	{
 		kinahItem.increaseItemCount(amount);
-		DAOManager.getDAO(InventoryDAO.class).store(kinahItem, getOwner().getObjectId());
 
 		if(storageType == StorageType.CUBE.getId())
 			PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(kinahItem));
 
 		if (storageType == StorageType.ACCOUNT_WAREHOUSE.getId())
 			PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_WAREHOUSE_ITEM(kinahItem, storageType));
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 	/**
 	 *  Decreasing kinah amount is persisted immediately
@@ -132,13 +139,13 @@ public class Storage
 		boolean operationResult = kinahItem.decreaseItemCount(amount);
 		if(operationResult)
 		{
-			DAOManager.getDAO(InventoryDAO.class).store(kinahItem, getOwner().getObjectId());
 			if(storageType == StorageType.CUBE.getId())
 				PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(kinahItem));
 
 			if (storageType == StorageType.ACCOUNT_WAREHOUSE.getId())
 				PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_WAREHOUSE_ITEM(kinahItem, storageType));
 		}
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 		return operationResult;
 	}
 
@@ -175,27 +182,16 @@ public class Storage
 	 * @param persistImmediately
 	 * @return Item
 	 */
-	public Item putToBag(Item item, boolean persistImmediately)
+	public Item putToBag(Item item)
 	{
 
 		Item resultItem = storage.putToNextAvailableSlot(item);
-		if(resultItem != null && persistImmediately)
+		if(resultItem != null)
 		{
 			resultItem.setItemLocation(storageType);
-			DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
 		}
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 		return resultItem;
-	}
-
-	/**
-	 * Every put operation using this method is persisted immediately
-	 * 
-	 * @param item
-	 * @return Item
-	 */
-	public Item putToBag(Item item)
-	{
-		return putToBag(item, true);
 	}
 
 	/**
@@ -204,15 +200,15 @@ public class Storage
 	 *  
 	 * @param item
 	 */
-	public void removeFromBag(Item item, boolean persistOperation)
+	public void removeFromBag(Item item, boolean persist)
 	{
 		boolean operationResult = storage.removeItemFromStorage(item);
-		if(operationResult && persistOperation)
+		if(operationResult && persist)
 		{
 			item.setPersistentState(PersistentState.DELETED);
-
-			DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
-		}
+			deletedItems.add(item);
+			setPersistentState(PersistentState.UPDATE_REQUIRED);
+		}		
 	}
 
 
@@ -242,19 +238,10 @@ public class Storage
 			if(count == 0)
 				break;
 		}
-
-		return count >= 0;
-	}
-
-	/**
-	 * 
-	 * @param itemObjId
-	 * @param count
-	 * @return true or false
-	 */
-	public boolean removeFromBagByObjectId(int itemObjId, int count)
-	{
-		return removeFromBagByObjectId(itemObjId, count, true);
+		boolean result = count >=0;
+		if(result)
+			setPersistentState(PersistentState.UPDATE_REQUIRED);
+		return result;
 	}
 
 	/**
@@ -268,14 +255,16 @@ public class Storage
 	 * @param count
 	 * @return true or false
 	 */
-	public boolean removeFromBagByObjectId(int itemObjId, int count, boolean persist)
+	public boolean removeFromBagByObjectId(int itemObjId, int count)
 	{
 		if(count < 1)
 			return false;
 
 		Item item = storage.getItemFromStorageByItemObjId(itemObjId);
-
-		return decreaseItemCount(item, count, persist) >= 0;
+		boolean result = decreaseItemCount(item, count) >= 0;
+		if(result)
+			setPersistentState(PersistentState.UPDATE_REQUIRED);
+		return result;
 	}
 
 	/**
@@ -285,10 +274,9 @@ public class Storage
 	 * 
 	 * @param count should be > 0
 	 * @param item
-	 * @param persist
 	 * @return
 	 */
-	private int decreaseItemCount(Item item, int count, boolean persist)
+	public int decreaseItemCount(Item item, int count)
 	{
 		if(item.getItemCount() >= count)
 		{
@@ -304,27 +292,13 @@ public class Storage
 		{
 			storage.removeItemFromStorage(item);
 			PacketSendUtility.sendPacket(getOwner(), new SM_DELETE_ITEM(item.getObjectId()));
+			deletedItems.add(item);
 		}
 		else
 			PacketSendUtility.sendPacket(getOwner(), new SM_UPDATE_ITEM(item));
-
-		if(persist || item.getItemCount() == 0)
-		{
-			DAOManager.getDAO(InventoryDAO.class).store(item, getOwner().getObjectId());
-		}	
-
+		
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 		return count;
-	}
-
-	/**
-	 * 
-	 * @param item
-	 * @param count
-	 * @return
-	 */
-	private int decreaseItemCount(Item item, int count)
-	{
-		return decreaseItemCount(item, count, true);
 	}
 
 	/**
@@ -338,6 +312,16 @@ public class Storage
 		allItems.add(kinahItem);
 		allItems.addAll(storage.getStorageItems());
 		return allItems;
+	}
+	
+	/**
+	 *  All deleted items with persistent state DELETED
+	 *  
+	 * @return
+	 */
+	public Queue<Item> getDeletedItems()
+	{
+		return deletedItems;
 	}
 
 	/**
@@ -410,20 +394,60 @@ public class Storage
 	{
 		return storage.isFull();
 	}
-
+	
+	/**
+	 *  Number of available slots of the underlying storage
+	 *  
+	 * @return
+	 */
 	public int getNumberOfFreeSlots()
 	{
 		return storage.getNumberOfFreeSlots();
 	}
+	
 	/**
 	 *  Sets the Inventory Limit from Cube Size
 	 *  
 	 * @param Limit
 	 */
-	public void setLimit(int limit){
+	public void setLimit(int limit)
+	{
 		this.storage.setLimit(limit);
 	}
-	public int getLimit(){
+	
+	/**
+	 *  Limit value of the underlying storage
+	 *  
+	 * @return
+	 */
+	public int getLimit()
+	{
 		return this.storage.getLimit();
+	}
+
+	/**
+	 * @return the persistentState
+	 */
+	public PersistentState getPersistentState()
+	{
+		return persistentState;
+	}
+
+	/**
+	 * @param persistentState the persistentState to set
+	 */
+	public void setPersistentState(PersistentState persistentState)
+	{
+		this.persistentState = persistentState;
+	}
+
+	/**
+	 * @param item
+	 * @param count
+	 */
+	public void increaseItemCount(Item item, int count)
+	{
+		item.increaseItemCount(count);
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 }

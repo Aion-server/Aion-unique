@@ -177,6 +177,8 @@ public class ItemStorage
 	 *  - Return null if item was not added
 	 *  - Return Item as the result of successful operation
 	 *  
+	 *   DEPRECATED ??
+	 *   
 	 * @param item
 	 * @return Item
 	 */

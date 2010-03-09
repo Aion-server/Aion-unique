@@ -28,6 +28,7 @@ import com.aionemu.gameserver.dao.AbyssRankDAO;
 import com.aionemu.gameserver.dao.BlockListDAO;
 import com.aionemu.gameserver.dao.FriendListDAO;
 import com.aionemu.gameserver.dao.InventoryDAO;
+import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
@@ -167,13 +168,14 @@ public class PlayerService
 	public void storePlayer(Player player)
 	{
 		DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
-		DAOManager.getDAO(InventoryDAO.class).store(player);
 		DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
 		DAOManager.getDAO(PlayerSettingsDAO.class).saveSettings(player);
 		DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
 		DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(player);
 		DAOManager.getDAO(AbyssRankDAO.class).storeAbyssRank(player);
 		DAOManager.getDAO(PlayerPunishmentsDAO.class).storePlayerPunishments(player);
+		DAOManager.getDAO(InventoryDAO.class).store(player);
+		DAOManager.getDAO(ItemStoneListDAO.class).save(player);
 	}
 
 	/**

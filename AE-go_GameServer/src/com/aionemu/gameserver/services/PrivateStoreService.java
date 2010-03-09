@@ -24,10 +24,10 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PrivateStore;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
+import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.trade.TradeItem;
 import com.aionemu.gameserver.model.trade.TradeList;
 import com.aionemu.gameserver.model.trade.TradePSItem;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRIVATE_STORE_NAME;
@@ -170,23 +170,12 @@ public class PrivateStoreService
 				if(item != null)
 				{
 					TradePSItem storeItem = store.getTradeItemById(tradeItem.getItemId());
-					/**
-					 * If the buyer wants to buy everything and it's everything in the sellers inventory
-					 */
-					if(item.getItemCount() == tradeItem.getCount())
-					{
-						removeItemFromPlayer(seller, item);
-						buyer.getInventory().putToBag(item);
-						newItems.add(item);
-					}
-					else
-					{
-						decreaseItemFromPlayer(seller, item, tradeItem);
-						itemService.addItem(buyer, item.getItemTemplate().getTemplateId(), tradeItem.getCount(), false);
-
-						if(storeItem.getCount() == tradeItem.getCount())
-							store.removeItem(storeItem.getItemObjId());
-					}
+					
+					List<ItemStone> itemStones = item.getItemStones();
+					decreaseItemFromPlayer(seller, item, tradeItem);
+					itemService.addItemWithStones(buyer, item.getItemTemplate().getTemplateId(), tradeItem.getCount(), false, itemStones);
+					if(storeItem.getCount() == tradeItem.getCount())
+						store.removeItem(storeItem.getItemObjId());
 				}
 			}
 
@@ -213,23 +202,10 @@ public class PrivateStoreService
 	 */
 	private void decreaseItemFromPlayer(Player seller, Item item, TradeItem tradeItem)
 	{
-		item.decreaseItemCount(tradeItem.getCount());
+		seller.getInventory().decreaseItemCount(item, tradeItem.getCount());
 		PacketSendUtility.sendPacket(seller, new SM_UPDATE_ITEM(item));
 		PrivateStore store = seller.getStore();
 		store.getTradeItemById(item.getObjectId()).decreaseCount(tradeItem.getCount());
-	}
-
-	/**
-	 * Remove item from store if count reached 0
-	 * 
-	 * @param seller
-	 * @param item
-	 */
-	private void removeItemFromPlayer(Player seller, Item item)
-	{
-		seller.getStore().removeItem(item.getObjectId());
-		seller.getInventory().removeFromBag(item, false);
-		PacketSendUtility.sendPacket(seller, new SM_DELETE_ITEM(item.getObjectId()));
 	}
 
 	/**

@@ -99,11 +99,11 @@ public class TradeService
 			{
 				log.warn(String.format("CHECKPOINT: itemservice couldnt add all items on buy: %d %d %d %d", player
 					.getObjectId(), tradeItem.getItemTemplate().getTemplateId(), tradeItem.getCount(), count));
-				kinahItem.decreaseItemCount(tradeListPrice);
+				inventory.decreaseKinah(tradeListPrice);
 				return false;
 			}
 		}
-		kinahItem.decreaseItemCount(tradeListPrice);
+		inventory.decreaseKinah(tradeListPrice);
 		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(kinahItem));
 		PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE(addedItems));
 		// TODO message
@@ -219,7 +219,7 @@ public class TradeService
 			}
 			else if(item.getItemCount() - tradeItem.getCount() > 0)
 			{
-				if(item.decreaseItemCount(tradeItem.getCount()))
+				if(inventory.decreaseItemCount(item, tradeItem.getCount()) > 0)
 				{
 					// TODO check retail packet here
 					kinahReward += item.getItemTemplate().getPrice() * tradeItem.getCount();
@@ -233,7 +233,7 @@ public class TradeService
 		}
 
 		Item kinahItem = inventory.getKinahItem();
-		kinahItem.increaseItemCount(kinahReward / 2);
+		inventory.decreaseKinah(kinahReward / 2);
 		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(kinahItem));
 
 		return true;

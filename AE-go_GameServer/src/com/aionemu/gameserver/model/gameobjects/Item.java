@@ -20,8 +20,6 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.items.ItemStorage;
@@ -153,8 +151,9 @@ public class Item extends AionObject
 	}
 
 	/**
-	 *  Every increase operation should be persisted immediately in caller method
-	 *  Use <code>setItemCount</code> method for non-persisted operations
+	 *  This method should be called ONLY from Storage class
+	 *  In all other ways it is not guaranteed to be udpated in a regular update service
+	 *  It is allowed to use this method for newly created items which are not yet in any storage 
 	 *  
 	 * @param addCount 
 	 */
@@ -166,8 +165,9 @@ public class Item extends AionObject
 	}
 
 	/**
-	 *  Every decrease operation should be persisted immediately in caller method
-	 *  Use <code>setItemCount</code> method for non-persisted operations
+	 *  This method should be called ONLY from Storage class
+	 *  In all other ways it is not guaranteed to be udpated in a regular update service
+	 *  It is allowed to use this method for newly created items which are not yet in any storage 
 	 *  
 	 * @param remCount
 	 */
@@ -253,7 +253,6 @@ public class Item extends AionObject
 		ItemStone stone = new ItemStone(getObjectId(), itemId,
 			nextSlot, PersistentState.NEW);
 		this.itemStones.add(stone);
-		DAOManager.getDAO(ItemStoneListDAO.class).save(itemStones);
 		return stone;
 	}
 
@@ -281,7 +280,10 @@ public class Item extends AionObject
 		{
 			case DELETED:
 				if(this.persistentState == PersistentState.NEW)
-					throw new IllegalArgumentException("Cannot change state to DELETED from NEW");
+					this.persistentState = PersistentState.NOACTION;
+				else
+					this.persistentState = PersistentState.DELETED;
+				break;
 			case UPDATE_REQUIRED:
 				if(this.persistentState == PersistentState.NEW)
 					break;

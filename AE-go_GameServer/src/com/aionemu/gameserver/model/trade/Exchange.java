@@ -19,7 +19,6 @@ package com.aionemu.gameserver.model.trade;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.services.ItemService;
 
@@ -69,10 +68,7 @@ public class Exchange
 	{
 		for(ExchangeItem item : items.values())
 		{
-			if(item.getPersistentState() == PersistentState.NEW)
-			{
-				itemService.releaseItemId(item.getNewItem());
-			}
+			itemService.releaseItemId(item.getNewItem());
 		}
 	}
 

@@ -14,41 +14,21 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.legion;
+package com.aionemu.gameserver.configs.main;
 
-import com.aionemu.gameserver.model.gameobjects.player.Storage;
-import com.aionemu.gameserver.model.gameobjects.player.StorageType;
+import com.aionemu.commons.configuration.Property;
 
 /**
- * @author Simple
+ * @author ATracer
  */
-public class LegionWarehouse extends Storage
+public class PeriodicSaveConfig
 {
-	private Legion	legion;
-
-	public LegionWarehouse(Legion legion)
-	{
-		super(StorageType.LEGION_WAREHOUSE);
-		this.legion = legion;
-		this.setLimit(legion.getWarehouseSlots());
-	}
-
-	/**
-	 * @return the legion
-	 */
-	public Legion getLegion()
-	{
-		return this.legion;
-	}
-
-	/**
-	 * @param legion
-	 *            the legion to set
-	 */
-	public void setOwnerLegion(Legion legion)
-	{
-		this.legion = legion;
-	}
+	@Property(key = "gameserver.periodicsave.player.general", defaultValue = "900")
+	public static int				PLAYER_GENERAL;	
 	
+	@Property(key = "gameserver.periodicsave.player.items", defaultValue = "900")
+	public static int				PLAYER_ITEMS;
 	
+	@Property(key = "gameserver.periodicsave.legion.items", defaultValue = "1200")
+	public static int				LEGION_ITEMS;
 }

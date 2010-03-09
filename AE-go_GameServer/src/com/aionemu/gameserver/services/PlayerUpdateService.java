@@ -17,63 +17,150 @@
 package com.aionemu.gameserver.services;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.configs.main.PeriodicSaveConfig;
 import com.aionemu.gameserver.dao.AbyssRankDAO;
+import com.aionemu.gameserver.dao.InventoryDAO;
+import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerQuestListDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.items.ItemStone;
+import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
  * @author ATracer
- *
+ * 
  */
-public class PlayerUpdateService implements Runnable
+public class PlayerUpdateService
 {
 	private static final Logger	log	= Logger.getLogger(PlayerUpdateService.class);
-	
-	private static final int DELAY = 10 * 60 * 1000;
-	
-	private World world;
+
+	private World				world;
+	private LegionService		legionService;
 	
 	@Inject
-	public PlayerUpdateService(World world)
+	public PlayerUpdateService(World world, LegionService legionService)
 	{
 		this.world = world;
-		ThreadPoolManager.getInstance().scheduleAtFixedRate(this, DELAY, DELAY);
+		this.legionService = legionService;
+		int DELAY_GENERAL = PeriodicSaveConfig.PLAYER_GENERAL * 1000;
+		int DELAY_ITEM = PeriodicSaveConfig.PLAYER_ITEMS * 1000;
+		int DELAY_LEGION_ITEM = PeriodicSaveConfig.LEGION_ITEMS * 1000;
+		ThreadPoolManager.getInstance().scheduleAtFixedRate(new GeneralUpdateTask(), DELAY_GENERAL, DELAY_GENERAL);
+		ThreadPoolManager.getInstance().scheduleAtFixedRate(new ItemUpdateTask(), DELAY_ITEM, DELAY_ITEM);
+		ThreadPoolManager.getInstance().scheduleAtFixedRate(new LegionWhUpdateTask(), DELAY_LEGION_ITEM, DELAY_LEGION_ITEM);
+	}
+
+	private class GeneralUpdateTask implements Runnable
+	{
+		@Override
+		public void run()
+		{
+			log.info("Player update task started");
+			long startTime = System.currentTimeMillis();
+			Iterator<Player> playersIterator = world.getPlayersIterator();
+			int playersUpdated = 0;
+			while(playersIterator.hasNext())
+			{
+				Player player = playersIterator.next();
+				try
+				{
+					DAOManager.getDAO(AbyssRankDAO.class).storeAbyssRank(player);
+					DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
+					DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
+					DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
+				}
+				catch(Exception ex)
+				{
+					log.error("Exception during periodic saving of player " + ex.getMessage());
+				}
+
+				playersUpdated++;
+			}
+			long workTime = System.currentTimeMillis() - startTime;
+			log.info("Player update: " + workTime + " ms, players: " + playersUpdated);
+		}
+	}
+
+	private class ItemUpdateTask implements Runnable
+	{
+		@Override
+		public void run()
+		{
+			log.info("Player item update task started");
+			long startTime = System.currentTimeMillis();
+			Iterator<Player> playersIterator = world.getPlayersIterator();
+			int playersUpdated = 0;
+			while(playersIterator.hasNext())
+			{
+				Player player = playersIterator.next();
+				try
+				{
+					DAOManager.getDAO(InventoryDAO.class).store(player);
+					DAOManager.getDAO(ItemStoneListDAO.class).save(player);
+				}
+				catch(Exception ex)
+				{
+					log.error("Exception during periodic saving of player items " + ex.getMessage());
+				}
+
+				playersUpdated++;
+			}
+			long workTime = System.currentTimeMillis() - startTime;
+			log.info("Player item update: " + workTime + " ms, players: " + playersUpdated);
+		}
 	}
 	
-	@Override
-	public void run()
+	private class LegionWhUpdateTask implements Runnable
 	{
-		long startTime = System.currentTimeMillis();
-		Iterator<Player> playersIterator = world.getPlayersIterator();
-		int playersUpdated = 0;
-		while(playersIterator.hasNext())
+		@Override
+		public void run()
 		{
-			Player player = playersIterator.next();
-			try
+			log.info("Legion WH update task started");
+			long startTime = System.currentTimeMillis();
+			Iterator<Legion> legionsIterator = legionService.getCachedLegionIterator();
+			int legionWhUpdated = 0;
+			while(legionsIterator.hasNext())
 			{
-				DAOManager.getDAO(AbyssRankDAO.class).storeAbyssRank(player);
-				DAOManager.getDAO(PlayerSkillListDAO.class).storeSkills(player);
-				DAOManager.getDAO(PlayerQuestListDAO.class).store(player);
-				DAOManager.getDAO(PlayerDAO.class).storePlayer(player);
+				Legion legion = legionsIterator.next();
+				List<Item> allItems = legion.getLegionWarehouse().getAllItems();
+				try
+				{
+					for(Item item : allItems)
+					{
+						DAOManager.getDAO(InventoryDAO.class).store(item, legion.getLegionId());
+					}
+					
+					for(Item item : allItems)
+					{
+						List<ItemStone> itemStones = item.getItemStones();
+						if(itemStones != null)
+						{
+							DAOManager.getDAO(ItemStoneListDAO.class).store(itemStones);	
+						}
+						
+					}
+				}
+				catch(Exception ex)
+				{
+					log.error("Exception during periodic saving of legion WH " + ex.getMessage());
+				}
+
+				legionWhUpdated++;
 			}
-			catch(Exception ex)
-			{
-				log.error("Exception during periodic saving of player " + ex.getMessage());
-			}
-			
-			//DAOManager.getDAO(InventoryDAO.class).store(player);
-			playersUpdated++;
+			long workTime = System.currentTimeMillis() - startTime;
+			log.info("Legion WH update: " + workTime + " ms, legions: " + legionWhUpdated);
 		}
-		long workTime = System.currentTimeMillis() - startTime;
-		log.info("Players update complete after: " + workTime + " ms, players: " + playersUpdated);
 	}
+
 }

@@ -16,6 +16,7 @@ import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.items.ItemSlot;
@@ -36,6 +37,8 @@ public class Equipment
 	private SortedMap<Integer, Item>	equipment	= new TreeMap<Integer, Item>();
 	private Player						owner;
 	private static final Logger			log			= Logger.getLogger(Equipment.class);
+	
+	private PersistentState persistentState = PersistentState.UPDATED;
 
 	public Equipment(Player player)
 	{
@@ -105,6 +108,7 @@ public class Equipment
 			
 			equip(itemSlotToEquip, item);
 		}
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 		return true;
 	}
 	
@@ -180,7 +184,6 @@ public class Equipment
 
 			unEquip(itemToUnequip.getEquipmentSlot());
 		}
-
 		return true;
 	}
 	
@@ -191,7 +194,7 @@ public class Equipment
 		ItemEquipmentListener.onItemUnequipment(item, owner);
 		
 		owner.getLifeStats().updateCurrentStats();
-		owner.getInventory().putToBag(item, false);
+		owner.getInventory().putToBag(item);
 		PacketSendUtility.sendPacket(owner, new SM_UPDATE_ITEM(item));
 	}
 
@@ -548,8 +551,9 @@ public class Equipment
 			PacketSendUtility.sendPacket(owner, new SM_DELETE_ITEM(equippedItem.getObjectId()));
 			DAOManager.getDAO(InventoryDAO.class).store(equippedItem, owner.getObjectId());
 		}
-
+		
 		PacketSendUtility.sendPacket(owner, new SM_UPDATE_ITEM(equippedItem));
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 
 	/**
@@ -624,7 +628,7 @@ public class Equipment
 		}
 
 		owner.getLifeStats().updateCurrentStats();
-
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
 		return true;
 	}
 
@@ -654,5 +658,21 @@ public class Equipment
 	public Item getOffHandWeapon()
 	{
 		return equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
+	}
+
+	/**
+	 * @return the persistentState
+	 */
+	public PersistentState getPersistentState()
+	{
+		return persistentState;
+	}
+
+	/**
+	 * @param persistentState the persistentState to set
+	 */
+	public void setPersistentState(PersistentState persistentState)
+	{
+		this.persistentState = persistentState;
 	}
 }

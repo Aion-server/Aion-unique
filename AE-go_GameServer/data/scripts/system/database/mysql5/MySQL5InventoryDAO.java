@@ -161,11 +161,8 @@ public class MySQL5InventoryDAO extends InventoryDAO
 	public boolean store(Player player)
 	{
 		int playerId = player.getObjectId();
-		List<Item> allPlayerItems = new ArrayList<Item>();
-		allPlayerItems.addAll(player.getStorage(StorageType.CUBE.getId()).getAllItems());
-		allPlayerItems.addAll(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems());
-		allPlayerItems.addAll(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems());
-		allPlayerItems.addAll(player.getEquipment().getEquippedItems());
+		
+		List<Item> allPlayerItems = player.getDirtyItemsToUpdate();
 
 		boolean resultSuccess = true;
 		for(Item item : allPlayerItems)

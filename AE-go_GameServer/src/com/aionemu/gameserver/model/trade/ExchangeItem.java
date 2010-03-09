@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.model.trade;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.PersistentState;
 
 /**
  * @author ATracer
@@ -25,13 +24,11 @@ import com.aionemu.gameserver.model.gameobjects.PersistentState;
  */
 public class ExchangeItem
 {
-	private PersistentState persistentState;
 	private int itemObjId;
 	private int itemCount;
 	private int itemId;
 	private int itemDesc;
 	private Item newItem;
-	private Item originalItem;
 
 	/**
 	 * Used when exchange item != original item
@@ -40,31 +37,13 @@ public class ExchangeItem
 	 * @param itemCount
 	 * @param item
 	 */
-	public ExchangeItem(int itemObjId, int itemCount, Item newItem, Item originalItem)
+	public ExchangeItem(int itemObjId, int itemCount, Item newItem)
 	{
 		this.itemObjId = itemObjId;
 		this.itemCount = itemCount;
 		this.newItem = newItem;
-		this.originalItem = originalItem;
 		this.itemId = newItem.getItemTemplate().getTemplateId();
 		this.itemDesc = newItem.getItemTemplate().getNameId();
-		this.persistentState = PersistentState.NEW;
-	}
-
-	/**
-	 *  Used when exchange item is == original item
-	 *  
-	 * @param item
-	 */
-	public ExchangeItem(Item item)
-	{
-		this.persistentState = PersistentState.UPDATE_REQUIRED;
-		this.originalItem = item;
-		this.newItem = item;
-		this.itemObjId = item.getObjectId();
-		this.itemId = item.getItemTemplate().getTemplateId();
-		this.itemCount = item.getItemCount();
-		this.itemDesc = item.getItemTemplate().getNameId();
 	}
 
 	/**
@@ -77,27 +56,11 @@ public class ExchangeItem
 	}
 
 	/**
-	 * @return the persistentState
-	 */
-	public PersistentState getPersistentState()
-	{
-		return persistentState;
-	}
-
-	/**
 	 * @return the newItem
 	 */
 	public Item getNewItem()
 	{
 		return newItem;
-	}
-
-	/**
-	 * @return the originalItem
-	 */
-	public Item getOriginalItem()
-	{
-		return originalItem;
 	}
 
 	/**
@@ -130,13 +93,5 @@ public class ExchangeItem
 	public int getItemDesc()
 	{
 		return itemDesc;
-	}
-
-	/**
-	 * @param persistentState the persistentState to set
-	 */
-	public void setPersistentState(PersistentState persistentState)
-	{
-		this.persistentState = persistentState;
 	}
 }

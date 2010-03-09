@@ -20,6 +20,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map.Entry;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -1535,5 +1536,15 @@ public class LegionService
 		}
 		if(save)
 			storeLegion(legion);
+	}
+	
+	/**
+	 *  Iterator for loaded legions
+	 *  
+	 * @return
+	 */
+	public Iterator<Legion> getCachedLegionIterator()
+	{
+		return allCachedLegions.iterator();
 	}
 }

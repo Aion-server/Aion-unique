@@ -25,7 +25,9 @@ import com.aionemu.gameserver.controllers.effect.PlayerEffectController;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
@@ -425,7 +427,12 @@ public class Player extends Creature
 		}
 
 	}
-
+	
+	/**
+	 * 
+	 * @param storageType
+	 * @return
+	 */
 	public Storage getStorage(int storageType)
 	{
 		if(storageType == StorageType.REGULAR_WAREHOUSE.getId())
@@ -441,6 +448,73 @@ public class Player extends Creature
 			return inventory;
 		else
 			return null;
+	}
+	
+	/**
+	 *  Items from UPDATE_REQUIRED storages and equipment
+	 *  
+	 * @return
+	 */
+	public List<Item> getDirtyItemsToUpdate()
+	{
+		List<Item> dirtyItems = new ArrayList<Item>();
+		
+		Storage cubeStorage = getStorage(StorageType.CUBE.getId());
+		if(cubeStorage.getPersistentState() == PersistentState.UPDATE_REQUIRED)
+		{
+			dirtyItems.addAll(cubeStorage.getAllItems());
+			dirtyItems.addAll(cubeStorage.getDeletedItems());
+			cubeStorage.setPersistentState(PersistentState.UPDATED);
+		}
+		
+			
+		Storage  regularWhStorage = getStorage(StorageType.REGULAR_WAREHOUSE.getId());
+		if(regularWhStorage.getPersistentState() == PersistentState.UPDATE_REQUIRED)
+		{
+			dirtyItems.addAll(regularWhStorage.getStorageItems());
+			dirtyItems.addAll(regularWhStorage.getDeletedItems());
+			regularWhStorage.setPersistentState(PersistentState.UPDATED);
+		}
+		
+		Storage  accountWhStorage = getStorage(StorageType.ACCOUNT_WAREHOUSE.getId());
+		if(accountWhStorage.getPersistentState() == PersistentState.UPDATE_REQUIRED)
+		{
+			dirtyItems.addAll(accountWhStorage.getStorageItems());
+			dirtyItems.addAll(accountWhStorage.getDeletedItems());
+			accountWhStorage.setPersistentState(PersistentState.UPDATED);
+		}
+		
+		Equipment  equipment = getEquipment();
+		if(equipment.getPersistentState() == PersistentState.UPDATE_REQUIRED)
+		{
+			dirtyItems.addAll(equipment.getEquippedItems());
+			equipment.setPersistentState(PersistentState.UPDATED);
+		}
+		
+		return dirtyItems;
+	}
+	/**
+	 *  //TODO probably need to optimize here
+	 *  
+	 * @return
+	 */
+	public List<Item> getAllItems()
+	{
+		List<Item> allItems = new ArrayList<Item>();
+		
+		Storage cubeStorage = getStorage(StorageType.CUBE.getId());
+		allItems.addAll(cubeStorage.getAllItems());
+			
+		Storage  regularWhStorage = getStorage(StorageType.REGULAR_WAREHOUSE.getId());
+		allItems.addAll(regularWhStorage.getStorageItems());
+		
+		Storage  accountWhStorage = getStorage(StorageType.ACCOUNT_WAREHOUSE.getId());
+		allItems.addAll(accountWhStorage.getStorageItems());
+		
+		Equipment  equipment = getEquipment();
+		allItems.addAll(equipment.getEquippedItems());
+		
+		return allItems;
 	}
 
 	public Storage getInventory()

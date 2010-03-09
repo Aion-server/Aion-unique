@@ -181,23 +181,20 @@ public class ItemService
 		}
 
 		int oldItemCount = itemToSplit.getItemCount() - splitAmount;
-
+		
 		if(itemToSplit.getItemCount()<splitAmount || oldItemCount == 0)
 			return;
-
-
 
 		Item newItem = newItem(itemToSplit.getItemTemplate().getTemplateId(), splitAmount);
 		newItem.setEquipmentSlot(slotNum);
 		if(destinationStorage.putToBag(newItem) != null)
 		{
-			itemToSplit.decreaseItemCount(splitAmount);
+			sourceStorage.decreaseItemCount(itemToSplit, splitAmount);
 
 			List<Item> itemsToUpdate = new ArrayList<Item>();
 			itemsToUpdate.add(newItem);
 
 			sendStorageUpdatePacket(player, destinationStorageType, itemsToUpdate.get(0));
-
 			sendUpdateItemPacket(player, sourceStorageType, itemToSplit);
 		}		
 		else
@@ -274,21 +271,19 @@ public class ItemService
 
 		if(sourceItem.getItemCount() == itemAmount)
 		{
-			destinationItem.increaseItemCount(itemAmount);
+			destinationStorage.increaseItemCount(destinationItem, itemAmount);
 			sourceStorage.removeFromBag(sourceItem, true);
 
 			sendDeleteItemPacket(player, sourceStorageType, sourceItem.getObjectId());
-
 			sendUpdateItemPacket(player, destinationStorageType, destinationItem);
 
 		}
 		else if(sourceItem.getItemCount() > itemAmount)
 		{
-			sourceItem.decreaseItemCount(itemAmount);
-			destinationItem.increaseItemCount(itemAmount);
+			sourceStorage.decreaseItemCount(sourceItem, itemAmount);
+			destinationStorage.increaseItemCount(destinationItem, itemAmount);
 
 			sendUpdateItemPacket(player, sourceStorageType, sourceItem);
-
 			sendUpdateItemPacket(player, destinationStorageType, destinationItem);
 		}
 		else return; // cant happen in theory, but...
@@ -339,6 +334,18 @@ public class ItemService
 	 */
 	public int addItem(Player player, int itemId, int count, boolean isQuestItem)
 	{
+		return this.addItemWithStones(player, itemId, count, isQuestItem, null);
+	}
+	
+	/**
+	 * @param buyer
+	 * @param itemId
+	 * @param count
+	 * @param isQuestItem
+	 * @param itemStones
+	 */
+	public int addItemWithStones(Player player, int itemId, int count, boolean isQuestItem, List<ItemStone> itemStones)
+	{
 		Storage inventory = player.getInventory();
 
 		ItemTemplate itemTemplate =  DataManager.ITEM_DATA.getItemTemplate(itemId);
@@ -366,12 +373,12 @@ public class ItemService
 				int freeCount = maxStackCount - existingItem.getItemCount();
 				if(count <= freeCount)
 				{
-					existingItem.increaseItemCount(count);
+					inventory.increaseItemCount(existingItem, count);
 					count = 0;
 				}
 				else
 				{
-					existingItem.increaseItemCount(freeCount);
+					inventory.increaseItemCount(existingItem, freeCount);
 					count -= freeCount;
 				}
 
@@ -397,6 +404,15 @@ public class ItemService
 				{
 					Item item = newItem(itemId, count);
 					item.setQuest(isQuestItem);
+					
+					//add item stones if available
+					if(itemStones != null)
+					{
+						for(ItemStone itemStone : itemStones)
+						{
+							item.addItemStone(itemStone.getItemId());
+						}
+					}
 					inventory.putToBag(item);
 					updateItem(player, item, true);
 					count = 0;
@@ -407,6 +423,14 @@ public class ItemService
 		}
 	}
 
+	/**
+	 * 
+	 * @param player
+	 * @param itemObjId
+	 * @param sourceStorageType
+	 * @param destinationStorageType
+	 * @param slot
+	 */
 	public void moveItem(Player player, int itemObjId, int sourceStorageType, int destinationStorageType, int slot)
 	{
 		Storage sourceStorage = player.getStorage(sourceStorageType);
@@ -434,7 +458,7 @@ public class ItemService
 			int freeCount = maxStackCount - existingItem.getItemCount();
 			if(count <= freeCount)
 			{
-				existingItem.increaseItemCount(count);
+				destinationStorage.increaseItemCount(existingItem, count);
 				count = 0;
 				sendDeleteItemPacket(player, sourceStorageType, item.getObjectId());
 				sourceStorage.removeFromBag(item, true);
@@ -442,7 +466,7 @@ public class ItemService
 			}
 			else
 			{
-				existingItem.increaseItemCount(freeCount);
+				destinationStorage.increaseItemCount(existingItem, freeCount);
 				count -= freeCount;
 			}
 			sendStorageUpdatePacket(player, destinationStorageType, existingItem);

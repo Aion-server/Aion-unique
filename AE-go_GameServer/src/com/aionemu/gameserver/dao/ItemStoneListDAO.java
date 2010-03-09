@@ -19,6 +19,7 @@ package com.aionemu.gameserver.dao;
 import java.util.List;
 
 import com.aionemu.commons.database.dao.DAO;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemStone;
 
 /**
@@ -36,15 +37,20 @@ public abstract class ItemStoneListDAO implements DAO
 	public abstract List<ItemStone> load(int itemObjId);
 	
 	/**
-	 *  Saves stones of item
+	 *  Saves stones of player
 	 *  
 	 * @param itemStoneList
 	 */
-	public abstract void save(List<ItemStone> itemStoneList);
+	public abstract void save(Player player);
 	
 	@Override
 	public String getClassName()
 	{
 		return ItemStoneListDAO.class.getName();
 	}
+
+	/**
+	 * @param itemStones
+	 */
+	public abstract void store(List<ItemStone> itemStones);
 }

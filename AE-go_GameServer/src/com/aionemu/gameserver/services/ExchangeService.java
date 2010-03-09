@@ -20,17 +20,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
+import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.trade.Exchange;
 import com.aionemu.gameserver.model.trade.ExchangeItem;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_ADD_KINAH;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_CONFIRMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EXCHANGE_REQUEST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
@@ -142,6 +140,9 @@ public class ExchangeService
 		
 		if(itemCount < 1)
 			return;
+		
+		if(itemCount > item.getItemCount())
+			return;
 
 		Player partner = getCurrentParter(activePlayer);
 		Exchange currentExchange = getCurrentExchange(activePlayer);
@@ -158,19 +159,17 @@ public class ExchangeService
 		//item was not added previosly
 		if(exchangeItem == null)
 		{
-			if(itemCount >= item.getItemCount())
+			Item newItem = itemService.newItem(item.getItemTemplate().getTemplateId(), itemCount);
+			exchangeItem = new ExchangeItem(itemObjId, itemCount, newItem);
+			currentExchange.addItem(itemObjId, exchangeItem);
+			if(item.getItemStones() != null)
 			{
-				exchangeItem =  new ExchangeItem(item);
-				currentExchange.addItem(itemObjId, exchangeItem);
-				actuallAddCount = item.getItemCount();
+				for(ItemStone stone : item.getItemStones())
+				{
+					newItem.addItemStone(stone.getItemId());
+				}
 			}
-			else
-			{
-				Item newItem = itemService.newItem(item.getItemTemplate().getTemplateId(), itemCount);
-				exchangeItem = new ExchangeItem(itemObjId, itemCount, newItem, item);
-				currentExchange.addItem(itemObjId, exchangeItem);
-				actuallAddCount = itemCount;			
-			}
+			actuallAddCount = itemCount;			
 		}
 		//item was already added
 		else
@@ -184,13 +183,7 @@ public class ExchangeService
 
 			actuallAddCount = itemCount > possibleToAdd ? possibleToAdd : itemCount;	
 
-			exchangeItem.addCount(actuallAddCount);
-
-			//if added full count of initial item - just make update
-			if(exchangeItem.getItemCount() == item.getItemCount())
-			{
-				exchangeItem.setPersistentState(PersistentState.UPDATE_REQUIRED);
-			}			
+			exchangeItem.addCount(actuallAddCount);		
 		}	
 
 		PacketSendUtility.sendPacket(activePlayer, new SM_EXCHANGE_ADD_ITEM(0, exchangeItem.getNewItem()));
@@ -265,7 +258,7 @@ public class ExchangeService
 		Exchange exchange2 = getCurrentExchange(currentPartner);
 
 		cleanupExchanges(activePlayer, currentPartner);
-
+		
 		removeItemsFromInventory(activePlayer, exchange1);
 		removeItemsFromInventory(currentPartner, exchange2);
 
@@ -306,19 +299,8 @@ public class ExchangeService
 			int itemObjId = exchangeItem.getItemObjId();
 			Item itemInInventory = inventory.getItemByObjId(itemObjId);
 
-			int itemCount = exchangeItem.getNewItem().getItemCount();
-
-			switch(exchangeItem.getPersistentState())
-			{
-				case NEW:
-					itemInInventory.decreaseItemCount(itemCount);
-					PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(itemInInventory));
-					break;
-				case UPDATE_REQUIRED:
-					inventory.removeFromBag(itemInInventory, false);
-					PacketSendUtility.sendPacket(player, new SM_DELETE_ITEM(itemInInventory.getObjectId()));
-					break;
-			}	
+			int itemCount = exchangeItem.getNewItem().getItemCount();			
+			inventory.decreaseItemCount(itemInInventory, itemCount);	
 		}
 		player.getInventory().decreaseKinah(exchange.getKinahCount());
 	}
@@ -352,16 +334,7 @@ public class ExchangeService
 	{
 		for(ExchangeItem exchangeItem : exchange.getItems().values())
 		{
-			Item itemToPut = null;
-			switch(exchangeItem.getPersistentState())
-			{
-				case NEW:
-					itemToPut = exchangeItem.getNewItem();
-					break;
-				case UPDATE_REQUIRED:
-					itemToPut = exchangeItem.getOriginalItem();
-					break;
-			}
+			Item itemToPut = exchangeItem.getNewItem();
 			player.getInventory().putToBag(itemToPut);
 			itemService.updateItem(player, itemToPut, true);
 		}	

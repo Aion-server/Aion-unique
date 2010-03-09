@@ -26,7 +26,9 @@ import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.dao.ItemStoneListDAO;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemStone;
 
 /**
@@ -70,23 +72,39 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 	}
 
 	@Override
-	public void save(final List<ItemStone> itemStoneList)
+	public void store(List<ItemStone> itemStones)
 	{
-		for(int i = 0; i < itemStoneList.size() ; i++)
+		if(itemStones != null)
 		{
-			ItemStone itemStone = itemStoneList.get(i);
-			switch(itemStone.getPersistentState())
+			for(int i = 0; i < itemStones.size() ; i++)
 			{
-				case NEW:
-					addItemStone(itemStone.getItemObjId(), itemStone.getItemId(),
-						itemStone.getSlot());
-					break;
-				case DELETED:
-					deleteItmeStone(itemStone.getItemObjId(), itemStone.getSlot());
-					break;
+				ItemStone itemStone = itemStones.get(i);
+				switch(itemStone.getPersistentState())
+				{
+					case NEW:
+						addItemStone(itemStone.getItemObjId(), itemStone.getItemId(),
+							itemStone.getSlot());
+						break;
+					case DELETED:
+						deleteItmeStone(itemStone.getItemObjId(), itemStone.getSlot());
+						break;
+				}
+				itemStone.setPersistentState(PersistentState.UPDATED);
 			}
-			itemStone.setPersistentState(PersistentState.UPDATED);
 		}
+	}
+
+
+	@Override
+	public void save(Player player)
+	{
+		List<Item> allPlayerItems = player.getAllItems();
+		
+		for(Item item : allPlayerItems)
+		{
+			List<ItemStone> itemStones = item.getItemStones();
+			store(itemStones);
+		}	
 	}
 
 	/**
