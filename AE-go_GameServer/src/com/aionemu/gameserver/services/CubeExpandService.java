@@ -27,7 +27,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.templates.CubeExpandTemplate;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_CUBE_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -111,7 +111,7 @@ public class CubeExpandService
 	{
 		PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300431, "9")); // 9 Slots added
 		player.setCubesize(player.getCubeSize() + 1);
-		PacketSendUtility.sendPacket(player, new SM_INVENTORY_INFO(new ArrayList<Item>(), player.getCubeSize()));
+		PacketSendUtility.sendPacket(player, new SM_CUBE_UPDATE(player, 0));
 	}
 
 	/**

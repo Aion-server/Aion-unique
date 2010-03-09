@@ -42,6 +42,6 @@
  	</cube_npc>
 	<!-- Abyss, Tigraki Island -->
  	<cube_npc id="279022" name="Jarumonerk">
- 		<expand level="4" price="356103" />
+ 		<expand level="5" price="360000" />
  	</cube_npc>
 </cube_expander>

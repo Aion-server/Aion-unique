@@ -51,7 +51,7 @@ public class CustomConfig
 	public static int				UNSTUCK_DELAY;
 	
 	/**
-	 * Unstuck delay
+	 * Enable instances
 	 */
 	@Property(key = "gameserver.instances.enable",defaultValue = "true")
 	public static boolean				ENABLE_INSTANCES;

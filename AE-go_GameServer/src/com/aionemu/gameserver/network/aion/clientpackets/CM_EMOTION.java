@@ -49,6 +49,13 @@ public class CM_EMOTION extends AionClientPacket
 	int							emotion;
 
 	/**
+	 *	Coordinates of player
+	 */
+	float						x;
+	float						y;
+	float						z;
+
+	/**
 	 * Constructs new client packet instance.
 	 * 
 	 * @param opcode
@@ -71,8 +78,6 @@ public class CM_EMOTION extends AionClientPacket
 			case 0x01:// jump
 			case 0x02:// resting
 			case 0x03:// end resting
-			case 0x4:// Sit (Nothing to do) ?? check
-			case 0x5:// standing (Nothing to do) ?? check
 			case 0x7: // fly teleport land
 			case 0x8:// fly up
 			case 0x9:// land
@@ -88,6 +93,12 @@ public class CM_EMOTION extends AionClientPacket
 				break;
 			case 0x10:
 				emotion = readH();
+				break;
+			case 0x4:// Sit (Nothing to do) ?? check
+			case 0x5:// standing (Nothing to do) ?? check
+				x = readF();
+				y = readF();
+				z = readF();
 				break;
 			default:
 				log.info("Unknown emotion type? 0x" + Integer.toHexString(emotionType).toUpperCase());
@@ -164,7 +175,7 @@ public class CM_EMOTION extends AionClientPacket
 				player.unsetState(CreatureState.POWERSHARD);
 				break;
 		}
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, emotionType, emotion,
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, emotionType, emotion, x, y, z,
 			player.getTarget() == null ? 0 : player.getTarget().getObjectId()), true);
 	}
 }

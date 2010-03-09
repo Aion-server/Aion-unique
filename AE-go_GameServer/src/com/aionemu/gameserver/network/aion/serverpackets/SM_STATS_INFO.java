@@ -133,24 +133,18 @@ public class SM_STATS_INFO extends AionServerPacket
 		writeH(buf, 0); // [current concentration]
 		writeH(buf, pgs.getCurrentStat(StatEnum.MAGICAL_ATTACK)+pgs.getCurrentStat(StatEnum.BOOST_MAGICAL_SKILL)); // [current magic boost]
 
-		writeH(buf, 0);// [unk]
-		writeH(buf, 0);// [unk]
+		writeD(buf, (27 + (player.getCubeSize() * 9)));// [unk]
 
-		writeD(buf, 2);// [unk]
+		writeD(buf, player.getInventory().getAllItems().size() - 1);// [unk]
 		writeD(buf, 0);// [unk]
 		writeD(buf, 0);// [unk]
 		writeD(buf, pcd.getPlayerClass().getClassId());// [Player Class id]
-		writeD(buf, 0);// [unk]
 
 		writeH(buf, 0);// [unk]
 		writeH(buf, 0);// [unk]
-		writeH(buf, 0);// [unk]
-		writeH(buf, 0);// [unk]
-		writeH(buf, 0);// [unk]
-		writeH(buf, 0);// [unk]
 
-		writeH(buf, 0);// [unk]
-		writeH(buf, 0);// [unk]
+		writeQ(buf, 4020244);// [current energy of repose]
+		writeQ(buf, 4720968);// [max energy of repose]
 
 		writeH(buf, pgs.getBaseStat(StatEnum.POWER));// [base power]
 		writeH(buf, pgs.getBaseStat(StatEnum.HEALTH));// [base health]
@@ -204,7 +198,7 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeH(buf, pgs.getBaseStat(StatEnum.MAGICAL_ACCURACY));// [base magic accuracy]
 
-		writeH(buf, 0); // [unk]
+		writeH(buf, 0); // [base concentration]
 		writeH(buf, pgs.getBaseStat(StatEnum.MAGICAL_ATTACK)+pgs.getBaseStat(StatEnum.BOOST_MAGICAL_SKILL));// [base magic boost]
 
 		writeH(buf, 0); // [unk]

@@ -81,8 +81,9 @@ public class SM_INVENTORY_INFO extends InventoryPacket
 
 		// something wrong with cube part.
 		writeC(buf, 1); // TRUE/FALSE (1/0) update cube size
-		writeC(buf, CUBE); // cube size
-		writeH(buf, 0); // padding?
+		writeC(buf, CUBE); // cube size from npc (so max 5 for now)
+		writeC(buf, 0); // cube size from quest (so max 2 for now)
+		writeC(buf, 0); // unk?
 		writeH(buf, size); // number of entries
 
 		for(Item item : items)

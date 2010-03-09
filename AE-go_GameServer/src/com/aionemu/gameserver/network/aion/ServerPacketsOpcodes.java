@@ -23,7 +23,6 @@ import java.util.Set;
 
 import com.aionemu.gameserver.network.aion.serverpackets.*;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
-import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK7B;
 
 /**
  * This class is holding opcodes for all server packets. It's used only to have all opcodes in one place
@@ -111,7 +110,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_QUEST_ACCEPTED.class, 0x74, idSet);
 		addPacketOpcode(SM_QUEST_STEP.class, 0x75, idSet);
 		addPacketOpcode(SM_LEGION_UPDATE_SELF_INTRO.class, 0x77, idSet);
-		addPacketOpcode(SM_UNK7B.class, 0x7A, idSet);
+		addPacketOpcode(SM_CUBE_UPDATE.class, 0x7A, idSet);
 		addPacketOpcode(SM_FRIEND_LIST.class, 0x7C, idSet);
 		addPacketOpcode(SM_QUEST_DELETE.class, 0x7E, idSet);
 		addPacketOpcode(SM_NEARBY_QUESTS.class, 0x7F, idSet);

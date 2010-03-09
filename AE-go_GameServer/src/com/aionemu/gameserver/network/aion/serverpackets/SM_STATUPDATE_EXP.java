@@ -34,6 +34,9 @@ public class SM_STATUPDATE_EXP extends AionServerPacket
 	private long	recoverableExp;
 	private long	maxExp;
 
+	private long	curBoostExp = 0;
+	private long	maxBoostExp = 0;
+
 	/**
 	 * 
 	 * @param currentExp
@@ -56,8 +59,8 @@ public class SM_STATUPDATE_EXP extends AionServerPacket
 		writeQ(buf, currentExp);
 		writeQ(buf, recoverableExp);
 		writeQ(buf, maxExp);
-		writeQ(buf, 0x00);
-		writeQ(buf, 0x00);
+		writeQ(buf, curBoostExp);
+		writeQ(buf, maxBoostExp);
 	}
 
 }

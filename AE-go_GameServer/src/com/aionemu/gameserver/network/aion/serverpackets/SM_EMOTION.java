@@ -52,13 +52,20 @@ public class SM_EMOTION extends AionServerPacket
 	 */
 	private int					targetObjectId;
 
-
 	/**
 	 * Temporary Speed..
 	 */
 	private float				speed = 6.0f;
-	
+
 	private int					state;
+
+	/**
+	 * Coordinates of player
+	 */
+	private float				x;
+	private float				y;
+	private float				z;
+
 	/**
 	 * Constructs new server packet with specified opcode
 	 * 
@@ -85,11 +92,14 @@ public class SM_EMOTION extends AionServerPacket
 	 * New
 	 *
 	 */
-	public SM_EMOTION(Player player, int emotionType, int emotion, int targetObjectId)
+	public SM_EMOTION(Player player, int emotionType, int emotion, float x, float y, float z, int targetObjectId)
 	{
 		this.senderObjectId = player.getObjectId();
 		this.emotionType = emotionType;
 		this.emotion = emotion;
+		this.x = x;
+		this.y = y;
+		this.z = z;
 		this.targetObjectId = targetObjectId;
 
 		if (player.isInState(CreatureState.FLYING))
@@ -134,11 +144,17 @@ public class SM_EMOTION extends AionServerPacket
 				// sit (chair)
 				writeH(buf, state);
 				writeF(buf, speed);
+				writeF(buf, x);
+				writeF(buf, y);
+				writeF(buf, z);
 				break;
 			case 5:
 				// stand (chair)
 				writeH(buf, state);
 				writeF(buf, speed);
+				writeF(buf, x);
+				writeF(buf, y);
+				writeF(buf, z);
 				break;
 			case 6:
 				// fly teleport (start)
