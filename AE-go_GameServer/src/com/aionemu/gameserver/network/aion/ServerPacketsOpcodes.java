@@ -44,6 +44,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_VERSION_CHECK.class, 0x00, idSet);
 		addPacketOpcode(SM_STATS_INFO.class, 0x01, idSet);
 		addPacketOpcode(SM_SET_BIND_POINT.class, 0x03, idSet);
+		addPacketOpcode(SM_RIFT_ANNOUNCE.class, 0x04, idSet);
 		addPacketOpcode(SM_ABYSS_RANK.class, 0x05, idSet);
 		addPacketOpcode(SM_MACRO_LIST.class, 0x07, idSet);
 		addPacketOpcode(SM_MACRO_RESULT.class, 0x08, idSet);

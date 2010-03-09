@@ -42,6 +42,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRICES;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RECIPE_LIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_RIFT_ANNOUNCE; 
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -243,6 +244,9 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			player.setRates(Rates.getRatesFor(client.getAccount().getMembership()));
 
 			ClassChangeService.showClassChangeDialog(player);
+
+			// TODO need some task
+			sendPacket(new SM_RIFT_ANNOUNCE(player));
 		}
 		else
 		{

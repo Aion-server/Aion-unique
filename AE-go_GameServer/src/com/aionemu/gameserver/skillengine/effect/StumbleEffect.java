@@ -33,7 +33,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 @XmlType(name = "StumbleEffect")
 public class StumbleEffect extends EffectTemplate
 {
-
 	@Override
 	public void applyEffect(Effect effect)
 	{
@@ -43,7 +42,7 @@ public class StumbleEffect extends EffectTemplate
 	@Override
 	public void calculate(Effect effect)
 	{
-		effect.increaseSuccessEffect();	
+		effect.increaseSuccessEffect();
 		effect.setSpellStatus(SpellStatus.STUMBLE);
 	}
 
@@ -51,7 +50,7 @@ public class StumbleEffect extends EffectTemplate
 	public void startEffect(Effect effect)
 	{
 		effect.getEffected().getEffectController().setAbnormal(EffectId.STUMBLE.getEffectId());
-		PacketSendUtility.broadcastPacket(effect.getEffector(), new SM_FORCED_MOVE(effect.getEffector(), effect.getEffected()));
+		PacketSendUtility.broadcastPacketAndReceive(effect.getEffected(), new SM_FORCED_MOVE(effect.getEffector(), effect.getEffected()));
 	}
 
 	@Override
@@ -59,5 +58,4 @@ public class StumbleEffect extends EffectTemplate
 	{
 		effect.getEffected().getEffectController().unsetAbnormal(EffectId.STUMBLE.getEffectId());
 	}
-	
 }

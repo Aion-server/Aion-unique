@@ -88,6 +88,20 @@ public class PacketSendUtility
 	}
 
 	/**
+	 * Broadcast packet to all visible players.
+	 * 
+	 * @param visibleObject
+	 * @param packet
+	 */
+	public static void broadcastPacketAndReceive(VisibleObject visibleObject, AionServerPacket packet)
+	{
+		if(visibleObject instanceof Player)
+			sendPacket((Player)visibleObject, packet);
+
+		broadcastPacket(visibleObject, packet);
+	}
+
+	/**
 	 * Broadcast packet to all Players from knownList of the given visible object.
 	 * 
 	 * @param visibleObject

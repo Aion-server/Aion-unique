@@ -44,17 +44,16 @@ public class RootEffect extends EffectTemplate
 	@Override
 	public void calculate(Effect effect)
 	{
-		effect.increaseSuccessEffect();	
+		effect.increaseSuccessEffect();
 	}
 
 	@Override
 	public void startEffect(final Effect effect)
 	{
 		final Creature effected = effect.getEffected();
-		effect.getEffected().getEffectController().setAbnormal(EffectId.ROOT.getEffectId());
-		
-		PacketSendUtility.broadcastPacket(effected, new SM_TARGET_IMMOBILIZE(effected));
-		
+		effected.getEffectController().setAbnormal(EffectId.ROOT.getEffectId());
+		PacketSendUtility.broadcastPacketAndReceive(effected, new SM_TARGET_IMMOBILIZE(effected));
+
 		effected.getObserveController().attach(
 			new ActionObserver(ObserverType.ATTACKED)
 			{
@@ -62,7 +61,7 @@ public class RootEffect extends EffectTemplate
 				public void attacked()
 				{
 					effected.getEffectController().removeEffect(effect.getSkillId());
-				}			
+				}
 			}
 		);
 	}
