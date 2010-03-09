@@ -359,8 +359,7 @@ public class PlayerService
 			teleportService.moveToBindLocation(player, false);
 
 		if(duelService.isDueling(player.getObjectId()))
-			duelService.wonDuelWith((Player) player.getController().getLastAttacker(), player.getObjectId(), player
-				.getName());
+			duelService.loseDuel(player);
 
 		punishmentService.stopPrisonTask(player, true);
 

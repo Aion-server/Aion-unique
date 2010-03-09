@@ -29,6 +29,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 
 /**
  * @author Simple
@@ -36,6 +38,9 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class DuelService
 {
+	@Inject
+	World								world;
+
 	private static Logger				log		= Logger.getLogger(DuelService.class);
 
 	private FastMap<Integer, Integer>	duels	= new FastMap<Integer, Integer>();
@@ -144,38 +149,19 @@ public class DuelService
 	}
 
 	/**
-	 * Won the duel
-	 * 
-	 * @param winner
-	 *            the other player
-	 * @param loserObjId
-	 *            the loser's object id
-	 * @param loserName
-	 *            the loser's name
+	 * This method will make the selected player lose the duel
+	 * @param player
 	 */
-	public void wonDuelWith(Player winner, int loserObjId, String loserName)
+	public void loseDuel(Player player)
 	{
-		log.debug("[Duel] Player " + winner.getName() + " won duel against " + loserName);
-		PacketSendUtility.sendPacket(winner, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_WON, loserName));
-		duels.remove(winner.getObjectId());
-		duels.remove(loserObjId);
-	}
+		if(!duels.containsKey(player.getObjectId()))
+			return;
 
-	/**
-	 * Lost the duel
-	 * 
-	 * @param winnerName
-	 *            the other player name
-	 * @param loser
-	 *            the losing player
-	 */
-	public void lostDuelWith(String winnerName, Player loser)
-	{
-		log.debug("[Duel] Player " + loser.getName() + " lost duel against " + winnerName);
-		PacketSendUtility.sendPacket(loser, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_LOST, winnerName));
-		PlayerLifeStats pls = loser.getLifeStats();
-		loser.setLifeStats(new PlayerLifeStats(loser, 1, pls.getCurrentMp()));
-		loser.getLifeStats().triggerRestoreTask();
+		Player opponent = world.findPlayer(duels.get(player.getObjectId()));
+
+		PacketSendUtility.sendPacket(opponent, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_WON, player.getName()));
+		duels.remove(player.getObjectId());
+		duels.remove(opponent.getObjectId());
 	}
 
 	/**
@@ -184,8 +170,12 @@ public class DuelService
 	 */
 	public void onDie(Player player, Player lastAttacker)
 	{
-		lostDuelWith(lastAttacker.getName(), player);
-		wonDuelWith(lastAttacker, player.getObjectId(), player.getName());
+		loseDuel(player);
+		
+		PacketSendUtility.sendPacket(player, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_LOST, lastAttacker.getName()));
+		PlayerLifeStats pls = player.getLifeStats();
+		player.setLifeStats(new PlayerLifeStats(player, 1, pls.getCurrentMp()));
+		player.getLifeStats().triggerRestoreTask();
 	}
 
 	/**
