@@ -70,6 +70,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_MACRO_CREATE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_MACRO_DELETE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_MAC_ADDRESS;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_MAC_ADDRESS2;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_MANASTONE_REMOVE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_MAY_LOGIN_INTO_GAME;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_MAY_QUIT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_MOVE;
@@ -220,6 +221,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_PRIVATE_STORE(0x6D), State.IN_GAME);
 		addPacket(new CM_PRIVATE_STORE_NAME(0x6E), State.IN_GAME);
 		addPacket(new CM_SKILL_DEACTIVATE(0x88), State.IN_GAME);
+		addPacket(new CM_MANASTONE_REMOVE(0x4F), State.IN_GAME);
 	}
 
 	public AionPacketHandler getPacketHandler()

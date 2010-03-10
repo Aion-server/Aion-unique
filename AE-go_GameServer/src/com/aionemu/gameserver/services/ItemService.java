@@ -26,6 +26,7 @@ import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.StorageType;
@@ -545,5 +546,36 @@ public class ItemService
 	public void releaseItemId(Item item)
 	{
 		aionObjectsIDFactory.releaseId(item.getObjectId());
+	}
+
+	/**
+	 * @param player
+	 * @param itemObjId
+	 * @param slotNum
+	 */
+	public void removeManastone(Player player, int itemObjId, int slotNum)
+	{
+		Storage inventory = player.getInventory();
+		Item item = inventory.getItemByObjId(itemObjId);
+		if(item == null)
+		{
+			log.warn("Item not found during manastone remove");
+			return;
+		}
+			
+		
+		List<ItemStone> itemStones = item.getItemStones();
+		if(itemStones == null)
+		{
+			log.warn("Item stone list is empty");
+			return;
+		}
+		
+		ItemStone removedStone = itemStones.remove(slotNum);
+		removedStone.setPersistentState(PersistentState.DELETED);
+		
+		DAOManager.getDAO(ItemStoneListDAO.class).store(Collections.singletonList(removedStone));
+		
+		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));	
 	}
 }
