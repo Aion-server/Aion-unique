@@ -27,9 +27,10 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.services.PeriodicSaveService;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.world.World;
-import com.google.inject.Injector;
+import com.google.inject.Inject;
 
 /**
  * @author lord_rex
@@ -38,22 +39,15 @@ import com.google.inject.Injector;
 public class ShutdownHook extends Thread
 {
 	private static final Logger		log	= Logger.getLogger(ShutdownHook.class);
-
-	private static World			world;
-	private static PlayerService	playerService;
-	private static LoginServer		loginServer;
-
-	public ShutdownHook(Injector injector)
-	{
-		world = injector.getInstance(World.class);
-		playerService = injector.getInstance(PlayerService.class);
-		loginServer = injector.getInstance(LoginServer.class);
-	}
-
-	public static ShutdownHook getInstance(Injector injector)
-	{
-		return new ShutdownHook(injector);
-	}
+	
+	@Inject
+	private World			world;
+	@Inject
+	private PlayerService	playerService;
+	@Inject
+	private LoginServer		loginServer;
+	@Inject
+	private PeriodicSaveService playerUpdateService;
 
 	@Override
 	public void run()
@@ -83,7 +77,7 @@ public class ShutdownHook extends Thread
 		}
 	}
 
-	private static void sendShutdownMessage(int seconds)
+	private void sendShutdownMessage(int seconds)
 	{
 		try
 		{
@@ -97,13 +91,13 @@ public class ShutdownHook extends Thread
 					player.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.SERVER_SHUTDOWN(seconds));
 			}
 		}
-		catch(NoSuchElementException e)
+		catch(Exception e)
 		{
-
+			log.error(e.getMessage());
 		}
 	}
 
-	private static void sendShutdownStatus(boolean status)
+	private void sendShutdownStatus(boolean status)
 	{
 		try
 		{
@@ -117,13 +111,13 @@ public class ShutdownHook extends Thread
 					player.getController().setInShutdownProgress(status);
 			}
 		}
-		catch(NoSuchElementException e)
+		catch(Exception e)
 		{
-
+			log.error(e.getMessage());
 		}
 	}
 
-	private static void shutdownHook(int duration, int interval, ShutdownMode mode)
+	private void shutdownHook(int duration, int interval, ShutdownMode mode)
 	{
 		for(int i = duration; i >= interval; i -= interval)
 		{
@@ -174,10 +168,10 @@ public class ShutdownHook extends Thread
 			{
 				log.error("Error while saving player " + e.getMessage());
 			}
-
 		}
 		log.info("All players are disconnected...");
-
+		
+		playerUpdateService.onShutdown();
 		// Save game time.
 		GameTimeManager.saveTime();
 
@@ -189,8 +183,14 @@ public class ShutdownHook extends Thread
 
 		log.info("Runtime is " + mode.getText() + " now...");
 	}
-
-	public static void doShutdown(int delay, int announceInterval, ShutdownMode mode)
+	
+	/**
+	 * 
+	 * @param delay
+	 * @param announceInterval
+	 * @param mode
+	 */
+	public void doShutdown(int delay, int announceInterval, ShutdownMode mode)
 	{
 		shutdownHook(delay, announceInterval, mode);
 	}

@@ -67,8 +67,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
-import com.aionemu.gameserver.utils.idfactory.IDFactory;
-import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.KnownList;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldPosition;
@@ -86,8 +84,6 @@ public class PlayerService
 {
 	private CacheMap<Integer, Player>	playerCache	= CacheMapFactory.createSoftCacheMap("Player", "player");
 
-	@SuppressWarnings("unused")
-	private IDFactory					aionObjectsIDFactory;
 	private World						world;
 	private ItemService					itemService;
 	private LegionService				legionService;
@@ -101,12 +97,11 @@ public class PlayerService
 	private PlayerInitialData			playerInitialData;
 
 	@Inject
-	public PlayerService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService,
+	public PlayerService(World world, ItemService itemService,
 		LegionService legionService, TeleportService teleportService, ControllerFactory controllerFactory,
 		SkillLearnService skillLearnService, GroupService groupService, PunishmentService punishmentService,
 		DuelService duelService, PlayerStatsData playerStatsData, PlayerInitialData playerInitialData)
 	{
-		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
 		this.itemService = itemService;
 		this.legionService = legionService;
@@ -274,7 +269,6 @@ public class PlayerService
 	 */
 	public Player newPlayer(PlayerCommonData playerCommonData, PlayerAppearance playerAppearance)
 	{
-		// TODO values should go from template
 		LocationData ld = playerInitialData.getSpawnLocation(playerCommonData.getRace());
 
 		WorldPosition position = world.createPosition(ld.getMapId(), ld.getX(), ld.getY(), ld.getZ(), ld.getHeading());

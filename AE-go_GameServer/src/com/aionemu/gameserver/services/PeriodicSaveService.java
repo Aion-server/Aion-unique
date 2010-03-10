@@ -18,6 +18,7 @@ package com.aionemu.gameserver.services;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.Future;
 
 import org.apache.log4j.Logger;
 
@@ -41,15 +42,17 @@ import com.google.inject.Inject;
  * @author ATracer
  * 
  */
-public class PlayerUpdateService
+public class PeriodicSaveService
 {
-	private static final Logger	log	= Logger.getLogger(PlayerUpdateService.class);
+	private static final Logger	log	= Logger.getLogger(PeriodicSaveService.class);
 
 	private World				world;
 	private LegionService		legionService;
 	
+	private Future<?>			legionWhUpdateTask;
+	
 	@Inject
-	public PlayerUpdateService(World world, LegionService legionService)
+	public PeriodicSaveService(World world, LegionService legionService)
 	{
 		this.world = world;
 		this.legionService = legionService;
@@ -58,7 +61,8 @@ public class PlayerUpdateService
 		int DELAY_LEGION_ITEM = PeriodicSaveConfig.LEGION_ITEMS * 1000;
 		ThreadPoolManager.getInstance().scheduleAtFixedRate(new GeneralUpdateTask(), DELAY_GENERAL, DELAY_GENERAL);
 		ThreadPoolManager.getInstance().scheduleAtFixedRate(new ItemUpdateTask(), DELAY_ITEM, DELAY_ITEM);
-		ThreadPoolManager.getInstance().scheduleAtFixedRate(new LegionWhUpdateTask(), DELAY_LEGION_ITEM, DELAY_LEGION_ITEM);
+		legionWhUpdateTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new LegionWhUpdateTask(),
+			DELAY_LEGION_ITEM, DELAY_LEGION_ITEM);
 	}
 
 	private class GeneralUpdateTask implements Runnable
@@ -136,11 +140,17 @@ public class PlayerUpdateService
 				List<Item> allItems = legion.getLegionWarehouse().getAllItems();
 				try
 				{
+					/**
+					 * 1. save items first
+					 */
 					for(Item item : allItems)
 					{
 						DAOManager.getDAO(InventoryDAO.class).store(item, legion.getLegionId());
 					}
 					
+					/**
+					 * 2. save item stones
+					 */
 					for(Item item : allItems)
 					{
 						List<ItemStone> itemStones = item.getItemStones();
@@ -161,6 +171,17 @@ public class PlayerUpdateService
 			long workTime = System.currentTimeMillis() - startTime;
 			log.info("Legion WH update: " + workTime + " ms, legions: " + legionWhUpdated);
 		}
+	}
+	
+	/**
+	 * Save data on shutdown
+	 */
+	public void onShutdown()
+	{
+		log.info("Starting data save on shutdown");
+		legionWhUpdateTask.cancel(false);
+		new LegionWhUpdateTask().run();
+		log.info("Data successfully saved");
 	}
 
 }

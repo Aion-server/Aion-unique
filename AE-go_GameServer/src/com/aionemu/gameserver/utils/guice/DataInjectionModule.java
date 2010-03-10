@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.utils.guice;
 
 import com.aionemu.commons.services.ScriptService;
+import com.aionemu.gameserver.ShutdownHook;
 import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.CubeExpandData;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -49,7 +50,7 @@ import com.aionemu.gameserver.services.GroupService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.PlayerService;
-import com.aionemu.gameserver.services.PlayerUpdateService;
+import com.aionemu.gameserver.services.PeriodicSaveService;
 import com.aionemu.gameserver.services.PrivateStoreService;
 import com.aionemu.gameserver.services.PunishmentService;
 import com.aionemu.gameserver.services.RespawnService;
@@ -90,10 +91,11 @@ public class DataInjectionModule extends AbstractModule
 	@Override
 	protected void configure()
 	{
+		bind(ShutdownHook.class).in(Scopes.SINGLETON);
 		bind(DataManager.class).asEagerSingleton();
 		bind(World.class).asEagerSingleton();
 		bind(SpawnEngine.class).asEagerSingleton();
-		bind(PlayerUpdateService.class).asEagerSingleton();
+		bind(PeriodicSaveService.class).in(Scopes.SINGLETON);
 		bind(PlayerService.class).in(Scopes.SINGLETON);
 		bind(AccountService.class).in(Scopes.SINGLETON);
 		bind(SocialService.class).in(Scopes.SINGLETON);

@@ -124,7 +124,7 @@ public class GameServer
 		}
 		
 		
-		Runtime.getRuntime().addShutdownHook(ShutdownHook.getInstance(gs.injector));
+		Runtime.getRuntime().addShutdownHook(gs.injector.getInstance(ShutdownHook.class));
 
 		//gs.injector.getInstance(com.aionemu.gameserver.utils.chathandlers.ChatHandlers.class);
 		onStartup();
