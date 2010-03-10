@@ -471,7 +471,7 @@ public class Player extends Creature
 		Storage  regularWhStorage = getStorage(StorageType.REGULAR_WAREHOUSE.getId());
 		if(regularWhStorage.getPersistentState() == PersistentState.UPDATE_REQUIRED)
 		{
-			dirtyItems.addAll(regularWhStorage.getStorageItems());
+			dirtyItems.addAll(regularWhStorage.getAllItems());
 			dirtyItems.addAll(regularWhStorage.getDeletedItems());
 			regularWhStorage.setPersistentState(PersistentState.UPDATED);
 		}
@@ -479,7 +479,7 @@ public class Player extends Creature
 		Storage  accountWhStorage = getStorage(StorageType.ACCOUNT_WAREHOUSE.getId());
 		if(accountWhStorage.getPersistentState() == PersistentState.UPDATE_REQUIRED)
 		{
-			dirtyItems.addAll(accountWhStorage.getStorageItems());
+			dirtyItems.addAll(accountWhStorage.getAllItems());
 			dirtyItems.addAll(accountWhStorage.getDeletedItems());
 			accountWhStorage.setPersistentState(PersistentState.UPDATED);
 		}
