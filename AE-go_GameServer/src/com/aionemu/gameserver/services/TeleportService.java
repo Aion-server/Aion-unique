@@ -245,7 +245,8 @@ public class TeleportService
 	public boolean teleportTo(final Player player, final int worldId, final int instanceId, final float x,
 		final float y, final float z, final byte heading, final int delay)
 	{
-		if(player.getLifeStats().isAlreadyDead())
+		if(player.getLifeStats().isAlreadyDead()
+			|| !player.isSpawned())
 			return false;
 		
 		if(delay == 0)
@@ -259,7 +260,8 @@ public class TeleportService
 			@Override
 			public void run()
 			{
-				if(player.getLifeStats().isAlreadyDead())
+				if(player.getLifeStats().isAlreadyDead()
+					|| !player.isSpawned())
 					return;
 
 				if(delay != 0)
