@@ -21,8 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.items.ItemStone;
+import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.model.items.ItemStorage;
+import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
@@ -44,8 +45,9 @@ public class Item extends AionObject
 
 	private PersistentState persistentState;
 
-	//TODO move to ItemStoneList ?
-	private List<ItemStone> itemStones;
+	private List<ManaStone> manaStones;
+	
+	private GodStone godStone;
 
 	private int itemLocation;
 
@@ -228,32 +230,60 @@ public class Item extends AionObject
 	/**
 	 * @return the itemStones
 	 */
-	public List<ItemStone> getItemStones()
+	public List<ManaStone> getItemStones()
 	{
-		return itemStones;
+		return manaStones;
 	}
 
 	/**
 	 * @param itemStones the itemStones to set
 	 */
-	public void setItemStones(List<ItemStone> itemStones)
+	public void setItemStones(List<ManaStone> itemStones)
 	{
-		this.itemStones = itemStones;
+		this.manaStones = itemStones;
 	}
+	
+	/**
+	 * @return the goodStone
+	 */
+	public GodStone getGodStone()
+	{
+		return godStone;
+	}
+
 	/**
 	 * 
-	 * @param itemStone
+	 * @param itemId
 	 */
-	public ItemStone addItemStone(int itemId)
+	public ManaStone addManaStone(int itemId)
 	{
-		int nextSlot = itemStones == null ? 0 : itemStones.size();
-		if(itemStones == null)
-			itemStones = new ArrayList<ItemStone>();
+		int nextSlot = manaStones == null ? 0 : manaStones.size();
+		if(manaStones == null)
+			manaStones = new ArrayList<ManaStone>();
 
-		ItemStone stone = new ItemStone(getObjectId(), itemId,
+		ManaStone stone = new ManaStone(getObjectId(), itemId,
 			nextSlot, PersistentState.NEW);
-		this.itemStones.add(stone);
+		this.manaStones.add(stone);
 		return stone;
+	}
+	
+	/**
+	 * 
+	 * @param itemId
+	 * @return
+	 */
+	public GodStone addGodStone(int itemId)
+	{
+		this.godStone = new GodStone(getObjectId(), itemId, PersistentState.NEW);
+		return this.godStone;
+	}
+	
+	/**
+	 * @param goodStone the goodStone to set
+	 */
+	public void setGoodStone(GodStone goodStone)
+	{
+		this.godStone = goodStone;
 	}
 
 	/**

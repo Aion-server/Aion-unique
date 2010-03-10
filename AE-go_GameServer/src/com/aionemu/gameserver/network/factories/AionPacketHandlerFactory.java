@@ -54,6 +54,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_ADD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_DEL;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_STATUS;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_GATHER;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_GODSTONE_SOCKET;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_GROUP_DISTRIBUTION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_GROUP_RESPONSE;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_INVITE_TO_GROUP;
@@ -132,7 +133,7 @@ public class AionPacketHandlerFactory
 	public AionPacketHandlerFactory(Injector injector)
 	{
 		this.injector = injector;
-
+		addPacket(new CM_GODSTONE_SOCKET(0x41), State.IN_GAME);
 		addPacket(new CM_RECONNECT_AUTH(0x2D), State.AUTHED);
 		addPacket(new CM_L2AUTH_LOGIN_CHECK(0x7B), State.CONNECTED);
 		addPacket(new CM_VERSION_CHECK(0xF6), State.CONNECTED);

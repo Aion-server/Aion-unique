@@ -25,7 +25,7 @@ import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
-import com.aionemu.gameserver.model.items.ItemStone;
+import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -52,7 +52,7 @@ public class EnchantItemAction extends AbstractItemAction {
 				PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem.getObjectId(), parentItem.getItemTemplate().getTemplateId(), 0, 1, 0));
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_GIVE_ITEM_OPTION_SUCCEED(new DescriptionId(Integer.parseInt(targetItem.getName()))));
 
-				ItemStone itemStone = targetItem.addItemStone(parentItem.getItemTemplate().getTemplateId());      
+				ManaStone itemStone = targetItem.addManaStone(parentItem.getItemTemplate().getTemplateId());      
 				if(targetItem.isEquipped())
 				{
 					ItemEquipmentListener.addStoneStats(itemStone, player.getGameStats());

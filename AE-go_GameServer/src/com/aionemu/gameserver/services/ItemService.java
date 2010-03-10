@@ -31,9 +31,10 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.StorageType;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
+import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.items.ItemSlot;
-import com.aionemu.gameserver.model.items.ItemStone;
+import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_WAREHOUSE_ITEM;
@@ -139,10 +140,19 @@ public class ItemService
 				if(item.isEquipped() && item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
 					&& item.getEquipmentSlot() != ItemSlot.SUB_OFF_HAND.getSlotIdMask())
 				{
-					for(ItemStone itemStone : item.getItemStones())
+					for(ManaStone itemStone : item.getItemStones())
 					{
 						ItemEquipmentListener.addStoneStats(itemStone, player.getGameStats());
 					}
+				}
+			}
+			
+			if(item.getItemTemplate().isWeapon())
+			{
+				GodStone gs = DAOManager.getDAO(ItemStoneListDAO.class).loadGodstone(item.getObjectId());
+				if(gs != null)
+				{
+					item.setGoodStone(gs);
 				}
 			}
 		}
@@ -335,7 +345,7 @@ public class ItemService
 	 */
 	public int addItem(Player player, int itemId, int count, boolean isQuestItem)
 	{
-		return this.addItemWithStones(player, itemId, count, isQuestItem, null);
+		return this.addItemWithStones(player, itemId, count, isQuestItem, null, null);
 	}
 	
 	/**
@@ -343,9 +353,10 @@ public class ItemService
 	 * @param itemId
 	 * @param count
 	 * @param isQuestItem
-	 * @param itemStones
+	 * @param manastones
+	 * @param godStone 
 	 */
-	public int addItemWithStones(Player player, int itemId, int count, boolean isQuestItem, List<ItemStone> itemStones)
+	public int addItemWithStones(Player player, int itemId, int count, boolean isQuestItem, List<ManaStone> manastones, GodStone godStone)
 	{
 		Storage inventory = player.getInventory();
 
@@ -407,13 +418,20 @@ public class ItemService
 					item.setQuest(isQuestItem);
 					
 					//add item stones if available
-					if(itemStones != null)
+					//1. manastones
+					if(manastones != null)
 					{
-						for(ItemStone itemStone : itemStones)
+						for(ManaStone manaStone : manastones)
 						{
-							item.addItemStone(itemStone.getItemId());
+							item.addManaStone(manaStone.getItemId());
 						}
 					}
+					//2. godstone
+					if(godStone != null)
+					{
+						item.addGodStone(godStone.getItemId());
+					}
+					
 					inventory.putToBag(item);
 					updateItem(player, item, true);
 					count = 0;
@@ -483,7 +501,6 @@ public class ItemService
 				Item newitem = newItem(item.getItemTemplate().getTemplateId(), maxStackCount);
 				newitem = destinationStorage.putToBag(newitem);
 				sendStorageUpdatePacket(player, destinationStorageType, newitem);
-
 			}
 			else
 			{
@@ -564,18 +581,37 @@ public class ItemService
 		}
 			
 		
-		List<ItemStone> itemStones = item.getItemStones();
+		List<ManaStone> itemStones = item.getItemStones();
 		if(itemStones == null)
 		{
 			log.warn("Item stone list is empty");
 			return;
 		}
 		
-		ItemStone removedStone = itemStones.remove(slotNum);
+		ManaStone removedStone = itemStones.remove(slotNum);
 		removedStone.setPersistentState(PersistentState.DELETED);
 		
 		DAOManager.getDAO(ItemStoneListDAO.class).store(Collections.singletonList(removedStone));
 		
 		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));	
+	}
+
+	/**
+	 * @param player
+	 * @param weaponId
+	 * @param stoneId
+	 */
+	public void socketGodstone(Player player, int weaponId, int stoneId)
+	{
+		if(player.getInventory().getKinahItem().getItemCount() < 100000)
+			return;
+		
+		Item weaponItem = player.getInventory().getItemByObjId(weaponId);
+		Item godstone = player.getInventory().getItemByObjId(stoneId);
+
+		weaponItem.addGodStone(godstone.getItemTemplate().getTemplateId());
+		player.getInventory().removeFromBagByObjectId(stoneId, 1);
+		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(weaponItem));
+		player.getInventory().getKinahItem().decreaseItemCount(100000);
 	}
 }

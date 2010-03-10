@@ -24,7 +24,8 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PrivateStore;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
-import com.aionemu.gameserver.model.items.ItemStone;
+import com.aionemu.gameserver.model.items.GodStone;
+import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.trade.TradeItem;
 import com.aionemu.gameserver.model.trade.TradeList;
 import com.aionemu.gameserver.model.trade.TradePSItem;
@@ -171,9 +172,10 @@ public class PrivateStoreService
 				{
 					TradePSItem storeItem = store.getTradeItemById(tradeItem.getItemId());
 					
-					List<ItemStone> itemStones = item.getItemStones();
+					List<ManaStone> manaStones = item.getItemStones();
+					GodStone godStone = item.getGodStone();
 					decreaseItemFromPlayer(seller, item, tradeItem);
-					itemService.addItemWithStones(buyer, item.getItemTemplate().getTemplateId(), tradeItem.getCount(), false, itemStones);
+					itemService.addItemWithStones(buyer, item.getItemTemplate().getTemplateId(), tradeItem.getCount(), false, manaStones, godStone);
 					if(storeItem.getCount() == tradeItem.getCount())
 						store.removeItem(storeItem.getItemObjId());
 				}

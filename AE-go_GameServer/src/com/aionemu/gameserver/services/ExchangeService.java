@@ -166,10 +166,14 @@ public class ExchangeService
 			{
 				for(ItemStone stone : item.getItemStones())
 				{
-					newItem.addItemStone(stone.getItemId());
+					newItem.addManaStone(stone.getItemId());
 				}
 			}
-			actuallAddCount = itemCount;			
+			if(item.getGodStone() != null)
+			{
+				newItem.addGodStone(item.getGodStone().getItemId());
+			}
+			actuallAddCount = itemCount;
 		}
 		//item was already added
 		else
@@ -249,7 +253,6 @@ public class ExchangeService
 		//TODO message here
 		if(!validateExchange(activePlayer, currentPartner))
 			return;
-
 
 		PacketSendUtility.sendPacket(activePlayer, new SM_EXCHANGE_CONFIRMATION(0));
 		PacketSendUtility.sendPacket(currentPartner, new SM_EXCHANGE_CONFIRMATION(0));

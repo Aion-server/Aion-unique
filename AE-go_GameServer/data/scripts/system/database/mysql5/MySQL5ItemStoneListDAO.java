@@ -22,6 +22,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
 import com.aionemu.commons.database.ParamReadStH;
@@ -29,7 +31,9 @@ import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.items.ItemStone;
+import com.aionemu.gameserver.model.items.GodStone;
+import com.aionemu.gameserver.model.items.ManaStone;
+import com.aionemu.gameserver.model.items.ItemStone.ItemStoneType;
 
 /**
  * @author ATracer
@@ -37,21 +41,24 @@ import com.aionemu.gameserver.model.items.ItemStone;
  */
 public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 {
-	public static final String INSERT_QUERY = "INSERT INTO `item_stones` (`itemUniqueId`, `itemId`, `slot`) VALUES (?,?,?)";
-	public static final String DELETE_QUERY = "DELETE FROM `item_stones` WHERE `itemUniqueId`=? AND slot=?";
-	public static final String SELECT_QUERY = "SELECT `itemId`, `slot` FROM `item_stones` WHERE `itemUniqueId`=?";
+	private static final Logger	log	= Logger.getLogger(MySQL5ItemStoneListDAO.class);
 
+	public static final String INSERT_QUERY = "INSERT INTO `item_stones` (`itemUniqueId`, `itemId`, `slot`, `category`) VALUES (?,?,?, ?)";
+	public static final String DELETE_QUERY = "DELETE FROM `item_stones` WHERE `itemUniqueId`=? AND slot=? AND category=?";
+	public static final String SELECT_QUERY = "SELECT `itemId`, `slot` FROM `item_stones` WHERE `itemUniqueId`=? AND `category`=?";
+	
 
 	@Override
-	public List<ItemStone> load(final int itemObjId)
+	public List<ManaStone> load(final int itemObjId)
 	{
-		final List<ItemStone> itemStones = new ArrayList<ItemStone>();
+		final List<ManaStone> itemStones = new ArrayList<ManaStone>();
 		DB.select(SELECT_QUERY, new ParamReadStH()
 		{
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException
 			{
 				stmt.setInt(1, itemObjId);
+				stmt.setInt(2, ItemStoneType.MANASTONE.ordinal());
 			}
 
 			@Override
@@ -62,7 +69,7 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 					int itemId = rset.getInt("itemId");
 					int slot = rset.getInt("slot");			
 
-					itemStones.add(new ItemStone(itemObjId, itemId,
+					itemStones.add(new ManaStone(itemObjId, itemId,
 						slot, PersistentState.UPDATED));
 
 				}
@@ -70,31 +77,7 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 		});
 		return itemStones;
 	}
-
-	@Override
-	public void store(List<ItemStone> itemStones)
-	{
-		if(itemStones != null)
-		{
-			for(int i = 0; i < itemStones.size() ; i++)
-			{
-				ItemStone itemStone = itemStones.get(i);
-				switch(itemStone.getPersistentState())
-				{
-					case NEW:
-						addItemStone(itemStone.getItemObjId(), itemStone.getItemId(),
-							itemStone.getSlot());
-						break;
-					case DELETED:
-						deleteItmeStone(itemStone.getItemObjId(), itemStone.getSlot());
-						break;
-				}
-				itemStone.setPersistentState(PersistentState.UPDATED);
-			}
-		}
-	}
-
-
+	
 	@Override
 	public void save(Player player)
 	{
@@ -102,9 +85,87 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 		
 		for(Item item : allPlayerItems)
 		{
-			List<ItemStone> itemStones = item.getItemStones();
-			store(itemStones);
+			List<ManaStone> manaStones = item.getItemStones();
+			store(manaStones);
+			
+			GodStone godStone = item.getGodStone();
+			store(godStone);
 		}	
+	}
+
+	@Override
+	public void store(final List<ManaStone> manaStones)
+	{
+		if(manaStones == null)
+			return;
+		
+		for(int i = 0; i < manaStones.size() ; i++)
+		{
+			ManaStone manaStone = manaStones.get(i);
+			switch(manaStone.getPersistentState())
+			{
+				case NEW:
+					addItemStone(manaStone.getItemObjId(), manaStone.getItemId(),
+						manaStone.getSlot());
+					break;
+				case DELETED:
+					deleteItemStone(manaStone.getItemObjId(), manaStone.getSlot());
+					break;
+				
+			}
+			manaStone.setPersistentState(PersistentState.UPDATED);
+		}	
+	}
+	
+	@Override
+	public GodStone loadGodstone(final int itemObjId)
+	{
+		GodStone godStone = null;
+
+		PreparedStatement stmt = DB.prepareStatement(SELECT_QUERY);
+		try
+		{
+			stmt.setInt(1, itemObjId);
+			stmt.setInt(2, ItemStoneType.GODSTONE.ordinal());
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next())
+			{
+				int itemId = rs.getInt("itemId");
+				godStone = new GodStone(itemObjId, itemId, PersistentState.UPDATED);
+			}
+		}
+		catch(SQLException e)
+		{
+			log.error("Error while loading godstone" + itemObjId, e);
+		}
+		finally
+		{
+			DB.close(stmt);
+		}
+
+		return godStone;
+	}
+	
+	/**
+	 * 
+	 * @param godstone
+	 */
+	@Override
+	public void store(GodStone godstone)
+	{
+		if(godstone == null)
+			return;
+		
+		switch(godstone.getPersistentState())
+		{
+			case NEW:
+				addGodStone(godstone.getItemObjId(), godstone.getItemId(),
+					godstone.getSlot());
+				break;
+			case DELETED:
+				deleteGodStone(godstone.getItemObjId(), godstone.getSlot());
+				break;
+		}
 	}
 
 	/**
@@ -125,6 +186,28 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 				stmt.setInt(1, itemObjId);
 				stmt.setInt(2, itemId);
 				stmt.setInt(3, slot);
+				stmt.setInt(4, ItemStoneType.MANASTONE.ordinal());
+				stmt.execute();
+			}
+		});
+	}
+	
+	/**
+	 * 
+	 * @param itemObjId
+	 * @param itemId
+	 * @param slot
+	 */
+	private void addGodStone(final int itemObjId, final int itemId, final int slot)
+	{
+		DB.insertUpdate(INSERT_QUERY, new IUStH() {
+			@Override
+			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, itemObjId);
+				stmt.setInt(2, itemId);
+				stmt.setInt(3, slot);
+				stmt.setInt(4, ItemStoneType.GODSTONE.ordinal());
 				stmt.execute();
 			}
 		});
@@ -136,7 +219,7 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 	 * @param itemObjId
 	 * @param slot
 	 */
-	private void deleteItmeStone(final int itemObjId, final int slot)
+	private void deleteItemStone(final int itemObjId, final int slot)
 	{		
 		DB.insertUpdate(DELETE_QUERY, new IUStH()
 		{
@@ -145,6 +228,27 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 			{
 				stmt.setInt(1, itemObjId);
 				stmt.setInt(2, slot);
+				stmt.setInt(3, ItemStoneType.MANASTONE.ordinal());
+				stmt.execute();
+			}
+		});
+	}
+	
+	/**
+	 * 
+	 * @param itemObjId
+	 * @param slot
+	 */
+	private void deleteGodStone(final int itemObjId, final int slot)
+	{		
+		DB.insertUpdate(DELETE_QUERY, new IUStH()
+		{
+			@Override
+			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, itemObjId);
+				stmt.setInt(2, slot);
+				stmt.setInt(3, ItemStoneType.GODSTONE.ordinal());
 				stmt.execute();
 			}
 		});

@@ -28,7 +28,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.id.ItemStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.id.StoneStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
-import com.aionemu.gameserver.model.items.ItemStone;
+import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
 
@@ -70,7 +70,7 @@ public class ItemEquipmentListener
 		addStonesStats(item.getItemStones(), owner.getGameStats());
 		recalculateWeaponMastery(owner);	
 	}
-	
+
 	/**
 	 * @param owner
 	 */
@@ -107,12 +107,12 @@ public class ItemEquipmentListener
 	 * @param itemStones
 	 * @param cgs
 	 */
-	private static void addStonesStats(List<ItemStone> itemStones, CreatureGameStats<?> cgs)
+	private static void addStonesStats(List<ManaStone> itemStones, CreatureGameStats<?> cgs)
 	{
 		if(itemStones == null || itemStones.size() == 0)
 			return;
 		
-		for(ItemStone stone : itemStones)
+		for(ManaStone stone : itemStones)
 		{
 			addStoneStats(stone, cgs);
 		}
@@ -124,12 +124,12 @@ public class ItemEquipmentListener
 	 * @param itemStones
 	 * @param cgs
 	 */
-	private static void removeStoneStats(List<ItemStone> itemStones, CreatureGameStats<?> cgs)
+	private static void removeStoneStats(List<ManaStone> itemStones, CreatureGameStats<?> cgs)
 	{
 		if(itemStones == null || itemStones.size() == 0)
 			return;
 		
-		for(ItemStone stone : itemStones)
+		for(ManaStone stone : itemStones)
 		{
 			TreeSet<StatModifier> modifiers = stone.getModifiers();
 			if(modifiers != null)
@@ -145,7 +145,7 @@ public class ItemEquipmentListener
 	 * @param stone
 	 * @param cgs
 	 */
-	public static void addStoneStats(ItemStone stone, CreatureGameStats<?> cgs)
+	public static void addStoneStats(ManaStone stone, CreatureGameStats<?> cgs)
 	{
 		TreeSet<StatModifier> modifiers = stone.getModifiers();
 		if(modifiers != null)
@@ -153,7 +153,12 @@ public class ItemEquipmentListener
 			cgs.addModifiers(StoneStatEffectId.getInstance(stone.getItemObjId(), stone.getSlot()), modifiers);
 		}	
 	}
-
+	
+	/**
+	 * 
+	 * @param item
+	 * @param owner
+	 */
 	public static void onItemUnequipment(Item item, Player owner)
 	{
 		owner.getGameStats().endEffect(ItemStatEffectId.getInstance(item.getItemTemplate().getTemplateId(), item.getEquipmentSlot()));

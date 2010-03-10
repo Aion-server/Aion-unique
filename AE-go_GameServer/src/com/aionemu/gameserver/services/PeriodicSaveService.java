@@ -32,7 +32,8 @@ import com.aionemu.gameserver.dao.PlayerQuestListDAO;
 import com.aionemu.gameserver.dao.PlayerSkillListDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.items.ItemStone;
+import com.aionemu.gameserver.model.items.GodStone;
+import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
@@ -153,10 +154,15 @@ public class PeriodicSaveService
 					 */
 					for(Item item : allItems)
 					{
-						List<ItemStone> itemStones = item.getItemStones();
-						if(itemStones != null)
+						List<ManaStone> manaStones = item.getItemStones();
+						if(manaStones != null)
 						{
-							DAOManager.getDAO(ItemStoneListDAO.class).store(itemStones);	
+							DAOManager.getDAO(ItemStoneListDAO.class).store(manaStones);	
+						}
+						GodStone godStone = item.getGodStone();
+						if(godStone != null)
+						{
+							DAOManager.getDAO(ItemStoneListDAO.class).store(godStone);
 						}
 						
 					}

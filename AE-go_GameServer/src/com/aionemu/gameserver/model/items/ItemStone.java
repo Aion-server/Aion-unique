@@ -16,12 +16,7 @@
  */
 package com.aionemu.gameserver.model.items;
 
-import java.util.TreeSet;
-
-import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
-import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
-import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
  * @author ATracer
@@ -35,9 +30,15 @@ public class ItemStone
 	
 	private int slot;
 	
-	private TreeSet<StatModifier> modifiers;
-	
 	private PersistentState persistentState;
+	
+	private ItemStoneType itemStoneType;
+	
+	public static enum ItemStoneType
+	{
+		MANASTONE,
+		GODSTONE;
+	}
 
 	/**
 	 * 
@@ -47,18 +48,12 @@ public class ItemStone
 	 * @param enchantValue
 	 * @param persistentState
 	 */
-	public ItemStone(int itemObjId, int itemId, int slot, PersistentState persistentState)
+	public ItemStone(int itemObjId, int itemId, int slot, ItemStoneType itemStoneType, PersistentState persistentState)
 	{
 		this.itemObjId = itemObjId;
 		this.itemId = itemId;
 		this.slot = slot;
 		this.persistentState = persistentState;
-		
-		ItemTemplate stoneTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
-		if(stoneTemplate != null && stoneTemplate.getModifiers() != null)
-		{
-			this.modifiers = stoneTemplate.getModifiers();
-		}	
 	}
 
 	/**
@@ -83,19 +78,6 @@ public class ItemStone
 	public int getSlot()
 	{
 		return slot;
-	}
-
-	/**
-	 * @return modifiers
-	 */
-	public TreeSet<StatModifier> getModifiers()
-	{
-		return modifiers;
-	}
-	
-	public StatModifier getFirstModifier()
-	{
-		return modifiers != null ? modifiers.first() : null;
 	}
 
 	/**
@@ -126,5 +108,13 @@ public class ItemStone
 			default:
 				this.persistentState = persistentState;
 		}
+	}
+
+	/**
+	 * @return the itemStoneType
+	 */
+	public ItemStoneType getItemStoneType()
+	{
+		return itemStoneType;
 	}
 }

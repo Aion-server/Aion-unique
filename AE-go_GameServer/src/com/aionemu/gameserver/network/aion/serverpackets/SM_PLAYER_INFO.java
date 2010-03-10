@@ -24,6 +24,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
+import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -138,7 +139,8 @@ public class SM_PLAYER_INFO extends AionServerPacket
 			if(item.getEquipmentSlot() < Short.MAX_VALUE * 2)
 			{
 				writeD(buf, item.getItemTemplate().getTemplateId());
-				writeD(buf, 0); // GodStone ItemId
+				GodStone godStone = item.getGodStone();
+				writeD(buf, godStone != null ? godStone.getItemId() : 0); 
 				writeD(buf, item.getItemColor());
 			}
 		}

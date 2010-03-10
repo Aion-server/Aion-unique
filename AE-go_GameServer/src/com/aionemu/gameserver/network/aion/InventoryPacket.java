@@ -24,6 +24,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SimpleModifier;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.ItemStone;
+import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
@@ -140,10 +141,11 @@ public abstract class InventoryPacket extends AionServerPacket
 			writeC(buf, 0);
 
 			writeItemStones(buf, item);
-
-
+			
+			ItemStone god = item.getGodStone();
+			writeD(buf, god == null ? 0 : god.getItemId());
 			writeC(buf, 0);
-			writeD(buf, 0);
+			
 			writeD(buf, 0);
 
 			writeD(buf, 0);//unk 1.5.1.9
@@ -172,11 +174,11 @@ public abstract class InventoryPacket extends AionServerPacket
 	private void writeItemStones(ByteBuffer buf, Item item)
 	{
 		int count = 0;
-		List<ItemStone> itemStones = item.getItemStones();
+		List<ManaStone> itemStones = item.getItemStones();
 
 		if(itemStones != null)
 		{
-			for(ItemStone itemStone : itemStones)
+			for(ManaStone itemStone : itemStones)
 			{
 				if(count == 6)
 					break;
@@ -190,7 +192,7 @@ public abstract class InventoryPacket extends AionServerPacket
 			}
 			writeB(buf, new byte[(6-count)]);
 			count = 0;
-			for(ItemStone itemStone : itemStones)
+			for(ManaStone itemStone : itemStones)
 			{
 				if(count == 6)
 					break;
