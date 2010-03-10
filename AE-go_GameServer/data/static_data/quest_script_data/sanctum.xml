@@ -19,8 +19,8 @@
 	<!-- Symbol of the Chosen -->
 	<report_to id="9510" start_npc_id="203752" end_npc_id="203711"/>
 	
-	<!-- A Ring Imbued With Aether -->
-	<report_to id="1900" start_npc_id="203739" end_npc_id="203830" item_id="122000885"/>
+	<!-- A Ring Imbued With Aether handled by Script-->
+	
 	
 	<!-- A Song Of Praise -->
 	<report_to id="1909" start_npc_id="203726" end_npc_id="203099"/>
