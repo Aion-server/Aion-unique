@@ -233,7 +233,7 @@ public class TradeService
 		}
 
 		Item kinahItem = inventory.getKinahItem();
-		inventory.decreaseKinah(kinahReward / 2);
+		inventory.increaseKinah(kinahReward / 2);
 		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(kinahItem));
 
 		return true;
