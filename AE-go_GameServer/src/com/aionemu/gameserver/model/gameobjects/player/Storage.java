@@ -278,15 +278,16 @@ public class Storage
 	 */
 	public int decreaseItemCount(Item item, int count)
 	{
-		if(item.getItemCount() >= count)
+		int itemCount = item.getItemCount();
+		if(itemCount >= count)
 		{
 			item.decreaseItemCount(count);
 			count = 0;
 		}
 		else
-		{
-			item.decreaseItemCount(item.getItemCount());
-			count -= item.getItemCount();
+		{		
+			item.decreaseItemCount(itemCount);
+			count -= itemCount;
 		}
 		if(item.getItemCount() == 0)
 		{
