@@ -76,7 +76,9 @@ public class SM_SKILL_LIST extends AionServerPacket
 			for (SkillListEntry entry : skillList)
 			{
 				writeH(buf, entry.getSkillId());//id
-				writeD(buf, entry.getSkillLevel());//lvl
+				writeH(buf, entry.getSkillLevel());//lvl
+				writeC(buf, 0x00);
+				writeC(buf, entry.getExtraLvl());
 				writeD(buf, 0);//use time? [s]
 				writeC(buf, 0);//unk
 			}

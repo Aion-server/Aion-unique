@@ -68,6 +68,25 @@ public class SkillListEntry
 	}
 
 	/**
+	 * @return The skill extra lvl
+	 */
+	public int getExtraLvl()
+	{
+		switch(skillId)
+		{
+			case 30002:
+			case 30003:
+			case 40001:
+			case 40002:
+			case 40003:
+			case 40004:
+			case 40007:
+			case 40008:
+				return skillLvl/100;
+		}
+		return 0;
+	}
+	/**
 	 * @return the currentXp
 	 */
 	public int getCurrentXp()
