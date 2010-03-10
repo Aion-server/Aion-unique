@@ -37,7 +37,8 @@ public enum SpellStatus
 	 */
 	NONE(0),
 	STUMBLE(1),
-	STAGGER(2);
+	STAGGER(2),
+	OPENAERIAL(4);
 	
 	private int id;
 
