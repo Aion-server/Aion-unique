@@ -54,7 +54,7 @@ public class SM_CUBE_UPDATE extends AionServerPacket
 		switch(unk)
 		{
 			case 0:
-				writeD(buf, player.getInventory().getAllItems().size() - 1);
+				writeD(buf, player.getInventory().size());
 				writeC(buf, player.getCubeSize()); // cube size from npc (so max 5 for now)
 				writeC(buf, 0); // cube size from quest (so max 2 for now)
 				writeC(buf, 0); // unk

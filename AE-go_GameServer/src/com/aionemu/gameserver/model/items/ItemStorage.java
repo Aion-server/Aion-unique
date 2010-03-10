@@ -237,4 +237,14 @@ public class ItemStorage
 	{
 		return limit - storageItems.size();
 	}
+	
+	/**
+	 *  Number of items in storage
+	 *  
+	 * @return
+	 */
+	public int size()
+	{
+		return storageItems.size();
+	}
 }

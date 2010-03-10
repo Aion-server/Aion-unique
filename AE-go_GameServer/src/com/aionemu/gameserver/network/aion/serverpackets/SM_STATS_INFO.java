@@ -135,7 +135,7 @@ public class SM_STATS_INFO extends AionServerPacket
 
 		writeD(buf, (27 + (player.getCubeSize() * 9)));// [unk]
 
-		writeD(buf, player.getInventory().getAllItems().size() - 1);// [unk]
+		writeD(buf, player.getInventory().size());// [unk]
 		writeD(buf, 0);// [unk]
 		writeD(buf, 0);// [unk]
 		writeD(buf, pcd.getPlayerClass().getClassId());// [Player Class id]

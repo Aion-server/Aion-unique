@@ -451,4 +451,14 @@ public class Storage
 		item.increaseItemCount(count);
 		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
+	
+	/**
+	 *  Size of underlying storage
+	 *  
+	 * @return
+	 */
+	public int size()
+	{
+		return storage.size();
+	}
 }
