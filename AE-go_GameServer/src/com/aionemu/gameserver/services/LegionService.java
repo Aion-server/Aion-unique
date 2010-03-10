@@ -1394,10 +1394,9 @@ public class LegionService
 	 */
 	private void loadLegionRanking()
 	{
+		setLegionRanking(DAOManager.getDAO(LegionDAO.class).loadLegionRanking());
 		if(legionRanking == null)
-		{
-			setLegionRanking(DAOManager.getDAO(LegionDAO.class).loadLegionRanking());
-		}
+			legionRanking = new HashMap<Integer, Integer>();
 	}
 
 	/**
