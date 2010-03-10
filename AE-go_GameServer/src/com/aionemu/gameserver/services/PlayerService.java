@@ -45,6 +45,7 @@ import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.ItemType;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.MacroList;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -316,7 +317,12 @@ public class PlayerService
 				playerInventory.onLoadHandler(item);
 		}
 		equipment.onLoadApplyEquipmentStats();
-
+		/**
+		 * Mark inventory and equipment as UPDATE_REQUIRED to be saved during 
+		 * character creation
+		 */
+		playerInventory.setPersistentState(PersistentState.UPDATE_REQUIRED);
+		equipment.setPersistentState(PersistentState.UPDATE_REQUIRED);
 		return newPlayer;
 	}
 
