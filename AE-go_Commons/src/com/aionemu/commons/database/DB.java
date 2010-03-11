@@ -16,6 +16,7 @@
  */
 package com.aionemu.commons.database;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -193,6 +194,66 @@ public final class DB
 		{
 			if(errMsg == null)
 				log.warn("Error executing select query " + e, e);
+			else
+				log.warn(errMsg + " " + e, e);
+			return false;
+		}
+		finally
+		{
+			try
+			{
+				if(con != null)
+					con.close();
+				if(stmt != null)
+					stmt.close();
+			}
+			catch(Exception e)
+			{
+				log.warn("Failed to close DB connection " + e, e);
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 *  Call stored procedure
+	 *  
+	 * @param query
+	 * @param reader
+	 * @return
+	 */
+	public static boolean call(String query, ReadStH reader)
+	{
+		return call(query, reader, null);
+	}
+	
+	/**
+	 *  Call stored procedure
+	 *  
+	 * @param query
+	 * @param reader
+	 * @param errMsg
+	 * @return
+	 */
+	public static boolean call(String query, ReadStH reader, String errMsg)
+	{
+		Connection con = null;
+		CallableStatement stmt = null;
+		ResultSet rset;
+
+		try
+		{
+			con = DatabaseFactory.getConnection();
+			stmt = con.prepareCall(query);
+			if(reader instanceof CallReadStH)
+				((CallReadStH) reader).setParams(stmt);
+			rset = stmt.executeQuery();
+			reader.handleRead(rset);
+		}
+		catch(Exception e)
+		{
+			if(errMsg == null)
+				log.warn("Error calling stored procedure " + e, e);
 			else
 				log.warn(errMsg + " " + e, e);
 			return false;
