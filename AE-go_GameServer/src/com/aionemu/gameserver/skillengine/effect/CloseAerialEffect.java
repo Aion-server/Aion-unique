@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.skillengine.model.SpellStatus;
 
 /**
  * @author ATracer
@@ -30,12 +31,11 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 @XmlType(name = "CloseAerialEffect")
 public class CloseAerialEffect extends EffectTemplate
 {
-
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		// TODO Auto-generated method stub
-
+		effect.setSpellStatus(SpellStatus.CLOSEAERIAL);
+		effect.getEffected().getEffectController().removeEffectByEffectId(8224);
 	}
 
 	@Override
