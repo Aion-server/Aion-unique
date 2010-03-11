@@ -76,6 +76,14 @@ public class AESystem extends AdminCommand
 			// CPU Infos
 			for(String line : AEInfos.getCPUInfo())
 				PacketSendUtility.sendMessage(admin, line);
+			
+			// JRE Infos
+			for(String line : AEInfos.getJREInfo())
+				PacketSendUtility.sendMessage(admin, line);
+			
+			// JVM Infos
+			for(String line : AEInfos.getJVMInfo())
+				PacketSendUtility.sendMessage(admin, line);
 		}
 
 		else if(params[0].equals("memory"))
