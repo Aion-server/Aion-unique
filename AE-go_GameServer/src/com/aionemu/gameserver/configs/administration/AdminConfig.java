@@ -24,128 +24,128 @@ import com.aionemu.commons.configuration.Property;
 public class AdminConfig
 {
 	@Property(key = "gameserver.administration.command.add", defaultValue = "3")
-	public static int			COMMAND_ADD;
-	
-	@Property(key = "gameserver.administration.command.ai", defaultValue = "3")
-	public static int			COMMAND_AI;
-	
-	@Property(key = "gameserver.administration.command.addtitle", defaultValue = "3")
-	public static int			COMMAND_ADDTITLE;
-	
-	@Property(key = "gameserver.administration.command.adddrop", defaultValue = "3")
-	public static int			COMMAND_ADDDROP;
-	
-	@Property(key = "gameserver.administration.command.advsendfakeserverpacket", defaultValue = "3")
-	public static int			COMMAND_ADVSENDFAKESERVERPACKET;
-	
-	@Property(key = "gameserver.administration.command.announce", defaultValue = "3")
-	public static int			COMMAND_ANNOUNCE;
-	
-	@Property(key = "gameserver.administration.command.configure", defaultValue = "3")
-	public static int			COMMAND_CONFIGURE;
-	
-	@Property(key = "gameserver.administration.command.deletespawn", defaultValue = "3")
-	public static int			COMMAND_DELETESPAWN;
-	
-	@Property(key = "gameserver.administration.command.goto", defaultValue = "3")
-	public static int			COMMAND_GOTO;
-	
-	@Property(key = "gameserver.administration.command.givemissingskills", defaultValue = "3")
-	public static int			COMMAND_GIVEMISSINGSKILLS;
-	
-	@Property(key = "gameserver.administration.command.heal", defaultValue = "3")
-	public static int			COMMAND_HEAL;
-	
-	@Property(key = "gameserver.administration.command.info", defaultValue = "3")
-	public static int			COMMAND_INFO;
-	
-	@Property(key = "gameserver.administration.command.invul", defaultValue = "3")
-	public static int			COMMAND_INVUL;
+	public static int	COMMAND_ADD;
 
-    @Property(key = "gameserver.administration.command.kick", defaultValue = "3")
-	public static int			COMMAND_KICK;
-	
+	@Property(key = "gameserver.administration.command.ai", defaultValue = "3")
+	public static int	COMMAND_AI;
+
+	@Property(key = "gameserver.administration.command.addtitle", defaultValue = "3")
+	public static int	COMMAND_ADDTITLE;
+
+	@Property(key = "gameserver.administration.command.adddrop", defaultValue = "3")
+	public static int	COMMAND_ADDDROP;
+
+	@Property(key = "gameserver.administration.command.advsendfakeserverpacket", defaultValue = "3")
+	public static int	COMMAND_ADVSENDFAKESERVERPACKET;
+
+	@Property(key = "gameserver.administration.command.announce", defaultValue = "3")
+	public static int	COMMAND_ANNOUNCE;
+
+	@Property(key = "gameserver.administration.command.configure", defaultValue = "3")
+	public static int	COMMAND_CONFIGURE;
+
+	@Property(key = "gameserver.administration.command.deletespawn", defaultValue = "3")
+	public static int	COMMAND_DELETESPAWN;
+
+	@Property(key = "gameserver.administration.command.goto", defaultValue = "3")
+	public static int	COMMAND_GOTO;
+
+	@Property(key = "gameserver.administration.command.givemissingskills", defaultValue = "3")
+	public static int	COMMAND_GIVEMISSINGSKILLS;
+
+	@Property(key = "gameserver.administration.command.heal", defaultValue = "3")
+	public static int	COMMAND_HEAL;
+
+	@Property(key = "gameserver.administration.command.info", defaultValue = "3")
+	public static int	COMMAND_INFO;
+
+	@Property(key = "gameserver.administration.command.invul", defaultValue = "3")
+	public static int	COMMAND_INVUL;
+
+	@Property(key = "gameserver.administration.command.kick", defaultValue = "3")
+	public static int	COMMAND_KICK;
+
 	@Property(key = "gameserver.administration.command.kill", defaultValue = "3")
-	public static int			COMMAND_KILL;
-	
+	public static int	COMMAND_KILL;
+
 	@Property(key = "gameserver.administration.command.moveplayertoplayer", defaultValue = "3")
-	public static int			COMMAND_MOVEPLAYERTOPLAYER;
-	
+	public static int	COMMAND_MOVEPLAYERTOPLAYER;
+
 	@Property(key = "gameserver.administration.command.moveto", defaultValue = "3")
-	public static int			COMMAND_MOVETO;
-	
+	public static int	COMMAND_MOVETO;
+
 	@Property(key = "gameserver.administration.command.movetoplayer", defaultValue = "3")
-	public static int			COMMAND_MOVETOPLAYER;
+	public static int	COMMAND_MOVETOPLAYER;
 
 	@Property(key = "gameserver.administration.command.movetome", defaultValue = "3")
-	public static int			COMMAND_MOVETOME;
-	
+	public static int	COMMAND_MOVETOME;
+
 	@Property(key = "gameserver.administration.command.notice", defaultValue = "3")
-	public static int			COMMAND_NOTICE;
+	public static int	COMMAND_NOTICE;
 
 	@Property(key = "gameserver.administration.command.promote", defaultValue = "3")
-	public static int			COMMAND_PROMOTE;
-	
+	public static int	COMMAND_PROMOTE;
+
 	@Property(key = "gameserver.administration.command.questcommand", defaultValue = "3")
-	public static int			COMMAND_QUESTCOMMAND;
-	
+	public static int	COMMAND_QUESTCOMMAND;
+
 	@Property(key = "gameserver.administration.command.reload", defaultValue = "3")
-	public static int			COMMAND_RELOAD;
+	public static int	COMMAND_RELOAD;
 
 	@Property(key = "gameserver.administration.command.reloadspawns", defaultValue = "3")
-	public static int			COMMAND_RELOADSPAWNS;
+	public static int	COMMAND_RELOADSPAWNS;
 
 	@Property(key = "gameserver.administration.command.revoke", defaultValue = "3")
-	public static int			COMMAND_REVOKE;
-	
-	@Property(key = "gameserver.administration.command.savespawndata", defaultValue = "3")
-	public static int			COMMAND_SAVESPAWNDATA;
-	
-	@Property(key = "gameserver.administration.command.sendfakeserverpacket", defaultValue = "3")
-	public static int			COMMAND_SENDFAKESERVERPACKET;
-	
-	@Property(key = "gameserver.administration.command.sendrawpacket", defaultValue = "3")
-	public static int			COMMAND_SENDRAWPACKET;
-	
-	@Property(key = "gameserver.administration.command.setlevel", defaultValue = "3")
-	public static int			COMMAND_SETLEVEL;
-	
-	@Property(key = "gameserver.administration.command.setclass", defaultValue = "3")
-	public static int			COMMAND_SETCLASS;
-	
-	@Property(key = "gameserver.administration.command.setexp", defaultValue = "3")
-	public static int			COMMAND_SETEXP;
-	
-	@Property(key = "gameserver.administration.command.settitle", defaultValue = "3")
-	public static int			COMMAND_SETTITLE;
-	
-	@Property(key = "gameserver.administration.command.spawnnpc", defaultValue = "3")
-	public static int			COMMAND_SPAWNNPC;
-	
-	@Property(key = "gameserver.administration.command.unloadspawn", defaultValue = "3")
-	public static int			COMMAND_UNLOADSPAWN;
-	
-	@Property(key = "gameserver.administration.command.addskill", defaultValue = "3")
-	public static int			COMMAND_ADDSKILL;
-	
-	@Property(key = "gameserver.administration.command.speed", defaultValue = "3")
-	public static int			COMMAND_SPEED;
-	
-	@Property(key = "gameserver.administration.command.system", defaultValue = "3")
-	public static int			COMMAND_SYSTEM;
+	public static int	COMMAND_REVOKE;
 
-    @Property(key = "gameserver.administration.command.unstuck", defaultValue = "3")
-    public static int           COMMAND_UNSTUCK;
-    
-    @Property(key = "gameserver.administration.command.weather", defaultValue = "3")
-	public static int			COMMAND_WEATHER;
-    
-    @Property(key = "gameserver.administration.command.zone", defaultValue = "3")
-    public static int           COMMAND_ZONE;
-    
-    @Property(key = "gameserver.administration.command.legion", defaultValue = "3")
-    public static int           COMMAND_LEGION;
-    
-    @Property(key = "gameserver.administration.command.prison", defaultValue = "3")
-    public static int			COMMAND_PRISON;
+	@Property(key = "gameserver.administration.command.savespawndata", defaultValue = "3")
+	public static int	COMMAND_SAVESPAWNDATA;
+
+	@Property(key = "gameserver.administration.command.sendfakeserverpacket", defaultValue = "3")
+	public static int	COMMAND_SENDFAKESERVERPACKET;
+
+	@Property(key = "gameserver.administration.command.sendrawpacket", defaultValue = "3")
+	public static int	COMMAND_SENDRAWPACKET;
+
+	@Property(key = "gameserver.administration.command.setlevel", defaultValue = "3")
+	public static int	COMMAND_SETLEVEL;
+
+	@Property(key = "gameserver.administration.command.setclass", defaultValue = "3")
+	public static int	COMMAND_SETCLASS;
+
+	@Property(key = "gameserver.administration.command.setexp", defaultValue = "3")
+	public static int	COMMAND_SETEXP;
+
+	@Property(key = "gameserver.administration.command.settitle", defaultValue = "3")
+	public static int	COMMAND_SETTITLE;
+
+	@Property(key = "gameserver.administration.command.spawnnpc", defaultValue = "3")
+	public static int	COMMAND_SPAWNNPC;
+
+	@Property(key = "gameserver.administration.command.unloadspawn", defaultValue = "3")
+	public static int	COMMAND_UNLOADSPAWN;
+
+	@Property(key = "gameserver.administration.command.addskill", defaultValue = "3")
+	public static int	COMMAND_ADDSKILL;
+
+	@Property(key = "gameserver.administration.command.speed", defaultValue = "3")
+	public static int	COMMAND_SPEED;
+
+	@Property(key = "gameserver.administration.command.system", defaultValue = "3")
+	public static int	COMMAND_SYSTEM;
+
+	@Property(key = "gameserver.administration.command.unstuck", defaultValue = "3")
+	public static int	COMMAND_UNSTUCK;
+
+	@Property(key = "gameserver.administration.command.weather", defaultValue = "3")
+	public static int	COMMAND_WEATHER;
+
+	@Property(key = "gameserver.administration.command.zone", defaultValue = "3")
+	public static int	COMMAND_ZONE;
+
+	@Property(key = "gameserver.administration.command.legion", defaultValue = "3")
+	public static int	COMMAND_LEGION;
+
+	@Property(key = "gameserver.administration.command.prison", defaultValue = "3")
+	public static int	COMMAND_PRISON;
 }

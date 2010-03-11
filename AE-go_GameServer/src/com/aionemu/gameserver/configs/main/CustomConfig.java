@@ -23,36 +23,36 @@ public class CustomConfig
 	/**
 	 * Factions speaking mode
 	 */
-	@Property(key = "gameserver.factions.speaking.mode",defaultValue = "0")
-	public static int				FACTIONS_SPEAKING_MODE;
-	
+	@Property(key = "gameserver.factions.speaking.mode", defaultValue = "0")
+	public static int		FACTIONS_SPEAKING_MODE;
+
 	/**
 	 * Skill autolearn
 	 */
-	@Property(key = "gameserver.skill.autolearn",defaultValue = "true")
-	public static boolean			SKILL_AUTOLEARN;
-	
+	@Property(key = "gameserver.skill.autolearn", defaultValue = "true")
+	public static boolean	SKILL_AUTOLEARN;
+
 	/**
 	 * Disable monsters aggressive behave
 	 */
-	@Property(key = "gameserver.disable.mob.aggro",defaultValue = "false")
-	public static boolean			DISABLE_MOB_AGGRO;
-	
+	@Property(key = "gameserver.disable.mob.aggro", defaultValue = "false")
+	public static boolean	DISABLE_MOB_AGGRO;
+
 	/**
 	 * Enable 2nd class change simple mode
 	 */
-	@Property(key = "gameserver.enable.simple.2ndclass",defaultValue = "false")
-	public static boolean			ENABLE_SIMPLE_2NDCLASS;
+	@Property(key = "gameserver.enable.simple.2ndclass", defaultValue = "false")
+	public static boolean	ENABLE_SIMPLE_2NDCLASS;
 
-   	/**
+	/**
 	 * Unstuck delay
 	 */
-	@Property(key = "gameserver.unstuck.delay",defaultValue = "3600")
-	public static int				UNSTUCK_DELAY;
-	
+	@Property(key = "gameserver.unstuck.delay", defaultValue = "3600")
+	public static int		UNSTUCK_DELAY;
+
 	/**
 	 * Enable instances
 	 */
-	@Property(key = "gameserver.instances.enable",defaultValue = "true")
-	public static boolean				ENABLE_INSTANCES;
+	@Property(key = "gameserver.instances.enable", defaultValue = "true")
+	public static boolean	ENABLE_INSTANCES;
 }

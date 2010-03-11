@@ -29,6 +29,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_RIFT_ANNOUNCE extends AionServerPacket
 {
+	@SuppressWarnings("unused")
 	private Player player;
 
 	/**

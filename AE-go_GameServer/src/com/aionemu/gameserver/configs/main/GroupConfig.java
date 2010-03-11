@@ -24,8 +24,8 @@ public class GroupConfig
 	 * Group
 	 */
 	@Property(key = "gameserver.playergroup.removetime", defaultValue = "600")
-	public static int				GROUP_REMOVE_TIME;	
-	
+	public static int	GROUP_REMOVE_TIME;
+
 	@Property(key = "gameserver.playergroup.maxdistance", defaultValue = "100")
-	public static int				GROUP_MAX_DISTANCE;	
+	public static int	GROUP_MAX_DISTANCE;
 }

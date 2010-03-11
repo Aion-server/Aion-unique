@@ -24,17 +24,17 @@ public class TaskManagerConfig
 	 * Interval for deadlock detector run schedule
 	 */
 	@Property(key = "gameserver.deadlock.interval", defaultValue = "300")
-	public static int				DEADLOCK_DETECTOR_INTERVAL;
-	
+	public static int		DEADLOCK_DETECTOR_INTERVAL;
+
 	/**
 	 * Enable/disable deadlock detector
 	 */
 	@Property(key = "gameserver.deadlock.enable", defaultValue = "true")
-	public static boolean			DEADLOCK_DETECTOR_ENABLED;
-	
+	public static boolean	DEADLOCK_DETECTOR_ENABLED;
+
 	@Property(key = "gameserver.taskmanager.allowgc", defaultValue = "false")
-	public static boolean			ALLOW_GC;
-	
+	public static boolean	ALLOW_GC;
+
 	@Property(key = "gameserver.taskmanager.gcinterval", defaultValue = "3600000")
-	public static int				GC_INTERVAL;
+	public static int		GC_INTERVAL;
 }

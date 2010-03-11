@@ -195,5 +195,5 @@ public class LegionConfig
 	 * Enable/disable Legion Invite Other Faction
 	 */
 	@Property(key = "gameserver.legion.ranking.periodicupdate", defaultValue = "1200")
-	public static int			LEGION_RANKING_PERIODICUPDATE;
+	public static int				LEGION_RANKING_PERIODICUPDATE;
 }

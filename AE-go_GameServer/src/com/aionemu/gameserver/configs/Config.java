@@ -44,8 +44,8 @@ public class Config
 	/**
 	 * Logger for this class.
 	 */
-	protected static final Logger	log				= Logger.getLogger(Config.class);
-	
+	protected static final Logger	log	= Logger.getLogger(Config.class);
+
 	/**
 	 * Initialize all configs in com.aionemu.gameserver.configs package
 	 */
@@ -56,13 +56,13 @@ public class Config
 			Properties[] props = PropertiesUtils.loadAllFromDirectory("./config");
 
 			ConfigurableProcessor.process(Config.class, props);
-			
+
 			// Administration
 			String administration = "./config/administration";
 			Properties[] adminProps = PropertiesUtils.loadAllFromDirectory(administration);
 			ConfigurableProcessor.process(AdminConfig.class, adminProps);
 			log.info("Loading: " + administration + "/admin.properties");
-			
+
 			// Main
 			String main = "./config/main";
 			Properties[] mainProps = PropertiesUtils.loadAllFromDirectory(main);
@@ -84,7 +84,7 @@ public class Config
 			log.info("Loading: " + main + "/gameserver.properties");
 			ConfigurableProcessor.process(PeriodicSaveConfig.class, mainProps);
 			log.info("Loading: " + main + "/periodicsave.properties");
-			
+
 			// Network
 			String network = "./config/network";
 			Properties[] networkProps = PropertiesUtils.loadAllFromDirectory(network);

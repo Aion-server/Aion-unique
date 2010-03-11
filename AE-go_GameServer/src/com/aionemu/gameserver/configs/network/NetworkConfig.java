@@ -74,5 +74,5 @@ public class NetworkConfig
 	 * Number of Threads that will handle io write (>= 0)
 	 */
 	@Property(key = "gameserver.network.display.unknownpackets", defaultValue = "false")
-	public static boolean				DISPLAY_UNKNOWNPACKETS;
+	public static boolean			DISPLAY_UNKNOWNPACKETS;
 }

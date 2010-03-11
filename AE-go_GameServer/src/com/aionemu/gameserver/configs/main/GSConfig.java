@@ -26,23 +26,23 @@ public class GSConfig
 	 * Server name
 	 */
 	@Property(key = "gameserver.name", defaultValue = "aion private")
-	public static String			SERVER_NAME;
+	public static String	SERVER_NAME;
 
 	/**
 	 * Character name pattern (checked when character is being created)
 	 */
 	@Property(key = "gameserver.character.name.pattern", defaultValue = "[a-zA-Z]{2,16}")
-	public static Pattern			CHAR_NAME_PATTERN;
+	public static Pattern	CHAR_NAME_PATTERN;
 
 	/**
 	 * Server Country Code
 	 */
-	@Property(key = "gameserver.country.code",defaultValue = "1")
-	public static int				SERVER_COUNTRY_CODE;
-	
+	@Property(key = "gameserver.country.code", defaultValue = "1")
+	public static int		SERVER_COUNTRY_CODE;
+
 	/*
 	 * Server Mode
 	 */
-	@Property(key = "gameserver.mode",defaultValue = "1")
-	public static int				SERVER_MODE;
+	@Property(key = "gameserver.mode", defaultValue = "1")
+	public static int		SERVER_MODE;
 }

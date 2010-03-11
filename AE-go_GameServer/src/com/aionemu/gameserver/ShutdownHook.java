@@ -17,8 +17,6 @@
 package com.aionemu.gameserver;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
-
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.utils.ExitCode;
@@ -38,24 +36,28 @@ import com.google.inject.Inject;
  */
 public class ShutdownHook extends Thread
 {
-	private static final Logger		log	= Logger.getLogger(ShutdownHook.class);
-	
+	private static final Logger	log	= Logger.getLogger(ShutdownHook.class);
+
 	@Inject
-	private World			world;
+	private World				world;
 	@Inject
-	private PlayerService	playerService;
+	private PlayerService		playerService;
 	@Inject
-	private LoginServer		loginServer;
+	private LoginServer			loginServer;
 	@Inject
-	private PeriodicSaveService playerUpdateService;
+	private PeriodicSaveService	playerUpdateService;
 
 	@Override
 	public void run()
 	{
-		if(ShutdownConfig.SHUTDOWN_HOOK_MODE == 1)
-			shutdownHook(ShutdownConfig.SHUTDOWN_HOOK_DELAY, ShutdownConfig.SHUTDOWN_ANNOUNCE_INTERVAL, ShutdownMode.SHUTDOWN);
-		else if(ShutdownConfig.SHUTDOWN_HOOK_MODE == 2)
-			shutdownHook(ShutdownConfig.SHUTDOWN_HOOK_DELAY, ShutdownConfig.SHUTDOWN_ANNOUNCE_INTERVAL, ShutdownMode.RESTART);
+		if(ShutdownConfig.HOOK_MODE == 1)
+		{
+			shutdownHook(ShutdownConfig.HOOK_DELAY, ShutdownConfig.ANNOUNCE_INTERVAL, ShutdownMode.SHUTDOWN);
+		}
+		else if(ShutdownConfig.HOOK_MODE == 2)
+		{
+			shutdownHook(ShutdownConfig.HOOK_DELAY, ShutdownConfig.ANNOUNCE_INTERVAL, ShutdownMode.RESTART);
+		}
 	}
 
 	public static enum ShutdownMode
@@ -128,7 +130,10 @@ public class ShutdownHook extends Thread
 
 					log.info("Runtime is " + mode.getText() + " in " + i + " seconds.");
 					sendShutdownMessage(i);
-					sendShutdownStatus(true);
+					if(ShutdownConfig.SAFE_REBOOT)
+					{
+						sendShutdownStatus(true);
+					}
 				}
 				else
 				{
@@ -170,7 +175,7 @@ public class ShutdownHook extends Thread
 			}
 		}
 		log.info("All players are disconnected...");
-		
+
 		playerUpdateService.onShutdown();
 		// Save game time.
 		GameTimeManager.saveTime();
@@ -183,7 +188,7 @@ public class ShutdownHook extends Thread
 
 		log.info("Runtime is " + mode.getText() + " now...");
 	}
-	
+
 	/**
 	 * 
 	 * @param delay

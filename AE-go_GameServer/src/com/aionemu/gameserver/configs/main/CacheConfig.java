@@ -23,33 +23,34 @@ import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 
 /**
  * This config contains settings about cache.
+ * 
  * @author Luno
- *
+ * 
  */
 public class CacheConfig
 {
 	/**
-	 * Says whether cache for such things like PlayerCommonData or Appereance etc
-	 * is cached in {@link WeakCacheMap} or in {@link SoftCacheMap}
+	 * Says whether cache for such things like PlayerCommonData or Appereance etc is cached in {@link WeakCacheMap} or
+	 * in {@link SoftCacheMap}
 	 */
 	@Property(key = "gameserver.cache.softcache", defaultValue = "false")
-	public static boolean			SOFT_CACHE_MAP	= false;
-	
+	public static boolean	SOFT_CACHE_MAP		= false;
+
 	/**
 	 * If true then whole {@link Player} objects are cached as long as there is memory for them
 	 */
 	@Property(key = "gameserver.cache.players", defaultValue = "false")
-	public static boolean			CACHE_PLAYERS	= false;
+	public static boolean	CACHE_PLAYERS		= false;
 
-    /**
+	/**
 	 * If true then whole {@link PlayerCommonData} objects are cached as long as there is memory for them
 	 */
 	@Property(key = "gameserver.cache.pcd", defaultValue = "false")
-	public static boolean			CACHE_COMMONDATA	= false;
-	
+	public static boolean	CACHE_COMMONDATA	= false;
+
 	/**
 	 * If true then whole {@link Account} objects are cached as long as there is memory for them
 	 */
 	@Property(key = "gameserver.cache.accounts", defaultValue = "false")
-	public static boolean			CACHE_ACCOUNTS	= false;
+	public static boolean	CACHE_ACCOUNTS		= false;
 }

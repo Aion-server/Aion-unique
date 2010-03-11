@@ -80,15 +80,16 @@ public class IPConfig
 
 					if(qName.equals("ipconfig"))
 					{
-                        try
-                        {
-                            defaultAddress = InetAddress.getByName(attributes.getValue("default")).getAddress();
-                        }
-                        catch (UnknownHostException e) 
-                        {
-                            throw new RuntimeException("Failed to resolve DSN for address: " + attributes.getValue("default"), e);
-                        }
-                    }
+						try
+						{
+							defaultAddress = InetAddress.getByName(attributes.getValue("default")).getAddress();
+						}
+						catch(UnknownHostException e)
+						{
+							throw new RuntimeException("Failed to resolve DSN for address: "
+								+ attributes.getValue("default"), e);
+						}
+					}
 					else if(qName.equals("iprange"))
 					{
 						String min = attributes.getValue("min");

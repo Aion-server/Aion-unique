@@ -24,11 +24,11 @@ import com.aionemu.commons.configuration.Property;
 public class PeriodicSaveConfig
 {
 	@Property(key = "gameserver.periodicsave.player.general", defaultValue = "900")
-	public static int				PLAYER_GENERAL;	
-	
+	public static int	PLAYER_GENERAL;
+
 	@Property(key = "gameserver.periodicsave.player.items", defaultValue = "900")
-	public static int				PLAYER_ITEMS;
-	
+	public static int	PLAYER_ITEMS;
+
 	@Property(key = "gameserver.periodicsave.legion.items", defaultValue = "1200")
-	public static int				LEGION_ITEMS;
+	public static int	LEGION_ITEMS;
 }
