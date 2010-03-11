@@ -47,7 +47,7 @@ import com.aionemu.gameserver.skillengine.model.Skill;
  * 			} 
  * 		} 
  */
-public class RestrictionsManager
+public final class RestrictionsManager
 {
 	private RestrictionsManager()
 	{

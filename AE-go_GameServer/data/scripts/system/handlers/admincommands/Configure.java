@@ -18,8 +18,18 @@ package admincommands;
 
 import java.lang.reflect.Field;
 
-import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.configs.administration.AdminConfig;
+import com.aionemu.gameserver.configs.main.CacheConfig;
+import com.aionemu.gameserver.configs.main.CustomConfig;
+import com.aionemu.gameserver.configs.main.GSConfig;
+import com.aionemu.gameserver.configs.main.GroupConfig;
+import com.aionemu.gameserver.configs.main.LegionConfig;
+import com.aionemu.gameserver.configs.main.PeriodicSaveConfig;
+import com.aionemu.gameserver.configs.main.RateConfig;
+import com.aionemu.gameserver.configs.main.ShutdownConfig;
+import com.aionemu.gameserver.configs.main.TaskManagerConfig;
+import com.aionemu.gameserver.configs.network.IPConfig;
+import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
@@ -74,15 +84,55 @@ public class Configure extends AdminCommand
 		
 		Class classToMofify = null;
 		String className = params[1];
-		if("config".equalsIgnoreCase(className))
-		{
-			classToMofify = Config.class;
-		}
-		else if("adminconfig".equalsIgnoreCase(className))
+		
+		if("admin".equalsIgnoreCase(className))
 		{
 			classToMofify = AdminConfig.class;
 		}
-		
+		else if("cache".equalsIgnoreCase(className))
+		{
+			classToMofify = CacheConfig.class;
+		}
+		else if("custom".equalsIgnoreCase(className))
+		{
+			classToMofify = CustomConfig.class;
+		}
+		else if("group".equalsIgnoreCase(className))
+		{
+			classToMofify = GroupConfig.class;
+		}
+		else if("gs".equalsIgnoreCase(className))
+		{
+			classToMofify = GSConfig.class;
+		}
+		else if("legion".equalsIgnoreCase(className))
+		{
+			classToMofify = LegionConfig.class;
+		}
+		else if("ps".equalsIgnoreCase(className))
+		{
+			classToMofify = PeriodicSaveConfig.class;
+		}
+		else if("rate".equalsIgnoreCase(className))
+		{
+			classToMofify = RateConfig.class;
+		}
+		else if("shutdown".equalsIgnoreCase(className))
+		{
+			classToMofify = ShutdownConfig.class;
+		}
+		else if("tm".equalsIgnoreCase(className))
+		{
+			classToMofify = TaskManagerConfig.class;
+		}
+		else if("ip".equalsIgnoreCase(className))
+		{
+			classToMofify = IPConfig.class;
+		}
+		else if("network".equalsIgnoreCase(className))
+		{
+			classToMofify = NetworkConfig.class;
+		}
 		
 		if(command.equalsIgnoreCase("show"))
 		{
