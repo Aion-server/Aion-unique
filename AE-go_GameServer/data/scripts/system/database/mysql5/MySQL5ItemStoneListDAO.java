@@ -166,6 +166,7 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 				deleteGodStone(godstone.getItemObjId(), godstone.getSlot());
 				break;
 		}
+		godstone.setPersistentState(PersistentState.UPDATED);
 	}
 
 	/**
