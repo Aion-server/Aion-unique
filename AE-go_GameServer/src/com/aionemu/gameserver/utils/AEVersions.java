@@ -53,7 +53,9 @@ public class AEVersions
 			"Commons Revision: " + getRevisionInfo(commons),
 			"Commons Build Date: " + getDateInfo(commons), 
 			"GS Revision: " + getRevisionInfo(gameserver),
-			"GS Build Date: " + getDateInfo(gameserver) 
+			"GS Build Date: " + getDateInfo(gameserver),
+			"..................................................",
+			".................................................."
 		};
 	}
 

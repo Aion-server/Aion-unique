@@ -108,9 +108,11 @@ public class GameServer
 		AEVersions.printFullVersionInfo();
 		AEInfos.printAllInfos();
 		
-		log.info("#################################################");
+		log.info("..................................................");
+		log.info("..................................................");
 		log.info("AE Game Server started in " + (System.currentTimeMillis() - start) / 1000 + " seconds.");
-		log.info("#################################################");
+		log.info("..................................................");
+		log.info("..................................................");
 		
 		gs.startServers();
 		GameTimeManager.startClock();

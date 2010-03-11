@@ -5,6 +5,10 @@ REM Start...
 :start
 echo Starting Aion-Unique Game Server.
 echo.
+
+REM SET PATH="Type here your path to java jdk/jre (including bin folder)."
+REM NOTE: Remove tag REM from previous line.
+
 REM -------------------------------------
 REM Default parameters for a basic server.
 java -Xms512m -Xmx1024m -ea -Xbootclasspath/p:./libs/jsr166.jar -javaagent:libs/ae_commons.jar -cp ./libs/*;ae_gameserver.jar com.aionemu.gameserver.GameServer
