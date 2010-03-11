@@ -60,7 +60,9 @@ public class AEInfos
 	{
 		return new String[] { //
 		    "Avaible CPU(s): " + Runtime.getRuntime().availableProcessors(), //
-			"Processor(s) Identifier: " + System.getenv("PROCESSOR_IDENTIFIER") //
+			"Processor(s) Identifier: " + System.getenv("PROCESSOR_IDENTIFIER"), //
+			"..................................................", //
+			".................................................." //
 		};
 	}
 
@@ -68,7 +70,35 @@ public class AEInfos
 	{
 		return new String[] { //
 		    "OS: " + System.getProperty("os.name") + " Build: " + System.getProperty("os.version"), //
-			"OS Arch: " + System.getProperty("os.arch") //
+			"OS Arch: " + System.getProperty("os.arch"), //
+			"..................................................", //
+			".................................................." //
+		};
+	}
+	
+	public static String[] getJREInfo()
+	{
+		return new String[] { //
+			"Java Platform Information", //
+			"Java Runtime  Name: " + System.getProperty("java.runtime.name"), //
+			"Java Version: " + System.getProperty("java.version"), //
+			"Java Class Version: " + System.getProperty("java.class.version"), //
+			"..................................................", //
+			".................................................." //
+		};
+	}
+	
+	public static String[] getJVMInfo()
+	{
+		return new String[] { //
+			"Virtual Machine Information (JVM)", //
+			"JVM Name: " + System.getProperty("java.vm.name"), //
+			"JVM installation directory: " + System.getProperty("java.home"), //
+			"JVM version: " + System.getProperty("java.vm.version"), //
+			"JVM Vendor: " + System.getProperty("java.vm.vendor"), //
+			"JVM Info: " + System.getProperty("java.vm.info"), //
+			"..................................................", //
+			".................................................." //
 		};
 	}
 
@@ -96,8 +126,29 @@ public class AEInfos
 			log.info(line);
 	}
 	
+	public static void printJREInfo()
+	{
+		for(String line : getJREInfo())
+			log.info(line);
+	}
+	
+	public static void printJVMInfo()
+	{
+		for(String line : getJVMInfo())
+			log.info(line);
+	}
+	
 	public static void printRealTime()
 	{
 		log.info(getRealTime().toString());
+	}
+	
+	public static void printAllInfos()
+	{
+		printOSInfo();
+		printCPUInfo();
+		printJREInfo();
+		printJVMInfo();
+		printMemoryInfo();
 	}
 }
