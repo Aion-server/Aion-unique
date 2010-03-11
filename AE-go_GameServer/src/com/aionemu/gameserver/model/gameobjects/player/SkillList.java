@@ -161,6 +161,7 @@ public class SkillList
 					case 450:
 						return false;
 				}
+				player.getRecipeList().autoLearnRecipe(player, skillId, skillEntry.getSkillLevel());
 		}
 		boolean updateSkill = skillEntry.addSkillXp(xpReward);
 		if (updateSkill)

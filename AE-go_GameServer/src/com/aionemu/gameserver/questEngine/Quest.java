@@ -91,7 +91,7 @@ public class Quest
 			SkillListEntry skill = player.getSkillList().getSkillEntry(template.getCombineSkill());
 			if (skill == null)
 				return false;
-			if (skill.getSkillLevel() < template.getCombineSkillPoint())
+			if (skill.getSkillLevel() < template.getCombineSkillPoint() || skill.getSkillLevel()+40 > template.getCombineSkillPoint())
 				return false;
 			return true;
 		}

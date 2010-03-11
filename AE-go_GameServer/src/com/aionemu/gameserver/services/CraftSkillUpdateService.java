@@ -131,12 +131,7 @@ public class CraftSkillUpdateService
 				if (responder.getInventory().decreaseKinah(price))
 				{
 					responder.getSkillList().addSkill(responder, skillId, skillLevel+1, true);
-					int skillLevel = responder.getSkillList().getSkillLevel(skillId);
-					RecipeTemplate[] newRecipes = DataManager.RECIPE_DATA.getRecipeIdFor(responder.getCommonData().getRace(), skillId, skillLevel);
-					for (RecipeTemplate recipe : newRecipes)
-					{
-						responder.getRecipeList().addRecipe(responder, recipe);
-					}
+					responder.getRecipeList().autoLearnRecipe(responder, skillId, skillLevel+1);
 				}
 			}
 

@@ -21,6 +21,7 @@ import java.util.Set;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerRecipesDAO;
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.templates.recipe.RecipeTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEARN_RECIPE;
@@ -54,6 +55,14 @@ public class RecipeList
 			DAOManager.getDAO(PlayerRecipesDAO.class).addRecipe(player.getObjectId(), recipeId);
 			PacketSendUtility.sendPacket(player, new SM_LEARN_RECIPE(recipeId));
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.CRAFT_RECIPE_LEARN(new DescriptionId(recipeTemplate.getNameid())));
+		}
+	}
+
+	public void autoLearnRecipe (Player player, int skillId, int skillLvl)
+	{
+		for (RecipeTemplate recipe : DataManager.RECIPE_DATA.getRecipeIdFor(player.getCommonData().getRace(), skillId, skillLvl))
+		{
+			player.getRecipeList().addRecipe(player, recipe);
 		}
 	}
 
