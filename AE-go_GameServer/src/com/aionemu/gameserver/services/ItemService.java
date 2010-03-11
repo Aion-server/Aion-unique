@@ -603,7 +603,8 @@ public class ItemService
 	 */
 	public void socketGodstone(Player player, int weaponId, int stoneId)
 	{
-		if(player.getInventory().getKinahItem().getItemCount() < 100000)
+		Item kinahItem = player.getInventory().getKinahItem();
+		if(kinahItem.getItemCount() < 100000)
 			return;
 		
 		Item weaponItem = player.getInventory().getItemByObjId(weaponId);
@@ -611,7 +612,9 @@ public class ItemService
 
 		weaponItem.addGodStone(godstone.getItemTemplate().getTemplateId());
 		player.getInventory().removeFromBagByObjectId(stoneId, 1);
+		
+		player.getInventory().decreaseKinah(100000);
 		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(weaponItem));
-		player.getInventory().getKinahItem().decreaseItemCount(100000);
+		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(kinahItem));
 	}
 }
