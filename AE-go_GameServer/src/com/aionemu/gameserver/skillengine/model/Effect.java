@@ -83,6 +83,7 @@ public class Effect
 	private AttackCalcObserver attackShieldObserver;
 	
 	private boolean launchSubEffect = true;
+	private Effect subEffect = null;
 	
 	public Effect(Creature effector, Creature effected, SkillTemplate skillTemplate, int skillLevel, int duration)
 	{
@@ -369,6 +370,22 @@ public class Effect
 	}
 
 	/**
+	 * @return the subEffect
+	 */
+	public Effect getSubEffect()
+	{
+		return subEffect;
+	}
+
+	/**
+	 * @param subEffect the subEffect to set
+	 */
+	public void setSubEffect(Effect subEffect)
+	{
+		this.subEffect = subEffect;
+	}
+
+	/**
 	 * 
 	 * @param effectId
 	 * @return true or false
@@ -407,6 +424,7 @@ public class Effect
 				break;
 			
 			template.calculate(this);
+			template.calculateSubEffect(this);
 			effectCounter++;
 		}
 	}

@@ -157,7 +157,7 @@ public abstract class EffectTemplate
 	 * 
 	 * @param effect
 	 */
-	public void startSubEffect(Effect effect)
+	public void calculateSubEffect(Effect effect)
 	{
 		if(subEffect == null)
 			return;
@@ -167,7 +167,19 @@ public abstract class EffectTemplate
 		Effect newEffect = new Effect(effect.getEffector(), effect.getEffected(), template, template.getLvl(), duration);
 		newEffect.initialize();
 		effect.setSpellStatus(newEffect.getSpellStatus());
-		newEffect.applyEffect();
+		effect.setSubEffect(newEffect);
+	}
+	
+	/**
+	 * 
+	 * @param effect
+	 */
+	public void startSubEffect(Effect effect)
+	{
+		if(subEffect == null)
+			return;
+		
+		effect.getSubEffect().applyEffect();
 	}
 	/**
 	 *  Do periodic effect on effected

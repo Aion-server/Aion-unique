@@ -42,7 +42,7 @@ public enum EffectId
 	OPENAERIAL(65536),
 	SNARE(131072),
 	SLOW(262144),
-	ROTATION(524288),
+	SPIN(524288),
 	BLOCKADE(1048576),
 	UNKNOWN2(2097152), //(Curse of Roots I, Fear I)
 	CANNOT_MOVE(4194304), //(Inescapable Judgment I)
@@ -53,8 +53,8 @@ public enum EffectId
 	/**
 	 * Compound abnormal states
 	 */
-	CANT_ATTACK_STATE(SLEEP.effectId | STUN.effectId | STUMBLE.effectId | STAGGER.effectId | OPENAERIAL.effectId),
-	CANT_MOVE_STATE(ROOT.effectId | SLEEP.effectId | STUMBLE.effectId | STUN.effectId | STAGGER.effectId | OPENAERIAL.effectId);
+	CANT_ATTACK_STATE(SPIN.effectId | SLEEP.effectId | STUN.effectId | STUMBLE.effectId | STAGGER.effectId | OPENAERIAL.effectId),
+	CANT_MOVE_STATE(SPIN.effectId | ROOT.effectId | SLEEP.effectId | STUMBLE.effectId | STUN.effectId | STAGGER.effectId | OPENAERIAL.effectId);
 	
 	private int effectId;
 	

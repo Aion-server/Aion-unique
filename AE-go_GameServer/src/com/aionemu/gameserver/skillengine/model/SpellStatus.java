@@ -39,7 +39,8 @@ public enum SpellStatus
 	STUMBLE(1),
 	STAGGER(2),
 	OPENAERIAL(4), 
-	CLOSEAERIAL(8);
+	CLOSEAERIAL(8),
+	SPIN(16);
 	
 	private int id;
 

@@ -34,7 +34,6 @@ public class CloseAerialEffect extends EffectTemplate
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		effect.setSpellStatus(SpellStatus.CLOSEAERIAL);
 		effect.getEffected().getEffectController().removeEffectByEffectId(8224);
 	}
 
@@ -42,6 +41,7 @@ public class CloseAerialEffect extends EffectTemplate
 	public void calculate(Effect effect)
 	{
 		effect.increaseSuccessEffect();
+		effect.setSpellStatus(SpellStatus.CLOSEAERIAL);
 	}
 
 }

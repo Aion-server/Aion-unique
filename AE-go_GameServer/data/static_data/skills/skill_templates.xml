@@ -6945,7 +6945,7 @@
         </setproperties>
         <effects>
             <skillatk value="34" delta="1" e="1"/>
-            <snare effectid="20008" e="2" element="FIRE"/>
+            <slow duration="12000" effectid="20008" e="2" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="518" name="STR_SKILL_KN_WeaponBreak_G2" nameId="579437" stack="SKILL_KN_WEAPONBREAK" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="12" duration="0">
@@ -6960,7 +6960,7 @@
         </setproperties>
         <effects>
             <skillatk value="46" delta="1" e="1"/>
-            <snare effectid="20008" e="2" element="FIRE"/>
+            <slow duration="12000" effectid="20008" e="2" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="519" name="STR_SKILL_KN_LegBreak_G1" nameId="579439" stack="SKILL_KN_LEGBREAK" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="12" duration="0">
@@ -14051,7 +14051,7 @@
         </setproperties>
         <effects>
             <skillatk value="35" delta="4" e="1"/>
-            <snare effectid="20008" e="2" element="FIRE"/>
+            <slow duration="10000" effectid="20008" e="2" element="FIRE"/>
         </effects>
         <actions>
             <mpuse value="11" delta="0"/>
@@ -14072,7 +14072,7 @@
         </setproperties>
         <effects>
             <skillatk value="89" delta="4" e="1"/>
-            <snare effectid="20008" e="2" element="FIRE"/>
+            <slow duration="10000" effectid="20008" e="2" element="FIRE"/>
         </effects>
         <actions>
             <mpuse value="23" delta="0"/>
@@ -14093,7 +14093,7 @@
         </setproperties>
         <effects>
             <skillatk value="137" delta="4" e="1"/>
-            <snare effectid="20008" e="2" element="FIRE"/>
+            <slow duration="10000" effectid="20008" e="2" element="FIRE"/>
         </effects>
         <actions>
             <mpuse value="29" delta="0"/>
@@ -14476,7 +14476,7 @@
         </setproperties>
         <effects>
             <skillatk value="185" delta="4" e="1"/>
-            <snare effectid="20008" e="2" element="FIRE"/>
+            <slow duration="10000" effectid="20008" e="2" element="FIRE"/>
         </effects>
         <actions>
             <mpuse value="33" delta="0"/>
@@ -25061,7 +25061,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="FIRE"/>
+            <slow duration="30000" effectid="20008" e="1" element="FIRE"/>
             <statdown duration="60000" effectid="116632" e="2" element="FIRE">
                 <change stat="WATER_RESISTANCE" func="ADD" delta="0" value="-200"/>
                 <change stat="WIND_RESISTANCE" func="ADD" delta="0" value="-200"/>
@@ -26962,7 +26962,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="WIND"/>
+            <slow duration="35000" effectid="20008" e="1" element="WIND"/>
         </effects>
         <actions>
             <mpuse value="240" delta="4"/>
@@ -29307,7 +29307,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spin duration="0" effectid="20012" e="1" element="WIND"/>
+            <spin duration="2000" effectid="20012" e="1" element="WIND"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8224" name="STR_SYSTEM_SKILL_OpenAerial" nameId="563387" stack="SYSTEM_SKILL_OPENAERIAL" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
@@ -29863,7 +29863,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="FIRE"/>
+            <slow duration="10000" effectid="20008" e="1" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8262" name="STR_ITEM_SKILL_PROC_POISON" nameId="1403739" stack="ITEM_SKILL_PROC_POISON" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -30806,7 +30806,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="EARTH"/>
+            <slow duration="3000" effectid="20008" e="1" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8319" name="STR_SKILL_CH_Chant_ImprovedEvade_G1_Effect" nameId="568497" stack="SKILL_CH_CHANT_IMPROVEDEVADE_EFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
@@ -30842,7 +30842,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="EARTH"/>
+            <slow duration="3000" effectid="20008" e="1" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8321" name="STR_SKILL_EL_Pet_ProcEffect_G1" nameId="568549" stack="SKILL_EL_PET_PROCEFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -31076,7 +31076,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="2"/>
+            <slow duration="16000" effectid="20008" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8338" name="STR_SYSTEM_SKILL_EL_Proc_Pet_ElementalPoison_G2" nameId="569941" stack="SYSTEM_SKILL_EL_PROC_PET_ELEMENTALPOISON" lvl="2" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -31246,7 +31246,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="EARTH"/>
+            <slow duration="12000" effectid="20008" e="1" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8357" name="STR_SYSTEM_SKILL_KN_Avenger_G2_Proc" nameId="572891" stack="SYSTEM_SKILL_KN_AVENGER_PROC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -31260,7 +31260,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="EARTH"/>
+            <slow duration="12000" effectid="20008" e="1" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8358" name="STR_SKILL_SC_SpiritofGale_G2_Proc" nameId="583037" stack="SKILL_SC_SPIRITOFGALE_PROC" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -31444,7 +31444,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="EARTH"/>
+            <slow duration="3000" effectid="20008" e="1" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8371" name="STR_SYSTEM_SKILL_EL_Pet_ElementalTaunt_G3_Proc" nameId="572965" stack="SYSTEM_SKILL_EL_PET_ELEMENTALTAUNT_PROC" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -31933,7 +31933,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="EARTH"/>
+            <slow duration="8000" effectid="20008" e="1" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8403" name="STR_SYSTEM_SKILL_EL_Pet_ElementalTaunt_G4_Proc" nameId="575449" stack="SYSTEM_SKILL_EL_PET_ELEMENTALTAUNT_PROC" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -32588,7 +32588,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="EARTH"/>
+            <slow duration="8000" effectid="20008" e="1" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8445" name="STR_SYSTEM_SKILL_Stigma_ImbueWind_G2_Proc" nameId="577975" stack="SYSTEM_SKILL_STIGMA_IMBUEWIND_PROC" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -33941,7 +33941,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="FIRE"/>
+            <slow duration="7000" effectid="20008" e="1" element="FIRE"/>
             <silence duration="7000" effectid="20101" e="2" element="FIRE"/>
         </effects>
     </skill_template>
@@ -34155,7 +34155,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="FIRE"/>
+            <slow duration="10000" effectid="20008" e="1" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8542" name="STR_ITEM_SKILL_PROC_POISON" nameId="1403739" stack="ITEM_SKILL_PROC_POISON" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -34613,7 +34613,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="FIRE"/>
+            <slow duration="7000" effectid="20008" e="1" element="FIRE"/>
             <silence duration="7000" effectid="20101" e="2" element="FIRE"/>
         </effects>
     </skill_template>
@@ -34731,7 +34731,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="FIRE"/>
+            <slow duration="0" effectid="20008" e="1" element="FIRE"/>
             <snare duration="0" effectid="20007" e="2" element="FIRE">
                 <change stat="SPEED" func="PERCENT" delta="5" value="0"/>
             </snare>
@@ -47148,7 +47148,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="WIND"/>
+            <slow duration="5000" effectid="20008" e="1" element="WIND"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16403" name="STR_NWI_SDMagDefR_Nr" nameId="579925" stack="NWI_SDMAGDEFR_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -48188,7 +48188,7 @@
         </useconditions>
         <effects>
             <spellatk value="92" delta="0" e="1" element="FIRE"/>
-            <snare effectid="20008" e="2" element="EARTH"/>
+            <slow duration="8000" effectid="20008" e="2" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16470" name="STR_SKILL_NWI_Chain1Burst_LycanWI" nameId="566501" stack="SKILL_NWI_CHAIN1BURST_LYCANWI" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
@@ -49002,7 +49002,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1"/>
-            <snare effectid="20008" e="2" element="WIND"/>
+            <slow duration="3000" effectid="20008" e="2" element="WIND"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16524" name="STR_NFI_SatkSA_Nr" nameId="568997" stack="NFI_SATKSA_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
@@ -49978,7 +49978,7 @@
             <snare duration="4000" effectid="20007" e="1" element="WIND">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
-            <snare effectid="20008" e="2" element="WIND"/>
+            <slow duration="4000" effectid="20008" e="2" element="WIND"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16582" name="STR_NEL_SPosion_WaterEarth" nameId="568957" stack="NEL_SPOSION_WATEREARTH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -51061,7 +51061,7 @@
             <snare duration="4000" effectid="20007" e="1" element="WIND">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
-            <snare effectid="20008" e="2" element="WIND"/>
+            <slow duration="4000" effectid="20008" e="2" element="WIND"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16648" name="STR_GNEL_Transformation__Nr" nameId="569565" stack="GNEL_TRANSFORMATION__NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -52029,7 +52029,7 @@
             <skillatk value="0" delta="0" e="1">
                 <subeffect skill_id="8217"/>
             </skillatk>
-            <snare effectid="20008" e="2" element="WIND"/>
+            <slow duration="3000" effectid="20008" e="2" element="WIND"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16706" name="STR_NWA_KnockBack_Snare" nameId="571517" stack="NWA_KNOCKBACK_SNARE" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -52436,7 +52436,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1"/>
-            <snare effectid="20008" e="2" element="WIND"/>
+            <slow duration="8000" effectid="20008" e="2" element="WIND"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16731" name="STR_NFI_SUPydefSDatt_Scream" nameId="572969" stack="NFI_SUPYDEFSDATT_SCREAM" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -52666,7 +52666,7 @@
             <snare duration="10000" effectid="20007" e="3" element="WATER">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-30"/>
             </snare>
-            <snare effectid="20008" e="4" element="FIRE"/>
+            <slow duration="10000" effectid="20008" e="4" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16744" name="STR_GNRA_SatkMiddle_Na" nameId="573295" stack="GNRA_SATKMIDDLE_NA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
@@ -53939,7 +53939,7 @@
         <effects>
             <skillatk value="31" delta="0" e="1"/>
             <poison checktime="5000" value="74" delta="1" duration="10100" effectid="10168202" e="2" element="EARTH"/>
-            <snare effectid="20008" e="3" element="EARTH"/>
+            <slow duration="10100" effectid="20008" e="3" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16821" name="STR_NAS_SatkBackAddPoi_Snake" nameId="575115" stack="NAS_SATKBACKADDPOI_SNAKE" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="500">
@@ -53955,7 +53955,7 @@
         <effects>
             <skillatk value="31" delta="0" e="1"/>
             <poison checktime="5000" value="74" delta="1" duration="10100" effectid="10168212" e="2" element="EARTH"/>
-            <snare effectid="20008" e="3" element="EARTH"/>
+            <slow duration="10100" effectid="20008" e="3" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16822" name="STR_NAS_HideLong_Nr" nameId="575091" stack="NAS_HIDELONG_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -54765,7 +54765,7 @@
             <snare duration="15100" effectid="20007" e="3" element="EARTH">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-30"/>
             </snare>
-            <snare effectid="20008" e="4" element="EARTH"/>
+            <slow duration="15100" effectid="20008" e="4" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16873" name="STR_NGR_SUpattSUphitSA_Boss" nameId="576039" stack="NGR_SUPATTSUPHITSA_BOSS" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -54993,7 +54993,7 @@
         <effects>
             <skillatk value="0" delta="0" e="1"/>
             <poison checktime="5000" value="49" delta="1" duration="15100" effectid="20005" e="2" element="FIRE"/>
-            <snare effectid="20008" e="3" element="WATER"/>
+            <slow duration="10100" effectid="20008" e="3" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16886" name="STR_NRA_Fall_Nr_LC" nameId="576325" stack="NRA_FALL_NR_LC" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
@@ -57239,7 +57239,7 @@
         <effects>
             <spellatk value="49" delta="0" e="1" element="FIRE"/>
             <dot checktime="2000" value="10" delta="1" duration="30000" effectid="10170282" e="2" element="FIRE"/>
-            <snare effectid="20008" e="3" element="EARTH"/>
+            <slow duration="30000" effectid="20008" e="3" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17029" name="STR_NWA_SUpPyDefLongW_Nr" nameId="577739" stack="NWA_SUPPYDEFLONGW_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -58766,7 +58766,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1"/>
-            <snare effectid="20008" e="2" element="WATER"/>
+            <slow duration="8000" effectid="20008" e="2" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17122" name="STR_GPR_SpellLongSlowTA_Nr" nameId="578805" stack="GPR_SPELLLONGSLOWTA_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
@@ -58781,7 +58781,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1"/>
-            <snare effectid="20008" e="2" element="WATER"/>
+            <slow duration="8000" effectid="20008" e="2" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17123" name="STR_GPR_Blind_Nr" nameId="578811" stack="GPR_BLIND_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -60666,7 +60666,7 @@
         <effects>
             <skillatk value="0" delta="0" e="1"/>
             <poison checktime="5000" value="49" delta="1" duration="15100" effectid="20005" e="2" element="FIRE"/>
-            <snare effectid="20008" e="3" element="WATER"/>
+            <slow duration="15100" effectid="20008" e="3" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17245" name="STR_SKILL_NRA_Attack_Long" nameId="565597" stack="SKILL_NRA_ATTACK_LONG" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
@@ -60795,7 +60795,7 @@
         </useconditions>
         <effects>
             <spellatk value="75" delta="0" e="1" element="WATER"/>
-            <snare effectid="20008" e="3"/>
+            <slow duration="10000" effectid="20008" e="3"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17253" name="STR_NAR_NoSkill_Poi" nameId="579797" stack="NAR_NOSKILL_POI" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
@@ -61146,7 +61146,7 @@
         </useconditions>
         <effects>
             <spellatk value="53" delta="0" e="1" element="WIND"/>
-            <snare effectid="20008" e="2" element="WIND"/>
+            <slow duration="4000" effectid="20008" e="2" element="WIND"/>
             <snare duration="4000" effectid="20007" e="3" element="WATER">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-55"/>
             </snare>
@@ -62447,7 +62447,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1"/>
-            <snare effectid="20008" e="2" element="WATER"/>
+            <slow duration="8000" effectid="20008" e="2" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17360" name="STR_DGPR_SatkSlow_TA" nameId="580391" stack="DGPR_SATKSLOW_TA" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
@@ -62462,7 +62462,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1"/>
-            <snare effectid="20008" e="2" element="WATER"/>
+            <slow duration="8000" effectid="20008" e="2" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17361" name="STR_DGPR_Heal_Nr" nameId="580393" stack="DGPR_HEAL_NR" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
@@ -64230,7 +64230,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1"/>
-            <snare effectid="20008" e="3"/>
+            <slow duration="8100" effectid="20008" e="3"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17471" name="STR_GNFI_SAtkLongBind_Chain1" nameId="580843" stack="GNFI_SATKLONGBIND_CHAIN1" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
@@ -64458,7 +64458,7 @@
             <snare duration="6000" effectid="20007" e="1" element="WATER">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-30"/>
             </snare>
-            <snare effectid="20008" e="2" element="WATER"/>
+            <slow duration="6000" effectid="20008" e="2" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17484" name="STR_GNPR_SPellDrain_Chain1_Lc" nameId="580919" stack="GNPR_SPELLDRAIN_CHAIN1_LC" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
@@ -65155,7 +65155,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1"/>
-            <snare effectid="20008" e="2" element="EARTH"/>
+            <slow duration="8000" effectid="20008" e="2" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17527" name="STR_NPet_SPellDotHTA_FrYaho" nameId="581087" stack="NPET_SPELLDOTHTA_FRYAHO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
@@ -65932,7 +65932,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1"/>
-            <snare effectid="20008" e="2" element="WATER"/>
+            <slow duration="8000" effectid="20008" e="2" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17576" name="STR_DGFI_H_Blind_TA" nameId="581515" stack="DGFI_H_BLIND_TA" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
@@ -67826,7 +67826,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1"/>
-            <snare effectid="20008" e="2" element="WATER"/>
+            <slow duration="8000" effectid="20008" e="2" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17694" name="STR_DGAS_H_SpellLongFire_TA" nameId="581555" stack="DGAS_H_SPELLLONGFIRE_TA" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
@@ -68042,7 +68042,7 @@
         </useconditions>
         <effects>
             <spellatk value="92" delta="0" e="1" element="WATER"/>
-            <snare effectid="20008" e="2" element="WATER"/>
+            <slow duration="8000" effectid="20008" e="2" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17708" name="STR_SKILL_NFI_SmallBlow_Stone" nameId="565683" stack="SKILL_NFI_SMALLBLOW_STONE" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
@@ -68342,7 +68342,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1"/>
-            <snare effectid="20008" e="2" element="WATER"/>
+            <slow duration="4000" effectid="20008" e="2" element="WATER"/>
             <snare duration="4000" effectid="20007" e="3" element="WATER">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
@@ -71279,7 +71279,7 @@
             <snare duration="8100" effectid="20007" e="2" element="WATER">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-70"/>
             </snare>
-            <snare effectid="20008" e="3" element="WATER"/>
+            <slow duration="8100" effectid="20008" e="3" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17917" name="STR_BNPEL_SpellLongTA15_Water" nameId="583469" stack="BNPEL_SPELLLONGTA15_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
@@ -71355,7 +71355,7 @@
             <snare duration="10000" effectid="20007" e="2" element="WATER">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-70"/>
             </snare>
-            <snare effectid="20008" e="3" element="WATER"/>
+            <slow duration="10000" effectid="20008" e="3" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17922" name="STR_BNEL_ReUpWAAir_Long_No" nameId="583369" stack="BNEL_REUPWAAIR_LONG_NO" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -71960,7 +71960,7 @@
         <effects>
             <spellatk value="75" delta="0" e="1" element="EARTH"/>
             <dot checktime="2000" value="10" delta="1" duration="8100" effectid="1017962" e="2" element="EARTH"/>
-            <snare effectid="20008" e="3" element="EARTH"/>
+            <slow duration="8100" effectid="20008" e="3" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17962" name="STR_GNKN_KDLong_AddGuardian" nameId="580867" stack="GNKN_KDLONG_ADDGUARDIAN" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
@@ -74852,7 +74852,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <snare effectid="20008" e="1" element="WIND"/>
+            <slow duration="86400000" effectid="20008" e="1" element="WIND"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18134" name="STR_BNKN_OldShulackDebuffB_Nr" nameId="587407" stack="BNKN_OLDSHULACKDEBUFFB_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -74863,7 +74863,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <snare effectid="20008" e="1" element="WIND"/>
+            <slow duration="86400000" effectid="20008" e="1" element="WIND"/>
             <statdown duration="86400000" effectid="10181342" e="2" element="FIRE">
                 <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="-10"/>
                 <change stat="MAGICAL_RESIST" func="PERCENT" delta="0" value="-10"/>
@@ -74902,7 +74902,7 @@
                     <stumbledamage value="71" delta="0"/>
                 </modifiers>
             </skillatk>
-            <snare effectid="20008" e="2" element="EARTH"/>
+            <slow duration="15000" effectid="20008" e="2" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18137" name="STR_BNKN_SpellAtkSteam_TA" nameId="587423" stack="BNKN_SPELLATKSTEAM_TA" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
@@ -75501,7 +75501,7 @@
             <snare duration="4000" effectid="20007" e="2" element="WATER">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-90"/>
             </snare>
-            <snare effectid="20008" e="3" element="WATER"/>
+            <slow duration="4000" effectid="20008" e="3" element="WATER"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18174" name="STR_NWI_RefPyAttS6_Ch2" nameId="587597" stack="NWI_REFPYATTS6_CH2" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -76745,7 +76745,7 @@
             <snare duration="4000" effectid="20007" e="1" element="WIND">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
-            <snare effectid="20008" e="2" element="WIND"/>
+            <slow duration="4000" effectid="20008" e="2" element="WIND"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18257" name="STR_AFI_KnockDownAr_Lr_PwAtk_DrakanSummon" nameId="580555" stack="AFI_KNOCKDOWNAR_LR_PWATK_DRAKANSUMMON" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -80282,7 +80282,7 @@
         </useconditions>
         <effects>
             <spellatk value="88" delta="0" e="1" element="EARTH"/>
-            <snare effectid="20008" e="2" element="EARTH"/>
+            <slow duration="15000" effectid="20008" e="2" element="EARTH"/>
             <snare duration="15000" effectid="20007" e="3" element="EARTH">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-80"/>
             </snare>
@@ -81760,7 +81760,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare effectid="20008" e="1" element="WIND"/>
+            <slow duration="7000" effectid="20008" e="1" element="WIND"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18589" name="STR_NAS_SignetBurTA" nameId="588455" stack="NAS_SIGNETBURTA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2000">
