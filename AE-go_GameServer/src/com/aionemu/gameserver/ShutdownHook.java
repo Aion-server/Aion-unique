@@ -130,10 +130,7 @@ public class ShutdownHook extends Thread
 
 					log.info("Runtime is " + mode.getText() + " in " + i + " seconds.");
 					sendShutdownMessage(i);
-					if(ShutdownConfig.SAFE_REBOOT)
-					{
-						sendShutdownStatus(true);
-					}
+					sendShutdownStatus(ShutdownConfig.SAFE_REBOOT);
 				}
 				else
 				{
