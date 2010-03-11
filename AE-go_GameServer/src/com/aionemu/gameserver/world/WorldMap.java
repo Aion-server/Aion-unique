@@ -88,7 +88,6 @@ public class WorldMap
 	/**
 	 *  Will create new instance if there are not free yet and spawn according to xml data
 	 *  //TODO limit
-	 *  //TODO dispose unused instances (lifecycle)
 	 * @return WorldMapInstance
 	 */
 	public synchronized WorldMapInstance getNextFreeInstance()
@@ -127,8 +126,10 @@ public class WorldMap
 			/**
 			 * Balance players into instances.
 			 */
-			for(int i = 1; i <= worldMapTemplate.getTwinCount(); i++) // FIXME: DEAD CODE!
+			int i = 1;
+			while(i <= worldMapTemplate.getTwinCount())
 			{
+				i++;
 				WorldMapInstance inst = getWorldMapInstance(i);
 				// TODO! user count etc..
 				return inst;

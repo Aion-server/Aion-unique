@@ -48,14 +48,6 @@ public abstract class AI<T extends Creature> implements Runnable
 	private Future<?> aiTask;	
 	
 	/**
-	 * @param desire
-	 */
-	public void handleDesire(Desire desire)
-	{
-		desire.handleDesire(this);
-	}
-	
-	/**
 	 * 
 	 * @param event The event that needs to be handled
 	 */

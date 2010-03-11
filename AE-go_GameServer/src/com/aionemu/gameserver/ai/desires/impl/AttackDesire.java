@@ -21,6 +21,7 @@ import com.aionemu.gameserver.ai.desires.AbstractDesire;
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.utils.MathUtil;
 
 /**
@@ -144,7 +145,7 @@ public final class AttackDesire extends AbstractDesire
 	@Override
 	public void onClear()
 	{
-		
+		owner.unsetState(CreatureState.WEAPON_EQUIPPED);
 	}
 	
 }
