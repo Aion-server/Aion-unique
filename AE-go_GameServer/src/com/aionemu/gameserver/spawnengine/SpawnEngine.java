@@ -24,9 +24,14 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.callbacks.EnhancedObject;
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.npcai.NpcAi;
+import com.aionemu.gameserver.controllers.ActionitemController;
 import com.aionemu.gameserver.controllers.BindpointController;
+import com.aionemu.gameserver.controllers.GatherableController;
+import com.aionemu.gameserver.controllers.MonsterController;
+import com.aionemu.gameserver.controllers.NpcController;
+import com.aionemu.gameserver.controllers.PortalController;
+import com.aionemu.gameserver.controllers.PostboxController;
 import com.aionemu.gameserver.controllers.effect.EffectController;
-import com.aionemu.gameserver.controllers.factory.ControllerFactory;
 import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.NpcData;
@@ -53,6 +58,7 @@ import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.KnownList;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
+import com.google.inject.Injector;
 
 /**
  * 
@@ -86,15 +92,23 @@ public class SpawnEngine
 	@Inject
 	private WorldMapsData worldMapsData;
 	@Inject
-	private ControllerFactory controllerFactory;
-	@Inject
 	private BindPointData bindPointData;
+	
+	private Injector injector;
 
 	/** Counter counting number of npc spawns */
 	private int npcCounter		= 0;
 	/** Counter counting number of gatherable spawns */
 	private int gatherableCounter		= 0;
 
+	/**
+	 * @param injector the injector to set
+	 */
+	public void setInjector(Injector injector)
+	{
+		this.injector = injector;
+	}
+	
 	/**
 	 * Creates VisibleObject instance and spawns it using given {@link SpawnTemplate} instance.
 	 * 
@@ -130,26 +144,26 @@ public class SpawnEngine
 			{
 				case AGGRESSIVE:
 				case ATTACKABLE:
-					npc = new Monster(aionObjectsIDFactory.nextId(), controllerFactory.createMonsterController(), spawn, template);
+					npc = new Monster(aionObjectsIDFactory.nextId(), injector.getInstance(MonsterController.class), spawn, template);
 					break;
 				case POSTBOX:
-					npc = new Npc(aionObjectsIDFactory.nextId(), controllerFactory.createPostboxController(), spawn, template);
+					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(PostboxController.class), spawn, template);
 					break;
 				case RESURRECT:
-					BindpointController bindPointController = controllerFactory.createBindpointController();
+					BindpointController bindPointController = injector.getInstance(BindpointController.class);
 					bindPointController.setBindPointTemplate(bindPointData.getBindPointTemplate(objectId));
 					npc = new Npc(aionObjectsIDFactory.nextId(), bindPointController, spawn, template);
 					break;
 				case USEITEM:
-					npc = new Npc(aionObjectsIDFactory.nextId(), controllerFactory.createActionitemController(), spawn,
+					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(ActionitemController.class), spawn,
 						template);
 					break;
 				case PORTAL:
-					npc = new Npc(aionObjectsIDFactory.nextId(), controllerFactory.createPortalController(), spawn,
+					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(PortalController.class), spawn,
 						template);
 					break;
 				default: //NON_ATTACKABLE
-					npc = new Npc(aionObjectsIDFactory.nextId(), controllerFactory.createNpcController(), spawn,
+					npc = new Npc(aionObjectsIDFactory.nextId(), injector.getInstance(NpcController.class), spawn,
 						template);
 
 			}
@@ -162,7 +176,7 @@ public class SpawnEngine
 		}
 		else if(template instanceof GatherableTemplate)
 		{
-			Gatherable gatherable = new Gatherable(spawn, template, aionObjectsIDFactory.nextId(), controllerFactory.createGatherableController());
+			Gatherable gatherable = new Gatherable(spawn, template, aionObjectsIDFactory.nextId(), injector.getInstance(GatherableController.class));
 			gatherable.setKnownlist(new KnownList(gatherable));
 			bringIntoWorld(gatherable, spawn, instanceIndex);
 			return gatherable;

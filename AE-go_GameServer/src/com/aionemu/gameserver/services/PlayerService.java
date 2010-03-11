@@ -23,7 +23,7 @@ import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.main.CacheConfig;
 import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.controllers.effect.PlayerEffectController;
-import com.aionemu.gameserver.controllers.factory.ControllerFactory;
+import com.aionemu.gameserver.controllers.factory.PlayerControllerFactory;
 import com.aionemu.gameserver.dao.AbyssRankDAO;
 import com.aionemu.gameserver.dao.BlockListDAO;
 import com.aionemu.gameserver.dao.FriendListDAO;
@@ -89,7 +89,7 @@ public class PlayerService
 	private ItemService					itemService;
 	private LegionService				legionService;
 	private TeleportService				teleportService;
-	private ControllerFactory			controllerFactory;
+	private PlayerControllerFactory			controllerFactory;
 	private SkillLearnService			skillLearnService;
 	private GroupService				groupService;
 	private PunishmentService			punishmentService;
@@ -99,7 +99,7 @@ public class PlayerService
 
 	@Inject
 	public PlayerService(World world, ItemService itemService,
-		LegionService legionService, TeleportService teleportService, ControllerFactory controllerFactory,
+		LegionService legionService, TeleportService teleportService, PlayerControllerFactory controllerFactory,
 		SkillLearnService skillLearnService, GroupService groupService, PunishmentService punishmentService,
 		DuelService duelService, PlayerStatsData playerStatsData, PlayerInitialData playerInitialData)
 	{
@@ -191,7 +191,7 @@ public class PlayerService
 		PlayerAppearance appereance = DAOManager.getDAO(PlayerAppearanceDAO.class).load(playerObjId);
 		MacroList macroses = DAOManager.getDAO(PlayerMacrossesDAO.class).restoreMacrosses(playerObjId);
 
-		player = new Player(controllerFactory.createPlayerController(), pcd, appereance);
+		player = new Player(controllerFactory.create(), pcd, appereance);
 
 		LegionMember legionMember = legionService.getLegionMember(player.getObjectId());
 		if(legionMember != null)
@@ -275,7 +275,7 @@ public class PlayerService
 		WorldPosition position = world.createPosition(ld.getMapId(), ld.getX(), ld.getY(), ld.getZ(), ld.getHeading());
 		playerCommonData.setPosition(position);
 
-		Player newPlayer = new Player(controllerFactory.createPlayerController(), playerCommonData, playerAppearance);
+		Player newPlayer = new Player(controllerFactory.create(), playerCommonData, playerAppearance);
 
 		// Starting skills
 		skillLearnService.addNewSkills(newPlayer, true);

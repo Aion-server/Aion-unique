@@ -45,6 +45,7 @@ public class StaticObjectSpawnManager
 	@Inject
 	private StaticObjectControllerFactory controllerFactory;
 	
+
 	/**
 	 * 
 	 * @param spawnGroup

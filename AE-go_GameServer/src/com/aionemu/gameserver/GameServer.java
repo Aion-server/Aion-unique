@@ -136,6 +136,7 @@ public class GameServer
 	private void spawnMonsters()
 	{
 		SpawnEngine spawnEngine = injector.getInstance(SpawnEngine.class);
+		spawnEngine.setInjector(injector);
 		spawnEngine.spawnAll();
 	}
 
