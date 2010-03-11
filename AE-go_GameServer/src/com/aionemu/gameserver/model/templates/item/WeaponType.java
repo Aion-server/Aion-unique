@@ -35,7 +35,7 @@ public enum WeaponType
 	ORB_2H(new int[]{64}, 2),
 	POLEARM_2H(new int[]{16}, 2),
 	STAFF_2H(new int[]{53}, 2),
-	SWORD_2H(new int[]{1, 15}, 2),
+	SWORD_2H(new int[]{15}, 2),
 	TOOLPICK_2H(new int[]{}, 2),
 	TOOLROD_2H(new int[]{}, 2),
 	BOW(new int[]{17}, 2);
