@@ -128,9 +128,9 @@ public class WorldMap
 			 */
 			int i = 1;
 			while(i <= worldMapTemplate.getTwinCount())
-			{
-				i++;
+			{		
 				WorldMapInstance inst = getWorldMapInstance(i);
+				i++;
 				// TODO! user count etc..
 				return inst;
 			}
