@@ -23,6 +23,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.main.LegionConfig;
 import com.aionemu.gameserver.dao.LegionDAO;
@@ -52,6 +54,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
@@ -68,6 +71,8 @@ import com.google.inject.Inject;
  */
 public class LegionService
 {
+	private static final Logger						log					= Logger.getLogger(LegionService.class);
+
 	private final LegionContainer					allCachedLegions	= new LegionContainer();
 
 	private final CacheMap<Integer, LegionMember>	legionMemberCache	= CacheMapFactory.createSoftCacheMap(
@@ -460,8 +465,15 @@ public class LegionService
 		/**
 		 * Load legion ranking system if not already set
 		 */
-		loadLegionRanking();
-		if(legionRanking.size() > 0)
+		if(legionRanking == null)
+		{
+			int DELAY_LEGIONRANKING = LegionConfig.LEGION_RANKING_PERIODICUPDATE * 1000;
+			ThreadPoolManager.getInstance().scheduleAtFixedRate(new LegionRankingUpdateTask(), DELAY_LEGIONRANKING,
+				DELAY_LEGIONRANKING);
+			setLegionRanking(DAOManager.getDAO(LegionDAO.class).loadLegionRanking());
+		}
+
+		if(legionRanking.containsKey(legion.getLegionId()))
 			legion.setLegionRank(legionRanking.get(legion.getLegionId()));
 
 		/**
@@ -1392,31 +1404,38 @@ public class LegionService
 	 * 
 	 * @param legion
 	 */
-	private void loadLegionRanking()
+	private class LegionRankingUpdateTask implements Runnable
 	{
-		setLegionRanking(DAOManager.getDAO(LegionDAO.class).loadLegionRanking());
-		if(legionRanking == null)
-			legionRanking = new HashMap<Integer, Integer>();
-	}
-
-	/**
-	 * This method will change the legion ranking if needed
-	 * 
-	 * @param legion
-	 */
-	private void reloadLegionRanking()
-	{
-		setLegionRanking(null);
-		loadLegionRanking();
-
-		for(Integer legionId : legionRanking.keySet())
+		@Override
+		public void run()
 		{
-			Legion legion = getCachedLegion(legionId);
-			if(legion != null)
+			log.info("Legion ranking update task started");
+			long startTime = System.currentTimeMillis();
+			Iterator<Legion> legionsIterator = allCachedLegions.iterator();
+			int legionsUpdated = 0;
+
+			setLegionRanking(DAOManager.getDAO(LegionDAO.class).loadLegionRanking());
+			
+			while(legionsIterator.hasNext())
 			{
-				legion.setLegionRank(legionRanking.get(legion.getLegionId()));
-				PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_EDIT(0x01, legion), world);
+				Legion legion = legionsIterator.next();
+				try
+				{
+					if(legionRanking.containsKey(legion.getLegionId()))
+					{
+						legion.setLegionRank(legionRanking.get(legion.getLegionId()));
+						PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_EDIT(0x01, legion), world);
+					}
+				}
+				catch(Exception ex)
+				{
+					log.error("Exception during periodic update of legion ranking " + ex.getMessage());
+				}
+
+				legionsUpdated++;
 			}
+			long workTime = System.currentTimeMillis() - startTime;
+			log.info("Legion ranking update: " + workTime + " ms, legions: " + legionsUpdated);
 		}
 	}
 
@@ -1441,7 +1460,6 @@ public class LegionService
 	{
 		legion.addContributionPoints(pointsGained);
 		PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_EDIT(0x03, legion), world);
-		reloadLegionRanking();
 	}
 
 	/**
@@ -1454,7 +1472,6 @@ public class LegionService
 	{
 		legion.setContributionPoints(newPoints);
 		PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_EDIT(0x03, legion), world);
-		reloadLegionRanking();
 		if(save)
 			storeLegion(legion);
 	}
@@ -1536,10 +1553,10 @@ public class LegionService
 		if(save)
 			storeLegion(legion);
 	}
-	
+
 	/**
-	 *  Iterator for loaded legions
-	 *  
+	 * Iterator for loaded legions
+	 * 
 	 * @return
 	 */
 	public Iterator<Legion> getCachedLegionIterator()

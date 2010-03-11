@@ -185,10 +185,15 @@ public class LegionConfig
 	 */
 	@Property(key = "gameserver.legion.warehouse", defaultValue = "false")
 	public static boolean			LEGION_WAREHOUSE;
-	
+
 	/*
 	 * Enable/disable Legion Invite Other Faction
 	 */
 	@Property(key = "gameserver.legion.inviteotherfaction", defaultValue = "false")
 	public static boolean			LEGION_INVITEOTHERFACTION;
+	/*
+	 * Enable/disable Legion Invite Other Faction
+	 */
+	@Property(key = "gameserver.legion.ranking.periodicupdate", defaultValue = "1200")
+	public static int			LEGION_RANKING_PERIODICUPDATE;
 }

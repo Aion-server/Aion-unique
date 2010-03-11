@@ -453,7 +453,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	{
 		final HashMap<Integer, Integer> legionRanking = new HashMap<Integer, Integer>();
 
-		boolean success = DB.select(SELECT_LEGIONRANKING_QUERY, new ParamReadStH(){
+		DB.select(SELECT_LEGIONRANKING_QUERY, new ParamReadStH(){
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException
 			{
@@ -476,6 +476,6 @@ public class MySQL5LegionDAO extends LegionDAO
 			}
 		});
 
-		return (success && legionRanking.size() != 0) ? legionRanking : null;
+		return legionRanking;
 	}
 }
