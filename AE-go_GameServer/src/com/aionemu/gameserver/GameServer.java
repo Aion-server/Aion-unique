@@ -106,9 +106,7 @@ public class GameServer
 			new Thread(new GCTaskManager(TaskManagerConfig.GC_INTERVAL)).start();
 		
 		AEVersions.printFullVersionInfo();
-		AEInfos.printOSInfo();
-		AEInfos.printCPUInfo();
-		AEInfos.printMemoryInfo();
+		AEInfos.printAllInfos();
 		
 		log.info("#################################################");
 		log.info("AE Game Server started in " + (System.currentTimeMillis() - start) / 1000 + " seconds.");
