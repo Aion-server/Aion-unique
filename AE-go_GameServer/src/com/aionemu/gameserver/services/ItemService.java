@@ -591,6 +591,13 @@ public class ItemService
 		}
 		
 		ManaStone removedStone = itemStones.remove(slotNum);
+		
+		for(int i = 0; i < itemStones.size(); i++)
+		{
+			if(itemStones.get(i).getSlot() != i)
+				itemStones.get(i).setSlot(i);
+		}
+		
 		removedStone.setPersistentState(PersistentState.DELETED);
 		
 		DAOManager.getDAO(ItemStoneListDAO.class).store(Collections.singletonList(removedStone));

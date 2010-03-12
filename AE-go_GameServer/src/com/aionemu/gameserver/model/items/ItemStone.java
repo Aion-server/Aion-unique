@@ -79,6 +79,15 @@ public class ItemStone
 	{
 		return slot;
 	}
+	
+	/**
+	 * @param slot the slot to set
+	 */
+	public void setSlot(int slot)
+	{
+		this.slot = slot;
+		setPersistentState(PersistentState.UPDATE_REQUIRED);
+	}
 
 	/**
 	 * @return the pState
