@@ -19,7 +19,6 @@ package quest.poeta;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -38,9 +37,14 @@ public class _1123WheresTutty extends QuestHandler
 	public _1123WheresTutty()
 	{
 		super(questId);
-		QuestEngine.getInstance().setNpcQuestData(790001).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(790001).addOnQuestStart(questId);
-		QuestEngine.getInstance().setQuestEnterZone(ZoneName.Q1123).add(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(790001).addOnTalkEvent(questId);
+		qe.setNpcQuestData(790001).addOnQuestStart(questId);
+		qe.setQuestEnterZone(ZoneName.Q1123).add(questId);
 	}
 
 	@Override

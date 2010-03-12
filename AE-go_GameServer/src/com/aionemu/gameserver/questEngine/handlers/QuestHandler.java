@@ -24,6 +24,7 @@ import com.aionemu.gameserver.model.templates.quest.CollectItem;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
@@ -41,6 +42,8 @@ public class QuestHandler
 	
 	@Inject
 	protected QuestService questService;
+	@Inject
+	protected QuestEngine qe;
 	private final Integer questId;
 
 	/**
@@ -188,5 +191,9 @@ public class QuestHandler
 	public boolean onMovieEndEvent(QuestEnv questEnv, int movieId)
 	{
 		return false;
+	}
+
+	public void register()
+	{
 	}
 }

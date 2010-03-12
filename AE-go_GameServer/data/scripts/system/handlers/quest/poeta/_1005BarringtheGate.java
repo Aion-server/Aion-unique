@@ -22,7 +22,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_USE_OBJECT;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -42,10 +41,15 @@ public class _1005BarringtheGate extends QuestHandler
 	public _1005BarringtheGate()
 	{
 		super(questId);
+	}
+
+	@Override
+	public void register()
+	{
 		int[] talkNpcs = {203067, 203081, 790001, 203085, 203086, 700080, 700081, 700082, 700083, 203067};
-		QuestEngine.getInstance().addQuestLvlUp(questId);
+		qe.addQuestLvlUp(questId);
 		for (int id : talkNpcs)
-			QuestEngine.getInstance().setNpcQuestData(id).addOnTalkEvent(questId);
+			qe.setNpcQuestData(id).addOnTalkEvent(questId);
 	}
 
 	@Override

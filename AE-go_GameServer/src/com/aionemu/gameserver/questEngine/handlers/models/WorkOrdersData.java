@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.templates.quest.QuestItems;
-import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.template.WorkOrders;
 
 /**
@@ -99,8 +99,8 @@ public class WorkOrdersData extends QuestScriptData
 	 * @see com.aionemu.gameserver.questEngine.handlers.models.QuestScriptData#register()
 	 */
 	@Override
-	public void register()
+	public void register(QuestEngine questEngine)
 	{
-		QuestHandlers.getInstance().addQuestHandler(new WorkOrders(this));
+		questEngine.addQuestHandler(new WorkOrders(this));
 	}
 }

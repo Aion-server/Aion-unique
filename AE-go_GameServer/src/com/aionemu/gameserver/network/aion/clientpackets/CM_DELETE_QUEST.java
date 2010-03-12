@@ -20,9 +20,13 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_DELETE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.google.inject.Inject;
 
 public class CM_DELETE_QUEST extends AionClientPacket
 {
+	@Inject
+	QuestEngine questEngine;
+	
 	public int questId;
 	
 	public CM_DELETE_QUEST(int opcode)
@@ -41,7 +45,7 @@ public class CM_DELETE_QUEST extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
-		if (!QuestEngine.getInstance().deleteQuest(player, questId))
+		if (!questEngine.deleteQuest(player, questId))
 			return;
 		sendPacket(new SM_QUEST_DELETE(questId));
 		player.getController().updateNearbyQuests();

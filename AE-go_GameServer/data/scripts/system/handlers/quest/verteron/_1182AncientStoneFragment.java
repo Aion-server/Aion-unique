@@ -21,7 +21,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -40,8 +39,13 @@ public class _1182AncientStoneFragment extends QuestHandler
 	public _1182AncientStoneFragment()
 	{
 		super(questId);
-		QuestEngine.getInstance().setNpcQuestData(203099).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setQuestItemIds(182200549).add(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(203099).addOnTalkEvent(questId);
+		qe.setQuestItemIds(182200549).add(questId);
 	}
 
 	@Override

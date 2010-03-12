@@ -18,7 +18,6 @@ package quest.poeta;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -37,8 +36,13 @@ public class _1100KaliosCall extends QuestHandler
 	public _1100KaliosCall()
 	{
 		super(questId);
-		QuestEngine.getInstance().setNpcQuestData(203067).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setQuestEnterZone(ZoneName.AKARIOS_VILLAGE).add(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(203067).addOnTalkEvent(questId);
+		qe.setQuestEnterZone(ZoneName.AKARIOS_VILLAGE).add(questId);
 	}
 
 	@Override

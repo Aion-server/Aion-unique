@@ -19,7 +19,6 @@ package quest.sanctum;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -37,13 +36,18 @@ public class _1900RingImbuedAether extends QuestHandler
 	public _1900RingImbuedAether()
 	{
 		super(questId);
-		QuestEngine.getInstance().setNpcQuestData(203757).addOnQuestStart(questId);
-		QuestEngine.getInstance().setNpcQuestData(203757).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203739).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203766).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203797).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203795).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203830).addOnTalkEvent(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(203757).addOnQuestStart(questId);
+		qe.setNpcQuestData(203757).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203739).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203766).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203797).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203795).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203830).addOnTalkEvent(questId);
 	}
 
 	@Override

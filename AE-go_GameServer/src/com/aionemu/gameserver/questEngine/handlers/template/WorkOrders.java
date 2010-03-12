@@ -20,7 +20,6 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.handlers.models.WorkOrdersData;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
@@ -46,8 +45,13 @@ public class WorkOrders extends QuestHandler
 	{
 		super(workOrdersData.getId());
 		this.workOrdersData = workOrdersData;
-		QuestEngine.getInstance().setNpcQuestData(workOrdersData.getStartNpcId()).addOnQuestStart(workOrdersData.getId());
-		QuestEngine.getInstance().setNpcQuestData(workOrdersData.getStartNpcId()).addOnTalkEvent(workOrdersData.getId());
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(workOrdersData.getStartNpcId()).addOnQuestStart(workOrdersData.getId());
+		qe.setNpcQuestData(workOrdersData.getStartNpcId()).addOnTalkEvent(workOrdersData.getId());
 	}
 
 	@Override

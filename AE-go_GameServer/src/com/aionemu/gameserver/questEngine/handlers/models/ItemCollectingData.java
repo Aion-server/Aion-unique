@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.template.ItemCollecting;
 
 /**
@@ -41,10 +41,10 @@ public class ItemCollectingData extends QuestScriptData
     protected int endNpcId;
 
 	@Override
-	public void register()
+	public void register(QuestEngine questEngine)
 	{
 		ItemCollecting template = new ItemCollecting(id, startNpcId, actionItemId, endNpcId);
-		QuestHandlers.getInstance().addQuestHandler(template);
+		questEngine.addQuestHandler(template);
 	}
 
 }

@@ -22,7 +22,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -45,16 +44,21 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 	public _1007ACeremonyinSanctum()
 	{
 		super(questId);
+	}
+
+	@Override
+	public void register()
+	{
 		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
-		QuestEngine.getInstance().addQuestLvlUp(questId);
-		QuestEngine.getInstance().setNpcQuestData(790001).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203725).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203752).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203758).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203759).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203760).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203761).addOnTalkEvent(questId);
+		qe.addQuestLvlUp(questId);
+		qe.setNpcQuestData(790001).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203725).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203752).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203758).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203759).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203760).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203761).addOnTalkEvent(questId);
 	}
 
 	@Override

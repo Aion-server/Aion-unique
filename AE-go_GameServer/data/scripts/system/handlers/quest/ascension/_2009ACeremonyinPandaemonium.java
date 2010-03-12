@@ -22,7 +22,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -45,16 +44,21 @@ public class _2009ACeremonyinPandaemonium extends QuestHandler
 	public _2009ACeremonyinPandaemonium()
 	{
 		super(questId);
+	}
+
+	@Override
+	public void register()
+	{
 		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
-		QuestEngine.getInstance().addQuestLvlUp(questId);
-		QuestEngine.getInstance().setNpcQuestData(203550).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(204182).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(204075).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(204080).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(204081).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(204082).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(204083).addOnTalkEvent(questId);
+		qe.addQuestLvlUp(questId);
+		qe.setNpcQuestData(203550).addOnTalkEvent(questId);
+		qe.setNpcQuestData(204182).addOnTalkEvent(questId);
+		qe.setNpcQuestData(204075).addOnTalkEvent(questId);
+		qe.setNpcQuestData(204080).addOnTalkEvent(questId);
+		qe.setNpcQuestData(204081).addOnTalkEvent(questId);
+		qe.setNpcQuestData(204082).addOnTalkEvent(questId);
+		qe.setNpcQuestData(204083).addOnTalkEvent(questId);
 	}
 
 	@Override

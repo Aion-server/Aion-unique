@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.services;
 
+import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -65,6 +66,8 @@ public class ServiceProxy
 	private DuelService				duelService;
 	@Inject
 	private QuestService			questService;
+	@Inject
+	private QuestEngine 			questEngine;
 
 	/**
 	 * @return the world
@@ -216,5 +219,13 @@ public class ServiceProxy
 	public QuestService getQuestService()
 	{
 		return questService;
+	}
+
+	/**
+	 * @return the questEngine
+	 */
+	public QuestEngine getQuestEngine()
+	{
+		return questEngine;
 	}
 }

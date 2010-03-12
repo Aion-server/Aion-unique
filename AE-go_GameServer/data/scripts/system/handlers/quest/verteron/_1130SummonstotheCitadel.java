@@ -18,7 +18,6 @@ package quest.verteron;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -37,8 +36,13 @@ public class _1130SummonstotheCitadel extends QuestHandler
 	public _1130SummonstotheCitadel()
 	{
 		super(questId);
-		QuestEngine.getInstance().setNpcQuestData(203098).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setQuestEnterZone(ZoneName.VERTERON_CITADEL).add(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(203098).addOnTalkEvent(questId);
+		qe.setQuestEnterZone(ZoneName.VERTERON_CITADEL).add(questId);
 	}
 
 	@Override

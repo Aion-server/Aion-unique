@@ -22,6 +22,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.questEngine.QuestEngine;
+
 /**
  * @author MrPoke
  * 
@@ -44,5 +46,5 @@ public abstract class QuestScriptData
 		return id;
 	}
 
-	public abstract void register();
+	public abstract void register(QuestEngine questEngine);
 }

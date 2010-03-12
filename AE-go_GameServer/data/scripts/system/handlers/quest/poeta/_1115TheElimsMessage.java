@@ -19,7 +19,6 @@ package quest.poeta;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -37,10 +36,15 @@ public class _1115TheElimsMessage extends QuestHandler
 	public _1115TheElimsMessage()
 	{
 		super(questId);
-		QuestEngine.getInstance().setNpcQuestData(203075).addOnQuestStart(questId);
-		QuestEngine.getInstance().setNpcQuestData(203075).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203072).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203058).addOnTalkEvent(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(203075).addOnQuestStart(questId);
+		qe.setNpcQuestData(203075).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203072).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203058).addOnTalkEvent(questId);
 	}
 
 	@Override

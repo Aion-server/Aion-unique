@@ -19,7 +19,6 @@ package quest.eltnen;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -37,10 +36,15 @@ public class _1314Anelimoutofwater extends QuestHandler
 	public _1314Anelimoutofwater()
 	{
 		super(questId);
-		QuestEngine.getInstance().setNpcQuestData(730023).addOnQuestStart(questId);
-		QuestEngine.getInstance().setNpcQuestData(730023).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(730021).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(730014).addOnTalkEvent(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(730023).addOnQuestStart(questId);
+		qe.setNpcQuestData(730023).addOnTalkEvent(questId);
+		qe.setNpcQuestData(730021).addOnTalkEvent(questId);
+		qe.setNpcQuestData(730014).addOnTalkEvent(questId);
 	}
 
 	@Override

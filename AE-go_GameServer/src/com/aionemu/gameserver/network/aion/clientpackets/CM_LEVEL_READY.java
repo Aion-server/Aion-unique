@@ -42,6 +42,8 @@ public class CM_LEVEL_READY extends AionClientPacket
 	@Inject
 	private WeatherService	weatherService;
 
+	@Inject
+	QuestEngine questEngine;
 	/**
 	 * Constructs new instance of <tt>CM_LEVEL_READY </tt> packet
 	 * 
@@ -87,7 +89,7 @@ public class CM_LEVEL_READY extends AionClientPacket
 		 */
 		weatherService.loadWeather(activePlayer);
 
-		QuestEngine.getInstance().onEnterWorld(new QuestEnv(null, activePlayer, 0, 0));
+		questEngine.onEnterWorld(new QuestEnv(null, activePlayer, 0, 0));
 		
 		// zone channel message
 		sendPacket(new SM_SYSTEM_MESSAGE(1390122, activePlayer.getPosition().getInstanceId()));

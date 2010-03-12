@@ -26,7 +26,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_USE_OBJECT;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -49,11 +48,16 @@ public class _1004NeutralizingOdium extends QuestHandler
 	public _1004NeutralizingOdium()
 	{
 		super(questId);
-		QuestEngine.getInstance().addQuestLvlUp(questId);
-		QuestEngine.getInstance().setNpcQuestData(203082).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(700030).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(790001).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203067).addOnTalkEvent(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.addQuestLvlUp(questId);
+		qe.setNpcQuestData(203082).addOnTalkEvent(questId);
+		qe.setNpcQuestData(700030).addOnTalkEvent(questId);
+		qe.setNpcQuestData(790001).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203067).addOnTalkEvent(questId);
 	}
 
 	@Override

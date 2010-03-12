@@ -19,7 +19,6 @@ package quest.poeta;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -37,8 +36,13 @@ public class _1000Prologue extends QuestHandler
 	public _1000Prologue()
 	{
 		super(questId);
-		QuestEngine.getInstance().addOnEnterWorld(questId);
-		QuestEngine.getInstance().setQuestMovieEndIds(1).add(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.addOnEnterWorld(questId);
+		qe.setQuestMovieEndIds(1).add(questId);
 	}
 
 	@Override

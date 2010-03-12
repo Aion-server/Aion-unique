@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.template.ReportTo;
 
 /**
@@ -40,9 +40,9 @@ public class ReportToData extends QuestScriptData
 	protected int	itemId;
 
 	@Override
-	public void register()
+	public void register(QuestEngine questEngine)
 	{
 		ReportTo template = new ReportTo(id, startNpcId, endNpc, itemId);
-		QuestHandlers.getInstance().addQuestHandler(template);
+		questEngine.addQuestHandler(template);
 	}
 }

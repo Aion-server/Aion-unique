@@ -20,7 +20,6 @@ package quest.ishalgen;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -35,11 +34,16 @@ public class _2001ThinkingAhead extends QuestHandler
 	public _2001ThinkingAhead()
 	{
 		super(questId);
-		QuestEngine.getInstance().addQuestLvlUp(questId);
-		QuestEngine.getInstance().setNpcQuestData(203518).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(700093).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(210369).addOnKillEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(210368).addOnKillEvent(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.addQuestLvlUp(questId);
+		qe.setNpcQuestData(203518).addOnTalkEvent(questId);
+		qe.setNpcQuestData(700093).addOnTalkEvent(questId);
+		qe.setNpcQuestData(210369).addOnKillEvent(questId);
+		qe.setNpcQuestData(210368).addOnKillEvent(questId);
 	}
 
 	@Override

@@ -23,17 +23,18 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.scripting.classlistener.ClassListener;
 import com.aionemu.commons.scripting.classlistener.DefaultClassListener;
 import com.aionemu.commons.utils.ClassUtils;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.google.inject.Injector;
 
 /**
  * @author MrPoke
  *
  */
-class QuestHandlerLoader extends DefaultClassListener implements ClassListener
+public class QuestHandlerLoader extends DefaultClassListener implements ClassListener
 {
 	private static final Logger logger = Logger.getLogger(QuestHandlerLoader.class);
 
-	private final Injector injector;
+	private Injector injector;
 
 	public QuestHandlerLoader(Injector injector)
 	{
@@ -53,7 +54,7 @@ class QuestHandlerLoader extends DefaultClassListener implements ClassListener
 
 			if (ClassUtils.isSubclass(c, QuestHandler.class))
 			{
-				QuestHandlers.getInstance().addQuestHandler((QuestHandler)injector.getInstance(c));
+				injector.getInstance(QuestEngine.class).addQuestHandler((QuestHandler)injector.getInstance(c));
 			}
 		}
 
@@ -72,7 +73,7 @@ class QuestHandlerLoader extends DefaultClassListener implements ClassListener
 		// call onClassUnload()
 		super.preUnload(classes);
 
-		QuestHandlers.getInstance().clearQuestHandlers();
+		injector.getInstance(QuestEngine.class).clear();
 	}
 
 	public boolean isValidClass(Class<?> clazz)

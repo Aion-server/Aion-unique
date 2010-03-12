@@ -18,7 +18,6 @@ package com.aionemu.gameserver.questEngine.handlers.template;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -52,12 +51,17 @@ public class ItemCollecting extends QuestHandler
 			this.endNpcId = endNpcId;
 		else
 			this.endNpcId = startNpcId;
-		QuestEngine.getInstance().setNpcQuestData(startNpcId).addOnQuestStart(questId);
-		QuestEngine.getInstance().setNpcQuestData(startNpcId).addOnTalkEvent(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(startNpcId).addOnQuestStart(questId);
+		qe.setNpcQuestData(startNpcId).addOnTalkEvent(questId);
 		if(actionItemId != 0)
-			QuestEngine.getInstance().setNpcQuestData(actionItemId).addOnTalkEvent(questId);
+			qe.setNpcQuestData(actionItemId).addOnTalkEvent(questId);
 		if (endNpcId != startNpcId)
-			QuestEngine.getInstance().setNpcQuestData(endNpcId).addOnTalkEvent(questId);
+			qe.setNpcQuestData(endNpcId).addOnTalkEvent(questId);
 	}
 
 	@Override

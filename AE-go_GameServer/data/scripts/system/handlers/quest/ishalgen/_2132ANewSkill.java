@@ -19,7 +19,6 @@ package quest.ishalgen;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -36,11 +35,16 @@ public class _2132ANewSkill extends QuestHandler
 	public _2132ANewSkill()
 	{
 		super(questId);
-		QuestEngine.getInstance().addQuestLvlUp(questId);
-		QuestEngine.getInstance().setNpcQuestData(203527).addOnTalkEvent(questId); // Warrior
-		QuestEngine.getInstance().setNpcQuestData(203528).addOnTalkEvent(questId); // Scout
-		QuestEngine.getInstance().setNpcQuestData(203529).addOnTalkEvent(questId); // Mage
-		QuestEngine.getInstance().setNpcQuestData(203530).addOnTalkEvent(questId); // Priest
+	}
+
+	@Override
+	public void register()
+	{
+		qe.addQuestLvlUp(questId);
+		qe.setNpcQuestData(203527).addOnTalkEvent(questId); // Warrior
+		qe.setNpcQuestData(203528).addOnTalkEvent(questId); // Scout
+		qe.setNpcQuestData(203529).addOnTalkEvent(questId); // Mage
+		qe.setNpcQuestData(203530).addOnTalkEvent(questId); // Priest
 	}
 
 	@Override

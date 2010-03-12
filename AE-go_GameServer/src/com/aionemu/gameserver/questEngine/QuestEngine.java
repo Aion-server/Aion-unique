@@ -16,22 +16,29 @@
  */
 package com.aionemu.gameserver.questEngine;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import javolution.util.FastMap;
 
+import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
+import com.aionemu.gameserver.GameServerError;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
-import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
+import com.aionemu.gameserver.questEngine.handlers.QuestHandlerLoader;
+import com.aionemu.gameserver.questEngine.handlers.models.QuestScriptData;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.world.zone.ZoneName;
+import com.google.inject.Injector;
 
 /**
  * @author MrPoke
@@ -39,32 +46,58 @@ import com.aionemu.gameserver.world.zone.ZoneName;
  */
 public class QuestEngine
 {
-	private static QuestEngine					instance;
-	private FastMap<Integer, NpcQuestData>		_npcQuestData;
-	private FastMap<Integer, List<Integer>>		_questItemIds;
-	private List<Integer>						_questLvlUp;
-	private FastMap<ZoneName, List<Integer>>	_questEnterZone;
-	private FastMap<Integer, List<Integer>>		_questMovieEndIds;
-	private List<Integer>						_questOnDie;
-	private List<Integer>						_questOnEnterWorld;
+	private Injector injector;
 
-	private QuestEngine()
+	private static final Logger log = Logger.getLogger(QuestEngine.class);
+
+	private static final FastMap<Integer, QuestHandler> questHandlers = new FastMap<Integer, QuestHandler>();
+
+	private static ScriptManager 			scriptManager = new ScriptManager();
+
+	public static final File QUEST_DESCRIPTOR_FILE = new File("./data/scripts/system/quest_handlers.xml");
+
+	private FastMap<Integer, NpcQuestData>		_npcQuestData = new FastMap<Integer, NpcQuestData>();
+	private FastMap<Integer, List<Integer>>		_questItemIds= new FastMap<Integer, List<Integer>>();
+	private List<Integer>						_questLvlUp = new ArrayList<Integer>();
+	private FastMap<ZoneName, List<Integer>>	_questEnterZone= new FastMap<ZoneName, List<Integer>>();
+	private FastMap<Integer, List<Integer>>		_questMovieEndIds= new FastMap<Integer, List<Integer>>();
+	private List<Integer>						_questOnDie= new ArrayList<Integer>();
+	private List<Integer>						_questOnEnterWorld= new ArrayList<Integer>();
+
+	public void load()
 	{
-		_npcQuestData = new FastMap<Integer, NpcQuestData>();
-		_questItemIds = new FastMap<Integer, List<Integer>>();
-		_questLvlUp = new ArrayList<Integer>();
-		_questOnEnterWorld = new ArrayList<Integer>();
-		_questOnDie = new ArrayList<Integer>();
-		_questEnterZone = new FastMap<ZoneName, List<Integer>>();
-		_questMovieEndIds = new FastMap<Integer, List<Integer>>();
+		scriptManager = new ScriptManager();
+		scriptManager.setGlobalClassListener(new QuestHandlerLoader(injector));
+
+		try
+		{
+			scriptManager.load(QUEST_DESCRIPTOR_FILE);
+		}
+		catch (Exception e)
+		{
+			throw new GameServerError("Can't initialize quest handlers.", e);
+		}
+		for (QuestScriptData data : DataManager.QUEST_SCRIPTS_DATA.getData())
+		{
+			data.register(this);
+		}
+
+		log.info("Loaded " + questHandlers.size() + " quest handler.");
 	}
 
+	public void shutdown()
+	{
+		scriptManager.shutdown();
+		clear();
+		scriptManager = null;
+		log.info("Quests are shutdown...");
+	}
 	public boolean onDialog(QuestEnv env)
 	{
 		QuestHandler questHandler = null;
 		if(env.getQuestId() != 0)
 		{
-			questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(env.getQuestId());
+			questHandler = getQuestHandlerByQuestId(env.getQuestId());
 			if(questHandler != null)
 				if(questHandler.onDialogEvent(env))
 					return true;
@@ -74,7 +107,7 @@ public class QuestEngine
 			Npc npc = (Npc) env.getVisibleObject();
 			for(int questId : getNpcQuestData(npc == null ? 0 : npc.getNpcId()).getOnTalkEvent())
 			{
-				questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
+				questHandler = getQuestHandlerByQuestId(questId);
 				if(questHandler != null)
 					if(questHandler.onDialogEvent(env))
 						return true;
@@ -88,7 +121,7 @@ public class QuestEngine
 		Npc npc = (Npc) env.getVisibleObject();
 		for(int questId : getNpcQuestData(npc.getNpcId()).getOnKillEvent())
 		{
-			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				if(questHandler.onKillEvent(env))
 					return true;
@@ -101,7 +134,7 @@ public class QuestEngine
 		Npc npc = (Npc) env.getVisibleObject();
 		for(int questId : getNpcQuestData(npc.getNpcId()).getOnAttackEvent())
 		{
-			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				if(questHandler.onAttackEvent(env))
 					return true;
@@ -113,7 +146,7 @@ public class QuestEngine
 	{
 		for(int questId : _questLvlUp)
 		{
-			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				questHandler.onLvlUpEvent(env);
 		}
@@ -123,7 +156,7 @@ public class QuestEngine
 	{
 		for(int questId : _questOnDie)
 		{
-			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				questHandler.onDieEvent(env);
 		}
@@ -133,7 +166,7 @@ public class QuestEngine
 	{
 		for(int questId : _questOnEnterWorld)
 		{
-			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				questHandler.onEnterWorldEvent(env);
 		}
@@ -143,7 +176,7 @@ public class QuestEngine
 	{
 		for(int questId : getQuestItemIds(item.getItemTemplate().getTemplateId()))
 		{
-			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				if(questHandler.onItemUseEvent(env, item))
 					return true;
@@ -155,7 +188,7 @@ public class QuestEngine
 	{
 		for(int questId : getQuestEnterZone(zoneName))
 		{
-			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				if(questHandler.onEnterZoneEvent(env, zoneName))
 					return true;
@@ -168,7 +201,7 @@ public class QuestEngine
 		for(int questId : getQuestMovieEndIds(movieId))
 		{
 			env.setQuestId(questId);
-			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(env.getQuestId());
+			QuestHandler questHandler = getQuestHandlerByQuestId(env.getQuestId());
 			if(questHandler != null)
 				if(questHandler.onMovieEndEvent(env, movieId))
 					return true;
@@ -289,14 +322,31 @@ public class QuestEngine
 		_questEnterZone.clear();
 		_questMovieEndIds.clear();
 		
+		questHandlers.clear();
+	}
+	
+	public void addQuestHandler (QuestHandler questHandler)
+	{
+		injector.injectMembers(questHandler);
+		questHandler.register();
+		questHandlers.put(questHandler.getQuestId(), questHandler);
+	}
+	
+	public QuestHandler getQuestHandlerByQuestId(int questId)
+	{
+		return questHandlers.get(questId);
+	}
+	
+	public int getSize()
+	{
+		return questHandlers.size();
 	}
 
-	public static QuestEngine getInstance()
+	/**
+	 * @param injector the injector to set
+	 */
+	public void setInjector(Injector injector)
 	{
-		if(instance == null)
-		{
-			instance = new QuestEngine();
-		}
-		return instance;
+		this.injector = injector;
 	}
 }

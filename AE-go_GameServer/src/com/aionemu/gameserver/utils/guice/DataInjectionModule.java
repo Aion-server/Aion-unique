@@ -39,6 +39,7 @@ import com.aionemu.gameserver.dataholders.WalkerData;
 import com.aionemu.gameserver.dataholders.WarehouseExpandData;
 import com.aionemu.gameserver.dataholders.WorldMapsData;
 import com.aionemu.gameserver.dataholders.ZoneData;
+import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.services.AbyssService;
 import com.aionemu.gameserver.services.AccountService;
 import com.aionemu.gameserver.services.CraftSkillUpdateService;
@@ -96,6 +97,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(DataManager.class).asEagerSingleton();
 		bind(World.class).asEagerSingleton();
 		bind(SpawnEngine.class).asEagerSingleton();
+		bind(QuestEngine.class).asEagerSingleton();
 		bind(PeriodicSaveService.class).in(Scopes.SINGLETON);
 		bind(PlayerService.class).in(Scopes.SINGLETON);
 		bind(AccountService.class).in(Scopes.SINGLETON);

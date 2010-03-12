@@ -21,7 +21,6 @@ import java.util.Collections;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.quest.QuestItems;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -54,10 +53,14 @@ public class ReportTo extends QuestHandler
 		this.endNpc = endNpc;
 		this.questId = questId;
 		this.itemId = itemId;
+	}
 
-		QuestEngine.getInstance().setNpcQuestData(startNpc).addOnQuestStart(questId);
-		QuestEngine.getInstance().setNpcQuestData(startNpc).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(endNpc).addOnTalkEvent(questId);
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(startNpc).addOnQuestStart(questId);
+		qe.setNpcQuestData(startNpc).addOnTalkEvent(questId);
+		qe.setNpcQuestData(endNpc).addOnTalkEvent(questId);
 	}
 
 	@Override

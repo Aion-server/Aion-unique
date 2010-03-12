@@ -18,7 +18,6 @@ package quest.heiron;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -37,8 +36,13 @@ public class _1500OrdersFromPerento extends QuestHandler
 	public _1500OrdersFromPerento()
 	{
 		super(questId);
-		QuestEngine.getInstance().setNpcQuestData(204500).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setQuestEnterZone(ZoneName.NEW_HEIRON_GATE).add(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(204500).addOnTalkEvent(questId);
+		qe.setQuestEnterZone(ZoneName.NEW_HEIRON_GATE).add(questId);
 	}
 
 	@Override

@@ -19,7 +19,6 @@ package quest.verteron;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -38,11 +37,16 @@ public class _1011DangerFromAbove extends QuestHandler
 	public _1011DangerFromAbove()
 	{
 		super(questId);
+	}
+
+	@Override
+	public void register()
+	{
 		int[] talkNpcs = { 203109, 203122, 203109 };
-		QuestEngine.getInstance().setNpcQuestData(700091).addOnKillEvent(questId);
-		QuestEngine.getInstance().addQuestLvlUp(questId);
+		qe.setNpcQuestData(700091).addOnKillEvent(questId);
+		qe.addQuestLvlUp(questId);
 		for(int id : talkNpcs)
-			QuestEngine.getInstance().setNpcQuestData(id).addOnTalkEvent(questId);
+			qe.setNpcQuestData(id).addOnTalkEvent(questId);
 	}
 
 	@Override

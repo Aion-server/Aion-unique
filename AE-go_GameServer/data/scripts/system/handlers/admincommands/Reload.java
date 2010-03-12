@@ -43,11 +43,9 @@ import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.questEngine.QuestEngine;
-import com.aionemu.gameserver.questEngine.handlers.QuestHandlersManager;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.google.inject.Inject;
-import com.google.inject.Injector;
 
 /**
  * @author MrPoke
@@ -55,9 +53,9 @@ import com.google.inject.Injector;
  */
 public class Reload extends AdminCommand
 {
-	@Inject
-	private Injector injector;
 
+	@Inject
+	QuestEngine questEngine;
 	private static final Logger	log	= Logger.getLogger(Reload.class);
 
 	public Reload()
@@ -85,15 +83,14 @@ public class Reload extends AdminCommand
 			File dir = new File("./data/static_data/quest_script_data");
 			try
 			{
-				QuestEngine.getInstance().clear();
-				QuestHandlersManager.shutdown();
+				questEngine.shutdown();
 				JAXBContext jc = JAXBContext.newInstance(StaticData.class);
 				Unmarshaller un = jc.createUnmarshaller();
 				un.setSchema(getSchema("./data/static_data/static_data.xsd"));
 				DataManager.QUEST_DATA = (QuestsData) un.unmarshal(xml);
 				for(File file : listFiles(dir, true))
 					un.unmarshal(file);
-				QuestHandlersManager.init(injector);
+				questEngine.load();
 			}
 			catch(Exception e)
 			{

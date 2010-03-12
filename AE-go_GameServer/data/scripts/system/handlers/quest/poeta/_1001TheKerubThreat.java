@@ -20,7 +20,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -38,10 +37,15 @@ public class _1001TheKerubThreat extends QuestHandler
 	public _1001TheKerubThreat()
 	{
 		super(questId);
-		QuestEngine.getInstance().setNpcQuestData(210670).addOnKillEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203071).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203067).addOnTalkEvent(questId);
-		QuestEngine.getInstance().addQuestLvlUp(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(210670).addOnKillEvent(questId);
+		qe.setNpcQuestData(203071).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203067).addOnTalkEvent(questId);
+		qe.addQuestLvlUp(questId);
 	}
 
 	@Override

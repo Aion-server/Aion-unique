@@ -47,6 +47,8 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 	private int		questId;
 	@Inject
 	World world;
+	@Inject
+	QuestEngine questEngine;
 	@SuppressWarnings("unused")
 	private static final Logger log = Logger.getLogger(CM_DIALOG_SELECT.class);
 	/**
@@ -84,7 +86,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket
 
 		if(targetObjectId == 0)
 		{
-			if(QuestEngine.getInstance().onDialog(new QuestEnv(null, player, questId, dialogId)))
+			if(questEngine.onDialog(new QuestEnv(null, player, questId, dialogId)))
 				return;
 			// FIXME client sends unk1=1, targetObjectId=0, dialogId=2 (trader) => we miss some packet to close window
 			ClassChangeService.changeClassToSelection(player, dialogId);

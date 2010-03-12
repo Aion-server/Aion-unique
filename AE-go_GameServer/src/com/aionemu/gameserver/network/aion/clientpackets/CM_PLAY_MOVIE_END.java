@@ -20,6 +20,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -27,6 +28,8 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
  */
 public class CM_PLAY_MOVIE_END extends AionClientPacket
 {
+	@Inject
+	QuestEngine questEngine;
 	@SuppressWarnings("unused")
 	private int	type;
 	private int	movieId;
@@ -56,7 +59,7 @@ public class CM_PLAY_MOVIE_END extends AionClientPacket
 	protected void runImpl()
 	{
 		Player activePlayer = getConnection().getActivePlayer();
-		QuestEngine.getInstance().onMovieEnd(new QuestEnv(null, activePlayer, 0, 0), movieId);
+		questEngine.onMovieEnd(new QuestEnv(null, activePlayer, 0, 0), movieId);
 	}
 
 }

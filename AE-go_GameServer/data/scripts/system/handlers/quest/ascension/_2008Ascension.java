@@ -33,7 +33,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -64,19 +63,24 @@ public class _2008Ascension extends QuestHandler
 	public _2008Ascension()
 	{
 		super(questId);
+	}
+
+	@Override
+	public void register()
+	{
 		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
-		QuestEngine.getInstance().addQuestLvlUp(questId);
-		QuestEngine.getInstance().setNpcQuestData(203550).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(790003).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(790002).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(203546).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(205020).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(205040).addOnKillEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(205041).addOnAttackEvent(questId);
-		QuestEngine.getInstance().setQuestMovieEndIds(152).add(questId);
-		QuestEngine.getInstance().addOnEnterWorld(questId);
-		QuestEngine.getInstance().addOnDie(questId);
+		qe.addQuestLvlUp(questId);
+		qe.setNpcQuestData(203550).addOnTalkEvent(questId);
+		qe.setNpcQuestData(790003).addOnTalkEvent(questId);
+		qe.setNpcQuestData(790002).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203546).addOnTalkEvent(questId);
+		qe.setNpcQuestData(205020).addOnTalkEvent(questId);
+		qe.setNpcQuestData(205040).addOnKillEvent(questId);
+		qe.setNpcQuestData(205041).addOnAttackEvent(questId);
+		qe.setQuestMovieEndIds(152).add(questId);
+		qe.addOnEnterWorld(questId);
+		qe.addOnDie(questId);
 	}
 
 	@Override

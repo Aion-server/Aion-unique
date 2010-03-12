@@ -18,7 +18,6 @@ package quest.ishalgen;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -36,8 +35,13 @@ public class _2100OrderoftheCaptain extends QuestHandler
 	public _2100OrderoftheCaptain()
 	{
 		super(questId);
-		QuestEngine.getInstance().setNpcQuestData(203516).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setQuestEnterZone(ZoneName.ALDELLE_VILLAGE).add(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(203516).addOnTalkEvent(questId);
+		qe.setQuestEnterZone(ZoneName.ALDELLE_VILLAGE).add(questId);
 	}
 
 	@Override

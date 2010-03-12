@@ -19,7 +19,6 @@ package quest.poeta;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -36,11 +35,16 @@ public class _1205ANewSkill extends QuestHandler
 	public _1205ANewSkill()
 	{
 		super(questId);
-		QuestEngine.getInstance().addQuestLvlUp(questId);
-		QuestEngine.getInstance().setNpcQuestData(203087).addOnTalkEvent(questId); // Warrior
-		QuestEngine.getInstance().setNpcQuestData(203088).addOnTalkEvent(questId); // Scout
-		QuestEngine.getInstance().setNpcQuestData(203089).addOnTalkEvent(questId); // Mage
-		QuestEngine.getInstance().setNpcQuestData(203090).addOnTalkEvent(questId); // Priest
+	}
+
+	@Override
+	public void register()
+	{
+		qe.addQuestLvlUp(questId);
+		qe.setNpcQuestData(203087).addOnTalkEvent(questId); // Warrior
+		qe.setNpcQuestData(203088).addOnTalkEvent(questId); // Scout
+		qe.setNpcQuestData(203089).addOnTalkEvent(questId); // Mage
+		qe.setNpcQuestData(203090).addOnTalkEvent(questId); // Priest
 	}
 
 	@Override

@@ -35,7 +35,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAY_MOVIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -71,18 +70,23 @@ public class _1006Ascension extends QuestHandler
 	public _1006Ascension()
 	{
 		super(questId);
+	}
+
+	@Override
+	public void register()
+	{
 		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
-		QuestEngine.getInstance().addQuestLvlUp(questId);
-		QuestEngine.getInstance().setNpcQuestData(790001).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setQuestItemIds(182200007).add(questId);
-		QuestEngine.getInstance().setNpcQuestData(730008).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(205000).addOnTalkEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(211042).addOnKillEvent(questId);
-		QuestEngine.getInstance().setNpcQuestData(211043).addOnAttackEvent(questId);
-		QuestEngine.getInstance().setQuestMovieEndIds(151).add(questId);
-		QuestEngine.getInstance().addOnEnterWorld(questId);
-		QuestEngine.getInstance().addOnDie(questId);
+		qe.addQuestLvlUp(questId);
+		qe.setNpcQuestData(790001).addOnTalkEvent(questId);
+		qe.setQuestItemIds(182200007).add(questId);
+		qe.setNpcQuestData(730008).addOnTalkEvent(questId);
+		qe.setNpcQuestData(205000).addOnTalkEvent(questId);
+		qe.setNpcQuestData(211042).addOnKillEvent(questId);
+		qe.setNpcQuestData(211043).addOnAttackEvent(questId);
+		qe.setQuestMovieEndIds(151).add(questId);
+		qe.addOnEnterWorld(questId);
+		qe.addOnDie(questId);
 	}
 
 	@Override

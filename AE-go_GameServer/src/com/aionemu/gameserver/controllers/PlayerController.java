@@ -52,7 +52,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.services.ClassChangeService;
@@ -116,7 +115,7 @@ public class PlayerController extends CreatureController<Player>
 			boolean update = false;
 			Npc npc = ((Npc) object);
 			PacketSendUtility.sendPacket(getOwner(), new SM_NPC_INFO(npc, getOwner()));
-			for(int questId : QuestEngine.getInstance().getNpcQuestData(npc.getNpcId()).getOnQuestStart())
+			for(int questId : sp.getQuestEngine().getNpcQuestData(npc.getNpcId()).getOnQuestStart())
 			{
 				if(sp.getQuestService().checkStartCondition(new QuestEnv(object, getOwner(), questId, 0)))
 				{
@@ -146,7 +145,7 @@ public class PlayerController extends CreatureController<Player>
 		if(object instanceof Npc)
 		{
 			boolean update = false;
-			for(int questId : QuestEngine.getInstance().getNpcQuestData(((Npc) object).getNpcId()).getOnQuestStart())
+			for(int questId : sp.getQuestEngine().getNpcQuestData(((Npc) object).getNpcId()).getOnQuestStart())
 			{
 				if(sp.getQuestService().checkStartCondition(new QuestEnv(object, getOwner(), questId, 0)))
 				{
@@ -171,7 +170,7 @@ public class PlayerController extends CreatureController<Player>
 		{
 			if(obj instanceof Npc)
 			{
-				for(int questId : QuestEngine.getInstance().getNpcQuestData(((Npc) obj).getNpcId()).getOnQuestStart())
+				for(int questId : sp.getQuestEngine().getNpcQuestData(((Npc) obj).getNpcId()).getOnQuestStart())
 				{
 					if(sp.getQuestService().checkStartCondition(new QuestEnv(obj, getOwner(), questId, 0)))
 					{
@@ -193,7 +192,7 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void onEnterZone(ZoneInstance zoneInstance)
 	{
-		QuestEngine.getInstance().onEnterZone(new QuestEnv(null, this.getOwner(), 0, 0),
+		sp.getQuestEngine().onEnterZone(new QuestEnv(null, this.getOwner(), 0, 0),
 			zoneInstance.getTemplate().getName());
 	}
 
@@ -231,7 +230,7 @@ public class PlayerController extends CreatureController<Player>
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 13, 0, lastAttacker.getObjectId()), true);
 			PacketSendUtility.sendPacket(player, new SM_DIE());
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
-			QuestEngine.getInstance().onDie(new QuestEnv(null, player, 0, 0));
+			sp.getQuestEngine().onDie(new QuestEnv(null, player, 0, 0));
 		}
 		// TODO: Add check if player in Abyss?
 		if(lastAttacker instanceof Player && isEnemy((Player) lastAttacker))
@@ -432,7 +431,7 @@ public class PlayerController extends CreatureController<Player>
 		// Temporal
 		ClassChangeService.showClassChangeDialog(player);
 
-		QuestEngine.getInstance().onLvlUp(new QuestEnv(null, player, 0, 0));
+		sp.getQuestEngine().onLvlUp(new QuestEnv(null, player, 0, 0));
 
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 

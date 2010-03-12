@@ -52,6 +52,8 @@ public class QuestService
 	ItemService itemService;
 	@Inject
 	SpawnEngine spawnEngine;
+	@Inject
+	QuestEngine questEngine;
 
 	public boolean questFinish(QuestEnv env)
 	{
@@ -136,7 +138,7 @@ public class QuestService
 			qs.setCompliteCount(qs.getCompliteCount() + 1);
 			PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus(), qs.getQuestVars().getQuestVars()));
 			player.getController().updateNearbyQuests();
-			QuestEngine.getInstance().onLvlUp(env);
+			questEngine.onLvlUp(env);
 			return true;
 		}
 		return true;

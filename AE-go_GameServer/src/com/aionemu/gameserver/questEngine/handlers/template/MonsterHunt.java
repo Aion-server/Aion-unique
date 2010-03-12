@@ -20,7 +20,6 @@ import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
@@ -45,10 +44,15 @@ public class MonsterHunt extends QuestHandler
 		this.questId = questId;
 		this.startNpc = startNpc;
 		this.monsterInfo = monsterInfo;
-		QuestEngine.getInstance().setNpcQuestData(startNpc).addOnQuestStart(questId);
-		QuestEngine.getInstance().setNpcQuestData(startNpc).addOnTalkEvent(questId);
+	}
+
+	@Override
+	public void register()
+	{
+		qe.setNpcQuestData(startNpc).addOnQuestStart(questId);
+		qe.setNpcQuestData(startNpc).addOnTalkEvent(questId);
 		for(int monsterId : monsterInfo.keySet())
-			QuestEngine.getInstance().setNpcQuestData(monsterId).addOnKillEvent(questId);
+			qe.setNpcQuestData(monsterId).addOnKillEvent(questId);
 	}
 
 	@Override

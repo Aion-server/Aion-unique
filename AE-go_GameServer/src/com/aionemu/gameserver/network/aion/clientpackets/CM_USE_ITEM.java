@@ -25,6 +25,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
+import com.google.inject.Inject;
 
 /**
  * @author Avol
@@ -34,6 +35,8 @@ public class CM_USE_ITEM extends AionClientPacket {
 	public int uniqueItemId;
 	public int type, targetItemId;
 
+	@Inject
+	QuestEngine questEngine;
 
 	private static final Logger log = Logger.getLogger(CM_USE_ITEM.class);
 
@@ -68,7 +71,7 @@ public class CM_USE_ITEM extends AionClientPacket {
 			return;
 		}
 
-		if (QuestEngine.getInstance().onItemUseEvent(new QuestEnv(null, player, 0, 0), item))
+		if (questEngine.onItemUseEvent(new QuestEnv(null, player, 0, 0), item))
 			return;
 
 		//check use item multicast delay exploit cast (spam)
