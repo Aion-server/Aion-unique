@@ -109,14 +109,12 @@ abstract class DataLoader
 		try
 		{
 			it = FileUtils.lineIterator(file);
-			while(it.hasNext())
+			for(String line = it.nextLine(); it.hasNext();)
 			{
-				String line = it.nextLine();
 				if(line.isEmpty() || line.startsWith("#"))
 				{
 					continue;
 				}
-
 				parse(line);
 			}
 		}
