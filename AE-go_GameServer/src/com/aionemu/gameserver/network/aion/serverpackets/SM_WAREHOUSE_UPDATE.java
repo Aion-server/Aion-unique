@@ -49,11 +49,11 @@ public class SM_WAREHOUSE_UPDATE extends InventoryPacket
 		}
 		else if (itemTemplate.isArmor())
 		{
-			writeArmorInfo(buf,item, false, false);
+			writeArmorInfo(buf,item, false, false, false);
 		}
 		else
 		{
-			writeGeneralItemInfo(buf, item, item.isQuest(), false);
+			writeGeneralItemInfo(buf, item, item.isQuest(), false, false);
 		}
 
 	}

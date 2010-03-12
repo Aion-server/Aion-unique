@@ -47,13 +47,25 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeD(buf, itemTemplate.getNameId());
 		writeH(buf, 0);
 	}
+	
+	protected void writeMailGeneralInfo(ByteBuffer buf, Item item)
+	{
+		writeD(buf, item.getObjectId());
+		ItemTemplate itemTemplate = item.getItemTemplate();
+		writeD(buf, itemTemplate.getTemplateId());
+		writeD(buf, 1);
+		writeD(buf, 0);
+		writeH(buf, 0x24);
+		writeD(buf, itemTemplate.getNameId());
+		writeH(buf, 0);
+	}
 
 	/**
 	 *  All misc items
 	 * @param buf
 	 * @param item
 	 */
-	protected void writeGeneralItemInfo(ByteBuffer buf, Item item, boolean isQuest, boolean privateStore)
+	protected void writeGeneralItemInfo(ByteBuffer buf, Item item, boolean isQuest, boolean privateStore, boolean mail)
 	{
 		writeH(buf, 0x16); //length of details
 		writeC(buf, 0);
@@ -75,7 +87,8 @@ public abstract class InventoryPacket extends AionServerPacket
 		if(!privateStore)
 			writeH(buf, 0);
 		writeC(buf, 0);
-		writeH(buf, item.getEquipmentSlot()); // not equipable items		
+		if(!mail)
+			writeH(buf, item.getEquipmentSlot()); // not equipable items		
 	}
 
 	/**
@@ -109,7 +122,7 @@ public abstract class InventoryPacket extends AionServerPacket
 	 */
 	protected void writeWeaponInfo(ByteBuffer buf, Item item, boolean isInventory)
 	{
-		this.writeWeaponInfo(buf, item, isInventory, false, false);
+		this.writeWeaponInfo(buf, item, isInventory, false, false, false);
 	}
 	
 	/**
@@ -118,7 +131,7 @@ public abstract class InventoryPacket extends AionServerPacket
 	 * @param buf
 	 * @param item
 	 */
-	protected void writeWeaponInfo(ByteBuffer buf, Item item, boolean isInventory, boolean isWeaponSwitch, boolean privateStore)
+	protected void writeWeaponInfo(ByteBuffer buf, Item item, boolean isInventory, boolean isWeaponSwitch, boolean privateStore, boolean mail)
 	{
 		int itemSlotId = item.getEquipmentSlot();
 		
@@ -160,7 +173,8 @@ public abstract class InventoryPacket extends AionServerPacket
 			if(!privateStore)
 				writeH(buf, 0);
 			writeC(buf, 0);
-			writeH(buf, item.isEquipped() ? 255 : item.getEquipmentSlot()); // FF FF equipment
+			if(!mail)
+				writeH(buf, item.isEquipped() ? 255 : item.getEquipmentSlot()); // FF FF equipment
 			if(isInventory)
 				writeC(buf,  0);//item.isEquipped() ? 1 : 0
 		}
@@ -220,7 +234,7 @@ public abstract class InventoryPacket extends AionServerPacket
 	 * @param buf
 	 * @param item
 	 */
-	protected void writeArmorInfo(ByteBuffer buf, Item item, boolean isInventory, boolean privateStore)
+	protected void writeArmorInfo(ByteBuffer buf, Item item, boolean isInventory, boolean privateStore, boolean mail)
 	{
 		int itemSlotId = item.getEquipmentSlot();
 		writeH(buf, 0x4F);
@@ -254,7 +268,8 @@ public abstract class InventoryPacket extends AionServerPacket
 		if(!privateStore)
 			writeH(buf, 0);
 		writeC(buf, 0);
-		writeH(buf, item.isEquipped() ? 255 : item.getEquipmentSlot()); // FF FF equipment
+		if(!mail)
+			writeH(buf, item.isEquipped() ? 255 : item.getEquipmentSlot()); // FF FF equipment
 		if(isInventory)
 			writeC(buf,  1);//item.isEquipped() ? 1 : 0
 	}

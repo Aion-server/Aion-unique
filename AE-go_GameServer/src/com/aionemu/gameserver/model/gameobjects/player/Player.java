@@ -65,6 +65,7 @@ public class Player extends Creature
 	private Storage				regularWarehouse;
 	private Storage				accountWarehouse;
 	private Equipment			equipment;
+	private Mailbox             mailbox;
 	private PrivateStore		store;
 	private PlayerStatsTemplate	playerStatsTemplate;
 	private TitleList			titleList;
@@ -826,6 +827,16 @@ public class Player extends Creature
 	public void setInvul(boolean invul)
 	{
 		this.invul = invul;
+	}
+	
+	public void setMailbox(Mailbox mailbox)
+	{
+		this.mailbox = mailbox;
+	}
+	
+	public Mailbox getMailbox()
+	{
+		return mailbox;
 	}
 
 }

@@ -19,6 +19,7 @@ package com.aionemu.gameserver.utils.guice;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.LegionDAO;
+import com.aionemu.gameserver.dao.MailDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
@@ -53,6 +54,7 @@ public class IDFactoriesInjectionModule extends AbstractModule
 		idFactory.lockIds(DAOManager.getDAO(PlayerDAO.class).getUsedIDs());
 		idFactory.lockIds(DAOManager.getDAO(InventoryDAO.class).getUsedIDs());
 		idFactory.lockIds(DAOManager.getDAO(LegionDAO.class).getUsedIDs());
+		idFactory.lockIds(DAOManager.getDAO(MailDAO.class).getUsedIDs());
 
 		return idFactory;
 	}

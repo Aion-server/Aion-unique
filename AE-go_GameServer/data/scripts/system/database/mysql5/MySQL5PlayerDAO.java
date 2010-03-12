@@ -90,7 +90,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 	@Override
 	public void storePlayer(final Player player)
 	{
-		DB.insertUpdate("UPDATE players SET name=?, exp=?, recoverexp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, cube_size=?, warehouse_size=?, note=?, bind_point=?, title_id=? WHERE id=?", new IUStH(){
+		DB.insertUpdate("UPDATE players SET name=?, exp=?, recoverexp=?, x=?, y=?, z=?, heading=?, world_id=?, player_class=?, last_online=?, cube_size=?, warehouse_size=?, note=?, bind_point=?, title_id=?, mailboxLetters=? WHERE id=?", new IUStH(){
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException
 			{
@@ -111,7 +111,8 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				stmt.setString(13,player.getCommonData().getNote());
 				stmt.setInt(14, player.getCommonData().getBindPoint());
 				stmt.setInt(15, player.getCommonData().getTitleId());
-				stmt.setInt(16, player.getObjectId());
+				stmt.setInt(16, player.getMailbox().getLettersCount());
+				stmt.setInt(17, player.getObjectId());
 				stmt.execute();
 			}
 		});
@@ -157,6 +158,35 @@ public class MySQL5PlayerDAO extends PlayerDAO
 
 	private Object	pcdLock	= new Object();
 
+	
+	@Override
+	public PlayerCommonData loadPlayerCommonDataByName(final String name, final World world)
+	{
+		final List<Integer> playerObjId = new ArrayList<Integer>();
+		
+		DB.select("SELECT id FROM players WHERE name = ?", new ParamReadStH(){
+			
+		@Override
+		public void setParams(PreparedStatement stmt) throws SQLException
+		{
+			stmt.setString(1, name);
+		}
+		
+		@Override
+		public void handleRead(ResultSet resultSet) throws SQLException
+		{
+			resultSet.next();
+			
+			playerObjId.add(resultSet.getInt("id"));
+		}
+		});
+		
+		if(playerObjId.size() == 0)
+			return null;
+		else
+			return loadPlayerCommonData(playerObjId.get(0), world, null);
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -199,6 +229,8 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				cd.setBindPoint(resultSet.getInt("bind_point"));
 				cd.setTitleId(resultSet.getInt("title_id"));
 				cd.setWarehouseSize(resultSet.getInt("warehouse_size"));
+				cd.setOnline(resultSet.getBoolean("online"));
+				cd.setMailboxLetters(resultSet.getInt("mailboxLetters"));
 
 				float x = resultSet.getFloat("x");
 				float y = resultSet.getFloat("y");
@@ -206,7 +238,7 @@ public class MySQL5PlayerDAO extends PlayerDAO
 				byte heading = resultSet.getByte("heading");
 				int worldId = resultSet.getInt("world_id");
 
-				if(z < -1000)
+				if(z < -1000 && playerInitialData != null)
 				{
 					//unstuck unlucky characters :)
 					LocationData ld = playerInitialData.getSpawnLocation(cd.getRace());

@@ -112,6 +112,12 @@ public abstract class PlayerDAO implements IDFactoryAwareDAO
 	public abstract void setPlayersOffline(final boolean online);
 	
 	/**
+	 * get commondata by name for MailService
+	 * @param name
+	 * @return
+	 */
+	public abstract PlayerCommonData loadPlayerCommonDataByName(String name, final World world);
+	/**
 	 * Identifier name for all PlayerDAO classes
 	 * 
 	 * @return PlayerDAO.class.getName()

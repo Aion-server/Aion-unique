@@ -50,6 +50,7 @@ import com.aionemu.gameserver.services.ExchangeService;
 import com.aionemu.gameserver.services.GroupService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.LegionService;
+import com.aionemu.gameserver.services.MailService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.PeriodicSaveService;
 import com.aionemu.gameserver.services.PrivateStoreService;
@@ -124,6 +125,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(DuelService.class).in(Scopes.SINGLETON);
 		bind(ServiceProxy.class).in(Scopes.SINGLETON);
 		bind(QuestService.class).in(Scopes.SINGLETON);
+		bind(MailService.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides

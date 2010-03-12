@@ -29,6 +29,7 @@ import com.aionemu.gameserver.dao.BlockListDAO;
 import com.aionemu.gameserver.dao.FriendListDAO;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.ItemStoneListDAO;
+import com.aionemu.gameserver.dao.MailDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
@@ -48,6 +49,7 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.MacroList;
+import com.aionemu.gameserver.model.gameobjects.player.Mailbox;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
@@ -172,6 +174,7 @@ public class PlayerService
 		DAOManager.getDAO(PlayerPunishmentsDAO.class).storePlayerPunishments(player);
 		DAOManager.getDAO(InventoryDAO.class).store(player);
 		DAOManager.getDAO(ItemStoneListDAO.class).save(player);
+		DAOManager.getDAO(MailDAO.class).storeMailbox(player);
 	}
 
 	/**
@@ -232,6 +235,7 @@ public class PlayerService
 		player.getEquipment().onLoadApplyEquipmentStats();
 
 		itemService.loadItemStones(player);
+		player.setMailbox(DAOManager.getDAO(MailDAO.class).loadPlayerMailbox(player));
 
 		// if kinah was deleted by some reason it should be restored with 0 count
 		if(player.getStorage(StorageType.CUBE.getId()).getKinahItem() == null)
@@ -290,10 +294,12 @@ public class PlayerService
 		Storage regularWarehouse = new Storage(newPlayer, StorageType.REGULAR_WAREHOUSE);
 		Storage accountWarehouse = new Storage(newPlayer, StorageType.ACCOUNT_WAREHOUSE);
 		Equipment equipment = new Equipment(newPlayer);
+		Mailbox mailbox = new Mailbox(newPlayer);
 		newPlayer.setStorage(playerInventory, StorageType.CUBE);
 		newPlayer.setStorage(regularWarehouse, StorageType.REGULAR_WAREHOUSE);
 		newPlayer.setStorage(accountWarehouse, StorageType.ACCOUNT_WAREHOUSE);
 		newPlayer.setEquipment(equipment);
+		newPlayer.setMailbox(mailbox);
 
 		for(ItemType itemType : items)
 		{

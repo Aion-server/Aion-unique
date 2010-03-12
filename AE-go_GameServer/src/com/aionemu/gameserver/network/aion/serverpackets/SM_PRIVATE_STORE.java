@@ -64,15 +64,15 @@ public class SM_PRIVATE_STORE extends InventoryPacket
 
 				if (itemTemplate.isWeapon())
 				{
-					writeWeaponInfo(buf, item, false, false, true);
+					writeWeaponInfo(buf, item, false, false, true, false);
 				}
 				else if (itemTemplate.isArmor())
 				{
-					writeArmorInfo(buf, item, false, true);
+					writeArmorInfo(buf, item, false, true, false);
 				}
 				else
 				{
-					writeGeneralItemInfo(buf, item, false, true);
+					writeGeneralItemInfo(buf, item, false, true, false);
 				}
 			}
 		}

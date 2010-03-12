@@ -36,6 +36,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INFLUENCE_RATIO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_MAIL_SERVICE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_ID;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
@@ -244,9 +245,13 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			player.setRates(Rates.getRatesFor(client.getAccount().getMembership()));
 
 			ClassChangeService.showClassChangeDialog(player);
-
+			
 			// TODO need some task
 			sendPacket(new SM_RIFT_ANNOUNCE(player));
+	
+			sendPacket(new SM_MAIL_SERVICE(player, player.getMailbox().getLettersOnly()));
+			if(player.getMailbox().haveUnread())
+				sendPacket(new SM_MAIL_SERVICE(true, true));
 		}
 		else
 		{

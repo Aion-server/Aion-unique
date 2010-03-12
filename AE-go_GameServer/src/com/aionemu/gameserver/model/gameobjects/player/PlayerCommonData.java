@@ -65,6 +65,7 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	private int			    bindPoint;
 	private int             titleId = -1;
 	private int				dp = 0;
+	private int 			mailboxLetters;
 
 	public PlayerCommonData(int objId)
 	{
@@ -422,5 +423,15 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	public int getWarehouseSize()
 	{
 		return warehouseSize;
+	}
+	
+	public void setMailboxLetters(int count)
+	{
+		this.mailboxLetters = count;
+	}
+	
+	public int getMailboxLetters()
+	{
+		return mailboxLetters;
 	}
 }

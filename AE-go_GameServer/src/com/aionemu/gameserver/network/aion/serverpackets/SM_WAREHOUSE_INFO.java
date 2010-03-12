@@ -74,10 +74,10 @@ public class SM_WAREHOUSE_INFO extends InventoryPacket
 				writeWeaponInfo(buf, item, false);
 
 			else if (itemTemplate.isArmor())
-				writeArmorInfo(buf, item, false, false);
+				writeArmorInfo(buf, item, false, false, false);
 
 			else
-				writeGeneralItemInfo(buf, item, false, false);
+				writeGeneralItemInfo(buf, item, false, false, false);
 		}
 	}
 

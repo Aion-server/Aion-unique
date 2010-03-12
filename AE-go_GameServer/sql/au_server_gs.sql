@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `last_online` timestamp NOT NULL default '0000-00-00 00:00:00' on update CURRENT_TIMESTAMP,
   `cube_size` tinyint(1) NOT NULL default '0',
   `warehouse_size` tinyint(1) NOT NULL default '0',
+  `mailboxLetters` tinyint(4) NOT NULL default '0',
   `bind_point` INT NOT NULL default '0',
   `title_id` int(3) NOT NULL default '-1',
   `online` tinyint(1) NOT NULL default '0',
@@ -313,3 +314,16 @@ CREATE TABLE IF NOT EXISTS `player_punishments` (
 PRIMARY KEY (`player_id`),
 FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
+-- mail_table
+-- ----------------------------
+CREATE TABLE IF NOT EXISTS  `mail` (
+`mailUniqueId` int(11) NOT NULL, `mailRecipientId` int(11) NOT NULL,
+`senderName` varchar(16) character set utf8 NOT NULL,`mailTitle` varchar(20) character set utf8 NOT NULL,
+`mailMessage` varchar(500) character set utf8 NOT NULL, `unread` tinyint(4) NOT NULL default '1',
+`attachedItemId` int(11) NOT NULL, `attachedKinahCount` int(11) NOT NULL,
+`express` tinyint(4) NOT NULL default '0', 
+`recievedTime` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+PRIMARY KEY  (`mailUniqueId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -173,7 +173,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_STATUPDATE_MP.class, 0xFC, idSet);
 		addPacketOpcode(SM_ATTACK_STATUS.class, 0xFD, idSet);
 		addPacketOpcode(SM_RECONNECT_KEY.class, 0xFF, idSet);
-
+		addPacketOpcode(SM_MAIL_SERVICE.class, 0xA1, idSet);
 		addPacketOpcode(SM_CUSTOM_PACKET.class, 99999, idSet); // fake packet
 
 		// Unrecognized Opcodes from 1.5.4:

@@ -54,6 +54,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_ADD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_DEL;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_STATUS;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_GATHER;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_GET_MAIL_ATTACHMENT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_GODSTONE_SOCKET;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_GROUP_DISTRIBUTION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_GROUP_RESPONSE;
@@ -109,6 +110,9 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_USE_ITEM;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERIFY_LOCATION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VIEW_PLAYER_DETAILS;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_SEND_MAIL;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_READ_MAIL;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_DELETE_MAIL;
 import com.google.inject.Injector;
 
 /**
@@ -222,6 +226,10 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_PRIVATE_STORE(0x6D), State.IN_GAME);
 		addPacket(new CM_PRIVATE_STORE_NAME(0x6E), State.IN_GAME);
 		addPacket(new CM_SKILL_DEACTIVATE(0x88), State.IN_GAME);
+		addPacket(new CM_SEND_MAIL(0x6A), State.IN_GAME);
+		addPacket(new CM_READ_MAIL(0x7C), State.IN_GAME);
+		addPacket(new CM_GET_MAIL_ATTACHMENT(0x7E), State.IN_GAME);
+		addPacket(new CM_DELETE_MAIL(0x7F),State.IN_GAME);
 		addPacket(new CM_MANASTONE_REMOVE(0x4F), State.IN_GAME);
 	}
 
