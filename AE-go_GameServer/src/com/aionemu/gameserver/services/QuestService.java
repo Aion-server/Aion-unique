@@ -21,16 +21,24 @@ import java.util.List;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
+import com.aionemu.gameserver.model.templates.quest.CollectItem;
+import com.aionemu.gameserver.model.templates.quest.CollectItems;
 import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.model.templates.quest.Rewards;
+import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
 
@@ -42,7 +50,9 @@ public class QuestService
 {
 	@Inject
 	ItemService itemService;
-	
+	@Inject
+	SpawnEngine spawnEngine;
+
 	public boolean questFinish(QuestEnv env)
 	{
 		return questFinish(env, 0);
@@ -125,10 +135,139 @@ public class QuestService
 			qs.setStatus(QuestStatus.COMPLITE);
 			qs.setCompliteCount(qs.getCompliteCount() + 1);
 			PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus(), qs.getQuestVars().getQuestVars()));
-			player.updateNearbyQuests();
+			player.getController().updateNearbyQuests();
 			QuestEngine.getInstance().onLvlUp(env);
 			return true;
 		}
 		return true;
+	}
+	
+	public boolean checkStartCondition(QuestEnv env)
+	{
+		
+		Player player = env.getPlayer();
+		QuestTemplate	template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
+		if(template.getRacePermitted() != null)
+		{
+			if(template.getRacePermitted() != player.getCommonData().getRace())
+				return false;
+		}
+
+		if(player.getLevel() < template.getMinlevelPermitted())
+		{
+			return false;
+		}
+
+		if(template.getClassPermitted().size() != 0)
+		{
+			if(!template.getClassPermitted().contains(player.getCommonData().getPlayerClass()))
+				return false;
+		}
+
+		if(template.getGenderPermitted() != null)
+		{
+			if(template.getGenderPermitted() != player.getGender())
+				return false;
+		}
+
+		for(int questId : template.getFinishedQuestConds())
+		{
+			QuestState qs = player.getQuestStateList().getQuestState(questId);
+			if(qs == null || qs.getStatus() != QuestStatus.COMPLITE)
+				return false;
+		}
+		
+		if (template.getCombineSkill() != null)
+		{
+			SkillListEntry skill = player.getSkillList().getSkillEntry(template.getCombineSkill());
+			if (skill == null)
+				return false;
+			if (skill.getSkillLevel() < template.getCombineSkillPoint() || skill.getSkillLevel()-40 > template.getCombineSkillPoint())
+				return false;
+			return true;
+		}
+
+		QuestState qs = player.getQuestStateList().getQuestState(template.getId());
+		if(qs != null && qs.getStatus().value() > 0)
+			return false;
+
+		return true;
+	}
+
+	public boolean startQuest(QuestEnv env, QuestStatus questStatus)
+	{
+		Player player = env.getPlayer();
+		int id = env.getQuestId();
+		QuestTemplate	template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
+		if(questStatus != QuestStatus.LOCKED)
+		{
+			if(!checkStartCondition(env))
+				return false;
+
+			if(player.getLevel() < template.getMinlevelPermitted())
+			{
+				PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(0x13D866, template.getMinlevelPermitted()));
+				return false;
+			}
+		}
+		PacketSendUtility.sendPacket(player, new SM_QUEST_ACCEPTED(id, questStatus.value(), 0));
+		QuestState qs = player.getQuestStateList().getQuestState(id);
+		if(qs == null)
+		{
+			qs = new QuestState(template.getId(), questStatus, 0, 0);
+			player.getQuestStateList().addQuest(id, qs);
+		}
+		else
+		{
+			if(template.getMaxRepeatCount() >= qs.getCompliteCount())
+			{
+				qs.setStatus(questStatus);
+				qs.getQuestVars().setQuestVar(0);
+			}
+		}
+
+		player.getController().updateNearbyQuests();
+		return true;
+	}
+
+	public boolean questComplite(QuestEnv env)
+	{
+		Player player = env.getPlayer();
+		int id = env.getQuestId();
+		QuestState qs = player.getQuestStateList().getQuestState(id);
+		if(qs == null || qs.getStatus() != QuestStatus.START)
+			return false;
+
+		qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
+		qs.setStatus(QuestStatus.REWARD);
+		PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus(), qs.getQuestVars().getQuestVars()));
+		player.getController().updateNearbyQuests();
+		return true;
+	}
+
+	public boolean collectItemCheck(QuestEnv env)
+	{
+		Player player = env.getPlayer();
+		int id = env.getQuestId();
+		QuestState qs = player.getQuestStateList().getQuestState(id);
+		if(qs == null)
+			return false;
+		QuestTemplate	template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
+		CollectItems collectItems = template.getCollectItems();
+		if(collectItems == null)
+			return true;
+		for(CollectItem collectItem : collectItems.getCollectItem())
+		{
+			int count = player.getInventory().getItemCountByItemId(collectItem.getItemId());
+			if(collectItem.getCount() > count)
+				return false;
+		}
+		return true;
+	}
+
+	public VisibleObject addNewSpawn(int worldId, int instanceId, int templateId, float x, float y, float z, byte heading, boolean noRespawn)
+	{
+		SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, instanceId, templateId, x, y, z, heading, 0, 0, noRespawn);
+		return spawnEngine.spawnObject(spawn, instanceId);
 	}
 }

@@ -82,39 +82,11 @@ public class _1500OrdersFromPerento extends QuestHandler
 		{
 			if(env.getDialogId() == 17)
 			{
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1051, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1052, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1054, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1053, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1055, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1056, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1059, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1057, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1058, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1062, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1063, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
+				int[] ids = {1051, 1052, 1053, 1054, 1055, 1056, 1057, 1058, 1059, 1062, 1063};
+				for (int id : ids)
+				{
+					questService.startQuest(new QuestEnv(env.getVisibleObject(), env.getPlayer(), id, env.getDialogId()), QuestStatus.LOCKED);
+				}
 			}
 			return defaultQuestEndDialog(env);
 		}
@@ -131,7 +103,7 @@ public class _1500OrdersFromPerento extends QuestHandler
 		if(qs != null)
 			return false;
 		env.setQuestId(questId);
-		QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+		questService.startQuest(env, QuestStatus.START);
 		return true;
 	}
 }

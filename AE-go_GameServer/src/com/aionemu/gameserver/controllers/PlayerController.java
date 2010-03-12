@@ -118,8 +118,7 @@ public class PlayerController extends CreatureController<Player>
 			PacketSendUtility.sendPacket(getOwner(), new SM_NPC_INFO(npc, getOwner()));
 			for(int questId : QuestEngine.getInstance().getNpcQuestData(npc.getNpcId()).getOnQuestStart())
 			{
-				if(QuestEngine.getInstance().getQuest(new QuestEnv(object, getOwner(), questId, 0))
-					.checkStartCondition())
+				if(sp.getQuestService().checkStartCondition(new QuestEnv(object, getOwner(), questId, 0)))
 				{
 					if(!getOwner().getNearbyQuests().contains(questId))
 					{
@@ -149,8 +148,7 @@ public class PlayerController extends CreatureController<Player>
 			boolean update = false;
 			for(int questId : QuestEngine.getInstance().getNpcQuestData(((Npc) object).getNpcId()).getOnQuestStart())
 			{
-				QuestEnv env = new QuestEnv(object, getOwner(), questId, 0);
-				if(QuestEngine.getInstance().getQuest(env).checkStartCondition())
+				if(sp.getQuestService().checkStartCondition(new QuestEnv(object, getOwner(), questId, 0)))
 				{
 					if(getOwner().getNearbyQuests().contains(questId))
 					{
@@ -164,6 +162,28 @@ public class PlayerController extends CreatureController<Player>
 		}
 
 		PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object));
+	}
+
+	public void updateNearbyQuests()
+	{
+		getOwner().getNearbyQuests().clear();
+		for(VisibleObject obj : getOwner().getKnownList())
+		{
+			if(obj instanceof Npc)
+			{
+				for(int questId : QuestEngine.getInstance().getNpcQuestData(((Npc) obj).getNpcId()).getOnQuestStart())
+				{
+					if(sp.getQuestService().checkStartCondition(new QuestEnv(obj, getOwner(), questId, 0)))
+					{
+						if(!getOwner().getNearbyQuests().contains(questId))
+						{
+							getOwner().getNearbyQuests().add(questId);
+						}
+					}
+				}
+			}
+		}
+		updateNearbyQuestList();
 	}
 
 	/**

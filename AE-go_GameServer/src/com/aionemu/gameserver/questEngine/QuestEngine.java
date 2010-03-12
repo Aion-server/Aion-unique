@@ -21,22 +21,16 @@ import java.util.List;
 
 import javolution.util.FastMap;
 
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
-import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
-import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.world.zone.ZoneName;
 
 /**
@@ -45,8 +39,6 @@ import com.aionemu.gameserver.world.zone.ZoneName;
  */
 public class QuestEngine
 {
-	private static final Logger					log	= Logger.getLogger(QuestEngine.class);
-
 	private static QuestEngine					instance;
 	private FastMap<Integer, NpcQuestData>		_npcQuestData;
 	private FastMap<Integer, List<Integer>>		_questItemIds;
@@ -55,7 +47,6 @@ public class QuestEngine
 	private FastMap<Integer, List<Integer>>		_questMovieEndIds;
 	private List<Integer>						_questOnDie;
 	private List<Integer>						_questOnEnterWorld;
-	private SpawnEngine							spawnEngine;
 
 	private QuestEngine()
 	{
@@ -185,23 +176,6 @@ public class QuestEngine
 		return false;
 	}
 
-	public Quest getQuest(QuestEnv env)
-	{
-		QuestTemplate template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
-		if(template == null)
-		{
-			log.warn("Missing QUEST_DATA questId: " + env.getQuestId());
-			return null;
-		}
-		Quest quest = new Quest(template, env);
-		if(quest == null)
-		{
-			log.warn("Error init quest questId: " + env.getQuestId());
-			return null;
-		}
-		return quest;
-	}
-
 	public boolean deleteQuest(Player player, int questId)
 	{
 		if(DataManager.QUEST_DATA.getQuestById(questId).isCannotGiveup())
@@ -303,17 +277,6 @@ public class QuestEngine
 			_questMovieEndIds.put(moveId, new ArrayList<Integer>());
 		}
 		return _questMovieEndIds.get(moveId);
-	}
-
-	public void setItemService(SpawnEngine spawnEngine)
-	{
-		this.spawnEngine = spawnEngine;
-	}
-
-	public VisibleObject addNewSpawn(int worldId, int instanceId, int templateId, float x, float y, float z, byte heading, boolean noRespawn)
-	{
-		SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, instanceId, templateId, x, y, z, heading, 0, 0, noRespawn);
-		return spawnEngine.spawnObject(spawn, instanceId);
 	}
 
 	public void clear()

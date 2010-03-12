@@ -24,7 +24,6 @@ import com.aionemu.gameserver.model.templates.quest.CollectItem;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
@@ -41,7 +40,7 @@ public class QuestHandler
 {
 	
 	@Inject
-	QuestService questService;
+	protected QuestService questService;
 	private final Integer questId;
 
 	/**
@@ -56,7 +55,7 @@ public class QuestHandler
 	{
 		PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(questId, qs.getStatus(), qs.getQuestVars().getQuestVars()));
 		if (qs.getStatus() == QuestStatus.COMPLITE)
-			player.updateNearbyQuests();
+			player.getController().updateNearbyQuests();
 	}
 	
 	public boolean sendQuestDialog(Player player, int objId, int dialogId)
@@ -68,7 +67,7 @@ public class QuestHandler
 	public boolean collectItemCheck (QuestEnv env)
 	{
 		Player player = env.getPlayer();
-		if(QuestEngine.getInstance().getQuest(env).collectItemCheck())
+		if(questService.collectItemCheck(env))
 		{
 			QuestTemplate template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
 			CollectItems collectItems = template.getCollectItems();
@@ -96,7 +95,7 @@ public class QuestHandler
 			case 1007:
 				return sendQuestDialog(player, targetObjId, 4);
 			case 1002:
-				if (QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START))
+				if (questService.startQuest(env, QuestStatus.START))
 					return sendQuestDialog(player, targetObjId, 1003);
 				else 
 					return false;

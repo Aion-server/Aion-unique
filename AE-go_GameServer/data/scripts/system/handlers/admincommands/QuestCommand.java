@@ -20,13 +20,13 @@ import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
-import com.aionemu.gameserver.questEngine.Quest;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.QuestService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
+import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -34,6 +34,8 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  */
 public class QuestCommand extends AdminCommand
 {
+	@Inject
+	QuestService questService;
 	public QuestCommand()
 	{
 		super("quest");
@@ -84,16 +86,9 @@ public class QuestCommand extends AdminCommand
 				return;
 			}
 
-			Quest quest;
 			QuestEnv env = new QuestEnv(null, target, id, 0);
-			quest = QuestEngine.getInstance().getQuest(env);
-			if (quest == null)
-			{
-				PacketSendUtility.sendMessage(admin, "Incorrect quest Id.");
-				return;
-			}
 
-				if (quest.startQuest(QuestStatus.START))
+				if (questService.startQuest(env, QuestStatus.START))
 				{
 					PacketSendUtility.sendMessage(admin, "Quest started.");
 				}

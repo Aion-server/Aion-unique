@@ -82,45 +82,11 @@ public class _1300OrdersfromTelemachus extends QuestHandler
 		{
 			if(env.getDialogId() == 17)
 			{
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1031, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1032, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1033, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1034, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1036, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1037, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1035, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1039, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1038, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1040, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1041, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1042, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1043, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
+				int [] ids = {1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1042, 1043};
+				for (int id : ids)
+				{
+					questService.startQuest(new QuestEnv(env.getVisibleObject(), env.getPlayer(), id, env.getDialogId()), QuestStatus.LOCKED);
+				}
 			}
 			return defaultQuestEndDialog(env);
 		}
@@ -137,7 +103,7 @@ public class _1300OrdersfromTelemachus extends QuestHandler
 		if(qs != null)
 			return false;
 		env.setQuestId(questId);
-		QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+		questService.startQuest(env, QuestStatus.START);
 		return true;
 	}
 }

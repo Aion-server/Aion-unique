@@ -31,7 +31,6 @@ import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.configs.main.TaskManagerConfig;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
-import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandlersManager;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.taskmanager.tasks.GCTaskManager;
@@ -96,8 +95,7 @@ public class GameServer
 		//Set all players is offline
 		DAOManager.getDAO(PlayerDAO.class).setPlayersOffline(false);
 		gs.spawnMonsters();
-		
-		QuestEngine.getInstance().setItemService(gs.injector.getInstance(SpawnEngine.class));
+
 		QuestHandlersManager.init(gs.injector);
 		PacketBroadcaster.getInstance();
 		KnownListUpdateTask.getInstance();

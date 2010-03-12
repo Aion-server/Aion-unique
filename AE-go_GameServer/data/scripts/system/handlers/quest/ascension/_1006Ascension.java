@@ -111,7 +111,7 @@ public class _1006Ascension extends QuestHandler
 			{
 				qs.getQuestVars().setQuestVar(4);
 				updateQuestStatus(player, qs);
-				Npc mob = (Npc) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211043, (float) 226.7, (float) 251.5, (float) 205.5, (byte) 0, true);
+				Npc mob = (Npc) questService.addNewSpawn(310010000, instanceId, 211043, (float) 226.7, (float) 251.5, (float) 205.5, (byte) 0, true);
 				// TODO: Tempt decrease P attack.
 				mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER) / 3);
 				mob.getAggroList().addDamageHate(player, 1000, 0);
@@ -258,10 +258,10 @@ public class _1006Ascension extends QuestHandler
 									qs.getQuestVars().setQuestVar(51);
 									updateQuestStatus(player, qs);
 									List<Npc> mobs = new ArrayList<Npc>();
-									mobs.add((Npc) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 224.073, (float) 239.1, (float) 206.7, (byte) 0, true));
-									mobs.add((Npc) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 233.5, (float) 241.04, (float) 206.365, (byte) 0, true));
-									mobs.add((Npc) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 229.6, (float) 265.7, (float) 205.7, (byte) 0, true));
-									mobs.add((Npc) QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 211042, (float) 222.8, (float) 262.5, (float) 205.7, (byte) 0, true));
+									mobs.add((Npc) questService.addNewSpawn(310010000, instanceId, 211042, (float) 224.073, (float) 239.1, (float) 206.7, (byte) 0, true));
+									mobs.add((Npc) questService.addNewSpawn(310010000, instanceId, 211042, (float) 233.5, (float) 241.04, (float) 206.365, (byte) 0, true));
+									mobs.add((Npc) questService.addNewSpawn(310010000, instanceId, 211042, (float) 229.6, (float) 265.7, (float) 205.7, (byte) 0, true));
+									mobs.add((Npc) questService.addNewSpawn(310010000, instanceId, 211042, (float) 222.8, (float) 262.5, (float) 205.7, (byte) 0, true));
 									for(Npc mob : mobs)
 									{
 										// TODO: Tempt decrease P attack.
@@ -299,7 +299,7 @@ public class _1006Ascension extends QuestHandler
 		if(player.getCommonData().getLevel() < 9)
 			return false;
 		env.setQuestId(questId);
-		QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+		questService.startQuest(env, QuestStatus.START);
 		return true;
 	}
 
@@ -363,7 +363,7 @@ public class _1006Ascension extends QuestHandler
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs == null || qs.getStatus() != QuestStatus.START || qs.getQuestVars().getQuestVars() != 4)
 			return false;
-		QuestEngine.getInstance().addNewSpawn(310010000, instanceId, 790001, (float) 220.6, (float) 247.8, (float) 206.0, (byte) 0, true);
+		questService.addNewSpawn(310010000, instanceId, 790001, (float) 220.6, (float) 247.8, (float) 206.0, (byte) 0, true);
 		qs.getQuestVars().setQuestVar(5);
 		updateQuestStatus(player, qs);
 		return true;

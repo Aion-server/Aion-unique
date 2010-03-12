@@ -70,21 +70,11 @@ public class _1100KaliosCall extends QuestHandler
 		{
 			if(env.getDialogId() == 17)
 			{
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1001, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1002, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1003, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1004, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1005, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
+				int[] ids = {1001, 1002, 1003, 1004, 1005};
+				for (int id : ids)
+				{
+					questService.startQuest(new QuestEnv(env.getVisibleObject(), env.getPlayer(), id, env.getDialogId()), QuestStatus.LOCKED);
+				}
 			}
 			return defaultQuestEndDialog(env);
 		}
@@ -101,7 +91,7 @@ public class _1100KaliosCall extends QuestHandler
 		if(qs != null)
 			return false;
 		env.setQuestId(questId);
-		QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+		questService.startQuest(env, QuestStatus.START);
 		return true;
 	}
 }

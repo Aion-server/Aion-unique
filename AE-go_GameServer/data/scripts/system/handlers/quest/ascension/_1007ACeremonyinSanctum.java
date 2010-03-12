@@ -27,7 +27,6 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
-import com.aionemu.gameserver.services.QuestService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
@@ -40,8 +39,6 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 {
 	@Inject
 	TeleportService teleportService;
-	@Inject
-	QuestService questService;
 	private final static int	questId	= 1007;
 
 	@Inject
@@ -269,7 +266,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 		if(qs2 == null || qs2.getStatus() != QuestStatus.COMPLITE)
 			return false;
 		env.setQuestId(questId);
-		QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+		questService.startQuest(env, QuestStatus.START);
 		return true;
 	}
 }

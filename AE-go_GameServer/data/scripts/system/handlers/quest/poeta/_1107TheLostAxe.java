@@ -57,7 +57,7 @@ public class _1107TheLostAxe extends QuestHandler
 		{
 			if(env.getDialogId() == 1002)
 			{
-				QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+				questService.startQuest(env, QuestStatus.START);
 				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(0, 0));
 				return true;
 			}

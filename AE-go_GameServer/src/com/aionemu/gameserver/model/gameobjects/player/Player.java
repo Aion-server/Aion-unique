@@ -26,9 +26,7 @@ import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
-import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
@@ -39,8 +37,6 @@ import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionMember;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.questEngine.QuestEngine;
-import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.utils.rates.Rates;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
@@ -362,29 +358,6 @@ public class Player extends Creature
 	public void setPlayerStatsTemplate(PlayerStatsTemplate playerStatsTemplate)
 	{
 		this.playerStatsTemplate = playerStatsTemplate;
-	}
-
-	public void updateNearbyQuests()
-	{
-		nearbyQuestList.clear();
-		for(VisibleObject obj : getKnownList())
-		{
-			if(obj instanceof Npc)
-			{
-				for(int questId : QuestEngine.getInstance().getNpcQuestData(((Npc) obj).getNpcId()).getOnQuestStart())
-				{
-					QuestEnv env = new QuestEnv(obj, this, questId, 0);
-					if(QuestEngine.getInstance().getQuest(env).checkStartCondition())
-					{
-						if(!nearbyQuestList.contains(questId))
-						{
-							nearbyQuestList.add(questId);
-						}
-					}
-				}
-			}
-		}
-		getController().updateNearbyQuestList();
 	}
 
 	public List<Integer> getNearbyQuests()

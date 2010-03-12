@@ -70,45 +70,11 @@ public class _1130SummonstotheCitadel extends QuestHandler
 		{
 			if(env.getDialogId() == 17)
 			{
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1011, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1012, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1013, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1014, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1015, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1021, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1016, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1017, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1018, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1019, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1022, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1023, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1020, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
+				int [] ids = {1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023};
+				for (int id : ids)
+				{
+					questService.startQuest(new QuestEnv(env.getVisibleObject(), env.getPlayer(), id, env.getDialogId()), QuestStatus.LOCKED);
+				}
 			}
 			return defaultQuestEndDialog(env);
 		}
@@ -125,7 +91,7 @@ public class _1130SummonstotheCitadel extends QuestHandler
 		if(qs != null)
 			return false;
 		env.setQuestId(questId);
-		QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+		questService.startQuest(env, QuestStatus.START);
 		return true;
 	}
 }

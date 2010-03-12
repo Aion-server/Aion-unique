@@ -24,9 +24,7 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
-import com.aionemu.gameserver.services.QuestService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -34,8 +32,6 @@ import com.google.inject.Inject;
  */
 public class _2000Prologue extends QuestHandler
 {
-	@Inject
-	QuestService questService;
 	private final static int	questId	= 2000;
 
 	public _2000Prologue()
@@ -55,7 +51,7 @@ public class _2000Prologue extends QuestHandler
 		if(qs == null)
 		{
 			env.setQuestId(questId);
-			QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+			questService.startQuest(env, QuestStatus.START);
 		}
 		qs = player.getQuestStateList().getQuestState(questId);
 		if(qs.getStatus() == QuestStatus.START)

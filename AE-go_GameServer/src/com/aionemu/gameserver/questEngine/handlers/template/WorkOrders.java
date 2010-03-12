@@ -67,7 +67,7 @@ public class WorkOrders extends QuestHandler
 				case 25:
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 4);
 				case 1002:
-					if (QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START))
+					if (questService.startQuest(env, QuestStatus.START))
 					{
 						if (itemService.addItems(player, workOrdersData.getGiveComponent()))
 						{

@@ -202,7 +202,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			sendPacket(new SM_MACRO_LIST(player));
 
 			sendPacket(new SM_GAME_TIME());
-			player.updateNearbyQuests();
+			player.getController().updateNearbyQuests();
 
 			sendPacket(new SM_TITLE_LIST(player));
 

@@ -27,7 +27,6 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
-import com.aionemu.gameserver.services.QuestService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.WorldMapType;
@@ -41,8 +40,6 @@ public class _2009ACeremonyinPandaemonium extends QuestHandler
 {
 	@Inject
 	TeleportService teleportService;
-	@Inject
-	QuestService questService;
 	private final static int	questId	= 2009;
 
 	public _2009ACeremonyinPandaemonium()
@@ -270,7 +267,7 @@ public class _2009ACeremonyinPandaemonium extends QuestHandler
 		if(qs2 == null || qs2.getStatus() != QuestStatus.COMPLITE)
 			return false;
 		env.setQuestId(questId);
-		QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+		questService.startQuest(env, QuestStatus.START);
 		return true;
 	}
 }

@@ -53,7 +53,7 @@ public class _1205ANewSkill extends QuestHandler
 		if(qs != null)
 			return false;
 		env.setQuestId(questId);
-		if (QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START))
+		if (questService.startQuest(env, QuestStatus.START))
 		{
 			qs = player.getQuestStateList().getQuestState(questId);
 			qs.setStatus(QuestStatus.REWARD);

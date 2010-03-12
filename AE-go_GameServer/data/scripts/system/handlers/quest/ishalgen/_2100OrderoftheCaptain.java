@@ -69,24 +69,9 @@ public class _2100OrderoftheCaptain extends QuestHandler
 		{
 			if(env.getDialogId() == 17)
 			{
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 2001, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 2002, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 2003, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 2004, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 2005, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
-				QuestEngine.getInstance().getQuest(
-					new QuestEnv(env.getVisibleObject(), env.getPlayer(), 2006, env.getDialogId())).startQuest(
-					QuestStatus.LOCKED);
+				int[] ids = {2001, 2002, 2003, 2004, 2005};
+				for (int id : ids)
+					questService.startQuest(new QuestEnv(env.getVisibleObject(), env.getPlayer(), id, env.getDialogId()), QuestStatus.LOCKED);
 			}
 			return defaultQuestEndDialog(env);
 		}
@@ -103,7 +88,7 @@ public class _2100OrderoftheCaptain extends QuestHandler
 		if(qs != null)
 			return false;
 		env.setQuestId(questId);
-		QuestEngine.getInstance().getQuest(env).startQuest(QuestStatus.START);
+		questService.startQuest(env, QuestStatus.START);
 		return true;
 	}
 }
