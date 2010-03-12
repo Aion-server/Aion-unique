@@ -310,7 +310,8 @@ public class Storage
 	public List<Item> getAllItems()
 	{
 		List<Item> allItems = new ArrayList<Item>();
-		allItems.add(kinahItem);
+		if(kinahItem != null)
+			allItems.add(kinahItem);
 		allItems.addAll(storage.getStorageItems());
 		return allItems;
 	}

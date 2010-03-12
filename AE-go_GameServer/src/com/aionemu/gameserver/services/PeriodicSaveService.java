@@ -87,7 +87,7 @@ public class PeriodicSaveService
 				}
 				catch(Exception ex)
 				{
-					log.error("Exception during periodic saving of player " + ex.getMessage());
+					log.error("Exception during periodic saving of player " + ex.getCause().getMessage());
 				}
 
 				playersUpdated++;
@@ -116,7 +116,7 @@ public class PeriodicSaveService
 				}
 				catch(Exception ex)
 				{
-					log.error("Exception during periodic saving of player items " + ex.getMessage());
+					log.error("Exception during periodic saving of player items " + ex.getCause().getMessage());
 				}
 
 				playersUpdated++;
@@ -164,12 +164,11 @@ public class PeriodicSaveService
 						{
 							DAOManager.getDAO(ItemStoneListDAO.class).store(godStone);
 						}
-						
 					}
 				}
 				catch(Exception ex)
 				{
-					log.error("Exception during periodic saving of legion WH " + ex.getMessage());
+					log.error("Exception during periodic saving of legion WH " + ex.getCause().getMessage());
 				}
 
 				legionWhUpdated++;
