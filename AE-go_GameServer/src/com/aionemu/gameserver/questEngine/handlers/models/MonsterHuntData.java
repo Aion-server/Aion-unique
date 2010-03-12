@@ -51,7 +51,7 @@ public class MonsterHuntData extends QuestScriptData
 		for(MonsterInfos mi : monsterInfos)
 			monsterInfo.put(mi.getNpcId(), new MonsterInfo(mi.getVarId(), mi.getMaxKill()));
 		MonsterHunt template = new MonsterHunt(id, startNpcId, monsterInfo);
-		QuestHandlers.addQuestHandler(template);
+		QuestHandlers.getInstance().addQuestHandler(template);
 	}
 
 }

@@ -53,6 +53,7 @@ import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.PeriodicSaveService;
 import com.aionemu.gameserver.services.PrivateStoreService;
 import com.aionemu.gameserver.services.PunishmentService;
+import com.aionemu.gameserver.services.QuestService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.services.ServiceProxy;
 import com.aionemu.gameserver.services.SkillLearnService;
@@ -120,6 +121,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(ZoneService.class).in(Scopes.SINGLETON);		
 		bind(DuelService.class).in(Scopes.SINGLETON);
 		bind(ServiceProxy.class).in(Scopes.SINGLETON);
+		bind(QuestService.class).in(Scopes.SINGLETON);
 	}
 
 	@Provides

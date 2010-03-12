@@ -18,7 +18,6 @@ package com.aionemu.gameserver.dataholders;
 
 import java.util.List;
 
-import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -45,12 +44,8 @@ public class QuestScriptsData
 		@XmlElement(name = "work_order", type = WorkOrdersData.class)})
 	protected List<QuestScriptData>	data;
 
-	void afterUnmarshal(Unmarshaller u, Object parent)
+	public List<QuestScriptData> getData()
 	{
-		for(QuestScriptData qsdata : data)
-			qsdata.register();
-		
-		data.clear();
-		data = null;
+		return data;
 	}
 }

@@ -27,6 +27,7 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.QuestService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
@@ -37,14 +38,16 @@ import com.google.inject.Inject;
  */
 public class _1007ACeremonyinSanctum extends QuestHandler
 {
-	private final TeleportService teleportService;
+	@Inject
+	TeleportService teleportService;
+	@Inject
+	QuestService questService;
 	private final static int	questId	= 1007;
 
 	@Inject
-	public _1007ACeremonyinSanctum(TeleportService teleportService)
+	public _1007ACeremonyinSanctum()
 	{
 		super(questId);
-		this.teleportService = teleportService;
 		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
@@ -169,7 +172,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 					case 15:
 					case 16:
 					case 17:
-						if (QuestEngine.getInstance().getQuest(env).questFinish(0))
+						if (questService.questFinish(env, 0))
 						{
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 							return true;
@@ -194,7 +197,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 					case 15:
 					case 16:
 					case 17:
-						if (QuestEngine.getInstance().getQuest(env).questFinish(1))
+						if (questService.questFinish(env, 1))
 						{
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 							return true;
@@ -219,7 +222,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 					case 15:
 					case 16:
 					case 17:
-						if (QuestEngine.getInstance().getQuest(env).questFinish(2))
+						if (questService.questFinish(env, 2))
 						{
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 							return true;
@@ -244,7 +247,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 					case 15:
 					case 16:
 					case 17:
-						if (QuestEngine.getInstance().getQuest(env).questFinish(3))
+						if (questService.questFinish(env, 3))
 						{
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 							return true;

@@ -43,6 +43,6 @@ public class ReportToData extends QuestScriptData
 	public void register()
 	{
 		ReportTo template = new ReportTo(id, startNpcId, endNpc, itemId);
-		QuestHandlers.addQuestHandler(template);
+		QuestHandlers.getInstance().addQuestHandler(template);
 	}
 }

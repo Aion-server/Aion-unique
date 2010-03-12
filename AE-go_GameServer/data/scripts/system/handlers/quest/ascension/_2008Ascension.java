@@ -17,6 +17,7 @@
 package quest.ascension;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.aionemu.gameserver.ai.events.Event;
@@ -37,6 +38,7 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -52,15 +54,16 @@ import com.google.inject.Inject;
 public class _2008Ascension extends QuestHandler
 {
 	private final static int	questId	= 2008;
-	private final World				world;
-	private final TeleportService	teleportService;
-
 	@Inject
-	public _2008Ascension(World world, TeleportService teleportService)
+	World				world;
+	@Inject
+	TeleportService	teleportService;
+	@Inject
+	ItemService itemService;
+
+	public _2008Ascension()
 	{
 		super(questId);
-		this.world = world;
-		this.teleportService = teleportService;
 		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
@@ -240,7 +243,7 @@ public class _2008Ascension extends QuestHandler
 						if(var == 1)
 						{
 							if(player.getInventory().getItemCountByItemId(182203009) == 0)
-								if (QuestEngine.getInstance().addItem(player, new QuestItems(182203009, 1)))
+								if (itemService.addItems(player, Collections.singletonList(new QuestItems(182203009, 1))))
 									return true;
 								
 							qs.getQuestVars().setQuestVarById(0, var + 1);
@@ -261,7 +264,7 @@ public class _2008Ascension extends QuestHandler
 						if(var == 2)
 						{
 							if(player.getInventory().getItemCountByItemId(182203010) == 0)
-								if (!QuestEngine.getInstance().addItem(player, new QuestItems(182203010, 1)))
+								if (!itemService.addItems(player, Collections.singletonList(new QuestItems(182203010, 1))))
 									return true;
 							qs.getQuestVars().setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
@@ -281,7 +284,7 @@ public class _2008Ascension extends QuestHandler
 						if(var == 3)
 						{
 							if(player.getInventory().getItemCountByItemId(182203011) == 0)
-								if (!QuestEngine.getInstance().addItem(player, new QuestItems(182203011, 1)))
+								if (!itemService.addItems(player, Collections.singletonList(new QuestItems(182203011, 1))))
 									return true;
 								
 							qs.getQuestVars().setQuestVarById(0, var + 1);

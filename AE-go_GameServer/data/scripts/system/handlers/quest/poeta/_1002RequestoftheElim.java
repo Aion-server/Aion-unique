@@ -16,6 +16,7 @@
  */
 package quest.poeta;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -31,6 +32,7 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -43,14 +45,16 @@ import com.google.inject.Inject;
  */
 public class _1002RequestoftheElim extends QuestHandler
 {
-	private final TeleportService teleportService;
+	@Inject
+	TeleportService teleportService;
+	@Inject
+	ItemService itemService;
 	private final static int	questId	= 1002;
 
-	@Inject
-	public _1002RequestoftheElim(TeleportService teleportService)
+
+	public _1002RequestoftheElim()
 	{
 		super(questId);
-		this.teleportService = teleportService;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
 		QuestEngine.getInstance().setNpcQuestData(203076).addOnTalkEvent(questId);
 		QuestEngine.getInstance().setNpcQuestData(730007).addOnTalkEvent(questId);
@@ -166,7 +170,7 @@ public class _1002RequestoftheElim extends QuestHandler
 					if(var == 1)
 					{
 						if(player.getInventory().getItemCountByItemId(182200002) == 0)
-							if (!QuestEngine.getInstance().addItem(player, new QuestItems(182200002, 1)))
+							if (!itemService.addItems(player, Collections.singletonList(new QuestItems(182200002, 1))))
 								return true;
 						qs.getQuestVars().setQuestVarById(0, var + 1);
 						updateQuestStatus(player, qs);

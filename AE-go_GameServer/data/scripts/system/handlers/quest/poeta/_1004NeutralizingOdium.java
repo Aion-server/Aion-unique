@@ -16,6 +16,8 @@
  */
 package quest.poeta;
 
+import java.util.Collections;
+
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -29,8 +31,10 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -38,6 +42,8 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  */
 public class _1004NeutralizingOdium extends QuestHandler
 {
+	@Inject
+	ItemService itemService;
 	private final static int	questId	= 1004;
 
 	public _1004NeutralizingOdium()
@@ -80,7 +86,7 @@ public class _1004NeutralizingOdium extends QuestHandler
 						return false;
 					case 10000:
 						if(player.getInventory().getItemCountByItemId(182200005) == 0)
-							if (!QuestEngine.getInstance().addItem(player, new QuestItems(182200005, 1)))
+							if (!itemService.addItems(player, Collections.singletonList(new QuestItems(182200005, 1))))
 								return true;
 						qs.getQuestVars().setQuestVarById(0, var + 1);
 						updateQuestStatus(player, qs);

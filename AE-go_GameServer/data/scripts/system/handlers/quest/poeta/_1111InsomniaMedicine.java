@@ -24,7 +24,9 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.QuestService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -32,7 +34,8 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class _1111InsomniaMedicine extends QuestHandler
 {
-
+	@Inject
+	QuestService questService;
 	private final static int	questId	= 1111;
 
 	public _1111InsomniaMedicine()
@@ -75,7 +78,7 @@ public class _1111InsomniaMedicine extends QuestHandler
 						.getQuestVarById(0) + 3);
 				else if(env.getDialogId() == 17)
 				{
-					QuestEngine.getInstance().getQuest(env).questFinish(qs.getQuestVars().getQuestVarById(0) - 2);
+					questService.questFinish(env, qs.getQuestVars().getQuestVarById(0) - 2);
 					PacketSendUtility
 						.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 					return true;

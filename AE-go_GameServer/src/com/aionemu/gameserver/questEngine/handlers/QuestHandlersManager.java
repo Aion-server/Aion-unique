@@ -22,6 +22,8 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
 import com.aionemu.gameserver.GameServerError;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.questEngine.handlers.models.QuestScriptData;
 import com.google.inject.Injector;
 
 /**
@@ -44,7 +46,8 @@ public class QuestHandlersManager
 	public static QuestHandlers init(Injector injector)
 	{
 		scriptManager = new ScriptManager();
-		QuestHandlers questHandlers = new QuestHandlers();
+		QuestHandlers questHandlers = QuestHandlers.getInstance();
+		questHandlers.setInjector(injector);
 		scriptManager.setGlobalClassListener(new QuestHandlerLoader(injector));
 
 		try
@@ -55,16 +58,20 @@ public class QuestHandlersManager
 		{
 			throw new GameServerError("Can't initialize quest handlers.", e);
 		}
+		for (QuestScriptData data : DataManager.QUEST_SCRIPTS_DATA.getData())
+		{
+			data.register();
+		}
 
-		logger.info("Loaded " + QuestHandlers.getSize() + " quest handler.");
-		
+		logger.info("Loaded " + questHandlers.getSize() + " quest handler.");
+
 		return questHandlers;
 	}
 	
 	public static void shutdown()
 	{
 		scriptManager.shutdown();
-		QuestHandlers.clearQuestHandlers();
+		QuestHandlers.getInstance().clearQuestHandlers();
 		scriptManager = null;
 		logger.info("Quests are shutdown...");
 	}

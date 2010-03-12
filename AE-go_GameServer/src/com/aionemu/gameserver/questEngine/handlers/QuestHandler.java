@@ -28,8 +28,10 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.QuestService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.zone.ZoneName;
+import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -37,6 +39,9 @@ import com.aionemu.gameserver.world.zone.ZoneName;
  */
 public class QuestHandler
 {
+	
+	@Inject
+	QuestService questService;
 	private final Integer questId;
 
 	/**
@@ -117,7 +122,7 @@ public class QuestHandler
 			case 15:
 			case 16:
 			case 17:
-				if (QuestEngine.getInstance().getQuest(env).questFinish())
+				if (questService.questFinish(env))
 				{
 					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(targetObjId, 10));
 					return true;

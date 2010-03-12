@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.questEngine;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import javolution.util.FastMap;
@@ -29,20 +28,15 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
-import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandlers;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
-import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.zone.ZoneName;
 
 /**
@@ -61,7 +55,6 @@ public class QuestEngine
 	private FastMap<Integer, List<Integer>>		_questMovieEndIds;
 	private List<Integer>						_questOnDie;
 	private List<Integer>						_questOnEnterWorld;
-	private ItemService							itemService;
 	private SpawnEngine							spawnEngine;
 
 	private QuestEngine()
@@ -80,7 +73,7 @@ public class QuestEngine
 		QuestHandler questHandler = null;
 		if(env.getQuestId() != 0)
 		{
-			questHandler = QuestHandlers.getQuestHandlerByQuestId(env.getQuestId());
+			questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(env.getQuestId());
 			if(questHandler != null)
 				if(questHandler.onDialogEvent(env))
 					return true;
@@ -90,7 +83,7 @@ public class QuestEngine
 			Npc npc = (Npc) env.getVisibleObject();
 			for(int questId : getNpcQuestData(npc == null ? 0 : npc.getNpcId()).getOnTalkEvent())
 			{
-				questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+				questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
 				if(questHandler != null)
 					if(questHandler.onDialogEvent(env))
 						return true;
@@ -104,7 +97,7 @@ public class QuestEngine
 		Npc npc = (Npc) env.getVisibleObject();
 		for(int questId : getNpcQuestData(npc.getNpcId()).getOnKillEvent())
 		{
-			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				if(questHandler.onKillEvent(env))
 					return true;
@@ -117,7 +110,7 @@ public class QuestEngine
 		Npc npc = (Npc) env.getVisibleObject();
 		for(int questId : getNpcQuestData(npc.getNpcId()).getOnAttackEvent())
 		{
-			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				if(questHandler.onAttackEvent(env))
 					return true;
@@ -129,7 +122,7 @@ public class QuestEngine
 	{
 		for(int questId : _questLvlUp)
 		{
-			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				questHandler.onLvlUpEvent(env);
 		}
@@ -139,7 +132,7 @@ public class QuestEngine
 	{
 		for(int questId : _questOnDie)
 		{
-			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				questHandler.onDieEvent(env);
 		}
@@ -149,7 +142,7 @@ public class QuestEngine
 	{
 		for(int questId : _questOnEnterWorld)
 		{
-			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				questHandler.onEnterWorldEvent(env);
 		}
@@ -159,7 +152,7 @@ public class QuestEngine
 	{
 		for(int questId : getQuestItemIds(item.getItemTemplate().getTemplateId()))
 		{
-			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				if(questHandler.onItemUseEvent(env, item))
 					return true;
@@ -171,7 +164,7 @@ public class QuestEngine
 	{
 		for(int questId : getQuestEnterZone(zoneName))
 		{
-			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(questId);
+			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(questId);
 			if(questHandler != null)
 				if(questHandler.onEnterZoneEvent(env, zoneName))
 					return true;
@@ -184,7 +177,7 @@ public class QuestEngine
 		for(int questId : getQuestMovieEndIds(movieId))
 		{
 			env.setQuestId(questId);
-			QuestHandler questHandler = QuestHandlers.getQuestHandlerByQuestId(env.getQuestId());
+			QuestHandler questHandler = QuestHandlers.getInstance().getQuestHandlerByQuestId(env.getQuestId());
 			if(questHandler != null)
 				if(questHandler.onMovieEndEvent(env, movieId))
 					return true;
@@ -312,38 +305,9 @@ public class QuestEngine
 		return _questMovieEndIds.get(moveId);
 	}
 
-	public void setItemService(ItemService itemService, SpawnEngine spawnEngine)
+	public void setItemService(SpawnEngine spawnEngine)
 	{
-		this.itemService = itemService;
 		this.spawnEngine = spawnEngine;
-	}
-	public boolean addItem(Player player, QuestItems questItem)
-	{
-		return addItems(player, Collections.singletonList(questItem));
-	}
-	
-	public boolean addItems(Player player, List<QuestItems> questItems)
-	{
-		int needSlot = 0;
-		for (QuestItems qi : questItems)
-		{
-			if (qi.getItemId() != ItemId.KINAH.value() && qi.getCount()!= 0)
-			{
-				int stackCount = DataManager.ITEM_DATA.getItemTemplate(qi.getItemId()).getMaxStackCount();
-				int count = qi.getCount()/stackCount;
-				if (qi.getCount() % stackCount != 0)
-					count++;
-				needSlot += count;
-			}
-		}
-		if (needSlot > player.getInventory().getNumberOfFreeSlots())
-		{
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.MSG_FULL_INVENTORY);
-			return false;
-		}
-		for (QuestItems qi : questItems)
-			itemService.addItem(player, qi.getItemId(), qi.getCount(), false);
-		return true;
 	}
 
 	public VisibleObject addNewSpawn(int worldId, int instanceId, int templateId, float x, float y, float z, byte heading, boolean noRespawn)

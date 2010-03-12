@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.questEngine.handlers;
 
+import com.google.inject.Injector;
+
 import javolution.util.FastMap;
 
 /**
@@ -24,30 +26,42 @@ import javolution.util.FastMap;
  */
 public class QuestHandlers
 {
+	private Injector injector;
+
 	private static final FastMap<Integer, QuestHandler> questHandlers = new FastMap<Integer, QuestHandler>();
-	
-	QuestHandlers()
+	private static final QuestHandlers instance = new QuestHandlers();
+	public QuestHandlers()
 	{
 	}
-	
-	public static void addQuestHandler (QuestHandler questHandler)
+
+	public void addQuestHandler (QuestHandler questHandler)
 	{
-		int questId = questHandler.getQuestId();
-		questHandlers.put(questId, questHandler);
+		injector.injectMembers(questHandler);
+		questHandlers.put(questHandler.getQuestId(), questHandler);
 	}
 	
-	public static QuestHandler getQuestHandlerByQuestId(int questId)
+	public QuestHandler getQuestHandlerByQuestId(int questId)
 	{
 		return questHandlers.get(questId);
 	}
 	
-	public static void clearQuestHandlers()
+	public void setInjector(Injector injector)
+	{
+		this.injector = injector;
+	}
+
+	public void clearQuestHandlers()
 	{
 		questHandlers.clear();
 	}
 	
-	public static int getSize()
+	public int getSize()
 	{
 		return questHandlers.size();
+	}
+	
+	public static QuestHandlers getInstance()
+	{
+		return instance;
 	}
 }

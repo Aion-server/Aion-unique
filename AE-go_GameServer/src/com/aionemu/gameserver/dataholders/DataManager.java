@@ -85,6 +85,8 @@ public final class DataManager
 	public BindPointData				BIND_POINT_DATA;
 
 	public static QuestsData			QUEST_DATA;
+	
+	public static QuestScriptsData		QUEST_SCRIPTS_DATA;
 	/**
 	 * 
 	 */
@@ -154,6 +156,7 @@ public final class DataManager
 		WAREHOUSEEXPANDER_DATA = data.warehouseExpandData;
 		BIND_POINT_DATA = data.bindPointData;
 		QUEST_DATA = data.questData;
+		QUEST_SCRIPTS_DATA = data.questsScriptData;
 		ZONE_DATA = data.zoneData;
 		WALKER_DATA = data.walkerData;
 		GOODSLIST_DATA = data.goodsListData;

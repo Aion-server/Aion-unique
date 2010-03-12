@@ -16,18 +16,12 @@
  */
 package com.aionemu.gameserver.questEngine;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
-import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.CollectItem;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
-import com.aionemu.gameserver.model.templates.quest.QuestItems;
-import com.aionemu.gameserver.model.templates.quest.Rewards;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_STEP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -91,7 +85,7 @@ public class Quest
 			SkillListEntry skill = player.getSkillList().getSkillEntry(template.getCombineSkill());
 			if (skill == null)
 				return false;
-			if (skill.getSkillLevel() < template.getCombineSkillPoint() || skill.getSkillLevel()+40 > template.getCombineSkillPoint())
+			if (skill.getSkillLevel() < template.getCombineSkillPoint() || skill.getSkillLevel()-40 > template.getCombineSkillPoint())
 				return false;
 			return true;
 		}
@@ -136,95 +130,6 @@ public class Quest
 		}
 
 		player.updateNearbyQuests();
-		return true;
-	}
-
-	public boolean questFinish()
-	{
-		return questFinish(0);
-	}
-
-	public boolean questFinish(int reward)
-	{
-		Player player = env.getPlayer();
-		int id = env.getQuestId();
-		QuestState qs = player.getQuestStateList().getQuestState(id);
-		if(qs == null || qs.getStatus() != QuestStatus.REWARD)
-			return false;
-
-		Storage inventory = player.getInventory();
-		Rewards rewards = template.getRewards().get(reward);
-		List<QuestItems> questItems = new ArrayList<QuestItems>();
-		questItems.addAll(rewards.getRewardItem());
-
-		int dialogId = env.getDialogId();
-		if(dialogId != 17 && dialogId != 0)
-		{
-			if (template.isUseClassReward())
-			{
-				QuestItems classRewardItem = null;
-				PlayerClass playerClass = player.getCommonData().getPlayerClass();
-				switch (playerClass)
-				{
-					case ASSASSIN :
-						classRewardItem = template.getAssassinSelectableReward().get(dialogId - 8);
-						break;
-					case CHANTER :
-						classRewardItem = template.getChanterSelectableReward().get(dialogId - 8);
-						break;
-					case CLERIC :
-						classRewardItem = template.getPriestSelectableReward().get(dialogId - 8);
-						break;
-					case GLADIATOR :
-						classRewardItem = template.getFighterSelectableReward().get(dialogId - 8);
-						break;
-					case RANGER :
-						classRewardItem = template.getRangerSelectableReward().get(dialogId - 8);
-						break;
-					case SORCERER :
-						classRewardItem = template.getWizardSelectableReward().get(dialogId - 8);
-						break;
-					case SPIRIT_MASTER :
-						classRewardItem = template.getElementalistSelectableReward().get(dialogId - 8);
-						break;
-					case TEMPLAR :
-						classRewardItem = template.getKnightSelectableReward().get(dialogId - 8);
-						break;
-				}
-				if (classRewardItem != null)
-					questItems.add(classRewardItem);
-			}
-			else
-			{
-				QuestItems selectebleRewardItem = rewards.getSelectableRewardItem().get(dialogId - 8);
-				if(selectebleRewardItem != null)
-					questItems.add(selectebleRewardItem);
-			}
-		}
-		if (QuestEngine.getInstance().addItems(player, questItems))
-		{
-			if(rewards.getGold() != null)
-			{
-				inventory.increaseKinah(player.getRates().getQuestKinahRate() * rewards.getGold());
-			}
-			if(rewards.getExp() != null)
-			{
-				int rewardExp = (player.getRates().getQuestXpRate() * rewards.getExp());
-				player.getCommonData().addExp(rewardExp);
-			}
-
-			if(rewards.getTitle() != null)
-			{
-				player.getTitleList().addTitle(rewards.getTitle());
-			}
-
-			qs.setStatus(QuestStatus.COMPLITE);
-			qs.setCompliteCount(qs.getCompliteCount() + 1);
-			PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus(), qs.getQuestVars().getQuestVars()));
-			player.updateNearbyQuests();
-			QuestEngine.getInstance().onLvlUp(env);
-			return true;
-		}
 		return true;
 	}
 

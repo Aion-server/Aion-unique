@@ -101,6 +101,6 @@ public class WorkOrdersData extends QuestScriptData
 	@Override
 	public void register()
 	{
-		QuestHandlers.addQuestHandler(new WorkOrders(this));
+		QuestHandlers.getInstance().addQuestHandler(new WorkOrders(this));
 	}
 }

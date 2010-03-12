@@ -53,7 +53,7 @@ class QuestHandlerLoader extends DefaultClassListener implements ClassListener
 
 			if (ClassUtils.isSubclass(c, QuestHandler.class))
 			{
-				QuestHandlers.addQuestHandler((QuestHandler)injector.getInstance(c));
+				QuestHandlers.getInstance().addQuestHandler((QuestHandler)injector.getInstance(c));
 			}
 		}
 
@@ -72,7 +72,7 @@ class QuestHandlerLoader extends DefaultClassListener implements ClassListener
 		// call onClassUnload()
 		super.preUnload(classes);
 
-		QuestHandlers.clearQuestHandlers();
+		QuestHandlers.getInstance().clearQuestHandlers();
 	}
 
 	public boolean isValidClass(Class<?> clazz)

@@ -17,6 +17,7 @@
 package quest.ascension;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.aionemu.gameserver.ai.events.Event;
@@ -39,6 +40,7 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.services.ZoneService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -56,17 +58,19 @@ import com.google.inject.Inject;
 public class _1006Ascension extends QuestHandler
 {
 	private final static int		questId	= 1006;
-	private final World				world;
-	private final TeleportService	teleportService;
-	private final ZoneService		zoneService;
 
 	@Inject
-	public _1006Ascension(World world, TeleportService teleportService, ZoneService zoneService)
+	ItemService itemService;
+	@Inject
+	ZoneService zoneService;
+	@Inject
+	TeleportService teleportService;
+	@Inject
+	World world;
+	
+	public _1006Ascension()
 	{
 		super(questId);
-		this.world = world;
-		this.teleportService = teleportService;
-		this.zoneService = zoneService;
 		if(CustomConfig.ENABLE_SIMPLE_2NDCLASS)
 			return;
 		QuestEngine.getInstance().addQuestLvlUp(questId);
@@ -149,7 +153,7 @@ public class _1006Ascension extends QuestHandler
 						if(var == 0)
 						{
 							if(player.getInventory().getItemCountByItemId(182200007) == 0)
-								if (!QuestEngine.getInstance().addItem(player, new QuestItems(182200007, 1)))
+								if (!itemService.addItems(player, Collections.singletonList(new QuestItems(182200007, 1))))
 									return true;
 							qs.getQuestVars().setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
@@ -224,7 +228,7 @@ public class _1006Ascension extends QuestHandler
 						{
 							PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 14));
 							player.getInventory().removeFromBagByItemId(182200008, 1);
-							QuestEngine.getInstance().addItem(player, new QuestItems(182200009, 1));
+							itemService.addItems(player, Collections.singletonList(new QuestItems(182200009, 1)));
 						}
 						return false;
 					case 10001:
@@ -341,7 +345,7 @@ public class _1006Ascension extends QuestHandler
 			{
 				PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, id, 0, 1, 0), true);
 				player.getInventory().removeFromBagByObjectId(itemObjId, 1);
-				QuestEngine.getInstance().addItem(player, new QuestItems(182200008, 1));
+				itemService.addItems(player, Collections.singletonList(new QuestItems(182200008, 1)));
 				qs.getQuestVars().setQuestVarById(0, 2);
 				updateQuestStatus(player, qs);
 			}

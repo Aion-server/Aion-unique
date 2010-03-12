@@ -36,9 +36,11 @@ import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
+import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_WAREHOUSE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_WAREHOUSE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_UPDATE;
@@ -616,5 +618,29 @@ public class ItemService
 		player.getInventory().decreaseKinah(100000);
 		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(weaponItem));
 		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(kinahItem));
+	}
+	
+	public boolean addItems(Player player, List<QuestItems> questItems)
+	{
+		int needSlot = 0;
+		for (QuestItems qi : questItems)
+		{
+			if (qi.getItemId() != ItemId.KINAH.value() && qi.getCount()!= 0)
+			{
+				int stackCount = DataManager.ITEM_DATA.getItemTemplate(qi.getItemId()).getMaxStackCount();
+				int count = qi.getCount()/stackCount;
+				if (qi.getCount() % stackCount != 0)
+					count++;
+				needSlot += count;
+			}
+		}
+		if (needSlot > player.getInventory().getNumberOfFreeSlots())
+		{
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.MSG_FULL_INVENTORY);
+			return false;
+		}
+		for (QuestItems qi : questItems)
+			addItem(player, qi.getItemId(), qi.getCount(), false);
+		return true;
 	}
 }

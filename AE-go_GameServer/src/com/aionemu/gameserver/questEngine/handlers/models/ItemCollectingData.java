@@ -44,7 +44,7 @@ public class ItemCollectingData extends QuestScriptData
 	public void register()
 	{
 		ItemCollecting template = new ItemCollecting(id, startNpcId, actionItemId, endNpcId);
-		QuestHandlers.addQuestHandler(template);
+		QuestHandlers.getInstance().addQuestHandler(template);
 	}
 
 }

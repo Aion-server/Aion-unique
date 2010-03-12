@@ -16,6 +16,8 @@
  */
 package quest.poeta;
 
+import java.util.Collections;
+
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.quest.QuestItems;
@@ -25,7 +27,10 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.ItemService;
+import com.aionemu.gameserver.services.QuestService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.google.inject.Inject;
 
 /**
  * @author MrPoke
@@ -33,7 +38,10 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class _1122DeliveringPernossRobe extends QuestHandler
 {
-
+	@Inject
+	QuestService questService;
+	@Inject
+	ItemService itemService;
 	private final static int	questId	= 1122;
 
 	public _1122DeliveringPernossRobe()
@@ -60,7 +68,7 @@ public class _1122DeliveringPernossRobe extends QuestHandler
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
 				else if(env.getDialogId() == 1002)
 				{
-					if (QuestEngine.getInstance().addItem(player, new QuestItems(182200216, 1)))
+					if (itemService.addItems(player, Collections.singletonList(new QuestItems(182200216, 1))))
 						return defaultQuestStartDialog(env);
 					else
 						return true;
@@ -127,7 +135,7 @@ public class _1122DeliveringPernossRobe extends QuestHandler
 				}
 				else if (env.getDialogId() == 17)
 				{
-					QuestEngine.getInstance().getQuest(env).questFinish(qs.getQuestVars().getQuestVars()-1);
+					questService.questFinish(env, qs.getQuestVars().getQuestVars()-1);
 					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 					return true;
 				}
