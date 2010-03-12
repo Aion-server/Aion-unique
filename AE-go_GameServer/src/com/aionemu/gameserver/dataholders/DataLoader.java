@@ -109,8 +109,9 @@ abstract class DataLoader
 		try
 		{
 			it = FileUtils.lineIterator(file);
-			for(String line = it.nextLine(); it.hasNext();)
+			while(it.hasNext())
 			{
+				String line = it.nextLine(); 
 				if(line.isEmpty() || line.startsWith("#"))
 				{
 					continue;
