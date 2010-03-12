@@ -160,6 +160,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="dispeldebuff" type="DispelDebuffEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="mpuseovertime" type="MpUseOverTimeEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -483,6 +485,15 @@
 		<xs:complexContent>
 			<xs:extension base="AbstractHealEffect">
 				<xs:attribute name="type" type="HealType" use="required" />
+				<xs:attribute name="checktime" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="MpUseOverTimeEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="value" type="xs:int" use="required" />
 				<xs:attribute name="checktime" type="xs:int" use="required" />
 			</xs:extension>
 		</xs:complexContent>

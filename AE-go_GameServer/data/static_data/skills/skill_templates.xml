@@ -13173,6 +13173,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <mpuseovertime value="4" checktime="6000" e="0"/>
             <statboost effectid="109121" e="1">
                 <change stat="SPEED" func="PERCENT" value="20"/>
             </statboost>

@@ -94,7 +94,8 @@ public class Effects
 		@XmlElement(name = "alwaysdodge", type = AlwaysDodgeEffect.class),
 		@XmlElement(name = "alwaysparry", type = AlwaysParryEffect.class),
 		@XmlElement(name = "alwaysresist", type = AlwaysResistEffect.class),
-		@XmlElement(name = "alwaysblock", type = AlwaysBlockEffect.class)
+		@XmlElement(name = "alwaysblock", type = AlwaysBlockEffect.class),
+		@XmlElement(name = "mpuseovertime", type = MpUseOverTimeEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	
