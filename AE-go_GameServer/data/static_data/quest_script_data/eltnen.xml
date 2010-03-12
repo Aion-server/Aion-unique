@@ -381,7 +381,6 @@
 
 	<!-- Drakie Hunt -->
 	<monster_hunt start_npc_id="203993" id="1380">
-		<monster_infos var_id="0" npc_id="210851" max_kill="8"/>
 		<monster_infos var_id="0" npc_id="210833" max_kill="8"/>
 	</monster_hunt>
 
