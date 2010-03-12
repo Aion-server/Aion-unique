@@ -28,14 +28,13 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SlowEffect")
-public class SlowEffect extends EffectTemplate
+public class SlowEffect extends BufEffect
 {
 
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		// TODO Auto-generated method stub
-
+		effect.addToEffectedController();
 	}
 
 	@Override
@@ -44,4 +43,17 @@ public class SlowEffect extends EffectTemplate
 		effect.increaseSuccessEffect();	
 	}
 
+	@Override
+	public void startEffect(Effect effect)
+	{
+		super.startEffect(effect);
+		effect.getEffected().getEffectController().setAbnormal(EffectId.SLOW.getEffectId());
+	}
+	
+	@Override
+	public void endEffect(Effect effect)
+	{
+		super.endEffect(effect);
+		effect.getEffected().getEffectController().unsetAbnormal(EffectId.SLOW.getEffectId());
+	}
 }

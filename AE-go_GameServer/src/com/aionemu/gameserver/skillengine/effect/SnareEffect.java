@@ -56,7 +56,4 @@ public class SnareEffect extends BufEffect
 		super.startEffect(effect);
 		effect.getEffected().getEffectController().setAbnormal(EffectId.SNARE.getEffectId());
 	}
-	
-	
-
 }
