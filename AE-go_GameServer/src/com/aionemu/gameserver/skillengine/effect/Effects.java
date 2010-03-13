@@ -26,6 +26,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.skillengine.SwitchHpMpEffect;
+
 
 /**
  * @author ATracer
@@ -95,7 +97,8 @@ public class Effects
 		@XmlElement(name = "alwaysparry", type = AlwaysParryEffect.class),
 		@XmlElement(name = "alwaysresist", type = AlwaysResistEffect.class),
 		@XmlElement(name = "alwaysblock", type = AlwaysBlockEffect.class),
-		@XmlElement(name = "mpuseovertime", type = MpUseOverTimeEffect.class)
+		@XmlElement(name = "mpuseovertime", type = MpUseOverTimeEffect.class),
+		@XmlElement(name = "switchhpmp", type = SwitchHpMpEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	

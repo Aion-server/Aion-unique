@@ -162,6 +162,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="mpuseovertime" type="MpUseOverTimeEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="switchhpmp" type="SwitchHpMpEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -495,6 +497,13 @@
 			<xs:extension base="Effect">
 				<xs:attribute name="value" type="xs:int" use="required" />
 				<xs:attribute name="checktime" type="xs:int" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SwitchHpMpEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

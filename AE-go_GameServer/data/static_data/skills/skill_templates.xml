@@ -15803,6 +15803,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <switchhpmp e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1099" name="STR_SKILL_PR_Root_G1" nameId="564675" stack="SKILL_PR_ROOT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="10" duration="0">
         <startconditions>
@@ -29341,7 +29344,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <openaerial duration="2000" effectid="20013" e="1" element="FIRE"/>
+            <openaerial duration="4000" effectid="20013" e="1" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8225" name="STR_SYSTEM_SKILL_HolyOffenseProvokerEffect" nameId="563483" stack="SYSTEM_SKILL_HOLYOFFENSEPROVOKEREFFECT" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NONE" activation="PROVOKED" cooldown="0" duration="0">
