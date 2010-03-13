@@ -5083,7 +5083,7 @@
             <mpuse value="206" delta="0"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="410" name="STR_SKILL_KN_BreakPower_G1" nameId="572551" stack="SKILL_KN_BREAKPOWER" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="16" duration="0">
+    <skill_template skill_id="410" name="STR_SKILL_KN_BreakPower_G1" nameId="572551" stack="SKILL_KN_BREAKPOWER" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="16" duration="0" penalty_skill_id="8503">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -5951,7 +5951,7 @@
             <mpuse value="6" delta="0"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="457" name="STR_SKILL_KN_BreakPower_G2" nameId="574153" stack="SKILL_KN_BREAKPOWER" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="16" duration="0">
+    <skill_template skill_id="457" name="STR_SKILL_KN_BreakPower_G2" nameId="574153" stack="SKILL_KN_BREAKPOWER" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="16" duration="0" penalty_skill_id="8504">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -6603,7 +6603,7 @@
             </statboost>
         </effects>
     </skill_template>
-    <skill_template skill_id="500" name="STR_SKILL_KN_DivineJudgement_G1" nameId="579377" stack="SKILL_KN_DIVINEJUDGEMENT" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
+    <skill_template skill_id="500" name="STR_SKILL_KN_DivineJudgement_G1" nameId="579377" stack="SKILL_KN_DIVINEJUDGEMENT" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0" penalty_skill_id="8465">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -6624,7 +6624,7 @@
             <dpuse value="2000"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="501" name="STR_SKILL_KN_DivineJudgement_G2" nameId="579381" stack="SKILL_KN_DIVINEJUDGEMENT" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
+    <skill_template skill_id="501" name="STR_SKILL_KN_DivineJudgement_G2" nameId="579381" stack="SKILL_KN_DIVINEJUDGEMENT" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0" penalty_skill_id="8466">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -6645,7 +6645,7 @@
             <dpuse value="2000"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="502" name="STR_SKILL_KN_DivineJudgement_G3" nameId="579383" stack="SKILL_KN_DIVINEJUDGEMENT" lvl="3" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
+    <skill_template skill_id="502" name="STR_SKILL_KN_DivineJudgement_G3" nameId="579383" stack="SKILL_KN_DIVINEJUDGEMENT" lvl="3" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0" penalty_skill_id="8467">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -6987,7 +6987,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="520" name="STR_SKILL_KN_AbysalJudgement_G1" nameId="581381" stack="SKILL_KN_ABYSALJUDGEMENT" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
+    <skill_template skill_id="520" name="STR_SKILL_KN_AbysalJudgement_G1" nameId="581381" stack="SKILL_KN_ABYSALJUDGEMENT" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0" penalty_skill_id="8468">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -7008,7 +7008,7 @@
             <dpuse value="2000"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="521" name="STR_SKILL_KN_AbysalJudgement_G2" nameId="581385" stack="SKILL_KN_ABYSALJUDGEMENT" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
+    <skill_template skill_id="521" name="STR_SKILL_KN_AbysalJudgement_G2" nameId="581385" stack="SKILL_KN_ABYSALJUDGEMENT" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0" penalty_skill_id="8469">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -7029,7 +7029,7 @@
             <dpuse value="2000"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="522" name="STR_SKILL_KN_AbysalJudgement_G3" nameId="581389" stack="SKILL_KN_ABYSALJUDGEMENT" lvl="3" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
+    <skill_template skill_id="522" name="STR_SKILL_KN_AbysalJudgement_G3" nameId="581389" stack="SKILL_KN_ABYSALJUDGEMENT" lvl="3" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0" penalty_skill_id="8470">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -7230,7 +7230,7 @@
             <mpuse value="87" delta="0"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="532" name="STR_SKILL_KN_DivineJudgement_G4" nameId="584095" stack="SKILL_KN_DIVINEJUDGEMENT" lvl="4" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
+    <skill_template skill_id="532" name="STR_SKILL_KN_DivineJudgement_G4" nameId="584095" stack="SKILL_KN_DIVINEJUDGEMENT" lvl="4" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0" penalty_skill_id="8516">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -7251,7 +7251,7 @@
             <dpuse value="2000"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="533" name="STR_SKILL_KN_AbysalJudgement_G4" nameId="584099" stack="SKILL_KN_ABYSALJUDGEMENT" lvl="4" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0">
+    <skill_template skill_id="533" name="STR_SKILL_KN_AbysalJudgement_G4" nameId="584099" stack="SKILL_KN_ABYSALJUDGEMENT" lvl="4" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="6" duration="0" penalty_skill_id="8514">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -7312,7 +7312,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="536" name="STR_SKILL_KN_BreakPower_G3" nameId="584107" stack="SKILL_KN_BREAKPOWER" lvl="3" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="16" duration="0">
+    <skill_template skill_id="536" name="STR_SKILL_KN_BreakPower_G3" nameId="584107" stack="SKILL_KN_BREAKPOWER" lvl="3" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="16" duration="0" penalty_skill_id="8515">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -13086,7 +13086,7 @@
             <dpuse value="2000"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="908" name="STR_SKILL_AS_DivineAssault_G1" nameId="582381" stack="SKILL_AS_DIVINEASSAULT" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="0">
+    <skill_template skill_id="908" name="STR_SKILL_AS_DivineAssault_G1" nameId="582381" stack="SKILL_AS_DIVINEASSAULT" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="0" penalty_skill_id="8479">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -13106,7 +13106,7 @@
             <dpuse value="2000"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="909" name="STR_SKILL_AS_DivineAssault_G2" nameId="582385" stack="SKILL_AS_DIVINEASSAULT" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="0">
+    <skill_template skill_id="909" name="STR_SKILL_AS_DivineAssault_G2" nameId="582385" stack="SKILL_AS_DIVINEASSAULT" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="0" penalty_skill_id="8480">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -13126,7 +13126,7 @@
             <dpuse value="2000"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="910" name="STR_SKILL_AS_DivineAssault_G3" nameId="582389" stack="SKILL_AS_DIVINEASSAULT" lvl="3" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="0">
+    <skill_template skill_id="910" name="STR_SKILL_AS_DivineAssault_G3" nameId="582389" stack="SKILL_AS_DIVINEASSAULT" lvl="3" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="0" penalty_skill_id="8481">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -13463,7 +13463,7 @@
             <mpuse value="62" delta="0"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="930" name="STR_SKILL_AS_DivineAssault_G4" nameId="584409" stack="SKILL_AS_DIVINEASSAULT" lvl="4" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="0">
+    <skill_template skill_id="930" name="STR_SKILL_AS_DivineAssault_G4" nameId="584409" stack="SKILL_AS_DIVINEASSAULT" lvl="4" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="0" penalty_skill_id="8521">
         <initproperties>
             <addweaponrange/>
         </initproperties>
@@ -16575,7 +16575,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="1141" name="STR_SKILL_PR_ImmortalBlessing_G1" nameId="574349" stack="SKILL_PR_IMMORTALBLESSING" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="1800" duration="3000">
+    <skill_template skill_id="1141" name="STR_SKILL_PR_ImmortalBlessing_G1" nameId="574349" stack="SKILL_PR_IMMORTALBLESSING" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="1800" duration="3000" penalty_skill_id="8434">
         <startconditions>
             <dp value="4000"/>
         </startconditions>
@@ -16596,7 +16596,7 @@
             <dpuse value="4000"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="1142" name="STR_SKILL_PR_DemonicBlessing_G1" nameId="574313" stack="SKILL_PR_DEMONICBLESSING" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="BUFF" activation="ACTIVE" cooldown="1800" duration="3000">
+    <skill_template skill_id="1142" name="STR_SKILL_PR_DemonicBlessing_G1" nameId="574313" stack="SKILL_PR_DEMONICBLESSING" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="BUFF" activation="ACTIVE" cooldown="1800" duration="3000" penalty_skill_id="8435">
         <startconditions>
             <dp value="4000"/>
         </startconditions>
@@ -16929,7 +16929,7 @@
             <dpuse value="3000"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="1166" name="STR_SKILL_PR_HolyPrecept_G1" nameId="582485" stack="SKILL_PR_HOLYPRECEPT" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="60" duration="0">
+    <skill_template skill_id="1166" name="STR_SKILL_PR_HolyPrecept_G1" nameId="582485" stack="SKILL_PR_HOLYPRECEPT" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="60" duration="0" penalty_skill_id="8530">
         <startconditions>
             <dp value="2000"/>
         </startconditions>
@@ -17021,7 +17021,7 @@
             <mpuse value="81" delta="1"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="1171" name="STR_SKILL_PR_SecretPrecept_G1" nameId="582509" stack="SKILL_PR_SECRETPRECEPT" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="NONE" activation="ACTIVE" cooldown="60" duration="0">
+    <skill_template skill_id="1171" name="STR_SKILL_PR_SecretPrecept_G1" nameId="582509" stack="SKILL_PR_SECRETPRECEPT" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="NONE" activation="ACTIVE" cooldown="60" duration="0" penalty_skill_id="8531">
         <startconditions>
             <dp value="2000"/>
         </startconditions>
@@ -17233,7 +17233,7 @@
             <mpuse value="73" delta="1"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="1184" name="STR_SKILL_PR_BindingHeal_G1" nameId="584227" stack="SKILL_PR_BINDINGHEAL" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="10" duration="2000">
+    <skill_template skill_id="1184" name="STR_SKILL_PR_BindingHeal_G1" nameId="584227" stack="SKILL_PR_BINDINGHEAL" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="10" duration="2000" penalty_skill_id="8529">
         <startconditions>
             <target value="PC"/>
             <mp value="106" delta="1"/>
@@ -19630,7 +19630,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
     </skill_template>
-    <skill_template skill_id="1323" name="STR_SKILL_CH_Tremor_G1" nameId="582625" stack="SKILL_CH_TREMOR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="0">
+    <skill_template skill_id="1323" name="STR_SKILL_CH_Tremor_G1" nameId="582625" stack="SKILL_CH_TREMOR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="0" penalty_skill_id="8576">
         <startconditions>
             <dp value="4000"/>
         </startconditions>
@@ -26988,7 +26988,7 @@
             <mpuse value="240" delta="4"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="1771" name="STR_SKILL_EL_Unsummon_G1" nameId="582237" stack="SKILL_EL_UNSUMMON" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="180" duration="2000">
+    <skill_template skill_id="1771" name="STR_SKILL_EL_Unsummon_G1" nameId="582237" stack="SKILL_EL_UNSUMMON" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="180" duration="2000" penalty_skill_id="8506">
         <setproperties>
             <firsttarget value="MYPET"/>
             <firsttargetrange value="25"/>
@@ -27295,7 +27295,7 @@
             <dpuse value="2000"/>
         </actions>
     </skill_template>
-    <skill_template skill_id="1788" name="STR_SKILL_EL_Unsummon_G2" nameId="584607" stack="SKILL_EL_UNSUMMON" lvl="2" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="180" duration="2000">
+    <skill_template skill_id="1788" name="STR_SKILL_EL_Unsummon_G2" nameId="584607" stack="SKILL_EL_UNSUMMON" lvl="2" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="180" duration="2000" penalty_skill_id="8522">
         <setproperties>
             <firsttarget value="MYPET"/>
             <firsttargetrange value="25"/>
@@ -28442,7 +28442,7 @@
             </signetburst>
         </effects>
     </skill_template>
-    <skill_template skill_id="1912" name="STR_SKILL_Test_ReturnPoint" nameId="582741" stack="SKILL_TEST_RETURNPOINT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="1" duration="0">
+    <skill_template skill_id="1912" name="STR_SKILL_Test_ReturnPoint" nameId="582741" stack="SKILL_TEST_RETURNPOINT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="1" duration="0" penalty_skill_id="8580">
         <setproperties>
             <firsttarget value="MYPET"/>
             <firsttargetrange value="25"/>
@@ -34021,7 +34021,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <itemheal value="50" delta="0" e="1"/>
+            <itemheal value="50" delta="0" percent="true" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8531" name="STR_SKILL_PR_SecretPrecept_G1_Buff" nameId="584783" stack="SKILL_PR_SECRETPRECEPT_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -34035,7 +34035,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <itemheal value="50" delta="0" e="1"/>
+            <itemheal value="50" delta="0" percent="true" e="1"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8532" name="STR_SKILL_CH_Chant_Improveddefend_G4_Effect" nameId="585199" stack="SKILL_CH_CHANT_IMPROVEDDEFEND_EFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
@@ -52310,7 +52310,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="16719" name="STR_NGR_DispelBleedSdHP_Nr" nameId="571547" stack="NGR_DISPELBLEEDSDHP_NR" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
+    <skill_template skill_id="16719" name="STR_NGR_DispelBleedSdHP_Nr" nameId="571547" stack="NGR_DISPELBLEEDSDHP_NR" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000" penalty_skill_id="16400">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -52326,7 +52326,7 @@
             </dispel>
         </effects>
     </skill_template>
-    <skill_template skill_id="16720" name="STR_NGR_DispelBleedSdHP_Troll" nameId="571549" stack="NGR_DISPELBLEEDSDHP_TROLL" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
+    <skill_template skill_id="16720" name="STR_NGR_DispelBleedSdHP_Troll" nameId="571549" stack="NGR_DISPELBLEEDSDHP_TROLL" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000" penalty_skill_id="16400">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -54935,7 +54935,7 @@
             <skillatk value="200000" delta="0" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="16879" name="STR_GNWA_SUpPyDefShort_Shanduka" nameId="576131" stack="GNWA_SUPPYDEFSHORT_SHANDUKA" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="16879" name="STR_GNWA_SUpPyDefShort_Shanduka" nameId="576131" stack="GNWA_SUPPYDEFSHORT_SHANDUKA" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0" penalty_skill_id="16415">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -57161,7 +57161,7 @@
             <bleed checktime="3000" value="24" delta="1" duration="12100" effectid="20006" e="2" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17019" name="STR_BNEL_SpellTA_Anger_DF2Ch" nameId="577671" stack="BNEL_SPELLTA_ANGER_DF2CH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17019" name="STR_BNEL_SpellTA_Anger_DF2Ch" nameId="577671" stack="BNEL_SPELLTA_ANGER_DF2CH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16396">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -57517,7 +57517,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17041" name="STR_GNKN_SatkTA_MortalWonsic" nameId="578199" stack="GNKN_SATKTA_MORTALWONSIC" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17041" name="STR_GNKN_SatkTA_MortalWonsic" nameId="578199" stack="GNKN_SATKTA_MORTALWONSIC" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16390">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -57599,7 +57599,7 @@
             <skillatk value="0" delta="0" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17046" name="STR_NFI_SatkChainATK1TA_Penalty" nameId="578211" stack="NFI_SATKCHAINATK1TA_PENALTY" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
+    <skill_template skill_id="17046" name="STR_NFI_SatkChainATK1TA_Penalty" nameId="578211" stack="NFI_SATKCHAINATK1TA_PENALTY" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000" penalty_skill_id="16389">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -57753,7 +57753,7 @@
             <stun duration="3000" effectid="20000" e="2"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17056" name="STR_BNRA_StunSDDefdispelBFTA_Mortal" nameId="578233" stack="BNRA_STUNSDDEFDISPELBFTA_MORTAL" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17056" name="STR_BNRA_StunSDDefdispelBFTA_Mortal" nameId="578233" stack="BNRA_STUNSDDEFDISPELBFTA_MORTAL" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16391">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -59500,7 +59500,7 @@
             <bleed checktime="3000" value="24" delta="1" duration="12100" effectid="20006" e="2" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17163" name="STR_AR_FPATKInsKDSDDefSUAtt_Nr" nameId="579023" stack="AR_FPATKINSKDSDDEFSUATT_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="500">
+    <skill_template skill_id="17163" name="STR_AR_FPATKInsKDSDDefSUAtt_Nr" nameId="579023" stack="AR_FPATKINSKDSDDEFSUATT_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="500" penalty_skill_id="16397">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -59519,7 +59519,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17164" name="STR_NKN_KDSDDefSUAttTA_Nr" nameId="579031" stack="NKN_KDSDDEFSUATTTA_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17164" name="STR_NKN_KDSDDefSUAttTA_Nr" nameId="579031" stack="NKN_KDSDDEFSUATTTA_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16397">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -60502,7 +60502,7 @@
             <dot checktime="2000" value="10" delta="1" duration="8100" effectid="10172282" e="2" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17229" name="STR_BNSL_SpellATKinsLr_Motal" nameId="579489" stack="BNSL_SPELLATKINSLR_MOTAL" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17229" name="STR_BNSL_SpellATKinsLr_Motal" nameId="579489" stack="BNSL_SPELLATKINSLR_MOTAL" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16392">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -60553,7 +60553,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="17232" name="STR_BNWA_Satkchain1_Df1Ch" nameId="579537" stack="BNWA_SATKCHAIN1_DF1CH" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
+    <skill_template skill_id="17232" name="STR_BNWA_Satkchain1_Df1Ch" nameId="579537" stack="BNWA_SATKCHAIN1_DF1CH" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000" penalty_skill_id="16389">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -60826,7 +60826,7 @@
             </statup>
         </effects>
     </skill_template>
-    <skill_template skill_id="17250" name="STR_NKN_SellDotHTA_AddICEbuff" nameId="579889" stack="NKN_SELLDOTHTA_ADDICEBUFF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17250" name="STR_NKN_SellDotHTA_AddICEbuff" nameId="579889" stack="NKN_SELLDOTHTA_ADDICEBUFF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16398">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -60944,7 +60944,7 @@
             <bind duration="15100" effectid="20014" e="3" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17257" name="STR_NEL_SlienceMPATK_SelfSDPhyDef" nameId="579837" stack="NEL_SLIENCEMPATK_SELFSDPHYDEF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="17257" name="STR_NEL_SlienceMPATK_SelfSDPhyDef" nameId="579837" stack="NEL_SLIENCEMPATK_SELFSDPHYDEF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="16400">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -60976,7 +60976,7 @@
             <bind duration="6000" effectid="20014" e="2" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17259" name="STR_NWA_SatkLr_AddSDWslow" nameId="579907" stack="NWA_SATKLR_ADDSDWSLOW" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="17259" name="STR_NWA_SatkLr_AddSDWslow" nameId="579907" stack="NWA_SATKLR_ADDSDWSLOW" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="16402">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -60990,7 +60990,7 @@
             <skillatk value="0" delta="0" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17260" name="STR_NWI_MpattackinstantTA_AddHeal" nameId="579911" stack="NWI_MPATTACKINSTANTTA_ADDHEAL" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="17260" name="STR_NWI_MpattackinstantTA_AddHeal" nameId="579911" stack="NWI_MPATTACKINSTANTTA_ADDHEAL" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="16401">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -61234,7 +61234,7 @@
             </snare>
         </effects>
     </skill_template>
-    <skill_template skill_id="17276" name="STR_NCH_SUpPhyattTA_AddHealins_SC" nameId="579827" stack="NCH_SUPPHYATTTA_ADDHEALINS_SC" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17276" name="STR_NCH_SUpPhyattTA_AddHealins_SC" nameId="579827" stack="NCH_SUPPHYATTTA_ADDHEALINS_SC" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16401">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -61251,7 +61251,7 @@
             </statup>
         </effects>
     </skill_template>
-    <skill_template skill_id="17277" name="STR_NPR_BlindDisPoi_AddSUPhyatt" nameId="579901" stack="NPR_BLINDDISPOI_ADDSUPHYATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17277" name="STR_NPR_BlindDisPoi_AddSUPhyatt" nameId="579901" stack="NPR_BLINDDISPOI_ADDSUPHYATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16399">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -63339,7 +63339,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17410" name="STR_GNAS_BlindTA_AddhideSH" nameId="580655" stack="GNAS_BLINDTA_ADDHIDESH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17410" name="STR_GNAS_BlindTA_AddhideSH" nameId="580655" stack="GNAS_BLINDTA_ADDHIDESH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16411">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -63353,7 +63353,7 @@
             <blind value="40" duration="5000" effectid="20107" e="1" element="WATER"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17411" name="STR_GNAS_DelayNoFly_Addhideshi_Lc" nameId="580661" stack="GNAS_DELAYNOFLY_ADDHIDESHI_LC" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17411" name="STR_GNAS_DelayNoFly_Addhideshi_Lc" nameId="580661" stack="GNAS_DELAYNOFLY_ADDHIDESHI_LC" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16411">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -63388,7 +63388,7 @@
             <poison checktime="5000" value="74" delta="1" duration="10100" effectid="10174122" e="2" element="WATER"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17413" name="STR_GNAS_PoisonTA_AddHideSH" nameId="580673" stack="GNAS_POISONTA_ADDHIDESH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17413" name="STR_GNAS_PoisonTA_AddHideSH" nameId="580673" stack="GNAS_POISONTA_ADDHIDESH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16411">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -63860,7 +63860,7 @@
             <root duration="25000" effectid="20003" e="2" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17444" name="STR_GNAS_SignetBurTA_AddSuAtt" nameId="580717" stack="GNAS_SIGNETBURTA_ADDSUATT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17444" name="STR_GNAS_SignetBurTA_AddSuAtt" nameId="580717" stack="GNAS_SIGNETBURTA_ADDSUATT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16399">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -63935,7 +63935,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="17449" name="STR_GNCH_SatkTA_AddHealinsSA" nameId="580735" stack="GNCH_SATKTA_ADDHEALINSSA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17449" name="STR_GNCH_SatkTA_AddHealinsSA" nameId="580735" stack="GNCH_SATKTA_ADDHEALINSSA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16401">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -63949,7 +63949,7 @@
             <skillatk value="0" delta="0" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17450" name="STR_GNCH_SatkTA_AddShield" nameId="580739" stack="GNCH_SATKTA_ADDSHIELD" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17450" name="STR_GNCH_SatkTA_AddShield" nameId="580739" stack="GNCH_SATKTA_ADDSHIELD" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16409">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -64039,7 +64039,7 @@
             <paralyze delta="50" duration="3100" effectid="20002" e="3" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17455" name="STR_GNEL_SDmgDefPolyfoem_AddMgAtt" nameId="580767" stack="GNEL_SDMGDEFPOLYFOEM_ADDMGATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
+    <skill_template skill_id="17455" name="STR_GNEL_SDmgDefPolyfoem_AddMgAtt" nameId="580767" stack="GNEL_SDMGDEFPOLYFOEM_ADDMGATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000" penalty_skill_id="16408">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -64062,7 +64062,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="17456" name="STR_GNEL_SleepTA_AddRef" nameId="580773" stack="GNEL_SLEEPTA_ADDREF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="17456" name="STR_GNEL_SleepTA_AddRef" nameId="580773" stack="GNEL_SLEEPTA_ADDREF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="16407">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -64116,7 +64116,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="17459" name="STR_GNFI_KDTA_AddSUPhyatt_Stu" nameId="580789" stack="GNFI_KDTA_ADDSUPHYATT_STU" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17459" name="STR_GNFI_KDTA_AddSUPhyatt_Stu" nameId="580789" stack="GNFI_KDTA_ADDSUPHYATT_STU" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16399">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -64132,7 +64132,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17460" name="STR_GNFI_OpenArTA_AddShSuAtt" nameId="580793" stack="GNFI_OPENARTA_ADDSHSUATT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17460" name="STR_GNFI_OpenArTA_AddShSuAtt" nameId="580793" stack="GNFI_OPENARTA_ADDSHSUATT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16406">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -64148,7 +64148,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17461" name="STR_GNFI_ParaBoltHTA_AddSUPhyatt" nameId="580797" stack="GNFI_PARABOLTHTA_ADDSUPHYATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17461" name="STR_GNFI_ParaBoltHTA_AddSUPhyatt" nameId="580797" stack="GNFI_PARABOLTHTA_ADDSUPHYATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16399">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -64404,7 +64404,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="17476" name="STR_GNKN_SatkMortalDotTA_AddSUdef" nameId="580871" stack="GNKN_SATKMORTALDOTTA_ADDSUDEF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17476" name="STR_GNKN_SatkMortalDotTA_AddSUdef" nameId="580871" stack="GNKN_SATKMORTALDOTTA_ADDSUDEF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16405">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -64419,7 +64419,7 @@
             <dot checktime="2000" value="15" delta="1" duration="6100" effectid="10174762" e="2" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17477" name="STR_GNKN_SDAttSatkTA_AddSUphyAtt" nameId="580883" stack="GNKN_SDATTSATKTA_ADDSUPHYATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17477" name="STR_GNKN_SDAttSatkTA_AddSUphyAtt" nameId="580883" stack="GNKN_SDATTSATKTA_ADDSUPHYATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16399">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -64437,7 +64437,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="17478" name="STR_GNKN_SatkTA_AddSUAttHealins" nameId="580877" stack="GNKN_SATKTA_ADDSUATTHEALINS" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17478" name="STR_GNKN_SatkTA_AddSUAttHealins" nameId="580877" stack="GNKN_SATKTA_ADDSUATTHEALINS" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16404">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -64490,7 +64490,7 @@
             <blind value="35" duration="6000" effectid="20107" e="2" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17481" name="STR_GNPR_KDTA_AddHealins" nameId="580901" stack="GNPR_KDTA_ADDHEALINS" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17481" name="STR_GNPR_KDTA_AddHealins" nameId="580901" stack="GNPR_KDTA_ADDHEALINS" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16401">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -64613,7 +64613,7 @@
             <spellatk value="105" delta="0" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17488" name="STR_GNPR_SpStunTA_AddSUdef_Stu" nameId="580935" stack="GNPR_SPSTUNTA_ADDSUDEF_STU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="500">
+    <skill_template skill_id="17488" name="STR_GNPR_SpStunTA_AddSUdef_Stu" nameId="580935" stack="GNPR_SPSTUNTA_ADDSUDEF_STU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="500" penalty_skill_id="16405">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -64771,7 +64771,7 @@
             <spellatk value="39" delta="0" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17497" name="STR_GPRA_PulledTA_AddShield_Poi" nameId="580993" stack="GPRA_PULLEDTA_ADDSHIELD_POI" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17497" name="STR_GPRA_PulledTA_AddShield_Poi" nameId="580993" stack="GPRA_PULLEDTA_ADDSHIELD_POI" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16409">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="16"/>
@@ -65116,7 +65116,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="17519" name="STR_NKN_SatkSDPydefDodKDTA_AddShield" nameId="581037" stack="NKN_SATKSDPYDEFDODKDTA_ADDSHIELD" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17519" name="STR_NKN_SatkSDPydefDodKDTA_AddShield" nameId="581037" stack="NKN_SATKSDPYDEFDODKDTA_ADDSHIELD" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16409">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -65205,7 +65205,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17524" name="STR_NPet_SatkLr_AddSuAtt" nameId="581073" stack="NPET_SATKLR_ADDSUATT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="17524" name="STR_NPet_SatkLr_AddSuAtt" nameId="581073" stack="NPET_SATKLR_ADDSUATT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="16399">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -65250,7 +65250,7 @@
             </slow>
         </effects>
     </skill_template>
-    <skill_template skill_id="17527" name="STR_NPet_SPellDotHTA_FrYaho" nameId="581087" stack="NPET_SPELLDOTHTA_FRYAHO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17527" name="STR_NPet_SPellDotHTA_FrYaho" nameId="581087" stack="NPET_SPELLDOTHTA_FRYAHO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16400">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -65298,7 +65298,7 @@
             <skillatk value="0" delta="0" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17530" name="STR_NWI_OpenAerialTA_AddRef" nameId="581107" stack="NWI_OPENAERIALTA_ADDREF" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17530" name="STR_NWI_OpenAerialTA_AddRef" nameId="581107" stack="NWI_OPENAERIALTA_ADDREF" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16407">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -65627,7 +65627,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17550" name="STR_GNRA_BlindNoSkillTA_AddHide" nameId="581213" stack="GNRA_BLINDNOSKILLTA_ADDHIDE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17550" name="STR_GNRA_BlindNoSkillTA_AddHide" nameId="581213" stack="GNRA_BLINDNOSKILLTA_ADDHIDE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16411">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -65646,7 +65646,7 @@
             <silence duration="5000" effectid="20101" e="3" element="WIND"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17551" name="STR_GNKN_KDLongTA_AddGuardian_Nc" nameId="581219" stack="GNKN_KDLONGTA_ADDGUARDIAN_NC" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="500">
+    <skill_template skill_id="17551" name="STR_GNKN_KDLongTA_AddGuardian_Nc" nameId="581219" stack="GNKN_KDLONGTA_ADDGUARDIAN_NC" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="500" penalty_skill_id="16394">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -68244,7 +68244,7 @@
             <heal value="10" delta="0" percent="true" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17714" name="STR_NFI_SATKKDTA_mortal_ADDleh" nameId="581681" stack="NFI_SATKKDTA_MORTAL_ADDLEH" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17714" name="STR_NFI_SATKKDTA_mortal_ADDleh" nameId="581681" stack="NFI_SATKKDTA_MORTAL_ADDLEH" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16412">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -68271,7 +68271,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="17716" name="STR_NRA_SATKLgStunTA_mortal_ADDleh" nameId="581721" stack="NRA_SATKLGSTUNTA_MORTAL_ADDLEH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17716" name="STR_NRA_SATKLgStunTA_mortal_ADDleh" nameId="581721" stack="NRA_SATKLGSTUNTA_MORTAL_ADDLEH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16412">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -68289,7 +68289,7 @@
             <stun duration="3000" effectid="20000" e="2" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17717" name="STR_NWI_SpellongParTA_mortal_ADDleh" nameId="581735" stack="NWI_SPELLONGPARTA_MORTAL_ADDLEH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17717" name="STR_NWI_SpellongParTA_mortal_ADDleh" nameId="581735" stack="NWI_SPELLONGPARTA_MORTAL_ADDLEH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16412">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -68307,7 +68307,7 @@
             <paralyze duration="3000" effectid="20002" e="2" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17718" name="STR_NPR_SpellKBMorTA_addHealLeh" nameId="581717" stack="NPR_SPELLKBMORTA_ADDHEALLEH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17718" name="STR_NPR_SpellKBMorTA_addHealLeh" nameId="581717" stack="NPR_SPELLKBMORTA_ADDHEALLEH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16413">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -68359,7 +68359,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17721" name="STR_NPR_MpattLrHTA_AddHeal" nameId="581801" stack="NPR_MPATTLRHTA_ADDHEAL" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17721" name="STR_NPR_MpattLrHTA_AddHeal" nameId="581801" stack="NPR_MPATTLRHTA_ADDHEAL" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16401">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -68428,7 +68428,7 @@
             <skillatk value="0" delta="0" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17725" name="STR_NAS_SATKSlowSnareTA_AddSDdefsh_Birth" nameId="581773" stack="NAS_SATKSLOWSNARETA_ADDSDDEFSH_BIRTH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17725" name="STR_NAS_SATKSlowSnareTA_AddSDdefsh_Birth" nameId="581773" stack="NAS_SATKSLOWSNARETA_ADDSDDEFSH_BIRTH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16414">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -69890,7 +69890,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="17819" name="STR_BNAS_PoiStun20HTA_Addhide_Poi" nameId="582797" stack="BNAS_POISTUN20HTA_ADDHIDE_POI" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17819" name="STR_BNAS_PoiStun20HTA_Addhide_Poi" nameId="582797" stack="BNAS_POISTUN20HTA_ADDHIDE_POI" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16411">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -69907,7 +69907,7 @@
             <poison checktime="5000" value="98" delta="0" duration="30100" effectid="10178191" e="2" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17820" name="STR_BNAS_PrvPoisonGas_Nr" nameId="582803" stack="BNAS_PRVPOISONGAS_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="17820" name="STR_BNAS_PrvPoisonGas_Nr" nameId="582803" stack="BNAS_PRVPOISONGAS_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0" penalty_skill_id="17811">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -69991,7 +69991,7 @@
             <dot checktime="10000" value="5" delta="0" duration="120000" effectid="10178252" e="2" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17826" name="STR_BNEL_ShrParBufCSDDefTA40_AddRef" nameId="582855" stack="BNEL_SHRPARBUFCSDDEFTA40_ADDREF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
+    <skill_template skill_id="17826" name="STR_BNEL_ShrParBufCSDDefTA40_AddRef" nameId="582855" stack="BNEL_SHRPARBUFCSDDEFTA40_ADDREF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000" penalty_skill_id="17817">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="37"/>
@@ -70140,7 +70140,7 @@
             <transform model="280710" duration="60000" effectid="175" e="2" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17835" name="STR_BNFI_ParDeformSDHPTA40_AddSUDef" nameId="582909" stack="BNFI_PARDEFORMSDHPTA40_ADDSUDEF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
+    <skill_template skill_id="17835" name="STR_BNFI_ParDeformSDHPTA40_AddSUDef" nameId="582909" stack="BNFI_PARDEFORMSDHPTA40_ADDSUDEF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000" penalty_skill_id="17812">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -70186,7 +70186,7 @@
             <spellatk value="154" delta="0" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17838" name="STR_BNFI_SpellKDTA35_Assshield" nameId="582931" stack="BNFI_SPELLKDTA35_ASSSHIELD" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="4000">
+    <skill_template skill_id="17838" name="STR_BNFI_SpellKDTA35_Assshield" nameId="582931" stack="BNFI_SPELLKDTA35_ASSSHIELD" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="4000" penalty_skill_id="16415">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -70258,7 +70258,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="17843" name="STR_GNFI_KDTA15_AddShield" nameId="582955" stack="GNFI_KDTA15_ADDSHIELD" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17843" name="STR_GNFI_KDTA15_AddShield" nameId="582955" stack="GNFI_KDTA15_ADDSHIELD" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16409">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -70274,7 +70274,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17844" name="STR_GNFI_NoSkill_AddShield_Stone_LC" nameId="582959" stack="GNFI_NOSKILL_ADDSHIELD_STONE_LC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
+    <skill_template skill_id="17844" name="STR_GNFI_NoSkill_AddShield_Stone_LC" nameId="582959" stack="GNFI_NOSKILL_ADDSHIELD_STONE_LC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000" penalty_skill_id="16409">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="16"/>
@@ -70303,7 +70303,7 @@
             </spellatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17846" name="STR_GNKN_KDFallNoFly_AddGuard_Lc" nameId="582969" stack="GNKN_KDFALLNOFLY_ADDGUARD_LC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
+    <skill_template skill_id="17846" name="STR_GNKN_KDFallNoFly_AddGuard_Lc" nameId="582969" stack="GNKN_KDFALLNOFLY_ADDGUARD_LC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000" penalty_skill_id="16394">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="37"/>
@@ -70376,7 +70376,7 @@
             <paralyze duration="3000" effectid="20002" e="2" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17851" name="STR_NWI_SleepLTA_AddRef_Lc" nameId="582999" stack="NWI_SLEEPLTA_ADDREF_LC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
+    <skill_template skill_id="17851" name="STR_NWI_SleepLTA_AddRef_Lc" nameId="582999" stack="NWI_SLEEPLTA_ADDREF_LC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000" penalty_skill_id="16407">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="37"/>
@@ -70547,7 +70547,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="17861" name="STR_BNEL_MPattSleepTA40_AddReflect60" nameId="583061" stack="BNEL_MPATTSLEEPTA40_ADDREFLECT60" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="17861" name="STR_BNEL_MPattSleepTA40_AddReflect60" nameId="583061" stack="BNEL_MPATTSLEEPTA40_ADDREFLECT60" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="17857">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="37"/>
@@ -70679,7 +70679,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="17870" name="STR_BNKN_StunATKTA30_AddShield_no" nameId="583445" stack="BNKN_STUNATKTA30_ADDSHIELD_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17870" name="STR_BNKN_StunATKTA30_AddShield_no" nameId="583445" stack="BNKN_STUNATKTA30_ADDSHIELD_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="17864">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -70694,7 +70694,7 @@
             <stun duration="3000" effectid="20000" e="2" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17871" name="STR_BNKN_SatkKD30_AddPhyatt_Area" nameId="583421" stack="BNKN_SATKKD30_ADDPHYATT_AREA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17871" name="STR_BNKN_SatkKD30_AddPhyatt_Area" nameId="583421" stack="BNKN_SATKKD30_ADDPHYATT_AREA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16399">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -71088,7 +71088,7 @@
             <stun duration="3000" effectid="20000" e="2" element="WIND"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17897" name="STR_GNFI_ParaBoltTA30_AddSUPhyatt" nameId="583517" stack="GNFI_PARABOLTTA30_ADDSUPHYATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="17897" name="STR_GNFI_ParaBoltTA30_AddSUPhyatt" nameId="583517" stack="GNFI_PARABOLTTA30_ADDSUPHYATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="16399">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -71214,7 +71214,7 @@
             <spellatk value="127" delta="0" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17905" name="STR_NGR_BombShieldHide_Nr" nameId="583557" stack="NGR_BOMBSHIELDHIDE_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17905" name="STR_NGR_BombShieldHide_Nr" nameId="583557" stack="NGR_BOMBSHIELDHIDE_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16411">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -71303,7 +71303,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="17912" name="STR_BNAS_SigBurstConTA40C2_No" nameId="583333" stack="BNAS_SIGBURSTCONTA40C2_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17912" name="STR_BNAS_SigBurstConTA40C2_No" nameId="583333" stack="BNAS_SIGBURSTCONTA40C2_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="17866">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -71319,7 +71319,7 @@
             <confuse duration="5000" effectid="20104" e="3" element="WATER"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17913" name="STR_BNAS_SignetBurstTA40_No_AddSuAtt2" nameId="583337" stack="BNAS_SIGNETBURSTTA40_NO_ADDSUATT2" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17913" name="STR_BNAS_SignetBurstTA40_No_AddSuAtt2" nameId="583337" stack="BNAS_SIGNETBURSTTA40_NO_ADDSUATT2" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="17867">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -71364,7 +71364,7 @@
             <transform model="211094" duration="15100" effectid="175" e="2" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17916" name="STR_BNPEL_SnareSlowDotTA40_AddRefSh_Nr" nameId="583457" stack="BNPEL_SNARESLOWDOTTA40_ADDREFSH_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17916" name="STR_BNPEL_SnareSlowDotTA40_AddRefSh_Nr" nameId="583457" stack="BNPEL_SNARESLOWDOTTA40_ADDREFSH_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="17868">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="16"/>
@@ -71922,7 +71922,7 @@
             <stun duration="3000" effectid="20000" e="2" element="WATER"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17952" name="STR_BNAS_CarveSignet1TA5_Addhealins_Pick" nameId="583659" stack="BNAS_CARVESIGNET1TA5_ADDHEALINS_PICK" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17952" name="STR_BNAS_CarveSignet1TA5_Addhealins_Pick" nameId="583659" stack="BNAS_CARVESIGNET1TA5_ADDHEALINS_PICK" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16410">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -71933,7 +71933,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="17953" name="STR_BNAS_CarveSignet2_Addhealins_Pick" nameId="583661" stack="BNAS_CARVESIGNET2_ADDHEALINS_PICK" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17953" name="STR_BNAS_CarveSignet2_Addhealins_Pick" nameId="583661" stack="BNAS_CARVESIGNET2_ADDHEALINS_PICK" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16410">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -71958,7 +71958,7 @@
             <skillatk value="0" delta="0" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="17955" name="STR_BNAS_SignetBurTA40_AddSUCriNo" nameId="583665" stack="BNAS_SIGNETBURTA40_ADDSUCRINO" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17955" name="STR_BNAS_SignetBurTA40_AddSUCriNo" nameId="583665" stack="BNAS_SIGNETBURTA40_ADDSUCRINO" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="17929">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -72069,7 +72069,7 @@
             </slow>
         </effects>
     </skill_template>
-    <skill_template skill_id="17962" name="STR_GNKN_KDLong_AddGuardian" nameId="580867" stack="GNKN_KDLONG_ADDGUARDIAN" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17962" name="STR_GNKN_KDLong_AddGuardian" nameId="580867" stack="GNKN_KDLONG_ADDGUARDIAN" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16394">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -72088,7 +72088,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17963" name="STR_BNFI_RsnareTA20M15S_AssShield" nameId="584875" stack="BNFI_RSNARETA20M15S_ASSSHIELD" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
+    <skill_template skill_id="17963" name="STR_BNFI_RsnareTA20M15S_AssShield" nameId="584875" stack="BNFI_RSNARETA20M15S_ASSSHIELD" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000" penalty_skill_id="16409">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -72120,7 +72120,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="17965" name="STR_BNKN_SatkKDTA30_AddShield_No" nameId="584909" stack="BNKN_SATKKDTA30_ADDSHIELD_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="17965" name="STR_BNKN_SatkKDTA30_AddShield_No" nameId="584909" stack="BNKN_SATKKDTA30_ADDSHIELD_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16409">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -72412,7 +72412,7 @@
             </statup>
         </effects>
     </skill_template>
-    <skill_template skill_id="17983" name="STR_BNRA_SnareTA7S5_AddSUpPMdef" nameId="584925" stack="BNRA_SNARETA7S5_ADDSUPPMDEF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="17983" name="STR_BNRA_SnareTA7S5_AddSUpPMdef" nameId="584925" stack="BNRA_SNARETA7S5_ADDSUPPMDEF" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="17982">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -73070,7 +73070,7 @@
             <transform model="211111" duration="20000" effectid="175" e="2" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18024" name="STR_BNAS_Poi40HTA_AddShield_Poi" nameId="584789" stack="BNAS_POI40HTA_ADDSHIELD_POI" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="18024" name="STR_BNAS_Poi40HTA_AddShield_Poi" nameId="584789" stack="BNAS_POI40HTA_ADDSHIELD_POI" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="17864">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -73198,7 +73198,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="18032" name="STR_BNEL_ParMPattTA3_AddReflect60" nameId="584823" stack="BNEL_PARMPATTTA3_ADDREFLECT60" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="18032" name="STR_BNEL_ParMPattTA3_AddReflect60" nameId="584823" stack="BNEL_PARMPATTTA3_ADDREFLECT60" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="17857">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -75344,7 +75344,7 @@
             <spellatk value="124" delta="0" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18158" name="STR_NAS_PoisonNTA_AddSuPyAtt_Nr" nameId="587511" stack="NAS_POISONNTA_ADDSUPYATT_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="18158" name="STR_NAS_PoisonNTA_AddSuPyAtt_Nr" nameId="587511" stack="NAS_POISONNTA_ADDSUPYATT_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16399">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -75465,7 +75465,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="18165" name="STR_NFI_SPellATKNTA5_addShield_No" nameId="587551" stack="NFI_SPELLATKNTA5_ADDSHIELD_NO" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="18165" name="STR_NFI_SPellATKNTA5_addShield_No" nameId="587551" stack="NFI_SPELLATKNTA5_ADDSHIELD_NO" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16409">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -75547,7 +75547,7 @@
             <spellatk value="88" delta="0" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18170" name="STR_NKN_SpellATK_AddHealins15P" nameId="587579" stack="NKN_SPELLATK_ADDHEALINS15P" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="18170" name="STR_NKN_SpellATK_AddHealins15P" nameId="587579" stack="NKN_SPELLATK_ADDHEALINS15P" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="18161">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -75578,7 +75578,7 @@
             <skillatk value="0" delta="0" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18172" name="STR_NKN_SpellAtkNTA5_AddHealins" nameId="587583" stack="NKN_SPELLATKNTA5_ADDHEALINS" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="18172" name="STR_NKN_SpellAtkNTA5_AddHealins" nameId="587583" stack="NKN_SPELLATKNTA5_ADDHEALINS" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="16401">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -76500,7 +76500,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="18232" name="STR_BNWI_SPellPFearTA10_AddShi_No" nameId="588033" stack="BNWI_SPELLPFEARTA10_ADDSHI_NO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="18232" name="STR_BNWI_SPellPFearTA10_AddShi_No" nameId="588033" stack="BNWI_SPELLPFEARTA10_ADDSHI_NO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="18214">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -76517,7 +76517,7 @@
             </snare>
         </effects>
     </skill_template>
-    <skill_template skill_id="18233" name="STR_BNWI_SpellAtkkLrKDTA15_Su" nameId="588017" stack="BNWI_SPELLATKKLRKDTA15_SU" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="18233" name="STR_BNWI_SpellAtkkLrKDTA15_Su" nameId="588017" stack="BNWI_SPELLATKKLRKDTA15_SU" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="16471">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -76547,7 +76547,7 @@
             <spellatk value="64" delta="0" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18235" name="STR_NKN_SpellATKTA15_AddGuardian" nameId="588091" stack="NKN_SPELLATKTA15_ADDGUARDIAN" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
+    <skill_template skill_id="18235" name="STR_NKN_SpellATKTA15_AddGuardian" nameId="588091" stack="NKN_SPELLATKTA15_ADDGUARDIAN" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="16931">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -76561,7 +76561,7 @@
             <spellatk value="53" delta="0" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18236" name="STR_BNWI_SpellAtkTA10_AddRef_No" nameId="588025" stack="BNWI_SPELLATKTA10_ADDREF_NO" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="18236" name="STR_BNWI_SpellAtkTA10_AddRef_No" nameId="588025" stack="BNWI_SPELLATKTA10_ADDREF_NO" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="18213">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -76586,7 +76586,7 @@
             <playermove allow="false"/>
         </useconditions>
     </skill_template>
-    <skill_template skill_id="18238" name="STR_BNWI_SpellAtkTA10_AddShie25_Su" nameId="588029" stack="BNWI_SPELLATKTA10_ADDSHIE25_SU" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
+    <skill_template skill_id="18238" name="STR_BNWI_SpellAtkTA10_AddShie25_Su" nameId="588029" stack="BNWI_SPELLATKTA10_ADDSHIE25_SU" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="18215">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="25"/>
@@ -78499,7 +78499,7 @@
             </snare>
         </effects>
     </skill_template>
-    <skill_template skill_id="18364" name="STR_GNKN_KDHTA_AddGuardian_Nc" nameId="585365" stack="GNKN_KDHTA_ADDGUARDIAN_NC" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="18364" name="STR_GNKN_KDHTA_AddGuardian_Nc" nameId="585365" stack="GNKN_KDHTA_ADDGUARDIAN_NC" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0" penalty_skill_id="16394">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -78667,7 +78667,7 @@
             <shield value="30000" delta="0" percent="true" hitvalue="100" hitdelta="0" duration="15000" effectid="154" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18375" name="STR_GNPR_SpStunTA_AddSUatt_Stu" nameId="585595" stack="GNPR_SPSTUNTA_ADDSUATT_STU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="500">
+    <skill_template skill_id="18375" name="STR_GNPR_SpStunTA_AddSUatt_Stu" nameId="585595" stack="GNPR_SPSTUNTA_ADDSUATT_STU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="500" penalty_skill_id="16399">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -78877,7 +78877,7 @@
             <stun duration="5000" effectid="20000" e="2" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18388" name="STR_BNAS_MortalNoFlyKBC10TA20_Shield10S_No" nameId="585619" stack="BNAS_MORTALNOFLYKBC10TA20_SHIELD10S_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="5000">
+    <skill_template skill_id="18388" name="STR_BNAS_MortalNoFlyKBC10TA20_Shield10S_No" nameId="585619" stack="BNAS_MORTALNOFLYKBC10TA20_SHIELD10S_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="5000" penalty_skill_id="18381">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -78893,7 +78893,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="18389" name="STR_BNFI_SpellDotWeakTA10_AddReflect20s_Mu" nameId="585685" stack="BNFI_SPELLDOTWEAKTA10_ADDREFLECT20S_MU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="18389" name="STR_BNFI_SpellDotWeakTA10_AddReflect20s_Mu" nameId="585685" stack="BNFI_SPELLDOTWEAKTA10_ADDREFLECT20S_MU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="18380">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -78908,7 +78908,7 @@
             <dot checktime="3000" value="35" delta="1" duration="12100" effectid="10183892" e="2" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18390" name="STR_BNFI_SpellDotStrongTA20_AddReflect20s_Mu" nameId="585679" stack="BNFI_SPELLDOTSTRONGTA20_ADDREFLECT20S_MU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="18390" name="STR_BNFI_SpellDotStrongTA20_AddReflect20s_Mu" nameId="585679" stack="BNFI_SPELLDOTSTRONGTA20_ADDREFLECT20S_MU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="18380">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -78937,7 +78937,7 @@
             <skillatk value="0" delta="0" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18392" name="STR_BNFI_SpellDotKDTA25_AddReflect20s_Mu" nameId="585673" stack="BNFI_SPELLDOTKDTA25_ADDREFLECT20S_MU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="18392" name="STR_BNFI_SpellDotKDTA25_AddReflect20s_Mu" nameId="585673" stack="BNFI_SPELLDOTKDTA25_ADDREFLECT20S_MU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="18380">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -78972,7 +78972,7 @@
             </snare>
         </effects>
     </skill_template>
-    <skill_template skill_id="18394" name="STR_BNAS_SBleAirWeakTA10_AddRef20s_Mu" nameId="585713" stack="BNAS_SBLEAIRWEAKTA10_ADDREF20S_MU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="18394" name="STR_BNAS_SBleAirWeakTA10_AddRef20s_Mu" nameId="585713" stack="BNAS_SBLEAIRWEAKTA10_ADDREF20S_MU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="18380">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -78987,7 +78987,7 @@
             <bleed checktime="3000" value="45" delta="1" duration="20100" effectid="10183942" e="2" element="WIND"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18395" name="STR_BNAS_SBleAirStrongTA20_AddRef20s_Mu" nameId="585715" stack="BNAS_SBLEAIRSTRONGTA20_ADDREF20S_MU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
+    <skill_template skill_id="18395" name="STR_BNAS_SBleAirStrongTA20_AddRef20s_Mu" nameId="585715" stack="BNAS_SBLEAIRSTRONGTA20_ADDREF20S_MU" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="18380">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -79016,7 +79016,7 @@
             <spellatk value="270" delta="0" e="1" element="WIND"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18397" name="STR_BNAS_SpellBleAirKDTA25_AddRef20s_Ar" nameId="585719" stack="BNAS_SPELLBLEAIRKDTA25_ADDREF20S_AR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="5000">
+    <skill_template skill_id="18397" name="STR_BNAS_SpellBleAirKDTA25_AddRef20s_Ar" nameId="585719" stack="BNAS_SPELLBLEAIRKDTA25_ADDREF20S_AR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="5000" penalty_skill_id="18380">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="2"/>
@@ -79572,7 +79572,7 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
     </skill_template>
-    <skill_template skill_id="18435" name="STR_Chf_SatkMNofTA35_AdShi_Phb" nameId="586285" stack="CHF_SATKMNOFTA35_ADSHI_PHB" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
+    <skill_template skill_id="18435" name="STR_Chf_SatkMNofTA35_AdShi_Phb" nameId="586285" stack="CHF_SATKMNOFTA35_ADSHI_PHB" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000" penalty_skill_id="18431">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="45"/>
@@ -79628,7 +79628,7 @@
             <skillatk value="0" delta="0" e="1"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18439" name="STR_Chf_SpellNofSnaDotTA35_AdSuAtt_Phb" nameId="586337" stack="CHF_SPELLNOFSNADOTTA35_ADSUATT_PHB" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
+    <skill_template skill_id="18439" name="STR_Chf_SpellNofSnaDotTA35_AdSuAtt_Phb" nameId="586337" stack="CHF_SPELLNOFSNADOTTA35_ADSUATT_PHB" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000" penalty_skill_id="18432">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="45"/>
@@ -79662,7 +79662,7 @@
             </skillatk>
         </effects>
     </skill_template>
-    <skill_template skill_id="18441" name="STR_Chf_SpellNofSli30TA35_AdSuAtt_Phb" nameId="586331" stack="CHF_SPELLNOFSLI30TA35_ADSUATT_PHB" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
+    <skill_template skill_id="18441" name="STR_Chf_SpellNofSli30TA35_AdSuAtt_Phb" nameId="586331" stack="CHF_SPELLNOFSLI30TA35_ADSUATT_PHB" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000" penalty_skill_id="18432">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="45"/>
@@ -79689,7 +79689,7 @@
             <paralyze duration="20000" effectid="20002" e="2" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18443" name="STR_Chf_SpellMNoBliSDHPTA35_AdSUatt" nameId="586319" stack="CHF_SPELLMNOBLISDHPTA35_ADSUATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
+    <skill_template skill_id="18443" name="STR_Chf_SpellMNoBliSDHPTA35_AdSUatt" nameId="586319" stack="CHF_SPELLMNOBLISDHPTA35_ADSUATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000" penalty_skill_id="18432">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="45"/>
@@ -79724,7 +79724,7 @@
             <dot checktime="2000" value="350" delta="0" duration="8100" effectid="10184442" e="2" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18445" name="STR_Chf_SPellNofSleMPattTA35_AdRef15_Phb" nameId="586325" stack="CHF_SPELLNOFSLEMPATTTA35_ADREF15_PHB" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
+    <skill_template skill_id="18445" name="STR_Chf_SPellNofSleMPattTA35_AdRef15_Phb" nameId="586325" stack="CHF_SPELLNOFSLEMPATTTA35_ADREF15_PHB" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000" penalty_skill_id="18433">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="45"/>
@@ -79755,7 +79755,7 @@
             <transform model="280684" duration="35000" effectid="175" e="3" element="EARTH"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18447" name="STR_Chf_KDNoSkill25m_AddRef_Clo" nameId="586265" stack="CHF_KDNOSKILL25M_ADDREF_CLO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2000">
+    <skill_template skill_id="18447" name="STR_Chf_KDNoSkill25m_AddRef_Clo" nameId="586265" stack="CHF_KDNOSKILL25M_ADDREF_CLO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2000" penalty_skill_id="18433">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="45"/>
@@ -79804,7 +79804,7 @@
             <closeaerial e="2" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18450" name="STR_CSum_AimPar_AdRef" nameId="586365" stack="CSUM_AIMPAR_ADREF" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
+    <skill_template skill_id="18450" name="STR_CSum_AimPar_AdRef" nameId="586365" stack="CSUM_AIMPAR_ADREF" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0" penalty_skill_id="18434">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="45"/>
@@ -81024,7 +81024,7 @@
             <spellatk value="20" delta="0" e="1" element="FIRE"/>
         </effects>
     </skill_template>
-    <skill_template skill_id="18529" name="STR_BNAS_Snare15SeSA_Lr" nameId="586895" stack="BNAS_SNARE15SESA_LR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
+    <skill_template skill_id="18529" name="STR_BNAS_Snare15SeSA_Lr" nameId="586895" stack="BNAS_SNARE15SESA_LR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000" penalty_skill_id="17219">
         <startconditions>
             <arrowcheck/>
         </startconditions>
@@ -81043,7 +81043,7 @@
             </snare>
         </effects>
     </skill_template>
-    <skill_template skill_id="18530" name="STR_BNPR_StunSA_Hide" nameId="587497" stack="BNPR_STUNSA_HIDE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
+    <skill_template skill_id="18530" name="STR_BNPR_StunSA_Hide" nameId="587497" stack="BNPR_STUNSA_HIDE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000" penalty_skill_id="16822">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="4"/>
@@ -82023,7 +82023,7 @@
             </statdown>
         </effects>
     </skill_template>
-    <skill_template skill_id="18763" name="STR_BNPR_StunSA_Hide" nameId="587497" stack="BNPR_STUNSA_HIDE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
+    <skill_template skill_id="18763" name="STR_BNPR_StunSA_Hide" nameId="587497" stack="BNPR_STUNSA_HIDE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000" penalty_skill_id="18762">
         <setproperties>
             <firsttarget value="TARGET"/>
             <firsttargetrange value="4"/>

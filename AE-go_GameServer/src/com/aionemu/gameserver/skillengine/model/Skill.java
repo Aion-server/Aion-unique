@@ -26,6 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
+import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.action.Action;
 import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.Condition;
@@ -148,6 +149,18 @@ public class Skill
 	}
 	
 	/**
+	 * Penalty success skill
+	 */
+	private void startPenaltySkill()
+	{
+		if(skillTemplate.getPenaltySkillId() == 0)
+			return;
+		
+		Skill skill = SkillEngine.getInstance().getSkill((Player) effector, skillTemplate.getPenaltySkillId(), 1, firstTarget); 
+		skill.useSkill();
+	}
+	
+	/**
 	 *  Start casting of skill
 	 */
 	private void startCast()
@@ -221,6 +234,11 @@ public class Skill
 		{
 			effect.applyEffect();
 		}
+		
+		/**
+		 * Use penalty skill (now 100% success)
+		 */
+		startPenaltySkill();
 	}
 	
 	/**

@@ -72,6 +72,8 @@ public class SkillTemplate
     protected int duration;
     @XmlAttribute
     protected Integer cooldown;
+    @XmlAttribute(name = "penalty_skill_id")
+    protected int penaltySkillId;
 
     /**
 	 * @return the initProperties
@@ -281,5 +283,13 @@ public class SkillTemplate
             return cooldown;
         }
     }
+
+	/**
+	 * @return the penaltySkillId
+	 */
+	public int getPenaltySkillId()
+	{
+		return penaltySkillId;
+	}
 
 }

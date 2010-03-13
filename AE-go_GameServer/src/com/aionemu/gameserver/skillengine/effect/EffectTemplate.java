@@ -170,6 +170,7 @@ public abstract class EffectTemplate
 		effect.setSubEffect(newEffect);
 	}
 	
+	
 	/**
 	 * 
 	 * @param effect

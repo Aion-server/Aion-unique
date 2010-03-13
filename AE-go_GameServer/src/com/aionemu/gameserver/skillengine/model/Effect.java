@@ -535,6 +535,9 @@ public class Effect
 		stopTasks();
 	}
 
+	/**
+	 * Stop all scheduled tasks
+	 */
 	public void stopTasks()
 	{
 		if(task != null)
