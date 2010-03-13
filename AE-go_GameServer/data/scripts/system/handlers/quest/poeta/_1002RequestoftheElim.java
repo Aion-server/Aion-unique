@@ -92,7 +92,7 @@ public class _1002RequestoftheElim extends QuestHandler
 		if(qs == null)
 			return false;
 
-		int var = qs.getQuestVars().getQuestVarById(0);
+		int var = qs.getQuestVarById(0);
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
@@ -125,7 +125,7 @@ public class _1002RequestoftheElim extends QuestHandler
 				case 10000:
 					if(var == 0)
 					{
-						qs.getQuestVars().setQuestVarById(0, var + 1);
+						qs.setQuestVarById(0, var + 1);
 						updateQuestStatus(player, qs);
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),
 							10));
@@ -156,7 +156,7 @@ public class _1002RequestoftheElim extends QuestHandler
 					{
 						if(collectItemCheck(env))
 						{
-							qs.getQuestVars().setQuestVarById(0, 12);
+							qs.setQuestVarById(0, 12);
 							updateQuestStatus(player, qs);
 							return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2120);
 						}
@@ -176,7 +176,7 @@ public class _1002RequestoftheElim extends QuestHandler
 						if(player.getInventory().getItemCountByItemId(182200002) == 0)
 							if (!itemService.addItems(player, Collections.singletonList(new QuestItems(182200002, 1))))
 								return true;
-						qs.getQuestVars().setQuestVarById(0, var + 1);
+						qs.setQuestVarById(0, var + 1);
 						updateQuestStatus(player, qs);
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),
 							10));
@@ -186,7 +186,7 @@ public class _1002RequestoftheElim extends QuestHandler
 				case 10002:
 					if(var == 5)
 					{
-						qs.getQuestVars().setQuestVarById(0, var + 1);
+						qs.setQuestVarById(0, var + 1);
 						updateQuestStatus(player, qs);
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),
 							10));
@@ -196,7 +196,7 @@ public class _1002RequestoftheElim extends QuestHandler
 				case 10003:
 					if(var == 12)
 					{
-						qs.getQuestVars().setQuestVarById(0, var + 1);
+						qs.setQuestVarById(0, var + 1);
 						updateQuestStatus(player, qs);
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),
 							10));
@@ -237,7 +237,7 @@ public class _1002RequestoftheElim extends QuestHandler
 				case 25:
 					if(var == 2)
 						var++;
-					qs.getQuestVars().setQuestVarById(0, var + 1);
+					qs.setQuestVarById(0, var + 1);
 					updateQuestStatus(player, qs);
 					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
 					((Npc) env.getVisibleObject()).getController().onDie();
@@ -267,7 +267,7 @@ public class _1002RequestoftheElim extends QuestHandler
 				case 10004:
 					if(var == 13)
 					{
-						qs.getQuestVars().setQuestVarById(0, 20);
+						qs.setQuestVarById(0, 20);
 						updateQuestStatus(player, qs);
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),
 							0));
@@ -303,7 +303,7 @@ public class _1002RequestoftheElim extends QuestHandler
 							@Override
 							public void run()
 							{
-								qs.getQuestVars().setQuestVarById(0, 14);
+								qs.setQuestVarById(0, 14);
 								updateQuestStatus(player, qs);
 								teleportService.teleportTo(player, 210010000, 1, 603, 1537, 116, (byte) 20, 0);
 							}

@@ -119,7 +119,7 @@ public class QuestCommand extends AdminCommand
 				return;
 			}
 			qs.setStatus(questStatus);
-			qs.getQuestVars().setQuestVar(var);
+			qs.setQuestVar(var);
 			PacketSendUtility.sendPacket(target, new SM_QUEST_STEP(questId, qs.getStatus(), qs.getQuestVars().getQuestVars()));
 		}
 		else 

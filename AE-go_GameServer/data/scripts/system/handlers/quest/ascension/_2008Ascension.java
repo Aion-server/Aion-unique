@@ -92,7 +92,7 @@ public class _2008Ascension extends QuestHandler
 		if(qs == null || qs.getStatus() != QuestStatus.START)
 			return false;
 
-		int var = qs.getQuestVars().getQuestVarById(0);
+		int var = qs.getQuestVarById(0);
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
@@ -101,13 +101,13 @@ public class _2008Ascension extends QuestHandler
 		{
 			if(var >= 51 && var <= 53)
 			{
-				qs.getQuestVars().setQuestVar(qs.getQuestVars().getQuestVars() + 1);
+				qs.setQuestVar(qs.getQuestVars().getQuestVars() + 1);
 				updateQuestStatus(player, qs);
 				return true;
 			}
 			else if(var == 54)
 			{
-				qs.getQuestVars().setQuestVar(5);
+				qs.setQuestVar(5);
 				updateQuestStatus(player, qs);
 				Npc mob = (Npc) questService.addNewSpawn(320010000, instanceId, 205041, 301f, 259f, 205.5f, (byte) 0, true);
 				// TODO: Tempt decrease P attack.
@@ -180,7 +180,7 @@ public class _2008Ascension extends QuestHandler
 					case 10000:
 						if(var == 0)
 						{
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 							return true;
@@ -188,7 +188,7 @@ public class _2008Ascension extends QuestHandler
 					case 10004:
 						if(var == 4)
 						{
-							qs.getQuestVars().setQuestVar(99);
+							qs.setQuestVar(99);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
 							// Create instance
@@ -250,7 +250,7 @@ public class _2008Ascension extends QuestHandler
 								if (itemService.addItems(player, Collections.singletonList(new QuestItems(182203009, 1))))
 									return true;
 								
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 							return true;
@@ -270,7 +270,7 @@ public class _2008Ascension extends QuestHandler
 							if(player.getInventory().getItemCountByItemId(182203010) == 0)
 								if (!itemService.addItems(player, Collections.singletonList(new QuestItems(182203010, 1))))
 									return true;
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 							return true;
@@ -291,7 +291,7 @@ public class _2008Ascension extends QuestHandler
 								if (!itemService.addItems(player, Collections.singletonList(new QuestItems(182203011, 1))))
 									return true;
 								
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 							return true;
@@ -306,13 +306,13 @@ public class _2008Ascension extends QuestHandler
 						if(var == 99)
 						{
 							PacketSendUtility.sendPacket(player, new SM_EMOTION(player, 6, 3001, 0));
-							qs.getQuestVars().setQuestVar(50);
+							qs.setQuestVar(50);
 							updateQuestStatus(player, qs);
 							ThreadPoolManager.getInstance().schedule(new Runnable(){
 								@Override
 								public void run()
 								{
-									qs.getQuestVars().setQuestVar(51);
+									qs.setQuestVar(51);
 									updateQuestStatus(player, qs);
 									List<Npc> mobs = new ArrayList<Npc>();
 									mobs.add((Npc) questService.addNewSpawn(320010000, instanceId, 205040, 294f, 277f, 207f, (byte) 0, true));
@@ -378,7 +378,7 @@ public class _2008Ascension extends QuestHandler
 					id = worldMap.getWorldMapScriptInstanceIdByPlyerObjId(player.getObjectId());
 				if(id == -1 || player.getWorldId() != 320010000)
 				{
-					qs.getQuestVars().setQuestVar(4);
+					qs.setQuestVar(4);
 					updateQuestStatus(player, qs);
 					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(questId).getName()));
 					teleportService.teleportTo(player, 220010000, 1, 378.9f, 1895.39f, 330.0f, 1000);
@@ -401,7 +401,7 @@ public class _2008Ascension extends QuestHandler
 			return false;
 		int instanceId = player.getInstanceId();
 		questService.addNewSpawn(320010000, instanceId, 203550, 301.92999f, 274.26001f, 205.7f, (byte) 0, true);
-		qs.getQuestVars().setQuestVar(6);
+		qs.setQuestVar(6);
 		updateQuestStatus(player, qs);
 		return true;
 	}
@@ -428,7 +428,7 @@ public class _2008Ascension extends QuestHandler
 		int var = qs.getQuestVars().getQuestVars();
 		if(var == 5 || (var >= 51 && var <= 53))
 		{
-			qs.getQuestVars().setQuestVar(4);
+			qs.setQuestVar(4);
 			updateQuestStatus(player, qs);
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(env.getQuestId()).getName()));
 		}

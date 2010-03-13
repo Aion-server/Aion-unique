@@ -64,16 +64,16 @@ public class _2132ANewSkill extends QuestHandler
 			switch(player.getCommonData().getPlayerClass())
 			{
 				case WARRIOR:
-					qs.getQuestVars().setQuestVar(1);
+					qs.setQuestVar(1);
 					break;
 				case SCOUT:
-					qs.getQuestVars().setQuestVar(2);
+					qs.setQuestVar(2);
 					break;
 				case MAGE:
-					qs.getQuestVars().setQuestVar(3);
+					qs.setQuestVar(3);
 					break;
 				case PRIEST:
-					qs.getQuestVars().setQuestVar(4);
+					qs.setQuestVar(4);
 					break;
 			}
 			updateQuestStatus(player, qs);

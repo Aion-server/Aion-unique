@@ -70,7 +70,7 @@ public class _2001ThinkingAhead extends QuestHandler
 		if(qs == null)
 			return false;
 
-		int var = qs.getQuestVars().getQuestVarById(0);
+		int var = qs.getQuestVarById(0);
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
@@ -92,7 +92,7 @@ public class _2001ThinkingAhead extends QuestHandler
 					case 10002:
 						if(var == 0 || var == 2)
 						{
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 							return true;
@@ -102,7 +102,7 @@ public class _2001ThinkingAhead extends QuestHandler
 						{
 							if(collectItemCheck(env))
 							{
-								qs.getQuestVars().setQuestVarById(0, var + 1);
+								qs.setQuestVarById(0, var + 1);
 								updateQuestStatus(player, qs);
 								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1694);
 							}
@@ -138,7 +138,7 @@ public class _2001ThinkingAhead extends QuestHandler
 		if(qs == null)
 			return false;
 
-		int var = qs.getQuestVars().getQuestVarById(0);
+		int var = qs.getQuestVarById(0);
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
@@ -151,7 +151,7 @@ public class _2001ThinkingAhead extends QuestHandler
 			case 210369:
 				if(var >= 3 && var < 8)
 				{
-					qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
+					qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 					updateQuestStatus(player, qs);
 					return true;
 				}

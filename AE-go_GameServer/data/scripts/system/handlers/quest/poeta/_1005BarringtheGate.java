@@ -60,7 +60,7 @@ public class _1005BarringtheGate extends QuestHandler
 		if(qs == null)
 			return false;
 
-		int var = qs.getQuestVars().getQuestVarById(0);
+		int var = qs.getQuestVarById(0);
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
@@ -77,7 +77,7 @@ public class _1005BarringtheGate extends QuestHandler
 					case 10000:
 						if(var == 0)
 						{
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 							.getObjectId(), 10));
@@ -95,7 +95,7 @@ public class _1005BarringtheGate extends QuestHandler
 					case 10001:
 						if(var == 1)
 						{
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 							.getObjectId(), 10));
@@ -113,7 +113,7 @@ public class _1005BarringtheGate extends QuestHandler
 					case 10002:
 						if(var == 2)
 						{
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 							.getObjectId(), 10));
@@ -131,7 +131,7 @@ public class _1005BarringtheGate extends QuestHandler
 					case 10002:
 						if(var == 3)
 						{
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 							.getObjectId(), 10));
@@ -149,7 +149,7 @@ public class _1005BarringtheGate extends QuestHandler
 					case 10002:
 						if(var == 4)
 						{
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 							.getObjectId(), 10));
@@ -240,7 +240,7 @@ public class _1005BarringtheGate extends QuestHandler
 				PacketSendUtility.broadcastPacket(player.getTarget(), new SM_EMOTION((Creature)player.getTarget(), 16, 128, 0));
 				QuestState qs = player.getQuestStateList().getQuestState(questId);
 				if (var != -1)
-					qs.getQuestVars().setQuestVarById(0, var);
+					qs.setQuestVarById(0, var);
 				else
 					qs.setStatus(QuestStatus.REWARD);
 				updateQuestStatus(player, qs);

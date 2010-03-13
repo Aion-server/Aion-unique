@@ -97,7 +97,7 @@ public class ReportTo extends QuestHandler
 				{
 					if(itemId != 0)
 						player.getInventory().removeFromBagByItemId(itemId, 1);
-					qs.getQuestVars().setQuestVar(1);
+					qs.setQuestVar(1);
 					qs.setStatus(QuestStatus.REWARD);
 					updateQuestStatus(player, qs);
 					return defaultQuestEndDialog(env);

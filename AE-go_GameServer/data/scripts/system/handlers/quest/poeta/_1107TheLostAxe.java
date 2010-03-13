@@ -77,7 +77,7 @@ public class _1107TheLostAxe extends QuestHandler
 				else if(env.getDialogId() == 1009)
 				{
 					player.getInventory().removeFromBagByItemId(182200501, 1);
-					qs.getQuestVars().setQuestVar(1);
+					qs.setQuestVar(1);
 					qs.setStatus(QuestStatus.REWARD);
 					updateQuestStatus(player, qs);
 					return defaultQuestEndDialog(env);

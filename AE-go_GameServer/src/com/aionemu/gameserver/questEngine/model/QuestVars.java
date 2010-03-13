@@ -31,14 +31,14 @@ public class QuestVars
 
 	public QuestVars(int var)
 	{
-		setQuestVar(var);
+		setVar(var);
 	}
 
 	/**
 	 * @param id
 	 * @return Quest var by id.
 	 */
-	public int getQuestVarById(int id)
+	public int getVarById(int id)
 	{
 		return questVars[id];
 	}
@@ -47,7 +47,7 @@ public class QuestVars
 	 * @param id
 	 * @param var
 	 */
-	public void setQuestVarById(int id, int var)
+	public void setVarById(int id, int var)
 	{
 		questVars[id] = var;
 	}
@@ -67,7 +67,7 @@ public class QuestVars
 		return var;
 	}
 	
-	public void setQuestVar(int var)
+	public void setVar(int var)
 	{
 		for(int i = 0; i < 5; i++)
 		{

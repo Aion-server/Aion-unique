@@ -53,6 +53,31 @@ public class QuestState
     	   return questVars;
        }
 
+       /**
+        * @param id
+        * @param var
+        */
+       public void setQuestVarById(int id, int var)
+       {
+    	   questVars.setVarById(id, var);
+    	   setPersistentState(PersistentState.UPDATE_REQUIRED);
+       }
+
+       /**
+        * @param id
+        * @return Quest var by id.
+        */
+       public int getQuestVarById(int id)
+       {
+    	   return questVars.getVarById(id);
+       }
+       
+       public void setQuestVar(int var)
+       {
+    	   questVars.setVar(var);
+    	   setPersistentState(PersistentState.UPDATE_REQUIRED);
+       }
+
        public QuestStatus getStatus()
        {
     	   return status;

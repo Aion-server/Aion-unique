@@ -56,7 +56,7 @@ public class _1001TheKerubThreat extends QuestHandler
 		if(qs == null)
 			return false;
 
-		int var = qs.getQuestVars().getQuestVarById(0);
+		int var = qs.getQuestVarById(0);
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
@@ -67,7 +67,7 @@ public class _1001TheKerubThreat extends QuestHandler
 		{
 			if(var > 0 && var < 6)
 			{
-				qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
+				qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 				updateQuestStatus(player, qs);
 				return true;
 			}
@@ -95,7 +95,7 @@ public class _1001TheKerubThreat extends QuestHandler
 		if(qs == null)
 			return false;
 
-		int var = qs.getQuestVars().getQuestVarById(0);
+		int var = qs.getQuestVarById(0);
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
@@ -131,7 +131,7 @@ public class _1001TheKerubThreat extends QuestHandler
 								else
 								{
 									player.getInventory().removeFromBagByItemId(182200001, itemCount);
-									qs.getQuestVars().setQuestVarById(0, var + 1);
+									qs.setQuestVarById(0, var + 1);
 									qs.setStatus(QuestStatus.REWARD);
 									updateQuestStatus(player, qs);
 									PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
@@ -147,7 +147,7 @@ public class _1001TheKerubThreat extends QuestHandler
 					case 10001:
 						if(var == 0 || var == 6)
 						{
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 								.getObjectId(), 10));

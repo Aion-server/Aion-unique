@@ -76,7 +76,7 @@ public class MonsterHunt extends QuestHandler
 			{
 				for(MonsterInfo mi : monsterInfo.values())
 				{
-					if(mi.getMaxKill() < qs.getQuestVars().getQuestVarById(mi.getVarId()))
+					if(mi.getMaxKill() < qs.getQuestVarById(mi.getVarId()))
 						return false;
 				}
 				if(env.getDialogId() == 25)
@@ -84,7 +84,7 @@ public class MonsterHunt extends QuestHandler
 				else if(env.getDialogId() == 1009)
 				{
 					qs.setStatus(QuestStatus.REWARD);
-					qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
+					qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 					updateQuestStatus(player, qs);
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 5);
 				}
@@ -116,10 +116,10 @@ public class MonsterHunt extends QuestHandler
 		MonsterInfo mi = monsterInfo.get(targetId);
 		if(mi == null)
 			return false;
-		if(mi.getMaxKill() <= qs.getQuestVars().getQuestVarById(mi.getVarId()))
+		if(mi.getMaxKill() <= qs.getQuestVarById(mi.getVarId()))
 			return false;
 
-		qs.getQuestVars().setQuestVarById(mi.getVarId(), qs.getQuestVars().getQuestVarById(mi.varId) + 1);
+		qs.setQuestVarById(mi.getVarId(), qs.getQuestVarById(mi.varId) + 1);
 		updateQuestStatus(player, qs);
 		return true;
 	}

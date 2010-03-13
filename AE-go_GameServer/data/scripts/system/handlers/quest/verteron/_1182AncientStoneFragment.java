@@ -77,7 +77,7 @@ public class _1182AncientStoneFragment extends QuestHandler
 				else if(env.getDialogId() == 1009)
 				{
 					player.getInventory().removeFromBagByItemId(182200549, 1);
-					qs.getQuestVars().setQuestVar(1);
+					qs.setQuestVar(1);
 					qs.setStatus(QuestStatus.REWARD);
 					updateQuestStatus(player, qs);
 					return defaultQuestEndDialog(env);

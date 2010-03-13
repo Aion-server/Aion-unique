@@ -69,7 +69,7 @@ public class _1013HuntingLepharistRevolutionaries extends QuestHandler
 		if(qs == null)
 			return false;
 
-		int var = qs.getQuestVars().getQuestVarById(0);
+		int var = qs.getQuestVarById(0);
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
@@ -95,7 +95,7 @@ public class _1013HuntingLepharistRevolutionaries extends QuestHandler
 					case 10001:
 						if(var == 0 || var == 11)
 						{
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 								.getObjectId(), 10));
@@ -120,7 +120,7 @@ public class _1013HuntingLepharistRevolutionaries extends QuestHandler
 		if(qs == null)
 			return false;
 
-		int var = qs.getQuestVars().getQuestVarById(0);
+		int var = qs.getQuestVarById(0);
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
@@ -132,7 +132,7 @@ public class _1013HuntingLepharistRevolutionaries extends QuestHandler
 			case 210688:
 				if(var >= 1 && var <= 11)
 				{
-					qs.getQuestVars().setQuestVarById(0, var + 1);
+					qs.setQuestVarById(0, var + 1);
 					updateQuestStatus(player, qs);
 					return true;
 				}

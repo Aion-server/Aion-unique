@@ -68,7 +68,7 @@ public class _1004NeutralizingOdium extends QuestHandler
 		if(qs == null)
 			return false;
 
-		int var = qs.getQuestVars().getQuestVarById(0);
+		int var = qs.getQuestVarById(0);
 		int targetId = 0;
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
@@ -92,7 +92,7 @@ public class _1004NeutralizingOdium extends QuestHandler
 						if(player.getInventory().getItemCountByItemId(182200005) == 0)
 							if (!itemService.addItems(player, Collections.singletonList(new QuestItems(182200005, 1))))
 								return true;
-						qs.getQuestVars().setQuestVarById(0, var + 1);
+						qs.setQuestVarById(0, var + 1);
 						updateQuestStatus(player, qs);
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 							.getObjectId(), 10));
@@ -129,7 +129,7 @@ public class _1004NeutralizingOdium extends QuestHandler
 								PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 38, 0,
 									targetObjectId), true);
 								QuestState qs = player.getQuestStateList().getQuestState(questId);
-								qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0)+1);
+								qs.setQuestVarById(0, qs.getQuestVarById(0)+1);
 								updateQuestStatus(player, qs);
 								player.getInventory().removeFromBagByItemId(182200005, 1);
 								PacketSendUtility.broadcastPacket(player.getTarget(), new SM_EMOTION((Creature)player.getTarget(), 16, 128, 0));
@@ -152,7 +152,7 @@ public class _1004NeutralizingOdium extends QuestHandler
 					case 10001:
 						if(var == 2)
 						{
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 								.getObjectId(), 10));
@@ -161,7 +161,7 @@ public class _1004NeutralizingOdium extends QuestHandler
 					case 10002:
 						if(var == 11)
 						{
-							qs.getQuestVars().setQuestVarById(0, 4);
+							qs.setQuestVarById(0, 4);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 								.getObjectId(), 10));
@@ -171,7 +171,7 @@ public class _1004NeutralizingOdium extends QuestHandler
 						{
 							if(collectItemCheck(env))
 							{
-								qs.getQuestVars().setQuestVarById(0, 11);
+								qs.setQuestVarById(0, 11);
 								updateQuestStatus(player, qs);
 								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1694);
 							}

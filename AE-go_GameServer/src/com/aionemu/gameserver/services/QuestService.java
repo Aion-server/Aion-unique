@@ -224,7 +224,7 @@ public class QuestService
 			if(template.getMaxRepeatCount() >= qs.getCompliteCount())
 			{
 				qs.setStatus(questStatus);
-				qs.getQuestVars().setQuestVar(0);
+				qs.setQuestVar(0);
 			}
 		}
 
@@ -240,7 +240,7 @@ public class QuestService
 		if(qs == null || qs.getStatus() != QuestStatus.START)
 			return false;
 
-		qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
+		qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 		qs.setStatus(QuestStatus.REWARD);
 		PacketSendUtility.sendPacket(player, new SM_QUEST_STEP(id, qs.getStatus(), qs.getQuestVars().getQuestVars()));
 		player.getController().updateNearbyQuests();

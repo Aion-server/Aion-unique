@@ -82,7 +82,7 @@ public class _1123WheresTutty extends QuestHandler
 		env.setQuestId(questId);
 		PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(0, 11));
 		qs.setStatus(QuestStatus.REWARD);
-		qs.getQuestVars().setQuestVarById(0, 1);
+		qs.setQuestVarById(0, 1);
 		updateQuestStatus(player, qs);
 		return true;
 	}

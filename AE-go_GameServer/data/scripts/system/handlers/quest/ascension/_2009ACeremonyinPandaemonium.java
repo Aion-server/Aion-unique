@@ -86,7 +86,7 @@ public class _2009ACeremonyinPandaemonium extends QuestHandler
 					case 10000:
 						if (var == 0)
 						{
-							qs.getQuestVars().setQuestVar(1);
+							qs.setQuestVar(1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),0));
 							
@@ -111,7 +111,7 @@ public class _2009ACeremonyinPandaemonium extends QuestHandler
 					case 10001:
 						if(var == 1)
 						{
-							qs.getQuestVars().setQuestVarById(0, var + 1);
+							qs.setQuestVarById(0, var + 1);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
 								.getObjectId(), 10));
@@ -137,13 +137,13 @@ public class _2009ACeremonyinPandaemonium extends QuestHandler
 						{
 							PlayerClass playerClass = PlayerClass.getStartingClassFor(player.getCommonData().getPlayerClass());
 							if (playerClass == PlayerClass.WARRIOR)
-								qs.getQuestVars().setQuestVar(10);
+								qs.setQuestVar(10);
 							else if (playerClass == PlayerClass.SCOUT)
-								qs.getQuestVars().setQuestVar(20);
+								qs.setQuestVar(20);
 							else if (playerClass == PlayerClass.MAGE)
-								qs.getQuestVars().setQuestVar(30);
+								qs.setQuestVar(30);
 							else if (playerClass == PlayerClass.PRIEST)
-								qs.getQuestVars().setQuestVar(40);
+								qs.setQuestVar(40);
 							qs.setStatus(QuestStatus.REWARD);
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()

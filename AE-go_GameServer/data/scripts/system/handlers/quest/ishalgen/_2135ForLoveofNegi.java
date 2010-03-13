@@ -83,7 +83,7 @@ public class _2135ForLoveofNegi extends QuestHandler
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2375);
 				else if(env.getDialogId() == 1009)
 				{
-					qs.getQuestVars().setQuestVar(2);
+					qs.setQuestVar(2);
 					qs.setStatus(QuestStatus.REWARD);
 					updateQuestStatus(player, qs);
 					return defaultQuestEndDialog(env);
@@ -98,13 +98,13 @@ public class _2135ForLoveofNegi extends QuestHandler
 		}
 		else if(targetId == 203531)
 		{
-			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVars().getQuestVarById(0) == 0)
+			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 0)
 			{
 				if(env.getDialogId() == 25)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
 				else if(env.getDialogId() == 10000)
 				{
-					qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
+					qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 					player.getInventory().removeFromBagByItemId(182203131, 1);
 					updateQuestStatus(player, qs);
 					PacketSendUtility

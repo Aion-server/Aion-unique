@@ -70,13 +70,13 @@ public class _1900RingImbuedAether extends QuestHandler
 		}
 		else if(targetId == 203739)
 		{
-			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVars().getQuestVarById(0) == 0)
+			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 0)
 			{
 				if(env.getDialogId() == 25)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
 				else if(env.getDialogId() == 10000)
 				{
-					qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
+					qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 					updateQuestStatus(player, qs);
 					PacketSendUtility
 						.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
@@ -88,13 +88,13 @@ public class _1900RingImbuedAether extends QuestHandler
 		}
 		else if(targetId == 203766)
 		{
-			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVars().getQuestVarById(0) == 1)
+			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 1)
 			{
 				if(env.getDialogId() == 25)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
 				else if(env.getDialogId() == 10000)
 				{
-					qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
+					qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 					updateQuestStatus(player, qs);
 					PacketSendUtility
 						.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
@@ -106,13 +106,13 @@ public class _1900RingImbuedAether extends QuestHandler
 		}
 		else if(targetId == 203797)
 		{
-			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVars().getQuestVarById(0) == 2)
+			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 2)
 			{
 				if(env.getDialogId() == 25)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
 				else if(env.getDialogId() == 10000)
 				{
-					qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
+					qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 					updateQuestStatus(player, qs);
 					PacketSendUtility
 						.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
@@ -124,13 +124,13 @@ public class _1900RingImbuedAether extends QuestHandler
 		}
 		else if(targetId == 203795)
 		{
-			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVars().getQuestVarById(0) == 3)
+			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 3)
 			{
 				if(env.getDialogId() == 25)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
 				else if(env.getDialogId() == 10000)
 				{
-					qs.getQuestVars().setQuestVarById(0, qs.getQuestVars().getQuestVarById(0) + 1);
+					qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 					updateQuestStatus(player, qs);
 					qs.setStatus(QuestStatus.REWARD);
 					PacketSendUtility
@@ -149,7 +149,7 @@ public class _1900RingImbuedAether extends QuestHandler
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2375);
 				else if(env.getDialogId() == 1009)
 				{
-					qs.getQuestVars().setQuestVar(4);
+					qs.setQuestVar(4);
 					qs.setStatus(QuestStatus.REWARD);
 					updateQuestStatus(player, qs);
 					return defaultQuestEndDialog(env);

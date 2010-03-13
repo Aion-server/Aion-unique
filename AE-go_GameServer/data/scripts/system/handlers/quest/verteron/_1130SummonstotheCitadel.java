@@ -62,7 +62,7 @@ public class _1130SummonstotheCitadel extends QuestHandler
 		{
 			if(env.getDialogId() == 25)
 			{
-				qs.getQuestVars().setQuestVar(1);
+				qs.setQuestVar(1);
 				qs.setStatus(QuestStatus.REWARD);
 				updateQuestStatus(player, qs);
 				return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1011);
