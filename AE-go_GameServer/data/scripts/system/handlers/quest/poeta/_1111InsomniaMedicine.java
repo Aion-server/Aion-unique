@@ -54,7 +54,6 @@ public class _1111InsomniaMedicine extends QuestHandler
 		if(env.getVisibleObject() instanceof Npc)
 			targetId = ((Npc) env.getVisibleObject()).getNpcId();
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
-		int var = qs.getQuestVarById(0);
 		if(targetId == 203075)
 		{
 			if(qs == null)
@@ -68,19 +67,18 @@ public class _1111InsomniaMedicine extends QuestHandler
 			{
 				if(env.getDialogId() == -1)
 				{
-					if(var == 2)
+					if(qs.getQuestVarById(0) == 2)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2375);
-					else if(var == 3)
+					else if(qs.getQuestVarById(0) == 3)
 						return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2716);
 					return false;
 				}
 				else if(env.getDialogId() == 1009)
-					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), var + 3);
+					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), qs.getQuestVarById(0) + 3);
 				else if(env.getDialogId() == 17)
 				{
-					questService.questFinish(env, var - 2);
-					PacketSendUtility
-						.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
+					questService.questFinish(env, qs.getQuestVarById(0) - 2);
+					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 					return true;
 				}
 			}
@@ -89,9 +87,9 @@ public class _1111InsomniaMedicine extends QuestHandler
 		{
 			if(env.getDialogId() == 25)
 			{
-				if(var == 0)
+				if(qs.getQuestVarById(0) == 0)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1352);
-				else if(var == 1)
+				else if(qs.getQuestVarById(0) == 1)
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1353);
 				return false;
 			}
@@ -99,7 +97,7 @@ public class _1111InsomniaMedicine extends QuestHandler
 			{
 				if(collectItemCheck(env))
 				{
-					qs.setQuestVarById(0, var + 1);
+					qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 					updateQuestStatus(player, qs);
 					return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 1353);
 				}
