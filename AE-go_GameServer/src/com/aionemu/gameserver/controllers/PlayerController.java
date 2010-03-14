@@ -214,7 +214,6 @@ public class PlayerController extends CreatureController<Player>
 	@Override
 	public void onDie()
 	{
-		super.onDie();
 		// TODO probably introduce variable - last attack creature in player AI
 		Player player = this.getOwner();
 		if(lastAttacker instanceof Player && !isEnemy((Player) lastAttacker))
@@ -223,6 +222,7 @@ public class PlayerController extends CreatureController<Player>
 		}
 		else
 		{
+			super.onDie();
 			if(player.getLevel() > 4)
 				player.getCommonData().calculateExpLoss();
 
