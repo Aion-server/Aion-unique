@@ -99,7 +99,13 @@ public abstract class CreatureLifeStats<T extends Creature>
 	 */
 	public int getMaxHp()
 	{
-		return this.getOwner().getGameStats().getCurrentStat(StatEnum.MAXHP);
+		int maxHp =  this.getOwner().getGameStats().getCurrentStat(StatEnum.MAXHP);
+		if(maxHp == 0)
+		{
+			maxHp = 1;
+			log.warn("CHECKPOINT: maxhp is 0 :" + this.getOwner().getGameStats());
+		}
+		return maxHp;
 	}
 	
 	/**
