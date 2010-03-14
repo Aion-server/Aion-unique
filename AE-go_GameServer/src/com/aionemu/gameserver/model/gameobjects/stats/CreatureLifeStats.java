@@ -33,7 +33,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public abstract class CreatureLifeStats<T extends Creature>
 {
-	@SuppressWarnings("unused")
 	private static final Logger log = Logger.getLogger(CreatureLifeStats.class);
 
 	protected int currentHp;

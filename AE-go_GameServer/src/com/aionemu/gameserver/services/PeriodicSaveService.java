@@ -71,7 +71,7 @@ public class PeriodicSaveService
 		@Override
 		public void run()
 		{
-			log.info("Player update task started");
+			log.info("Player update task started.");
 			long startTime = System.currentTimeMillis();
 			Iterator<Player> playersIterator = world.getPlayersIterator();
 			int playersUpdated = 0;
@@ -93,7 +93,7 @@ public class PeriodicSaveService
 				playersUpdated++;
 			}
 			long workTime = System.currentTimeMillis() - startTime;
-			log.info("Player update: " + workTime + " ms, players: " + playersUpdated);
+			log.info("Player update: " + workTime + " ms, players: " + playersUpdated + ".");
 		}
 	}
 
@@ -102,7 +102,7 @@ public class PeriodicSaveService
 		@Override
 		public void run()
 		{
-			log.info("Player item update task started");
+			log.info("Player item update task started.");
 			long startTime = System.currentTimeMillis();
 			Iterator<Player> playersIterator = world.getPlayersIterator();
 			int playersUpdated = 0;
@@ -122,7 +122,7 @@ public class PeriodicSaveService
 				playersUpdated++;
 			}
 			long workTime = System.currentTimeMillis() - startTime;
-			log.info("Player item update: " + workTime + " ms, players: " + playersUpdated);
+			log.info("Player item update: " + workTime + " ms, players: " + playersUpdated + ".");
 		}
 	}
 	
@@ -131,7 +131,7 @@ public class PeriodicSaveService
 		@Override
 		public void run()
 		{
-			log.info("Legion WH update task started");
+			log.info("Legion WH update task started.");
 			long startTime = System.currentTimeMillis();
 			Iterator<Legion> legionsIterator = legionService.getCachedLegionIterator();
 			int legionWhUpdated = 0;
@@ -174,7 +174,7 @@ public class PeriodicSaveService
 				legionWhUpdated++;
 			}
 			long workTime = System.currentTimeMillis() - startTime;
-			log.info("Legion WH update: " + workTime + " ms, legions: " + legionWhUpdated);
+			log.info("Legion WH update: " + workTime + " ms, legions: " + legionWhUpdated + ".");
 		}
 	}
 	
@@ -183,10 +183,10 @@ public class PeriodicSaveService
 	 */
 	public void onShutdown()
 	{
-		log.info("Starting data save on shutdown");
+		log.info("Starting data save on shutdown.");
 		legionWhUpdateTask.cancel(false);
 		new LegionWhUpdateTask().run();
-		log.info("Data successfully saved");
+		log.info("Data successfully saved.");
 	}
 
 }

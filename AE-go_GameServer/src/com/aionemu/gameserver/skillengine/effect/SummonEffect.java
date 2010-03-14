@@ -38,6 +38,7 @@ public class SummonEffect extends EffectTemplate
 	public void applyEffect(Effect effect)
 	{
 		effect.addToEffectedController();
+		@SuppressWarnings("unused")
 		final Player effected = (Player) effect.getEffected();
 		//if(!effected.hasSummon())
 		//	effected.addSummon(npcId);

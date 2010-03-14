@@ -16,9 +16,6 @@
  */
 package admincommands;
 
-import java.util.Iterator;
-import java.util.List;
-
 import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -35,7 +32,6 @@ import com.google.inject.Inject;
  * @author Phantom, ATracer
  *
  */
-
 public class Remove extends AdminCommand
 {
 	@Inject

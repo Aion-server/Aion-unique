@@ -119,7 +119,6 @@ public class GameServer
 			new Thread(new DeadlockDetector(TaskManagerConfig.DEADLOCK_DETECTOR_INTERVAL)).start();
 		}
 		
-		
 		Runtime.getRuntime().addShutdownHook(gs.injector.getInstance(ShutdownHook.class));
 
 		//gs.injector.getInstance(com.aionemu.gameserver.utils.chathandlers.ChatHandlers.class);
