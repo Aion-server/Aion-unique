@@ -20,12 +20,12 @@ import java.util.concurrent.Future;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
-import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTime;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.gametime.DayTime;
 import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 
 /**
  * @author ATracer
@@ -34,6 +34,9 @@ import com.aionemu.gameserver.world.World;
 public class RespawnService
 {
 	private static final int DECAY_DEFAULT_DELAY = 20000;
+	
+	@Inject
+	private InstanceService instanceService;
 
 	/**
 	 * 
@@ -74,27 +77,21 @@ public class RespawnService
 				}
 				
 				int instanceId = visibleObject.getInstanceId();
-				//TODO remove this if/else
-				if(visibleObject.getSpawn().isNoRespawn(instanceId))
+				int worldId = visibleObject.getSpawn().getWorldId();
+				boolean instanceExists = instanceService.isInstanceExist(worldId, instanceId);
+				
+				if(visibleObject.getSpawn().isNoRespawn(instanceId) || !instanceExists)
 				{
 					visibleObject.getController().delete();				
 				}
 				else
 				{
-					exchangeSpawnTemplate(visibleObject);		
-					world.setPosition(visibleObject, visibleObject.getSpawn().getWorldId(), visibleObject.getSpawn().getX(), visibleObject.getSpawn().getY(), visibleObject.getSpawn().getZ(), visibleObject.getSpawn().getHeading());
+					visibleObject.getSpawn().getSpawnGroup().exchangeSpawn(visibleObject);		
+					world.setPosition(visibleObject, worldId, visibleObject.getSpawn().getX(), visibleObject.getSpawn().getY(), visibleObject.getSpawn().getZ(), visibleObject.getSpawn().getHeading());
 					//call onRespawn before actual spawning
 					visibleObject.getController().onRespawn();
 					world.spawn(visibleObject);		
 				}				
-			}
-
-			private synchronized void exchangeSpawnTemplate(final VisibleObject visibleObject)
-			{
-				int instanceId = visibleObject.getInstanceId();			
-				SpawnTemplate nextSpawn = visibleObject.getSpawn().getSpawnGroup().getNextAvailableTemplate(instanceId);	
-				if(nextSpawn != null)
-					visibleObject.setSpawn(nextSpawn);
 			}
 			
 		}, interval * 1000);

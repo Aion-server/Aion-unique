@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.commons.utils.Rnd;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.spawnengine.SpawnHandlerType;
 
 
@@ -210,6 +211,31 @@ public class SpawnGroup
 	{
 		if(lastSpawnedTemplate.containsKey(instanceIndex))
 			lastSpawnedTemplate.remove(instanceIndex);
+	}
+	
+	/**
+	 *  Check whether pool size is equal to number of defined objects
+	 *  For such pools no exchange template should be done
+	 *  
+	 * @return
+	 */
+	public boolean isFullPool()
+	{
+		return pool == objects.size();
+	}
+
+	/**
+	 * @param visibleObject
+	 */
+	public synchronized void  exchangeSpawn(VisibleObject visibleObject)
+	{
+		if(isFullPool())
+			return;
+		
+		int instanceId = visibleObject.getInstanceId();
+		SpawnTemplate nextSpawn = getNextAvailableTemplate(instanceId);	
+		if(nextSpawn != null)
+			visibleObject.setSpawn(nextSpawn);
 	}
 	
 }

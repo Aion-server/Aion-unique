@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.Collection;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
@@ -29,9 +30,9 @@ public class SM_ABNORMAL_EFFECT extends AionServerPacket
 {	
 	private int effectedId;
 	private int abnormals;
-	private Effect[] effects;
+	private Collection<Effect> effects;
 	
-	public SM_ABNORMAL_EFFECT(int effectedId, int abnormals,  Effect[] effects)
+	public SM_ABNORMAL_EFFECT(int effectedId, int abnormals,  Collection<Effect> effects)
 	{
 		this.effects = effects;
 		this.abnormals = abnormals;
@@ -46,7 +47,7 @@ public class SM_ABNORMAL_EFFECT extends AionServerPacket
 		writeD(buf, 0); //unk
 		writeD(buf, abnormals); //unk
 
-		writeH(buf, effects.length); //effects size
+		writeH(buf, effects.size()); //effects size
 		
 		for(Effect effect : effects)
 		{

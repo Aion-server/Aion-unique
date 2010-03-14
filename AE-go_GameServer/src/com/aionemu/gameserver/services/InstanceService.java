@@ -222,4 +222,14 @@ public class InstanceService
 		world.setPosition(player, entryPoint.getMapId(), 1, entryPoint.getX(), entryPoint.getY(),
 			entryPoint.getZ(), player.getHeading());
 	}
+
+	/**
+	 * @param worldId
+	 * @param instanceId
+	 * @return
+	 */
+	public boolean isInstanceExist(int worldId, int instanceId)
+	{
+		return world.getWorldMap(worldId).getWorldMapInstanceById(instanceId) != null;
+	}
 }

@@ -16,6 +16,9 @@
  */
 package com.aionemu.gameserver.controllers.effect;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -126,9 +129,9 @@ public class EffectController
 	 */
 	public void broadCastEffects()
 	{	
+		List<Effect> effects = getAbnormalEffects();
 		PacketSendUtility.broadcastPacket(getOwner(),
-			new SM_ABNORMAL_EFFECT(getOwner().getObjectId(), abnormals,
-				abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()])));	
+			new SM_ABNORMAL_EFFECT(getOwner().getObjectId(), abnormals, effects));	
 	}
 
 	/**
@@ -138,8 +141,9 @@ public class EffectController
 	 */
 	public void sendEffectIconsTo(Player player)
 	{
+		List<Effect> effects = getAbnormalEffects();
 		PacketSendUtility.sendPacket(player, new SM_ABNORMAL_EFFECT(getOwner().getObjectId(),
-			abnormals, abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()])));
+			abnormals, effects));
 	}
 
 	/**
@@ -246,8 +250,23 @@ public class EffectController
 	
 	public void updatePlayerEffectIconsImpl()
 	{
+		List<Effect> effects = getAbnormalEffects();
+
 		PacketSendUtility.sendPacket((Player) owner,
-			new SM_ABNORMAL_STATE(abnormalEffectMap.values().toArray(new Effect[abnormalEffectMap.size()]), abnormals));
+			new SM_ABNORMAL_STATE(effects, abnormals));
+	}
+
+	private List<Effect> getAbnormalEffects()
+	{
+		List<Effect> effects = new ArrayList<Effect>();
+		Iterator<Effect> iterator = iterator();
+		while(iterator.hasNext())
+		{
+			Effect effect = iterator.next();
+			if(effect != null)
+				effects.add(effect);
+		}
+		return effects;
 	}
 
 	/**
@@ -290,6 +309,15 @@ public class EffectController
 	public int getAbnormals()
 	{
 		return abnormals;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public Iterator<Effect> iterator()
+	{
+		return abnormalEffectMap.values().iterator();
 	}
 
 }
