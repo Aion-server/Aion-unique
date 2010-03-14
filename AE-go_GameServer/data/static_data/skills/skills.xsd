@@ -63,12 +63,12 @@
 				maxOccurs="1" />
 			<xs:element name="bleed" type="BleedEffect" minOccurs="0"
 				maxOccurs="1" />
-			<xs:element name="stumble" type="StumbleEffect" minOccurs="0"
-				maxOccurs="1" />
+			<xs:element name="stumble" type="StumbleEffect"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="spin" type="SpinEffect" minOccurs="0"
 				maxOccurs="1" />
-			<xs:element name="stagger" type="StaggerEffect" minOccurs="0"
-				maxOccurs="1" />
+			<xs:element name="stagger" type="StaggerEffect"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="openaerial" type="OpenAerialEffect"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="closeaerial" type="CloseAerialEffect"
@@ -83,8 +83,8 @@
 				maxOccurs="1" />
 			<xs:element name="statboost" type="StatboostEffect"
 				minOccurs="0" maxOccurs="1" />
-			<xs:element name="weaponstatboost" type="WeaponStatboostEffect"
-				minOccurs="0" maxOccurs="1" />
+			<xs:element name="weaponstatboost"
+				type="WeaponStatboostEffect" minOccurs="0" maxOccurs="1" />
 			<xs:element name="wpnmastery" type="WeaponMasteryEffect"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="statdown" type="StatdownEffect"
@@ -129,16 +129,16 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="carvesignet" type="CarveSignetEffect"
 				minOccurs="0" maxOccurs="1" />
-			<xs:element name="signet" type="SignetEffect"
-				minOccurs="0" maxOccurs="1" />
+			<xs:element name="signet" type="SignetEffect" minOccurs="0"
+				maxOccurs="1" />
 			<xs:element name="signetburst" type="SignetBurstEffect"
 				minOccurs="0" maxOccurs="1" />
-			<xs:element name="silence" type="SilenceEffect" minOccurs="0"
-				maxOccurs="1" />
+			<xs:element name="silence" type="SilenceEffect"
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="curse" type="CurseEffect" minOccurs="0"
 				maxOccurs="1" />
-			<xs:element name="blind" type="BlindEffect"
-				minOccurs="0" maxOccurs="1" />
+			<xs:element name="blind" type="BlindEffect" minOccurs="0"
+				maxOccurs="1" />
 			<xs:element name="desease" type="DeseaseEffect"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="boosthate" type="BoostHateEffect"
@@ -157,14 +157,15 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="alwaysdodge" type="AlwaysDodgeEffect"
 				minOccurs="0" maxOccurs="1" />
-			<xs:element name="dispeldebuffphysical" type="DispelDebuffPhysicalEffect"
-				minOccurs="0" maxOccurs="1" />
+			<xs:element name="dispeldebuffphysical"
+				type="DispelDebuffPhysicalEffect" minOccurs="0" maxOccurs="1" />
 			<xs:element name="dispeldebuff" type="DispelDebuffEffect"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="mpuseovertime" type="MpUseOverTimeEffect"
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="switchhpmp" type="SwitchHpMpEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="summon" type="SummonEffect" maxOccurs="1" minOccurs="0"></xs:element>
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -1080,5 +1081,13 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
+
+	<xs:complexType name="SummonEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="npcId" type="xs:int" use="required"></xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 </xs:schema>
 

@@ -98,7 +98,8 @@ public class Effects
 		@XmlElement(name = "alwaysresist", type = AlwaysResistEffect.class),
 		@XmlElement(name = "alwaysblock", type = AlwaysBlockEffect.class),
 		@XmlElement(name = "mpuseovertime", type = MpUseOverTimeEffect.class),
-		@XmlElement(name = "switchhpmp", type = SwitchHpMpEffect.class)
+		@XmlElement(name = "switchhpmp", type = SwitchHpMpEffect.class),
+		@XmlElement(name = "summon", type = SummonEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	
