@@ -30,7 +30,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.WorldMapTemplate;
-import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.taskmanager.tasks.KnownListUpdateTask.KnownListUpdateMode;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
@@ -71,8 +70,6 @@ public class World
 	private final Map<Integer, WorldMap>	worldMaps	= new HashMap<Integer, WorldMap>();
 
 	private IDFactory						aionObjectsIDFactory;
-	@Inject
-	private SpawnEngine						spawnEngine;
 
 	/**
 	 * Constructor.
@@ -177,14 +174,6 @@ public class World
 	}
 
 	/**
-	 * @return the spawnEngine
-	 */
-	public SpawnEngine getSpawnEngine()
-	{
-		return spawnEngine;
-	}
-
-	/**
 	 * Return World Map by id
 	 * 
 	 * @param id
@@ -200,23 +189,6 @@ public class World
 		if(map == null)
 			throw new WorldMapNotExistException("Map: " + id + " not exist!");
 		return map;
-	}
-	
-	/**
-	 * 
-	 * @param worldId
-	 * @return WorldMapInstance
-	 */
-	public WorldMapInstance getNextAvailableInstance(int worldId)
-	{
-		WorldMap map = worldMaps.get(worldId);
-		return map.getNextFreeInstance();
-	}
-
-	public void destroyInstance(int worldId, int instanceId)
-	{
-		WorldMap map = worldMaps.get(worldId);
-		map.removeWorldMapInstance(instanceId);
 	}
 
 	/**
@@ -349,6 +321,7 @@ public class World
 		object.getPosition().setIsSpawned(true);
 		if(object.getSpawn() != null)
 			object.getSpawn().setSpawned(true, object.getInstanceId());
+		object.getActiveRegion().getParent().addObject(object);
 		object.getActiveRegion().add(object);
 
 		object.updateKnownlist();
@@ -363,18 +336,12 @@ public class World
 	 */
 	public void despawn(VisibleObject object)
 	{
+		object.getActiveRegion().getParent().removeObject(object);
 		object.getActiveRegion().remove(object);
 		object.getPosition().setIsSpawned(false);
 		if(object.getSpawn() != null)
 			object.getSpawn().setSpawned(false, object.getInstanceId());
 
 		object.clearKnownlist();
-	}
-
-	/**
-	 * dummy method to initialize World.
-	 */
-	public static void init()
-	{
 	}
 }

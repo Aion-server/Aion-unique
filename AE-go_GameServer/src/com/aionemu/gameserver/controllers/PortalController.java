@@ -24,9 +24,11 @@ import com.aionemu.gameserver.dataholders.PortalData;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.group.PlayerGroup;
+import com.aionemu.gameserver.model.templates.portal.ExitPoint;
 import com.aionemu.gameserver.model.templates.portal.PortalTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_USE_OBJECT;
+import com.aionemu.gameserver.services.InstanceService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.WorldMapInstance;
@@ -34,15 +36,17 @@ import com.google.inject.Inject;
 
 /**
  * @author ATracer
- *
+ * 
  */
 public class PortalController extends NpcController
 {
 	@Inject
-	private PortalData portalData;
-	
-	private PortalTemplate portalTemplate;
-	
+	private PortalData		portalData;
+	@Inject
+	private InstanceService	instanceService;
+
+	private PortalTemplate	portalTemplate;
+
 	@Override
 	public void setOwner(Creature owner)
 	{
@@ -50,81 +54,115 @@ public class PortalController extends NpcController
 		portalTemplate = portalData.getPortalTemplate(owner.getObjectTemplate().getTemplateId());
 	}
 
-
-
 	@Override
-	public void onDialogRequest(Player player)
+	public void onDialogRequest(final Player player)
 	{
 		if(portalTemplate == null)
 			return;
-		
-		if(portalTemplate.isInstance() && CustomConfig.ENABLE_INSTANCES)
-			portGroup(player);
-		else
-			port(player);
+
+		if(!CustomConfig.ENABLE_INSTANCES)
+			return;
+
+		final int defaultUseTime = 3000;
+		PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), getOwner().getObjectId(),
+			defaultUseTime, 1));
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 37, 0, getOwner().getObjectId()), true);
+
+		ThreadPoolManager.getInstance().schedule(new Runnable(){
+			@Override
+			public void run()
+			{
+				PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), getOwner().getObjectId(),
+					defaultUseTime, 0));
+				
+				analyzePortation(player);
+			}
+			
+			/**
+			 * @param player
+			 */
+			private void analyzePortation(final Player player)
+			{
+				PlayerGroup group = player.getPlayerGroup();
+
+				if(portalTemplate.isGroup() && group != null)
+				{
+					WorldMapInstance instance = instanceService.getRegisteredInstance(portalTemplate.getExitPoint()
+						.getMapId(), group.getGroupId());
+					// if already registered - just teleport
+					if(instance != null)
+					{
+						transfer(player, instance);
+						return;
+					}
+
+					portGroup(player);
+				}
+				else if(!portalTemplate.isGroup())
+				{
+					WorldMapInstance instance = instanceService.getRegisteredInstance(portalTemplate.getExitPoint()
+						.getMapId(), player.getObjectId());
+					// if already registered - just teleport
+					if(instance != null)
+					{
+						transfer(player, instance);
+						return;
+					}
+					port(player);
+				}
+			}
+		}, defaultUseTime);
+
 	}
-
-
 
 	/**
 	 * @param player
 	 */
-	private void port(Player player)
+	private void port(Player requester)
 	{
-		Collection<Player> players = Collections.singletonList(player);
+		Collection<Player> players = Collections.singletonList(requester);
 		if(!checkPlayersLevel(players))
 			return;
-		
-		transfer(player, players);
-	}
 
+		WorldMapInstance instance = instanceService.getNextAvailableInstance(portalTemplate.getExitPoint().getMapId());
+		instanceService.registerPlayerWithInstance(instance, requester);
+		transfer(requester, instance);
+	}
 
 	/**
 	 * @param player
 	 */
-	private void portGroup(Player player)
+	private void portGroup(Player requester)
 	{
-		PlayerGroup group = player.getPlayerGroup();
-		if(group == null || group.getGroupLeader().getObjectId() != player.getObjectId())
+		PlayerGroup group = requester.getPlayerGroup();
+		if(group == null || group.getGroupLeader().getObjectId() != requester.getObjectId())
+		{
+			PacketSendUtility.sendMessage(requester, "You are not group leader");
 			return;
-		
+		}		
+
 		Collection<Player> players = group.getMembers();
 		if(!checkPlayersLevel(players))
 			return;
-		
-		transfer(player, players);		
+
+		WorldMapInstance instance = instanceService.getNextAvailableInstance(portalTemplate.getExitPoint().getMapId());
+		instanceService.registerGroupWithInstance(instance, group);
+		for(Player player : players)
+		{
+			transfer(player, instance);
+		}
 	}
 
 	/**
 	 * @param players
 	 */
-	private void transfer(final Player leader, final Collection<Player> players)
+	private void transfer(Player player, WorldMapInstance instance)
 	{
-		final int defaultUseTime = 3000;
-		PacketSendUtility.sendPacket(leader, new SM_USE_OBJECT(leader.getObjectId(), 
-			getOwner().getObjectId(), defaultUseTime, 1));
-		PacketSendUtility.broadcastPacket(leader, new SM_EMOTION(leader, 37, 0, getOwner().getObjectId()), true);
-		
-		ThreadPoolManager.getInstance().schedule(new Runnable(){
-			@Override
-			public void run()
-			{
-				PacketSendUtility.sendPacket(leader, new SM_USE_OBJECT(leader.getObjectId(), 
-					getOwner().getObjectId(), defaultUseTime, 0));
-				
-				WorldMapInstance newInstance = sp.getWorld().getNextAvailableInstance(portalTemplate.getMapId());
-				newInstance.setDestroyTime(60 * 30);
-				
-				for(Player player : players)
-				{
-					sp.getTeleportService().teleportTo(player, portalTemplate.getMapId(), newInstance.getInstanceId(),
-						portalTemplate.getX(), portalTemplate.getY(), portalTemplate.getZ(), 0);
-				}
-			}
-		}, defaultUseTime);
+		ExitPoint exitPoint = portalTemplate.getExitPoint();
+		sp.getTeleportService().teleportTo(player, exitPoint.getMapId(), instance.getInstanceId(),
+			exitPoint.getX(), exitPoint.getY(), exitPoint.getZ(), 0);
 	}
 
-	
 	/**
 	 * 
 	 * @param players
@@ -134,7 +172,7 @@ public class PortalController extends NpcController
 	{
 		int minLevel = portalTemplate.getMinLevel();
 		int maxLevel = portalTemplate.getMaxLevel();
-		
+
 		for(Player player : players)
 		{
 			int playerLevel = player.getLevel();
@@ -143,6 +181,5 @@ public class PortalController extends NpcController
 		}
 		return true;
 	}
-	
-	
+
 }

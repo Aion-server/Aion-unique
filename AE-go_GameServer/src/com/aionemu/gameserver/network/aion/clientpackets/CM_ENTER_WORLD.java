@@ -124,7 +124,6 @@ public class CM_ENTER_WORLD extends AionClientPacket
 		if(player != null && client.setActivePlayer(player))
 		{
 			player.setClientConnection(client);
-			player.getController().startProtectionActiveTask();
 			/*
 			 * Store player into World.
 			 */
@@ -188,12 +187,15 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			}
 
 			client.sendPacket(new SM_INVENTORY_INFO());
-			client.sendPacket(new SM_CHANNEL_INFO(player.getPosition())); // ?? unknwon
+
+			playerService.playerLoggedIn(player);
+
 			// sendPacket(new SM_UNKD3());
 
 			/*
 			 * Needed
 			 */
+			
 			client.sendPacket(new SM_STATS_INFO(player));
 			sendPacket(new SM_CUBE_UPDATE(player, 6));
 
@@ -206,7 +208,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			player.getController().updateNearbyQuests();
 
 			sendPacket(new SM_TITLE_LIST(player));
-
+			
+			client.sendPacket(new SM_CHANNEL_INFO(player.getPosition()));
 			/**
 			 * Player's accumulated time; params are: - 0h 12m - play time (1st and 2nd string-params) - 1h 26m - rest
 			 * time (3rd and 4th string-params)
@@ -236,8 +239,6 @@ public class CM_ENTER_WORLD extends AionClientPacket
 
 			if(player.isLegionMember())
 				legionService.legionMemberOnLogin(player);
-
-			playerService.playerLoggedIn(player);
 
 			if(player.isInGroup())
 				groupService.groupMemberOnLogin(player);

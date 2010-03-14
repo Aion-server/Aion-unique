@@ -37,6 +37,7 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.InstanceService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -59,6 +60,8 @@ public class _2008Ascension extends QuestHandler
 	TeleportService	teleportService;
 	@Inject
 	ItemService itemService;
+	@Inject
+	InstanceService instanceService;
 
 	public _2008Ascension()
 	{
@@ -192,8 +195,8 @@ public class _2008Ascension extends QuestHandler
 							updateQuestStatus(player, qs);
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
 							// Create instance
-							WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstance(320010000);
-							newInstance.setDestroyTime(60 * 20); // 20 min
+							WorldMapInstance newInstance = instanceService.getNextAvailableInstance(320010000, 60 * 20);
+							instanceService.registerPlayerWithInstance(newInstance, player);
 							teleportService.teleportTo(player, 320010000, newInstance.getInstanceId(), 457.65f, 426.8f, 230.4f, 0);
 							return true;
 						}
@@ -365,26 +368,18 @@ public class _2008Ascension extends QuestHandler
 	public boolean onEnterWorldEvent(QuestEnv env)
 	{
 		Player player = env.getPlayer();
-		int instanceId = player.getInstanceId();
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if(qs != null && qs.getStatus() == QuestStatus.START)
 		{
 			int var = qs.getQuestVars().getQuestVars();
 			if(var == 5 || (var >= 50 && var <= 55) || var == 99)
 			{
-				WorldMap worldMap = world.getWorldMap(320010000);
-				int id = -1;
-				if (worldMap != null)
-					id = worldMap.getWorldMapScriptInstanceIdByPlyerObjId(player.getObjectId());
-				if(id == -1 || player.getWorldId() != 320010000)
+				if(player.getWorldId() != 320010000)
 				{
 					qs.setQuestVar(4);
 					updateQuestStatus(player, qs);
 					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(questId).getName()));
-					teleportService.teleportTo(player, 220010000, 1, 378.9f, 1895.39f, 330.0f, 1000);
 				}
-				else if(id != instanceId)
-					teleportService.changeChannel(player, id-1);
 			}
 		}
 		return false;

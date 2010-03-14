@@ -17,9 +17,8 @@
 package com.aionemu.gameserver.world;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
-
-import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.templates.WorldMapTemplate;
 
@@ -31,8 +30,6 @@ import com.aionemu.gameserver.model.templates.WorldMapTemplate;
  */
 public class WorldMap
 {
-	private static Logger log = Logger.getLogger(WorldMap.class);
-	
 	private WorldMapTemplate				worldMapTemplate;
 
 	private int nextInstanceId = 1;
@@ -84,61 +81,18 @@ public class WorldMap
 		int twinCount = worldMapTemplate.getTwinCount();
 		return twinCount > 0 ? twinCount : 1;
 	}
-	
-	/**
-	 *  Will create new instance if there are not free yet and spawn according to xml data
-	 *  //TODO limit
-	 * @return WorldMapInstance
-	 */
-	public synchronized WorldMapInstance getNextFreeInstance()
-	{	
-		if (!worldMapTemplate.isInstance())
-		{
-			for(WorldMapInstance instance : instances.values())
-			{
-				if(!instance.isInUse())
-					return instance;
-			}
-		}
-		log.info("Creating new instance: " + worldMapTemplate.getMapId() + " " + nextInstanceId );
-		if (worldMapTemplate.isInstance())
-			addInstance(nextInstanceId, new WorldMapScriptInstance(this, nextInstanceId));
-		else
-			addInstance(nextInstanceId, new WorldMapInstance(this, nextInstanceId));
-		world.getSpawnEngine().spawnInstance(worldMapTemplate.getMapId(), nextInstanceId-1);
-		
-		return instances.get(nextInstanceId-1);
-	}
 
 	/**
 	 * Return a WorldMapInstance - depends on map configuration one map may have twins instances to balance player. This
 	 * method will return WorldMapInstance by server chose.
-	 * 
+	 *  
+	 *  
 	 * @return WorldMapInstance.
 	 */
 	public WorldMapInstance getWorldMapInstance()
 	{
-		/**
-		 * twin map - balance players
-		 */
-		if(worldMapTemplate.getTwinCount() != 0)
-		{
-			/**
-			 * Balance players into instances.
-			 */
-			int i = 1;
-			while(i <= worldMapTemplate.getTwinCount())
-			{		
-				WorldMapInstance inst = getWorldMapInstance(i);
-				i++;
-				// TODO! user count etc..
-				return inst;
-			}
-			// TODO! whats now?
-			return getWorldMapInstance(worldMapTemplate.getTwinCount());
-		}
-		else
-			return getWorldMapInstance(1);
+		//TODO Balance players into instances.
+		return getWorldMapInstance(1);
 	}
 	
 	/**
@@ -174,30 +128,19 @@ public class WorldMap
 	 * Remove WorldMapInstance by instanceId.
 	 * 
 	 * @param instanceId
-	 * @return WorldMapInstance/
 	 */
-	public WorldMapInstance removeWorldMapInstance(int instanceId)
+	public void removeWorldMapInstance(int instanceId)
 	{
-		WorldMapInstance instance = instances.get(instanceId);
-		if (instance != null)
-		{
-			instance.destroyInstance();
-			return instances.remove(instanceId);
-		}
-		return null;
+		instances.remove(instanceId);
 	}
-
-	public int getWorldMapScriptInstanceIdByPlyerObjId(int objId)
-	{
-		for (WorldMapInstance instance : instances.values())
-		{
-			if (instance.isInInstance(objId))
-				return instance.getInstanceId();
-		}
-		return -1;
-	}
-
-	private void addInstance(int instanceId, WorldMapInstance instance)
+	
+	/**
+	 *  Add instance to map and increases pointer to nextInstanceId
+	 *  
+	 * @param instanceId
+	 * @param instance
+	 */
+	public void addInstance(int instanceId, WorldMapInstance instance)
 	{
 		instances.put(instanceId, instance);
 		nextInstanceId++;
@@ -208,5 +151,31 @@ public class WorldMap
 	public World getWorld()
 	{
 		return world;
+	}
+
+	/**
+	 * @return the nextInstanceId
+	 */
+	public int getNextInstanceId()
+	{
+		return nextInstanceId;
+	}
+
+	/**
+	 *  Whether this world map is instance type
+	 *  
+	 * @return
+	 */
+	public boolean isInstanceType()
+	{
+		return worldMapTemplate.isInstance();
+	}
+	
+	/**
+	 * @return
+	 */
+	public Iterator<WorldMapInstance> iterator()
+	{
+		return instances.values().iterator();
 	}
 }

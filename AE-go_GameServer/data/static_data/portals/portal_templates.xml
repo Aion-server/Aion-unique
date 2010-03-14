@@ -1,3 +1,29 @@
-<portal_templates>
-	<portal npcid="700414" mapid="300030000" x="600" y="700" z="327.165" instance="true" minlevel="25" maxlevel="28" group="true"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<portal_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="portal_template.xsd">
+
+	<!-- Nochsana Training Camp -->
+	<portal npcid="700414"  instance="true" minlevel="25" maxlevel="28" group="true" race="ASMODIANS">
+		<entrypoint mapid="400010000" x="876.7211" y="3079.2874" z="1644.5786"/>
+		<exitpoint mapid="300030000" x="600" y="700" z="327.165"/>
+	</portal>
+	
+	<!-- Fire Temple -->
+	<portal npcid="730047" instance="true" minlevel="25" maxlevel="50" group="true">
+		<entrypoint mapid="220020000" x="1592.178" y="977.2572" z="140.75"/>
+		<exitpoint mapid="320100000" x="148.256" y="460.857" z="141.713"/>
+	</portal>
+	
+	<!-- Pernos [Ascension quest]-->
+	<portal npcid="790001" instance="true">
+		<entrypoint mapid="210010000" x="241.094" y="1639.461" z="100.38"/>
+		<exitpoint mapid="310010000" x="52" y="174" z="229"/>
+	</portal>
+	
+	<!-- Munin [Ascension quest]-->
+	<portal npcid="203550" instance="true">
+		<entrypoint mapid="220010000" x="378.9" y="1895.39" z="330.0"/>
+		<exitpoint mapid="310010000" x="52" y="174" z="229"/>
+	</portal>
+	
 </portal_templates>

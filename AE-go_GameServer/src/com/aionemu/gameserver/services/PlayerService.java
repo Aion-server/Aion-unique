@@ -91,19 +91,21 @@ public class PlayerService
 	private ItemService					itemService;
 	private LegionService				legionService;
 	private TeleportService				teleportService;
-	private PlayerControllerFactory			controllerFactory;
+	private PlayerControllerFactory		controllerFactory;
 	private SkillLearnService			skillLearnService;
 	private GroupService				groupService;
 	private PunishmentService			punishmentService;
 	private DuelService					duelService;
 	private PlayerStatsData				playerStatsData;
 	private PlayerInitialData			playerInitialData;
+	private InstanceService				instanceService;
 
 	@Inject
 	public PlayerService(World world, ItemService itemService,
 		LegionService legionService, TeleportService teleportService, PlayerControllerFactory controllerFactory,
 		SkillLearnService skillLearnService, GroupService groupService, PunishmentService punishmentService,
-		DuelService duelService, PlayerStatsData playerStatsData, PlayerInitialData playerInitialData)
+		DuelService duelService, PlayerStatsData playerStatsData, PlayerInitialData playerInitialData,
+		InstanceService instanceService)
 	{
 		this.world = world;
 		this.itemService = itemService;
@@ -116,6 +118,7 @@ public class PlayerService
 		this.duelService = duelService;
 		this.playerStatsData = playerStatsData;
 		this.playerInitialData = playerInitialData;
+		this.instanceService = instanceService;
 	}
 
 	/**
@@ -258,7 +261,10 @@ public class PlayerService
 		{
 			TitleChangeListener.onTitleChange(player.getGameStats(), player.getCommonData().getTitleId(), true);
 		}
-
+		
+		//analyze current instance
+		instanceService.onPlayerLogin(player);
+		
 		if(CacheConfig.CACHE_PLAYERS)
 			playerCache.put(playerObjId, player);
 

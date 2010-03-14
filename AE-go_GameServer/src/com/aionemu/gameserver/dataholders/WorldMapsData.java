@@ -16,9 +16,12 @@
  */
 package com.aionemu.gameserver.dataholders;
 
+import gnu.trove.TIntObjectHashMap;
+
 import java.util.Iterator;
 import java.util.List;
 
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -40,6 +43,16 @@ public class WorldMapsData implements Iterable<WorldMapTemplate>
 {
 	@XmlElement(name = "map")
 	private List<WorldMapTemplate>	worldMaps;
+	
+	private TIntObjectHashMap<WorldMapTemplate>	worldIdMap	= new TIntObjectHashMap<WorldMapTemplate>();
+	
+	void afterUnmarshal(Unmarshaller u, Object parent)
+	{
+		for(WorldMapTemplate map : worldMaps)
+		{
+			worldIdMap.put(map.getMapId(), map);
+		}
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -58,5 +71,15 @@ public class WorldMapsData implements Iterable<WorldMapTemplate>
 	public int size()
 	{
 		return worldMaps == null ? 0 : worldMaps.size();
+	}
+	
+	/**
+	 * 
+	 * @param worldId
+	 * @return
+	 */
+	public WorldMapTemplate getTemplate(int worldId)
+	{
+		return worldIdMap.get(worldId);
 	}
 }

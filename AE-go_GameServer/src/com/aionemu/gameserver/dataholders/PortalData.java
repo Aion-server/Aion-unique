@@ -41,12 +41,14 @@ public class PortalData
 	
 	/** A map containing all npc templates */
 	private TIntObjectHashMap<PortalTemplate> portalData	= new TIntObjectHashMap<PortalTemplate>();
+	private TIntObjectHashMap<PortalTemplate> worldIdPortalMap	= new TIntObjectHashMap<PortalTemplate>();
 	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
 		for(PortalTemplate portal : portals)
 		{
 			portalData.put(portal.getNpcId(), portal);
+			worldIdPortalMap.put(portal.getExitPoint().getMapId(), portal);
 		}
 		portals = null;
 	}
@@ -56,8 +58,25 @@ public class PortalData
 		return portalData.size();
 	}
 	
-	public PortalTemplate getPortalTemplate(int id)
+	/**
+	 * 
+	 * @param npcId
+	 * @return
+	 */
+	public PortalTemplate getPortalTemplate(int npcId)
 	{
-		return portalData.get(id);
+		return portalData.get(npcId);
 	}
+	
+	/**
+	 * 
+	 * @param worldId
+	 * @return
+	 */
+	public PortalTemplate getPortalTemplateByMap(int worldId)
+	{
+		return worldIdPortalMap.get(worldId);
+	}
+	
+	
 }

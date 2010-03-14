@@ -2,6 +2,7 @@
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 	<xs:include schemaLocation="../import.xsd" />
+	<xs:include schemaLocation="../global_types.xsd" />
 
 	<xs:element name="portal_templates">
 		<xs:complexType>
@@ -14,15 +15,30 @@
 	</xs:element>
 
 	<xs:complexType name="Portal">
+		<xs:sequence>
+			<xs:element name="entrypoint" type="EntryPoint" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="exitpoint" type="ExitPoint" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="race" type="Race" />
 		<xs:attribute name="group" type="xs:boolean" />
 		<xs:attribute name="maxlevel" type="xs:int" />
 		<xs:attribute name="minlevel" type="xs:int" />
-		<xs:attribute name="instance" type="xs:boolean" />
-		<xs:attribute name="z" type="xs:float" />
-		<xs:attribute name="y" type="xs:float" />
-		<xs:attribute name="x" type="xs:float" />
-		<xs:attribute name="mapid" type="xs:int" />
+		<xs:attribute name="instance" type="xs:boolean" />	
 		<xs:attribute name="npcid" type="xs:int" />
+	</xs:complexType>
+
+	<xs:complexType name="EntryPoint">
+		<xs:attribute name="mapid" type="xs:int" />
+		<xs:attribute name="x" type="xs:float" />
+		<xs:attribute name="y" type="xs:float" />
+		<xs:attribute name="z" type="xs:float" />
+	</xs:complexType>
+
+	<xs:complexType name="ExitPoint">
+		<xs:attribute name="mapid" type="xs:int" />
+		<xs:attribute name="x" type="xs:float" />
+		<xs:attribute name="y" type="xs:float" />
+		<xs:attribute name="z" type="xs:float" />
 	</xs:complexType>
 </xs:schema>
 

@@ -16,11 +16,18 @@
  */
 package com.aionemu.gameserver.world;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Future;
 
+import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.world.exceptions.DuplicateAionObjectException;
 
 /**
  * World map instance object.
@@ -33,32 +40,47 @@ public class WorldMapInstance
 	/**
 	 * Size of region
 	 */
-	public static final int				regionSize		= 500;
+	public static final int						regionSize			= 500;
 	/**
 	 * Max world size - actually it must be some value bigger than world size. Used only for id generation.
 	 */
-	private static final int				maxWorldSize	= 10000;
+	private static final int					maxWorldSize		= 10000;
 	/**
 	 * WorldMap witch is parent of this instance.
 	 */
-	private final WorldMap					parent;
+	private final WorldMap						parent;
 	/**
-	 * List of active regions.
+	 * Map of active regions.
 	 */
-	private final Map<Integer, MapRegion>	regions			= new HashMap<Integer, MapRegion>();
-	
+	private final Map<Integer, MapRegion>		regions				= new HashMap<Integer, MapRegion>();
+
 	/**
-	 * Current player count in this instance
+	 * All objects spawned in this world map instance
 	 */
-	private int 							currentPlayerCount;
-	
-	private int								instanceId;
+	private final Map<Integer, VisibleObject>	worldMapObjects		= new ConcurrentHashMap<Integer, VisibleObject>();
+
+	/**
+	 * All players spawned in this world map instance
+	 */
+	private final Map<Integer, Player>			worldMapPlayers		= new ConcurrentHashMap<Integer, Player>();
+
+	private final Set<Integer>					registeredObjects	= Collections
+																		.newSetFromMap(new ConcurrentHashMap<Integer, Boolean>());
+
+	/**
+	 * Id of this instance (channel)
+	 */
+	private int									instanceId;
+	/**
+	 * Destroy task of this instance
+	 */
+	private Future<?>							destroyTask;
 	/**
 	 * Constructor.
 	 *
 	 * @param parent
 	 */
-	WorldMapInstance(WorldMap parent, int instanceId)
+	public WorldMapInstance(WorldMap parent, int instanceId)
 	{
 		this.parent = parent;
 		this.instanceId = instanceId;
@@ -174,30 +196,29 @@ public class WorldMapInstance
 	{
 		return getParent().getWorld();
 	}
-
+	
 	/**
-	 * @return the currentPlayerCount
+	 * 
+	 * @param object
 	 */
-	public int getCurrentPlayerCount()
+	public void addObject(VisibleObject object)
 	{
-		return currentPlayerCount;
+		if(worldMapObjects.put(object.getObjectId(), object) != null)
+			throw new DuplicateAionObjectException();
+
+		if(object instanceof Player)
+			worldMapPlayers.put(object.getObjectId(), (Player) object);
 	}
 	
-	public void onEnter(VisibleObject object)
+	/**
+	 * 
+	 * @param object
+	 */
+	public void removeObject(AionObject object)
 	{
-		if (object instanceof Player)
-			currentPlayerCount++;
-	}
-	
-	public void onLeave(VisibleObject object)
-	{
-		if (object instanceof Player)
-			currentPlayerCount--;
-	}
-	
-	public boolean isInUse()
-	{
-		return currentPlayerCount > 0;
+		worldMapObjects.remove(object.getObjectId());
+		if(object instanceof Player)
+			worldMapPlayers.remove(object.getObjectId());
 	}
 
 	/**
@@ -208,24 +229,63 @@ public class WorldMapInstance
 		return instanceId;
 	}
 	
+	/**
+	 *  Check player is in instance
+	 *  
+	 * @param objId
+	 * @return
+	 */
 	public boolean isInInstance(int objId)
 	{
-		return false;
+		return worldMapPlayers.containsKey(objId);
 	}
 
-	public void setDestroyTime(int sec)
-	{	
-	}
-
-	public void destroyInstance()
+	/**
+	 * @return the destroyTask
+	 */
+	public Future<?> getDestroyTask()
 	{
+		return destroyTask;
 	}
 
-	public void addPlayer(int objId)
+	/**
+	 * @param destroyTask the destroyTask to set
+	 */
+	public void setDestroyTask(Future<?> destroyTask)
 	{
+		this.destroyTask = destroyTask;
+	}
+	
+	/**
+	 * @return
+	 */
+	public Iterator<VisibleObject> objectIterator()
+	{
+		return worldMapObjects.values().iterator();
+	}
+	
+	/**
+	 * @return
+	 */
+	public Iterator<Player> playerIterator()
+	{
+		return worldMapPlayers.values().iterator();
+	}
+	
+	/**
+	 * @param objectId
+	 */
+	public void register(int objectId)
+	{
+		registeredObjects.add(objectId);
 	}
 
-	public void removePlayer(int objId)
+	/**
+	 * @param objectId
+	 * @return
+	 */
+	public boolean isRegistered(int objectId)
 	{
+		return registeredObjects.contains(objectId);
 	}
 }

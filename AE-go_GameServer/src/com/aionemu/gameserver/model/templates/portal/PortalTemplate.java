@@ -19,7 +19,10 @@ package com.aionemu.gameserver.model.templates.portal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+
+import com.aionemu.gameserver.model.Race;
 
 /**
  * @author ATracer
@@ -31,56 +34,26 @@ public class PortalTemplate
 {
 	@XmlAttribute(name = "npcid")
 	protected int	npcId;
-	@XmlAttribute(name = "mapid")
-	protected int	mapId;
-	@XmlAttribute(name = "x")
-	protected float	x;
-	@XmlAttribute(name = "y")
-	protected float	y;
-	@XmlAttribute(name = "z")
-	protected float	z;
 	@XmlAttribute(name = "instance")
 	protected boolean	instance;
 	@XmlAttribute(name = "minlevel")
 	protected int	minLevel;
 	@XmlAttribute(name = "maxlevel")
 	protected int	maxLevel;
-	@XmlAttribute(name = "item_id")
+	@XmlAttribute(name = "group")
 	protected boolean	group;
+	@XmlAttribute(name = "race")
+	protected Race race;
+	@XmlElement(name = "entrypoint")
+	protected EntryPoint	entryPoint;
+	@XmlElement(name = "exitpoint")
+	protected ExitPoint	exitPoint;
 	/**
 	 * @return the npcId
 	 */
 	public int getNpcId()
 	{
 		return npcId;
-	}
-	/**
-	 * @return the mapId
-	 */
-	public int getMapId()
-	{
-		return mapId;
-	}
-	/**
-	 * @return the x
-	 */
-	public float getX()
-	{
-		return x;
-	}
-	/**
-	 * @return the y
-	 */
-	public float getY()
-	{
-		return y;
-	}
-	/**
-	 * @return the z
-	 */
-	public float getZ()
-	{
-		return z;
 	}
 	/**
 	 * @return the instance
@@ -109,5 +82,26 @@ public class PortalTemplate
 	public boolean isGroup()
 	{
 		return group;
+	}
+	/**
+	 * @return the race
+	 */
+	public Race getRace()
+	{
+		return race;
+	}
+	/**
+	 * @return the entryPoint
+	 */
+	public EntryPoint getEntryPoint()
+	{
+		return entryPoint;
+	}
+	/**
+	 * @return the exitPoint
+	 */
+	public ExitPoint getExitPoint()
+	{
+		return exitPoint;
 	}
 }

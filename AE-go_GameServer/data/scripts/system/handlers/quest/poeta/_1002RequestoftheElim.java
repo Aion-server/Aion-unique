@@ -31,6 +31,7 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.services.InstanceService;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -44,6 +45,8 @@ import com.google.inject.Inject;
  */
 public class _1002RequestoftheElim extends QuestHandler
 {
+	@Inject
+	InstanceService instanceService;
 	@Inject
 	TeleportService teleportService;
 	@Inject
@@ -271,8 +274,7 @@ public class _1002RequestoftheElim extends QuestHandler
 						updateQuestStatus(player, qs);
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(),
 							0));
-						WorldMapInstance newInstance = player.getPosition().getWorld().getNextAvailableInstance(310010000);
-						newInstance.setDestroyTime(60 * 5);
+						WorldMapInstance newInstance = instanceService.getNextAvailableInstance(310010000, 60 * 5);
 						teleportService.teleportTo(player, 310010000, newInstance.getInstanceId(), 52, 174, 229, 0);
 						return true;
 					}

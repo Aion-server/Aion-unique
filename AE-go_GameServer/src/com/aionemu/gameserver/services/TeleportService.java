@@ -286,12 +286,6 @@ public class TeleportService
 	 */
 	private void changePosition(Player player, int worldId, int instanceId, float x, float y, float z, byte heading)
 	{
-		if(player.getInstanceId() != instanceId || player.getWorldId() != worldId)
-		{
-			world.getWorldMap(player.getWorldId()).getWorldMapInstanceById(player.getInstanceId()).removePlayer(
-				player.getObjectId());
-			world.getWorldMap(worldId).getWorldMapInstanceById(instanceId).addPlayer(player.getObjectId());
-		}
 		world.despawn(player);
 		world.setPosition(player, worldId, instanceId, x, y, z, heading);
 		player.getController().startProtectionActiveTask();
@@ -375,13 +369,7 @@ public class TeleportService
 		}
 		else
 		{
-			if(player.getInstanceId() != 1 || player.getWorldId() != worldId)
-			{
-				world.getWorldMap(player.getWorldId()).getWorldMapInstanceById(player.getInstanceId()).removePlayer(
-					player.getObjectId());
-				world.getWorldMap(worldId).getWorldMapInstanceById(1).addPlayer(player.getObjectId());
-			}
-			world.setPosition(player, worldId, x, y, z, player.getHeading());
+			world.setPosition(player, worldId, 1, x, y, z, player.getHeading());
 		}
 	}
 	

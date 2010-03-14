@@ -136,7 +136,6 @@ public class MapRegion
 	void add(VisibleObject object)
 	{
 		objects.put(object.getObjectId(), object);
-		parent.onEnter(object);
 	}
 
 	/**
@@ -147,6 +146,5 @@ public class MapRegion
 	void remove(VisibleObject object)
 	{
 		objects.remove(object.getObjectId());
-		parent.onLeave(object);
 	}
 }
