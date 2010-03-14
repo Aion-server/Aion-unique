@@ -39,6 +39,7 @@ import org.xml.sax.SAXException;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.QuestScriptsData;
 import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -88,8 +89,14 @@ public class Reload extends AdminCommand
 				Unmarshaller un = jc.createUnmarshaller();
 				un.setSchema(getSchema("./data/static_data/static_data.xsd"));
 				DataManager.QUEST_DATA = (QuestsData) un.unmarshal(xml);
+				DataManager.QUEST_SCRIPTS_DATA.getData().clear();
 				for(File file : listFiles(dir, true))
-					un.unmarshal(file);
+				{
+					QuestScriptsData data = ((QuestScriptsData)un.unmarshal(file));
+					if (data != null)
+						if (data.getData() != null)
+							DataManager.QUEST_SCRIPTS_DATA.getData().addAll(data.getData());
+				}
 				questEngine.load();
 			}
 			catch(Exception e)
