@@ -71,6 +71,9 @@ public class MailService
 		if(express)  //TODO express mail
 			return;
 		
+		if(recipientName.length() > 16 || title.length() > 20 || message.length() > 1000)
+			return;
+		
 		PlayerCommonData recipientCommonData = DAOManager.getDAO(PlayerDAO.class).loadPlayerCommonDataByName(recipientName, world);
 		Player onlineRecipient;
 		
@@ -165,8 +168,6 @@ public class MailService
 					attachedItem = senderItem;
 					
 					itemMailCommission = Math.round((senderItem.getItemTemplate().getPrice() * attachedItem.getItemCount()) * qualityPriceRate);
-					
-					DAOManager.getDAO(InventoryDAO.class).store(attachedItem, recipientCommonData.getPlayerObjId());
 				}
 				else if(senderItem.getItemCount() > attachedItemCount)
 				{
@@ -179,8 +180,6 @@ public class MailService
 					attachedItem.setItemLocation(StorageType.MAILBOX.getId());
 					
 					itemMailCommission = Math.round((attachedItem.getItemTemplate().getPrice() * attachedItem.getItemCount()) * qualityPriceRate);
-					
-					DAOManager.getDAO(InventoryDAO.class).store(attachedItem, recipientCommonData.getPlayerObjId());
 				}
 			}				
 		}
@@ -190,7 +189,6 @@ public class MailService
 		{
 			if(senderInventory.getKinahItem().getItemCount() - attachedKinahCount >= 0)
 			{
-				senderInventory.decreaseKinah(attachedKinahCount);
 				finalAttachedKinahCount = attachedKinahCount;
 				kinahMailCommission = Math.round(attachedKinahCount * 0.01f);
 			}
@@ -200,7 +198,19 @@ public class MailService
 		Letter newLetter = new Letter(aionObjectsIDFactory.nextId(), recipientCommonData.getPlayerObjId(), attachedItem, finalAttachedKinahCount, title, message, sender.getName(), true, express);
 		
 		Timestamp time = new Timestamp(Calendar.getInstance().getTimeInMillis());
-
+		
+		
+		if(!DAOManager.getDAO(MailDAO.class).storeLetter(time, newLetter))
+			return;		
+		
+		senderInventory.decreaseKinah(finalAttachedKinahCount);
+		
+		if(attachedItem != null)
+			if(!DAOManager.getDAO(InventoryDAO.class).store(attachedItem, recipientCommonData.getPlayerObjId()))
+			   return;
+		
+		int finalMailCommission = 10 + kinahMailCommission + itemMailCommission;		
+		senderInventory.decreaseKinah(finalMailCommission);
 		
 		if(onlineRecipient != null)
 		{			 
@@ -212,16 +222,7 @@ public class MailService
 			 PacketSendUtility.sendPacket(onlineRecipient, new SM_MAIL_SERVICE(true, true));
 		}
 		
-		
-		int finalMailCommission = 10 + kinahMailCommission + itemMailCommission;
-		
-		senderInventory.decreaseKinah(finalMailCommission);
-		
-		
-		if(DAOManager.getDAO(MailDAO.class).storeLetter(time, newLetter))
-		{
-			PacketSendUtility.sendPacket(sender, new SM_MAIL_SERVICE(MailMessage.MAIL_SEND_SECCESS));
-		}
+		PacketSendUtility.sendPacket(sender, new SM_MAIL_SERVICE(MailMessage.MAIL_SEND_SECCESS));
 	}
 	
 	public void readMail(Player player, int letterId)
