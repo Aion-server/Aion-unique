@@ -20,7 +20,9 @@ import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
+import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
@@ -32,7 +34,9 @@ public class Add extends AdminCommand
 {
 	@Inject
 	private ItemService itemService;
-
+	@Inject
+	private World	world;
+	
 	public Add()
 	{
 		super("add");
@@ -47,38 +51,62 @@ public class Add extends AdminCommand
 			return;
 		}
 
-		if(params.length == 0 || params.length > 2)
+		if(params.length == 0 || params.length > 3)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //add <item ID> <quantity>");
+			PacketSendUtility.sendMessage(admin, "syntax //add <player> <item ID> <quantity>");
 			return;
 		}
 
 		int itemId = 0;
 		int itemCount = 1;
+		Player receiver = null;
 
 		try
 		{
 			itemId = Integer.parseInt(params[0]);
+			
 			if( params.length == 2 )
 			{
 				itemCount = Integer.parseInt(params[1]);
 			}
+			receiver = admin;
 		}
 		catch (NumberFormatException e)
 		{
-			PacketSendUtility.sendMessage(admin, "Parameters need to be an integer.");
-			return;
+			receiver = world.findPlayer(Util.convertName(params[0]));
+			try
+			{
+				itemId = Integer.parseInt(params[1]);
+				
+				if( params.length == 3 )
+				{
+					itemCount = Integer.parseInt(params[2]);
+				}
+			}
+			catch (NumberFormatException ex)
+			{
+			
+				PacketSendUtility.sendMessage(admin, "You must give number to itemid.");
+				return;
+			}
+			catch (Exception ex2)
+			{
+				PacketSendUtility.sendMessage(admin, "Occurs an error.");
+				return;
+			}
 		}
 		
-		int count = itemService.addItem(admin, itemId, itemCount, false);
+		int count = itemService.addItem(receiver, itemId, itemCount, false);
 
 		if(count == 0)
 		{
 			PacketSendUtility.sendMessage(admin, "Item added successfully");
+			PacketSendUtility.sendMessage(receiver, "Admin gives you an item");
 		}
 		else
 		{
 			PacketSendUtility.sendMessage(admin, "Item couldn't be added");
 		}
+		
 	}
 }

@@ -243,7 +243,16 @@ public class Storage
 			setPersistentState(PersistentState.UPDATE_REQUIRED);
 		return result;
 	}
-
+	/**
+	 * 
+	 * @param itemId
+	 * @return Item
+	 */
+	public Item getFirstItemByItemId(int itemId)
+	{
+		List<Item> items = storage.getItemsFromStorageByItemId(itemId);
+		return items.get(0);
+	}
 	/**
 	 *  Used to reduce item count in bag or completely remove by OBJECTID
 	 *  Return value can be the following:

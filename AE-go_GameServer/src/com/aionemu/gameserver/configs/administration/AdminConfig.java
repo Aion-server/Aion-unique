@@ -146,6 +146,10 @@ public class AdminConfig
 	@Property(key = "gameserver.administration.command.legion", defaultValue = "3")
 	public static int	COMMAND_LEGION;
 
+    @Property(key = "gameserver.administration.command.remove", defaultValue = "3")
+    public static int	COMMAND_REMOVE;
+    
 	@Property(key = "gameserver.administration.command.prison", defaultValue = "3")
 	public static int	COMMAND_PRISON;
+
 }
