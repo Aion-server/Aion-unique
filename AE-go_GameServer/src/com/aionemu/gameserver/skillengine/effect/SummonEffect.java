@@ -39,8 +39,8 @@ public class SummonEffect extends EffectTemplate
 	{
 		effect.addToEffectedController();
 		final Player effected = (Player) effect.getEffected();
-		if(!effected.hasSummon())
-			effected.addSummon(npcId);
+		//if(!effected.hasSummon())
+		//	effected.addSummon(npcId);
 	}
 
 	@Override
