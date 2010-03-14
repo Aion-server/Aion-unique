@@ -24,6 +24,7 @@ import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.skillengine.model.HopType;
@@ -80,6 +81,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	{
 		this.getOwner().getEffectController().removeAllEffects();
 		this.getOwner().getMoveController().stop();
+		this.getOwner().setState(CreatureState.DEAD);
 	}
 
 	/**

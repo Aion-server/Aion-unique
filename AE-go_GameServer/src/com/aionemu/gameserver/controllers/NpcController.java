@@ -123,9 +123,7 @@ public class NpcController extends CreatureController<Npc>
 
 		scheduleRespawn();
 
-		// TODO move to creature controller after duel will be moved out of onDie
-		owner.setState(CreatureState.DEAD);
-		// TODO change - now reward is given to target only
+		// TODO change - now reward is given to target only. Base on Most Hate/Aggro
 		Player target = (Player) owner.getTarget();
 
 		PacketSendUtility.broadcastPacket(owner,

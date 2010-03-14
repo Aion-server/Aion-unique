@@ -223,7 +223,6 @@ public class PlayerController extends CreatureController<Player>
 		}
 		else
 		{
-			getOwner().setState(CreatureState.DEAD);
 			if(player.getLevel() > 4)
 				player.getCommonData().calculateExpLoss();
 
