@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.model.gameobjects.player.DeniedStatus;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -65,7 +66,14 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket
 		final Player invited = world.findPlayer(playerName);
 
 		if(invited != null)
+		{
+			if(invited.getPlayerSettings().isInDeniedStatus(DeniedStatus.GROUP))
+			{
+				sendPacket(SM_SYSTEM_MESSAGE.STR_MSG_REJECTED_INVITE_PARTY(invited.getName()));
+				return;
+			}
 			groupService.invitePlayerToGroup(inviter, invited);
+		}
 		else
 			inviter.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.PLAYER_IS_OFFLINE(name));
 	}

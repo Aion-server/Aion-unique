@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.DeniedStatus;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
@@ -111,7 +112,6 @@ public class CM_FRIEND_ADD extends AionClientPacket
 					{
 						return;	
 					}
-						
 					else
 					{
 						socialService.makeFriends((Player)requester, responder);
@@ -135,6 +135,11 @@ public class CM_FRIEND_ADD extends AionClientPacket
 			}
 			else 
 			{
+				if(targetPlayer.getPlayerSettings().isInDeniedStatus(DeniedStatus.FRIEND))
+				{
+					sendPacket(SM_SYSTEM_MESSAGE.STR_MSG_REJECTED_FRIEND(targetPlayer.getName()));
+					return;
+				}
 				//Send question packet to buddy
 				targetPlayer.getClientConnection()
 					.sendPacket(new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_BUDDYLIST_ADD_BUDDY_REQUETS, activePlayer.getObjectId(), activePlayer.getName()));

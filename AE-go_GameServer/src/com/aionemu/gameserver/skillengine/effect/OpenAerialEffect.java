@@ -34,7 +34,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 @XmlType(name = "OpenAerialEffect")
 public class OpenAerialEffect extends EffectTemplate
 {
-
 	@Override
 	public void applyEffect(Effect effect)
 	{
@@ -53,14 +52,12 @@ public class OpenAerialEffect extends EffectTemplate
 	{
 		final Creature effected = effect.getEffected();
 		effected.getEffectController().setAbnormal(EffectId.OPENAERIAL.getEffectId());
-		PacketSendUtility.broadcastPacketAndReceive(effect.getEffected(), new SM_FORCED_MOVE(effect.getEffector(), effect.getEffected()));
+		PacketSendUtility.broadcastPacketAndReceive(effected, new SM_FORCED_MOVE(effect.getEffector(), effected));
 	}
-	
+
 	@Override
 	public void endEffect(Effect effect)
 	{
 		effect.getEffected().getEffectController().unsetAbnormal(EffectId.OPENAERIAL.getEffectId());
 	}
-	
-	
 }

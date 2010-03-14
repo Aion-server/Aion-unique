@@ -18,6 +18,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.model.gameobjects.player.DeniedStatus;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionMemberEx;
@@ -172,6 +173,11 @@ public class CM_LEGION extends AionClientPacket
 					case 0x01:
 						if(targetPlayer != null)
 						{
+							if(targetPlayer.getPlayerSettings().isInDeniedStatus(DeniedStatus.GUILD))
+							{
+								sendPacket(SM_SYSTEM_MESSAGE.STR_MSG_REJECTED_INVITE_GUILD(targetPlayer.getName()));
+								return;
+							}
 							legionService.invitePlayerToLegion(activePlayer, targetPlayer);
 						}
 						else

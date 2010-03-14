@@ -18,8 +18,10 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.gameserver.model.gameobjects.player.DeniedStatus;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_VIEW_PLAYER_DETAILS;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -65,6 +67,11 @@ public class CM_VIEW_PLAYER_DETAILS extends AionClientPacket
 			return;
 		}
 
+		if(player.getPlayerSettings().isInDeniedStatus(DeniedStatus.VEIW_DETAIL))
+		{
+			sendPacket(SM_SYSTEM_MESSAGE.STR_MSG_REJECTED_WATCH(player.getName()));
+			return;
+		}
 		sendPacket(new SM_VIEW_PLAYER_DETAILS(player.getEquipment().getEquippedItems()));
 	}
 }

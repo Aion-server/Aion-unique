@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.model.gameobjects.player;
 
+import com.aionemu.gameserver.model.gameobjects.player.DeniedStatus;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 
 /**
@@ -67,6 +68,7 @@ public class PlayerSettings
 	{
 		return uiSettings;
 	}
+
 	/**
 	 * @param uiSettings the uiSettings to set
 	 */
@@ -75,6 +77,7 @@ public class PlayerSettings
 		this.uiSettings = uiSettings;
 		persistentState = PersistentState.UPDATE_REQUIRED;
 	}
+
 	/**
 	 * @return the shortcuts
 	 */
@@ -82,6 +85,7 @@ public class PlayerSettings
 	{
 		return shortcuts;
 	}
+
 	/**
 	 * @param shortcuts the shortcuts to set
 	 */
@@ -90,6 +94,24 @@ public class PlayerSettings
 		this.shortcuts = shortcuts;
 		persistentState = PersistentState.UPDATE_REQUIRED;
 	}
+
+	/**
+	 * @return the display
+	 */
+	public int getDisplay()
+	{
+		return display;
+	}
+
+	/**
+	 * @param display the display to set
+	 */
+	public void setDisplay(int display)
+	{
+		this.display = display;
+		persistentState = PersistentState.UPDATE_REQUIRED;
+	}
+
 	/**
 	 * @return the deny
 	 */
@@ -97,6 +119,7 @@ public class PlayerSettings
 	{
 		return deny;
 	}
+
 	/**
 	 * @param deny the deny to set
 	 */
@@ -105,19 +128,14 @@ public class PlayerSettings
 		this.deny = deny;
 		persistentState = PersistentState.UPDATE_REQUIRED;
 	}
-	/**
-	 * @return the display
-	 */
-	public int getDisplay()
+
+	public boolean isInDeniedStatus(DeniedStatus deny)
 	{
-		return display;
-	}
-	/**
-	 * @param display the display to set
-	 */
-	public void setDisplay(int display)
-	{
-		this.display = display;
-		persistentState = PersistentState.UPDATE_REQUIRED;
+		int isDeniedStatus = this.deny & deny.getId();
+
+		if(isDeniedStatus == deny.getId())
+			return true;
+
+		return false;
 	}
 }

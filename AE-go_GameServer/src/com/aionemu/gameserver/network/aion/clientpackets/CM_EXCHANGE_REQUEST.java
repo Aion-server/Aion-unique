@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.DeniedStatus;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
@@ -68,6 +69,11 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 			 */
 			if (targetPlayer!=null) 
 			{
+				if(targetPlayer.getPlayerSettings().isInDeniedStatus(DeniedStatus.TRADE))
+				{
+					sendPacket(SM_SYSTEM_MESSAGE.STR_MSG_REJECTED_TRADE(targetPlayer.getName()));
+					return;
+				}
 				sendPacket(SM_SYSTEM_MESSAGE.REQUEST_TRADE(targetPlayer.getName()));
 
 				RequestResponseHandler responseHandler = new RequestResponseHandler(activePlayer){

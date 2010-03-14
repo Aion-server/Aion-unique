@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.AionObject;
+import com.aionemu.gameserver.model.gameobjects.player.DeniedStatus;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -71,6 +72,12 @@ public class CM_DUEL_REQUEST extends AionClientPacket
 		if(target instanceof Player)
 		{
 			Player targetPlayer = (Player) target;
+
+			if(targetPlayer.getPlayerSettings().isInDeniedStatus(DeniedStatus.DUEL))
+			{
+				sendPacket(SM_SYSTEM_MESSAGE.STR_MSG_REJECTED_DUEL(targetPlayer.getName()));
+				return;
+			}
 			duelService.onDuelRequest(activePlayer, targetPlayer);
 			duelService.confirmDuelWith(activePlayer, targetPlayer);
 		}

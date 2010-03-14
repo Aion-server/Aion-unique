@@ -831,6 +831,44 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1390221, nameId);
 	}
 
+	/**
+	 * Deny messages
+	 */
+	public static SM_SYSTEM_MESSAGE STR_MSG_REJECTED_WATCH(String charName)
+	{
+		return new SM_SYSTEM_MESSAGE(1390114, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE STR_MSG_REJECTED_TRADE(String charName)
+	{
+		return new SM_SYSTEM_MESSAGE(1390115, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE STR_MSG_REJECTED_INVITE_PARTY(String charName)
+	{
+		return new SM_SYSTEM_MESSAGE(1390116, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE STR_MSG_REJECTED_INVITE_FORCE(String charName)
+	{
+		return new SM_SYSTEM_MESSAGE(1390117, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE STR_MSG_REJECTED_INVITE_GUILD(String charName)
+	{
+		return new SM_SYSTEM_MESSAGE(1390118, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE STR_MSG_REJECTED_FRIEND(String charName)
+	{
+		return new SM_SYSTEM_MESSAGE(1390119, charName);
+	}
+
+	public static SM_SYSTEM_MESSAGE STR_MSG_REJECTED_DUEL(String charName)
+	{
+		return new SM_SYSTEM_MESSAGE(1390120, charName);
+	}
+
 	private final int		code;
 	private final Object[]	params;
 
