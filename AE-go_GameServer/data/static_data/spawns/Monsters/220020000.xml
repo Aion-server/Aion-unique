@@ -6102,7 +6102,7 @@ Morheim -->
 		<object x="2419" y="2378.85" z="106.01" h="6"/>
 	</spawn>
 	<!-- Treasure Box -->
-	<spawn map="220020000" npcid="212928" pool="124" interval="105">
+	<spawn map="220020000" npcid="212928" pool="1" interval="14400">
 		<object x="170.47" y="1672.38" z="473.13" h="19"/>
 		<object x="205.37" y="1682.78" z="471.97" h="19"/>
 		<object x="535.94" y="1681.63" z="425.62" h="105"/>
