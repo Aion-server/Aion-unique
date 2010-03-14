@@ -43,6 +43,9 @@ public class KnownList implements Iterable<VisibleObject>
 
 	// how far any visible object will see other visible object
 	private static final int						npcVisibilityDistance		= 80;
+	
+	// maxZvisibleDistance
+	private static final int						maxZvisibleDistance 		= 400;
 
 	/**
 	 * Owner of this KnownList.
@@ -193,6 +196,10 @@ public class KnownList implements Iterable<VisibleObject>
 
 	private boolean checkObjectInRange(VisibleObject owner, VisibleObject newObject)
 	{
+		//check if Z distance is greater than maxZvisibleDistance		
+		if(Math.abs(owner.getZ() - newObject.getZ()) > maxZvisibleDistance)
+			return false;				
+		
 		if(owner instanceof Player)
 			return MathUtil.isInRange(owner, newObject, playerVisibilityDistance);
 		else

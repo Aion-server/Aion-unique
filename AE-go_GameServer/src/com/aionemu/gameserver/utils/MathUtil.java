@@ -292,6 +292,9 @@ public class MathUtil
 	 */
 	public static boolean isInRange(VisibleObject object1, VisibleObject object2, float range)
 	{
+		if(object1.getWorldId() != object2.getWorldId())
+			return false;
+		
 		float dx = (object2.getX() - object1.getX());
 		float dy = (object2.getY() - object1.getY());
 		return dx * dx + dy * dy < range * range;

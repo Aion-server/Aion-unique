@@ -252,6 +252,10 @@ public class PlayerController extends CreatureController<Player>
 
 		Creature target = (Creature) sp.getWorld().findAionObject(targetObjectId);
 
+		//check player attack Z distance
+		if(Math.abs(player.getZ() - target.getZ()) > 6)
+			return;
+		
 		if(!RestrictionsManager.canAttack(player, target))
 			return;
 
