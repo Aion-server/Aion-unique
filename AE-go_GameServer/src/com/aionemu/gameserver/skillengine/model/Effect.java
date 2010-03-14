@@ -86,6 +86,8 @@ public class Effect
 	private boolean launchSubEffect = true;
 	private Effect subEffect = null;
 	
+	private boolean isStopped;
+	
 	public Effect(Creature effector, Creature effected, SkillTemplate skillTemplate, int skillLevel, int duration)
 	{
 		this.effector = effector;
@@ -494,7 +496,7 @@ public class Effect
 		{
 			@Override
 			public void run()
-			{				
+			{
 				endEffect();
 			}
 		}), duration);
@@ -518,9 +520,14 @@ public class Effect
 	
 	/**
 	 * End effect and all effect actions
+	 * This method is synchronized and prevented to be called several times
+	 * which could cause unexpected behavior
 	 */
-	public void endEffect()
+	public synchronized void endEffect()
 	{
+		if(isStopped)
+			return;
+		
 		for(EffectTemplate template : getEffectTemplates())
 		{
 			template.endEffect(this);
@@ -530,9 +537,9 @@ public class Effect
 		{
 			deactivateToggleSkill();
 		}
-		
-		effected.getEffectController().clearEffect(this);
 		stopTasks();
+		effected.getEffectController().clearEffect(this);	
+		this.isStopped = true;
 	}
 
 	/**
@@ -542,25 +549,25 @@ public class Effect
 	{
 		if(task != null)
 		{
-			task.cancel(false);
+			task.cancel(true);
 			task = null;
 		}
 		
 		if(checkTask != null)
 		{
-			checkTask.cancel(false);
+			checkTask.cancel(true);
 			checkTask = null;
 		}
 		
 		if(periodicTask != null)
 		{
-			periodicTask.cancel(false);
+			periodicTask.cancel(true);
 			periodicTask = null;
 		}
 		
 		if(mpUseTask != null)
 		{
-			mpUseTask.cancel(false);
+			mpUseTask.cancel(true);
 			mpUseTask = null;
 		}
 	}

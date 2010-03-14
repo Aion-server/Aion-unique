@@ -19,6 +19,8 @@ package com.aionemu.gameserver.services;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.main.CacheConfig;
 import com.aionemu.gameserver.configs.main.GSConfig;
@@ -85,6 +87,7 @@ import com.google.inject.Inject;
  */
 public class PlayerService
 {
+	private static final Logger			log			= Logger.getLogger(PlayerService.class);
 	private CacheMap<Integer, Player>	playerCache	= CacheMapFactory.createSoftCacheMap("Player", "player");
 
 	private World						world;
@@ -348,6 +351,7 @@ public class PlayerService
 	 */
 	public void playerLoggedIn(Player player)
 	{
+		log.info("Player logged in: " + player.getName());
 		player.getCommonData().setOnline(true);
 		DAOManager.getDAO(PlayerDAO.class).onlinePlayer(player, true);
 		player.onLoggedIn();
@@ -365,8 +369,12 @@ public class PlayerService
 	 */
 	public void playerLoggedOut(final Player player)
 	{
+		log.info("Player logged out: " + player.getName());
+		
 		player.onLoggedOut();
-
+		
+		player.getEffectController().removeAllEffects();
+		
 		if(player.getLifeStats().isAlreadyDead())
 			teleportService.moveToBindLocation(player, false);
 

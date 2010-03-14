@@ -165,7 +165,10 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="switchhpmp" type="SwitchHpMpEffect"
 				minOccurs="0" maxOccurs="1" />
-			<xs:element name="summon" type="SummonEffect" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="summon" type="SummonEffect" maxOccurs="1" minOccurs="0"></xs:element>
+
+			<xs:element name="aura" type="AuraEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -829,6 +832,15 @@
 	<xs:complexType name="DispelDebuffEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="AuraEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">
+				<xs:attribute name="distance" type="xs:int" />
+				<xs:attribute name="skill_id" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

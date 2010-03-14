@@ -36,7 +36,7 @@ import com.aionemu.gameserver.model.gameobjects.player.PlayerSettings;
  */
 public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 {
-
+	@SuppressWarnings("unused")
 	private static final Logger log = Logger.getLogger(MySQL5PlayerSettingsDAO.class);
 
 	/**
@@ -56,7 +56,7 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 		final int playerId = player.getObjectId();
 		final PlayerSettings playerSettings = new PlayerSettings();
 
-		boolean success = DB.select("SELECT * FROM player_settings WHERE player_id = ?", new ParamReadStH() {
+		DB.select("SELECT * FROM player_settings WHERE player_id = ?", new ParamReadStH() {
 
 			@Override
 			public void handleRead(ResultSet resultSet) throws SQLException
@@ -90,7 +90,6 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 		});
 		playerSettings.setPersistentState(PersistentState.UPDATED);
 		player.setPlayerSettings(playerSettings);
-		log.info("Loaded settings with success: " + success);
 	}
 
 	@Override
@@ -106,9 +105,7 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO
 		final byte[] shortcuts = playerSettings.getShortcuts();
 		final int display = playerSettings.getDisplay();
 		final int deny = playerSettings.getDeny();
-
-		log.info("Saving settings");
-
+		
 		if(uiSettings != null)
 		{
 			DB.insertUpdate("REPLACE INTO player_settings values (?, ?, ?)", new IUStH() {

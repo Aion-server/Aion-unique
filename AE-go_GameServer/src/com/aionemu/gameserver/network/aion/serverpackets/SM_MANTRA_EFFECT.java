@@ -33,6 +33,7 @@ public class SM_MANTRA_EFFECT extends AionServerPacket
 	public SM_MANTRA_EFFECT(Player player, int subEffectId)
 	{
 		this.player = player;
+		this.subEffectId = subEffectId;
 	}
 
 	/**

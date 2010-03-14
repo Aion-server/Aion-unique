@@ -69,24 +69,31 @@ public class EffectController
 	{
 		Map<String, Effect> mapToUpdate = getMapForEffect(effect);
 		
-		if(mapToUpdate.containsKey(effect.getStack()))
+		Effect existingEffect = mapToUpdate.get(effect.getStack());
+		if(existingEffect != null)
 		{
-			Effect existingEffect = mapToUpdate.get(effect.getStack());
-			
-			//check stack level
+			// check stack level
 			if(existingEffect.getSkillStackLvl() > effect.getSkillStackLvl())
 				return;
-			//check skill level (when stack level same)
-			if(existingEffect.getSkillStackLvl() == effect.getSkillStackLvl() 
+			// check skill level (when stack level same)
+			if(existingEffect.getSkillStackLvl() == effect.getSkillStackLvl()
 				&& existingEffect.getSkillLevel() > effect.getSkillLevel())
 				return;
-			
+
 			existingEffect.endEffect();
 		}
 		
+		if(effect.isToggle() && mapToUpdate.size() >= 3)
+		{
+			Iterator<Effect> iter = mapToUpdate.values().iterator();
+			Effect nextEffect = iter.next();
+			nextEffect.endEffect();
+			iter.remove();			
+		}
+
 		mapToUpdate.put(effect.getStack(), effect);
-		effect.startEffect();		
-		
+		effect.startEffect();
+
 		if(!effect.isPassive())
 		{
 			// effect icon updates
@@ -170,8 +177,8 @@ public class EffectController
 	{
 		for(Effect effect : abnormalEffectMap.values()){
 			if(effect.getSkillId()==skillid){
-				abnormalEffectMap.remove(effect.getStack());
 				effect.endEffect();
+				abnormalEffectMap.remove(effect.getStack());				
 			}
 		}
 		
@@ -190,8 +197,8 @@ public class EffectController
 	{
 		for(Effect effect : abnormalEffectMap.values()){
 			if(effect.containsEffectId(effectId)){
-				abnormalEffectMap.remove(effect.getStack());
 				effect.endEffect();
+				abnormalEffectMap.remove(effect.getStack());				
 			}
 		}
 		
@@ -211,8 +218,8 @@ public class EffectController
 	{
 		for(Effect effect : passiveEffectMap.values()){
 			if(effect.getSkillId()==skillid){
-				passiveEffectMap.remove(effect.getStack());
 				effect.endEffect();
+				passiveEffectMap.remove(effect.getStack());				
 			}
 		}
 	}
@@ -225,8 +232,8 @@ public class EffectController
 	{
 		for(Effect effect : noshowEffects.values()){
 			if(effect.getSkillId()==skillid){
-				noshowEffects.remove(effect.getStack());
 				effect.endEffect();
+				noshowEffects.remove(effect.getStack());				
 			}
 		}
 	}
@@ -241,6 +248,11 @@ public class EffectController
 			effect.endEffect();
 		}
 		abnormalEffectMap.clear();
+		for(Effect effect : noshowEffects.values())
+		{
+			effect.endEffect();
+		}
+		noshowEffects.clear();
 	}
 	
 	public void updatePlayerEffectIcons()

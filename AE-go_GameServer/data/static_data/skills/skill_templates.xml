@@ -17604,6 +17604,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8241" distance="20" effectid="112041" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1205" name="STR_SKILL_CH_Chant_ClementMind_G2" nameId="567629" stack="SKILL_CH_CHANT_CLEMENTMIND" lvl="2" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -17612,6 +17615,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8277" distance="20" effectid="112041" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1206" name="STR_SKILL_CH_ProtectSelf_G4" nameId="587179" stack="SKILL_CH_PROTECTSELF" lvl="4" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="120" duration="0">
         <startconditions>
@@ -17637,6 +17643,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8234" distance="20" effectid="112071" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1208" name="STR_SKILL_CH_Chant_ImprovedAttack_G2" nameId="566059" stack="SKILL_CH_CHANT_IMPROVEDATTACK" lvl="2" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -17645,6 +17654,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8243" distance="20" effectid="112071" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1209" name="STR_SKILL_CH_Chant_ImprovedAttack_G3" nameId="567597" stack="SKILL_CH_CHANT_IMPROVEDATTACK" lvl="3" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -17653,6 +17665,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8280" distance="20" effectid="112071" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1210" name="STR_SKILL_CH_ProtectSelf_G5" nameId="587181" stack="SKILL_CH_PROTECTSELF" lvl="5" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="120" duration="0">
         <startconditions>
@@ -17738,6 +17753,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8232" distance="20" effectid="112141" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1215" name="STR_SKILL_CH_Chant_ImprovedMove_G2" nameId="566079" stack="SKILL_CH_CHANT_IMPROVEDMOVE" lvl="2" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -17746,6 +17764,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8244" distance="20" effectid="112141" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1216" name="STR_SKILL_CH_Chant_ImprovedMove_G3" nameId="567625" stack="SKILL_CH_CHANT_IMPROVEDMOVE" lvl="3" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -17754,6 +17775,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8284" distance="20" effectid="112141" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1217" name="STR_SKILL_CH_ImbuePower_G1" nameId="587193" stack="SKILL_CH_IMBUEPOWER" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="180" duration="1000">
         <startconditions>
@@ -18106,6 +18130,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8588" distance="20" effectid="112341" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1235" name="STR_SKILL_CH_SonicGenoside_G1" nameId="571835" stack="SKILL_CH_SONICGENOSIDE" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="60" duration="0">
         <initproperties>
@@ -18567,6 +18594,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8394" distance="20" effectid="112111" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1255" name="STR_SKILL_CH_SonicAssault_G3" nameId="573757" stack="SKILL_CH_SONICASSAULT" lvl="3" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="24" duration="0">
         <initproperties>
@@ -18642,6 +18672,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8395" distance="20" effectid="112131" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1259" name="STR_SKILL_CH_Chant_ImprovedAttack_G4" nameId="573685" stack="SKILL_CH_CHANT_IMPROVEDATTACK" lvl="4" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -18650,6 +18683,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8396" distance="20" effectid="112071" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1260" name="STR_SKILL_CH_ViolentSwing_G4" nameId="573797" stack="SKILL_CH_VIOLENTSWING" lvl="4" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="8" duration="0">
         <initproperties>
@@ -18739,6 +18775,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8397" distance="20" effectid="112101" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1265" name="STR_SKILL_CH_ArcaneAftershock_G2" nameId="573669" stack="SKILL_CH_ARCANEAFTERSHOCK" lvl="2" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="16" duration="0">
         <startconditions>
@@ -18821,6 +18860,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8398" distance="20" effectid="112041" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1270" name="STR_SKILL_CH_SonicStorm_G3" nameId="573773" stack="SKILL_CH_SONICSTORM" lvl="3" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="8" duration="0">
         <initproperties>
@@ -18896,6 +18938,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8399" distance="20" effectid="112061" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1274" name="STR_SKILL_CH_ImprovedAllDefend_G2" nameId="573733" stack="SKILL_CH_IMPROVEDALLDEFEND" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
         <startconditions>
@@ -18930,6 +18975,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8400" distance="20" effectid="112141" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1276" name="STR_SKILL_CH_TriangleShock_G4" nameId="573793" stack="SKILL_CH_TRIANGLESHOCK" lvl="4" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="8" duration="0">
         <initproperties>
@@ -19062,6 +19110,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8405" distance="10" effectid="112811" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1282" name="STR_SKILL_CH_CastersPraise_G1" nameId="573673" stack="SKILL_CH_CASTERSPRAISE" lvl="1" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="1" duration="0">
         <initproperties>
@@ -19073,6 +19124,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8406" distance="10" effectid="112821" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1283" name="STR_SKILL_CH_CrossCounter_G1" nameId="573709" stack="SKILL_CH_CROSSCOUNTER" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="30" duration="0">
         <initproperties>
@@ -19124,6 +19178,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8407" distance="10" effectid="112851" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1286" name="STR_SKILL_CH_Jihad_G1" nameId="573737" stack="SKILL_CH_JIHAD" lvl="1" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="1" duration="0">
         <initproperties>
@@ -19135,6 +19192,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8408" distance="10" effectid="112861" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1287" name="STR_SKILL_CH_ViolentWave_G1" nameId="577001" stack="SKILL_CH_VIOLENTWAVE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="1" duration="2000">
         <setproperties>
@@ -19317,6 +19377,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <aura skill_id="8442" distance="10" effectid="112991" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1300" name="STR_SKILL_CH_EQUIP_Mace_G2" nameId="578569" stack="SKILL_CH_EQUIP_MACE" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -19469,6 +19532,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8484" distance="20" effectid="113091" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1310" name="STR_SKILL_CH_Chant_Improveddefend_G2" nameId="582541" stack="SKILL_CH_CHANT_IMPROVEDDEFEND" lvl="2" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -19477,6 +19543,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8485" distance="20" effectid="113091" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1311" name="STR_SKILL_CH_Chant_Improveddefend_G3" nameId="582543" stack="SKILL_CH_CHANT_IMPROVEDDEFEND" lvl="3" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -19485,6 +19554,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8486" distance="20" effectid="113091" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1312" name="STR_SKILL_CH_Chant_ImprovedMagic_G1" nameId="582553" stack="SKILL_CH_CHANT_IMPROVEDMAGIC" lvl="1" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -19493,6 +19565,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8487" distance="20" effectid="113121" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1313" name="STR_SKILL_CH_Chant_ImprovedMagic_G2" nameId="582557" stack="SKILL_CH_CHANT_IMPROVEDMAGIC" lvl="2" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -19501,6 +19576,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8488" distance="20" effectid="113121" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1314" name="STR_SKILL_CH_Chant_ImprovedMagic_G3" nameId="582559" stack="SKILL_CH_CHANT_IMPROVEDMAGIC" lvl="3" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -19509,6 +19587,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8489" distance="20" effectid="113121" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1315" name="STR_SKILL_CH_NightWish_G1" nameId="582569" stack="SKILL_CH_NIGHTWISH" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="15" duration="0">
         <startconditions>
@@ -19536,6 +19617,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8490" distance="20" effectid="113161" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1317" name="STR_SKILL_CH_Chant_regeneration_G2" nameId="582579" stack="SKILL_CH_CHANT_REGENERATION" lvl="2" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -19544,6 +19628,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8491" distance="20" effectid="113161" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1318" name="STR_SKILL_CL_ImbueMana_G1" nameId="582589" stack="SKILL_CL_IMBUEMANA" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
         <startconditions>
@@ -19629,6 +19716,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8497" distance="20" effectid="113221" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1323" name="STR_SKILL_CH_Tremor_G1" nameId="582625" stack="SKILL_CH_TREMOR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="3600" duration="0" penalty_skill_id="8576">
         <startconditions>
@@ -19704,6 +19794,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8500" distance="20" effectid="113271" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1328" name="STR_SKILL_CH_Providence_G1" nameId="582651" stack="SKILL_CH_PROVIDENCE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="1800" duration="0">
         <startconditions>
@@ -19785,6 +19878,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8517" distance="20" effectid="113161" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1333" name="STR_SKILL_CH_SonicGenoside_G2" nameId="584173" stack="SKILL_CH_SONICGENOSIDE" lvl="2" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="60" duration="0">
         <initproperties>
@@ -19869,6 +19965,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8519" distance="20" effectid="113371" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1338" name="STR_SKILL_CH_Chant_ImprovedFly_G1" nameId="584257" stack="SKILL_CH_CHANT_IMPROVEDFLY" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="300" duration="0">
         <startconditions>
@@ -20036,6 +20135,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8532" distance="20" effectid="113091" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1348" name="STR_SKILL_CH_Chant_ImprovedMagicdefend_G2" nameId="585201" stack="SKILL_CH_CHANT_IMPROVEDMAGICDEFEND" lvl="2" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -20044,6 +20146,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8533" distance="20" effectid="113271" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1349" name="STR_SKILL_CH_Chant_violent_G2" nameId="585205" stack="SKILL_CH_CHANT_VIOLENT" lvl="2" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="0" duration="0">
         <setproperties>
@@ -20052,6 +20157,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8534" distance="20" effectid="113221" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1351" name="STR_SKILL_MA_FlameBolt_G1" nameId="564023" stack="SKILL_MA_FLAMEBOLT" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="1" duration="2000">
         <startconditions>
@@ -44484,6 +44592,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8232" distance="10" effectid="112141" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9332" name="STR_SKILL_StigmaI_Chant_ImprovedEvade_G1" nameId="579601" stack="SKILL_STIGMAI_CHANT_IMPROVEDEVADE" lvl="1" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="1" duration="0">
         <setproperties>
@@ -44492,6 +44603,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8319" distance="10" effectid="112111" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9333" name="STR_SKILL_StigmaI_Chant_LifeTouch_G1" nameId="579603" stack="SKILL_STIGMAI_CHANT_LIFETOUCH" lvl="1" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="1" duration="0">
         <setproperties>
@@ -44500,6 +44614,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8449" distance="10" effectid="112171" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9334" name="STR_SKILL_StigmaI_Chant_ClementMind_G1" nameId="579605" stack="SKILL_STIGMAI_CHANT_CLEMENTMIND" lvl="1" skilltype="MAGICAL" skillsubtype="CHANT" tslot="NOSHOW" activation="TOGGLE" cooldown="1" duration="0">
         <setproperties>
@@ -44508,6 +44625,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <aura skill_id="8241" distance="10" effectid="112041" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9335" name="STR_SKILL_StigmaI_PentacleShock_G1" nameId="579607" stack="SKILL_STIGMAI_PENTACLESHOCK" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="16" duration="0">
         <startconditions>
@@ -44558,6 +44678,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <aura skill_id="8239" distance="10" effectid="112131" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9338" name="STR_SKILL_StigmaI_ArcaneAftershock_G1" nameId="579613" stack="SKILL_STIGMAI_ARCANEAFTERSHOCK" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="16" duration="0">
         <startconditions>
