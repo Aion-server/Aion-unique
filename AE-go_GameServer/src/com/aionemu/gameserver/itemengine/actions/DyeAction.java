@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -41,7 +42,7 @@ public class DyeAction extends AbstractItemAction
 	protected String color;
 
 	@Override
-	public void act(Player player, Item parentItem, Item targetItem)
+	public void act(Player player, Item parentItem, Item targetItem, ItemService itemService)
 	{
 		if (targetItem.getItemTemplate().isItemDyePermitted())
 		{

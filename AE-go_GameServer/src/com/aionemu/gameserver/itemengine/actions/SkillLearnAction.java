@@ -27,6 +27,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.skillengine.model.learn.SkillClass;
 import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -49,7 +50,7 @@ public class SkillLearnAction extends AbstractItemAction
 	protected SkillRace race;
 
 	@Override
-	public void act(Player player, Item parentItem, Item targetItem)
+	public void act(Player player, Item parentItem, Item targetItem, ItemService itemService)
 	{
 		if(!validateConditions(player))
 			return;

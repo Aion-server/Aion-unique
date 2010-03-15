@@ -166,7 +166,7 @@ public class ExchangeService
 			{
 				for(ItemStone stone : item.getItemStones())
 				{
-					newItem.addManaStone(stone.getItemId());
+					itemService.addManaStone(newItem, stone.getItemId());
 				}
 			}
 			if(item.getGodStone() != null)

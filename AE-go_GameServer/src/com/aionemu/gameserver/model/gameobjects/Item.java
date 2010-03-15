@@ -250,22 +250,6 @@ public class Item extends AionObject
 	{
 		return godStone;
 	}
-
-	/**
-	 * 
-	 * @param itemId
-	 */
-	public ManaStone addManaStone(int itemId)
-	{
-		int nextSlot = manaStones == null ? 0 : manaStones.size();
-		if(manaStones == null)
-			manaStones = new ArrayList<ManaStone>();
-
-		ManaStone stone = new ManaStone(getObjectId(), itemId,
-			nextSlot, PersistentState.NEW);
-		this.manaStones.add(stone);
-		return stone;
-	}
 	
 	/**
 	 * 

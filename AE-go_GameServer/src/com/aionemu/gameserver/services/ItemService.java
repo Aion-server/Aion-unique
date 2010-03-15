@@ -425,7 +425,7 @@ public class ItemService
 					{
 						for(ManaStone manaStone : manastones)
 						{
-							item.addManaStone(manaStone.getItemId());
+							addManaStone(item, manaStone.getItemId());
 						}
 					}
 					//2. godstone
@@ -566,6 +566,50 @@ public class ItemService
 	{
 		aionObjectsIDFactory.releaseId(item.getObjectId());
 	}
+	
+
+	/**
+	 * 
+	 * @param itemId
+	 */
+	public ManaStone addManaStone(Item item, int itemId)
+	{
+		if(item == null)
+			return null;
+		
+		List<ManaStone> manaStones = item.getItemStones();
+		
+		if(manaStones == null)
+		{
+			manaStones = new ArrayList<ManaStone>();
+			item.setItemStones(manaStones);
+		}
+		
+		//temp fix for manastone spam till templates are updated
+		if(manaStones.size() > 6)
+			return null;
+		
+		int nextSlot = 0;
+		boolean slotFound = false;
+		for(ManaStone manaStone : manaStones)
+		{
+			int slot = manaStone.getSlot();
+			if(slot != nextSlot)
+			{
+				slotFound = true;
+				break;
+			}				
+		}
+		
+		if(!slotFound)
+			nextSlot = manaStones.size();
+
+		ManaStone stone = new ManaStone(item.getObjectId(), itemId,
+			nextSlot, PersistentState.NEW);
+		manaStones.add(stone);
+		
+		return stone;
+	}
 
 	/**
 	 * @param player
@@ -581,22 +625,19 @@ public class ItemService
 			log.warn("Item not found during manastone remove");
 			return;
 		}
-			
 		
 		List<ManaStone> itemStones = item.getItemStones();
+
 		if(itemStones == null)
 		{
 			log.warn("Item stone list is empty");
 			return;
 		}
 		
-		ManaStone removedStone = itemStones.remove(slotNum);
+		if(itemStones.size() <= slotNum)
+			return;
 		
-		for(int i = 0; i < itemStones.size(); i++)
-		{
-			if(itemStones.get(i).getSlot() != i)
-				itemStones.get(i).setSlot(i);
-		}
+		ManaStone removedStone = itemStones.remove(slotNum);
 		
 		removedStone.setPersistentState(PersistentState.DELETED);
 		
