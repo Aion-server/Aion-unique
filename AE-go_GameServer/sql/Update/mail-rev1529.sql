@@ -1,0 +1,1 @@
+ALTER TABLE `mail` CHANGE `mailMessage` `mailMessage` VARCHAR( 1000 );
