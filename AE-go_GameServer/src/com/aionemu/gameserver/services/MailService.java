@@ -71,8 +71,14 @@ public class MailService
 		if(express)  //TODO express mail
 			return;
 		
-		if(recipientName.length() > 16 || title.length() > 20 || message.length() > 1000)
+		if(recipientName.length() > 16)
 			return;
+		
+		if(title.length() > 20)
+			title = title.substring(0, 20);
+		
+		if(message.length() > 1000)
+			message = message.substring(0, 1000);
 		
 		PlayerCommonData recipientCommonData = DAOManager.getDAO(PlayerDAO.class).loadPlayerCommonDataByName(recipientName, world);
 		Player onlineRecipient;
