@@ -168,6 +168,11 @@ public class FriendList implements Iterable<Friend>
 			if (friend.isOnline()) // If the player is online
 			{
 				Player friendPlayer = friend.getPlayer();
+				
+				//normally friendPlayer is not null, but need fix status for stuck players
+				if(friendPlayer == null)
+					continue;
+				
 				friendPlayer.getClientConnection().sendPacket(new SM_FRIEND_UPDATE(player.getObjectId()));
 				
 				if (previousStatus == Status.OFFLINE) 
