@@ -31,7 +31,7 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 @XmlType(name = "SummonEffect")
 public class SummonEffect extends EffectTemplate
 {
-	@XmlAttribute(required = true)
+	@XmlAttribute(name = "npc_id", required = true)
 	protected int	npcId;
 
 	@Override

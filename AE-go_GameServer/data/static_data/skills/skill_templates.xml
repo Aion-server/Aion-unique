@@ -5373,6 +5373,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="46" delta="0" radius="5" duration="10000" effectid="153" e="1"/>
+        </effects>
         <actions>
             <mpuse value="58" delta="0"/>
         </actions>
@@ -5387,6 +5390,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="83" delta="0" radius="5" duration="10000" effectid="153" e="1"/>
+        </effects>
         <actions>
             <mpuse value="73" delta="0"/>
         </actions>
@@ -7145,6 +7151,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="115" delta="0" radius="5" duration="10000" effectid="153" e="1"/>
+        </effects>
         <actions>
             <mpuse value="83" delta="0"/>
         </actions>
@@ -7406,7 +7415,8 @@
         </setproperties>
         <effects>
             <hostileup value="1" e="1" element="FIRE"/>
-            <snare duration="4000" effectid="20007" e="3">
+            <fear duration="4000" effectid="20103" e="2" element="FIRE"/>
+            <snare duration="4000" effectid="20007" e="3" element="FIRE">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
         </effects>
@@ -14246,6 +14256,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <resurrect e="1"/>
+        </effects>
         <actions>
             <mpuse value="247" delta="15"/>
         </actions>
@@ -14264,6 +14277,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <resurrect e="1"/>
+        </effects>
         <actions>
             <mpuse value="235" delta="0"/>
         </actions>
@@ -14282,6 +14298,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <resurrect e="1"/>
+        </effects>
         <actions>
             <mpuse value="297" delta="0"/>
         </actions>
@@ -14582,6 +14601,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <resurrect e="1"/>
+        </effects>
         <actions>
             <mpuse value="536" delta="0"/>
         </actions>
@@ -15000,6 +15022,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <resurrect e="1"/>
+        </effects>
         <actions>
             <mpuse value="937" delta="16"/>
         </actions>
@@ -15206,6 +15231,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <dispeldebuffmental e="1"/>
+        </effects>
         <actions>
             <mpuse value="67" delta="0"/>
         </actions>
@@ -15220,6 +15248,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <dispeldebuffmental e="1"/>
+        </effects>
         <actions>
             <mpuse value="108" delta="0"/>
         </actions>
@@ -15885,6 +15916,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="48" delta="2" radius="5" duration="30000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1104" name="STR_SKILL_PR_SkinOfThorn_G2" nameId="572273" stack="SKILL_PR_SKINOFTHORN" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="600" duration="1000">
         <setproperties>
@@ -15896,6 +15930,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="78" delta="2" radius="5" duration="30000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1105" name="STR_SKILL_PR_SummerCircle_G1" nameId="567521" stack="SKILL_PR_SUMMERCIRCLE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="1" duration="1000">
         <startconditions>
@@ -16032,6 +16069,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <dispeldebuffmental e="1"/>
+        </effects>
         <actions>
             <mpuse value="446" delta="0"/>
         </actions>
@@ -17173,6 +17213,7 @@
         </useconditions>
         <effects>
             <dispeldebuffphysical value="2" e="1"/>
+            <dispeldebuffmental e="2"/>
         </effects>
         <actions>
             <mpuse value="36" delta="1"/>
@@ -17239,9 +17280,9 @@
             <mp value="106" delta="1"/>
         </startconditions>
         <setproperties>
-            <firsttarget value="ME"/>
-            <firsttargetrange value="1"/>
-            <targetrange value="PARTY" distance="25" maxcount="6"/>
+            <firsttarget value="TARGET"/>
+            <firsttargetrange value="25"/>
+            <targetrange value="PARTY" maxcount="1"/>
             <targetrelation value="MYPARTY"/>
         </setproperties>
         <useconditions>
@@ -22656,6 +22697,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="112" delta="3" radius="5" duration="300000" effectid="153" e="1"/>
+        </effects>
         <actions>
             <mpuse value="262" delta="3"/>
         </actions>
@@ -23434,6 +23478,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="20" delta="1" radius="30" duration="1800000" effectid="153" e="1"/>
+        </effects>
         <actions>
             <mpuse value="157" delta="3"/>
         </actions>
@@ -23816,6 +23863,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="40" delta="1" radius="30" duration="1800000" effectid="153" e="1"/>
+        </effects>
         <actions>
             <mpuse value="206" delta="4"/>
         </actions>
@@ -24333,6 +24383,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201011" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="261" delta="0"/>
         </actions>
@@ -24350,6 +24403,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201015" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="301" delta="0"/>
         </actions>
@@ -24367,6 +24423,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201019" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="411" delta="0"/>
         </actions>
@@ -24384,6 +24443,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201023" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="261" delta="0"/>
         </actions>
@@ -24401,6 +24463,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201029" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="301" delta="0"/>
         </actions>
@@ -24418,6 +24483,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201030" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="411" delta="0"/>
         </actions>
@@ -24435,6 +24503,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201025" e="1" element="WATER"/>
+        </effects>
         <actions>
             <mpuse value="261" delta="0"/>
         </actions>
@@ -24452,6 +24523,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201027" e="1" element="WATER"/>
+        </effects>
         <actions>
             <mpuse value="301" delta="0"/>
         </actions>
@@ -24469,6 +24543,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201013" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="261" delta="0"/>
         </actions>
@@ -24486,6 +24563,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201017" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="301" delta="0"/>
         </actions>
@@ -24503,6 +24583,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201021" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="411" delta="0"/>
         </actions>
@@ -24720,7 +24803,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <transform model="201051" duration="15000" effectid="175" e="2"/>
+            <fear duration="15000" effectid="20103" e="1" element="EARTH"/>
+            <transform model="201051" duration="15000" effectid="175" e="2" element="FIRE"/>
         </effects>
         <actions>
             <mpuse value="327" delta="0"/>
@@ -24740,7 +24824,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <transform model="201051" duration="15000" effectid="175" e="2"/>
+            <fear duration="15000" effectid="20103" e="1" element="FIRE"/>
+            <transform model="201051" duration="15000" effectid="175" e="2" element="FIRE"/>
         </effects>
         <actions>
             <mpuse value="170" delta="0"/>
@@ -24929,6 +25014,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201010" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="261" delta="0"/>
         </actions>
@@ -24946,6 +25034,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201014" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="301" delta="0"/>
         </actions>
@@ -24963,6 +25054,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201018" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="411" delta="0"/>
         </actions>
@@ -24980,6 +25074,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201022" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="261" delta="0"/>
         </actions>
@@ -24997,6 +25094,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201028" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="301" delta="0"/>
         </actions>
@@ -25014,6 +25114,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201031" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="411" delta="0"/>
         </actions>
@@ -25031,6 +25134,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201024" e="1" element="WATER"/>
+        </effects>
         <actions>
             <mpuse value="261" delta="0"/>
         </actions>
@@ -25048,6 +25154,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201026" e="1" element="WATER"/>
+        </effects>
         <actions>
             <mpuse value="301" delta="0"/>
         </actions>
@@ -25065,6 +25174,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201012" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="261" delta="0"/>
         </actions>
@@ -25082,6 +25194,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201016" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="301" delta="0"/>
         </actions>
@@ -25099,6 +25214,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201020" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="411" delta="0"/>
         </actions>
@@ -25559,8 +25677,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <transform model="201051" duration="18000" effectid="175" e="2"/>
-            <snare duration="18000" effectid="20007" e="3">
+            <fear duration="18000" effectid="20103" e="1" element="EARTH"/>
+            <transform model="201051" duration="18000" effectid="175" e="2" element="FIRE"/>
+            <snare duration="18000" effectid="20007" e="3" element="EARTH">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-40"/>
             </snare>
         </effects>
@@ -25623,6 +25742,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201032" e="1" element="WATER"/>
+        </effects>
         <actions>
             <mpuse value="411" delta="0"/>
         </actions>
@@ -25640,6 +25762,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201033" e="1" element="WATER"/>
+        </effects>
         <actions>
             <mpuse value="411" delta="0"/>
         </actions>
@@ -25742,6 +25867,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201034" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="473" delta="0"/>
         </actions>
@@ -25759,6 +25887,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201035" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="473" delta="0"/>
         </actions>
@@ -25871,6 +26002,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201036" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="473" delta="0"/>
         </actions>
@@ -25888,6 +26022,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201037" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="473" delta="0"/>
         </actions>
@@ -25968,7 +26105,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <transform model="201051" duration="15000" effectid="175" e="2"/>
+            <fear duration="15000" effectid="20103" e="1" element="FIRE"/>
+            <transform model="201051" duration="15000" effectid="175" e="2" element="FIRE"/>
         </effects>
         <actions>
             <mpuse value="383" delta="0"/>
@@ -26043,6 +26181,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201038" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="1026" delta="0"/>
         </actions>
@@ -26060,6 +26201,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201039" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="1026" delta="0"/>
         </actions>
@@ -26311,6 +26455,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201040" e="1" element="WATER"/>
+        </effects>
         <actions>
             <dpuse value="2000"/>
         </actions>
@@ -26328,6 +26475,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201041" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <dpuse value="2000"/>
         </actions>
@@ -27258,10 +27408,11 @@
         </setproperties>
         <effects>
             <transform model="749165" duration="8000" effectid="175" e="1" element="FIRE"/>
-            <snare duration="8000" effectid="20007" e="3">
+            <fear duration="8000" effectid="20103" e="2" element="FIRE"/>
+            <snare duration="8000" effectid="20007" e="3" element="FIRE">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-30"/>
             </snare>
-            <statdown duration="8000" effectid="117814" e="4">
+            <statdown duration="8000" effectid="117814" e="4" element="FIRE">
                 <change stat="WATER_RESISTANCE" func="ADD" delta="0" value="-100"/>
             </statdown>
         </effects>
@@ -27281,10 +27432,11 @@
         </setproperties>
         <effects>
             <transform model="749166" duration="8000" effectid="175" e="1" element="FIRE"/>
-            <snare duration="8000" effectid="20007" e="3">
+            <fear duration="8000" effectid="20103" e="2" element="FIRE"/>
+            <snare duration="8000" effectid="20007" e="3" element="FIRE">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-30"/>
             </snare>
-            <statdown duration="8000" effectid="117824" e="4">
+            <statdown duration="8000" effectid="117824" e="4" element="FIRE">
                 <change stat="FIRE_RESISTANCE" func="ADD" delta="0" value="-80"/>
             </statdown>
         </effects>
@@ -29495,6 +29647,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="0" delta="0" radius="5" duration="3500" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8228" name="STR_SYSTEM_SKILL_HolyOffenseEffect" nameId="563495" stack="SYSTEM_SKILL_HOLYOFFENSEEFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -29786,6 +29941,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="36" delta="4" radius="5" duration="6500" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8247" name="STR_SKILL_KN_AuraPhysicalOffenseEffect" nameId="565451" stack="SKILL_KN_AURAPHYSICALOFFENSEEFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -30156,6 +30314,7 @@
             <statup duration="6500" effectid="182731" e="1">
                 <change stat="FIRE_RESISTANCE" func="ADD" delta="0" value="20"/>
             </statup>
+            <reflector value="0" delta="0" radius="5" duration="6500" effectid="153" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8274" name="STR_SKILL_KN_Aura_HolyDefense_G3_Effect" nameId="567941" stack="SKILL_KN_AURA_HOLYDEFENSE_EFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
@@ -30184,6 +30343,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="36" delta="4" radius="5" duration="6500" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8276" name="STR_SKILL_KN_Aura_RepelArrow_G1_Effect" nameId="567949" stack="SKILL_KN_AURA_REPELARROW_EFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -30199,6 +30361,7 @@
             <statup duration="6500" effectid="182761" e="1">
                 <change stat="PHYSICAL_DEFENSE" func="ADD" delta="10" value="40"/>
             </statup>
+            <reflector value="0" delta="0" radius="30" duration="6500" effectid="153" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8277" name="STR_SKILL_CH_Chant_ClementMind_G2_Effect" nameId="567953" stack="SKILL_CH_CHANT_CLEMENTMIND_EFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
@@ -31317,6 +31480,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="7000" effectid="20103" e="1" element="EARTH"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8352" name="STR_SYSTEM_SKILL_Q_Lycan_Polymorph" nameId="570947" stack="SYSTEM_SKILL_Q_LYCAN_POLYMORPH" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
         <setproperties>
@@ -33079,6 +33245,7 @@
         </useconditions>
         <effects>
             <shield value="10000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <reflector value="20" delta="0" radius="30" duration="15000" effectid="153" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8469" name="STR_SKILL_KN_AbysalJudgement_G2_Buff" nameId="581397" stack="SKILL_KN_ABYSALJUDGEMENT_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -33093,6 +33260,7 @@
         </useconditions>
         <effects>
             <shield value="10000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <reflector value="30" delta="0" radius="30" duration="15000" effectid="153" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8470" name="STR_SKILL_KN_AbysalJudgement_G3_Buff" nameId="581401" stack="SKILL_KN_ABYSALJUDGEMENT_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -33107,6 +33275,7 @@
         </useconditions>
         <effects>
             <shield value="10000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <reflector value="40" delta="0" radius="30" duration="15000" effectid="153" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8471" name="STR_SKILL_WI_FrozenSeal_G1_Proc" nameId="581463" stack="SKILL_WI_FROZENSEAL_PROC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
@@ -33885,6 +34054,7 @@
         </useconditions>
         <effects>
             <shield value="10000" delta="0" percent="true" hitvalue="50" hitdelta="0" duration="15000" effectid="154" e="1"/>
+            <reflector value="50" delta="0" radius="30" duration="15000" effectid="153" e="2"/>
         </effects>
     </skill_template>
     <skill_template skill_id="8515" name="STR_SKILL_KN_BreakPower_G3_Buff" nameId="584157" stack="SKILL_KN_BREAKPOWER_BUFF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -35952,6 +36122,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <resurrect e="1" element="EARTH"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8746" name="STR_ITEM_TEST_REBIRTH" nameId="563357" stack="ITEM_TEST_REBIRTH" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <startconditions>
@@ -35977,6 +36150,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <resurrect e="1" element="EARTH"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8748" name="STR_ITEM_TEST_CASTING_STR_01" nameId="1400471" stack="ITEM_TEST_CASTING_STR_01" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="SPEC" activation="ACTIVE" cooldown="0" duration="5000">
         <setproperties>
@@ -36514,6 +36690,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuffmental e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8796" name="STR_ITEM_POTION_FLYTIME" nameId="1404275" stack="ITEM_POTION_FLYTIME" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -36541,6 +36720,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <resurrect e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8798" name="STR_ITEM_SOULSTONE_RESURRECT_02" nameId="1404279" stack="ITEM_SOULSTONE_RESURRECT_02" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="5000">
         <startconditions>
@@ -36555,6 +36737,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <resurrect e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8799" name="STR_ITEM_SOULSTONE_DAMAGE_FIRE" nameId="1404281" stack="ITEM_SOULSTONE_DAMAGE_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -37117,6 +37302,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201024" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8837" name="STR_ITEM_POTION_CURE_ALL" nameId="1426669" stack="ITEM_POTION_CURE_ALL" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -42816,6 +43004,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector radius="5" duration="600000" effectid="153" e="1"/>
+        </effects>
         <actions>
             <mpuse value="165" delta="34"/>
         </actions>
@@ -43959,6 +44150,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="28" delta="2" radius="5" duration="15000" effectid="153" e="1"/>
+        </effects>
         <actions>
             <mpuse value="53" delta="0"/>
         </actions>
@@ -44501,6 +44695,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="26" delta="1" radius="5" duration="30000" effectid="153" e="1"/>
+        </effects>
         <actions>
             <mpuse value="165" delta="2"/>
         </actions>
@@ -45003,6 +45200,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="20000" effectid="20103" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="133" delta="0"/>
         </actions>
@@ -45056,6 +45256,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="30000" effectid="20103" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="1140" delta="0"/>
         </actions>
@@ -45622,6 +45825,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="600" delta="0" radius="5" duration="60000" effectid="153" e="1"/>
+        </effects>
         <actions>
             <mpuse value="21400" delta="0"/>
         </actions>
@@ -46036,6 +46242,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201054" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9893" name="STR_SKILL_Abyss_Dark_Siege_Pet_G1" nameId="577341" stack="SKILL_ABYSS_DARK_SIEGE_PET" lvl="1" skilltype="MAGICAL" skillsubtype="SUMMON" tslot="NONE" activation="ACTIVE" cooldown="1" duration="2000">
         <setproperties>
@@ -46047,6 +46256,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201055" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9894" name="STR_SKILL_Abyss_Artifact_CureodMoon_G1" nameId="577577" stack="SKILL_ABYSS_ARTIFACT_CUREODMOON" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <startconditions>
@@ -46448,6 +46660,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="295001" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9919" name="STR_SKILL_Abyss_Light_Siege_Summon_Cannon_G1" nameId="583017" stack="SKILL_ABYSS_LIGHT_SIEGE_SUMMON_CANNON" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -46459,6 +46674,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="294999" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9920" name="STR_SKILL_Abyss_Dark_Siege_Summon_Cannon_G1" nameId="583015" stack="SKILL_ABYSS_DARK_SIEGE_SUMMON_CANNON" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -46470,6 +46688,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="295160" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9921" name="STR_SKILL_Abyss_Light_Siege_Summon_Cannon_G1" nameId="583017" stack="SKILL_ABYSS_LIGHT_SIEGE_SUMMON_CANNON" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -46481,6 +46702,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="295159" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9922" name="STR_SKILL_Abyss_Reward_WeaternCiel_G1" nameId="585441" stack="SKILL_ABYSS_REWARD_WEATERNCIEL" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <startconditions>
@@ -46958,6 +47182,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="295174" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9948" name="STR_SKILL_Abyss_Dark_Siege_Summon_Cannon_G1" nameId="583015" stack="SKILL_ABYSS_DARK_SIEGE_SUMMON_CANNON" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -46969,6 +47196,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="295176" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9949" name="STR_SKILL_Abyss_Light_Siege_Summon_Cannon_G1" nameId="583017" stack="SKILL_ABYSS_LIGHT_SIEGE_SUMMON_CANNON" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -46980,6 +47210,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="295173" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9950" name="STR_SKILL_Abyss_Light_Siege_Summon_Cannon_G1" nameId="583017" stack="SKILL_ABYSS_LIGHT_SIEGE_SUMMON_CANNON" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -46991,6 +47224,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="295175" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9951" name="STR_SKILL_Abyss_Def_Low_KN_50L_40_FireDMG_G1" nameId="586681" stack="SKILL_ABYSS_DEF_LOW_KN_50L_40_FIREDMG" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -47036,6 +47272,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201054" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="9954" name="STR_SKILL_Abyss_Dark_Siege_Pet_G1" nameId="577341" stack="SKILL_ABYSS_DARK_SIEGE_PET" lvl="1" skilltype="MAGICAL" skillsubtype="SUMMON" tslot="NONE" activation="ACTIVE" cooldown="1" duration="2000">
         <setproperties>
@@ -47047,6 +47286,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <summon npc_id="201055" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16385" name="STR_NCH_HealinsR_Nr" nameId="571079" stack="NCH_HEALINSR_NR" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="BUFF" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -47164,6 +47406,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="16" delta="2" radius="8" duration="4000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16393" name="STR_NKN_GuardianR_Nr" nameId="575271" stack="NKN_GUARDIANR_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="PROVOKED" cooldown="4" duration="1000">
         <setproperties>
@@ -47391,6 +47636,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="16" delta="2" radius="8" duration="6000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16408" name="STR_NGR_SUmagatt_Self" nameId="581031" stack="NGR_SUMAGATT_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -48391,6 +48639,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="16" delta="2" radius="8" duration="4000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16472" name="STR_SKILL_NFI_Blow_SlaveLycan" nameId="566395" stack="SKILL_NFI_BLOW_SLAVELYCAN" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -48577,6 +48828,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="16" delta="2" radius="25" duration="3000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16484" name="STR_SKILL_Tab_NWA_KnockBack" nameId="568245" stack="SKILL_TAB_NWA_KNOCKBACK" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="500">
         <setproperties>
@@ -48794,6 +49048,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="16" delta="2" radius="25" duration="3000000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16498" name="STR_SKILL_Tab_NEL_Paralyze" nameId="568309" stack="SKILL_TAB_NEL_PARALYZE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1500">
         <setproperties>
@@ -52112,6 +52369,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="16" delta="2" radius="8" duration="4000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16700" name="STR_NWI_SpellSnareAddSA_Nr" nameId="571447" stack="NWI_SPELLSNAREADDSA_NR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
         <setproperties>
@@ -52193,6 +52453,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="3000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16705" name="STR_NWA_KnockBack_SlowShort" nameId="571515" stack="NWA_KNOCKBACK_SLOWSHORT" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1500">
         <setproperties>
@@ -52378,6 +52641,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="3000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16715" name="STR_NGR_SpellATKDrain_Ins_Suction" nameId="571539" stack="NGR_SPELLATKDRAIN_INS_SUCTION" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -53805,6 +54071,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="3000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16801" name="STR_Test_NormalFire" nameId="575063" stack="TEST_NORMALFIRE" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -55626,6 +55895,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="16" delta="2" radius="8" duration="4000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16912" name="STR_NCL_HealSUPHyattack_Crab" nameId="576471" stack="NCL_HEALSUPHYATTACK_CRAB" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -60354,6 +60626,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="12000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17211" name="STR_GPR_HealOther_Nr" nameId="579295" stack="GPR_HEALOTHER_NR" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -60449,6 +60724,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuffmental e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17218" name="STR_GPR_CurePhysical_Nr" nameId="579357" stack="GPR_CUREPHYSICAL_NR" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -62385,6 +62663,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="12000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17342" name="STR_DGWI_Tree_Nr" nameId="580303" stack="DGWI_TREE_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -62987,6 +63268,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <dispeldebuffmental e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17381" name="STR_DGPR_CurePhysical_Nr" nameId="580527" stack="DGPR_CUREPHYSICAL_NR" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -63735,6 +64019,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <reflector value="20" delta="0" radius="15" duration="60000" effectid="153" e="1"/>
             <statup duration="60000" effectid="174292" e="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="5"/>
             </statup>
@@ -66204,6 +66489,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="12000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17580" name="STR_DGFI_H_SatkSpinStun_Nr" nameId="581523" stack="DGFI_H_SATKSPINSTUN_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
@@ -66439,6 +66727,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <reflector value="30" delta="0" radius="15" duration="60000" effectid="153" e="1"/>
             <statup duration="60000" effectid="174292" e="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="12"/>
             </statup>
@@ -66911,6 +67200,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <reflector value="40" delta="0" radius="15" duration="60000" effectid="153" e="1"/>
             <statup duration="60000" effectid="174292" e="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="14"/>
             </statup>
@@ -66992,6 +67282,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <reflector value="50" delta="0" radius="15" duration="60000" effectid="153" e="1"/>
             <statup duration="60000" effectid="174292" e="2">
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="16"/>
             </statup>
@@ -68393,6 +68684,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="3000" effectid="20103" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17716" name="STR_NRA_SATKLgStunTA_mortal_ADDleh" nameId="581721" stack="NRA_SATKLGSTUNTA_MORTAL_ADDLEH" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16412">
         <startconditions>
@@ -70001,6 +70295,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="16" delta="0" radius="30" duration="600000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17818" name="STR_BNAS_Fear16HTAc2_Nr" nameId="582791" stack="BNAS_FEAR16HTAC2_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -70012,6 +70309,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="3000" effectid="20103" e="1" element="EARTH"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17819" name="STR_BNAS_PoiStun20HTA_Addhide_Poi" nameId="582797" stack="BNAS_POISTUN20HTA_ADDHIDE_POI" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="16411">
         <setproperties>
@@ -70608,6 +70908,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="16" delta="0" radius="30" duration="60000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17858" name="STR_BNEL_ParDeformSDDefTA16" nameId="583055" stack="BNEL_PARDEFORMSDDEFTA16" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
         <startconditions>
@@ -70783,6 +71086,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="16" delta="0" radius="8" duration="10000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17869" name="STR_BNKN_SatkSDPydefDodgeHTA50_Nc_Stuck" nameId="583429" stack="BNKN_SATKSDPYDEFDODGEHTA50_NC_STUCK" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -71086,6 +71392,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="3000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17888" name="STR_NEL_FearTA_Nr" nameId="571135" stack="NEL_FEARTA_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4500">
         <setproperties>
@@ -71097,6 +71406,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="3000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17889" name="STR_NEL_FallTA_Fire" nameId="571143" stack="NEL_FALLTA_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -71611,6 +71923,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="3000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17924" name="STR_BNEL_SpellATKSpinTA25_Poi" nameId="583375" stack="BNEL_SPELLATKSPINTA25_POI" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
         <setproperties>
@@ -71722,7 +72037,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare duration="5000" effectid="20007" e="2">
+            <fear duration="5000" effectid="20103" e="1" element="EARTH"/>
+            <snare duration="5000" effectid="20007" e="2" element="EARTH">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
         </effects>
@@ -74693,6 +75009,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="12000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18110" name="STR_BNMA_MeleeSpellATKBuff_Self" nameId="586825" stack="BNMA_MELEESPELLATKBUFF_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <startconditions>
@@ -74880,7 +75199,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare duration="5000" effectid="20007" e="2">
+            <fear duration="5000" effectid="20103" e="1" element="EARTH"/>
+            <snare duration="5000" effectid="20007" e="2" element="EARTH">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
         </effects>
@@ -75337,6 +75657,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="5000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18150" name="STR_NWA_SUpPyAttShort_Nr" nameId="569269" stack="NWA_SUPPYATTSHORT_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -75546,8 +75869,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <transform model="210420" duration="5000" effectid="175" e="2"/>
-            <statdown duration="5000" effectid="10181623" e="3">
+            <fear duration="5000" effectid="20103" e="1" element="EARTH"/>
+            <transform model="210420" duration="5000" effectid="175" e="2" element="EARTH"/>
+            <statdown duration="5000" effectid="10181623" e="3" element="EARTH">
                 <change stat="MAXHP" func="PERCENT" delta="0" value="-50"/>
             </statdown>
         </effects>
@@ -75751,6 +76075,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="16" delta="2" radius="30" duration="6000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18175" name="STR_NWI_SleepDeformSpellDelay6sTA_No" nameId="587603" stack="NWI_SLEEPDEFORMSPELLDELAY6STA_NO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -75960,7 +76287,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare duration="6000" effectid="20007" e="2">
+            <fear duration="6000" effectid="20103" e="1" element="WATER"/>
+            <snare duration="6000" effectid="20007" e="2" element="EARTH">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
         </effects>
@@ -76377,6 +76705,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="100" delta="0" radius="50" duration="10000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18214" name="STR_BNWI_SeifShield6S100P_Nr" nameId="587979" stack="BNWI_SEIFSHIELD6S100P_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -76635,7 +76966,8 @@
         </useconditions>
         <effects>
             <spellatk value="87" delta="0" e="1" element="FIRE"/>
-            <snare duration="5000" effectid="20007" e="3">
+            <fear duration="5000" effectid="20103" e="2" element="FIRE"/>
+            <snare duration="5000" effectid="20007" e="3" element="FIRE">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-50"/>
             </snare>
         </effects>
@@ -76877,8 +77209,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <transform model="210420" duration="5000" effectid="175" e="2"/>
-            <snare duration="5000" effectid="20007" e="3">
+            <fear duration="5000" effectid="20103" e="1" element="EARTH"/>
+            <transform model="210420" duration="5000" effectid="175" e="2" element="EARTH"/>
+            <snare duration="5000" effectid="20007" e="3" element="FIRE">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-30"/>
             </snare>
         </effects>
@@ -78133,6 +78466,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <fear duration="12000" effectid="20103" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18331" name="STR_GEL_SpellDoTBigTA_Command" nameId="585049" stack="GEL_SPELLDOTBIGTA_COMMAND" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
         <startconditions>
@@ -78347,6 +78683,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="150" delta="0" radius="15" duration="12000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18345" name="STR_GEL_SpellFireUltraTA_CPet" nameId="585077" stack="GEL_SPELLFIREULTRATA_CPET" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -78881,6 +79220,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="16" delta="2" radius="30" duration="20000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18381" name="STR_BNFI_Shield10s_Self" nameId="585661" stack="BNFI_SHIELD10S_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -79686,6 +80028,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="500" delta="0" radius="50" duration="15000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18434" name="STR_CSum_Ref_Self" nameId="586373" stack="CSUM_REF_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -79694,6 +80039,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="100" delta="0" radius="50" duration="5000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18435" name="STR_Chf_SatkMNofTA35_AdShi_Phb" nameId="586285" stack="CHF_SATKMNOFTA35_ADSHI_PHB" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000" penalty_skill_id="18431">
         <setproperties>
@@ -81522,6 +81870,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="0" delta="0" radius="40" duration="86400000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18554" name="STR_BNWI_MagReflector_Self" nameId="588243" stack="BNWI_MAGREFLECTOR_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -81530,6 +81881,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="0" delta="0" radius="40" duration="86400000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18555" name="STR_BNWI_PerfectReflector_Self" nameId="588249" stack="BNWI_PERFECTREFLECTOR_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -81538,6 +81892,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <reflector value="0" delta="0" radius="40" duration="86400000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18556" name="STR_NWI_PerfectShield_Self" nameId="588255" stack="NWI_PERFECTSHIELD_SELF" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -81879,7 +82236,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <snare duration="5000" effectid="20007" e="2">
+            <fear duration="3000" effectid="20103" e="1" element="EARTH"/>
+            <snare duration="5000" effectid="20007" e="2" element="EARTH">
                 <change stat="SPEED" func="PERCENT" delta="0" value="-70"/>
             </snare>
         </effects>
@@ -82074,6 +82432,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <reflector value="500" delta="0" radius="40" duration="86400000" effectid="153" e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18594" name="STR_AGCM_SUpPyDef_Nr" nameId="588483" stack="AGCM_SUPPYDEF_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
