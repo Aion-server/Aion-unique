@@ -63,6 +63,12 @@ public class NpcTemplate extends VisibleObjectTemplate
 	private NpcRank				rank;
 	@XmlAttribute(name = "srange")
 	private int					aggrorange;
+	@XmlAttribute(name = "arange")
+	private int					attackRange;
+	@XmlAttribute(name = "srange")
+	private int					attackRate;
+	@XmlAttribute(name = "hpgauge")
+	private int					hpGauge;
 	@XmlAttribute(name = "tribe")
 	private String				tribe;
 	
@@ -171,4 +177,27 @@ public class NpcTemplate extends VisibleObjectTemplate
 		return aggrorange;
 	}
 
+	/**
+	 * @return the attackRange
+	 */
+	public int getAttackRange()
+	{
+		return attackRange;
+	}
+
+	/**
+	 * @return the attackRate
+	 */
+	public int getAttackRate()
+	{
+		return attackRate;
+	}
+
+	/**
+	 * @return the hpGauge
+	 */
+	public int getHpGauge()
+	{
+		return hpGauge;
+	}
 }
