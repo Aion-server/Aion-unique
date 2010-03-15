@@ -69,13 +69,26 @@ public class AuraEffect extends EffectTemplate
 			{
 				if(!MathUtil.isInRange(effector, player, distance + 4))
 					continue;
-				SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(skillId);
-				Effect e = new Effect(effector, player, template, template.getLvl(), template.getEffectsDuration());
-				e.initialize();
-				e.applyEffect();
-				PacketSendUtility.broadcastPacket(player, new SM_MANTRA_EFFECT(player, skillId));
+				applyAuraTo(player);
 			}
 		}
+		else
+		{
+			applyAuraTo(effector);
+		}
+	}
+	
+	/**
+	 * 
+	 * @param player
+	 */
+	private void applyAuraTo(Player player)
+	{
+		SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(skillId);
+		Effect e = new Effect(player, player, template, template.getLvl(), template.getEffectsDuration());
+		e.initialize();
+		e.applyEffect();
+		PacketSendUtility.broadcastPacket(player, new SM_MANTRA_EFFECT(player, skillId));
 	}
 
 	@Override
