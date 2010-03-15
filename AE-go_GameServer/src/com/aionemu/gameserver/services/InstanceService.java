@@ -51,6 +51,8 @@ public class InstanceService
 	private PortalData		portalData;
 	@Inject
 	private WorldMapsData	worldMapsData;
+	@Inject
+	private TeleportService teleportService;
 
 	/**
 	 * @param worldId
@@ -130,7 +132,7 @@ public class InstanceService
 		{
 			VisibleObject obj = it.next();
 			if(obj instanceof Player)
-				moveToEntryPoint((Player) obj, portalTemplate);
+				moveToEntryPoint((Player) obj, portalTemplate, true);
 			else
 				obj.getController().delete();
 		}
@@ -207,7 +209,7 @@ public class InstanceService
 				return;
 			}
 			
-			moveToEntryPoint(player, portalTemplate);			
+			moveToEntryPoint(player, portalTemplate, false);			
 		}
 	}
 	
@@ -216,11 +218,20 @@ public class InstanceService
 	 * @param player
 	 * @param portalTemplate
 	 */
-	private void moveToEntryPoint(Player player, PortalTemplate portalTemplate)
+	private void moveToEntryPoint(Player player, PortalTemplate portalTemplate, boolean useTeleport)
 	{
 		EntryPoint entryPoint = portalTemplate.getEntryPoint();
-		world.setPosition(player, entryPoint.getMapId(), 1, entryPoint.getX(), entryPoint.getY(),
-			entryPoint.getZ(), player.getHeading());
+		if(useTeleport)
+		{
+			teleportService.teleportTo(player, entryPoint.getMapId(), 1,  entryPoint.getX(), entryPoint.getY(),
+				entryPoint.getZ(), 0);
+		}
+		else
+		{
+			world.setPosition(player, entryPoint.getMapId(), 1, entryPoint.getX(), entryPoint.getY(),
+				entryPoint.getZ(), player.getHeading());
+		}	
+		
 	}
 
 	/**

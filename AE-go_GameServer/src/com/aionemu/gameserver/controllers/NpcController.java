@@ -27,6 +27,7 @@ import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackUtil;
 import com.aionemu.gameserver.model.ChatType;
+import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -429,7 +430,8 @@ public class NpcController extends CreatureController<Npc>
 		int instanceId = getOwner().getInstanceId();
 		if(!getOwner().getSpawn().isNoRespawn(instanceId))
 		{
-			sp.getRespawnService().scheduleRespawnTask(getOwner());
+			Future<?> respawnTask = sp.getRespawnService().scheduleRespawnTask(getOwner());
+			addTask(TaskId.RESPAWN.ordinal(), respawnTask);
 		}
 	}
 

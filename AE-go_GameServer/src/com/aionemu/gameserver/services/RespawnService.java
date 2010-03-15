@@ -58,12 +58,12 @@ public class RespawnService
 	 * 
 	 * @param visibleObject
 	 */
-	public void scheduleRespawnTask(final VisibleObject visibleObject)
+	public Future<?> scheduleRespawnTask(final VisibleObject visibleObject)
 	{
 		final World world = visibleObject.getPosition().getWorld();
 		final int interval = visibleObject.getSpawn().getSpawnGroup().getInterval();		
 	
-		ThreadPoolManager.getInstance().schedule(new Runnable()
+		return ThreadPoolManager.getInstance().schedule(new Runnable()
 		{
 			@Override
 			public void run()

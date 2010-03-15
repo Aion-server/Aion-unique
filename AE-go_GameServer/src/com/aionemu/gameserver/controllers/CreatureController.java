@@ -213,4 +213,25 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		cancelTask(taskId);
 		tasks.put(taskId, task);
 	}
+	
+	/**
+	 * Cancel all tasks associated with this controller
+	 * (when deleting object)
+	 */
+	public void cancelAllTasks()
+	{
+		for(Future<?> task : tasks.values())
+		{
+			if(task != null)
+				task.cancel(true);
+		}
+	}
+
+	@Override
+	public void delete()
+	{
+		super.delete();
+		cancelAllTasks();
+	}
+	
 }
