@@ -17239,9 +17239,9 @@
             <mp value="106" delta="1"/>
         </startconditions>
         <setproperties>
-            <firsttarget value="TARGET"/>
-            <firsttargetrange value="25"/>
-            <targetrange value="PARTY" maxcount="1"/>
+            <firsttarget value="ME"/>
+            <firsttargetrange value="1"/>
+            <targetrange value="PARTY" distance="25" maxcount="6"/>
             <targetrelation value="MYPARTY"/>
         </setproperties>
         <useconditions>
