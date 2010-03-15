@@ -1122,4 +1122,8 @@ Pandaemonium -->
 	<spawn map="120010000" npcid="798367" pool="1" interval="105">
 		<object staticid="0" x="812.7547" y="1301.6641" z="218.31612" h="16"/>
 	</spawn>
+	<!-- Teleport Statue 1 -->
+	<spawn map="120010000" npcid="730018" pool="1" interval="105">
+		<object x="1040.6" y="1482.5" z="213.5" h="0"/>
+	</spawn>
 </spawns>

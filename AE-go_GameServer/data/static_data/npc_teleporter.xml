@@ -31,7 +31,21 @@
 			<telelocation loc_id="82" price="1400" />
 		</locations>
 	</teleporter_template>
-
+	
+	<!-- Pandaemonium City Teleports -->
+	<teleporter_template npc_id="730018" name="DC1_SPOT_Street"
+		teleportId="202" type="REGULAR">
+		<locations>
+			<telelocation loc_id="33" price="200" />
+		</locations>	
+	</teleporter_template>	
+	<teleporter_template npc_id="730017" name="DC1_SPOT_Bridge"
+		teleportId="201" type="REGULAR">
+		<locations>
+			<telelocation loc_id="34" price="200" />
+		</locations>
+	</teleporter_template>	
+	
 	<!-- Ishalgen -->
 	<teleporter_template npc_id="203679" name="Osmar"
 		teleportId="51" type="REGULAR">
@@ -215,7 +229,21 @@
 			<telelocation loc_id="81" price="1400" />
 		</locations>
 	</teleporter_template>
-
+	
+	<!-- Sanctum City Teleports -->
+	<teleporter_template npc_id="730015" name="Elyos Square"
+		teleportId="101" type="REGULAR">
+		<locations>
+			<telelocation loc_id="25" price="200" />
+		</locations>
+	</teleporter_template>
+	<teleporter_template npc_id="730016" name="Library of the Sages"
+		teleportId="102" type="REGULAR">
+		<locations>
+			<telelocation loc_id="24" price="200" />
+		</locations>
+	</teleporter_template>
+	
 	<!-- Verteron -->
 	<teleporter_template npc_id="203091" name="Urakron"
 		teleportId="3" type="REGULAR">

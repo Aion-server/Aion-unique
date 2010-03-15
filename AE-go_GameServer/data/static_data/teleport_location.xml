@@ -10,6 +10,8 @@
 	<teleloc_template loc_id="5" mapid="210020000" name="Eltnen" posX="343" posY="2724" posZ="264" heading="0"/>
 	<teleloc_template loc_id="6" mapid="210040000" name="Heiron" posX="2540" posY="343" posZ="411" heading="0"/> 
 	<teleloc_template loc_id="81" mapid="210060000" name="Theobomos" posX="1398" posY="1557" posZ="31" heading="0"/>
+	<teleloc_template loc_id="24" mapid="110010000" name="LC1_Airport_SPOT_Bank" posX="1458.3" posY="1448.8" posZ="572.9" heading="0"/>
+	<teleloc_template loc_id="25" mapid="110010000" name="LC1_Airport_SPOT_Library" posX="1931.6" posY="1516.9" posZ="590.0" heading="0"/>
 	
 	<!-- ASMODIANS -->
 	<teleloc_template loc_id="7" mapid="120010000" name="Pandemonium" posX="1685.5665" posY="1399.6561" posZ="195.38385" heading="0"/>
@@ -18,6 +20,8 @@
 	<teleloc_template loc_id="10" mapid="220020000" name="Morheim" posX="308" posY="2274" posZ="449" heading="0"/>
 	<teleloc_template loc_id="11" mapid="220040000" name="Beluslan" posX="325" posY="336" posZ="229" heading="0"/>
 	<teleloc_template loc_id="82" mapid="220050000" name="Brusthonin" posX="2917" posY="2421" posZ="15" heading="0"/>
+	<teleloc_template loc_id="33" mapid="120010000" name="DC1_SPOT_Street" posX="1602.7" posY="1413.7" posZ="193.1" heading="0"/>	
+	<teleloc_template loc_id="34" mapid="120010000" name="DC1_SPOT_Bridge" posX="1042.8" posY="1480.2" posZ="213.5" heading="0"/>
 	
 	<!-- ELYOS -->   
 	<teleloc_template loc_id="40" mapid="400010000" name="Eastern Shard of Latesran" posX="1642" posY="3042" posZ="1669" heading="0"/>   

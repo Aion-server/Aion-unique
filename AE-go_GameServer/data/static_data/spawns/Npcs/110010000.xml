@@ -884,4 +884,11 @@ Sanctum -->
 	<spawn map="110010000" npcid="730094" pool="1" interval="105">
 		<object x="2054.54" y="1542.7" z="593.2197" h="0"/>
 	</spawn>
+	<!-- Teleport Statues -->
+	<spawn map="110010000" npcid="730015" pool="1" interval="105">
+		<object x="1455.3" y="1448.2" z="572.9" h="0"/>
+	</spawn>
+	<spawn map="110010000" npcid="730016" pool="1" interval="105">
+		<object x="1932.6" y="1521.9" z="590.0" h="90"/>
+	</spawn>	
 </spawns>
