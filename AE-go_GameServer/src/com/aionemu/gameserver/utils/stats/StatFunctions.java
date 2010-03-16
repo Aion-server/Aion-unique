@@ -182,24 +182,16 @@ public class StatFunctions
 				int min = Math.round((((mainHandAttack * 100)/ average) * totalMin)/100);
 				int max = Math.round((((mainHandAttack * 100)/ average) * totalMax)/100);
 
-				if(skillDamages != 0)
-				{
-					int base = Rnd.get(min,max);
-					Damage = base + ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + Math.round(skillDamages * (ags.getCurrentStat(StatEnum.POWER)/100f));
-				}
-				else
-				{
-					int base = Rnd.get(min,max);
-					Damage = Math.round(base + (ags.getBaseStat(StatEnum.MAIN_HAND_POWER)/ 2 + ags.getBaseStat(StatEnum.OFF_HAND_POWER)/ 2)/10f)
-					+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER);
-				}
+				int base = Rnd.get(min,max);
+				
+				Damage = Math.round((base * (ags.getCurrentStat(StatEnum.POWER) * 0.01f + ags.getBaseStat(StatEnum.MAIN_HAND_POWER) * 0.01f)) 
+						                  + ags.getStatBonus(StatEnum.MAIN_HAND_POWER) + skillDamages);
 
 			}
 			else   //if hand attack
 			{
 				int base = Rnd.get(16,20);
-				Damage = Math.round(base + (ags.getBaseStat(StatEnum.MAIN_HAND_POWER)/ 2 + ags.getBaseStat(StatEnum.OFF_HAND_POWER)/ 2)/10f)
-				+ ags.getStatBonus(StatEnum.MAIN_HAND_POWER);
+				Damage = Math.round(base * (ags.getCurrentStat(StatEnum.POWER) * 0.01f));
 			}
 
 			//adjusting baseDamages according to attacker and target level
@@ -261,8 +253,8 @@ public class StatFunctions
 		int max = Math.round((((offHandAttack * 100)/ average) * totalMax)/100);
 
 		int base = Rnd.get(min,max);
-		Damage = Math.round(base + (ags.getBaseStat(StatEnum.MAIN_HAND_POWER)/ 2 + ags.getBaseStat(StatEnum.OFF_HAND_POWER)/ 2)/10)
-		+ ags.getStatBonus(StatEnum.OFF_HAND_POWER);
+		Damage = Math.round((base * (ags.getCurrentStat(StatEnum.POWER) * 0.01f + ags.getBaseStat(StatEnum.OFF_HAND_POWER) * 0.01f)) 
+                 + ags.getStatBonus(StatEnum.OFF_HAND_POWER));
 
 		Damage = adjustDamages(attacker, target, Damage);
 
@@ -278,9 +270,9 @@ public class StatFunctions
 
 		Damage -= Math.round(tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE) * 0.10f);
 		
-		for(float i = 0.5f; i <= 1; i+=0.25f)
+		for(float i = 0.25f; i <= 1; i+=0.25f)
 		{
-			if(Rnd.get(0, 100) < 25)
+			if(Rnd.get(0, 100) < 50)
 			{
 				Damage *= i;
 				break;
