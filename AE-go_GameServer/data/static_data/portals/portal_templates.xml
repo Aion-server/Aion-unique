@@ -11,7 +11,7 @@
 	<!-- Fire Temple-->
 	<portal npcid="730047" instance="true" minlevel="25" group="true" maxlevel="50">
 		<entrypoint mapid="220020000" x="1592.178" y="977.2572" z="140.75" race="ASMODIANS"/>
-		<entrypoint mapid="210020000" x="1332.47" y="351.78" z="350.74" race="ELYOS"/>
+		<entrypoint mapid="210020000" x="1343.28" y="350.96" z="348.67" race="ELYOS"/>
 		<exitpoint mapid="320100000" x="148.256" y="460.857" z="141.713"/>
 	</portal>
 	
