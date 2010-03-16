@@ -267,8 +267,9 @@ public class TeleportService
 				if(delay != 0)
 				{
 					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
-				}
-				changePosition(player, worldId, instanceId, x, y, z, heading);
+				}				
+				
+				changePosition(player, worldId, instanceId, x, y, z, heading);				
 			}
 		}, delay);
 
@@ -286,11 +287,19 @@ public class TeleportService
 	 */
 	private void changePosition(Player player, int worldId, int instanceId, float x, float y, float z, byte heading)
 	{
+		//forced stop flying
+		if(player.isInState(CreatureState.FLYING))
+		{			
+			player.unsetState(CreatureState.FLYING);
+			player.getController().endFly();				
+			player.getLifeStats().triggerFpRestore();
+		}
+		
 		world.despawn(player);
 		world.setPosition(player, worldId, instanceId, x, y, z, heading);
 		player.getController().startProtectionActiveTask();
 		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
-		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
+		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));		
 	}
 
 	/**

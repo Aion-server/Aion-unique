@@ -23,7 +23,6 @@ import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
@@ -84,8 +83,7 @@ public class LifeStatsRestoreService
 					lifeStats.getOwner().unsetState(CreatureState.FLYING);
 					lifeStats.getOwner().getController().endFly();
 
-					// this is probably needed to change back fly speed into speed.
-					PacketSendUtility.sendPacket(lifeStats.getOwner(), new SM_STATS_INFO(lifeStats.getOwner()));
+					// this is probably needed to change back fly speed into speed.					
 					PacketSendUtility.broadcastPacket(lifeStats.getOwner(), new SM_EMOTION(lifeStats.getOwner(), 30, 0,
 						0), true);
 
