@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.services;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.Future;
 
 import org.apache.log4j.Logger;
@@ -125,16 +126,21 @@ public class InstanceService
 
 		log.info("Destroying instance:" + worldId + " " + instanceId);
 		
-		PortalTemplate portalTemplate = portalData.getPortalTemplateByMap(worldId);
+		PortalTemplate portalTemplate = portalData.getInstancePortalTemplate(worldId);
 		
 		Iterator<VisibleObject> it = instance.objectIterator();
 		while(it.hasNext())
 		{
 			VisibleObject obj = it.next();
 			if(obj instanceof Player)
+			{			
 				moveToEntryPoint((Player) obj, portalTemplate, true);
+			}
 			else
+			{
 				obj.getController().delete();
+			}
+				
 		}
 	}
 	
@@ -186,8 +192,8 @@ public class InstanceService
 		WorldMapTemplate worldTemplate = worldMapsData.getTemplate(worldId);
 		if(worldTemplate.isInstance())
 		{
-			PortalTemplate portalTemplate = portalData.getPortalTemplateByMap(worldId);
-			
+			PortalTemplate portalTemplate = portalData.getInstancePortalTemplate(worldId);
+
 			int lookupId = player.getObjectId();
 			if(portalTemplate.isGroup() && player.getPlayerGroup() != null)
 			{
@@ -220,7 +226,24 @@ public class InstanceService
 	 */
 	private void moveToEntryPoint(Player player, PortalTemplate portalTemplate, boolean useTeleport)
 	{
-		EntryPoint entryPoint = portalTemplate.getEntryPoint();
+		List<EntryPoint> entryPoints = portalTemplate.getEntryPoint();
+		
+		EntryPoint entryPoint = null;
+		for(EntryPoint point : entryPoints)
+		{
+			if(point.getRace() == null || point.getRace().equals(player.getCommonData().getRace()))
+			{
+				entryPoint = point;;
+				break;
+			}
+		}
+		
+		if(entryPoint == null)
+		{
+			log.warn("Entry point not found for " + player.getCommonData().getRace() + " " + portalTemplate.getNpcId());
+			return;
+		}
+		
 		if(useTeleport)
 		{
 			teleportService.teleportTo(player, entryPoint.getMapId(), 1,  entryPoint.getX(), entryPoint.getY(),

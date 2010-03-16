@@ -18,6 +18,7 @@ package com.aionemu.gameserver.dataholders;
 
 import gnu.trove.TIntObjectHashMap;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.Unmarshaller;
@@ -41,14 +42,15 @@ public class PortalData
 	
 	/** A map containing all npc templates */
 	private TIntObjectHashMap<PortalTemplate> portalData	= new TIntObjectHashMap<PortalTemplate>();
-	private TIntObjectHashMap<PortalTemplate> worldIdPortalMap	= new TIntObjectHashMap<PortalTemplate>();
+	private TIntObjectHashMap<PortalTemplate> instancesMap	= new TIntObjectHashMap<PortalTemplate>();
 	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
 		for(PortalTemplate portal : portals)
 		{
 			portalData.put(portal.getNpcId(), portal);
-			worldIdPortalMap.put(portal.getExitPoint().getMapId(), portal);
+			if(portal.isInstance())
+				instancesMap.put(portal.getExitPoint().getMapId(), portal);
 		}
 		portals = null;
 	}
@@ -67,15 +69,14 @@ public class PortalData
 	{
 		return portalData.get(npcId);
 	}
-	
+
 	/**
-	 * 
 	 * @param worldId
 	 * @return
 	 */
-	public PortalTemplate getPortalTemplateByMap(int worldId)
-	{
-		return worldIdPortalMap.get(worldId);
+	public PortalTemplate getInstancePortalTemplate(int worldId)
+	{			
+		return instancesMap.get(worldId);	
 	}
 	
 	

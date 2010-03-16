@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.model.templates.portal;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -45,7 +47,7 @@ public class PortalTemplate
 	@XmlAttribute(name = "race")
 	protected Race race;
 	@XmlElement(name = "entrypoint")
-	protected EntryPoint	entryPoint;
+	protected List<EntryPoint>	entryPoint;
 	@XmlElement(name = "exitpoint")
 	protected ExitPoint	exitPoint;
 	/**
@@ -90,10 +92,11 @@ public class PortalTemplate
 	{
 		return race;
 	}
+	
 	/**
 	 * @return the entryPoint
 	 */
-	public EntryPoint getEntryPoint()
+	public List<EntryPoint> getEntryPoint()
 	{
 		return entryPoint;
 	}

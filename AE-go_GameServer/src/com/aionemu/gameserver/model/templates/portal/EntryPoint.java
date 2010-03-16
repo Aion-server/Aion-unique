@@ -21,6 +21,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.Race;
+
 /**
  * @author ATracer
  *
@@ -37,6 +39,8 @@ public class EntryPoint
 	protected float	y;
 	@XmlAttribute(name = "z")
 	protected float	z;
+	@XmlAttribute(name = "race")
+	protected Race	race;
 	/**
 	 * @return the mapId
 	 */
@@ -64,5 +68,12 @@ public class EntryPoint
 	public float getZ()
 	{
 		return z;
+	}
+	/**
+	 * @return the race
+	 */
+	public Race getRace()
+	{
+		return race;
 	}
 }

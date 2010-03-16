@@ -4,19 +4,14 @@
 
 	<!-- Nochsana Training Camp -->
 	<portal npcid="700414"  instance="true" minlevel="25" maxlevel="28" group="true" race="ASMODIANS">
-		<entrypoint mapid="400010000" x="876.7211" y="3079.2874" z="1644.5786"/>
+		<entrypoint mapid="400010000" x="876.7211" y="3079.2874" z="1644.5786" race="ASMODIANS"/>
 		<exitpoint mapid="300030000" x="600" y="700" z="327.165"/>
 	</portal>
 	
-	<!-- Fire Temple Asmo -->
-	<portal npcid="730047" instance="true" minlevel="25" maxlevel="50" group="true" race="ASMODIANS">
-		<entrypoint mapid="220020000" x="1592.178" y="977.2572" z="140.75"/>
-		<exitpoint mapid="320100000" x="148.256" y="460.857" z="141.713"/>
-	</portal>
-
-	<!-- Fire Temple Elyos -->
-	<portal npcid="730047" instance="true" minlevel="25" maxlevel="50" group="true" race="ELYOS">
-		<entrypoint mapid="210020000" x="1332.47" y="351.78" z="350.74"/>
+	<!-- Fire Temple-->
+	<portal npcid="730047" instance="true" minlevel="25" group="true" maxlevel="50">
+		<entrypoint mapid="220020000" x="1592.178" y="977.2572" z="140.75" race="ASMODIANS"/>
+		<entrypoint mapid="210020000" x="1332.47" y="351.78" z="350.74" race="ELYOS"/>
 		<exitpoint mapid="320100000" x="148.256" y="460.857" z="141.713"/>
 	</portal>
 	

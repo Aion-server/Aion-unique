@@ -83,6 +83,12 @@ public class PortalController extends NpcController
 			 */
 			private void analyzePortation(final Player player)
 			{
+				if(portalTemplate.getRace() != null && !portalTemplate.getRace().equals(player.getCommonData().getRace()))
+				{
+					PacketSendUtility.sendMessage(player, "You cannot use this portal because race doesn't match");
+					return;
+				}
+				
 				PlayerGroup group = player.getPlayerGroup();
 
 				if(portalTemplate.isGroup() && group != null)
