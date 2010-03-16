@@ -128,6 +128,7 @@
 			<xs:enumeration value="VERTERON_SWAMP"/>
 			<xs:enumeration value="SOUTHERN_TOLBAS_FOREST"/>
 			<xs:enumeration value="TURSIN_GARRISON"/>
+			<xs:enumeration value="Q1012"/>
 			<!-- eltnen -->
 			<xs:enumeration value="PUTRID_MIRE"/>
 			<xs:enumeration value="DRAKE_HABITAT"/>

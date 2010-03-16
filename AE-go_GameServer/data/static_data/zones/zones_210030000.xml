@@ -722,7 +722,7 @@
         </points>
 		<link>FRILLNECK_WOODS</link>
     </zone>
-    <zone mapid="210030000" name="MIRAJUS_HOLY_GROUND" priority="19">
+    <zone mapid="210030000" name="MIRAJUS_HOLY_GROUND" priority="19" fly="true">
         <points>
             <point x="2128.0835" y="2014.3254"/>
             <point x="2175.6782" y="2023.527"/>
@@ -1424,6 +1424,7 @@
 		<link>NORTHERN_TOLBAS_FOREST</link>
         <link>VERTERON_CITADEL</link>
         <link>ELLUN_RIVER_MOUTH</link>
+        <link>Q1012</link>
     </zone>
     <zone mapid="210030000" name="SOUTHERN_TOLBAS_FOREST" priority="19">
         <points>
@@ -1688,5 +1689,19 @@
         <link>KRAKAS_DEN</link>
         <link>CANTAS_COAST</link>
         <link>TURSIN_TOTEM_POLE</link>
+    </zone>
+
+    <zone mapid="210030000" name="Q1012" priority="17" fly="true">
+        <points>
+            <point x="1847" y="1372"/>
+            <point x="1831" y="1387"/>
+            <point x="1825" y="1407"/>
+            <point x="1827" y="1420"/>
+            <point x="1833" y="1429"/>
+            <point x="1850" y="1439"/>
+            <point x="1863" y="1441"/>
+            <point x="1889" y="1434"/>
+        </points>
+	<link>VERTERON_SWAMP</link>
     </zone>
 </zones>
