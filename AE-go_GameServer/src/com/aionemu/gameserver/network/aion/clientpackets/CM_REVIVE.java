@@ -16,14 +16,17 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.controllers.ReviveType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.TeleportService;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
 
 /**
@@ -34,6 +37,8 @@ public class CM_REVIVE extends AionClientPacket
 {
 	@Inject
 	private TeleportService teleportService;
+	
+	private int reviveId;
 	
 	/**
 	 * Constructs new instance of <tt>CM_REVIVE </tt> packet
@@ -50,7 +55,7 @@ public class CM_REVIVE extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		// empty
+		reviveId = readC();
 	}
 
 	/**
@@ -59,18 +64,55 @@ public class CM_REVIVE extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-
 		Player activePlayer = getConnection().getActivePlayer();
+		
+		ReviveType reviveType = ReviveType.getReviveTypeById(reviveId);
+		
+		switch(reviveType)
+		{
+			case BIND_REVIVE:
+				bindRevive(activePlayer);
+				break;
+			case SKILL_REVIVE:
+				skillRevive(activePlayer);
+				break;
+			default:
+				break;
+		}
+		
+	}
 
+	/**
+	 * @param activePlayer
+	 */
+	private void skillRevive(Player activePlayer)
+	{
+		//TODO No need to create new instance of lifestats
+		activePlayer.setLifeStats(new PlayerLifeStats(activePlayer, 10,
+			activePlayer.getPlayerStatsTemplate().getMaxMp()));	
+		activePlayer.getLifeStats().triggerRestoreTask();		
+		
+		activePlayer.unsetState(CreatureState.DEAD);		
+		PacketSendUtility.broadcastPacket(activePlayer, new SM_EMOTION(activePlayer, 14), true);
+		
+		sendPacket(SM_SYSTEM_MESSAGE.REVIVE);
+		sendPacket(new SM_STATS_INFO(activePlayer));
+	}
+
+	/**
+	 * @param activePlayer
+	 */
+	private void bindRevive(Player activePlayer)
+	{
 		activePlayer.setLifeStats(new PlayerLifeStats(activePlayer, activePlayer.getPlayerStatsTemplate().getMaxHp(),
-		activePlayer.getPlayerStatsTemplate().getMaxMp()));
+			activePlayer.getPlayerStatsTemplate().getMaxMp()));
 
 		activePlayer.unsetState(CreatureState.DEAD);
 		activePlayer.getController().startProtectionActiveTask();
 
 		sendPacket(SM_SYSTEM_MESSAGE.REVIVE);
-		//TODO: It is not always necessary.
-		//sendPacket(new SM_QUEST_LIST(activePlayer));
+		// TODO: It is not always necessary.
+		// sendPacket(new SM_QUEST_LIST(activePlayer));
 		sendPacket(new SM_STATS_INFO(activePlayer));
 		sendPacket(new SM_PLAYER_INFO(activePlayer, false));
 

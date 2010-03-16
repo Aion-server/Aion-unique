@@ -177,6 +177,11 @@ public abstract class Creature extends VisibleObject
 		return castingSkill != null ? castingSkill.getSkillTemplate().getSkillId() : 0;
 	}
 	
+	public Skill getCastingSkill()
+	{
+		return castingSkill;
+	}
+	
 	/**
 	 * All abnormal effects are checked that disable movements
 	 * 

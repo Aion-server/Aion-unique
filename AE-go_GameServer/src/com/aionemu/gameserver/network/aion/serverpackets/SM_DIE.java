@@ -18,19 +18,33 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.controllers.ReviveType;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+
 /**
  * @author orz
- *
+ * 
  */
 public class SM_DIE extends AionServerPacket
 {
-	
+	@SuppressWarnings("unused")
+	private ReviveType	reviveType;
+
+	public SM_DIE(ReviveType reviveType)
+	{
+		this.reviveType = reviveType;
+	}
+
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, 0x00);
-		writeH(buf, 0x00);
+		writeD(buf, 0);
+		writeH(buf, 0);
+
+		// [trisphere] Structure is actually:
+		// uint8 skillRevive
+		// uint8 itemRevive
+		// uint32 kiskReviveDelay (wait time before choice can be made)
 	}
 }

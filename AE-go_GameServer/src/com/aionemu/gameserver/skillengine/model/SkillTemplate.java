@@ -291,5 +291,10 @@ public class SkillTemplate
 	{
 		return penaltySkillId;
 	}
-
+	
+	
+	public boolean hasResurrectEffect()
+	{
+		return getEffects() != null && getEffects().isResurrect();
+	}
 }

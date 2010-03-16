@@ -175,6 +175,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_RECONNECT_KEY.class, 0xFF, idSet);
 		addPacketOpcode(SM_MAIL_SERVICE.class, 0xA1, idSet);
 		addPacketOpcode(SM_CUSTOM_PACKET.class, 99999, idSet); // fake packet
+		addPacketOpcode(SM_RESURRECT.class, 0xBA, idSet);
 
 		// Unrecognized Opcodes from 1.5.4:
 		// addPacketOpcode(SM_BUY_LIST.class, 0x7E, idSet);

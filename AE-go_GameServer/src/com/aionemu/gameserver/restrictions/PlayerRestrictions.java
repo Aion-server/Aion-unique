@@ -37,7 +37,8 @@ public class PlayerRestrictions extends AbstractRestrictions
 	@Override
 	public boolean canAffectBySkill(Player player, VisibleObject target)
 	{
-		if(((Creature) target).getLifeStats().isAlreadyDead())
+		if(((Creature) target).getLifeStats().isAlreadyDead() && player.getCastingSkill() != null
+			&& !player.getCastingSkill().getSkillTemplate().hasResurrectEffect())
 		{
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.INVALID_TARGET());
 			return false;

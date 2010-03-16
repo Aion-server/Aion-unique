@@ -80,15 +80,15 @@ public class AuraEffect extends EffectTemplate
 	
 	/**
 	 * 
-	 * @param player
+	 * @param effector
 	 */
-	private void applyAuraTo(Player player)
+	private void applyAuraTo(Player effector)
 	{
 		SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(skillId);
-		Effect e = new Effect(player, player, template, template.getLvl(), template.getEffectsDuration());
+		Effect e = new Effect(effector, effector, template, template.getLvl(), template.getEffectsDuration());
 		e.initialize();
 		e.applyEffect();
-		PacketSendUtility.broadcastPacket(player, new SM_MANTRA_EFFECT(player, skillId));
+		PacketSendUtility.broadcastPacket(effector, new SM_MANTRA_EFFECT(effector, skillId));
 	}
 
 	@Override

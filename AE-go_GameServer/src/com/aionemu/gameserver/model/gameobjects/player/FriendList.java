@@ -164,7 +164,6 @@ public class FriendList implements Iterable<Friend>
 		
 		for (Friend friend : friends) // For all my friends
 		{
-			
 			if (friend.isOnline()) // If the player is online
 			{
 				Player friendPlayer = friend.getPlayer();

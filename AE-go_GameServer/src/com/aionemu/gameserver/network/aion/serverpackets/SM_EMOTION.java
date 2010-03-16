@@ -67,6 +67,18 @@ public class SM_EMOTION extends AionServerPacket
 	private float				z;
 
 	/**
+	 * This constructor should be used when emotion and targetid is 0
+	 * 
+	 * @param creature
+	 * @param emotionType
+	 */
+	public SM_EMOTION(Creature creature, int emotionType)
+	{
+		this.senderObjectId = creature.getObjectId();
+		this.emotionType = emotionType;
+	}
+
+	/**
 	 * Constructs new server packet with specified opcode
 	 * 
 	 * @param senderObjectId
@@ -190,6 +202,11 @@ public class SM_EMOTION extends AionServerPacket
 				writeH(buf, state);
 				writeF(buf, speed);
 				writeD(buf, targetObjectId);
+				break;
+			case 14:
+				// resurrect
+				writeH(buf, state);
+				writeF(buf, speed);
 				break;
 			case 15:
 				//walk ?

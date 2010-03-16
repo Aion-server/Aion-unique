@@ -227,7 +227,7 @@ public class PlayerController extends CreatureController<Player>
 				player.getCommonData().calculateExpLoss();
 
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 13, 0, lastAttacker.getObjectId()), true);
-			PacketSendUtility.sendPacket(player, new SM_DIE());
+			PacketSendUtility.sendPacket(player, new SM_DIE(ReviveType.BIND_REVIVE));
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
 			sp.getQuestEngine().onDie(new QuestEnv(null, player, 0, 0));
 		}
@@ -575,5 +575,13 @@ public class PlayerController extends CreatureController<Player>
 	public void refreshZoneImpl()
 	{
 		sp.getZoneService().findZoneInCurrentMap(getOwner());
+	}
+
+	/**
+	 * 
+	 */
+	public void ban()
+	{
+		//sp.getTeleportService().teleportTo(this.getOwner(), 510010000, 256f, 256f, 49f, 0);
 	}
 }

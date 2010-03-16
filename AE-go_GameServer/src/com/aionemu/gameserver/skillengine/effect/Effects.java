@@ -100,7 +100,8 @@ public class Effects
 		@XmlElement(name = "mpuseovertime", type = MpUseOverTimeEffect.class),
 		@XmlElement(name = "switchhpmp", type = SwitchHpMpEffect.class),
 		@XmlElement(name = "summon", type = SummonEffect.class),
-		@XmlElement(name = "aura", type = AuraEffect.class)
+		@XmlElement(name = "aura", type = AuraEffect.class),
+		@XmlElement(name = "resurrect", type = ResurrectEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	
@@ -151,5 +152,20 @@ public class Effects
 			duration = duration > template.getDuration() ? duration : template.getDuration();
 		}
 		return duration;
+	}
+
+	/**
+	 * TODO remove after effect types are done !!
+	 * 
+	 * @return
+	 */
+	public boolean isResurrect()
+	{
+		for(EffectTemplate template : getEffects())
+		{
+			if(template instanceof ResurrectEffect)
+				return true;
+		}
+		return false;
 	}
 }
