@@ -55,4 +55,10 @@ public class CustomConfig
 	 */
 	@Property(key = "gameserver.instances.enable", defaultValue = "true")
 	public static boolean	ENABLE_INSTANCES;
+	
+	/**
+	 * Base Fly Time
+	 */
+	@Property(key = "gameserver.base.flytime", defaultValue = "60")
+	public static int		BASE_FLYTIME;
 }

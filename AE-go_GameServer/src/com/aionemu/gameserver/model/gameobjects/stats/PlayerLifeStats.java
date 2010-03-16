@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -16,24 +16,36 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import java.util.concurrent.Future;
+import java.util.concurrent.locks.ReentrantLock;
+
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.group.GroupEvent;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_FLY_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_HP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_MP;
+import com.aionemu.gameserver.services.FlyTimeReduceService;
+import com.aionemu.gameserver.services.FlyTimeRestoreService;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author ATracer
+ * @author ATracer, sphinx
  *
  */
 public class PlayerLifeStats extends CreatureLifeStats<Player>
 {
-
+	protected int currentFp;
+	private final ReentrantLock fpLock = new ReentrantLock();
+	
+	private Future<?> flyRestoreTask;
+	private Future<?> flyReduceTask;
+	
 	public PlayerLifeStats(Player owner, int currentHp, int currentMp)
 	{
 		super(owner,currentHp,currentMp);
+		this.currentFp = owner.getGameStats().getCurrentStat(StatEnum.FLY_TIME);
 	}
 
 	@Override
@@ -57,8 +69,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	{
 		sendMpPacketUpdate();
 		sendGroupPacketUpdate();
-	}
-	
+	}	
 	
 	@Override
 	protected void onIncreaseHp()
@@ -99,6 +110,34 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 		if(getOwner().isInState(CreatureState.RESTING))
 			currentRegenMp *= 8;
 		increaseMp(currentRegenMp);
+	}	
+
+	@Override
+	public void synchronizeWithMaxStats()
+	{
+		if(getMaxHp() != currentHp)
+			currentHp = getMaxHp();
+		if(getMaxMp() != currentMp)
+			currentMp = getMaxMp();
+		if(getMaxFp() != currentFp)
+			currentFp = getMaxFp();
+	}
+	
+	@Override
+	public void updateCurrentStats()
+	{
+		if(getMaxHp() < currentHp)
+			currentHp = getMaxHp();
+		if(getMaxMp() < currentMp)
+			currentMp = getMaxMp();
+		if(getMaxFp() < currentFp)
+			currentFp = getMaxFp();
+		
+		if(!isFullyRestored())
+			triggerRestoreTask();
+		
+		if(!isFlyTimeFullyRestored() && !owner.isInState(CreatureState.FLYING))
+			triggerFpRestore();
 	}
 	
 	public void sendHpPacketUpdate()
@@ -125,5 +164,165 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 			return;
 
 		PacketSendUtility.sendPacket((Player) owner, new SM_STATUPDATE_MP(currentMp, getMaxMp()));
+	}
+	
+	/**
+	 * 
+	 * @return the currentFp
+	 */
+	public int getCurrentFp()
+	{
+		return this.currentFp;
+	}
+	
+	/**
+	 * 
+	 * @return maxFp of creature according to stats
+	 */
+	public int getMaxFp()
+	{
+		return owner.getGameStats().getCurrentStat(StatEnum.FLY_TIME);
+	}
+	
+	/**	 
+	 * @return FP percentage 0 - 100
+	 */
+	public int getFpPercentage()
+	{
+		return 100 * currentFp / getMaxFp();
+	}
+	
+	/**
+	 * This method is called whenever caller wants to restore creatures's FP
+	 * @param value
+	 * @return
+	 */
+	public int increaseFp(int value)
+	{
+		if(value == getMaxFp())
+			return 0;
+		
+		fpLock.lock();
+		
+		try
+		{
+			if(isAlreadyDead())
+			{
+				return 0;
+			}
+			int newFp = this.currentFp + value;
+			if(newFp > getMaxFp())
+			{
+				newFp = getMaxFp();
+			}
+			this.currentFp = newFp;
+		}	
+		finally
+		{
+			fpLock.unlock();
+		}
+
+		onIncreaseFp();
+
+		return currentFp;
+
+	}
+	
+	/**
+	 * This method is called whenever caller wants to reduce creatures's MP
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public int reduceFp(int value)
+	{
+		fpLock.lock();
+		try
+		{
+			int newFp = this.currentFp - value;
+
+			if(newFp < 0)
+				newFp = 0;
+
+			this.currentFp = newFp;	
+		}
+		finally
+		{
+			fpLock.unlock();
+		}
+		
+		onReduceFp();
+
+		return currentFp;
+	}
+	
+	protected void onIncreaseFp()
+	{
+		owner.addPacketBroadcastMask(BroadcastMode.UPDATE_PLAYER_FLY_TIME);
+	}
+	
+	protected void onReduceFp()
+	{
+		owner.addPacketBroadcastMask(BroadcastMode.UPDATE_PLAYER_FLY_TIME);
+	}	
+	
+	public void sendFpPacketUpdateImpl()
+	{
+		if(owner == null)
+			return;
+		
+		PacketSendUtility.sendPacket((Player) owner, new SM_FLY_TIME(currentFp, getMaxFp()));
+	}
+	
+	/**
+	 * this method should be used only on FlyTimeRestoreService
+	 */
+	public void restoreFp()
+	{
+		//how much fly time restoring per 2 second.
+		increaseFp(1);
+	}
+	
+	public void triggerFpRestore()
+	{
+		cancelFpReduce();
+		
+		if(flyRestoreTask == null && !alreadyDead)
+		{
+			this.flyRestoreTask = FlyTimeRestoreService.getInstance().scheduleRestoreTask(this);
+		}
+	}
+	
+	public void cancelFpRestore()
+	{
+		if(flyRestoreTask != null && !flyRestoreTask.isCancelled())
+		{
+			flyRestoreTask.cancel(false);
+			this.flyRestoreTask = null;
+		}
+	}
+	
+	public void triggerFpReduce()
+	{
+		cancelFpRestore();
+		
+		if(flyReduceTask == null && !alreadyDead)
+		{
+			this.flyReduceTask = FlyTimeReduceService.getInstance().scheduleRestoreTask(this);
+		}
+	}
+	
+	public void cancelFpReduce()
+	{
+		if(flyReduceTask != null && !flyReduceTask.isCancelled())
+		{
+			flyReduceTask.cancel(false);
+			this.flyReduceTask = null;
+		}
+	}
+	
+	public boolean isFlyTimeFullyRestored()
+	{
+		return getMaxFp() == currentFp;
 	}
 }

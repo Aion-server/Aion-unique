@@ -72,6 +72,14 @@ public class PacketBroadcaster extends AbstractPeriodicTaskManager<Creature>
 				((Player) creature).getController().updateNearbyQuestListImpl();
 			}
 		},
+		
+		UPDATE_PLAYER_FLY_TIME {
+			@Override
+			public void sendPacket(Creature creature)
+			{
+				((Player) creature).getLifeStats().sendFpPacketUpdateImpl();
+			}
+		}
 		// TODO: more packets
 		;
 

@@ -266,7 +266,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 
 		onIncreaseMp();
 
-		return currentHp;
+		return currentMp;
 	}
 	
 	/**

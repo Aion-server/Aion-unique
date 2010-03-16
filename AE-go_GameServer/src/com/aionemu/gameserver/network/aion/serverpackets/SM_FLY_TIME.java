@@ -27,14 +27,22 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_FLY_TIME extends AionServerPacket
 {
+	private int	currentFp;
+	private int	maxFp;
 
+	public SM_FLY_TIME(int currentFp, int maxFp)
+	{
+		this.currentFp = currentFp;
+		this.maxFp = maxFp;
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, 60); //current fly time
-        writeD(buf, 60); //max flytime
+		writeD(buf, currentFp); //current fly time
+        writeD(buf, maxFp); //max flytime
 	}
 }

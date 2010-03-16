@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.model.gameobjects.stats;
 
 import com.aionemu.commons.callbacks.EnhancedObject;
+import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.StatChangeListener;
@@ -103,8 +104,7 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 		initStat(StatEnum.EVASION, pst.getEvasion());
 		initStat(StatEnum.MAGICAL_ACCURACY, pst.getMagicAccuracy());
 		initStat(StatEnum.MAIN_HAND_ACCURACY, pst.getMainHandAccuracy());
-		// TODO find good values for fly time
-		initStat(StatEnum.FLY_TIME, 60);
+		initStat(StatEnum.FLY_TIME, CustomConfig.BASE_FLYTIME);
 		initStat(StatEnum.REGEN_HP, level + 3);
 		initStat(StatEnum.REGEN_MP, level + 8);
 		initStat(StatEnum.MAXDP, 4000);

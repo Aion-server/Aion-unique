@@ -462,10 +462,9 @@ public class PlayerController extends CreatureController<Player>
 		else if(player.isInState(CreatureState.GLIDING))
 		{
 			player.setFlyState(2);
-		}
+		}						
+		
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-
-		// TODO: period task for fly time decrease
 	}
 
 	public void endFly()
@@ -479,10 +478,9 @@ public class PlayerController extends CreatureController<Player>
 		else
 		{
 			player.setFlyState(0);
-		}
-		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+		}		
 
-		// TODO: period task for fly time increase
+		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 	}
 
 	/**
