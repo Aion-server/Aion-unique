@@ -19,8 +19,9 @@ package mysql5;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
@@ -49,15 +50,17 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 	
 
 	@Override
-	public List<ManaStone> load(final int itemObjId)
+	public void load(final Item item)
 	{
-		final List<ManaStone> itemStones = new ArrayList<ManaStone>();
+		if(item == null)
+			return;
+
 		DB.select(SELECT_QUERY, new ParamReadStH()
 		{
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException
 			{
-				stmt.setInt(1, itemObjId);
+				stmt.setInt(1, item.getObjectId());
 				stmt.setInt(2, ItemStoneType.MANASTONE.ordinal());
 			}
 
@@ -68,14 +71,13 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 				{
 					int itemId = rset.getInt("itemId");
 					int slot = rset.getInt("slot");			
-
-					itemStones.add(new ManaStone(itemObjId, itemId,
+					
+					item.getItemStones().add(new ManaStone(item.getObjectId(), itemId,
 						slot, PersistentState.UPDATED));
 
 				}
 			}
 		});
-		return itemStones;
 	}
 	
 	@Override
@@ -85,8 +87,8 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 		
 		for(Item item : allPlayerItems)
 		{
-			List<ManaStone> manaStones = item.getItemStones();
-			store(manaStones);
+			if(item.hasManaStones())
+				store(item.getItemStones());
 			
 			GodStone godStone = item.getGodStone();
 			store(godStone);
@@ -94,14 +96,15 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 	}
 
 	@Override
-	public void store(final List<ManaStone> manaStones)
+	public void store(final Set<ManaStone> manaStones)
 	{
 		if(manaStones == null)
 			return;
 		
-		for(int i = 0; i < manaStones.size() ; i++)
+		Iterator<ManaStone> iterator = manaStones.iterator();
+		while(iterator.hasNext())
 		{
-			ManaStone manaStone = manaStones.get(i);
+			ManaStone manaStone = iterator.next();
 			switch(manaStone.getPersistentState())
 			{
 				case NEW:
@@ -114,7 +117,7 @@ public class MySQL5ItemStoneListDAO extends ItemStoneListDAO
 				
 			}
 			manaStone.setPersistentState(PersistentState.UPDATED);
-		}	
+		}
 	}
 	
 	@Override

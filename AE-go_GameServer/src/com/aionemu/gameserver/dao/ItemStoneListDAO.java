@@ -16,9 +16,10 @@
  */
 package com.aionemu.gameserver.dao;
 
-import java.util.List;
+import java.util.Set;
 
 import com.aionemu.commons.database.dao.DAO;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.model.items.ManaStone;
@@ -32,15 +33,14 @@ public abstract class ItemStoneListDAO implements DAO
 	/**
 	 *  Loads stones of item
 	 *  
-	 * @param itemObjId
-	 * @return List<ItemStone>
+	 * @param item
 	 */
-	public abstract List<ManaStone> load(int itemObjId);
+	public abstract void load(Item item);
 	
 	/**
 	 * @param itemStones
 	 */
-	public abstract void store(List<ManaStone> itemStones);
+	public abstract void store(Set<ManaStone> itemStones);
 	
 	/**
 	 *  Saves stones of player

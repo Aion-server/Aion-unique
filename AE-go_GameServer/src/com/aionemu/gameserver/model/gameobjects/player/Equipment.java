@@ -125,10 +125,10 @@ public class Equipment
 		equipment.put(slot, item);
 		item.setEquipped(true);
 		item.setEquipmentSlot(slot);
-		ItemEquipmentListener.onItemEquipment(item, owner);
-		
-		owner.getLifeStats().updateCurrentStats();
 		PacketSendUtility.sendPacket(owner, new SM_UPDATE_ITEM(item));
+		
+		ItemEquipmentListener.onItemEquipment(item, owner);
+		owner.getLifeStats().updateCurrentStats();
 	}
 
 

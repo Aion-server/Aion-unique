@@ -83,7 +83,7 @@ public class MySQL5MailDAO extends MailDAO
 							if(item.getObjectId() == attachedItemId)
 							{
 								if(item.getItemTemplate().isArmor() || item.getItemTemplate().isWeapon())
-									item.setItemStones(DAOManager.getDAO(ItemStoneListDAO.class).load(item.getObjectId()));
+									DAOManager.getDAO(ItemStoneListDAO.class).load(item);
 								
 								attachedItem = item;
 							}

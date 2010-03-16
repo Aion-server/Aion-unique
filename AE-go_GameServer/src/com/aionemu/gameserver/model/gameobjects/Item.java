@@ -16,9 +16,9 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.items.GodStone;
@@ -45,7 +45,7 @@ public class Item extends AionObject
 
 	private PersistentState persistentState;
 
-	private List<ManaStone> manaStones;
+	private Set<ManaStone> manaStones;
 	
 	private GodStone godStone;
 
@@ -228,19 +228,34 @@ public class Item extends AionObject
 	}
 
 	/**
+	 * This method should be used to lazy initialize empty manastone list
 	 * @return the itemStones
 	 */
-	public List<ManaStone> getItemStones()
+	public Set<ManaStone> getItemStones()
 	{
+		if(manaStones == null)
+			this.manaStones = new TreeSet<ManaStone>(new Comparator<ManaStone>(){
+
+				@Override
+				public int compare(ManaStone o1, ManaStone o2)
+				{
+					if(o1.getSlot() == o2.getSlot())
+						return 0;
+					return o1.getSlot() > o2.getSlot() ? 1 : -1;
+				}
+				
+			});
 		return manaStones;
 	}
-
+	
 	/**
-	 * @param itemStones the itemStones to set
+	 * Check manastones without initialization
+	 * 
+	 * @return
 	 */
-	public void setItemStones(List<ManaStone> itemStones)
+	public boolean hasManaStones()
 	{
-		this.manaStones = itemStones;
+		return manaStones != null && manaStones.size() > 0;
 	}
 	
 	/**
@@ -323,25 +338,6 @@ public class Item extends AionObject
 		this.isQuest = isQuest;
 	}
 
-	@Override
-	public String toString () {
-		StringBuilder sb = new StringBuilder();
-		sb.append('{');
-		Class<?> clazz = Item.class;
-		for (Field fi : clazz.getDeclaredFields()) {
-			sb.append(fi.getName()); sb.append(':');
-			try { sb.append(fi.getInt(this)); }
-			catch(Exception e) { try { sb.append(fi.getBoolean(this)); }
-			catch(Exception f) { try { sb.append(fi.getFloat(this)); }
-			catch(Exception g) { try { sb.append(fi.getDouble(this)); }
-			catch(Exception h) { try { sb.append(fi.get(this).toString()); }
-			catch(Exception i) { sb.append('?'); } } } } }
-			sb.append(':');
-		}
-		sb.append('}');
-		return sb.toString();
-	}
-
 	public void setItemLocation(int storageType)
 	{
 		this.itemLocation = storageType;
@@ -351,5 +347,14 @@ public class Item extends AionObject
 	public int getItemLocation()
 	{
 		return itemLocation;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return "Item [equipmentSlot=" + equipmentSlot + ", godStone=" + godStone + ", isEquipped=" + isEquipped
+			+ ", isQuest=" + isQuest + ", itemColor=" + itemColor + ", itemCount=" + itemCount + ", itemLocation="
+			+ itemLocation + ", itemTemplate=" + itemTemplate + ", manaStones=" + manaStones + ", persistentState="
+			+ persistentState + "]";
 	}
 }

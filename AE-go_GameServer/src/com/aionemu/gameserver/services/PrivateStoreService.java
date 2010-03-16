@@ -18,6 +18,7 @@ package com.aionemu.gameserver.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -172,7 +173,10 @@ public class PrivateStoreService
 				{
 					TradePSItem storeItem = store.getTradeItemById(tradeItem.getItemId());
 					
-					List<ManaStone> manaStones = item.getItemStones();
+					Set<ManaStone> manaStones = null;
+					if(item.hasManaStones())
+						manaStones = item.getItemStones();
+					
 					GodStone godStone = item.getGodStone();
 					decreaseItemFromPlayer(seller, item, tradeItem);
 					itemService.addItemWithStones(buyer, item.getItemTemplate().getTemplateId(), tradeItem.getCount(), false, manaStones, godStone);

@@ -18,6 +18,7 @@ package com.aionemu.gameserver.services;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.Future;
 
 import org.apache.log4j.Logger;
@@ -154,9 +155,9 @@ public class PeriodicSaveService
 					 */
 					for(Item item : allItems)
 					{
-						List<ManaStone> manaStones = item.getItemStones();
-						if(manaStones != null)
+						if(item.hasManaStones())
 						{
+							Set<ManaStone> manaStones = item.getItemStones();
 							DAOManager.getDAO(ItemStoneListDAO.class).store(manaStones);	
 						}
 						GodStone godStone = item.getGodStone();

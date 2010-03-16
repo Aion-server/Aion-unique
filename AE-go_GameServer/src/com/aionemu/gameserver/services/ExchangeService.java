@@ -162,7 +162,7 @@ public class ExchangeService
 			Item newItem = itemService.newItem(item.getItemTemplate().getTemplateId(), itemCount);
 			exchangeItem = new ExchangeItem(itemObjId, itemCount, newItem);
 			currentExchange.addItem(itemObjId, exchangeItem);
-			if(item.getItemStones() != null)
+			if(item.hasManaStones())
 			{
 				for(ItemStone stone : item.getItemStones())
 				{

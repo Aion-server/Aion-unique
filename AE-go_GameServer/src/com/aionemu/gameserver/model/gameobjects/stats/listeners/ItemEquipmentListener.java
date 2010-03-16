@@ -16,7 +16,7 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats.listeners;
 
-import java.util.List;
+import java.util.Set;
 import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
@@ -67,8 +67,12 @@ public class ItemEquipmentListener
 	{
 		ItemTemplate itemTemplate = item.getItemTemplate();
 		onItemEquipment(itemTemplate,item.getEquipmentSlot(),owner.getGameStats());
-		addStonesStats(item.getItemStones(), owner.getGameStats());
-		recalculateWeaponMastery(owner);	
+		
+		if(item.hasManaStones())
+			addStonesStats(item.getItemStones(), owner.getGameStats());
+		
+		addGodstoneEffect(owner, item);
+		recalculateWeaponMastery(owner);
 	}
 
 	/**
@@ -107,7 +111,7 @@ public class ItemEquipmentListener
 	 * @param itemStones
 	 * @param cgs
 	 */
-	private static void addStonesStats(List<ManaStone> itemStones, CreatureGameStats<?> cgs)
+	private static void addStonesStats(Set<ManaStone> itemStones, CreatureGameStats<?> cgs)
 	{
 		if(itemStones == null || itemStones.size() == 0)
 			return;
@@ -124,7 +128,7 @@ public class ItemEquipmentListener
 	 * @param itemStones
 	 * @param cgs
 	 */
-	private static void removeStoneStats(List<ManaStone> itemStones, CreatureGameStats<?> cgs)
+	private static void removeStoneStats(Set<ManaStone> itemStones, CreatureGameStats<?> cgs)
 	{
 		if(itemStones == null || itemStones.size() == 0)
 			return;
@@ -162,7 +166,34 @@ public class ItemEquipmentListener
 	public static void onItemUnequipment(Item item, Player owner)
 	{
 		owner.getGameStats().endEffect(ItemStatEffectId.getInstance(item.getItemTemplate().getTemplateId(), item.getEquipmentSlot()));
-		removeStoneStats(item.getItemStones(), owner.getGameStats());
+		
+		if(item.hasManaStones())
+			removeStoneStats(item.getItemStones(), owner.getGameStats());
+		
+		removeGodstoneEffect(owner, item);
 		recalculateWeaponMastery(owner);
+	}
+	
+
+	/**
+	 * @param item
+	 */
+	private static void addGodstoneEffect(Player player, Item item)
+	{
+		if(item.getGodStone() != null)
+		{
+			item.getGodStone().onEquip(player);
+		}
+	}
+	
+	/**
+	 * @param item
+	 */
+	private static void removeGodstoneEffect(Player player, Item item)
+	{
+		if(item.getGodStone() != null)
+		{
+			item.getGodStone().onUnEquip(player);
+		}
 	}
 }

@@ -18,7 +18,9 @@ package com.aionemu.gameserver.services;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 
@@ -136,10 +138,11 @@ public class ItemService
 		{
 			if(item.getItemTemplate().isArmor() || item.getItemTemplate().isWeapon())
 			{
-				item.setItemStones(DAOManager.getDAO(ItemStoneListDAO.class).load(item.getObjectId()));
+				DAOManager.getDAO(ItemStoneListDAO.class).load(item);
 
 				// if item equipped - apply stats of item stone
-				if(item.isEquipped() && item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
+				if(item.hasManaStones() && item.isEquipped() 
+					&& item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
 					&& item.getEquipmentSlot() != ItemSlot.SUB_OFF_HAND.getSlotIdMask())
 				{
 					for(ManaStone itemStone : item.getItemStones())
@@ -358,7 +361,7 @@ public class ItemService
 	 * @param manastones
 	 * @param godStone 
 	 */
-	public int addItemWithStones(Player player, int itemId, int count, boolean isQuestItem, List<ManaStone> manastones, GodStone godStone)
+	public int addItemWithStones(Player player, int itemId, int count, boolean isQuestItem, Set<ManaStone> manastones, GodStone godStone)
 	{
 		Storage inventory = player.getInventory();
 
@@ -580,13 +583,7 @@ public class ItemService
 		if(item == null)
 			return null;
 		
-		List<ManaStone> manaStones = item.getItemStones();
-		
-		if(manaStones == null)
-		{
-			manaStones = new ArrayList<ManaStone>();
-			item.setItemStones(manaStones);
-		}
+		Set<ManaStone> manaStones = item.getItemStones();
 		
 		//temp fix for manastone spam till templates are updated
 		if(manaStones.size() > 6)
@@ -594,14 +591,17 @@ public class ItemService
 		
 		int nextSlot = 0;
 		boolean slotFound = false;
-		for(ManaStone manaStone : manaStones)
+		
+		Iterator<ManaStone> iterator = manaStones.iterator();
+		while(iterator.hasNext())
 		{
-			int slot = manaStone.getSlot();
-			if(slot != nextSlot)
+			ManaStone manaStone = iterator.next();
+			if(nextSlot != manaStone.getSlot())
 			{
 				slotFound = true;
 				break;
-			}				
+			}
+			nextSlot++;
 		}
 		
 		if(!slotFound)
@@ -629,22 +629,33 @@ public class ItemService
 			return;
 		}
 		
-		List<ManaStone> itemStones = item.getItemStones();
-
-		if(itemStones == null)
+		if(!item.hasManaStones())
 		{
 			log.warn("Item stone list is empty");
 			return;
 		}
 		
+		Set<ManaStone> itemStones = item.getItemStones();
+
+		
+		
 		if(itemStones.size() <= slotNum)
 			return;
 		
-		ManaStone removedStone = itemStones.remove(slotNum);
-		
-		removedStone.setPersistentState(PersistentState.DELETED);
-		
-		DAOManager.getDAO(ItemStoneListDAO.class).store(Collections.singletonList(removedStone));
+		int counter = 0;
+		Iterator<ManaStone> iterator = itemStones.iterator();
+		while(iterator.hasNext())
+		{
+			ManaStone manaStone = iterator.next();
+			if(counter == slotNum)
+			{
+				manaStone.setPersistentState(PersistentState.DELETED);
+				iterator.remove();
+				DAOManager.getDAO(ItemStoneListDAO.class).store(Collections.singleton(manaStone));
+				break;
+			}
+			counter++;
+		}
 		
 		PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(item));	
 	}

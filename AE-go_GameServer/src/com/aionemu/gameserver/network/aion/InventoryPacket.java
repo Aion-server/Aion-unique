@@ -17,7 +17,7 @@
 package com.aionemu.gameserver.network.aion;
 
 import java.nio.ByteBuffer;
-import java.util.List;
+import java.util.Set;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.SimpleModifier;
@@ -188,10 +188,13 @@ public abstract class InventoryPacket extends AionServerPacket
 	private void writeItemStones(ByteBuffer buf, Item item)
 	{
 		int count = 0;
-		List<ManaStone> itemStones = item.getItemStones();
+		
+		
 
-		if(itemStones != null)
+		if(item.hasManaStones())
 		{
+			Set<ManaStone> itemStones = item.getItemStones();
+			
 			for(ManaStone itemStone : itemStones)
 			{
 				if(count == 6)
