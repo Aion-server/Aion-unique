@@ -75,4 +75,15 @@ public class AbyssService
 		PacketSendUtility.sendPacket(winner, new SM_ABYSS_RANK(winner.getAbyssRank()));
 		PacketSendUtility.sendPacket(winner, SM_SYSTEM_MESSAGE.EARNED_ABYSS_POINT(String.valueOf(apReward)));
 	}
+	
+	public void doReward(Player winner, int apReward)
+	{
+		winner.getAbyssRank().addAp(apReward);
+		if(winner.isLegionMember())
+			legionService.addContributionPoints(winner.getLegion(), apReward);
+		PacketSendUtility.broadcastPacket(winner, new SM_ABYSS_RANK_UPDATE(winner));
+		winner.getAbyssRank().setAllKill();
+		PacketSendUtility.sendPacket(winner, new SM_ABYSS_RANK(winner.getAbyssRank()));
+		PacketSendUtility.sendPacket(winner, SM_SYSTEM_MESSAGE.EARNED_ABYSS_POINT(String.valueOf(apReward)));
+	}
 }

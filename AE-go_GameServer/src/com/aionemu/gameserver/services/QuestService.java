@@ -54,6 +54,8 @@ public class QuestService
 	SpawnEngine spawnEngine;
 	@Inject
 	QuestEngine questEngine;
+	@Inject
+	AbyssService abyssService;
 
 	public boolean questFinish(QuestEnv env)
 	{
@@ -132,6 +134,11 @@ public class QuestService
 			if(rewards.getTitle() != null)
 			{
 				player.getTitleList().addTitle(rewards.getTitle());
+			}
+			
+			if (rewards.getRewardAbyssPoint() != null)
+			{
+				abyssService.doReward(player, rewards.getRewardAbyssPoint());
 			}
 
 			qs.setStatus(QuestStatus.COMPLITE);
