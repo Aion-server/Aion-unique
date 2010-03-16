@@ -463,7 +463,10 @@ public class ItemService
 		item.setEquipmentSlot(slot);
 
 		if (sourceStorageType == destinationStorageType)
+		{
+			sourceStorage.setPersistentState(PersistentState.UPDATE_REQUIRED);
 			return;
+		}		
 
 		Storage destinationStorage = player.getStorage(destinationStorageType);
 		List<Item> existingItems = destinationStorage.getItemsByItemId(item.getItemTemplate().getTemplateId());
