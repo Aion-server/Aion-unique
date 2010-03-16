@@ -369,4 +369,31 @@ public abstract class CreatureLifeStats<T extends Creature>
 	protected abstract void onIncreaseHp();
 	
 	protected abstract void onReduceHp();
+
+	
+	/**
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public int increaseFp(int value)
+	{
+		return 0;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getCurrentFp()
+	{
+		return 0;
+	}
+	
+	/**
+	 * Cancel all tasks when player logout
+	 */
+	public void cancelAllTasks()
+	{
+		cancelRestoreTask();
+	}
 }

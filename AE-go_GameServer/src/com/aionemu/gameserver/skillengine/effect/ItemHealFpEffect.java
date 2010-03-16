@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
@@ -34,27 +35,26 @@ public class ItemHealFpEffect extends AbstractHealEffect
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		// TODO Auto-generated method stub
+		effect.getEffected().getLifeStats().increaseFp(-effect.getReserved1());
 	}
 
 	@Override
 	public void calculate(Effect effect)
 	{
+		super.calculate(effect);
 		effect.increaseSuccessEffect();
 	}
 
 	@Override
 	protected int getCurrentStatValue(Effect effect)
 	{
-		// TODO Auto-generated method stub
-		return super.getCurrentStatValue(effect);
+		return effect.getEffected().getLifeStats().getCurrentFp();
 	}
 
 	@Override
 	protected int getMaxStatValue(Effect effect)
 	{
-		// TODO Auto-generated method stub
-		return super.getMaxStatValue(effect);
+		return effect.getEffected().getGameStats().getCurrentStat(StatEnum.FLY_TIME);
 	}
 
 }

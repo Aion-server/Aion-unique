@@ -25,8 +25,7 @@ import com.aionemu.gameserver.model.group.GroupEvent;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FLY_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_HP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_MP;
-import com.aionemu.gameserver.services.FlyTimeReduceService;
-import com.aionemu.gameserver.services.FlyTimeRestoreService;
+import com.aionemu.gameserver.services.LifeStatsRestoreService;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -201,9 +200,9 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	{
 		if(value == getMaxFp())
 			return 0;
-		
+
 		fpLock.lock();
-		
+
 		try
 		{
 			if(isAlreadyDead())
@@ -216,7 +215,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 				newFp = getMaxFp();
 			}
 			this.currentFp = newFp;
-		}	
+		}
 		finally
 		{
 			fpLock.unlock();
@@ -289,7 +288,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 		
 		if(flyRestoreTask == null && !alreadyDead)
 		{
-			this.flyRestoreTask = FlyTimeRestoreService.getInstance().scheduleRestoreTask(this);
+			this.flyRestoreTask = LifeStatsRestoreService.getInstance().scheduleFpRestoreTask(this);
 		}
 	}
 	
@@ -308,7 +307,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 		
 		if(flyReduceTask == null && !alreadyDead)
 		{
-			this.flyReduceTask = FlyTimeReduceService.getInstance().scheduleRestoreTask(this);
+			this.flyReduceTask = LifeStatsRestoreService.getInstance().scheduleFpReduceTask(this);
 		}
 	}
 	
@@ -325,4 +324,14 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	{
 		return getMaxFp() == currentFp;
 	}
+
+	@Override
+	public void cancelAllTasks()
+	{
+		super.cancelAllTasks();
+		cancelFpReduce();
+		cancelFpRestore();
+	}
+	
+	
 }

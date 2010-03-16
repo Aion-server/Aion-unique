@@ -374,6 +374,7 @@ public class PlayerService
 		player.onLoggedOut();
 		
 		player.getEffectController().removeAllEffects();
+		player.getLifeStats().cancelAllTasks();
 		
 		if(player.getLifeStats().isAlreadyDead())
 			teleportService.moveToBindLocation(player, false);

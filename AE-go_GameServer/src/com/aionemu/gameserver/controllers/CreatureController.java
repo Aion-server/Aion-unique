@@ -109,6 +109,11 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		this.onAttack(creature, 0, TYPE.REGULAR, damage);
 	}
 
+	/**
+	 * 
+	 * @param hopType
+	 * @param value
+	 */
 	public void onRestore(HopType hopType, int value)
 	{
 		switch(hopType)
@@ -118,6 +123,9 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 				break;
 			case MP:
 				getOwner().getLifeStats().increaseMp(value);
+				break;
+			case FP:
+				getOwner().getLifeStats().increaseFp(value);
 				break;
 		}
 	}
