@@ -84,7 +84,7 @@ extends Property
 				{
 					VisibleObject nextCreature = iterator.next();
 
-					//firstTarget is already added on FirstTargetProperty
+					//firstTarget is already added, look: FirstTargetProperty
 					if(firstTarget == nextCreature)
 						continue;
 					
@@ -105,10 +105,6 @@ extends Property
 
 				for(Player member : group.getMembers())
 				{															
-					//firstTarget is already added on FirstTargetProperty
-					if(skill.getFirstTarget() == member)
-						continue;
-					
 					//TODO: here value +4 till better move controller developed
 					if(MathUtil.isInRange(effector, member, distance + 4))																				
 						effectedList.add(member);				
