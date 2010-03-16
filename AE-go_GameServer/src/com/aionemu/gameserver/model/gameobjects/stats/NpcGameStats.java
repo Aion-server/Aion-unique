@@ -35,7 +35,7 @@ public class NpcGameStats extends CreatureGameStats<Npc>
 		initStat(StatEnum.EVASION, Math.round((nst.getEvasion() / 2) * (int)owner.getLevel()));
 		initStat(StatEnum.MAGICAL_RESIST, Math.round(nst.getMdef()));
 		initStat(StatEnum.MAIN_HAND_POWER, nst.getPower());
-		initStat(StatEnum.MAIN_HAND_ACCURACY, Math.round((nst.getEvasion() / 2) * (int)owner.getLevel()));
+		initStat(StatEnum.MAIN_HAND_ACCURACY, Math.round((nst.getAccuracy() / 2) * (int)owner.getLevel()));
 		initStat(StatEnum.MAIN_HAND_CRITICAL, Math.round(nst.getCrit()));
 		initStat(StatEnum.SPEED, Math.round(nst.getRunSpeedFight() * 1000));
 	}
