@@ -586,12 +586,16 @@
         </monster_hunt>
 
 	<!-- TODO: [Spy/Group] A Suspicious Box -->
+	<report_to id="1615" start_npc_id="204573" end_npc_id="204832" />
 
 	<!-- TODO: [Spy/Group] Suspicious Scientists -->
+	<item_collecting id="1617" start_npc_id="204832" end_npc_id="204832" />
 	
 	<!-- TODO: [Spy/Group] The Key is the Key -->
+	<item_collecting id="1617" start_npc_id="204832" end_npc_id="204832" />
 
 	<!-- TODO: [Spy/Group] The Research Journal -->
+
 
 	<!-- TODO: A Cube for Michalis -->
 
