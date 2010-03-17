@@ -287,7 +287,17 @@
 
 	<!-- TODO: Quest Id: 1837  Clean the Nest -->
 
-	<!-- TODO: Quest Id: 1838  Left Wing Attack -->
+	<!-- Left Wing Attack -->
+   <monster_hunt start_npc_id="263295" id="1838">
+      <monster_infos var_id="0" npc_id="214741" max_kill="40"/>
+      <monster_infos var_id="0" npc_id="214740" max_kill="40"/>
+      <monster_infos var_id="0" npc_id="214826" max_kill="40"/>
+      <monster_infos var_id="0" npc_id="214743" max_kill="40"/>
+      <monster_infos var_id="0" npc_id="214824" max_kill="40"/>
+      <monster_infos var_id="0" npc_id="214825" max_kill="40"/>
+      <monster_infos var_id="0" npc_id="214742" max_kill="40"/>
+      <monster_infos var_id="1" npc_id="215424" max_kill="1"/>
+   </monster_hunt>
 
 	<!-- TODO: Quest Id: 1839  A Deal with Silvius -->
 
