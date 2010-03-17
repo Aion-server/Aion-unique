@@ -54,9 +54,6 @@ public class _2001ThinkingAhead extends QuestHandler
 		if(qs == null || qs.getStatus() != QuestStatus.LOCKED)
 			return false;
 
-		QuestState qs2 = player.getQuestStateList().getQuestState(2100);
-		if(qs2 == null || qs2.getStatus() != QuestStatus.COMPLITE)
-			return false;
 		qs.setStatus(QuestStatus.START);
 		updateQuestStatus(player, qs);
 		return true;

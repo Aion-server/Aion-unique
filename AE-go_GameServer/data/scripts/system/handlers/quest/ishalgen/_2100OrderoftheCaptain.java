@@ -73,7 +73,7 @@ public class _2100OrderoftheCaptain extends QuestHandler
 		{
 			if(env.getDialogId() == 17)
 			{
-				int[] ids = {2001, 2002, 2003, 2004, 2005};
+				int[] ids = {2001, 2002, 2003, 2004, 2005, 2006, 2007};
 				for (int id : ids)
 					questService.startQuest(new QuestEnv(env.getVisibleObject(), env.getPlayer(), id, env.getDialogId()), QuestStatus.LOCKED);
 			}
