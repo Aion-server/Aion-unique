@@ -723,14 +723,17 @@
 	<!-- TODO: 1414 [Group] Operation Windmill -->
 
 	<!-- TODO: 1493 Korumonerk's Pauldrons -->
+	<item_collecting start_npc_id="798151" id="1493"/>
 
 	<!-- TODO: 3308 [Group] AMessage in Blood -->
 
 	<!-- TODO: 3309 [Group] The Hand of Justice -->
 
 	<!-- TODO: 1494 [Group] Korumonerk's Worry -->
+	<item_collecting start_npc_id="798151" id="1494"/>
 
 	<!-- TODO: 1495 [Group] Korumonerk's Backpack -->
+	<item_collecting start_npc_id="798151" id="1495"/>
 
 	<!-- TODO: 1472 [Spy] Ganimerk's Espionage -->
 
