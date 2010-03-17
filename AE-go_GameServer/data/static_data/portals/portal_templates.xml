@@ -15,16 +15,16 @@
 		<exitpoint mapid="320100000" x="148.256" y="460.857" z="141.713"/>
 	</portal>
 	
-	<!-- Pernos [Ascension quest]-->
+	<!-- Pernos [Ascension quest] Elyos -->
 	<portal npcid="790001" instance="true">
 		<entrypoint mapid="210010000" x="241.094" y="1639.461" z="100.38"/>
 		<exitpoint mapid="310010000" x="52" y="174" z="229"/>
 	</portal>
 	
-	<!-- Munin [Ascension quest]-->
+	<!-- Munin [Ascension quest] Asmodians -->
 	<portal npcid="203550" instance="true">
 		<entrypoint mapid="220010000" x="378.9" y="1895.39" z="330.0"/>
-		<exitpoint mapid="310010000" x="52" y="174" z="229"/>
+		<exitpoint mapid="320010000" x="457.65" y="426.8" z="230.4"/>
 	</portal>
 	
 </portal_templates>
