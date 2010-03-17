@@ -31,7 +31,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
 
 /**
- * @author MrPoke
+ * @author MrPoke + Dune11
  *
  */
 public class _1007ACeremonyinSanctum extends QuestHandler
@@ -176,6 +176,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 						if (questService.questFinish(env, 0))
 						{
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
+							questService.startQuest(new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1913, env.getDialogId()), QuestStatus.START);
 							return true;
 						}
 				}
@@ -201,6 +202,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 						if (questService.questFinish(env, 1))
 						{
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
+							questService.startQuest(new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1914, env.getDialogId()), QuestStatus.START);
 							return true;
 						}
 				}
@@ -226,6 +228,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 						if (questService.questFinish(env, 2))
 						{
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
+							questService.startQuest(new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1915, env.getDialogId()), QuestStatus.START);
 							return true;
 						}
 				}
@@ -251,6 +254,7 @@ public class _1007ACeremonyinSanctum extends QuestHandler
 						if (questService.questFinish(env, 3))
 						{
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
+							questService.startQuest(new QuestEnv(env.getVisibleObject(), env.getPlayer(), 1916, env.getDialogId()), QuestStatus.START);
 							return true;
 						}
 				}
