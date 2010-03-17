@@ -76,6 +76,9 @@ public class LifeStatsRestoreService
 			@Override
 			public void run()
 			{
+				if(lifeStats.isAlreadyDead())
+					lifeStats.cancelFpReduce();
+					
 				if(lifeStats.getOwner().isInState(CreatureState.FLYING) && lifeStats.getCurrentFp() == 0)
 				{
 					PacketSendUtility.broadcastPacket(lifeStats.getOwner(), new SM_EMOTION(lifeStats.getOwner(), 9, 0,
@@ -116,7 +119,8 @@ public class LifeStatsRestoreService
 			@Override
 			public void run()
 			{
-				if(lifeStats.isFlyTimeFullyRestored() || lifeStats.getOwner().isInState(CreatureState.FLYING))
+				if(lifeStats.isAlreadyDead() || lifeStats.isFlyTimeFullyRestored() 
+					|| lifeStats.getOwner().isInState(CreatureState.FLYING))
 				{
 					lifeStats.cancelFpRestore();
 				}
