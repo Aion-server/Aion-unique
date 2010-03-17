@@ -35,8 +35,7 @@ public class RateModifier extends SimpleModifier
 		
 		switch(getStat())
 		{
-			case MAIN_HAND_ATTACK_SPEED:
-			case OFF_HAND_ATTACK_SPEED:
+			case ATTACK_SPEED:
 			case SPEED:
 				minLimit = 600;
 				maxLimit = 12000;
