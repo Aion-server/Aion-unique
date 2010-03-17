@@ -68,6 +68,10 @@ public class PlayerRestrictions extends AbstractRestrictions
 		if(skill.getSkillTemplate().getType() == SkillType.MAGICAL 
 			&& player.getEffectController().isAbnoramlSet(EffectId.SILENCE))
 			return false;
+		
+		if(skill.getSkillTemplate().getType() == SkillType.PHYSICAL
+			&& player.getEffectController().isAbnoramlSet(EffectId.BLOCKADE))
+			return false;
 
 		return true;
 	}

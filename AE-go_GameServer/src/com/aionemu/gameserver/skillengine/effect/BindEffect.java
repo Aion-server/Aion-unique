@@ -30,16 +30,27 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 @XmlType(name = "BindEffect")
 public class BindEffect extends EffectTemplate
 {
-
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		// TODO Auto-generated method stub
+		effect.addToEffectedController();
 	}
 
 	@Override
 	public void calculate(Effect effect)
 	{
 		effect.increaseSuccessEffect();
+	}
+
+	@Override
+	public void startEffect(Effect effect)
+	{
+		effect.getEffected().getEffectController().setAbnormal(EffectId.BLOCKADE.getEffectId());
+	}
+	
+	@Override
+	public void endEffect(Effect effect)
+	{
+		effect.getEffected().getEffectController().unsetAbnormal(EffectId.BLOCKADE.getEffectId());
 	}
 }

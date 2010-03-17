@@ -62,16 +62,17 @@ public class SM_LEGION_INFO extends AionServerPacket
 		/** Get Announcements List From DB By Legion **/
 		Map<Timestamp, String> announcementList = legion.getAnnouncementList().descendingMap();
 
+		/** Show max 7 announcements **/
 		int i = 0;
-		while(i < 7)
+		for(Timestamp unixTime : announcementList.keySet())
 		{
-			for(Timestamp unixTime : announcementList.keySet())
-			{
-				writeS(buf, announcementList.get(unixTime));
-				writeD(buf, (int) (unixTime.getTime() / 1000));
-			}
+			writeS(buf, announcementList.get(unixTime));
+			writeD(buf, (int) (unixTime.getTime() / 1000));
 			i++;
+			if(i >= 7)
+				break;
 		}
+
 		writeH(buf, 0x00);
 	}
 }
