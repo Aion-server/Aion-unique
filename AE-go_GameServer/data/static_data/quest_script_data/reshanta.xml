@@ -31,18 +31,30 @@
 
 	<!-- TODO: Quest Id: 1722  Rastin's Homesickness -->
 
-	<!-- TODO: Quest Id: 1729  Cursed Guardian -->
+	<!-- Quest Id: 1729  Cursed Guardian -->
+	<report_to id="1729" start_npc_id="278559" end_npc_id="278593" item_id="182202132"/>
 
-	<!-- TODO: Quest Id: 1730  Redeeming Ladacus -->
+	<!-- Quest Id: 1730  Redeeming Ladacus -->
+	<item_collecting id="1730" start_npc_id="278593" end_npc_id="278593" />
 
-	<!-- TODO: Quest Id: 1731  Hard Bone -->
+	<!-- Quest Id: 1731  Hard Bone -->
+	<item_collecting id="1731" start_npc_id="278593" end_npc_id="278593" />
 
-	<!-- TODO: Quest Id: 1741  Twilight Battlefield -->
+	<!-- Quest Id: 1741  Twilight Battlefield -->
+	<monster_hunt id="1741" start_npc_id="278591">
+        <monster_infos npc_id="252538" var_id="0" max_kill="7"/>
+     </monster_hunt>
 
-	<!-- TODO: Quest Id: 1742  Immortal Soul -->
-
-	<!-- TODO: Quest Id: 1743  Undead Destroyer's Ring -->
-
+	<!-- Quest Id: 1742  Immortal Soul -->
+	<monster_hunt id="1742" start_npc_id="278591">
+        <monster_infos npc_id="252519" var_id="0" max_kill="10"/>
+		<monster_infos npc_id="252524" var_id="1" max_kill="3"/>
+		<monster_infos npc_id="252535" var_id="2" max_kill="3"/>
+     </monster_hunt>
+	 
+	<!-- Quest Id: 1743  Undead Destroyer's Ring -->
+	<item_collecting id="1743" start_npc_id="279015" end_npc_id="279015" />
+	
 	<!-- TODO: Quest Id: 2701  The Governor's Summons -->
 
 	<!-- TODO: Quest Id: 2072  Abyss Battle Training -->
