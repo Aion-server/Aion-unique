@@ -223,6 +223,43 @@
 			<xs:enumeration value="KUNPAPA_OUTPOST" /> 
 			<xs:enumeration value="SENEAS_CAMPSITE" /> 
 			<xs:enumeration value="GRAY_FOG_MARSHES" /> 
+			<!-- altgard -->			
+			<xs:enumeration value="MAHINDEL_SWAMP_220030000"/>
+			<xs:enumeration value="MANIRS_CAMPSITE_220030000"/>
+			<xs:enumeration value="GERGER_VILLAGE_220030000"/>
+			<xs:enumeration value="IDUNS_LAKE_220030000"/>
+			<xs:enumeration value="ALTGARD_FORTRESS_DUNGEON_220030000"/>
+			<xs:enumeration value="ALTGARD_OBSERVATORY_220030000"/>
+			<xs:enumeration value="GRAVE_ROBBERS_DEN_220030000"/>
+			<xs:enumeration value="ALTGARD_ICE_LAKE_220030000"/>
+			<xs:enumeration value="MUMU_FARMLAND_220030000"/>
+			<xs:enumeration value="GRIBADE_CANYON_220030000"/>
+			<xs:enumeration value="GRIBADE_CRATER_LAKE_220030000"/>
+			<xs:enumeration value="MANIRS_DOCK_220030000"/>
+			<xs:enumeration value="GUNMARSONS_CAMPSITE_220030000"/>
+			<xs:enumeration value="BLACK_CLAW_VILLAGE_220030000"/>
+			<xs:enumeration value="BASFELT_HUNTING_GROUND_220030000"/>
+			<xs:enumeration value="BASFELT_VILLAGE_220030000"/>
+			<xs:enumeration value="MOSLAN_FOREST_220030000"/>
+			<xs:enumeration value="LEPHARIST_ENCAMPMENT_220030000"/>
+			<xs:enumeration value="MUMU_VILLAGE_220030000"/>
+			<xs:enumeration value="HEART_OF_IMPETUSIUM_220030000"/>
+			<xs:enumeration value="ROAD_TO_MORHEIM_220030000"/>
+			<xs:enumeration value="IMPETUSIUM_220030000"/>
+			<xs:enumeration value="TRADERS_BERTH_220030000"/>
+			<xs:enumeration value="ALTGARD_FORTRESS_DUNGEON_ENTRANCE_220030000"/>
+			<xs:enumeration value="MOSLAN_RELICS_220030000"/>
+			<xs:enumeration value="BLACK_CLAW_OUTPOST_220030000"/>
+			<xs:enumeration value="MOSLAN_CROSSROAD_220030000"/>
+			<xs:enumeration value="ZEMURRUS_GRAVE_220030000"/>
+			<xs:enumeration value="MOSBEAR_HABITAT_220030000"/>
+			<xs:enumeration value="ALTAR_OF_TIAMAT_220030000"/>
+			<xs:enumeration value="KAIBECHS_CAMPSITE_220030000"/>
+			<xs:enumeration value="CALDERON_HILL_220030000"/>
+			<xs:enumeration value="KARLS_CAMPSITE_220030000"/>
+			<xs:enumeration value="ALTGARD_EAST_GATE_220030000"/>
+			<xs:enumeration value="SEGGURHEIM_220030000"/>
+			<xs:enumeration value="ALTGARD_FORTRESS_220030000"/>
 		</xs:restriction>
 	</xs:simpleType>
 
