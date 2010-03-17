@@ -59,6 +59,7 @@ public class Npc extends Creature
 		
 		NpcStatsTemplate nst = getObjectTemplate().getStatsTemplate();
 		super.setGameStats(new NpcGameStats(this,nst));
+		super.setLifeStats(new NpcLifeStats(this));
 		
 		this.aggroList = new AggroList(this);
 	}

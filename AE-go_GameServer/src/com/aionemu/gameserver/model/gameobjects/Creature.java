@@ -101,12 +101,6 @@ public abstract class Creature extends VisibleObject
 	 */
 	public void setLifeStats(CreatureLifeStats<? extends Creature> lifeStats)
 	{
-		lifeStats.setOwner(this);
-		if(this.lifeStats != null)
-		{
-			this.lifeStats.cancelRestoreTask();
-			this.lifeStats.setOwner(null);
-		}
 		this.lifeStats = lifeStats;
 	}
 

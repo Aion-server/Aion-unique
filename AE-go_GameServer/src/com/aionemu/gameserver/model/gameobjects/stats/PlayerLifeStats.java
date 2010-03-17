@@ -51,7 +51,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	protected void onReduceHp()
 	{
 		sendHpPacketUpdate();
-		triggerRestoreTask();
+		triggerHpMpRestoreTask();
 		sendGroupPacketUpdate();	
 	}
 
@@ -59,7 +59,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	protected void onReduceMp()
 	{
 		sendMpPacketUpdate();		
-		triggerRestoreTask();
+		triggerHpMpRestoreTask();
 		sendGroupPacketUpdate();
 	}
 	
@@ -114,28 +114,24 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	@Override
 	public void synchronizeWithMaxStats()
 	{
-		if(getMaxHp() != currentHp)
-			currentHp = getMaxHp();
-		if(getMaxMp() != currentMp)
-			currentMp = getMaxMp();
-		if(getMaxFp() != currentFp)
-			currentFp = getMaxFp();
+		if(isAlreadyDead())
+			return;
+		
+		super.synchronizeWithMaxStats();
+		int maxFp = getMaxFp();
+		if(currentFp != maxFp)
+			currentFp = maxFp;
 	}
 	
 	@Override
 	public void updateCurrentStats()
 	{
-		if(getMaxHp() < currentHp)
-			currentHp = getMaxHp();
-		if(getMaxMp() < currentMp)
-			currentMp = getMaxMp();
+		super.updateCurrentStats();
+		
 		if(getMaxFp() < currentFp)
 			currentFp = getMaxFp();
-		
-		if(!isFullyRestored())
-			triggerRestoreTask();
-		
-		if(!isFlyTimeFullyRestored() && !owner.isInState(CreatureState.FLYING))
+
+		if(!owner.isInState(CreatureState.FLYING))
 			triggerFpRestore();
 	}
 	
@@ -286,7 +282,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 	{
 		cancelFpReduce();
 		
-		if(flyRestoreTask == null && !alreadyDead)
+		if(flyRestoreTask == null && !alreadyDead && !isFlyTimeFullyRestored())
 		{
 			this.flyRestoreTask = LifeStatsRestoreService.getInstance().scheduleFpRestoreTask(this);
 		}
@@ -332,6 +328,12 @@ public class PlayerLifeStats extends CreatureLifeStats<Player>
 		cancelFpReduce();
 		cancelFpRestore();
 	}
-	
-	
+
+	@Override
+	public void triggerRestoreOnRevive()
+	{
+		super.triggerRestoreOnRevive();
+		triggerFpRestore();
+	}
+
 }

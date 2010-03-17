@@ -24,7 +24,6 @@ import com.aionemu.gameserver.model.DuelResult;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
-import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -173,9 +172,8 @@ public class DuelService
 		loseDuel(player);
 		
 		PacketSendUtility.sendPacket(player, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_LOST, lastAttacker.getName()));
-		PlayerLifeStats pls = player.getLifeStats();
-		player.setLifeStats(new PlayerLifeStats(player, 1, pls.getCurrentMp()));
-		player.getLifeStats().triggerRestoreTask();
+		player.getLifeStats().setCurrentHp(1);
+		player.getLifeStats().triggerHpMpRestoreTask();
 	}
 
 	/**

@@ -44,7 +44,7 @@ public class RestoreHealthDesire extends AbstractDesire
 			return false;
 		
 		owner.getLifeStats().increaseHp(restoreHpValue);
-		if(owner.getLifeStats().isFullyRestored())
+		if(owner.getLifeStats().isFullyRestoredHpMp())
 		{
 			ai.handleEvent(Event.RESTORED_HEALTH);
 			return false;

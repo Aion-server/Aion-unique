@@ -50,23 +50,9 @@ public abstract class CreatureLifeStats<T extends Creature>
 	public CreatureLifeStats(Creature owner, int currentHp, int currentMp)
 	{
 		super();
-		setOwner(owner);
+		this.owner = owner;
 		this.currentHp = currentHp;
 		this.currentMp = currentMp;
-	}
-
-	/**
-	 * @param owner
-	 */
-	public void setOwner(Creature owner) throws IllegalArgumentException
-	{
-		this.owner = owner;
-		if (owner==null) {
-			return;
-		}
-		if (owner.getGameStats()==null) {
-			throw new IllegalArgumentException("cannot set owner because he have no gamestats");
-		}
 	}
 
 	/**
@@ -288,7 +274,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 *  Will trigger restore task if not already
 	 */
-	public void triggerRestoreTask()
+	public void triggerHpMpRestoreTask()
 	{
 		if(lifeRestoreTask == null && !alreadyDead)
 		{
@@ -312,7 +298,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	 * 
 	 * @return true or false
 	 */
-	public boolean isFullyRestored()
+	public boolean isFullyRestoredHpMp()
 	{
 		return getMaxHp() == currentHp && getMaxMp() == currentMp;
 	}
@@ -323,25 +309,32 @@ public abstract class CreatureLifeStats<T extends Creature>
 	 */
 	public void synchronizeWithMaxStats()
 	{
-		if(getMaxHp() != currentHp)
-			currentHp = getMaxHp();
-		if(getMaxMp() != currentMp)
-			currentMp = getMaxMp();
+		int maxHp = getMaxHp();
+		if(currentHp != maxHp)
+			currentHp = maxHp;
+		int maxMp = getMaxMp();
+		if(currentMp != maxMp)
+			currentMp = maxMp;
 	}
 	
 	/**
 	 * The purpose of this method is synchronize current HP and MP with MAXHP and MAXMP when max
 	 * stats were decreased below current level
+	 * 
+	 * 
 	 */
 	public void updateCurrentStats()
 	{
-		if(getMaxHp() < currentHp)
-			currentHp = getMaxHp();
-		if(getMaxMp() < currentMp)
-			currentMp = getMaxMp();
+		int maxHp = getMaxHp();
+		if(maxHp < currentHp)
+			currentHp = maxHp;
 		
-		if(!isFullyRestored())
-			triggerRestoreTask();
+		int maxMp = getMaxMp();
+		if(maxMp < currentMp)
+			currentMp = maxMp;
+		
+		if(!isFullyRestoredHpMp())
+			triggerHpMpRestoreTask();
 	}
 	
 	/**
@@ -396,4 +389,56 @@ public abstract class CreatureLifeStats<T extends Creature>
 	{
 		cancelRestoreTask();
 	}
+	
+	/**
+	 * @param hpPercent
+	 */
+	public void setCurrentHpPercent(int hpPercent)
+	{
+		
+		hpLock.lock();
+		try
+		{
+			int maxHp = getMaxHp();
+			this.currentHp = maxHp * hpPercent / 100;
+			
+			if(this.currentHp > 0)
+				this.alreadyDead = false;
+		}
+		finally
+		{
+			hpLock.unlock();
+		}
+	}
+	
+	/**
+	 * @param hp
+	 */
+	public void setCurrentHp(int hp)
+	{
+		
+		hpLock.lock();
+		try
+		{
+			this.currentHp = hp;
+			
+			if(this.currentHp > 0)
+				this.alreadyDead = false;
+		}
+		finally
+		{
+			hpLock.unlock();
+		}
+	}
+	
+	/**
+	 * This method should be called after creature's revival
+	 * For creatures - trigger hp regeneration
+	 * For players - trigger hp/mp/fp regeneration (in overriding method)
+	 */
+	public void triggerRestoreOnRevive()
+	{
+		this.triggerHpMpRestoreTask();
+	}
+	
 }

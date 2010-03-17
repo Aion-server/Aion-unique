@@ -19,7 +19,6 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import com.aionemu.gameserver.controllers.ReviveType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
-import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
@@ -87,10 +86,8 @@ public class CM_REVIVE extends AionClientPacket
 	 */
 	private void skillRevive(Player activePlayer)
 	{
-		//TODO No need to create new instance of lifestats
-		activePlayer.setLifeStats(new PlayerLifeStats(activePlayer, 10,
-			activePlayer.getPlayerStatsTemplate().getMaxMp()));	
-		activePlayer.getLifeStats().triggerRestoreTask();		
+		activePlayer.getLifeStats().setCurrentHpPercent(10);	
+		activePlayer.getLifeStats().triggerRestoreOnRevive();		
 		
 		activePlayer.unsetState(CreatureState.DEAD);		
 		PacketSendUtility.broadcastPacket(activePlayer, new SM_EMOTION(activePlayer, 14), true);
@@ -104,9 +101,9 @@ public class CM_REVIVE extends AionClientPacket
 	 */
 	private void bindRevive(Player activePlayer)
 	{
-		activePlayer.setLifeStats(new PlayerLifeStats(activePlayer, activePlayer.getPlayerStatsTemplate().getMaxHp(),
-			activePlayer.getPlayerStatsTemplate().getMaxMp()));
-
+		activePlayer.getLifeStats().setCurrentHpPercent(10);
+		activePlayer.getLifeStats().triggerRestoreOnRevive();
+		
 		activePlayer.unsetState(CreatureState.DEAD);
 		activePlayer.getController().startProtectionActiveTask();
 

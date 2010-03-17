@@ -50,7 +50,7 @@ public class LifeStatsRestoreService
 			@Override
 			public void run()
 			{
-				if(lifeStats.isAlreadyDead() || lifeStats.isFullyRestored())
+				if(lifeStats.isAlreadyDead() || lifeStats.isFullyRestoredHpMp())
 				{
 					lifeStats.cancelRestoreTask();
 				}
