@@ -21,6 +21,7 @@ import com.aionemu.gameserver.model.gameobjects.Monster;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.skillengine.effect.EffectId;
@@ -37,16 +38,17 @@ public class PlayerRestrictions extends AbstractRestrictions
 	@Override
 	public boolean canAffectBySkill(Player player, VisibleObject target)
 	{
-		if(((Creature) target).getLifeStats().isAlreadyDead() && player.getCastingSkill() != null
+		if(((Creature) target).getLifeStats().isAlreadyDead()
 			&& !player.getCastingSkill().getSkillTemplate().hasResurrectEffect())
 		{
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.INVALID_TARGET());
 			return false;
 		}
-		// TODO: We have to add the exception skills, 
-		// what's can be used on dead target.
 		
-		if(!player.canAttack())
+		if(player.getEffectController().isAbnormalState(EffectId.CANT_ATTACK_STATE))
+			return false;
+		
+		if(player.isInState(CreatureState.RESTING) || player.isInState(CreatureState.PRIVATE_SHOP))
 			return false;
 		
 		return true;

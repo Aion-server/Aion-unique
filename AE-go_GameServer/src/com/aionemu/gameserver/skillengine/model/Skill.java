@@ -116,6 +116,9 @@ public class Skill
 		if(!setProperties(skillTemplate.getSetproperties()))
 			return;
 		
+		//start casting
+		effector.setCasting(this);
+		
 		Iterator<Creature> effectedIter = effectedList.iterator();
 		while(effectedIter.hasNext())
 		{
@@ -125,10 +128,10 @@ public class Skill
 		}
 		
 		if(effectedList.size() == 0)
+		{
+			effector.setCasting(null);
 			return;
-		
-		//start casting
-		effector.setCasting(this);
+		}
 
 		//temporary hook till i find permanent solution
 		if(skillTemplate.isActive() || skillTemplate.isToggle())
