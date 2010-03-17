@@ -68,6 +68,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_PLAYER_INFO.class, 0x20, idSet);
 		addPacketOpcode(SM_CASTSPELL.class, 0x21, idSet);
 		addPacketOpcode(SM_LEGION_UPDATE_NICKNAME.class, 0x23, idSet);
+		addPacketOpcode(SM_LEGION_TABS.class, 0x24, idSet);
 		addPacketOpcode(SM_ENTER_WORLD_CHECK.class, 0x25, idSet);
 		addPacketOpcode(SM_STATUPDATE_DP.class, 0x26, idSet);
 		addPacketOpcode(SM_STATUPDATE_EXP.class, 0x28, idSet);

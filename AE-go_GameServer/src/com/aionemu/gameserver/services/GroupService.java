@@ -309,7 +309,7 @@ public class GroupService
 	/**
 	 * @param player
 	 */
-	public void groupMemberOnLogin(Player activePlayer)
+	public void onLogin(Player activePlayer)
 	{
 		final PlayerGroup group = activePlayer.getPlayerGroup();
 

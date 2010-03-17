@@ -61,14 +61,11 @@ import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.gameobjects.stats.listeners.TitleChangeListener;
 import com.aionemu.gameserver.model.items.ItemSlot;
-import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionMember;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_ENTER_WORLD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_QUIT;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_MEMBER;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
 import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
@@ -390,13 +387,7 @@ public class PlayerService
 		player.setClientConnection(null);
 
 		if(player.isLegionMember())
-		{
-			final Legion legion = player.getLegion();
-			PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_UPDATE_MEMBER(player, 0, ""), world);
-			legionService.storeLegion(legion);
-			legionService.storeLegionMember(player.getLegionMember());
-			legionService.storeLegionMemberExInCache(player);
-		}
+			legionService.onLogout(player);
 
 		if(player.isInGroup())
 			groupService.scheduleRemove(player);

@@ -21,7 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 
@@ -34,6 +34,8 @@ import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.StorageType;
 import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionEmblem;
+import com.aionemu.gameserver.model.legion.LegionHistory;
+import com.aionemu.gameserver.model.legion.LegionHistoryType;
 import com.aionemu.gameserver.model.legion.LegionWarehouse;
 
 /**
@@ -49,8 +51,8 @@ public class MySQL5LegionDAO extends LegionDAO
 
 	/** Legion Queries */
 	private static final String	INSERT_LEGION_QUERY				= "INSERT INTO legions(id, `name`) VALUES (?, ?)";
-	private static final String	SELECT_LEGION_QUERY1				= "SELECT * FROM legions WHERE id=?";
-	private static final String	SELECT_LEGION_QUERY2				= "SELECT * FROM legions WHERE name=?";
+	private static final String	SELECT_LEGION_QUERY1			= "SELECT * FROM legions WHERE id=?";
+	private static final String	SELECT_LEGION_QUERY2			= "SELECT * FROM legions WHERE name=?";
 	private static final String	DELETE_LEGION_QUERY				= "DELETE FROM legions WHERE id = ?";
 	private static final String	UPDATE_LEGION_QUERY				= "UPDATE legions SET name=?, level=?, contribution_points=?, legionar_permission2=?, centurion_permission1=?, centurion_permission2=?, disband_time=? WHERE id=?";
 
@@ -58,8 +60,9 @@ public class MySQL5LegionDAO extends LegionDAO
 	private static final String	SELECT_LEGIONRANKING_QUERY		= "SELECT id, contribution_points FROM legions ORDER BY contribution_points DESC;";
 
 	/** Announcement Queries **/
-	private static final String	INSERT_ANNOUNCEMENT_QUERY		= "INSERT INTO legion_announcement_list(`legion_id`, `announcement`) VALUES (?, ?)";
-	private static final String	SELECT_ANNOUNCEMENTLIST_QUERY	= "SELECT * FROM legion_announcement_list WHERE legion_id=? ORDER BY date DESC";
+	private static final String	INSERT_ANNOUNCEMENT_QUERY		= "INSERT INTO legion_announcement_list(`legion_id`, `announcement`, `date`) VALUES (?, ?, ?)";
+	private static final String	SELECT_ANNOUNCEMENTLIST_QUERY	= "SELECT * FROM legion_announcement_list WHERE legion_id=? ORDER BY date ASC LIMIT 0,7;";
+	private static final String	DELETE_ANNOUNCEMENT_QUERY		= "DELETE FROM legion_announcement_list WHERE legion_id = ? AND date = ?";
 
 	/** Emblem Queries **/
 	private static final String	INSERT_EMBLEM_QUERY				= "INSERT INTO legion_emblems(legion_id, emblem_id, color_r, color_g, color_b) VALUES (?, ?, ?, ?, ?)";
@@ -68,6 +71,10 @@ public class MySQL5LegionDAO extends LegionDAO
 
 	/** Storage Queries **/
 	private static final String	SELECT_STORAGE_QUERY			= "SELECT `itemUniqueId`, `itemId`, `itemCount`, `itemColor`, `isEquiped`, `slot` FROM `inventory` WHERE `itemOwner`=? AND `itemLocation`=? AND `isEquiped`=?";
+
+	/** History Queries **/
+	private static final String	INSERT_HISTORY_QUERY			= "INSERT INTO legion_history(`legion_id`, `date`, `history_type`, `name`) VALUES (?, ?, ?, ?)";
+	private static final String	SELECT_HISTORY_QUERY			= "SELECT * FROM `legion_history` WHERE legion_id=? ORDER BY date ASC;";
 
 	/**
 	 * {@inheritDoc}
@@ -281,9 +288,9 @@ public class MySQL5LegionDAO extends LegionDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public LinkedHashMap<Timestamp, String> loadAnnouncementList(final int legionId)
+	public TreeMap<Timestamp, String> loadAnnouncementList(final int legionId)
 	{
-		final LinkedHashMap<Timestamp, String> announcementList = new LinkedHashMap<Timestamp, String>();
+		final TreeMap<Timestamp, String> announcementList = new TreeMap<Timestamp, String>();
 
 		boolean success = DB.select(SELECT_ANNOUNCEMENTLIST_QUERY, new ParamReadStH(){
 			@Override
@@ -314,7 +321,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean saveNewAnnouncement(final int legionId, final String message)
+	public boolean saveNewAnnouncement(final int legionId, final Timestamp currentTime, final String message)
 	{
 		boolean success = DB.insertUpdate(INSERT_ANNOUNCEMENT_QUERY, new IUStH(){
 			@Override
@@ -324,10 +331,30 @@ public class MySQL5LegionDAO extends LegionDAO
 
 				preparedStatement.setInt(1, legionId);
 				preparedStatement.setString(2, message);
+				preparedStatement.setTimestamp(3, currentTime);
 				preparedStatement.execute();
 			}
 		});
 		return success;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void removeAnnouncement(int legionId, Timestamp unixTime)
+	{
+		PreparedStatement statement = DB.prepareStatement(DELETE_ANNOUNCEMENT_QUERY);
+		try
+		{
+			statement.setInt(1, legionId);
+			statement.setTimestamp(2, unixTime);
+		}
+		catch(SQLException e)
+		{
+			log.error("Some crap, can't set int parameter to PreparedStatement", e);
+		}
+		DB.executeUpdateAndClose(statement);
 	}
 
 	/**
@@ -477,5 +504,53 @@ public class MySQL5LegionDAO extends LegionDAO
 		});
 
 		return legionRanking;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public TreeMap<Timestamp, LegionHistory> loadLegionHistory(final int legionId)
+	{
+		final TreeMap<Timestamp, LegionHistory> legionHistory = new TreeMap<Timestamp, LegionHistory>();
+
+		DB.select(SELECT_HISTORY_QUERY, new ParamReadStH(){
+			@Override
+			public void setParams(PreparedStatement stmt) throws SQLException
+			{
+				stmt.setInt(1, legionId);
+			}
+
+			@Override
+			public void handleRead(ResultSet resultSet) throws SQLException
+			{
+				while(resultSet.next())
+				{
+					legionHistory.put(resultSet.getTimestamp("date"), new LegionHistory(LegionHistoryType.valueOf(resultSet.getString("history_type")), resultSet.getString("name")));
+				}
+			}
+		});
+
+		return legionHistory;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean saveNewLegionHistory(final int legionId, final Timestamp date, final LegionHistory legionHistory)
+	{
+		boolean success = DB.insertUpdate(INSERT_HISTORY_QUERY, new IUStH(){
+			@Override
+			public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
+			{
+				preparedStatement.setInt(1, legionId);
+				preparedStatement.setTimestamp(2, date);
+				preparedStatement.setInt(3, legionHistory.getLegionHistoryType());
+				preparedStatement.setString(4, legionHistory.getName());
+				preparedStatement.execute();
+			}
+		});
+		return success;
 	}
 }

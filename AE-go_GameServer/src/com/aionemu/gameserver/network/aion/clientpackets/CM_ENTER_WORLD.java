@@ -20,7 +20,6 @@ import java.util.List;
 
 import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.model.ChatType;
-import com.aionemu.gameserver.model.account.AccountTime;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -43,10 +42,9 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PRICES;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RECIPE_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_RIFT_ANNOUNCE; 
+import com.aionemu.gameserver.network.aion.serverpackets.SM_RIFT_ANNOUNCE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_LIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UI_SETTINGS;
 import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
@@ -210,16 +208,6 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			sendPacket(new SM_TITLE_LIST(player));
 			
 			client.sendPacket(new SM_CHANNEL_INFO(player.getPosition()));
-			/**
-			 * Player's accumulated time; params are: - 0h 12m - play time (1st and 2nd string-params) - 1h 26m - rest
-			 * time (3rd and 4th string-params)
-			 */
-			AccountTime accountTime = getConnection().getAccount().getAccountTime();
-
-			sendPacket(SM_SYSTEM_MESSAGE.ACCUMULATED_TIME(accountTime.getAccumulatedOnlineHours(), accountTime
-				.getAccumulatedOnlineMinutes(), accountTime.getAccumulatedRestHours(), accountTime
-				.getAccumulatedRestMinutes()));
-
 			/*
 			 * Needed
 			 */
@@ -238,10 +226,10 @@ public class CM_ENTER_WORLD extends AionClientPacket
 				punishmentService.updatePrisonStatus(player);
 
 			if(player.isLegionMember())
-				legionService.legionMemberOnLogin(player);
+				legionService.onLogin(player);
 
 			if(player.isInGroup())
-				groupService.groupMemberOnLogin(player);
+				groupService.onLogin(player);
 
 			player.setRates(Rates.getRatesFor(client.getAccount().getMembership()));
 

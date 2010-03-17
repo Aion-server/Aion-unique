@@ -18,19 +18,11 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.model.gameobjects.player.DeniedStatus;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.legion.Legion;
-import com.aionemu.gameserver.model.legion.LegionMemberEx;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_LEAVE_MEMBER;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_UPDATE_TITLE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.LegionService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.Util;
-import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
@@ -45,9 +37,6 @@ public class CM_LEGION extends AionClientPacket
 	/** Legion based information **/
 	@Inject
 	private LegionService		legionService;
-
-	@Inject
-	private World				world;
 
 	/**
 	 * exOpcode and the rest
@@ -85,7 +74,7 @@ public class CM_LEGION extends AionClientPacket
 		{
 			/** Create a legion **/
 			case 0x00:
-				readD(); // time? 00 78 19 00 40
+				readD(); // 00 78 19 00 40
 				legionName = readS();
 				break;
 			/** Invite to legion **/
@@ -163,93 +152,26 @@ public class CM_LEGION extends AionClientPacket
 		if(activePlayer.isLegionMember())
 		{
 			final Legion legion = activePlayer.getLegion();
+
 			if(charName != null)
 			{
-				charName = Util.convertName(charName);
-				Player targetPlayer = world.findPlayer(charName);
-				switch(exOpcode)
-				{
-					/** Invite to legion **/
-					case 0x01:
-						if(targetPlayer != null)
-						{
-							if(targetPlayer.getPlayerSettings().isInDeniedStatus(DeniedStatus.GUILD))
-							{
-								sendPacket(SM_SYSTEM_MESSAGE.STR_MSG_REJECTED_INVITE_GUILD(targetPlayer.getName()));
-								return;
-							}
-							legionService.invitePlayerToLegion(activePlayer, targetPlayer);
-						}
-						else
-						{
-							sendPacket(SM_SYSTEM_MESSAGE.LEGION_NO_USER_TO_INVITE());
-						}
-						break;
-					/** Kick member from legion **/
-					case 0x04:
-						LegionMemberEx legionMemberEx = legionService.getLegionMemberEx(charName);
-						legionService.kickPlayer(activePlayer, legionMemberEx);
-						if(targetPlayer != null)
-						{
-							PacketSendUtility.broadcastPacket(targetPlayer, new SM_LEGION_UPDATE_TITLE(targetPlayer
-								.getObjectId(), 0, "", targetPlayer.getLegionMember().getRank().getRankId()), true);
-							targetPlayer.resetLegionMember();
-							// TODO: Can not kick during a war!!
-							PacketSendUtility.sendPacket(targetPlayer, new SM_LEGION_LEAVE_MEMBER(1300246, 0, legion
-								.getLegionName()));
-						}
-						break;
-					/** Appoint a new Brigade General **/
-					case 0x05:
-						if(targetPlayer != null)
-						{
-							legionService.appointBrigadeGeneral(activePlayer, targetPlayer);
-						}
-						else
-						{
-							sendPacket(SM_SYSTEM_MESSAGE.LEGION_CHANGE_MASTER_NO_SUCH_USER());
-						}
-						break;
-					/** Appoint Centurion/Legionairy **/
-					case 0x06:
-						if(targetPlayer != null)
-						{
-							legionService.appointRank(activePlayer, targetPlayer, rank);
-						}
-						else
-						{
-							sendPacket(SM_SYSTEM_MESSAGE.LEGION_CHANGE_MEMBER_RANK_NO_USER());
-						}
-						break;
-					/** Set nickname **/
-					case 0x0F:
-						if(targetPlayer == null || targetPlayer.getLegion() != legion)
-							// Player offline or NOT in same legion as player
-							return;
-						legionService.changeNickname(activePlayer, targetPlayer, newNickname);
-						break;
-				}
+				legionService.handleCharNameRequest(exOpcode, activePlayer, charName, newNickname, rank);
 			}
 			else
 			{
 				switch(exOpcode)
 				{
-					/** Leave legion **/
-					case 0x02:
-						legionService.leaveLegion(activePlayer);
-						break;
 					/** Refresh legion info **/
 					case 0x08:
-						if(!legion.isDisbanding())
-							sendPacket(new SM_LEGION_INFO(legion));
+						sendPacket(new SM_LEGION_INFO(legion));
 						break;
 					/** Edit announcements **/
 					case 0x09:
-						legionService.changeAnnouncement(activePlayer, announcement);
+						legionService.handleLegionRequest(exOpcode, activePlayer, announcement);
 						break;
 					/** Change self introduction **/
 					case 0x0A:
-						legionService.changeSelfIntro(activePlayer, newSelfIntro);
+						legionService.handleLegionRequest(exOpcode, activePlayer, newSelfIntro);
 						break;
 					/** Edit permissions **/
 					case 0x0D:
@@ -257,10 +179,9 @@ public class CM_LEGION extends AionClientPacket
 							legionService.changePermissions(legion, legionarPermission2, centurionPermission1,
 								centurionPermission2);
 						break;
-					/** Level legion up **/
-					case 0x0E:
-						legionService.requestChangeLevel(activePlayer, activePlayer.getInventory().getKinahItem()
-							.getItemCount());
+					/** Misc. **/
+					default:
+						legionService.handleLegionRequest(exOpcode, activePlayer);
 						break;
 				}
 			}

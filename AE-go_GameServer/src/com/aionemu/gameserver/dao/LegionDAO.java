@@ -19,10 +19,11 @@ package com.aionemu.gameserver.dao;
 
 import java.sql.Timestamp;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.model.legion.LegionEmblem;
+import com.aionemu.gameserver.model.legion.LegionHistory;
 import com.aionemu.gameserver.model.legion.LegionWarehouse;
 
 /**
@@ -87,16 +88,17 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	 * @param legion
 	 * @return announcementList
 	 */
-	public abstract LinkedHashMap<Timestamp, String> loadAnnouncementList(int legionId);
+	public abstract TreeMap<Timestamp, String> loadAnnouncementList(int legionId);
 
 	/**
 	 * Creates announcement in DB
 	 * 
 	 * @param legionId
+	 * @param currentTime 
 	 * @param message
 	 * @return true or false
 	 */
-	public abstract boolean saveNewAnnouncement(int legionId, String message);
+	public abstract boolean saveNewAnnouncement(int legionId, Timestamp currentTime, String message);
 
 	/**
 	 * Identifier name for all LegionDAO classes
@@ -128,6 +130,13 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	public abstract boolean saveNewLegionEmblem(int legionId, LegionEmblem legionEmblem);
 
 	/**
+	 * @param legionId
+	 * @param key
+	 * @return
+	 */
+	public abstract void removeAnnouncement(int legionId, Timestamp key);
+
+	/**
 	 * Loads a legion emblem
 	 * 
 	 * @param legion
@@ -147,4 +156,18 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	 * @return the legion ranking
 	 */
 	public abstract HashMap<Integer, Integer> loadLegionRanking();
+
+	/**
+	 * @param legion
+	 * @return the legionHistory
+	 */
+	public abstract TreeMap<Timestamp, LegionHistory> loadLegionHistory(int legionId);
+	
+	/**
+	 * @param legionId
+	 * @param date
+	 * @param legionHistory
+	 * @return true if query successful
+	 */
+	public abstract boolean saveNewLegionHistory(int legionId, Timestamp date, LegionHistory legionHistory);
 }

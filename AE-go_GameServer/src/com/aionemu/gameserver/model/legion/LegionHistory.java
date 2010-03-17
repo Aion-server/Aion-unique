@@ -14,50 +14,39 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.clientpackets;
+package com.aionemu.gameserver.model.legion;
 
-import com.aionemu.gameserver.network.aion.AionClientPacket;
 
 /**
- * 
  * @author Simple
  * 
  */
-public class CM_LEGION_EDIT extends AionClientPacket
+public class LegionHistory
 {
-	/**
-	 * exOpcode and the rest
-	 */
-	@SuppressWarnings("unused")
-	private int	unk1;
-	@SuppressWarnings("unused")
-	private int	unk2;
+	private LegionHistoryType	legionHistoryType;
+	private String				name	= "";
 
-	/**
-	 * Constructs new instance of CM_LEGION packet
-	 * 
-	 * @param opcode
-	 */
-	public CM_LEGION_EDIT(int opcode)
+	// more but dunno what they mean yet
+
+	public LegionHistory(LegionHistoryType legionHistoryType, String name)
 	{
-		super(opcode);
+		this.legionHistoryType = legionHistoryType;
+		this.name = name;
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @return the legionHistoryType
 	 */
-	@Override
-	protected void readImpl()
+	public int getLegionHistoryType()
 	{
-		unk1 = readD();
-		unk2 = readC();
+		return legionHistoryType.getHistoryId();
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @return the name
 	 */
-	@Override
-	protected void runImpl()
+	public String getName()
 	{
+		return name;
 	}
 }

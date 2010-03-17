@@ -18,7 +18,7 @@ package com.aionemu.gameserver.model.legion;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import com.aionemu.gameserver.configs.main.LegionConfig;
@@ -32,27 +32,28 @@ import com.aionemu.gameserver.world.World;
 public class Legion
 {
 	/** Static Permission settings **/
-	private static final int					PERMISSION1_MIN				= 0x60;
-	private static final int					PERMISSION2_MIN				= 0x00;
-	private static final int					LEGIONAR_PERMISSION2_MAX	= 0x08;
-	private static final int					CENTURION_PERMISSION1_MAX	= 0x7C;
-	private static final int					CENTURION_PERMISSION2_MAX	= 0x0E;
+	private static final int						PERMISSION1_MIN				= 0x60;
+	private static final int						PERMISSION2_MIN				= 0x00;
+	private static final int						LEGIONAR_PERMISSION2_MAX	= 0x08;
+	private static final int						CENTURION_PERMISSION1_MAX	= 0x7C;
+	private static final int						CENTURION_PERMISSION2_MAX	= 0x0E;
 
 	/** Legion Information **/
-	private int									legionId					= 0;
-	private String								legionName					= "";
-	private int									legionLevel					= 1;
-	private int									legionRank					= 0;
-	private int									contributionPoints			= 0;
-	private ArrayList<Integer>					legionMembers				= new ArrayList<Integer>();
-	private static final int					legionarPermission1			= 0x40;
-	private int									legionarPermission2			= 0x00;
-	private int									centurionPermission1		= 0x60;
-	private int									centurionPermission2		= 0x00;
-	private int									disbandTime;
-	private LinkedHashMap<Timestamp, String>	announcementList			= new LinkedHashMap<Timestamp, String>();
-	private LegionEmblem						legionEmblem				= new LegionEmblem();
-	private LegionWarehouse						legionWarehouse;
+	private int										legionId					= 0;
+	private String									legionName					= "";
+	private int										legionLevel					= 1;
+	private int										legionRank					= 0;
+	private int										contributionPoints			= 0;
+	private ArrayList<Integer>						legionMembers				= new ArrayList<Integer>();
+	private static final int						legionarPermission1			= 0x40;
+	private int										legionarPermission2			= 0x00;
+	private int										centurionPermission1		= 0x60;
+	private int										centurionPermission2		= 0x00;
+	private int										disbandTime;
+	private TreeMap<Timestamp, String>				announcementList			= new TreeMap<Timestamp, String>();
+	private LegionEmblem							legionEmblem				= new LegionEmblem();
+	private LegionWarehouse							legionWarehouse;
+	private TreeMap<Timestamp, LegionHistory>	legionHistory				= new TreeMap<Timestamp, LegionHistory>();
 
 	/**
 	 * Only called when a legion is created!
@@ -428,17 +429,33 @@ public class Legion
 	 * @param announcementList
 	 *            the announcementList to set
 	 */
-	public void setAnnouncementList(LinkedHashMap<Timestamp, String> announcementList)
+	public void setAnnouncementList(TreeMap<Timestamp, String> announcementList)
 	{
 		this.announcementList = announcementList;
 	}
 
 	/**
+	 * This method will add a new announcement to the list
+	 */
+	public void addAnnouncementToList(Timestamp unixTime, String announcement)
+	{
+		this.announcementList.put(unixTime, announcement);
+	}
+
+	/**
+	 * This method removes the first entry
+	 */
+	public void removeFirstEntry()
+	{
+		this.announcementList.remove(this.announcementList.firstEntry().getKey());
+	}
+
+	/**
 	 * @return the announcementList
 	 */
-	public LinkedHashMap<Timestamp, String> getAnnouncementList()
+	public TreeMap<Timestamp, String> getAnnouncementList()
 	{
-		return announcementList;
+		return this.announcementList;
 	}
 
 	/**
@@ -446,16 +463,9 @@ public class Legion
 	 */
 	public Entry<Timestamp, String> getCurrentAnnouncement()
 	{
-		Entry<Timestamp, String> currentAnnouncement = null;
-		if(announcementList.size() > 0)
-		{
-			for(Entry<Timestamp, String> unixTime : announcementList.entrySet())
-			{
-				if(currentAnnouncement == null)
-					currentAnnouncement = unixTime;
-			}
-		}
-		return currentAnnouncement;
+		if(this.announcementList.size() > 0)
+			return this.announcementList.lastEntry();
+		return null;
 	}
 
 	/**
@@ -553,5 +563,31 @@ public class Legion
 				return 56;
 		}
 		return 24;
+	}
+
+	/**
+	 * @param legionHistory the legionHistory to set
+	 */
+	public void setLegionHistory(TreeMap<Timestamp, LegionHistory> legionHistory)
+	{
+		this.legionHistory = legionHistory;
+	}
+
+	/**
+	 * @return the legionHistory
+	 */
+	public TreeMap<Timestamp, LegionHistory> getLegionHistory()
+	{
+		return this.legionHistory;
+	}
+
+	/**
+	 * @param timestamp
+	 * @param page
+	 * @param historyType
+	 */
+	public void addHistory(Timestamp timestamp, LegionHistory history)
+	{
+		this.legionHistory.put(timestamp, history);
 	}
 }
