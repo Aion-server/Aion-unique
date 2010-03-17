@@ -199,7 +199,7 @@
   	
   	<!-- The Sting of Poison -->
   	<monster_hunt start_npc_id="203664" id="2264">
-  		<monster_infos var_id="0" npc_id="210754" max_kill="3"/>
+  		<monster_infos var_id="0" npc_id="210447" max_kill="3"/>
   	</monster_hunt>
   	
   	<!-- A Drinking Problem -->
