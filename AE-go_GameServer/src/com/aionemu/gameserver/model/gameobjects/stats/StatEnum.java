@@ -73,6 +73,8 @@ public enum StatEnum
 
 	ATTACK_RANGE(0, "attackrange",true),
 	ATTACK_SPEED(29, "attackdelay",-1,true),
+	MAIN_HAND_ATTACK_SPEED(0, "mainhandattackspeed"),
+	OFF_HAND_ATTACK_SPEED(0, "offhandattackspeed"),
 	PHYSICAL_ATTACK(25, "phyattack"),
 	PHYSICAL_ACCURACY(30, "hitaccuracy"),
 	PHYSICAL_CRITICAL(34, "critical"),
@@ -250,6 +252,14 @@ public enum StatEnum
 						return OFF_HAND_HITS;
 					case MAIN_HAND:
 						return MAIN_HAND_HITS;
+				}
+			case ATTACK_SPEED:
+				switch(slot)
+				{
+					case SUB_HAND:
+						return OFF_HAND_ATTACK_SPEED;
+					case MAIN_HAND:
+						return MAIN_HAND_ATTACK_SPEED;
 				}
 			default:
 				return this;

@@ -69,11 +69,13 @@ public class CreatureGameStats<T extends Creature>
 		initStat(StatEnum.AGILITY, agility);
 		initStat(StatEnum.KNOWLEDGE, knowledge);
 		initStat(StatEnum.WILL, will);
-		initStat(StatEnum.MAIN_HAND_POWER, Math.round(18 * (power / 100)));
+		initStat(StatEnum.MAIN_HAND_POWER, Math.round(18 * (power * 0.01f)));
 		initStat(StatEnum.MAIN_HAND_CRITICAL, mainHandCritRate);
 		initStat(StatEnum.OFF_HAND_POWER, 0);
 		initStat(StatEnum.OFF_HAND_CRITICAL, 0);
-		initStat(StatEnum.ATTACK_SPEED, attackSpeed);
+		initStat(StatEnum.MAIN_HAND_ATTACK_SPEED, attackSpeed);
+		initStat(StatEnum.OFF_HAND_ATTACK_SPEED, 0);
+		initStat(StatEnum.ATTACK_SPEED, Math.round(getBaseStat(StatEnum.MAIN_HAND_ATTACK_SPEED) + getBaseStat(StatEnum.OFF_HAND_ATTACK_SPEED) * 0.25f));
 		initStat(StatEnum.ATTACK_RANGE, attackRange);
 		initStat(StatEnum.PHYSICAL_DEFENSE, 0);
 		initStat(StatEnum.PARRY, Math.round(agility * 3.1f - 248.5f + 12.4f * (int)owner.getLevel()));
@@ -81,7 +83,7 @@ public class CreatureGameStats<T extends Creature>
 		initStat(StatEnum.BLOCK, Math.round(agility * 3.1f - 248.5f + 12.4f * (int)owner.getLevel()));
 		initStat(StatEnum.DAMAGE_REDUCE, 0);
 		initStat(StatEnum.MAIN_HAND_ACCURACY, Math.round((accuracy * 2 - 10) + 8 * (int)owner.getLevel()));
-		initStat(StatEnum.OFF_HAND_ACCURACY, Math.round((accuracy * 2 - 10) + 8 * (int)owner.getLevel()));
+		initStat(StatEnum.OFF_HAND_ACCURACY, 0);
 		initStat(StatEnum.MAGICAL_RESIST, 0);
 		initStat(StatEnum.WIND_RESISTANCE, 0);
 		initStat(StatEnum.FIRE_RESISTANCE, 0);
@@ -248,6 +250,28 @@ public class CreatureGameStats<T extends Creature>
 				oStat.increase(newValue, modifier.isBonus());
 			}
 		}
+		
+		applyExclusiveStatRules(stat);
+	}
+	
+	private void applyExclusiveStatRules(StatEnum stat)
+	{
+		switch(stat)
+		{
+			case MAIN_HAND_ATTACK_SPEED:
+			case OFF_HAND_ATTACK_SPEED:
+				setStat(StatEnum.ATTACK_SPEED, Math.round(getBaseStat(StatEnum.MAIN_HAND_ATTACK_SPEED) 
+						    				+ (getBaseStat(StatEnum.OFF_HAND_ATTACK_SPEED) * 0.25f)), false);
+				
+				setStat(StatEnum.ATTACK_SPEED, getStatBonus(StatEnum.MAIN_HAND_ATTACK_SPEED)
+											+ (getStatBonus(StatEnum.OFF_HAND_ATTACK_SPEED)), true);
+			break;
+			
+			case OFF_HAND_ACCURACY:
+				setStat(StatEnum.OFF_HAND_ACCURACY, getBaseStat(StatEnum.OFF_HAND_ACCURACY) 
+													+  Math.round((getCurrentStat(StatEnum.ACCURACY) * 2 - 10) + 8 * (int)owner.getLevel()));
+			break;
+		}
 	}
 
 	public void addModifiers(StatEffectId id, TreeSet<StatModifier> modifiers)
@@ -303,10 +327,7 @@ public class CreatureGameStats<T extends Creature>
 						if(((Player) owner).getEquipment().getOffHandWeaponType() != null)
 							slots = ItemSlot.MAIN_OR_SUB.getSlotIdMask();
 						else
-						{
 							slots = ItemSlot.MAIN_HAND.getSlotIdMask();
-							setStat(StatEnum.OFF_HAND_ACCURACY, 0, false);
-						}
 					}
 					else if(slots == ItemSlot.MAIN_HAND.getSlotIdMask())
 						setStat(StatEnum.MAIN_HAND_POWER, 0);
