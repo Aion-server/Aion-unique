@@ -324,7 +324,7 @@
   	
   	<!-- Turbulent Splash Spirits -->
   	<monster_hunt start_npc_id="203650" id="2256">
-  		<monster_infos var_id="0" npc_id="210522" max_kill="5"/>
+  		<monster_infos var_id="0" npc_id="210577" max_kill="5"/>
   	</monster_hunt> 
   	
   	<!-- [Coin] Mutated Spirits -->
