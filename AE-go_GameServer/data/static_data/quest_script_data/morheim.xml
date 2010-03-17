@@ -180,7 +180,7 @@
 
         <!-- Courage for Hunters -->
 	<monster_hunt id="2352" start_npc_id="204392">
-		<monster_infos npc_id="212441"  var_id="0" max_kill="10"/>
+		<monster_infos npc_id="212440"  var_id="0" max_kill="10"/>
 	</monster_hunt>
 
         <!-- Creepy Crawlies -->
