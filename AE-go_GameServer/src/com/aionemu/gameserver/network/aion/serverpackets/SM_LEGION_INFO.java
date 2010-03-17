@@ -36,6 +36,7 @@ public class SM_LEGION_INFO extends AionServerPacket
 
 	/**
 	 * This constructor will handle legion info
+	 * 
 	 * @param legion
 	 */
 	public SM_LEGION_INFO(Legion legion)
@@ -59,11 +60,17 @@ public class SM_LEGION_INFO extends AionServerPacket
 		writeD(buf, 0x00); // unk
 
 		/** Get Announcements List From DB By Legion **/
-		Map<Timestamp, String> announcementList = legion.getAnnouncementList();
-		for(Timestamp unixTime : announcementList.keySet())
+		Map<Timestamp, String> announcementList = legion.getAnnouncementList().descendingMap();
+
+		int i = 0;
+		while(i < 7)
 		{
-			writeS(buf, announcementList.get(unixTime));
-			writeD(buf, (int)(unixTime.getTime()/1000));
+			for(Timestamp unixTime : announcementList.keySet())
+			{
+				writeS(buf, announcementList.get(unixTime));
+				writeD(buf, (int) (unixTime.getTime() / 1000));
+			}
+			i++;
 		}
 		writeH(buf, 0x00);
 	}
