@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aionemu.commons.callbacks.Enhancable;
+import com.aionemu.gameserver.controllers.FlyController;
 import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.controllers.effect.PlayerEffectController;
 import com.aionemu.gameserver.model.Gender;
@@ -81,6 +82,7 @@ public class Player extends Creature
 	private boolean				isTrading;
 	private long				prisonTimer		= 0;
 	private boolean				invul;
+	private FlyController		flyController;
 	/**
 	 * Static information for players
 	 */
@@ -837,6 +839,22 @@ public class Player extends Creature
 	public Mailbox getMailbox()
 	{
 		return mailbox;
+	}
+
+	/**
+	 * @return the flyController
+	 */
+	public FlyController getFlyController()
+	{
+		return flyController;
+	}
+
+	/**
+	 * @param flyController the flyController to set
+	 */
+	public void setFlyController(FlyController flyController)
+	{
+		this.flyController = flyController;
 	}
 
 }

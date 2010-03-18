@@ -24,6 +24,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.main.CacheConfig;
 import com.aionemu.gameserver.configs.main.GSConfig;
+import com.aionemu.gameserver.controllers.FlyController;
 import com.aionemu.gameserver.controllers.effect.PlayerEffectController;
 import com.aionemu.gameserver.controllers.factory.PlayerControllerFactory;
 import com.aionemu.gameserver.dao.AbyssRankDAO;
@@ -223,7 +224,8 @@ public class PlayerService
 		player.setLifeStats(new PlayerLifeStats(player, player.getPlayerStatsTemplate().getMaxHp(), player
 			.getPlayerStatsTemplate().getMaxMp()));
 		player.setEffectController(new PlayerEffectController(player));
-
+		player.setFlyController(new FlyController(player));
+		
 		player.setQuestStateList(DAOManager.getDAO(PlayerQuestListDAO.class).load(player));
 		player.setRecipeList(DAOManager.getDAO(PlayerRecipesDAO.class).load(player.getObjectId()));
 		player

@@ -33,7 +33,6 @@ import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
-import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
@@ -426,7 +425,6 @@ public class PlayerController extends CreatureController<Player>
 
 		player.getGameStats().doLevelUpgrade(sp.getPlayerService().getPlayerStatsData(), level);
 		player.setPlayerStatsTemplate(statsTemplate);
-		player.setLifeStats(new PlayerLifeStats(player, statsTemplate.getMaxHp(), statsTemplate.getMaxMp()));
 		player.getLifeStats().synchronizeWithMaxStats();
 
 		PacketSendUtility.broadcastPacket(player, new SM_LEVEL_UPDATE(player.getObjectId(), 0, level), true);
@@ -464,22 +462,6 @@ public class PlayerController extends CreatureController<Player>
 			player.setFlyState(2);
 		}						
 		
-		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-	}
-
-	public void endFly()
-	{
-		Player player = getOwner();
-
-		if(player.isInState(CreatureState.FLYING))
-		{
-			player.setFlyState(1);
-		}
-		else
-		{
-			player.setFlyState(0);
-		}		
-
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 	}
 

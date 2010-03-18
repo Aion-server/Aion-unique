@@ -20,7 +20,6 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.services.TeleportService;
@@ -118,9 +117,8 @@ public class CM_MOVE extends AionClientPacket
 				player.getController().onMove();
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type),
 					false);
-
-				player.setState(CreatureState.GLIDING);
-				player.getController().startFly();
+				
+				player.getFlyController().switchToGliding();
 				break;
 			case VALIDATE_MOUSE:
 			case VALIDATE_KEYBOARD:
@@ -132,12 +130,7 @@ public class CM_MOVE extends AionClientPacket
 					false);
 				world.updatePosition(player, x, y, z, heading);
 				player.getController().onStopMove();
-
-				if(player.isInState(CreatureState.FLYING) || player.isInState(CreatureState.GLIDING))
-				{
-					player.unsetState(CreatureState.GLIDING);
-					player.getController().endFly();
-				}
+				player.getFlyController().onStopMove();
 				break;
 			case UNKNOWN:
 				StringBuilder sb = new StringBuilder();

@@ -287,13 +287,7 @@ public class TeleportService
 	 */
 	private void changePosition(Player player, int worldId, int instanceId, float x, float y, float z, byte heading)
 	{
-		//forced stop flying
-		if(player.isInState(CreatureState.FLYING))
-		{			
-			player.unsetState(CreatureState.FLYING);
-			player.getController().endFly();				
-			player.getLifeStats().triggerFpRestore();
-		}
+		player.getFlyController().endFly();
 		
 		world.despawn(player);
 		world.setPosition(player, worldId, instanceId, x, y, z, heading);

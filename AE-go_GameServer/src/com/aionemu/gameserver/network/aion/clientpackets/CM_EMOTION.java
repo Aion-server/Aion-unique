@@ -136,16 +136,10 @@ public class CM_EMOTION extends AionClientPacket
 						return;
 					}
 				}
-				PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 30, 0, 0), true);
-				player.setState(CreatureState.FLYING);
-				player.getController().startFly();
-				player.getLifeStats().triggerFpReduce();
+				player.getFlyController().startFly();
 				break;
 			case 9:
-				PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 9, 0, 0), true);
-				player.unsetState(CreatureState.FLYING);
-				player.getController().endFly();
-				player.getLifeStats().triggerFpRestore();
+				player.getFlyController().endFly();
 				break;
 			case 0x21:
 			case 0x13:
