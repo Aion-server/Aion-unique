@@ -31,13 +31,13 @@ import com.google.inject.Inject;
  * @author Mr. Poke
  *
  */
-public class _1915DispatchtoVerteron extends QuestHandler
+public class _2904DispatchtoAltgard extends QuestHandler
 {
 	@Inject
 	TeleportService	teleportService;
 
-	private final static int	questId	= 1915;
-	public _1915DispatchtoVerteron()
+	private final static int	questId	= 2904;
+	public _2904DispatchtoAltgard()
 	{
 		super(questId);
 	}
@@ -46,8 +46,8 @@ public class _1915DispatchtoVerteron extends QuestHandler
 	public void register()
 	{
 		qe.addQuestLvlUp(questId);
-		qe.setNpcQuestData(203726).addOnTalkEvent(questId);
-		qe.setNpcQuestData(203097).addOnTalkEvent(questId);
+		qe.setNpcQuestData(204191).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203559).addOnTalkEvent(questId);
 	}
 	
 	@Override
@@ -66,7 +66,7 @@ public class _1915DispatchtoVerteron extends QuestHandler
 		{
 			switch (targetId)
 			{
-				case 203726:
+				case 204191:
 				{
 					switch(env.getDialogId())
 					{
@@ -79,13 +79,13 @@ public class _1915DispatchtoVerteron extends QuestHandler
 							{
 								qs.setQuestVarById(0, var + 1);
 								updateQuestStatus(player, qs);
-								teleportService.teleportTo(player, 210030000, player.getInstanceId(), 1643f, 1500f, 120f, 1000);
+								teleportService.teleportTo(player, 220030000, player.getInstanceId(), 1748f, 1807f, 255f, 1000);
 								PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
 								return true;
 							}
 					}
 				}
-				case 203097:
+				case 203559:
 					switch(env.getDialogId())
 					{
 						case 25:
@@ -100,7 +100,7 @@ public class _1915DispatchtoVerteron extends QuestHandler
 		}
 		else if(qs.getStatus() == QuestStatus.REWARD)
 		{
-			if(targetId == 203097)
+			if(targetId == 203559)
 			{
 				return defaultQuestEndDialog(env);
 			}
