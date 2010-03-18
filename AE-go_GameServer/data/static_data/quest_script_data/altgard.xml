@@ -24,7 +24,7 @@
   
 	<!-- TODO: Altgard Duties -->
   
-	<!-- TODO: Conversing With a Skurv -->
+	<!-- Conversing With a Skurv handled by script -->
   
 	<!-- TODO: Encroachers -->
   
@@ -52,7 +52,7 @@
   		<monster_infos var_id="0" npc_id="210413" max_kill="10"/>
   	</monster_hunt>
   	
-  	<!-- TODO: The Scribbler -->
+  	<!-- The Scribbler handled by script -->
   	
   	<!-- The Way to His Heart -->
   	<item_collecting start_npc_id="203582" id="2205"/>
@@ -78,7 +78,7 @@
   	<!-- No-Frills Quills -->
   	<item_collecting start_npc_id="203605" id="2214"/>
   	
-  	<!-- TODO: Poison Root, Potent Fruit -->
+  	<!-- Poison Root, Potent Fruit handled by scipt-->
   	
   	<!-- Retrieving the Report -->
   	<report_to start_npc_id="203603" end_npc_id="203605" id="2210"/>
@@ -92,17 +92,20 @@
   	<!-- Gleaning the Meaning -->
   	<report_to start_npc_id="203606" end_npc_id="203616" id="2217"/>
   	
-  	<!-- TODO: Knot Your Average Message -->
+  	<!-- Knot Your Average Message handled by scrypt-->
   	
-  	<!-- Manir's Message -->
-  	<report_to start_npc_id="203607" end_npc_id="203631" id="2222"/>
+  	<!-- TODO: Manir's Message -->
   	
-  	<!-- TODO: Manir's Uncle -->
   	
-  	<!-- TODO: Picking off Frightcorn -->
+  	<!-- Manir's Uncle handled by script -->
   	
+  	<!-- Picking off Frightcorn -->
+	<monster_hunt start_npc_id="203604" id="2220">
+  		<monster_infos var_id="0" npc_id="210470" max_kill="5"/>
+  		<monster_infos var_id="0" npc_id="210472" max_kill="5"/>
+  	</monster_hunt>
   	<!-- Ripened Frightcorn -->
-  	<item_collecting start_npc_id="203604" id="2219"/>
+  	<item_collecting start_npc_id="203604" id="2219" action_item_id="700052"/>
   	
   	<!-- TODO: Scout it Out -->
   	
