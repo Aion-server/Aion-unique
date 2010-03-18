@@ -18,7 +18,6 @@ package com.aionemu.gameserver.dataholders;
 
 import gnu.trove.TIntObjectHashMap;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.Unmarshaller;
