@@ -24,7 +24,9 @@ public abstract class Rates
 {	
 	public abstract int getXpRate();
 	
-	public abstract float getApRate();
+	public abstract float getApNpcRate();
+	
+	public abstract float getApPlayerRate();
 	
 	public abstract int getDropRate();
 	

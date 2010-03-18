@@ -65,8 +65,11 @@ public class RateConfig
 	/**
 	 * Abyss points Rate
 	 */
-	@Property(key = "gameserver.rate.regular.ap", defaultValue = "1")
-	public static float	AP_RATE;
+	@Property(key = "gameserver.rate.regular.ap.player", defaultValue = "1")
+	public static float	AP_PLAYER_RATE;
+	
+	@Property(key = "gameserver.rate.regular.ap.npc", defaultValue = "1")
+	public static float	AP_NPC_RATE;
 
 	/**
 	 * PREMIUM personal rates section
@@ -84,6 +87,9 @@ public class RateConfig
 	@Property(key = "gameserver.rate.premium.drop", defaultValue = "2")
 	public static int	PREMIUM_DROP_RATE;
 
-	@Property(key = "gameserver.rate.premium.ap", defaultValue = "2")
-	public static float	PREMIUM_AP_RATE;
+	@Property(key = "gameserver.rate.premium.ap.player", defaultValue = "2")
+	public static float	PREMIUM_AP_PLAYER_RATE;
+	
+	@Property(key = "gameserver.rate.premium.ap.npc", defaultValue = "2")
+	public static float	PREMIUM_AP_NPC_RATE;
 }

@@ -31,9 +31,15 @@ public class RegularRates extends Rates
 	}
 
 	@Override
-	public float getApRate()
+	public float getApNpcRate()
 	{
-		return RateConfig.AP_RATE;
+		return RateConfig.AP_NPC_RATE;
+	}
+	
+	@Override
+	public float getApPlayerRate()
+	{
+		return RateConfig.AP_PLAYER_RATE;
 	}
 
 	@Override

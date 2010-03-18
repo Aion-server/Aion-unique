@@ -107,7 +107,7 @@ public class StatFunctions
 		int playerLevel = player.getCommonData().getLevel();
 		int targetLevel = target.getLevel();								
 		int percentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
-		return (int) Math.floor(10 * percentage * player.getRates().getApRate() / 100);
+		return (int) Math.floor(10 * percentage * player.getRates().getApNpcRate() / 100);
 	}
 
 	public static int calculateGroupDPReward(Player player, Creature target)

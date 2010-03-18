@@ -42,8 +42,8 @@ public class AbyssService
 	 */
 	public void doReward(Player victim, Player winner)
 	{
-		int pointsLost = Math.round(victim.getAbyssRank().getRank().getPointsLost() * victim.getRates().getApRate());
-		int pointsGained = Math.round(victim.getAbyssRank().getRank().getPointsGained() * winner.getRates().getApRate());
+		int pointsLost = Math.round(victim.getAbyssRank().getRank().getPointsLost() * victim.getRates().getApPlayerRate());
+		int pointsGained = Math.round(victim.getAbyssRank().getRank().getPointsGained() * winner.getRates().getApPlayerRate());
 		
 		victim.getAbyssRank().addAp(-pointsLost);
 		PacketSendUtility.broadcastPacket(victim, new SM_ABYSS_RANK_UPDATE(victim));

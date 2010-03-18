@@ -25,9 +25,15 @@ import com.aionemu.gameserver.configs.main.RateConfig;
 public class PremiumRates extends Rates
 {
 	@Override
-	public float getApRate()
+	public float getApNpcRate()
 	{
-		return RateConfig.PREMIUM_AP_RATE;
+		return RateConfig.PREMIUM_AP_NPC_RATE;
+	}
+	
+	@Override
+	public float getApPlayerRate()
+	{
+		return RateConfig.PREMIUM_AP_PLAYER_RATE;
 	}
 
 	@Override
