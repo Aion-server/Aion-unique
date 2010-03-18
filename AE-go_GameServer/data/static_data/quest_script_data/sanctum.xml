@@ -28,8 +28,8 @@
 	<!-- Delivery for the Outer Port -->
 	<report_to id="1963" start_npc_id="203726" end_npc_id="203726"/>
 	
-	<!-- Krallic Language Potion -->
-	<report_to id="1901" start_npc_id="798026" end_npc_id="203864"/>
+	<!-- Krallic Language Potion handled by script-->
+	
 	
 	<!-- TODO: Ulaguru Speaks -->
 
