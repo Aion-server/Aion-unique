@@ -265,7 +265,6 @@ CREATE TABLE IF NOT EXISTS `legions` (
 
 CREATE TABLE IF NOT EXISTS `legion_announcement_list` (
   `legion_id` int(11) NOT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `announcement` varchar(120) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
