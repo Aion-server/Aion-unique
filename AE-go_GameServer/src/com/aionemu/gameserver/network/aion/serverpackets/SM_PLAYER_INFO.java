@@ -217,7 +217,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeF(buf, 2.0f); // gravity or slide surface o_O
 		writeF(buf, player.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000f); // move speed
 
-		writeH(buf, player.getGameStats().getCurrentStat(StatEnum.ATTACK_SPEED));
+		writeH(buf, player.getGameStats().getBaseStat(StatEnum.ATTACK_SPEED));
 		writeH(buf, player.getGameStats().getCurrentStat(StatEnum.ATTACK_SPEED));
 		writeC(buf, 0);
 

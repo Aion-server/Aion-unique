@@ -19,6 +19,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import com.aionemu.gameserver.model.gameobjects.player.Equipment;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -73,6 +74,8 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 		{
 			PacketSendUtility.broadcastPacket(activePlayer, new SM_UPDATE_PLAYER_APPEARANCE(activePlayer.getObjectId(),
 				equipment.getEquippedItems()), true);
+			
+			PacketSendUtility.sendPacket(activePlayer, new SM_EMOTION(activePlayer, 30, 0, 0));
 		}
 
 	}

@@ -81,7 +81,7 @@ public class CreatureGameStats<T extends Creature>
 		initStat(StatEnum.BLOCK, Math.round(agility * 3.1f - 248.5f + 12.4f * (int)owner.getLevel()));
 		initStat(StatEnum.DAMAGE_REDUCE, 0);
 		initStat(StatEnum.MAIN_HAND_ACCURACY, Math.round((accuracy * 2 - 10) + 8 * (int)owner.getLevel()));
-		initStat(StatEnum.OFF_HAND_ACCURACY, 0);
+		initStat(StatEnum.OFF_HAND_ACCURACY, Math.round((accuracy * 2 - 10) + 8 * (int)owner.getLevel()));
 		initStat(StatEnum.MAGICAL_RESIST, 0);
 		initStat(StatEnum.WIND_RESISTANCE, 0);
 		initStat(StatEnum.FIRE_RESISTANCE, 0);
