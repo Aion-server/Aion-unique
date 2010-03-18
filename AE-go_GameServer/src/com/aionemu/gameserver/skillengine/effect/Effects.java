@@ -92,6 +92,7 @@ public class Effects
 		@XmlElement(name = "paralyze", type = ParalyzeEffect.class),
 		@XmlElement(name = "confuse", type = ConfuseEffect.class),
 		@XmlElement(name = "dispeldebuffphysical", type = DispelDebuffPhysicalEffect.class),
+		@XmlElement(name = "dispeldebuffmental", type = DispelDebuffMentalEffect.class),
 		@XmlElement(name = "dispeldebuff", type = DispelDebuffEffect.class),
 		@XmlElement(name = "alwaysdodge", type = AlwaysDodgeEffect.class),
 		@XmlElement(name = "alwaysparry", type = AlwaysParryEffect.class),

@@ -878,6 +878,7 @@
 	<xs:complexType name="DispelDebuffMentalEffect">
 		<xs:complexContent>
 			<xs:extension base="Effect">
+				<xs:attribute name="value" type="xs:int" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
