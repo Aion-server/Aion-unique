@@ -264,6 +264,7 @@ public class SM_EMOTION extends AionServerPacket
 				writeH(buf, state);
 				writeF(buf, speed);
 				writeH(buf, attackSpeed);
+				writeH(buf, attackSpeed);
 				break;
 			case 31:
 				// powershard on

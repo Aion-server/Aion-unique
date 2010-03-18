@@ -41,13 +41,14 @@ public enum SpellStatus
 	OPENAERIAL(4), 
 	CLOSEAERIAL(8),
 	SPIN(16);
-	
+
 	private int id;
 
 	private SpellStatus(int id)
 	{
 		this.id = id;
 	}
+
 	/**
 	 * @return the id
 	 */
@@ -55,7 +56,4 @@ public enum SpellStatus
 	{
 		return id;
 	}
-	
-	
-
 }
