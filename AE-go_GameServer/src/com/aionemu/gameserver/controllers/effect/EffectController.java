@@ -28,6 +28,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_EFFECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
 import com.aionemu.gameserver.skillengine.effect.EffectId;
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.skillengine.model.SkillType;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
@@ -210,6 +211,32 @@ public class EffectController
 	}
 	
 	/**
+	 * @param skillType
+	 * @param value
+	 */
+	public void removeEffectBySkillType(SkillType skillType, int value)
+	{
+		for(Effect effect : abnormalEffectMap.values())
+		{
+			if(value == 0)
+				break;
+			
+			if(effect.getSkillType() == skillType)
+			{
+				effect.endEffect();
+				abnormalEffectMap.remove(effect.getStack());
+				value--;
+			}
+		}
+		
+		broadCastEffects();
+		if(owner instanceof Player)
+		{
+			updatePlayerEffectIcons();
+		}
+	}
+	
+	/**
 	 * Removes the effect by skillid.
 	 * 
 	 * @param skillid
@@ -331,5 +358,4 @@ public class EffectController
 	{
 		return abnormalEffectMap.values().iterator();
 	}
-
 }

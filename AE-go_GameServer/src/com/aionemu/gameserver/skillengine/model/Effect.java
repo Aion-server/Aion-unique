@@ -136,6 +136,15 @@ public class Effect
 	{
 		return skillTemplate.getLvl();
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public SkillType getSkillType()
+	{
+		return skillTemplate.getType();
+	}
 
 	/**
 	 * @return the duration
