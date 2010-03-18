@@ -272,6 +272,7 @@ public class _1006Ascension extends QuestHandler
 									{
 										// TODO: Tempt decrease P attack.
 										mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER) / 3);
+										mob.getGameStats().setStat(StatEnum.PHYSICAL_DEFENSE, 0);
 										mob.getAggroList().addDamageHate(player, 1000, 0);
 										mob.getAi().handleEvent(Event.ATTACKED);
 									}
