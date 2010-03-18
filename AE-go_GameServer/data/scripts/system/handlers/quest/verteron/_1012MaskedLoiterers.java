@@ -148,8 +148,6 @@ public class _1012MaskedLoiterers extends QuestHandler
 		env.setQuestId(questId);
 		qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 		updateQuestStatus(player, qs);
-		PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject()
-		.getObjectId(), 10));
 		return true;
 	}
 }
