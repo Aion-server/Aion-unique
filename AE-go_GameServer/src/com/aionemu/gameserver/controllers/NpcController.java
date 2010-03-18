@@ -90,7 +90,7 @@ public class NpcController extends CreatureController<Npc>
 		Npc owner = getOwner();
 		owner.unsetState(CreatureState.DEAD);
 		owner.setState(CreatureState.NPC_IDLE);
-		owner.getLifeStats().synchronizeWithMaxStats();
+		owner.getLifeStats().setCurrentHpPercent(100);
 		owner.getAggroList().clear();
 
 		if(owner.getAi() != null)

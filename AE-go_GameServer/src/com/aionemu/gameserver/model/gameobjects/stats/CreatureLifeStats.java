@@ -391,11 +391,13 @@ public abstract class CreatureLifeStats<T extends Creature>
 	}
 	
 	/**
+	 * This method can be used for Npc's to fully restore its HP
+	 * and remove dead state of lifestats
+	 * 
 	 * @param hpPercent
 	 */
 	public void setCurrentHpPercent(int hpPercent)
 	{
-		
 		hpLock.lock();
 		try
 		{
@@ -416,7 +418,6 @@ public abstract class CreatureLifeStats<T extends Creature>
 	 */
 	public void setCurrentHp(int hp)
 	{
-		
 		hpLock.lock();
 		try
 		{
