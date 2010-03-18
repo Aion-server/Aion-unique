@@ -24,6 +24,7 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.GatherableData;
 import com.aionemu.gameserver.dataholders.GoodsListData;
 import com.aionemu.gameserver.dataholders.ItemData;
+import com.aionemu.gameserver.dataholders.ItemSetData;
 import com.aionemu.gameserver.dataholders.NpcData;
 import com.aionemu.gameserver.dataholders.PlayerExperienceTable;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
@@ -259,5 +260,11 @@ public class DataInjectionModule extends AbstractModule
 	PortalData providePortalData(DataManager datamanager)
 	{
 		return datamanager.PORTAL_DATA;
+	}
+	
+	@Provides
+	ItemSetData provideItemSetData(DataManager datamanager)
+	{
+		return datamanager.ITEM_SET_DATA;
 	}
 }

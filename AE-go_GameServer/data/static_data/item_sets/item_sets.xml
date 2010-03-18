@@ -1,0 +1,2920 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<item_sets>
+    <itemset id="1" name="Cloth Armor Set (Test)">
+        <itempart itemid="110100919"/>
+        <itempart itemid="113100831"/>
+        <itempart itemid="112100781"/>
+        <itempart itemid="111100823"/>
+        <itempart itemid="114100859"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="100" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="100" bonus="true"/>
+                <add name="MAXMP" value="100" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="ATTACK_SPEED" value="-8" bonus="true"/>
+                <rate name="SPEED" value="10" bonus="true"/>
+                <rate name="FLY_SPEED" value="6" bonus="true"/>
+                <add name="MAXHP" value="500" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="2" name="Sword Shield Set (Test)">
+        <itempart itemid="100000714"/>
+        <itempart itemid="115000817"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAXHP" value="100" bonus="true"/>
+                <add name="MAXMP" value="100" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAXHP" value="100" bonus="true"/>
+                <add name="MAXMP" value="100" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="3" name="Twin Earrings Set (Test)">
+        <itempart itemid="120000878"/>
+        <itempart itemid="120000879"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="25" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="45" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="100" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="POISON_RESISTANCE" value="500" bonus="true"/>
+                <add name="SLEEP_RESISTANCE" value="500" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="4" name="Belt Necklace Ring Set 1 (Test)">
+        <itempart itemid="123000911"/>
+        <itempart itemid="121000798"/>
+        <itempart itemid="122000919"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_CRITICAL" value="100" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="100" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="5" name="Belt Necklace Ring Set 2 (Test)">
+        <itempart itemid="123000912"/>
+        <itempart itemid="121000799"/>
+        <itempart itemid="122000920"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="50" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="50" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="100" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="6" name="Wise Cloth Set">
+        <itempart itemid="110100931"/>
+        <itempart itemid="113100843"/>
+        <itempart itemid="112100790"/>
+        <itempart itemid="111100831"/>
+        <itempart itemid="114100866"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="24" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="21" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+                <add name="MAXMP" value="150" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+                <add name="MAXMP" value="201" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="24" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="20" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="22" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="22" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+                <add name="MAXMP" value="150" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="262" bonus="true"/>
+                <add name="MAXMP" value="236" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="26" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="12" bonus="true"/>
+                <add name="FLY_TIME" value="28" bonus="true"/>
+                <add name="EVASION" value="99" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="7" name="Flash Leather Set">
+        <itempart itemid="110300881"/>
+        <itempart itemid="113300860"/>
+        <itempart itemid="112300784"/>
+        <itempart itemid="111300834"/>
+        <itempart itemid="114300893"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="21" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="45" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+                <add name="MAXMP" value="201" bonus="true"/>
+                <add name="EVASION" value="24" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="32" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="22" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="44" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="262" bonus="true"/>
+                <add name="MAXMP" value="236" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="12" bonus="true"/>
+                <add name="FLY_TIME" value="28" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="125" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="8" name="Mercy Chain Set">
+        <itempart itemid="110500849"/>
+        <itempart itemid="113500827"/>
+        <itempart itemid="112500774"/>
+        <itempart itemid="111500821"/>
+        <itempart itemid="114500837"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="21" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="54" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+                <add name="MAXMP" value="201" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="24" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="10" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="23" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="55" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="262" bonus="true"/>
+                <add name="MAXMP" value="236" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="26" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="40" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="12" bonus="true"/>
+                <add name="FLY_TIME" value="28" bonus="true"/>
+                <add name="MAGICAL_RESIST" value="67" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="9" name="Courage Plate Set">
+        <itempart itemid="110600834"/>
+        <itempart itemid="113600800"/>
+        <itempart itemid="112600785"/>
+        <itempart itemid="111600813"/>
+        <itempart itemid="114600794"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="24" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="66" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+                <add name="MAXMP" value="201" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="30" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="8" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="22" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="66" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="262" bonus="true"/>
+                <add name="MAXMP" value="236" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="35" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="12" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="12" bonus="true"/>
+                <add name="FLY_TIME" value="28" bonus="true"/>
+                <add name="PARRY" value="162" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="10" name="Wise Cloth Set">
+        <itempart itemid="110100932"/>
+        <itempart itemid="113100844"/>
+        <itempart itemid="112100791"/>
+        <itempart itemid="111100832"/>
+        <itempart itemid="114100867"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="24" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="21" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+                <add name="MAXMP" value="150" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+                <add name="MAXMP" value="201" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="24" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="20" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="22" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="22" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+                <add name="MAXMP" value="150" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="262" bonus="true"/>
+                <add name="MAXMP" value="236" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="26" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="12" bonus="true"/>
+                <add name="FLY_TIME" value="28" bonus="true"/>
+                <add name="EVASION" value="99" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="11" name="Flash Leather Set">
+        <itempart itemid="110300882"/>
+        <itempart itemid="113300861"/>
+        <itempart itemid="112300785"/>
+        <itempart itemid="111300835"/>
+        <itempart itemid="114300894"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="21" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="45" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+                <add name="MAXMP" value="201" bonus="true"/>
+                <add name="EVASION" value="24" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="32" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="22" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="44" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="262" bonus="true"/>
+                <add name="MAXMP" value="236" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="12" bonus="true"/>
+                <add name="FLY_TIME" value="28" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="125" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="12" name="Mercy Chain Set">
+        <itempart itemid="110500850"/>
+        <itempart itemid="113500828"/>
+        <itempart itemid="112500775"/>
+        <itempart itemid="111500822"/>
+        <itempart itemid="114500838"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="21" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="54" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+                <add name="MAXMP" value="201" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="24" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="10" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="23" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="55" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="262" bonus="true"/>
+                <add name="MAXMP" value="236" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="26" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="40" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="12" bonus="true"/>
+                <add name="FLY_TIME" value="28" bonus="true"/>
+                <add name="MAGICAL_RESIST" value="67" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="13" name="Courage Plate Set">
+        <itempart itemid="110600835"/>
+        <itempart itemid="113600801"/>
+        <itempart itemid="112600786"/>
+        <itempart itemid="111600814"/>
+        <itempart itemid="114600795"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="24" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="66" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+                <add name="MAXMP" value="201" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="30" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="8" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="22" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="66" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="262" bonus="true"/>
+                <add name="MAXMP" value="236" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="35" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="12" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="12" bonus="true"/>
+                <add name="FLY_TIME" value="28" bonus="true"/>
+                <add name="PARRY" value="162" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="14" name="Miragent Cloth Set">
+        <itempart itemid="110100917"/>
+        <itempart itemid="113100829"/>
+        <itempart itemid="112100779"/>
+        <itempart itemid="111100821"/>
+        <itempart itemid="114100857"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="21" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="24" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+                <add name="MAXMP" value="240" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="312" bonus="true"/>
+                <add name="MAXMP" value="282" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="33" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="36" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="22" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="23" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+                <add name="MAXMP" value="240" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="366" bonus="true"/>
+                <add name="MAXMP" value="330" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="37" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="54" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="22" bonus="true"/>
+                <add name="FLY_TIME" value="42" bonus="true"/>
+                <add name="EVASION" value="177" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="15" name="Miragent Leather Set">
+        <itempart itemid="110300872"/>
+        <itempart itemid="113300847"/>
+        <itempart itemid="112300776"/>
+        <itempart itemid="111300825"/>
+        <itempart itemid="114300883"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="24" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="45" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="312" bonus="true"/>
+                <add name="MAXMP" value="282" bonus="true"/>
+                <add name="EVASION" value="33" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="23" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="45" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="366" bonus="true"/>
+                <add name="MAXMP" value="330" bonus="true"/>
+                <add name="EVASION" value="38" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="72" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="22" bonus="true"/>
+                <add name="FLY_TIME" value="42" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="223" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="16" name="Miragent Chain Set">
+        <itempart itemid="110500842"/>
+        <itempart itemid="113500818"/>
+        <itempart itemid="112500764"/>
+        <itempart itemid="111500808"/>
+        <itempart itemid="114500829"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="24" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="54" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="312" bonus="true"/>
+                <add name="MAXMP" value="282" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="33" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="15" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="23" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="56" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="366" bonus="true"/>
+                <add name="MAXMP" value="330" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="37" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="60" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="22" bonus="true"/>
+                <add name="FLY_TIME" value="42" bonus="true"/>
+                <add name="MAGICAL_RESIST" value="123" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="17" name="Miragent Plate Set">
+        <itempart itemid="110600827"/>
+        <itempart itemid="113600791"/>
+        <itempart itemid="112600775"/>
+        <itempart itemid="111600800"/>
+        <itempart itemid="114600786"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="21" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="66" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="312" bonus="true"/>
+                <add name="MAXMP" value="282" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="42" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="12" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="22" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="67" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="366" bonus="true"/>
+                <add name="MAXMP" value="330" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="49" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="18" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="22" bonus="true"/>
+                <add name="FLY_TIME" value="42" bonus="true"/>
+                <add name="PARRY" value="286" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="18" name="Fenris Cloth Set">
+        <itempart itemid="110100918"/>
+        <itempart itemid="113100830"/>
+        <itempart itemid="112100780"/>
+        <itempart itemid="111100822"/>
+        <itempart itemid="114100858"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="21" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="24" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+                <add name="MAXMP" value="240" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="312" bonus="true"/>
+                <add name="MAXMP" value="282" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="33" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="36" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="22" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="23" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+                <add name="MAXMP" value="240" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="366" bonus="true"/>
+                <add name="MAXMP" value="330" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="37" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="54" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="22" bonus="true"/>
+                <add name="FLY_TIME" value="42" bonus="true"/>
+                <add name="EVASION" value="177" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="19" name="Fenris Leather Set">
+        <itempart itemid="110300873"/>
+        <itempart itemid="113300848"/>
+        <itempart itemid="112300777"/>
+        <itempart itemid="111300826"/>
+        <itempart itemid="114300884"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="24" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="45" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="312" bonus="true"/>
+                <add name="MAXMP" value="282" bonus="true"/>
+                <add name="EVASION" value="33" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="23" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="45" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="366" bonus="true"/>
+                <add name="MAXMP" value="330" bonus="true"/>
+                <add name="EVASION" value="38" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="72" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="22" bonus="true"/>
+                <add name="FLY_TIME" value="42" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="223" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="20" name="Fenris Chain Set">
+        <itempart itemid="110500843"/>
+        <itempart itemid="113500819"/>
+        <itempart itemid="112500765"/>
+        <itempart itemid="111500809"/>
+        <itempart itemid="114500830"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="24" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="54" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="312" bonus="true"/>
+                <add name="MAXMP" value="282" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="33" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="15" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="23" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="56" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="366" bonus="true"/>
+                <add name="MAXMP" value="330" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="37" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="60" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="22" bonus="true"/>
+                <add name="FLY_TIME" value="42" bonus="true"/>
+                <add name="MAGICAL_RESIST" value="123" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="21" name="Fenris Plate Set">
+        <itempart itemid="110600828"/>
+        <itempart itemid="113600792"/>
+        <itempart itemid="112600776"/>
+        <itempart itemid="111600801"/>
+        <itempart itemid="114600787"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="21" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="66" bonus="true"/>
+                <add name="EVASION" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="312" bonus="true"/>
+                <add name="MAXMP" value="282" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="42" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="12" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="4">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="22" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="67" bonus="true"/>
+                <add name="EVASION" value="28" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="366" bonus="true"/>
+                <add name="MAXMP" value="330" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="49" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="18" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="22" bonus="true"/>
+                <add name="FLY_TIME" value="42" bonus="true"/>
+                <add name="PARRY" value="286" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="22" name="Theobomos Cloth Set">
+        <itempart itemid="110100915"/>
+        <itempart itemid="113100827"/>
+        <itempart itemid="112100777"/>
+        <itempart itemid="111100819"/>
+        <itempart itemid="114100855"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="45" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="52" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="17" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="21" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="23" name="Theobomos Leather Set">
+        <itempart itemid="110300870"/>
+        <itempart itemid="113300845"/>
+        <itempart itemid="112300774"/>
+        <itempart itemid="111300823"/>
+        <itempart itemid="114300881"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="EVASION" value="33" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="EVASION" value="44" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="17" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="24" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="24" name="Theobomos Chain Set">
+        <itempart itemid="110500840"/>
+        <itempart itemid="113500816"/>
+        <itempart itemid="112500762"/>
+        <itempart itemid="111500806"/>
+        <itempart itemid="114500827"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="PHYSICAL_DEFENSE" value="60" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_DEFENSE" value="69" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="17" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="6" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="25" name="Theobomos Plate Set">
+        <itempart itemid="110600825"/>
+        <itempart itemid="113600789"/>
+        <itempart itemid="112600773"/>
+        <itempart itemid="111600798"/>
+        <itempart itemid="114600784"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="PARRY" value="69" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BLOCK" value="85" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="17" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="24" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="26" name="Brusthonin Cloth Set">
+        <itempart itemid="110100916"/>
+        <itempart itemid="113100828"/>
+        <itempart itemid="112100778"/>
+        <itempart itemid="111100820"/>
+        <itempart itemid="114100856"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="45" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="52" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="17" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="21" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="27" name="Brusthonin Leather Set">
+        <itempart itemid="110300871"/>
+        <itempart itemid="113300846"/>
+        <itempart itemid="112300775"/>
+        <itempart itemid="111300824"/>
+        <itempart itemid="114300882"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="EVASION" value="33" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="EVASION" value="44" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="17" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="24" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="28" name="Brusthonin Chain Set">
+        <itempart itemid="110500841"/>
+        <itempart itemid="113500817"/>
+        <itempart itemid="112500763"/>
+        <itempart itemid="111500807"/>
+        <itempart itemid="114500828"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="PHYSICAL_DEFENSE" value="60" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_DEFENSE" value="69" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="17" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="6" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="29" name="Brusthonin Plate Set">
+        <itempart itemid="110600826"/>
+        <itempart itemid="113600790"/>
+        <itempart itemid="112600774"/>
+        <itempart itemid="111600799"/>
+        <itempart itemid="114600785"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="PARRY" value="69" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BLOCK" value="85" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="17" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="24" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="30" name="Nagolem's Plate Set">
+        <itempart itemid="112600788"/>
+        <itempart itemid="111600807"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="BLOCK" value="66" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="31" name="Hornskull's Leather Set">
+        <itempart itemid="113300851"/>
+        <itempart itemid="114300886"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAXHP" value="201" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="32" name="Hornskull's Chain Set">
+        <itempart itemid="112500777"/>
+        <itempart itemid="111500824"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAXHP" value="160" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="33" name="Gust Cloth Set">
+        <itempart itemid="113100834"/>
+        <itempart itemid="114100870"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="EVASION" value="24" bonus="true"/>
+                <rate name="SPEED" value="22" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="34" name="Gust Leather Set">
+        <itempart itemid="123000916"/>
+        <itempart itemid="125001936"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="EVASION" value="16" bonus="true"/>
+                <rate name="FLY_SPEED" value="8" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="35" name="Vines Cloth Set">
+        <itempart itemid="123000914"/>
+        <itempart itemid="125001934"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAXMP" value="241" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="36" name="Fang Accessory Set">
+        <itempart itemid="120000883"/>
+        <itempart itemid="122000932"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="37" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="37" name="Corruption Chain Set">
+        <itempart itemid="112500767"/>
+        <itempart itemid="111500826"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAXHP" value="168" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="38" name="Corruption Cloth Set">
+        <itempart itemid="112100783"/>
+        <itempart itemid="111100835"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAXHP" value="168" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="39" name="Charge Plate Set">
+        <itempart itemid="113600803"/>
+        <itempart itemid="114600797"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="PARRY" value="49" bonus="true"/>
+                <rate name="SPEED" value="22" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="40" name="Charge Accessory Set">
+        <itempart itemid="121000803"/>
+        <itempart itemid="125001932"/>
+        <partbonus count="2">
+            <modifiers>
+                <rate name="FLY_SPEED" value="8" bonus="true"/>
+                <add name="MAGICAL_RESIST" value="30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="41" name="Mud Leather Set">
+        <itempart itemid="113300853"/>
+        <itempart itemid="114300888"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="EVASION" value="23" bonus="true"/>
+                <rate name="SPEED" value="22" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="42" name="Dionae's Accessory Set">
+        <itempart itemid="123000920"/>
+        <itempart itemid="120000887"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="MAXMP" value="200" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="43" name="Clandestine Cloth Set">
+        <itempart itemid="110100938"/>
+        <itempart itemid="113100846"/>
+        <itempart itemid="112100793"/>
+        <itempart itemid="111100836"/>
+        <itempart itemid="114100871"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="189" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="221" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="18" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="22" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="44" name="Clandestine Leather Set">
+        <itempart itemid="110300886"/>
+        <itempart itemid="113300863"/>
+        <itempart itemid="112300787"/>
+        <itempart itemid="111300837"/>
+        <itempart itemid="114300896"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="189" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="221" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="18" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="25" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="45" name="Clandestine Chain Set">
+        <itempart itemid="110500853"/>
+        <itempart itemid="113500829"/>
+        <itempart itemid="112500778"/>
+        <itempart itemid="111500827"/>
+        <itempart itemid="114500839"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="189" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="221" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="18" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="7" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="46" name="Clandestine Plate Set">
+        <itempart itemid="110600838"/>
+        <itempart itemid="113600804"/>
+        <itempart itemid="112600789"/>
+        <itempart itemid="111600815"/>
+        <itempart itemid="114600798"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="189" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="221" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="18" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="25" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="47" name="Berserk Spirit's Cloth Set">
+        <itempart itemid="110100946"/>
+        <itempart itemid="113100854"/>
+        <itempart itemid="112100801"/>
+        <itempart itemid="111100844"/>
+        <itempart itemid="114100879"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="252" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="295" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="30" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="42" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="48" name="Berserk Spirit's Leather Set">
+        <itempart itemid="110300894"/>
+        <itempart itemid="113300871"/>
+        <itempart itemid="112300795"/>
+        <itempart itemid="111300845"/>
+        <itempart itemid="114300904"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="252" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="295" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="33" bonus="true"/>
+                <add name="EVASION" value="33" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="49" name="Berserk Spirit's Chain Set">
+        <itempart itemid="110500861"/>
+        <itempart itemid="113500837"/>
+        <itempart itemid="112500786"/>
+        <itempart itemid="111500835"/>
+        <itempart itemid="114500847"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="252" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="295" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="33" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="42" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="50" name="Berserk Spirit's Plate Set">
+        <itempart itemid="110600846"/>
+        <itempart itemid="113600812"/>
+        <itempart itemid="112600797"/>
+        <itempart itemid="111600823"/>
+        <itempart itemid="114600806"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="252" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="295" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="9" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="55" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="51" name="Ancient Spirit's Ruby Set">
+        <itempart itemid="121000810"/>
+        <itempart itemid="120000896"/>
+        <itempart itemid="122001033"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="379" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="STUN_RESISTANCE" value="250" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="52" name="Ancient Spirit's Sapphire Set">
+        <itempart itemid="121000811"/>
+        <itempart itemid="120000897"/>
+        <itempart itemid="122001034"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="379" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="STUMBLE_RESISTANCE" value="250" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="53" name="Ancient Spirit's Diamond Set">
+        <itempart itemid="121000812"/>
+        <itempart itemid="120000898"/>
+        <itempart itemid="122001035"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="379" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="STAGGER_RESISTANCE" value="250" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="54" name="Adma Guard's Cloth Set">
+        <itempart itemid="110100939"/>
+        <itempart itemid="113100847"/>
+        <itempart itemid="112100794"/>
+        <itempart itemid="111100837"/>
+        <itempart itemid="114100872"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="189" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="221" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="18" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="22" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="55" name="Adma Guard's Leather Set">
+        <itempart itemid="110300887"/>
+        <itempart itemid="113300864"/>
+        <itempart itemid="112300788"/>
+        <itempart itemid="111300838"/>
+        <itempart itemid="114300897"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="189" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="221" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="18" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="25" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="56" name="Adma Guard's Chain Set">
+        <itempart itemid="110500854"/>
+        <itempart itemid="113500830"/>
+        <itempart itemid="112500779"/>
+        <itempart itemid="111500828"/>
+        <itempart itemid="114500840"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="189" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="221" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="18" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="7" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="57" name="Adma Guard's Plate Set">
+        <itempart itemid="110600839"/>
+        <itempart itemid="113600805"/>
+        <itempart itemid="112600790"/>
+        <itempart itemid="111600816"/>
+        <itempart itemid="114600799"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="189" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="221" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="18" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="25" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="58" name="Adma Elite's Cloth Set">
+        <itempart itemid="110100947"/>
+        <itempart itemid="113100855"/>
+        <itempart itemid="112100802"/>
+        <itempart itemid="111100845"/>
+        <itempart itemid="114100880"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="252" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="295" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="30" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="42" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="59" name="Adma Elite's Leather Set">
+        <itempart itemid="110300895"/>
+        <itempart itemid="113300872"/>
+        <itempart itemid="112300796"/>
+        <itempart itemid="111300846"/>
+        <itempart itemid="114300905"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="252" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="295" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="33" bonus="true"/>
+                <add name="EVASION" value="33" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="60" name="Adma Elite's Chain Set">
+        <itempart itemid="110500862"/>
+        <itempart itemid="113500838"/>
+        <itempart itemid="112500787"/>
+        <itempart itemid="111500836"/>
+        <itempart itemid="114500848"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="252" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="295" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="33" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="42" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="61" name="Adma Elite's Plate Set">
+        <itempart itemid="110600847"/>
+        <itempart itemid="113600813"/>
+        <itempart itemid="112600798"/>
+        <itempart itemid="111600824"/>
+        <itempart itemid="114600807"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="252" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="295" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="9" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="55" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="62" name="Lonely Ruby Set">
+        <itempart itemid="121000813"/>
+        <itempart itemid="120000899"/>
+        <itempart itemid="122001036"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="379" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="STUN_RESISTANCE" value="250" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="63" name="Lonely Sapphire Set">
+        <itempart itemid="121000814"/>
+        <itempart itemid="120000900"/>
+        <itempart itemid="122001037"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="379" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="STUMBLE_RESISTANCE" value="250" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="64" name="Lonely Diamond Set">
+        <itempart itemid="121000815"/>
+        <itempart itemid="120000901"/>
+        <itempart itemid="122001038"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="379" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="STAGGER_RESISTANCE" value="250" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="65" name="Anuhart Scale Sword Set">
+        <itempart itemid="100000765"/>
+        <itempart itemid="100000766"/>
+        <partbonus count="2">
+            <modifiers>
+                <rate name="ATTACK_SPEED" value="-19" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="52" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="66" name="Anuhart Dirk Set">
+        <itempart itemid="100200700"/>
+        <itempart itemid="100200701"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="60" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="67" name="Anuhart Azure Scale Sword Set">
+        <itempart itemid="100000767"/>
+        <itempart itemid="115000858"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="30" bonus="true"/>
+                <add name="MAXHP" value="211" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="68" name="Anuhart Warhammer Set">
+        <itempart itemid="100100580"/>
+        <itempart itemid="115000859"/>
+        <partbonus count="2">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="66" bonus="true"/>
+                <add name="MAXHP" value="211" bonus="true"/>
+            </modifiers>
+        </partbonus>
+    </itemset>
+    <itemset id="69" name="Anuhart Gladiator Set">
+        <itempart itemid="110600869"/>
+        <itempart itemid="113600834"/>
+        <itempart itemid="112600819"/>
+        <itempart itemid="111600845"/>
+        <itempart itemid="114600828"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="PHYSICAL_DEFENSE" value="155" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="12" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="BOOST_HATE" value="46" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="42" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="70" name="Anuhart Templar Set">
+        <itempart itemid="110600870"/>
+        <itempart itemid="113600835"/>
+        <itempart itemid="112600820"/>
+        <itempart itemid="111600846"/>
+        <itempart itemid="114600829"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="BLOCK" value="126" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="42" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="BOOST_HATE" value="82" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="93" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="71" name="Anuhart Assassin Set">
+        <itempart itemid="110300917"/>
+        <itempart itemid="113300893"/>
+        <itempart itemid="112300817"/>
+        <itempart itemid="111300867"/>
+        <itempart itemid="114300926"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="12" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="42" bonus="true"/>
+                <add name="MAGICAL_RESIST" value="66" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="72" name="Anuhart Ranger Set">
+        <itempart itemid="110300918"/>
+        <itempart itemid="113300894"/>
+        <itempart itemid="112300818"/>
+        <itempart itemid="111300868"/>
+        <itempart itemid="114300927"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="42" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_ACCURACY" value="93" bonus="true"/>
+                <add name="EVASION" value="72" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="73" name="Anuhart Cleric Set">
+        <itempart itemid="110500885"/>
+        <itempart itemid="113500859"/>
+        <itempart itemid="112500808"/>
+        <itempart itemid="111500857"/>
+        <itempart itemid="114500869"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="52" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="BOOST_HATE" value="-40" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="38" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="74" name="Anuhart Chanter Set">
+        <itempart itemid="110500886"/>
+        <itempart itemid="113500860"/>
+        <itempart itemid="112500809"/>
+        <itempart itemid="111500858"/>
+        <itempart itemid="114500870"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="42" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="BOOST_HATE" value="-40" bonus="true"/>
+                <add name="PHYSICAL_ATTACK" value="12" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="75" name="Anuhart Sorcerer Set">
+        <itempart itemid="110100972"/>
+        <itempart itemid="113100876"/>
+        <itempart itemid="112100823"/>
+        <itempart itemid="111100866"/>
+        <itempart itemid="114100901"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="91" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="52" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="38" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="76" name="Anuhart Spiritmaster Set">
+        <itempart itemid="110100973"/>
+        <itempart itemid="113100877"/>
+        <itempart itemid="112100824"/>
+        <itempart itemid="111100867"/>
+        <itempart itemid="114100902"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="66" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="52" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="38" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="77" name="Anuhart Legionary Plate Set">
+        <itempart itemid="110600868"/>
+        <itempart itemid="113600833"/>
+        <itempart itemid="112600818"/>
+        <itempart itemid="111600844"/>
+        <itempart itemid="114600827"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="PHYSICAL_DEFENSE" value="123" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="33" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="BOOST_HATE" value="36" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="74" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="78" name="Anuhart Legionary Leather Set">
+        <itempart itemid="110300916"/>
+        <itempart itemid="113300892"/>
+        <itempart itemid="112300816"/>
+        <itempart itemid="111300866"/>
+        <itempart itemid="114300925"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="PHYSICAL_DEFENSE" value="81" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="9" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="EVASION" value="57" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="74" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="79" name="Anuhart Legionary Chain Set">
+        <itempart itemid="110500884"/>
+        <itempart itemid="113500858"/>
+        <itempart itemid="112500807"/>
+        <itempart itemid="111500856"/>
+        <itempart itemid="114500868"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="67" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="9" bonus="true"/>
+                <rate name="BOOST_HATE" value="-18" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="80" name="Anuhart Legionary Cloth Set">
+        <itempart itemid="110100971"/>
+        <itempart itemid="113100875"/>
+        <itempart itemid="112100822"/>
+        <itempart itemid="111100865"/>
+        <itempart itemid="114100900"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="45" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="73" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="42" bonus="true"/>
+                <add name="MAGICAL_ACCURACY" value="30" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="81" name="Steel Beard Pirate Plate Set">
+        <itempart itemid="110600871"/>
+        <itempart itemid="113600836"/>
+        <itempart itemid="112600821"/>
+        <itempart itemid="111600847"/>
+        <itempart itemid="114600830"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="63" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <rate name="ATTACK_SPEED" value="-7" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PARRY" value="130" bonus="true"/>
+                <rate name="SPEED" value="22" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="82" name="Shulack Pirate Plate Set">
+        <itempart itemid="110600873"/>
+        <itempart itemid="113600838"/>
+        <itempart itemid="112600824"/>
+        <itempart itemid="111600850"/>
+        <itempart itemid="114600833"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="51" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="47" bonus="true"/>
+                <rate name="SPEED" value="21" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="83" name="Shulack Sailor Plate Set">
+        <itempart itemid="110600874"/>
+        <itempart itemid="113600839"/>
+        <itempart itemid="112600825"/>
+        <itempart itemid="111600851"/>
+        <itempart itemid="114600834"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="36" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="6" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_ACCURACY" value="50" bonus="true"/>
+                <add name="PHYSICAL_DEFENSE" value="65" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="84" name="Steel Beard Pirate Leather Set">
+        <itempart itemid="110300919"/>
+        <itempart itemid="113300895"/>
+        <itempart itemid="112300819"/>
+        <itempart itemid="111300869"/>
+        <itempart itemid="114300928"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="-30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <rate name="ATTACK_SPEED" value="-7" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="EVASION" value="65" bonus="true"/>
+                <rate name="SPEED" value="22" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="85" name="Shulack Pirate Leather Set">
+        <itempart itemid="110300921"/>
+        <itempart itemid="113300897"/>
+        <itempart itemid="112300822"/>
+        <itempart itemid="111300872"/>
+        <itempart itemid="114300931"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="-24" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="8" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <rate name="SPEED" value="21" bonus="true"/>
+                <add name="MAXHP" value="270" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="86" name="Shulack Sailor Leather Set">
+        <itempart itemid="110300922"/>
+        <itempart itemid="113300898"/>
+        <itempart itemid="112300823"/>
+        <itempart itemid="111300873"/>
+        <itempart itemid="114300932"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="-18" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAXHP" value="114" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="6" bonus="true"/>
+                <add name="EVASION" value="38" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="87" name="Steel Beard Pirate Chain Set">
+        <itempart itemid="110500887"/>
+        <itempart itemid="113500861"/>
+        <itempart itemid="112500810"/>
+        <itempart itemid="111500859"/>
+        <itempart itemid="114500871"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="-30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <rate name="ATTACK_SPEED" value="-7" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_DEFENSE" value="110" bonus="true"/>
+                <rate name="SPEED" value="22" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="88" name="Shulack Pirate Chain Set">
+        <itempart itemid="110500889"/>
+        <itempart itemid="113500863"/>
+        <itempart itemid="112500813"/>
+        <itempart itemid="111500862"/>
+        <itempart itemid="114500874"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="-24" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="38" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAXHP" value="270" bonus="true"/>
+                <rate name="SPEED" value="21" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="89" name="Shulack Sailor Chain Set">
+        <itempart itemid="110500890"/>
+        <itempart itemid="113500864"/>
+        <itempart itemid="112500814"/>
+        <itempart itemid="111500863"/>
+        <itempart itemid="114500875"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="-18" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="22" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAXHP" value="57" bonus="true"/>
+                <add name="MAGICAL_RESIST" value="35" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="90" name="Steel Beard Pirate Cloth Set">
+        <itempart itemid="110100974"/>
+        <itempart itemid="113100878"/>
+        <itempart itemid="112100825"/>
+        <itempart itemid="111100868"/>
+        <itempart itemid="114100903"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="-30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <rate name="ATTACK_SPEED" value="-7" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="60" bonus="true"/>
+                <rate name="SPEED" value="22" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="91" name="Shulack Pirate Cloth Set">
+        <itempart itemid="110100976"/>
+        <itempart itemid="113100880"/>
+        <itempart itemid="112100828"/>
+        <itempart itemid="111100871"/>
+        <itempart itemid="114100906"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="-24" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="27" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="67" bonus="true"/>
+                <rate name="SPEED" value="21" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="92" name="Shulack Sailor Cloth Set">
+        <itempart itemid="110100977"/>
+        <itempart itemid="113100881"/>
+        <itempart itemid="112100829"/>
+        <itempart itemid="111100872"/>
+        <itempart itemid="114100907"/>
+        <partbonus count="3">
+            <modifiers>
+                <rate name="BOOST_HATE" value="-18" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="49" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="28" bonus="true"/>
+                <add name="MAXHP" value="114" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="93" name="Elite Guardian Squad Leader's Cloth Set">
+        <itempart itemid="110100994"/>
+        <itempart itemid="113100900"/>
+        <itempart itemid="112100845"/>
+        <itempart itemid="111100887"/>
+        <itempart itemid="114100926"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="54" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="65" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="27" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="37" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="94" name="Elite Guardian Centurion's Cloth Set">
+        <itempart itemid="110100995"/>
+        <itempart itemid="113100901"/>
+        <itempart itemid="112100846"/>
+        <itempart itemid="111100888"/>
+        <itempart itemid="114100927"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="32" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="56" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="45" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="95" name="Elite Guardian Tribunus's Cloth Set">
+        <itempart itemid="110100986"/>
+        <itempart itemid="113100894"/>
+        <itempart itemid="112100838"/>
+        <itempart itemid="111100881"/>
+        <itempart itemid="114100920"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="78" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="91" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="38" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="52" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="96" name="Elite Guardian Squad Leader's Leather Set">
+        <itempart itemid="110300943"/>
+        <itempart itemid="113300913"/>
+        <itempart itemid="112300843"/>
+        <itempart itemid="111300892"/>
+        <itempart itemid="114300947"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAXHP" value="264" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="66" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="97" name="Elite Guardian Centurion's Leather Set">
+        <itempart itemid="110300944"/>
+        <itempart itemid="113300914"/>
+        <itempart itemid="112300844"/>
+        <itempart itemid="111300893"/>
+        <itempart itemid="114300948"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="10" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="56" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="80" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="98" name="Elite Guardian Tribunus's Leather Set">
+        <itempart itemid="110300935"/>
+        <itempart itemid="113300907"/>
+        <itempart itemid="112300836"/>
+        <itempart itemid="111300886"/>
+        <itempart itemid="114300941"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="42" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="12" bonus="true"/>
+                <add name="MAXHP" value="369" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="99" name="Elite Guardian Squad Leader's Chain Set">
+        <itempart itemid="110500911"/>
+        <itempart itemid="113500883"/>
+        <itempart itemid="112500830"/>
+        <itempart itemid="111500878"/>
+        <itempart itemid="114500890"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAXHP" value="264" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="37" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="100" name="Elite Guardian Centurion's Chain Set">
+        <itempart itemid="110500912"/>
+        <itempart itemid="113500884"/>
+        <itempart itemid="112500831"/>
+        <itempart itemid="111500879"/>
+        <itempart itemid="114500891"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="45" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="10" bonus="true"/>
+                <add name="MAGICAL_RESIST" value="56" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="101" name="Elite Guardian Tribunus's Chain Set">
+        <itempart itemid="110500903"/>
+        <itempart itemid="113500877"/>
+        <itempart itemid="112500823"/>
+        <itempart itemid="111500872"/>
+        <itempart itemid="114500884"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="38" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="42" bonus="true"/>
+                <add name="MAXHP" value="369" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="102" name="Elite Guardian Squad Leader's Plate Set">
+        <itempart itemid="110600891"/>
+        <itempart itemid="113600854"/>
+        <itempart itemid="112600845"/>
+        <itempart itemid="111600870"/>
+        <itempart itemid="114600849"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="8" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAXHP" value="264" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="66" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="103" name="Elite Guardian Centurion's Plate Set">
+        <itempart itemid="110600892"/>
+        <itempart itemid="113600855"/>
+        <itempart itemid="112600846"/>
+        <itempart itemid="111600871"/>
+        <itempart itemid="114600850"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="36" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="56" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="80" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="104" name="Elite Guardian Tribunus's Plate Set">
+        <itempart itemid="110600883"/>
+        <itempart itemid="113600848"/>
+        <itempart itemid="112600838"/>
+        <itempart itemid="111600864"/>
+        <itempart itemid="114600843"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="12" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAXHP" value="369" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="42" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="105" name="Dragon Flame Cloth Set">
+        <itempart itemid="110100970"/>
+        <itempart itemid="113100874"/>
+        <itempart itemid="112100821"/>
+        <itempart itemid="111100864"/>
+        <itempart itemid="114100899"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="106" name="Hellfire Cloth Set">
+        <itempart itemid="110100978"/>
+        <itempart itemid="113100882"/>
+        <itempart itemid="112100830"/>
+        <itempart itemid="111100873"/>
+        <itempart itemid="114100908"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="107" name="Hellfire Cloth Set">
+        <itempart itemid="110100979"/>
+        <itempart itemid="113100883"/>
+        <itempart itemid="112100831"/>
+        <itempart itemid="111100874"/>
+        <itempart itemid="114100909"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="108" name="Dragon Flame Leather Set">
+        <itempart itemid="110300915"/>
+        <itempart itemid="113300891"/>
+        <itempart itemid="112300815"/>
+        <itempart itemid="111300865"/>
+        <itempart itemid="114300924"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="109" name="Hellfire Leather Set">
+        <itempart itemid="110300923"/>
+        <itempart itemid="113300899"/>
+        <itempart itemid="112300824"/>
+        <itempart itemid="111300874"/>
+        <itempart itemid="114300933"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="110" name="Hellfire Leather Set">
+        <itempart itemid="110300924"/>
+        <itempart itemid="113300900"/>
+        <itempart itemid="112300825"/>
+        <itempart itemid="111300875"/>
+        <itempart itemid="114300934"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="111" name="Dragon Flame Chain Set">
+        <itempart itemid="110500883"/>
+        <itempart itemid="113500857"/>
+        <itempart itemid="112500806"/>
+        <itempart itemid="111500855"/>
+        <itempart itemid="114500867"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="112" name="Hellfire Chain Set">
+        <itempart itemid="110500891"/>
+        <itempart itemid="113500865"/>
+        <itempart itemid="112500815"/>
+        <itempart itemid="111500864"/>
+        <itempart itemid="114500876"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="113" name="Hellfire Chain Set">
+        <itempart itemid="110500892"/>
+        <itempart itemid="113500866"/>
+        <itempart itemid="112500816"/>
+        <itempart itemid="111500865"/>
+        <itempart itemid="114500877"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="114" name="Dragon Flame Plate Set">
+        <itempart itemid="110600867"/>
+        <itempart itemid="113600832"/>
+        <itempart itemid="112600817"/>
+        <itempart itemid="111600843"/>
+        <itempart itemid="114600826"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="115" name="Hellfire Plate Set">
+        <itempart itemid="110600875"/>
+        <itempart itemid="113600840"/>
+        <itempart itemid="112600826"/>
+        <itempart itemid="111600852"/>
+        <itempart itemid="114600835"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="116" name="Hellfire Plate Set">
+        <itempart itemid="110600876"/>
+        <itempart itemid="113600841"/>
+        <itempart itemid="112600827"/>
+        <itempart itemid="111600853"/>
+        <itempart itemid="114600836"/>
+        <partbonus count="5">
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="120" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="FIRE_RESISTANCE" value="200" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="117" name="Elite Archon Squad Leader's Cloth Set">
+        <itempart itemid="110100996"/>
+        <itempart itemid="113100902"/>
+        <itempart itemid="112100847"/>
+        <itempart itemid="111100889"/>
+        <itempart itemid="114100928"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="54" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="65" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="27" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="37" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="118" name="Elite Archon Centurion's Cloth Set">
+        <itempart itemid="110100997"/>
+        <itempart itemid="113100903"/>
+        <itempart itemid="112100848"/>
+        <itempart itemid="111100890"/>
+        <itempart itemid="114100929"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="32" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="56" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="45" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="119" name="Elite Archon Tribunus's Cloth Set">
+        <itempart itemid="110100989"/>
+        <itempart itemid="113100897"/>
+        <itempart itemid="112100841"/>
+        <itempart itemid="111100884"/>
+        <itempart itemid="114100923"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="78" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="91" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="38" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="52" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="120" name="Elite Archon Squad Leader's Leather Set">
+        <itempart itemid="110300945"/>
+        <itempart itemid="113300915"/>
+        <itempart itemid="112300845"/>
+        <itempart itemid="111300894"/>
+        <itempart itemid="114300949"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAXHP" value="264" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="66" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="121" name="Elite Archon Centurion's Leather Set">
+        <itempart itemid="110300946"/>
+        <itempart itemid="113300916"/>
+        <itempart itemid="112300846"/>
+        <itempart itemid="111300895"/>
+        <itempart itemid="114300950"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="10" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="56" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="80" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="122" name="Elite Archon Tribunus's Leather Set">
+        <itempart itemid="110300938"/>
+        <itempart itemid="113300910"/>
+        <itempart itemid="112300839"/>
+        <itempart itemid="111300889"/>
+        <itempart itemid="114300944"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="42" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="12" bonus="true"/>
+                <add name="MAXHP" value="369" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="123" name="Elite Archon Squad Leader's Chain Set">
+        <itempart itemid="110500913"/>
+        <itempart itemid="113500885"/>
+        <itempart itemid="112500832"/>
+        <itempart itemid="111500880"/>
+        <itempart itemid="114500892"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="30" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAXHP" value="264" bonus="true"/>
+                <add name="BOOST_MAGICAL_SKILL" value="37" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="124" name="Elite Archon Centurion's Chain Set">
+        <itempart itemid="110500914"/>
+        <itempart itemid="113500886"/>
+        <itempart itemid="112500833"/>
+        <itempart itemid="111500881"/>
+        <itempart itemid="114500893"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="BOOST_MAGICAL_SKILL" value="45" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="10" bonus="true"/>
+                <add name="MAGICAL_RESIST" value="56" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="125" name="Elite Archon Tribunus's Chain Set">
+        <itempart itemid="110500906"/>
+        <itempart itemid="113500880"/>
+        <itempart itemid="112500826"/>
+        <itempart itemid="111500875"/>
+        <itempart itemid="114500887"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="MAGICAL_ACCURACY" value="38" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="42" bonus="true"/>
+                <add name="MAXHP" value="369" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="126" name="Elite Archon Squad Leader's Plate Set">
+        <itempart itemid="110600893"/>
+        <itempart itemid="113600856"/>
+        <itempart itemid="112600847"/>
+        <itempart itemid="111600872"/>
+        <itempart itemid="114600851"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="225" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="8" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAXHP" value="264" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="66" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="127" name="Elite Archon Centurion's Plate Set">
+        <itempart itemid="110600894"/>
+        <itempart itemid="113600857"/>
+        <itempart itemid="112600848"/>
+        <itempart itemid="111600873"/>
+        <itempart itemid="114600852"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="48" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_CRITICAL" value="36" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAGICAL_RESIST" value="56" bonus="true"/>
+                <add name="PHYSICAL_ACCURACY" value="80" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+    <itemset id="128" name="Elite Archon Tribunus's Plate Set">
+        <itempart itemid="110600886"/>
+        <itempart itemid="113600851"/>
+        <itempart itemid="112600841"/>
+        <itempart itemid="111600867"/>
+        <itempart itemid="114600846"/>
+        <partbonus count="3">
+            <modifiers>
+                <add name="MAXHP" value="315" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <partbonus count="5">
+            <modifiers>
+                <add name="PHYSICAL_ATTACK" value="12" bonus="true"/>
+            </modifiers>
+        </partbonus>
+        <fullbonus>
+            <modifiers>
+                <add name="MAXHP" value="369" bonus="true"/>
+                <add name="PHYSICAL_CRITICAL" value="42" bonus="true"/>
+            </modifiers>
+        </fullbonus>
+    </itemset>
+</item_sets>

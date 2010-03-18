@@ -137,5 +137,9 @@
 	<portal_templates>
 		<import file="portals" skipRoot="true"/>
 	</portal_templates>
+	
+	<item_sets>
+		<import file="item_sets" skipRoot="true"/>
+	</item_sets>
 
 </ae_static_data>
