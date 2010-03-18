@@ -1213,4 +1213,12 @@ Reshanta -->
 		<object x="2568.14" y="1667.61" z="2910.04" h="0"/>
 		<object x="2490.32" y="1550.33" z="2949.38" h="0"/>
 	</spawn>
+	<!-- Obelisks(TeminonFortresss) -->
+	<spawn map="400010000" npcid="730071" pool="1" interval="105">
+		<object x="2984.6853" y="901.9103" z="1546.3339" h="0"/>
+	</spawn>
+	<!-- Obelisks(PrimumFortress) -->
+	<spawn map="400010000" npcid="700401" pool="1" interval="105">
+		<object x="928.667" y="3000.3533" z="1656.4113" h="0"/>
+	</spawn>
 </spawns>

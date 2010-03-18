@@ -59,4 +59,7 @@
 	<bind_point name="Settlers Campsite" npcid="700258" bindid="39" mapid="220050000" posX="2926.2" posY="2430.3" posZ="17.0" price="2970"/>
 	<bind_point name="Baltasar Hill Village" npcid="700259" bindid="40" mapid="220050000" posX="1387.0" posY="2021.7" posZ="51.5" price="22000"/>
 	<bind_point name="BuBu Village" npcid="700260" bindid="41" mapid="220050000" posX="446.8" posY="853.8" posZ="75.0" price="24750"/>
+	<!-- Reshanta -->
+	<bind_point name="TeminonFortresss" npcid="730071" bindid="43" mapid="400010000" posX="2986.6" posY="899.1" posZ="1545.5" price="30000"/>
+	<bind_point name="PrimumFortress" npcid="700401" bindid="44" mapid="400010000" posX="926.4" posY="3002.9" posZ="1655.3525" price="30000"/>
 </bind_points>
