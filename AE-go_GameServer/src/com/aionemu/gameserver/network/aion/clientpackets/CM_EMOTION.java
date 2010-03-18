@@ -150,8 +150,8 @@ public class CM_EMOTION extends AionClientPacket
 				player.unsetState(CreatureState.WEAPON_EQUIPPED);
 				break;
 			case 0x15:
-				// cannot toggle walk when you flying
-				if(player.isInState(CreatureState.FLYING))
+				// cannot toggle walk when you flying or gliding
+				if(player.getFlyState() > 0)
 					return;
 				player.setState(CreatureState.WALKING);
 				break;
