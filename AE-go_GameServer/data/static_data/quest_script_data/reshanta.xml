@@ -65,8 +65,11 @@
 
 	<!-- TODO: Quest Id: 2722  The Comforts of Home -->
 
-	<!-- TODO: Quest Id: 2743  Fallen Warrior -->
-
+   <!-- Quest Id: 2743  Fallen Warrior -->
+	<monster_hunt id="2743" start_npc_id="278089">
+		<monster_infos npc_id="253001" var_id="0" max_kill="10" />
+	</monster_hunt>
+		
 	<!-- TODO: Quest Id: 2741  Eerie Undead -->
 
 	<!-- TODO: Quest Id: 3701  [Group] Teach Them a Lesson -->
