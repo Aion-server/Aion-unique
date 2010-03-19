@@ -20,10 +20,15 @@ import com.aionemu.gameserver.configs.main.RateConfig;
 
 /**
  * @author ATracer
- *
  */
 public class RegularRates extends Rates
 {
+	@Override
+	public int getGroupXpRate()
+	{
+		return RateConfig.GROUPXP_RATE;
+	}
+
 	@Override
 	public int getDropRate()
 	{
@@ -35,7 +40,7 @@ public class RegularRates extends Rates
 	{
 		return RateConfig.AP_NPC_RATE;
 	}
-	
+
 	@Override
 	public float getApPlayerRate()
 	{

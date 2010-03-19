@@ -29,10 +29,16 @@ public class RateConfig
 	 */
 
 	/**
-	 * Group Xp Rate
+	 * Regular Group Xp Rate
 	 */
-	@Property(key = "gameserver.rate.group.xp", defaultValue = "1")
+	@Property(key = "gameserver.rate.regular.group.xp", defaultValue = "1")
 	public static int	GROUPXP_RATE;
+
+	/**
+	 * Premium Group Xp Rate
+	 */
+	@Property(key = "gameserver.rate.premium.group.xp", defaultValue = "2")
+	public static int	PREMIUM_GROUPXP_RATE;
 
 	/**
 	 * REGULAR personal rates section

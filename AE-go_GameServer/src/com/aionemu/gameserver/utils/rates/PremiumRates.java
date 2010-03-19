@@ -20,16 +20,21 @@ import com.aionemu.gameserver.configs.main.RateConfig;
 
 /**
  * @author ATracer
- *
  */
 public class PremiumRates extends Rates
 {
+	@Override
+	public int getGroupXpRate()
+	{
+		return RateConfig.PREMIUM_GROUPXP_RATE;
+	}
+
 	@Override
 	public float getApNpcRate()
 	{
 		return RateConfig.PREMIUM_AP_NPC_RATE;
 	}
-	
+
 	@Override
 	public float getApPlayerRate()
 	{

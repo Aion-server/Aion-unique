@@ -19,7 +19,6 @@ package com.aionemu.gameserver.utils.stats;
 import org.apache.log4j.Logger;
 
 import com.aionemu.commons.utils.Rnd;
-import com.aionemu.gameserver.configs.main.RateConfig;
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.model.SkillElement;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -70,7 +69,7 @@ public class StatFunctions
 
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
 
-		return (int) Math.floor(baseXP * xpPercentage * RateConfig.GROUPXP_RATE / 100);
+		return (int) Math.floor(baseXP * xpPercentage * player.getRates().getGroupXpRate() / 100);
 	}
 
 	/**
@@ -121,7 +120,7 @@ public class StatFunctions
 
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
 
-		return (int) Math.floor(baseDP * xpPercentage * RateConfig.GROUPXP_RATE / 100);
+		return (int) Math.floor(baseDP * xpPercentage * player.getRates().getGroupXpRate() / 100);
 	}	
 
 	/**
