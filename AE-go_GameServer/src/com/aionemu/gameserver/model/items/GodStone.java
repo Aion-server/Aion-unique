@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.model.items;
 
-import mysql5.MySQL5ItemStoneListDAO;
-
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.controllers.movement.ActionObserver;
