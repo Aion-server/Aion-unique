@@ -74,8 +74,8 @@ public class CM_EQUIP_ITEM extends AionClientPacket
 		{
 			PacketSendUtility.broadcastPacket(activePlayer, new SM_UPDATE_PLAYER_APPEARANCE(activePlayer.getObjectId(),
 				equipment.getEquippedItems()), true);
-			
-			PacketSendUtility.sendPacket(activePlayer, new SM_EMOTION(activePlayer, 30, 0, 0));
+
+			PacketSendUtility.broadcastPacket(activePlayer, new SM_EMOTION(activePlayer, 30, 0, 0));
 		}
 
 	}
