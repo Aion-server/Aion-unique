@@ -16,6 +16,10 @@
  */
 package com.aionemu.gameserver.model.items;
 
+import mysql5.MySQL5ItemStoneListDAO;
+
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.controllers.movement.ActionObserver;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
@@ -29,6 +33,8 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
  */
 public class GodStone extends ItemStone
 {
+	private static final Logger	log	= Logger.getLogger(GodStone.class);
+
 	private final GodstoneInfo	godstoneInfo;
 	@SuppressWarnings("unused")
 	private ActionObserver		actionListener;
@@ -42,8 +48,19 @@ public class GodStone extends ItemStone
 		super(itemObjId, itemId, 0, ItemStoneType.GODSTONE, persistentState);
 		ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
 		godstoneInfo = itemTemplate.getGodstoneInfo();
-		probability = godstoneInfo.getProbability();
-		probabilityLeft = godstoneInfo.getProbabilityleft();
+		
+		if(godstoneInfo != null)
+		{
+			probability = godstoneInfo.getProbability();
+			probabilityLeft = godstoneInfo.getProbabilityleft();
+		}
+		else
+		{
+			probability = 0;
+			probabilityLeft = 0;
+			log.warn("CHECKPOINT: Godstone info missing for item : " + itemId);
+		}
+		
 	}
 
 	/**

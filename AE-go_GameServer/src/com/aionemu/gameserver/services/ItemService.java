@@ -27,6 +27,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.ItemData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -37,6 +38,7 @@ import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.ManaStone;
+import com.aionemu.gameserver.model.templates.item.GodstoneInfo;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
@@ -673,8 +675,19 @@ public class ItemService
 		
 		Item weaponItem = player.getInventory().getItemByObjId(weaponId);
 		Item godstone = player.getInventory().getItemByObjId(stoneId);
-
-		weaponItem.addGodStone(godstone.getItemTemplate().getTemplateId());
+		
+		int godStoneItemId = godstone.getItemTemplate().getTemplateId();
+		ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(godStoneItemId);
+		GodstoneInfo godstoneInfo = itemTemplate.getGodstoneInfo();
+		
+		if(godstoneInfo == null)
+		{
+			PacketSendUtility.sendMessage(player, "Cannot socket this godstone");
+			log.warn("Godstone info missing for itemid " + godStoneItemId);
+			return;
+		}
+		
+		weaponItem.addGodStone(godStoneItemId);
 		player.getInventory().removeFromBagByObjectId(stoneId, 1);
 		
 		player.getInventory().decreaseKinah(100000);
