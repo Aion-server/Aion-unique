@@ -31,7 +31,7 @@ public class NpcGameStats extends CreatureGameStats<Npc>
 		initStat(StatEnum.MAXHP, nst.getMaxHp() + Math.round((owner.getObjectTemplate().getHpGauge() * 1.5f) * (int)owner.getLevel()));
 		initStat(StatEnum.MAXMP, nst.getMaxMp());
 		initStat(StatEnum.ATTACK_SPEED, Math.round(nst.getAttackSpeed() * 1000));
-		initStat(StatEnum.PHYSICAL_DEFENSE, Math.round((((nst.getPdef() / (int)owner.getLevel()) - 1.2f) * nst.getPdef()) * (int)owner.getLevel()) - 10 * (int)owner.getLevel());
+		initStat(StatEnum.PHYSICAL_DEFENSE, Math.round(((nst.getPdef() / (int)owner.getLevel()) - 1) * nst.getPdef() + 10 * (int)owner.getLevel()));
 		initStat(StatEnum.EVASION, Math.round(nst.getEvasion() * 2.3f + (int)owner.getLevel() * 10));
 		initStat(StatEnum.MAGICAL_RESIST, Math.round(nst.getMdef()));
 		initStat(StatEnum.MAIN_HAND_POWER, nst.getPower());
