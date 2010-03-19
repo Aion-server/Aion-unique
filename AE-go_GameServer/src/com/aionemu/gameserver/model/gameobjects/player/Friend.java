@@ -39,7 +39,7 @@ public class Friend
 	 */
 	public Status getStatus() 
 	{
-		if (!pcd.isOnline())
+		if (!pcd.isOnline() || pcd.getPlayer() == null)//second check is temporary
 		{
 			return FriendList.Status.OFFLINE;
 		}
