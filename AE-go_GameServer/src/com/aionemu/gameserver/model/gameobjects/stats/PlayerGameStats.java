@@ -58,7 +58,7 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 	}
 
 	/**
-	 *  Adds listener that will check SPEED or FLY_SPEED changes
+	 *  Adds listener that will check SPEED, FLY_SPEED or ATTACK_SPEED changes
 	 *  
 	 * @param owner
 	 */
@@ -68,22 +68,25 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 			
 			private int currentRunSpeed = 0;
 			private int currentFlySpeed = 0;
+			private int currentAttackSpeed = 0;
 			
 			@Override
 			protected void onRecompute()
 			{
 				int newRunSpeed = gameStats.getCurrentStat(StatEnum.SPEED);
 				int newFlySpeed = gameStats.getCurrentStat(StatEnum.FLY_SPEED);
-				
-				if(newRunSpeed != currentRunSpeed || currentFlySpeed != newFlySpeed)
+				int newAttackSpeed = gameStats.getCurrentStat(StatEnum.ATTACK_SPEED);
+
+				if(newRunSpeed != currentRunSpeed || currentFlySpeed != newFlySpeed || newAttackSpeed != currentAttackSpeed)
 				{
-					PacketSendUtility.sendPacket(owner, new SM_EMOTION(owner, 30, 0, 0));					
+					PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, 30, 0, 0), true);
 				}	
 				
 				PacketSendUtility.sendPacket(owner, new SM_STATS_INFO(owner));
 				
 				this.currentRunSpeed = newRunSpeed;
 				this.currentFlySpeed = newFlySpeed;
+				this.currentAttackSpeed = newAttackSpeed;
 			}
 		});
 	}
