@@ -37,9 +37,9 @@ public class LegionHistory
 	/**
 	 * @return the legionHistoryType
 	 */
-	public int getLegionHistoryType()
+	public LegionHistoryType getLegionHistoryType()
 	{
-		return legionHistoryType.getHistoryId();
+		return legionHistoryType;
 	}
 
 	/**

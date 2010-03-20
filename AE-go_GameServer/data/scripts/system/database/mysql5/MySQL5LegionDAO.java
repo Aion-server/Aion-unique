@@ -546,7 +546,7 @@ public class MySQL5LegionDAO extends LegionDAO
 			{
 				preparedStatement.setInt(1, legionId);
 				preparedStatement.setTimestamp(2, date);
-				preparedStatement.setInt(3, legionHistory.getLegionHistoryType());
+				preparedStatement.setString(3, legionHistory.getLegionHistoryType().toString());
 				preparedStatement.setString(4, legionHistory.getName());
 				preparedStatement.execute();
 			}
