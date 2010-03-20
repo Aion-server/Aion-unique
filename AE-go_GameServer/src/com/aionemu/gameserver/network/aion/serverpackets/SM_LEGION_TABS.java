@@ -59,7 +59,7 @@ public class SM_LEGION_TABS extends AionServerPacket
 		{
 			LegionHistory history = legionHistory.get(time);
 			writeD(buf, (int) (time.getTime() / 1000));
-			writeC(buf, history.getLegionHistoryType());
+			writeC(buf, history.getLegionHistoryType().getHistoryId());
 			writeC(buf, 0);
 			if(history.getName().length() > 0)
 			{
