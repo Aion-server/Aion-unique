@@ -421,10 +421,11 @@ public class PlayerController extends CreatureController<Player>
 	public void upgradePlayer(int level)
 	{
 		Player player = getOwner();
+		
 		PlayerStatsTemplate statsTemplate = sp.getPlayerService().getPlayerStatsData().getTemplate(player);
-
-		player.getGameStats().doLevelUpgrade(sp.getPlayerService().getPlayerStatsData(), level);
 		player.setPlayerStatsTemplate(statsTemplate);
+		// update stats after setting new template
+		player.getGameStats().doLevelUpgrade();
 		player.getLifeStats().synchronizeWithMaxStats();
 
 		PacketSendUtility.broadcastPacket(player, new SM_LEVEL_UPDATE(player.getObjectId(), 0, level), true);
@@ -447,22 +448,6 @@ public class PlayerController extends CreatureController<Player>
 		/** update member list packet if player is legion member **/
 		if(player.isLegionMember())
 			sp.getLegionService().updateMemberInfo(player);
-	}
-
-	public void startFly()
-	{
-		Player player = getOwner();
-
-		if(player.isInState(CreatureState.FLYING) && !player.isInState(CreatureState.GLIDING))
-		{
-			player.setFlyState(1);
-		}
-		else if(player.isInState(CreatureState.GLIDING))
-		{
-			player.setFlyState(2);
-		}						
-		
-		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 	}
 
 	/**
