@@ -54,6 +54,7 @@ public class SM_LEGION_TABS extends AionServerPacket
 		writeD(buf, page); // current page
 		writeD(buf, legionHistory.size());
 		
+		int i = 0;
 		for(Timestamp time : legionHistory.descendingKeySet())
 		{
 			LegionHistory history = legionHistory.get(time);
@@ -68,6 +69,9 @@ public class SM_LEGION_TABS extends AionServerPacket
 			}
 			else
 				writeB(buf, new byte[134]);
+			i++;
+			if(i >= 8)
+				break;
 		}
 		writeH(buf, 0);
 	}
