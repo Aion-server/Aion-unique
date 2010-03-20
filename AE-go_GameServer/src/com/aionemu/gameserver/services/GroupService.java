@@ -37,6 +37,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_GROUP_MEMBER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SHOW_BRAND;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -70,7 +72,6 @@ public class GroupService
 	 */
 	private CacheMap<Integer, ScheduledFuture<?>>	playerGroupCache	= CacheMapFactory.createSoftCacheMap(
 																			"PlayerObjId", "T");
-
 	/**
 	 * Injections
 	 */
@@ -78,6 +79,8 @@ public class GroupService
 	@IDFactoryAionObject
 	private IDFactory								aionObjectsIDFactory;
 
+	@Inject
+	QuestEngine questEngine;
 	/**
 	 * This method will add a member to the group member cache
 	 * 
@@ -277,6 +280,7 @@ public class GroupService
 				int currentDp = member.getCommonData().getDp();
 				int dpReward = StatFunctions.calculateGroupDPReward(member, owner);
 				member.getCommonData().setDp(dpReward + currentDp);
+				questEngine.onKill(new QuestEnv(owner, member, 0 , 0));
 			}
 		}
 	}

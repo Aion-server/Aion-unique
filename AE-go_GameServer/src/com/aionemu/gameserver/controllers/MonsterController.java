@@ -59,13 +59,12 @@ public class MonsterController extends NpcController
 				//AP reward in abyss basic
 				if(player.getWorldId() == WorldMapType.RESHANTA.getId())
 					sp.getAbyssService().doReward(getOwner(), player);
+				sp.getQuestEngine().onKill(new QuestEnv(getOwner(), player, 0 , 0));
 			}
 			else
 			{
 				sp.getGroupService().doReward(player.getPlayerGroup(), getOwner());
 			}
-			//TODO group quest, and group member's quests
-			sp.getQuestEngine().onKill(new QuestEnv(getOwner(), player, 0 , 0));
 		}
 	}
 	

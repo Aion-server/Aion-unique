@@ -23,7 +23,9 @@ import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author Mr. Poke
@@ -48,9 +50,9 @@ public class _2002WheresRae extends QuestHandler
 		qe.setNpcQuestData(203553).addOnTalkEvent(questId);
 		qe.setNpcQuestData(700045).addOnTalkEvent(questId);
 		qe.setNpcQuestData(203516).addOnTalkEvent(questId);
+		qe.setNpcQuestData(203537).addOnTalkEvent(questId);
 		qe.setNpcQuestData(210377).addOnKillEvent(questId);
 		qe.setNpcQuestData(210378).addOnKillEvent(questId);
-		qe.setNpcQuestData(203538).addOnKillEvent(questId);
 	}
 
 	@Override
@@ -114,7 +116,7 @@ public class _2002WheresRae extends QuestHandler
 								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2034);
 							else if (var == 11)
 								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2375);
-							else if (var == 12)
+							else if (var == 13)
 								return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2716);
 						case 10002:
 						case 10003:
@@ -126,42 +128,54 @@ public class _2002WheresRae extends QuestHandler
 								PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 								return true;
 							}
-							else if (var == 12)
+							else if (var == 13)
 							{
 								qs.setQuestVarById(0, 14);
 								updateQuestStatus(player, qs);
 								PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
 								return true;
 							}
+							break;
 						case 33:
 							if(var == 11)
 							{
 								if(collectItemCheck(env))
 								{
-									qs.setQuestVarById(0, var + 1);
+									SkillEngine.getInstance().getSkill(player, 8343, 1, player).useSkill();
+									qs.setQuestVarById(0, 99);
 									updateQuestStatus(player, qs);
-									return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2461);
+									PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
+									ThreadPoolManager.getInstance().schedule(new Runnable(){
+										@Override
+										public void run()
+										{
+											qs.setQuestVarById(0, 13);
+											updateQuestStatus(player, qs);
+										}
+									}, 10000);
+									return true;
 								}
 								else
 									return sendQuestDialog(player, env.getVisibleObject().getObjectId(), 2376);
 							}
 					}
 				}
+				break;
 				case 700045:
 					if(var == 11 && env.getDialogId() == -1)
 						return true;
-				case 203538:
-					switch(env.getDialogId())
+					break;
+				case 203537:
+					if(var == 14 && env.getDialogId() == -1)
 					{
-						case 25:
-							if(var == 14)
-							{
-								qs.setQuestVarById(0, var + 1);
-								updateQuestStatus(player, qs);
-								PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
-								return true;
-							}
+						qs.setQuestVarById(0, var + 1);
+						updateQuestStatus(player, qs);
+						Npc npc = (Npc)env.getVisibleObject();
+						questService.addNewSpawn(player.getWorldId(), player.getInstanceId(), 203553, npc.getX(), npc.getY(), npc.getZ(), npc.getHeading(), true);
+						npc.getController().onDie();
+						return true;
 					}
+					break;
 				case 203553:
 					switch(env.getDialogId())
 					{
@@ -171,6 +185,7 @@ public class _2002WheresRae extends QuestHandler
 						case 10007:
 							if(var == 15)
 							{
+								env.getVisibleObject().getController().delete();
 								qs.setStatus(QuestStatus.REWARD);
 								updateQuestStatus(player, qs);
 								PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 10));
