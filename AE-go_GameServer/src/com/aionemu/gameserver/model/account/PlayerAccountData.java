@@ -39,17 +39,17 @@ public class PlayerAccountData
 	private PlayerCommonData	playerCommonData;
 	private PlayerAppearance	appereance;
 	private Storage				inventory;
+	private Storage				warehouse;
 	private Equipment			equipment;
 	private Timestamp			creationDate;
 	private Timestamp			deletionDate;
 	private LegionMember		legionMember;
 
-	public PlayerAccountData(PlayerCommonData playerCommonData, PlayerAppearance appereance, Storage inventory,
+	public PlayerAccountData(PlayerCommonData playerCommonData, PlayerAppearance appereance,
 		Equipment equipment, LegionMember legionMember)
 	{
 		this.playerCommonData = playerCommonData;
 		this.appereance = appereance;
-		this.inventory = inventory;
 		this.equipment = equipment;
 		this.legionMember = legionMember;
 	}
@@ -89,27 +89,25 @@ public class PlayerAccountData
 		return deletionDate == null ? 0 : (int) (deletionDate.getTime() / 1000);
 	}
 
+	/**
+	 * @return the playerCommonData
+	 */
 	public PlayerCommonData getPlayerCommonData()
 	{
 		return playerCommonData;
 	}
 
+	/**
+	 * @param playerCommonData the playerCommonData to set
+	 */
+	public void setPlayerCommonData(PlayerCommonData playerCommonData)
+	{
+		this.playerCommonData = playerCommonData;
+	}
+
 	public PlayerAppearance getAppereance()
 	{
 		return appereance;
-	}
-
-	/**
-	 * @return the inventory
-	 */
-	public Storage getInventory()
-	{
-		return inventory;
-	}
-
-	public Equipment getEquipment()
-	{
-		return equipment;
 	}
 
 	/**
@@ -135,5 +133,53 @@ public class PlayerAccountData
 	public boolean isLegionMember()
 	{
 		return legionMember != null;
+	}
+
+	/**
+	 * @return the inventory
+	 */
+	public Storage getInventory()
+	{
+		return inventory;
+	}
+
+	/**
+	 * @param inventory the inventory to set
+	 */
+	public void setInventory(Storage inventory)
+	{
+		this.inventory = inventory;
+	}
+
+	/**
+	 * @return the warehouse
+	 */
+	public Storage getWarehouse()
+	{
+		return warehouse;
+	}
+
+	/**
+	 * @param warehouse the warehouse to set
+	 */
+	public void setWarehouse(Storage warehouse)
+	{
+		this.warehouse = warehouse;
+	}
+
+	/**
+	 * @return the equipment
+	 */
+	public Equipment getEquipment()
+	{
+		return equipment;
+	}
+
+	/**
+	 * @param equipment the equipment to set
+	 */
+	public void setEquipment(Equipment equipment)
+	{
+		this.equipment = equipment;
 	}
 }

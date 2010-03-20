@@ -66,6 +66,8 @@ public class AccountService
 	private LegionService				legionService;
 	@Inject
 	private PlayerInitialData			playerInitialData;
+	@Inject
+	private ItemService					itemService;
 
 	/**
 	 * Returns {@link Account} object that has given id.
@@ -144,16 +146,38 @@ public class AccountService
 			PlayerAppearance appereance = appereanceDAO.load(playerOid);
 			Player player = new Player(controllerFactory.create(), playerCommonData, appereance);
 
-			Storage inventory = DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE);
-			Equipment equipment = DAOManager.getDAO(InventoryDAO.class).loadEquipment(player);
+			
 			LegionMember legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(player.getObjectId(),
 				legionService);
-			PlayerAccountData acData = new PlayerAccountData(playerCommonData, appereance, inventory, equipment,
+			
+			/**
+			 * Load only equipment and its stones to display on character selection screen
+			 */
+			Equipment equipment = DAOManager.getDAO(InventoryDAO.class).loadEquipment(player);
+			itemService.loadItemStones(equipment.getEquippedItems());
+			
+			PlayerAccountData acData = new PlayerAccountData(playerCommonData, appereance, equipment,
 				legionMember);
 			playerDAO.setCreationDeletionTime(acData);
 
 			account.addPlayerAccountData(acData);
+			
+			/**
+			 * load account warehouse only once
+			 */	
+			if(account.getAccountWarehouse() == null)
+			{
+				Storage accWarehouse = DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.ACCOUNT_WAREHOUSE);
+				itemService.loadItemStones(accWarehouse.getStorageItems());
+				account.setAccountWarehouse(accWarehouse);
+			}
 		}
+		
+		/**
+		 * For new accounts - create empty account warehouse
+		 */
+		if(account.getAccountWarehouse() == null)
+			account.setAccountWarehouse(new Storage(StorageType.ACCOUNT_WAREHOUSE));
 
 		return account;
 	}

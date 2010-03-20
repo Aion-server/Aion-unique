@@ -675,4 +675,12 @@ public class Equipment
 	{
 		this.persistentState = persistentState;
 	}
+
+	/**
+	 * @param player
+	 */
+	public void setOwner(Player player)
+	{
+		this.owner = player;
+	}
 }

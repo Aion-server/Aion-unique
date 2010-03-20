@@ -47,6 +47,7 @@ import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.ItemType;
+import com.aionemu.gameserver.model.account.Account;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
@@ -185,28 +186,33 @@ public class PlayerService
 	 * Returns the player with given objId (if such player exists)
 	 * 
 	 * @param playerObjId
+	 * @param account 
 	 * @return Player
 	 */
-	public Player getPlayer(int playerObjId)
+	public Player getPlayer(int playerObjId, Account account)
 	{
 		Player player = playerCache.get(playerObjId);
 		if(player != null)
 			return player;
+		
+		/**
+		 * Player common data and appearance should be already loaded in account
+		 */
+		
+		PlayerAccountData playerAccountData = account.getPlayerAccountData(playerObjId);
+		PlayerCommonData pcd = playerAccountData.getPlayerCommonData();
+		PlayerAppearance appearance = playerAccountData.getAppereance();
 
-		PlayerCommonData pcd = DAOManager.getDAO(PlayerDAO.class).loadPlayerCommonData(playerObjId, world,
-			playerInitialData);
-		PlayerAppearance appereance = DAOManager.getDAO(PlayerAppearanceDAO.class).load(playerObjId);
-		MacroList macroses = DAOManager.getDAO(PlayerMacrossesDAO.class).restoreMacrosses(playerObjId);
-
-		player = new Player(controllerFactory.create(), pcd, appereance);
-
+		player = new Player(controllerFactory.create(), pcd, appearance);		
+		
 		LegionMember legionMember = legionService.getLegionMember(player.getObjectId());
 		if(legionMember != null)
 			player.setLegionMember(legionMember);
 
 		if(groupService.isGroupMember(playerObjId))
 			groupService.setGroup(player);
-
+		
+		MacroList macroses = DAOManager.getDAO(PlayerMacrossesDAO.class).restoreMacrosses(playerObjId);
 		player.setMacroList(macroses);
 
 		player.setSkillList(DAOManager.getDAO(PlayerSkillListDAO.class).loadSkillList(playerObjId));
@@ -228,33 +234,52 @@ public class PlayerService
 		
 		player.setQuestStateList(DAOManager.getDAO(PlayerQuestListDAO.class).load(player));
 		player.setRecipeList(DAOManager.getDAO(PlayerRecipesDAO.class).load(player.getObjectId()));
-		player
-			.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE), StorageType.CUBE);
-		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.REGULAR_WAREHOUSE),
-			StorageType.REGULAR_WAREHOUSE);
-		player.setStorage(DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.ACCOUNT_WAREHOUSE),
-			StorageType.ACCOUNT_WAREHOUSE);
-		player.setEquipment(DAOManager.getDAO(InventoryDAO.class).loadEquipment(player));
 
-		DAOManager.getDAO(PlayerPunishmentsDAO.class).loadPlayerPunishments(player);
+		/**
+		 * Equipment should be already loaded in account
+		 */
+		Equipment equipment = playerAccountData.getEquipment();
+		equipment.setOwner(player);
+		player.setEquipment(equipment);
+		
+		/**
+		 * Account warehouse should be already loaded in account
+		 */
+		Storage accWarehouse = account.getAccountWarehouse();
+		player.setStorage(accWarehouse, StorageType.ACCOUNT_WAREHOUSE);
+		
+		/**
+		 * Check CUBE storage in account and if missing - load
+		 */
+		Storage inventory = playerAccountData.getInventory();
+		if(inventory == null)
+		{
+			inventory = DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.CUBE);
+			itemService.loadItemStones(inventory.getStorageItems());
+		}
+		player.setStorage(inventory, StorageType.CUBE);
+		
+		/**
+		 * Check WAREHOUSE storage in account and if missing - load
+		 */
+		Storage warehouse = playerAccountData.getWarehouse();
+		if(warehouse == null)
+		{
+			warehouse = DAOManager.getDAO(InventoryDAO.class).loadStorage(player, StorageType.REGULAR_WAREHOUSE);
+			itemService.loadItemStones(warehouse.getStorageItems());
+		}
+		player.setStorage(warehouse, StorageType.REGULAR_WAREHOUSE);
+		
+		/**
+		 * Apply equipment stats (items and manastones were loaded in account) 
+		 */
 		player.getEquipment().onLoadApplyEquipmentStats();
-
-		itemService.loadItemStones(player);
+		
+		DAOManager.getDAO(PlayerPunishmentsDAO.class).loadPlayerPunishments(player);
+		
 		player.setMailbox(DAOManager.getDAO(MailDAO.class).loadPlayerMailbox(player));
 
-		// if kinah was deleted by some reason it should be restored with 0 count
-		if(player.getStorage(StorageType.CUBE.getId()).getKinahItem() == null)
-		{
-			Item kinahItem = itemService.newItem(182400001, 0);
-			player.getStorage(StorageType.CUBE.getId()).onLoadHandler(kinahItem);
-		}
-
-		if(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getKinahItem() == null)
-		{
-			Item kinahItem = itemService.newItem(182400001, 0);
-			kinahItem.setItemLocation(StorageType.ACCOUNT_WAREHOUSE.getId());
-			player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).onLoadHandler(kinahItem);
-		}
+		itemService.restoreKinah(player);
 
 		// update passive stats after effect controller, stats and equipment are initialized
 		player.getController().updatePassiveStats();
@@ -386,6 +411,13 @@ public class PlayerService
 		player.getCommonData().setOnline(false);
 		player.getCommonData().setLastOnline(new Timestamp(System.currentTimeMillis()));
 
+		/**
+		 * Store regular warehouse and cube storages in account data
+		 */
+		PlayerAccountData playerAccountData = player.getClientConnection().getAccount().getPlayerAccountData(player.getObjectId());
+		playerAccountData.setWarehouse(player.getWarehouse());
+		playerAccountData.setInventory(player.getInventory());
+		
 		player.setClientConnection(null);
 
 		if(player.isLegionMember())

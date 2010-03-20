@@ -20,6 +20,7 @@ import java.util.List;
 
 import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.model.ChatType;
+import com.aionemu.gameserver.model.account.Account;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -109,6 +110,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	protected void runImpl()
 	{
 		AionConnection client = getConnection();
+		Account account = client.getAccount();
 		PlayerAccountData playerAccData = client.getAccount().getPlayerAccountData(objectId);
 
 		if(playerAccData == null)
@@ -117,7 +119,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			return;
 		}
 
-		Player player = playerService.getPlayer(objectId);
+		Player player = playerService.getPlayer(objectId, account);
 
 		if(player != null && client.setActivePlayer(player))
 		{

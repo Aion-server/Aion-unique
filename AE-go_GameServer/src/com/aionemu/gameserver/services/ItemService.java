@@ -27,16 +27,13 @@ import org.apache.log4j.Logger;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.dataholders.ItemData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.player.StorageType;
-import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentListener;
 import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.model.items.ItemId;
-import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.templates.item.GodstoneInfo;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
@@ -125,33 +122,20 @@ public class ItemService
 
 	/**
 	 *  Loads item stones from DB for each item in a list if item is ARMOR or WEAPON
+	 *  Godstones will be laoded for WEAPON items
 	 *  
 	 * @param itemList
 	 */
-	public void loadItemStones(Player player)
+	public void loadItemStones(List<Item> itemList)
 	{
-		List<Item> itemList = new ArrayList<Item>();
-		itemList.addAll(player.getStorage(StorageType.CUBE.getId()).getStorageItems());
-		itemList.addAll(player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems());
-		itemList.addAll(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getStorageItems());
-		itemList.addAll(player.getEquipment().getEquippedItems());
+		if(itemList == null)
+			return;	
 
 		for(Item item : itemList)
 		{
 			if(item.getItemTemplate().isArmor() || item.getItemTemplate().isWeapon())
 			{
 				DAOManager.getDAO(ItemStoneListDAO.class).load(item);
-
-				// if item equipped - apply stats of item stone
-				if(item.hasManaStones() && item.isEquipped() 
-					&& item.getEquipmentSlot() != ItemSlot.MAIN_OFF_HAND.getSlotIdMask()
-					&& item.getEquipmentSlot() != ItemSlot.SUB_OFF_HAND.getSlotIdMask())
-				{
-					for(ManaStone itemStone : item.getItemStones())
-					{
-						ItemEquipmentListener.addStoneStats(itemStone, player.getGameStats());
-					}
-				}
 			}
 			
 			if(item.getItemTemplate().isWeapon())
@@ -717,5 +701,25 @@ public class ItemService
 		for (QuestItems qi : questItems)
 			addItem(player, qi.getItemId(), qi.getCount(), false);
 		return true;
+	}
+
+	/**
+	 * @param player
+	 */
+	public void restoreKinah(Player player)
+	{
+		// if kinah was deleted by some reason it should be restored with 0 count
+		if(player.getStorage(StorageType.CUBE.getId()).getKinahItem() == null)
+		{
+			Item kinahItem = newItem(182400001, 0);
+			player.getStorage(StorageType.CUBE.getId()).onLoadHandler(kinahItem);
+		}
+
+		if(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getKinahItem() == null)
+		{
+			Item kinahItem = newItem(182400001, 0);
+			kinahItem.setItemLocation(StorageType.ACCOUNT_WAREHOUSE.getId());
+			player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).onLoadHandler(kinahItem);
+		}
 	}
 }

@@ -23,6 +23,7 @@ import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
+import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.model.items.ItemSlot;
 
 /**
@@ -152,8 +153,9 @@ public abstract class PlayerInfo extends AionServerPacket
 			{
 				writeC(buf, 1); // this flas is needed to show equipment on selection screen
 				writeD(buf, item.getItemTemplate().getTemplateId());
-				writeD(buf, 0);
-				writeD(buf, 0);
+				GodStone godStone = item.getGodStone();
+				writeD(buf, godStone != null ? godStone.getItemId() : 0); 
+				writeD(buf, item.getItemColor());
 
 				itemsDataSize += 13;
 			}	
