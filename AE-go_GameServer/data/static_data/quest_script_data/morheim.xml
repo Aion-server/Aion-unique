@@ -15,7 +15,7 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
+	 <!-- Petrifying Elim -->
 
 	<!-- Teleporter Troubles -->
 	<item_collecting id="2301" start_npc_id="204399" action_item_id="296439" />
@@ -27,7 +27,8 @@
         <item_collecting id="2338" start_npc_id="204430" />
 
         <!-- TODO: Bringing up Tayga -->
-
+	<report_to id="2493" start_npc_id="204325" end_npc_id="204325" />
+	
         <!-- Firewood for Cooking -->
         <item_collecting id="2453" start_npc_id="204378" />
 
@@ -49,25 +50,28 @@
            <monster_infos npc_id="211307" var_id="0" max_kill="15" />
         </monster_hunt>
 
-        <!-- TODO: Bolverk's Secret Request -->
-
+        <!-- Bolverk's Secret Request -->
+	<report_to id="2492" start_npc_id="204300" end_npc_id="204327"/>
+	
         <!-- TODO: Daeva, Where's My Herb? -->
-
+        
         <!-- Fragments of Aion's Tower -->
 	<item_collecting id="2499" start_npc_id="204300" action_item_id="700322" />
-
+	
 	<!-- TODO: Irresistible Soup -->
+ 
+     <!-- TODO: Orders From the Fortress -->
 
-        <!-- TODO: Orders From the Fortress -->
-
-        <!-- Orders for Randet -->
+     <!-- Orders for Randet -->
+     <report_to id="2330" start_npc_id="204300" end_npc_id="205128"/>
         
 	<!-- Outfighting Arachnas -->
 	<monster_hunt id="2308" start_npc_id="204424">
            <monster_infos npc_id="211301" var_id="0" max_kill="12" />
         </monster_hunt>
 
-        <!-- TODO: Secret Information -->
+     <!-- Secret Information -->
+     <report_to id="2430" start_npc_id="204327" end_npc_id="204300"/>
        
 	<!-- [Coin] Foes of the Fortress -->
 	<monster_hunt id="2318" start_npc_id="204360">
@@ -78,10 +82,10 @@
         
 	<!-- TODO: A Sorrowful Message -->
 
-        <!-- Disease Carriers -->
+    <!-- Disease Carriers -->
 	<item_collecting id="2311" start_npc_id="730036" />
 
-        <!-- Keeping Warm -->
+    <!-- Keeping Warm -->
 	<item_collecting id="2429" start_npc_id="204378" />
 
         <!-- Kellan's Request -->
@@ -103,15 +107,18 @@
 	<!-- Hungry Philosopher -->
 	<item_collecting id="2456" start_npc_id="204386" />
 
-        <!-- TODO: Lif's Agony -->
-
-        <!-- TODO: Roast Gadill for a Friend -->
-
+    <!--  Lif's Agony -->
+	<item_collecting id="2457" start_npc_id="204378" end_npc_id="204379"/>
+		
+        <!-- Roast Gadill for a Friend -->
+	<report_to id="2458" start_npc_id="204379" end_npc_id="204386" />
+	
         <!-- Sora's Energy Booster -->
 	<item_collecting id="2455" start_npc_id="204382" />
 
-        <!-- TODO: Sprigg Nightlights -->
-       
+        <!-- Sprigg Nightlights -->
+     <item_collecting id="2495" start_npc_id="798125" />
+     
 	<!-- Strange Mushrooms -->
 	<monster_hunt id="2309" start_npc_id="730037">
 		<monster_infos npc_id="211318"  var_id="0" max_kill="25"/>
@@ -127,7 +134,7 @@
         <!-- TODO: [Spy] Elim of Elysea -->
 
         <!-- TODO: [Spy] There And Back Again -->
-        
+
 	<!-- A Seafood Feast -->
 	<item_collecting id="2314" start_npc_id="204379" />
 
@@ -295,8 +302,8 @@
 		<monster_infos npc_id="212653"  var_id="0" max_kill="1"/>
 	</monster_hunt>
 
-        <!-- TODO: A Prized Possession -->
-
+        <!-- A Prized Possession -->
+	
         <!-- TODO: Ancient Ginseng -->
 
         <!-- Balom's Wages -->
@@ -307,19 +314,28 @@
 		<monster_infos npc_id="700250"  var_id="0" max_kill="5"/>
 	</monster_hunt>
 
-        <!-- TODO: [Group] An Ice Claw Raid -->
-       
+        <!-- [Group] An Ice Claw Raid -->
+    <monster_hunt id="2342" start_npc_id="204333">
+		<monster_infos max_kill="5" var_id="0" npc_id="211457"/>
+		<monster_infos max_kill="5" var_id="1" npc_id="211460"/>
+	</monster_hunt>
+	
 	<!-- TODO: [Group] Odella Rope -->
 
-        <!-- TODO: [Group] Weakening the Iceclaws -->
-
-        <!-- TODO: A Dish For Dukar -->
-
-        <!-- A Picky Eater -->
-	<item_collecting id="2476" start_npc_id="204355" />
+        <!-- [Group] Weakening the Iceclaws -->
+	<monster_hunt id="2341" start_npc_id="204333">
+		<monster_infos max_kill="7" var_id="0" npc_id="211437"/>
+		<monster_infos max_kill="19" var_id="1" npc_id="211409"/>
+	</monster_hunt>
 	
-	<!-- TODO: Asgeirr's Request -->
-
+        <!-- TODO: A Dish For Dukar -->
+	
+        <!-- A Picky Eater -->
+	<item_collecting id="2476" start_npc_id="204355" end_npc_id="204355" />
+	
+	<!-- Asgeirr's Request -->
+	<report_to id="2421" start_npc_id="204309" end_npc_id="204187"/>
+	
         <!-- Cabon's Request -->
 	<item_collecting id="2472" start_npc_id="204356" />
 
@@ -345,19 +361,27 @@
 	<item_collecting id="2469" start_npc_id="204341" />
 
         <!-- TODO: [Group] All Nyerk and No Play -->
-
-        <!-- TODO: [Group] Gangleri's Request -->
-
+	
+        <!-- [Group] Gangleri's Request -->
+	<monster_hunt id="4312" start_npc_id="204372">
+		<monster_infos max_kill="5" var_id="0" npc_id="212678"/>
+		<monster_infos max_kill="5" var_id="1" npc_id="212680"/>
+	</monster_hunt>
+	
         <!-- TODO: [Group] Sarinerk's Safety -->
-
-        <!-- TODO: [Group] The Still Remaining Mission -->
+	
+        <!-- [Group] The Still Remaining Mission -->
+     <monster_hunt id="4313" start_npc_id="204372">
+		<monster_infos max_kill="11" var_id="0" npc_id="212677"/>
+	</monster_hunt>
 
         <!-- TODO: [Spy] Ingredients For Kselopen Sausage -->
-
+	
         <!-- A Fragrant Tree -->
 	<item_collecting id="2470" start_npc_id="204348" />
 
-        <!-- TODO: Combat Preparation -->
+        <!-- Combat Preparation -->
+	<report_to id="2383" start_npc_id="204354" end_npc_id="790011"/>
        
  	<!-- Harvesting Tripeed -->
 	<item_collecting id="2381" start_npc_id="204340" action_item_id="700253" />
@@ -369,14 +393,17 @@
        
 	<!-- TODO: [Group] A Curse-Breaking Clue -->
 
-        <!-- TODO: [Group] A Missing Bandage -->
-
-        <!-- TODO: [Group] The Snowflake Necklace -->
-
-        <!-- TODO: Immortal Love -->
-
-        <!-- Skinning Spriggs -->
-	<item_collecting id="2386" start_npc_id="204349" />
+        <!-- [Group] A Missing Bandage -->
+	<item_collecting id="2384" start_npc_id="798080" end_npc_id="204354"/>
+	
+        <!-- [Group] The Snowflake Necklace -->
+	<item_collecting id="4311" start_npc_id="204339"/>
+	
+        <!-- Immortal Love -->
+	<item_collecting id="2372" start_npc_id="798056" end_npc_id="798079"/>
+    
+	<!-- Skinning Spriggs -->
+	<item_collecting id="2386" start_npc_id="204349" end_npc_id="790011" />
 
         <!-- Worgs at the Door -->
 	<monster_hunt id="2385" start_npc_id="204349">
@@ -409,8 +436,8 @@
         <!-- Rynoce Horn -->
 	<item_collecting id="2391" start_npc_id="204343" />
 
-        <!-- Stopping the Klaw Expansion -->
-	<monster_hunt id="2388" start_npc_id="204359">
+    <!-- Stopping the Klaw Expansion -->
+	<monster_hunt id="2388" start_npc_id="204342">
 		<monster_infos npc_id="211503"  var_id="0" max_kill="9"/>
 		<monster_infos npc_id="211502"  var_id="1" max_kill="16"/>
 	</monster_hunt>
@@ -437,17 +464,18 @@
 	</monster_hunt>
 
         <!-- TODO: Earth Spirit? Water Spirit? -->
-
+	
         <!-- Elemental Stone of Earth -->
 	<item_collecting id="2412" start_npc_id="204366" />
 
         <!-- Elemental Stone of Water -->
 	<item_collecting id="2413" start_npc_id="204364" />
 
-        <!-- TODO: Hreidmar the Furious -->
-
+        <!-- Hreidmar the Furious -->
+	<report_to id="2414" start_npc_id="204369" end_npc_id="204369"/>
+	
         <!-- Poisoned Weapons -->
-	<item_collecting id="2401" start_npc_id="204320" />
+	<item_collecting id="2401" start_npc_id="204320" end_npc_id="204380"/>
 
         <!-- Report to the Observatory -->
 	<report_to id="2395" start_npc_id="204345" end_npc_id="204369" item_id="182204192" />
@@ -456,10 +484,10 @@
 	<report_to id="2418" start_npc_id="204369" end_npc_id="204340" item_id="182204179" />
 
         <!-- Abex on a Stick -->
-	<item_collecting id="2416" start_npc_id="204364" />
+	<item_collecting id="2416" start_npc_id="204364"/>
 
         <!-- Angreboda Returns a Favor -->
-	<item_collecting id="2400" start_npc_id="204366" />
+	<item_collecting id="2400" start_npc_id="204366" end_npc_id="204362"/>
 
 	<!-- Hungry BuBu Kong -->
 	<item_collecting id="2475" start_npc_id="204390" />
@@ -477,12 +505,14 @@
 		<monster_infos npc_id="211529"  var_id="1" max_kill="7"/>
 	</monster_hunt>
 
-        <!-- TODO: [Group] Barosunerk's Grand Plan -->
-
-        <!-- TODO: [Group] Secret of the Flame Stones -->
-
-        <!-- TODO: A Strange Creature -->
-
+        <!-- [Group] Barosunerk's Grand Plan -->
+	<item_collecting id="2369" start_npc_id="798083"/>
+	
+        <!-- [Group] Secret of the Flame Stones -->
+	<item_collecting id="2378" start_npc_id="204408"/>
+	
+        <!-- A Strange Creature -->
+	
         <!-- Abex Kebabs For The Soul -->
 	<report_to id="2417" start_npc_id="204364" end_npc_id="204390" item_id="182204178" />
 
@@ -516,8 +546,13 @@
         <!-- Shoot That Poison Arrow -->
 	<item_collecting id="2452" start_npc_id="204331" />
 
-        <!-- TODO: [Group] Taking Back the Hot Springs -->
-
+        <!-- [Group] Taking Back the Hot Springs -->
+	<monster_hunt id="2405" start_npc_id="204381">
+		<monster_infos max_kill="3" var_id="0" npc_id="212500"></monster_infos>
+		<monster_infos max_kill="3" var_id="1" npc_id="212638"></monster_infos>
+		<monster_infos max_kill="7" var_id="2" npc_id="211523"></monster_infos>
+	</monster_hunt>
+	
         <!-- TODO: A Dying Wish -->
 
         <!-- Death to the Shadow Warrior -->
@@ -526,19 +561,23 @@
 	</monster_hunt>
 
         <!-- TODO: Emissary to Altgard -->
-
+	
         <!-- TODO: Extricating Chaomirk -->
 
-        <!-- TODO: Muorinerk's Offer -->
-
+        <!-- Muorinerk's Offer -->
+	<item_collecting id="4303" start_npc_id="798085"/>
+	
         <!-- TODO: Pretors in Beluslan -->
-
+	
         <!-- TODO: Propaganda -->
 
-        <!-- TODO: Suspicious Beverage -->
-
+        <!-- Suspicious Beverage -->
+	<monster_hunt id="4307" start_npc_id="204407">
+		<monster_infos max_kill="1" var_id="0" npc_id="214796"/>
+	</monster_hunt>
+	
         <!-- TODO: Taisan's Message -->
-
+	
         <!-- The Good, the Bad and the Elim -->
 	<report_to id="2445" start_npc_id="204402" end_npc_id="730037" />
 
@@ -548,10 +587,11 @@
 		<monster_infos npc_id="211558"  var_id="1" max_kill="7"/>
 	</monster_hunt>
 
-        <!-- TODO: The Love of a Father -->
-
-        <!-- TODO: The Secret Ingredient -->
-
+        <!-- TODO: The Love of a Father  -->
+	
+        <!-- The Secret Ingredient -->
+	<item_collecting id="2440" start_npc_id="204390"/>
+	
         <!-- [Coin] Thinning the Ranks -->
 	<monster_hunt id="2410" start_npc_id="204380">
 		<monster_infos npc_id="211718"  var_id="0" max_kill="6"/>
@@ -575,8 +615,9 @@
 
         <!-- TODO: [Group] Ringleaders for a Ring -->
 
-        <!-- TODO: [Group] Taisan's Request -->
-
+        <!-- [Group] Taisan's Request -->
+	<item_collecting id="2442" start_npc_id="204403"/>
+	
         <!-- TODO: [Group] The Nunu Fertilizer -->
 
         <!-- TODO: [Spy] Our Man in Elysea -->
