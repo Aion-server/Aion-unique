@@ -29,7 +29,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_LEGION_TABS extends AionServerPacket
 {
-	private int										page;
+	private int									page;
 	private TreeMap<Timestamp, LegionHistory>	legionHistory;
 
 	public SM_LEGION_TABS(TreeMap<Timestamp, LegionHistory> legionHistory)
@@ -47,30 +47,46 @@ public class SM_LEGION_TABS extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		if(legionHistory.size()+8 < (page*8))
+		/**
+		 * If history size is less than page*8 return
+		 */
+		if(legionHistory.size() < (page * 8))
 			return;
 		
+		// TODO: Formula's could use a refactor
+		int hisSize = legionHistory.size() - (page * 8);
+
+		if(page == 0 && legionHistory.size() > 8)
+			hisSize = 8;
+		if(page == 1 && legionHistory.size() > 16)
+			hisSize = 8;
+		if(page == 2 && legionHistory.size() > 24)
+			hisSize = 8;
+
 		writeD(buf, 0x12); // Unk
 		writeD(buf, page); // current page
-		writeD(buf, legionHistory.size());
-		
+		writeD(buf, hisSize);
+
 		int i = 0;
 		for(Timestamp time : legionHistory.descendingKeySet())
 		{
-			LegionHistory history = legionHistory.get(time);
-			writeD(buf, (int) (time.getTime() / 1000));
-			writeC(buf, history.getLegionHistoryType().getHistoryId());
-			writeC(buf, 0);
-			if(history.getName().length() > 0)
+			if(i >= (page * 8) && i <= (8 + (page * 8)))
 			{
-				writeS(buf, history.getName());
-				int size = 134 - (history.getName().length()*2+2);
-				writeB(buf, new byte[size]);
+				LegionHistory history = legionHistory.get(time);
+				writeD(buf, (int) (time.getTime() / 1000));
+				writeC(buf, history.getLegionHistoryType().getHistoryId());
+				writeC(buf, 0);
+				if(history.getName().length() > 0)
+				{
+					writeS(buf, history.getName());
+					int size = 134 - (history.getName().length() * 2 + 2);
+					writeB(buf, new byte[size]);
+				}
+				else
+					writeB(buf, new byte[134]);
 			}
-			else
-				writeB(buf, new byte[134]);
 			i++;
-			if(i >= 8)
+			if(i >= (8 + (page * 8)))
 				break;
 		}
 		writeH(buf, 0);
