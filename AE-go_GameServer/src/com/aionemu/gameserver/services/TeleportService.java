@@ -23,7 +23,6 @@ import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.TeleLocationData;
 import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
-import com.aionemu.gameserver.model.ChatType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
@@ -34,7 +33,6 @@ import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CHANNEL_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SET_BIND_POINT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -59,6 +57,8 @@ public class TeleportService
 	private World				world;
 	@Inject
 	private PlayerService		playerService;
+	@Inject
+	private DuelService			duelService;
 	@Inject
 	private TeleLocationData	teleLocationData;
 	@Inject
@@ -135,7 +135,6 @@ public class TeleportService
 	 */
 	public void regularTeleport(TeleporterTemplate template, int locId, Player player)
 	{
-
 		if(template.getTeleLocIdData() == null)
 		{
 			log.info(String.format("Missing locId for this teleporter at teleporter_templates.xml with locId: %d",
@@ -185,9 +184,7 @@ public class TeleportService
 
 		if(!inventory.decreaseKinah(location.getPrice()))
 		{
-			// TODO using the correct system message
-			PacketSendUtility.sendPacket(player, new SM_MESSAGE(0, null, "You don't have enough Kinah",
-				ChatType.ANNOUNCEMENTS));
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.NOT_ENOUGH_KINAH(location.getPrice()));
 			return false;
 		}
 		return true;
@@ -245,10 +242,12 @@ public class TeleportService
 	public boolean teleportTo(final Player player, final int worldId, final int instanceId, final float x,
 		final float y, final float z, final byte heading, final int delay)
 	{
-		if(player.getLifeStats().isAlreadyDead()
-			|| !player.isSpawned())
+		if(player.getLifeStats().isAlreadyDead() || !player.isSpawned())
 			return false;
-		
+
+		if(duelService.isDueling(player.getObjectId()))
+			duelService.loseDuel(player);
+
 		if(delay == 0)
 		{
 			changePosition(player, worldId, instanceId, x, y, z, heading);
@@ -260,16 +259,11 @@ public class TeleportService
 			@Override
 			public void run()
 			{
-				if(player.getLifeStats().isAlreadyDead()
-					|| !player.isSpawned())
+				if(player.getLifeStats().isAlreadyDead() || !player.isSpawned())
 					return;
 
-				if(delay != 0)
-				{
-					PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
-				}				
-				
-				changePosition(player, worldId, instanceId, x, y, z, heading);				
+				PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(0, 0, 0, 0, 1, 0));
+				changePosition(player, worldId, instanceId, x, y, z, heading);
 			}
 		}, delay);
 
@@ -327,6 +321,7 @@ public class TeleportService
 
 	/**
 	 * This method will move a player to their bind location with 0 delay
+	 * 
 	 * @param player
 	 * @param useTeleport
 	 */
@@ -337,15 +332,16 @@ public class TeleportService
 
 	/**
 	 * This method will move a player to their bind location
+	 * 
 	 * @param player
 	 * @param useTeleport
 	 * @param delay
 	 */
 	public void moveToBindLocation(Player player, boolean useTeleport, int delay)
-	{	
+	{
 		float x, y, z;
 		int worldId;
-		
+
 		int bindPointId = player.getCommonData().getBindPoint();
 
 		if(bindPointId != 0)
@@ -375,9 +371,10 @@ public class TeleportService
 			world.setPosition(player, worldId, 1, x, y, z, player.getHeading());
 		}
 	}
-	
+
 	/**
 	 * This method will send the set bind point packet
+	 * 
 	 * @param player
 	 */
 	public void sendSetBindPoint(Player player)
