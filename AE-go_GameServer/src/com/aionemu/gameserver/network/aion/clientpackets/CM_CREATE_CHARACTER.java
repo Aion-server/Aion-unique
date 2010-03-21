@@ -30,6 +30,7 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CREATE_CHARACTER;
 import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.google.inject.Inject;
@@ -76,7 +77,7 @@ public class CM_CREATE_CHARACTER extends AionClientPacket
 		String someShit = readS(); // something + accointId
 
 		playerCommonData = new PlayerCommonData(aionObjectsIDFactory.nextId());
-		String name = readS();
+		String name = Util.convertName(readS());
 
 		playerCommonData.setName(name);
 		// just for sure...
