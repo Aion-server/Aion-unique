@@ -113,9 +113,10 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 *  This method is called whenever caller wants to absorb creatures's HP
 	 * @param value
-	 * @return int
+	 * @param attacker
+	 * @return currentHp
 	 */
-	public int reduceHp(int value)
+	public int reduceHp(int value, Creature attacker)
 	{
 		hpLock.lock();
 		try
@@ -136,7 +137,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 
 			if(alreadyDead)
 			{
-				getOwner().getController().onDie();	
+				getOwner().getController().onDie(attacker);	
 			}
 		}
 		finally
@@ -150,7 +151,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 *  This method is called whenever caller wants to absorb creatures's HP
 	 * @param value
-	 * @return int
+	 * @return currentMp
 	 */
 	public int reduceMp(int value)
 	{
@@ -191,7 +192,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 *  This method is called whenever caller wants to restore creatures's HP
 	 * @param value
-	 * @return int
+	 * @return currentHp
 	 */
 	public int increaseHp(int value)
 	{
@@ -223,7 +224,7 @@ public abstract class CreatureLifeStats<T extends Creature>
 	/**
 	 * This method is called whenever caller wants to restore creatures's MP
 	 * @param value
-	 * @return int
+	 * @return currentMp
 	 */
 	public int increaseMp(int value)
 	{

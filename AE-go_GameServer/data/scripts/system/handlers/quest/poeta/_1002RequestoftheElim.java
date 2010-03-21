@@ -243,7 +243,7 @@ public class _1002RequestoftheElim extends QuestHandler
 					qs.setQuestVarById(0, var + 1);
 					updateQuestStatus(player, qs);
 					PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 0));
-					((Npc) env.getVisibleObject()).getController().onDie();
+					((Npc) env.getVisibleObject()).getController().onDie(null); //TODO check null or player
 					return true;
 				default:
 					return false;

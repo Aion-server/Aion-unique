@@ -61,6 +61,7 @@ import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 
 /**
@@ -71,32 +72,12 @@ import com.aionemu.gameserver.world.zone.ZoneInstance;
  */
 public class PlayerController extends CreatureController<Player>
 {
-	// TEMP till player AI introduced
-	private Creature		lastAttacker;
-
 	private boolean			isInShutdownProgress;
 
 	/**
 	 * Zone update mask
 	 */
 	private volatile byte	zoneUpdateMask;
-
-	/**
-	 * @return the lastAttacker
-	 */
-	public Creature getLastAttacker()
-	{
-		return lastAttacker;
-	}
-
-	/**
-	 * @param the
-	 *            lastAttacker
-	 */
-	public void setLastAttacker(Creature lastAttacker)
-	{
-		this.lastAttacker = lastAttacker;
-	}
 
 	/**
 	 * {@inheritDoc}
@@ -212,31 +193,44 @@ public class PlayerController extends CreatureController<Player>
 	 * Should only be triggered from one place (life stats)
 	 */
 	@Override
-	public void onDie()
-	{
-		// TODO probably introduce variable - last attack creature in player AI
+	public void onDie(Creature lastAttacker)
+	{		
 		Player player = this.getOwner();
 
-		if(isDuelTarget())
+
+		if(lastAttacker instanceof Player)
 		{
-			sp.getDuelService().onDie(player, (Player) lastAttacker);
+
+			if(sp.getDuelService().isDueling(lastAttacker.getObjectId()))
+			{
+				sp.getDuelService().onDie(player, (Player) lastAttacker);
+				return;
+			}
+			else
+			{
+				doReward(lastAttacker);
+			}
 		}
-		else
+
+		super.onDie(lastAttacker);
+		
+		if(lastAttacker instanceof Npc)
 		{
-			super.onDie();
 			if(player.getLevel() > 4)
 				player.getCommonData().calculateExpLoss();
+		}
 
-			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 13, 0, lastAttacker.getObjectId()), true);
-			PacketSendUtility.sendPacket(player, new SM_DIE(ReviveType.BIND_REVIVE));
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
-			sp.getQuestEngine().onDie(new QuestEnv(null, player, 0, 0));
-		}
-		// TODO: Add check if player in Abyss?
-		if(lastAttacker instanceof Player && isEnemy((Player) lastAttacker))
-		{
-			sp.getAbyssService().doReward(getOwner(), (Player) lastAttacker);
-		}
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 13, 0, lastAttacker == null ? 0 : lastAttacker
+			.getObjectId()), true);
+		PacketSendUtility.sendPacket(player, new SM_DIE(ReviveType.BIND_REVIVE));
+		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DIE);
+		sp.getQuestEngine().onDie(new QuestEnv(null, player, 0, 0));
+	}
+
+	@Override
+	public void doReward(Creature creature)
+	{
+		sp.getAbyssService().doReward(getOwner(), (Player) creature);
 	}
 
 	@Override
@@ -285,12 +279,11 @@ public class PlayerController extends CreatureController<Player>
 			return;
 
 		super.onAttack(creature, skillId, type, damage);
-		lastAttacker = creature;
 
 		if(getOwner().isInvul())
 			damage = 0;
 
-		getOwner().getLifeStats().reduceHp(damage);
+		getOwner().getLifeStats().reduceHp(damage, creature);
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), type, skillId, damage), true);
 	}
 
@@ -373,12 +366,28 @@ public class PlayerController extends CreatureController<Player>
 				break;
 		}
 	}
-
+	
+	/**
+	 * Player enemies:<br>
+	 * - different race<br>
+	 * - duel partner<br>
+	 * 
+	 * @param player
+	 * @return
+	 */
 	public boolean isEnemy(Player player)
 	{
-		return player.getCommonData().getRace() != getOwner().getCommonData().getRace();
+		return player.getCommonData().getRace() != getOwner().getCommonData().getRace()
+			|| sp.getDuelService().isDueling(player.getObjectId(), getOwner().getObjectId());
 	}
 
+	/**
+	 * Npc enemies:<br>
+	 * - monsters<br>
+	 * - aggressive npcs<br>
+	 * @param npc
+	 * @return
+	 */
 	public boolean isEnemy(Npc npc)
 	{
 		return npc instanceof Monster || npc.isAggressiveTo(getOwner().getCommonData().getRace());
@@ -552,12 +561,29 @@ public class PlayerController extends CreatureController<Player>
 	}
 
 	/**
-	 * Returns true if owner is in duel
-	 * 
-	 * @return
+	 * Check water level (start drowning) and map death level (die)
 	 */
-	public boolean isDuelTarget()
+	public void checkWaterLevel()
 	{
-		return sp.getDuelService().isDueling(this.getOwner().getObjectId(), lastAttacker.getObjectId());
+		Player player = getOwner();
+		World world = sp.getWorld();
+		float z = player.getZ();
+		
+		if(player.getLifeStats().isAlreadyDead())
+			return;
+		
+		if(z < world.getWorldMap(player.getWorldId()).getDeathLevel())
+		{
+			die();
+			return;
+		}
+		
+		//TODO need fix character height
+		float playerheight = player.getPlayerAppearance().getHeight() * 1.6f;
+		if(z < world.getWorldMap(player.getWorldId()).getWaterLevel() - playerheight)
+			sp.getZoneService().startDrowning(player);
+		else
+			sp.getZoneService().stopDrowning(player);
 	}
+	
 }

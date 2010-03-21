@@ -77,7 +77,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	/**
 	 * Perform tasks on Creature death
 	 */
-	public void onDie()
+	public void onDie(Creature lastAttacker)
 	{
 		this.getOwner().getEffectController().removeAllEffects();
 		this.getOwner().getMoveController().stop();
@@ -142,7 +142,6 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * Perform reward operation
 	 * 
 	 */
-	// TODO probably do reward on list of objects
 	public void doReward(Creature creature)
 	{
 
@@ -240,6 +239,14 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	{
 		super.delete();
 		cancelAllTasks();
+	}
+	
+	/**
+	 * Die by reducing HP to 0
+	 */
+	public void die()
+	{
+		getOwner().getLifeStats().reduceHp(getOwner().getLifeStats().getCurrentHp() + 1, null);
 	}
 	
 }

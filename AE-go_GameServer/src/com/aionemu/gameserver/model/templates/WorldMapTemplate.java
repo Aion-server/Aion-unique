@@ -65,6 +65,18 @@ public class WorldMapTemplate
 	@XmlAttribute(name = "instance")
 	private boolean	instance	= false;
 
+	/**
+	 * The minimum Z coord, under this player die immediately
+	 */
+	@XmlAttribute(name = "death_level", required = true)
+	private int	deathlevel	= 0;
+
+	/**
+	 * water level on map
+	 */
+	@XmlAttribute(name = "water_level", required = true)
+	private int	waterlevel	= 16;
+
 	public String getName()
 	{
 		return name;
@@ -96,5 +108,19 @@ public class WorldMapTemplate
 	public boolean isInstance()
 	{
 		return instance;
+	}
+	/**
+	 * @return the waterlevel
+	 */
+	public int getWaterLevel()
+	{
+		return waterlevel;
+	}
+	/**
+	 * @return the level of death :)
+	 */
+	public int getDeathLevel()
+	{
+		return deathlevel;
 	}
 }

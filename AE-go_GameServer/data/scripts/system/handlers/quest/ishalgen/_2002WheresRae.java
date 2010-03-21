@@ -172,7 +172,7 @@ public class _2002WheresRae extends QuestHandler
 						updateQuestStatus(player, qs);
 						Npc npc = (Npc)env.getVisibleObject();
 						questService.addNewSpawn(player.getWorldId(), player.getInstanceId(), 203553, npc.getX(), npc.getY(), npc.getZ(), npc.getHeading(), true);
-						npc.getController().onDie();
+						npc.getController().onDie(null); //TODO check null or player
 						return true;
 					}
 					break;

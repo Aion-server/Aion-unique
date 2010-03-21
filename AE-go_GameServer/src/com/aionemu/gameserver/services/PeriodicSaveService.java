@@ -88,7 +88,8 @@ public class PeriodicSaveService
 				}
 				catch(Exception ex)
 				{
-					log.error("Exception during periodic saving of player " + ex.getCause().getMessage());
+					log.error("Exception during periodic saving of player " + ex.getCause() != null ? ex.getCause()
+						.getMessage() : "null");
 				}
 
 				playersUpdated++;
@@ -117,7 +118,8 @@ public class PeriodicSaveService
 				}
 				catch(Exception ex)
 				{
-					log.error("Exception during periodic saving of player items " + ex.getCause().getMessage());
+					log.error("Exception during periodic saving of player items " + ex.getCause() != null ? ex.getCause()
+						.getMessage() : "null");
 				}
 
 				playersUpdated++;
@@ -169,7 +171,8 @@ public class PeriodicSaveService
 				}
 				catch(Exception ex)
 				{
-					log.error("Exception during periodic saving of legion WH " + ex.getCause().getMessage());
+					log.error("Exception during periodic saving of legion WH " + ex.getCause() != null ? ex.getCause()
+						.getMessage() : "null");
 				}
 
 				legionWhUpdated++;

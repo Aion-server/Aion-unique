@@ -155,8 +155,6 @@ public class DuelService
 	{
 		PacketSendUtility.sendPacket(requester, SM_DUEL.SM_DUEL_STARTED(responder.getObjectId()));
 		PacketSendUtility.sendPacket(responder, SM_DUEL.SM_DUEL_STARTED(requester.getObjectId()));
-		requester.getController().setLastAttacker(responder);
-		responder.getController().setLastAttacker(requester);
 		createDuel(requester.getObjectId(), responder.getObjectId());
 	}
 
@@ -170,11 +168,20 @@ public class DuelService
 		if(!isDueling(player.getObjectId()))
 			return;
 
-		Player opponent = world.findPlayer(duels.get(player.getObjectId()));
+		int opponnentId = duels.get(player.getObjectId());
+		Player opponent = world.findPlayer(opponnentId);
 
-		PacketSendUtility.sendPacket(opponent, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_WON, player.getName()));
-		PacketSendUtility.sendPacket(player, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_LOST, opponent.getName()));
-		removeDuel(player.getObjectId(), opponent.getObjectId());
+		if(opponent != null)
+		{
+			PacketSendUtility.sendPacket(opponent, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_WON, player.getName()));
+			PacketSendUtility.sendPacket(player, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_LOST, opponent.getName()));
+		}
+		else
+		{
+			log.warn("CHECKPOING : duel opponent is already out of world");
+		}
+		
+		removeDuel(player.getObjectId(), opponnentId);
 	}
 
 	/**

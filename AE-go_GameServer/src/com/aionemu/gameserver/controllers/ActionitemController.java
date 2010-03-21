@@ -52,7 +52,7 @@ public class ActionitemController extends NpcController
 				PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), 
 					getOwner().getObjectId(), defaultUseTime, 0));
 				getOwner().setTarget(player);
-				onDie();
+				onDie(player);
 			}
 		}, defaultUseTime);
 	}

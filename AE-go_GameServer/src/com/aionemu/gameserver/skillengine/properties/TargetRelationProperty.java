@@ -58,8 +58,6 @@ public class TargetRelationProperty
 	public boolean set(Skill skill)
 	{
 		List<Creature> effectedList = skill.getEffectedList();
-		
-		Creature lastAttacker = skill.getEffector().getController().getLastAttacker();
 		Player effector = skill.getEffector();
 		
 		switch(value)
@@ -72,9 +70,6 @@ public class TargetRelationProperty
 					Creature nextEffected = iter.next();
 					
 					if(nextEffected instanceof Npc && effector.getController().isEnemy((Npc) nextEffected))
-						continue;
-					
-					if(lastAttacker != null && lastAttacker.getObjectId() == nextEffected.getObjectId())
 						continue;
 					
 					if(nextEffected instanceof Player 
@@ -92,12 +87,6 @@ public class TargetRelationProperty
 					//TODO refactor here for duel support
 					if(nextEffected instanceof Player 
 						&& !((Player)nextEffected).getController().isEnemy(skill.getEffector()))
-						continue;
-					
-					//TODO here also needs refactoring
-					if(nextEffected instanceof Player
-						&& lastAttacker != null 
-						&& lastAttacker.getObjectId() != nextEffected.getObjectId())
 						continue;
 					
 					if(nextEffected instanceof Npc && !effector.getController().isEnemy((Npc) nextEffected))

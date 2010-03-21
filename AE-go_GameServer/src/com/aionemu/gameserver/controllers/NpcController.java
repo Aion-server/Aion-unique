@@ -113,9 +113,9 @@ public class NpcController extends CreatureController<Npc>
 	}
 
 	@Override
-	public void onDie()
+	public void onDie(Creature lastAttacker)
 	{
-		super.onDie();
+		super.onDie(lastAttacker);
 		Npc owner = getOwner();
 
 		if(decayTask == null)
@@ -123,18 +123,18 @@ public class NpcController extends CreatureController<Npc>
 
 		scheduleRespawn();
 
-		// TODO change - now reward is given to target only. Base on Most Hate/Aggro
-		Player target = (Player) owner.getTarget();
-
 		PacketSendUtility.broadcastPacket(owner,
-			new SM_EMOTION(owner, 13, 0, target == null ? 0 : target.getObjectId()));
+			new SM_EMOTION(owner, 13, 0, lastAttacker == null ? 0 : lastAttacker.getObjectId()));
 
-		if(target == null)
-			target = (Player) owner.getAggroList().getMostHated();// TODO based on damage;
+		if(lastAttacker == null)
+			lastAttacker = owner.getAggroList().getMostHated();// TODO based on damage;
 
-		this.doReward(target);
-		this.doDrop(target);
-
+		this.doReward(lastAttacker);
+		
+		if(lastAttacker instanceof Player)
+		{
+			this.doDrop((Player) lastAttacker);
+		}
 		if(owner.getAi() != null)
 			owner.getAi().handleEvent(Event.DIED);
 
@@ -377,7 +377,7 @@ public class NpcController extends CreatureController<Npc>
 		}
 
 		npc.getAggroList().addDamageHate(creature, damage, 0);
-		npc.getLifeStats().reduceHp(damage);
+		npc.getLifeStats().reduceHp(damage, creature);
 
 		ai.handleEvent(Event.ATTACKED);
 		PacketSendUtility.broadcastPacket(npc, new SM_ATTACK_STATUS(npc, type, skillId, damage));

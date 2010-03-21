@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.aionemu.gameserver.dataholders.ZoneData;
+import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.zone.ZoneTemplate;
 import com.aionemu.gameserver.taskmanager.AbstractPeriodicTaskManager;
@@ -43,6 +44,8 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 	private Map<Integer, List<ZoneInstance>> zoneByMapIdMap = new HashMap<Integer, List<ZoneInstance>>();
 	
 	private ZoneData zoneData;
+	
+	private static final long DROWN_PERIOD = 2000;
 	
 	@Inject
 	public ZoneService(ZoneData zoneData)
@@ -81,6 +84,7 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 			public void zoneTask(Player player)
 			{
 				player.getController().updateZoneImpl();
+				player.getController().checkWaterLevel();
 			}
 		},
 		ZONE_REFRESH
@@ -257,5 +261,67 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 		}
 
 		return inside;
+	}
+
+	/**
+	 * Drowning / immediate death in maps related functionality
+	 */
+	
+	/**
+	 * 
+	 * @param player
+	 */
+	public void startDrowning(Player player)
+	{
+		if(!isDrowning(player))
+			scheduleDrowningTask(player);
+	}
+	
+	/**
+	 * 
+	 * @param player
+	 */
+	public void stopDrowning(Player player)
+	{
+		if(isDrowning(player))
+		{
+			player.getController().cancelTask(TaskId.DROWN.ordinal());
+		}
+		
+	}
+	
+	/**
+	 * 
+	 * @param player
+	 * @return
+	 */
+	private boolean isDrowning(Player player)
+	{
+		return player.getController().getTask(TaskId.DROWN.ordinal()) == null ? false : true;
+	}
+	
+	/**
+	 * 
+	 * @param player
+	 */
+	private void scheduleDrowningTask(final Player player)
+	{
+		player.getController().addTask(TaskId.DROWN.ordinal(), ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable(){
+			@Override
+			public void run()
+			{
+				int value = Math.round(player.getLifeStats().getMaxHp() / 10);
+				//TODO retail emotion, attack_status packets sending
+				if(!player.getLifeStats().isAlreadyDead())
+				{
+					player.getLifeStats().reduceHp(value, null);
+					player.getLifeStats().sendHpPacketUpdate();
+				}
+				else
+				{
+					stopDrowning(player);
+				}
+			}
+		}, 0, DROWN_PERIOD));
 	}
 }

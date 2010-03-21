@@ -22,7 +22,6 @@ import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
-import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -39,13 +38,17 @@ public class CM_MOVE extends AionClientPacket
 	 * logger for this class
 	 */
 	private static final Logger	log	= Logger.getLogger(CM_MOVE.class);
-	@Inject
-	private TeleportService		teleportService;
 	
 	@Inject
 	private World				world;
 
 	private MovementType		type;
+	
+	private byte heading;
+	
+	private byte movementType;
+	
+	private float x, y, z, x2, y2, z2;
 
 	/**
 	 * Constructs new instance of <tt>CM_MOVE </tt> packet
@@ -68,28 +71,14 @@ public class CM_MOVE extends AionClientPacket
 		if(!player.isSpawned())
 			return;
 
-		float x, y, z, x2 = 0, y2 = 0, z2 = 0;
+		
 		x = readF();
 		y = readF();
 		z = readF();
 
-		// falling characters
-		if(z < 0)
-		{
-			teleportService.moveToBindLocation(player, true);
-			return;
-		}
-
-		byte heading = (byte) readC();
-		byte movementType = (byte) readC();
+		heading = (byte) readC();
+		movementType = (byte) readC();
 		type = MovementType.getMovementTypeById(movementType);
-		
-		if(!player.canPerformMove())
-		{
-			//TODO retail investigation
-			//PacketSendUtility.sendPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, MovementType.MOVEMENT_STOP));
-			return;
-		}
 
 		switch(type)
 		{
@@ -98,11 +87,6 @@ public class CM_MOVE extends AionClientPacket
 				x2 = readF();
 				y2 = readF();
 				z2 = readF();
-
-				world.updatePosition(player, x, y, z, heading);
-				player.getController().onStartMove();
-				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type),
-					false);
 				break;
 			case MOVEMENT_START_GLIDE:
 				readC();
@@ -112,12 +96,37 @@ public class CM_MOVE extends AionClientPacket
 				y2 = readF();
 				z2 = readF();
 				readC();
+				break;
+			default:
+				break;
+		}
+	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void runImpl()
+	{
+		Player player = getConnection().getActivePlayer();
+		
+		switch(type)
+		{
+			case MOVEMENT_START_MOUSE:
+			case MOVEMENT_START_KEYBOARD:
+				world.updatePosition(player, x, y, z, heading);
+				player.getController().onStartMove();
+				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type),
+					false);
+				break;
+			case MOVEMENT_START_GLIDE:
+				readC();
+				break;
+			case VALIDATE_GLIDE:
 				world.updatePosition(player, x, y, z, heading);
 				player.getController().onMove();
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type),
 					false);
-				
 				player.getFlyController().switchToGliding();
 				break;
 			case VALIDATE_MOUSE:
@@ -144,15 +153,7 @@ public class CM_MOVE extends AionClientPacket
 			default:
 				break;
 		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void runImpl()
-	{
-		Player player = getConnection().getActivePlayer();
+		
 		if(type != MovementType.MOVEMENT_STOP && player.isProtectionActive())
 		{
 			player.getController().stopProtectionActiveTask();

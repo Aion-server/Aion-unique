@@ -61,6 +61,24 @@ public class WorldMap
 	{
 		return worldMapTemplate.getName();
 	}
+	
+	/**
+	 * Returns water level on map
+	 * @return water level
+	 */
+	public int getWaterLevel()
+	{
+		return worldMapTemplate.getWaterLevel();
+	}
+	
+	/**
+	 * Returns death level on map
+	 * @return death level
+	 */
+	public int getDeathLevel()
+	{
+		return worldMapTemplate.getDeathLevel();
+	}
 
 	/**
 	 * Returns map id
