@@ -16,10 +16,13 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import java.sql.Timestamp;
+import java.util.TreeMap;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.legion.Legion;
+import com.aionemu.gameserver.model.legion.LegionHistory;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_TABS;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -66,22 +69,35 @@ public class CM_LEGION_TABS extends AionClientPacket
 	protected void runImpl()
 	{
 		Player activePlayer = getConnection().getActivePlayer();
-		Legion legion = activePlayer.getLegion();
+		TreeMap<Timestamp, LegionHistory> history = activePlayer.getLegion().getLegionHistory();
+
+		/**
+		 * Max page is 3 for legion history
+		 */
+		if(page > 3)
+			return;
+
+		/**
+		 * If history size is less than page*8 return
+		 */
+		if(history.size() < page * 8)
+			return;
+
 		switch(tab)
 		{
 			/**
 			 * History Tab
 			 */
 			case 0:
-				log.info("Requested History Tab Page: " + page);
-				if(!legion.getLegionHistory().isEmpty())
-					PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_TABS(legion.getLegionHistory(), page));
+				log.debug("Requested History Tab Page: " + page);
+				if(!history.isEmpty())
+					PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_TABS(history, page));
 				break;
 			/**
 			 * Reward Tab
 			 */
 			case 1:
-				log.info("Requested Reward Tab Page: " + page);
+				log.debug("Requested Reward Tab Page: " + page);
 				break;
 		}
 	}
