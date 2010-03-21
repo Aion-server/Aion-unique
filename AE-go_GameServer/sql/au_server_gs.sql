@@ -296,6 +296,7 @@ CREATE TABLE IF NOT EXISTS `legion_history` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `history_type` enum('CREATE','JOIN','KICK','APPOINTED','EMBLEM_REGISTER','EMBLEM_MODIFIED') NOT NULL,
   `name` varchar(16) NOT NULL,
+  PRIMARY KEY  (`date`),
   FOREIGN KEY (`legion_id`) REFERENCES `legions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
