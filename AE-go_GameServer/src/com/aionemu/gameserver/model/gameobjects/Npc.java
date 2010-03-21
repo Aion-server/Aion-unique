@@ -102,12 +102,6 @@ public class Npc extends Creature
 	{
 		return (NpcGameStats) super.getGameStats();
 	}
-	
-	@Override
-	public NpcAi getAi()
-	{
-		return (NpcAi) super.getAi();
-	}
 		
 	@Override
 	public NpcController getController()

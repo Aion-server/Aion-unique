@@ -44,12 +44,6 @@ public class Monster extends Npc
 	}
 
 	@Override
-	public MonsterAi getAi()
-	{
-		return (MonsterAi) super.getAi();
-	}
-
-	@Override
 	public void initializeAi()
 	{
 		if(isAggressive() && !CustomConfig.DISABLE_MOB_AGGRO)
