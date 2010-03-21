@@ -308,8 +308,7 @@
 	<!-- Message From Morai -->
 	<report_to start_npc_id="203164" end_npc_id="203167" id="1188"/>
 	
-	<!-- Numonerk's Demand Note -->
-	<report_to start_npc_id="203121" end_npc_id="798004" item_id="182200566" id="1218"/>
+	<!--  Numonerk's Demand Note handled by script -->
 
 	<!-- Saving the Snappers -->
 	<monster_hunt start_npc_id="203169" id="1216">
