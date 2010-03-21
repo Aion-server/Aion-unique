@@ -65,21 +65,11 @@ public abstract class InventoryPacket extends AionServerPacket
 	 * @param buf
 	 * @param item
 	 */
-	protected void writeGeneralItemInfo(ByteBuffer buf, Item item, boolean isQuest, boolean privateStore, boolean mail)
+	protected void writeGeneralItemInfo(ByteBuffer buf, Item item, boolean privateStore, boolean mail)
 	{
 		writeH(buf, 0x16); //length of details
 		writeC(buf, 0);
-
-		if(isQuest)
-		{
-			writeC(buf, 0x20);
-			writeC(buf, 0x65); // ?
-		}else
-		{
-			writeC(buf, 0x3E); //or can be 0x1E 0x3E 0x20 (quest)
-			writeC(buf, 0x63); // ?
-		}
-
+		writeH(buf, item.getItemMask());
 		writeD(buf, item.getItemCount());
 		writeD(buf, 0);
 		writeD(buf, 0);
@@ -100,8 +90,7 @@ public abstract class InventoryPacket extends AionServerPacket
 	{
 		writeH(buf, 0x16); //length of details
 		writeC(buf, 0);
-		writeC(buf, 0x1E); //or can be 0x1E
-		writeC(buf, 0x63); // ?
+		writeH(buf, item.getItemMask());
 		writeD(buf, item.getItemCount());
 		writeD(buf, 0);
 		writeD(buf, 0);
@@ -164,8 +153,7 @@ public abstract class InventoryPacket extends AionServerPacket
 			writeD(buf, 0);//unk 1.5.1.9
 			writeC(buf, 0);//unk 1.5.1.9
 
-			writeC(buf, 0x3E);
-			writeC(buf, 0x0A);
+			writeH(buf, item.getItemMask());
 			writeD(buf, item.getItemCount());
 			writeD(buf, 0);
 			writeD(buf, 0);
@@ -262,8 +250,7 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeD(buf, 0);//unk 1.5.1.9
 		writeC(buf, 0);//unk 1.5.1.9
 
-		writeC(buf, 0x3E);
-		writeC(buf, 0x02);
+		writeH(buf, item.getItemMask());
 		writeD(buf, item.getItemCount());
 		writeD(buf, 0);
 		writeD(buf, 0);

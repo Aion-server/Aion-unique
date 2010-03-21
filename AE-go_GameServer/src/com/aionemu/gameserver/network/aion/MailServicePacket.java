@@ -109,7 +109,7 @@ public abstract class MailServicePacket extends InventoryPacket
 			else if(itemTemplate.isWeapon())
 				writeWeaponInfo(buf, item, false, false, false, true);
 			else
-				writeGeneralItemInfo(buf, item, false, false, true);
+				writeGeneralItemInfo(buf, item, false, true);
 		}
 		else
 		{

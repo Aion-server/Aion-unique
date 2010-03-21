@@ -72,7 +72,7 @@ public class SM_PRIVATE_STORE extends InventoryPacket
 				}
 				else
 				{
-					writeGeneralItemInfo(buf, item, false, true, false);
+					writeGeneralItemInfo(buf, item, true, false);
 				}
 			}
 		}

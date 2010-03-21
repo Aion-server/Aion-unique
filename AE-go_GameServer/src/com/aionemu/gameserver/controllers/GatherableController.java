@@ -126,7 +126,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	 */
 	public void addItem(Material material, Player player)
 	{
-		sp.getItemService().addItem(player, material.getItemid(), 1, false);
+		sp.getItemService().addItem(player, material.getItemid(), 1);
 	}
 	
 	public void rewardPlayer(Player player)

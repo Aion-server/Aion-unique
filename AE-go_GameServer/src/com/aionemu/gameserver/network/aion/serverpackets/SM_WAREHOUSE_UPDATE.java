@@ -53,7 +53,7 @@ public class SM_WAREHOUSE_UPDATE extends InventoryPacket
 		}
 		else
 		{
-			writeGeneralItemInfo(buf, item, item.isQuest(), false, false);
+			writeGeneralItemInfo(buf, item, false, false);
 		}
 
 	}

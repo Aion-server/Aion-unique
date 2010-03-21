@@ -18,7 +18,7 @@ package com.aionemu.gameserver.skillengine.model.learn;
 
 /**
  * @author ATracer
- *
+ * TODO rename to more general name
  */
 public enum SkillRace
 {

@@ -106,7 +106,7 @@ public class SM_INVENTORY_INFO extends InventoryPacket
 			}
 			else
 			{
-				writeGeneralItemInfo(buf, item, false, false, false);
+				writeGeneralItemInfo(buf, item, false, false);
 				writeC(buf, 0);
 			}
 		}

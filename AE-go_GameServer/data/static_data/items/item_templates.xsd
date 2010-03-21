@@ -36,22 +36,12 @@
 		<xs:attribute name="weapon_boost" type="xs:int" />
 		<xs:attribute name="attack_type" type="xs:string" />
 		<xs:attribute name="attack_gap" type="xs:float" />
-		<xs:attribute name="lore" type="xs:boolean" />
 		<xs:attribute name="desc" type="xs:int" />
-		<xs:attribute name="can_exchange" type="xs:boolean" />
-		<xs:attribute name="can_sell_to_npc" type="xs:boolean" />
-		<xs:attribute name="cdcw" type="xs:boolean" />
-		<xs:attribute name="cdaw" type="xs:boolean" />
-		<xs:attribute name="cdgw" type="xs:boolean" />
-		<xs:attribute name="breakable" type="xs:boolean" />
-		<xs:attribute name="soul_bind" type="xs:boolean" />
-		<xs:attribute name="remove_when_logout" type="xs:boolean" />
 		<xs:attribute name="gender" type="xs:string" />
 		<xs:attribute name="option_slot_bonus" type="xs:int" />
 		<xs:attribute name="bonus_apply" type="xs:string" />
 		<xs:attribute name="no_enchant" type="xs:boolean" />
 		<xs:attribute name="can_proc_enchant" type="xs:boolean" />
-		<xs:attribute name="can_split" type="xs:boolean" />
 		<xs:attribute name="drop" type="xs:boolean" />
 		<xs:attribute name="dye" type="xs:boolean" />
 		<xs:attribute name="race" type="xs:string" />
@@ -64,6 +54,7 @@
 		<xs:attribute name="max_stack_count" type="xs:int" />
 		<xs:attribute name="armor_type" type="armorType" />
 		<xs:attribute name="weapon_type" type="weaponType" />
+		<xs:attribute name="mask" type="xs:int" />
 		<xs:attribute name="level" type="xs:int" />
 		<xs:attribute name="id" type="itemId" use="required" />
 

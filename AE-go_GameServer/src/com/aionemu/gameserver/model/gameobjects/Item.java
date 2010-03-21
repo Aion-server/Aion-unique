@@ -41,8 +41,6 @@ public class Item extends AionObject
 
 	private int equipmentSlot = ItemStorage.FIRST_AVAILABLE_SLOT;
 
-	private boolean isQuest;
-
 	private PersistentState persistentState;
 
 	private Set<ManaStone> manaStones;
@@ -322,22 +320,6 @@ public class Item extends AionObject
 
 	}
 
-	/**
-	 * @return the isQuest
-	 */
-	public boolean isQuest()
-	{
-		return isQuest;
-	}
-
-	/**
-	 * @param isQuest the isQuest to set
-	 */
-	public void setQuest(boolean isQuest)
-	{
-		this.isQuest = isQuest;
-	}
-
 	public void setItemLocation(int storageType)
 	{
 		this.itemLocation = storageType;
@@ -349,11 +331,16 @@ public class Item extends AionObject
 		return itemLocation;
 	}
 	
+	public int getItemMask()
+	{
+		return itemTemplate.getMask();
+	}
+	
 	@Override
 	public String toString()
 	{
 		return "Item [equipmentSlot=" + equipmentSlot + ", godStone=" + godStone + ", isEquipped=" + isEquipped
-			+ ", isQuest=" + isQuest + ", itemColor=" + itemColor + ", itemCount=" + itemCount + ", itemLocation="
+			+ ", itemColor=" + itemColor + ", itemCount=" + itemCount + ", itemLocation="
 			+ itemLocation + ", itemTemplate=" + itemTemplate + ", manaStones=" + manaStones + ", persistentState="
 			+ persistentState + "]";
 	}

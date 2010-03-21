@@ -249,9 +249,8 @@ public class DropService
 		{
 			int currentDropItemCount = requestedItem.getCount();
 			int itemId = requestedItem.getDropTemplate().getItemId();
-			int questId = requestedItem.getDropTemplate().getQuest();
-
-			currentDropItemCount = itemService.addItem(player, itemId, currentDropItemCount, questId > 0);
+			
+			currentDropItemCount = itemService.addItem(player, itemId, currentDropItemCount);
 
 			if(currentDropItemCount == 0)
 			{

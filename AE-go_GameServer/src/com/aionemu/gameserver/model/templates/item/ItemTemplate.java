@@ -31,6 +31,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
+import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
 
 /**
  * @author Luno modified by ATracer
@@ -45,9 +46,12 @@ public class ItemTemplate extends VisibleObjectTemplate
 
 	@XmlElement(name = "modifiers", required = false)
 	protected ModifiersTemplate	modifiers;
-	
+
 	@XmlElement(name = "actions", required = false)
-	protected ItemActions actions;
+	protected ItemActions		actions;
+	
+	@XmlAttribute(name = "mask")
+	private int					mask;
 
 	@XmlAttribute(name = "slot")
 	private int					itemSlot;
@@ -60,19 +64,19 @@ public class ItemTemplate extends VisibleObjectTemplate
 
 	@XmlAttribute(name = "dmg_decal")
 	private int					dmgDecal;
-	
+
 	@XmlAttribute(name = "weapon_boost")
 	private int					weaponBoost;
 
 	@XmlAttribute(name = "price")
 	private int					price;
-	
+
 	@XmlAttribute(name = "ap")
 	private int					abyssPoints;
-	
+
 	@XmlAttribute(name = "ai")
 	private int					abyssItem;
-	
+
 	@XmlAttribute(name = "aic")
 	private int					abyssItemCount;
 
@@ -86,58 +90,31 @@ public class ItemTemplate extends VisibleObjectTemplate
 	private ItemQuality			itemQuality;
 
 	@XmlAttribute(name = "item_type")
-	private String				itemType;						// TODO enum
+	private String				itemType;					// TODO enum
 
 	@XmlAttribute(name = "weapon_type")
-	private WeaponType				weaponType;
+	private WeaponType			weaponType;
 
 	@XmlAttribute(name = "armor_type")
-	private ArmorType				armorType;
+	private ArmorType			armorType;
 
 	@XmlAttribute(name = "attack_type")
-	private String				attackType;					// TODO enum
+	private String				attackType;				// TODO enum
 
 	@XmlAttribute(name = "attack_gap")
-	private float				attackGap;						// TODO enum
-
-	@XmlAttribute(name = "lore")
-	private boolean				lore;
+	private float				attackGap;					// TODO enum
 
 	@XmlAttribute(name = "desc")
-	private String				description;					// TODO string or int
-
-	@XmlAttribute(name = "can_exchange")
-	private boolean				canExchange;
-
-	@XmlAttribute(name = "can_sell_to_npc")
-	private boolean				canSellToNpc;
-
-	@XmlAttribute(name = "cdcw")
-	private boolean				canDepositToCharacterWarehouse;
-
-	@XmlAttribute(name = "cdaw")
-	private boolean				canDepositToAccountWarehouse;
-
-	@XmlAttribute(name = "cdgw")
-	private boolean				canDepositToGuildWarehouse;
-
-	@XmlAttribute(name = "breakable")
-	private boolean				breakable;
-
-	@XmlAttribute(name = "soul_bind")
-	private boolean				soulBind;
-
-	@XmlAttribute(name = "remove_when_logout")
-	private boolean				removeWhenLogout;
+	private String				description;				// TODO string or int
 
 	@XmlAttribute(name = "gender")
-	private String				genderPermitted;				// enum
+	private String				genderPermitted;			// enum
 
 	@XmlAttribute(name = "option_slot_bonus")
 	private int					optionSlotBonus;
 
 	@XmlAttribute(name = "bonus_apply")
-	private String				bonusApply;					// enum
+	private String				bonusApply;				// enum
 
 	@XmlAttribute(name = "no_enchant")
 	private boolean				noEnchant;
@@ -150,17 +127,25 @@ public class ItemTemplate extends VisibleObjectTemplate
 
 	@XmlAttribute(name = "drop")
 	private boolean				itemDropPermitted;
-	
+
 	@XmlAttribute(name = "dye")
 	private boolean				itemDyePermitted;
 
 	@XmlAttribute(name = "race")
-	private String				racePermitted;
+	private SkillRace			race	= SkillRace.ALL;
 
 	private int					itemId;
 	
 	@XmlElement(name = "godstone")
-	private GodstoneInfo godstoneInfo;
+	private GodstoneInfo		godstoneInfo;
+	
+	/**
+	 * @return the mask
+	 */
+	public int getMask()
+	{
+		return mask;
+	}
 
 	public int getItemSlot()
 	{
@@ -172,7 +157,7 @@ public class ItemTemplate extends VisibleObjectTemplate
 	 */
 	public TreeSet<StatModifier> getModifiers()
 	{
-		if (modifiers!=null)
+		if(modifiers != null)
 		{
 			return modifiers.getModifiers();
 		}
@@ -320,78 +305,6 @@ public class ItemTemplate extends VisibleObjectTemplate
 	}
 
 	/**
-	 * @return the lore
-	 */
-	public boolean isLore()
-	{
-		return lore;
-	}
-
-	/**
-	 * @return the canExchange
-	 */
-	public boolean isCanExchange()
-	{
-		return canExchange;
-	}
-
-	/**
-	 * @return the canSellToNpc
-	 */
-	public boolean isCanSellToNpc()
-	{
-		return canSellToNpc;
-	}
-
-	/**
-	 * @return the canDepositToCharacterWarehouse
-	 */
-	public boolean isCanDepositToCharacterWarehouse()
-	{
-		return canDepositToCharacterWarehouse;
-	}
-
-	/**
-	 * @return the canDepositToAccountWarehouse
-	 */
-	public boolean isCanDepositToAccountWarehouse()
-	{
-		return canDepositToAccountWarehouse;
-	}
-
-	/**
-	 * @return the canDepositToGuildWarehouse
-	 */
-	public boolean isCanDepositToGuildWarehouse()
-	{
-		return canDepositToGuildWarehouse;
-	}
-
-	/**
-	 * @return the breakable
-	 */
-	public boolean isBreakable()
-	{
-		return breakable;
-	}
-
-	/**
-	 * @return the soulBind
-	 */
-	public boolean isSoulBind()
-	{
-		return soulBind;
-	}
-
-	/**
-	 * @return the removeWhenLogout
-	 */
-	public boolean isRemoveWhenLogout()
-	{
-		return removeWhenLogout;
-	}
-
-	/**
 	 * @return the genderPermitted
 	 */
 	public String getGenderPermitted()
@@ -456,13 +369,13 @@ public class ItemTemplate extends VisibleObjectTemplate
 	}
 
 	/**
-	 * @return the racePermitted
+	 * @return the race
 	 */
-	public String getRacePermitted()
+	public SkillRace getRace()
 	{
-		return racePermitted;
+		return race;
 	}
-	
+
 	/**
 	 * @return the weaponBoost
 	 */
@@ -486,7 +399,7 @@ public class ItemTemplate extends VisibleObjectTemplate
 	{
 		return equipmentType == EquipType.ARMOR;
 	}
-	
+
 	public boolean isKinah()
 	{
 		return itemId == ItemId.KINAH.value();
@@ -521,6 +434,5 @@ public class ItemTemplate extends VisibleObjectTemplate
 	{
 		return itemId;
 	}
-	
-	
+
 }

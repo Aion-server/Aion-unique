@@ -96,7 +96,7 @@ public class Add extends AdminCommand
 			}
 		}
 		
-		int count = itemService.addItem(receiver, itemId, itemCount, false);
+		int count = itemService.addItem(receiver, itemId, itemCount);
 
 		if(count == 0)
 		{

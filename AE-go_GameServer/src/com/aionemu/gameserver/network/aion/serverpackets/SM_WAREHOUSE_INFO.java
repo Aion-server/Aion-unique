@@ -77,7 +77,7 @@ public class SM_WAREHOUSE_INFO extends InventoryPacket
 				writeArmorInfo(buf, item, false, false, false);
 
 			else
-				writeGeneralItemInfo(buf, item, false, false, false);
+				writeGeneralItemInfo(buf, item, false, false);
 		}
 	}
 
@@ -98,8 +98,7 @@ public class SM_WAREHOUSE_INFO extends InventoryPacket
 	{
 		writeH(buf, 0x16); //length of details
 		writeC(buf, 0);
-		writeC(buf, 0x1E); //or can be 0x1E
-		writeC(buf, 0x63); // ?
+		writeH(buf, item.getItemMask());
 		writeD(buf, item.getItemCount());
 		writeD(buf, 0);
 		writeD(buf, 0);

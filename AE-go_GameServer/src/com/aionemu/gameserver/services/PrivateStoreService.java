@@ -179,7 +179,7 @@ public class PrivateStoreService
 					
 					GodStone godStone = item.getGodStone();
 					decreaseItemFromPlayer(seller, item, tradeItem);
-					itemService.addItemWithStones(buyer, item.getItemTemplate().getTemplateId(), tradeItem.getCount(), false, manaStones, godStone);
+					itemService.addItemWithStones(buyer, item.getItemTemplate().getTemplateId(), tradeItem.getCount(), manaStones, godStone);
 					if(storeItem.getCount() == tradeItem.getCount())
 						store.removeItem(storeItem.getItemObjId());
 				}

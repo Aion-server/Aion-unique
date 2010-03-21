@@ -64,7 +64,7 @@ public class SM_EXCHANGE_ADD_ITEM extends InventoryPacket
 		}
 		else
 		{				
-			writeGeneralItemInfo(buf, item, false, false, false);
+			writeGeneralItemInfo(buf, item, false, false);
 			writeC(buf, 0);
 		}
 	}

@@ -334,9 +334,9 @@ public class ItemService
 	 * @param itemId
 	 * @param count - amount of item that were not added to player's inventory
 	 */
-	public int addItem(Player player, int itemId, int count, boolean isQuestItem)
+	public int addItem(Player player, int itemId, int count)
 	{
-		return this.addItemWithStones(player, itemId, count, isQuestItem, null, null);
+		return this.addItemWithStones(player, itemId, count, null, null);
 	}
 	
 	/**
@@ -347,7 +347,7 @@ public class ItemService
 	 * @param manastones
 	 * @param godStone 
 	 */
-	public int addItemWithStones(Player player, int itemId, int count, boolean isQuestItem, Set<ManaStone> manastones, GodStone godStone)
+	public int addItemWithStones(Player player, int itemId, int count, Set<ManaStone> manastones, GodStone godStone)
 	{
 		Storage inventory = player.getInventory();
 
@@ -398,7 +398,6 @@ public class ItemService
 				if(count > maxStackCount)
 				{
 					Item item = newItem(itemId, maxStackCount);
-					item.setQuest(isQuestItem);
 					count -= maxStackCount;
 					inventory.putToBag(item);
 					updateItem(player, item, true);
@@ -406,7 +405,6 @@ public class ItemService
 				else
 				{
 					Item item = newItem(itemId, count);
-					item.setQuest(isQuestItem);
 					
 					//add item stones if available
 					//1. manastones
@@ -699,7 +697,7 @@ public class ItemService
 			return false;
 		}
 		for (QuestItems qi : questItems)
-			addItem(player, qi.getItemId(), qi.getCount(), false);
+			addItem(player, qi.getItemId(), qi.getCount());
 		return true;
 	}
 
