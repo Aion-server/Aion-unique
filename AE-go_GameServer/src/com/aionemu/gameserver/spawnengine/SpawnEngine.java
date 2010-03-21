@@ -367,7 +367,8 @@ public class SpawnEngine
 			AionObject obj = it.next();
 			if(obj instanceof Npc)
 			{
-				NpcAi ai =  ((Npc) obj).getAi();
+				NpcAi ai = (NpcAi) ((Npc) obj).getAi();
+
 				if(ai != null)
 					ai.handleEvent(Event.DAYTIME_CHANGE);
 			}
