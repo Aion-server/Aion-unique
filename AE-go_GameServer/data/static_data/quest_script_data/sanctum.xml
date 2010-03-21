@@ -22,8 +22,8 @@
 	<!-- A Ring Imbued With Aether handled by Script-->
 	
 	
-	<!-- A Song Of Praise -->
-	<report_to id="1909" start_npc_id="203726" end_npc_id="203099"/>
+	<!-- A Song Of Praise handled by script>
+	
 	
 	<!-- Delivery for the Outer Port -->
 	<report_to id="1963" start_npc_id="203726" end_npc_id="203726"/>
