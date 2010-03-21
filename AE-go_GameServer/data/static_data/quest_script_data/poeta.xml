@@ -103,8 +103,7 @@
 		<monster_infos npc_id="210142"  var_id="0" max_kill="9"/>
 	</monster_hunt>
 	
-	<!-- Ancient Cube -->
-	<item_collecting id="1127" start_npc_id="798008" action_item_id="700001" />
+	<!-- Handle by Script Ancient Cube -->
 	
 	<!-- Avenging Tutty -->
 	<item_collecting id="1124" start_npc_id="790001" />
