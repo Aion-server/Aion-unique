@@ -75,11 +75,11 @@ public class PlayerController extends CreatureController<Player>
 	private Creature		lastAttacker;
 
 	private boolean			isInShutdownProgress;
-	
+
 	/**
 	 * Zone update mask
 	 */
-	private volatile byte zoneUpdateMask;
+	private volatile byte	zoneUpdateMask;
 
 	/**
 	 * @return the lastAttacker
@@ -88,9 +88,10 @@ public class PlayerController extends CreatureController<Player>
 	{
 		return lastAttacker;
 	}
-	
+
 	/**
-	 * @param the lastAttacker
+	 * @param the
+	 *            lastAttacker
 	 */
 	public void setLastAttacker(Creature lastAttacker)
 	{
@@ -191,8 +192,8 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void onEnterZone(ZoneInstance zoneInstance)
 	{
-		sp.getQuestEngine().onEnterZone(new QuestEnv(null, this.getOwner(), 0, 0),
-			zoneInstance.getTemplate().getName());
+		sp.getQuestEngine()
+			.onEnterZone(new QuestEnv(null, this.getOwner(), 0, 0), zoneInstance.getTemplate().getName());
 	}
 
 	/**
@@ -215,7 +216,8 @@ public class PlayerController extends CreatureController<Player>
 	{
 		// TODO probably introduce variable - last attack creature in player AI
 		Player player = this.getOwner();
-		if(lastAttacker instanceof Player && !isEnemy((Player) lastAttacker))
+
+		if(isDuelTarget())
 		{
 			sp.getDuelService().onDie(player, (Player) lastAttacker);
 		}
@@ -251,10 +253,10 @@ public class PlayerController extends CreatureController<Player>
 
 		Creature target = (Creature) sp.getWorld().findAionObject(targetObjectId);
 
-		//check player attack Z distance
+		// check player attack Z distance
 		if(Math.abs(player.getZ() - target.getZ()) > 6)
 			return;
-		
+
 		if(!RestrictionsManager.canAttack(player, target))
 			return;
 
@@ -268,8 +270,8 @@ public class PlayerController extends CreatureController<Player>
 
 		long time = System.currentTimeMillis();
 		int attackType = 0; // TODO investigate attack types
-		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player, target, gameStats
-			.getAttackCounter(), (int) time, attackType, attackResult), true);
+		PacketSendUtility.broadcastPacket(player, new SM_ATTACK(player, target, gameStats.getAttackCounter(),
+			(int) time, attackType, attackResult), true);
 
 		target.getController().onAttack(player, damage);
 
@@ -281,17 +283,17 @@ public class PlayerController extends CreatureController<Player>
 	{
 		if(getOwner().getLifeStats().isAlreadyDead())
 			return;
-		
+
 		super.onAttack(creature, skillId, type, damage);
 		lastAttacker = creature;
-		
-		 if (getOwner().isInvul())
+
+		if(getOwner().isInvul())
 			damage = 0;
-		 
+
 		getOwner().getLifeStats().reduceHp(damage);
 		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), type, skillId, damage), true);
 	}
-	
+
 	/**
 	 * 
 	 * @param skillId
@@ -305,10 +307,10 @@ public class PlayerController extends CreatureController<Player>
 		{
 			if(!RestrictionsManager.canUseSkill(player, skill))
 				return;
-			
+
 			// later differentiate between skills
 			getOwner().getObserveController().notifyAttackObservers();
-			
+
 			skill.useSkill();
 		}
 	}
@@ -421,7 +423,7 @@ public class PlayerController extends CreatureController<Player>
 	public void upgradePlayer(int level)
 	{
 		Player player = getOwner();
-		
+
 		PlayerStatsTemplate statsTemplate = sp.getPlayerService().getPlayerStatsData().getTemplate(player);
 		player.setPlayerStatsTemplate(statsTemplate);
 		// update stats after setting new template
@@ -452,24 +454,23 @@ public class PlayerController extends CreatureController<Player>
 
 	/**
 	 * TODO: REMOVE THIS AND FIX FOR RETURNEFFECT AND WORLDSCRIPTSOMETHING
+	 * 
 	 * @param b
 	 */
 	public void moveToBindLocation(boolean b)
 	{
 		sp.getTeleportService().moveToBindLocation(getOwner(), b);
 	}
-	
+
 	/**
 	 * After entering game player char is "blinking" which means that it's in under some protection, after making an
-	 * action char stops blinking.
-	 * - Starts protection active
-	 * - Schedules task to end protection
+	 * action char stops blinking. - Starts protection active - Schedules task to end protection
 	 */
 	public void startProtectionActiveTask()
 	{
 		getOwner().setVisualState(CreatureVisualState.BLINKING);
 		Future<?> task = ThreadPoolManager.getInstance().schedule(new Runnable(){
-			
+
 			@Override
 			public void run()
 			{
@@ -478,7 +479,7 @@ public class PlayerController extends CreatureController<Player>
 		}, 60000);
 		addTask(TaskId.PROTECTION_ACTIVE.ordinal(), task);
 	}
-	
+
 	/**
 	 * Stops protection active task after first move or use skill
 	 */
@@ -490,11 +491,11 @@ public class PlayerController extends CreatureController<Player>
 		{
 			player.unsetVisualState(CreatureVisualState.BLINKING);
 			PacketSendUtility.broadcastPacket(player, new SM_PLAYER_STATE(player), true);
-		}	
+		}
 	}
 
 	/**
-	 *  When player arrives at destination point of flying teleport
+	 * When player arrives at destination point of flying teleport
 	 */
 	public void onFlyTeleportEnd()
 	{
@@ -504,7 +505,7 @@ public class PlayerController extends CreatureController<Player>
 		PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
 		addZoneUpdateMask(ZoneUpdateMode.ZONE_REFRESH);
 	}
-	
+
 	/**
 	 * Zone update mask management
 	 * 
@@ -547,6 +548,16 @@ public class PlayerController extends CreatureController<Player>
 	 */
 	public void ban()
 	{
-		//sp.getTeleportService().teleportTo(this.getOwner(), 510010000, 256f, 256f, 49f, 0);
+		// sp.getTeleportService().teleportTo(this.getOwner(), 510010000, 256f, 256f, 49f, 0);
+	}
+
+	/**
+	 * Returns true if owner is in duel
+	 * 
+	 * @return
+	 */
+	public boolean isDuelTarget()
+	{
+		return sp.getDuelService().isDueling(this.getOwner().getObjectId(), lastAttacker.getObjectId());
 	}
 }

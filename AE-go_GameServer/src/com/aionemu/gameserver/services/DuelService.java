@@ -49,10 +49,17 @@ public class DuelService
 	 * 
 	 * @param requester
 	 *            the player who requested the duel
+	 * @param responder
+	 *            the player who respond to duel request
 	 */
 	public void onDuelRequest(Player requester, Player responder)
 	{
-		log.debug("[Duel] Player " + responder.getName() + " has been requested for a duel by " + requester.getName());
+		/**
+		 * Check if requester isn't already in a duel and responder is same race
+		 */
+		if(requester.getController().isEnemy(responder) || isDueling(requester.getObjectId()))
+			return;
+
 		RequestResponseHandler rrh = new RequestResponseHandler(requester){
 			@Override
 			public void denyRequest(Creature requester, Player responder)
@@ -82,6 +89,12 @@ public class DuelService
 	 */
 	public void confirmDuelWith(Player requester, Player responder)
 	{
+		/**
+		 * Check if requester isn't already in a duel and responder is same race
+		 */
+		if(requester.getController().isEnemy(responder))
+			return;
+
 		RequestResponseHandler rrh = new RequestResponseHandler(responder){
 			@Override
 			public void denyRequest(Creature requester, Player responder)
@@ -107,8 +120,9 @@ public class DuelService
 	 * @param requester
 	 *            the duel requester
 	 * @param responder
+	 *            the duel responder
 	 */
-	public void rejectDuelRequest(Player requester, Player responder)
+	private void rejectDuelRequest(Player requester, Player responder)
 	{
 		log.debug("[Duel] Player " + responder.getName() + " rejected duel request from " + requester.getName());
 		PacketSendUtility.sendPacket(requester, SM_SYSTEM_MESSAGE.DUEL_REJECTED_BY(responder.getName()));
@@ -122,11 +136,11 @@ public class DuelService
 	 *            the duel target
 	 * @param requester
 	 */
-	public void cancelDuelRequest(Player owner, Player target)
+	private void cancelDuelRequest(Player owner, Player target)
 	{
 		log.debug("[Duel] Player " + owner.getName() + " cancelled his duel request with " + target.getName());
-		target.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_BY(owner.getName()));
-		owner.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_WITH(target.getName()));
+		PacketSendUtility.sendPacket(target, SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_BY(owner.getName()));
+		PacketSendUtility.sendPacket(owner, SM_SYSTEM_MESSAGE.DUEL_CANCEL_DUEL_WITH(target.getName()));
 	}
 
 	/**
@@ -137,30 +151,30 @@ public class DuelService
 	 * @param responder
 	 *            the other player
 	 */
-	public void startDuel(Player requester, Player responder)
+	private void startDuel(Player requester, Player responder)
 	{
 		PacketSendUtility.sendPacket(requester, SM_DUEL.SM_DUEL_STARTED(responder.getObjectId()));
 		PacketSendUtility.sendPacket(responder, SM_DUEL.SM_DUEL_STARTED(requester.getObjectId()));
 		requester.getController().setLastAttacker(responder);
 		responder.getController().setLastAttacker(requester);
-		duels.put(responder.getObjectId(), requester.getObjectId());
-		duels.put(requester.getObjectId(), responder.getObjectId());
+		createDuel(requester.getObjectId(), responder.getObjectId());
 	}
 
 	/**
 	 * This method will make the selected player lose the duel
+	 * 
 	 * @param player
 	 */
 	public void loseDuel(Player player)
 	{
-		if(!duels.containsKey(player.getObjectId()))
+		if(!isDueling(player.getObjectId()))
 			return;
 
 		Player opponent = world.findPlayer(duels.get(player.getObjectId()));
 
 		PacketSendUtility.sendPacket(opponent, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_WON, player.getName()));
-		duels.remove(player.getObjectId());
-		duels.remove(opponent.getObjectId());
+		PacketSendUtility.sendPacket(player, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_LOST, opponent.getName()));
+		removeDuel(player.getObjectId(), opponent.getObjectId());
 	}
 
 	/**
@@ -170,8 +184,6 @@ public class DuelService
 	public void onDie(Player player, Player lastAttacker)
 	{
 		loseDuel(player);
-		
-		PacketSendUtility.sendPacket(player, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_LOST, lastAttacker.getName()));
 		player.getLifeStats().setCurrentHp(1);
 		player.getLifeStats().triggerHpMpRestoreTask();
 	}
@@ -182,6 +194,36 @@ public class DuelService
 	 */
 	public boolean isDueling(int playerObjId)
 	{
-		return duels.containsKey(playerObjId);
+		return (duels.containsKey(playerObjId) && duels.containsValue(playerObjId));
+	}
+
+	/**
+	 * @param playerObjId
+	 * @param targetObjId
+	 * @return true of player is dueling
+	 */
+	public boolean isDueling(int playerObjId, int targetObjId)
+	{
+		return (duels.containsKey(playerObjId) && duels.containsValue(targetObjId));
+	}
+
+	/**
+	 * @param requesterObjId
+	 * @param responderObjId
+	 */
+	private void createDuel(int requesterObjId, int responderObjId)
+	{
+		duels.put(requesterObjId, responderObjId);
+		duels.put(responderObjId, requesterObjId);
+	}
+
+	/**
+	 * @param requesterObjId
+	 * @param responderObjId
+	 */
+	private void removeDuel(int requesterObjId, int responderObjId)
+	{
+		duels.remove(requesterObjId);
+		duels.remove(responderObjId);
 	}
 }
