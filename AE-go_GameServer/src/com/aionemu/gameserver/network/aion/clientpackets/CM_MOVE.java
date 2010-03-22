@@ -88,13 +88,14 @@ public class CM_MOVE extends AionClientPacket
 				y2 = readF();
 				z2 = readF();
 				break;
-			case MOVEMENT_START_GLIDE:
-				readC();
-				break;
-			case VALIDATE_GLIDE:
+			case VALIDATE_GLIDE_DOWN:
+			case MOVEMENT_GLIDE_START_MOUSE:
 				x2 = readF();
 				y2 = readF();
 				z2 = readF();
+				// no break
+			case VALIDATE_GLIDE_UP:
+			case VALIDATE_GLIDE_MOUSE:
 				readC();
 				break;
 			default:
@@ -119,10 +120,8 @@ public class CM_MOVE extends AionClientPacket
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type),
 					false);
 				break;
-			case MOVEMENT_START_GLIDE:
-				readC();
-				break;
-			case VALIDATE_GLIDE:
+			case MOVEMENT_GLIDE_START_MOUSE:
+			case VALIDATE_GLIDE_DOWN:
 				world.updatePosition(player, x, y, z, heading);
 				player.getController().onMove();
 				PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type),

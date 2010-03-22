@@ -33,10 +33,6 @@ public enum MovementType
 	 */
 	MOVEMENT_START_KEYBOARD(-64),
 	/**
-	 * Movement by glide(press space while flying).
-	 */
-	MOVEMENT_START_GLIDE(-124), //TODO confirm
-	/**
 	 * Validation (movement by mouse).
 	 */
 	VALIDATE_MOUSE(-96),
@@ -51,11 +47,23 @@ public enum MovementType
 	/**
 	 * Validation (jump while moving).
 	 */
-	VALIDATE_JUMP_WHILE_MOVING(72),
+	VALIDATE_JUMP_WHILE_MOVING(72),	
 	/**
-	 * Validation (glide).
+	 * Floating up while free gliding.
 	 */
-	VALIDATE_GLIDE(-60), //TODO confirm
+	VALIDATE_GLIDE_UP(-124),
+	/**
+	 * Sinking down while free gliding.
+	 */
+	VALIDATE_GLIDE_DOWN(-60),	
+	/**
+	 * Click to move while gliding.
+	 */
+	MOVEMENT_GLIDE_START_MOUSE(-28),	
+	/**
+	 * Glide while moving by mouse.
+	 */
+	VALIDATE_GLIDE_MOUSE(-92),
 	/**
 	 * Movement stop.
 	 */
@@ -102,6 +110,5 @@ public enum MovementType
 				return mt;
 		}
 		return UNKNOWN;
-		//throw new IllegalArgumentException("Unsupported movement type: " + id);
 	}
 }
