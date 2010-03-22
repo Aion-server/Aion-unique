@@ -275,7 +275,7 @@ Poeta -->
 		<object x="289.65" y="1017.06" z="132.03" h="0"/>
 	</spawn>
 	<!-- Mailbox -->
-	<spawn map="210030000" npcid="700000" pool="1" interval="105">
+	<spawn map="210010000" npcid="700000" pool="1" interval="105">
 		<object x="827.18" y="1243.24" z="118.88" h="0"/>
 	</spawn>
 	<!-- Odium Cauldron -->
