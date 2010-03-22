@@ -32,6 +32,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_CHAT_MESSAGE_WHISPER
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CHECK_NICKNAME;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CLIENT_COMMAND_LOC;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CLOSE_DIALOG;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_CRAFT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CREATE_CHARACTER;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_CUSTOM_SETTINGS;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_DELETE_CHARACTER;
@@ -231,6 +232,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_GET_MAIL_ATTACHMENT(0x7E), State.IN_GAME);
 		addPacket(new CM_DELETE_MAIL(0x7F),State.IN_GAME);
 		addPacket(new CM_MANASTONE_REMOVE(0x4F), State.IN_GAME);
+		addPacket(new CM_CRAFT(0x73), State.IN_GAME);
 	}
 
 	public AionPacketHandler getPacketHandler()

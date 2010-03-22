@@ -869,6 +869,8 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(1390120, charName);
 	}
 
+	public static final SM_SYSTEM_MESSAGE	COMBINE_INVENTORY_IS_FULL	= new SM_SYSTEM_MESSAGE(1330037);
+
 	private final int		code;
 	private final Object[]	params;
 

@@ -79,8 +79,8 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 					finishGathering(player);				
 				}
 			});
-			
-			task = new GatheringTask(player, getOwner(), material);
+			int skillLvlDiff = player.getSkillList().getSkillLevel(template.getHarvestSkill())-template.getSkillLevel();
+			task = new GatheringTask(player, getOwner(), material, skillLvlDiff);
 			task.start();
 		}
 	}
@@ -134,7 +134,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 		if(player != null)
 		{
 			int skillLvl = getOwner().getObjectTemplate().getSkillLevel();
-			int xpReward = (int)(0.008*(skillLvl+100)*(skillLvl+100)+60);
+			int xpReward = (int)((0.008*(skillLvl+100)*(skillLvl+100)+60)*player.getRates().getGatheringXPRate());
 			
 			if (player.getSkillList().addSkillXp(player, getOwner().getObjectTemplate().getHarvestSkill(), xpReward))
 				player.getCommonData().addExp(xpReward);

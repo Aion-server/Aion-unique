@@ -91,6 +91,13 @@ public class RecipeTemplate {
         return this.component;
     }
 
+    public Integer getComboProduct() {
+        if (comboproduct == null)
+        {
+            return null;
+        }
+        return comboproduct.get(0).getItemid();
+    }
     /**
      * Gets the value of the tasktype property.
      * 

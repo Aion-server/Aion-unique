@@ -17,11 +17,15 @@
 package com.aionemu.gameserver.controllers;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Future;
 
 import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackUtil;
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.TaskId;
+import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.Monster;
@@ -33,6 +37,9 @@ import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
+import com.aionemu.gameserver.model.templates.recipe.Component;
+import com.aionemu.gameserver.model.templates.recipe.RecipeTemplate;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
@@ -58,6 +65,7 @@ import com.aionemu.gameserver.services.ZoneService.ZoneUpdateMode;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.skillengine.model.Skill;
+import com.aionemu.gameserver.skillengine.task.CraftingTask;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -78,6 +86,8 @@ public class PlayerController extends CreatureController<Player>
 	 * Zone update mask
 	 */
 	private volatile byte	zoneUpdateMask;
+
+	private CraftingTask craftingTask;
 
 	/**
 	 * {@inheritDoc}
@@ -585,5 +595,67 @@ public class PlayerController extends CreatureController<Player>
 		else
 			sp.getZoneService().stopDrowning(player);
 	}
-	
+
+	/**
+	 * @return the craftingTask
+	 */
+	public CraftingTask getCraftingTask()
+	{
+		return craftingTask;
+	}
+
+	public void finishCrafting(RecipeTemplate recipetemplate, boolean critical)
+	{
+		int productItemId = recipetemplate.getProductid();
+		if (critical && recipetemplate.getComboProduct() != null)
+			productItemId = recipetemplate.getComboProduct();
+		sp.getItemService().addItem(getOwner(), productItemId, recipetemplate.getQuantity());
+		int xpReward = (int)((0.008*(recipetemplate.getSkillpoint()+100)*(recipetemplate.getSkillpoint()+100)+60)*getOwner().getRates().getCraftingXPRate());
+		if (getOwner().getSkillList().addSkillXp(getOwner(), recipetemplate.getSkillid(), xpReward))
+			getOwner().getCommonData().addExp(xpReward);
+		else
+			PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.MSG_DONT_GET_PRODUCTION_EXP(new DescriptionId(recipetemplate.getSkillid())));
+	}
+
+	public void startCrafting(int targetTemplateId, int recipeId, int targetObjId, Map<Integer, Integer> items)
+	{
+		if (craftingTask != null && craftingTask.isInProgress())
+			return;
+		RecipeTemplate recipeTemplate = DataManager.RECIPE_DATA.getRecipeTemplateById(recipeId);
+		if (recipeTemplate == null)
+			return;
+		if (recipeTemplate.getDp() != null && (getOwner().getCommonData().getDp() <recipeTemplate.getDp()))
+			return; //TODO: Audith logger: Client moding.
+		for (Component component : recipeTemplate.getComponent())
+		{
+			if (getOwner().getInventory().getItemCountByItemId(component.getItemid()) < component.getQuantity())
+				return; //TODO: Audith logger: Client moding.
+		}
+		
+		if (getOwner().getInventory().isFull())
+		{
+			PacketSendUtility.sendPacket(getOwner(), SM_SYSTEM_MESSAGE.COMBINE_INVENTORY_IS_FULL);
+			return;
+		}
+		AionObject target = sp.getWorld().findAionObject(targetObjId);
+		if (target == null || !(target instanceof StaticObject))
+			return; //TODO: Incorrect target message...
+		ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(recipeTemplate.getProductid());
+		if (itemTemplate == null)
+			return;
+		ItemTemplate critItemTemplate = null;
+		if (recipeTemplate.getComboProduct() != null)
+			critItemTemplate = DataManager.ITEM_DATA.getItemTemplate(recipeTemplate.getComboProduct());
+		if (critItemTemplate == null)
+			critItemTemplate = itemTemplate;
+		if (recipeTemplate.getDp() != null)
+			getOwner().getCommonData().addDp(-recipeTemplate.getDp());
+		for (Component component : recipeTemplate.getComponent())
+		{
+			getOwner().getInventory().removeFromBagByItemId(component.getItemid(), component.getQuantity());
+		}
+		int skillLvlDiff = getOwner().getSkillList().getSkillLevel(recipeTemplate.getSkillid())-recipeTemplate.getSkillpoint();
+		craftingTask = new CraftingTask(getOwner(), (StaticObject)target, recipeTemplate, itemTemplate, critItemTemplate, skillLvlDiff);
+		craftingTask.start();
+	}
 }

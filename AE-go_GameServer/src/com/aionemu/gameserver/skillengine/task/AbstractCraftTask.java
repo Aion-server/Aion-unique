@@ -31,6 +31,9 @@ public abstract class AbstractCraftTask extends AbstractInteractionTask
 	protected int failureValue;
 	protected int currentSuccessValue;
 	protected int currentFailureValue;
+	protected int skillLvlDiff;
+	protected boolean critical;
+	protected boolean setCritical = false;
 	
 	/**
 	 * 
@@ -39,11 +42,13 @@ public abstract class AbstractCraftTask extends AbstractInteractionTask
 	 * @param successValue
 	 * @param failureValue
 	 */
-	public AbstractCraftTask(Player requestor, VisibleObject responder, int successValue, int failureValue)
+	public AbstractCraftTask(Player requestor, VisibleObject responder, int successValue, int failureValue, int skillLvlDiff)
 	{
 		super(requestor, responder);
 		this.successValue = successValue;
 		this.failureValue = failureValue;
+		this.skillLvlDiff = skillLvlDiff;
+		this.critical = Rnd.get(100) <= 15;
 	}
 
 	@Override
@@ -72,17 +77,23 @@ public abstract class AbstractCraftTask extends AbstractInteractionTask
 	private void analyzeInteraction()
 	{
 		//TODO better random
-		if(Rnd.nextBoolean())
+		//if(Rnd.nextBoolean())
+		int multi = Math.max(0, 33-skillLvlDiff*5);
+		if (Rnd.get(100) > multi)
 		{
-			currentSuccessValue += Rnd.get(20,60);
+			if (critical && Rnd.get(100) < 30)
+				setCritical = true;
+			currentSuccessValue += Rnd.get(successValue/(multi+1)/2,successValue);
 		}
 		else
 		{
-			currentFailureValue += Rnd.get(0,30);
+			currentFailureValue += Rnd.get(failureValue/(multi+1)/2,failureValue);
 		}
 		
 		if(currentSuccessValue >= successValue)
 		{
+			if (critical)
+				setCritical = true;
 			currentSuccessValue = successValue;
 		}
 		else if(currentFailureValue >= failureValue)

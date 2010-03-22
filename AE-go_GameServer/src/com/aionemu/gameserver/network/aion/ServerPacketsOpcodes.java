@@ -146,6 +146,8 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_WAREHOUSE_INFO.class, 0xC8, idSet);
 		addPacketOpcode(SM_WAREHOUSE_UPDATE.class, 0xC9, idSet);
 		addPacketOpcode(SM_TITLE_UPDATE.class, 0xCB, idSet);
+		addPacketOpcode(SM_CRAFT_ANIMATION.class, 0xCC, idSet);
+		addPacketOpcode(SM_CRAFT_UPDATE.class, 0xCD, idSet);
 		addPacketOpcode(SM_TITLE_LIST.class, 0xD0, idSet);
 		addPacketOpcode(SM_TITLE_SET.class, 0xD1, idSet);
 		addPacketOpcode(SM_LEGION_UPDATE_EMBLEM.class, 0xD7, idSet);

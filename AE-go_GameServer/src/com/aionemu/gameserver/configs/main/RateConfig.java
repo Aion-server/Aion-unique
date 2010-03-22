@@ -57,6 +57,18 @@ public class RateConfig
 	public static int	QUEST_XP_RATE;
 
 	/**
+	 * Gathering Xp Rate
+	 */
+	@Property(key = "gameserver.rate.regular.gathering.xp", defaultValue = "1")
+	public static float	GATHERING_XP_RATE;
+
+	/**
+	 * Crafting Xp Rate
+	 */
+	@Property(key = "gameserver.rate.regular.crafting.xp", defaultValue = "1")
+	public static float	CRAFTING_XP_RATE;
+
+	/**
 	 * Quest Kinah Rate
 	 */
 	@Property(key = "gameserver.rate.regular.quest.kinah", defaultValue = "1")
@@ -86,6 +98,12 @@ public class RateConfig
 
 	@Property(key = "gameserver.rate.premium.quest.xp", defaultValue = "2")
 	public static int	PREMIUM_QUEST_XP_RATE;
+
+	@Property(key = "gameserver.rate.premium.gathering.xp", defaultValue = "1")
+	public static float	PREMIUM_GATHERING_XP_RATE;
+
+	@Property(key = "gameserver.rate.premium.crafting.xp", defaultValue = "1")
+	public static float	PREMIUM_CRAFTING_XP_RATE;
 
 	@Property(key = "gameserver.rate.premium.quest.kinah", defaultValue = "2")
 	public static int	PREMIUM_QUEST_KINAH_RATE;

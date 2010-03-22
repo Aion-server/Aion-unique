@@ -64,4 +64,22 @@ public class RegularRates extends Rates
 	{
 		return RateConfig.XP_RATE;
 	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.utils.rates.Rates#getCraftingXPRate()
+	 */
+	@Override
+	public float getCraftingXPRate()
+	{
+		return RateConfig.CRAFTING_XP_RATE;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.aionemu.gameserver.utils.rates.Rates#getGatheringXPRate()
+	 */
+	@Override
+	public float getGatheringXPRate()
+	{
+		return RateConfig.GATHERING_XP_RATE;
+	}
 }
