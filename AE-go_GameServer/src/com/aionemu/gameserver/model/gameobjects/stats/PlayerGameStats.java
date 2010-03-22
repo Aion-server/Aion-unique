@@ -154,6 +154,8 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 		initStat(StatEnum.OFF_HAND_POWER, 0);
 		initStat(StatEnum.OFF_HAND_CRITICAL, 0);
 		initStat(StatEnum.ATTACK_SPEED, attackSpeed);
+		initStat(StatEnum.MAIN_HAND_ATTACK_SPEED, attackSpeed);
+		initStat(StatEnum.OFF_HAND_ATTACK_SPEED, 0);
 		initStat(StatEnum.ATTACK_RANGE, attackRange);
 		initStat(StatEnum.PHYSICAL_DEFENSE, 0);
 		initStat(StatEnum.PARRY, Math.round(agility * 3.1f - 248.5f + 12.4f * (int)owner.getLevel()));

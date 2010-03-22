@@ -269,6 +269,12 @@ public class CreatureGameStats<T extends Creature>
 			{
 				applyModifiers(entry.getKey(), entry.getValue());
 			}
+			
+			setStat(StatEnum.ATTACK_SPEED, Math.round(getBaseStat(StatEnum.MAIN_HAND_ATTACK_SPEED)
+													+ getBaseStat(StatEnum.OFF_HAND_ATTACK_SPEED) * 0.25f), false);
+			
+			setStat(StatEnum.ATTACK_SPEED, getStatBonus(StatEnum.MAIN_HAND_ATTACK_SPEED) 
+										 + getStatBonus(StatEnum.OFF_HAND_ATTACK_SPEED), true);
 		}
 		finally
 		{

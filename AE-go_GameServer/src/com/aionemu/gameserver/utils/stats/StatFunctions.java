@@ -212,8 +212,12 @@ public class StatFunctions
 		{
 			NpcRank npcRank = ((Npc) attacker).getObjectTemplate().getRank();
 			int multipler = calculateRankMultipler(npcRank);
-			Damage += ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
-			Damage = (Damage * multipler) + ((Damage*attacker.getLevel())/10);
+			
+			int baseDamage = ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
+			int max = (baseDamage * multipler) + ((baseDamage*attacker.getLevel())/10);
+			int min = max - ags.getCurrentStat(StatEnum.MAIN_HAND_POWER);
+			
+			Damage += Rnd.get(min, max);
 		}
 
 		Damage -= Math.round(tgs.getCurrentStat(StatEnum.PHYSICAL_DEFENSE) * 0.10f);
@@ -334,7 +338,7 @@ public class StatFunctions
 		switch(npcRank) 
 		{
 			case JUNK: 
-				multipler = 1;
+				multipler = 2;
 				break;
 			case NORMAL: 
 				multipler = 2;

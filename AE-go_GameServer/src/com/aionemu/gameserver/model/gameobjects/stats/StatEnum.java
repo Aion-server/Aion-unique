@@ -81,10 +81,12 @@ public enum StatEnum
 	MAIN_HAND_ACCURACY(0, "mainhandaccuracy"),
 	MAIN_HAND_CRITICAL(0, "mainhandcritical"),
 	MAIN_HAND_POWER(0, "mainhandpower"),
+	MAIN_HAND_ATTACK_SPEED(0,"mainhandattackspeed"),
 	OFF_HAND_HITS(0, "offhandhits"),
 	OFF_HAND_ACCURACY(0, "offhandaccuracy"),
 	OFF_HAND_CRITICAL(0, "offhandcritical"),
 	OFF_HAND_POWER(0, "offhandpower"),
+	OFF_HAND_ATTACK_SPEED(0,"offhandattackspeed"),
 
 	MAGICAL_ATTACK(27, "magicalattack"),
 	MAGICAL_ACCURACY(105, "magicalhitaccuracy"),
@@ -250,6 +252,14 @@ public enum StatEnum
 						return OFF_HAND_HITS;
 					case MAIN_HAND:
 						return MAIN_HAND_HITS;
+				}
+			case ATTACK_SPEED:
+				switch(slot)
+				{
+					case SUB_HAND:
+						return OFF_HAND_ATTACK_SPEED;
+					default:
+						return MAIN_HAND_ATTACK_SPEED;
 				}
 			default:
 				return this;

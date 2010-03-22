@@ -175,6 +175,19 @@ public class Equipment
 					unEquip(ItemSlot.SUB_HAND.getSlotIdMask());
 				}
 			}
+			
+			if(itemToUnequip.getEquipmentSlot() == ItemSlot.MAIN_HAND.getSlotIdMask())
+			{
+				Item ohWeapon = equipment.get(ItemSlot.SUB_HAND.getSlotIdMask());
+				if(ohWeapon != null && ohWeapon.getItemTemplate().isWeapon())
+				{
+					if(owner.getInventory().getNumberOfFreeSlots() < 2)
+						return false;
+					else
+						unEquip(ItemSlot.SUB_HAND.getSlotIdMask());
+				}
+			}
+			
 			//if unequip power shard
 			if(itemToUnequip.getItemTemplate().isArmor() && itemToUnequip.getItemTemplate().getArmorType() == ArmorType.SHARD)
 			{
