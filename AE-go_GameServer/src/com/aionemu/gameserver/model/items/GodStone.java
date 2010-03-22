@@ -18,12 +18,16 @@ package com.aionemu.gameserver.model.items;
 
 import org.apache.log4j.Logger;
 
+import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.controllers.movement.ActionObserver;
+import com.aionemu.gameserver.controllers.movement.ActionObserver.ObserverType;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.item.GodstoneInfo;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
+import com.aionemu.gameserver.skillengine.SkillEngine;
+import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
  * @author ATracer
@@ -34,11 +38,8 @@ public class GodStone extends ItemStone
 	private static final Logger	log	= Logger.getLogger(GodStone.class);
 
 	private final GodstoneInfo	godstoneInfo;
-	@SuppressWarnings("unused")
 	private ActionObserver		actionListener;
-	@SuppressWarnings("unused")
 	private final int			probability;
-	@SuppressWarnings("unused")
 	private final int			probabilityLeft;
 
 	public GodStone(int itemObjId, int itemId, PersistentState persistentState)
@@ -67,7 +68,24 @@ public class GodStone extends ItemStone
 	 */
 	public void onEquip(final Player player)
 	{
-		//todo
+		if(godstoneInfo == null)
+			return;
+
+		actionListener = new ActionObserver(ObserverType.ATTACK){
+			@Override
+			public void attack()
+			{
+				int rand = Rnd.get(probability - probabilityLeft, probability);
+				if(rand > Rnd.get(0, 1000))
+				{
+					Skill skill = SkillEngine.getInstance().getSkill(player, godstoneInfo.getSkillid(),
+						godstoneInfo.getSkilllvl(), player.getTarget());
+					skill.useSkill();
+				}
+			}
+		};
+
+		player.getObserveController().addObserver(actionListener);
 	}
 
 	/**
@@ -76,6 +94,8 @@ public class GodStone extends ItemStone
 	 */
 	public void onUnEquip(Player player)
 	{
-		//todo
+		if(actionListener != null)
+			player.getObserveController().removeObserver(actionListener);
+
 	}
 }

@@ -83,7 +83,7 @@ public class ObserveController
 	/**
 	 * notify that creature attacking
 	 */
-	protected void notifyAttackObservers()
+	public void notifyAttackObservers()
 	{
 		while(!attackObservers.isEmpty())
 		{

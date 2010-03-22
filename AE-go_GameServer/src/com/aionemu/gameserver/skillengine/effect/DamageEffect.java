@@ -49,6 +49,7 @@ extends EffectTemplate
 	{
 		effect.getEffected().getController().onAttack(effect.getEffector(),
 			effect.getSkillId(), TYPE.REGULAR, effect.getReserved1());
+		effect.getEffector().getObserveController().notifyAttackObservers();
 	}
 	
 	public void calculate(Effect effect, DamageType damageType)

@@ -170,10 +170,9 @@ public class DuelService
 			return;
 
 		/**
-		 * all bufs and debuffs are removed from looser
+		 * all debuffs are removed from looser
 		 */
 		player.getEffectController().removeAbnormalEffectsByTargetSlot(SkillTargetSlot.DEBUFF);
-		player.getEffectController().removeAbnormalEffectsByTargetSlot(SkillTargetSlot.BUFF);
 		
 		int opponnentId = duels.get(player.getObjectId());
 		Player opponent = world.findPlayer(opponnentId);
@@ -189,7 +188,7 @@ public class DuelService
 		}
 		else
 		{
-			log.warn("CHECKPOING : duel opponent is already out of world");
+			log.warn("CHECKPOINT : duel opponent is already out of world");
 		}
 
 		removeDuel(player.getObjectId(), opponnentId);
@@ -222,7 +221,7 @@ public class DuelService
 	 */
 	public boolean isDueling(int playerObjId, int targetObjId)
 	{
-		return (duels.containsKey(playerObjId) && duels.containsValue(targetObjId));
+		return duels.containsKey(playerObjId) && duels.get(playerObjId) == targetObjId;
 	}
 
 	/**
