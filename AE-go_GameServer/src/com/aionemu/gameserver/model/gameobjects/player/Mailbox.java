@@ -71,6 +71,11 @@ public class Mailbox
 		return lettersList;
 	}
 	
+	/**
+	 *  TODO refactore here
+	 * @param letterObjId
+	 * @return
+	 */
 	public FastMap<Timestamp,Letter> getLetterFromMailboxWithTimestamp(int letterObjId)
 	{
 		FastMap<Timestamp,Letter> fmLetter = new FastMap<Timestamp, Letter>();
@@ -124,19 +129,21 @@ public class Mailbox
 		return 65536 - freeSlots < 100;
 	}
 	
+	/**
+	 *  TODO refactor here
+	 *  
+	 * @param letterId
+	 */
 	public void deleteLetter(int letterId)
-	{
-		Iterator<Timestamp> iterator = letters.keySet().iterator();
-		Letter letter;
-		Timestamp time;
+	{	
+		FastMap<Timestamp, Letter> letter = getLetterFromMailboxWithTimestamp(letterId);
 		
-		while(iterator.hasNext())
+		if(letter.size() == 1)
 		{
-			time = iterator.next();
-			letter = letters.get(time);
-			
-			if(letter.getObjectId() == letterId)
+			Iterator<Timestamp> iterator = letter.keySet().iterator();
+			if(iterator.hasNext())
 			{
+				Timestamp time = iterator.next();
 				letters.remove(time);
 				freeSlots++;
 			}
