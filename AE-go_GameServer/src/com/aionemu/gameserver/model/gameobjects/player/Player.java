@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.model.gameobjects.player;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -856,5 +857,13 @@ public class Player extends Creature
 	{
 		this.flyController = flyController;
 	}
-
+	
+	public int getLastOnline()
+	{
+		Timestamp lastOnline = playerCommonData.getLastOnline();
+		if(lastOnline == null || isOnline())
+			return 0;
+		
+		return (int) (lastOnline.getTime() / 1000);
+	}
 }

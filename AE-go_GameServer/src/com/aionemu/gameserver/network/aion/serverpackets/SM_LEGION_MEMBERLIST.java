@@ -61,8 +61,7 @@ public class SM_LEGION_MEMBERLIST extends AionServerPacket
 			writeC(buf, legionMember.isOnline() ? ONLINE : OFFLINE);
 			writeS(buf, legionMember.getSelfIntro());
 			writeS(buf, legionMember.getNickname());
-			int lastLogin = (int) (legionMember.getLastOnline().getTime() / 1000);
-			writeD(buf, legionMember.isOnline() ? 0x00 : lastLogin);
+			writeD(buf, legionMember.getLastOnline());
 		}
 	}
 }

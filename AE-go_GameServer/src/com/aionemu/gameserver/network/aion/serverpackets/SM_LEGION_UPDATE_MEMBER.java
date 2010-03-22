@@ -51,8 +51,7 @@ public class SM_LEGION_UPDATE_MEMBER extends AionServerPacket
 		writeC(buf, player.getLevel());
 		writeD(buf, player.getPosition().getMapId());
 		writeC(buf, player.isOnline() ? ONLINE : OFFLINE);
-		int lastLogin = (int) (player.getCommonData().getLastOnline().getTime() / 1000);
-		writeD(buf, player.isOnline() ? 0x00 : lastLogin);
+		writeD(buf, player.getLastOnline());
 		writeD(buf, msgId);
 		writeS(buf, text);
 	}

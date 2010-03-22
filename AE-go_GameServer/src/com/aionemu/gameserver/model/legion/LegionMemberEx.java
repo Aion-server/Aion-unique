@@ -93,9 +93,11 @@ public class LegionMemberEx extends LegionMember
 		this.playerClass = playerClass;
 	}
 
-	public Timestamp getLastOnline()
+	public int getLastOnline()
 	{
-		return lastOnline;
+		if (lastOnline == null || isOnline())
+			return 0;
+		return (int) (lastOnline.getTime() / 1000);
 	}
 
 	public void setLastOnline(Timestamp timestamp)
@@ -194,7 +196,7 @@ public class LegionMemberEx extends LegionMember
 		{
 			log.error("[LegionMemberEx] Player Level is empty." + getObjectId());
 		}
-		else if (getLastOnline() == null)
+		else if (getLastOnline() == 0)
 		{
 			log.error("[LegionMemberEx] Last Online is empty." + getObjectId());
 		}
