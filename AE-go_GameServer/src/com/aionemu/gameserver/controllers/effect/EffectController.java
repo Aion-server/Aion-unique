@@ -28,6 +28,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_EFFECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ABNORMAL_STATE;
 import com.aionemu.gameserver.skillengine.effect.EffectId;
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.skillengine.model.SkillTargetSlot;
 import com.aionemu.gameserver.skillengine.model.SkillType;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -261,6 +262,20 @@ public class EffectController
 			if(effect.getSkillId()==skillid){
 				effect.endEffect();
 				noshowEffects.remove(effect.getStack());				
+			}
+		}
+	}
+	
+	/**
+	 * @see TargetSlot
+	 * @param targetSlot
+	 */
+	public void removeAbnormalEffectsByTargetSlot(SkillTargetSlot targetSlot)
+	{
+		for(Effect effect : abnormalEffectMap.values()){
+			if(effect.getTargetSlot() == targetSlot.ordinal()){
+				effect.endEffect();
+				abnormalEffectMap.remove(effect.getStack());
 			}
 		}
 	}

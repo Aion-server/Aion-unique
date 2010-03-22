@@ -27,6 +27,7 @@ import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DUEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.skillengine.model.SkillTargetSlot;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -168,11 +169,21 @@ public class DuelService
 		if(!isDueling(player.getObjectId()))
 			return;
 
+		/**
+		 * all bufs and debuffs are removed from looser
+		 */
+		player.getEffectController().removeAbnormalEffectsByTargetSlot(SkillTargetSlot.DEBUFF);
+		player.getEffectController().removeAbnormalEffectsByTargetSlot(SkillTargetSlot.BUFF);
+		
 		int opponnentId = duels.get(player.getObjectId());
 		Player opponent = world.findPlayer(opponnentId);
 
 		if(opponent != null)
 		{
+			/**
+			 * all debuffs are removed from winner, but buffs will remain
+			 */
+			opponent.getEffectController().removeAbnormalEffectsByTargetSlot(SkillTargetSlot.DEBUFF);
 			PacketSendUtility.sendPacket(opponent, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_WON, player.getName()));
 			PacketSendUtility.sendPacket(player, SM_DUEL.SM_DUEL_RESULT(DuelResult.DUEL_LOST, opponent.getName()));
 		}
@@ -180,7 +191,7 @@ public class DuelService
 		{
 			log.warn("CHECKPOING : duel opponent is already out of world");
 		}
-		
+
 		removeDuel(player.getObjectId(), opponnentId);
 	}
 
