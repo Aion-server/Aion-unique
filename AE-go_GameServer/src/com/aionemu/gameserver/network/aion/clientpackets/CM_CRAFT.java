@@ -16,11 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.log4j.Logger;
-
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 
@@ -29,17 +24,13 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
  *
  */
 public class CM_CRAFT extends AionClientPacket
-{
-	/**
-	 * Logger
-	 */
-	private static final Logger	log	= Logger.getLogger(CM_CRAFT.class);
-	
+{	
+	@SuppressWarnings("unused")
 	private int unk;
 	private int targetTemplateId;
 	private int recipeId;
 	private int targetObjId;
-	private Map<Integer, Integer> items = new HashMap<Integer, Integer>();
+	
 	/**
 	 * @param opcode
 	 */
@@ -57,25 +48,21 @@ public class CM_CRAFT extends AionClientPacket
 		unk = readC();
 		targetTemplateId = readD();
 		recipeId = readD();
-		targetObjId = readD();
-		int count = readH();
-		if (count > 0)
-		{
-			for(int i = 0; i < count; i++)
-			{
-				items.put(readD(), readD());
-				readD();
-			}
-		}
+		targetObjId = readD();		
 	}
 	
 	@Override
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
-		player.getController().startCrafting(targetTemplateId, recipeId, targetObjId, items);
-		log.info("unk: "+unk+" targetTemplateId: "+targetTemplateId+" recipeId: "+recipeId + " targetObjId "+targetObjId);
-		for (int key : items.keySet())
-			log.info("itemId: "+key+" itemCount: "+items.get(key));
+		
+		if(player == null || !player.isSpawned())
+			return;
+
+		//disallow crafting in shutdown progress..
+		if(player.getController().isInShutdownProgress())
+			return;
+			
+		player.getController().startCrafting(targetTemplateId, recipeId, targetObjId);				
 	}
 }

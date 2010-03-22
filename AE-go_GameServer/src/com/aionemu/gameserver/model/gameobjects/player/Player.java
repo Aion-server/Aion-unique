@@ -40,6 +40,7 @@ import com.aionemu.gameserver.model.legion.LegionMember;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.services.PlayerService;
+import com.aionemu.gameserver.skillengine.task.CraftingTask;
 import com.aionemu.gameserver.utils.rates.Rates;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 
@@ -84,6 +85,8 @@ public class Player extends Creature
 	private long				prisonTimer		= 0;
 	private boolean				invul;
 	private FlyController		flyController;
+	private CraftingTask		craftingTask;
+	
 	/**
 	 * Static information for players
 	 */
@@ -866,4 +869,20 @@ public class Player extends Creature
 		
 		return (int) (lastOnline.getTime() / 1000);
 	}
+	/**
+	 * 
+	 * @param craftingTask
+	 */
+	public void setCraftingTask(CraftingTask craftingTask) {
+		this.craftingTask = craftingTask;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public CraftingTask getCraftingTask() {
+		return craftingTask;
+	}
+
 }

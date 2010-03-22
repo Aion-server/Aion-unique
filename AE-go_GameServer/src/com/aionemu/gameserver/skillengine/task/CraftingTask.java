@@ -33,6 +33,7 @@ public class CraftingTask extends AbstractCraftTask
 	private RecipeTemplate recipeTemplate;
 	private ItemTemplate itemTemplate;
 	private ItemTemplate criticalTemplate;
+	
 	/**
 	 * @param requestor
 	 * @param responder
@@ -65,7 +66,7 @@ public class CraftingTask extends AbstractCraftTask
 	{
 		PacketSendUtility.sendPacket(requestor, new SM_CRAFT_UPDATE(recipeTemplate.getSkillid(), setCritical?  criticalTemplate : itemTemplate, currentSuccessValue, currentFailureValue, 5));
 		PacketSendUtility.broadcastPacket(requestor, new SM_CRAFT_ANIMATION(requestor.getObjectId(),responder.getObjectId(), 0, 2), true);
-		requestor.getController().finishCrafting(recipeTemplate, critical);
+		requestor.getController().finishCrafting(recipeTemplate, critical);		
 	}
 
 	/* (non-Javadoc)

@@ -16,8 +16,12 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
+import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.controllers.movement.StartMovingListener;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.DescriptionId;
@@ -31,7 +35,7 @@ import com.aionemu.gameserver.skillengine.task.GatheringTask;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author ATracer
+ * @author ATracer, sphinx (03/20/2010)
  *
  */
 public class GatherableController extends VisibleObjectController<Gatherable>
@@ -65,8 +69,57 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 			return;
 		
 		List<Material> materials = template.getMaterials().getMaterial();
-		final Material material = materials.get(0);
+		
+		int index = 0;
+		Material material = materials.get(index); //default is 0
+		int count = materials.size();		
+		
+		if(count < 1)
+		{
+			//error - theoretically if XML data is correct, this should never happen.
+			return;
+		}
+		
+		else if(count == 1)
+		{			
+			//default is 0
+		}
+		
+		else
+		{			
+			int gatherRate = 1; // 1x rates (probably make config later, if fixed to non-linear statistic probability)
+			float maxrate = 0;
+			int rate = 0;
+			int i = 0; //index counter
 
+			//sort materials to ascending order
+			SortedMap<Integer, Integer> hasMat = new TreeMap<Integer, Integer>();			
+			for(Material mat : materials)
+			{				
+				maxrate += mat.getRate(); //get maxrate
+				hasMat.put(mat.getRate(), i); //sort and save index of materials (key is rate and rate is unique on each gatherId)
+				i++;
+			}			
+			
+			Iterator<Integer> it = hasMat.keySet().iterator();			
+			while(it.hasNext())
+			{				
+				rate = it.next();
+				float percent = Rnd.get() * 100f;
+				float chance = ((rate/maxrate) * 100f * gatherRate); 				
+				
+				// default index is to 0, look to up little bit on 'material'
+				if(percent < chance)
+				{
+					index = hasMat.get(rate); //return index					
+					material = materials.get(index);
+					break;										
+				}																			
+			}
+		}												
+		
+		final Material finalMaterial = material;
+		
 		if(state != GatherState.GATHERING)
 		{
 			state = GatherState.GATHERING;
@@ -80,7 +133,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 				}
 			});
 			int skillLvlDiff = player.getSkillList().getSkillLevel(template.getHarvestSkill())-template.getSkillLevel();
-			task = new GatheringTask(player, getOwner(), material, skillLvlDiff);
+			task = new GatheringTask(player, getOwner(), finalMaterial, skillLvlDiff);
 			task.start();
 		}
 	}

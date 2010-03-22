@@ -31,6 +31,8 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
+import com.aionemu.gameserver.model.templates.quest.QuestItems;
+import com.aionemu.gameserver.model.templates.quest.QuestWorkItems;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandlerLoader;
 import com.aionemu.gameserver.questEngine.handlers.models.QuestScriptData;
@@ -218,7 +220,26 @@ public class QuestEngine
 
 		if(qs == null)
 			return false;
+
 		qs.setStatus(QuestStatus.NONE);
+		
+		//remove all worker list item if abandoned
+		QuestWorkItems qwi = DataManager.QUEST_DATA.getQuestById(questId).getQuestWorkItems();
+		
+		if(qwi != null)
+		{
+			int count = 0;
+			for(QuestItems qi : qwi.getQuestWorkItem())
+			{
+				if(qi != null)
+				{	
+					count = player.getInventory().getItemCountByItemId(qi.getItemId());
+					if(count > 0)
+						player.getInventory().removeFromBagByItemId(qi.getItemId(), count);					
+				}
+			}
+		}
+		
 		return true;
 	}
 

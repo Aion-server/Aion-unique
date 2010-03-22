@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.skillengine.task;
 
-import java.util.List;
-
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
@@ -47,8 +45,6 @@ public class GatheringTask extends AbstractCraftTask
 	@Override
 	protected void onInteractionAbort()
 	{
-		List<Material> materials = template.getMaterials().getMaterial();
-		Material material = materials.get(0);//TODO current material
 		PacketSendUtility.sendPacket(requestor, new SM_GATHER_UPDATE(template, material, 0, 0, 5));
 		//TODO this packet is incorrect cause i need to find emotion of aborted gathering
 		PacketSendUtility.broadcastPacket(requestor, new SM_GATHER_STATUS(requestor.getObjectId(), responder.getObjectId(), 2));

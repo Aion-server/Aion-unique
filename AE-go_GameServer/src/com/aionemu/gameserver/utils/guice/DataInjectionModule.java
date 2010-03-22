@@ -43,6 +43,7 @@ import com.aionemu.gameserver.dataholders.ZoneData;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.services.AbyssService;
 import com.aionemu.gameserver.services.AccountService;
+import com.aionemu.gameserver.services.CraftService;
 import com.aionemu.gameserver.services.CraftSkillUpdateService;
 import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.services.DropService;
@@ -120,6 +121,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(TeleportService.class).in(Scopes.SINGLETON);
 		bind(SkillLearnService.class).in(Scopes.SINGLETON);	
 		bind(GroupService.class).in(Scopes.SINGLETON);
+		bind(CraftService.class).in(Scopes.SINGLETON);
 		bind(CraftSkillUpdateService.class).in(Scopes.SINGLETON);
 		bind(WarehouseExpandService.class).in(Scopes.SINGLETON);
 		bind(PunishmentService.class).in(Scopes.SINGLETON);

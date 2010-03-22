@@ -16,7 +16,9 @@
  */
 package com.aionemu.gameserver.services;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -32,7 +34,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author MrPoke
+ * @author MrPoke, sphinx
  *
  */
 
@@ -43,6 +45,7 @@ public class CraftSkillUpdateService
 
 	public CraftSkillUpdateService()
 	{
+		// Asmodian
 		npcBySkill.put(204096, new LearnTemplate(30002, false,"Extract Vitality"));
 		npcBySkill.put(204257, new LearnTemplate(30003, false,"Extract Aether"));
 
@@ -50,11 +53,10 @@ public class CraftSkillUpdateService
 		npcBySkill.put(204104,  new LearnTemplate(40002, true,"Weaponsmithing"));
 		npcBySkill.put(204106,  new LearnTemplate(40003, true,"Armorsmithing"));
 		npcBySkill.put(204110,  new LearnTemplate(40004, true,"Tailoring"));
-		//npcBySkill.put(key, 40005); //LEATHERWORK
-		//npcBySkill.put(key, 40006); //CARPENTRY
 		npcBySkill.put(204102,  new LearnTemplate(40007,true,"Alchemy"));
 		npcBySkill.put(204108,  new LearnTemplate(40008,true,"Handicrafting"));
 
+		// Elyos
 		npcBySkill.put(203780, new LearnTemplate(30002, false,"Extract Vitality"));
 		npcBySkill.put(203782, new LearnTemplate(30003, false,"Extract Aether"));
 		
@@ -62,8 +64,6 @@ public class CraftSkillUpdateService
 		npcBySkill.put(203788,  new LearnTemplate(40002,true,"Weaponsmithing"));
 		npcBySkill.put(203790,  new LearnTemplate(40003,true,"Armorsmithing"));
 		npcBySkill.put(203793,  new LearnTemplate(40004,true,"Tailoring"));
-		//npcBySkill.put(key, 40005); //LEATHERWORK
-		//npcBySkill.put(key, 40006); //CARPENTRY
 		npcBySkill.put(203786,  new LearnTemplate(40007,true,"Alchemy"));
 		npcBySkill.put(203792,  new LearnTemplate(40008,true,"Handicrafting"));
 		
@@ -71,6 +71,7 @@ public class CraftSkillUpdateService
 		cost.put(99, 17000);
 		cost.put(199, 115000);
 		cost.put(299, 460000);
+		cost.put(399, 1500000);
 	}
 	class LearnTemplate
 	{
@@ -107,13 +108,22 @@ public class CraftSkillUpdateService
 		final int skillId = template.getSkillId();
 		if (skillId == 0)
 			return;
-
+		
 		int skillLvl = 0;
 		if (player.getSkillList().isSkillPresent(skillId))
 			skillLvl = player.getSkillList().getSkillLevel(skillId);
-
+		
 		if (!cost.containsKey(skillLvl))
 			return;
+		
+		// max mastered crafting skill == 2
+		if (isCraftingSkill(skillId)
+			&& (!canLearnMoreMasterCraftingSkill(player) && skillLvl == 399))
+		{
+			PacketSendUtility.sendMessage(player, "You can only master 2 craft skill.");
+			return;
+		}
+		
 		final int price = cost.get(skillLvl);
 		final Item kinahItem = player.getInventory().getKinahItem();
 		if(price > kinahItem.getItemCount())
@@ -147,4 +157,76 @@ public class CraftSkillUpdateService
 			PacketSendUtility.sendPacket(player, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_CRAFT_ADDSKILL_CONFIRM, 0, new DescriptionId(DataManager.SKILL_DATA.getSkillTemplate(skillId).getNameId()), String.valueOf(price)));
 		}
 	}
+	
+	/**
+	 * 
+	 * @return crafting skillIds in ArrayList<Integer>
+	 */
+	public ArrayList<Integer> getCraftingSkills()
+	{
+		ArrayList<Integer> craftingSkillIds = new ArrayList<Integer>();
+		craftingSkillIds.add(40001);		
+		craftingSkillIds.add(40002);
+		craftingSkillIds.add(40003);
+		craftingSkillIds.add(40004);
+		craftingSkillIds.add(40007);
+		craftingSkillIds.add(40008);
+		
+		return craftingSkillIds;
+	}
+	
+	/**
+	 * check if skillId is crafting skill or not
+	 * 
+	 * @param skillId
+	 * @return true or false
+	 */
+	public boolean isCraftingSkill(int skillId)
+	{
+		Iterator<Integer> it = getCraftingSkills().iterator();
+		while(it.hasNext())
+		{
+			if(it.next() == skillId)
+				return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Get total mastered crafting skills
+	 * @return total number of mastered crafting skills
+	 */
+	private int getTotalMasterCraftingSkills(Player player)
+	{	
+		int mastered = 0;
+
+		Iterator<Integer> it = getCraftingSkills().iterator();
+		while(it.hasNext())
+		{
+			int skillId = it.next();
+			int skillLvl = 0;
+			if (player.getSkillList().isSkillPresent(skillId))
+			{
+				skillLvl = player.getSkillList().getSkillLevel(skillId);
+				if(skillLvl > 399)
+					mastered++;
+			}
+		}
+		
+		return mastered;
+	}
+	
+	/**
+	 * Check if player can learn more master crafting skill or not (max is 2)
+	 * 
+	 * @return true or false
+	 */
+	public boolean canLearnMoreMasterCraftingSkill(Player player)
+	{
+		if(getTotalMasterCraftingSkills(player) < 2)
+			return true;
+		else
+			return false;
+	}	
+
 }
