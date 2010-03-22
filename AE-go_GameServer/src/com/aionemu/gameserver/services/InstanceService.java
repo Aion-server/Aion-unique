@@ -125,16 +125,16 @@ public class InstanceService
 		map.removeWorldMapInstance(instanceId);
 
 		log.info("Destroying instance:" + worldId + " " + instanceId);
-		
-		PortalTemplate portalTemplate = portalData.getInstancePortalTemplate(worldId);
-		
+
 		Iterator<VisibleObject> it = instance.objectIterator();
 		while(it.hasNext())
 		{
 			VisibleObject obj = it.next();
 			if(obj instanceof Player)
 			{			
-				moveToEntryPoint((Player) obj, portalTemplate, true);
+				Player player = (Player) obj;
+				PortalTemplate portal = portalData.getInstancePortalTemplate(worldId, player.getCommonData().getRace());
+				moveToEntryPoint((Player) obj, portal, true);
 			}
 			else
 			{
@@ -192,7 +192,7 @@ public class InstanceService
 		WorldMapTemplate worldTemplate = worldMapsData.getTemplate(worldId);
 		if(worldTemplate.isInstance())
 		{
-			PortalTemplate portalTemplate = portalData.getInstancePortalTemplate(worldId);
+			PortalTemplate portalTemplate = portalData.getInstancePortalTemplate(worldId, player.getCommonData().getRace());
 
 			int lookupId = player.getObjectId();
 			if(portalTemplate.isGroup() && player.getPlayerGroup() != null)
@@ -222,25 +222,25 @@ public class InstanceService
 	/**
 	 * 
 	 * @param player
-	 * @param portalTemplate
+	 * @param portalTemplates
 	 */
 	private void moveToEntryPoint(Player player, PortalTemplate portalTemplate, boolean useTeleport)
-	{
-		List<EntryPoint> entryPoints = portalTemplate.getEntryPoint();
-		
+	{		
 		EntryPoint entryPoint = null;
+		List<EntryPoint> entryPoints = portalTemplate.getEntryPoint();
+
 		for(EntryPoint point : entryPoints)
 		{
 			if(point.getRace() == null || point.getRace().equals(player.getCommonData().getRace()))
 			{
-				entryPoint = point;;
+				entryPoint = point;
 				break;
 			}
 		}
 		
 		if(entryPoint == null)
 		{
-			log.warn("Entry point not found for " + player.getCommonData().getRace() + " " + portalTemplate.getNpcId());
+			log.warn("Entry point not found for " + player.getCommonData().getRace() + " " + player.getWorldId());
 			return;
 		}
 		

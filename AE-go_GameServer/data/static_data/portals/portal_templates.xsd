@@ -16,14 +16,18 @@
 
 	<xs:complexType name="Portal">
 		<xs:sequence>
-			<xs:element name="entrypoint" type="EntryPoint" minOccurs="1" maxOccurs="2"/>
-			<xs:element name="exitpoint" type="ExitPoint" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="entrypoint" type="EntryPoint" minOccurs="1"
+				maxOccurs="2" />
+			<xs:element name="exitpoint" type="ExitPoint" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="portalitem" type="PortalItem" minOccurs="0"
+				maxOccurs="unbounded" />
 		</xs:sequence>
 		<xs:attribute name="race" type="Race" />
 		<xs:attribute name="group" type="xs:boolean" />
 		<xs:attribute name="maxlevel" type="xs:int" />
 		<xs:attribute name="minlevel" type="xs:int" />
-		<xs:attribute name="instance" type="xs:boolean" />	
+		<xs:attribute name="instance" type="xs:boolean" />
 		<xs:attribute name="npcid" type="xs:int" />
 	</xs:complexType>
 
@@ -41,5 +45,12 @@
 		<xs:attribute name="y" type="xs:float" />
 		<xs:attribute name="z" type="xs:float" />
 	</xs:complexType>
+
+	<xs:complexType name="PortalItem">
+		<xs:attribute name="id" type="xs:int" />
+		<xs:attribute name="itemid" type="xs:int" />
+		<xs:attribute name="quantity" type="xs:int" />
+	</xs:complexType>
+	
 </xs:schema>
 

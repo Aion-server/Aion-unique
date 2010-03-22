@@ -196,6 +196,14 @@ public class PlayerController extends CreatureController<Player>
 	{
 
 	}
+	
+	/**
+	 * Set zone instance as null (Where no zones defined)
+	 */
+	public void resetZone()
+	{
+		getOwner().setZoneInstance(null);
+	}
 
 	/**
 	 * {@inheritDoc}

@@ -201,7 +201,10 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 		
 		List<ZoneInstance> zones = zoneByMapIdMap.get(mapRegion.getMapId());
 		if(zones == null)
+		{
+			player.getController().resetZone();
 			return;
+		}			
 		
 		for(ZoneInstance zone : zones)
 		{

@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <portal_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="portal_template.xsd">
-
-	<!-- Nochsana Training Camp -->
-	<portal npcid="700414"  instance="true" minlevel="25" maxlevel="28" group="true" race="ASMODIANS">
+	xsi:noNamespaceSchemaLocation="portal_templates.xsd">
+	
+	<!-- INSTANCES -->
+	
+	<!-- Nochsana Training Camp Asmodians -->
+	<portal npcid="700414"  instance="true" minlevel="25" maxlevel="28" group="false" race="ASMODIANS">
 		<entrypoint mapid="400010000" x="876.7211" y="3079.2874" z="1644.5786" race="ASMODIANS"/>
+		<exitpoint mapid="300030000" x="600" y="700" z="327.165"/>
+	</portal>
+	
+	<!-- Nochsana Training Camp Elyos -->
+	<portal npcid="700413" instance="true" minlevel="25" maxlevel="28" group="false" race="ELYOS">
+		<entrypoint mapid="400010000" x="2890" y="754" z="1498.5786" race="ELYOS"/>
 		<exitpoint mapid="300030000" x="600" y="700" z="327.165"/>
 	</portal>
 	
@@ -14,6 +22,38 @@
 		<entrypoint mapid="210020000" x="1343.28" y="350.96" z="348.67" race="ELYOS"/>
 		<exitpoint mapid="320100000" x="148.256" y="460.857" z="141.713"/>
 	</portal>
+	
+	<!-- Draupnir Cave Entrance -->
+	<portal npcid="700370" instance="true" minlevel="44" maxlevel="48" group="true" race="ASMODIANS">
+		<entrypoint mapid="220040000" x="1605.27" y="2729.9" z="705.345" race="ASMODIANS"/>
+		<exitpoint mapid="320080000" x="491" y="373" z="622"/>
+	</portal>
+	
+	<!-- Artifact of Circulation / DarkPoeta -->
+	<portal npcid="730185" instance="true" minlevel="40" maxlevel="50" group="true" race="ASMODIANS">
+		<entrypoint mapid="220040000" x="2420.12" y="2061.31" z="579.7" race="ASMODIANS"/>
+		<exitpoint mapid="300040000" x="1214" y="412" z="140"/>
+		<portalitem id="1" itemid="186000048" quantity="20"/>
+		<portalitem id="2" itemid="186000050" quantity="1"/>
+	</portal>
+	
+	<!-- Artifact of Transcendence / DarkPoeta -->
+	<portal npcid="730186" instance="true" minlevel="40" maxlevel="50" group="true" race="ELYOS">
+		<entrypoint mapid="210040000" x="2019.51" y="1467.34" z="127.19" race="ELYOS"/>
+		<exitpoint mapid="300040000" x="1214" y="412" z="140"/>
+		<portalitem id="1" itemid="186000048" quantity="20"/>
+		<portalitem id="2" itemid="186000050" quantity="1"/>
+	</portal>
+	
+	<!-- Artifact of Time / DarkPoeta -->
+	<portal npcid="730215" instance="true" minlevel="40" maxlevel="50" group="true">
+		<entrypoint mapid="400010000" x="2164.02" y="1581.01" z="2272.71"/>
+		<exitpoint mapid="300040000" x="1214" y="412" z="140"/>
+		<portalitem id="1" itemid="186000048" quantity="5"/>
+		<portalitem id="2" itemid="186000050" quantity="1"/>
+	</portal>
+	
+	<!-- QUEST PORTALS -->
 	
 	<!-- Pernos [Ascension quest] Elyos -->
 	<portal npcid="790001" instance="true">
@@ -25,6 +65,80 @@
 	<portal npcid="203550" instance="true">
 		<entrypoint mapid="220010000" x="378.9" y="1895.39" z="330.0"/>
 		<exitpoint mapid="320010000" x="457.65" y="426.8" z="230.4"/>
+	</portal>
+	
+	<!-- ABYSS GATES -->
+	
+	<!-- Verteron to Abyss -->
+	<portal npcid="700088" minlevel="25" maxlevel="50" instance="false" group="false" race="ELYOS">
+		<entrypoint mapid="210030000" x="0" y="0" z="0" race="ELYOS"/>
+		<exitpoint mapid="400010000" x="2867" y="1036" z="1528"/>
+	</portal>
+	
+	<!-- Eltnen to Abyss -->
+	<portal npcid="700177" minlevel="25" maxlevel="50" instance="false" group="false" race="ELYOS">
+		<entrypoint mapid="210020000" x="0" y="0" z="0" race="ELYOS"/>
+		<exitpoint mapid="400010000" x="2867" y="1036" z="1528"/>
+	</portal>
+	
+	<!-- Heiron to Abyss -->
+	<portal npcid="700360" minlevel="25" maxlevel="50" instance="false" group="false" race="ELYOS">
+		<entrypoint mapid="210040000" x="0" y="0" z="0" race="ELYOS"/>
+		<exitpoint mapid="400010000" x="2867" y="1036" z="1528"/>
+	</portal>
+
+	<!-- Abyss to Verteron -->
+	<portal npcid="730073" minlevel="25" maxlevel="50" instance="false" group="false" race="ELYOS">
+		<entrypoint mapid="400010000" x="0" y="0" z="0" race="ELYOS"/>
+		<exitpoint mapid="210030000" x="1643" y="1500" z="119"/>
+	</portal>
+	
+	<!-- Abyss to Eltnen -->
+	<portal npcid="730074" minlevel="25" maxlevel="50" instance="false" group="false" race="ELYOS">
+		<entrypoint mapid="400010000" x="0" y="0" z="0" race="ELYOS"/>
+		<exitpoint mapid="210020000" x="343" y="2724" z="264"/>
+	</portal>
+	
+	<!-- Abyss to Heiron -->
+	<portal npcid="730075" minlevel="25" maxlevel="50" instance="false" group="false" race="ELYOS">
+		<entrypoint mapid="400010000" x="0" y="0" z="0" race="ELYOS"/>
+		<exitpoint mapid="210020000" x="2540" y="343" z="411"/>
+	</portal>
+	
+	<!-- Morheim to Abyss -->
+	<portal npcid="700183" minlevel="25" maxlevel="50" instance="false" group="false" race="ASMODIANS">
+		<entrypoint mapid="220020000" x="0" y="0" z="0" race="ASMODIANS"/>
+		<exitpoint mapid="400010000" x="1078" y="2839" z="1636"/>
+	</portal>
+	
+	<!-- Beluslan to Abyss -->
+	<portal npcid="730064" minlevel="25" maxlevel="50" instance="false" group="false" race="ASMODIANS">
+		<entrypoint mapid="220040000" x="0" y="0" z="0" race="ASMODIANS"/>
+		<exitpoint mapid="400010000" x="1078" y="2839" z="1636"/>
+	</portal>
+	
+	<!-- Altgard to Abyss -->
+	<portal npcid="700089" minlevel="25" maxlevel="50" instance="false" group="false" race="ASMODIANS">
+		<entrypoint mapid="220030000" x="0" y="0" z="0" race="ASMODIANS"/>
+		<exitpoint mapid="400010000" x="1078" y="2839" z="1636"/>
+	</portal>
+	
+	<!-- Abyss to Morheim -->
+	<portal npcid="730077" minlevel="25" maxlevel="50" instance="false" group="false" race="ASMODIANS">
+		<entrypoint mapid="400010000" x="0" y="0" z="0" race="ASMODIANS"/>
+		<exitpoint mapid="220020000" x="308" y="2274" z="449"/>
+	</portal>
+	
+	<!-- Abyss to Beluslan -->
+	<portal npcid="730078" minlevel="25" maxlevel="50" instance="false" group="false" race="ASMODIANS">
+		<entrypoint mapid="400010000" x="0" y="0" z="0" race="ASMODIANS"/>
+		<exitpoint mapid="220040000" x="325" y="336" z="229"/>
+	</portal>	
+	
+	<!-- Abyss to Altgard -->
+	<portal npcid="730076" minlevel="25" maxlevel="50" instance="false" group="false" race="ASMODIANS">
+		<entrypoint mapid="400010000" x="0" y="0" z="0" race="ASMODIANS"/>
+		<exitpoint mapid="220030000" x="1748" y="1807" z="254"/>
 	</portal>
 	
 </portal_templates>

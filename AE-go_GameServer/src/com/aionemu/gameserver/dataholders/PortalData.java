@@ -18,6 +18,8 @@ package com.aionemu.gameserver.dataholders;
 
 import gnu.trove.TIntObjectHashMap;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.xml.bind.Unmarshaller;
@@ -26,6 +28,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.templates.portal.PortalTemplate;
 
 /**
@@ -41,7 +44,7 @@ public class PortalData
 	
 	/** A map containing all npc templates */
 	private TIntObjectHashMap<PortalTemplate> portalData	= new TIntObjectHashMap<PortalTemplate>();
-	private TIntObjectHashMap<PortalTemplate> instancesMap	= new TIntObjectHashMap<PortalTemplate>();
+	private HashMap<Integer, ArrayList<PortalTemplate>> instancesMap = new HashMap<Integer, ArrayList<PortalTemplate>>();
 	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
@@ -49,7 +52,16 @@ public class PortalData
 		{
 			portalData.put(portal.getNpcId(), portal);
 			if(portal.isInstance())
-				instancesMap.put(portal.getExitPoint().getMapId(), portal);
+			{
+				int mapId = portal.getExitPoint().getMapId();
+				ArrayList<PortalTemplate> templates = instancesMap.get(mapId);
+				if(templates == null)
+				{
+					templates = new ArrayList<PortalTemplate>();
+					instancesMap.put(mapId, templates);
+				}
+				templates.add(portal);
+			}
 		}
 		portals = null;
 	}
@@ -68,14 +80,21 @@ public class PortalData
 	{
 		return portalData.get(npcId);
 	}
-
+	
 	/**
+	 * 
 	 * @param worldId
+	 * @param race
 	 * @return
 	 */
-	public PortalTemplate getInstancePortalTemplate(int worldId)
-	{			
-		return instancesMap.get(worldId);	
+	public PortalTemplate getInstancePortalTemplate(int worldId, Race race)
+	{		
+		for(PortalTemplate portal : instancesMap.get(worldId))
+		{
+			if(portal.getRace() == null || portal.getRace().equals(race))
+				return portal;
+		}
+		throw new IllegalArgumentException("There is no portal template for: " + worldId + " " + race);	
 	}
 	
 	
