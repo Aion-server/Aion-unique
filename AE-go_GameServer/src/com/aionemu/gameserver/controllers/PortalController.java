@@ -19,6 +19,8 @@ package com.aionemu.gameserver.controllers;
 import java.util.Collection;
 import java.util.Collections;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.dataholders.PortalData;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -31,6 +33,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_USE_OBJECT;
 import com.aionemu.gameserver.services.InstanceService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.world.WorldMap;
 import com.aionemu.gameserver.world.WorldMapInstance;
 import com.google.inject.Inject;
 
@@ -40,6 +43,8 @@ import com.google.inject.Inject;
  */
 public class PortalController extends NpcController
 {
+	private static final Logger	log						= Logger.getLogger(PortalController.class);
+
 	@Inject
 	private PortalData		portalData;
 	@Inject
@@ -129,9 +134,26 @@ public class PortalController extends NpcController
 		Collection<Player> players = Collections.singletonList(requester);
 		if(!checkPlayersLevel(players))
 			return;
-
-		WorldMapInstance instance = instanceService.getNextAvailableInstance(portalTemplate.getExitPoint().getMapId());
-		instanceService.registerPlayerWithInstance(instance, requester);
+		
+		WorldMapInstance instance = null;
+		int worldId = portalTemplate.getExitPoint().getMapId();
+		if(portalTemplate.isInstance())
+		{
+			instance = instanceService.getNextAvailableInstance(worldId);
+			instanceService.registerPlayerWithInstance(instance, requester);
+			
+		}
+		else
+		{
+			WorldMap worldMap = sp.getWorld().getWorldMap(worldId);
+			if(worldMap == null)
+			{
+				log.warn("There is no registered map with id " + worldId);
+				return;
+			}
+			instance = worldMap.getWorldMapInstance();
+		}
+		
 		transfer(requester, instance);
 	}
 

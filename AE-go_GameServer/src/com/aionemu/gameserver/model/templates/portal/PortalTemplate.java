@@ -35,21 +35,24 @@ import com.aionemu.gameserver.model.Race;
 public class PortalTemplate
 {
 	@XmlAttribute(name = "npcid")
-	protected int	npcId;
+	protected int				npcId;
 	@XmlAttribute(name = "instance")
-	protected boolean	instance;
+	protected boolean			instance;
 	@XmlAttribute(name = "minlevel")
-	protected int	minLevel;
+	protected int				minLevel;
 	@XmlAttribute(name = "maxlevel")
-	protected int	maxLevel;
+	protected int				maxLevel;
 	@XmlAttribute(name = "group")
-	protected boolean	group;
+	protected boolean			group;
 	@XmlAttribute(name = "race")
-	protected Race race;
+	protected Race				race;
 	@XmlElement(name = "entrypoint")
 	protected List<EntryPoint>	entryPoint;
 	@XmlElement(name = "exitpoint")
-	protected ExitPoint	exitPoint;
+	protected ExitPoint			exitPoint;
+	@XmlElement(name = "portalitem")
+	protected List<PortalItem>	portalItem;
+
 	/**
 	 * @return the npcId
 	 */
@@ -57,6 +60,7 @@ public class PortalTemplate
 	{
 		return npcId;
 	}
+
 	/**
 	 * @return the instance
 	 */
@@ -64,6 +68,7 @@ public class PortalTemplate
 	{
 		return instance;
 	}
+
 	/**
 	 * @return the minLevel
 	 */
@@ -71,6 +76,7 @@ public class PortalTemplate
 	{
 		return minLevel;
 	}
+
 	/**
 	 * @return the maxLevel
 	 */
@@ -78,6 +84,7 @@ public class PortalTemplate
 	{
 		return maxLevel;
 	}
+
 	/**
 	 * @return the group
 	 */
@@ -85,6 +92,7 @@ public class PortalTemplate
 	{
 		return group;
 	}
+
 	/**
 	 * @return the race
 	 */
@@ -92,7 +100,7 @@ public class PortalTemplate
 	{
 		return race;
 	}
-	
+
 	/**
 	 * @return the entryPoint
 	 */
@@ -100,11 +108,20 @@ public class PortalTemplate
 	{
 		return entryPoint;
 	}
+
 	/**
 	 * @return the exitPoint
 	 */
 	public ExitPoint getExitPoint()
 	{
 		return exitPoint;
+	}
+
+	/**
+	 * @return the portalItem
+	 */
+	public List<PortalItem> getPortalItem()
+	{
+		return portalItem;
 	}
 }
