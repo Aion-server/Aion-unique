@@ -12,13 +12,14 @@ Poeta -->
 	<spawn map="210010000" npcid="700014" pool="1" interval="105">
 		<object x="423.08667" y="1742.2821" z="120.478806" h="0"/>
 	</spawn>
-	<!-- Lonia -->
+	<!-- Lonian -->
 	<spawn map="210010000" npcid="203080" pool="1" interval="105">
 		<object x="423.15802" y="1748.3923" z="121.0" h="0"/>
 	</spawn>
 	<!-- Protector of Daminu -->
 	<spawn map="210010000" npcid="730009" pool="1" interval="105">
 		<object x="592.0" y="1539.0" z="116.125" h="90"/>
+		<object x="608.5164" y="1543.891" z="116.46091" h="0"/>
 	</spawn>
 	<!-- Toleo -->
 	<spawn map="210010000" npcid="203066" pool="1" interval="105">
@@ -39,6 +40,12 @@ Poeta -->
 	<!-- Sleeping Elder -->
 	<spawn map="210010000" npcid="730010" pool="1" interval="105">
 		<object x="528.0191" y="1541.4235" z="112.27287" h="28"/>
+		<object x="524.0951" y="1584.8158" z="112.4141" h="0"/>
+		<object x="558.8128" y="1597.427" z="112.27287" h="28"/>
+		<object x="648.0752" y="1507.821" z="119.85545" h="0"/>
+		<object x="709.77026" y="1549.9213" z="126.88976" h="60"/>
+        <object x="558.8128" y="1597.4272" z="115.09842" h="74"/>
+		<object x="659.7924" y="1603.4248" z="124.8319" h="0"/>
 	</spawn>
 	<!-- Kunandes -->
 	<spawn map="210010000" npcid="203087" pool="1" interval="105">
@@ -46,7 +53,7 @@ Poeta -->
 	</spawn>
 	<!-- Ben -->
 	<spawn map="210010000" npcid="203073" pool="1" interval="105">
-		<object x="602.0" y="1091.0" z="100.35982" h="12"/>
+		<object x="604.0" y="1090.0" z="100.35982" h="12"/>
 	</spawn>
 	<!-- Pranoa -->
 	<spawn map="210010000" npcid="203074" pool="1" interval="105">
@@ -88,13 +95,9 @@ Poeta -->
 	<spawn map="210010000" npcid="203336" pool="1" interval="105">
 		<object x="862.71423" y="1251.586" z="119.134254" h="110"/>
 	</spawn>
-	<!-- Uteiron -->
+	<!-- Uteinon -->
 	<spawn map="210010000" npcid="203069" pool="1" interval="105">
 		<object x="863.17993" y="1195.449" z="114.645874" h="94"/>
-	</spawn>
-	<!-- Sleeping Elder -->
-	<spawn map="210010000" npcid="730010" pool="1" interval="105">
-		<object x="648.0752" y="1507.8206" z="119.85545" h="0"/>
 	</spawn>
 	<!-- Pernos -->
 	<spawn map="210010000" npcid="790001" pool="1" interval="105">
@@ -152,17 +155,9 @@ Poeta -->
 	<spawn map="210010000" npcid="203059" pool="1" interval="105">
 		<object x="825.4364" y="1241.9847" z="120.0" h="90"/>
 	</spawn>
-	<!-- Sleeping Elder -->
-	<spawn map="210010000" npcid="730010" pool="1" interval="105">
-		<object x="659.7924" y="1603.4248" z="124.8319" h="0"/>
-	</spawn>
 	<!-- Melampus -->
 	<spawn map="210010000" npcid="203065" pool="1" interval="105">
 		<object x="785.59576" y="1187.5854" z="107.0" h="0"/>
-	</spawn>
-	<!-- Sleeping Elder -->
-	<spawn map="210010000" npcid="730010" pool="1" interval="105">
-		<object x="709.77026" y="1549.9213" z="126.88976" h="60"/>
 	</spawn>
 	<!-- Shroomba -->
 	<spawn map="210010000" npcid="203187" pool="1" interval="105">
@@ -188,23 +183,15 @@ Poeta -->
 	<spawn map="210010000" npcid="203061" pool="1" interval="105">
 		<object x="847.26337" y="1256.8829" z="120.0" h="85"/>
 	</spawn>
-	<!-- Sleeping Elder -->
-	<spawn map="210010000" npcid="730010" pool="1" interval="105">
-		<object x="524.0951" y="1584.8158" z="112.4141" h="0"/>
-	</spawn>
 	<!-- Namus -->
 	<spawn map="210010000" npcid="203075" pool="1" interval="105">
 		<object x="558.4866" y="1379.1592" z="120.5159" h="0"/>
-	</spawn>
-	<!-- Protector of Daminu -->
-	<spawn map="210010000" npcid="730009" pool="1" interval="105">
-		<object x="608.5164" y="1543.891" z="116.46091" h="0"/>
 	</spawn>
 	<!-- Oz -->
 	<spawn map="210010000" npcid="203081" pool="1" interval="105">
 		<object x="433.11313" y="1752.6931" z="120.5" h="48"/>
 	</spawn>
-	<!-- Fungus Boy Shroomy -->
+	<!-- Fungen Boy Shroomy -->
 	<spawn map="210010000" npcid="203185" pool="1" interval="105">
 		<object x="242.35413" y="1633.8169" z="100.386444" h="0"/>
 	</spawn>
@@ -220,21 +207,28 @@ Poeta -->
 	<spawn map="210010000" npcid="203089" pool="1" interval="105">
 		<object x="818.20496" y="1265.2709" z="119.162605" h="110"/>
 	</spawn>
-	<!-- Sleeping Elder -->
-	<spawn map="210010000" npcid="730010" pool="1" interval="105">
-		<object x="558.8128" y="1597.4272" z="115.09842" h="74"/>
-	</spawn>
 	<!-- Kerub Grain sack -->
 	<spawn map="210010000" npcid="700105" pool="9" interval="105">
-		<object x="1131.334" y="977.4501" z="132.99" h="0"/>
-		<object x="1126.023" y="974.8395" z="132.07" h="0"/>
-		<object x="1136.818" y="982.5995" z="132.87" h="0"/>
-		<object x="1122.15" y="991.9852" z="130.87" h="0"/>
-		<object x="1127.872" y="996.4534" z="130.99" h="0"/>
-		<object x="1118.266" y="978.7563" z="131.89" h="0"/>
-		<object x="1131.308" y="985.2346" z="132.83" h="0"/>
+        <object x="118.266" y="978.7563" z="131.89" h="0"/>
+		<object x="1119.259" y="975.0611" z="131.89" h="0"/>
+		<object x="1121.359" y="993.1151" z="130.87" h="0"/>
+        <object x="1122.15" y="991.9852" z="130.87" h="0"/>
+		<object x="1122.745" y="993.2279" z="130.87" h="0"/>
 		<object x="1124.903" y="979.7134" z="132.1" h="0"/>
+        <object x="1125.508" y="977.5901" z="132.07" h="0"/>
+		<object x="1126.023" y="974.8395" z="132.07" h="0"/>
+		<object x="1126.479" y="978.1097" z="132.07" h="0"/>
+		<object x="1127.872" y="996.4534" z="130.99" h="0"/>
+        <object x="1129.436" y="995.4033" z="140" h="0"/>
+        <object x="1130.272" y="978.2429" z="132.83" h="0"/>
+		<object x="1130.339" y="996.6207" z="140" h="0"/>
+		<object x="1131.334" y="977.4501" z="132.83" h="0"/>
+		<object x="1131.32" y="978.7134" z="132.83" h="0"/>
+		<object x="1131.308" y="985.2346" z="132.83" h="0"/>
+		<object x="1135.98" y="983.8059" z="132.87" h="0"/>
 		<object x="1136.648" y="988.3162" z="132.87" h="0"/>
+		<object x="1136.818" y="982.5995" z="132.87" h="0"/>
+        <object x="1137.327" y="983.8022" z="132.87" h="0"/>
 	</spawn>
 	<!-- Wine Barrel -->
 	<spawn map="210010000" npcid="700106" pool="12" interval="105">
@@ -276,6 +270,10 @@ Poeta -->
 	<spawn map="210010000" npcid="700081" pool="1" interval="105">
 		<object x="254.15" y="1065.97" z="120.79" h="0"/>
 	</spawn>
+	<!-- Violet Power Generator -->
+	<spawn map="210010000" npcid="700083" pool="1" interval="105">
+		<object x="289.65" y="1017.06" z="132.03" h="0"/>
+	</spawn>
 	<!-- Mailbox -->
 	<spawn map="210030000" npcid="700000" pool="1" interval="105">
 		<object x="827.18" y="1243.24" z="118.88" h="0"/>
@@ -309,13 +307,9 @@ Poeta -->
 		<object x="237.29" y="1131.36" z="103.78" h="0"/>
 		<object x="180.18" y="1133.11" z="113.44" h="0"/>
 	</spawn>
-	<!-- Violet Power Generator -->
-	<spawn map="210010000" npcid="700083" pool="1" interval="105">
-		<object x="289.65" y="1017.06" z="132.03" h="0"/>
-	</spawn>
 	<!-- Seirenia -->
 	<spawn map="210010000" npcid="203175" pool="1" interval="105" time="NIGHT">
-		<object x="477.88" y="1558.32" z="105.513" h="0"/>
+		<object x="474.22" y="1551.18" z="105.513" h="0"/>
 	</spawn>
 	<!-- Mercenary lvl 9 -->
 	<spawn map="210010000" npcid="203197" pool="1" interval="105">
@@ -330,11 +324,11 @@ Poeta -->
 	</spawn>
 	<!-- Farm worker -->
 	<spawn map="210010000" npcid="203051" pool="2" interval="105">
-		<object x="952.61835" y="1101.5485" z="108.316864" h="48"/>
-		<object x="977.0185" y="1130.8038" z="107.95207" h="12"/>
+		<object x="953.765" y="1102.309" z="108.316864" h="48"/>
+		<object x="977.5476" y="1130.644" z="107.95207" h="12"/>
 	</spawn>
 	<!-- Navid -->
 	<spawn map="210010000" npcid="798360" pool="1" interval="105">
-		<object x="131" y="1564" z="102" h="12"/>
+		<object x="134" y="1564" z="102" h="102"/>
 	</spawn>
 </spawns>
