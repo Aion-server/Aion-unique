@@ -382,8 +382,8 @@ Theobomos -->
 	<spawn map="210060000" npcid="798167" pool="1" interval="105">
 		<object x="2211.118" y="2182.793" z="52.00557" h="8"/>
 	</spawn>
-	<!-- MOB NAME -->
-	<spawn map="210060000" npcid="798213" pool="1" interval="105">
+	<!-- Zirius -->
+	<spawn map="210060000" npcid="798213" pool="1" interval="105" time="DAY">
 		<object x="1531.681" y="279.7333" z="102.51712" h="102"/>
 	</spawn>
 	<!-- Ancient Fossil -->
@@ -625,4 +625,8 @@ Theobomos -->
 		<object x="2067.107" y="1867.799" z="37.446" h="74"/>
 		<object x="2058.637" y="1872.386" z="37.31" h="68"/>
 	</spawn>
+  <!-- Zirius -->
+  <spawn map="210060000" npcid="798213" pool="1" interval="105">
+    <object x="1531.681" y="279.7333" z="103.4467" h="85"/>
+  </spawn>
 </spawns>

@@ -5,7 +5,7 @@ object x y z h
 Verteron -->
 <spawns>
 	<!-- Ancient Elyos Spirit -->
-	<spawn map="210030000" npcid="210343" pool="9" interval="105" time="NIGHT">
+	<spawn map="210030000" npcid="210343" pool="8" interval="105" time="NIGHT">
 		<object x="2163.387" y="2303.742" z="257" h="109"/>
 		<object x="2100.644" y="2272.429" z="230.63837" h="108"/>
 		<object x="2044.534" y="2299.813" z="265.8867" h="4"/>
@@ -14,7 +14,6 @@ Verteron -->
 		<object x="2151.833" y="2134.784" z="184.63863" h="112"/>
 		<object x="2075.13" y="2312.156" z="257.96106" h="117"/>
 		<object x="2182.679" y="2379.918" z="258.76962" h="47"/>
-		<object x="2151" y="2134" z="185" h="21"/>
 	</spawn>
 	<!-- Aqueous Spirit -->
 	<spawn map="210030000" npcid="210080" pool="18" interval="105">
