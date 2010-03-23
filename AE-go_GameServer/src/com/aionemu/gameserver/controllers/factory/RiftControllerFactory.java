@@ -18,6 +18,7 @@ package com.aionemu.gameserver.controllers.factory;
 
 import com.aionemu.gameserver.controllers.RiftController;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.spawnengine.RiftSpawnManager.RiftEnum;
 import com.google.inject.assistedinject.Assisted;
 
 /**
@@ -33,7 +34,6 @@ public interface RiftControllerFactory
 	 * @param maxLevel
 	 * @return riftControllerFactory
 	 */
-	public RiftController create(@Assisted Npc slave, @Assisted("maxEntries") Integer maxEntries,
-		@Assisted("maxLevel") Integer maxLevel);
+	public RiftController create(@Assisted Npc slave, @Assisted RiftEnum riftTemplate);
 	
 }

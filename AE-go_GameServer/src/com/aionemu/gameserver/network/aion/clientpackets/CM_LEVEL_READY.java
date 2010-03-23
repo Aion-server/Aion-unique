@@ -25,6 +25,7 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.WeatherService;
 import com.aionemu.gameserver.services.ZoneService.ZoneUpdateMode;
+import com.aionemu.gameserver.spawnengine.RiftSpawnManager;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -43,7 +44,11 @@ public class CM_LEVEL_READY extends AionClientPacket
 	private WeatherService	weatherService;
 
 	@Inject
-	QuestEngine questEngine;
+	private QuestEngine questEngine;
+	
+	@Inject
+	private RiftSpawnManager riftSpawnManager;
+	
 	/**
 	 * Constructs new instance of <tt>CM_LEVEL_READY </tt> packet
 	 * 
@@ -90,6 +95,8 @@ public class CM_LEVEL_READY extends AionClientPacket
 		
 		// zone channel message
 		sendPacket(new SM_SYSTEM_MESSAGE(1390122, activePlayer.getPosition().getInstanceId()));
+		
+		riftSpawnManager.sendRiftStatus(activePlayer);
 
 		activePlayer.getEffectController().updatePlayerEffectIcons();
 	}

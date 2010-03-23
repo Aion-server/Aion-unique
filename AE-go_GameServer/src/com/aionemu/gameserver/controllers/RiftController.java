@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.controllers;
 
+import java.util.Iterator;
+
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -23,8 +25,11 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_RIFT_ANNOUNCE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RIFT_STATUS;
+import com.aionemu.gameserver.spawnengine.RiftSpawnManager.RiftEnum;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.WorldMapInstance;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 
@@ -44,11 +49,14 @@ public class RiftController extends NpcController
 	private int usedEntries;
 	private boolean isAccepting;
 	
+	private RiftEnum riftTemplate;
+	
 	/**
 	 * Used to create slave rifts
 	 */
-	public RiftController()
+	public RiftController(RiftEnum riftTemplate)
 	{
+		this.riftTemplate = riftTemplate;
 	}
 	
 	/**
@@ -57,13 +65,13 @@ public class RiftController extends NpcController
 	 * @param slaveSpawnTemplate
 	 */
 	@Inject
-	public RiftController(@Assisted Npc slave, @Assisted("maxEntries") Integer maxEntries,
-		@Assisted("maxLevel") Integer maxLevel)
+	public RiftController(@Assisted Npc slave, @Assisted RiftEnum riftTemplate)
 	{
 		this.slave = slave;
 		this.slaveSpawnTemplate = slave.getSpawn();
-		this.maxEntries = maxEntries;
-		this.maxLevel = maxLevel;
+		this.maxEntries = riftTemplate.getEntries();
+		this.maxLevel = riftTemplate.getMaxLevel();
+		this.riftTemplate = riftTemplate;
 		isMaster = true;
 		isAccepting = true;
 	}
@@ -125,6 +133,36 @@ public class RiftController extends NpcController
 		{
 			PacketSendUtility.sendPacket((Player) object, 
 				new SM_RIFT_STATUS(getOwner().getObjectId(), usedEntries, maxEntries, maxLevel));
+		}
+	}
+
+	/**
+	 * @param activePlayer
+	 */
+	public void sendMessage(Player activePlayer)
+	{
+		if(isMaster && getOwner().isSpawned())
+			PacketSendUtility.sendPacket(activePlayer, new SM_RIFT_ANNOUNCE(riftTemplate.getDestination()));
+	}
+
+	/**
+	 * 
+	 */
+	public void sendAnnounce()
+	{
+		if(isMaster && getOwner().isSpawned())
+		{
+			WorldMapInstance worldInstance = getOwner().getPosition().getMapRegion().getParent();
+			Iterator<Player> playerIterator = worldInstance.playerIterator();
+			
+			while(playerIterator.hasNext())
+			{
+				Player player = playerIterator.next();
+				if(player.isSpawned())
+				{
+					sendMessage(player);
+				}				
+			}
 		}
 	}
 }

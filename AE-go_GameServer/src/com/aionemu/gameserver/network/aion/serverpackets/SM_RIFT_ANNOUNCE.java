@@ -18,7 +18,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -29,17 +29,16 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_RIFT_ANNOUNCE extends AionServerPacket
 {
-	@SuppressWarnings("unused")
-	private Player player;
+	private Race race;
 
 	/**
 	 * Constructs new <tt>SM_RIFT_ANNOUNCE</tt> packet
 	 * 
 	 * @param player
 	 */
-	public SM_RIFT_ANNOUNCE(Player player)
+	public SM_RIFT_ANNOUNCE(Race race)
 	{
-		this.player = player;
+		this.race = race;
 	}
 
 	/**
@@ -48,7 +47,24 @@ public class SM_RIFT_ANNOUNCE extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, 0); // asmodae -> *elysea (ex. riftStatus(player) ? 1 : 0)
-		writeD(buf, 0); // elysea -> *asmodae (ex. riftStatus(player) ? 1 : 0)
+		switch(race) //destination
+		{
+			//master rift announcements
+			case ASMODIANS:
+				writeD(buf, 1);
+				writeD(buf, 0);
+				break;
+			case ELYOS:
+				writeD(buf, 1);
+				writeD(buf, 0);
+				break;
+		}
+		
+		// ELYSEA:
+		// 1 0 -> to asmodae
+		// 0 1 -> to elysea
+		// ASMODAE
+		// 1 0 -> to elysea
+		// 0 1 -> to asmodae
 	}
 }
