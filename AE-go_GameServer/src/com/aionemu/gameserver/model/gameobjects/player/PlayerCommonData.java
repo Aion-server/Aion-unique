@@ -379,6 +379,9 @@ public class PlayerCommonData extends VisibleObjectTemplate
 	{
 		if(getPlayer() != null)
 		{
+			if(playerClass.isStartingClass())
+				return;
+			
 			int maxDp = getPlayer().getGameStats().getCurrentStat(StatEnum.MAXDP);
 			this.dp = dp > maxDp ? maxDp : dp;
 
