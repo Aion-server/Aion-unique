@@ -115,6 +115,8 @@ public class CM_EMOTION extends AionClientPacket
 		Player player = getConnection().getActivePlayer();
 		switch(emotionType)
 		{
+			case 0:
+				return;
 			case 0x2:
 				player.setState(CreatureState.RESTING);
 				break;

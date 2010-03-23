@@ -108,6 +108,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_INFLUENCE_RATIO.class, 0x6D, idSet);
 		addPacketOpcode(SM_EXCHANGE_CONFIRMATION.class, 0x6E, idSet);
 		addPacketOpcode(SM_EMOTION_LIST.class, 0x6F, idSet);
+		addPacketOpcode(SM_TARGET_UPDATE.class, 0x71, idSet);
 		addPacketOpcode(SM_QUEST_LIST.class, 0x73, idSet);
 		addPacketOpcode(SM_QUEST_ACCEPTED.class, 0x74, idSet);
 		addPacketOpcode(SM_QUEST_STEP.class, 0x75, idSet);
@@ -127,6 +128,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_LEGION_UPDATE_MEMBER.class, 0x91, idSet);
 		addPacketOpcode(SM_LEGION_MEMBERLIST.class, 0x95, idSet);
 		addPacketOpcode(SM_LEGION_EDIT.class, 0x9E, idSet);
+		addPacketOpcode(SM_MAIL_SERVICE.class, 0xA1, idSet);
 		addPacketOpcode(SM_RIFT_STATUS.class, 0xA4, idSet);
 		addPacketOpcode(SM_PLAYER_ID.class, 0xA5, idSet);
 		addPacketOpcode(SM_PRIVATE_STORE.class, 0xA6, idSet);
@@ -137,6 +139,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_ITEM_USAGE_ANIMATION.class, 0xB7, idSet);
 		addPacketOpcode(SM_CUSTOM_SETTINGS.class, 0xB8, idSet);
 		addPacketOpcode(SM_DUEL.class, 0xB9, idSet);
+		addPacketOpcode(SM_RESURRECT.class, 0xBA, idSet);
 		addPacketOpcode(SM_FORCED_MOVE.class, 0xBB, idSet);
 		addPacketOpcode(SM_TELEPORT_MAP.class, 0xBC, idSet);
 		addPacketOpcode(SM_USE_OBJECT.class, 0xBD, idSet);
@@ -176,9 +179,7 @@ public class ServerPacketsOpcodes
 		addPacketOpcode(SM_STATUPDATE_MP.class, 0xFC, idSet);
 		addPacketOpcode(SM_ATTACK_STATUS.class, 0xFD, idSet);
 		addPacketOpcode(SM_RECONNECT_KEY.class, 0xFF, idSet);
-		addPacketOpcode(SM_MAIL_SERVICE.class, 0xA1, idSet);
 		addPacketOpcode(SM_CUSTOM_PACKET.class, 99999, idSet); // fake packet
-		addPacketOpcode(SM_RESURRECT.class, 0xBA, idSet);
 
 		// Unrecognized Opcodes from 1.5.4:
 		// addPacketOpcode(SM_BUY_LIST.class, 0x7E, idSet);

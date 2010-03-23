@@ -62,10 +62,5 @@ public class SM_UPDATE_PLAYER_APPEARANCE extends AionServerPacket
 			writeD(buf, godStone != null ? godStone.getItemId() : 0); 
 			writeD(buf, item.getItemColor());
 		}
-		
-		writeH(buf, 0); //unk
-		writeC(buf, 0); //unk
-		
-		return;
 	}
 }
