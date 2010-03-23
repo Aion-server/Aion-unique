@@ -244,7 +244,7 @@ public abstract class InventoryPacket extends AionServerPacket
 		writeItemStones(buf, item);
 
 		writeC(buf, 0);
-		writeD(buf, 0);
+		writeD(buf, item.getItemColor());
 		writeD(buf, 0);
 
 		writeD(buf, 0);//unk 1.5.1.9

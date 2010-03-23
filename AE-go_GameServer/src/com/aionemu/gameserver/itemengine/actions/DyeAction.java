@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
 import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -47,9 +48,16 @@ public class DyeAction extends AbstractItemAction
 	{
 		if (targetItem.getItemTemplate().isItemDyePermitted())
 		{
-			int rgb = Integer.parseInt(color, 16);
-			int bgra = 0xFF | ((rgb & 0xFF) << 24) | ((rgb & 0xFF00) << 8) | ((rgb & 0xFF0000) >>> 8);
-			targetItem.setItemColor(bgra);			
+			if (color.equals("no"))
+			{
+				targetItem.setItemColor(0);
+			}
+			else
+			{
+				int rgb = Integer.parseInt(color, 16);
+				int bgra = 0xFF | ((rgb & 0xFF) << 24) | ((rgb & 0xFF00) << 8) | ((rgb & 0xFF0000) >>> 8);
+				targetItem.setItemColor(bgra);
+			}
 
 			// item is equipped, so need broadcast packet
 			if (player.getEquipment().getEquippedItemByObjId(targetItem.getObjectId()) != null)
@@ -62,6 +70,7 @@ public class DyeAction extends AbstractItemAction
 			else
 				player.getInventory().setPersistentState(PersistentState.UPDATE_REQUIRED);
 
+			PacketSendUtility.sendPacket(player, new SM_UPDATE_ITEM(targetItem));
 			player.getInventory().removeFromBagByObjectId(parentItem.getObjectId(), 1);
 		}
 	}
