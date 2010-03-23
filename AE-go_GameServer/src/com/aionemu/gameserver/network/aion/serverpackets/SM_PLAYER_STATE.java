@@ -59,6 +59,9 @@ public class SM_PLAYER_STATE extends AionServerPacket
 		writeD(buf, playerObjId);
 		writeC(buf, visualState);
 		writeC(buf, seeState);
-		writeC(buf, 0x00);
+		if(visualState == 64)
+			writeC(buf, 0x01);
+		else
+			writeC(buf, 0x00);
 	}
 }

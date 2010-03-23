@@ -71,11 +71,8 @@ public class CM_LEVEL_READY extends AionClientPacket
 	{
 		Player activePlayer = getConnection().getActivePlayer();
 
-		// here check flying zone may be to disallow teleporting itself
-		activePlayer.unsetState(CreatureState.FLYING);
-		activePlayer.getController().startProtectionActiveTask();
-
 		sendPacket(new SM_PLAYER_INFO(activePlayer, false));
+		activePlayer.getController().startProtectionActiveTask();
 
 		/**
 		 * Spawn player into the world.

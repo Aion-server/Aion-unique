@@ -187,7 +187,7 @@ public class PlayerController extends CreatureController<Player>
 	{
 
 	}
-	
+
 	/**
 	 * Set zone instance as null (Where no zones defined)
 	 */
@@ -487,6 +487,7 @@ public class PlayerController extends CreatureController<Player>
 	public void startProtectionActiveTask()
 	{
 		getOwner().setVisualState(CreatureVisualState.BLINKING);
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_PLAYER_STATE(getOwner()), true);
 		Future<?> task = ThreadPoolManager.getInstance().schedule(new Runnable(){
 
 			@Override
