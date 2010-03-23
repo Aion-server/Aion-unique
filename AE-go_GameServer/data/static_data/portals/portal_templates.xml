@@ -5,15 +5,15 @@
 	<!-- INSTANCES -->
 	
 	<!-- Nochsana Training Camp Asmodians -->
-	<portal npcid="700414"  instance="true" minlevel="25" maxlevel="28" group="false" race="ASMODIANS">
+	<portal npcid="700414"  instance="true" minlevel="25" maxlevel="28" group="true" race="ASMODIANS">
 		<entrypoint mapid="400010000" x="876.7211" y="3079.2874" z="1644.5786" race="ASMODIANS"/>
-		<exitpoint mapid="300030000" x="600" y="700" z="327.165"/>
+		<exitpoint mapid="300030000" x="513" y="668" z="331"/>
 	</portal>
 	
 	<!-- Nochsana Training Camp Elyos -->
-	<portal npcid="700413" instance="true" minlevel="25" maxlevel="28" group="false" race="ELYOS">
+	<portal npcid="700413" instance="true" minlevel="25" maxlevel="28" group="true" race="ELYOS">
 		<entrypoint mapid="400010000" x="2890" y="754" z="1498.5786" race="ELYOS"/>
-		<exitpoint mapid="300030000" x="600" y="700" z="327.165"/>
+		<exitpoint mapid="300030000" x="513" y="668" z="331"/>
 	</portal>
 	
 	<!-- Fire Temple-->
@@ -24,7 +24,7 @@
 	</portal>
 	
 	<!-- Draupnir Cave Entrance -->
-	<portal npcid="700370" instance="true" minlevel="44" maxlevel="48" group="true" race="ASMODIANS">
+	<portal npcid="700370" instance="true" minlevel="44" maxlevel="50" group="true" race="ASMODIANS">
 		<entrypoint mapid="220040000" x="1605.27" y="2729.9" z="705.345" race="ASMODIANS"/>
 		<exitpoint mapid="320080000" x="491" y="373" z="622"/>
 	</portal>
@@ -47,7 +47,7 @@
 	
 	<!-- Artifact of Time / DarkPoeta -->
 	<portal npcid="730215" instance="true" minlevel="40" maxlevel="50" group="true">
-		<entrypoint mapid="400010000" x="2164.02" y="1581.01" z="2272.71"/>
+		<entrypoint mapid="400010000" x="2158" y="1581" z="2272.5"/>
 		<exitpoint mapid="300040000" x="1214" y="412" z="140"/>
 		<portalitem id="1" itemid="186000048" quantity="5"/>
 		<portalitem id="2" itemid="186000050" quantity="1"/>
@@ -102,7 +102,7 @@
 	<!-- Abyss to Heiron -->
 	<portal npcid="730075" minlevel="25" maxlevel="50" instance="false" group="false" race="ELYOS">
 		<entrypoint mapid="400010000" x="0" y="0" z="0" race="ELYOS"/>
-		<exitpoint mapid="210020000" x="2540" y="343" z="411"/>
+		<exitpoint mapid="210040000" x="2540" y="343" z="411"/>
 	</portal>
 	
 	<!-- Morheim to Abyss -->
