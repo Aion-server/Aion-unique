@@ -16,142 +16,121 @@
  */
 package com.aionemu.gameserver.model.gameobjects.player;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
-
-import javolution.util.FastMap;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.aionemu.gameserver.model.gameobjects.Letter;
+
 /**
  * @author kosyachok
- *
+ * @modified Atracer
  */
 public class Mailbox
 {
-	private SortedMap<Timestamp,Letter> letters = new TreeMap<Timestamp, Letter>(Collections.reverseOrder());
-	private Player owner;
-	private int freeSlots;
-	
-	public Mailbox(Player owner)
+	private Map<Integer, Letter>	mails	= new ConcurrentHashMap<Integer, Letter>();
+
+	/**
+	 * 
+	 * @param letter
+	 */
+	public void putLetterToMailbox(Letter letter)
 	{
-		this.owner = owner;
-		this.freeSlots = 65536;
+		mails.put(letter.getObjectId(), letter);
 	}
-	
-	public Player getOwner()
+
+	/**
+	 * Get all letters in mailbox (sorted according to time received)
+	 * 
+	 * @return
+	 */
+	public Collection<Letter> getLetters()
 	{
-		return owner;
-	}
-	
-	public void putLetterToMailbox(Timestamp timestamp ,Letter letter)
-	{
-		letters.put(timestamp, letter);
+		SortedSet<Letter> letters = new TreeSet<Letter>(new Comparator<Letter>(){
+
+			@Override
+			public int compare(Letter o1, Letter o2)
+			{
+				if(o1.getTimeStamp().getTime() > o2.getTimeStamp().getTime())
+					return 1;
+				if(o1.getTimeStamp().getTime() < o2.getTimeStamp().getTime())
+					return -1;
+
+				return o1.getObjectId() > o2.getObjectId() ? 1 : -1;
+			}
+
+		});
 		
-		freeSlots--;
-	}
-	
-	public SortedMap<Timestamp,Letter> getLettersWithTimestamp()
-	{
+		for(Letter letter : mails.values())
+		{
+			letters.add(letter);
+		}
 		return letters;
 	}
-	
-	public List<Letter> getLettersOnly()
-	{
-		List<Letter> lettersList = new ArrayList<Letter>();
-		for(Letter letter : letters.values())
-		{
-			lettersList.add(letter);
-		}
-		
-		return lettersList;
-	}
-	
+
 	/**
-	 *  TODO refactore here
+	 * Get letter with specified letter id
+	 * 
 	 * @param letterObjId
 	 * @return
 	 */
-	public FastMap<Timestamp,Letter> getLetterFromMailboxWithTimestamp(int letterObjId)
-	{
-		FastMap<Timestamp,Letter> fmLetter = new FastMap<Timestamp, Letter>();
-		Iterator<Timestamp> iterator = letters.keySet().iterator();
-		Letter letter;
-		Timestamp time;
-		
-		while(iterator.hasNext())
-		{
-			time = iterator.next();
-			letter = letters.get(time);
-			
-			if(letter.getObjectId() == letterObjId)
-			{
-				fmLetter.put(time, letter);
-				return fmLetter;
-			}
-		}
-		
-		return null;
-	}
-	
 	public Letter getLetterFromMailbox(int letterObjId)
 	{
-		for(Letter letter : letters.values())
-			if(letter.getObjectId() == letterObjId)
-				return letter;
-		
-		return null;
+		return mails.get(letterObjId);
 	}
-	
-	
+
+	/**
+	 * Check whether mailbox contains empty letters
+	 * 
+	 * @return
+	 */
 	public boolean haveUnread()
 	{
-		for(Letter letter : letters.values())
+		for(Letter letter : mails.values())
 		{
 			if(letter.isUnread())
 				return true;
 		}
-		
+
 		return false;
 	}
-	
+
+	/**
+	 * 
+	 * @return
+	 */
 	public int getFreeSlots()
 	{
-		return freeSlots;
-	}
-	
-	public boolean haveFreeSlots()
-	{
-		return 65536 - freeSlots < 100;
+		return 65536 - mails.size();
 	}
 	
 	/**
-	 *  TODO refactor here
-	 *  
+	 * 
+	 * @return
+	 */
+	public boolean haveFreeSlots()
+	{
+		return mails.size() < 100;
+	}
+
+	/**
 	 * @param letterId
 	 */
-	public void deleteLetter(int letterId)
-	{	
-		FastMap<Timestamp, Letter> letter = getLetterFromMailboxWithTimestamp(letterId);
-		
-		if(letter.size() == 1)
-		{
-			Iterator<Timestamp> iterator = letter.keySet().iterator();
-			if(iterator.hasNext())
-			{
-				Timestamp time = iterator.next();
-				letters.remove(time);
-				freeSlots++;
-			}
-		}
-	}
-	
-	public int getLettersCount()
+	public void removeLetter(int letterId)
 	{
-		return letters.size();
+		mails.remove(letterId);
+	}
+
+	/**
+	 * Current size of mailbox
+	 * 
+	 * @return
+	 */
+	public int size()
+	{
+		return mails.size();
 	}
 }

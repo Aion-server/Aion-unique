@@ -17,7 +17,7 @@
 package com.aionemu.gameserver.network.aion;
 
 import java.nio.ByteBuffer;
-import java.util.List;
+import java.util.Collection;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Letter;
@@ -26,16 +26,17 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
  * @author kosyachok
- *
+ * 
  */
 public abstract class MailServicePacket extends InventoryPacket
 {
-	protected void writeLettersList(ByteBuffer buf, List<Letter> letters, Player player)
+	protected void writeLettersList(ByteBuffer buf, Collection<Letter> letters, Player player)
 	{
 		writeC(buf, 2); // 2 - Mailbox letters update
 		writeD(buf, player.getObjectId());
 		writeC(buf, 0);
 		writeH(buf, player.getMailbox().getFreeSlots()); // mailbox free slots
+		
 		for(Letter letter : letters)
 		{
 			writeD(buf, letter.getObjectId());
@@ -60,7 +61,7 @@ public abstract class MailServicePacket extends InventoryPacket
 			writeC(buf, 0);
 		}
 	}
-	
+
 	protected void writeEmptyLettersList(ByteBuffer buf, Player player)
 	{
 		writeC(buf, 2);
@@ -68,13 +69,13 @@ public abstract class MailServicePacket extends InventoryPacket
 		writeH(buf, 0);
 		writeC(buf, 0);
 	}
-	
+
 	protected void writeMailMessage(ByteBuffer buf, int messageId)
 	{
 		writeC(buf, 1);
 		writeC(buf, messageId);
 	}
-	
+
 	protected void writeMailboxState(ByteBuffer buf, int haveNewMail, int haveUnread)
 	{
 		writeC(buf, 0);
@@ -84,7 +85,7 @@ public abstract class MailServicePacket extends InventoryPacket
 		writeD(buf, 0);
 		writeC(buf, 0);
 	}
-	
+
 	protected void writeLetterRead(ByteBuffer buf, Letter letter, long time)
 	{
 		writeC(buf, 3);
@@ -96,16 +97,16 @@ public abstract class MailServicePacket extends InventoryPacket
 		writeS(buf, letter.getSenderName());
 		writeS(buf, letter.getTitle());
 		writeS(buf, letter.getMessage());
-		
+
 		Item item = letter.getAttachedItem();
 		if(item != null)
 		{
 			ItemTemplate itemTemplate = item.getItemTemplate();
-			
+
 			writeMailGeneralInfo(buf, item);
-			
+
 			if(itemTemplate.isArmor())
-				writeArmorInfo(buf,item, false, false, true);
+				writeArmorInfo(buf, item, false, false, true);
 			else if(itemTemplate.isWeapon())
 				writeWeaponInfo(buf, item, false, false, false, true);
 			else
@@ -119,14 +120,14 @@ public abstract class MailServicePacket extends InventoryPacket
 			writeD(buf, 0);
 			writeD(buf, 0);
 		}
-		
+
 		writeD(buf, letter.getAttachedKinah());
 		writeD(buf, 0); // AP reward for castle assault/defense (in future)
 		writeC(buf, 0);
 		writeQ(buf, time / 1000);
 		writeC(buf, 0);
 	}
-	
+
 	protected void writeLetterState(ByteBuffer buf, int letterId, int attachmentType)
 	{
 		writeC(buf, 5);
@@ -134,7 +135,7 @@ public abstract class MailServicePacket extends InventoryPacket
 		writeC(buf, attachmentType);
 		writeC(buf, 1);
 	}
-	
+
 	protected void writeLetterDelete(ByteBuffer buf, int letterId)
 	{
 		writeC(buf, 6);

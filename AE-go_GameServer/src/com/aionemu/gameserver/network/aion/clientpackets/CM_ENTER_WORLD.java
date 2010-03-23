@@ -240,7 +240,7 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			// TODO need some task
 			sendPacket(new SM_RIFT_ANNOUNCE(player));
 	
-			sendPacket(new SM_MAIL_SERVICE(player, player.getMailbox().getLettersOnly()));
+			sendPacket(new SM_MAIL_SERVICE(player, player.getMailbox().getLetters()));
 			if(player.getMailbox().haveUnread())
 				sendPacket(new SM_MAIL_SERVICE(true, true));
 		}

@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.model.gameobjects;
 
+import java.sql.Timestamp;
+
 /**
  * @author kosyachok
  *
@@ -30,6 +32,7 @@ public class Letter extends AionObject
 	private String message;
 	private boolean unread;
 	private boolean express;
+	private Timestamp timeStamp;
 	private PersistentState persistentState;
 	
 	/**
@@ -40,22 +43,25 @@ public class Letter extends AionObject
 	 * @param message
 	 * @param senderId 
 	 * @param senderName
+	 * @param timeStamp
 	 * 	new letter constructor
 	 */
-	public Letter(int objId, int recipientId, Item attachedItem, int attachedKinahCount, String title, String message, String senderName, boolean unread, boolean express)
+	public Letter(int objId, int recipientId, Item attachedItem, int attachedKinahCount, String title, String message,
+		String senderName, Timestamp timeStamp, boolean unread, boolean express)
 	{
-		super (objId);
-		
+		super(objId);
+
 		this.recipientId = recipientId;
 		this.attachedItem = attachedItem;
 		this.attachedKinahCount = attachedKinahCount;
 		this.title = title;
 		this.message = message;
 		this.senderName = senderName;
+		this.timeStamp = timeStamp;
 		this.unread = unread;
 		this.express = express;
 		this.persistentState = PersistentState.NEW;
-		
+
 	}
 	
 	@Override
@@ -135,5 +141,13 @@ public class Letter extends AionObject
 	public void setPersistState(PersistentState state)
 	{
 		this.persistentState = state;
+	}
+
+	/**
+	 * @return the timeStamp
+	 */
+	public Timestamp getTimeStamp()
+	{
+		return timeStamp;
 	}
 }

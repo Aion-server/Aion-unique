@@ -21,9 +21,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collection;
 import java.util.List;
-import java.util.SortedMap;
 
 import org.apache.log4j.Logger;
 
@@ -50,7 +49,7 @@ public class MySQL5MailDAO extends MailDAO
 	
 	public Mailbox loadPlayerMailbox(Player player)
 	{
-		final Mailbox mailbox = new Mailbox(player);
+		final Mailbox mailbox = new Mailbox();
 		final int playerId = player.getObjectId();
 		
 		DB.select("SELECT * FROM mail WHERE mailRecipientId = ?", new ParamReadStH()
@@ -88,9 +87,10 @@ public class MySQL5MailDAO extends MailDAO
 								attachedItem = item;
 							}
 							
-					Letter letter = new Letter(mailUniqueId, recipientId, attachedItem, attachedKinahCount, mailTitle, mailMessage, senderName, unread == 1, express == 1);
+					Letter letter = new Letter(mailUniqueId, recipientId, attachedItem, attachedKinahCount, mailTitle,
+						mailMessage, senderName, recievedTime, unread == 1, express == 1);
 					letter.setPersistState(PersistentState.UPDATED);
-					mailbox.putLetterToMailbox(recievedTime, letter);
+					mailbox.putLetterToMailbox(letter);
 				}
 			}
 		});
@@ -135,18 +135,10 @@ public class MySQL5MailDAO extends MailDAO
 	{
 		Mailbox mailbox = player.getMailbox();
 		
-		SortedMap<Timestamp, Letter> letters = mailbox.getLettersWithTimestamp();
-		Iterator<Timestamp> iterator = letters.keySet().iterator();
-		
-		Letter letter;
-		Timestamp time;
-		
-		while(iterator.hasNext())
+		Collection<Letter> letters = mailbox.getLetters();		
+		for(Letter letter : letters)
 		{
-			time = iterator.next();
-			letter = letters.get(time);
-			
-			storeLetter(time, letter);
+			storeLetter(letter.getTimeStamp(), letter);
 		}		
 	}
 	

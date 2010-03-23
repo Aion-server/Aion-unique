@@ -326,13 +326,13 @@ public class PlayerService
 		Storage playerInventory = new Storage(newPlayer, StorageType.CUBE);
 		Storage regularWarehouse = new Storage(newPlayer, StorageType.REGULAR_WAREHOUSE);
 		Storage accountWarehouse = new Storage(newPlayer, StorageType.ACCOUNT_WAREHOUSE);
+		
 		Equipment equipment = new Equipment(newPlayer);
-		Mailbox mailbox = new Mailbox(newPlayer);
 		newPlayer.setStorage(playerInventory, StorageType.CUBE);
 		newPlayer.setStorage(regularWarehouse, StorageType.REGULAR_WAREHOUSE);
 		newPlayer.setStorage(accountWarehouse, StorageType.ACCOUNT_WAREHOUSE);
 		newPlayer.setEquipment(equipment);
-		newPlayer.setMailbox(mailbox);
+		newPlayer.setMailbox(new Mailbox());
 
 		for(ItemType itemType : items)
 		{

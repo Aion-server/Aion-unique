@@ -17,13 +17,13 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.util.List;
+import java.util.Collection;
 
-import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.MailServicePacket;
 import com.aionemu.gameserver.model.gameobjects.Letter;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.mail.MailMessage;
+import com.aionemu.gameserver.network.aion.AionConnection;
+import com.aionemu.gameserver.network.aion.MailServicePacket;
 
 /**
  * @author kosyachok
@@ -33,7 +33,7 @@ public class SM_MAIL_SERVICE extends MailServicePacket
 {
 	private int serviceId;
 	private Player player;
-	private List<Letter> letters;
+	private Collection<Letter> letters;
 	
 	private int haveNewMail;
 	private int haveUnread;
@@ -76,7 +76,7 @@ public class SM_MAIL_SERVICE extends MailServicePacket
 	 * @param player
 	 * @param letters
 	 */
-	public SM_MAIL_SERVICE(Player player, List<Letter> letters)
+	public SM_MAIL_SERVICE(Player player, Collection<Letter> letters)
 	{
 		this.serviceId = 2;
 		this.player = player;
