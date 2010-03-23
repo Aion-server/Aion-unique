@@ -173,7 +173,7 @@ public class _1005BarringtheGate extends QuestHandler
 					return true;
 				}
 			}
-			else if(targetId == 700082)
+			else if(targetId == 700083)
 			{
 				if (var == 7)
 				{

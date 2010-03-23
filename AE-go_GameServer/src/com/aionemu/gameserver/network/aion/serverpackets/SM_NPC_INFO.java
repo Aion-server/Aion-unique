@@ -26,6 +26,7 @@ import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.items.NpcEquippedGear;
 import com.aionemu.gameserver.model.templates.NpcTemplate;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
+import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -55,6 +56,7 @@ public class SM_NPC_INFO extends AionServerPacket
 	{
 		this.npc = npc;
 		isAggressive = npc.isAggressiveTo(player.getCommonData().getRace());
+		
 	}
 
 	/**
@@ -134,9 +136,11 @@ public class SM_NPC_INFO extends AionServerPacket
 		writeF(buf, npc.getY());// y
 		writeF(buf, npc.getZ());// z
 		writeC(buf, 0x00); // move type
-
-		writeC(buf, 0);
-		writeC(buf, 0);
+		SpawnTemplate spawn = npc.getSpawn();
+		if (spawn == null)
+			writeH(buf, 0);
+		else
+			writeH(buf, spawn.getStaticid());
 		writeC(buf, 0);
 		writeC(buf, 0); // all unknown
 		writeC(buf, 0);

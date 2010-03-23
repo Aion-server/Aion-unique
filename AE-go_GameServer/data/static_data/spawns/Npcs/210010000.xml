@@ -264,15 +264,15 @@ Poeta -->
 	</spawn>
 	<!-- Blue Power Generator -->
 	<spawn map="210010000" npcid="700082" pool="1" interval="105">
-		<object x="226.31" y="1011.86" z="121.18792" h="0"/>
+		<object x="226.31" y="1011.86" z="121.18792" h="0" staticid="2"/>
 	</spawn>
 	<!-- Green Power Generator -->
 	<spawn map="210010000" npcid="700081" pool="1" interval="105">
-		<object x="254.15" y="1065.97" z="120.79" h="0"/>
+		<object x="254.15" y="1065.97" z="120.79" h="0" staticid="3"/>
 	</spawn>
 	<!-- Violet Power Generator -->
 	<spawn map="210010000" npcid="700083" pool="1" interval="105">
-		<object x="289.65" y="1017.06" z="132.03" h="0"/>
+		<object x="289.65" y="1017.06" z="132.03" h="0" staticid="1"/>
 	</spawn>
 	<!-- Mailbox -->
 	<spawn map="210010000" npcid="700000" pool="1" interval="105">

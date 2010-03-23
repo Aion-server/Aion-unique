@@ -438,4 +438,17 @@ Ishalgen -->
 	<spawn map="220010000" npcid="700079" pool="1" interval="105">
 		<object x="562.1119" y="2426.1196" z="278.5" h="25"/>
 	</spawn>
+	
+	<!-- Blue Power Generator -->
+	<spawn map="220010000" npcid="700082" pool="1" interval="105">
+		<object x="677.56061" y="908.01007" z="310.58929" h="0" staticid="516"/>
+	</spawn>
+	<!-- Green Power Generator -->
+	<spawn map="220010000" npcid="700081" pool="1" interval="105">
+		<object x="625.11725" y="893.55707" z="309.80624" h="0" staticid="517"/>
+	</spawn>
+	<!-- Violet Power Generator -->
+	<spawn map="220010000" npcid="700083" pool="1" interval="105">
+		<object x="666.14319" y="857.90411" z="321.27649" h="0" staticid="518"/>
+	</spawn>
 </spawns>
