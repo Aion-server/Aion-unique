@@ -127,7 +127,6 @@ public class ShutdownHook extends Thread
 			{
 				if(world.getPlayersIterator().hasNext())
 				{
-
 					log.info("Runtime is " + mode.getText() + " in " + i + " seconds.");
 					sendShutdownMessage(i);
 					sendShutdownStatus(ShutdownConfig.SAFE_REBOOT);
