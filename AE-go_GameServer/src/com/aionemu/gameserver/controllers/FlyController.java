@@ -32,7 +32,7 @@ public class FlyController
 {
 	@SuppressWarnings("unused")
 	private static final Logger	log	= Logger.getLogger(FlyController.class);
-	
+
 	private Player player;
 
 	public FlyController(Player player)
@@ -48,18 +48,16 @@ public class FlyController
 		if(player.isInState(CreatureState.GLIDING))
 		{
 			player.unsetState(CreatureState.GLIDING);
-			player.setFlyState(1);
-			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-			
-			if(!player.isInState(CreatureState.FLYING))
+			if(player.isInState(CreatureState.FLYING))
+				player.setFlyState(1);
+			else
 			{
-				//need check this emotion, not sure 100%
-				PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 9, 0, 0), true);
+				player.setFlyState(0);
 				player.getLifeStats().triggerFpRestore();
 			}
+
+			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 		}
-		
-		
 	}
 
 	/**
@@ -72,16 +70,16 @@ public class FlyController
 	{
 		// unset flying and gliding
 		if(player.isInState(CreatureState.FLYING) || player.isInState(CreatureState.GLIDING))
-		{			
+		{
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 9, 0, 0), true);
 			player.unsetState(CreatureState.FLYING);
 			player.unsetState(CreatureState.GLIDING);
-			player.setFlyState(0);		
+			player.setFlyState(0);
 			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-			
+
 			player.getLifeStats().triggerFpRestore();
-			
-			// this is probably needed to change back fly speed into speed.					
+
+			// this is probably needed to change back fly speed into speed.
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 30, 0,
 				0), true);
 		}
@@ -118,8 +116,8 @@ public class FlyController
 			if(player.getFlyState() == 0)
 				player.getLifeStats().triggerFpReduce();
 			player.setFlyState(2);
-			
-			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));	
-		}		
+
+			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+		}
 	}
 }

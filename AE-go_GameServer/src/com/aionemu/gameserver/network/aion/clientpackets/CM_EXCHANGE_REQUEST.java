@@ -36,7 +36,7 @@ import com.google.inject.Inject;
 public class CM_EXCHANGE_REQUEST extends AionClientPacket
 {
 	public Integer			targetObjectId;
-	@Inject	
+	@Inject
 	private World			world;
 	@Inject
 	private ExchangeService exchangeService;
@@ -62,12 +62,12 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 		/**
 		 * check if not trading with yourself.
 		 */
-		if (activePlayer != targetPlayer) 
+		if(activePlayer != targetPlayer)
 		{
 			/**
 			 * check if trade partner exists or is he/she a player.
 			 */
-			if (targetPlayer!=null) 
+			if(targetPlayer!=null)
 			{
 				if(targetPlayer.getPlayerSettings().isInDeniedStatus(DeniedStatus.TRADE))
 				{
@@ -91,12 +91,12 @@ public class CM_EXCHANGE_REQUEST extends AionClientPacket
 				};
 
 				boolean requested = targetPlayer.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE,responseHandler);
-				if (requested)
+				if(requested)
 				{
 					PacketSendUtility.sendPacket(targetPlayer, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE, targetPlayer.getObjectId(), activePlayer.getName()));
 				}
 			}
-		} 
+		}
 		else
 		{
 			//TODO: send message, cannot trade with yourself.

@@ -34,23 +34,23 @@ public class ResponseRequester
 	private Player									player;
 	private HashMap<Integer,RequestResponseHandler>	map 	= new HashMap<Integer, RequestResponseHandler>();
 	private static Logger							log		= Logger.getLogger(ResponseRequester.class);
-	
+
 	public ResponseRequester(Player player)
 	{
 		this.player = player;
-		
+
 		((EnhancedObject)player).addCallback(new PlayerLoggedOutListener() {
-			
+
 			@Override
 			protected void onLoggedOut(Player player)
 			{
 				//Deny any pending requests to this player on logout
 				denyAll();
-				
+
 			}
 		});
 	}
-	
+
 	/**
 	 * Adds this handler to this messageID, returns false if there already exists one
 	 * @param messageId ID of the request message
@@ -64,7 +64,7 @@ public class ResponseRequester
 		map.put(messageId, handler);
 		return true;
 	}
-	
+
 	/**
 	 * Responds to the given message ID with the given response
 	 * Returns success
@@ -84,19 +84,17 @@ public class ResponseRequester
 		}
 		return false;
 	}
-	
-	
+
 	/**
 	 * Automatically responds 0 to all requests, passing the given player as the responder
 	 */
 	public synchronized void denyAll()
 	{
-		
 		for (RequestResponseHandler handler : map.values())
 		{
 			handler.handle(player, 0);
 		}
-		
+
 		map.clear();
 	}
 }

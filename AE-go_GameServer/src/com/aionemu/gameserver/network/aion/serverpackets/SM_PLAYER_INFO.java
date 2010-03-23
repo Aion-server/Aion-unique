@@ -243,14 +243,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeH(buf, player.getPlayerSettings().getDeny()); // unk - 0x00
 		writeH(buf, player.getAbyssRank().getRank().getId()); // abyss rank
 		writeH(buf, 0x00); // unk - 0x01
-		if(player.getTarget() == null)
-		{
-			writeD(buf, 0);
-		}
-		else
-		{
-			writeD(buf, player.getTarget().getObjectId());
-		}
+		writeD(buf, player.getTarget() == null ? 0 : player.getTarget().getObjectId());
 		writeC(buf, 0); // suspect id
 	}
 }

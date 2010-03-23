@@ -18,7 +18,7 @@ package com.aionemu.gameserver.controllers.movement;
 
 /**
  * Contains all possible movement types. Its used by CM_MOVE, SM_MOVE and controller.
- * 
+ *
  * @author -Nemesiss-
  * 
  */
@@ -47,7 +47,7 @@ public enum MovementType
 	/**
 	 * Validation (jump while moving).
 	 */
-	VALIDATE_JUMP_WHILE_MOVING(72),	
+	VALIDATE_JUMP_WHILE_MOVING(72),
 	/**
 	 * Floating up while free gliding.
 	 */
@@ -55,11 +55,11 @@ public enum MovementType
 	/**
 	 * Sinking down while free gliding.
 	 */
-	VALIDATE_GLIDE_DOWN(-60),	
+	VALIDATE_GLIDE_DOWN(-60),
 	/**
 	 * Click to move while gliding.
 	 */
-	MOVEMENT_GLIDE_START_MOUSE(-28),	
+	MOVEMENT_GLIDE_START_MOUSE(-28),
 	/**
 	 * Glide while moving by mouse.
 	 */
@@ -68,12 +68,12 @@ public enum MovementType
 	 * Movement stop.
 	 */
 	MOVEMENT_STOP(0),
-	
+
 	MOVEMENT_STAYIN_ELEVATOR(24),
 	MOVEMENT_JUMPIN_ELEVATOR(-48), //sometimes not jump
 	MOVEMENT_VALIDATEIN_ELEVATOR(-112), //unk
 	MOVEMEMNT_MOVIN_ELEVATOR(16),
-	
+
 	UNKNOWN(1);
 
 	private int	typeId;
