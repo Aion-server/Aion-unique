@@ -48,7 +48,7 @@ public class SM_CASTSPELL_END extends AionServerPacket
 		this.spellid = spellid;// empty
 		this.level = level;
 		this.effects = effects;
-		this.cooldown = cooldown * 10;
+		this.cooldown = cooldown;
 		this.spellStatus = spellStatus;
 	}
 
