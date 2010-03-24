@@ -34,9 +34,7 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 public class _2002WheresRae extends QuestHandler
 {
 	private final static int	questId	= 2002;
-	/**
-	 * @param questId
-	 */
+
 	protected _2002WheresRae()
 	{
 		super(questId);

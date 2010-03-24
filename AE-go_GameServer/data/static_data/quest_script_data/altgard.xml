@@ -22,18 +22,18 @@
   
 	<!-- TODO: [Spend Coin] Iron (Warrior and Scout) -->
   
-	<!-- TODO: Altgard Duties -->
+	<!-- TODO: Altgard Duties Handled by script -->
   
 	<!-- Conversing With a Skurv handled by script -->
   
-	<!-- TODO: Encroachers -->
+	<!-- Encroachers Handled by script -->
   
-	<!-- TODO: Fungus Among Us -->
+	<!-- Fungus Among Us Handled by script -->
   
 	<!-- Ice Lake Crystals -->
 	<item_collecting start_npc_id="203556" action_item_id="700055" id="2203"/>
   
-  	<!-- TODO: Mau in Ten Minutes a Day -->
+  	<!-- Mau in Ten Minutes a Day Handled by script -->
   
   	<!-- Slinking About -->
   	<item_collecting start_npc_id="203562" id="2206"/>
@@ -136,8 +136,7 @@
   	
   	<!-- TODO: Put Your Money Where Your Mouth Is -->
   	
-  	<!-- A Fertile Field -->
-  	<item_collecting start_npc_id="203629" action_item_id="182203226" id="2237"/>
+  	<!-- A Fertile Field handled by script -->
   	
   	<!-- A Friendly Wager -->
   	<item_collecting start_npc_id="203621" id="2230"/>
@@ -197,9 +196,8 @@
   	<!-- Shugo Potion -->
   	<item_collecting start_npc_id="798036" id="2263"/>
   	
-  	<!-- The Broken Honey Jar -->
-  	<item_collecting start_npc_id="203613" action_item_id="182203224" id="2232"/>
-  	
+  	<!-- The Broken Honey Jar handled by script -->
+
   	<!-- The Sting of Poison -->
   	<monster_hunt start_npc_id="203664" id="2264">
   		<monster_infos var_id="0" npc_id="210447" max_kill="3"/>
