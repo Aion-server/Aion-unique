@@ -16,11 +16,13 @@
  */
 package com.aionemu.gameserver.services;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import com.aionemu.gameserver.dataholders.ZoneData;
 import com.aionemu.gameserver.model.TaskId;
@@ -41,7 +43,7 @@ import com.google.inject.Inject;
 public class ZoneService extends AbstractPeriodicTaskManager<Player>
 {
 	private Map<ZoneName, ZoneInstance> zoneMap = new HashMap<ZoneName, ZoneInstance>();
-	private Map<Integer, List<ZoneInstance>> zoneByMapIdMap = new HashMap<Integer, List<ZoneInstance>>();
+	private Map<Integer, Collection<ZoneInstance>> zoneByMapIdMap = new HashMap<Integer, Collection<ZoneInstance>>();
 	
 	private ZoneData zoneData;
 	
@@ -144,10 +146,10 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 			ZoneInstance instance = new ZoneInstance(template);
 			zoneMap.put(template.getName(), instance);
 
-			List<ZoneInstance> zoneListForMap = zoneByMapIdMap.get(template.getMapid());
+			Collection<ZoneInstance> zoneListForMap = zoneByMapIdMap.get(template.getMapid());
 			if(zoneListForMap == null)
 			{
-				zoneListForMap = new ArrayList<ZoneInstance>();
+				zoneListForMap = createZoneSetCollection();
 				zoneByMapIdMap.put(template.getMapid(), zoneListForMap);
 			}
 			zoneListForMap.add(instance);
@@ -156,7 +158,8 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 		for(ZoneInstance zoneInstance : zoneMap.values())
 		{
 			ZoneTemplate template = zoneInstance.getTemplate();
-			List<ZoneInstance> neighbors = new ArrayList<ZoneInstance>();
+			
+			Collection<ZoneInstance> neighbors = createZoneSetCollection();
 			for(ZoneName zone : template.getLink())
 			{
 				neighbors.add(zoneMap.get(zone));
@@ -165,6 +168,26 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 		}
 	}
 
+	/**
+	 * Collection that sorts zone instances according to the template priority
+	 * Zone with lower priority has higher importance
+	 * 
+	 * @return
+	 */
+	public Collection<ZoneInstance> createZoneSetCollection()
+	{
+		SortedSet<ZoneInstance> collection = new TreeSet<ZoneInstance>(new Comparator<ZoneInstance>(){
+
+			@Override
+			public int compare(ZoneInstance o1, ZoneInstance o2)
+			{
+				return o1.getPriority() > o2.getPriority() ? 1 : -1;
+			}
+			
+		});
+		return collection;
+	}
+	
 	/**
 	 *  Will check current zone of player and call corresponding controller methods
 	 *  
@@ -178,7 +201,7 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 			return;
 		}
 
-		List<ZoneInstance> neighbors = currentInstance.getNeighbors();
+		Collection<ZoneInstance> neighbors = currentInstance.getNeighbors();
 		for(ZoneInstance zone : neighbors)
 		{
 			if(checkPointInZone(zone, player.getPosition()))
@@ -186,6 +209,7 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 				player.setZoneInstance(zone);
 				player.getController().onEnterZone(zone);
 				player.getController().onLeaveZone(currentInstance);
+				return;
 			}
 		}
 	}
@@ -199,7 +223,7 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 		if(mapRegion == null)
 			return;
 		
-		List<ZoneInstance> zones = zoneByMapIdMap.get(mapRegion.getMapId());
+		Collection<ZoneInstance> zones = zoneByMapIdMap.get(mapRegion.getMapId());
 		if(zones == null)
 		{
 			player.getController().resetZone();
@@ -212,6 +236,7 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 			{
 				player.setZoneInstance(zone);
 				player.getController().onEnterZone(zone);
+				return;
 			}
 		}
 	}
@@ -244,10 +269,21 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 		int corners = zone.getCorners();
 		float[] xCoords = zone.getxCoordinates();
 		float[] yCoords = zone.getyCoordinates();
-
+		
+		float top = zone.getTop();
+		float bottom = zone.getBottom();
+		
 		float x = position.getX();
 		float y = position.getY();
-
+		float z = position.getZ();
+		
+		//first z coordinate is checked
+		if(top != 0 || bottom != 0)//not defined
+		{
+			if(z > top || z < bottom)
+				return false;
+		}
+		
 		int i, j = corners-1;
 		boolean  inside = false;
 

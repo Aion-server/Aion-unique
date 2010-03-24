@@ -22,66 +22,32 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * @author ATracer
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Point2D")
-public class Point2D {
+public class Point2D
+{
+	@XmlAttribute(name = "y")
+	protected float	y;
+	@XmlAttribute(name = "x")
+	protected float	x;
 
-    @XmlAttribute
-    protected Float y;
-    @XmlAttribute
-    protected Float x;
+	/**
+	 * @return the y
+	 */
+	public float getY()
+	{
+		return y;
+	}
 
-    /**
-     * Gets the value of the y property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Float }
-     *     
-     */
-    public Float getY() {
-        return y;
-    }
-
-    /**
-     * Sets the value of the y property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Float }
-     *     
-     */
-    public void setY(Float value) {
-        this.y = value;
-    }
-
-    /**
-     * Gets the value of the x property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Float }
-     *     
-     */
-    public Float getX() {
-        return x;
-    }
-
-    /**
-     * Sets the value of the x property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Float }
-     *     
-     */
-    public void setX(Float value) {
-        this.x = value;
-    }
-
+	/**
+	 * @return the x
+	 */
+	public float getX()
+	{
+		return x;
+	}
 }

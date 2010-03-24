@@ -16,24 +16,24 @@
  */
 package com.aionemu.gameserver.world.zone;
 
-import java.util.List;
+import java.util.Collection;
 
 import com.aionemu.gameserver.model.templates.zone.Point2D;
 import com.aionemu.gameserver.model.templates.zone.ZoneTemplate;
 
 /**
  * @author ATracer
- *
+ * 
  */
 public class ZoneInstance
 {
-	private int corners;
-	private float xCoordinates[];
-	private float yCoordinates[];
-	
-	private ZoneTemplate template;
-	
-	private List<ZoneInstance> neighbors;
+	private int							corners;
+	private float						xCoordinates[];
+	private float						yCoordinates[];
+
+	private ZoneTemplate				template;
+
+	private Collection<ZoneInstance>	neighbors;
 
 	public ZoneInstance(ZoneTemplate template)
 	{
@@ -76,15 +76,16 @@ public class ZoneInstance
 	/**
 	 * @return the neighbours
 	 */
-	public List<ZoneInstance> getNeighbors()
+	public Collection<ZoneInstance> getNeighbors()
 	{
 		return neighbors;
 	}
 
 	/**
-	 * @param neighbours the neighbours to set
+	 * @param neighbours
+	 *            the neighbours to set
 	 */
-	public void setNeighbors(List<ZoneInstance> neighbours)
+	public void setNeighbors(Collection<ZoneInstance> neighbours)
 	{
 		this.neighbors = neighbours;
 	}
@@ -95,5 +96,45 @@ public class ZoneInstance
 	public ZoneTemplate getTemplate()
 	{
 		return template;
+	}
+
+	/**
+	 * Top z coordinate
+	 * 
+	 * @return
+	 */
+	public float getTop()
+	{
+		return template.getPoints().getTop();
+	}
+
+	/**
+	 * Bottom z coordinate
+	 * 
+	 * @return
+	 */
+	public float getBottom()
+	{
+		return template.getPoints().getBottom();
+	}
+
+	/**
+	 * Is breathing zone (no drowning)
+	 * 
+	 * @return
+	 */
+	public boolean isBreath()
+	{
+		return template.isBreath();
+	}
+
+	/**
+	 * Priority of zone in neighbors calculations
+	 * 
+	 * @return
+	 */
+	public int getPriority()
+	{
+		return template.getPriority();
 	}
 }

@@ -42,6 +42,8 @@ public class ZoneTemplate
 	protected int priority;
 	@XmlAttribute(name="fly")
 	protected boolean flightAllowed;
+	@XmlAttribute(name="breath")
+	protected boolean breath;
 	@XmlAttribute
 	protected ZoneName name;
 	@XmlAttribute
@@ -92,5 +94,13 @@ public class ZoneTemplate
 	 */
 	public int getMapid() {
 		return mapid;
+	}
+
+	/**
+	 * @return the breath
+	 */
+	public boolean isBreath()
+	{
+		return breath;
 	}
 }

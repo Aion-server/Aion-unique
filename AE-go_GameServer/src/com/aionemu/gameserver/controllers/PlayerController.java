@@ -588,6 +588,10 @@ public class PlayerController extends CreatureController<Player>
 			return;
 		}
 		
+		ZoneInstance currentZone = player.getZoneInstance();
+		if(currentZone != null && currentZone.isBreath())
+			return;
+		
 		//TODO need fix character height
 		float playerheight = player.getPlayerAppearance().getHeight() * 1.6f;
 		if(z < world.getWorldMap(player.getWorldId()).getWaterLevel() - playerheight)

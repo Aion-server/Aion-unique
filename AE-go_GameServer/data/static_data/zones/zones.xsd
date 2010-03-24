@@ -19,6 +19,7 @@
 				minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 		<xs:attribute name="priority" type="xs:int" />
+		<xs:attribute name="breath" type="xs:boolean" />
 		<xs:attribute name="fly" type="xs:boolean" />
 		<xs:attribute name="name" type="ZoneName" />
 		<xs:attribute name="mapid" type="xs:int" />

@@ -75,8 +75,8 @@
 		<link>GRIBADE_CANYON_220030000</link>
 		<link>GRAVE_ROBBERS_DEN_220030000</link>
     </zone>
-    <zone mapid="220030000" name="ALTGARD_FORTRESS_DUNGEON_220030000" priority="9">
-        <points>
+    <zone mapid="220030000" name="ALTGARD_FORTRESS_DUNGEON_220030000" priority="9" breath="true">
+        <points bottom="190" top="248">
             <point x="1650.8063" y="1727.3907"/>
             <point x="1631.8492" y="1751.1804"/>
             <point x="1610.025" y="1740.1139"/>
@@ -93,7 +93,7 @@
 		<link>ALTGARD_FORTRESS_DUNGEON_ENTRANCE_220030000</link>
     </zone>
     <zone mapid="220030000" name="ALTGARD_OBSERVATORY_220030000" priority="16">
-        <points>
+        <points bottom="30" top="830">
             <point x="1433.87" y="2521.53"/>
             <point x="1457.2177" y="2504.0806"/>
             <point x="1517.9216" y="2517.5977"/>
@@ -121,8 +121,8 @@
         </points>
 		<link>IDUNS_LAKE_220030000</link>
     </zone>
-    <zone mapid="220030000" name="ALTGARD_ICE_LAKE_220030000" priority="15" fly="true">
-        <points>
+    <zone mapid="220030000" name="ALTGARD_ICE_LAKE_220030000" priority="15" fly="true" breath="true">
+        <points bottom="50" top="850">
             <point x="1293.794" y="1625.1017"/>
             <point x="1390.2067" y="2053.6287"/>
             <point x="1474.5327" y="2096.984"/>
@@ -447,8 +447,8 @@
         </points>
 		<link>SEGGURHEIM_220030000</link>
     </zone>
-    <zone mapid="220030000" name="ALTGARD_FORTRESS_DUNGEON_ENTRANCE_220030000" priority="8" fly="true">
-        <points>
+    <zone mapid="220030000" name="ALTGARD_FORTRESS_DUNGEON_ENTRANCE_220030000" priority="8" fly="true" breath="true">
+        <points bottom="235" top="265">
             <point x="1615.54" y="1699.86"/>
             <point x="1625.5676" y="1721.8141"/>
             <point x="1612.2971" y="1732.3751"/>
@@ -632,8 +632,8 @@
 		<link>GRIBADE_CRATER_LAKE_220030000</link>
 		<link>TRADERS_BERTH_220030000</link>
     </zone>
-    <zone mapid="220030000" name="ALTGARD_FORTRESS_220030000" priority="14" fly="true">
-        <points>
+    <zone mapid="220030000" name="ALTGARD_FORTRESS_220030000" priority="14" fly="true" breath="true">
+        <points bottom="-20" top="780">
             <point x="1519.6198" y="1825.1958"/>
             <point x="1538.5042" y="1720.7122"/>
             <point x="1582.8516" y="1662.0684"/>

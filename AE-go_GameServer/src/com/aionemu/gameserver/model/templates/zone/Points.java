@@ -26,125 +26,58 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * @author ATracer
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Points", propOrder = {
-    "point"
-})
-public class Points {
+@XmlType(name = "Points")
+public class Points
+{
+	@XmlElement(required = true)
+	protected List<Point2D>	point;
+	@XmlAttribute(name = "top")
+	protected float			top;
+	@XmlAttribute(name = "bottom")
+	protected float			bottom;
+	@XmlAttribute
+	protected String		type;
 
-    @XmlElement(required = true)
-    protected List<Point2D> point;
-    @XmlAttribute
-    protected Float top;
-    @XmlAttribute
-    protected Float bottom;
-    @XmlAttribute
-    protected String type;
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Point2D> getPoint()
+	{
+		if(point == null)
+		{
+			point = new ArrayList<Point2D>();
+		}
+		return this.point;
+	}
 
-    /**
-     * Gets the value of the point property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the point property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPoint().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Point2D }
-     * 
-     * 
-     */
-    public List<Point2D> getPoint() {
-        if (point == null) {
-            point = new ArrayList<Point2D>();
-        }
-        return this.point;
-    }
+	/**
+	 * @return the top
+	 */
+	public float getTop()
+	{
+		return top;
+	}
 
-    /**
-     * Gets the value of the top property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Float }
-     *     
-     */
-    public Float getTop() {
-        return top;
-    }
+	/**
+	 * @return the bottom
+	 */
+	public float getBottom()
+	{
+		return bottom;
+	}
 
-    /**
-     * Sets the value of the top property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Float }
-     *     
-     */
-    public void setTop(Float value) {
-        this.top = value;
-    }
-
-    /**
-     * Gets the value of the bottom property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Float }
-     *     
-     */
-    public Float getBottom() {
-        return bottom;
-    }
-
-    /**
-     * Sets the value of the bottom property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Float }
-     *     
-     */
-    public void setBottom(Float value) {
-        this.bottom = value;
-    }
-
-    /**
-     * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setType(String value) {
-        this.type = value;
-    }
+	/**
+	 * @return the type
+	 */
+	public String getType()
+	{
+		return type;
+	}
 
 }
