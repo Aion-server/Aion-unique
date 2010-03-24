@@ -25784,7 +25784,7 @@
         </useconditions>
         <effects>
             <statup duration="60000" effectid="116611" e="1">
-                <change stat="ATTACK_SPEED" func="PERCENT" delta="1" value="-49"/>
+                <change stat="ATTACK_SPEED" func="PERCENT" delta="-1" value="-49"/>
             </statup>
         </effects>
         <actions>
@@ -30134,7 +30134,7 @@
         </useconditions>
         <effects>
             <snare duration="10000" effectid="20007" e="1" element="FIRE">
-                <change stat="SPEED" func="PERCENT" delta="10" value="0"/>
+                <change stat="SPEED" func="PERCENT" delta="-10" value="0"/>
             </snare>
         </effects>
     </skill_template>
@@ -30150,7 +30150,7 @@
         </useconditions>
         <effects>
             <slow duration="10000" effectid="20008" e="1" element="FIRE">
-                <change stat="ATTACK_SPEED" func="PERCENT" delta="-10" value="0"/>
+                <change stat="ATTACK_SPEED" func="PERCENT" delta="10" value="0"/>
             </slow>
         </effects>
     </skill_template>
@@ -35054,10 +35054,10 @@
         </useconditions>
         <effects>
             <slow duration="0" effectid="20008" e="1" element="FIRE">
-                <change stat="ATTACK_SPEED" func="PERCENT" delta="-5" value="0"/>
+                <change stat="ATTACK_SPEED" func="PERCENT" delta="5" value="0"/>
             </slow>
             <snare duration="0" effectid="20007" e="2" element="FIRE">
-                <change stat="SPEED" func="PERCENT" delta="5" value="0"/>
+                <change stat="SPEED" func="PERCENT" delta="-5" value="0"/>
             </snare>
         </effects>
     </skill_template>
@@ -35513,7 +35513,7 @@
         </useconditions>
         <effects>
             <statdown duration="900000" effectid="40185" e="1" element="FIRE">
-                <change stat="PHYSICAL_ACCURACY" func="ADD" delta="10" value="0"/>
+                <change stat="PHYSICAL_ACCURACY" func="ADD" delta="-10" value="0"/>
             </statdown>
             <statdown duration="900000" effectid="40144" e="2" element="FIRE">
                 <change stat="REGEN_MP" func="ADD" delta="0" value="-1"/>
@@ -35532,7 +35532,7 @@
         </useconditions>
         <effects>
             <statdown duration="900000" effectid="40185" e="1" element="FIRE">
-                <change stat="MAGICAL_ACCURACY" func="ADD" delta="5" value="0"/>
+                <change stat="MAGICAL_ACCURACY" func="ADD" delta="-5" value="0"/>
             </statdown>
             <statdown duration="900000" effectid="40144" e="2" element="FIRE">
                 <change stat="REGEN_MP" func="ADD" delta="0" value="-1"/>
@@ -35551,7 +35551,7 @@
         </useconditions>
         <effects>
             <statdown duration="900000" effectid="40161" e="1" element="FIRE">
-                <change stat="EVASION" func="ADD" delta="5" value="0"/>
+                <change stat="EVASION" func="ADD" delta="-5" value="0"/>
             </statdown>
             <statdown duration="900000" effectid="40144" e="2" element="FIRE">
                 <change stat="REGEN_MP" func="ADD" delta="0" value="-1"/>
@@ -35728,7 +35728,7 @@
                 <change stat="KNOWLEDGE" func="ADD" delta="10" value="0"/>
             </statup>
             <statdown duration="300000" effectid="10005" e="2" element="WIND">
-                <change stat="WILL" func="ADD" delta="5" value="0"/>
+                <change stat="WILL" func="ADD" delta="-5" value="0"/>
             </statdown>
         </effects>
     </skill_template>
@@ -35745,7 +35745,7 @@
                 <change stat="SPEED" func="ADD" delta="1" value="0"/>
             </statup>
             <statup duration="300000" effectid="10006" e="2" element="WIND">
-                <change stat="ATTACK_SPEED" func="ADD" delta="-50" value="0"/>
+                <change stat="ATTACK_SPEED" func="ADD" delta="50" value="0"/>
             </statup>
         </effects>
     </skill_template>
@@ -35925,7 +35925,7 @@
         </useconditions>
         <effects>
             <statup duration="300000" effectid="10008" e="1" element="WIND">
-                <change stat="ATTACK_SPEED" func="ADD" delta="-50" value="0"/>
+                <change stat="ATTACK_SPEED" func="ADD" delta="50" value="0"/>
             </statup>
         </effects>
     </skill_template>
@@ -37412,7 +37412,7 @@
         </useconditions>
         <effects>
             <statup duration="300000" effectid="30184" e="1" element="WIND">
-                <change stat="ATTACK_SPEED" func="PERCENT" delta="3" value="0"/>
+                <change stat="ATTACK_SPEED" func="PERCENT" delta="-3" value="0"/>
             </statup>
         </effects>
     </skill_template>
@@ -48899,7 +48899,7 @@
                 <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="10" value="70"/>
             </statup>
             <statdown duration="10000" effectid="40152" e="2" element="EARTH">
-                <change stat="PHYSICAL_DEFENSE" func="ADD" delta="10" value="-30"/>
+                <change stat="PHYSICAL_DEFENSE" func="ADD" delta="-10" value="-30"/>
             </statdown>
         </effects>
     </skill_template>
@@ -48961,7 +48961,7 @@
         </useconditions>
         <effects>
             <statdown duration="4000" effectid="40182" e="1" element="WATER">
-                <change stat="SPEED" func="PERCENT" delta="10" value="-40"/>
+                <change stat="SPEED" func="PERCENT" delta="-10" value="-40"/>
             </statdown>
             <statdown duration="4000" effectid="40184" e="2" element="EARTH">
                 <change stat="ATTACK_SPEED" func="ADD" delta="10" value="20"/>
@@ -49264,7 +49264,7 @@
         </useconditions>
         <effects>
             <snare duration="5000" effectid="20007" e="1" element="WATER">
-                <change stat="SPEED" func="PERCENT" delta="10" value="-40"/>
+                <change stat="SPEED" func="PERCENT" delta="-10" value="-40"/>
             </snare>
         </effects>
     </skill_template>
@@ -56598,7 +56598,7 @@
         </useconditions>
         <effects>
             <statdown duration="20000" effectid="40151" e="1" element="WATER">
-                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="10" value="-60"/>
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="-10" value="-60"/>
             </statdown>
         </effects>
     </skill_template>
