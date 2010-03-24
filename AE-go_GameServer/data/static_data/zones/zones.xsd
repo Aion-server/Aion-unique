@@ -78,6 +78,10 @@
 			<xs:enumeration value="ANTUROON_CROSSING"/>
 			<xs:enumeration value="DARU_SPRING"/>
 			<xs:enumeration value="HATATAS_HIDEOUT"/>
+			<!-- Morheim -->
+			<xs:enumeration value="ARKANIS_TEMPLE"/>
+			<xs:enumeration value="MORHEIM_FORTRESS"/>
+			<xs:enumeration value="Q1466"/>
 			<!-- sanctum -->
 			<xs:enumeration value="COLISEUM"/>
 			<xs:enumeration value="OUTER_DOCK"/>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones>
+	<zone mapid="220020000" name="ARKANIS_TEMPLE" priority="15" fly="true">
+        <points>
+            <point x="1611.7909" y="1013.69867"/>
+            <point x="1659.4464" y="1135.9508"/>
+            <point x="1724.3119" y="1183.255"/>
+            <point x="1784.3445" y="1137.3104"/>
+            <point x="1832.4153" y="1098.9829"/>
+            <point x="1846.3569" y="1189.663"/>
+            <point x="1778.2985" y="1271.0076"/>
+            <point x="1851.9889" y="1309.9697"/>
+            <point x="1736.7269" y="1383.5747"/>
+            <point x="1698.5251" y="1404.3319"/>
+            <point x="1593.3221" y="1475.6025"/>
+            <point x="1528.3369" y="1353.238"/>
+            <point x="1574.7251" y="1192.3812"/>
+            <point x="1611.9111" y="1020.59424"/>
+        </points>
+    </zone>
+	<zone mapid="220020000" name="MORHEIM_FORTRESS" priority="14" fly="true">
+        <points>
+            <point x="292.122274" y="2269.3945"/>
+            <point x="290.27136" y="2290.0684"/>
+            <point x="310.77655" y="2290.7583"/>
+            <point x="310.95755" y="2267.7407"/>
+        </points>
+    </zone>
+	<zone mapid="220020000" name="Q1466" priority="16">
+        <points>
+            <point x="1027.7546" y="1430.5635"/>
+            <point x="1067.9863" y="1408.6191"/>
+            <point x="1046.0317" y="1375.3701"/>
+            <point x="1005.3664" y="1353.0182"/>
+            <point x="1025.6061" y="1353.0182"/>
+            <point x="1050.5829" y="1421.7681"/>
+        </points>
+    </zone>
+</zones>
