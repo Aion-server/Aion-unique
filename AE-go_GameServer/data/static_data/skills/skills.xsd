@@ -45,6 +45,8 @@
 		<xs:attribute name="duration" type="xs:int" use="required" />
 		<xs:attribute name="cooldown" type="xs:int" use="optional"
 			default="0" />
+		<xs:attribute name="pvp_damage" type="xs:int" />
+		<xs:attribute name="pvp_duration" type="xs:int" />
 	</xs:complexType>
 
 	<xs:complexType name="Effects">

@@ -198,10 +198,13 @@ public class Skill
 		if(skillTemplate.getEffects() != null)
 		{
 			int duration = skillTemplate.getEffects().getEffectsDuration();
-
 			for(Creature effected : effectedList)
 			{
-				Effect effect = new Effect(effector, effected, skillTemplate,	skillLevel, duration);
+				int realDuration = duration;
+				if(effected instanceof Player && skillTemplate.getPvpDuration() != 0)
+					realDuration = duration * skillTemplate.getPvpDuration() / 100;
+				
+				Effect effect = new Effect(effector, effected, skillTemplate,	skillLevel, realDuration);
 				effect.initialize();
 				spellStatus = effect.getSpellStatus().getId();
 				effects.add(effect);

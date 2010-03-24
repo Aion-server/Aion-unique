@@ -71,9 +71,13 @@ public class SkillTemplate
     @XmlAttribute(required = true)
     protected int duration;
     @XmlAttribute
-    protected Integer cooldown;
+    protected int cooldown;
     @XmlAttribute(name = "penalty_skill_id")
     protected int penaltySkillId;
+    @XmlAttribute(name = "pvp_damage")
+    protected int pvpDamage;
+    @XmlAttribute(name = "pvp_duration")
+    protected int pvpDuration;
 
     /**
 	 * @return the initProperties
@@ -269,20 +273,12 @@ public class SkillTemplate
 	}
 
 	/**
-     * Gets the value of the cooldown property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public int getCooldown() {
-        if (cooldown == null) {
-            return  0;
-        } else {
-            return cooldown;
-        }
-    }
+	 * @return the cooldown
+	 */
+	public int getCooldown()
+	{
+		return cooldown;
+	}
 
 	/**
 	 * @return the penaltySkillId
@@ -291,8 +287,23 @@ public class SkillTemplate
 	{
 		return penaltySkillId;
 	}
-	
-	
+
+	/**
+	 * @return the pvpDamage
+	 */
+	public int getPvpDamage()
+	{
+		return pvpDamage;
+	}
+
+	/**
+	 * @return the pvpDuration
+	 */
+	public int getPvpDuration()
+	{
+		return pvpDuration;
+	}
+
 	public boolean hasResurrectEffect()
 	{
 		return getEffects() != null && getEffects().isResurrect();

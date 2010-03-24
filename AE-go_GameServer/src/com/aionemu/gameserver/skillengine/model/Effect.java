@@ -586,6 +586,16 @@ public class Effect
 		int elapsedTime = endTime - (int)System.currentTimeMillis();
 		return elapsedTime > 0 ? elapsedTime : 0;
 	}
+	
+	/**
+	 * PVP damage ration
+	 * 
+	 * @return
+	 */
+	public int getPvpDamage()
+	{
+		return skillTemplate.getPvpDamage();
+	}
 
 	/**
 	 * Try to add this effect to effected controller

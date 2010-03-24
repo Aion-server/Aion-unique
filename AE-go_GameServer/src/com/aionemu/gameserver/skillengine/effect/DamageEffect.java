@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.attack.AttackUtil;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.skillengine.action.DamageType;
 import com.aionemu.gameserver.skillengine.model.Effect;
@@ -57,6 +58,11 @@ extends EffectTemplate
 		int skillLvl = effect.getSkillLevel();
 		int valueWithDelta = value + delta * skillLvl;
 		valueWithDelta = applyActionModifiers(effect, valueWithDelta);
+		
+		// apply pvp damage ratio
+		if(effect.getEffected() instanceof Player && effect.getPvpDamage() != 0)
+			valueWithDelta *= effect.getPvpDamage() / 100;
+		
 		switch(damageType)
 		{
 			case PHYSICAL:
