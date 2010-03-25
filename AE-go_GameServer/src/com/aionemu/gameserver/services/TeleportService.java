@@ -33,11 +33,14 @@ import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CHANNEL_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SET_BIND_POINT;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_LOC;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TELEPORT_MAP;
+import com.aionemu.gameserver.services.ZoneService.ZoneUpdateMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
@@ -240,6 +243,18 @@ public class TeleportService
 		return teleportTo(player, worldId, instanceId, x, y, z, player.getHeading(), delay);
 	}
 
+	/**
+	 * 
+	 * @param player
+	 * @param worldId
+	 * @param instanceId
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param heading
+	 * @param delay
+	 * @return
+	 */
 	public boolean teleportTo(final Player player, final int worldId, final int instanceId, final float x,
 		final float y, final float z, final byte heading, final int delay)
 	{
@@ -283,12 +298,34 @@ public class TeleportService
 	private void changePosition(Player player, int worldId, int instanceId, float x, float y, float z, byte heading)
 	{
 		player.getFlyController().endFly();
-		
+				
 		world.despawn(player);
-		world.setPosition(player, worldId, instanceId, x, y, z, heading);
-		player.getController().startProtectionActiveTask();
-		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
-		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));		
+		
+		int currentWorldId = player.getWorldId();
+		world.setPosition(player, worldId, instanceId, x, y, z, heading);	
+		
+		/**
+		 * instant teleport when map is the same
+		 */
+		if(currentWorldId == worldId)
+		{
+			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
+			PacketSendUtility.sendPacket(player, new SM_PLAYER_INFO(player, false));
+			world.spawn(player);
+			player.getEffectController().updatePlayerEffectIcons();
+			player.getController().addZoneUpdateMask(ZoneUpdateMode.ZONE_REFRESH);
+		}
+		/**
+		 * teleport with full map reloading
+		 */
+		else
+		{			
+			player.getController().startProtectionActiveTask();
+			PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
+			PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));	
+		}
+		player.getController().startProtectionActiveTask();		
+			
 	}
 
 	/**

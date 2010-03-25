@@ -36,7 +36,7 @@ extends EffectTemplate
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		((Player)effect.getEffector()).getController().moveToBindLocation(true);
+		((Player)effect.getEffector()).getController().moveToBindLocation(500);
 	}
 
 	@Override

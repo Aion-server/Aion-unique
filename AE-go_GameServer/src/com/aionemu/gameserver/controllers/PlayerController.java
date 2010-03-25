@@ -477,13 +477,13 @@ public class PlayerController extends CreatureController<Player>
 	}
 
 	/**
-	 * TODO: REMOVE THIS AND FIX FOR RETURNEFFECT AND WORLDSCRIPTSOMETHING
+	 * TODO: REMOVE THIS AND FIX FOR RETURNEFFECT
 	 * 
-	 * @param b
+	 * @param delay
 	 */
-	public void moveToBindLocation(boolean b)
+	public void moveToBindLocation(int delay)
 	{
-		sp.getTeleportService().moveToBindLocation(getOwner(), b);
+		sp.getTeleportService().moveToBindLocation(getOwner(), true, delay);
 	}
 
 	/**
