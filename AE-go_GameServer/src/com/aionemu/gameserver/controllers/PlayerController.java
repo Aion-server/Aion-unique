@@ -521,9 +521,8 @@ public class PlayerController extends CreatureController<Player>
 		Player player = getOwner();
 		player.unsetState(CreatureState.FLYING);
 		player.setState(CreatureState.ACTIVE);
-		PacketSendUtility.broadcastPacket(player, new SM_PLAYER_INFO(player, false));
 		addZoneUpdateMask(ZoneUpdateMode.ZONE_REFRESH);
-	}
+	}	
 
 	/**
 	 * Zone update mask management
