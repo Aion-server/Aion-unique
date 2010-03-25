@@ -23,14 +23,13 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.MathUtil;
 
 /**
  * KnownList.
  * 
  * @author -Nemesiss-
- * 
+ * @modified kosyachok
  */
 public class KnownList implements Iterable<VisibleObject>
 {
@@ -39,10 +38,7 @@ public class KnownList implements Iterable<VisibleObject>
 	 */
 
 	// how far player will see visible object
-	private static final int						playerVisibilityDistance	= 90;
-
-	// how far any visible object will see other visible object
-	private static final int						npcVisibilityDistance		= 80;
+	private static final int						VisibilityDistance			= 95;
 	
 	// maxZvisibleDistance
 	private static final int						maxZvisibleDistance 		= 400;
@@ -199,10 +195,7 @@ public class KnownList implements Iterable<VisibleObject>
 		//check if Z distance is greater than maxZvisibleDistance		
 		if(Math.abs(owner.getZ() - newObject.getZ()) > maxZvisibleDistance)
 			return false;				
-		
-		if(owner instanceof Player)
-			return MathUtil.isInRange(owner, newObject, playerVisibilityDistance);
-		else
-			return MathUtil.isInRange(owner, newObject, npcVisibilityDistance);
+
+			return MathUtil.isInRange(owner, newObject, VisibilityDistance);
 	}
 }

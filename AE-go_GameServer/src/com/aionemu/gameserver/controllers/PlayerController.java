@@ -140,9 +140,14 @@ public class PlayerController extends CreatureController<Player>
 			}
 			if(update)
 				updateNearbyQuestList();
+			
+			if(((Npc)object).getLifeStats().isAlreadyDead())
+				return;
 		}
+		else if(object instanceof Gatherable && !((Gatherable)object).isSpawned())
+			return;
 
-		PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object));
+		PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object, 0));
 	}
 
 	public void updateNearbyQuests()
@@ -454,7 +459,8 @@ public class PlayerController extends CreatureController<Player>
 		ClassChangeService.showClassChangeDialog(player);
 
 		sp.getQuestEngine().onLvlUp(new QuestEnv(null, player, 0, 0));
-
+		updateNearbyQuests();
+		
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 
 		// add new skills
