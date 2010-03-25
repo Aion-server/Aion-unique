@@ -159,6 +159,7 @@ public class SkillList
 					case 299:
 					case 399:
 					case 450:
+					case 499:
 						return false;
 				}
 				player.getRecipeList().autoLearnRecipe(player, skillId, skillEntry.getSkillLevel());
