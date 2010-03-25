@@ -359,6 +359,12 @@ public class GroupService
 		}, GroupConfig.GROUP_REMOVE_TIME * 1000);
 		addPlayerGroupCache(player.getObjectId(), future);
 		player.getPlayerGroup().getMembers().remove(player.getObjectId());
+		
+		for(Player groupMember : player.getPlayerGroup().getMembers())
+		{
+			// TODO: MISSING SEND PARTY MEMBER PACKETS
+			PacketSendUtility.sendPacket(groupMember, SM_SYSTEM_MESSAGE.PARTY_HE_BECOME_OFFLINE(player.getName()));
+		}
 	}
 
 	/**
