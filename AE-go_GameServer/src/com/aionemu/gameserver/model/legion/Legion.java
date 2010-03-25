@@ -53,7 +53,7 @@ public class Legion
 	private TreeMap<Timestamp, String>				announcementList			= new TreeMap<Timestamp, String>();
 	private LegionEmblem							legionEmblem				= new LegionEmblem();
 	private LegionWarehouse							legionWarehouse;
-	private TreeMap<Timestamp, LegionHistory>	legionHistory				= new TreeMap<Timestamp, LegionHistory>();
+	private TreeMap<Integer, LegionHistory>	legionHistory				= new TreeMap<Integer, LegionHistory>();
 
 	/**
 	 * Only called when a legion is created!
@@ -568,7 +568,7 @@ public class Legion
 	/**
 	 * @param legionHistory the legionHistory to set
 	 */
-	public void setLegionHistory(TreeMap<Timestamp, LegionHistory> legionHistory)
+	public void setLegionHistory(TreeMap<Integer, LegionHistory> legionHistory)
 	{
 		this.legionHistory = legionHistory;
 	}
@@ -576,18 +576,16 @@ public class Legion
 	/**
 	 * @return the legionHistory
 	 */
-	public TreeMap<Timestamp, LegionHistory> getLegionHistory()
+	public TreeMap<Integer, LegionHistory> getLegionHistory()
 	{
 		return this.legionHistory;
 	}
 
 	/**
-	 * @param timestamp
-	 * @param page
-	 * @param historyType
+	 * @param history
 	 */
-	public void addHistory(Timestamp timestamp, LegionHistory history)
+	public void addHistory(LegionHistory history)
 	{
-		this.legionHistory.put(timestamp, history);
+		this.legionHistory.put(legionHistory.lastKey()+1, history);
 	}
 }

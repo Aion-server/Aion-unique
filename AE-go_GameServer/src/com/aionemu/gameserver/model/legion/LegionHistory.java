@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.model.legion;
 
+import java.sql.Timestamp;
 
 /**
  * @author Simple
@@ -25,13 +26,13 @@ public class LegionHistory
 {
 	private LegionHistoryType	legionHistoryType;
 	private String				name	= "";
+	private Timestamp			time;
 
-	// more but dunno what they mean yet
-
-	public LegionHistory(LegionHistoryType legionHistoryType, String name)
+	public LegionHistory(LegionHistoryType legionHistoryType, String name, Timestamp time)
 	{
 		this.legionHistoryType = legionHistoryType;
 		this.name = name;
+		this.time = time;
 	}
 
 	/**
@@ -48,5 +49,13 @@ public class LegionHistory
 	public String getName()
 	{
 		return name;
+	}
+
+	/**
+	 * @return the time
+	 */
+	public Timestamp getTime()
+	{
+		return time;
 	}
 }

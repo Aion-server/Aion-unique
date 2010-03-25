@@ -16,7 +16,6 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import java.sql.Timestamp;
 import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
@@ -69,7 +68,7 @@ public class CM_LEGION_TABS extends AionClientPacket
 	protected void runImpl()
 	{
 		Player activePlayer = getConnection().getActivePlayer();
-		TreeMap<Timestamp, LegionHistory> history = activePlayer.getLegion().getLegionHistory();
+		TreeMap<Integer, LegionHistory> history = activePlayer.getLegion().getLegionHistory();
 
 		/**
 		 * Max page is 3 for legion history

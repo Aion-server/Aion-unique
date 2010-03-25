@@ -161,13 +161,12 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 	 * @param legion
 	 * @return the legionHistory
 	 */
-	public abstract TreeMap<Timestamp, LegionHistory> loadLegionHistory(int legionId);
+	public abstract TreeMap<Integer, LegionHistory> loadLegionHistory(int legionId);
 	
 	/**
 	 * @param legionId
-	 * @param date
 	 * @param legionHistory
 	 * @return true if query successful
 	 */
-	public abstract boolean saveNewLegionHistory(int legionId, Timestamp date, LegionHistory legionHistory);
+	public abstract boolean saveNewLegionHistory(int legionId, LegionHistory legionHistory);
 }

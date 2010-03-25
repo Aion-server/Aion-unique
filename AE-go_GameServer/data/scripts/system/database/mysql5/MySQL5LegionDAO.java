@@ -510,9 +510,9 @@ public class MySQL5LegionDAO extends LegionDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public TreeMap<Timestamp, LegionHistory> loadLegionHistory(final int legionId)
+	public TreeMap<Integer, LegionHistory> loadLegionHistory(final int legionId)
 	{
-		final TreeMap<Timestamp, LegionHistory> legionHistory = new TreeMap<Timestamp, LegionHistory>();
+		final TreeMap<Integer, LegionHistory> legionHistory = new TreeMap<Integer, LegionHistory>();
 
 		DB.select(SELECT_HISTORY_QUERY, new ParamReadStH(){
 			@Override
@@ -526,7 +526,7 @@ public class MySQL5LegionDAO extends LegionDAO
 			{
 				while(resultSet.next())
 				{
-					legionHistory.put(resultSet.getTimestamp("date"), new LegionHistory(LegionHistoryType.valueOf(resultSet.getString("history_type")), resultSet.getString("name")));
+					legionHistory.put(resultSet.getInt("id"), new LegionHistory(LegionHistoryType.valueOf(resultSet.getString("history_type")), resultSet.getString("name"), resultSet.getTimestamp("date")));
 				}
 			}
 		});
@@ -538,14 +538,14 @@ public class MySQL5LegionDAO extends LegionDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean saveNewLegionHistory(final int legionId, final Timestamp date, final LegionHistory legionHistory)
+	public boolean saveNewLegionHistory(final int legionId, final LegionHistory legionHistory)
 	{
 		boolean success = DB.insertUpdate(INSERT_HISTORY_QUERY, new IUStH(){
 			@Override
 			public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException
 			{
 				preparedStatement.setInt(1, legionId);
-				preparedStatement.setTimestamp(2, date);
+				preparedStatement.setTimestamp(2, legionHistory.getTime());
 				preparedStatement.setString(3, legionHistory.getLegionHistoryType().toString());
 				preparedStatement.setString(4, legionHistory.getName());
 				preparedStatement.execute();

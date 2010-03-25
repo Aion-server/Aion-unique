@@ -310,7 +310,7 @@ public class LegionService
 		DAOManager.getDAO(LegionMemberDAO.class).deleteLegionMember(legionMember.getObjectId());
 		Legion legion = legionMember.getLegion();
 		legion.deleteLegionMember(legionMember.getObjectId());
-		addHistory(legion, legionMember.getName(), LegionHistoryType.KICK, 0);
+		addHistory(legion, legionMember.getName(), LegionHistoryType.KICK);
 	}
 
 	/**
@@ -590,8 +590,8 @@ public class LegionService
 			/**
 			 * Add create and joined legion history and save it
 			 */
-			addHistory(legion, "", LegionHistoryType.CREATE, 0);
-			addHistory(legion, activePlayer.getName(), LegionHistoryType.JOIN, 1000);
+			addHistory(legion, "", LegionHistoryType.CREATE);
+			addHistory(legion, activePlayer.getName(), LegionHistoryType.JOIN);
 
 			/**
 			 * Send required packets
@@ -637,7 +637,7 @@ public class LegionService
 							displayLegionMessage(targetPlayer, legion.getCurrentAnnouncement());
 
 							// Add to history of legion
-							addHistory(legion, targetPlayer.getName(), LegionHistoryType.JOIN, 0);
+							addHistory(legion, targetPlayer.getName(), LegionHistoryType.JOIN);
 						}
 						else
 						{
@@ -728,7 +728,7 @@ public class LegionService
 							PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_UPDATE_MEMBER(targetPlayer,
 								1300273, targetPlayer.getName()), world);
 
-							addHistory(legion, targetPlayer.getName(), LegionHistoryType.APPOINTED, 0);
+							addHistory(legion, targetPlayer.getName(), LegionHistoryType.APPOINTED);
 						}
 					}
 				}
@@ -835,7 +835,7 @@ public class LegionService
 			Legion legion = activePlayer.getLegion();
 			activePlayer.getInventory().decreaseKinah(legion.getKinahPrice());
 			changeLevel(legion, legion.getLegionLevel() + 1, false);
-			addHistory(legion, legion.getLegionLevel() + "", LegionHistoryType.LEVEL_UP, 0);
+			addHistory(legion, legion.getLegionLevel() + "", LegionHistoryType.LEVEL_UP);
 		}
 	}
 
@@ -949,9 +949,9 @@ public class LegionService
 		{
 			Legion legion = activePlayer.getLegion();
 			if(legion.getLegionEmblem().isDefaultEmblem())
-				addHistory(legion, "", LegionHistoryType.EMBLEM_REGISTER, 0);
+				addHistory(legion, "", LegionHistoryType.EMBLEM_REGISTER);
 			else
-				addHistory(legion, "", LegionHistoryType.EMBLEM_MODIFIED, 0);
+				addHistory(legion, "", LegionHistoryType.EMBLEM_MODIFIED);
 
 			activePlayer.getInventory().decreaseKinah(LegionConfig.LEGION_EMBLEM_REQUIRED_KINAH);
 			legion.getLegionEmblem().setEmblem(emblemId, color_r, color_g, color_b);
@@ -1241,26 +1241,14 @@ public class LegionService
 	 * @param legion
 	 * @param legionHistory
 	 */
-	private void addHistory(Legion legion, String text, LegionHistoryType legionHistoryType, int delay)
+	private void addHistory(Legion legion, String text, LegionHistoryType legionHistoryType)
 	{
-		Timestamp currentTime = getTime(System.currentTimeMillis() + delay);
-		LegionHistory legionHistory = new LegionHistory(legionHistoryType, text);
+		LegionHistory legionHistory = new LegionHistory(legionHistoryType, text, new Timestamp(System.currentTimeMillis()));
 
-		legion.addHistory(currentTime, legionHistory);
-		DAOManager.getDAO(LegionDAO.class).saveNewLegionHistory(legion.getLegionId(), currentTime, legionHistory);
+		legion.addHistory(legionHistory);
+		DAOManager.getDAO(LegionDAO.class).saveNewLegionHistory(legion.getLegionId(), legionHistory);
 
 		PacketSendUtility.broadcastPacketToLegion(legion, new SM_LEGION_TABS(legion.getLegionHistory()), world);
-	}
-
-	/**
-	 * Returns a timestamp by time
-	 * 
-	 * @param time
-	 * @return a timestamp
-	 */
-	private Timestamp getTime(long time)
-	{
-		return new Timestamp(time);
 	}
 
 	/**
@@ -1500,6 +1488,9 @@ public class LegionService
 	{
 		Legion legion = activePlayer.getLegion();
 
+		// Send Legion add member packet
+		PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_ADD_MEMBER(activePlayer, false, 0, ""));
+		
 		// Send legion info packets
 		PacketSendUtility.sendPacket(activePlayer, new SM_LEGION_INFO(legion));
 
@@ -1829,12 +1820,16 @@ public class LegionService
 		private boolean canDisbandLegion(Player activePlayer, Legion legion)
 		{
 			// TODO: Can't disband during a war!!
-			// TODO: Can't disband during using legion warehouse!!
 			// TODO: Can't disband legion with fortress or hideout!!
 			if(!isBrigadeGeneral(activePlayer))
 			{
 				PacketSendUtility
 					.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.LEGION_DISPERSE_ONLY_MASTER_CAN_DISPERSE());
+				return false;
+			}
+			else if(legion.getLegionWarehouse().size() > 0)
+			{
+				// TODO: Can't disband during using legion warehouse!!
 				return false;
 			}
 			else if(legion.isDisbanding())
