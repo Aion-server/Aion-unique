@@ -136,7 +136,8 @@
   	
   	<!-- TODO: Put Your Money Where Your Mouth Is -->
   	
-  	<!-- A Fertile Field handled by script -->
+  	<!-- A Fertile Field -->
+	<item_collecting start_npc_id="203629" action_item_id="700051" id="2237"/>
   	
   	<!-- A Friendly Wager -->
   	<item_collecting start_npc_id="203621" id="2230"/>

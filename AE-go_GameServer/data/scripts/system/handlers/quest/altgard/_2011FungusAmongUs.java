@@ -26,7 +26,7 @@ import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author MrPoke
+ * @author MrPoke refix by Nephis
  * 
  */
 public class _2011FungusAmongUs extends QuestHandler
@@ -66,13 +66,13 @@ public class _2011FungusAmongUs extends QuestHandler
 			return false;
 		if(targetId == 700092)
 		{
-			if(var > 0 && var < 4)
+			if(var > 0 && var < 6)
 			{
 				qs.setQuestVarById(0, qs.getQuestVarById(0) + 1);
 				updateQuestStatus(player, qs);
 				return true;
 			}
-			else if(var == 4)
+			else if(var == 6)
 			{
 				qs.setStatus(QuestStatus.REWARD);
 				updateQuestStatus(player, qs);

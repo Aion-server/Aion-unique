@@ -16,6 +16,8 @@
  */
 package quest.altgard;
 
+import java.util.Collections;
+
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
@@ -24,13 +26,22 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_USE_OBJECT;
+import com.aionemu.gameserver.model.templates.quest.QuestItems;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.services.ItemService;
+import com.google.inject.Inject;
 
 /**
- * @author Mr. Poke
+ * @author Mr. Poke fix by Nephis and quest helper team.
  *
  */
 public class _2232TheBrokenHoneyJar extends QuestHandler
 {
+	@Inject
+	ItemService itemService;
+	
 	private final static int	questId	= 2232;
 	
 	public _2232TheBrokenHoneyJar()
@@ -85,6 +96,41 @@ public class _2232TheBrokenHoneyJar extends QuestHandler
 				return this.defaultQuestEndDialog(env);
 			}
 		}
+		
+		else if (qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 1)
+		{
+			switch(targetId)
+			{
+				case 700061:
+				qs.setQuestVarById(0, 1);
+				updateQuestStatus(player, qs);
+				{
+					if (qs.getQuestVarById(0) == 1 && env.getDialogId() == -1)
+					{
+						final int targetObjectId = env.getVisibleObject().getObjectId();
+						PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), targetObjectId, 3000,
+							1));
+						PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 37, 0,
+							targetObjectId), true);
+						ThreadPoolManager.getInstance().schedule(new Runnable(){
+							@Override
+							public void run()
+							{
+								if(player.getTarget() == null || player.getTarget().getObjectId() != targetObjectId)
+									return;
+								PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(),
+									targetObjectId, 3000, 0));
+								PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 38, 0,
+									targetObjectId), true);
+								if (itemService.addItems(player, Collections.singletonList(new QuestItems(182203224, 1))))
+								((Npc)player.getTarget()).getController().onDie(null);
+							}
+						}, 3000);
+					}
+				}
+
+			}
+		}
 		else if(targetId == 203622)
 		{
 			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 0)
@@ -105,6 +151,8 @@ public class _2232TheBrokenHoneyJar extends QuestHandler
 			if(qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 0 && env.getDialogId() == -1)
 				return true;
 		}
+		
+
 		return false;
 	}
 }

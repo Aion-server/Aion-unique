@@ -155,8 +155,7 @@
         <!-- Siel's Tears -->
         <item_collecting start_npc_id="204108" id="2924" />
         
-        <!-- Song of Blessing // need test and maybe tweak quest_data.xml -->
-        <report_to start_npc_id="204079" end_npc_id="204193"  id="2911"/>
+        <!-- Handle by Script Song of Blessing  -->
         
         <!-- TODO: Striking at Shadows -->
         

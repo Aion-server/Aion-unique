@@ -250,5 +250,6 @@ public enum ZoneName
 	ALTGARD_FORTRESS_220030000,
 
 	//MORHEIM
-	Q1466;
+	Q1466,
+	Q2393;
 }

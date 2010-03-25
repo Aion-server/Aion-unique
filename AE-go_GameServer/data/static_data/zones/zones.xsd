@@ -83,6 +83,7 @@
 			<xs:enumeration value="ARKANIS_TEMPLE"/>
 			<xs:enumeration value="MORHEIM_FORTRESS"/>
 			<xs:enumeration value="Q1466"/>
+			<xs:enumeration value="Q2393"/>
 			<!-- sanctum -->
 			<xs:enumeration value="COLISEUM"/>
 			<xs:enumeration value="OUTER_DOCK"/>
