@@ -209,6 +209,8 @@ public class DropService
 			if(player.getPlayerGroup().getGroupLeader().getObjectId() == player.getObjectId())
 				dropRegistrationMap.put(npcId, new DropNpc(groupService.getGroupMembers(player.getPlayerGroup(), true)));
 		}
+		player.unsetState(CreatureState.LOOTING);
+		player.setState(CreatureState.ACTIVE);
 		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 36, 0, npcId), true);
 	}
 
