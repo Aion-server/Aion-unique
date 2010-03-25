@@ -30,6 +30,7 @@ import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
+import com.aionemu.gameserver.model.templates.quest.QuestDrop;
 import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.model.templates.quest.QuestWorkItems;
 import com.aionemu.gameserver.model.templates.quest.Rewards;
@@ -39,7 +40,7 @@ import com.aionemu.gameserver.model.templates.quest.Rewards;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Quest", propOrder = { "collectItems", "rewards", "finishedQuestConds", "classPermitted",
+@XmlType(name = "Quest", propOrder = { "collectItems", "rewards", "questDrop", "finishedQuestConds", "classPermitted",
 	"genderPermitted", "questWorkItems", "fighterSelectableReward", "knightSelectableReward", "rangerSelectableReward",
 	"assassinSelectableReward", "wizardSelectableReward", "elementalistSelectableReward", "priestSelectableReward",
 	"chanterSelectableReward" })
@@ -49,6 +50,8 @@ public class QuestTemplate
 	@XmlElement(name = "collect_items")
 	protected CollectItems		collectItems;
 	protected List<Rewards>		rewards;
+	@XmlElement(name = "quest_drop")
+	protected List<QuestDrop>	questDrop;
 	@XmlList
 	@XmlElement(name = "finished_quest_conds", type = Integer.class)
 	protected List<Integer>		finishedQuestConds;
@@ -137,6 +140,36 @@ public class QuestTemplate
 			rewards = new ArrayList<Rewards>();
 		}
 		return this.rewards;
+	}
+
+	/**
+	 * Gets the value of the questDrop property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to
+	 * the returned list will be present inside the JAXB object. This is why there is not a <CODE>set</CODE> method for
+	 * the questDrop property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getQuestDrop().add(newItem);
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list {@link QuestDrop }
+	 * 
+	 * 
+	 */
+	public List<QuestDrop> getQuestDrop()
+	{
+		if(questDrop == null)
+		{
+			questDrop = new ArrayList<QuestDrop>();
+		}
+		return this.questDrop;
 	}
 
 	/**

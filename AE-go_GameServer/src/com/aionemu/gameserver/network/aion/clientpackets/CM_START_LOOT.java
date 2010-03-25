@@ -64,7 +64,7 @@ public class CM_START_LOOT extends AionClientPacket
 	protected void runImpl() 
 	{
 		Player player = getConnection().getActivePlayer();
-		
+
 		if(action == 0) //open
 		{
 			dropService.requestDropList(player, targetObjectId);

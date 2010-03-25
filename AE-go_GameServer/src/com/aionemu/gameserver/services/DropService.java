@@ -41,8 +41,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.questEngine.model.QuestState;
-import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -62,15 +60,16 @@ public class DropService
 
 	private ItemService					itemService;
 	private GroupService				groupService;
-
+	private QuestService				questService;
 	private World						world;
 
 	@Inject
-	public DropService(ItemService itemService, World world, GroupService groupService)
+	public DropService(ItemService itemService, World world, GroupService groupService, QuestService questService)
 	{
 		this.itemService = itemService;
 		this.world = world;
 		this.groupService = groupService;
+		this.questService = questService;
 		dropList = DAOManager.getDAO(DropListDAO.class).load();
 		log.info(dropList.getSize() + " npc drops loaded");
 	}
@@ -93,24 +92,14 @@ public class DropService
 		int npcUniqueId = npc.getObjectId();
 		int npcTemplateId = npc.getObjectTemplate().getTemplateId();
 
+		Set<DropItem> droppedItems = new HashSet<DropItem>();
 		Set<DropTemplate> templates = dropList.getDropsFor(npcTemplateId);
+		int index = 1;
 		if(templates != null)
 		{
-			Set<DropItem> droppedItems = new HashSet<DropItem>();
-
-			int index = 1;
 			for(DropTemplate dropTemplate : templates)
 			{
 				DropItem dropItem = new DropItem(dropTemplate);
-				int questId = dropItem.getDropTemplate().getQuest();
-				if(questId != 0)
-				{
-					if(player == null)
-						continue;
-					QuestState qs = player.getQuestStateList().getQuestState(questId);
-					if(qs == null || qs.getStatus() != QuestStatus.START)
-						continue;
-				}
 				dropItem.calculateCount(player.getRates().getDropRate());
 
 				if(dropItem.getCount() > 0)
@@ -119,25 +108,25 @@ public class DropService
 					droppedItems.add(dropItem);
 				}
 			}
+		}
+		
+		questService.getQuestDrop(droppedItems, index, npc, player);
+		currentDropMap.put(npcUniqueId, droppedItems);
 
-			currentDropMap.put(npcUniqueId, droppedItems);
-
-			// TODO player should not be null
-			if(player != null)
+		// TODO player should not be null
+		if(player != null)
+		{
+			if(player.isInGroup())
 			{
-				if(player.isInGroup())
-				{
-					dropRegistrationMap.put(npcUniqueId, new DropNpc(groupService.getMembersToRegistrateByRules(player,
-						player.getPlayerGroup())));
-				}
-				else
-				{
-					List<Integer> singlePlayer = new ArrayList<Integer>();
-					singlePlayer.add(player.getObjectId());
-					dropRegistrationMap.put(npcUniqueId, new DropNpc(singlePlayer));
-				}
+				dropRegistrationMap.put(npcUniqueId, new DropNpc(groupService.getMembersToRegistrateByRules(player,
+					player.getPlayerGroup())));
 			}
-
+			else
+			{
+				List<Integer> singlePlayer = new ArrayList<Integer>();
+				singlePlayer.add(player.getObjectId());
+				dropRegistrationMap.put(npcUniqueId, new DropNpc(singlePlayer));
+			}
 		}
 	}
 
@@ -189,7 +178,7 @@ public class DropService
 			dropItems = Collections.emptySet();
 		}
 
-		PacketSendUtility.sendPacket(player, new SM_LOOT_ITEMLIST(npcId, dropItems));
+		PacketSendUtility.sendPacket(player, new SM_LOOT_ITEMLIST(npcId, dropItems, player));
 		// PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, size > 0 ? size - 1 : size));
 		PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 2));
 		player.unsetState(CreatureState.ACTIVE);
@@ -220,6 +209,7 @@ public class DropService
 			if(player.getPlayerGroup().getGroupLeader().getObjectId() == player.getObjectId())
 				dropRegistrationMap.put(npcId, new DropNpc(groupService.getGroupMembers(player.getPlayerGroup(), true)));
 		}
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 36, 0, npcId), true);
 	}
 
 	public void requestDropItem(Player player, int npcId, int itemIndex)
@@ -274,7 +264,7 @@ public class DropService
 	{
 		if(dropItems.size() != 0)
 		{
-			PacketSendUtility.sendPacket(player, new SM_LOOT_ITEMLIST(npcId, dropItems));
+			PacketSendUtility.sendPacket(player, new SM_LOOT_ITEMLIST(npcId, dropItems, player));
 			PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 0));
 		}
 		else

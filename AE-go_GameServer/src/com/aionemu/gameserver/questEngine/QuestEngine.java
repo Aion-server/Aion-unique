@@ -30,7 +30,9 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.NpcQuestData;
+import com.aionemu.gameserver.model.templates.quest.QuestDrop;
 import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.model.templates.quest.QuestWorkItems;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
@@ -65,9 +67,19 @@ public class QuestEngine
 	private FastMap<Integer, List<Integer>>		_questMovieEndIds= new FastMap<Integer, List<Integer>>();
 	private List<Integer>						_questOnDie= new ArrayList<Integer>();
 	private List<Integer>						_questOnEnterWorld= new ArrayList<Integer>();
+	private FastMap<Integer, List<QuestDrop>>	_questDrop= new FastMap<Integer, List<QuestDrop>>();
 
 	public void load()
 	{
+		for (QuestTemplate data : DataManager.QUEST_DATA.getQuestData())
+		{
+			for (QuestDrop drop : data.getQuestDrop())
+			{
+				drop.setQuestId(data.getId());
+				setQuestDrop(drop.getNpcId()).add(drop);
+			}
+		}
+
 		scriptManager = new ScriptManager();
 		scriptManager.setGlobalClassListener(new QuestHandlerLoader(injector));
 
@@ -279,6 +291,24 @@ public class QuestEngine
 		return _questItemIds.get(itemId);
 	}
 
+	public List<QuestDrop> setQuestDrop(int npcId)
+	{
+		if(!_questDrop.containsKey(npcId))
+		{
+			_questDrop.put(npcId, new ArrayList<QuestDrop>());
+		}
+		return _questDrop.get(npcId);
+	}
+
+	public List<QuestDrop> getQuestDrop(int npcId)
+	{
+		if(_questDrop.containsKey(npcId))
+		{
+			return _questDrop.get(npcId);
+		}
+		return new ArrayList<QuestDrop>();
+	}
+
 	public void addQuestLvlUp(int questId)
 	{
 		if(!_questLvlUp.contains(questId))
@@ -342,7 +372,7 @@ public class QuestEngine
 		_questOnDie.clear();
 		_questEnterZone.clear();
 		_questMovieEndIds.clear();
-		
+		_questDrop.clear();
 		questHandlers.clear();
 	}
 	

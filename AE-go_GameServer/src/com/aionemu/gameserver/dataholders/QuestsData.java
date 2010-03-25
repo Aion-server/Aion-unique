@@ -48,13 +48,16 @@ public class QuestsData
 		{
 			questData.put(quest.getId(), quest);
 		}
-		questsData.clear();
-		questsData = null;
 	}
 
 	public QuestTemplate getQuestById(int id)
 	{
 		return questData.get(id);
+	}
+
+	public List<QuestTemplate> getQuestData()
+	{
+		return questsData;
 	}
 
 	public int size()

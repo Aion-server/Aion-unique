@@ -31,6 +31,8 @@ public class DropItem
 
 	private DropTemplate dropTemplate;
 
+	private int playerObjId = 0;
+
 	public DropItem(DropTemplate dropTemplate)
 	{
 		this.dropTemplate = dropTemplate;
@@ -87,5 +89,21 @@ public class DropItem
 	public DropTemplate getDropTemplate()
 	{
 		return dropTemplate;
+	}
+
+	/**
+	 * @return the playerObjId
+	 */
+	public int getPlayerObjId()
+	{
+		return playerObjId;
+	}
+
+	/**
+	 * @param playerObjId the playerObjId to set
+	 */
+	public void setPlayerObjId(int playerObjId)
+	{
+		this.playerObjId = playerObjId;
 	}
 }

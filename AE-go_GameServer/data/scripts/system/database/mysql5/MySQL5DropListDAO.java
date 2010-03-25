@@ -57,11 +57,10 @@ public class MySQL5DropListDAO extends DropListDAO
                     int min = rset.getInt("min");
                     int max = rset.getInt("max");
                     float chance = rset.getFloat("chance");
-                    int quest = rset.getInt("quest");
                     
                     if(chance > 0)
                     {
-                        DropTemplate dropTemplate = new DropTemplate(mobId, itemId, min, max, chance, quest);
+                        DropTemplate dropTemplate = new DropTemplate(mobId, itemId, min, max, chance);
                         dropList.addDropTemplate(mobId, dropTemplate);
                     }
                 }

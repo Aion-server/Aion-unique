@@ -18,9 +18,15 @@ package com.aionemu.gameserver.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+import com.aionemu.commons.utils.Rnd;
+import com.aionemu.gameserver.configs.main.GroupConfig;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
+import com.aionemu.gameserver.model.drop.DropItem;
+import com.aionemu.gameserver.model.drop.DropTemplate;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
@@ -28,6 +34,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.CollectItem;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
+import com.aionemu.gameserver.model.templates.quest.QuestDrop;
 import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.model.templates.quest.Rewards;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
@@ -39,6 +46,7 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
+import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.inject.Inject;
 
@@ -278,5 +286,69 @@ public class QuestService
 	{
 		SpawnTemplate spawn = spawnEngine.addNewSpawn(worldId, instanceId, templateId, x, y, z, heading, 0, 0, noRespawn);
 		return spawnEngine.spawnObject(spawn, instanceId);
+	}
+	
+	public void getQuestDrop(Set<DropItem> dropItems, int index, Npc npc, Player player)
+	{
+		List<QuestDrop> drops = questEngine.getQuestDrop(npc.getNpcId());
+		if (drops.isEmpty())
+			return;
+		List<Player> players = new ArrayList<Player>();
+		if (player.isInGroup())
+		{
+			for (Player member : player.getPlayerGroup().getMembers())
+			{
+				if(MathUtil.isInRange(member, player, GroupConfig.GROUP_MAX_DISTANCE))
+				{
+					players.add(member);
+				}
+			}
+		}
+		else
+		{
+			players.add(player);
+		}
+		for (QuestDrop drop: drops)
+		{
+			for (Player member : players)
+			{
+				if (isDrop(member, drop))
+				{
+					DropItem item = new DropItem(new DropTemplate(drop.getNpcId(), drop.getItemId(), 1, 1, drop.getChance()));
+					item.setPlayerObjId(member.getObjectId());
+					item.setIndex(index++);
+					item.setCount(1);
+					dropItems.add(item);
+					if (drop.isDropEachMember())
+						break;
+				}
+			}
+		}
+	}
+
+	private boolean isDrop(Player player, QuestDrop drop)
+	{
+		if(Rnd.get() * 100 > drop.getChance())
+			return false;
+		int questId = drop.getQuestId();
+		QuestState qs = player.getQuestStateList().getQuestState(questId);
+		if (qs == null || qs.getStatus() != QuestStatus.START)
+			return false;
+		QuestTemplate	template = DataManager.QUEST_DATA.getQuestById(questId);
+		CollectItems collectItems = template.getCollectItems();
+		if(collectItems == null)
+			return true;
+
+		for(CollectItem collectItem : collectItems.getCollectItem())
+		{
+			int collectItemId = collectItem.getItemId();
+			int dropItemId    = drop.getItemId();
+			if (collectItemId != dropItemId)
+				continue;
+			int count = player.getInventory().getItemCountByItemId(collectItemId);
+			if(collectItem.getCount() > count)
+				return true;
+		}
+		return false;
 	}
 }

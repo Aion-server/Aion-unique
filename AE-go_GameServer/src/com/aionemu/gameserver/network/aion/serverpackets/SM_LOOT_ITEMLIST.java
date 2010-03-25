@@ -17,9 +17,11 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
+import java.util.HashSet;
 import java.util.Set;
 
 import com.aionemu.gameserver.model.drop.DropItem;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -36,10 +38,16 @@ public class SM_LOOT_ITEMLIST extends AionServerPacket
 	private DropItem[] dropItems;
 	private int size;
 
-	public SM_LOOT_ITEMLIST(int targetObjectId, Set<DropItem> dropItems)
+	public SM_LOOT_ITEMLIST(int targetObjectId, Set<DropItem> dropItems, Player player)
 	{
 		this.targetObjectId = targetObjectId;
-		this.dropItems = dropItems.toArray(new DropItem[dropItems.size()]);
+		Set<DropItem> tmp = new HashSet<DropItem>();
+		for (DropItem item : dropItems)
+		{
+			if (item.getPlayerObjId() == 0 || player.getObjectId() == item.getPlayerObjId())
+				tmp.add(item);
+		}
+		this.dropItems = tmp.toArray(new DropItem[tmp.size()]);
 		size = this.dropItems.length;
 	}
 
