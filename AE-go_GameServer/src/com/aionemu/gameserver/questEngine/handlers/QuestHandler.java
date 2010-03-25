@@ -133,7 +133,7 @@ public class QuestHandler
 			case 1009:
 			case -1:
 				QuestState qs = player.getQuestStateList().getQuestState(questId);
-				if (qs.getStatus() == QuestStatus.REWARD)
+				if (qs != null && qs.getStatus() == QuestStatus.REWARD)
 				{
 					return sendQuestDialog(player, targetObjId, 5);
 				}
