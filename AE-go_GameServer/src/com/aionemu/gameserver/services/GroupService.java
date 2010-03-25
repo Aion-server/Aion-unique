@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 
+import javolution.util.FastMap;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.configs.main.GroupConfig;
@@ -43,8 +45,6 @@ import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
-import com.aionemu.gameserver.utils.collections.cachemap.CacheMap;
-import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
@@ -58,20 +58,18 @@ public class GroupService
 	/**
 	 * Definition for logging
 	 */
-	private static final Logger						log					= Logger
-																			.getLogger(CM_VIEW_PLAYER_DETAILS.class);
+	private static final Logger						log				= Logger.getLogger(CM_VIEW_PLAYER_DETAILS.class);
 
 	/**
 	 * Caching group members
 	 */
-	private final CacheMap<Integer, PlayerGroup>	groupMembersCache	= CacheMapFactory.createSoftCacheMap("Player",
-																			"playerGroup");
+	private final FastMap<Integer, PlayerGroup>		groupMembers	= new FastMap<Integer, PlayerGroup>();
 
 	/**
 	 * Caching remove group member schedule
 	 */
-	private CacheMap<Integer, ScheduledFuture<?>>	playerGroupCache	= CacheMapFactory.createSoftCacheMap(
-																			"PlayerObjId", "T");
+	private FastMap<Integer, ScheduledFuture<?>>	playerGroup		= new FastMap<Integer, ScheduledFuture<?>>();
+
 	/**
 	 * Injections
 	 */
@@ -80,7 +78,8 @@ public class GroupService
 	private IDFactory								aionObjectsIDFactory;
 
 	@Inject
-	QuestEngine questEngine;
+	QuestEngine										questEngine;
+
 	/**
 	 * This method will add a member to the group member cache
 	 * 
@@ -88,14 +87,14 @@ public class GroupService
 	 */
 	public void addGroupMemberToCache(Player player)
 	{
-		if(!groupMembersCache.contains(player.getObjectId()))
-			groupMembersCache.put(player.getObjectId(), player.getPlayerGroup());
+		if(!groupMembers.containsKey(player.getObjectId()))
+			groupMembers.put(player.getObjectId(), player.getPlayerGroup());
 	}
 
 	public void removeGroupMemberFromCache(int playerObjId)
 	{
-		if(groupMembersCache.contains(playerObjId))
-			groupMembersCache.remove(playerObjId);
+		if(groupMembers.containsKey(playerObjId))
+			groupMembers.remove(playerObjId);
 	}
 
 	/**
@@ -104,9 +103,7 @@ public class GroupService
 	 */
 	public boolean isGroupMember(int playerObjId)
 	{
-		if(groupMembersCache.contains(playerObjId))
-			return true;
-		return false;
+		return groupMembers.containsKey(playerObjId);
 	}
 
 	/**
@@ -117,7 +114,7 @@ public class GroupService
 	 */
 	public PlayerGroup getGroup(int playerObjId)
 	{
-		return groupMembersCache.get(playerObjId);
+		return groupMembers.get(playerObjId);
 	}
 
 	/**
@@ -131,46 +128,41 @@ public class GroupService
 		if(RestrictionsManager.canInviteToGroup(inviter, invited))
 		{
 			final PlayerGroup group = inviter.getPlayerGroup();
-			if(RestrictionsManager.canInviteToGroup(inviter, invited))
-			{
-				RequestResponseHandler responseHandler = new RequestResponseHandler(inviter){
-					@Override
-					public void acceptRequest(Creature requester, Player responder)
-					{
-						if(group != null && group.isFull())
-							return;
-
-						PacketSendUtility
-							.sendPacket(inviter, SM_SYSTEM_MESSAGE.REQUEST_GROUP_INVITE(invited.getName()));
-						if(group != null)
-						{
-							inviter.getPlayerGroup().addPlayerToGroup(invited);
-							addGroupMemberToCache(invited);
-						}
-						else
-						{
-							new PlayerGroup(aionObjectsIDFactory.nextId(), inviter);
-							inviter.getPlayerGroup().addPlayerToGroup(invited);
-							addGroupMemberToCache(inviter);
-							addGroupMemberToCache(invited);
-						}
-					}
-
-					@Override
-					public void denyRequest(Creature requester, Player responder)
-					{
-						PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE
-							.REJECT_GROUP_INVITE(responder.getName()));
-					}
-				};
-
-				boolean result = invited.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_REQUEST_GROUP_INVITE,
-					responseHandler);
-				if(result)
+			RequestResponseHandler responseHandler = new RequestResponseHandler(inviter){
+				@Override
+				public void acceptRequest(Creature requester, Player responder)
 				{
-					PacketSendUtility.sendPacket(invited, new SM_QUESTION_WINDOW(
-						SM_QUESTION_WINDOW.STR_REQUEST_GROUP_INVITE, inviter.getObjectId(), inviter.getName()));
+					if(group != null && group.isFull())
+						return;
+
+					PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.REQUEST_GROUP_INVITE(invited.getName()));
+					if(group != null)
+					{
+						inviter.getPlayerGroup().addPlayerToGroup(invited);
+						addGroupMemberToCache(invited);
+					}
+					else
+					{
+						new PlayerGroup(aionObjectsIDFactory.nextId(), inviter);
+						inviter.getPlayerGroup().addPlayerToGroup(invited);
+						addGroupMemberToCache(inviter);
+						addGroupMemberToCache(invited);
+					}
 				}
+
+				@Override
+				public void denyRequest(Creature requester, Player responder)
+				{
+					PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.REJECT_GROUP_INVITE(responder.getName()));
+				}
+			};
+
+			boolean result = invited.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_REQUEST_GROUP_INVITE,
+				responseHandler);
+			if(result)
+			{
+				PacketSendUtility.sendPacket(invited, new SM_QUESTION_WINDOW(
+					SM_QUESTION_WINDOW.STR_REQUEST_GROUP_INVITE, inviter.getObjectId(), inviter.getName()));
 			}
 		}
 	}
@@ -280,7 +272,7 @@ public class GroupService
 				int currentDp = member.getCommonData().getDp();
 				int dpReward = StatFunctions.calculateGroupDPReward(member, owner);
 				member.getCommonData().setDp(dpReward + currentDp);
-				questEngine.onKill(new QuestEnv(owner, member, 0 , 0));
+				questEngine.onKill(new QuestEnv(owner, member, 0, 0));
 			}
 		}
 	}
@@ -332,8 +324,8 @@ public class GroupService
 	 */
 	public void addPlayerGroupCache(int playerObjId, ScheduledFuture<?> future)
 	{
-		if(!playerGroupCache.contains(playerObjId))
-			playerGroupCache.put(playerObjId, future);
+		if(!playerGroup.containsKey(playerObjId))
+			playerGroup.put(playerObjId, future);
 	}
 
 	/**
@@ -343,10 +335,10 @@ public class GroupService
 	 */
 	public void cancelScheduleRemove(int playerObjId)
 	{
-		if(playerGroupCache.contains(playerObjId))
+		if(playerGroup.containsKey(playerObjId))
 		{
-			playerGroupCache.get(playerObjId).cancel(true);
-			playerGroupCache.remove(playerObjId);
+			playerGroup.get(playerObjId).cancel(true);
+			playerGroup.remove(playerObjId);
 		}
 	}
 
@@ -362,7 +354,7 @@ public class GroupService
 			public void run()
 			{
 				removePlayerFromGroup(player);
-				playerGroupCache.remove(player.getObjectId());
+				playerGroup.remove(player.getObjectId());
 			}
 		}, GroupConfig.GROUP_REMOVE_TIME * 1000);
 		addPlayerGroupCache(player.getObjectId(), future);
@@ -374,6 +366,9 @@ public class GroupService
 	 */
 	public void setGroup(Player player)
 	{
+		if(!isGroupMember(player.getObjectId()))
+			return;
+
 		final PlayerGroup group = getGroup(player.getObjectId());
 		if(group.size() < 2)
 		{
