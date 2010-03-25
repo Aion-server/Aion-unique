@@ -173,6 +173,8 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 		initStat(StatEnum.BOOST_MAGICAL_SKILL, 0);
 		initStat(StatEnum.SPEED, runSpeed);
 		initStat(StatEnum.FLY_SPEED, flySpeed);
+		initStat(StatEnum.PVP_ATTACK_RATIO, 0);
+		initStat(StatEnum.PVP_DEFEND_RATIO, 0);
 	}
 
 	/**

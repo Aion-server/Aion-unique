@@ -402,6 +402,9 @@ public class StatFunctions
 		//PVP damages is capped of 60% of the actual baseDamage
 		else if( (attacker instanceof Player) && (target instanceof Player) ) {
 			baseDamages = Math.round(baseDamages * 0.60f);
+			float pvpAttackBonus = attacker.getGameStats().getCurrentStat(StatEnum.PVP_ATTACK_RATIO) * 0.001f;
+			float pvpDefenceBonus = target.getGameStats().getCurrentStat(StatEnum.PVP_DEFEND_RATIO) * 0.001f;
+			baseDamages = Math.round(baseDamages + (baseDamages * pvpAttackBonus) - (baseDamages * pvpDefenceBonus));
 			return baseDamages;
 		}
 
