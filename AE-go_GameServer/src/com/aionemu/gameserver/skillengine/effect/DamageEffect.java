@@ -61,7 +61,7 @@ extends EffectTemplate
 		
 		// apply pvp damage ratio
 		if(effect.getEffected() instanceof Player && effect.getPvpDamage() != 0)
-			valueWithDelta *= effect.getPvpDamage() / 100;
+			valueWithDelta = Math.round(valueWithDelta * (effect.getPvpDamage() / 100f));
 		
 		switch(damageType)
 		{
