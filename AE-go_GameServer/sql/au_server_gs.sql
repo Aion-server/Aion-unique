@@ -1,4 +1,4 @@
--- ----------------------------
+f-- ----------------------------
 -- server_variables
 -- ----------------------------
 
@@ -227,7 +227,6 @@ CREATE TABLE IF NOT EXISTS `droplist` (
 `min` int(11) NOT NULL DEFAULT 0,
 `max` int(11) NOT NULL DEFAULT 0,
 `chance` FLOAT NOT NULL DEFAULT 0,
-`quest` int(11) NOT NULL DEFAULT 0,
 PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
