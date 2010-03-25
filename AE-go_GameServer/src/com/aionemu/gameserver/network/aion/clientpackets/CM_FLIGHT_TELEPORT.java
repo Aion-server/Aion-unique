@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -24,20 +25,22 @@ import com.google.inject.Inject;
 /**
  * Packet about player flying teleport movement.
  * 
- * @author -Nemesiss-
+ * @author -Nemesiss-, Sweetkr
  * 
  */
-public class CM_VERIFY_LOCATION extends AionClientPacket
+public class CM_FLIGHT_TELEPORT extends AionClientPacket
 {
 	@Inject
 	private World				world;
+	float x, y, z;
+	int distance;
 
 	/**
-	 * Constructs new instance of <tt>CM_VERIFY_LOCATION </tt> packet
+	 * Constructs new instance of <tt>CM_FLIGHT_TELEPORT </tt> packet
 	 * 
 	 * @param opcode
 	 */
-	public CM_VERIFY_LOCATION(int opcode)
+	public CM_FLIGHT_TELEPORT(int opcode)
 	{
 		super(opcode);
 	}
@@ -48,19 +51,12 @@ public class CM_VERIFY_LOCATION extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		@SuppressWarnings("unused")
-		int mapid;
-		float x, y, z;
-		Player player = getConnection().getActivePlayer();
-		mapid = readD();
+		readD(); // mapId
 		x = readF();
 		y = readF();
 		z = readF();
-		byte heading = (byte) readC();
-		//Todo broadcast the correct packet for player move
-		//PacketSendUtility.broadcastPacket(player, new SM_MOVE(player, x, y, z, x2, y2, z2, heading, type), false);
-		world.updatePosition(player, x, y, z, heading);
-	
+		readC(); // locationId
+		distance = readD();	
 	}
 
 	/**
@@ -69,6 +65,12 @@ public class CM_VERIFY_LOCATION extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
+		Player player = getConnection().getActivePlayer();
 
+		if(player != null && player.isInState(CreatureState.FLIGHT_TELEPORT))
+		{
+			player.setFlightDistance(distance);
+			world.updatePosition(player, x, y, z, (byte)0);
+		}
 	}
 }

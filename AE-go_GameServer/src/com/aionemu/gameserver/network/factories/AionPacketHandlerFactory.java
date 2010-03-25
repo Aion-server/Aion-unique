@@ -52,6 +52,7 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_CANCEL;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_LOCK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_OK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_EXCHANGE_REQUEST;
+import com.aionemu.gameserver.network.aion.clientpackets.CM_FLIGHT_TELEPORT;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_ADD;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_DEL;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_FRIEND_STATUS;
@@ -111,7 +112,6 @@ import com.aionemu.gameserver.network.aion.clientpackets.CM_TIME_CHECK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_TITLE_SET;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_UI_SETTINGS;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_USE_ITEM;
-import com.aionemu.gameserver.network.aion.clientpackets.CM_VERIFY_LOCATION;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VERSION_CHECK;
 import com.aionemu.gameserver.network.aion.clientpackets.CM_VIEW_PLAYER_DETAILS;
 import com.google.inject.Injector;
@@ -186,6 +186,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_PRIVATE_STORE(0x6D), State.IN_GAME);
 		addPacket(new CM_PRIVATE_STORE_NAME(0x6E), State.IN_GAME);
 		addPacket(new CM_TITLE_SET(0x71), State.IN_GAME);
+		addPacket(new CM_CRAFT(0x73), State.IN_GAME);
 		addPacket(new CM_TELEPORT_SELECT(0x7A), State.IN_GAME);
 		addPacket(new CM_L2AUTH_LOGIN_CHECK(0x7B), State.CONNECTED);
 		addPacket(new CM_READ_MAIL(0x7C), State.IN_GAME);
@@ -211,7 +212,7 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_SET_NOTE(0xA0), State.IN_GAME);
 		addPacket(new CM_LEGION_MODIFY_EMBLEM(0xA1), State.IN_GAME);
 		addPacket(new CM_MOVE(0xA6), State.IN_GAME);
-		addPacket(new CM_VERIFY_LOCATION(0xA7), State.IN_GAME);
+		addPacket(new CM_FLIGHT_TELEPORT(0xA7), State.IN_GAME);
 		addPacket(new CM_EXCHANGE_ADD_KINAH(0xA8), State.IN_GAME);
 		addPacket(new CM_EXCHANGE_LOCK(0xA9), State.IN_GAME);
 		addPacket(new CM_EXCHANGE_OK(0xAA), State.IN_GAME);
@@ -232,7 +233,6 @@ public class AionPacketHandlerFactory
 		addPacket(new CM_GATHER(0xF9), State.IN_GAME);// 1.5
 		addPacket(new CM_ENTER_WORLD(0xFE), State.AUTHED);
 		addPacket(new CM_LEVEL_READY(0xFF), State.IN_GAME);
-		addPacket(new CM_CRAFT(0x73), State.IN_GAME);
 	}
 
 	public AionPacketHandler getPacketHandler()

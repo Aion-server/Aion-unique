@@ -519,10 +519,10 @@ public class PlayerController extends CreatureController<Player>
 	public void onFlyTeleportEnd()
 	{
 		Player player = getOwner();
-		player.unsetState(CreatureState.FLYING);
+		player.unsetState(CreatureState.FLIGHT_TELEPORT);
 		player.setState(CreatureState.ACTIVE);
 		addZoneUpdateMask(ZoneUpdateMode.ZONE_REFRESH);
-	}	
+	}
 
 	/**
 	 * Zone update mask management

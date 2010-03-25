@@ -28,14 +28,13 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_CASTSPELL extends AionServerPacket
 {
-
 	private int attackerobjectid;
 	private int	targetObjectId;
 	private int	spellid;
 	private int	level;
 	private int	unk; //can cast?? 
 	private int duration;
-	
+
 	public SM_CASTSPELL(int attackerobjectid ,int spellid,int level,int unk, int targetObjectId, int duration)
 	{
 		this.attackerobjectid = attackerobjectid;
@@ -49,11 +48,9 @@ public class SM_CASTSPELL extends AionServerPacket
 	/**
 	 * {@inheritDoc}
 	 */
-	
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
-	{		
-	
+	{
 		writeD(buf, attackerobjectid);
 		writeH(buf, spellid); 
 		writeC(buf, level);
@@ -61,6 +58,7 @@ public class SM_CASTSPELL extends AionServerPacket
 		writeD(buf, targetObjectId); 
 		writeH(buf, duration); // CAST TIME
 		writeC(buf, 0x00);//writeC(0);
-
-	}	
+		writeF(buf, 1.0f);//1.0 fixed?
+		writeC(buf, 0);
+	}
 }

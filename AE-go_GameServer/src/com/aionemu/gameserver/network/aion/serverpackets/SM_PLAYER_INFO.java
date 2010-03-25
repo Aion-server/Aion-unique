@@ -23,6 +23,7 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -80,14 +81,8 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		 */
 		writeD(buf, player.getTransformedModelId() == 0 ? pcd.getTemplateId() : player.getTransformedModelId());
 
-		if(enemy)
-		{
-			writeC(buf, 0x00);
-		}
-		else
-		{
-			writeC(buf, 0x26);
-		}
+		writeC(buf, enemy == true ? 0x00 : 0x26);
+
 		writeC(buf, raceId); // race
 		writeC(buf, pcd.getPlayerClass().getClassId());
 		writeC(buf, genderId); // sex
@@ -234,6 +229,12 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeF(buf, player.getY());// y
 		writeF(buf, player.getZ());// z
 		writeC(buf, 0x00); // move type
+
+		if(player.isInState(CreatureState.FLIGHT_TELEPORT))
+		{
+			writeD(buf, player.getFlightTeleportId());
+			writeD(buf, player.getFlightDistance());
+		}
 
 		writeC(buf, player.getVisualState()); // visualState
 		writeS(buf, player.getCommonData().getNote()); // note show in right down windows if your target on player

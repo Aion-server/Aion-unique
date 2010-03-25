@@ -54,6 +54,7 @@ public class CM_EMOTION extends AionClientPacket
 	float						x;
 	float						y;
 	float						z;
+	byte						heading;
 
 	/**
 	 * Constructs new client packet instance.
@@ -74,31 +75,32 @@ public class CM_EMOTION extends AionClientPacket
 		emotionType = readC();
 		switch(emotionType)
 		{
-			case 0x0:// select target
-			case 0x01:// jump
-			case 0x02:// resting
-			case 0x03:// end resting
-			case 0x7: // fly teleport land
-			case 0x8:// fly up
-			case 0x9:// land
-			case 0x11:// Nothing here
-			case 0x13:// emotion = readH();
-			case 0x14:// duel end
-			case 0x15:// walk on
-			case 0x16:// walk off
-			case 0x1F:// powershard on
-			case 0x20:// powershard off
-			case 0x21:// get equip weapon
-			case 0x22:// remove equip weapon
+			case 0:// select target
+			case 1: // jump
+			case 2: // resting
+			case 3: // end resting
+			case 7: // fly teleport land
+			case 8: // fly up
+			case 9: // land
+			case 17: // Nothing here
+			case 19: // emotion = readH();
+			case 20: // duel end
+			case 21: // walk on
+			case 22: // walk off
+			case 31: // powershard on
+			case 32: // powershard off
+			case 33: // get equip weapon
+			case 34: // remove equip weapon
 				break;
-			case 0x10:
+			case 16:
 				emotion = readH();
 				break;
-			case 0x4:// Sit (Nothing to do) ?? check
-			case 0x5:// standing (Nothing to do) ?? check
+			case 4: // sit on chair
+			case 5: // stand on chair
 				x = readF();
 				y = readF();
 				z = readF();
+				heading = (byte)readC();
 				break;
 			default:
 				log.info("Unknown emotion type? 0x" + Integer.toHexString(emotionType).toUpperCase());
@@ -117,16 +119,24 @@ public class CM_EMOTION extends AionClientPacket
 		{
 			case 0:
 				return;
-			case 0x2:
+			case 2:
 				player.setState(CreatureState.RESTING);
 				break;
-			case 0x3:
+			case 3:
 				player.unsetState(CreatureState.RESTING);
 				break;
-			case 0x7:
+			case 4:
+				player.unsetState(CreatureState.ACTIVE);
+				player.setState(CreatureState.CHAIR);
+				break;
+			case 5:
+				player.unsetState(CreatureState.CHAIR);
+				player.setState(CreatureState.ACTIVE);
+				break;
+			case 7:
 				player.getController().onFlyTeleportEnd();
 				break;
-			case 0x8:
+			case 8:
 				// TODO move to player controller? but after states working
 				ZoneInstance currentZone = player.getZoneInstance();
 				if(currentZone != null)
@@ -143,24 +153,24 @@ public class CM_EMOTION extends AionClientPacket
 			case 9:
 				player.getFlyController().endFly();
 				break;
-			case 0x21:
-			case 0x13:
+			case 33:
+			case 19:
 				player.setState(CreatureState.WEAPON_EQUIPPED);
 				break;
-			case 0x22:
-			case 0x14:
+			case 34:
+			case 20:
 				player.unsetState(CreatureState.WEAPON_EQUIPPED);
 				break;
-			case 0x15:
+			case 21:
 				// cannot toggle walk when you flying or gliding
 				if(player.getFlyState() > 0)
 					return;
 				player.setState(CreatureState.WALKING);
 				break;
-			case 0x16:
+			case 22:
 				player.unsetState(CreatureState.WALKING);
 				break;
-			case 0x1F:
+			case 31:
 				if(!player.getEquipment().isPowerShardEquipped())
 				{
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.NO_POWER_SHARD_EQUIPPED());
@@ -169,12 +179,12 @@ public class CM_EMOTION extends AionClientPacket
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.ACTIVATE_THE_POWER_SHARD());
 				player.setState(CreatureState.POWERSHARD);
 				break;
-			case 0x20:
+			case 32:
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.DEACTIVATE_THE_POWER_SHARD());
 				player.unsetState(CreatureState.POWERSHARD);
 				break;
 		}
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, emotionType, emotion, x, y, z,
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, emotionType, emotion, x, y, z, heading,
 			player.getTarget() == null ? 0 : player.getTarget().getObjectId()), true);
 	}
 }

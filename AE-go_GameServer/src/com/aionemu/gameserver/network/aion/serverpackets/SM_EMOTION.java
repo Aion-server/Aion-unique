@@ -68,6 +68,7 @@ public class SM_EMOTION extends AionServerPacket
 	private float				x;
 	private float				y;
 	private float				z;
+	private byte				heading;
 
 	/**
 	 * This constructor should be used when emotion and targetid is 0
@@ -113,7 +114,7 @@ public class SM_EMOTION extends AionServerPacket
 	 * New
 	 *
 	 */
-	public SM_EMOTION(Player player, int emotionType, int emotion, float x, float y, float z, int targetObjectId)
+	public SM_EMOTION(Player player, int emotionType, int emotion, float x, float y, float z, byte heading, int targetObjectId)
 	{
 		this.senderObjectId = player.getObjectId();
 		this.emotionType = emotionType;
@@ -121,6 +122,7 @@ public class SM_EMOTION extends AionServerPacket
 		this.x = x;
 		this.y = y;
 		this.z = z;
+		this.heading = heading;
 		this.targetObjectId = targetObjectId;
 
 		if (player.isInState(CreatureState.FLYING))
@@ -170,6 +172,7 @@ public class SM_EMOTION extends AionServerPacket
 				writeF(buf, x);
 				writeF(buf, y);
 				writeF(buf, z);
+				writeC(buf, heading);
 				break;
 			case 5:
 				// stand (chair)
@@ -178,6 +181,7 @@ public class SM_EMOTION extends AionServerPacket
 				writeF(buf, x);
 				writeF(buf, y);
 				writeF(buf, z);
+				writeC(buf, heading);
 				break;
 			case 6:
 				// fly teleport (start)

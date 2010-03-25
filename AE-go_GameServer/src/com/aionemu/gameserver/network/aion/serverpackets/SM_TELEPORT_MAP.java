@@ -58,7 +58,7 @@ public class SM_TELEPORT_MAP extends AionServerPacket
 		if ((teleport != null) && (teleport.getNpcId() != 0) && (teleport.getTeleportId() != 0))
 		{
 			writeD(buf, targetObjectId);
-			writeD(buf, teleport.getTeleportId());
+			writeH(buf, teleport.getTeleportId());
 		}
 		else
 		{

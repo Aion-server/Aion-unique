@@ -36,6 +36,7 @@ import com.aionemu.gameserver.model.drop.DropTemplate;
 import com.aionemu.gameserver.model.gameobjects.DropNpc;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_ITEMLIST;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
@@ -191,6 +192,8 @@ public class DropService
 		PacketSendUtility.sendPacket(player, new SM_LOOT_ITEMLIST(npcId, dropItems));
 		// PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, size > 0 ? size - 1 : size));
 		PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 2));
+		player.unsetState(CreatureState.ACTIVE);
+		player.setState(CreatureState.LOOTING);
 		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 35, 0, npcId), true);
 
 		// if dropitems is empty, resend droplist for close loot
@@ -277,6 +280,8 @@ public class DropService
 		else
 		{
 			PacketSendUtility.sendPacket(player, new SM_LOOT_STATUS(npcId, 3));
+			player.unsetState(CreatureState.LOOTING);
+			player.setState(CreatureState.ACTIVE);
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 36, 0, npcId), true);
 			Npc npc = (Npc) world.findAionObject(npcId);
 			if(npc != null)
