@@ -1,7 +1,7 @@
 -- Ishalgen droplist made by Atomix from http://aion.atomixro.com
 -- Thanks to TheOne & Matej for the parser.
 
-INSERT INTO droplist (mobId, itemId, min, max, chance, quest) VALUES
+INSERT INTO droplist (mobId, itemId, min, max, chance) VALUES
 -- START Ishalgen
 -- Sprigg Gatherer
 (210369,100600359,1,1,2.35),
