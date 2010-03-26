@@ -16,6 +16,8 @@
  */
 package com.aionemu.gameserver.dataholders;
 
+import javax.inject.Inject;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.loadingutils.XmlDataLoader;
@@ -125,16 +127,19 @@ public final class DataManager
 	public PortalData					PORTAL_DATA;
 	
 	public ItemSetData					ITEM_SET_DATA;
+	
+	private XmlDataLoader loader;
 
 	/**
 	 * Constructor creating <tt>DataManager</tt> instance.<br>
 	 * NOTICE: calling constructor implies loading whole data from /data/static_data immediately
 	 */
-	public DataManager()
+	@Inject
+	public DataManager(XmlDataLoader xmlDataLoader)
 	{
 		log.info("##### STATIC DATA [section beginning] #####");
 
-		XmlDataLoader loader = new XmlDataLoader();
+		this.loader = xmlDataLoader;
 
 		long start = System.currentTimeMillis();
 		StaticData data = loader.loadStaticData();

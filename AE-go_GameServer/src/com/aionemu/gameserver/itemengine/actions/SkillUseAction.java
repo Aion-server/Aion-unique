@@ -24,7 +24,6 @@ import javax.xml.bind.annotation.XmlType;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
-import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -57,11 +56,12 @@ public class SkillUseAction extends AbstractItemAction
 	}
 
 	@Override
-	public void act(Player player, Item parentItem, Item TargetItem, ItemService itemService)
+	public void act(Player player, Item parentItem, Item targetItem)
 	{
 		Skill skill = SkillEngine.getInstance().getSkill(player, skillid, level, player.getTarget());
 		if(skill != null)
 		{
+			skill.setItemTemplate(parentItem.getItemTemplate());
 			PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(),
 				parentItem.getObjectId(), parentItem.getItemTemplate().getTemplateId()), true);
 			skill.useSkill();

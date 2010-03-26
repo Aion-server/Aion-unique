@@ -23,6 +23,7 @@ import java.util.List;
 import com.aionemu.gameserver.controllers.movement.StartMovingListener;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
@@ -57,6 +58,8 @@ public class Skill
 	private SkillTemplate skillTemplate;
 
 	private boolean	firstTargetRangeCheck = true;
+	
+	private ItemTemplate itemTemplate;
 	
 	public enum SkillType
 	{
@@ -131,7 +134,7 @@ public class Skill
 		{
 			effector.setCasting(null);
 			return;
-		}
+		}		
 
 		//temporary hook till i find permanent solution
 		if(skillTemplate.isActive() || skillTemplate.isToggle())
@@ -204,7 +207,7 @@ public class Skill
 				if(effected instanceof Player && skillTemplate.getPvpDuration() != 0)
 					realDuration = duration * skillTemplate.getPvpDuration() / 100;
 				
-				Effect effect = new Effect(effector, effected, skillTemplate,	skillLevel, realDuration);
+				Effect effect = new Effect(effector, effected, skillTemplate,	skillLevel, realDuration, itemTemplate);
 				effect.initialize();
 				spellStatus = effect.getSpellStatus().getId();
 				effects.add(effect);
@@ -395,5 +398,13 @@ public class Skill
 	public void setFirstTargetRangeCheck(boolean firstTargetRangeCheck)
 	{
 		this.firstTargetRangeCheck = firstTargetRangeCheck;
+	}
+
+	/**
+	 * @param itemTemplate the itemTemplate to set
+	 */
+	public void setItemTemplate(ItemTemplate itemTemplate)
+	{
+		this.itemTemplate = itemTemplate;
 	}
 }

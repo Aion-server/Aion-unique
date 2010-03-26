@@ -30,8 +30,10 @@ import com.aionemu.commons.utils.AEInfos;
 import com.aionemu.gameserver.configs.Config;
 import com.aionemu.gameserver.configs.main.TaskManagerConfig;
 import com.aionemu.gameserver.dao.PlayerDAO;
+import com.aionemu.gameserver.dataholders.loadingutils.XmlServiceProxy;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.services.ServiceProxy;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.taskmanager.tasks.GCTaskManager;
 import com.aionemu.gameserver.taskmanager.tasks.KnownListUpdateTask;
@@ -74,9 +76,12 @@ public class GameServer
 		NetworkInjectionModule networkIM = new NetworkInjectionModule();
 		ObjectControllerInjectionModule controllerIM = new ObjectControllerInjectionModule();
 		
-		injector = Guice.createInjector(dataIM,networkIM, new IDFactoriesInjectionModule(), controllerIM);
+		injector = Guice.createInjector(dataIM,networkIM, new IDFactoriesInjectionModule(), controllerIM);		
 		dataIM.setInjector(injector);
 		networkIM.setInjector(injector);
+		
+		// after all data is loaded need to set service proxy to xml service adapter
+		injector.getInstance(XmlServiceProxy.class).setServiceProxy(injector.getInstance(ServiceProxy.class));
 	}
 
 	/**

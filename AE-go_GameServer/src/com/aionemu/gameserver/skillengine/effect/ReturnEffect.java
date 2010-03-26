@@ -16,10 +16,12 @@
  */
 package com.aionemu.gameserver.skillengine.effect;
 
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.dataholders.loadingutils.XmlServiceProxy;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
@@ -29,20 +31,28 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ReturnEffect")
-public class ReturnEffect
-extends EffectTemplate
+public class ReturnEffect extends EffectTemplate
 {
-
+	/**
+	 * 
+	 * @param u
+	 * @param parent
+	 */
+	void afterUnmarshal (Unmarshaller u, Object parent)
+	{		
+		xsp = u.getAdapter(XmlServiceProxy.class);
+	}
+	
 	@Override
 	public void applyEffect(Effect effect)
 	{
-		((Player)effect.getEffector()).getController().moveToBindLocation(500);
+		xsp.getTeleportService().moveToBindLocation((Player) effect.getEffector(), true, 500);
 	}
 
 	@Override
 	public void calculate(Effect effect)
 	{
-		if(effect.getEffected().isSpawned())	
+		if(effect.getEffected().isSpawned())
 			effect.increaseSuccessEffect();
 	}
 }

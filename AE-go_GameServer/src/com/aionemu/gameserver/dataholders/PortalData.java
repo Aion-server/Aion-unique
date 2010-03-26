@@ -45,7 +45,8 @@ public class PortalData
 	/** A map containing all npc templates */
 	private TIntObjectHashMap<PortalTemplate> portalData	= new TIntObjectHashMap<PortalTemplate>();
 	private HashMap<Integer, ArrayList<PortalTemplate>> instancesMap = new HashMap<Integer, ArrayList<PortalTemplate>>();
-	
+	private HashMap<String, PortalTemplate> namedPortals = new HashMap<String, PortalTemplate>();
+
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
 		for(PortalTemplate portal : portals)
@@ -62,6 +63,8 @@ public class PortalData
 				}
 				templates.add(portal);
 			}
+			if(portal.getName() != null && !portal.getName().isEmpty())
+				namedPortals.put(portal.getName(), portal);
 		}
 		portals = null;
 	}
@@ -97,5 +100,19 @@ public class PortalData
 		throw new IllegalArgumentException("There is no portal template for: " + worldId + " " + race);	
 	}
 	
-	
+	/**
+	 * 
+	 * @param worldId
+	 * @param name
+	 * @return
+	 */
+	public PortalTemplate getTemplateByNameAndWorld(int worldId, String name)
+	{
+		PortalTemplate portal = namedPortals.get(name);
+		
+		if(portal != null && portal.getExitPoint().getMapId() != worldId)
+			throw new IllegalArgumentException("Invalid combination of world and name: " + worldId + " " + name);	
+			
+		return portal;
+	}
 }

@@ -477,16 +477,6 @@ public class PlayerController extends CreatureController<Player>
 	}
 
 	/**
-	 * TODO: REMOVE THIS AND FIX FOR RETURNEFFECT
-	 * 
-	 * @param delay
-	 */
-	public void moveToBindLocation(int delay)
-	{
-		sp.getTeleportService().moveToBindLocation(getOwner(), true, delay);
-	}
-
-	/**
 	 * After entering game player char is "blinking" which means that it's in under some protection, after making an
 	 * action char stops blinking. - Starts protection active - Schedules task to end protection
 	 */

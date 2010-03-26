@@ -102,7 +102,8 @@ public class Effects
 		@XmlElement(name = "switchhpmp", type = SwitchHpMpEffect.class),
 		@XmlElement(name = "summon", type = SummonEffect.class),
 		@XmlElement(name = "aura", type = AuraEffect.class),
-		@XmlElement(name = "resurrect", type = ResurrectEffect.class)
+		@XmlElement(name = "resurrect", type = ResurrectEffect.class),
+		@XmlElement(name = "returnpoint", type = ReturnPointEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	

@@ -147,4 +147,10 @@
 		<exitpoint mapid="220030000" x="1748" y="1807" z="254"/>
 	</portal>
 	
+	<!-- SCROLL TELEPORTS -->
+	
+	<portal name="LF1A_RETURN_AREA_1">
+		<exitpoint mapid="210030000" x="1690.4" y="1481.4" z="121.4"/>
+	</portal>
+	
 </portal_templates>

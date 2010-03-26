@@ -16,7 +16,7 @@
 
 	<xs:complexType name="Portal">
 		<xs:sequence>
-			<xs:element name="entrypoint" type="EntryPoint" minOccurs="1"
+			<xs:element name="entrypoint" type="EntryPoint" minOccurs="0"
 				maxOccurs="2" />
 			<xs:element name="exitpoint" type="ExitPoint" minOccurs="1"
 				maxOccurs="1" />
@@ -28,6 +28,7 @@
 		<xs:attribute name="maxlevel" type="xs:int" />
 		<xs:attribute name="minlevel" type="xs:int" />
 		<xs:attribute name="instance" type="xs:boolean" />
+		<xs:attribute name="name" type="xs:string" />
 		<xs:attribute name="npcid" type="xs:int" />
 	</xs:complexType>
 

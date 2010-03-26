@@ -20,17 +20,28 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.dataholders.loadingutils.XmlServiceProxy;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.services.ItemService;
 
 /**
  * @author ATracer
- *
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractItemAction")
-public abstract class AbstractItemAction {
+public abstract class AbstractItemAction
+{
+	/**
+	 * This instance should be set in unmarshal method
+	 */
+	protected XmlServiceProxy xsp;
+	/**
+	 * 
+	 * @param player
+	 * @param parentItem
+	 * @param targetItem
+	 */
+	public abstract void act(Player player, Item parentItem, Item targetItem);
 
-	public abstract void act(Player player, Item parentItem, Item targetItem, ItemService itemService);
 }

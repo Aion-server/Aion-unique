@@ -20,6 +20,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.BindPointData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
+import com.aionemu.gameserver.dataholders.PortalData;
 import com.aionemu.gameserver.dataholders.TeleLocationData;
 import com.aionemu.gameserver.dataholders.TeleporterData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
@@ -27,6 +28,8 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.Storage;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.templates.BindPointTemplate;
+import com.aionemu.gameserver.model.templates.portal.ExitPoint;
+import com.aionemu.gameserver.model.templates.portal.PortalTemplate;
 import com.aionemu.gameserver.model.templates.teleport.TelelocationTemplate;
 import com.aionemu.gameserver.model.templates.teleport.TeleportLocation;
 import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
@@ -70,6 +73,8 @@ public class TeleportService
 	private BindPointData		bindPointData;
 	@Inject
 	private PlayerInitialData	playerInitialData;
+	@Inject
+	private PortalData			portalData;
 
 	/**
 	 * Schedules teleport animation
@@ -436,5 +441,22 @@ public class TeleportService
 			z = locationData.getZ();
 		}
 		PacketSendUtility.sendPacket(player, new SM_SET_BIND_POINT(worldId, x, y, z));
+	}
+	
+	/**
+	 * 
+	 * @param portalName
+	 */
+	public void teleportToPortalExit(Player player, String portalName, int worldId, int delay)
+	{
+		PortalTemplate template = portalData.getTemplateByNameAndWorld(worldId, portalName);
+		if(template == null)
+		{
+			log.warn("No portal template found for : " + portalName + " " + worldId);
+			return;
+		}
+		
+		ExitPoint exitPoint = template.getExitPoint();
+		teleportTo(player, worldId, exitPoint.getX(), exitPoint.getY(), exitPoint.getZ(), delay);
 	}
 }

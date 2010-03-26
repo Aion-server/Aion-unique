@@ -179,6 +179,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="reflector" type="ReflectorEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="returnpoint" type="ReturnPointEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -891,6 +893,13 @@
 				<xs:attribute name="radius" type="xs:int" />
 				<xs:attribute name="delta" type="xs:int" />
 				<xs:attribute name="value" type="xs:int" />			
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="ReturnPointEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">		
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

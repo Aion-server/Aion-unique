@@ -136,6 +136,12 @@ public class ItemTemplate extends VisibleObjectTemplate
 
 	private int					itemId;
 	
+	@XmlAttribute(name = "return_world")
+	private int					returnWorldId;
+	
+	@XmlAttribute(name = "return_alias")
+	private String				returnAlias;
+	
 	@XmlElement(name = "godstone")
 	private GodstoneInfo		godstoneInfo;
 	
@@ -435,4 +441,19 @@ public class ItemTemplate extends VisibleObjectTemplate
 		return itemId;
 	}
 
+	/**
+	 * @return the returnWorldId
+	 */
+	public int getReturnWorldId()
+	{
+		return returnWorldId;
+	}
+
+	/**
+	 * @return the returnAlias
+	 */
+	public String getReturnAlias()
+	{
+		return returnAlias;
+	}
 }

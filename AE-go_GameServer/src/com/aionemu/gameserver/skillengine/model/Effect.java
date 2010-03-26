@@ -23,6 +23,7 @@ import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.movement.AttackCalcObserver;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_ACTIVATION;
 import com.aionemu.gameserver.skillengine.effect.EffectTemplate;
 import com.aionemu.gameserver.skillengine.effect.Effects;
@@ -88,6 +89,8 @@ public class Effect
 	
 	private boolean isStopped;
 	
+	private ItemTemplate itemTemplate;
+	
 	public Effect(Creature effector, Creature effected, SkillTemplate skillTemplate, int skillLevel, int duration)
 	{
 		this.effector = effector;
@@ -95,6 +98,12 @@ public class Effect
 		this.skillTemplate = skillTemplate;
 		this.skillLevel = skillLevel;
 		this.duration = duration;
+	}
+	
+	public Effect(Creature effector, Creature effected, SkillTemplate skillTemplate, int skillLevel, int duration, ItemTemplate itemTemplate)
+	{
+		this(effector, effected, skillTemplate, skillLevel, duration);
+		this.itemTemplate = itemTemplate;
 	}
 	
 	/**
@@ -595,6 +604,11 @@ public class Effect
 	public int getPvpDamage()
 	{
 		return skillTemplate.getPvpDamage();
+	}
+	
+	public ItemTemplate getItemTemplate()
+	{
+		return itemTemplate;
 	}
 
 	/**

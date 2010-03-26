@@ -48,7 +48,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_UPDATE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
-import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
@@ -60,16 +59,9 @@ public class ItemService
 { 
 	private static Logger log = Logger.getLogger(ItemService.class);
 
-	private IDFactory aionObjectsIDFactory;
-	@SuppressWarnings("unused")
-	private World world;
-
 	@Inject
-	public ItemService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world)
-	{
-		this.aionObjectsIDFactory = aionObjectsIDFactory;
-		this.world = world;
-	}
+	@IDFactoryAionObject
+	private IDFactory aionObjectsIDFactory;
 
 	/**
 	 * @param itemId

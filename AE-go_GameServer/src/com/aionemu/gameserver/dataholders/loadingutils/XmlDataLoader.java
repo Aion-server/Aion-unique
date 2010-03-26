@@ -28,6 +28,7 @@ import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import com.aionemu.gameserver.dataholders.StaticData;
+import com.google.inject.Inject;
 
 /**
  * This class is responsible for loading xml files. It uses JAXB to do the job.<br>
@@ -47,12 +48,9 @@ public class XmlDataLoader
 	private static final String	CACHE_XML_FILE	= "./cache/static_data.xml";
 	private static final String	MAIN_XML_FILE	= "./data/static_data/static_data.xml";
 
-	/**
-	 */
-	public XmlDataLoader()
-	{
-	}
-
+	@Inject
+	private XmlServiceProxy serviceProxy;
+	
 	/**
 	 * Creates {@link StaticData} object based on xml files, starting from static_data.xml
 	 * 
@@ -72,7 +70,7 @@ public class XmlDataLoader
 			JAXBContext jc = JAXBContext.newInstance(StaticData.class);
 			Unmarshaller un = jc.createUnmarshaller();
 			un.setSchema(getSchema());
-
+			un.setAdapter(serviceProxy);
 			return (StaticData) un.unmarshal(new File(CACHE_XML_FILE));
 		}
 		catch(Exception e)

@@ -28,7 +28,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.recipe.RecipeTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -43,7 +42,7 @@ public class CraftLearnAction extends AbstractItemAction
 	protected int recipeid;
 
 	@Override
-	public void act(Player player, Item parentItem, Item targetItem, ItemService itemService)
+	public void act(Player player, Item parentItem, Item targetItem)
 	{
 		RecipeTemplate template = DataManager.RECIPE_DATA.getRecipeTemplateById(recipeid);
 		if (template == null)

@@ -29510,6 +29510,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <returnpoint e="1"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8217" name="STR_SKILL_Stun" nameId="561007" stack="SKILL_STUN" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
         <initproperties>

@@ -25,7 +25,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
-import com.aionemu.gameserver.services.ItemService;
 import com.google.inject.Inject;
 
 /**
@@ -38,8 +37,6 @@ public class CM_USE_ITEM extends AionClientPacket {
 
 	@Inject
 	QuestEngine questEngine;
-	@Inject
-	ItemService itemService;
 
 	private static final Logger log = Logger.getLogger(CM_USE_ITEM.class);
 
@@ -94,7 +91,7 @@ public class CM_USE_ITEM extends AionClientPacket {
 		{
 			for (AbstractItemAction itemAction : itemActions.getItemActions())
 			{
-				itemAction.act(player, item, targetItem, itemService);
+				itemAction.act(player, item, targetItem);
 			}
 		}
 	}

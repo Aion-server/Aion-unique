@@ -36,6 +36,8 @@ public class PortalTemplate
 {
 	@XmlAttribute(name = "npcid")
 	protected int				npcId;
+	@XmlAttribute(name = "name")
+	protected String			name;
 	@XmlAttribute(name = "instance")
 	protected boolean			instance;
 	@XmlAttribute(name = "minlevel")
@@ -59,6 +61,14 @@ public class PortalTemplate
 	public int getNpcId()
 	{
 		return npcId;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName()
+	{
+		return name;
 	}
 
 	/**

@@ -29,6 +29,8 @@
 			<xs:element name="godstone" type="Godstone" minOccurs="0"
 				maxOccurs="1" />
 		</xs:sequence>
+		<xs:attribute name="return_alias" type="xs:string" />
+		<xs:attribute name="return_world" type="xs:int" />
 		<xs:attribute name="equipment_type" type="equipType" />
 		<xs:attribute name="slot" type="xs:int" />
 		<xs:attribute name="cash_item" type="xs:int" />

@@ -16,8 +16,6 @@
  */
 package com.aionemu.gameserver.skillengine;
 
-import java.io.File;
-
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -32,8 +30,6 @@ import com.aionemu.gameserver.skillengine.model.SkillTemplate;
  */
 public class SkillEngine
 {	
-	public static final File SKILL_DESCRIPTOR_FILE = new File("./data/scripts/system/skills.xml"); // TODO: This file isn't exists!
-	
 	public static final SkillEngine skillEngine = new SkillEngine();
 	
 	/**
