@@ -80,11 +80,9 @@
 	<!-- Request of the Elim handled by script -->
 	
 	<!-- The Elim's Message handled by script -->
+
+	<!-- The Nymph's Gown handled by script -->
 	
-	<!-- 
-		The Nymph's Gown http://www.aionarmory.com/quest.aspx?id=1114
-		TODO: Leater... this is hard quest.... :D
-	-->
 	<!-- A Taste of Namus's Medicine -->
 	<report_to id="1119" start_npc_id="203075" end_npc_id="203080" item_id="182200225"/>
 	
