@@ -4,6 +4,12 @@
 	
 	<!-- INSTANCES -->
 	
+	<!-- Alquimia Research Center Entrance -->
+   <portal npcid="730110"  instance="true" minlevel="41" maxlevel="44" group="true" race="ASMODIANS">
+      <entrypoint mapid="220040000" x="2203.19" y="2923.57" z="699.81" race="ASMODIANS"/>
+      <exitpoint mapid="320110000" x="602.62976" y="526.6474" z="200.05792"/>
+   </portal>
+	
 	<!-- Nochsana Training Camp Asmodians -->
 	<portal npcid="700414"  instance="true" minlevel="25" maxlevel="28" group="true" race="ASMODIANS">
 		<entrypoint mapid="400010000" x="876.7211" y="3079.2874" z="1644.5786" race="ASMODIANS"/>
