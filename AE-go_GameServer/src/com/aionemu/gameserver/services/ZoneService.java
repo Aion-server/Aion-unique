@@ -202,6 +202,9 @@ public class ZoneService extends AbstractPeriodicTaskManager<Player>
 		}
 
 		Collection<ZoneInstance> neighbors = currentInstance.getNeighbors();
+		if(neighbors == null)
+			return;
+		
 		for(ZoneInstance zone : neighbors)
 		{
 			if(checkPointInZone(zone, player.getPosition()))
