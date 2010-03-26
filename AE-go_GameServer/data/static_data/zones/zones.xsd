@@ -79,11 +79,6 @@
 			<xs:enumeration value="ANTUROON_CROSSING"/>
 			<xs:enumeration value="DARU_SPRING"/>
 			<xs:enumeration value="HATATAS_HIDEOUT"/>
-			<!-- Morheim -->
-			<xs:enumeration value="ARKANIS_TEMPLE"/>
-			<xs:enumeration value="MORHEIM_FORTRESS"/>
-			<xs:enumeration value="Q1466"/>
-			<xs:enumeration value="Q2393"/>
 			<!-- sanctum -->
 			<xs:enumeration value="COLISEUM"/>
 			<xs:enumeration value="OUTER_DOCK"/>
@@ -266,6 +261,57 @@
 			<xs:enumeration value="ALTGARD_EAST_GATE_220030000"/>
 			<xs:enumeration value="SEGGURHEIM_220030000"/>
 			<xs:enumeration value="ALTGARD_FORTRESS_220030000"/>
+			<!-- morheim -->
+			<xs:enumeration value="EXECUTION_GROUND_OF_DELTRAS_220020000"/>
+			<xs:enumeration value="MIST_MANE_VILLAGE_220020000"/>
+			<xs:enumeration value="SALINTUS_OBSERVATION_POST_220020000"/>
+			<xs:enumeration value="ROAD_TO_BELUSLAN_220020000"/>
+			<xs:enumeration value="AIRSHIP_CRASH_SITE_220020000"/>
+			<xs:enumeration value="MIST_MANE_TRAINING_GROUND_220020000"/>
+			<xs:enumeration value="CHAIKATAS_HIDEOUT_220020000"/>
+			<xs:enumeration value="WONSHIKUTZS_LABORATORY_220020000"/>
+			<xs:enumeration value="LAVA_CAVE_OF_TARAN_220020000"/>
+			<xs:enumeration value="PATAMOR_THICKET_220020000"/>
+			<xs:enumeration value="MT_MUSPHEL_220020000"/>
+			<xs:enumeration value="SKY_TEMPLE_OF_ARKANIS_220020000"/>
+			<xs:enumeration value="HALABANA_HOT_SPRINGS_220020000"/>
+			<xs:enumeration value="MUNMUN_GINSENG_PLANTATION_220020000"/>
+			<xs:enumeration value="ROAD_TO_ALTGARD_220020000"/>
+			<xs:enumeration value="SKY_BRIDGE_VALLEY_220020000"/>
+			<xs:enumeration value="HILL_OF_BELEMU_220020000"/>
+			<xs:enumeration value="FIRE_TEMPLE_220020000"/>
+			<xs:enumeration value="MORHEIM_OBSERVATORY_220020000"/>
+			<xs:enumeration value="SILVER_MANE_VILLAGE_220020000"/>
+			<xs:enumeration value="SPRIGG_HABITAT_220020000"/>
+			<xs:enumeration value="SALINTUS_RISE_220020000"/>
+			<xs:enumeration value="KLAW_HABITAT_220020000"/>
+			<xs:enumeration value="ALSIG_VILLAGE_220020000"/>
+			<xs:enumeration value="SKY_TEMPLE_ENTRANCE_220020000"/>
+			<xs:enumeration value="SALINTUS_DESERT_220020000"/>
+			<xs:enumeration value="NUNU_VILLAGE_220020000"/>
+			<xs:enumeration value="MIST_MANE_VILLAGE_ENTRANCE_220020000"/>
+			<xs:enumeration value="PATAMOR_RIDGE_PATH_220020000"/>
+			<xs:enumeration value="KARHELS_AETHERIC_FIELD_220020000"/>
+			<xs:enumeration value="KELLANS_CABIN_220020000"/>
+			<xs:enumeration value="MT_MUSPHEL_ENTRANCE_220020000"/>
+			<xs:enumeration value="ALSIG_BASIN_220020000"/>
+			<xs:enumeration value="FORTRESS_OF_SORROW_220020000"/>
+			<xs:enumeration value="MORHEIM_SNOW_FIELD_220020000"/>
+			<xs:enumeration value="KASAKAS_WOOD_CAVE_220020000"/>
+			<xs:enumeration value="GIANT_ROCK_WATERFALL_220020000"/>
+			<xs:enumeration value="CRYSTAL_RISE_220020000"/>
+			<xs:enumeration value="ALTAR_OF_THE_BLACK_DRAGON_220020000"/>
+			<xs:enumeration value="ALTAR_OF_TRIAL_220020000"/>
+			<xs:enumeration value="OCTANUS_LAIR_220020000"/>
+			<xs:enumeration value="ALSIG_CROSSROAD_220020000"/>
+			<xs:enumeration value="LEPHARIST_CITADEL_220020000"/>
+			<xs:enumeration value="FALL_ROAD_220020000"/>
+			<xs:enumeration value="KENTARI_VILLAGE_220020000"/>
+			<xs:enumeration value="ICE_CLAW_VILLAGE_220020000"/>
+			<xs:enumeration value="MORHEIM_ICE_FORTRESS_220020000"/>
+			<xs:enumeration value="RED_LAVA_CLIFF_220020000"/>
+			<xs:enumeration value="Q1466"/>
+			<xs:enumeration value="Q2393"/>
 		</xs:restriction>
 	</xs:simpleType>
 
