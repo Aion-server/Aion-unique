@@ -22,7 +22,7 @@
   
 	<!-- TODO: [Spend Coin] Iron (Warrior and Scout) -->
   
-	<!-- TODO: Altgard Duties Handled by script -->
+	<!-- Altgard Duties Handled by script -->
   
 	<!-- Conversing With a Skurv handled by script -->
   
@@ -67,7 +67,7 @@
   	<!-- A Better Trap -->
   	<item_collecting start_npc_id="203606" id="2212"/>
   	
-  	<!-- TODO: A Dangerous Crop -->
+  	<!-- A Dangerous Crop handled by script -->
   	
   	<!-- Karnif Threat -->
   	<monster_hunt start_npc_id="203606" id="2211">
@@ -94,7 +94,7 @@
   	
   	<!-- Knot Your Average Message handled by scrypt-->
   	
-  	<!-- TODO: Manir's Message -->
+  	<!-- Manir's Message handled by script -->
   	
   	
   	<!-- Manir's Uncle handled by script -->
@@ -107,7 +107,7 @@
   	<!-- Ripened Frightcorn -->
   	<item_collecting start_npc_id="203604" id="2219" action_item_id="700052"/>
   	
-  	<!-- TODO: Scout it Out -->
+  	<!-- Scout it Out handled by script -->
   	
   	<!-- A Crazy Request -->
   	<item_collecting start_npc_id="203639" id="2227"/>
@@ -115,7 +115,7 @@
   	<!-- A Cure for Crazy -->
   	<report_to start_npc_id="203617" end_npc_id="203639" id="2226"/>
   	
-  	<!-- TODO: Groken's Escape -->
+  	<!-- Groken's Escape handled by script -->
   	
   	<!-- Lamir's New Clothes -->
   	<item_collecting start_npc_id="203620" id="2224"/>

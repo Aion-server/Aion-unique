@@ -140,5 +140,5 @@
 		<monster_infos var_id="1" npc_id="210409" max_kill="1"/>
 	</monster_hunt>
 	
-	<!-- TODO: Where's Rae This Time? -->
+	<!-- Where's Rae This Time? handled by script -->
 </quest_scripts>

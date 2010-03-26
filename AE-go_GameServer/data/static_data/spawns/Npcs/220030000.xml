@@ -693,7 +693,7 @@ Altgard -->
 		<object x="1459.9646" y="353.95377" z="298.7449" h="2"/>
 	</spawn>
 	<!-- Suspicious Document -->
-	<spawn map="220030000" npcid="700136" pool="1" interval="105">
+	<spawn map="220030000" npcid="700009" pool="1" interval="105">
 		<object x="1263.29" y="1116.12" z="254.15" h="85"/>
 	</spawn>
 </spawns>
