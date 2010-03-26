@@ -31,11 +31,10 @@ import com.aionemu.gameserver.network.aion.SystemMessageId;
  * @author EvilSpirit
  * @author Luno :D
  * @author Avol!
- * @author Simple :) 
+ * @author Simple :)
  */
 public class SM_SYSTEM_MESSAGE extends AionServerPacket
 {
-
 	/**
 	 * Coordinates of current location: %WORLDNAME0 Region, X=%1 Y=%2 Z=%3
 	 * 
@@ -82,18 +81,6 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public static SM_SYSTEM_MESSAGE REQUEST_TRADE(String playerName)
 	{
 		return new SM_SYSTEM_MESSAGE(1300353, playerName);
-	}
-
-	/**
-	 * The remaining playing time is %0.
-	 * 
-	 * @param playTime
-	 *            play time
-	 * @return Message instance.
-	 */
-	public static SM_SYSTEM_MESSAGE REMAINING_PLAYING_TIME(int playTime)
-	{
-		return new SM_SYSTEM_MESSAGE(1300719, playTime);
 	}
 
 	/**
@@ -163,24 +150,6 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public static SM_SYSTEM_MESSAGE YOU_ARE_BLOCKED_BY(String blocker)
 	{
 		return new SM_SYSTEM_MESSAGE(1300628, blocker);
-	}
-
-	/**
-	 * Your accumulated play time is %0 hour(s) %1 minute(s). Your accumulated rest time is %2 hour(s) %3 minute(s).
-	 * 
-	 * @param onlineHours
-	 *            accumulated online hours
-	 * @param onlineMinutes
-	 *            accumulated online minutes
-	 * @param restHours
-	 *            accumulated rest hours
-	 * @param restMinutes
-	 *            accumulated rest minutes
-	 * @return Message instance.
-	 */
-	public static SM_SYSTEM_MESSAGE ACCUMULATED_TIME(int onlineHours, int onlineMinutes, int restHours, int restMinutes)
-	{
-		return new SM_SYSTEM_MESSAGE(1390141, onlineHours, onlineMinutes, restHours, restMinutes);
 	}
 
 	/**
@@ -273,6 +242,11 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public static SM_SYSTEM_MESSAGE REQUEST_GROUP_INVITE(String player)
 	{
 		return new SM_SYSTEM_MESSAGE(1300173, player);
+	}
+
+	public static SM_SYSTEM_MESSAGE PARTY_HE_BECOME_OFFLINE(String player)
+	{
+		return new SM_SYSTEM_MESSAGE(1300175, player);
 	}
 
 	public static SM_SYSTEM_MESSAGE REJECT_GROUP_INVITE(String player)
@@ -777,7 +751,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		return new SM_SYSTEM_MESSAGE(901285, kinah);
 	}
 
-	public static final SM_SYSTEM_MESSAGE	MSG_FULL_INVENTORY	= new SM_SYSTEM_MESSAGE(1300762);
+	public static final SM_SYSTEM_MESSAGE	MSG_FULL_INVENTORY			= new SM_SYSTEM_MESSAGE(1300762);
 
 	public static final AionServerPacket	CUBEEXPAND_NOT_ENOUGH_KINAH	= new SM_SYSTEM_MESSAGE(1300831);
 
@@ -807,6 +781,54 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	}
 
 	/**
+	 * Summon Related
+	 */
+	public static SM_SYSTEM_MESSAGE SUMMON_ATTACKMODE(int nameId)
+	{
+		return new SM_SYSTEM_MESSAGE(1200008, new DescriptionId(nameId * 2 + 1));
+	}
+
+	public static SM_SYSTEM_MESSAGE SUMMON_GUARDMODE(int nameId)
+	{
+		return new SM_SYSTEM_MESSAGE(1200009, new DescriptionId(nameId * 2 + 1));
+	}
+
+	public static SM_SYSTEM_MESSAGE SUMMON_RESTMODE(int nameId)
+	{
+		return new SM_SYSTEM_MESSAGE(1200010, new DescriptionId(nameId * 2 + 1));
+	}
+
+	public static SM_SYSTEM_MESSAGE SUMMON_UNSUMMON(int nameId)
+	{
+		return new SM_SYSTEM_MESSAGE(1200011, new DescriptionId(nameId * 2 + 1));
+	}
+
+	public static SM_SYSTEM_MESSAGE SUMMON_DISMISSED(int nameId)
+	{
+		return new SM_SYSTEM_MESSAGE(1200006, new DescriptionId(nameId * 2 + 1));
+	}
+
+	public static SM_SYSTEM_MESSAGE SUMMON_INVALID_TARGET()
+	{
+		return new SM_SYSTEM_MESSAGE(1300088);
+	}
+
+	public static SM_SYSTEM_MESSAGE SUMMON_ALREADY_HAVE_FOLLOWER()
+	{
+		return new SM_SYSTEM_MESSAGE(1300072);
+	}
+
+	public static SM_SYSTEM_MESSAGE SUMMON_UNSUMMON_BY_TOO_DISTANCE()
+	{
+		return new SM_SYSTEM_MESSAGE(1300073);
+	}
+
+	public static SM_SYSTEM_MESSAGE SUMMON_CANT_ORDER_BY_TOO_DISTANCE()
+	{
+		return new SM_SYSTEM_MESSAGE(1300074);
+	}
+
+	/**
 	 * Loot
 	 */
 	public static SM_SYSTEM_MESSAGE STR_LOOT_NO_RIGHT()
@@ -814,7 +836,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 		// You are not authorized to examine the corpse.
 		return new SM_SYSTEM_MESSAGE(901338);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE STR_LOOT_FAIL_ONLOOTING()
 	{
 		// Someone is already looting that.
@@ -825,7 +847,7 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1330061, nameId);
 	}
-	
+
 	public static SM_SYSTEM_MESSAGE MSG_DONT_GET_PRODUCTION_EXP(DescriptionId nameId)
 	{
 		return new SM_SYSTEM_MESSAGE(1390221, nameId);
@@ -868,11 +890,34 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	{
 		return new SM_SYSTEM_MESSAGE(1390120, charName);
 	}
+	
+	/**
+	 * Example npc shout
+	 */
+	public static SM_SYSTEM_MESSAGE STR_CHAT_FARMER_001()
+	{
+		// Leave the crops alone!
+		return new SM_SYSTEM_MESSAGE(390270, true);
+	}
+	
+	public static SM_SYSTEM_MESSAGE STR_CHAT_FARMER_002()
+	{
+		// I spent so much time and effort to grow these crops!
+		return new SM_SYSTEM_MESSAGE(390271, true);
+	}
+	
+	public static SM_SYSTEM_MESSAGE STR_CHAT_FARMER_003()
+	{
+		// "Darn, those wretched Kerubs!"
+		return new SM_SYSTEM_MESSAGE(390272, true);
+	}
+	
 
 	public static final SM_SYSTEM_MESSAGE	COMBINE_INVENTORY_IS_FULL	= new SM_SYSTEM_MESSAGE(1330037);
 
-	private final int		code;
-	private final Object[]	params;
+	private final int						code;
+	private final Object[]					params;
+	private boolean							npcShout = false;
 
 	/**
 	 * Constructs new <tt>SM_SYSTEM_MESSAGE </tt> packet
@@ -884,6 +929,13 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	public SM_SYSTEM_MESSAGE(int code, Object... params)
 	{
 		this.code = code;
+		this.params = params;
+	}
+	
+	public SM_SYSTEM_MESSAGE(int code, boolean npcShout, Object... params)
+	{
+		this.code = code;
+		this.npcShout = npcShout;
 		this.params = params;
 	}
 
@@ -899,7 +951,13 @@ public class SM_SYSTEM_MESSAGE extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeH(buf, 0x13); // unk
+		if(!npcShout)
+			writeH(buf, 0x13); // unk
+		else
+		{
+			writeC(buf, 0x01);
+			writeC(buf, 0x01);
+		}
 		writeD(buf, 0x00); // unk
 		writeD(buf, code); // msg id
 		writeC(buf, params.length); // count
