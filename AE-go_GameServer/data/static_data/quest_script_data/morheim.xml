@@ -155,7 +155,7 @@
 
         <!-- Why the Fish Aren't Biting -->
 	<monster_hunt id="2313" start_npc_id="204379">
-		<monster_infos npc_id="211338"  var_id="0" max_kill="9"/>
+		<monster_infos npc_id="211338211325"  var_id="0" max_kill="9"/>
 	</monster_hunt>
 
         <!-- [Coin] Nip Spriggs in the Bud -->
@@ -270,7 +270,7 @@
 
         <!-- Obscured Vision -->
 	<monster_hunt id="2358" start_npc_id="204339">
-		<monster_infos npc_id="211419"  var_id="0" max_kill="9"/>
+		<monster_infos npc_id="211386"  var_id="0" max_kill="9"/>
 	</monster_hunt>
 
         <!-- Octanu's Lair -->
