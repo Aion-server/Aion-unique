@@ -51,11 +51,11 @@ public enum MovementType
 	/**
 	 * Floating up while free gliding.
 	 */
-	VALIDATE_GLIDE_UP(-124),
+	MOVEMENT_GLIDE_UP(-124),
 	/**
 	 * Sinking down while free gliding.
 	 */
-	VALIDATE_GLIDE_DOWN(-60),
+	MOVEMENT_GLIDE_DOWN(-60),
 	/**
 	 * Click to move while gliding.
 	 */

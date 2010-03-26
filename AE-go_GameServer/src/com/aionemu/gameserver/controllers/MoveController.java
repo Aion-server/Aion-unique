@@ -33,20 +33,20 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  */
 public class MoveController
 {
-	
+
 	private Future<?> moveTask;
 	private Creature owner;
 	private boolean directionChanged = true;
-	
+
 	private float targetX;
 	private float targetY;
 	private float targetZ;
 
 	private boolean isFollowTarget;
 	private boolean isStopped = false;
-	
+
 	private int moveCounter;
-	
+
 	public MoveController(Creature owner)
 	{
 		this.owner = owner;
@@ -69,7 +69,22 @@ public class MoveController
 		this.targetY = y;
 		this.targetZ = z;
 	}
-	
+
+	public float getTargetX()
+	{
+		return targetX;
+	}
+
+	public float getTargetY()
+	{
+		return targetY;
+	}
+
+	public float getTargetZ()
+	{
+		return targetZ;
+	}
+
 	public boolean isScheduled()
 	{
 		return moveTask != null && !moveTask.isCancelled();
@@ -78,7 +93,7 @@ public class MoveController
 	public void schedule()
 	{
 		moveTask = ThreadPoolManager.getInstance().scheduleAiAtFixedRate(new Runnable(){
-			
+
 			@Override
 			public void run()
 			{
@@ -86,50 +101,50 @@ public class MoveController
 			}
 		}, 0, 200);
 	}
-	
+
 	private void move()
-	{		
+	{
 		if(!owner.canPerformMove())
 		{
 			if(!isStopped)
 			{
 				isStopped = true;
 				owner.getController().stopMoving();
-			}		
+			}
 			return;
 		}
-		
+
 		VisibleObject target = owner.getTarget();
-		
+
 		if(isFollowTarget && target != null)
 		{
 			setNewDirection(target.getX(), target.getY(), target.getZ());
 		}
-		
+
 		float ownerX = owner.getX();
 		float ownerY = owner.getY();
 		float ownerZ = owner.getZ();
-		
+
 		double dist = MathUtil.getDistance(ownerX, ownerY, ownerZ, targetX, targetY, targetZ);
 		if(dist > 2)
 		{
 			isStopped = false;
-			
+
 			float speed = owner.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000;
-			
+
 			float x2 = (float) (((targetX - ownerX)/dist) * speed * 0.2) ;
 			float y2 = (float) (((targetY - ownerY)/dist) * speed * 0.2) ;
 			float z2 = (float) (((targetZ - ownerZ)/dist) * speed * 0.2) ; 
-		
+
 			byte heading2 = (byte) (Math.toDegrees(Math.atan2(y2, x2))/3) ;
-				
+
 			if(directionChanged)
 			{
 				PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner,	ownerX, ownerY, ownerZ,
-					(float) (x2 / 0.2) , (float) (y2 / 0.2) , 0 , heading2, MovementType.MOVEMENT_START_KEYBOARD));			
+					(float) (x2 / 0.2) , (float) (y2 / 0.2) , 0 , heading2, MovementType.MOVEMENT_START_KEYBOARD));
 			}
-			
-			moveCounter++;		
+
+			moveCounter++;
 			owner.getActiveRegion().getWorld().updatePosition(owner, 
 				ownerX + x2, ownerY + y2, ownerZ + z2, heading2, moveCounter % 5 == 0);
 		}
@@ -142,7 +157,7 @@ public class MoveController
 			}
 		}
 	}
-	
+
 	public double getDistanceToTarget()
 	{
 		if(isFollowTarget)
@@ -151,11 +166,11 @@ public class MoveController
 			if(target != null)
 				return MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(),
 					target.getX(), target.getY(), target.getZ());
-			
-		}		
+
+		}
 		return MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), targetX, targetY, targetZ);
 	}
-	
+
 	public void stop()
 	{
 		if(moveTask != null)

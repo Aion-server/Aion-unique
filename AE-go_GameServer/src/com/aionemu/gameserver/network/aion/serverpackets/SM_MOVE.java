@@ -34,28 +34,31 @@ public class SM_MOVE extends AionServerPacket
 	/**
 	 * Object that is moving.
 	 */
-	private final Creature							movingCreature;
-	private final float								x, y, z, x2, y2, z2;
-	private final byte								heading;
+	private final Creature			movingCreature;
+	private final float					x, y, z, x2, y2, z2;
+	private final byte					heading;
 	private final MovementType	moveType;
+	private final byte					glideFlag;
+
+	private boolean					hasDirection = false;
+	private boolean					hasGlideFlag = false;
 
 	/**
 	 * Constructs new <tt>SM_MOVE</tt> packet
 	 * 
-	 * @param movingObject
-	 *            object that is moving.
+	 * @param movingCreature
 	 * @param x
 	 * @param y
 	 * @param z
 	 * @param x2
 	 * @param y2
 	 * @param z2
-	 * @param unk1
-	 * @param unk2
-	 * 
+	 * @param heading
+	 * @param glideFlag
+	 * @param moveType
 	 */
-	public SM_MOVE(Creature movingCreature, float x, float y, float z, float x2, float y2, float z2, byte heading,
-		MovementType moveType)
+	public SM_MOVE(Creature movingCreature, float x, float y, float z, float x2, float y2, float z2,
+		byte heading, byte glideFlag, MovementType moveType)
 	{
 		this.movingCreature = movingCreature;
 		this.x = x;
@@ -65,7 +68,37 @@ public class SM_MOVE extends AionServerPacket
 		this.y2 = y2;
 		this.z2 = z2;
 		this.heading = heading;
+		this.glideFlag = glideFlag;
 		this.moveType = moveType;
+
+		this.hasDirection = true;
+		this.hasGlideFlag = true;
+	}
+
+	public SM_MOVE(Creature movingCreature, float x, float y, float z, float x2, float y2, float z2,
+		byte heading, MovementType moveType)
+	{
+		this(movingCreature, x, y, z, x2, y2, z2, heading, (byte)0, moveType);
+
+		/**
+		 * For backward compatiblity,
+		 * MOVEMENT_STOP should use SM_MOVE(Ctreature, x, y, z, heading, moveType)
+		 */
+		if(moveType != MovementType.MOVEMENT_STOP)
+			this.hasDirection = true;
+	}
+
+	public SM_MOVE(Creature movingCreature, float x, float y, float z, byte heading,
+		MovementType moveType)
+	{
+		this(movingCreature, x, y, z, 0, 0, 0, heading, (byte)0, moveType);
+	}
+
+	public SM_MOVE(Creature movingCreature, float x, float y, float z, byte heading,
+		byte glideFlag, MovementType moveType)
+	{
+		this(movingCreature, x, y, z, 0, 0, 0, heading, glideFlag, moveType);
+		this.hasGlideFlag = true;
 	}
 
 	/**
@@ -81,11 +114,16 @@ public class SM_MOVE extends AionServerPacket
 		writeC(buf, heading);
 		writeC(buf, moveType.getMovementTypeId());
 
-		if(moveType != MovementType.MOVEMENT_STOP)
+		if(this.hasDirection)
 		{
 			writeF(buf, x2);
 			writeF(buf, y2);
 			writeF(buf, z2);
+		}
+
+		if(this.hasGlideFlag)
+		{
+			writeC(buf, glideFlag);
 		}
 	}
 }

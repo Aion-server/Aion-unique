@@ -40,7 +40,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class EffectController
 {
 	private Creature owner;
-	
+
 	private Map<String, Effect> passiveEffectMap;
 	private Map<String, Effect> noshowEffects;
 	private Map<String, Effect> abnormalEffectMap;
@@ -70,7 +70,7 @@ public class EffectController
 	public void addEffect(Effect effect)
 	{
 		Map<String, Effect> mapToUpdate = getMapForEffect(effect);
-		
+
 		Effect existingEffect = mapToUpdate.get(effect.getStack());
 		if(existingEffect != null)
 		{
@@ -84,13 +84,13 @@ public class EffectController
 
 			existingEffect.endEffect();
 		}
-		
+
 		if(effect.isToggle() && mapToUpdate.size() >= 3)
 		{
 			Iterator<Effect> iter = mapToUpdate.values().iterator();
 			Effect nextEffect = iter.next();
 			nextEffect.endEffect();
-			iter.remove();			
+			iter.remove();
 		}
 
 		mapToUpdate.put(effect.getStack(), effect);
@@ -101,12 +101,12 @@ public class EffectController
 			// effect icon updates
 			if(owner instanceof Player)
 			{
-				updatePlayerEffectIcons();				
+				updatePlayerEffectIcons();
 			}
-			broadCastEffects();	
-		}	
+			broadCastEffects();
+		}
 	}
-	
+
 	/**
 	 * 
 	 * @param effect
@@ -116,13 +116,13 @@ public class EffectController
 	{
 		if(effect.isPassive())
 			return passiveEffectMap;
-		
+
 		if(effect.isToggle())
 			return noshowEffects;
-		
+
 		return abnormalEffectMap;
 	}
-	
+
 	/**
 	 * 
 	 * @param stack
@@ -137,10 +137,10 @@ public class EffectController
 	 *  Broadcasts current effects to all visible objects
 	 */
 	public void broadCastEffects()
-	{	
+	{
 		List<Effect> effects = getAbnormalEffects();
 		PacketSendUtility.broadcastPacket(getOwner(),
-			new SM_ABNORMAL_EFFECT(getOwner().getObjectId(), abnormals, effects));	
+			new SM_ABNORMAL_EFFECT(getOwner().getObjectId(), abnormals, effects));
 	}
 
 	/**
@@ -169,7 +169,7 @@ public class EffectController
 			updatePlayerEffectIcons();
 		}
 	}
-	
+
 	/**
 	 * Removes the effect by skillid.
 	 * 
@@ -180,17 +180,17 @@ public class EffectController
 		for(Effect effect : abnormalEffectMap.values()){
 			if(effect.getSkillId()==skillid){
 				effect.endEffect();
-				abnormalEffectMap.remove(effect.getStack());				
+				abnormalEffectMap.remove(effect.getStack());
 			}
 		}
-		
+
 		broadCastEffects();
 		if(owner instanceof Player)
 		{
 			updatePlayerEffectIcons();
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @param effectId
@@ -200,17 +200,17 @@ public class EffectController
 		for(Effect effect : abnormalEffectMap.values()){
 			if(effect.containsEffectId(effectId)){
 				effect.endEffect();
-				abnormalEffectMap.remove(effect.getStack());				
+				abnormalEffectMap.remove(effect.getStack());
 			}
 		}
-		
+
 		broadCastEffects();
 		if(owner instanceof Player)
 		{
 			updatePlayerEffectIcons();
 		}
 	}
-	
+
 	/**
 	 * @param skillType
 	 * @param value
@@ -221,7 +221,7 @@ public class EffectController
 		{
 			if(value == 0)
 				break;
-			
+
 			if(effect.getSkillType() == skillType)
 			{
 				effect.endEffect();
@@ -229,14 +229,14 @@ public class EffectController
 				value--;
 			}
 		}
-		
+
 		broadCastEffects();
 		if(owner instanceof Player)
 		{
 			updatePlayerEffectIcons();
 		}
 	}
-	
+
 	/**
 	 * Removes the effect by skillid.
 	 * 
@@ -247,11 +247,11 @@ public class EffectController
 		for(Effect effect : passiveEffectMap.values()){
 			if(effect.getSkillId()==skillid){
 				effect.endEffect();
-				passiveEffectMap.remove(effect.getStack());				
+				passiveEffectMap.remove(effect.getStack());
 			}
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @param skillid
@@ -261,11 +261,11 @@ public class EffectController
 		for(Effect effect : noshowEffects.values()){
 			if(effect.getSkillId()==skillid){
 				effect.endEffect();
-				noshowEffects.remove(effect.getStack());				
+				noshowEffects.remove(effect.getStack());
 			}
 		}
 	}
-	
+
 	/**
 	 * @see TargetSlot
 	 * @param targetSlot
@@ -296,12 +296,12 @@ public class EffectController
 		}
 		noshowEffects.clear();
 	}
-	
+
 	public void updatePlayerEffectIcons()
 	{
 		getOwner().addPacketBroadcastMask(BroadcastMode.UPDATE_PLAYER_EFFECT_ICONS);
 	}
-	
+
 	public void updatePlayerEffectIconsImpl()
 	{
 		List<Effect> effects = getAbnormalEffects();
@@ -336,7 +336,7 @@ public class EffectController
 	{
 		abnormals &= ~mask;
 	}
-	
+
 	/**
 	 *  Used for checking unique abnormal states
 	 *  
@@ -347,7 +347,7 @@ public class EffectController
 	{
 		return (abnormals & effectId.getEffectId()) == effectId.getEffectId();
 	}
-	
+
 	/**
 	 *  Used for compound abnormal state checks
 	 *  
@@ -364,7 +364,7 @@ public class EffectController
 	{
 		return abnormals;
 	}
-	
+
 	/**
 	 * 
 	 * @return

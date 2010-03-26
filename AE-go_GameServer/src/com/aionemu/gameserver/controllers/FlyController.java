@@ -43,13 +43,16 @@ public class FlyController
 	/**
 	 * 
 	 */
-	public void onStopMove()
+	public void onStopGliding()
 	{
 		if(player.isInState(CreatureState.GLIDING))
 		{
 			player.unsetState(CreatureState.GLIDING);
+
 			if(player.isInState(CreatureState.FLYING))
+			{
 				player.setFlyState(1);
+			}
 			else
 			{
 				player.setFlyState(0);
@@ -75,13 +78,12 @@ public class FlyController
 			player.unsetState(CreatureState.FLYING);
 			player.unsetState(CreatureState.GLIDING);
 			player.setFlyState(0);
+
+			// this is probably needed to change back fly speed into speed.
+			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 30, 0, 0), true);
 			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 
 			player.getLifeStats().triggerFpRestore();
-
-			// this is probably needed to change back fly speed into speed.
-			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 30, 0,
-				0), true);
 		}
 	}
 
@@ -91,10 +93,10 @@ public class FlyController
 	 */
 	public void startFly()
 	{
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 30, 0, 0), true);
 		player.setState(CreatureState.FLYING);
 		player.setFlyState(1);
 		player.getLifeStats().triggerFpReduce();
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, 30, 0, 0), true);
 		PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 	}
 
