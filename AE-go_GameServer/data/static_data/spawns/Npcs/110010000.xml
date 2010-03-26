@@ -890,5 +890,9 @@ Sanctum -->
 	</spawn>
 	<spawn map="110010000" npcid="730016" pool="1" interval="105">
 		<object x="1932.6" y="1521.9" z="590.0" h="90"/>
-	</spawn>	
+	</spawn>
+	<!-- Alcyone -->
+	<spawn map="110010000" npcid="203387" pool="1" interval="105">
+		<object x="1877.7899" y="1538.2009" z="805.5718" h="90"/>
+	</spawn>		
 </spawns>

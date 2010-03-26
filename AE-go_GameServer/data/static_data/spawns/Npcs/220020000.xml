@@ -1074,4 +1074,9 @@ Morheim -->
 	<spawn map="220020000" npcid="207593" pool="1" interval="105">
 		<object x="313.1996" y="2279.839" z="448.68152" h="27"/>
 	</spawn>
+	<!-- Bragi-->
+	<spawn map="220020000" npcid="204302" pool="1" interval="105">
+		<object x="340.4106" y="2393.543" z="450.3184" h="69"/>
+	</spawn>
+	
 </spawns>

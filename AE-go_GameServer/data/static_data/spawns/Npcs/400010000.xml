@@ -1221,4 +1221,9 @@ Reshanta -->
 	<spawn map="400010000" npcid="700401" pool="1" interval="105">
 		<object x="928.667" y="3000.3533" z="1656.4113" h="0"/>
 	</spawn>
+		<!-- Ahsur -->
+	<spawn map="400010000" npcid="263567" pool="1" interval="105">
+		<object x="2576" y="2831" z="1507" h="0"/>
+	</spawn>
+	
 </spawns>

@@ -668,10 +668,6 @@ Pandaemonium -->
 	<spawn map="120010000" npcid="204056" pool="1" interval="105">
 		<object x="1307.2915" y="1195.8683" z="215.10233" h="60"/>
 	</spawn>
-	<!-- Selesti -->
-	<spawn map="120010000" npcid="204127" pool="1" interval="105">
-		<object x="1118.0609" y="1493.1078" z="213.83382" h="30"/>
-	</spawn>
 	<!-- Kitanya -->
 	<spawn map="120010000" npcid="204128" pool="1" interval="105">
 		<object x="1126.1392" y="1482.689" z="214.28195" h="36"/>
