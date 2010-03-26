@@ -338,7 +338,7 @@
         </points>
 		<link>EASTERN_ERACUS_DESERT</link>
     </zone>
-    <zone mapid="210020000" name="ERACUS_TEMPLE_CAVERN" priority="16" fly="true"s>
+    <zone mapid="210020000" name="ERACUS_TEMPLE_CAVERN" priority="16" fly="true">
         <points>
             <point x="33.4" y="276.41"/>
             <point x="61.270607" y="399.2149"/>
