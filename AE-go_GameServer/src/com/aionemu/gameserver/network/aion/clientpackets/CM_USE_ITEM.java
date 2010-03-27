@@ -20,6 +20,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.itemengine.actions.AbstractItemAction;
 import com.aionemu.gameserver.itemengine.actions.ItemActions;
+import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
@@ -65,12 +66,26 @@ public class CM_USE_ITEM extends AionClientPacket {
 	{
 		Player player = getConnection().getActivePlayer();
 		Item item = player.getInventory().getItemByObjId(uniqueItemId);
+		
 		if(item == null)
 		{
 			log.warn(String.format("CHECKPOINT: null item use action: %d %d", player.getObjectId(), uniqueItemId));
 			return;
 		}
-
+		
+		//check item race
+		switch(item.getItemTemplate().getRace())
+		{
+			case ASMODIANS:
+				if(player.getCommonData().getRace() != Race.ASMODIANS)
+					return;
+				break;
+			case ELYOS:
+				if(player.getCommonData().getRace() != Race.ELYOS)
+					return;
+				break;
+		}	
+		
 		if (questEngine.onItemUseEvent(new QuestEnv(null, player, 0, 0), item))
 			return;
 

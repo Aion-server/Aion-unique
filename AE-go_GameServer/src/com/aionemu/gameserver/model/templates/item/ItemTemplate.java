@@ -132,7 +132,7 @@ public class ItemTemplate extends VisibleObjectTemplate
 	private boolean				itemDyePermitted;
 
 	@XmlAttribute(name = "race")
-	private SkillRace			race	= SkillRace.ALL;
+	private ItemRace			race	= ItemRace.ALL;
 
 	private int					itemId;
 	
@@ -377,7 +377,7 @@ public class ItemTemplate extends VisibleObjectTemplate
 	/**
 	 * @return the race
 	 */
-	public SkillRace getRace()
+	public ItemRace getRace()
 	{
 		return race;
 	}
