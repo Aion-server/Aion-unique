@@ -21,7 +21,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -72,11 +71,10 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 		if(targetObject instanceof Npc)
 		{
 			((Npc) targetObject).setTarget(player);
-			PacketSendUtility.broadcastPacket((Npc) targetObject, new SM_TARGET_UPDATE((Npc) targetObject));
 
 			//TODO this is not needed for all dialog requests
 			PacketSendUtility.broadcastPacket((Npc) targetObject,
-				new SM_LOOKATOBJECT(targetObjectId, player.getObjectId(), Math.abs(128 - player.getHeading())));
+				new SM_LOOKATOBJECT((Npc) targetObject));
 
 			((Npc) targetObject).getController().onDialogRequest(player);
 		}

@@ -17,7 +17,7 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.AionObject;
-import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
@@ -78,19 +78,17 @@ public class CM_TARGET_SELECT extends AionClientPacket
 			return;
 
 		AionObject obj = world.findAionObject(targetObjectId);
-		if(obj != null && obj instanceof Creature)
+		if(obj != null && obj instanceof VisibleObject)
 		{
-			Creature c = (Creature)obj;
-
 			if(type == 1)
 			{
-				if(c.getTarget() == null)
+				if(((VisibleObject) obj).getTarget() == null)
 					return;
-				player.setTarget(c.getTarget());
+				player.setTarget(((VisibleObject) obj).getTarget());
 			}
 			else
 			{
-				player.setTarget(c);
+				player.setTarget(((VisibleObject) obj));
 			}
 			sendPacket(new SM_TARGET_SELECTED(player));
 			PacketSendUtility.broadcastPacket(player, new SM_TARGET_UPDATE(player));

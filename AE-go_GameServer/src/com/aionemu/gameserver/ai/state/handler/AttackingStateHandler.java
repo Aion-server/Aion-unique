@@ -25,7 +25,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -57,7 +57,7 @@ public class AttackingStateHandler extends StateHandler
 
 		Npc owner = (Npc) ai.getOwner();
 		owner.setTarget(target);
-		PacketSendUtility.broadcastPacket(owner, new SM_TARGET_UPDATE(owner));
+		PacketSendUtility.broadcastPacket(owner, new SM_LOOKATOBJECT(owner));
 
 		owner.setState(CreatureState.WEAPON_EQUIPPED);
 		PacketSendUtility.broadcastPacket(owner,

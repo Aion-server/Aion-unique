@@ -26,7 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -50,7 +50,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		if(object == getOwner().getTarget())
 		{
 			getOwner().setTarget(null);
-			PacketSendUtility.broadcastPacket(getOwner(), new SM_TARGET_UPDATE(getOwner()));
+			PacketSendUtility.broadcastPacket(getOwner(), new SM_LOOKATOBJECT(getOwner()));
 		}
 	}
 
@@ -190,7 +190,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	{
 		// TODO Auto-generated method stub
 	}
-	
+
 	/**
 	 * 
 	 * @param taskId
@@ -200,7 +200,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	{
 		return tasks.get(taskId);
 	}
-	
+
 	/**
 	 * 
 	 * @param taskId
@@ -213,7 +213,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			task.cancel(false);
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @param taskId
@@ -224,7 +224,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		cancelTask(taskId);
 		tasks.put(taskId, task);
 	}
-	
+
 	/**
 	 * Cancel all tasks associated with this controller
 	 * (when deleting object)
@@ -244,7 +244,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		super.delete();
 		cancelAllTasks();
 	}
-	
+
 	/**
 	 * Die by reducing HP to 0
 	 */
@@ -252,5 +252,4 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	{
 		getOwner().getLifeStats().reduceHp(getOwner().getLifeStats().getCurrentHp() + 1, null);
 	}
-	
 }

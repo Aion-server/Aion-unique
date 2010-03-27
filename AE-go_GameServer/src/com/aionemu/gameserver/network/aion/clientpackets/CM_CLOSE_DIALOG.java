@@ -21,7 +21,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -68,14 +67,12 @@ public class CM_CLOSE_DIALOG extends AionClientPacket
 
 		if(targetObject instanceof Npc)
 		{
+			//TODO: need check it on retail
 			if(((Npc) targetObject).getTarget() == player)
-			{
 				((Npc) targetObject).setTarget(null);
-				PacketSendUtility.broadcastPacket((Npc) targetObject, new SM_TARGET_UPDATE((Npc) targetObject));
-			}
 
 			PacketSendUtility.broadcastPacket((Npc) targetObject,
-				new SM_LOOKATOBJECT(targetObjectId, 0, ((Npc) targetObject).getHeading()));
+				new SM_LOOKATOBJECT((Npc) targetObject));
 		}
 	}
 }
