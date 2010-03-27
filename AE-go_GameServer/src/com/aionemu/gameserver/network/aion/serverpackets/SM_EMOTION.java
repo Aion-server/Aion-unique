@@ -78,8 +78,7 @@ public class SM_EMOTION extends AionServerPacket
 	 */
 	public SM_EMOTION(Creature creature, int emotionType)
 	{
-		this.senderObjectId = creature.getObjectId();
-		this.emotionType = emotionType;
+		this(creature, emotionType, 0, 0);
 	}
 
 	/**

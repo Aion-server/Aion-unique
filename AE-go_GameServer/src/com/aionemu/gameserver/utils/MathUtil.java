@@ -180,6 +180,19 @@ public class MathUtil
 		// We should avoid Math.pow or Math.hypot due to perfomance reasons
 		return Math.sqrt(dx * dx + dy * dy + dz * dz);
 	}
+	
+	/**
+	 * 
+	 * @param object
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @return
+	 */
+	public static double getDistance(VisibleObject object , float x, float y , float z)
+	{
+		return getDistance(object.getX(), object.getY(), object.getZ(), x, y, z);
+	}
 
 	/**
 	 * Returns closest point on segment to point

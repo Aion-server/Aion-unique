@@ -20,156 +20,127 @@ import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.desires.AbstractDesire;
 import com.aionemu.gameserver.ai.desires.MoveDesire;
-import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.templates.walker.RouteData;
 import com.aionemu.gameserver.model.templates.walker.WalkerTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author KKnD
- *
+ * 
  */
 public class WalkDesire extends AbstractDesire implements MoveDesire
 {
-	private Npc owner;
-	private RouteData _route;
-	private boolean _walkingToNextPoint = false;
-	private int _currentPos;
-	private long _nextMoveTime;
-	private boolean isRandomWalk = false;
-	
+	private Npc			owner;
+	private RouteData	route;
+	private boolean		isWalkingToNextPoint	= false;
+	private int			targetPosition;
+	private long		nextMoveTime;
+	private boolean		isRandomWalk			= false;
+
 	public WalkDesire(Npc npc, int power)
 	{
 		super(power);
 		owner = npc;
-		if (owner != null)
+
+		WalkerTemplate template = DataManager.WALKER_DATA.getWalkerTemplate(owner.getSpawn().getWalkerId());
+		if(template != null)
 		{
-			WalkerTemplate template = DataManager.WALKER_DATA.getWalkerTemplate(owner.getSpawn().getWalkerId());
-			if (template != null)
-			{
-				isRandomWalk = owner.getSpawn().hasRandomWalk();
-				_route = template.getRouteData();
-			}
+			isRandomWalk = owner.getSpawn().hasRandomWalk();
+			route = template.getRouteData();
+			
+			owner.getMoveController().setSpeed(owner.getObjectTemplate().getStatsTemplate().getWalkSpeed());
+			owner.getMoveController().setWalking(true);
+			PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, 0x15));			
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean handleDesire(AI ai)
 	{
-		
-		if (owner == null)
+
+		if(owner == null)
 			return false;
-		
-		if (_route == null)
+
+		if(route == null)
 			return false;
-		
-		if (isWalkingToNextPoint())
-			checkArrived();
-		
+
+		if(isWalkingToNextPoint())
+			checkArrivedToPoint();
+
 		walkToLocation();
 		return true;
 	}
-	
-	private void checkArrived()
+
+	/**
+	 * Check owner is in a route point
+	 */
+	private void checkArrivedToPoint()
 	{
-		float destinationX = _route.getRouteSteps().get(_currentPos).getX();
-		float destinationY = _route.getRouteSteps().get(_currentPos).getY();
-		float destinationZ = _route.getRouteSteps().get(_currentPos).getZ();
-		double dist = MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), destinationX, destinationY, destinationZ);
-		if (dist <=2 )
+		float x = route.getRouteSteps().get(targetPosition).getX();
+		float y = route.getRouteSteps().get(targetPosition).getY();
+		float z = route.getRouteSteps().get(targetPosition).getZ();
+
+		double dist = MathUtil.getDistance(owner, x, y, z);
+		if(dist <= 2)
 		{
 			setWalkingToNextPoint(false);
 			getNextTime();
 		}
 	}
-	
+
+	/**
+	 * set next route point if not set and time is ready
+	 */
 	private void walkToLocation()
 	{
-		if (!isWalkingToNextPoint() && _nextMoveTime <= System.currentTimeMillis())
+		if(!isWalkingToNextPoint() && nextMoveTime <= System.currentTimeMillis())
 		{
-			getNextRoute();
-			
+			setNextPosition();
 			setWalkingToNextPoint(true);
-		}
-
-		float destinationX = _route.getRouteSteps().get(_currentPos).getX();
-		float destinationY = _route.getRouteSteps().get(_currentPos).getY();
-		float destinationZ = _route.getRouteSteps().get(_currentPos).getZ();
-		
-		float walkSpeed = owner.getObjectTemplate().getStatsTemplate().getWalkSpeed();
-		
-		double dist = MathUtil.getDistance(owner.getX(), owner.getY(), owner.getZ(), destinationX, destinationY, destinationZ);
-		//TODO refactor to new MoveController
-		if (dist > 2)
-		{
-			float x2 = (float) (((destinationX - owner.getX())/dist) * walkSpeed) ;
-			float y2 = (float) (((destinationY - owner.getY())/dist) * walkSpeed) ;
-			float z2 = (float) (((destinationZ - owner.getZ())/dist) * walkSpeed) ; 
-
-			byte heading2 = (byte) (Math.toDegrees(Math.atan2(y2, x2))/3) ;
 			
-			//TODO [ATracer] probably we don't need to send SM_EMOTION each 0.5 sec - just when
-			// new player sees it (onSee in controller) - this needs implementation of current stats
-			// like attacking - send corresponding emotion etc
-			PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner,0x15,0,0));
-			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(),(x2) , (y2) , 0, heading2, MovementType.MOVEMENT_START_KEYBOARD));
-			owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX() + x2, owner.getY() + y2, owner.getZ() + z2, heading2);
+			float x = route.getRouteSteps().get(targetPosition).getX();
+			float y = route.getRouteSteps().get(targetPosition).getY();
+			float z = route.getRouteSteps().get(targetPosition).getZ();
+			owner.getMoveController().setNewDirection(x, y, z);			
+			if(!owner.getMoveController().isScheduled())
+				owner.getMoveController().schedule();
 		}
-		else
-		{
-			owner.getActiveRegion().getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(), owner.getHeading());			
-			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0, (byte) 0, MovementType.MOVEMENT_STOP));
-		}
-		
-	}
-	
-	public boolean isWalkingToNextPoint()
-	{
-		return _walkingToNextPoint;
 	}
 
-	public void setWalkingToNextPoint(boolean value)
+	private boolean isWalkingToNextPoint()
 	{
-		_walkingToNextPoint = value;
+		return isWalkingToNextPoint;
 	}
-	
-	public void restartRoutes()
+
+	private void setWalkingToNextPoint(boolean value)
 	{
-		_currentPos = 0;
-		_nextMoveTime = 0;
+		isWalkingToNextPoint = value;
 	}
-	
-	private void getNextRoute()
+
+	private void setNextPosition()
 	{
-		if (isRandomWalk)
+		if(isRandomWalk)
 		{
-			_currentPos = Rnd.get(0, _route.getRouteSteps().size() - 1);
+			targetPosition = Rnd.get(0, route.getRouteSteps().size() - 1);
 		}
 		else
 		{
-			if(_currentPos < (_route.getRouteSteps().size() - 1))
-				_currentPos++;
+			if(targetPosition < (route.getRouteSteps().size() - 1))
+				targetPosition++;
 			else
-				_currentPos = 0;
+				targetPosition = 0;
 		}
 	}
-	
+
 	private void getNextTime()
 	{
-		if (isRandomWalk)
-		{
-			_nextMoveTime = System.currentTimeMillis() + Rnd.get(5, 60)*1000;
-		}
-		else
-		{
-			_nextMoveTime = System.currentTimeMillis() + _route.getRouteSteps().get(_currentPos).getRestTime()*1000;
-		}
+		int nextDelay = isRandomWalk ? Rnd.get(5, 60) : route.getRouteSteps().get(targetPosition).getRestTime();
+		nextMoveTime = System.currentTimeMillis() + nextDelay * 1000;
 	}
 
 	@Override

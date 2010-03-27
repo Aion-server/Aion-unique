@@ -79,8 +79,16 @@ public class NpcController extends CreatureController<Npc>
 	public void see(VisibleObject object)
 	{
 		super.see(object);
-		if(object instanceof Player && getOwner().getAi() != null)
-			getOwner().getAi().handleEvent(Event.SEE_PLAYER);
+		Npc owner = getOwner();
+		if(object instanceof Player && owner.getAi() != null)
+		{
+			owner.getAi().handleEvent(Event.SEE_PLAYER);
+			//TODO check on retail how walking npc is presented, probably need replace emotion
+			// with some state etc.
+			if(owner.getMoveController().isWalking())
+				PacketSendUtility.sendPacket((Player) object, new SM_EMOTION(owner, 21));
+		}
+			
 	}
 
 	@Override

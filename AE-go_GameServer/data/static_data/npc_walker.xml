@@ -58,16 +58,16 @@
     </walker_template> 
     <walker_template route_id="7" > 
         <routes>
-            <routestep step ="1" loc_x="154.2884" loc_y="441.20123" loc_z="140.30342" rest_time="0" /> 
-            <routestep step ="2" loc_x="154.2884" loc_y="441.20123" loc_z="140.30342" rest_time="0" /> 
-            <routestep step ="3" loc_x="166.10286" loc_y="415.80978" loc_z="139.63957" rest_time="0" /> 
+            <routestep step ="1" loc_x="154.2884" loc_y="441.20123" loc_z="140.4" rest_time="0" /> 
+            <routestep step ="2" loc_x="154.2884" loc_y="441.20123" loc_z="140.4" rest_time="0" /> 
+            <routestep step ="3" loc_x="166.10286" loc_y="415.80978" loc_z="139.7" rest_time="0" /> 
         </routes> 
     </walker_template> 
     <walker_template route_id="8" > 
         <routes>
-            <routestep step ="1" loc_x="179.84158" loc_y="376.81845" loc_z="143.98172" rest_time="0" /> 
-            <routestep step ="2" loc_x="176.39536" loc_y="385.16147" loc_z="144.13152" rest_time="0" /> 
-            <routestep step ="3" loc_x="174.31789" loc_y="390.7498" loc_z="143.72148" rest_time="0" /> 
+            <routestep step ="1" loc_x="179.2198" loc_y="378.4973" loc_z="144.1" rest_time="0" /> 
+            <routestep step ="2" loc_x="176.8896" loc_y="383.7659" loc_z="144.2" rest_time="0" /> 
+            <routestep step ="3" loc_x="174.966" loc_y="388.654" loc_z="144.1" rest_time="0" /> 
         </routes> 
     </walker_template> 
     <walker_template route_id="9" > 
@@ -96,9 +96,9 @@
     </walker_template> 
     <walker_template route_id="12" > 
         <routes>
-            <routestep step ="1" loc_x="227.43016" loc_y="179.00151" loc_z="110.20885" rest_time="0" /> 
-            <routestep step ="2" loc_x="237.07484" loc_y="186.11015" loc_z="111.99673" rest_time="0" /> 
-            <routestep step ="3" loc_x="224.38875" loc_y="190.98651" loc_z="114.34763" rest_time="0" /> 
+            <routestep step ="1" loc_x="227.43016" loc_y="179.00151" loc_z="110.3" rest_time="0" /> 
+            <routestep step ="2" loc_x="237.07484" loc_y="186.11015" loc_z="112.0" rest_time="0" /> 
+            <routestep step ="3" loc_x="224.38875" loc_y="190.98651" loc_z="114.4" rest_time="0" /> 
         </routes> 
     </walker_template> 
     <walker_template route_id="13" > 

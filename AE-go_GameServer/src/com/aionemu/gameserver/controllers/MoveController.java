@@ -46,6 +46,9 @@ public class MoveController
 	private boolean isStopped = false;
 
 	private int moveCounter;
+	private float speed = 0;
+	
+	private boolean walking;
 
 	public MoveController(Creature owner)
 	{
@@ -60,6 +63,29 @@ public class MoveController
 		this.isFollowTarget = isFollowTarget;
 	}
 
+	/**
+	 * @param speed the speed to set
+	 */
+	public void setSpeed(float speed)
+	{
+		this.speed = speed;
+	}
+
+	/**
+	 * @return the walking
+	 */
+	public boolean isWalking()
+	{
+		return walking;
+	}
+
+	/**
+	 * @param walking the walking to set
+	 */
+	public void setWalking(boolean walking)
+	{
+		this.walking = walking;
+	}
 
 	public void setNewDirection(float x, float y, float z)
 	{
@@ -92,6 +118,9 @@ public class MoveController
 
 	public void schedule()
 	{
+		if(speed == 0)
+			speed = owner.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000;
+		
 		moveTask = ThreadPoolManager.getInstance().scheduleAiAtFixedRate(new Runnable(){
 
 			@Override
@@ -130,7 +159,6 @@ public class MoveController
 		{
 			isStopped = false;
 
-			float speed = owner.getGameStats().getCurrentStat(StatEnum.SPEED) / 1000;
 
 			float x2 = (float) (((targetX - ownerX)/dist) * speed * 0.2) ;
 			float y2 = (float) (((targetY - ownerY)/dist) * speed * 0.2) ;
@@ -173,6 +201,8 @@ public class MoveController
 
 	public void stop()
 	{
+		this.walking = false;
+		
 		if(moveTask != null)
 		{
 			moveTask.cancel(true);
