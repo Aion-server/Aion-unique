@@ -36,6 +36,7 @@ import com.aionemu.gameserver.model.templates.quest.CollectItem;
 import com.aionemu.gameserver.model.templates.quest.CollectItems;
 import com.aionemu.gameserver.model.templates.quest.QuestDrop;
 import com.aionemu.gameserver.model.templates.quest.QuestItems;
+import com.aionemu.gameserver.model.templates.quest.QuestWorkItems;
 import com.aionemu.gameserver.model.templates.quest.Rewards;
 import com.aionemu.gameserver.model.templates.spawn.SpawnTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACCEPTED;
@@ -147,6 +148,23 @@ public class QuestService
 			if (rewards.getRewardAbyssPoint() != null)
 			{
 				abyssService.doReward(player, rewards.getRewardAbyssPoint());
+			}
+
+			//remove all worker list item if finished.
+			QuestWorkItems qwi = DataManager.QUEST_DATA.getQuestById(id).getQuestWorkItems();
+			
+			if(qwi != null)
+			{
+				int count = 0;
+				for(QuestItems qi : qwi.getQuestWorkItem())
+				{
+					if(qi != null)
+					{	
+						count = player.getInventory().getItemCountByItemId(qi.getItemId());
+						if(count > 0)
+							player.getInventory().removeFromBagByItemId(qi.getItemId(), count);					
+					}
+				}
 			}
 
 			qs.setStatus(QuestStatus.COMPLITE);
