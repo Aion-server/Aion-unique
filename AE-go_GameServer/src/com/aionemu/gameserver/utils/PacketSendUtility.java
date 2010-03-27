@@ -143,7 +143,6 @@ public class PacketSendUtility
 				Player target = (Player) obj;
 				if(filter.acceptObject(target))
 					sendPacket(target, packet);
-
 			}
 		}
 	}

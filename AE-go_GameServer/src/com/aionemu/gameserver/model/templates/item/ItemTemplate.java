@@ -31,7 +31,6 @@ import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
-import com.aionemu.gameserver.skillengine.model.learn.SkillRace;
 
 /**
  * @author Luno modified by ATracer
