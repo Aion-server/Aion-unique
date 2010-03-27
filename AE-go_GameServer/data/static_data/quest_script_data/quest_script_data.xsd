@@ -1,11 +1,13 @@
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 	<xs:include schemaLocation="../quest_data/quest_data.xsd" />
+	<xs:include schemaLocation="../import.xsd" />
 	
 	<xs:element name="quest_scripts" type="QuestScripts" />
 	
 	<xs:complexType name="QuestScripts">
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="item_collecting" type="ItemCollectingData" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="report_to" type="ReportToData" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="monster_hunt" type="MonsterHuntData" minOccurs="0" maxOccurs="unbounded" />

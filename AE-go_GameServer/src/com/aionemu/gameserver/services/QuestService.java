@@ -22,7 +22,7 @@ import java.util.Set;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.configs.main.GroupConfig;
-import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.drop.DropItem;
 import com.aionemu.gameserver.model.drop.DropTemplate;
@@ -58,13 +58,15 @@ import com.google.inject.Inject;
 public class QuestService
 {
 	@Inject
-	ItemService itemService;
+	ItemService		itemService;
 	@Inject
-	SpawnEngine spawnEngine;
+	SpawnEngine		spawnEngine;
 	@Inject
-	QuestEngine questEngine;
+	QuestEngine		questEngine;
 	@Inject
-	AbyssService abyssService;
+	AbyssService	abyssService;
+	@Inject
+	QuestsData		questsData;
 
 	public boolean questFinish(QuestEnv env)
 	{
@@ -78,7 +80,7 @@ public class QuestService
 		QuestState qs = player.getQuestStateList().getQuestState(id);
 		if(qs == null || qs.getStatus() != QuestStatus.REWARD)
 			return false;
-		QuestTemplate	template = DataManager.QUEST_DATA.getQuestById(id);
+		QuestTemplate	template = questsData.getQuestById(id);
 		Storage inventory = player.getInventory();
 		Rewards rewards = template.getRewards().get(reward);
 		List<QuestItems> questItems = new ArrayList<QuestItems>();
@@ -181,7 +183,7 @@ public class QuestService
 	{
 		
 		Player player = env.getPlayer();
-		QuestTemplate	template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
+		QuestTemplate	template = questsData.getQuestById(env.getQuestId());
 		if(template.getRacePermitted() != null)
 		{
 			if(template.getRacePermitted() != player.getCommonData().getRace())
@@ -233,7 +235,7 @@ public class QuestService
 	{
 		Player player = env.getPlayer();
 		int id = env.getQuestId();
-		QuestTemplate	template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
+		QuestTemplate	template = questsData.getQuestById(env.getQuestId());
 		if(questStatus != QuestStatus.LOCKED)
 		{
 			if(!checkStartCondition(env))
@@ -287,7 +289,7 @@ public class QuestService
 		QuestState qs = player.getQuestStateList().getQuestState(id);
 		if(qs == null)
 			return false;
-		QuestTemplate	template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
+		QuestTemplate	template = questsData.getQuestById(env.getQuestId());
 		CollectItems collectItems = template.getCollectItems();
 		if(collectItems == null)
 			return true;
@@ -352,7 +354,7 @@ public class QuestService
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if (qs == null || qs.getStatus() != QuestStatus.START)
 			return false;
-		QuestTemplate	template = DataManager.QUEST_DATA.getQuestById(questId);
+		QuestTemplate	template = questsData.getQuestById(questId);
 		CollectItems collectItems = template.getCollectItems();
 		if(collectItems == null)
 			return true;

@@ -16,7 +16,7 @@
  */
 package com.aionemu.gameserver.questEngine.handlers;
 
-import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
@@ -45,6 +45,8 @@ public class QuestHandler
 	@Inject
 	protected QuestEngine qe;
 	private final Integer questId;
+	@Inject
+	protected QuestsData questsData;
 
 	/**
 	 * @param questId
@@ -72,7 +74,7 @@ public class QuestHandler
 		Player player = env.getPlayer();
 		if(questService.collectItemCheck(env))
 		{
-			QuestTemplate template = DataManager.QUEST_DATA.getQuestById(env.getQuestId());
+			QuestTemplate template = questsData.getQuestById(env.getQuestId());
 			CollectItems collectItems = template.getCollectItems();
 			if (collectItems != null)
 			{

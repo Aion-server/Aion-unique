@@ -86,9 +86,9 @@ public final class DataManager
 
 	public BindPointData				BIND_POINT_DATA;
 
-	public static QuestsData			QUEST_DATA;
-	
-	public static QuestScriptsData		QUEST_SCRIPTS_DATA;
+	public QuestsData					QUEST_DATA;
+
+	public QuestScriptsData				QUEST_SCRIPTS_DATA;
 	/**
 	 * 
 	 */

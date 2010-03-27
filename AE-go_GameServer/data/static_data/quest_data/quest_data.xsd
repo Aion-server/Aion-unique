@@ -2,11 +2,13 @@
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 	<xs:include schemaLocation="../global_types.xsd" />
-
+	<xs:include schemaLocation="../import.xsd" />
+	
 	<xs:element name="quests" type="Quests" />
 
 	<xs:complexType name="Quests">
 		<xs:sequence>
+			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
 			<xs:element name="quest" type="Quest" minOccurs="0"
 				maxOccurs="unbounded" />
 		</xs:sequence>

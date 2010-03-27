@@ -30,7 +30,7 @@ import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 
 /**
  * @author ATracer
- *
+ * 
  */
 @XmlRootElement(name = "skill_data")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -45,6 +45,7 @@ public class SkillData
 	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
+		skillData.clear();
 		for(SkillTemplate skillTempalte: skillTemplates)
 		{
 			skillData.put(skillTempalte.getSkillId(), skillTempalte);	
@@ -61,18 +62,27 @@ public class SkillData
 	}
 	
 	/**
-	 * @return List<SkillTemplate>
-	 */
-	public List<SkillTemplate> getSkillTemplates()
-	{
-		return skillTemplates;
-	}
-	
-	/**
 	 * @return skillData.size()
 	 */
 	public int size()
 	{
 		return skillData.size();
+	}
+
+	/**
+	 * @return the skillTemplates
+	 */
+	public List<SkillTemplate> getSkillTemplates()
+	{
+		return skillTemplates;
+	}
+
+	/**
+	 * @param skillTemplates the skillTemplates to set
+	 */
+	public void setSkillTemplates(List<SkillTemplate> skillTemplates)
+	{
+		this.skillTemplates = skillTemplates;
+		afterUnmarshal(null, null);
 	}
 }

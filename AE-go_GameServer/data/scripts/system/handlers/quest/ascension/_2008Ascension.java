@@ -22,7 +22,6 @@ import java.util.List;
 
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.configs.main.CustomConfig;
-import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -378,7 +377,7 @@ public class _2008Ascension extends QuestHandler
 				{
 					qs.setQuestVar(4);
 					updateQuestStatus(player, qs);
-					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(questId).getName()));
+					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, questsData.getQuestById(questId).getName()));
 				}
 			}
 		}
@@ -425,7 +424,7 @@ public class _2008Ascension extends QuestHandler
 		{
 			qs.setQuestVar(4);
 			updateQuestStatus(player, qs);
-			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, DataManager.QUEST_DATA.getQuestById(env.getQuestId()).getName()));
+			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(SystemMessageId.QUEST_FAILED_$1, questsData.getQuestById(env.getQuestId()).getName()));
 		}
 		return false;
 	}

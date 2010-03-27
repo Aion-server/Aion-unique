@@ -30,6 +30,8 @@ import com.aionemu.gameserver.dataholders.PlayerExperienceTable;
 import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerStatsData;
 import com.aionemu.gameserver.dataholders.PortalData;
+import com.aionemu.gameserver.dataholders.QuestScriptsData;
+import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.dataholders.SkillData;
 import com.aionemu.gameserver.dataholders.SkillTreeData;
 import com.aionemu.gameserver.dataholders.SpawnsData;
@@ -270,5 +272,17 @@ public class DataInjectionModule extends AbstractModule
 	ItemSetData provideItemSetData(DataManager datamanager)
 	{
 		return datamanager.ITEM_SET_DATA;
+	}
+	
+	@Provides
+	QuestsData provideQuestsData(DataManager datamanager)
+	{
+		return datamanager.QUEST_DATA;
+	}
+	
+	@Provides
+	QuestScriptsData provideQuestScriptsData(DataManager datamanager)
+	{
+		return datamanager.QUEST_SCRIPTS_DATA;
 	}
 }

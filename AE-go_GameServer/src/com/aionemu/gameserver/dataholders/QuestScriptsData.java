@@ -44,8 +44,19 @@ public class QuestScriptsData
 		@XmlElement(name = "work_order", type = WorkOrdersData.class)})
 	protected List<QuestScriptData>	data;
 
+	/**
+	 * @return the data
+	 */
 	public List<QuestScriptData> getData()
 	{
 		return data;
+	}
+
+	/**
+	 * @param data the data to set
+	 */
+	public void setData(List<QuestScriptData> data)
+	{
+		this.data = data;
 	}
 }

@@ -47,8 +47,18 @@ public class PortalData
 	private HashMap<Integer, ArrayList<PortalTemplate>> instancesMap = new HashMap<Integer, ArrayList<PortalTemplate>>();
 	private HashMap<String, PortalTemplate> namedPortals = new HashMap<String, PortalTemplate>();
 
+	/**
+	 *  - Inititialize all maps for subsequent use
+	 *  - Don't nullify initial portal list as it will be used during reload
+	 * @param u
+	 * @param parent
+	 */
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
+		portalData.clear();
+		instancesMap.clear();
+		namedPortals.clear();
+		
 		for(PortalTemplate portal : portals)
 		{
 			portalData.put(portal.getNpcId(), portal);
@@ -66,7 +76,6 @@ public class PortalData
 			if(portal.getName() != null && !portal.getName().isEmpty())
 				namedPortals.put(portal.getName(), portal);
 		}
-		portals = null;
 	}
 	
 	public int size()
@@ -115,4 +124,23 @@ public class PortalData
 			
 		return portal;
 	}
+
+	/**
+	 * @return the portals
+	 */
+	public List<PortalTemplate> getPortals()
+	{
+		return portals;
+	}
+
+	/**
+	 * @param portals the portals to set
+	 */
+	public void setPortals(List<PortalTemplate> portals)
+	{
+		this.portals = portals;
+		afterUnmarshal(null, null);
+	}
+	
+	
 }

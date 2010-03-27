@@ -23,7 +23,9 @@ import static org.apache.commons.io.filefilter.FileFilterUtils.prefixFileFilter;
 import static org.apache.commons.io.filefilter.FileFilterUtils.suffixFileFilter;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
@@ -38,12 +40,15 @@ import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
-import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.PortalData;
 import com.aionemu.gameserver.dataholders.QuestScriptsData;
 import com.aionemu.gameserver.dataholders.QuestsData;
+import com.aionemu.gameserver.dataholders.SkillData;
 import com.aionemu.gameserver.dataholders.StaticData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.templates.portal.PortalTemplate;
 import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.google.inject.Inject;
@@ -54,10 +59,17 @@ import com.google.inject.Inject;
  */
 public class Reload extends AdminCommand
 {
-
+	private static final Logger	log	= Logger.getLogger(Reload.class);
 	@Inject
 	QuestEngine questEngine;
-	private static final Logger	log	= Logger.getLogger(Reload.class);
+	@Inject
+	QuestsData questsData;
+	@Inject
+	QuestScriptsData questScriptsData;
+	@Inject
+	SkillData skillData;
+	@Inject
+	PortalData portalData;
 
 	public Reload()
 	{
@@ -75,7 +87,7 @@ public class Reload extends AdminCommand
 
 		if(params == null || params.length != 1)
 		{
-			PacketSendUtility.sendMessage(admin, "syntax //reload <quest | skill>");
+			PacketSendUtility.sendMessage(admin, "syntax //reload <quest | skill | portal>");
 			return;
 		}
 		if(params[0].equals("quest"))
@@ -88,14 +100,16 @@ public class Reload extends AdminCommand
 				JAXBContext jc = JAXBContext.newInstance(StaticData.class);
 				Unmarshaller un = jc.createUnmarshaller();
 				un.setSchema(getSchema("./data/static_data/static_data.xsd"));
-				DataManager.QUEST_DATA = (QuestsData) un.unmarshal(xml);
-				DataManager.QUEST_SCRIPTS_DATA.getData().clear();
+				QuestsData newQuestData = (QuestsData) un.unmarshal(xml);
+				questsData.setQuestsData(newQuestData.getQuestsData());
+				
+				questScriptsData.getData().clear();
 				for(File file : listFiles(dir, true))
 				{
 					QuestScriptsData data = ((QuestScriptsData)un.unmarshal(file));
 					if (data != null)
 						if (data.getData() != null)
-							DataManager.QUEST_SCRIPTS_DATA.getData().addAll(data.getData());
+							questScriptsData.getData().addAll(data.getData());
 				}
 				questEngine.load();
 			}
@@ -117,8 +131,14 @@ public class Reload extends AdminCommand
 				JAXBContext jc = JAXBContext.newInstance(StaticData.class);
 				Unmarshaller un = jc.createUnmarshaller();
 				un.setSchema(getSchema("./data/static_data/static_data.xsd"));
+				List<SkillTemplate> newTemplates = new ArrayList<SkillTemplate>();
 				for(File file : listFiles(dir, true))
-					un.unmarshal(file);
+				{
+					SkillData data = (SkillData)un.unmarshal(file);
+					if(data != null)
+						newTemplates.addAll(data.getSkillTemplates());
+				}
+				skillData.setSkillTemplates(newTemplates);
 			}
 			catch(Exception e)
 			{
@@ -130,8 +150,35 @@ public class Reload extends AdminCommand
 				PacketSendUtility.sendMessage(admin, "Skill reload Success!");
 			}
 		}
+		else if(params[0].equals("portal"))
+		{
+			File dir = new File("./data/static_data/portals");
+			try
+			{
+				JAXBContext jc = JAXBContext.newInstance(StaticData.class);
+				Unmarshaller un = jc.createUnmarshaller();
+				un.setSchema(getSchema("./data/static_data/static_data.xsd"));
+				List<PortalTemplate> newTemplates = new ArrayList<PortalTemplate>();
+				for(File file : listFiles(dir, true))
+				{
+					PortalData data = (PortalData)un.unmarshal(file);
+					if(data != null && data.getPortals() != null)
+						newTemplates.addAll(data.getPortals());
+				}
+				portalData.setPortals(newTemplates);
+			}
+			catch(Exception e)
+			{
+				PacketSendUtility.sendMessage(admin, "Portal reload failed!");
+				log.error(e);
+			}
+			finally
+			{
+				PacketSendUtility.sendMessage(admin, "Portal reload Success!");
+			}
+		}
 		else
-			PacketSendUtility.sendMessage(admin, "syntax //reload <quest | skill>");
+			PacketSendUtility.sendMessage(admin, "syntax //reload <quest | skill | portal>");
 
 	}
 

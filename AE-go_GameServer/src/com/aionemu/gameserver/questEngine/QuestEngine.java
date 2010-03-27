@@ -26,7 +26,8 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
 import com.aionemu.gameserver.GameServerError;
-import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.QuestScriptsData;
+import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -42,6 +43,7 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.world.zone.ZoneName;
+import com.google.inject.Inject;
 import com.google.inject.Injector;
 
 /**
@@ -50,15 +52,21 @@ import com.google.inject.Injector;
  */
 public class QuestEngine
 {
-	private Injector injector;
+	private Injector									injector;
 
-	private static final Logger log = Logger.getLogger(QuestEngine.class);
+	private static final Logger							log						= Logger.getLogger(QuestEngine.class);
 
-	private static final FastMap<Integer, QuestHandler> questHandlers = new FastMap<Integer, QuestHandler>();
+	private static final FastMap<Integer, QuestHandler>	questHandlers			= new FastMap<Integer, QuestHandler>();
 
-	private static ScriptManager 			scriptManager = new ScriptManager();
+	private static ScriptManager						scriptManager			= new ScriptManager();
 
-	public static final File QUEST_DESCRIPTOR_FILE = new File("./data/scripts/system/quest_handlers.xml");
+	public static final File							QUEST_DESCRIPTOR_FILE	= new File(
+																					"./data/scripts/system/quest_handlers.xml");
+
+	@Inject
+	private QuestsData									questData;
+	@Inject
+	private QuestScriptsData							questScriptsData;
 
 	private FastMap<Integer, NpcQuestData>		_npcQuestData = new FastMap<Integer, NpcQuestData>();
 	private FastMap<Integer, List<Integer>>		_questItemIds= new FastMap<Integer, List<Integer>>();
@@ -71,7 +79,7 @@ public class QuestEngine
 
 	public void load()
 	{
-		for (QuestTemplate data : DataManager.QUEST_DATA.getQuestData())
+		for (QuestTemplate data : questData.getQuestsData())
 		{
 			for (QuestDrop drop : data.getQuestDrop())
 			{
@@ -91,7 +99,7 @@ public class QuestEngine
 		{
 			throw new GameServerError("Can't initialize quest handlers.", e);
 		}
-		for (QuestScriptData data : DataManager.QUEST_SCRIPTS_DATA.getData())
+		for (QuestScriptData data : questScriptsData.getData())
 		{
 			data.register(this);
 		}
@@ -225,7 +233,7 @@ public class QuestEngine
 
 	public boolean deleteQuest(Player player, int questId)
 	{
-		if(DataManager.QUEST_DATA.getQuestById(questId).isCannotGiveup())
+		if(questData.getQuestById(questId).isCannotGiveup())
 			return false;
 
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
@@ -236,7 +244,7 @@ public class QuestEngine
 		qs.setStatus(QuestStatus.NONE);
 		
 		//remove all worker list item if abandoned
-		QuestWorkItems qwi = DataManager.QUEST_DATA.getQuestById(questId).getQuestWorkItems();
+		QuestWorkItems qwi = questData.getQuestById(questId).getQuestWorkItems();
 		
 		if(qwi != null)
 		{

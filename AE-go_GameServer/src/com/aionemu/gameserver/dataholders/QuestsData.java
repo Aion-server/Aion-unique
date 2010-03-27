@@ -44,6 +44,7 @@ public class QuestsData
 
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
+		questData.clear();
 		for(QuestTemplate quest : questsData)
 		{
 			questData.put(quest.getId(), quest);
@@ -55,13 +56,26 @@ public class QuestsData
 		return questData.get(id);
 	}
 
-	public List<QuestTemplate> getQuestData()
-	{
-		return questsData;
-	}
-
 	public int size()
 	{
 		return questData.size();
 	}
+
+	/**
+	 * @return the questsData
+	 */
+	public List<QuestTemplate> getQuestsData()
+	{
+		return questsData;
+	}
+
+	/**
+	 * @param questsData the questsData to set
+	 */
+	public void setQuestsData(List<QuestTemplate> questsData)
+	{
+		this.questsData = questsData;
+		afterUnmarshal(null, null);
+	}
+	
 }
