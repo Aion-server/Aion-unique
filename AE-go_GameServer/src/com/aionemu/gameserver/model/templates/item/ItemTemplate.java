@@ -55,6 +55,12 @@ public class ItemTemplate extends VisibleObjectTemplate
 
 	@XmlAttribute(name = "slot")
 	private int					itemSlot;
+	
+	@XmlAttribute(name = "usedelayid")
+	private int					useDelayId;
+	
+	@XmlAttribute(name = "usedelay")
+	private int					useDelay;
 
 	@XmlAttribute(name = "equipment_type")
 	private EquipType			equipmentType;
@@ -455,5 +461,21 @@ public class ItemTemplate extends VisibleObjectTemplate
 	public String getReturnAlias()
 	{
 		return returnAlias;
+	}
+	
+	/**
+	 * @return the delay for item.
+	 */
+	public int getDelayTime()
+	{
+		return useDelay;
+	}
+	
+	/**
+	 * @return item delay id
+	 */
+	public int getDelayId()
+	{
+		return useDelayId;
 	}
 }

@@ -33,6 +33,8 @@
 		<xs:attribute name="return_world" type="xs:int" />
 		<xs:attribute name="equipment_type" type="equipType" />
 		<xs:attribute name="slot" type="xs:int" />
+		<xs:attribute name="usedelayid" type="xs:int" />
+		<xs:attribute name="usedelay" type="xs:int" />
 		<xs:attribute name="cash_item" type="xs:int" />
 		<xs:attribute name="dmg_decal" type="xs:int" />
 		<xs:attribute name="weapon_boost" type="xs:int" />
