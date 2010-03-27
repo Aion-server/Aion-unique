@@ -16,15 +16,25 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.model.gameobjects.AionObject;
+import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 
 public class CM_CLOSE_DIALOG extends AionClientPacket
 {
 	/**
 	* Target object id that client wants to TALK WITH or 0 if wants to unselect
 	*/
-	private int					targetObjectId;
+	private int	targetObjectId;
+
+	@Inject
+	private World world;
 
 	/**
 	* Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
@@ -41,8 +51,7 @@ public class CM_CLOSE_DIALOG extends AionClientPacket
 	@Override
 	protected void readImpl()
 	{
-		targetObjectId = readD();// empty
-
+		targetObjectId = readD();
 	}
 
 	/**
@@ -51,6 +60,22 @@ public class CM_CLOSE_DIALOG extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-		sendPacket(new SM_LOOKATOBJECT(targetObjectId,0,0));
+		AionObject targetObject = world.findAionObject(targetObjectId);
+		Player player = getConnection().getActivePlayer();
+
+		if(targetObject == null || player == null)
+			return;
+
+		if(targetObject instanceof Npc)
+		{
+			if(((Npc) targetObject).getTarget() == player)
+			{
+				((Npc) targetObject).setTarget(null);
+				PacketSendUtility.broadcastPacket((Npc) targetObject, new SM_TARGET_UPDATE((Npc) targetObject));
+			}
+
+			PacketSendUtility.broadcastPacket((Npc) targetObject,
+				new SM_LOOKATOBJECT(targetObjectId, 0, ((Npc) targetObject).getHeading()));
+		}
 	}
 }

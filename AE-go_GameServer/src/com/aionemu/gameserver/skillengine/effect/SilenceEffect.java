@@ -30,7 +30,6 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 @XmlType(name = "SilenceEffect")
 public class SilenceEffect extends EffectTemplate
 {
-
 	@Override
 	public void applyEffect(Effect effect)
 	{
@@ -48,13 +47,10 @@ public class SilenceEffect extends EffectTemplate
 	{
 		effect.getEffected().getEffectController().setAbnormal(EffectId.SILENCE.getEffectId());
 	}
-	
+
 	@Override
 	public void endEffect(Effect effect)
 	{
 		effect.getEffected().getEffectController().unsetAbnormal(EffectId.SILENCE.getEffectId());
 	}
-	
-	
-
 }

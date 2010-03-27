@@ -18,11 +18,11 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_SELECTED;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
@@ -33,23 +33,18 @@ import com.google.inject.Inject;
  * If client want's to select target - d is object id.<br>
  * If client unselects target - d is 0;
  * 
- * @author SoulKeeper
+ * @author SoulKeeper, Sweetkr
  */
 public class CM_TARGET_SELECT extends AionClientPacket
 {
 	/**
 	 * Target object id that client wants to select or 0 if wants to unselect
 	 */
-	private int					targetObjectId;
+	private int	targetObjectId;
+	private int	type;
 
-	/**
-	 * Unknown value, always 0?
-	 */
-	@SuppressWarnings("unused")
-	private int					unknown;
-	
 	@Inject
-	private World				world;
+	private World	world;
 
 	/**
 	 * Constructs new client packet instance.
@@ -62,13 +57,14 @@ public class CM_TARGET_SELECT extends AionClientPacket
 
 	/**
 	 * Read packet.<br>
-	 * d - object id; c - unknown, always 0?
+	 * d - object id;
+	 * c - selection type;
 	 */
 	@Override
 	protected void readImpl()
 	{
 		targetObjectId = readD();
-		unknown = readC();
+		type = readC();
 	}
 
 	/**
@@ -80,31 +76,24 @@ public class CM_TARGET_SELECT extends AionClientPacket
 		Player player = getConnection().getActivePlayer();
 		if(player == null)
 			return;
-		
-		if (player.sameObjectId(targetObjectId)) 
-		{
-			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-			player.setTarget(player);
-			return;
-		}
-		
-		if(targetObjectId != 0)
-		{
-			AionObject obj = world.findAionObject(targetObjectId);
-			if(obj != null && obj instanceof VisibleObject)
-			{
-				player.setTarget((VisibleObject)obj);
-				if (obj instanceof Creature)
-				{
-					Creature c = (Creature)obj;
-					sendPacket(new SM_TARGET_SELECTED(targetObjectId, c.getLevel(), c.getLifeStats().getMaxHp(), c.getLifeStats().getCurrentHp()));
-				}
-			}
 
-		}
-		else
+		AionObject obj = world.findAionObject(targetObjectId);
+		if(obj != null && obj instanceof Creature)
 		{
-			player.setTarget(null);
+			Creature c = (Creature)obj;
+
+			if(type == 1)
+			{
+				if(c.getTarget() == null)
+					return;
+				player.setTarget(c.getTarget());
+			}
+			else
+			{
+				player.setTarget(c);
+			}
+			sendPacket(new SM_TARGET_SELECTED(player));
+			PacketSendUtility.broadcastPacket(player, new SM_TARGET_UPDATE(player));
 		}
 	}
 }

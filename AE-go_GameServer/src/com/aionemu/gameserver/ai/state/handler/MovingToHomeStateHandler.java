@@ -21,6 +21,7 @@ import com.aionemu.gameserver.ai.desires.impl.MoveToHomeDesire;
 import com.aionemu.gameserver.ai.state.AIState;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -47,6 +48,7 @@ public class MovingToHomeStateHandler extends StateHandler
 		ai.clearDesires();
 		Npc npc = (Npc) ai.getOwner();
 		npc.setTarget(null);
+		PacketSendUtility.broadcastPacket(npc, new SM_TARGET_UPDATE(npc));
 		npc.getAggroList().clear();
 		PacketSendUtility.broadcastPacket(npc, new SM_EMOTION(npc, 30, 0, 0));
 		PacketSendUtility.broadcastPacket(npc, new SM_EMOTION(npc, 20, 0, 0));

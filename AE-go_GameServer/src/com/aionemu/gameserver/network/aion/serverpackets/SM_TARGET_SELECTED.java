@@ -18,22 +18,23 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
+/**
+ * @author Sweetkr
+ */
 public class SM_TARGET_SELECTED extends AionServerPacket
 {
-	private int	targetObjectId;
-	private int	level;
-	private int	maxhp;
-	private int	curhp;
+	private Player		player;
+	private Creature	creature;
 
-	public SM_TARGET_SELECTED(int targetObjectId, int level, int maxhp, int curhp)
+	public SM_TARGET_SELECTED(Player player)
 	{
-		this.targetObjectId = targetObjectId;
-		this.level = level;
-		this.maxhp = maxhp;
-		this.curhp = curhp;
+		this.player = player;
+		this.creature = (Creature) player.getTarget();
 	}
 
 	/**
@@ -42,9 +43,9 @@ public class SM_TARGET_SELECTED extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, targetObjectId);
-		writeH(buf, level);
-		writeD(buf, maxhp);// Max HP
-		writeD(buf, curhp); // Current HP
+		writeD(buf, creature.getObjectId());
+		writeH(buf, creature.getLevel());
+		writeD(buf, creature.getLifeStats().getMaxHp());
+		writeD(buf, creature.getLifeStats().getCurrentHp());
 	}
 }

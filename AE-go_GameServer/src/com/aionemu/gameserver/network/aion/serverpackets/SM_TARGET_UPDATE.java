@@ -18,18 +18,20 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
+/**
+ * @author Sweetkr
+ */
 public class SM_TARGET_UPDATE extends AionServerPacket
 {
-	private int	objectId;
-	private int	targetObjectId;
+	private Creature	creature;
 
-	public SM_TARGET_UPDATE(int objectId, int targetObjectId)
+	public SM_TARGET_UPDATE(Creature creature)
 	{
-		this.objectId = objectId;
-		this.targetObjectId = targetObjectId;
+		this.creature = creature;
 	}
 
 	/**
@@ -38,7 +40,7 @@ public class SM_TARGET_UPDATE extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, objectId);
-		writeD(buf, targetObjectId);
+		writeD(buf, creature.getObjectId());
+		writeD(buf, creature.getTarget() == null ? 0 : creature.getTarget().getObjectId());
 	}
 }

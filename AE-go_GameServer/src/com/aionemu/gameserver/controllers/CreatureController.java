@@ -26,6 +26,7 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.skillengine.model.HopType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -47,7 +48,10 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	{
 		super.notSee(object);
 		if(object == getOwner().getTarget())
+		{
 			getOwner().setTarget(null);
+			PacketSendUtility.broadcastPacket(getOwner(), new SM_TARGET_UPDATE(getOwner()));
+		}
 	}
 
 	/**

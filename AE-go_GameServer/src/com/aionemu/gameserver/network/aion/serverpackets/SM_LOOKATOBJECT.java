@@ -31,29 +31,22 @@ public class SM_LOOKATOBJECT extends AionServerPacket
 	private int	lookerObjectId;
 	private int	targetObjectId;
 	private int	heading;
-	
+
 	public SM_LOOKATOBJECT(int lookerObjectId, int targetObjectId, int heading)
 	{
 		this.lookerObjectId = lookerObjectId;
 		this.targetObjectId = targetObjectId;
 		this.heading = heading;
 	}
-	/*public SM_DIALOG(int targetObjectId)
-	{
-		this.targetObjectId = targetObjectId;
-		
-	}*/
 
 	/**
 	* {@inheritDoc}
 	*/
-	
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
-	{		
+	{
 		writeD(buf, lookerObjectId);
-		writeD(buf, targetObjectId); // unknown
-		writeC(buf, heading); // unknown
-
-	}	
+		writeD(buf, targetObjectId);
+		writeC(buf, heading);
+	}
 }

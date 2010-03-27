@@ -24,6 +24,7 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -38,7 +39,7 @@ public class AttackingStateHandler extends StateHandler
 	{
 		return AIState.ATTACKING;
 	}
-	
+
 	/**
 	 * State ATTACKING
 	 * AI MonsterAi
@@ -48,24 +49,24 @@ public class AttackingStateHandler extends StateHandler
 	public void handleState(AIState state, AI<?> ai)
 	{
 		ai.clearDesires();
-		
+
 		Creature target = ((Npc)ai.getOwner()).getAggroList().getMostHated();
 		if(target == null)
 			return;
-		
+
 		Npc owner = (Npc) ai.getOwner();
 		owner.setTarget(target);
-		
+		PacketSendUtility.broadcastPacket(owner, new SM_TARGET_UPDATE(owner));
+
+		owner.setState(CreatureState.WEAPON_EQUIPPED);
 		PacketSendUtility.broadcastPacket(owner,
 			new SM_EMOTION(owner, 30, 0, target.getObjectId()));
 		PacketSendUtility.broadcastPacket(owner,
 			new SM_EMOTION(owner, 19, 0, target.getObjectId()));
-		owner.setState(CreatureState.WEAPON_EQUIPPED);
-		
+
 		ai.addDesire(new AttackDesire(owner, target, AIState.ATTACKING.getPriority()));
 		ai.addDesire(new MoveToTargetDesire(owner, target, AIState.ATTACKING.getPriority()));
-		
+
 		ai.schedule();
 	}
-
 }

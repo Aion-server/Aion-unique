@@ -21,6 +21,8 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
@@ -32,11 +34,11 @@ import com.google.inject.Inject;
  */
 public class CM_SHOW_DIALOG extends AionClientPacket
 {
-	private int					targetObjectId;
+	private int	targetObjectId;
 
 	@Inject
 	private World world;
-	
+
 	/**
 	 * Constructs new instance of <tt>CM_SHOW_DIALOG </tt> packet
 	 * @param opcode
@@ -63,16 +65,20 @@ public class CM_SHOW_DIALOG extends AionClientPacket
 	{
 		AionObject targetObject = world.findAionObject(targetObjectId);
 		Player player = getConnection().getActivePlayer();
-		
-		if(targetObject == null || player == null)
-				return;
 
-		//TODO this is not needed for all dialog requests
-		sendPacket(new SM_LOOKATOBJECT(targetObjectId, player.getObjectId(), Math.abs(128 - player.getHeading())));
+		if(targetObject == null || player == null)
+			return;
 
 		if(targetObject instanceof Npc)
 		{
-			 ((Npc) targetObject).getController().onDialogRequest(player);
+			((Npc) targetObject).setTarget(player);
+			PacketSendUtility.broadcastPacket((Npc) targetObject, new SM_TARGET_UPDATE((Npc) targetObject));
+
+			//TODO this is not needed for all dialog requests
+			PacketSendUtility.broadcastPacket((Npc) targetObject,
+				new SM_LOOKATOBJECT(targetObjectId, player.getObjectId(), Math.abs(128 - player.getHeading())));
+
+			((Npc) targetObject).getController().onDialogRequest(player);
 		}
 	}
 }
