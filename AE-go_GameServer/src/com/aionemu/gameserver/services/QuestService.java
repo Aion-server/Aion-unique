@@ -153,7 +153,7 @@ public class QuestService
 			}
 
 			//remove all worker list item if finished.
-			QuestWorkItems qwi = DataManager.QUEST_DATA.getQuestById(id).getQuestWorkItems();
+			QuestWorkItems qwi = questsData.getQuestById(id).getQuestWorkItems();
 			
 			if(qwi != null)
 			{
