@@ -255,25 +255,41 @@ public class GroupService
 	 * 
 	 * @param player
 	 */
-	public void doReward(PlayerGroup playerGroup, Monster owner)
+	public void doReward(Player player, Monster owner)
 	{
-		for(Player member : playerGroup.getMembers())
+		long xpReward = StatFunctions.calculateGroupExperienceReward(player, owner);
+		
+		List<Player> players = new ArrayList<Player>();
+		int partyLvlSum = 0;
+		for(Player member : player.getPlayerGroup().getMembers())
 		{
-			if(MathUtil.isInRange(member, owner, GroupConfig.GROUP_MAX_DISTANCE))
+			if(MathUtil.isInRange(member, player, GroupConfig.GROUP_MAX_DISTANCE))
 			{
-				long currentExp = member.getCommonData().getExp();
+				players.add(member);
+				partyLvlSum += member.getLevel();
+			}
+		}
+		double mod = 1;
+		if (players.size() == 0)
+			return;
+		else if (players.size() > 1)
+			mod = 1+(((players.size()-1)*10)/100);
+		
+		xpReward *= mod; 
 
-				long xpReward = StatFunctions.calculateGroupExperienceReward(member, owner);
-				member.getCommonData().setExp(currentExp + xpReward);
+		for(Player member : players)
+		{
+			long currentExp = member.getCommonData().getExp();
+			long reward = (xpReward * member.getLevel())/partyLvlSum;
+			member.getCommonData().setExp(currentExp + reward);
 
-				PacketSendUtility.sendPacket(member, SM_SYSTEM_MESSAGE.EXP(Long.toString(xpReward)));
+			PacketSendUtility.sendPacket(member, SM_SYSTEM_MESSAGE.EXP(Long.toString(reward)));
 
 				// DPreward
-				int currentDp = member.getCommonData().getDp();
-				int dpReward = StatFunctions.calculateGroupDPReward(member, owner);
-				member.getCommonData().setDp(dpReward + currentDp);
-				questEngine.onKill(new QuestEnv(owner, member, 0, 0));
-			}
+			int currentDp = member.getCommonData().getDp();
+			int dpReward = StatFunctions.calculateGroupDPReward(member, owner);
+			member.getCommonData().setDp(dpReward + currentDp);
+			questEngine.onKill(new QuestEnv(owner, member, 0 , 0));
 		}
 	}
 

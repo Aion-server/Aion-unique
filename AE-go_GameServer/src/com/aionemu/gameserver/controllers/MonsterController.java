@@ -63,7 +63,7 @@ public class MonsterController extends NpcController
 			}
 			else
 			{
-				sp.getGroupService().doReward(player.getPlayerGroup(), getOwner());
+				sp.getGroupService().doReward(player, getOwner());
 			}
 		}
 	}
