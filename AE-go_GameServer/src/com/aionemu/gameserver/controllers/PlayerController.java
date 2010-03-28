@@ -145,7 +145,7 @@ public class PlayerController extends CreatureController<Player>
 		if(isOutOfRange)
 			PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object, 0));
 		else
-			PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object, 15));
+			PacketSendUtility.broadcastPacket(getOwner(), new SM_DELETE(object, 15), true);
 	}
 
 	public void updateNearbyQuests()
