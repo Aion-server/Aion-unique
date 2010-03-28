@@ -16623,7 +16623,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <spellatk value="2043" delta="53" e="1" element="EARTH"/>
+            <spellatk value="2043" delta="53" e="1" element="EARTH">
+                <modifiers>
+                    <targetrace value="2043" delta="53" race="ASMODIANS"/>
+                </modifiers>
+            </spellatk>
         </effects>
         <actions>
             <mpuse value="495" delta="6"/>
@@ -16642,6 +16646,13 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="1012" delta="26" e="1" element="FIRE">
+                <modifiers>
+                    <targetrace value="1012" delta="26" race="ELYOS"/>
+                </modifiers>
+            </spellatkdraininstant>
+        </effects>
         <actions>
             <mpuse value="495" delta="6"/>
         </actions>
@@ -21482,6 +21493,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="MP" percent="50" value="729" delta="13" e="1" element="WATER" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1452" name="STR_SKILL_WI_DivineSlayer_G1" nameId="584461" stack="SKILL_WI_DIVINESLAYER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="36000" duration="2000">
         <startconditions>
@@ -23710,6 +23724,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="MP" percent="50" value="573" delta="13" e="1" element="WATER" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="1573" name="STR_SKILL_WI_Meteor_G1" nameId="581497" stack="SKILL_WI_METEOR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="3000" duration="1500">
         <startconditions>
@@ -27042,6 +27059,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="50" value="243" delta="0" e="1" element="FIRE" hoptype="DAMAGE"/>
+        </effects>
         <actions>
             <mpuse value="109" delta="0"/>
         </actions>
@@ -27059,6 +27079,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="55" value="289" delta="0" e="1" element="FIRE" hoptype="DAMAGE"/>
+        </effects>
         <actions>
             <mpuse value="143" delta="0"/>
         </actions>
@@ -27076,6 +27099,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="60" value="338" delta="0" e="1" element="FIRE" hoptype="DAMAGE"/>
+        </effects>
         <actions>
             <mpuse value="176" delta="0"/>
         </actions>
@@ -27093,6 +27119,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="65" value="375" delta="0" e="1" element="FIRE" hoptype="DAMAGE"/>
+        </effects>
         <actions>
             <mpuse value="190" delta="0"/>
         </actions>
@@ -27521,6 +27550,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="70" value="404" delta="0" e="1" element="FIRE" hoptype="DAMAGE"/>
+        </effects>
         <actions>
             <mpuse value="221" delta="0"/>
         </actions>
@@ -27742,6 +27774,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="75" value="447" delta="0" e="1" element="FIRE" hoptype="DAMAGE"/>
+        </effects>
         <actions>
             <mpuse value="250" delta="0"/>
         </actions>
@@ -49332,6 +49367,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="100" delta="0" e="1" element="WATER" hoptype="SKILLLV" hopb="193" hopa="21"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16504" name="STR_SKILL_Tab_NPR_FallAreaMeBr" nameId="568333" stack="SKILL_TAB_NPR_FALLAREAMEBR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1500">
         <setproperties>
@@ -49379,6 +49417,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="100" delta="0" e="1" element="WATER" hoptype="SKILLLV" hopb="193" hopa="21"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16507" name="STR_SKILL_Tab_NPR_HealinsSmall" nameId="568345" stack="SKILL_TAB_NPR_HEALINSSMALL" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="100">
         <setproperties>
@@ -49419,6 +49460,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="100" delta="0" e="1" element="WATER" hoptype="SKILLLV" hopb="193" hopa="21"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16510" name="STR_SKILL_Tab_NPR_Healins" nameId="568357" stack="SKILL_TAB_NPR_HEALINS" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="500">
         <setproperties>
@@ -50860,7 +50904,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <curse value="35" duration="8500" effectid="20102" e="2"/>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="WATER" hoptype="DAMAGE"/>
+            <curse value="35" duration="8500" effectid="20102" e="2" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16597" name="STR_NGR_Spell_Fire" nameId="569041" stack="NGR_SPELL_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
@@ -50888,6 +50933,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="EARTH" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16599" name="STR_NGR_SpellATKDrain_Instant_Stun" nameId="569325" stack="NGR_SPELLATKDRAIN_INSTANT_STUN" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -50900,7 +50948,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <stun duration="3000" effectid="20000" e="2"/>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="WATER" hoptype="DAMAGE"/>
+            <stun duration="3000" effectid="20000" e="2" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16600" name="STR_NGR_Dispel_Poison" nameId="569345" stack="NGR_DISPEL_POISON" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
@@ -52852,6 +52901,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="WATER" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16716" name="STR_NGN_PolyManduconfu_Nr" nameId="571541" stack="NGN_POLYMANDUCONFU_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
         <startconditions>
@@ -55297,6 +55349,7 @@
         </useconditions>
         <effects>
             <skillatk value="0" delta="0" e="1" hoptype="DAMAGE"/>
+            <spellatkdraininstant heal_type="HP" percent="100" value="293" delta="0" e="2" element="EARTH" hoptype="DAMAGE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="16865" name="STR_NGR_SpellDrain_Hungy" nameId="576021" stack="NGR_SPELLDRAIN_HUNGY" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
@@ -55309,6 +55362,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="WATER" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16866" name="STR_NGR_SelfSA_Kalupa" nameId="576023" stack="NGR_SELFSA_KALUPA" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1200">
         <startconditions>
@@ -58478,7 +58534,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <stun duration="3000" effectid="20000" e="2"/>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="WATER" hoptype="DAMAGE"/>
+            <stun duration="3000" effectid="20000" e="2" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17064" name="STR_GFI_Summon_Nr" nameId="578329" stack="GFI_SUMMON_NR" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
@@ -61404,6 +61461,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="EARTH" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17248" name="STR_NWI_SpellDotHTA_Air" nameId="579931" stack="NWI_SPELLDOTHTA_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <startconditions>
@@ -65190,6 +65250,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="EARTH" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17485" name="STR_GNPR_SPellDrainLrHTA_Chain1" nameId="580923" stack="GNPR_SPELLDRAINLRHTA_CHAIN1" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
         <startconditions>
@@ -65204,6 +65267,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="EARTH" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17486" name="STR_GNPR_SpellinsLong_chain2" nameId="580927" stack="GNPR_SPELLINSLONG_CHAIN2" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
         <startconditions>
@@ -65741,6 +65807,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="253" delta="0" e="1" element="EARTH" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17519" name="STR_NKN_SatkSDPydefDodKDTA_AddShield" nameId="581037" stack="NKN_SATKSDPYDEFDODKDTA_ADDSHIELD" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16409">
         <setproperties>
@@ -66400,6 +66469,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="50" delta="0" e="1" element="WATER" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17559" name="STR_NGR_SpellATKDrain_Ins_Such2" nameId="575179" stack="NGR_SPELLATKDRAIN_INS_SUCH2" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -66408,6 +66480,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="70" delta="0" e="1" element="WATER" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17560" name="STR_HPSpring_Regeneration" nameId="575231" stack="HPSPRING_REGENERATION" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
@@ -69998,6 +70073,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="50" value="318" delta="14" e="1" element="EARTH" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17781" name="STR_NPC_SKILL_EL_Pet_Interupt_G2_Earth" nameId="582175" stack="NPC_SKILL_EL_PET_INTERUPT_EARTH" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -70009,6 +70087,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="50" value="518" delta="15" e="1" element="EARTH" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17782" name="STR_NPC_SKILL_CallSlave_StormServant_G1" nameId="576691" stack="NPC_SKILL_CALLSLAVE_STORMSERVANT" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="10" duration="0">
         <setproperties>
@@ -70034,6 +70115,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="50" value="726" delta="15" e="1" element="EARTH" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17784" name="STR_GNWI_SpellatkAr_Ar_Carrier" nameId="577193" stack="GNWI_SPELLATKAR_AR_CARRIER" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -70161,6 +70245,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="50" value="726" delta="15" e="1" element="EARTH" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17793" name="STR_NPC_SKILL_EL_Pet_Interupt_G1_Fire" nameId="582181" stack="NPC_SKILL_EL_PET_INTERUPT_FIRE" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -70297,7 +70384,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <statdown duration="10000" effectid="120012" e="2">
+            <spellatkdraininstant heal_type="HP" percent="50" value="1230" delta="21" e="1" element="EARTH" hoptype="DAMAGE"/>
+            <statdown duration="10000" effectid="120012" e="2" element="EARTH">
                 <change stat="PHYSICAL_DEFENSE" func="ADD" delta="0" value="-150"/>
             </statdown>
         </effects>
@@ -70913,6 +71001,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="200" value="181" delta="0" e="1" element="EARTH" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17843" name="STR_GNFI_KDTA15_AddShield" nameId="582955" stack="GNFI_KDTA15_ADDSHIELD" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500" penalty_skill_id="16409">
         <setproperties>
@@ -71001,6 +71092,7 @@
             <spellatk value="49" delta="0" e="1" element="WATER" hoptype="DAMAGE">
                 <subeffect skill_id="8441"/>
             </spellatk>
+            <spellatkdraininstant heal_type="HP" percent="200" value="293" delta="0" e="2" element="EARTH" hoptype="DAMAGE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17849" name="STR_NWI_ParalyzeFaNoflyHSA20_Thunder" nameId="582987" stack="NWI_PARALYZEFANOFLYHSA20_THUNDER" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -71200,7 +71292,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <statdown duration="60100" effectid="10178603" e="2">
+            <spellatkdraininstant heal_type="HP" percent="200" value="50" delta="0" e="1" element="EARTH" hoptype="DAMAGE"/>
+            <statdown duration="60100" effectid="10178603" e="2" element="WATER" hoptype="SKILLLV" hopb="60" hopa="60">
                 <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="-10"/>
                 <change stat="MAGICAL_RESIST" func="PERCENT" delta="0" value="-10"/>
             </statdown>
@@ -71721,8 +71814,9 @@
             <targetrelation value="ENEMY"/>
         </setproperties>
         <effects>
-            <transform model="210420" duration="30000" effectid="175" e="2"/>
-            <statdown duration="30000" effectid="10178943" e="3">
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="WATER" hoptype="DAMAGE"/>
+            <transform model="210420" duration="30000" effectid="175" e="2" element="WATER" hoptype="SKILLLV" hopb="60" hopa="60"/>
+            <statdown duration="30000" effectid="10178943" e="3" element="WATER" hoptype="SKILLLV" hopb="60" hopa="60">
                 <change stat="MAXHP" func="PERCENT" delta="0" value="-50"/>
             </statdown>
         </effects>
@@ -71813,7 +71907,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <blind value="70" duration="3000" effectid="20107" e="2"/>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="WIND" hoptype="DAMAGE"/>
+            <blind value="70" duration="3000" effectid="20107" e="2" element="WIND" hoptype="SKILLLV" hopb="60" hopa="60"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17901" name="STR_BNEL_WaterfoamTA25_No_Lc" nameId="583391" stack="BNEL_WATERFOAMTA25_NO_LC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="4000">
@@ -72553,6 +72648,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="FIRE" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17949" name="STR_NWA_SatkLrTA_No" nameId="583653" stack="NWA_SATKLRTA_NO" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -72926,8 +73024,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <confuse duration="20000" effectid="20104" e="2"/>
-            <transform model="211268" duration="20000" effectid="175" e="3"/>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="EARTH" hoptype="DAMAGE"/>
+            <confuse duration="20000" effectid="20104" e="2" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
+            <transform model="211268" duration="20000" effectid="175" e="3" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17973" name="STR_NKN_SATKAimCurse_Po" nameId="584995" stack="NKN_SATKAIMCURSE_PO" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
@@ -73875,6 +73974,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="EARTH" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18032" name="STR_BNEL_ParMPattTA3_AddReflect60" nameId="584823" stack="BNEL_PARMPATTTA3_ADDREFLECT60" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000" penalty_skill_id="17857">
         <startconditions>
@@ -73922,7 +74024,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <paralyze duration="3000" effectid="20002" e="2"/>
+            <spellatkdraininstant heal_type="HP" percent="100" value="181" delta="0" e="1" element="WIND" hoptype="DAMAGE"/>
+            <paralyze duration="3000" effectid="20002" e="2" element="WIND" hoptype="SKILLLV" hopb="60" hopa="60"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18035" name="STR_BNEL_SPellDotTA20_FireRain" nameId="584853" stack="BNEL_SPELLDOTTA20_FIRERAIN" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3500">
@@ -77282,6 +77385,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="20" value="80" delta="0" e="1" element="FIRE" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18238" name="STR_BNWI_SpellAtkTA10_AddShie25_Su" nameId="588029" stack="BNWI_SPELLATKTA10_ADDSHIE25_SU" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2500" penalty_skill_id="18215">
         <setproperties>
@@ -77308,6 +77414,7 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
+            <spellatkdraininstant heal_type="HP" percent="20" value="104" delta="0" e="1" element="FIRE" hoptype="DAMAGE"/>
             <paralyze duration="21100" effectid="20002" e="3"/>
         </effects>
     </skill_template>
@@ -77403,6 +77510,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <spellatkdraininstant heal_type="HP" percent="20" value="49" delta="0" e="1" element="FIRE" hoptype="DAMAGE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18247" name="STR_NWI_SpellATKParTA5_Poi" nameId="588103" stack="NWI_SPELLATKPARTA5_POI" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
         <setproperties>
@@ -80631,7 +80741,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <curse value="35" duration="8500" effectid="20102" e="2"/>
+            <spellatkdraininstant heal_type="HP" percent="130" value="181" delta="0" e="1" element="WATER" hoptype="DAMAGE"/>
+            <curse value="35" duration="8500" effectid="20102" e="2" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18460" name="STR_NGR_SkillATKDrainTA_Instant_VampireQueen" nameId="586419" stack="NGR_SKILLATKDRAINTA_INSTANT_VAMPIREQUEEN" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2000">
@@ -80648,7 +80759,8 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <curse value="35" duration="8500" effectid="20102" e="2"/>
+            <spellatkdraininstant heal_type="HP" percent="100" value="151" delta="0" e="1" element="WATER" hoptype="DAMAGE"/>
+            <curse value="35" duration="8500" effectid="20102" e="2" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
         </effects>
     </skill_template>
     <skill_template skill_id="18461" name="STR_NGR_DeathCount6s_Nr" nameId="586421" stack="NGR_DEATHCOUNT6S_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2000">

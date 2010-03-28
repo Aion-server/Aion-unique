@@ -23,7 +23,6 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerAppearance;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
-import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -81,7 +80,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		 */
 		writeD(buf, player.getTransformedModelId() == 0 ? pcd.getTemplateId() : player.getTransformedModelId());
 
-		writeC(buf, enemy == true ? 0x00 : 0x26);
+		writeC(buf, enemy ? 0x00 : 0x26);
 
 		writeC(buf, raceId); // race
 		writeC(buf, pcd.getPlayerClass().getClassId());
@@ -230,7 +229,7 @@ public class SM_PLAYER_INFO extends AionServerPacket
 		writeF(buf, player.getZ());// z
 		writeC(buf, 0x00); // move type
 
-		if(player.isInState(CreatureState.FLIGHT_TELEPORT))
+		if(player.isUsingFlyTeleport())
 		{
 			writeD(buf, player.getFlightTeleportId());
 			writeD(buf, player.getFlightDistance());

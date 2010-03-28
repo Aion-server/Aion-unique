@@ -518,6 +518,8 @@ public class PlayerController extends CreatureController<Player>
 	{
 		Player player = getOwner();
 		player.unsetState(CreatureState.FLIGHT_TELEPORT);
+		player.setFlightTeleportId(0);
+		player.setFlightDistance(0);
 		player.setState(CreatureState.ACTIVE);
 		addZoneUpdateMask(ZoneUpdateMode.ZONE_REFRESH);
 	}

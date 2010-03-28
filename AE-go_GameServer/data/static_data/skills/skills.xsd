@@ -183,6 +183,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="provoker" type="ProvokerEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="spellatkdraininstant" type="SpellAtkDrainInstantEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -917,6 +919,15 @@
 				<xs:attribute name="provoke_target" type="ProvokeTarget" />
 				<xs:attribute name="provoke_type" type="ProvokeType" />	
 				<xs:attribute name="skill_id" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="SpellAtkDrainInstantEffect">
+		<xs:complexContent>
+			<xs:extension base="DamageEffect">				
+				<xs:attribute name="percent" type="xs:int" />	
+				<xs:attribute name="heal_type" type="HealType" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

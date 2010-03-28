@@ -34,9 +34,7 @@ import com.aionemu.gameserver.skillengine.SwitchHpMpEffect;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Effects", propOrder = {
-	"effects"
-})
+@XmlType(name = "Effects")
 public class Effects 
 {
 
@@ -104,7 +102,9 @@ public class Effects
 		@XmlElement(name = "aura", type = AuraEffect.class),
 		@XmlElement(name = "resurrect", type = ResurrectEffect.class),
 		@XmlElement(name = "returnpoint", type = ReturnPointEffect.class),
-		@XmlElement(name = "provoker", type = ProvokerEffect.class)
+		@XmlElement(name = "provoker", type = ProvokerEffect.class),
+		@XmlElement(name = "reflector", type = ReflectorEffect.class),
+		@XmlElement(name = "spellatkdraininstant", type = SpellAtkDrainInstantEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	

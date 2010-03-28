@@ -31,6 +31,7 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedInListener;
 import com.aionemu.gameserver.model.gameobjects.player.listeners.PlayerLoggedOutListener;
+import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerLifeStats;
@@ -922,5 +923,13 @@ public class Player extends Creature
 	public int getFlightDistance()
 	{
 		return flightDistance;
+	}
+
+	/**
+	 * @return
+	 */
+	public boolean isUsingFlyTeleport()
+	{
+		return isInState(CreatureState.FLIGHT_TELEPORT) && flightTeleportId != 0;
 	}
 }
