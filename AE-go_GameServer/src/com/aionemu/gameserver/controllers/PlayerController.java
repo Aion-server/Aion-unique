@@ -121,9 +121,9 @@ public class PlayerController extends CreatureController<Player>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void notSee(VisibleObject object)
+	public void notSee(VisibleObject object, boolean isOutOfRange)
 	{
-		super.notSee(object);
+		super.notSee(object, isOutOfRange);
 		if(object instanceof Npc)
 		{
 			boolean update = false;
@@ -140,14 +140,12 @@ public class PlayerController extends CreatureController<Player>
 			}
 			if(update)
 				updateNearbyQuestList();
-			
-			if(((Npc)object).getLifeStats().isAlreadyDead())
-				return;
 		}
-		else if(object instanceof Gatherable && !((Gatherable)object).isSpawned())
-			return;
-
-		PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object, 0));
+		
+		if(isOutOfRange)
+			PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object, 0));
+		else
+			PacketSendUtility.sendPacket(getOwner(), new SM_DELETE(object, 15));
 	}
 
 	public void updateNearbyQuests()

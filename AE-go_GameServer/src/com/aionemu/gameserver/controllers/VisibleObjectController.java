@@ -70,7 +70,7 @@ public abstract class VisibleObjectController<T extends VisibleObject>
 	 * 
 	 * @param object
 	 */
-	public void notSee(VisibleObject object)
+	public void notSee(VisibleObject object, boolean isOutOfRange)
 	{
 
 	}

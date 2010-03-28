@@ -41,11 +41,6 @@ public class SM_DELETE extends AionServerPacket
 	 * 
 	 * @param object
 	 */
-	public SM_DELETE(AionObject object)
-	{
-		this.objectId = object.getObjectId();
-		this.time = 15;
-	}
 	
 	public SM_DELETE(AionObject object, int time)
 	{

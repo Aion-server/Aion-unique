@@ -38,7 +38,6 @@ import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.stats.NpcGameStats;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOKATOBJECT;
@@ -66,9 +65,9 @@ public class NpcController extends CreatureController<Npc>
 	protected Future<?>			decayTask;
 
 	@Override
-	public void notSee(VisibleObject object)
+	public void notSee(VisibleObject object, boolean isOutOfRange)
 	{
-		super.notSee(object);
+		super.notSee(object, isOutOfRange);
 		if(object instanceof Creature)
 			getOwner().getAggroList().remove((Creature) object);
 		if(object instanceof Player && getOwner().getAi() != null)
@@ -114,7 +113,6 @@ public class NpcController extends CreatureController<Npc>
 		if(owner == null || !owner.isSpawned())
 			return;
 
-		PacketSendUtility.broadcastPacket(owner, new SM_DELETE(owner));
 		if(owner.getAi() != null)
 			owner.getAi().handleEvent(Event.DESPAWN);
 		sp.getWorld().despawn(owner);

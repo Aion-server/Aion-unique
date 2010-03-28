@@ -41,7 +41,7 @@ public class KnownList implements Iterable<VisibleObject>
 	private static final int						VisibilityDistance			= 95;
 	
 	// maxZvisibleDistance
-	private static final int						maxZvisibleDistance 		= 400;
+	private static final int						maxZvisibleDistance 		= 95;
 
 	/**
 	 * Owner of this KnownList.
@@ -81,7 +81,7 @@ public class KnownList implements Iterable<VisibleObject>
 		{
 			VisibleObject obj = knownIt.next();
 			knownIt.remove();
-			obj.getKnownList().del(owner);
+			obj.getKnownList().del(owner, false);
 		}
 	}
 
@@ -126,13 +126,13 @@ public class KnownList implements Iterable<VisibleObject>
 	 * 
 	 * @param object
 	 */
-	private final void del(VisibleObject object)
+	private final void del(VisibleObject object, boolean isOutOfRange)
 	{
 		/**
 		 * object was known.
 		 */
 		if(knownObjects.remove(object.getObjectId()) != null)
-			owner.getController().notSee(object);
+			owner.getController().notSee(object, isOutOfRange);
 	}
 
 	/**
@@ -149,8 +149,8 @@ public class KnownList implements Iterable<VisibleObject>
 			if(!checkObjectInRange(owner, obj))
 			{
 				knownIt.remove();
-				owner.getController().notSee(obj);
-				obj.getKnownList().del(owner);
+				owner.getController().notSee(obj, true);
+				obj.getKnownList().del(owner, true);
 			}
 		}
 	}

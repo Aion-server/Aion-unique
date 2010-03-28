@@ -29,7 +29,6 @@ import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.gather.Material;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.skillengine.task.GatheringTask;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -218,8 +217,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	
 	private void onDie()
 	{
-		Gatherable owner = getOwner();		
-		PacketSendUtility.broadcastPacket(owner, new SM_DELETE(owner));			
+		Gatherable owner = getOwner();
 		sp.getRespawnService().scheduleRespawnTask(owner);
 		sp.getWorld().despawn(owner);
 	}
