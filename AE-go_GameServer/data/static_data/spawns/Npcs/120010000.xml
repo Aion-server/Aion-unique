@@ -1028,8 +1028,6 @@ Pandaemonium -->
 	</spawn>
 	<!-- Mailbox -->
 	<spawn map="120010000" npcid="700000" pool="3" interval="105">
-		<object x="1299.17" y="1437.54" z="209.09" h="0"/>
-		<object x="1299.17" y="1373.54" z="209.09" h="0"/>
 		<object x="1299.17" y="1117.54" z="209.09" h="0"/>
 	</spawn>
 	<!-- Ninis -->
