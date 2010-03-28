@@ -18,6 +18,9 @@ package com.aionemu.gameserver.controllers.attack;
 
 import javolution.util.FastMap;
 
+import org.apache.log4j.Logger;
+
+import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 
@@ -26,15 +29,24 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
  *
  */
 public class AggroList
-{
+{	
+	@SuppressWarnings("unused")
+	private static final Logger	log	= Logger.getLogger(AggroList.class);
+	
 	private Npc owner;
+	
+	private FastMap<Creature, AggroInfo> aggroList = new FastMap<Creature, AggroInfo>().setShared(true);
 	
 	public AggroList(Npc owner)
 	{
-		super();
 		this.owner = owner;
 	}
 
+	/**
+	 *  AggroInfo:
+	 *  - hate of creature
+	 *  - damage of creature
+	 */
 	public final class AggroInfo
 	{
 		protected Creature attacker;
@@ -46,51 +58,45 @@ public class AggroList
 			attacker = pAttacker;
 		}
 	}
-	
-	private FastMap<Creature, AggroInfo> aggroList = new FastMap<Creature, AggroInfo>().setShared(true);
-
-	/**
-	 * @return the owner
-	 */
-	public Npc getOwner()
-	{
-		return owner;
-	}
-
-	/**
-	 * @param owner the owner to set
-	 */
-	public void setOwner(Npc owner)
-	{
-		this.owner = owner;
-	}
 
 	/**
 	 * 
-	 * @param attacker
+	 * @param creature
 	 * @param damage
-	 * @param aggro
 	 */
-	public void addDamageHate(Creature attacker, int damage, int aggro)
+	public void addDamage(Creature creature, int damage)
 	{
-		if (attacker == null)
+		if (creature == null)
 			return;
 
-		AggroInfo ai = aggroList.get(attacker);
-		if (ai == null)
-		{
-			ai = new AggroInfo(attacker);
-			aggroList.put(attacker, ai);
-
-			ai.damage = 0;
-			ai.hate = 0;
-		}
+		AggroInfo ai = getAggroInfo(creature);
 		ai.damage += damage;
+		/**
+		 * For now we add hate equal to each damage received
+		 * Additionally there will be broadcast of extra hate
+		 */
+		ai.hate += damage;
+		
+		if(owner.getAi() != null)
+			owner.getAi().handleEvent(Event.ATTACKED);
+	}
 
-		if (aggro == 0)
-			ai.hate++;
-		else
-			ai.hate += aggro;
+	/**
+	 * Extra hate that is received from using non-damange skill effects
+	 * 
+	 * @param creature
+	 * @param hate
+	 */
+	public void addHate(Creature creature, int hate)
+	{
+		if (creature == null)
+			return;
+
+		AggroInfo ai = getAggroInfo(creature);
+		ai.hate += hate;
+		
+		if(owner.getAi() != null)
+			owner.getAi().handleEvent(Event.ATTACKED);
 	}
 	
 	/**
@@ -122,6 +128,33 @@ public class AggroList
 		}
 
 		return mostHated;
+	}	
+	
+	/**
+	 * 
+	 * @param creature
+	 * @return
+	 */
+	public boolean isMostHated(Creature creature)
+	{
+		if(creature == null || creature.getLifeStats().isAlreadyDead())
+			return false;
+		
+		Creature mostHated = getMostHated();
+		if(mostHated == null)
+			return false;
+		
+		return mostHated.equals(creature);
+	}
+
+	/**
+	 * @param creature
+	 * @param value
+	 */
+	public void notifyHate(Creature creature, int value)
+	{
+		if(isHating(creature))
+			addHate(creature, value);
 	}
 	
 	/**
@@ -135,13 +168,48 @@ public class AggroList
 			aggroInfo.hate = 0;
 	}
 	
+	/**
+	 * Remove completely creature from aggro list
+	 * 
+	 * @param creature
+	 */
 	public void remove(Creature creature)
 	{
 		aggroList.remove(creature);
 	}
 	
+	/**
+	 * Clear aggroList
+	 */
 	public void clear()
 	{
 		aggroList.clear();
 	}
+	
+	/**
+	 * 
+	 * @param creature
+	 * @return
+	 */
+	private AggroInfo getAggroInfo(Creature creature)
+	{
+		AggroInfo ai = aggroList.get(creature);
+		if (ai == null)
+		{
+			ai = new AggroInfo(creature);
+			aggroList.put(creature, ai);
+		}
+		return ai;
+	}
+	
+	/**
+	 * 
+	 * @param creature
+	 * @return
+	 */
+	private boolean isHating(Creature creature)
+	{
+		return aggroList.containsKey(creature);
+	}
+
 }

@@ -386,10 +386,9 @@ public class NpcController extends CreatureController<Npc>
 			return;
 		}
 
-		npc.getAggroList().addDamageHate(creature, damage, 0);
+		npc.getAggroList().addDamage(creature, damage);
 		npc.getLifeStats().reduceHp(damage, creature);
 
-		ai.handleEvent(Event.ATTACKED);
 		PacketSendUtility.broadcastPacket(npc, new SM_ATTACK_STATUS(npc, type, skillId, damage));
 	}
 

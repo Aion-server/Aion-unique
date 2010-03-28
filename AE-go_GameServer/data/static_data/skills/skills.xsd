@@ -257,6 +257,9 @@
 			<xs:element name="change" type="Change" minOccurs="0"
 				maxOccurs="unbounded" />
 		</xs:sequence>
+		<xs:attribute name="hopa" type="xs:int" />
+		<xs:attribute name="hopb" type="xs:int" />
+		<xs:attribute name="hoptype" type="HopType" />
 		<xs:attribute name="element" type="SkillElement" />
 		<xs:attribute name="basiclvl" type="xs:int" />
 		<xs:attribute name="e" type="xs:int" />
@@ -1109,15 +1112,6 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="HopType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="HP" />
-			<xs:enumeration value="MP" />
-			<xs:enumeration value="FP" />
-			<xs:enumeration value="DP" />
-		</xs:restriction>
-	</xs:simpleType>
-
 	<xs:simpleType name="StatFunc">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ADD" />
@@ -1149,6 +1143,13 @@
 			<xs:enumeration value="WIND" />
 			<xs:enumeration value="WATER" />
 			<xs:enumeration value="EARTH" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="HopType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DAMAGE" />
+			<xs:enumeration value="SKILLLV" />
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>

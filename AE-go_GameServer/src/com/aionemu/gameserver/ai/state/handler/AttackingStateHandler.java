@@ -44,7 +44,7 @@ public class AttackingStateHandler extends StateHandler
 	/**
 	 * State ATTACKING
 	 * AI MonsterAi
-	 * AI GuardAi
+	 * AI AggressiveAi
 	 */
 	@Override
 	public void handleState(AIState state, AI<?> ai)

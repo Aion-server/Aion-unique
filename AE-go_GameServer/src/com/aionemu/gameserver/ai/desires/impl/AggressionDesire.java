@@ -75,8 +75,7 @@ public final class AggressionDesire extends AbstractDesire
 						@Override
 						public void run()
 						{
-							npc.getAggroList().addDamageHate(player, 0, 0);
-							npc.getAi().handleEvent(Event.ATTACKED);
+							npc.getAggroList().addHate(player, 1);
 						}
 					}, 1000);
 					break;

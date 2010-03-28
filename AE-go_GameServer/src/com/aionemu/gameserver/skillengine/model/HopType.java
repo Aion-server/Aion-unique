@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -27,8 +27,6 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum HopType
 {
-	HP,
-	MP,
-	DP,
-	FP
+	DAMAGE,
+	SKILLLV
 }

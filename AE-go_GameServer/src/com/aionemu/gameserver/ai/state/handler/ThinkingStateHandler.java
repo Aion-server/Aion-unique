@@ -24,7 +24,7 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
  * @author ATracer
  *
  */
-public class ThinkingAggroStateHandler extends StateHandler
+public class ThinkingStateHandler extends StateHandler
 {
 
 	@Override
@@ -32,11 +32,11 @@ public class ThinkingAggroStateHandler extends StateHandler
 	{
 		return AIState.THINKING;
 	}
-
+	
 	/**
 	 * State THINKING
-	 * AI AggressiveMonsterAi
-	 * AI GuardAi
+	 * AI MonsterAi
+	 * AI AggressiveAi
 	 */
 	@Override
 	public void handleState(AIState state, AI<?> ai)
@@ -44,20 +44,17 @@ public class ThinkingAggroStateHandler extends StateHandler
 		ai.clearDesires();
 		
 		Npc owner = (Npc) ai.getOwner();
-		
 		if(owner.getAggroList().getMostHated() != null)
 		{
 			ai.setAiState(AIState.ATTACKING);
 			return;
 		}
-
 		if(!owner.isAtSpawnLocation())
 		{
 			ai.setAiState(AIState.MOVINGTOHOME);
 			return;
 		}
-		
+
 		ai.setAiState(AIState.ACTIVE);
 	}
-
 }

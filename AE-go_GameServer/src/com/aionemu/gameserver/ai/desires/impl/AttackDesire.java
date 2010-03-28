@@ -35,6 +35,8 @@ public final class AttackDesire extends AbstractDesire
 {
 	private int attackNotPossibleCounter;
 	
+	private int attackCounter = 1;
+	
 	/**
 	 * Target of this desire
 	 */
@@ -68,6 +70,7 @@ public final class AttackDesire extends AbstractDesire
 		
 		if(target == null || target.getLifeStats().isAlreadyDead())
 		{
+			//TODO lower hate and not reset
 			owner.getAggroList().stopHating(target);
 			owner.getAi().handleEvent(Event.TIRED_ATTACKING_TARGET);
 			return false;
@@ -82,6 +85,16 @@ public final class AttackDesire extends AbstractDesire
 			return false;
 		}
 		
+		attackCounter++;
+		
+		if(attackCounter % 2 == 0)
+		{
+			if(!owner.getAggroList().isMostHated(target))
+			{
+				owner.getAi().handleEvent(Event.TIRED_ATTACKING_TARGET);
+				return false;
+			}
+		}
 		if(distance <= 2)
 		{
 			owner.getController().attackTarget(target.getObjectId());

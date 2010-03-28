@@ -31,6 +31,10 @@ public enum Event
 	 */
 	TIRED_ATTACKING_TARGET,
 	/**
+	 * During attack most hated creature changed from current target
+	 */
+	MOST_HATED_CHANGED,
+	/**
 	 * In active state there is nothing to do
 	 */
 	NOTHING_TODO,

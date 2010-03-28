@@ -57,7 +57,7 @@ import com.aionemu.gameserver.restrictions.RestrictionsManager;
 import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.ZoneService.ZoneUpdateMode;
 import com.aionemu.gameserver.skillengine.SkillEngine;
-import com.aionemu.gameserver.skillengine.model.HopType;
+import com.aionemu.gameserver.skillengine.model.HealType;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -370,10 +370,10 @@ public class PlayerController extends CreatureController<Player>
 	}
 
 	@Override
-	public void onRestore(HopType hopType, int value)
+	public void onRestore(HealType healType, int value)
 	{
-		super.onRestore(hopType, value);
-		switch(hopType)
+		super.onRestore(healType, value);
+		switch(healType)
 		{
 			case DP:
 				getOwner().getCommonData().addDp(value);

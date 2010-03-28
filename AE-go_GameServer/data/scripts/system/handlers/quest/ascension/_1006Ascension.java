@@ -119,8 +119,7 @@ public class _1006Ascension extends QuestHandler
 				Npc mob = (Npc) questService.addNewSpawn(310010000, instanceId, 211043, (float) 226.7, (float) 251.5, (float) 205.5, (byte) 0, true);
 				// TODO: Tempt decrease P attack.
 				mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER) / 3);
-				mob.getAggroList().addDamageHate(player, 1000, 0);
-				mob.getAi().handleEvent(Event.ATTACKED);
+				mob.getAggroList().addDamage(player, 1000);
 				return true;
 			}
 		}
@@ -272,8 +271,7 @@ public class _1006Ascension extends QuestHandler
 										// TODO: Tempt decrease P attack.
 										mob.getGameStats().setStat(StatEnum.MAIN_HAND_POWER, mob.getGameStats().getCurrentStat(StatEnum.MAIN_HAND_POWER) / 3);
 										mob.getGameStats().setStat(StatEnum.PHYSICAL_DEFENSE, 0);
-										mob.getAggroList().addDamageHate(player, 1000, 0);
-										mob.getAi().handleEvent(Event.ATTACKED);
+										mob.getAggroList().addDamage(player, 1000);
 									}
 								}
 							}, 43000);

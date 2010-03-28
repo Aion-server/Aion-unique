@@ -24,8 +24,7 @@ import com.aionemu.gameserver.ai.state.handler.NoneMonsterStateHandler;
 import com.aionemu.gameserver.ai.state.handler.RestingStateHandler;
 import com.aionemu.gameserver.ai.state.handler.StateHandler;
 import com.aionemu.gameserver.ai.state.handler.TalkingStateHandler;
-import com.aionemu.gameserver.ai.state.handler.ThinkingAggroStateHandler;
-import com.aionemu.gameserver.ai.state.handler.ThinkingMonsterStateHandler;
+import com.aionemu.gameserver.ai.state.handler.ThinkingStateHandler;
 
 /**
  * @author ATracer
@@ -48,8 +47,7 @@ public enum StateHandlers
 	/**
 	 * AIState.THINKING
 	 */
-	THINKING_MONSTER_SH(new ThinkingMonsterStateHandler()),
-	THINKING_AGGRO_SH(new ThinkingAggroStateHandler()),	
+	THINKING_SH(new ThinkingStateHandler()),	
 	/**
 	 * AIState.ACTIVE
 	 */

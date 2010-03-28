@@ -14,46 +14,29 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.state.handler;
+package com.aionemu.gameserver.ai.events.handler;
 
 import com.aionemu.gameserver.ai.AI;
+import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.state.AIState;
-import com.aionemu.gameserver.model.gameobjects.Monster;
+
 
 /**
  * @author ATracer
  *
  */
-public class ThinkingMonsterStateHandler extends StateHandler
+public class MostHatedChangedEventHandler implements EventHandler
 {
+	@Override
+	public Event getEvent()
+	{
+		return Event.MOST_HATED_CHANGED;
+	}
 
 	@Override
-	public AIState getState()
+	public void handleEvent(Event event, AI<?> ai)
 	{
-		return AIState.THINKING;
+		ai.setAiState(AIState.THINKING);
 	}
-	
-	/**
-	 * State THINKING
-	 * AI MonsterAi
-	 */
-	@Override
-	public void handleState(AIState state, AI<?> ai)
-	{
-		ai.clearDesires();
-		
-		Monster owner = (Monster) ai.getOwner();
-		if(owner.getAggroList().getMostHated() != null)
-		{
-			ai.setAiState(AIState.ATTACKING);
-			return;
-		}
-		if(!owner.isAtSpawnLocation())
-		{
-			ai.setAiState(AIState.MOVINGTOHOME);
-			return;
-		}
 
-		ai.setAiState(AIState.ACTIVE);
-	}
 }

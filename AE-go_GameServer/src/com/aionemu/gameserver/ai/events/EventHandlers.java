@@ -38,6 +38,7 @@ public enum EventHandlers
 {
 	ATTACKED_EH(new AttackedEventHandler()),
 	TIREDATTACKING_EH(new TiredAttackingEventHandler()),
+	MOST_HATED_CHANGED_EH(new TiredAttackingEventHandler()),
 	SEEPLAYER_EH(new SeePlayerEventHandler()),
 	NOTSEEPLAYER_EH(new NotSeePlayerEventHandler()),
 	RESPAWNED_EH(new RespawnedEventHandler()),

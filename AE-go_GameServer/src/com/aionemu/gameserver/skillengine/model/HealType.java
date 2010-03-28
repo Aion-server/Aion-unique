@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <aion-unique.org>.
+ * This file is part of aion-unique <aion-unique.com>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,29 +14,21 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai.npcai;
+package com.aionemu.gameserver.skillengine.model;
 
-import com.aionemu.gameserver.ai.events.EventHandlers;
-import com.aionemu.gameserver.ai.state.StateHandlers;
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author ATracer
  *
  */
-public class AggressiveAi extends MonsterAi
+@XmlType(name = "HealType")
+@XmlEnum
+public enum HealType
 {
-	public AggressiveAi()
-	{
-		super();
-		/**
-		 * Event handlers
-		 */
-		this.addEventHandler(EventHandlers.SEEPLAYER_EH.getHandler());
-		this.addEventHandler(EventHandlers.NOTSEEPLAYER_EH.getHandler());
-		
-		/**
-		 * State handlers
-		 */
-		this.addStateHandler(StateHandlers.ACTIVE_AGGRO_SH.getHandler());
-	}
+	HP,
+	MP,
+	DP,
+	FP
 }

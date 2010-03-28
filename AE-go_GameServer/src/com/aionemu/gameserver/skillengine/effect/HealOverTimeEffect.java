@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.model.Effect;
-import com.aionemu.gameserver.skillengine.model.HopType;
+import com.aionemu.gameserver.skillengine.model.HealType;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
@@ -44,7 +44,7 @@ public class HealOverTimeEffect extends EffectTemplate
 	@XmlAttribute
 	protected int delta;
 	@XmlAttribute
-	protected HopType type;
+	protected HealType type;
 
 	@Override
 	public void applyEffect(Effect effect)
