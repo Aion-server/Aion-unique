@@ -77,7 +77,7 @@
 	</monster_hunt>
 
 	<!-- Selfish Guruminerk -->
-	<monster_hunt id="3005" start_npc_id="798133">
+	<monster_hunt id="3021" start_npc_id="798133">
 		<monster_infos npc_id="213838"  var_id="0" max_kill="20"/>
 		<monster_infos npc_id="213840"  var_id="1" max_kill="15"/>
 	</monster_hunt>

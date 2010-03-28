@@ -15,8 +15,6 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
   -->
-	<!-- A Treat For Adelphie -->
-	<item_collecting id="1434" start_npc_id="203936" action_item_id="152000004" />
 
    	 <!-- Pluma Attack! -->
     	<item_collecting id="1303" start_npc_id="203917" />
@@ -162,11 +160,6 @@
 	<!-- Support for the Desert Scouts -->
 	<report_to start_npc_id="203999" end_npc_id="204006" id="1335"/>
 
-	<!-- The Scolopen Sting -->
-	<monster_hunt start_npc_id="204008" id="1339">
-		<monster_infos var_id="0" npc_id="210801" max_kill="10"/>
-	</monster_hunt>
-
 	<!-- Basilisk Purge -->
 	<monster_hunt start_npc_id="204008" id="1340">
 		<monster_infos var_id="0" npc_id="210809" max_kill="7"/>
@@ -239,7 +232,7 @@
 
 
 	<!--  Medicinal Roots -->
-	<item_collecting start_npc_id="203936" id="1434" />
+	<item_collecting id="1434" start_npc_id="203936" action_item_id="152000004" />
 
 	<!-- TODO: 1031 The Manduri's Secret -->
 
@@ -504,7 +497,7 @@
 	<item_collecting id="1384" start_npc_id="204028" />
 
 	<!-- 1356 A Gift for Acteon -->
-	<report_to id="1456" start_npc_id="203969" end_npc_id="203933" item_id="182201367"/>
+	<report_to id="1356" start_npc_id="203969" end_npc_id="203933" item_id="182201367"/>
 
 	<!-- TODO: 3312 [Group]A Gust Hindering the Flying Test -->
 
