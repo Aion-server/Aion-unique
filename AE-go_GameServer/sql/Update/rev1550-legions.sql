@@ -1,1 +1,1 @@
-ALTER TABLE `legion_announcement_list` DROP `id`
+ALTER TABLE `legion_announcement_list` DROP `id`;

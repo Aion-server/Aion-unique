@@ -1,1 +1,1 @@
-ALTER TABLE  `droplist` DROP  `quest`
+ALTER TABLE  `droplist` DROP  `quest`;

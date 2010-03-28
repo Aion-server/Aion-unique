@@ -1,1 +1,1 @@
-ALTER TABLE `legion_history` ADD PRIMARY KEY ( `date` ) 
+ALTER TABLE `legion_history` ADD PRIMARY KEY ( `date` ); 
