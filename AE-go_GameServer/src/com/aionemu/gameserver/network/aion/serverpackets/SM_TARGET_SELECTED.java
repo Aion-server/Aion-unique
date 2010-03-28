@@ -19,8 +19,6 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 import java.nio.ByteBuffer;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Gatherable;
-import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
@@ -38,18 +36,18 @@ public class SM_TARGET_SELECTED extends AionServerPacket
 	public SM_TARGET_SELECTED(Player player)
 	{
 		this.player = player;
-		if(player.getTarget() instanceof Gatherable)
+		if(player.getTarget() instanceof Creature)
+		{
+			this.level = ((Creature) player.getTarget()).getLevel();
+			this.maxHp = ((Creature) player.getTarget()).getLifeStats().getMaxHp();
+			this.currentHp = ((Creature) player.getTarget()).getLifeStats().getCurrentHp();
+		}
+		else
 		{
 			//TODO: check various gather on retail
 			this.level = 1;
 			this.maxHp = 1;
 			this.currentHp = 1;
-		}
-		else
-		{
-			this.level = ((Creature) player.getTarget()).getLevel();
-			this.maxHp = ((Creature) player.getTarget()).getLifeStats().getMaxHp();
-			this.currentHp = ((Creature) player.getTarget()).getLifeStats().getCurrentHp();
 		}
 	}
 
@@ -59,7 +57,7 @@ public class SM_TARGET_SELECTED extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, ((VisibleObject) player.getTarget()).getObjectId());
+		writeD(buf, player.getTarget().getObjectId());
 		writeH(buf, level);
 		writeD(buf, maxHp);
 		writeD(buf, currentHp);
