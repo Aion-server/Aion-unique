@@ -246,18 +246,17 @@ public class PlayerController extends CreatureController<Player>
 	}
 
 	@Override
-	public void attackTarget(int targetObjectId)
+	public void attackTarget(Creature target)
 	{
-		super.attackTarget(targetObjectId);
-
 		Player player = getOwner();
-
-		if(!player.canAttack())
+		
+		/**
+		 * Check all prerequisites
+		 */
+		if(target == null || !player.canAttack())
 			return;
 
 		PlayerGameStats gameStats = player.getGameStats();
-
-		Creature target = (Creature) sp.getWorld().findAionObject(targetObjectId);
 
 		// check player attack Z distance
 		if(Math.abs(player.getZ() - target.getZ()) > 6)
@@ -265,7 +264,15 @@ public class PlayerController extends CreatureController<Player>
 
 		if(!RestrictionsManager.canAttack(player, target))
 			return;
-
+		
+		/**
+		 * notify attack observers
+		 */
+		super.attackTarget(target);
+		
+		/**
+		 * Calculate and apply damage
+		 */
 		List<AttackResult> attackResult = AttackUtil.calculateAttackResult(player, target);
 
 		int damage = 0;
@@ -312,9 +319,6 @@ public class PlayerController extends CreatureController<Player>
 		{
 			if(!RestrictionsManager.canUseSkill(player, skill))
 				return;
-
-			// later differentiate between skills
-			getOwner().getObserveController().notifyAttackObservers();
 
 			skill.useSkill();
 		}

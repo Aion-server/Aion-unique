@@ -22,6 +22,7 @@ import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.controllers.movement.ActionObserver;
 import com.aionemu.gameserver.controllers.movement.ActionObserver.ObserverType;
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.item.GodstoneInfo;
@@ -73,7 +74,7 @@ public class GodStone extends ItemStone
 
 		actionListener = new ActionObserver(ObserverType.ATTACK){
 			@Override
-			public void attack()
+			public void attack(Creature creature)
 			{
 				int rand = Rnd.get(probability - probabilityLeft, probability);
 				if(rand > Rnd.get(0, 1000))

@@ -26,6 +26,7 @@ import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.movement.ActionObserver;
 import com.aionemu.gameserver.controllers.movement.AttackCalcObserver;
+import com.aionemu.gameserver.model.gameobjects.Creature;
 
 /**
  * @author ATracer
@@ -83,18 +84,18 @@ public class ObserveController
 	/**
 	 * notify that creature attacking
 	 */
-	public void notifyAttackObservers()
+	public void notifyAttackObservers(Creature creature)
 	{
 		while(!attackObservers.isEmpty())
 		{
 			ActionObserver observer = attackObservers.poll();
-			observer.attack();
+			observer.attack(creature);
 		}
 		synchronized(observers)
 		{
 			for(ActionObserver observer : observers)
 			{
-				observer.attack();
+				observer.attack(creature);
 			}
 		}
 	}
@@ -102,18 +103,18 @@ public class ObserveController
 	/**
 	 * notify that creature attacked
 	 */
-	protected void notifyAttackedObservers()
+	protected void notifyAttackedObservers(Creature creature)
 	{
 		while(!attackedObservers.isEmpty())
 		{
 			ActionObserver observer = attackedObservers.poll();
-			observer.attacked();
+			observer.attacked(creature);
 		}
 		synchronized(observers)
 		{
 			for(ActionObserver observer : observers)
 			{
-				observer.attacked();
+				observer.attacked(creature);
 			}
 		}
 	}

@@ -3455,6 +3455,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8409" provoke_type="ATTACK" provoke_target="ME" prob2="100" duration="120000" effectid="103151" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="11" delta="0"/>
         </actions>
@@ -5273,6 +5276,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8329" provoke_type="ATTACKED" provoke_target="ME" prob2="20" duration="180000" effectid="104191" e="1" element="EARTH" hoptype="SKILLLV" hopb="375"/>
+        </effects>
         <actions>
             <mpuse value="1" delta="0"/>
         </actions>
@@ -5287,6 +5293,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8330" provoke_type="ATTACKED" provoke_target="ME" prob2="20" duration="180000" effectid="104191" e="1" element="EARTH" hoptype="SKILLLV" hopb="667"/>
+        </effects>
         <actions>
             <mpuse value="6" delta="0"/>
         </actions>
@@ -5301,6 +5310,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8331" provoke_type="ATTACKED" provoke_target="ME" prob2="20" duration="180000" effectid="104191" e="1" element="EARTH" hoptype="SKILLLV" hopb="1195"/>
+        </effects>
         <actions>
             <mpuse value="2" delta="0"/>
         </actions>
@@ -5638,6 +5650,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8389" provoke_type="ATTACKED" provoke_target="ME" prob2="20" duration="180000" effectid="104381" e="1" element="WIND" hoptype="SKILLLV" hopb="911"/>
+        </effects>
         <actions>
             <mpuse value="2" delta="0"/>
         </actions>
@@ -5652,6 +5667,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8390" provoke_type="ATTACKED" provoke_target="ME" prob2="30" duration="180000" effectid="104381" e="1" element="WIND" hoptype="SKILLLV" hopb="1485"/>
+        </effects>
         <actions>
             <mpuse value="2" delta="0"/>
         </actions>
@@ -5936,6 +5954,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8388" provoke_type="ATTACKED" provoke_target="ME" prob2="20" duration="180000" effectid="104191" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="3" delta="0"/>
         </actions>
@@ -6149,6 +6170,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8391" provoke_type="ATTACKED" provoke_target="ME" prob2="40" duration="180000" effectid="104381" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="3" delta="0"/>
         </actions>
@@ -6201,6 +6225,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8410" provoke_type="ATTACKED" provoke_target="ME" prob2="10" duration="60000" effectid="104691" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="2" delta="0"/>
         </actions>
@@ -6215,6 +6242,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8411" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="10" duration="60000" effectid="104701" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="2" delta="0"/>
         </actions>
@@ -6419,6 +6449,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8437" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="60000" effectid="104831" e="1" element="WIND"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="484" name="STR_SKILL_KN_ArcGuardian_G2" nameId="576787" stack="SKILL_KN_ARCGUARDIAN" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
         <setproperties>
@@ -6426,6 +6459,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8438" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="60000" effectid="104831" e="1" element="WIND"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="485" name="STR_SKILL_KN_DarkFact_G1" nameId="576793" stack="SKILL_KN_DARKFACT" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
         <setproperties>
@@ -6433,6 +6469,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8439" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="60000" effectid="104851" e="1" element="WIND"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="486" name="STR_SKILL_KN_DarkFact_G2" nameId="576799" stack="SKILL_KN_DARKFACT" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
         <setproperties>
@@ -6440,6 +6479,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8440" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="60000" effectid="104851" e="1" element="WIND"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="487" name="STR_SKILL_KN_KnightGift_G1" nameId="576805" stack="SKILL_KN_KNIGHTGIFT" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -7791,6 +7833,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8502" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="30000" effectid="105601" e="1" element="WIND" hoptype="SKILLLV" hopb="467"/>
+        </effects>
         <actions>
             <mpuse value="52" delta="0"/>
         </actions>
@@ -7805,6 +7850,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8358" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="30000" effectid="105601" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="70" delta="0"/>
         </actions>
@@ -7819,6 +7867,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8359" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="30000" effectid="105601" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="70" delta="0"/>
         </actions>
@@ -7833,6 +7884,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8360" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="30000" effectid="105601" e="1" element="WIND"/>
+        </effects>
         <actions>
             <mpuse value="70" delta="0"/>
         </actions>
@@ -9332,6 +9386,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8361" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="30000" e="2"/>
+        </effects>
         <actions>
             <mpuse value="189" delta="0"/>
         </actions>
@@ -11654,6 +11711,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8252" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="20" duration="120000" effectid="108291" e="1" element="FIRE" hoptype="SKILLLV" hopb="328"/>
+        </effects>
         <actions>
             <mpuse value="38" delta="0"/>
             <itemuse itemid="169300010" count="1"/>
@@ -11669,6 +11729,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8322" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="20" duration="120000" effectid="108291" e="1" element="FIRE" hoptype="SKILLLV" hopb="467"/>
+        </effects>
         <actions>
             <mpuse value="52" delta="0"/>
             <itemuse itemid="169300010" count="2"/>
@@ -11684,6 +11747,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8323" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="20" duration="120000" effectid="108291" e="1" element="FIRE" hoptype="SKILLLV" hopb="628"/>
+        </effects>
         <actions>
             <mpuse value="61" delta="0"/>
             <itemuse itemid="169300010" count="3"/>
@@ -11885,6 +11951,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8582" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="20" duration="30000" effectid="108411" e="1" element="WIND" hoptype="SKILLLV" hopb="11897" hopa="204"/>
+        </effects>
         <actions>
             <mpuse value="206" delta="0"/>
             <itemuse itemid="169300010" count="5"/>
@@ -12321,6 +12390,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8404" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="50" duration="120000" effectid="108291" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="12" delta="0"/>
             <itemuse itemid="169300010" count="4"/>
@@ -13312,6 +13384,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8483" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="2" duration="120000" effectid="109191" e="1" element="WATER" hoptype="SKILLLV" hopb="467"/>
+        </effects>
         <actions>
             <mpuse value="52" delta="0"/>
             <itemuse itemid="169300010" count="2"/>
@@ -14210,6 +14285,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8270" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="5" duration="1800000" effectid="109691" e="1" element="WIND" hoptype="SKILLLV" hopb="230"/>
+        </effects>
         <actions>
             <mpuse value="51" delta="0"/>
         </actions>
@@ -14224,6 +14302,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8365" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="5" duration="1800000" effectid="109691" e="1" element="WIND" hoptype="SKILLLV" hopb="338"/>
+        </effects>
         <actions>
             <mpuse value="58" delta="0"/>
         </actions>
@@ -14238,6 +14319,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8366" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="5" duration="1800000" effectid="109691" e="1" element="WIND" hoptype="SKILLLV" hopb="512"/>
+        </effects>
         <actions>
             <mpuse value="79" delta="0"/>
         </actions>
@@ -14583,6 +14667,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8392" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="5" duration="1800000" effectid="109691" e="1" element="WIND" hoptype="SKILLLV" hopb="672"/>
+        </effects>
         <actions>
             <mpuse value="94" delta="0"/>
         </actions>
@@ -15087,6 +15174,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8367" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="20" duration="60000" effectid="110551" e="1" element="FIRE" hoptype="SKILLLV" hopb="1322"/>
+        </effects>
         <actions>
             <mpuse value="197" delta="1"/>
         </actions>
@@ -16404,6 +16494,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8393" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="20" duration="60000" effectid="110551" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="292" delta="0"/>
         </actions>
@@ -17833,6 +17926,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8583" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="100" duration="30000" effectid="112171" e="1" element="WIND" hoptype="SKILLLV" hopb="11897" hopa="204"/>
+        </effects>
         <actions>
             <mpuse value="311" delta="6"/>
         </actions>
@@ -17884,6 +17980,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8318" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="10" duration="1800000" effectid="102291" e="1" element="EARTH" hoptype="SKILLLV" hopb="327"/>
+        </effects>
         <actions>
             <mpuse value="55" delta="5"/>
         </actions>
@@ -17898,6 +17997,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8320" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="10" duration="1800000" effectid="102291" e="1" element="EARTH" hoptype="SKILLLV" hopb="466"/>
+        </effects>
         <actions>
             <mpuse value="82" delta="5"/>
         </actions>
@@ -17912,6 +18014,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8370" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="10" duration="1800000" effectid="102291" e="1" element="EARTH" hoptype="SKILLLV" hopb="628"/>
+        </effects>
         <actions>
             <mpuse value="132" delta="5"/>
         </actions>
@@ -18830,6 +18935,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8401" provoke_type="ATTACK" provoke_target="ME" prob2="30" duration="300000" effectid="112031" e="1" element="FIRE"/>
+        </effects>
         <actions>
             <mpuse value="267" delta="0"/>
         </actions>
@@ -18867,6 +18975,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8402" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="10" duration="1800000" effectid="102291" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="371" delta="10"/>
         </actions>
@@ -19683,6 +19794,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8492" provoke_type="ATTACK" provoke_target="ME" prob2="5" duration="1800000" effectid="113181" e="1" element="EARTH" hoptype="SKILLLV" hopb="426"/>
+        </effects>
         <actions>
             <mpuse value="57" delta="1"/>
         </actions>
@@ -19697,6 +19811,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8493" provoke_type="ATTACK" provoke_target="ME" prob2="5" duration="1800000" effectid="113181" e="1" element="EARTH" hoptype="SKILLLV" hopb="426"/>
+        </effects>
         <actions>
             <mpuse value="70" delta="1"/>
         </actions>
@@ -20096,6 +20213,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8518" provoke_type="ATTACK" provoke_target="ME" prob2="5" duration="1800000" effectid="113181" e="1" element="EARTH" hoptype="SKILLLV" hopb="742"/>
+        </effects>
         <actions>
             <mpuse value="90" delta="1"/>
         </actions>
@@ -23480,6 +23600,7 @@
         </setproperties>
         <effects>
             <reflector value="20" delta="1" radius="30" duration="1800000" effectid="153" e="1" hoptype="SKILLLV" hopb="512"/>
+            <provoker skill_id="8471" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="100" duration="1800000" effectid="115662" e="2" element="WIND"/>
         </effects>
         <actions>
             <mpuse value="157" delta="3"/>
@@ -23865,6 +23986,7 @@
         </setproperties>
         <effects>
             <reflector value="40" delta="1" radius="30" duration="1800000" effectid="153" e="1" hoptype="SKILLLV" hopb="672"/>
+            <provoker skill_id="8526" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="100" duration="1800000" effectid="115662" e="2" element="WIND"/>
         </effects>
         <actions>
             <mpuse value="206" delta="4"/>
@@ -24281,6 +24403,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8584" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="100" duration="60000" effectid="116081" e="1" element="WIND" hoptype="SKILLLV" hopb="470"/>
+        </effects>
         <actions>
             <mpuse value="172" delta="3"/>
         </actions>
@@ -24844,6 +24969,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8585" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="100" duration="60000" effectid="116081" e="1" element="WIND" hoptype="SKILLLV" hopb="522"/>
+        </effects>
         <actions>
             <mpuse value="190" delta="5"/>
         </actions>
@@ -24861,6 +24989,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8586" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="100" duration="60000" effectid="116081" e="1" element="WIND" hoptype="SKILLLV" hopb="584"/>
+        </effects>
         <actions>
             <mpuse value="226" delta="4"/>
         </actions>
@@ -24878,6 +25009,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8587" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="100" duration="60000" effectid="116081" e="1" element="WIND" hoptype="SKILLLV" hopb="638"/>
+        </effects>
         <actions>
             <mpuse value="252" delta="4"/>
         </actions>
@@ -25470,6 +25604,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8340" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="100" duration="3000" effectid="116681" e="1" element="EARTH" hoptype="SKILLLV"/>
+        </effects>
         <actions>
             <mpuse value="87" delta="1"/>
         </actions>
@@ -25484,6 +25621,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8371" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="100" duration="3000" effectid="116681" e="1" element="EARTH" hoptype="SKILLLV"/>
+        </effects>
         <actions>
             <mpuse value="114" delta="1"/>
         </actions>
@@ -25904,6 +26044,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8403" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="100" duration="3000" effectid="116681" e="1" element="EARTH"/>
+        </effects>
         <actions>
             <mpuse value="255" delta="2"/>
         </actions>
@@ -29664,6 +29807,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8225" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="100" duration="3500" effectid="182281" e="1" element="FIRE" hoptype="SKILLLV"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8229" name="STR_SYSTEM_SKILL_SpellDrainEffect" nameId="563499" stack="SYSTEM_SKILL_SPELLDRAINEFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -29958,6 +30104,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8225" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="100" duration="6500" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8248" name="STR_SKILL_KN_AuraSpellDrainEffect" nameId="565455" stack="SKILL_KN_AURASPELLDRAINEFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -30816,10 +30965,11 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <statdown duration="6500" effectid="182952" e="2">
+            <provoker skill_id="8272" provoke_type="ATTACK" provoke_target="ME" prob2="100" duration="6500" e="1" element="WIND"/>
+            <statdown duration="6500" effectid="182952" e="2" element="FIRE">
                 <change stat="PHYSICAL_ATTACK" func="ADD" value="-30"/>
             </statdown>
-            <statdown duration="6500" effectid="182953" e="3">
+            <statdown duration="6500" effectid="182953" e="3" element="FIRE">
                 <change stat="MAGICAL_ATTACK" func="PERCENT" value="-30"/>
             </statdown>
         </effects>
@@ -31079,6 +31229,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8315" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="50" duration="60000" effectid="183161" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8317" name="STR_SKILL_KN_ProcSentinelEffect_G1" nameId="568433" stack="SKILL_KN_PROCSENTINELEFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="BUFF" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -31539,6 +31692,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8315" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="20" duration="10000" effectid="183551" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8356" name="STR_SYSTEM_SKILL_KN_Avenger_G1_Proc" nameId="572885" stack="SYSTEM_SKILL_KN_AVENGER_PROC" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -32978,6 +33134,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8288" provoke_type="ATTACK" provoke_target="ME" prob2="10" duration="6500" effectid="184491" e="1" element="WIND"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8450" name="STR_SKILL_CH_Chant_LifeTouch_G2_Effect" nameId="568001" stack="SKILL_CH_CHANT_LIFETOUCH_EFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -32989,6 +33148,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8289" provoke_type="ATTACK" provoke_target="ME" prob2="10" duration="6500" effectid="184491" e="1" element="WIND"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="8452" name="STR_SKILL_Q_Polymorph_Lehpar" nameId="580517" stack="SKILL_Q_POLYMORPH_LEHPAR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="100" duration="0">
         <setproperties>
@@ -43502,6 +43664,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8444" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="10" duration="300000" effectid="102291" e="1" element="EARTH" hoptype="SKILLLV" hopb="385" hopa="43"/>
+        </effects>
         <actions>
             <mpuse value="110" delta="10"/>
         </actions>
@@ -43687,6 +43852,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8445" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="20" duration="300000" effectid="109691" e="1" element="WIND" hoptype="SKILLLV" hopb="385" hopa="43"/>
+        </effects>
         <actions>
             <mpuse value="254" delta="10"/>
         </actions>
@@ -43721,6 +43889,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8446" provoke_type="ATTACKED" provoke_target="ME" prob2="20" duration="180000" effectid="104191" e="1" element="EARTH" hoptype="SKILLLV" hopb="385" hopa="43"/>
+        </effects>
         <actions>
             <mpuse value="18" delta="0"/>
         </actions>
@@ -43847,6 +44018,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8444" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="5" duration="150000" effectid="102291" e="1" element="EARTH" hoptype="SKILLLV" hopb="385" hopa="43"/>
+        </effects>
         <actions>
             <mpuse value="280" delta="0"/>
         </actions>
@@ -43931,6 +44105,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8445" provoke_type="ATTACK" provoke_target="OPPONENT" prob2="10" duration="150000" effectid="109691" e="1" element="WIND" hoptype="SKILLLV" hopb="385" hopa="43"/>
+        </effects>
         <actions>
             <mpuse value="528" delta="0"/>
         </actions>
@@ -44326,6 +44503,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8502" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="30000" effectid="105601" e="1" element="WIND" hoptype="SKILLLV" hopb="467"/>
+        </effects>
         <actions>
             <mpuse value="48" delta="0"/>
         </actions>
@@ -44471,6 +44651,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8361" provoke_type="ATTACKED" provoke_target="ME" prob2="50" duration="180000" e="2"/>
+        </effects>
         <actions>
             <mpuse value="176" delta="0"/>
         </actions>
@@ -44892,6 +45075,9 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="ENEMY"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="8368" provoke_type="ATTACK" provoke_target="ME" prob2="30" duration="300000" effectid="112031" e="1" element="FIRE" hoptype="SKILLLV" hopb="2390"/>
+        </effects>
         <actions>
             <mpuse value="177" delta="0"/>
         </actions>
@@ -46312,6 +46498,7 @@
         </useconditions>
         <effects>
             <root duration="6000" effectid="20003" e="1" element="FIRE"/>
+            <provoker skill_id="8505" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="100" duration="6000" effectid="198962" e="2" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="9897" name="STR_SKILL_Abyss_Artifact_RainofSilence_G1" nameId="577589" stack="SKILL_ABYSS_ARTIFACT_RAINOFSILENCE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -47087,6 +47274,7 @@
         </useconditions>
         <effects>
             <root duration="6000" effectid="20003" e="1" element="FIRE"/>
+            <provoker skill_id="8505" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="100" duration="6000" effectid="198962" e="2" element="FIRE"/>
         </effects>
     </skill_template>
     <skill_template skill_id="9942" name="STR_SKILL_Abyss_Artifact_FireRampage_G2" nameId="585529" stack="SKILL_ABYSS_ARTIFACT_FIRERAMPAGE" lvl="2" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -47439,6 +47627,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="16393" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="5000" effectid="10168331" e="1" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16395" name="STR_NKN_GuardianST_Nr" nameId="575281" stack="NKN_GUARDIANST_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -47450,6 +47641,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="16393" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="5000" effectid="10168341" e="1" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16396" name="STR_BNEL_SpellTA_AngerR_DF2Ch" nameId="577669" stack="BNEL_SPELLTA_ANGERR_DF2CH" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -53631,6 +53825,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="16385" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="100" duration="20000" effectid="80200" e="1" element="FIRE" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16774" name="STR_GNCH_MagicCounterATK_Nr" nameId="573235" stack="GNCH_MAGICCOUNTERATK_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <startconditions>
@@ -54966,6 +55163,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="16393" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="5000" effectid="10168561" e="1" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16857" name="STR_GNKN_SatkSDPydefDodge_KDSA" nameId="576005" stack="GNKN_SATKSDPYDEFDODGE_KDSA" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <setproperties>
@@ -56062,6 +56262,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="16386" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="25" duration="86400000" effectid="10169211" e="1" element="FIRE" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16922" name="STR_NEL_NewPetrification_Po" nameId="576477" stack="NEL_NEWPETRIFICATION_PO" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">
         <startconditions>
@@ -56221,6 +56424,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="16387" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="5000" effectid="10169311" e="1" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="16932" name="STR_NFI_RootLongtime_Dotice" nameId="576489" stack="NFI_ROOTLONGTIME_DOTICE" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -57289,6 +57495,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="16387" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="5000" effectid="10170001" e="1" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17001" name="STR_GNAS_HideLong_Nr" nameId="577489" stack="GNAS_HIDELONG_NR" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -61578,6 +61787,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="16403" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="100" duration="5000" effectid="10172721" e="1" element="WATER"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17273" name="STR_NWI_Spellins_SpParMPatt" nameId="579937" stack="NWI_SPELLINS_SPPARMPATT" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2000">
         <startconditions>
@@ -61695,6 +61907,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="16388" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="100" duration="86400000" effectid="10172791" e="1" element="WIND" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17280" name="STR_NEL_WaterfoamTA_Poi" nameId="580005" stack="NEL_WATERFOAMTA_POI" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="2500">
         <startconditions>
@@ -68003,6 +68218,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8424" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="600000" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17671" name="STR_NPC_SKILL_PEL_Fire_G2" nameId="575953" stack="NPC_SKILL_PEL_FIRE" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -68014,6 +68232,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8425" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="600000" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17672" name="STR_NPC_SKILL_PEL_Fire_G3" nameId="575957" stack="NPC_SKILL_PEL_FIRE" lvl="3" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -68025,6 +68246,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8426" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="600000" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17673" name="STR_NPC_SKILL_PEL_Fire_G4" nameId="575961" stack="NPC_SKILL_PEL_FIRE" lvl="4" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -68036,6 +68260,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8427" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="600000" e="1" element="FIRE"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17674" name="STR_NPC_SKILL_PEL_Water_G1" nameId="575965" stack="NPC_SKILL_PEL_WATER" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>
@@ -70340,6 +70567,9 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="17811" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="50" duration="86400000" effectid="10178201" e="1" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17821" name="STR_BNAS_SATKFallNoFlyTA_Chain1_Lc_Poi" nameId="582809" stack="BNAS_SATKFALLNOFLYTA_CHAIN1_LC_POI" lvl="1" skilltype="PHYSICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
@@ -71702,6 +71932,9 @@
             <targetrange value="ONLYONE" maxcount="24"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="17907" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="50" duration="86400000" effectid="10179081" e="1" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="17909" name="STR_BNAS_SPinTA20_Po" nameId="583341" stack="BNAS_SPINTA20_PO" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="3500">
         <setproperties>
@@ -73233,6 +73466,9 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <provoker skill_id="8447" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="600000" e="1" element="FIRE" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18007" name="STR_NPC_SKILL_PEL_MagmaSkill2_G1" nameId="578905" stack="NPC_SKILL_PEL_MAGMASKILL2" lvl="1" skilltype="MAGICAL" skillsubtype="HEAL" tslot="NONE" activation="ACTIVE" cooldown="0" duration="2000">
         <setproperties>
@@ -73734,6 +73970,9 @@
             <targetrange value="ONLYONE" maxcount="24"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <provoker skill_id="17971" provoke_type="ATTACKED" provoke_target="OPPONENT" prob2="20" duration="86400000" effectid="10180371" e="1" element="EARTH" hoptype="SKILLLV" hopb="60" hopa="60"/>
+        </effects>
     </skill_template>
     <skill_template skill_id="18038" name="STR_NPC_SKILL_EL_Order_EtherEruption_G1_Air" nameId="586083" stack="NPC_SKILL_EL_ORDER_ETHERERUPTION_AIR" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
         <setproperties>

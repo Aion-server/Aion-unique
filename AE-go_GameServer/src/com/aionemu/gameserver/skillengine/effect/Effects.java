@@ -103,7 +103,8 @@ public class Effects
 		@XmlElement(name = "summon", type = SummonEffect.class),
 		@XmlElement(name = "aura", type = AuraEffect.class),
 		@XmlElement(name = "resurrect", type = ResurrectEffect.class),
-		@XmlElement(name = "returnpoint", type = ReturnPointEffect.class)
+		@XmlElement(name = "returnpoint", type = ReturnPointEffect.class),
+		@XmlElement(name = "provoker", type = ProvokerEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	

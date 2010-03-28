@@ -137,7 +137,7 @@ public class HideEffect extends EffectTemplate
 			new ActionObserver(ObserverType.ATTACK)
 			{
 				@Override
-				public void attack()
+				public void attack(Creature creature)
 				{
 					effected.getEffectController().removeEffect(effect.getSkillId());
 				}			

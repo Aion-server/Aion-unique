@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.concurrent.Future;
 
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
+import com.aionemu.gameserver.controllers.movement.ActionObserver;
 import com.aionemu.gameserver.controllers.movement.AttackCalcObserver;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -99,6 +100,11 @@ public class Effect
 	 * Total hate that will be broadcasted
 	 */
 	private int effectHate;
+	
+	/**
+	 * Action observer that should be removed after effect end
+	 */
+	private ActionObserver actionObserver;
 	
 	public Effect(Creature effector, Creature effected, SkillTemplate skillTemplate, int skillLevel, int duration)
 	{
@@ -669,5 +675,21 @@ public class Effect
 	public void setTauntHate(int tauntHate)
 	{
 		this.tauntHate = tauntHate;
+	}
+
+	/**
+	 * @return the actionObserver
+	 */
+	public ActionObserver getActionObserver()
+	{
+		return actionObserver;
+	}
+
+	/**
+	 * @param actionObserver the actionObserver to set
+	 */
+	public void setActionObserver(ActionObserver actionObserver)
+	{
+		this.actionObserver = actionObserver;
 	}
 }

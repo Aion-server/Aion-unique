@@ -391,10 +391,13 @@ public class NpcController extends CreatureController<Npc>
 	}
 
 	@Override
-	public void attackTarget(int targetObjectId)
+	public void attackTarget(Creature target)
 	{
 		Npc npc = getOwner();
-
+		
+		/**
+		 * Check all prerequisites
+		 */
 		if(npc == null || npc.getLifeStats().isAlreadyDead() || !npc.isSpawned())
 			return;
 
@@ -404,15 +407,21 @@ public class NpcController extends CreatureController<Npc>
 		AI<?> ai = npc.getAi();
 		NpcGameStats gameStats = npc.getGameStats();
 
-		Creature creature = (Creature) sp.getWorld().findAionObject(targetObjectId);
-		// if player disconnected - IDLE state
-		if(creature == null || creature.getLifeStats().isAlreadyDead())
+		if(target == null || target.getLifeStats().isAlreadyDead())
 		{
 			ai.setAiState(AIState.THINKING);
 			return;
 		}
-
-		List<AttackResult> attackList = AttackUtil.calculateAttackResult(npc, creature);
+		
+		/**
+		 * notify attack observers
+		 */
+		super.attackTarget(target);
+		
+		/**
+		 * Calculate and apply damage
+		 */
+		List<AttackResult> attackList = AttackUtil.calculateAttackResult(npc, target);
 
 		int damage = 0;
 		for(AttackResult result : attackList)
@@ -421,10 +430,10 @@ public class NpcController extends CreatureController<Npc>
 		}
 
 		int attackType = 0; // TODO investigate attack types (0 or 1)
-		PacketSendUtility.broadcastPacket(npc, new SM_ATTACK(npc, creature, gameStats
+		PacketSendUtility.broadcastPacket(npc, new SM_ATTACK(npc, target, gameStats
 			.getAttackCounter(), 274, attackType, attackList));
-
-		creature.getController().onAttack(npc, damage);
+		
+		target.getController().onAttack(npc, damage);
 		gameStats.increaseAttackCounter();
 	}
 

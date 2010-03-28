@@ -97,7 +97,7 @@ public final class AttackDesire extends AbstractDesire
 		}
 		if(distance <= 2)
 		{
-			owner.getController().attackTarget(target.getObjectId());
+			owner.getController().attackTarget(target);
 			attackNotPossibleCounter = 0;
 		}
 		else

@@ -103,7 +103,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 */
 	public void onAttack(Creature creature, int skillId, TYPE type, int damage)
 	{
-		getOwner().getObserveController().notifyAttackedObservers();
+		getOwner().getObserveController().notifyAttackedObservers(creature);
 	}
 
 	/**
@@ -162,11 +162,11 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 
 	/**
 	 * 
-	 * @param targetObjectId
+	 * @param target
 	 */
-	public void attackTarget(int targetObjectId)
+	public void attackTarget(Creature target)
 	{
-		getOwner().getObserveController().notifyAttackObservers();
+		getOwner().getObserveController().notifyAttackObservers(target);
 	}
 
 	/**

@@ -1,5 +1,5 @@
 /*
- * This file is part of aion-unique <www.aion-unique.com>.
+ * This file is part of aion-unique <aion-unique.org>.
  *
  *  aion-unique is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -14,39 +14,19 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.controllers.movement;
+package com.aionemu.gameserver.skillengine.model;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author ATracer
  *
  */
-public class ActionObserver
+@XmlType(name = "ProvokeTarget")
+@XmlEnum
+public enum ProvokeTarget
 {
-	public enum ObserverType
-	{
-		MOVE,
-		ATTACK,
-		ATTACKED
-	}
-	
-	private ObserverType observerType;
-	
-	public ActionObserver(ObserverType observerType)
-	{
-		this.observerType = observerType;
-	}
-	
-	/**
-	 * @return the observerType
-	 */
-	public ObserverType getObserverType()
-	{
-		return observerType;
-	}
-
-	public void moved(){};
-	public void attacked(Creature creature){};
-	public void attack(Creature creature){};
+	ME,
+	OPPONENT
 }

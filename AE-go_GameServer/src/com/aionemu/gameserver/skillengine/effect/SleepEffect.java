@@ -55,7 +55,7 @@ public class SleepEffect extends EffectTemplate
 			new ActionObserver(ObserverType.ATTACKED)
 			{
 				@Override
-				public void attacked()
+				public void attacked(Creature creature)
 				{
 					effected.getEffectController().removeEffect(effect.getSkillId());
 				}			

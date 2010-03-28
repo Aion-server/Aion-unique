@@ -181,6 +181,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="returnpoint" type="ReturnPointEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="provoker" type="ProvokerEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -906,6 +908,18 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:complexType name="ProvokerEffect">
+		<xs:complexContent>
+			<xs:extension base="Effect">				
+				<xs:attribute name="prob2" type="xs:int" />	
+				<xs:attribute name="prob1" type="xs:int" />	
+				<xs:attribute name="provoke_target" type="ProvokeTarget" />
+				<xs:attribute name="provoke_type" type="ProvokeType" />	
+				<xs:attribute name="skill_id" type="xs:int" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<!-- CONDITIONS -->
 
@@ -1152,5 +1166,20 @@
 			<xs:enumeration value="SKILLLV" />
 		</xs:restriction>
 	</xs:simpleType>
+	
+	<xs:simpleType name="ProvokeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ATTACK" />
+			<xs:enumeration value="ATTACKED" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="ProvokeTarget">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ME" />
+			<xs:enumeration value="OPPONENT" />
+		</xs:restriction>
+	</xs:simpleType>
+	
 </xs:schema>
 

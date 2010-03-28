@@ -16,8 +16,11 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
+import com.aionemu.gameserver.world.World;
+import com.google.inject.Inject;
 /**
  * 
  * @author alexa026, Avol, ATracer
@@ -42,6 +45,9 @@ public class CM_ATTACK extends AionClientPacket
 	private long                maxexp;
 	@SuppressWarnings("unused")
 	private int					at;
+	
+	@Inject
+	private World				world;
 
 	public CM_ATTACK(int opcode)
 	{
@@ -66,11 +72,11 @@ public class CM_ATTACK extends AionClientPacket
 	@Override
 	protected void runImpl()
 	{
-
 		Player player = getConnection().getActivePlayer();
 		if(!player.getLifeStats().isAlreadyDead())
 		{
-			player.getController().attackTarget(targetObjectId);
+			Creature creature = (Creature) world.findAionObject(targetObjectId);
+			player.getController().attackTarget(creature);
 		}
 	}
 }
