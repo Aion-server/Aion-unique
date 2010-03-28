@@ -161,7 +161,7 @@
         <!-- [Coin] Nip Spriggs in the Bud -->
 	<monster_hunt id="2317" start_npc_id="790020">
 		<monster_infos npc_id="211315"  var_id="0" max_kill="20"/>
-		<monster_infos npc_id="211336"  var_id="1" max_kill="8"/>
+		<monster_infos npc_id="211336"  var_id="1" max_kill="9"/>
 	</monster_hunt>
 
         <!-- A New Recipe -->
@@ -346,7 +346,7 @@
 	</monster_hunt>
 
         <!-- The Agrint's Message -->
-	<report_to id="2364" start_npc_id="204363" end_npc_id="204324" item_id="182204190" />
+	<report_to id="2364" start_npc_id="204363" end_npc_id="204342" item_id="182204190" />
 
         <!-- The Agrint's Wish -->
 	<item_collecting id="2362" start_npc_id="204363" />
@@ -500,7 +500,7 @@
         <!-- TODO: The Blue Vine Necklace -->
 
         <!-- Trolls on the Path -->
-	<monster_hunt id="2398" start_npc_id="204359">
+	<monster_hunt id="2415" start_npc_id="204359">
 		<monster_infos npc_id="212535"  var_id="0" max_kill="11"/>
 		<monster_infos npc_id="211529"  var_id="1" max_kill="7"/>
 	</monster_hunt>
