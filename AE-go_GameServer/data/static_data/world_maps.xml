@@ -24,7 +24,7 @@
 	<map id="300100000" name="SteelRake" instance="true" death_level="0" water_level="16"/>
 	<map id="300110000" name="Dredgion" instance="true" death_level="0" water_level="16"/>
 	<map id="300120000" name="KysisChamber" instance="true" death_level="0" water_level="16"/>
-	<map id="300130000" name="MinerChamber" instance="true" death_level="0" water_level="16"/>
+	<map id="300130000" name="MirenChamber" instance="true" death_level="0" water_level="16"/>
 	<map id="300140000" name="KrotanChamber" instance="true" death_level="0" water_level="16"/>
 	<map id="310010000" name="IDAbProL1" instance="true" death_level="0" water_level="16"/>
 	<map id="310020000" name="IDAbProL2" instance="true" death_level="0" water_level="16"/>
