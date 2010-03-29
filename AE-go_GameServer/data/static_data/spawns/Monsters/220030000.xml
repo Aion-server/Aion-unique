@@ -2466,10 +2466,6 @@ Altgard -->
 		<object x="1465.1086" y="796.36035" z="257.1942" h="48"/>
 		<object x="1468.4436" y="796.41974" z="256.86694" h="11"/>
 	</spawn>
-	<!-- # Umkata the Restless (should be summoned by Umkata's Grave) -->
-	<spawn map="220030000" npcid="210752" pool="1" interval="105">
-		<object x="2900.01" y="1738.46" z="254.53" h="43"/>
-	</spawn>
 	<!-- Verteran MuMu Gatherer -->
 	<spawn map="220030000" npcid="210572" pool="3" interval="105">
 		<object x="1957.136" y="1086.828" z="271.5725" h="25"/>
