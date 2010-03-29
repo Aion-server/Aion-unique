@@ -16,29 +16,65 @@
  */
 package com.aionemu.gameserver.model.gameobjects.stats;
 
+import com.aionemu.commons.callbacks.EnhancedObject;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.stats.listeners.StatChangeListener;
 import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author xavier
- *
+ * 
  */
 public class NpcGameStats extends CreatureGameStats<Npc>
 {
-	public NpcGameStats(Npc owner, NpcStatsTemplate nst) {
+	public NpcGameStats(Npc owner, NpcStatsTemplate nst)
+	{
 		super(owner);
 		// TODO set other stats
-		initStat(StatEnum.MAXHP, nst.getMaxHp() + Math.round((owner.getObjectTemplate().getHpGauge() * 1.5f) * (int)owner.getLevel()));
+		initStat(StatEnum.MAXHP, nst.getMaxHp()
+			+ Math.round((owner.getObjectTemplate().getHpGauge() * 1.5f) * (int) owner.getLevel()));
 		initStat(StatEnum.MAXMP, nst.getMaxMp());
 		// TODO: Npc Attack Speed
-		//initStat(StatEnum.ATTACK_SPEED, Math.round(nst.getAttackSpeed() * 1000));
+		// initStat(StatEnum.ATTACK_SPEED, Math.round(nst.getAttackSpeed() * 1000));
 		initStat(StatEnum.ATTACK_SPEED, 2000);
-		initStat(StatEnum.PHYSICAL_DEFENSE, Math.round(((nst.getPdef() / (int)owner.getLevel()) - 1) * nst.getPdef() + 10 * (int)owner.getLevel()));
-		initStat(StatEnum.EVASION, Math.round(nst.getEvasion() * 2.3f + (int)owner.getLevel() * 10));
+		initStat(StatEnum.PHYSICAL_DEFENSE, Math.round(((nst.getPdef() / (int) owner.getLevel()) - 1) * nst.getPdef()
+			+ 10 * (int) owner.getLevel()));
+		initStat(StatEnum.EVASION, Math.round(nst.getEvasion() * 2.3f + (int) owner.getLevel() * 10));
 		initStat(StatEnum.MAGICAL_RESIST, Math.round(nst.getMdef()));
 		initStat(StatEnum.MAIN_HAND_POWER, nst.getPower());
-		initStat(StatEnum.MAIN_HAND_ACCURACY, Math.round(nst.getAccuracy() * 2.3f + (int)owner.getLevel() * 10));
+		initStat(StatEnum.MAIN_HAND_ACCURACY, Math.round(nst.getAccuracy() * 2.3f + (int) owner.getLevel() * 10));
 		initStat(StatEnum.MAIN_HAND_CRITICAL, Math.round(nst.getCrit()));
 		initStat(StatEnum.SPEED, Math.round(nst.getRunSpeedFight() * 1000));
+
+		addRecomputeListener(owner);
+	}
+
+	/**
+	 * Adds listener that will check SPEED changes
+	 * 
+	 * @param owner
+	 */
+	private void addRecomputeListener(final Npc owner)
+	{
+		((EnhancedObject) this).addCallback(new StatChangeListener(this){
+
+			private int	currentRunSpeed	= 0;
+
+			@Override
+			protected void onRecompute()
+			{
+				int newRunSpeed = gameStats.getCurrentStat(StatEnum.SPEED);
+
+				if(newRunSpeed != currentRunSpeed)
+				{
+					owner.getMoveController().setSpeed(newRunSpeed / 1000f);
+					PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, 30, 0, 0));
+				}
+
+				this.currentRunSpeed = newRunSpeed;
+			}
+		});
 	}
 }
