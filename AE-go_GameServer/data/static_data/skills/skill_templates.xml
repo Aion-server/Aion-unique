@@ -9149,7 +9149,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <statdown duration="60000" effectid="106842" e="2">
+            <onetimeboostskillattack count="5" duration="60000" effectid="177" e="1" hoptype="SKILLLV" hopb="684">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="30"/>
+            </onetimeboostskillattack>
+            <statdown duration="60000" effectid="106842" e="2" element="FIRE">
                 <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="-50"/>
             </statdown>
         </effects>
@@ -11914,6 +11917,9 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <onetimeboostskillattack count="1" duration="10000" effectid="177" e="1" hoptype="SKILLLV" hopb="248">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
+            </onetimeboostskillattack>
             <statup duration="10000" effectid="108392" e="2">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="0" value="500"/>
             </statup>
@@ -11933,6 +11939,9 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <onetimeboostskillattack count="1" duration="10000" effectid="177" e="1" hoptype="SKILLLV" hopb="1289">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
+            </onetimeboostskillattack>
             <statup duration="10000" effectid="108392" e="2">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="0" value="500"/>
             </statup>
@@ -12508,6 +12517,9 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <onetimeboostskillattack count="10" duration="10000" effectid="177" e="1">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="180"/>
+            </onetimeboostskillattack>
             <statup duration="10000" effectid="108392" e="2">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="0" value="500"/>
             </statup>
@@ -32489,6 +32501,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <onetimeboostskillattack count="255" duration="6500" effectid="177" e="2">
+                <change stat="MAGICAL_ATTACK" func="PERCENT" delta="0" value="10"/>
+            </onetimeboostskillattack>
+        </effects>
     </skill_template>
     <skill_template skill_id="8407" name="STR_SYSTEM_SKILL_CH_Crusader_G1_Effect" nameId="575667" stack="SYSTEM_SKILL_CH_CRUSADER_EFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="CHANT" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -44746,6 +44763,9 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
+            <onetimeboostskillattack count="1" duration="10000" effectid="177" e="1" hoptype="SKILLLV" hopb="248">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
+            </onetimeboostskillattack>
             <statup duration="10000" effectid="108392" e="2">
                 <change stat="PHYSICAL_ACCURACY" func="ADD" delta="0" value="500"/>
             </statup>

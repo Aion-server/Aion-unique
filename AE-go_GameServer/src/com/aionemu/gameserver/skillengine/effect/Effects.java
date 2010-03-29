@@ -104,7 +104,8 @@ public class Effects
 		@XmlElement(name = "returnpoint", type = ReturnPointEffect.class),
 		@XmlElement(name = "provoker", type = ProvokerEffect.class),
 		@XmlElement(name = "reflector", type = ReflectorEffect.class),
-		@XmlElement(name = "spellatkdraininstant", type = SpellAtkDrainInstantEffect.class)
+		@XmlElement(name = "spellatkdraininstant", type = SpellAtkDrainInstantEffect.class),
+		@XmlElement(name = "onetimeboostskillattack", type = OneTimeBoostSkillAttackEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	

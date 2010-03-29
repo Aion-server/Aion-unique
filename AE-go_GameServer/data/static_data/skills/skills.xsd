@@ -185,6 +185,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="spellatkdraininstant" type="SpellAtkDrainInstantEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="onetimeboostskillattack" type="OneTimeBoostSkillAttackEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -928,6 +930,14 @@
 			<xs:extension base="DamageEffect">				
 				<xs:attribute name="percent" type="xs:int" />	
 				<xs:attribute name="heal_type" type="HealType" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="OneTimeBoostSkillAttackEffect">
+		<xs:complexContent>
+			<xs:extension base="BufEffect">				
+				<xs:attribute name="count" type="xs:int" />	
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
