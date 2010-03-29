@@ -16,7 +16,7 @@
  */
 package com.aionemu.gameserver.spawnengine;
 
-import com.aionemu.gameserver.controllers.factory.StaticObjectControllerFactory;
+import com.aionemu.gameserver.controllers.factory.ObjectControllerFactory;
 import com.aionemu.gameserver.dataholders.ItemData;
 import com.aionemu.gameserver.model.gameobjects.StaticObject;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -43,7 +43,7 @@ public class StaticObjectSpawnManager
 	@Inject
 	private World	world;
 	@Inject
-	private StaticObjectControllerFactory controllerFactory;
+	private ObjectControllerFactory controllerFactory;
 	
 
 	/**
@@ -62,7 +62,7 @@ public class StaticObjectSpawnManager
 		{
 			SpawnTemplate spawn = spawnGroup.getNextAvailableTemplate(instanceIndex);
 			int objectId = aionObjectsIDFactory.nextId();
-			StaticObject staticObject = new StaticObject(objectId, controllerFactory.create(), spawn, objectTemplate);
+			StaticObject staticObject = new StaticObject(objectId, controllerFactory.staticObjectController(), spawn, objectTemplate);
 			staticObject.setKnownlist(new KnownList(staticObject));
 			bringIntoWorld(staticObject, spawn, instanceIndex);
 		}

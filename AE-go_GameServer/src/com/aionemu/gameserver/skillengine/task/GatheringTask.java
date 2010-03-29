@@ -23,7 +23,10 @@ import com.aionemu.gameserver.model.templates.gather.Material;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHER_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_GATHER_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.services.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.google.inject.Inject;
+import com.google.inject.assistedinject.Assisted;
 
 /**
  * @author ATracer
@@ -33,11 +36,15 @@ public class GatheringTask extends AbstractCraftTask
 {
 	private GatherableTemplate template;
 	private Material material;
+	private ItemService itemService;
 	
-	public GatheringTask(Player requestor, Gatherable gatherable, Material material, int skillLvlDiff)
+	@Inject
+	public GatheringTask(ItemService itemService, @Assisted Player requestor, @Assisted Gatherable gatherable, @Assisted Material material,
+		@Assisted int skillLvlDiff)
 	{
-		super(requestor, gatherable,
-			gatherable.getObjectTemplate().getSuccessAdj(), gatherable.getObjectTemplate().getFailureAdj(), skillLvlDiff);
+		super(requestor, gatherable, gatherable.getObjectTemplate().getSuccessAdj(), gatherable.getObjectTemplate()
+			.getFailureAdj(), skillLvlDiff);
+		this.itemService = itemService;
 		this.template = gatherable.getObjectTemplate();
 		this.material = material;
 	}
@@ -86,7 +93,7 @@ public class GatheringTask extends AbstractCraftTask
 		PacketSendUtility.sendPacket(requestor, new SM_GATHER_UPDATE(template, material, currentSuccessValue, currentFailureValue, 6));
 		PacketSendUtility.broadcastPacket(requestor, new SM_GATHER_STATUS(requestor.getObjectId(), responder.getObjectId(), 2), true);
 		PacketSendUtility.sendPacket(requestor,SM_SYSTEM_MESSAGE.Gather_Success(Integer.toString(60)));
-		((Gatherable)responder).getController().addItem(material, requestor);
+		itemService.addItem(requestor, material.getItemid(), 1);
 		((Gatherable)responder).getController().rewardPlayer(requestor);		
 	}
 }

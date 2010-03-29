@@ -31,7 +31,9 @@ import com.aionemu.gameserver.model.templates.GatherableTemplate;
 import com.aionemu.gameserver.model.templates.gather.Material;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.skillengine.task.GatheringTask;
+import com.aionemu.gameserver.skillengine.task.SkillTaskFactory;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.google.inject.Inject;
 
 /**
  * @author ATracer, sphinx (03/20/2010)
@@ -44,6 +46,9 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 	private int currentGatherer;
 	
 	private GatheringTask task;
+	
+	@Inject
+	private SkillTaskFactory taskFactory;
 	
 	public enum GatherState
 	{
@@ -132,7 +137,7 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 				}
 			});
 			int skillLvlDiff = player.getSkillList().getSkillLevel(template.getHarvestSkill())-template.getSkillLevel();
-			task = new GatheringTask(player, getOwner(), finalMaterial, skillLvlDiff);
+			task = taskFactory.gatheringTask(player, getOwner(), finalMaterial, skillLvlDiff);
 			task.start();
 		}
 	}
@@ -168,17 +173,6 @@ public class GatherableController extends VisibleObjectController<Gatherable>
 		gatherCount++;
 		if(gatherCount == getOwner().getObjectTemplate().getHarvestCount())
 			onDie();
-	}
-	
-	/**
-	 *  Adds item to inventory on successful gathering
-	 *  
-	 * @param material
-	 * @param player
-	 */
-	public void addItem(Material material, Player player)
-	{
-		sp.getItemService().addItem(player, material.getItemid(), 1);
 	}
 	
 	public void rewardPlayer(Player player)

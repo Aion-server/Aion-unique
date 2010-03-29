@@ -14,33 +14,37 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.utils.guice;
+package com.aionemu.gameserver.controllers.factory;
 
 import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.controllers.RiftController;
 import com.aionemu.gameserver.controllers.StaticObjectController;
-import com.aionemu.gameserver.controllers.factory.PlayerControllerFactory;
-import com.aionemu.gameserver.controllers.factory.RiftControllerFactory;
-import com.aionemu.gameserver.controllers.factory.StaticObjectControllerFactory;
-import com.google.inject.AbstractModule;
-import com.google.inject.assistedinject.FactoryProvider;
+import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.spawnengine.RiftSpawnManager.RiftEnum;
+import com.google.inject.assistedinject.Assisted;
 
 /**
  * @author ATracer
  *
  */
-public class ObjectControllerInjectionModule extends AbstractModule
+public interface ObjectControllerFactory
 {
-
-	@Override
-	protected void configure()
-	{
-		bind(PlayerControllerFactory.class).toProvider(
-			FactoryProvider.newFactory(PlayerControllerFactory.class, PlayerController.class));
-		bind(RiftControllerFactory.class).toProvider(
-			FactoryProvider.newFactory(RiftControllerFactory.class, RiftController.class));
-		bind(StaticObjectControllerFactory.class).toProvider(
-			FactoryProvider.newFactory(StaticObjectControllerFactory.class, StaticObjectController.class));
-	}
-
+	/**
+	 * @return
+	 */
+	public PlayerController playerController();
+	
+	/**
+	 * 
+	 * @param slave
+	 * @param riftTemplate
+	 * @return
+	 */
+	public RiftController riftController(@Assisted Npc slave, @Assisted RiftEnum riftTemplate);
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StaticObjectController staticObjectController();
 }

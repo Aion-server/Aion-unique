@@ -33,7 +33,6 @@ import com.aionemu.gameserver.model.gameobjects.player.SkillListEntry;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
-import com.aionemu.gameserver.model.templates.recipe.RecipeTemplate;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
@@ -597,29 +596,5 @@ public class PlayerController extends CreatureController<Player>
 			sp.getZoneService().startDrowning(player);
 		else
 			sp.getZoneService().stopDrowning(player);
-	}
-
-	/**
-	 * 
-	 * @param player
-	 * @param targetTemplateId
-	 * @param recipeId
-	 * @param targetObjId
-	 * @param items
-	 */
-	public void startCrafting(int targetTemplateId, int recipeId, int targetObjId)
-	{
-		sp.getCraftService().startCrafting(getOwner(), targetTemplateId, recipeId, targetObjId);
-	}
-	
-	/**
-	 * 
-	 * @param player
-	 * @param recipetemplate
-	 * @param critical
-	 */
-	public void finishCrafting(RecipeTemplate recipetemplate, boolean critical)
-	{
-		sp.getCraftService().finishCrafting(getOwner(), recipetemplate, critical);
 	}
 }

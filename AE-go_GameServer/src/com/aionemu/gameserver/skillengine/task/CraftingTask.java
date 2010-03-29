@@ -22,7 +22,10 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.recipe.RecipeTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CRAFT_ANIMATION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CRAFT_UPDATE;
+import com.aionemu.gameserver.services.CraftService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.google.inject.Inject;
+import com.google.inject.assistedinject.Assisted;
 
 /**
  * @author Mr. Poke
@@ -34,15 +37,20 @@ public class CraftingTask extends AbstractCraftTask
 	private ItemTemplate itemTemplate;
 	private ItemTemplate criticalTemplate;
 	
+	private CraftService craftService;
 	/**
 	 * @param requestor
 	 * @param responder
 	 * @param successValue
 	 * @param failureValue
 	 */
-	public CraftingTask(Player requestor, StaticObject responder, RecipeTemplate recipeTemplate, ItemTemplate itemTemplate,ItemTemplate criticalTemplate, int skillLvlDiff)
+	@Inject
+	public CraftingTask(CraftService craftService, @Assisted Player requestor, @Assisted StaticObject responder,
+		@Assisted RecipeTemplate recipeTemplate, @Assisted("itemTemplate") ItemTemplate itemTemplate,
+		@Assisted("criticalTemplate") ItemTemplate criticalTemplate, @Assisted int skillLvlDiff)
 	{
 		super(requestor, responder, 100, 100, skillLvlDiff);
+		this.craftService = craftService;
 		this.recipeTemplate = recipeTemplate;
 		this.itemTemplate = itemTemplate;
 		this.criticalTemplate = criticalTemplate;
@@ -66,7 +74,7 @@ public class CraftingTask extends AbstractCraftTask
 	{
 		PacketSendUtility.sendPacket(requestor, new SM_CRAFT_UPDATE(recipeTemplate.getSkillid(), setCritical?  criticalTemplate : itemTemplate, currentSuccessValue, currentFailureValue, 5));
 		PacketSendUtility.broadcastPacket(requestor, new SM_CRAFT_ANIMATION(requestor.getObjectId(),responder.getObjectId(), 0, 2), true);
-		requestor.getController().finishCrafting(recipeTemplate, critical);		
+		craftService.finishCrafting(requestor, recipeTemplate, critical);		
 	}
 
 	/* (non-Javadoc)

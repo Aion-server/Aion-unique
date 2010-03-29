@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.utils.guice;
 
+import com.aionemu.commons.network.AConnection;
 import com.aionemu.commons.network.ConnectionFactory;
 import com.aionemu.commons.network.NioServer;
 import com.aionemu.commons.network.ServerCfg;
@@ -34,7 +35,7 @@ import com.google.inject.Injector;
 import com.google.inject.Provides;
 import com.google.inject.Scopes;
 import com.google.inject.Singleton;
-import com.google.inject.assistedinject.FactoryProvider;
+import com.google.inject.assistedinject.FactoryModuleBuilder;
 
 /**
  * @author Luno
@@ -49,18 +50,17 @@ public class NetworkInjectionModule extends AbstractModule
 	{
 		this.injector = injector;
 	}
+	
 	@Override
 	protected void configure()
 	{
 		// binds LoginServer as singleton
 		bind(LoginServer.class).in(Scopes.SINGLETON);
-		
-		bind(ConnectionFactory.class).toProvider(
-			FactoryProvider.newFactory(ConnectionFactory.class, AionConnection.class)).in(Scopes.SINGLETON);
 
-		bind(LoginServerConnectionFactory.class).toProvider(
-			FactoryProvider.newFactory(LoginServerConnectionFactory.class, LoginServerConnection.class)).in(
-			Scopes.SINGLETON);
+		install(new FactoryModuleBuilder().implement(AConnection.class, AionConnection.class).build(
+			ConnectionFactory.class));
+		install(new FactoryModuleBuilder().implement(AConnection.class, LoginServerConnection.class).build(
+			LoginServerConnectionFactory.class));
 	}
 
 	@Provides

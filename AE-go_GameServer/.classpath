@@ -20,11 +20,11 @@
 	<classpathentry kind="lib" path="lib/javassist.jar"/>
 	<classpathentry kind="lib" path="lib/junit-4.6.jar"/>
 	<classpathentry kind="lib" path="lib/aopalliance.jar"/>
-	<classpathentry kind="lib" path="lib/guice-2.0.jar"/>
-	<classpathentry kind="lib" path="lib/guice-assistedinject-2.0.jar"/>
 	<classpathentry kind="lib" path="lib/commons-pool-1.5.4.jar"/>
-	<classpathentry kind="lib" path="lib/javolution-5.4.3.jar"/>
-	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.11-bin.jar"/>
 	<classpathentry kind="lib" path="lib/javax.inject.jar"/>
+	<classpathentry kind="lib" path="lib/guice-assistedinject-snapshot-r1148.jar" sourcepath="/AE-go_Commons/libsrc/guice-assistedinject-snapshot-r1148-src.jar"/>
+	<classpathentry kind="lib" path="lib/guice-snapshot-r1148.jar" sourcepath="/AE-go_Commons/libsrc/guice-snapshot-r1148-src.jar"/>
+	<classpathentry kind="lib" path="lib/javolution-5.4.5.jar" sourcepath="/AE-go_Commons/libsrc/javolution-5.4.5-sources.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.12-bin.jar" sourcepath="/AE-go_Commons/libsrc/mysql-connector-java-5.1.12-src.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

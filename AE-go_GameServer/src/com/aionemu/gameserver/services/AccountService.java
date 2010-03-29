@@ -23,7 +23,7 @@ import org.apache.log4j.Logger;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.main.CacheConfig;
-import com.aionemu.gameserver.controllers.factory.PlayerControllerFactory;
+import com.aionemu.gameserver.controllers.factory.ObjectControllerFactory;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.LegionMemberDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
@@ -61,7 +61,7 @@ public class AccountService
 	@Inject
 	private PlayerService				playerService;
 	@Inject
-	private PlayerControllerFactory		controllerFactory;
+	private ObjectControllerFactory		controllerFactory;
 	@Inject
 	private LegionService				legionService;
 	@Inject
@@ -144,7 +144,7 @@ public class AccountService
 		{
 			PlayerCommonData playerCommonData = playerDAO.loadPlayerCommonData(playerOid, world, playerInitialData);
 			PlayerAppearance appereance = appereanceDAO.load(playerOid);
-			Player player = new Player(controllerFactory.create(), playerCommonData, appereance);
+			Player player = new Player(controllerFactory.playerController(), playerCommonData, appereance);
 
 			
 			LegionMember legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(player.getObjectId(),

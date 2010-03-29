@@ -35,7 +35,7 @@ public class AggroList
 	
 	private Npc owner;
 	
-	private FastMap<Creature, AggroInfo> aggroList = new FastMap<Creature, AggroInfo>().setShared(true);
+	private FastMap<Creature, AggroInfo> aggroList = new FastMap<Creature, AggroInfo>().shared();
 	
 	public AggroList(Npc owner)
 	{

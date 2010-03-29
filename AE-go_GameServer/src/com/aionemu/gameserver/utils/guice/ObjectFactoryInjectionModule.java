@@ -14,26 +14,23 @@
  *  You should have received a copy of the GNU General Public License
  *  along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.controllers.factory;
+package com.aionemu.gameserver.utils.guice;
 
-import com.aionemu.gameserver.controllers.RiftController;
-import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.spawnengine.RiftSpawnManager.RiftEnum;
-import com.google.inject.assistedinject.Assisted;
+import com.aionemu.gameserver.controllers.factory.ObjectControllerFactory;
+import com.aionemu.gameserver.skillengine.task.SkillTaskFactory;
+import com.google.inject.AbstractModule;
+import com.google.inject.assistedinject.FactoryModuleBuilder;
 
 /**
  * @author ATracer
- * 
+ *
  */
-public interface RiftControllerFactory
+public class ObjectFactoryInjectionModule extends AbstractModule
 {
-	/**
-	 * 
-	 * @param slave
-	 * @param maxEntries
-	 * @param maxLevel
-	 * @return riftControllerFactory
-	 */
-	public RiftController create(@Assisted Npc slave, @Assisted RiftEnum riftTemplate);
-	
+	@Override
+	protected void configure()
+	{
+		install(new FactoryModuleBuilder().build(ObjectControllerFactory.class));
+		install(new FactoryModuleBuilder().build(SkillTaskFactory.class));
+	}	
 }

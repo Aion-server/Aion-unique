@@ -43,7 +43,7 @@ public class PlayerGroup
 
 	private Player						groupLeader;
 
-	private FastMap<Integer, Player>	groupMembers		= new FastMap<Integer, Player>().setShared(true);
+	private FastMap<Integer, Player>	groupMembers		= new FastMap<Integer, Player>().shared();
 
 	private ArrayList<Integer>			pickedLootMembers	= new ArrayList<Integer>();
 

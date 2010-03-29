@@ -46,7 +46,7 @@ import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 import com.aionemu.gameserver.utils.guice.DataInjectionModule;
 import com.aionemu.gameserver.utils.guice.IDFactoriesInjectionModule;
 import com.aionemu.gameserver.utils.guice.NetworkInjectionModule;
-import com.aionemu.gameserver.utils.guice.ObjectControllerInjectionModule;
+import com.aionemu.gameserver.utils.guice.ObjectFactoryInjectionModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
@@ -74,7 +74,7 @@ public class GameServer
 		// in InjectionModule with asEagerSingleton() call
 		DataInjectionModule dataIM = new DataInjectionModule();
 		NetworkInjectionModule networkIM = new NetworkInjectionModule();
-		ObjectControllerInjectionModule controllerIM = new ObjectControllerInjectionModule();
+		ObjectFactoryInjectionModule controllerIM = new ObjectFactoryInjectionModule();
 		
 		injector = Guice.createInjector(dataIM,networkIM, new IDFactoriesInjectionModule(), controllerIM);		
 		dataIM.setInjector(injector);
