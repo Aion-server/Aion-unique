@@ -147,10 +147,45 @@
 		<exitpoint mapid="220030000" x="1748" y="1807" z="254"/>
 	</portal>
 	
-	<!-- SCROLL TELEPORTS -->
+	<!-- SCROLL TELEPORTS  ELYOS-->
 	
 	<portal name="LF1A_RETURN_AREA_1">
 		<exitpoint mapid="210030000" x="1690.4" y="1481.4" z="121.4"/>
 	</portal>
+	
+	<portal name="LC1_RETURN_AREA_1">
+		<exitpoint mapid="110010000" x="1476.3" y="1595.5" z="572.9"/>
+	</portal>
+	
+	<portal name="LF2_RETURN_AREA">
+		<exitpoint mapid="210020000" x="285.4" y="2750.8" z="270.5"/>
+	</portal>
+	
+	<portal name="LF3_RETURN_AREA_1">
+		<exitpoint mapid="210040000" x="2469.6" y="304.2" z="415.62418"/>
+	</portal>
+	
+	<!-- SCROLL TELEPORTS  ELYOS END-->
+	
+	<!-- SCROLL TELEPORTS ASMODIANS-->
+	
+	<portal name="DC1_RETURN_AREA_1">
+		<exitpoint mapid="120010000" x="1456.9" y="1417.0" z="177.5"/>
+	</portal>
+	
+	<portal name="DF1A_RETURN_AREA">
+		<exitpoint mapid="220030000" x="1661.2" y="1816.3" z="253.712"/>
+	</portal>
+
+	<portal name="DF2_RETURN_AREA_1">
+		<exitpoint mapid="220020000" x="270.9" y="2339.6" z="443.74"/>
+	</portal>
+
+	<portal name="DF3_RETURN_AREA_1">
+		<exitpoint mapid="220040000" x="321.8" y="335.0" z="229.9"/>
+	</portal>
+	
+	<!-- SCROLL TELEPORTS ASMODIANS END-->
+	
 	
 </portal_templates>
