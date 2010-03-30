@@ -292,7 +292,7 @@
 
 
 	<!-- Kerubian Weapons -->
-	<item_collecting start_npc_id="203912" id="1480" />
+	<item_collecting start_npc_id="203912" end_npc_id="203898" id="1480" action_item_id="211732"/>
 
 
 	<!-- TODO: 1489 Marfonda of Darkness -->

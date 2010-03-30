@@ -372,7 +372,7 @@
 	
         <!-- [Group] The Still Remaining Mission -->
      <monster_hunt id="4313" start_npc_id="204372">
-		<monster_infos max_kill="11" var_id="0" npc_id="212677"/>
+		<monster_infos max_kill="11" var_id="0" npc_id="212676"/>
 	</monster_hunt>
 
         <!-- TODO: [Spy] Ingredients For Kselopen Sausage -->
@@ -456,7 +456,7 @@
         <!-- TODO: [Group] Re-sanctifying the Temple -->
 
         <!-- A Special Friendship -->
-        <item_collecting id="2474" start_npc_id="204390" />
+        <item_collecting id="2474" start_npc_id="204390" end_npc_id="204364"/>
 
 	<!-- Destroyer Hamitemon -->
 	<monster_hunt id="2366" start_npc_id="204363">

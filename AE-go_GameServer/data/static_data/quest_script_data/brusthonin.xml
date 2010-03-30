@@ -240,10 +240,8 @@
         
         <!-- Scared of Undeads -->
         <monster_hunt id="4018" start_npc_id="205132">
-                <monster_infos npc_id="211093" var_id="0" max_kill="20" />
-                <monster_infos npc_id="211968" var_id="0" max_kill="20" />
+                <monster_infos npc_id="213867" var_id="0" max_kill="20" />
                 <monster_infos npc_id="213869" var_id="1" max_kill="15" />
-                <monster_infos npc_id="213870" var_id="1" max_kill="15" />
         </monster_hunt>
         
         <!-- Something For Heirnir -->

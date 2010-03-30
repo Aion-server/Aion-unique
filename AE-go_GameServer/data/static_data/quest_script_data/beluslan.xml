@@ -179,7 +179,7 @@
 	<report_to start_npc_id="204801" end_npc_id="204768" item_id="182204427" id="2534"/>
 
 	<!-- A Ribbit in Need -->
-	<report_to start_npc_id="204732" end_npc_id="204827" id="2526"/>
+	<report_to start_npc_id="204732" end_npc_id="204827" id="2606"/>
 
 	<!-- Malek Nuggets -->
 	<item_collecting start_npc_id="798119" action_item_id="700330" id="2554"/>
