@@ -172,8 +172,7 @@
 	<!-- An Unfinished Mystery -->
 	<item_collecting id="2325" start_npc_id="204373" />
 
-        <!-- Meaty Treats -->
-	<item_collecting id="2332" start_npc_id="798084" />
+        <!-- 2332 Meaty Treats Handled by script -->
 
         <!-- Ravenous Philosopher -->
 	<item_collecting id="2460" start_npc_id="204386" />
