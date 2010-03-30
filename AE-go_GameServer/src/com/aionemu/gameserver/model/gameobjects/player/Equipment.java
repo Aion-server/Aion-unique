@@ -663,6 +663,23 @@ public class Equipment
 		return false;
 	}
 	
+	/**
+	 * @param armorType
+	 */
+	public boolean isArmorEquipped(ArmorType armorType)
+	{
+		int[] armorSlots = new int[]{ItemSlot.BOOTS.getSlotIdMask(), ItemSlot.GLOVES.getSlotIdMask(),
+			ItemSlot.HELMET.getSlotIdMask(), ItemSlot.PANTS.getSlotIdMask(),
+			ItemSlot.SHOULDER.getSlotIdMask(), ItemSlot.TORSO.getSlotIdMask()};
+		
+		for(int slot : armorSlots)
+		{
+			if(equipment.get(slot) != null && equipment.get(slot).getItemTemplate().getArmorType() == armorType)
+				return true;
+		}
+		return false;
+	}
+	
 	public Item getMainHandWeapon()
 	{
 		return equipment.get(ItemSlot.MAIN_HAND.getSlotIdMask());

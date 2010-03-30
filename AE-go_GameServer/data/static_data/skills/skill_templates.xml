@@ -46,6 +46,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="1">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="5" name="STR_SKILL_P_EQUIP_EnhancedLeather_G1" nameId="563647" stack="SKILL_P_EQUIP_ENHANCEDLEATHER" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -54,6 +59,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="LEATHER" effectid="122" e="1" basiclvl="1">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="6" name="STR_SKILL_P_EQUIP_EnhancedChain_G1" nameId="563651" stack="SKILL_P_EQUIP_ENHANCEDCHAIN" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -62,6 +72,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CHAIN" effectid="123" e="1" basiclvl="1">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="7" name="STR_SKILL_P_EQUIP_EnhancedShield_G1" nameId="563655" stack="SKILL_P_EQUIP_ENHANCEDSHIELD" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -117,6 +132,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="12" name="STR_SKILL_P_EQUIP_Leather_G1" nameId="563675" stack="SKILL_P_EQUIP_LEATHER" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -125,6 +145,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="LEATHER" effectid="122" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="13" name="STR_SKILL_P_EQUIP_Chain_G1" nameId="563679" stack="SKILL_P_EQUIP_CHAIN" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -133,6 +158,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CHAIN" effectid="123" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="14" name="STR_SKILL_P_EQUIP_Shield_G1" nameId="563683" stack="SKILL_P_EQUIP_SHIELD" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -188,6 +218,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="PLATE" effectid="124" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="19" name="STR_SKILL_P_EQUIP_Dual_G1" nameId="563703" stack="SKILL_P_EQUIP_DUAL" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -243,6 +278,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="24" name="STR_SKILL_KN_EQUIP_Leather" nameId="563723" stack="SKILL_KN_EQUIP_LEATHER" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -251,6 +291,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="LEATHER" effectid="122" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="25" name="STR_SKILL_KN_EQUIP_Chain" nameId="563727" stack="SKILL_KN_EQUIP_CHAIN" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -259,6 +304,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CHAIN" effectid="123" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="26" name="STR_SKILL_KN_EQUIP_Shield" nameId="563731" stack="SKILL_KN_EQUIP_SHIELD" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -288,6 +338,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="PLATE" effectid="124" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="29" name="STR_SKILL_SC_EQUIP_EnhancedSword" nameId="563743" stack="SKILL_SC_EQUIP_ENHANCEDSWORD" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -335,6 +390,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="1">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="33" name="STR_SKILL_SC_EQUIP_EnhancedLeather" nameId="563759" stack="SKILL_SC_EQUIP_ENHANCEDLEATHER" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -343,6 +403,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="LEATHER" effectid="122" e="1" basiclvl="1">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="34" name="STR_SKILL_SC_EQUIP_EnhancedDual" nameId="563763" stack="SKILL_SC_EQUIP_ENHANCEDDUAL" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -398,6 +463,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="39" name="STR_SKILL_RA_EQUIP_Leather" nameId="563783" stack="SKILL_RA_EQUIP_LEATHER" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -406,6 +476,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="LEATHER" effectid="122" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="40" name="STR_SKILL_RA_EQUIP_Dual" nameId="563787" stack="SKILL_RA_EQUIP_DUAL" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -461,6 +536,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="45" name="STR_SKILL_AS_EQUIP_Leather" nameId="563807" stack="SKILL_AS_EQUIP_LEATHER" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -469,6 +549,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="LEATHER" effectid="122" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="46" name="STR_SKILL_AS_EQUIP_Dual" nameId="563811" stack="SKILL_AS_EQUIP_DUAL" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -511,6 +596,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="1">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="50" name="STR_SKILL_CL_EQUIP_EnhancedLeather" nameId="563827" stack="SKILL_CL_EQUIP_ENHANCEDLEATHER" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -519,6 +609,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="LEATHER" effectid="122" e="1" basiclvl="1">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="51" name="STR_SKILL_CL_EQUIP_EnhancedChain" nameId="563831" stack="SKILL_CL_EQUIP_ENHANCEDCHAIN" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -527,6 +622,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CHAIN" effectid="123" e="1" basiclvl="1">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="52" name="STR_SKILL_PR_EQUIP_Mace" nameId="563835" stack="SKILL_PR_EQUIP_MACE" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -561,6 +661,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="55" name="STR_SKILL_PR_EQUIP_Leather" nameId="563847" stack="SKILL_PR_EQUIP_LEATHER" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -569,6 +674,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="LEATHER" effectid="122" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="56" name="STR_SKILL_PR_EQUIP_Chain" nameId="563851" stack="SKILL_PR_EQUIP_CHAIN" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -577,6 +687,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CHAIN" effectid="123" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="57" name="STR_SKILL_PR_EQUIP_Shield" nameId="565171" stack="SKILL_PR_EQUIP_SHIELD" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -619,6 +734,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="61" name="STR_SKILL_CH_EQUIP_Leather" nameId="563867" stack="SKILL_CH_EQUIP_LEATHER" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -627,6 +747,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="LEATHER" effectid="122" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="62" name="STR_SKILL_CH_EQUIP_Chain" nameId="563871" stack="SKILL_CH_EQUIP_CHAIN" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -635,6 +760,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CHAIN" effectid="123" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="63" name="STR_SKILL_CH_EQUIP_Shield" nameId="565175" stack="SKILL_CH_EQUIP_SHIELD" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -677,6 +807,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="1">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="67" name="STR_SKILL_P_EQUIP_EnhancedRobe_G1" nameId="563883" stack="SKILL_P_EQUIP_ENHANCEDROBE" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -685,6 +820,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="ROBE" effectid="125" e="1" basiclvl="1">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="68" name="STR_SKILL_WI_EQUIP_Orb" nameId="563887" stack="SKILL_WI_EQUIP_ORB" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -706,6 +846,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="70" name="STR_SKILL_P_EQUIP_Robe_G1" nameId="563895" stack="SKILL_P_EQUIP_ROBE" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -714,6 +859,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="ROBE" effectid="125" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="71" name="STR_SKILL_P_EQUIP_Book_G1" nameId="563899" stack="SKILL_P_EQUIP_BOOK" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -748,6 +898,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="74" name="STR_SKILL_EL_EQUIP_Robe" nameId="563911" stack="SKILL_EL_EQUIP_ROBE" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -756,6 +911,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="ROBE" effectid="125" e="1" basiclvl="2">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="75" name="STR_SKILL_P_EQUIP_Orb_G1" nameId="563915" stack="SKILL_P_EQUIP_ORB" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -786,7 +946,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <boosthate value="10" effectid="101021" e="1"/>
+            <boosthate value="10" effectid="101021" e="1">
+                <change stat="BOOST_HATE" func="PERCENT" delta="0" value="10"/>
+            </boosthate>
         </effects>
     </skill_template>
     <skill_template skill_id="103" name="STR_SKILL_P_BoostHateDown_G1" nameId="564607" stack="SKILL_P_BOOSTHATEDOWN" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
@@ -797,7 +959,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <boosthate value="-10" effectid="101031" e="1"/>
+            <boosthate value="-10" effectid="101031" e="1">
+                <change stat="BOOST_HATE" func="PERCENT" delta="0" value="-10"/>
+            </boosthate>
         </effects>
     </skill_template>
     <skill_template skill_id="104" name="STR_SKILL_P_BoostKnockDown_G1" nameId="564075" stack="SKILL_P_BOOSTKNOCKDOWN" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
@@ -861,7 +1025,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <weaponstatboost effectid="105031" e="1"/>
+            <weaponstatboost weapon="BOW" effectid="105031" e="1">
+                <change stat="ATTACK_RANGE" func="PERCENT" value="5"/>
+            </weaponstatboost>
         </effects>
     </skill_template>
     <skill_template skill_id="111" name="STR_SKILL_P_StatBoostBlock_G1" nameId="564063" stack="SKILL_P_STATBOOSTBLOCK" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
@@ -2256,7 +2422,9 @@
             <statboost effectid="102582" e="2" element="FIRE">
                 <change stat="BLOCK" func="ADD" value="250"/>
             </statboost>
-            <boosthate value="15" effectid="102583" e="3" element="FIRE"/>
+            <boosthate value="15" effectid="102583" e="3" element="FIRE">
+                <change stat="BOOST_HATE" func="PERCENT" value="15"/>
+            </boosthate>
             <statboost effectid="102584" e="4" element="FIRE">
                 <change stat="PVP_DEFEND_RATIO" func="ADD" value="100"/>
             </statboost>
@@ -4265,7 +4433,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <boosthate value="20" effectid="101021" e="1"/>
+            <boosthate value="20" effectid="101021" e="1">
+                <change stat="BOOST_HATE" func="PERCENT" delta="0" value="20"/>
+            </boosthate>
         </effects>
     </skill_template>
     <skill_template skill_id="367" name="STR_SKILL_P_StatBoostPhysicalOffense_G5" nameId="583993" stack="SKILL_P_STATBOOSTPHYSICALOFFENSE" lvl="5" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
@@ -9300,7 +9470,9 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <weaponstatboost effectid="106881" e="1" hoptype="SKILLLV" hopb="587"/>
+            <weaponstatboost weapon="BOW" effectid="106881" e="1" hoptype="SKILLLV" hopb="587">
+                <change stat="ATTACK_RANGE" func="PERCENT" value="10"/>
+            </weaponstatboost>
         </effects>
     </skill_template>
     <skill_template skill_id="693" name="STR_SKILL_RA_MindsEye_G1" nameId="567169" stack="SKILL_RA_MINDSEYE" lvl="1" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="100" duration="0">
@@ -9889,7 +10061,9 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <weaponstatboost effectid="106881" e="1"/>
+            <weaponstatboost weapon="BOW" effectid="106881" e="1">
+                <change stat="ATTACK_RANGE" func="PERCENT" value="10"/>
+            </weaponstatboost>
         </effects>
     </skill_template>
     <skill_template skill_id="727" name="STR_SKILL_RA_Light_SpikeTrap_G4" nameId="574493" stack="SKILL_RA_LIGHT_SPIKETRAP" lvl="4" skilltype="MAGICAL" skillsubtype="SUMMONTRAP" tslot="NONE" activation="ACTIVE" cooldown="300" duration="1000">
@@ -10232,8 +10406,12 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <weaponstatboost effectid="107441" e="1"/>
-            <weaponstatboost effectid="107442" e="2"/>
+            <weaponstatboost weapon="BOW" effectid="107441" e="1">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="10"/>
+            </weaponstatboost>
+            <weaponstatboost weapon="BOW" effectid="107442" e="2">
+                <change stat="ATTACK_RANGE" func="PERCENT" delta="0" value="0"/>
+            </weaponstatboost>
         </effects>
         <actions>
             <mpuse value="12" delta="0"/>
@@ -10322,7 +10500,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <weaponstatboost effectid="107511" e="1"/>
+            <weaponstatboost weapon="BOW" effectid="107511" e="1">
+                <change stat="ATTACK_RANGE" func="PERCENT" delta="0" value="10"/>
+            </weaponstatboost>
         </effects>
     </skill_template>
     <skill_template skill_id="752" name="STR_SKILL_RA_SeraphicBow_G2" nameId="576841" stack="SKILL_RA_SERAPHICBOW" lvl="2" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
@@ -10333,7 +10513,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <weaponstatboost effectid="107511" e="1"/>
+            <weaponstatboost weapon="BOW" effectid="107511" e="1">
+                <change stat="ATTACK_RANGE" func="PERCENT" delta="0" value="10"/>
+            </weaponstatboost>
         </effects>
     </skill_template>
     <skill_template skill_id="753" name="STR_SKILL_RA_SeraphicBow_G3" nameId="576845" stack="SKILL_RA_SERAPHICBOW" lvl="3" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
@@ -10344,7 +10526,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <weaponstatboost effectid="107511" e="1"/>
+            <weaponstatboost weapon="BOW" effectid="107511" e="1">
+                <change stat="ATTACK_RANGE" func="PERCENT" delta="0" value="10"/>
+            </weaponstatboost>
         </effects>
     </skill_template>
     <skill_template skill_id="754" name="STR_SKILL_RA_RootingArrow_G1" nameId="576849" stack="SKILL_RA_ROOTINGARROW" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="10" duration="0">
@@ -17221,7 +17405,9 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <boosthate value="-20" effectid="101031" e="1"/>
+            <boosthate value="-20" effectid="101031" e="1">
+                <change stat="BOOST_HATE" func="PERCENT" delta="0" value="-20"/>
+            </boosthate>
         </effects>
     </skill_template>
     <skill_template skill_id="1174" name="STR_SKILL_P_HealMastery_G4" nameId="584183" stack="SKILL_P_HEALMASTERY" lvl="4" skilltype="MAGICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
@@ -43034,6 +43220,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CHAIN" effectid="123" e="1" basiclvl="1" hoptype="SKILLLV">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="0"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="9223" name="STR_SKILL_Stigma_EnhancedDagger" nameId="566163" stack="SKILL_STIGMA_ENHANCEDDAGGER" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -43063,6 +43254,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="LEATHER" effectid="122" e="1" basiclvl="1" hoptype="SKILLLV">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="0"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="9226" name="STR_SKILL_Stigma_EnhancedMace" nameId="566151" stack="SKILL_STIGMA_ENHANCEDMACE" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -43084,6 +43280,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="ROBE" effectid="125" e="1" basiclvl="1" hoptype="SKILLLV">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="0"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="9228" name="STR_SKILL_Stigma_EnhancedShield" nameId="566179" stack="SKILL_STIGMA_ENHANCEDSHIELD" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -43139,6 +43340,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="CLOTHES" effectid="121" e="1" basiclvl="1" hoptype="SKILLLV">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="9233" name="STR_SKILL_Stigma_Equip_EnhancedDagger" nameId="569981" stack="SKILL_STIGMA_EQUIP_ENHANCEDDAGGER" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -43160,6 +43366,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="LEATHER" effectid="122" e="1" basiclvl="1" hoptype="SKILLLV">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="9235" name="STR_SKILL_Stigma_Equip_EnhancedStaff" nameId="569973" stack="SKILL_STIGMA_EQUIP_ENHANCEDSTAFF" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -43395,6 +43606,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <armormastery armor="PLATE" effectid="124" e="1" basiclvl="2" hoptype="SKILLLV">
+                <change stat="PHYSICAL_DEFENSE" func="PERCENT" delta="0" value="10"/>
+            </armormastery>
+        </effects>
     </skill_template>
     <skill_template skill_id="9249" name="STR_SKILL_Stigma_RobustBlow" nameId="574757" stack="SKILL_STIGMA_ROBUSTBLOW" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="DEBUFF" activation="ACTIVE" cooldown="80" duration="0">
         <initproperties>
@@ -44660,7 +44876,9 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <weaponstatboost effectid="106881" e="1" hoptype="SKILLLV" hopb="587"/>
+            <weaponstatboost weapon="BOW" effectid="106881" e="1" hoptype="SKILLLV" hopb="587">
+                <change stat="ATTACK_RANGE" func="PERCENT" value="10"/>
+            </weaponstatboost>
             <statboost effectid="106922" e="2">
                 <change stat="SPEED" func="ADD" value="-10000"/>
             </statboost>

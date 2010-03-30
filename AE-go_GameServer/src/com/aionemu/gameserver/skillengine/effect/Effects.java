@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.SwitchHpMpEffect;
 
 
 /**
@@ -105,7 +104,8 @@ public class Effects
 		@XmlElement(name = "provoker", type = ProvokerEffect.class),
 		@XmlElement(name = "reflector", type = ReflectorEffect.class),
 		@XmlElement(name = "spellatkdraininstant", type = SpellAtkDrainInstantEffect.class),
-		@XmlElement(name = "onetimeboostskillattack", type = OneTimeBoostSkillAttackEffect.class)
+		@XmlElement(name = "onetimeboostskillattack", type = OneTimeBoostSkillAttackEffect.class),
+		@XmlElement(name = "armormastery", type = ArmorMasteryEffect.class)
 	})
 	protected List<EffectTemplate> effects;
 	

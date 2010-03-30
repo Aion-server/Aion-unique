@@ -92,27 +92,6 @@ public class ItemService
 	}
 
 	/**
-	 * @param itemId
-	 * @param itemUniqueId
-	 * @param count
-	 * @param isEquipped
-	 * @param slot
-	 * @return
-	 * 
-	 *  Loads Item instance with specified itemUniqueId
-	 */
-	public Item loadItem(int itemId, int itemUniqueId, int count, boolean isEquipped, int slot)
-	{
-		ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
-		if(itemTemplate == null)
-		{
-			log.error("Item was not populated correctly. Item template is missing for item id: " + itemId);
-		}
-
-		return new Item(itemUniqueId, itemTemplate, count, isEquipped, slot);
-	}       
-
-	/**
 	 *  Loads item stones from DB for each item in a list if item is ARMOR or WEAPON
 	 *  Godstones will be laoded for WEAPON items
 	 *  

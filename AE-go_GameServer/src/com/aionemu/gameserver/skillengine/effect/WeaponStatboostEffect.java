@@ -18,8 +18,10 @@ package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
+import com.aionemu.gameserver.model.templates.item.WeaponType;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
@@ -28,9 +30,11 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "WeaponStatboostEffect")
-public class WeaponStatboostEffect extends EffectTemplate
+public class WeaponStatboostEffect extends BufEffect
 {
-
+	@XmlAttribute(name = "weapon")
+	private WeaponType weaponType;
+	
 	@Override
 	public void applyEffect(Effect effect)
 	{

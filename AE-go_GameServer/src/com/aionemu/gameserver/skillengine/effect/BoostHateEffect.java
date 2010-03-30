@@ -28,16 +28,8 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BoostHateEffect")
-public class BoostHateEffect extends EffectTemplate
+public class BoostHateEffect extends BufEffect
 {
-
-	@Override
-	public void applyEffect(Effect effect)
-	{
-		// TODO Auto-generated method stub
-
-	}
-
 	@Override
 	public void calculate(Effect effect)
 	{

@@ -29,6 +29,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.id.ItemStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.id.StoneStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.items.ManaStone;
+import com.aionemu.gameserver.model.templates.item.ArmorType;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
 
@@ -73,6 +74,7 @@ public class ItemEquipmentListener
 		
 		addGodstoneEffect(owner, item);
 		recalculateWeaponMastery(owner);
+		recalculateArmorMastery(owner);
 	}
 
 	/**
@@ -99,6 +101,36 @@ public class ItemEquipmentListener
 			}
 			//add effect if weapon is equiped
 			if(!masterySet && weaponEquiped)
+			{
+				owner.getController().useSkill(skillId);
+			}
+		}
+	}
+	
+	/**
+	 * @param owner
+	 */
+	private static void recalculateArmorMastery(Player owner)
+	{
+		//don't calculate for not initialized equipment
+		if(owner.getEquipment() == null)
+			return;
+		
+		for(ArmorType armorType : ArmorType.values())
+		{
+			boolean masterySet = owner.getEffectController().isArmorMasterySet(armorType);
+			boolean armorEquiped = owner.getEquipment().isArmorEquipped(armorType);
+			Integer skillId = owner.getSkillList().getArmorMasterySkill(armorType);
+			if(skillId == null)
+				continue;
+			//remove effect if no armor is equiped
+			
+			if(masterySet && !armorEquiped)
+			{
+				owner.getEffectController().removePassiveEffect(skillId);
+			}
+			//add effect if armor is equiped
+			if(!masterySet && armorEquiped)
 			{
 				owner.getController().useSkill(skillId);
 			}
@@ -172,6 +204,7 @@ public class ItemEquipmentListener
 		
 		removeGodstoneEffect(owner, item);
 		recalculateWeaponMastery(owner);
+		recalculateArmorMastery(owner);
 	}
 	
 

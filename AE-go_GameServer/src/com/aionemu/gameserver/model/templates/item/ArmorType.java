@@ -47,4 +47,12 @@ public enum ArmorType
 	{
 		return requiredSkills;
 	}
+	
+	/**
+	 * @return int
+	 */
+	public int getMask()
+	{
+		return 1 << this.ordinal();
+	}
 }

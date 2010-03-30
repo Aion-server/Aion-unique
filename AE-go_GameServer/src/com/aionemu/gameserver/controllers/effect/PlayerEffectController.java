@@ -17,6 +17,7 @@
 package com.aionemu.gameserver.controllers.effect;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.templates.item.ArmorType;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
@@ -26,8 +27,19 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 public class PlayerEffectController extends EffectController
 {
-	private int weaponeffects;
+	/**
+	 * weapon mastery mask
+	 */
+	private int weaponEffects;
 	
+	/**
+	 * armor mastery mask
+	 */
+	private int armorEffects;
+	
+	/**
+	 * current food effect
+	 */
 	private Effect foodEffect;
 
 	public PlayerEffectController(Creature owner)
@@ -68,23 +80,47 @@ public class PlayerEffectController extends EffectController
 	 */
 	public void setWeaponMastery(int mask)
 	{
-		weaponeffects |= mask;
+		weaponEffects |= mask;
 	}
 
 	public void unsetWeaponMastery(int mask)
 	{
-		weaponeffects &= ~mask;
+		weaponEffects &= ~mask;
 	}
 
 	public int getWeaponMastery()
 	{
-		return weaponeffects;
+		return weaponEffects;
 	}
 	
 	public boolean isWeaponMasterySet(WeaponType weaponType)
 	{
-		int isState = this.weaponeffects & weaponType.getMask();
+		int isState = this.weaponEffects & weaponType.getMask();
 		return isState == weaponType.getMask();
+	}
+	
+	/**
+	 * Armor mastery
+	 */
+	public void setArmorMastery(int mask)
+	{
+		armorEffects |= mask;
+	}
+
+	public void unsetArmorMastery(int mask)
+	{
+		armorEffects &= ~mask;
+	}
+
+	public int getArmorMastery()
+	{
+		return armorEffects;
+	}
+	
+	public boolean isArmorMasterySet(ArmorType armorType)
+	{
+		int isState = this.armorEffects & armorType.getMask();
+		return isState == armorType.getMask();
 	}
 	
 }
