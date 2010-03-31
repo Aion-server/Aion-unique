@@ -209,6 +209,15 @@ public class CreatureGameStats<T extends Creature>
 		recomputeStats();
 	}
 	
+	/*
+	 * @return True if the StatEffectId is already added
+	 */
+	public boolean effectAlreadyAdded(StatEffectId id)
+	{
+		return statsModifiers.containsKey(id);
+	}
+	
+	
 	/**
 	 * Recomputation of all stats
 	 * Additional logic is in StatChangeListener callbacks

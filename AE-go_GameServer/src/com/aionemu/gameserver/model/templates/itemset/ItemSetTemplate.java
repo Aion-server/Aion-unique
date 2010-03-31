@@ -18,6 +18,7 @@ package com.aionemu.gameserver.model.templates.itemset;
 
 import java.util.List;
 
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -25,7 +26,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author ATracer
+ * @author ATracer, modified by Antivirus
  *
  */
 @XmlRootElement(name = "itemset")
@@ -41,6 +42,19 @@ public class ItemSetTemplate
     protected String name;
     @XmlAttribute
     protected int id;
+    
+    /*
+     * Final setting
+     */
+	void afterUnmarshal(Unmarshaller u, Object parent)
+	{
+		if(fullbonus != null)
+		{
+			// Set number of items to apply the full bonus
+			fullbonus.setNumberOfItems( itempart.size());
+		}		
+	}
+
 	/**
 	 * @return the itempart
 	 */

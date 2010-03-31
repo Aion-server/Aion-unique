@@ -268,6 +268,7 @@ public class DataInjectionModule extends AbstractModule
 		return datamanager.PORTAL_DATA;
 	}
 	
+	@SuppressWarnings("static-access")
 	@Provides
 	ItemSetData provideItemSetData(DataManager datamanager)
 	{

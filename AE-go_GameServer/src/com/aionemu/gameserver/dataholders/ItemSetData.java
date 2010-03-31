@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.aionemu.gameserver.model.templates.itemset.ItemPart;
 import com.aionemu.gameserver.model.templates.itemset.ItemSetTemplate;
 
 /**
@@ -41,28 +42,50 @@ public class ItemSetData
 	
 	private TIntObjectHashMap<ItemSetTemplate> sets;
 	
+	// key: item id, value: associated item set template
+	// This should provide faster search of the item template set by item id
+	private TIntObjectHashMap<ItemSetTemplate> setItems;
+	
 	void afterUnmarshal(Unmarshaller u, Object parent)
 	{
 		sets = new TIntObjectHashMap<ItemSetTemplate>();
+		setItems = new TIntObjectHashMap<ItemSetTemplate>();
+		
 		for(ItemSetTemplate set: itemsetList)
 		{
 			sets.put(set.getId(), set);
+			
+			// Add reference to the ItemSetTemplate from  
+			for(ItemPart part : set.getItempart())
+			{
+				setItems.put(part.getItemid(), set);
+			}
 		}
 		itemsetList = null;
 	}
 	
 	/**
 	 * 
+	 * @param itemSetId
+	 * @return
+	 */
+	public ItemSetTemplate getItemSetTemplate(int itemSetId)
+	{
+		return sets.get(itemSetId);
+	}
+
+	/**
+	 * 
 	 * @param itemId
 	 * @return
 	 */
-	public ItemSetTemplate getItemSetTemplate(int itemId)
+	public ItemSetTemplate getItemSetTemplateByItemId(int itemId)
 	{
-		return sets.get(itemId);
+		return setItems.get(itemId);
 	}
-	
+
 	/**
-	 * @return items.size()
+	 * @return itemSets.size()
 	 */
 	public int size()
 	{

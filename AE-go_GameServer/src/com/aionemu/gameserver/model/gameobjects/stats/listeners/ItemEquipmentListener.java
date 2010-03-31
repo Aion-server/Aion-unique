@@ -25,6 +25,7 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.stats.CreatureGameStats;
 import com.aionemu.gameserver.model.gameobjects.stats.PlayerGameStats;
+import com.aionemu.gameserver.model.gameobjects.stats.id.ItemSetStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.id.ItemStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.id.StoneStatEffectId;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
@@ -32,6 +33,8 @@ import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.templates.item.ArmorType;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
+import com.aionemu.gameserver.model.templates.itemset.ItemSetTemplate;
+import com.aionemu.gameserver.model.templates.itemset.PartBonus;
 
 /**
  * @author xavier
@@ -69,12 +72,60 @@ public class ItemEquipmentListener
 		ItemTemplate itemTemplate = item.getItemTemplate();
 		onItemEquipment(itemTemplate,item.getEquipmentSlot(),owner.getGameStats());
 		
+		// Check if belongs to ItemSet
+		if(itemTemplate.isItemSet())
+			onItemSetPartEquipment(itemTemplate.getItemSet(), owner);
+
 		if(item.hasManaStones())
 			addStonesStats(item.getItemStones(), owner.getGameStats());
 		
 		addGodstoneEffect(owner, item);
-		recalculateWeaponMastery(owner);
-		recalculateArmorMastery(owner);
+		
+		if(item.getItemTemplate().isWeapon())
+			recalculateWeaponMastery(owner);
+		
+		if(item.getItemTemplate().isArmor())
+			recalculateArmorMastery(owner);
+	}
+
+	/**
+	 * 
+	 * @param itemSetTemplate
+	 * @param player
+	 */
+	private static void onItemSetPartEquipment(ItemSetTemplate itemSetTemplate, Player player)
+	{
+		if(itemSetTemplate == null)
+			return;
+
+		// 1.- Check equipment for items already equip with this itemSetTemplate id
+		int itemSetPartsEquipped = player.getEquipment().itemSetPartsEquipped(itemSetTemplate.getId());
+
+		// 2.- Check Item Set Parts and add effects one by one if not done already
+		for(PartBonus itempartbonus : itemSetTemplate.getPartbonus())
+		{
+			ItemSetStatEffectId setEffectId = ItemSetStatEffectId.getInstance(itemSetTemplate.getId(), itempartbonus
+				.getCount());
+			// If the partbonus was not applied before, do it now
+			if(itempartbonus.getCount() <= itemSetPartsEquipped
+				&& !player.getGameStats().effectAlreadyAdded(setEffectId))
+			{
+				player.getGameStats().addModifiers(setEffectId, itempartbonus.getModifiers());
+			}
+		}
+
+		// 3.- Finally check if all items are applied and set the full bonus if not already applied
+		if(itemSetTemplate.getFullbonus() != null && itemSetPartsEquipped == itemSetTemplate.getFullbonus().getCount())
+		{
+			ItemSetStatEffectId setEffectId = ItemSetStatEffectId.getInstance(itemSetTemplate.getId(),
+				itemSetPartsEquipped + 1);
+			if(!player.getGameStats().effectAlreadyAdded(setEffectId))
+			{
+				// Add the full bonus with index = total parts + 1 to avoid confusion with part bonus equal to number of
+				// objects
+				player.getGameStats().addModifiers(setEffectId, itemSetTemplate.getFullbonus().getModifiers());
+			}
+		}
 	}
 
 	/**
@@ -197,17 +248,63 @@ public class ItemEquipmentListener
 	 */
 	public static void onItemUnequipment(Item item, Player owner)
 	{
-		owner.getGameStats().endEffect(ItemStatEffectId.getInstance(item.getItemTemplate().getTemplateId(), item.getEquipmentSlot()));
-		
+		// Check if belongs to an ItemSet
+		if(item.getItemTemplate().isItemSet())
+			onItemSetPartUnequipment(item.getItemTemplate().getItemSet(), owner);
+
+		owner.getGameStats().endEffect(
+			ItemStatEffectId.getInstance(item.getItemTemplate().getTemplateId(), item.getEquipmentSlot()));
+
 		if(item.hasManaStones())
 			removeStoneStats(item.getItemStones(), owner.getGameStats());
-		
+
 		removeGodstoneEffect(owner, item);
-		recalculateWeaponMastery(owner);
-		recalculateArmorMastery(owner);
+		
+		if(item.getItemTemplate().isWeapon())
+			recalculateWeaponMastery(owner);
+		
+		if(item.getItemTemplate().isArmor())
+			recalculateArmorMastery(owner);
 	}
 	
+	/**
+	 * 
+	 * @param itemSetTemplate
+	 * @param player
+	 */
+	private static void onItemSetPartUnequipment(ItemSetTemplate itemSetTemplate, Player player)
+	{
+		if(itemSetTemplate == null)
+			return;
 
+		// 1.- Check number of item parts equipped before the removal (i.e. current + 1)
+		int previousItemSetPartsEquipped = player.getEquipment().itemSetPartsEquipped(itemSetTemplate.getId()) + 1;
+
+		// 2.- Check if removed one item from the full set and if so remove the full bonus
+		if(itemSetTemplate.getFullbonus() != null
+			&& previousItemSetPartsEquipped == itemSetTemplate.getFullbonus().getCount())
+		{
+			// Full bonus was added with index = total parts + 1 to avoid confusion with part bonus equal to total
+			// number of item set parts
+			player.getGameStats()
+				.endEffect(
+					ItemSetStatEffectId.getInstance(itemSetTemplate.getId(),
+						itemSetTemplate.getFullbonus().getCount() + 1));
+		}
+
+		// 3.- Check Item Set Parts and remove appropriate effects
+		for(PartBonus itempartbonus : itemSetTemplate.getPartbonus())
+		{
+			// Remove modifier if not applicable anymore
+			if(itempartbonus.getCount() == previousItemSetPartsEquipped)
+			{
+				player.getGameStats().endEffect(
+					ItemSetStatEffectId.getInstance(itemSetTemplate.getId(), itempartbonus.getCount()));
+			}
+		}
+	}
+
+	
 	/**
 	 * @param item
 	 */

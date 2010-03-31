@@ -126,7 +126,7 @@ public final class DataManager
 	
 	public PortalData					PORTAL_DATA;
 	
-	public ItemSetData					ITEM_SET_DATA;
+	public static ItemSetData			ITEM_SET_DATA;
 	
 	private XmlDataLoader loader;
 
@@ -171,7 +171,7 @@ public final class DataManager
 		RECIPE_DATA = data.recipeData;
 		PORTAL_DATA = data.portalData;
 		ITEM_SET_DATA  = data.itemSetData;
-
+		
 		// some sexy time message
 		long seconds = time / 1000;
 

@@ -32,6 +32,9 @@ public class AdminConfig
 	@Property(key = "gameserver.administration.command.addtitle", defaultValue = "3")
 	public static int	COMMAND_ADDTITLE;
 
+	@Property(key = "gameserver.administration.command.addset", defaultValue = "3")
+	public static int	COMMAND_ADDSET;
+
 	@Property(key = "gameserver.administration.command.adddrop", defaultValue = "3")
 	public static int	COMMAND_ADDDROP;
 

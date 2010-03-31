@@ -22,6 +22,7 @@ import com.aionemu.gameserver.model.gameobjects.stats.listeners.ItemEquipmentLis
 import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.templates.item.ArmorType;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
+import com.aionemu.gameserver.model.templates.itemset.ItemSetTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
@@ -405,6 +406,25 @@ public class Equipment
 		return equippedItems;
 	}
 
+	/**
+	 * @return Number of parts equipped belonging to requested itemset
+	 */
+	public int itemSetPartsEquipped(int itemSetTemplateId)
+	{
+		int number = 0;
+
+		for(Item item : equipment.values())
+		{
+			ItemSetTemplate setTemplate = item.getItemTemplate().getItemSet();
+			if(setTemplate != null && setTemplate.getId() == itemSetTemplateId)
+			{
+				++number;
+			}
+		}
+		
+		return number;
+	}
+	
 	/**
 	 *  Should be called only when loading from DB for items isEquipped=1
 	 *  

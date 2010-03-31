@@ -26,10 +26,12 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.itemengine.actions.ItemActions;
 import com.aionemu.gameserver.model.gameobjects.stats.modifiers.StatModifier;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
+import com.aionemu.gameserver.model.templates.itemset.ItemSetTemplate;
 import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
 
 /**
@@ -426,6 +428,22 @@ public class ItemTemplate extends VisibleObjectTemplate
 		this.itemId = itemId;
 	}
 
+	/*
+	 * @return id of the associated ItemSetTemplate or null if none
+	 */
+	public ItemSetTemplate getItemSet()
+	{
+		return DataManager.ITEM_SET_DATA.getItemSetTemplateByItemId(itemId);
+	}
+	
+	/*
+	 * Checks if the ItemTemplate belongs to an item set
+	 */
+	public boolean isItemSet()
+	{
+		return getItemSet() != null;
+	}
+	
 	/**
 	 * @return the godstoneInfo
 	 */
