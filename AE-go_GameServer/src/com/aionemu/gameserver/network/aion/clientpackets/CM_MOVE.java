@@ -113,6 +113,10 @@ public class CM_MOVE extends AionClientPacket
 	protected void runImpl()
 	{
 		Player player = getConnection().getActivePlayer();
+		
+		//packet was not read correctly
+		if(type == null)
+			return;
 
 		switch(type)
 		{

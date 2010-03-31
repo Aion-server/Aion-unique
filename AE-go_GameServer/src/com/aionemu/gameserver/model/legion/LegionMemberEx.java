@@ -20,7 +20,6 @@ import java.sql.Timestamp;
 
 import org.apache.log4j.Logger;
 
-import com.aionemu.gameserver.controllers.PlayerController;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -31,7 +30,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
  */
 public class LegionMemberEx extends LegionMember
 {
-	private static Logger	log	= Logger.getLogger(PlayerController.class);
+	private static Logger	log	= Logger.getLogger(LegionMemberEx.class);
 
 	private String		name;
 	private PlayerClass	playerClass;

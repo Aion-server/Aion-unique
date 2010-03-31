@@ -18,7 +18,12 @@ package com.aionemu.gameserver.model.legion;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.Map.Entry;
 
 import com.aionemu.gameserver.configs.main.LegionConfig;
@@ -44,7 +49,7 @@ public class Legion
 	private int										legionLevel					= 1;
 	private int										legionRank					= 0;
 	private int										contributionPoints			= 0;
-	private ArrayList<Integer>						legionMembers				= new ArrayList<Integer>();
+	private List<Integer>							legionMembers				= new ArrayList<Integer>();
 	private static final int						legionarPermission1			= 0x40;
 	private int										legionarPermission2			= 0x00;
 	private int										centurionPermission1		= 0x60;
@@ -53,7 +58,7 @@ public class Legion
 	private TreeMap<Timestamp, String>				announcementList			= new TreeMap<Timestamp, String>();
 	private LegionEmblem							legionEmblem				= new LegionEmblem();
 	private LegionWarehouse							legionWarehouse;
-	private TreeMap<Integer, LegionHistory>	legionHistory				= new TreeMap<Integer, LegionHistory>();
+	private SortedSet<LegionHistory>				legionHistory;
 
 	/**
 	 * Only called when a legion is created!
@@ -61,12 +66,11 @@ public class Legion
 	 * @param legionId
 	 * @param legionName
 	 */
-	public Legion(int legionId, String legionName, int playerObjId)
+	public Legion(int legionId, String legionName)
 	{
+		this();
 		this.legionId = legionId;
 		this.legionName = legionName;
-		this.legionWarehouse = new LegionWarehouse(this);
-		addLegionMember(playerObjId);
 	}
 
 	/**
@@ -75,17 +79,18 @@ public class Legion
 	 * @param legionId
 	 * @param legionName
 	 */
-	public Legion(int legionId)
+	public Legion()
 	{
-		this.legionId = legionId;
-	}
+		this.legionWarehouse = new LegionWarehouse(this);
+		this.legionHistory = new TreeSet<LegionHistory>(new Comparator<LegionHistory>(){
 
-	/**
-	 * @param legionName2
-	 */
-	public Legion(String legionName)
-	{
-		this.legionName = legionName;
+			@Override
+			public int compare(LegionHistory o1, LegionHistory o2)
+			{
+				return o1.getTime().getTime() < o2.getTime().getTime() ? 1 : -1;
+			}
+			
+		});
 	}
 
 	/**
@@ -134,7 +139,7 @@ public class Legion
 	/**
 	 * @return the legionMembers
 	 */
-	public ArrayList<Integer> getLegionMembers()
+	public List<Integer> getLegionMembers()
 	{
 		return legionMembers;
 	}
@@ -152,14 +157,6 @@ public class Legion
 				onlineLegionMembers.add(onlineLegionMember);
 		}
 		return onlineLegionMembers;
-	}
-
-	/**
-	 * @return the legionMembers
-	 */
-	public int getLegionMember(int playerObjId)
-	{
-		return legionMembers.indexOf(playerObjId);
 	}
 
 	/**
@@ -184,15 +181,7 @@ public class Legion
 	 */
 	public void deleteLegionMember(int playerObjId)
 	{
-		ArrayList<Integer> newLegionMembers = new ArrayList<Integer>();
-		for(int memberObjId : legionMembers)
-		{
-			if(memberObjId != playerObjId)
-			{
-				newLegionMembers.add(memberObjId);
-			}
-		}
-		setLegionMembers(newLegionMembers);
+		legionMembers.remove(new Integer(playerObjId));
 	}
 
 	/**
@@ -566,17 +555,9 @@ public class Legion
 	}
 
 	/**
-	 * @param legionHistory the legionHistory to set
-	 */
-	public void setLegionHistory(TreeMap<Integer, LegionHistory> legionHistory)
-	{
-		this.legionHistory = legionHistory;
-	}
-
-	/**
 	 * @return the legionHistory
 	 */
-	public TreeMap<Integer, LegionHistory> getLegionHistory()
+	public Collection<LegionHistory> getLegionHistory()
 	{
 		return this.legionHistory;
 	}
@@ -586,6 +567,6 @@ public class Legion
 	 */
 	public void addHistory(LegionHistory history)
 	{
-		this.legionHistory.put(legionHistory.lastKey()+1, history);
+		this.legionHistory.add(history);
 	}
 }

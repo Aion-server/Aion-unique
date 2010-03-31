@@ -20,6 +20,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.TreeMap;
 
@@ -154,7 +155,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	@Override
 	public Legion loadLegion(final String legionName)
 	{
-		final Legion legion = new Legion(legionName);
+		final Legion legion = new Legion();
 
 		boolean success = DB.select(SELECT_LEGION_QUERY2, new ParamReadStH(){
 			@Override
@@ -168,6 +169,7 @@ public class MySQL5LegionDAO extends LegionDAO
 			{
 				while(resultSet.next())
 				{
+					legion.setLegionName(legionName);
 					legion.setLegionId(resultSet.getInt("id"));
 					legion.setLegionLevel(resultSet.getInt("level"));
 					legion.addContributionPoints(resultSet.getInt("contribution_points"));
@@ -191,7 +193,7 @@ public class MySQL5LegionDAO extends LegionDAO
 	@Override
 	public Legion loadLegion(final int legionId)
 	{
-		final Legion legion = new Legion(legionId);
+		final Legion legion = new Legion();
 
 		boolean success = DB.select(SELECT_LEGION_QUERY1, new ParamReadStH(){
 			@Override
@@ -205,6 +207,7 @@ public class MySQL5LegionDAO extends LegionDAO
 			{
 				while(resultSet.next())
 				{
+					legion.setLegionId(legionId);
 					legion.setLegionName(resultSet.getString("name"));
 					legion.setLegionLevel(resultSet.getInt("level"));
 					legion.addContributionPoints(resultSet.getInt("contribution_points"));
@@ -510,15 +513,16 @@ public class MySQL5LegionDAO extends LegionDAO
 	 * {@inheritDoc}
 	 */
 	@Override
-	public TreeMap<Integer, LegionHistory> loadLegionHistory(final int legionId)
+	public void loadLegionHistory(final Legion legion)
 	{
-		final TreeMap<Integer, LegionHistory> legionHistory = new TreeMap<Integer, LegionHistory>();
+		
+		final Collection<LegionHistory> history = legion.getLegionHistory();
 
 		DB.select(SELECT_HISTORY_QUERY, new ParamReadStH(){
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException
 			{
-				stmt.setInt(1, legionId);
+				stmt.setInt(1, legion.getLegionId());
 			}
 
 			@Override
@@ -526,12 +530,11 @@ public class MySQL5LegionDAO extends LegionDAO
 			{
 				while(resultSet.next())
 				{
-					legionHistory.put(resultSet.getInt("id"), new LegionHistory(LegionHistoryType.valueOf(resultSet.getString("history_type")), resultSet.getString("name"), resultSet.getTimestamp("date")));
+					history.add(new LegionHistory(LegionHistoryType.valueOf(resultSet.getString("history_type")),
+						resultSet.getString("name"), resultSet.getTimestamp("date")));
 				}
 			}
 		});
-
-		return legionHistory;
 	}
 
 	/**

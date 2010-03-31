@@ -159,9 +159,8 @@ public abstract class LegionDAO implements IDFactoryAwareDAO
 
 	/**
 	 * @param legion
-	 * @return the legionHistory
 	 */
-	public abstract TreeMap<Integer, LegionHistory> loadLegionHistory(int legionId);
+	public abstract void loadLegionHistory(Legion legion);
 	
 	/**
 	 * @param legionId

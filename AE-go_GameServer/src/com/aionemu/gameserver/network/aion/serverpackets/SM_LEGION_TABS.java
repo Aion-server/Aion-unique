@@ -17,7 +17,7 @@
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.nio.ByteBuffer;
-import java.util.TreeMap;
+import java.util.Collection;
 
 import com.aionemu.gameserver.model.legion.LegionHistory;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -29,15 +29,15 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_LEGION_TABS extends AionServerPacket
 {
 	private int									page;
-	private TreeMap<Integer, LegionHistory>	legionHistory;
+	private Collection<LegionHistory>	legionHistory;
 
-	public SM_LEGION_TABS(TreeMap<Integer, LegionHistory> legionHistory)
+	public SM_LEGION_TABS(Collection<LegionHistory> legionHistory)
 	{
 		this.legionHistory = legionHistory;
 		this.page = 0;
 	}
 
-	public SM_LEGION_TABS(TreeMap<Integer, LegionHistory> legionHistory, int page)
+	public SM_LEGION_TABS(Collection<LegionHistory> legionHistory, int page)
 	{
 		this.legionHistory = legionHistory;
 		this.page = page;
@@ -67,11 +67,10 @@ public class SM_LEGION_TABS extends AionServerPacket
 		writeD(buf, hisSize);
 
 		int i = 0;
-		for(Integer id : legionHistory.descendingKeySet())
+		for(LegionHistory history : legionHistory)
 		{
 			if(i >= (page * 8) && i <= (8 + (page * 8)))
 			{
-				LegionHistory history = legionHistory.get(id);
 				writeD(buf, (int) (history.getTime().getTime() / 1000));
 				writeC(buf, history.getLegionHistoryType().getHistoryId());
 				writeC(buf, 0);
