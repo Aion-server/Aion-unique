@@ -106,7 +106,7 @@ public class ThreadPoolManager implements DisconnectionThreadPool
 			new LinkedBlockingQueue<Runnable>(), new PriorityThreadFactory("Login Server Packet Pool",
 				Thread.NORM_PRIORITY + 3));
 		
-		taskManagerThreadPool = new ScheduledThreadPoolExecutorAE(4, new PriorityThreadFactory(
+		taskManagerThreadPool = new ScheduledThreadPoolExecutorAE(5, new PriorityThreadFactory(
 				"TaskManagerThreadPool", Thread.NORM_PRIORITY));
 	}
 

@@ -32,6 +32,7 @@ public class SM_TARGET_SELECTED extends AionServerPacket
 	private int	level;
 	private int	maxHp;
 	private int	currentHp;
+	private int targetObjId;
 
 	public SM_TARGET_SELECTED(Player player)
 	{
@@ -49,6 +50,9 @@ public class SM_TARGET_SELECTED extends AionServerPacket
 			this.maxHp = 1;
 			this.currentHp = 1;
 		}
+		
+		if(player.getTarget() != null)
+			targetObjId = player.getTarget().getObjectId();
 	}
 
 	/**
@@ -57,7 +61,7 @@ public class SM_TARGET_SELECTED extends AionServerPacket
 	@Override
 	protected void writeImpl(AionConnection con, ByteBuffer buf)
 	{
-		writeD(buf, player.getTarget().getObjectId());
+		writeD(buf, targetObjId);
 		writeH(buf, level);
 		writeD(buf, maxHp);
 		writeD(buf, currentHp);
