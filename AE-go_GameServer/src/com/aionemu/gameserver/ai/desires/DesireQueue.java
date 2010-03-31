@@ -79,7 +79,6 @@ public class DesireQueue
 	 */
 	public synchronized void addDesire(Desire desire)
 	{
-
 		// Lazy initialization of desire queue
 		if(queue == null)
 		{

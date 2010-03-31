@@ -65,8 +65,7 @@ public final class AggressionDesire extends AbstractDesire
 					if(!npc.isAggressiveTo(player.getCommonData().getRace()))
 						continue;
 
-					npc.getAi().setAiState(AIState.NONE);// TODO
-					// ToDO proper aggro emotion on aggro range enter
+					npc.getAi().setAiState(AIState.NONE); // TODO: proper aggro emotion on aggro range enter
 					PacketSendUtility.broadcastPacket(npc, new SM_ATTACK(npc, player, 0,
 						633, 0, Collections.singletonList(new AttackResult(0, AttackStatus.NORMALHIT))));
 
@@ -96,5 +95,4 @@ public final class AggressionDesire extends AbstractDesire
 		// TODO Auto-generated method stub
 		
 	}
-
 }

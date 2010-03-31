@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.ai.desires;
 
 import com.aionemu.gameserver.ai.AI;
@@ -91,6 +90,7 @@ public abstract class AbstractDesire implements Desire
 	
 	public abstract int getExecutionInterval();
 	
+	@Override
 	public boolean isReadyToRun()
 	{
 		boolean isReady =  executionCounter % getExecutionInterval() == 0;

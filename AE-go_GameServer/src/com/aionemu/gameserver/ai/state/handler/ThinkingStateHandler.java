@@ -26,7 +26,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
  */
 public class ThinkingStateHandler extends StateHandler
 {
-
 	@Override
 	public AIState getState()
 	{

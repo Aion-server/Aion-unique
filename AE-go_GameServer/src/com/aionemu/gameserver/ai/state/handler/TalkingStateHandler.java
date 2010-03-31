@@ -27,7 +27,6 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  */
 public class TalkingStateHandler extends StateHandler
 {
-
 	@Override
 	public AIState getState()
 	{
@@ -47,7 +46,6 @@ public class TalkingStateHandler extends StateHandler
 		final Creature owner = ai.getOwner();
 		
 		ThreadPoolManager.getInstance().schedule(new Runnable(){
-
 			@Override
 			public void run()
 			{
@@ -55,5 +53,4 @@ public class TalkingStateHandler extends StateHandler
 			}
 		}, 60000);
 	}
-
 }

@@ -28,7 +28,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
  */
 public class NotSeePlayerEventHandler implements EventHandler
 {
-
 	@Override
 	public Event getEvent()
 	{

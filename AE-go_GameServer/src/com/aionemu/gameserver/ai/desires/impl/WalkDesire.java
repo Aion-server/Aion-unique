@@ -62,7 +62,6 @@ public class WalkDesire extends AbstractDesire implements MoveDesire
 	@Override
 	public boolean handleDesire(AI ai)
 	{
-
 		if(owner == null)
 			return false;
 

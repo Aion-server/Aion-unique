@@ -43,23 +43,20 @@ public class KnownListUpdateTask extends AbstractPeriodicTaskManager<VisibleObje
 
 	public static enum KnownListUpdateMode
 	{
-		KNOWNLIST_UPDATE
-		{
+		KNOWNLIST_UPDATE {
 			@Override
 			public void knownListTask(VisibleObject visibleObject)
 			{
 				visibleObject.updateKnownlistImpl();
 			}
 		},
-		KNOWNLIST_CLEAR
-		{
+		KNOWNLIST_CLEAR {
 			@Override
 			public void knownListTask(VisibleObject visibleObject)
 			{
 				visibleObject.clearKnownlistImpl();
 			}
-		},
-
+		}
 		;
 
 		private final byte	MASK;
@@ -110,5 +107,4 @@ public class KnownListUpdateTask extends AbstractPeriodicTaskManager<VisibleObje
 			}
 		}
 	}
-
 }

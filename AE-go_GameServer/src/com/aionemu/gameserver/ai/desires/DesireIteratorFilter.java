@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.ai.desires;
 
 /**
@@ -24,7 +23,6 @@ package com.aionemu.gameserver.ai.desires;
  */
 public interface DesireIteratorFilter
 {
-
 	/**
 	 * This method is called each time for every desire that is in the queue.<br>
 	 * <br> {@link java.util.ConcurrentModificationException} will be thrown by

@@ -26,7 +26,6 @@ import com.aionemu.gameserver.ai.state.AIState;
  */
 public class SeePlayerEventHandler implements EventHandler
 {
-
 	@Override
 	public Event getEvent()
 	{
@@ -40,5 +39,4 @@ public class SeePlayerEventHandler implements EventHandler
 		if(!ai.isScheduled())
 			ai.analyzeState();
 	}
-
 }

@@ -26,7 +26,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
  */
 public class NoneMonsterStateHandler extends StateHandler
 {
-
 	@Override
 	public AIState getState()
 	{
@@ -45,5 +44,4 @@ public class NoneMonsterStateHandler extends StateHandler
 		((Npc) ai.getOwner()).getAggroList().clear();
 		ai.stop();
 	}
-
 }

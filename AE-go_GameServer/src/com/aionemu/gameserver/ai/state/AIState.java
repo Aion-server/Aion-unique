@@ -42,5 +42,4 @@ public enum AIState
 	{
 		return priority;
 	}
-
 }

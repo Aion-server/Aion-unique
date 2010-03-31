@@ -30,7 +30,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class MovingToHomeStateHandler extends StateHandler
 {
-
 	@Override
 	public AIState getState()
 	{

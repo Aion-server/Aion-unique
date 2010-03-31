@@ -26,7 +26,6 @@ import com.aionemu.gameserver.ai.state.AIState;
  */
 public class NothingTodoEventHandler implements EventHandler
 {
-
 	@Override
 	public Event getEvent()
 	{
@@ -38,5 +37,4 @@ public class NothingTodoEventHandler implements EventHandler
 	{
 		ai.setAiState(AIState.NONE);
 	}
-
 }

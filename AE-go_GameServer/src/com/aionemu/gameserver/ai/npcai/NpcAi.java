@@ -27,7 +27,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
  */
 public class NpcAi extends AI<Npc>
 {
-
 	public NpcAi()
 	{
 		/**
@@ -46,5 +45,4 @@ public class NpcAi extends AI<Npc>
 		this.addStateHandler(StateHandlers.ACTIVE_NPC_SH.getHandler());
 		this.addStateHandler(StateHandlers.TALKING_SH.getHandler());
 	}
-
 }

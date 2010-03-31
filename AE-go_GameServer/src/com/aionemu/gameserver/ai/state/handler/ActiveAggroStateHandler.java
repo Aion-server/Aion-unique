@@ -32,7 +32,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
  */
 public class ActiveAggroStateHandler extends StateHandler
 {
-
 	@Override
 	public AIState getState()
 	{
@@ -76,5 +75,4 @@ public class ActiveAggroStateHandler extends StateHandler
 		else
 			ai.schedule();
 	}
-
 }

@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with aion-emu.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.aionemu.gameserver.ai.desires;
 
 import java.util.Iterator;
@@ -30,7 +29,6 @@ import java.util.Iterator;
  */
 public interface DesireIteratorHandler
 {
-
 	/**
 	 * This method is called each time for every desire that is in the queue.<br>
 	 * Remove of desire must be handeled by <b>iterator.remove();</b><br>

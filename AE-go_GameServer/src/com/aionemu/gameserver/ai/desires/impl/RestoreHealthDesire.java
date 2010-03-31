@@ -63,6 +63,5 @@ public class RestoreHealthDesire extends AbstractDesire
 	public void onClear()
 	{
 		// TODO Auto-generated method stub
-		
 	}
 }

@@ -32,6 +32,7 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 @XmlType(name = "WeaponStatboostEffect")
 public class WeaponStatboostEffect extends BufEffect
 {
+	@SuppressWarnings("unused")
 	@XmlAttribute(name = "weapon")
 	private WeaponType weaponType;
 	

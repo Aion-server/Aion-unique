@@ -26,7 +26,6 @@ import com.aionemu.gameserver.ai.state.AIState;
  */
 public class AttackedEventHandler implements EventHandler
 {
-
 	@Override
 	public Event getEvent()
 	{

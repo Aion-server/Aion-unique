@@ -26,7 +26,6 @@ import com.aionemu.gameserver.ai.state.AIState;
  */
 public class RestoredHealthEventHandler implements EventHandler
 {
-
 	@Override
 	public Event getEvent()
 	{

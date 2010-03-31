@@ -31,12 +31,11 @@ import com.aionemu.gameserver.world.World;
 import com.google.inject.Inject;
 
 /**
- * 
  * @author MrPoke, sphinx
  *
  */
-public class CraftService {
-	
+public class CraftService 
+{
 	@Inject
 	private ItemService itemService;
 	@Inject
@@ -94,7 +93,10 @@ public class CraftService {
 			
 			//morphing dont need static object/npc to use
 			if ((skillId != 40009) && (target == null || !(target instanceof StaticObject)))
-				return; //TODO: Incorrect target message...
+			{
+				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.INVALID_TARGET());
+				return;
+			}
 			
 			if (recipeTemplate.getDp() != null && (player.getCommonData().getDp() <recipeTemplate.getDp()))
 				return; //TODO: Audith logger: Client moding.

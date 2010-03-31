@@ -20,7 +20,6 @@ import com.aionemu.gameserver.ai.AI;
 import com.aionemu.gameserver.ai.events.Event;
 import com.aionemu.gameserver.ai.state.AIState;
 
-
 /**
  * @author ATracer
  *
@@ -38,5 +37,4 @@ public class MostHatedChangedEventHandler implements EventHandler
 	{
 		ai.setAiState(AIState.THINKING);
 	}
-
 }

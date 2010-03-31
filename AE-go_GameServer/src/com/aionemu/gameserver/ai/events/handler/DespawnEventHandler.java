@@ -25,7 +25,6 @@ import com.aionemu.gameserver.ai.events.Event;
  */
 public class DespawnEventHandler implements EventHandler
 {
-
 	@Override
 	public Event getEvent()
 	{
@@ -37,5 +36,4 @@ public class DespawnEventHandler implements EventHandler
 	{
 		ai.handleEvent(Event.NOTHING_TODO);
 	}
-
 }

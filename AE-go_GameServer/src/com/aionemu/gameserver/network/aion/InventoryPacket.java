@@ -177,8 +177,6 @@ public abstract class InventoryPacket extends AionServerPacket
 	{
 		int count = 0;
 		
-		
-
 		if(item.hasManaStones())
 		{
 			Set<ManaStone> itemStones = item.getItemStones();
@@ -217,7 +215,6 @@ public abstract class InventoryPacket extends AionServerPacket
 		}
 
 		//for now max 6 stones - write some junk
-
 	}
 
 	/**

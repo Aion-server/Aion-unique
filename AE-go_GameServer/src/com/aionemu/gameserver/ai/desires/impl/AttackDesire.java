@@ -67,7 +67,6 @@ public final class AttackDesire extends AbstractDesire
 	@Override
 	public boolean handleDesire(AI<?> ai)
 	{
-		
 		if(target == null || target.getLifeStats().isAlreadyDead())
 		{
 			//TODO lower hate and not reset

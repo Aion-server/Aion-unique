@@ -26,7 +26,6 @@ import com.aionemu.gameserver.ai.state.AIState;
  */
 public class BackHomeEventHandler implements EventHandler
 {
-
 	@Override
 	public Event getEvent()
 	{
@@ -38,5 +37,4 @@ public class BackHomeEventHandler implements EventHandler
 	{
 		ai.setAiState(AIState.RESTING);
 	}
-
 }

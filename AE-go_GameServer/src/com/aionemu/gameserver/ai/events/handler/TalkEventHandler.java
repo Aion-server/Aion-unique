@@ -27,7 +27,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
  */
 public class TalkEventHandler implements EventHandler
 {
-
 	@Override
 	public Event getEvent()
 	{
@@ -40,5 +39,4 @@ public class TalkEventHandler implements EventHandler
 		if(((Npc)ai.getOwner()).hasWalkRoutes())
 			ai.setAiState(AIState.TALKING);
 	}
-
 }

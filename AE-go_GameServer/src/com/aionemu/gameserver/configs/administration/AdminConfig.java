@@ -151,5 +151,4 @@ public class AdminConfig
     
 	@Property(key = "gameserver.administration.command.prison", defaultValue = "3")
 	public static int	COMMAND_PRISON;
-
 }

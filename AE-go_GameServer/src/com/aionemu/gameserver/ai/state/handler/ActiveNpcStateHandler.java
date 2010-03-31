@@ -27,7 +27,6 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
  */
 public class ActiveNpcStateHandler extends StateHandler
 {
-
 	@Override
 	public AIState getState()
 	{
@@ -53,5 +52,4 @@ public class ActiveNpcStateHandler extends StateHandler
 		else
 			ai.schedule();
 	}
-
 }

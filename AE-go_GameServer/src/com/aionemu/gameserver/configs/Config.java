@@ -66,37 +66,45 @@ public class Config
 			// Main
 			String main = "./config/main";
 			Properties[] mainProps = PropertiesUtils.loadAllFromDirectory(main);
+			
 			ConfigurableProcessor.process(LegionConfig.class, mainProps);
 			log.info("Loading: " + main + "/legion.properties");
+			
 			ConfigurableProcessor.process(RateConfig.class, mainProps);
 			log.info("Loading: " + main + "/rates.properties");
+			
 			ConfigurableProcessor.process(CacheConfig.class, mainProps);
 			log.info("Loading: " + main + "/cache.properties");
+			
 			ConfigurableProcessor.process(ShutdownConfig.class, mainProps);
 			log.info("Loading: " + main + "/shutdown.properties");
+			
 			ConfigurableProcessor.process(TaskManagerConfig.class, mainProps);
 			log.info("Loading: " + main + "/taskmanager.properties");
+			
 			ConfigurableProcessor.process(GroupConfig.class, mainProps);
 			log.info("Loading: " + main + "/group.properties");
+			
 			ConfigurableProcessor.process(CustomConfig.class, mainProps);
 			log.info("Loading: " + main + "/custom.properties");
+			
 			ConfigurableProcessor.process(GSConfig.class, mainProps);
 			log.info("Loading: " + main + "/gameserver.properties");
+			
 			ConfigurableProcessor.process(PeriodicSaveConfig.class, mainProps);
 			log.info("Loading: " + main + "/periodicsave.properties");
 
 			// Network
 			String network = "./config/network";
-			Properties[] networkProps = PropertiesUtils.loadAllFromDirectory(network);
-			ConfigurableProcessor.process(NetworkConfig.class, networkProps);
+			Properties[] networkProps = PropertiesUtils.loadAllFromDirectory(network);	
+			ConfigurableProcessor.process(NetworkConfig.class, networkProps);		
 			log.info("Loading: " + network + "/database.properties");
 			log.info("Loading: " + network + "/network.properties");
 		}
 		catch(Exception e)
 		{
-			log.fatal("Can't load gameserver configuration", e);
-
-			throw new Error("Can't load gameserver configuration", e);
+			log.fatal("Can't load gameserver configuration: ", e);
+			throw new Error("Can't load gameserver configuration: ", e);
 		}
 
 		IPConfig.load();

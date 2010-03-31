@@ -34,7 +34,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class AttackingStateHandler extends StateHandler
 {
-
 	@Override
 	public AIState getState()
 	{

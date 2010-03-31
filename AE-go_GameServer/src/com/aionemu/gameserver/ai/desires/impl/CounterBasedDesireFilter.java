@@ -25,7 +25,6 @@ import com.aionemu.gameserver.ai.desires.DesireIteratorFilter;
  */
 public class CounterBasedDesireFilter implements DesireIteratorFilter
 {
-
 	@Override
 	public boolean isOk(Desire desire)
 	{

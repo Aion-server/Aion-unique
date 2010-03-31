@@ -26,7 +26,6 @@ import com.aionemu.gameserver.ai.state.AIState;
  */
 public class RestingStateHandler extends StateHandler
 {
-
 	@Override
 	public AIState getState()
 	{
@@ -42,5 +41,4 @@ public class RestingStateHandler extends StateHandler
 	{
 		ai.addDesire(new RestoreHealthDesire(ai.getOwner(), AIState.RESTING.getPriority()));
 	}
-
 }

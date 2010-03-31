@@ -26,7 +26,6 @@ import com.aionemu.gameserver.ai.state.AIState;
  */
 public class RespawnedEventHandler implements EventHandler
 {
-
 	@Override
 	public Event getEvent()
 	{
@@ -39,5 +38,4 @@ public class RespawnedEventHandler implements EventHandler
 		ai.setAiState(AIState.ACTIVE);
 		ai.analyzeState();
 	}
-
 }

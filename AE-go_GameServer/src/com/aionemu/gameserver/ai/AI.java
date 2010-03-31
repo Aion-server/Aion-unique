@@ -140,7 +140,7 @@ public abstract class AI<T extends Creature> implements Runnable
 	public void run()
 	{
 		desireQueue.iterateDesires(new GeneralDesireIteratorHandler(this), new CounterBasedDesireFilter());
-		// todo move to home
+		// TODO: move to home
 		if(desireQueue.isEmpty() || isStateChanged)
 		{
 			analyzeState();
