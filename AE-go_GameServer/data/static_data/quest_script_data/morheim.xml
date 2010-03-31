@@ -77,7 +77,11 @@
 	<monster_hunt id="2318" start_npc_id="204360">
 		<monster_infos npc_id="211302"  var_id="0" max_kill="10"/>
 		<monster_infos npc_id="211298"  var_id="1" max_kill="10"/>
+		<!-- Realy here must be 201048, but this mob is not correct in
+		  npc_template. Temporarily changed to 211297 id 
 		<monster_infos npc_id="201048"  var_id="2" max_kill="10"/>
+		-->
+		<monster_infos npc_id="211297"  var_id="2" max_kill="10"/>
 	</monster_hunt>
         
 	<!-- TODO: A Sorrowful Message -->
