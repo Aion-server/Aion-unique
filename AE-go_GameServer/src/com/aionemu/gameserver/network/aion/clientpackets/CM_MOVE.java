@@ -21,6 +21,7 @@ import org.apache.log4j.Logger;
 import com.aionemu.gameserver.controllers.MoveController;
 import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -149,8 +150,8 @@ public class CM_MOVE extends AionClientPacket
 				/**
 				 * Broadcast a fake packet to trick the client
 				 */
-				//TODO: glideSpeed == runSpeed ?
-				float glideSpeed = player.getPlayerStatsTemplate().getRunSpeed();
+				//TODO: glideSpeed?
+				float glideSpeed = player.getGameStats().getCurrentStat(StatEnum.SPEED);
 				double angle = Math.toRadians(heading * 3);
 				x2 = (float) (glideSpeed * Math.cos(angle));
 				y2 = (float) (glideSpeed * Math.sin(angle));

@@ -176,7 +176,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	{
 		Creature owner = getOwner();
 		sp.getWorld().updatePosition(owner, owner.getX(), owner.getY(), owner.getZ(), owner.getHeading());
-		PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(), 0, 0, 0,
+		PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner, owner.getX(), owner.getY(), owner.getZ(),
 			owner.getHeading(), MovementType.MOVEMENT_STOP));
 	}
 
