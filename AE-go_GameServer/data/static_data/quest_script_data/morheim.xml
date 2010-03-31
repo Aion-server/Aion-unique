@@ -47,7 +47,7 @@
 	
         <!-- Active Discouragement -->
         <monster_hunt id="2304" start_npc_id="204302">
-           <monster_infos npc_id="211307" var_id="0" max_kill="15" />
+           <monster_infos npc_id="211300" var_id="0" max_kill="15" />
         </monster_hunt>
 
         <!-- Bolverk's Secret Request -->
