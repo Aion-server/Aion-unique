@@ -277,7 +277,7 @@
 
 	<!-- The Elim Tragedy -->
 	<monster_hunt start_npc_id="730019" id="1321">
-		<monster_infos var_id="0" npc_id="210793" max_kill="13"/>
+		<monster_infos var_id="0" npc_id="210786" max_kill="13"/>
 	</monster_hunt>
 
 

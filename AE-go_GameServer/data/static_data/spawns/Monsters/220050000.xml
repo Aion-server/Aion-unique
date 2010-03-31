@@ -291,7 +291,7 @@ Brusthonin -->
 		<object x="2181.0967" y="2127.9377" z="44.93535" h="76"/>
 	</spawn>
 	<!-- Snickering Boggart -->
-	<spawn map="220050000" npcid="213868" pool="24" interval="105">
+	<spawn map="220050000" npcid="213867" pool="24" interval="105">
 		<object x="2539.0483" y="2042.4763" z="22.494019" h="4"/>
 		<object x="2527.2595" y="2034.98" z="21.73616" h="28"/>
 		<object x="2252.6453" y="2159.4053" z="37.288025" h="72"/>
@@ -318,7 +318,7 @@ Brusthonin -->
 		<object x="2534.6555" y="2056.024" z="22.789474" h="45"/>
 	</spawn>
 	<!-- Wailing Banshee -->
-	<spawn map="220050000" npcid="213870" pool="17" interval="105">
+	<spawn map="220050000" npcid="213869" pool="17" interval="105">
 		<object x="2225.307" y="2263.8457" z="39.783676" h="98"/>
 		<object x="2243.8843" y="2152.7747" z="40.632233" h="103"/>
 		<object x="2285.0596" y="2153.3066" z="39.14789" h="81"/>

@@ -8244,8 +8244,8 @@
         <rewards exp="14200" gold="1000">
             <reward_item count="5" item_id="160003503"/>
         </rewards>
-        <quest_drop drop_each_member="false" chance="80" item_id="182203233" npc_id="210487"/>
-        <quest_drop drop_each_member="false" chance="50" item_id="182203233" npc_id="210489"/>
+        <quest_drop drop_each_member="false" chance="80" item_id="182203233" npc_id="210486"/>
+        <quest_drop drop_each_member="false" chance="50" item_id="182203233" npc_id="210488"/>
     </quest>
     <quest race_permitted="ASMODIANS" max_repeat_count="1" minlevel_permitted="15" nameId="2206701" name="Gathering Kandula" id="2250">
         <collect_items>
