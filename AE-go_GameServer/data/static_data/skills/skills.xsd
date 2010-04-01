@@ -189,6 +189,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="armormastery" type="ArmorMasteryEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="weaponstatup" type="WeaponStatupEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -566,6 +568,14 @@
 	</xs:complexType>
 	
 	<xs:complexType name="WeaponStatboostEffect">
+		<xs:complexContent>
+			<xs:extension base="BufEffect">
+				<xs:attribute name="weapon" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="WeaponStatupEffect">
 		<xs:complexContent>
 			<xs:extension base="BufEffect">
 				<xs:attribute name="weapon" type="xs:string"/>

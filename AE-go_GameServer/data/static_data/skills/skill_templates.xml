@@ -5787,6 +5787,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <weaponstatup weapon="SWORD_2H" duration="15000" effectid="104371" e="1" hoptype="SKILLLV" hopb="1050">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="6" value="92"/>
+            </weaponstatup>
+        </effects>
         <actions>
             <mpuse value="4" delta="0"/>
         </actions>
@@ -6044,6 +6049,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <weaponstatup weapon="SWORD_2H" duration="15000" effectid="104371" e="1">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="9" value="177"/>
+            </weaponstatup>
+        </effects>
         <actions>
             <mpuse value="5" delta="0"/>
         </actions>
@@ -8455,6 +8465,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <weaponstatup weapon="BOW" duration="60000" effectid="106391" e="1" hoptype="SKILLLV" hopb="435">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="20"/>
+            </weaponstatup>
+        </effects>
         <actions>
             <mpuse value="103" delta="0"/>
         </actions>
@@ -8496,6 +8511,9 @@
             <statup duration="60000" effectid="106412" e="2" element="FIRE">
                 <change stat="PHYSICAL_CRITICAL" func="ADD" delta="0" value="100"/>
             </statup>
+            <weaponstatup weapon="BOW" duration="60000" effectid="106413" e="3">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="10"/>
+            </weaponstatup>
         </effects>
         <actions>
             <mpuse value="165" delta="0"/>
@@ -8534,6 +8552,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <weaponstatup weapon="BOW" duration="10000" effectid="106432" e="2">
+                <change stat="ATTACK_RANGE" func="PERCENT" delta="0" value="-5"/>
+            </weaponstatup>
+        </effects>
         <actions>
             <mpuse value="165" delta="0"/>
         </actions>
@@ -8591,6 +8614,17 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <weaponstatup weapon="BOW" duration="60000" effectid="106461" e="1" hoptype="SKILLLV" hopb="696">
+                <change stat="ATTACK_RANGE" func="PERCENT" delta="0" value="-15"/>
+            </weaponstatup>
+            <weaponstatup weapon="BOW" duration="60000" effectid="106462" e="2">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="50"/>
+            </weaponstatup>
+            <weaponstatup weapon="BOW" duration="60000" effectid="106463" e="3">
+                <change stat="ATTACK_SPEED" func="PERCENT" delta="0" value="-20"/>
+            </weaponstatup>
+        </effects>
         <actions>
             <mpuse value="124" delta="0"/>
         </actions>
@@ -9562,7 +9596,10 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <provoker skill_id="8361" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="30000" e="2"/>
+            <weaponstatup weapon="BOW" duration="30000" effectid="106921" e="1" hoptype="SKILLLV" hopb="555">
+                <change stat="ATTACK_SPEED" func="PERCENT" delta="0" value="-40"/>
+            </weaponstatup>
+            <provoker skill_id="8361" provoke_type="ATTACKED" provoke_target="ME" prob2="100" duration="30000" e="2" element="FIRE"/>
         </effects>
         <actions>
             <mpuse value="189" delta="0"/>
@@ -10477,6 +10514,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <weaponstatup weapon="BOW" duration="30000" effectid="107481" e="1">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="100"/>
+            </weaponstatup>
+        </effects>
     </skill_template>
     <skill_template skill_id="749" name="STR_SKILL_RA_PowerBow_G2" nameId="576825" stack="SKILL_RA_POWERBOW" lvl="2" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
         <setproperties>
@@ -10484,6 +10526,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <weaponstatup weapon="BOW" duration="30000" effectid="107481" e="1">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="100"/>
+            </weaponstatup>
+        </effects>
     </skill_template>
     <skill_template skill_id="750" name="STR_SKILL_RA_PowerBow_G3" nameId="576831" stack="SKILL_RA_POWERBOW" lvl="3" skilltype="MAGICAL" skillsubtype="BUFF" tslot="BUFF" activation="ACTIVE" cooldown="10" duration="0">
         <setproperties>
@@ -10491,6 +10538,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <weaponstatup weapon="BOW" duration="30000" effectid="107481" e="1">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="100"/>
+            </weaponstatup>
+        </effects>
     </skill_template>
     <skill_template skill_id="751" name="STR_SKILL_RA_SeraphicBow_G1" nameId="576837" stack="SKILL_RA_SERAPHICBOW" lvl="1" skilltype="PHYSICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -11105,6 +11157,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <weaponstatup weapon="BOW" duration="60000" effectid="107891" e="1" hoptype="SKILLLV" hopb="426">
+                <change stat="PHYSICAL_ATTACK" func="PERCENT" delta="0" value="5"/>
+            </weaponstatup>
+        </effects>
         <actions>
             <mpuse value="97" delta="0"/>
         </actions>
@@ -31476,6 +31533,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <weaponstatup weapon="SWORD_2H" duration="12000" e="1">
+                <change stat="ATTACK_SPEED" func="PERCENT" delta="0" value="-30"/>
+            </weaponstatup>
+        </effects>
     </skill_template>
     <skill_template skill_id="8318" name="STR_SKILL_CH_ProcImbueEarthEffect_G1" nameId="568485" stack="SKILL_CH_PROCIMBUEEARTHEFFECT" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -32447,6 +32509,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <weaponstatup weapon="SWORD_2H" duration="12000" e="1">
+                <change stat="ATTACK_SPEED" func="PERCENT" delta="0" value="-30"/>
+            </weaponstatup>
+        </effects>
     </skill_template>
     <skill_template skill_id="8390" name="STR_SKILL_KN_ProcSentinelEffect_G3" nameId="575387" stack="SKILL_KN_PROCSENTINELEFFECT" lvl="3" skilltype="MAGICAL" skillsubtype="NONE" tslot="BUFF" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -32458,6 +32525,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <weaponstatup weapon="SWORD_2H" duration="12000" e="1">
+                <change stat="ATTACK_SPEED" func="PERCENT" delta="0" value="-30"/>
+            </weaponstatup>
+        </effects>
     </skill_template>
     <skill_template skill_id="8391" name="STR_SKILL_KN_ProcSentinelEffect_G4" nameId="575393" stack="SKILL_KN_PROCSENTINELEFFECT" lvl="4" skilltype="MAGICAL" skillsubtype="NONE" tslot="BUFF" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -32469,6 +32541,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <weaponstatup weapon="SWORD_2H" duration="12000" e="1">
+                <change stat="ATTACK_SPEED" func="PERCENT" delta="0" value="-30"/>
+            </weaponstatup>
+        </effects>
     </skill_template>
     <skill_template skill_id="8392" name="STR_SYSTEM_SKILL_CL_ImbueWind_G4_Proc" nameId="575399" stack="SYSTEM_SKILL_CL_IMBUEWIND_PROC" lvl="1" skilltype="MAGICAL" skillsubtype="ATTACK" tslot="NONE" activation="PROVOKED" cooldown="0" duration="0">
         <setproperties>
@@ -44922,7 +44999,10 @@
             <targetrelation value="FRIEND"/>
         </setproperties>
         <effects>
-            <provoker skill_id="8361" provoke_type="ATTACKED" provoke_target="ME" prob2="50" duration="180000" e="2"/>
+            <weaponstatup weapon="BOW" duration="180000" effectid="106921" e="1" hoptype="SKILLLV" hopb="1485">
+                <change stat="ATTACK_SPEED" func="PERCENT" delta="0" value="-20"/>
+            </weaponstatup>
+            <provoker skill_id="8361" provoke_type="ATTACKED" provoke_target="ME" prob2="50" duration="180000" e="2" element="FIRE"/>
         </effects>
         <actions>
             <mpuse value="176" delta="0"/>
@@ -76196,6 +76276,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <weaponstatup weapon="BOW" duration="120000" effectid="10181461" e="1" hoptype="DAMAGE">
+                <change stat="ATTACK_RANGE" func="PERCENT" delta="0" value="5"/>
+            </weaponstatup>
+        </effects>
     </skill_template>
     <skill_template skill_id="18147" name="STR_BNKN_ChainAtk2KD_TA" nameId="587433" stack="BNKN_CHAINATK2KD_TA" lvl="1" skilltype="PHYSICAL" skillsubtype="ATTACK" tslot="NONE" activation="ACTIVE" cooldown="0" duration="1000">
         <setproperties>
