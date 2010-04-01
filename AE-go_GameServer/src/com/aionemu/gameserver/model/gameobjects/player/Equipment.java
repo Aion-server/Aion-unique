@@ -129,6 +129,7 @@ public class Equipment
 		PacketSendUtility.sendPacket(owner, new SM_UPDATE_ITEM(item));
 		
 		ItemEquipmentListener.onItemEquipment(item, owner);
+		owner.getObserveController().notifyItemEquip(item, owner);
 		owner.getLifeStats().updateCurrentStats();
 	}
 
@@ -205,7 +206,9 @@ public class Equipment
 	{
 		Item item = equipment.remove(slot);
 		item.setEquipped(false);
+		
 		ItemEquipmentListener.onItemUnequipment(item, owner);
+		owner.getObserveController().notifyItemUnEquip(item, owner);
 		
 		owner.getLifeStats().updateCurrentStats();
 		owner.getInventory().putToBag(item);

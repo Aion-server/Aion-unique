@@ -27,6 +27,8 @@ import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.movement.ActionObserver;
 import com.aionemu.gameserver.controllers.movement.AttackCalcObserver;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * @author ATracer
@@ -40,6 +42,7 @@ public class ObserveController
 	protected Queue<ActionObserver>	attackedObservers	= new ConcurrentLinkedQueue<ActionObserver>();
 	
 	protected ActionObserver[] observers = new ActionObserver[0];
+	protected ActionObserver[] equipObservers = new ActionObserver[0];
 	protected AttackCalcObserver[] attackCalcObservers = new AttackCalcObserver[0];
 	
 	/**
@@ -121,6 +124,38 @@ public class ObserveController
 	
 	/**
 	 * 
+	 * @param item
+	 * @param owner
+	 */
+	public void notifyItemEquip(Item item, Player owner)
+	{
+		synchronized(equipObservers)
+		{
+			for(ActionObserver observer : equipObservers)
+			{
+				observer.equip(item, owner);
+			}
+		}
+	}
+	
+	/**
+	 * 
+	 * @param item
+	 * @param owner
+	 */
+	public void notifyItemUnEquip(Item item, Player owner)
+	{
+		synchronized(equipObservers)
+		{
+			for(ActionObserver observer : equipObservers)
+			{
+				observer.unequip(item, owner);
+			}
+		}
+	}
+	
+	/**
+	 * 
 	 * @param observer
 	 */
 	public void addObserver(ActionObserver observer)
@@ -128,6 +163,18 @@ public class ObserveController
 		synchronized(observers)
 		{
 			observers = (ActionObserver[]) ArrayUtils.add(observers, observer);
+		}
+	}
+	
+	/**
+	 * 
+	 * @param observer
+	 */
+	public void addEquipObserver(ActionObserver observer)
+	{
+		synchronized(equipObservers)
+		{
+			equipObservers = (ActionObserver[]) ArrayUtils.add(equipObservers, observer);
 		}
 	}
 	
@@ -152,6 +199,18 @@ public class ObserveController
 		synchronized(observers)
 		{
 			observers = (ActionObserver[]) ArrayUtils.removeElement(observers, observer);
+		}
+	}
+	
+	/**
+	 * 
+	 * @param observer
+	 */
+	public void removeEquipObserver(ActionObserver observer)
+	{
+		synchronized(equipObservers)
+		{
+			equipObservers = (ActionObserver[]) ArrayUtils.removeElement(equipObservers, observer);
 		}
 	}
 	

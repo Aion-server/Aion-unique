@@ -58,14 +58,14 @@ public class OneTimeBoostSkillAttackEffect extends BufEffect
 		};
 		
 		effect.getEffected().getObserveController().addObserver(observer);
-		effect.setActionObserver(observer);
+		effect.setActionObserver(observer, position);
 	}
 	
 	@Override
 	public void endEffect(Effect effect)
 	{
 		super.endEffect(effect);
-		ActionObserver observer = effect.getActionObserver();
+		ActionObserver observer = effect.getActionObserver(position);
 		effect.getEffected().getObserveController().removeObserver(observer);
 	}
 

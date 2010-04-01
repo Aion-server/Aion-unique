@@ -68,7 +68,7 @@ import com.aionemu.gameserver.services.SkillLearnService;
 import com.aionemu.gameserver.services.SocialService;
 import com.aionemu.gameserver.services.TeleportService;
 import com.aionemu.gameserver.services.TradeService;
-import com.aionemu.gameserver.services.WarehouseExpandService;
+import com.aionemu.gameserver.services.WarehouseService;
 import com.aionemu.gameserver.services.WeatherService;
 import com.aionemu.gameserver.services.ZoneService;
 import com.aionemu.gameserver.spawnengine.RiftSpawnManager;
@@ -127,7 +127,7 @@ public class DataInjectionModule extends AbstractModule
 		bind(GroupService.class).in(Scopes.SINGLETON);
 		bind(CraftService.class).in(Scopes.SINGLETON);
 		bind(CraftSkillUpdateService.class).in(Scopes.SINGLETON);
-		bind(WarehouseExpandService.class).in(Scopes.SINGLETON);
+		bind(WarehouseService.class).in(Scopes.SINGLETON);
 		bind(PunishmentService.class).in(Scopes.SINGLETON);
 		bind(ZoneService.class).in(Scopes.SINGLETON);		
 		bind(DuelService.class).in(Scopes.SINGLETON);

@@ -74,11 +74,38 @@ public abstract class BufEffect extends EffectTemplate
 	{
 		if(change == null)
 			return;
-		Creature effected = effect.getEffected();
+		
+		Creature effected = effect.getEffected();		
+		CreatureGameStats<? extends Creature> cgs = effected.getGameStats();
+
+		TreeSet<StatModifier> modifiers = getModifiers(effect);
+		SkillEffectId skillEffectId = getSkillEffectId(effect);
+		
+		if (modifiers.size()>0)
+			cgs.addModifiers(skillEffectId, modifiers);
+	}
+
+	/**
+	 * 
+	 * @param effect
+	 * @return
+	 */
+	protected SkillEffectId getSkillEffectId(Effect effect)
+	{
+		int skillId = effect.getSkillId();
+		return SkillEffectId.getInstance(skillId, effectid, position);
+	}
+	
+	/**
+	 * 
+	 * @param effect
+	 * @return
+	 */
+	protected TreeSet<StatModifier> getModifiers(Effect effect)
+	{
 		int skillId = effect.getSkillId();
 		int skillLvl = effect.getSkillLevel();
 		
-		CreatureGameStats<? extends Creature> cgs = effected.getGameStats();
 		TreeSet<StatModifier> modifiers = new TreeSet<StatModifier> ();
 		
 		for(Change changeItem : change)
@@ -104,11 +131,7 @@ public abstract class BufEffect extends EffectTemplate
 					break;
 			}
 		}
-
-		if (modifiers.size()>0)
-		{
-			cgs.addModifiers(SkillEffectId.getInstance(skillId, effectid, position), modifiers);
-		}
+		return modifiers;
 	}
 
 	@Override

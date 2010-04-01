@@ -104,7 +104,7 @@ public class Effect
 	/**
 	 * Action observer that should be removed after effect end
 	 */
-	private ActionObserver actionObserver;
+	private ActionObserver[] actionObserver;
 	
 	public Effect(Creature effector, Creature effected, SkillTemplate skillTemplate, int skillLevel, int duration)
 	{
@@ -680,16 +680,18 @@ public class Effect
 	/**
 	 * @return the actionObserver
 	 */
-	public ActionObserver getActionObserver()
+	public ActionObserver getActionObserver(int i)
 	{
-		return actionObserver;
+		return actionObserver[i];
 	}
 
 	/**
-	 * @param actionObserver the actionObserver to set
+	 * @param observer the observer to set
 	 */
-	public void setActionObserver(ActionObserver actionObserver)
+	public void setActionObserver(ActionObserver observer, int i)
 	{
-		this.actionObserver = actionObserver;
+		if(actionObserver == null)
+			actionObserver = new ActionObserver[4];
+		actionObserver[i] = observer;
 	}
 }

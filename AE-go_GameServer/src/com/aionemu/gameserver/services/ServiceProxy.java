@@ -59,7 +59,7 @@ public class ServiceProxy
 	@Inject
 	private CraftSkillUpdateService	craftSkillUpdateService;
 	@Inject
-	private WarehouseExpandService	warehouseExpandService;
+	private WarehouseService		warehouseService;
 	@Inject
 	private PlayerService			playerService;
 	@Inject
@@ -69,7 +69,7 @@ public class ServiceProxy
 	@Inject
 	private QuestService			questService;
 	@Inject
-	private QuestEngine 			questEngine;
+	private QuestEngine				questEngine;
 
 	/**
 	 * @return the world
@@ -183,7 +183,7 @@ public class ServiceProxy
 	{
 		return craftService;
 	}
-	
+
 	/**
 	 * @return the craftSkillUpdateService
 	 */
@@ -193,11 +193,11 @@ public class ServiceProxy
 	}
 
 	/**
-	 * @return warehouseExpandService
+	 * @return warehouseService
 	 */
-	public WarehouseExpandService getWarehouseExpandService()
+	public WarehouseService getWarehouseService()
 	{
-		return warehouseExpandService;
+		return warehouseService;
 	}
 
 	/**

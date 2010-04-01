@@ -16,10 +16,13 @@
  */
 package com.aionemu.gameserver.services;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.aionemu.gameserver.dataholders.WarehouseExpandData;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
@@ -34,9 +37,9 @@ import com.google.inject.Inject;
 /**
  * @author Simple
  */
-public class WarehouseExpandService
+public class WarehouseService
 {
-	private static final Logger	log			= Logger.getLogger(WarehouseExpandService.class);
+	private static final Logger	log			= Logger.getLogger(WarehouseService.class);
 
 	@Inject
 	WarehouseExpandData			warehouseExpandData;
@@ -155,5 +158,47 @@ public class WarehouseExpandService
 	private int getPriceByLevel(WarehouseExpandTemplate clist, int level)
 	{
 		return clist.get(level).getPrice();
+	}
+	
+	
+	/**
+	 *  Sends correctly warehouse packets
+	 *  
+	 * @param player
+	 */
+	public void sendWarehouseInfo(Player player)
+	{		
+//		List<Item> items = player.getStorage(StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems();
+//		int whSize = player.getWarehouseSize();
+//
+//		int itemsSize = items.size();
+//
+//		if(itemsSize != 0)
+//		{
+//			int index = 0;
+//			while(index + 20 < itemsSize)
+//			{
+//				PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(items.subList(index, index + 20),
+//					StorageType.REGULAR_WAREHOUSE.getId(), whSize));
+//				index += 20;
+//			}
+//			PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(items.subList(index, itemsSize),
+//				StorageType.REGULAR_WAREHOUSE.getId(), whSize));
+//		}
+
+		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(
+			StorageType.REGULAR_WAREHOUSE.getId()).getStorageItems(),
+			StorageType.REGULAR_WAREHOUSE.getId(), player.getWarehouseSize()));
+		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE
+			.getId(), player.getWarehouseSize())); // strange
+		// retail
+		// way of sending
+		// warehouse packets
+		PacketSendUtility
+			.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(
+				StorageType.ACCOUNT_WAREHOUSE.getId()).getAllItems(),
+				StorageType.ACCOUNT_WAREHOUSE.getId(), 0));
+		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE
+			.getId(), 0));
 	}
 }

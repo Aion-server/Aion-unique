@@ -103,7 +103,7 @@ public class ProvokerEffect extends EffectTemplate
 		if(observer == null)
 			return;
 
-		effect.setActionObserver(observer);
+		effect.setActionObserver(observer, position);
 		effect.getEffected().getObserveController().addObserver(observer);
 	}
 
@@ -142,7 +142,7 @@ public class ProvokerEffect extends EffectTemplate
 	@Override
 	public void endEffect(Effect effect)
 	{
-		ActionObserver observer = effect.getActionObserver();
+		ActionObserver observer = effect.getActionObserver(position);
 		if(observer != null)
 			effect.getEffected().getObserveController().removeObserver(observer);
 	}
