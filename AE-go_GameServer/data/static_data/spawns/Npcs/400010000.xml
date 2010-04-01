@@ -1143,7 +1143,7 @@ Reshanta -->
 	</spawn>
 	<!-- Old Stone Statue -->
 	<spawn map="400010000" npcid="700479" pool="1" interval="105">
-		<object x="2712.53" y="757.89" z="2855.45" h="81"/>
+		<object x="2712.53" y="757.89" z="2854.295" h="81"/>
 	</spawn>
 	<!-- Part of the Crashed Dredgion -->
 	<spawn map="400010000" npcid="700304" pool="4" interval="105">
