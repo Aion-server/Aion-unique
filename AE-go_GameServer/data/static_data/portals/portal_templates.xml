@@ -4,9 +4,15 @@
 	
 	<!-- INSTANCES -->
 	
+	<!--Chamber of Roah -->
+	<portal npcid="700479" instance="true" minlevel="40" maxlevel="50" group="true">
+		<entrypoint mapid="400010000" x="2712.53" y="757.89" z="2854.295"/>
+		<exitpoint mapid="300070000" x="503.74" y="395.70" z="94.34"/>
+	</portal>
+	
 	<!-- Alquimia Research Center Entrance -->
-   <portal npcid="730110"  instance="true" minlevel="41" maxlevel="44" group="true" race="ASMODIANS">
-      <entrypoint mapid="220040000" x="2203.19" y="2923.57" z="699.81" race="ASMODIANS"/>
+   <portal npcid="730110"  instance="true" minlevel="41" maxlevel="44" group="true">
+      <entrypoint mapid="220040000" x="2203.19" y="2923.57" z="699.81"/>
       <exitpoint mapid="320110000" x="602.62976" y="526.6474" z="200.05792"/>
    </portal>
 	
@@ -30,8 +36,8 @@
 	</portal>
 	
 	<!-- Draupnir Cave Entrance -->
-	<portal npcid="700370" instance="true" minlevel="44" maxlevel="50" group="true" race="ASMODIANS">
-		<entrypoint mapid="220040000" x="1605.27" y="2729.9" z="705.345" race="ASMODIANS"/>
+	<portal npcid="700370" instance="true" minlevel="44" maxlevel="50" group="true">
+		<entrypoint mapid="220040000" x="1605.27" y="2729.9" z="705.345"/>
 		<exitpoint mapid="320080000" x="491" y="373" z="622"/>
 	</portal>
 	
@@ -62,14 +68,14 @@
 	<!-- QUEST PORTALS -->
 	
 	<!-- Pernos [Ascension quest] Elyos -->
-	<portal npcid="790001" instance="true">
-		<entrypoint mapid="210010000" x="241.094" y="1639.461" z="100.38"/>
+	<portal npcid="790001" instance="true" race="ELYOS">
+		<entrypoint mapid="210010000" x="241.094" y="1639.461" z="100.38" race="ELYOS"/>
 		<exitpoint mapid="310010000" x="52" y="174" z="229"/>
 	</portal>
 	
 	<!-- Munin [Ascension quest] Asmodians -->
-	<portal npcid="203550" instance="true">
-		<entrypoint mapid="220010000" x="378.9" y="1895.39" z="330.0"/>
+	<portal npcid="203550" instance="true" race="ASMODIANS">
+		<entrypoint mapid="220010000" x="378.9" y="1895.39" z="330.0" race="ASMODIANS"/>
 		<exitpoint mapid="320010000" x="457.65" y="426.8" z="230.4"/>
 	</portal>
 	
