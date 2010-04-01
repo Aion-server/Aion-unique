@@ -69,7 +69,7 @@ public class StatFunctions
 
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
 
-		return (int) Math.floor(baseXP * xpPercentage * player.getRates().getGroupXpRate() / 100);
+		return (int) Math.floor(baseXP * xpPercentage / 100);
 	}
 
 	/**

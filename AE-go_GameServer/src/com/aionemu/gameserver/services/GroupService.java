@@ -281,6 +281,7 @@ public class GroupService
 		{
 			long currentExp = member.getCommonData().getExp();
 			long reward = (xpReward * member.getLevel())/partyLvlSum;
+			reward *= member.getRates().getGroupXpRate();
 			member.getCommonData().setExp(currentExp + reward);
 
 			PacketSendUtility.sendPacket(member, SM_SYSTEM_MESSAGE.EXP(Long.toString(reward)));
