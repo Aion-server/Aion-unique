@@ -28,6 +28,7 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_TARGET_SELECTED extends AionServerPacket
 {
+	@SuppressWarnings("unused")
 	private Player		player;
 	private int	level;
 	private int	maxHp;
