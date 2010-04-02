@@ -14,6 +14,7 @@
 	<map id="220050000" name="Brusthonin" death_level="0" water_level="5"/>
 	<map id="220040000" name="Beluslan" death_level="0" water_level="16"/>
 	<map id="300010000" name="IDAbPro" death_level="0" water_level="16"/>
+	<map id="300020000" name="IDTest_Dungeon" death_level="0" water_level="16"/>
 	<map id="300030000" name="NochsanaTrainingCamp" instance="true" death_level="0" water_level="16"/>
 	<map id="300040000" name="DarkPoeta" instance="true" death_level="0" water_level="16"/>
 	<map id="300050000" name="AstreiaChamber" instance="true" death_level="0" water_level="16"/>
@@ -37,6 +38,7 @@
 	<map id="310090000" name="IDLF3_Castle_indratoo" death_level="0" water_level="16"/>
 	<map id="310100000" name="IDLF3_Castle_Lehpar" instance="true" death_level="0" water_level="16"/>
 	<map id="310110000" name="TheobomosLab" instance="true" death_level="0" water_level="16"/>
+	<map id="310120000" name="IDAbProL3" death_level="0" water_level="16"/>
 	<map id="320010000" name="IDAbProD1" instance="true" death_level="0" water_level="16"/>
 	<map id="320020000" name="IDAbProD2" instance="true" death_level="0" water_level="16"/>
 	<map id="320030000" name="IDAbGateD1" death_level="0" water_level="16"/>
@@ -50,7 +52,8 @@
 	<map id="320110000" name="IDDF3_LP" instance="true" death_level="0" water_level="16"/>
 	<map id="320120000" name="IDDC1_Arena_3F" death_level="0" water_level="16"/>
 	<map id="320130000" name="AdmaStronghold" instance="true" death_level="0" water_level="16"/>
-	<map id="400010000" name="Ab1" death_level="0" water_level="16"/>
+	<map id="320140000" name="IDAbProD3" death_level="0" water_level="16"/>
+	<map id="400010000" name="Ab1" death_level="500" water_level="16"/>
 	<map id="510010000" prison="true" name="LF_Prison" death_level="0" water_level="16"/>
 	<map id="520010000" prison="true" name="DF_Prison" death_level="0" water_level="16"/>
 	<map id="900020000" twin_count="10" name="Test_Basic" death_level="0" water_level="16"/>
