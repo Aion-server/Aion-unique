@@ -23,6 +23,7 @@ import java.util.List;
 import com.aionemu.gameserver.controllers.movement.StartMovingListener;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.stats.StatEnum;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CASTSPELL_END;
@@ -60,6 +61,11 @@ public class Skill
 	private boolean	firstTargetRangeCheck = true;
 	
 	private ItemTemplate itemTemplate;
+	
+	/**
+	 * Duration that depends on BOOST_CASTING_TIME
+	 */
+	private int duration;
 	
 	public enum SkillType
 	{
@@ -136,6 +142,12 @@ public class Skill
 			return;
 		}		
 
+		int skillDuration = skillTemplate.getDuration();
+		int currentStat = effector.getGameStats().getCurrentStat(StatEnum.BOOST_CASTING_TIME);
+		this.duration = skillDuration - Math.round(skillDuration * (currentStat - 100) / 100f);
+
+		if(duration < 0)
+			duration = 0;
 		//temporary hook till i find permanent solution
 		if(skillTemplate.isActive() || skillTemplate.isToggle())
 		{
@@ -144,9 +156,9 @@ public class Skill
 
 		effector.getObserveController().attach(conditionChangeListener);
 		
-		if(skillTemplate.getDuration() > 0)
+		if(this.duration > 0)
 		{
-			schedule(skillTemplate.getDuration());
+			schedule(this.duration);
 		}
 		else
 		{
@@ -175,7 +187,7 @@ public class Skill
 		final int unk = 0;
 		PacketSendUtility.broadcastPacket(effector, 
 			new SM_CASTSPELL(effector.getObjectId(), skillTemplate.getSkillId(), skillLevel,
-				unk, targetObjId, skillTemplate.getDuration()), true);
+				unk, targetObjId, this.duration), true);
 	}
 	
 	/**

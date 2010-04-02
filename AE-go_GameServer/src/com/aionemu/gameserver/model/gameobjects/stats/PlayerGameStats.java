@@ -175,6 +175,7 @@ public class PlayerGameStats extends CreatureGameStats<Player>
 		initStat(StatEnum.FLY_SPEED, flySpeed);
 		initStat(StatEnum.PVP_ATTACK_RATIO, 0);
 		initStat(StatEnum.PVP_DEFEND_RATIO, 0);
+		initStat(StatEnum.BOOST_CASTING_TIME, 100);
 	}
 
 	/**

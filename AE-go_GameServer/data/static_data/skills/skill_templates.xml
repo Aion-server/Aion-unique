@@ -16245,6 +16245,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <boostskillcastingtime duration="10000" effectid="111021" e="1" hoptype="SKILLLV" hopb="587">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="50"/>
+            </boostskillcastingtime>
+        </effects>
         <actions>
             <mpuse value="187" delta="0"/>
         </actions>
@@ -16634,6 +16639,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <boostskillcastingtime duration="10000" effectid="111021" e="1">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="60"/>
+            </boostskillcastingtime>
+        </effects>
         <actions>
             <mpuse value="267" delta="0"/>
         </actions>
@@ -20207,6 +20217,11 @@
             <targetrange value="PARTY" distance="20" maxcount="6"/>
             <targetrelation value="MYPARTY"/>
         </setproperties>
+        <effects>
+            <boostskillcastingtime duration="30000" effectid="113261" e="1" hoptype="SKILLLV" hopb="586">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="50"/>
+            </boostskillcastingtime>
+        </effects>
         <actions>
             <mpuse value="300" delta="0"/>
         </actions>
@@ -22551,7 +22566,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <statdown duration="30000" effectid="114922" e="2">
+            <boostskillcastingtime duration="30000" effectid="114921" e="1" hoptype="SKILLLV" hopb="1221">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="50"/>
+            </boostskillcastingtime>
+            <statdown duration="30000" effectid="114922" e="2" element="FIRE">
                 <change stat="CONCENTRATION" func="ADD" delta="0" value="-100"/>
             </statdown>
         </effects>
@@ -23225,7 +23243,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <statdown duration="30000" effectid="114922" e="2">
+            <boostskillcastingtime duration="30000" effectid="114921" e="1">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="55"/>
+            </boostskillcastingtime>
+            <statdown duration="30000" effectid="114922" e="2" element="FIRE">
                 <change stat="CONCENTRATION" func="ADD" delta="0" value="-100"/>
             </statdown>
         </effects>
@@ -23394,6 +23415,11 @@
         <useconditions>
             <playermove allow="false"/>
         </useconditions>
+        <effects>
+            <boostskillcastingtime effectid="115341" e="1">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="20"/>
+            </boostskillcastingtime>
+        </effects>
     </skill_template>
     <skill_template skill_id="1535" name="STR_SKILL_WI_AdvenceMagic_G1" nameId="574605" stack="SKILL_WI_ADVENCEMAGIC" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NOSHOW" activation="PASSIVE" cooldown="0" duration="0">
         <setproperties>
@@ -23660,6 +23686,11 @@
             <targetrange value="ONLYONE" maxcount="1"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <boostskillcastingtime duration="15000" effectid="173" e="1" hoptype="SKILLLV" hopb="586">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="25"/>
+            </boostskillcastingtime>
+        </effects>
         <actions>
             <mpuse value="229" delta="0"/>
         </actions>
@@ -24293,6 +24324,11 @@
             <targetrange value="ONLYONE"/>
             <targetrelation value="FRIEND"/>
         </setproperties>
+        <effects>
+            <boostskillcastingtime duration="15000" effectid="173" e="1" hoptype="SKILLLV" hopb="684">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="50"/>
+            </boostskillcastingtime>
+        </effects>
         <actions>
             <mpuse value="201" delta="0"/>
         </actions>
@@ -25718,6 +25754,9 @@
                 <change stat="FIRE_RESISTANCE" func="ADD" delta="0" value="-200"/>
                 <change stat="EARTH_RESISTANCE" func="ADD" delta="0" value="-200"/>
             </statdown>
+            <boostskillcastingtime duration="30000" effectid="116633" e="3">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="-50"/>
+            </boostskillcastingtime>
         </effects>
         <actions>
             <mpuse value="97" delta="3"/>
@@ -32798,6 +32837,9 @@
             <statup duration="6500" effectid="184081" e="1">
                 <change stat="ATTACK_SPEED" func="PERCENT" delta="0" value="-40"/>
             </statup>
+            <boostskillcastingtime duration="6500" effectid="184082" e="2">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="20"/>
+            </boostskillcastingtime>
         </effects>
     </skill_template>
     <skill_template skill_id="8409" name="STR_SYSTEM_SKILL_FI_BloodLust_G1_Proc" nameId="575679" stack="SYSTEM_SKILL_FI_BLOODLUST_PROC" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="PROVOKED" cooldown="0" duration="0">
@@ -45615,7 +45657,10 @@
             <playermove allow="false"/>
         </useconditions>
         <effects>
-            <statdown duration="30000" effectid="114922" e="2">
+            <boostskillcastingtime duration="30000" effectid="114921" e="1" hoptype="SKILLLV" hopb="1322">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="50"/>
+            </boostskillcastingtime>
+            <statdown duration="30000" effectid="114922" e="2" element="FIRE">
                 <change stat="CONCENTRATION" func="ADD" delta="0" value="-100"/>
             </statdown>
         </effects>
@@ -46908,6 +46953,9 @@
             <statup duration="300000" effectid="197772" e="3">
                 <change stat="FLY_TIME" func="ADD" delta="0" value="240"/>
             </statup>
+            <boostskillcastingtime duration="300000" effectid="197774" e="4">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="30"/>
+            </boostskillcastingtime>
         </effects>
     </skill_template>
     <skill_template skill_id="9900" name="STR_SKILL_Abyss_Artifact_CurseofHeaven_G1" nameId="577599" stack="SKILL_ABYSS_ARTIFACT_CURSEOFHEAVEN" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -47593,6 +47641,9 @@
             <statup duration="300000" effectid="197772" e="3">
                 <change stat="FLY_TIME" func="ADD" delta="0" value="240"/>
             </statup>
+            <boostskillcastingtime duration="300000" effectid="197774" e="4">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="30"/>
+            </boostskillcastingtime>
         </effects>
     </skill_template>
     <skill_template skill_id="9940" name="STR_SKILL_Abyss_Artifact_CurseofHeaven_G2" nameId="585521" stack="SKILL_ABYSS_ARTIFACT_CURSEOFHEAVEN" lvl="2" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="0">
@@ -65888,7 +65939,10 @@
         </useconditions>
         <effects>
             <blind value="50" duration="30000" effectid="20107" e="1" element="EARTH" hoptype="SKILLLV" hopb="1"/>
-            <dot checktime="6000" value="42" delta="1" duration="30000" effectid="1175033" e="3"/>
+            <boostskillcastingtime duration="30000" effectid="17503" e="2">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="-50"/>
+            </boostskillcastingtime>
+            <dot checktime="6000" value="42" delta="1" duration="30000" effectid="1175033" e="3" element="EARTH"/>
         </effects>
     </skill_template>
     <skill_template skill_id="17504" name="STR_NPC_SKILL_ThornburstTrap_G1" nameId="573433" stack="NPC_SKILL_THORNBURSTTRAP" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="500">
@@ -67193,6 +67247,9 @@
         </useconditions>
         <effects>
             <blind value="100" duration="60000" effectid="20107" e="1" element="EARTH"/>
+            <boostskillcastingtime duration="60000" effectid="17503" e="2">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="-100"/>
+            </boostskillcastingtime>
         </effects>
     </skill_template>
     <skill_template skill_id="17586" name="STR_NPC_SKILL_ShockTrap_G2" nameId="575463" stack="NPC_SKILL_SHOCKTRAP" lvl="2" skilltype="MAGICAL" skillsubtype="NONE" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="500">
@@ -81140,6 +81197,9 @@
             <statdown duration="60000" effectid="10184632" e="2" element="EARTH" hoptype="DAMAGE">
                 <change stat="BOOST_MAGICAL_SKILL" func="PERCENT" delta="0" value="-99"/>
             </statdown>
+            <boostskillcastingtime duration="60000" effectid="10184633" e="3" hoptype="DAMAGE">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="-100"/>
+            </boostskillcastingtime>
         </effects>
     </skill_template>
     <skill_template skill_id="18464" name="STR_NGR_Dispel_MeleeDebuff_Princess" nameId="586439" stack="NGR_DISPEL_MELEEDEBUFF_PRINCESS" lvl="1" skilltype="MAGICAL" skillsubtype="NONE" tslot="NONE" activation="ACTIVE" cooldown="0" duration="0">
@@ -81532,6 +81592,9 @@
         </useconditions>
         <effects>
             <spellatk value="115" delta="0" e="1" element="WATER" hoptype="DAMAGE"/>
+            <boostskillcastingtime duration="15000" effectid="10184882" e="2" hoptype="DAMAGE">
+                <change stat="BOOST_CASTING_TIME" func="PERCENT" delta="0" value="-100"/>
+            </boostskillcastingtime>
         </effects>
     </skill_template>
     <skill_template skill_id="18489" name="STR_BNPEL_SpellSlowSnare_Nr" nameId="586701" stack="BNPEL_SPELLSLOWSNARE_NR" lvl="1" skilltype="MAGICAL" skillsubtype="DEBUFF" tslot="DEBUFF" activation="ACTIVE" cooldown="0" duration="3000">

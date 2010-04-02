@@ -191,6 +191,8 @@
 				minOccurs="0" maxOccurs="1" />
 			<xs:element name="weaponstatup" type="WeaponStatupEffect"
 				minOccurs="0" maxOccurs="1" />
+			<xs:element name="boostskillcastingtime" type="BoostSkillCastingTimeEffect"
+				minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		<xs:attribute name="food" type="xs:boolean"/>
 	</xs:complexType>
@@ -579,6 +581,13 @@
 		<xs:complexContent>
 			<xs:extension base="BufEffect">
 				<xs:attribute name="weapon" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="BoostSkillCastingTimeEffect">
+		<xs:complexContent>
+			<xs:extension base="BufEffect">
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
