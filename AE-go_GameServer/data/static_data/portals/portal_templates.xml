@@ -159,6 +159,14 @@
 		<exitpoint mapid="210030000" x="1690.4" y="1481.4" z="121.4"/>
 	</portal>
 	
+	<portal name="LF2A_RETURN_AREA">
+		<exitpoint mapid="210060000" x="2238.46" y="2284.2185" z="50.013657"/>
+	</portal>
+   
+	<portal name="AB1_LIGHT_RETURN_ALIAS">
+		<exitpoint mapid="400010000" x="2867" y="1036" z="1528"/>
+	</portal>   
+	
 	<portal name="LC1_RETURN_AREA_1">
 		<exitpoint mapid="110010000" x="1476.3" y="1595.5" z="572.9"/>
 	</portal>
@@ -174,6 +182,14 @@
 	<!-- SCROLL TELEPORTS  ELYOS END-->
 	
 	<!-- SCROLL TELEPORTS ASMODIANS-->
+	
+	<portal name="DF2A_RETURN_AREA">
+		<exitpoint mapid="220050000" x="1409.85" y="2013.62" z="51.5"/>
+	</portal>
+   
+	<portal name="AB1_DARK_RETURN_ALIAS">
+		<exitpoint mapid="400010000" x="1078" y="2839" z="1636"/>
+	</portal>
 	
 	<portal name="DC1_RETURN_AREA_1">
 		<exitpoint mapid="120010000" x="1456.9" y="1417.0" z="177.5"/>
