@@ -1,4 +1,4 @@
--- 2010.03.03 
+-- 2010.04.03 
 -- Updated Brusthonin drop by stpavel
 --
 INSERT INTO droplist (mobId, itemId, min, max, chance) VALUES
