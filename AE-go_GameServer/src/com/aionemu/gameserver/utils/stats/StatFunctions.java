@@ -51,9 +51,7 @@ public class StatFunctions
 		int playerLevel = player.getCommonData().getLevel();
 		int targetLevel = target.getLevel();
 
-		//TODO take baseXP from target object (additional attribute in stats template is needed)
-		int baseXP = targetLevel * 80;
-
+		int baseXP = ((Npc)target).getObjectTemplate().getStatsTemplate().getMaxXp();
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
 
 		return (int) Math.floor(baseXP * xpPercentage * player.getRates().getXpRate() / 100);
@@ -64,9 +62,7 @@ public class StatFunctions
 		int playerLevel = player.getCommonData().getLevel();
 		int targetLevel = target.getLevel();
 
-		//TODO take baseXP from target object (additional attribute in stats template is needed)
-		int baseXP = targetLevel * 90; //promotion the group
-
+		int baseXP = ((Npc)target).getObjectTemplate().getStatsTemplate().getMaxXp();
 		int xpPercentage =  XPRewardEnum.xpRewardFrom(targetLevel - playerLevel);
 
 		return (int) Math.floor(baseXP * xpPercentage / 100);

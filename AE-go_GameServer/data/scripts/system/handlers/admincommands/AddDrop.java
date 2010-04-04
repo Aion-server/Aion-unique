@@ -53,7 +53,7 @@ public class AddDrop extends AdminCommand
 			return;
 		}
 
-		if(params.length != 6)
+		if(params.length != 5)
 		{
 			PacketSendUtility.sendMessage(admin, "syntax //adddrop <mobid> <itemid> <min> <max> <chance>");
 			return;
