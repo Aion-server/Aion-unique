@@ -18,6 +18,8 @@ package com.aionemu.gameserver.controllers;
 
 import java.util.concurrent.Future;
 
+import org.apache.log4j.Logger;
+
 import com.aionemu.gameserver.controllers.movement.MovementType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -34,6 +36,9 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 public class MoveController
 {
 
+	@SuppressWarnings("unused")
+	private static final Logger	log	= Logger.getLogger(MoveController.class);
+	
 	private Future<?> moveTask;
 	private Creature owner;
 	private boolean directionChanged = true;
@@ -49,7 +54,7 @@ public class MoveController
 	private float speed = 0;
 	
 	private boolean walking;
-
+	
 	public MoveController(Creature owner)
 	{
 		this.owner = owner;
@@ -170,6 +175,7 @@ public class MoveController
 			{
 				PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner,	ownerX, ownerY, ownerZ,
 					(float) (x2 / 0.2) , (float) (y2 / 0.2) , 0 , heading2, MovementType.MOVEMENT_START_KEYBOARD));
+				directionChanged = false;
 			}
 
 			moveCounter++;
