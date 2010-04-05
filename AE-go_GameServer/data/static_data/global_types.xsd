@@ -31,6 +31,32 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ELYOS" />
 			<xs:enumeration value="ASMODIANS" />
+			<xs:enumeration value="LYCAN" />
+			<xs:enumeration value="CONSTRUCT" />
+			<xs:enumeration value="CARRIER" />
+			<xs:enumeration value="DRAKAN" />
+			<xs:enumeration value="LIZARDMAN" />
+			<xs:enumeration value="TELEPORTER" />
+			<xs:enumeration value="NAGA" />
+			<xs:enumeration value="BROWNIE" />
+			<xs:enumeration value="KRALL" />
+			<xs:enumeration value="SHULACK" />
+			<xs:enumeration value="BARRIER" />
+			<xs:enumeration value="PC_LIGHT_CASTLE_DOOR" />
+			<xs:enumeration value="PC_DARK_CASTLE_DOOR" />
+			<xs:enumeration value="DRAGON_CASTLE_DOOR" />
+			<xs:enumeration value="GCHIEF_LIGHT" />
+			<xs:enumeration value="GCHIEF_DARK" />
+			<xs:enumeration value="DRAGON" />
+			<xs:enumeration value="OUTSIDER" />
+			<xs:enumeration value="RATMAN" />
+			<xs:enumeration value="DEMIHUMANOID" />
+			<xs:enumeration value="UNDEAD" />
+			<xs:enumeration value="BEAST" />
+			<xs:enumeration value="MAGICALMONSTER" />
+			<xs:enumeration value="ELEMENTAL" />
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="PC_ALL" />			
 		</xs:restriction>
 	</xs:simpleType>
 	
