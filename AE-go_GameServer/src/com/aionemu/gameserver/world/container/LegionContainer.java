@@ -18,7 +18,8 @@ package com.aionemu.gameserver.world.container;
 
 import java.util.Iterator;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.legion.Legion;
 import com.aionemu.gameserver.world.exceptions.DuplicateAionObjectException;
@@ -33,11 +34,11 @@ public class LegionContainer implements Iterable<Legion>
 	/**
 	 * Map<LegionId, Legion>
 	 */
-	private final Map<Integer, Legion>	legionsById		= new ConcurrentHashMap<Integer, Legion>();
+	private final Map<Integer, Legion>	legionsById		= new FastMap<Integer, Legion>().shared();
 	/**
 	 * Map<LegionName, Legion>
 	 */
-	private final Map<String, Legion>	legionsByName	= new ConcurrentHashMap<String, Legion>();
+	private final Map<String, Legion>	legionsByName	= new FastMap<String, Legion>().shared();
 
 	/**
 	 * Add Legion to this Container.
