@@ -276,8 +276,6 @@ public class PlayerService
 		player.getEquipment().onLoadApplyEquipmentStats();
 		
 		DAOManager.getDAO(PlayerPunishmentsDAO.class).loadPlayerPunishments(player);
-		
-		player.setMailbox(DAOManager.getDAO(MailDAO.class).loadPlayerMailbox(player));
 
 		itemService.restoreKinah(player);
 

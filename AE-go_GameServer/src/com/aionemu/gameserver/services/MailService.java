@@ -19,6 +19,8 @@ package com.aionemu.gameserver.services;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.log4j.Logger;
 
@@ -40,6 +42,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_MAIL_SERVICE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_ITEM;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.idfactory.IDFactoryAionObject;
 import com.aionemu.gameserver.world.World;
@@ -57,12 +60,23 @@ public class MailService
 	private World				world;
 	private ItemService			itemService;
 
+	protected Queue<Player>		newPlayers	= new ConcurrentLinkedQueue<Player>();
+
 	@Inject
 	public MailService(@IDFactoryAionObject IDFactory aionObjectsIDFactory, World world, ItemService itemService)
 	{
 		this.aionObjectsIDFactory = aionObjectsIDFactory;
 		this.world = world;
 		this.itemService = itemService;
+		
+		ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable(){
+			
+			@Override
+			public void run()
+			{
+				checkPlayersMail();
+			}
+		}, 10000, 10000);
 	}
 
 	/**
@@ -376,5 +390,29 @@ public class MailService
 			return true;
 
 		return false;
+	}
+	
+	/**
+	 * 
+	 * @param player
+	 */
+	public void onPlayerLogin(Player player)
+	{
+		newPlayers.add(player);
+	}
+	
+	/**
+	 * Check all players in queue for available mail
+	 */
+	public void checkPlayersMail()
+	{
+		while(!newPlayers.isEmpty())
+		{
+			Player player = newPlayers.poll();
+			player.setMailbox(DAOManager.getDAO(MailDAO.class).loadPlayerMailbox(player));
+			PacketSendUtility.sendPacket(player, new SM_MAIL_SERVICE(player, player.getMailbox().getLetters()));
+			if(player.getMailbox().haveUnread())
+				PacketSendUtility.sendPacket(player, new SM_MAIL_SERVICE(true, true));
+		}		
 	}
 }

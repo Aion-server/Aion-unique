@@ -36,7 +36,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_GAME_TIME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INFLUENCE_RATIO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MACRO_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MAIL_SERVICE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_ID;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
@@ -51,6 +50,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.unk.SM_UNK5E;
 import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.GroupService;
 import com.aionemu.gameserver.services.LegionService;
+import com.aionemu.gameserver.services.MailService;
 import com.aionemu.gameserver.services.PlayerService;
 import com.aionemu.gameserver.services.PunishmentService;
 import com.aionemu.gameserver.services.TeleportService;
@@ -82,6 +82,8 @@ public class CM_ENTER_WORLD extends AionClientPacket
 	private TeleportService		teleportService;
 	@Inject
 	private PunishmentService	punishmentService;
+	@Inject
+	private MailService			mailService;
 
 	/**
 	 * Constructs new instance of <tt>CM_ENTER_WORLD </tt> packet
@@ -235,10 +237,11 @@ public class CM_ENTER_WORLD extends AionClientPacket
 			player.setRates(Rates.getRatesFor(client.getAccount().getMembership()));
 
 			ClassChangeService.showClassChangeDialog(player);
-	
-			sendPacket(new SM_MAIL_SERVICE(player, player.getMailbox().getLetters()));
-			if(player.getMailbox().haveUnread())
-				sendPacket(new SM_MAIL_SERVICE(true, true));
+			
+			/**
+			 * Notify mail service to load all mails
+			 */
+			mailService.onPlayerLogin(player);
 		}
 		else
 		{
